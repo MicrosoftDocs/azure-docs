@@ -1,9 +1,9 @@
 ---
-author: DCtheGeek
+author: georgewallace
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/10/2020
-ms.author: dacoulte
+ms.date: 12/17/2021
+ms.author: gwallace
 ms.custom: generated
 ---
 

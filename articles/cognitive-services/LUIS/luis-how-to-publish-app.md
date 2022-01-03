@@ -3,14 +3,15 @@ title: Publish app - LUIS
 titleSuffix: Azure Cognitive Services
 description: When you finish building and testing your active LUIS app, make it available to your client application by publishing it to the endpoint.
 services: cognitive-services
-author: diberry
+author: aahill
 manager: nitinme
+ms.author: aahi
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/17/2020
-ms.author: diberry
+ms.date: 10/28/2021
+
 ---
 
 # Publish your active, trained app to a staging or production endpoint
@@ -39,7 +40,7 @@ By using both publishing slots, this allows you to have two different versions o
 
 ### Publishing regions
 
-The app is published to all regions associated with the LUIS prediction endpoint resources added in the LUIS portal from the **Manage** -> **[Azure Resources](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** page.
+The app is published to all regions associated with the LUIS prediction endpoint resources added in the LUIS portal from the **Manage** -> **[Azure Resources](luis-how-to-azure-subscription.md#assign-luis-resources)** page.
 
 For example, for an app created on [www.luis.ai](https://www.luis.ai), if you create a LUIS resource in two regions, **westus** and **eastus**, and add these to the app as resources, the app is published in both regions. For more information about LUIS regions, see [Regions](luis-reference-regions.md).
 
@@ -52,7 +53,6 @@ For example, for an app created on [www.luis.ai](https://www.luis.ai), if you cr
 After you select the slot, configure the publish settings for:
 
 * Sentiment analysis
-* [Spelling correction](luis-tutorial-bing-spellcheck.md) - v2 prediction endpoint only
 * Speech priming
 
 After you publish, these settings are available for review from the **Manage** section's **Publish settings** page. You can change the settings with every publish. If you cancel a publish, any changes you made during the publish are also canceled.
@@ -67,19 +67,13 @@ If you need the endpoint URL, select the link. You can also get to the endpoint 
 
 <a name="enable-sentiment-analysis"></a>
 
-Sentiment analysis allows LUIS to integrate with [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) to provide sentiment and key phrase analysis.
+Sentiment analysis allows LUIS to integrate with the [Language service](https://azure.microsoft.com/services/cognitive-services/text-analytics/) to provide sentiment and key phrase analysis.
 
-You do not have to provide a Text Analytics key and there is no billing charge for this service to your Azure account.
+You do not have to provide a Language service key and there is no billing charge for this service to your Azure account.
 
 Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) or negative (closer to 0) sentiment of the data. The sentiment label of `positive`, `neutral`, and `negative` is per supported culture. Currently, only English supports sentiment labels.
 
 For more information about the JSON endpoint response with sentiment analysis, see [Sentiment analysis](luis-reference-prebuilt-sentiment.md)
-
-## Spelling correction
-
-[!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
-
-Corrections to spelling are made before the LUIS user utterance prediction. You can see any changes to the original utterance, including spelling, in the response.
 
 ## Speech priming
 

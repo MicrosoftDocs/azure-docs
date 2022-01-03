@@ -14,18 +14,18 @@ Having robust security strategies that include real-time monitoring and routine 
 
 Cloud security is a joint effort between the customer and the cloud provider. There are four services which Microsoft Azure provides to facilitate these requirements with consideration to the recommendations contained within the [Australian Cyber Security Centre's (ACSC) Information Security Manual Controls](https://acsc.gov.au/infosec/ism/index.htm) (ISM), specifically, the implementation of centralised event logging, event log auditing, and security vulnerability assessment and management. The Microsoft Azure services are:
 
-* Azure Security Center
+* Microsoft Defender for Cloud
 * Azure Monitor
 * Azure Advisor
 * Azure Policy
 
 The ACSC recommends that you use these services for **PROTECTED** data. By using these services, you can proactively monitor and analyse your IT environments, and make informed decisions on where to best allocate resources to enhance your security. Each of these services is part of a combined solution to provide you with the best insight, recommendations, and protection possible.
 
-## Azure Security Center
+## Microsoft Defender for Cloud
 
-[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) provides a unified security management console that you use to monitor and enhance the security of Azure resources and your hosted data. Azure Security Center includes Secure Score, a score based on an analysis of the state of best practice configuration from Azure Advisor and the overall compliance of Azure Policy.
+[Microsoft Defender for Cloud](../security-center/security-center-introduction.md) provides a unified security management console that you use to monitor and enhance the security of Azure resources and your hosted data. Microsoft Defender for Cloud includes Secure Score, a score based on an analysis of the state of best practice configuration from Azure Advisor and the overall compliance of Azure Policy.
 
-Azure Security Center provides Azure customers with the following features:
+Microsoft Defender for Cloud provides Azure customers with the following features:
 
 * Security policy, assessment, and recommendations
 * Security event collection and search
@@ -34,13 +34,13 @@ Azure Security Center provides Azure customers with the following features:
 * Just-in-time Virtual Machines access control
 * Hybrid Security
 
-The scope of resources monitored by Azure Security Center can be expanded to include supported on-premises resources in a hybrid-cloud environment. This includes on-premises resources currently being monitored by a supported version of System Center Operations Manager.
+The scope of resources monitored by Microsoft Defender for Cloud can be expanded to include supported on-premises resources in a hybrid-cloud environment. This includes on-premises resources currently being monitored by a supported version of System Center Operations Manager.
 
-The Security Center "Standard" tier also provides cloud-based security controls required by the [ASD Essential 8](https://acsc.gov.au/publications/protect/essential-eight-explained.htm). These include application whitelisting and restriction of administrative privilege via just-in-time access.
+Defender for Cloud's enhanced security features provide cloud-based security controls required by the [ASD Essential 8](https://acsc.gov.au/publications/protect/essential-eight-explained.htm). These include application filtering and restriction of administrative privilege via just-in-time access.
 
 ### Azure Monitor
 
-[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) is the centralised logging solution for all Azure Resources, and includes Log Analytics and Application Insights. Two key data types are collected from Azure resources: logs and metrics. Once collected in Azure Monitor, logging information can be used by a wide range of tools and for a variety of purposes.
+[Azure Monitor](../azure-monitor/overview.md) is the centralized logging solution for all Azure Resources, and includes Log Analytics and Application Insights. Two key data types are collected from Azure resources: logs and metrics. Once collected in Azure Monitor, logging information can be used by a wide range of tools and for a variety of purposes.
 
 ![Azure Monitor Overview](media/overview.png)
 
@@ -48,14 +48,14 @@ Azure Monitor also includes the "Azure Activity Log". The SActivity Log stores a
 
 ### Azure Advisor
 
-[Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) analyses supported Azure resources, system-generated log files, and current resource configurations within your Azure subscription. The analysis provided in Azure Advisor is generated in real time and based upon Microsoft's recommended best practices. Any supported Azure resources added to your environment will be analysed and appropriate recommendations will be provided. Azure Advisor recommendations are categorised into four best practice categories:
+[Azure Advisor](../advisor/advisor-overview.md) analyses supported Azure resources, system-generated log files, and current resource configurations within your Azure subscription. The analysis provided in Azure Advisor is generated in real time and based upon Microsoft's recommended best practices. Any supported Azure resources added to your environment will be analysed and appropriate recommendations will be provided. Azure Advisor recommendations are categorised into four best practice categories:
 
 * Security
 * High Availability
 * Performance
 * Cost
 
-Security recommendations generated by Azure Advisor form part of the overall security analysis provided by Azure Security Center.
+Security recommendations generated by Azure Advisor form part of the overall security analysis provided by Microsoft Defender for Cloud.
 
 The information gathered by Azure Advisor provides administrators with:
 
@@ -65,9 +65,9 @@ The information gathered by Azure Advisor provides administrators with:
 
 ### Azure Policy
 
-[Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) provides the ability to apply rules that govern the types of Azure resources and their allowed configuration. Policy can be used to control resource creation and configuration, or it can be used to audit configuration settings across an environment. These audit results can be used to form the basis of remediation activities. Azure Policy differs from role-based access control (RBAC); Azure Policy is used to restrict resources and their configuration, RBAC is used to restrict privileged access to Azure users.
+[Azure Policy](../governance/policy/overview.md) provides the ability to apply rules that govern the types of Azure resources and their allowed configuration. Policy can be used to control resource creation and configuration, or it can be used to audit configuration settings across an environment. These audit results can be used to form the basis of remediation activities. Azure Policy differs from Azure role-based access control (Azure RBAC); Azure Policy is used to restrict resources and their configuration, Azure RBAC is used to restrict privileged access to Azure users.
 
-Whether the specific policy is being enforced or the effect of the policy is being audited, policy compliance is continually monitored, and overall and resource-specific compliance information is provided to administrators. Azure Policy compliance data is provided to Azure Security Center and forms part of the Secure Score.
+Whether the specific policy is being enforced or the effect of the policy is being audited, policy compliance is continually monitored, and overall and resource-specific compliance information is provided to administrators. Azure Policy compliance data is provided to Microsoft Defender for Cloud and forms part of the Secure Score.
 
 ## Key design considerations
 
@@ -87,7 +87,7 @@ Any logging solution should, wherever possible, consolidate captured logs into a
 
 This requirement is met for all Azure customers with Azure Monitor. This offering not only provides a centralised logging repository in Azure for all Azure resources, it also enables you to stream your data to an Azure Event Hub. Azure Event Hubs provides a fully managed, real-time data ingestion service. Once Azure Monitor data is streamed to an Azure Event Hub, the data can also be easily connected to existing supported Security information and event management (SIEM) repositories and additional third party monitoring tools.
 
-Microsoft also offers its own Azure native SIEM solution, Azure Sentinel. Azure Sentinel supports a wide variety of data connectors and can be used to monitor security events across an entire enterprise. By combining the data from supported [data connectors](https://docs.microsoft.com/azure/sentinel/connect-data-sources), Azure Sentinel's built-in machine learning, and the Kusto query language, security administrators are provided with a single solution for alert detection, threat visibility, proactive hunting, and threat response. Sentinel also provides a hunting and notebook feature that allows security administrators to record all the steps undertaken as part of a security investigation in a reuseable playbook that can be shared within an organisation. Security Administrators can even use the built-in [User Analytics](https://docs.microsoft.com/azure/sentinel/user-analytics) to investigate the actions of a single nominated user.
+Microsoft also offers its own Azure native SIEM solution, Microsoft Sentinel. Microsoft Sentinel supports a wide variety of data connectors and can be used to monitor security events across an entire enterprise. By combining the data from supported [data connectors](../sentinel/connect-data-sources.md), Microsoft Sentinel's built-in machine learning, and the Kusto query language, security administrators are provided with a single solution for alert detection, threat visibility, proactive hunting, and threat response. Microsoft Sentinel also provides a hunting and notebook feature that allows security administrators to record all the steps undertaken as part of a security investigation in a reuseable playbook that can be shared within an organisation. Security Administrators can even use the built-in [User Analytics](../sentinel/overview.md) to investigate the actions of a single nominated user.
 
 ### Logged events and log detail
 
@@ -99,11 +99,11 @@ The logs collected in Azure fall under one of following three categories:
 
 * **Data Plane Logs**: These contain events raised as part of Azure resource usage. Includes sources such as Windows event logs including System, Security, and Application logs.
 
-* **Processed Events**: These events contain information about events and alerts that have been automatically processed on the customer's behalf by Azure. An example of a Processed Event is an Azure Security Center Alert.
+* **Processed Events**: These events contain information about events and alerts that have been automatically processed on the customer's behalf by Azure. An example of a Processed Event is a Microsoft Defender for Cloud Alert.
 
-Azure virtual machine monitoring is enhanced by the deployment of the virtual machine agent for both Windows and Linux. This markedly increases the breadth of logging information gathered. Deployment of this agent can be configured to occur automatically via the Azure Security Center.
+Azure virtual machine monitoring is enhanced by the deployment of the virtual machine agent for both Windows and Linux. This markedly increases the breadth of logging information gathered. Deployment of this agent can be configured to occur automatically via the Microsoft Defender for Cloud.
 
-Microsoft provides detailed information about Azure resource-specific logs and their [schemas](https://docs.microsoft.com/azure/security/fundamentals/log-audit).
+Microsoft provides detailed information about Azure resource-specific logs and their [schemas](../security/fundamentals/log-audit.md).
 
 ### Log retention and protection
 
@@ -121,28 +121,28 @@ Log data stored in Azure Monitor is kept in a Log Analytics Workspace. All analy
 
 ![Azure Log Queries Overview](media/queries-overview.png)
 
-Auditing of logs can be enhanced through the use of Monitoring Solutions. These are pre-packaged solutions that contain collection logic, queries, and data visualisation views. Microsoft [provide](https://docs.microsoft.com/azure/azure-monitor/insights/solutions-inventory) a number of Monitoring Solutions and additional solutions from product vendors can be found in the Azure Marketplace.
+Auditing of logs can be enhanced through the use of Monitoring Solutions. These are pre-packaged solutions that contain collection logic, queries, and data visualisation views. Microsoft [provide](../azure-monitor/monitor-reference.md) a number of Monitoring Solutions and additional solutions from product vendors can be found in the Azure Marketplace.
 
 ### Vulnerability assessment and management
 
-The ISM notes that routine vulnerability assessment and management are essential. Your IT environment is constantly evolving, and the external security threat is endlessly changing. With Azure Security Center you can do automated vulnerability assessments and get guidance on how to plan and perform remediation activities.
+The ISM notes that routine vulnerability assessment and management are essential. Your IT environment is constantly evolving, and the external security threat is endlessly changing. With Microsoft Defender for Cloud you can do automated vulnerability assessments and get guidance on how to plan and perform remediation activities.
 
-Secure Score in Azure Security Center gives you a list of recommendations that, when applied, will improve the security of your environment. The list is sorted by the impact on the overall Secure Score from highest to lowest. Ordering the list by impact allows you to focus on the highest priority recommendations that present the most value in enhancing your security.
+Secure Score in Microsoft Defender for Cloud gives you a list of recommendations that, when applied, will improve the security of your environment. The list is sorted by the impact on the overall Secure Score from highest to lowest. Ordering the list by impact allows you to focus on the highest priority recommendations that present the most value in enhancing your security.
 
 Azure Policy also plays a key part in the ongoing vulnerability assessment. The types of policy available in Azure Policy range from enforcing resource tags and values, to restricting the Azure regions in which resources can be created, to blocking the creation of particular resource types altogether. A set of Azure policies can be grouped into Initiatives. Initiatives are used to apply related Azure policies that, when applied together as a group, form the basis of a specific security or compliance objective.
 
-Azure Policy has a library of built-in policy definitions which is constantly growing. Azure portal also gives you the option to author your own custom Azure Policy definitions. Once you find a policy in the existing library or create a new one, you can then assign the policy to Azure resources. These assignments can be [scoped](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage) at various levels in the resource management hierarchy. Policy assignment is inherited, meaning all child resources within a scope receive the same policy assignment. Resources can also be excluded from scoped policy assignment as required.
+Azure Policy has a library of built-in policy definitions which is constantly growing. Azure portal also gives you the option to author your own custom Azure Policy definitions. Once you find a policy in the existing library or create a new one, you can then assign the policy to Azure resources. These assignments can be [scoped](../governance/policy/tutorials/create-and-manage.md) at various levels in the resource management hierarchy. Policy assignment is inherited, meaning all child resources within a scope receive the same policy assignment. Resources can also be excluded from scoped policy assignment as required.
 
 All deployed Azure policies contribute to an organisation's Secure Score. In a highly bespoke environment, custom Azure Policy definitions can be created and deployed to provide audit information tailored to specific workloads.
 
 ## Getting started
 
-To start with Azure Security Center and make full use of Azure Monitor, Advisor and Policy, Microsoft recommends the following initial steps:
+To start with Microsoft Defender for Cloud and make full use of Azure Monitor, Advisor and Policy, Microsoft recommends the following initial steps:
 
-* Enable Azure Security Center
-* Upgrade to the Standard Tier
-* Enable Automatic Provisioning of the Microsoft Monitoring Agent to supported Azure Virtual Machines
-* Review, prioritise, and mitigate the security recommendations and alerts on the Security Centre dashboard
+* Enable Microsoft Defender for Cloud
+* Enable Microsoft Defender for Cloud's enhanced security features
+* Enable automatic provisioning of the Log Analytics agent to supported machines
+* Review, prioritize, and mitigate the security recommendations and alerts shown on the Defender for Cloud dashboards
 
 ## Next steps
 

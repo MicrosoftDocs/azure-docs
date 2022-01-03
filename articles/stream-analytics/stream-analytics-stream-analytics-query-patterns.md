@@ -4,11 +4,11 @@ description: This article describes several common query patterns and designs th
 services: stream-analytics
 author: rodrigoaatmicrosoft
 ms.author: rodrigoa
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/18/2019
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Common query patterns in Azure Stream Analytics
@@ -278,7 +278,7 @@ FROM
 
 The first step on the query finds the maximum time stamp in 10-minute windows, that is the time stamp of the last event for that window. The second step joins the results of the first query with the original stream to find the event that match the last time stamps in each window. 
 
-**DATEDIFF** is a date-specific function that compares and returns the time difference between two DateTime fields, for more information, refer to [date functions](https://docs.microsoft.com/stream-analytics-query/date-and-time-functions-azure-stream-analytics).
+**DATEDIFF** is a date-specific function that compares and returns the time difference between two DateTime fields, for more information, refer to [date functions](/stream-analytics-query/date-and-time-functions-azure-stream-analytics).
 
 For more information on joining streams, refer to [**JOIN**](/stream-analytics-query/join-azure-stream-analytics).
 
@@ -832,7 +832,7 @@ From
 
 The User Defined Function will compute the *bigint* value from the HexValue on every event consumed.
 
-For more information, refer to [JavaScript](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions) and [C#](/azure/stream-analytics/stream-analytics-edge-csharp-udf).
+For more information, refer to [JavaScript](./stream-analytics-javascript-user-defined-functions.md) and [C#](./stream-analytics-edge-csharp-udf.md).
 
 ## Advanced pattern matching with MATCH_RECOGNIZE
 
@@ -861,22 +861,22 @@ SELECT *
 FROM input TIMESTAMP BY time OVER ATM_id
 MATCH_RECOGNIZE (
 	LIMIT DURATION(minute, 1)
-	PARTITON BY ATM_id
+	PARTITION BY ATM_id
 	MEASURES
 		First(Warning.ATM_id) AS ATM_id,
 		First(Warning.Operation_Id) AS First_Warning_Operation_id,
 		First(Warning.Time) AS Warning_Time
 	AFTER MATCH SKIP TO NEXT ROW
-	PATTERN (Success* Warning{2,})
+	PATTERN (Success+ Warning{2,})
 	DEFINE
 		Success AS Succes.Return_Code = 'Success',
-		Failure AS Warning.Return_Code <> 'Success'
+		Warning AS Warning.Return_Code <> 'Success'
 ) AS patternMatch
 ```
 
 This query matches at least two consecutive failure events and generate an alarm when the conditions are met.
-**PATTERN** defines the regular expression to be used on the matching, in this case, any number of successful operations followed by at least two consecutive failures.
-Success and Failure are defined using Return_Code value and once the condition is met, the **MEASURES** are projected with *ATM_id*, the first warning operation and first warning time.
+**PATTERN** defines the regular expression to be used on the matching, in this case, at least two consecutive warnings after at least one successful operation.
+Success and Warning are defined using Return_Code value and once the condition is met, the **MEASURES** are projected with *ATM_id*, the first warning operation and first warning time.
 
 For more information, refer to [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics).
 
@@ -927,11 +927,11 @@ For more information, refer to the [Geofencing and geospatial aggregation scenar
 
 ## Get help
 
-For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Management REST API Reference](/rest/api/streamanalytics/)

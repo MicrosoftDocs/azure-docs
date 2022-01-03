@@ -2,9 +2,6 @@
 title: Apache Storm topologies with Visual Studio and C# - Azure HDInsight 
 description: Learn how to create Storm topologies in C#. Create a word count topology in Visual Studio by using the Hadoop tools for Visual Studio.
 ROBOTS: NOINDEX
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/31/2019
@@ -126,7 +123,7 @@ To create a C# topology project in Visual Studio:
 
 1. In the **Configure your new project** window, enter a **Project name** of *WordCount*, go to or create a **Location** directory path for the project, and then select **Create**.
 
-    ![Storm application, Configure your new project dialog box, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png" alt-text="Storm application, Configure your new project dialog box, Visual Studio" border="true":::
 
 After you've created the project, you should have the following files:
 
@@ -331,7 +328,7 @@ Now create two Storm bolts in this example:
 
 Spouts and bolts are arranged in a graph, which defines how the data flows between components. For this topology, the graph is as follows:
 
-![Spout and bolt component arrangement diagram, Storm topology](./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png)
+:::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png" alt-text="Spout and bolt component arrangement diagram, Storm topology" border="false":::
 
 The spout emits sentences that are distributed to instances of the Splitter bolt. The Splitter bolt breaks the sentences into words, which are distributed to the Counter bolt.
 
@@ -411,7 +408,7 @@ You're now ready to submit the topology to your HDInsight cluster.
 
     When the topology has been successfully submitted, the **Storm Topologies View** window for the cluster should appear. Choose the **WordCount** topology from the list to view information about the running topology.
 
-    ![Storm topology view window, HDInsight cluster, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/storm-topology-view.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/storm-topology-view.png" alt-text="Storm topology view window, HDInsight cluster, Visual Studio" border="true":::
 
     > [!NOTE]  
     > You can also view **Storm Topologies** from **Server Explorer**. Expand **Azure** > **HDInsight**, right-click a Storm on HDInsight cluster, and then choose **View Storm Topologies**.
@@ -565,7 +562,7 @@ Although it's easy to deploy a topology to a cluster, in some cases, you may nee
 
 1. In **Solution Explorer**, right-click the project, and select **Properties**. In the project properties. Then change the **Output type** to **Console Application**.
 
-   ![HDInsight Storm application, project properties, Output type](./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png)
+   :::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png" alt-text="HDInsight Storm application, project properties, Output type" border="true":::
 
    > [!NOTE]
    > Remember to change the **Output type** back to **Class Library** before you deploy the topology to a cluster.

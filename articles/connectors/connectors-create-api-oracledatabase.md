@@ -29,14 +29,14 @@ This article shows you how to use the Oracle Database connector in a logic app.
 
 * Supported Oracle versions: 
     * Oracle 9 and later
-    * Oracle client software 8.1.7 and later
+    * Oracle Data Access Client (ODAC) 11.2 and later
 
 * Install the on-premises data gateway. [Connect to on-premises data from logic apps](../logic-apps/logic-apps-gateway-connection.md) lists the steps. The gateway is required to connect to an on-premises Oracle Database, or an Azure VM with Oracle DB installed. 
 
     > [!NOTE]
     > The on-premises data gateway acts as a bridge, and provides a secure data transfer between on-premises data (data that is not in the cloud) and your logic apps. The same gateway can be used with multiple services, and multiple data sources. So, you may only need to install the gateway once.
 
-* Install the Oracle Client on the machine where you installed the on-premises data gateway. Be sure to install the 64-bit Oracle Data Provider for .NET from Oracle:  
+* Install the Oracle Client on the machine where you installed the on-premises data gateway. Make sure that you install the 64-bit Oracle Data Provider for .NET from Oracle, and select the Windows installer version because the `xcopy` version doesn't work with the on-premises data gateway:  
 
   [64-bit ODAC 12c Release 4 (12.1.0.2.4) for Windows x64](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
@@ -99,7 +99,7 @@ This article shows you how to use the Oracle Database connector in a logic app.
 
 **Mitigation**: Make sure your gateway is running on the on-premises machine where you installed it, and that it can connect to the internet.  We recommend not installing the gateway on a computer that may be turned off or sleep. You can also restart the on-premises data gateway service (PBIEgwService).
 
-#### **Error**: The provider being used is deprecated: 'System.Data.OracleClient requires Oracle client software version 8.1.7 or greater.'. See [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) to install the official provider.
+#### **Error**: The provider being used is deprecated: 'System.Data.OracleClient requires Oracle client software version 8.1.7 or greater.'. See [https://go.microsoft.com/fwlink/p/?LinkID=272376](/power-bi/connect-data/desktop-connect-oracle-database) to install the official provider.
 
 **Cause**: The Oracle client SDK is not installed on the machine where the on-premises data gateway is running.  
 
@@ -124,4 +124,3 @@ You can help improve Logic Apps and connectors by voting and submitting your ide
 
 ## Next steps
 [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), and explore the available connectors in Logic Apps at [APIs list](apis-list.md).
-

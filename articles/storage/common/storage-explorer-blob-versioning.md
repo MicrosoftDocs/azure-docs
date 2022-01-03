@@ -2,7 +2,7 @@
 title: Azure Storage Explorer blob versioning guide | Microsoft Docs
 description: Blob versioning guidance for Azure Storage Explorer
 services: storage
-author: chuye
+author: JasonYeMSFT
 ms.service: storage
 ms.topic: conceptual
 ms.date: 08/19/2020
@@ -11,13 +11,13 @@ ms.author: chuye
 
 # Azure Storage Explorer blob versioning guide
 
-Microsoft Azure Storage Explorer provides easy access and management of blob versions. This guide will help you understand how blob versioning works in Storage Explorer. Before continuing, it's recommended you read more about [blob versioning](https://docs.microsoft.com/azure/storage/blobs/versioning-overview).
+Microsoft Azure Storage Explorer provides easy access and management of blob versions. This guide will help you understand how blob versioning works in Storage Explorer. Before continuing, it's recommended you read more about [blob versioning](../blobs/versioning-overview.md).
 
 ## Terminology
 
 This section provides some definitions to help understand their usage in this article.
 
-- Soft delete: An alternative automatic data protection feature. You can learn more about soft delete [here](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview).
+- Soft delete: An alternative automatic data protection feature. You can learn more about soft delete [here](../blobs/soft-delete-blob-overview.md).
 - Active blob: A blob or blob version is created in active state. You can only operate on blobs or blob versions in active state.
 - Soft-deleted blob: A blob or blob version marked as soft-deleted. Soft-deleted blobs are only kept for its retention period.
 - Blob version: A blob created with blob versioning enabled. Each blob version is associated with a version ID.
@@ -57,7 +57,7 @@ In this view, Storage Explorer displays:
 
 - Active non-version blobs
 - Current versions
-- Latest active previous versions. 
+- Latest active previous versions.
 
 For blobs that don't have a current version but have an active previous version, Storage Explorer displays their latest active previous version as a representation of that blob.
 
@@ -68,13 +68,13 @@ In this view, Storage Explorer displays:
 - Active non-version blobs
 - Soft-deleted non-version blobs
 - Current versions
-- Latest previous versions. 
+- Latest previous versions.
 
 For blobs that don't have a current version, Storage Explorer displays their latest previous version as a representation of that blob.
 
-> [!Note]
+> [!NOTE]
 > Due to service limitation, Storage Explorer needs some additional processing to get a hierarchical view of your virtual directories when listing blob versions. It will take longer to list blobs in the following views:
-> 
+>
 > - Active blobs and blobs without current version
 > - All blobs and blobs without current version
 
@@ -112,5 +112,6 @@ Each blob version has its own access tier. To change access tier of blob version
 
 ## See Also
 
-* [Blob versioning](https://docs.microsoft.com/azure/storage/blobs/versioning-overview)
-* [Soft delete for blobs](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview)
+- [Blob versioning](../blobs/versioning-overview.md)
+- [Soft delete for blobs](../blobs/soft-delete-blob-overview.md)
+- [Azure Storage Explorer soft delete guide](./storage-explorer-soft-delete.md)

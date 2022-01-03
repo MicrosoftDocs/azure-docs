@@ -1,13 +1,13 @@
 ---
 title: Get started with Azure IoT Hub module identity & module twin (C)
 description: Learn how to create module identity and update module twin using IoT SDKs for C.
-author: chrissie926
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
-ms.author: menchi
+ms.author: lizross
 ms.custom:  [amqp, mqtt]
 ---
 
@@ -384,4 +384,4 @@ int main(void)
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 
 * [Getting started with device management](iot-hub-node-node-device-management-get-started.md)
-* [Getting started with IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Getting started with IoT Edge](../iot-edge/quickstart-linux.md)

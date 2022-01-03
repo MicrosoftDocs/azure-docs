@@ -1,22 +1,20 @@
 ---
-title: Add a bubble layer to the Azure Maps Power BI visual  | Microsoft Azure Maps
-description: In this article, you will learn how to use the bubble layer in the Microsoft Azure Maps visual for Power BI.
-author: rbrundritt
-ms.author: richbrun
-ms.date: 06/26/2020
+title: Add a bubble layer to an Azure Maps Power BI visual
+titleSuffix: Microsoft Azure Maps
+description: In this article, you will learn how to use the bubble layer in an Azure Maps Power BI visual.
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 11/29/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
-ms.custom: 
 ---
 
 # Add a bubble layer
 
 The **Bubble layer** renders location data as scaled circles on the map.
 
-> [!div class="mx-imgBorder"]
-> ![A map displaying point data using the bubble layer](media/power-bi-visual/bubble-layer-with-legend-color.png)
+:::image type="content" source="./media/power-bi-visual/bubble-layer-with-legend-color.png" alt-text="A map displaying point data using the bubble layer":::
 
 Initially all bubbles have the same fill color. If a field is passed into the **Legend** bucket of the **Fields** pane, the bubbles will be colored based on their categorization. The outline of the bubbles is white be default but can be changed to a new color or by enabling the high-contrast outline option. The **High-contrast outline** option dynamically assigns an outline color that is a high-contrast variant of the fill color. This helps to ensure the bubbles are clearly visible regardless of the style of the map. The following are the primary settings in the **Format** pane that are available in the **Bubble layer** section.
 
@@ -71,6 +69,9 @@ Change how your data is displayed on the map:
 > [!div class="nextstepaction"]
 > [Add a bar chart layer](power-bi-visual-add-bar-chart-layer.md)
 
+> [!div class="nextstepaction"]
+> [Add a heat map layer](power-bi-visual-add-heat-map-layer.md)
+
 Add more context to the map:
 
 > [!div class="nextstepaction"]
@@ -85,7 +86,7 @@ Add more context to the map:
 Customize the visual:
 
 > [!div class="nextstepaction"]
-> [Tips and tricks for color formatting in Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Tips and tricks for color formatting in Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
-> [Customize visualization titles, backgrounds, and legends](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [Customize visualization titles, backgrounds, and legends](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

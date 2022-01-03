@@ -3,8 +3,8 @@ title: Using Azure AD Connect Health with AD DS | Microsoft Docs
 description: This is the Azure AD Connect Health page that will discuss how to monitor AD DS.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
-manager: daveba
+author: billmath
+manager: karenhoran
 editor: curtand
 
 ms.assetid: 19e3cf15-f150-46a3-a10c-2990702cd700
@@ -12,7 +12,6 @@ ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
@@ -58,5 +57,5 @@ By default, we have preselected four performance counters; however, you can incl
 * [Azure AD Connect Health Operations](how-to-connect-health-operations.md)
 * [Using Azure AD Connect Health with AD FS](how-to-connect-health-adfs.md)
 * [Using Azure AD Connect Health for sync](how-to-connect-health-sync.md)
-* [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
+* [Azure AD Connect Health FAQ](reference-connect-health-faq.yml)
 * [Azure AD Connect Health Version History](reference-connect-health-version-history.md)

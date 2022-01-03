@@ -1,6 +1,8 @@
 ---
 title: Lifecycle of knowledge base - QnA Maker
 description: QnA Maker learns best in an iterative cycle of model changes, utterance examples, publishing, and gathering data from endpoint queries.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/01/2020
 ---
@@ -81,4 +83,4 @@ The *published knowledge base* is the version that's used in your chat bot or ap
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Active learning suggestions](./active-learning-suggestions.md)
+> [Active learning suggestions](../index.yml)

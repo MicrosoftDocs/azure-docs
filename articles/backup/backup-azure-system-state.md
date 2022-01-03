@@ -32,9 +32,9 @@ When you create a Recovery Services vault, make sure storage redundancy is confi
     ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
 4. Choose the appropriate storage replication option for your vault.
 
-    ![Storage configuration choices](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
+    ![Storage configuration choices](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration-for-vault.png)
 
-    By default, your vault has geo-redundant storage. If you use Azure as a primary backup storage endpoint, continue to use **Geo-redundant**. If you don't use Azure as a primary backup storage endpoint, then choose **Locally-redundant**, which reduces the Azure storage costs. Read more about [geo-redundant](../storage/common/storage-redundancy.md) and [locally redundant](../storage/common/storage-redundancy.md) storage options in this [Storage redundancy overview](../storage/common/storage-redundancy.md).
+    By default, your vault has geo-redundant storage. If you use Azure as a primary backup storage endpoint, continue to use **Geo-redundant**. If you don't use Azure as a primary backup storage endpoint, then choose **Locally-redundant**, which reduces the Azure storage costs. Read more about [geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage), [locally redundant](../storage/common/storage-redundancy.md#locally-redundant-storage) and [zone-redundant](../storage/common/storage-redundancy.md#zone-redundant-storage) storage options in this [Storage redundancy overview](../storage/common/storage-redundancy.md).
 
 Now that you've created a vault, configure it for backing up Windows System State.
 
@@ -177,7 +177,7 @@ After the initial backup is completed, the **Job completed** status appears in t
 
 ## Questions?
 
-If you have questions, [send us feedback](https://feedback.azure.com/forums/258995-azure-backup).
+If you have questions, [send us feedback](https://feedback.azure.com/d365community/forum/153aa817-0725-ec11-b6e6-000d3a4f0858).
 
 ## Next steps
 

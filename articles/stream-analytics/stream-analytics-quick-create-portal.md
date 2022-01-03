@@ -1,13 +1,13 @@
 ---
 title: Quickstart - Create a Stream Analytics job by using the Azure portal
 description: This quickstart shows you how to get started by creating a Stream Analytic job, configuring inputs, outputs, and defining a query.
-author: mamccrea
-ms.author: mamccrea
-ms.date: 06/21/2019
+author: enkrumah
+ms.author: ebnkruma
+ms.date: 03/30/2021
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.custom: mvc
-#Customer intent: "As an IT admin/developer I want to create a Stream Analytics job, configure input and output & analyze data by using Azure portal."
+ms.custom: mvc, mode-ui
+#Customer intent: As an IT admin/developer, I want to create a Stream Analytics job, configure input and output, and analyze data by using the Azure portal.
 ---
 
 # Quickstart: Create a Stream Analytics job by using the Azure portal
@@ -145,7 +145,7 @@ In this section, you will configure an IoT Hub device input to the Stream Analyt
    SELECT *
    INTO BlobOutput
    FROM IoTHubInput
-   HAVING Temperature > 27
+   WHERE Temperature > 27
    ```
 
 3. In this example, the query reads the data from IoT Hub and copies it to a new file in the blob. Select **Save**.  
@@ -182,7 +182,7 @@ When no longer needed, delete the resource group, the Stream Analytics job, and 
 
 ## Next steps
 
-In this quickstart, you deployed a simple Stream Analytics job using Azure portal. You can also deploy Stream Analytics jobs using [PowerShell](stream-analytics-quick-create-powershell.md), [Visual Studio](stream-analytics-quick-create-vs.md), and [Visual Studio Code](quick-create-vs-code.md).
+In this quickstart, you deployed a simple Stream Analytics job using Azure portal. You can also deploy Stream Analytics jobs using [PowerShell](stream-analytics-quick-create-powershell.md), [Visual Studio](stream-analytics-quick-create-vs.md), and [Visual Studio Code](quick-create-visual-studio-code.md).
 
 To learn about configuring other input sources and performing real-time detection, continue to the following article:
 

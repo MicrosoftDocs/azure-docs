@@ -4,14 +4,14 @@ titleSuffix: Azure SQL Managed Instance
 description: Learn about Azure SQL Managed Instance pools (preview), a feature that provides a convenient and cost-efficient way to migrate smaller SQL Server databases to the cloud at scale, and manage multiple managed instances.  
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: service-overview
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: bonova
-ms.author: bonova
-ms.reviewer: sstein, carlrab
-ms.date: 09/05/2019
+author: urosmil
+ms.author: urmilano
+ms.reviewer: mathoma
+ms.date: 10/25/2021
 ---
 # What is an Azure SQL Managed Instance pool (preview)?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -55,7 +55,7 @@ The following list provides the main use cases where instance pools should be co
 
 Instance pools have a similar architecture to regular (*single*) managed instances. To support [deployments within Azure virtual networks](../../virtual-network/virtual-network-for-azure-services.md) and to provide isolation and security for customers, instance pools also rely on [virtual clusters](connectivity-architecture-overview.md#high-level-connectivity-architecture). Virtual clusters represent a dedicated set of isolated virtual machines deployed inside the customer's virtual network subnet.
 
-The main difference between the two deployment models is that instance pools allow multiple SQL Server process deployments on the same virtual machine node, which are resource governed using [Windows job objects](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), while single instances are always alone on a virtual machine node.
+The main difference between the two deployment models is that instance pools allow multiple SQL Server process deployments on the same virtual machine node, which are resource governed using [Windows job objects](/windows/desktop/ProcThread/job-objects), while single instances are always alone on a virtual machine node.
 
 The following diagram shows an instance pool and two individual instances deployed in the same subnet and illustrates the main architectural details for both deployment models:
 
@@ -72,16 +72,20 @@ There are several resource limitations regarding instance pools and instances in
 - All [instance-level limits](resource-limits.md#service-tier-characteristics) apply to instances created within a pool.
 - In addition to instance-level limits, there are also two limits imposed *at the instance pool level*:
   - Total storage size per pool (8 TB).
-  - Total number of databases per pool (100).
-- AAD Admin cannot be set for the instances deployed inside the instance pool therefore AAD Authentication can't be used.
+  - Total number of user databases per pool. This limit depends on the pool vCores value:
+    - 8 vCores pool supports up to 200 databases,
+    - 16 vCores pool supports up to 400 databases,
+    - 24 and larger vCores pool supports up to 500 databases.
+- Azure AD authentication can be used after creating or setting a managed instance with the `-AssignIdentity` flag. For more information, see [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) and [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance). Users can then set an Azure AD admin for the instance by following [Provision Azure AD admin (SQL Managed Instance)](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
 Total storage allocation and number of databases across all instances must be lower than or equal to the limits exposed by instance pools.
 
 - Instance pools support 8, 16, 24, 32, 40, 64, and 80 vCores.
 - Managed instances inside pools support 2, 4, 8, 16, 24, 32, 40, 64, and 80 vCores.
 - Managed instances inside pools support storage sizes between 32 GB and 8 TB, except:
-  - 2 vCore instances support sizes between 32 GB and 640 GB
-  - 4 vCore instances support sizes between 32 GB and 2 TB
+  - 2 vCore instances support sizes between 32 GB and 640 GB,
+  - 4 vCore instances support sizes between 32 GB and 2 TB.
+- Managed instances inside pools have limit of up to 100 user databases per instance, except 2 vCore instances that support up to 50 user databases per instance.
 
 The [service tier property](resource-limits.md#service-tier-characteristics) is associated with the instance pool resource, so all instances in a pool must be the same service tier as the service tier of the pool. At this time, only the General Purpose service tier is available (see the following section on limitations in the current preview).
 
@@ -94,6 +98,7 @@ The public preview has the following limitations:
 - Azure portal support for instance pool creation and configuration is not yet available. All operations on instance pools are supported through PowerShell only. Initial instance deployment in a pre-created pool is also supported through PowerShell only. Once deployed into a pool, managed instances can be updated using the Azure portal.
 - Managed instances created outside of the pool cannot be moved into an existing pool, and instances created inside a pool cannot be moved outside as a single instance or to another pool.
 - [Reserve capacity](../database/reserved-capacity-overview.md) instance pricing is not available.
+- Failover groups are not supported for instances in the pool.
 
 ## SQL features supported
 

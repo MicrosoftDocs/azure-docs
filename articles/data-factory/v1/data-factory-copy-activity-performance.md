@@ -1,21 +1,12 @@
 ---
 title: Copy Activity performance and tuning guide 
 description: Learn about key factors that affect the performance of data movement in Azure Data Factory when you use Copy Activity.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: 4b9a6a4f-8cf5-4e0a-a06f-8133a2b7bc58
 ms.service: data-factory
-ms.workload: data-services
-
-
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 10/22/2021
 ms.author: jingwang
-
 robots: noindex
 ---
 # Copy Activity performance and tuning guide
@@ -27,11 +18,11 @@ robots: noindex
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Copy activity performance and tuning guide for Data Factory](../copy-activity-performance.md).
 
-Azure Data Factory Copy Activity delivers a first-class secure, reliable, and high-performance data loading solution. It enables you to copy tens of terabytes of data every day across a rich variety of cloud and on-premises data stores. Blazing-fast data loading performance is key to ensure you can focus on the core “big data” problem: building advanced analytics solutions and getting deep insights from all that data.
+Azure Data Factory Copy Activity delivers a first-class secure, reliable, and high-performance data loading solution. It enables you to copy tens of terabytes of data every day across a rich variety of cloud and on-premises data stores. Blazing-fast data loading performance is key to ensure you can focus on the core "big data" problem: building advanced analytics solutions and getting deep insights from all that data.
 
 Azure provides a set of enterprise-grade data storage and data warehouse solutions, and Copy Activity offers a highly optimized data loading experience that is easy to configure and set up. With just a single copy activity, you can achieve:
 
-* Loading data into **Azure Synapse Analytics** at **1.2 GBps**. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics (formerly SQL Data Warehouse) under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+* Loading data into **Azure Synapse Analytics** at **1.2 GBps**. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 * Loading data into **Azure Blob storage** at **1.0 GBps**
 * Loading data into **Azure Data Lake Store** at **1.0 GBps**
 
@@ -49,7 +40,7 @@ This article describes:
 
 As a reference, below table shows the copy throughput number in MBps for the given source and sink pairs based on in-house testing. For comparison, it also demonstrates how different settings of [cloud data movement units](#cloud-data-movement-units) or [Data Management Gateway scalability](data-factory-data-management-gateway-high-availability-scalability.md) (multiple gateway nodes) can help on copy performance.
 
-![Performance matrix](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
+:::image type="content" source="./media/data-factory-copy-activity-performance/CopyPerfRef.png" alt-text="Performance matrix":::
 
 >[!IMPORTANT]
 >In Azure Data Factory version 1, the minimal cloud data movement units for cloud-to-cloud copy is two. If not specified, see default data movement units being used in [cloud data movement units](#cloud-data-movement-units).
@@ -191,18 +182,18 @@ When you activate the staging feature, first the data is copied from the source 
 
 In the cloud copy scenario (both source and sink data stores are in the cloud), gateway is not used. The Data Factory service performs the copy operations.
 
-![Staged copy: Cloud scenario](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)
+:::image type="content" source="media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png" alt-text="Staged copy: Cloud scenario":::
 
 In the hybrid copy scenario (source is on-premises and sink is in the cloud), the gateway moves data from the source data store to a staging data store. Data Factory service moves data from the staging data store to the sink data store. Copying data from a cloud data store to an on-premises data store via staging also is supported with the reversed flow.
 
-![Staged copy: Hybrid scenario](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)
+:::image type="content" source="media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png" alt-text="Staged copy: Hybrid scenario":::
 
 When you activate data movement by using a staging store, you can specify whether you want the data to be compressed before moving data from the source data store to an interim or staging data store, and then decompressed before moving data from an interim or staging data store to the sink data store.
 
 Currently, you can't copy data between two on-premises data stores by using a staging store. We expect this option to be available soon.
 
 ### Configuration
-Configure the **enableStaging** setting in Copy Activity to specify whether you want the data to be staged in Blob storage before you load it into a destination data store. When you set **enableStaging** to TRUE, specify the additional properties listed in the next table. If you don’t have one, you also need to create an Azure Storage or Storage shared access signature-linked service for staging.
+Configure the **enableStaging** setting in Copy Activity to specify whether you want the data to be staged in Blob storage before you load it into a destination data store. When you set **enableStaging** to TRUE, specify the additional properties listed in the next table. If you don't have one, you also need to create an Azure Storage or Storage shared access signature-linked service for staging.
 
 | Property | Description | Default value | Required |
 | --- | --- | --- | --- |
@@ -251,9 +242,9 @@ We suggest that you take these steps to tune the performance of your Data Factor
 
    Collect execution time and performance characteristics by using the **Monitoring and Management App**. Choose **Monitor & Manage** on your Data Factory home page. In the tree view, choose the **output dataset**. In the **Activity Windows** list, choose the Copy Activity run. **Activity Windows** lists the Copy Activity duration and the size of the data that's copied. The throughput is listed in **Activity Window Explorer**. To learn more about the app, see [Monitor and manage Azure Data Factory pipelines by using the Monitoring and Management App](data-factory-monitor-manage-app.md).
 
-   ![Activity run details](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
+   :::image type="content" source="./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png" alt-text="Activity run details":::
 
-   Later in the article, you can compare the performance and configuration of your scenario to Copy Activity’s [performance reference](#performance-reference) from our tests.
+   Later in the article, you can compare the performance and configuration of your scenario to Copy Activity's [performance reference](#performance-reference) from our tests.
 2. **Diagnose and optimize performance**. If the performance you observe doesn't meet your expectations, you need to identify performance bottlenecks. Then, optimize performance to remove or reduce the effect of bottlenecks. A full description of performance diagnosis is beyond the scope of this article, but here are some common considerations:
 
    * Performance features:
@@ -371,7 +362,7 @@ Be cautious about the number of data sets and copy activities requiring Data Fac
 **Test and analysis**: The throughput of Copy Activity is less than 2 MBps, which is much slower than the performance benchmark.
 
 **Performance analysis and tuning**:
-To troubleshoot the performance issue, let’s look at how the data is processed and moved.
+To troubleshoot the performance issue, let's look at how the data is processed and moved.
 
 1. **Read data**: Gateway opens a connection to SQL Server and sends the query. SQL Server responds by sending the data stream to Gateway via the intranet.
 2. **Serialize and compress data**: Gateway serializes the data stream to CSV format, and compresses the data to a bzip2 stream.
@@ -379,7 +370,7 @@ To troubleshoot the performance issue, let’s look at how the data is processed
 
 As you can see, the data is being processed and moved in a streaming sequential manner: SQL Server > LAN > Gateway > WAN > Blob storage. **The overall performance is gated by the minimum throughput across the pipeline**.
 
-![Data flow](./media/data-factory-copy-activity-performance/case-study-pic-1.png)
+:::image type="content" source="./media/data-factory-copy-activity-performance/case-study-pic-1.png" alt-text="Data flow":::
 
 One or more of the following factors might cause the performance bottleneck:
 
@@ -399,27 +390,27 @@ In this case, bzip2 data compression might be slowing down the entire pipeline. 
 
 **Analysis and performance tuning**: For an example, if you have installed gateway on a quad core machine, Data Factory uses 16 parallel copies to move files from the file system to Blob storage concurrently. This parallel execution should result in high throughput. You also can explicitly specify the parallel copies count. When you copy many small files, parallel copies dramatically help throughput by using resources more effectively.
 
-![Scenario 1](./media/data-factory-copy-activity-performance/scenario-1.png)
+:::image type="content" source="./media/data-factory-copy-activity-performance/scenario-1.png" alt-text="Scenario 1":::
 
 **Scenario II**: Copy 20 blobs of 500 MB each from Blob storage to Data Lake Store Analytics, and then tune performance.
 
 **Analysis and performance tuning**: In this scenario, Data Factory copies the data from Blob storage to Data Lake Store by using single-copy (**parallelCopies** set to 1) and single-cloud data movement units. The throughput you observe will be close to that described in the [performance reference section](#performance-reference).
 
-![Scenario 2](./media/data-factory-copy-activity-performance/scenario-2.png)
+:::image type="content" source="./media/data-factory-copy-activity-performance/scenario-2.png" alt-text="Scenario 2":::
 
 **Scenario III**: Individual file size is greater than dozens of MBs and total volume is large.
 
 **Analysis and performance turning**: Increasing **parallelCopies** doesn't result in better copy performance because of the resource limitations of a single-cloud DMU. Instead, you should specify more cloud DMUs to get more resources to perform the data movement. Do not specify a value for the **parallelCopies** property. Data Factory handles the parallelism for you. In this case, if you set **cloudDataMovementUnits** to 4, a throughput of about four times occurs.
 
-![Scenario 3](./media/data-factory-copy-activity-performance/scenario-3.png)
+:::image type="content" source="./media/data-factory-copy-activity-performance/scenario-3.png" alt-text="Scenario 3":::
 
 ## Reference
 Here are performance monitoring and tuning references for some of the supported data stores:
 
 * Azure Blob storage: [Scalability and performance targets for Blob storage](../../storage/blobs/scalability-targets.md) and [Performance and scalability checklist for Blob storage](../../storage/blobs/storage-performance-checklist.md).
 * Azure Table storage: [Scalability and performance targets for Table storage](../../storage/tables/scalability-targets.md) and [Performance and scalability checklist for Table storage](../../storage/tables/storage-performance-checklist.md).
-* Azure SQL Database: You can [monitor the performance](../../sql-database/sql-database-single-database-monitor.md) and check the database transaction unit (DTU) percentage
+* Azure SQL Database: You can [monitor the performance](../../azure-sql/database/monitor-tune-overview.md) and check the database transaction unit (DTU) percentage
 * Azure Synapse Analytics: Its capability is measured in data warehouse units (DWUs); see [Manage compute power in Azure Synapse Analytics (Overview)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [Performance levels in Azure Cosmos DB](../../cosmos-db/performance-levels.md)
-* On-premises SQL Server: [Monitor and tune for performance](https://msdn.microsoft.com/library/ms189081.aspx)
-* On-premises file server: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx)
+* On-premises SQL Server: [Monitor and tune for performance](/sql/relational-databases/performance/monitor-and-tune-for-performance)
+* On-premises file server: [Performance tuning for file servers](/previous-versions//dn567661(v=vs.85))

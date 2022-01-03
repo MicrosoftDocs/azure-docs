@@ -3,18 +3,20 @@ title: Configure a domain-independent workgroup availability group
 description: Learn how to configure an Active Directory domain-independent workgroup Always On availability group on a SQL Server virtual machine in Azure. 
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: ''
 tags: azure-service-management
 
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
-ms.author: mathoma
+ms.author: rsetlem
+ms.reviewer: mathoma
 
 ---
 # Configure a workgroup availability group 
@@ -59,18 +61,18 @@ To configure the DNS suffix, follow these steps:
 1. Select **More...** to open the **DNS Suffix and NetBIOS Computer Name** dialog box. 
 1. Type the name of your DNS suffix under **Primary DNS suffix of this computer**, such as `ag.wgcluster.example.com` and then select **OK**: 
 
-   ![Add DNS suffix](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
+   ![Screenshot shows the D N S Suffix and NetBIOS Computer Name dialog box where you can enter the value.](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
 
 1. Confirm that the **Full computer name** is now showing the DNS suffix, and then select **OK** to save your changes: 
 
-   ![Add DNS suffix](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
+   ![Screenshot shows where to see your Full computer name.](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
 
 1. Reboot the server when you are prompted to do so. 
 1. Repeat these steps on any other nodes to be used for the availability group. 
 
 ## Edit a host file
 
-Since there is no active directory, there is no way to authenticate windows connections. As such, assign trust by editing the host file with a text editor. 
+Since there is no active directory, there is no way to authenticate Windows connections. As such, assign trust by editing the host file with a text editor. 
 
 To edit the host file, follow these steps:
 
@@ -131,7 +133,7 @@ In this step, configure a cloud share witness. If you're unfamiliar with the ste
 
 ## Enable the availability group feature 
 
-In this step, enable the availability group feature. If you're unfamiliar with the steps, see the [availability group tutorial](availability-group-manually-configure-tutorial.md#enable-availability-groups). 
+In this step, enable the availability group feature. If you're unfamiliar with the steps, see the [availability group tutorial](availability-group-manually-configure-tutorial-single-subnet.md#enable-availability-groups). 
 
 ## Create keys and certificates
 
@@ -276,7 +278,7 @@ If there are any other nodes in the cluster, repeat these steps there also, modi
 
 ## Configure an availability group
 
-In this step, configure your availability group, and add your databases to it. Do not create a listener at this time. If you're not familiar with the steps, see the [availability group tutorial](availability-group-manually-configure-tutorial.md#create-the-availability-group). Be sure to initiate a failover and failback to verify that everything is working as it should be. 
+In this step, configure your availability group, and add your databases to it. Do not create a listener at this time. If you're not familiar with the steps, see the [availability group tutorial](availability-group-manually-configure-tutorial-single-subnet.md#create-the-availability-group). Be sure to initiate a failover and failback to verify that everything is working as it should be. 
 
    > [!NOTE]
    > If there is a failure during the synchronization process, you may need to grant `NT AUTHORITY\SYSTEM` sysadmin rights to create cluster resources on the first node, such as `AGNode1` temporarily. 
@@ -288,6 +290,11 @@ In this final step, configure the load balancer using either the [Azure portal](
 
 ## Next steps
 
-You can also use [Az SQL VM CLI](availability-group-az-cli-configure.md) to configure an availability group. 
+Once the availability group is deployed, consider optimizing the [HADR settings for SQL Server on Azure VMs](hadr-cluster-best-practices.md). 
 
 
+To learn more, see:
+
+- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster-overview.md)
+- [Always On availability groups with SQL Server on Azure VMs](availability-group-overview.md)
+- [Always On availability groups overview](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)

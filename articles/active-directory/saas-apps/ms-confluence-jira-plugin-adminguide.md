@@ -8,7 +8,7 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: jeedes
 ---
@@ -61,7 +61,7 @@ The plug-in supports the following versions of Jira and Confluence:
 
 * Jira Core and Software: 6.0 to 7.12
 * Jira Service Desk: 3.0.0 to 3.5.0
-* JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
+* JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md)
 * Confluence: 5.0 to 5.10
 * Confluence: 6.0.1
 * Confluence: 6.1.1
@@ -153,7 +153,7 @@ The following image shows the configuration screen in both Jira and Confluence:
 
 * **There's an "App not found" error in Azure AD**: See if the appropriate URL is mapped to the app in Azure AD.
 
-* **You need support**: Reach out to the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). The team responds in 24-48 business hours.
+* **You need support**: Reach out to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com). The team responds in 24-48 business hours.
 
   You can also raise a support ticket with Microsoft through the Azure portal channel.
 
@@ -179,7 +179,7 @@ The plug-in supports these versions:
 
 * Jira Core and Software: 6.0 to 7.12
 * Jira Service Desk: 3.0.0 to 3.5.0
-* JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
+* JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md)
 * Confluence: 5.0 to 5.10
 * Confluence: 6.0.1
 * Confluence: 6.1.1
@@ -205,7 +205,7 @@ A restart is not required. You can start using the plug-in immediately.
 
 ### How do I get support for the plug-in?
 
-You can reach out to the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) for any support needed for this plug-in. The team responds in 24-48 business hours.
+You can reach out to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com) for any support needed for this plug-in. The team responds in 24-48 business hours.
 
 You can also raise a support ticket with Microsoft through the Azure portal channel.
 

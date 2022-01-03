@@ -8,14 +8,17 @@ displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 08/25/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Get analytics on your knowledge base
 
-QnA Maker stores all chat logs and other telemetry, if you have enabled App Insights during the [creation of your QnA Maker service](./set-up-qnamaker-service-azure.md). Run the sample queries to get your chat logs from App Insights.
+QnA Maker stores all chat logs and other telemetry, if you have enabled Application Insights during the [creation of your QnA Maker service](./set-up-qnamaker-service-azure.md). Run the sample queries to get your chat logs from Application Insights.
 
-1. Go to your App Insights resource.
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
+1. Go to your Application Insights resource.
 
     ![Select your application insights resource](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 

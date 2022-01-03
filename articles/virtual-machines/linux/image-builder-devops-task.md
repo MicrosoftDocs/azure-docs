@@ -1,33 +1,40 @@
 ---
-title: Azure Image Builder Service DevOps Task
+title: "Preview: Azure Image Builder Service DevOps Task"
 description: Azure DevOps task to inject build artifacts into a VM image so you can install and configure your application and OS.
-author: danielsollondon
-ms.author: danis
-ms.date: 08/10/2020
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
+ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.custom: devx-track-azurepowershell
 ---
 
-# Azure Image Builder Service DevOps Task
+# Azure Image Builder Service DevOps Task (preview)
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 This article shows you how to use an Azure DevOps task to inject build artifacts into a VM image so you can install and configure your application and OS.
 
 ## DevOps Task versions
 There are two Azure VM Image Builder (AIB) DevOps Tasks:
 
-* ['Stable' AIB Task](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder), this allows us to put in the latest updates and features, allow customers to test them, before we promote it to the 'stable' task, approximately 1 week later. 
+* ['Stable' AIB Task](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder), this is the latest stable build that has been tested, and telemetry shows no issues. 
 
 
 * ['Unstable' AIB Task](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder-canary), this allows us to put in the latest updates and features, allow customers to test them, before we promote it to the 'stable' task. If there are no reported issues, and our telemetry shows no issues, approximately 1 week later, we will promote the task code to 'stable'. 
 
 ## Prerequisites
 
+> [!NOTE]
+> The AIB task does not currently support Windows Restarts, running elevated commands as Administrator, which means it is not suitable for Windows Virtual Desktop scenarios or Windows customizations that require the above. If you wish to use DevOps with Image Builder, you should nest the template into an Azure Resource Manager task, use AZ CLI or PowerShell tasks.
+
 * Install the [Stable DevOps Task from Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder).
 * You must have a VSTS DevOps account, and a Build Pipeline created
 * Register and enable the Image Builder feature requirements in the subscription used by the pipelines:
-    * [Az PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-powershell#register-features)
-    * [Az CLI](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder#register-the-features)
+    * [Az PowerShell](../windows/image-builder-powershell.md#register-features)
+    * [Az CLI](../windows/image-builder.md#register-the-features)
     
 * Create a Standard Azure Storage Account in the source image Resource Group, you can use other Resource Group/Storage accounts. The storage account is used transfer the build artifacts from the DevOps task to the image.
 
@@ -66,14 +73,14 @@ Use the resource group where the temporary image template artifact will be store
  
 ### Location
 
-The location is the region where the Image Builder will run. Only a set number of [regions](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#regions) are supported. The source images must be present in this location. For example, if you are using Shared Image Gallery, a replica must exist in that region.
+The location is the region where the Image Builder will run. Only a set number of [regions](../image-builder-overview.md#regions) are supported. The source images must be present in this location. For example, if you are using Azure Compute Gallery, a replica must exist in that region.
 
 ### Managed Identity (Required)
-Image Builder requires a Managed Identity, which it uses to read source custom images, connect to Azure Storage, and create custom images. See [here](https://aka.ms/azvmimagebuilder#permissions) for more details.
+Image Builder requires a Managed Identity, which it uses to read source custom images, connect to Azure Storage, and create custom images. See [Learn about Azure Image Builder](../image-builder-overview.md#permissions) for more details.
 
 ### VNET Support
 
-Currently the DevOps task does not support specifying an existing Subnet, this is on the roadmap, but if you want to utilize an existing VNET, you can use an ARM template, with an Image Builder template nested inside, please see the Windows Image Builder template examples on how this is achieved, or alternatively use [AZ AIB PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-powershell).
+Currently the DevOps task does not support specifying an existing Subnet, this is on the roadmap, but if you want to utilize an existing VNET, you can use an ARM template, with an Image Builder template nested inside, please see the Windows Image Builder template examples on how this is achieved, or alternatively use [AZ AIB PowerShell](../windows/image-builder-powershell.md).
 
 ### Source
 
@@ -82,12 +89,12 @@ The source images must be of the supported Image Builder OSs. You can choose exi
     ```json
     /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/images/<imageName>
     ```
-* Azure Shared Image Gallery - You need to pass in the resourceId of the image version, for example:
+* Azure Azure Compute Gallery - You need to pass in the resourceId of the image version, for example:
     ```json
     /subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup/providers/Microsoft.Compute/galleries/$sigName/images/$imageDefName/versions/<versionNumber>
     ```
 
-    If you need to get the latest Shared Image Gallery version, you can have an AZ PowerShell or AZ CLI task before that will get the latest version and set a DevOps variable. Use the variable in the AZ VM Image Builder DevOps task. For more information, see the [examples](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/8_Getting_Latest_SIG_Version_ResID#getting-the-latest-image-version-resourceid-from-shared-image-gallery).
+    If you need to get the latest Azure Compute Gallery (formerly known as Shared Image Gallery) version, you can have an AZ PowerShell or AZ CLI task before that will get the latest version and set a DevOps variable. Use the variable in the AZ VM Image Builder DevOps task. For more information, see the [examples](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/8_Getting_Latest_SIG_Version_ResID#getting-the-latest-image-version-resourceid-from-shared-image-gallery).
 
 * (Marketplace) Base Image
     There is a drop-down list of popular images, these will always use the 'latest' version of the supported OS's. 
@@ -150,6 +157,12 @@ The following example explains how this works:
     & 'c:\buildArtifacts\webapp\webconfig.ps1'
     ```
 
+   You can reference multiple scripts, or add more commands, for example:
+
+    ```PowerShell
+    & 'c:\buildArtifacts\webapp\webconfig.ps1'
+    & 'c:\buildArtifacts\webapp\installAgent.ps1'
+    ```
 * Linux - On Linux systems the build artifacts are put into the `/tmp` directory. However, on many Linux OSs, on a reboot, the /tmp directory contents are deleted. If you want the artifacts to exist in the image, you must create another directory and copy them over.  For example:
 
     ```bash
@@ -190,7 +203,7 @@ The following example explains how this works:
     
 #### Total length of image build
 
-Total length cannot be changed in the DevOps pipeline task yet. It uses the default of 240 minutes. If you want to increase the [buildTimeoutInMinutes](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#properties-buildtimeoutinminutes), then you can use an AZ CLI task in the Release Pipeline. Configure the task to copy a template and submit it. For an example, see this [solution](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder), or use Az PowerShell.
+Total length cannot be changed in the DevOps pipeline task yet. It uses the default of 240 minutes. If you want to increase the [buildTimeoutInMinutes](./image-builder-json.md#properties-buildtimeoutinminutes), then you can use an AZ CLI task in the Release Pipeline. Configure the task to copy a template and submit it. For an example, see this [solution](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder), or use Az PowerShell.
 
 
 #### Storage Account
@@ -216,9 +229,9 @@ There are 3 distribute types supported.
 
 * Locations
 
-#### Azure Shared Image Gallery
+#### Azure Compute Gallery
 
-The Shared Image Gallery **must** already exist.
+The Azure Compute Gallery **must** already exist.
 
 * ResourceID: 
     ```bash
@@ -331,4 +344,5 @@ The Image Template resource artifact is in the resource group specified initiall
 
 ## Next steps
 
-For more information, see [Azure Image Builder overview](image-builder-overview.md).
+For more information, see [Azure Image Builder overview](../image-builder-overview.md).
+

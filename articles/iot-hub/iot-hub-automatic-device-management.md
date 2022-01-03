@@ -1,12 +1,12 @@
 ---
 title: Automatic device management at scale with Azure IoT Hub | Microsoft Docs
 description: Use Azure IoT Hub automatic configurations to manage multiple IoT devices and modules
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 12/13/2019
-ms.author: robinsh
+ms.date: 10/26/2021
+ms.author: lizross
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
 
@@ -49,13 +49,13 @@ Before you create a configuration, you must specify which devices or modules you
 
 ## Create a configuration
 
-1. In the [Azure portal](https://portal.azure.com), go to your IoT hub. 
+1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
 
-2. Select **IoT device configuration**.
+2. Select **Configurations** in the left navigation pane.
 
 3. Select **Add device configuration** or **Add module configuration**.
 
-   ![Add device configuration or module configuration](./media/iot-hub-automatic-device-management/create-automatic-configuration.png)
+   :::image type="content" source="./media/iot-hub-automatic-device-management/create-automatic-configuration.png" alt-text="Screenshot showing how to add a configuration." border="true":::
 
 There are five steps to create a configuration. The following sections walk through each one. 
 
@@ -229,14 +229,13 @@ When you delete a configuration, any device twins take on their next highest pri
 In this article, you learned how to configure and monitor IoT devices at scale. Follow these links to learn more about managing Azure IoT Hub:
 
 * [Manage your IoT Hub device identities in bulk](iot-hub-bulk-identity-mgmt.md)
-* [IoT Hub metrics](iot-hub-metrics.md)
-* [Operations monitoring](iot-hub-operations-monitoring.md)
+* [Monitor your IoT hub](monitor-iot-hub.md)
 
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide](iot-hub-devguide.md)
-* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/quickstart-linux.md)
 
 To explore using the IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning, see: 
 
-* [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)
+* [Azure IoT Hub Device Provisioning Service](../iot-dps/index.yml)

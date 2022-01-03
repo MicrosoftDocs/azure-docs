@@ -1,17 +1,17 @@
 ---
 title: How to select an audio input device with the Speech SDK
 titleSuffix: Azure Cognitive Services
-description: Learn about selecting audio input devices in the Speech SDK (C++, C#, Python, Objective-C, Java, JavaScript) by obtaining the IDs of the audio devices connected to a system.
+description: 'Learn about selecting audio input devices in the Speech SDK (C++, C#, Python, Objective-C, Java, JavaScript) by obtaining the IDs of the audio devices connected to a system.'
 services: cognitive-services
 author: chlandsi
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.custom: devx-track-javascript
+ms.devlang: cpp, csharp, java, javascript, objective-c, python
+ms.custom: devx-track-js, ignite-fall-2021
 ---
 
 # How to: Select an audio input device with the Speech SDK
@@ -131,6 +131,10 @@ void ListEndpoints()
 
         // Print endpoint friendly name and endpoint ID.
         printf("Endpoint %d: \"%S\" (%S)\n", i, varName.pwszVal, pwszID);
+
+        CoTaskMemFree(pwszID);
+        pwszID = NULL;
+        PropVariantClear(&varName);
     }
 
 Exit:
@@ -375,7 +379,7 @@ enables the use of a Bluetooth headset for a speech-enabled app.
 
 ## Audio device IDs in JavaScript
 
-In JavaScript the [MediaDevices.enumerateDevices()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) method can be used to enumerate the media devices and find a device ID to pass to `fromMicrophone(...)`.
+In JavaScript the [MediaDevices.enumerateDevices()](https://developer.mozilla.org/docs/Web/API/MediaDevices/enumerateDevices) method can be used to enumerate the media devices and find a device ID to pass to `fromMicrophone(...)`.
 
 ## Next steps
 
@@ -384,5 +388,5 @@ In JavaScript the [MediaDevices.enumerateDevices()](https://developer.mozilla.or
 
 ## See also
 
-- [Customize acoustic models](how-to-customize-acoustic-models.md)
-- [Customize language models](how-to-customize-language-model.md)
+- [Customize acoustic models](./how-to-custom-speech-train-model.md)
+- [Customize language models](./how-to-custom-speech-train-model.md)

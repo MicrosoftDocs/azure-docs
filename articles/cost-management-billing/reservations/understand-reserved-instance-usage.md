@@ -7,13 +7,13 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 09/15/2021
 ms.author: banders
 ---
 
 # Understand Azure reservation usage for your individual subscription with pay-as-you-go rates subscription
 
-Use the ReservationId from [Reservation page](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) and the usage file from the [Azure Accounts portal](https://account.azure.com) to evaluate your reservation usage.
+Use the ReservationId from [Reservation page](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) and the usage file from the [Azure portal](https://portal.azure.com) to evaluate your reservation usage.
 
 If you are a customer with an Enterprise Agreement, see [Understand reservation usage for your Enterprise enrollment.](understand-reserved-instance-usage-ea.md).
 
@@ -49,7 +49,7 @@ Filter on **Additional Info** and type in your **Reservation ID**. The following
 1. **ReservationId** in the **Additional Info** field is the reservation that's applied to the VM.
 2. **ConsumptionMeter** is the meter ID for the VM.
 3. The **Reservation-Base VM** **Meter Subcategory** line represents the $0 cost in statement section. The cost of running this VM is already paid by the reservation.
-4. **Meter ID** is the meter ID for the reservation. The cost of this meter is $0. This meter id appears for any VM that qualifies for the reservation discount.
+4. **Meter ID** is the meter ID for the reservation. The cost of this meter is $0. This meter ID appears for any VM that qualifies for the reservation discount.
 5. Standard_DS1_v2 is one vCPU VM and the VM is deployed without Azure Hybrid Benefit. So, this meter covers the extra charge of the Windows software. To find the meter corresponding to D series 1 core VM, see [Azure Reserve VM Instances Windows software costs](reserved-instance-windows-software-costs.md). If you have the Azure Hybrid Benefit, this extra charge is not applied.
 
 ## Usage for SQL Database & Cosmos DB reservations
@@ -69,7 +69,7 @@ Assume that you are running a SQL Database Gen 4 in the east US region and your 
 
 Filter on **Reserved Instance Usage** meter name, and choose the required **Meter Category** - Azure SQL Database or Azure Cosmos DB. You see something like the following screenshot:
 
-![CSV file for SQL Database reserved capacity](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
+![Screenshot shows a Meter Category entry.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 
 The **Reserved Instance Usage** line has the total number of core hours covered by the reservation. The rate is $0 for this line as the reservation covered the cost.
 
@@ -77,7 +77,7 @@ The **Reserved Instance Usage** line has the total number of core hours covered 
 
 Filter on **Additional Info** and type in your **Reservation ID**. The following screenshot shows the fields related to the SQL Database reserved capacity reservation.
 
-![CSV file for SQL Database reserved capacity](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
+![Screenshot shows details of a C S V file for reserved capacity.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
 
 1. **ReservationId** in the **Additional Info** field is the SQL Database reserved capacity reservation that's applied to the SQL Database resource.
 2. **ConsumptionMeter** is the meter ID for the SQL Database resource.
@@ -92,7 +92,7 @@ If you have questions or need help, [create a support request](https://go.micros
 To learn more about Azure Reservations, see the following articles:
 
 - [What are Azure Reservations?](save-compute-costs-reservations.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)
 - [Manage Azure Reservations](manage-reserved-vm-instance.md)
 - [Understand how the reservation discount is applied](../manage/understand-vm-reservation-charges.md)

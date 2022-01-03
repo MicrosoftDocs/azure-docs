@@ -4,13 +4,12 @@ description: This page is the central location for all documentation regarding A
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: f9107cf5-0131-499a-9edf-616bf3afef4d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 10/09/2018
 ms.subservice: hybrid
@@ -29,7 +28,7 @@ This topic is the home for information on federation-related functionalities for
 | **Azure AD Connect user sign-in options** | |
 | [Understand user sign-in options](plan-connect-user-signin.md) |Learn about various user sign-in options and how they affect the Azure sign-in user experience. |
 | **Install AD FS by using Azure AD Connect** | |
-| [Prerequisites](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |See the prerequisites for a successful AD FS installation via Azure AD Connect. |
+| [Prerequisites](how-to-connect-install-custom.md#ad-fs-configuration-prerequisites) |See the prerequisites for a successful AD FS installation via Azure AD Connect. |
 | [Configure an AD FS farm](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Install a new AD FS farm by using Azure AD Connect. |
 | [Federate with Azure AD using alternate login ID](how-to-connect-fed-management.md#alternateid) | Configure federation using alternate login ID  |
 | **Modify the AD FS configuration** | |

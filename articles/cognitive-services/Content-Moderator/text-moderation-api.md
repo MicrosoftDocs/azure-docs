@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 10/27/2021
 ms.author: pafarley
 
 ---
@@ -31,7 +31,7 @@ The service response includes the following information:
 
 ## Profanity
 
-If the API detects any profane terms in any of the [supported languages](Text-Moderation-API-Languages.md), those terms are included in the response. The response also contains their location (`Index`) in the original text. The `ListId` in the following sample JSON refers to terms found in [custom term lists](try-terms-list-api.md) if available.
+If the API detects any profane terms in any of the [supported languages](./language-support.md), those terms are included in the response. The response also contains their location (`Index`) in the original text. The `ListId` in the following sample JSON refers to terms found in [custom term lists](try-terms-list-api.md) if available.
 
 ```json
 "Terms": [
@@ -39,7 +39,7 @@ If the API detects any profane terms in any of the [supported languages](Text-Mo
         "Index": 118,
         "OriginalIndex": 118,
         "ListId": 0,
-        "Term": "crap"
+        "Term": "<offensive word>"
     }
 ```
 
@@ -126,7 +126,7 @@ The following example shows a sample response:
 
 ## Auto-correction
 
-Suppose the input text is (the 'lzay' and 'f0x' are intentional):
+Suppose the input text is (the "qu!ck," "f0x," and "lzay" are intentional):
 
 > The qu!ck brown f0x jumps over the lzay dog.
 
@@ -150,7 +150,7 @@ The following example shows the matching List ID:
         "Index": 118,
         "OriginalIndex": 118,
         "ListId": 231.
-        "Term": "crap"
+        "Term": "<offensive word>"
     }
 ```
 

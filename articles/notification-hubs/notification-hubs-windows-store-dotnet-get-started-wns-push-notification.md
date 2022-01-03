@@ -9,12 +9,12 @@ manager: femila
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: tutorial
 ms.custom: "mvc, ms.custom: devx-track-csharp"
-ms.date: 12/05/2019
+ms.date: 08/23/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 12/04/2019
 ---
 
@@ -51,6 +51,9 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 ## Create an app in Windows Store
 
+> [!NOTE]
+> Microsoft Push Notification Service (MPNS) has been deprecated and is no longer supported.
+
 To send push notifications to UWP apps, associate your app to the Windows Store. Then, configure your notification hub to integrate with WNS.
 
 1. Navigate to the [Windows Dev Center](https://partner.microsoft.com/dashboard/windows/first-run-experience), sign in with your Microsoft account, and then select **Create a new app**.
@@ -62,7 +65,7 @@ To send push notifications to UWP apps, associate your app to the Windows Store.
 3. Expand **Product management**, select **WNS/MPNS**, and then select **Live Services site**. Sign in to your Microsoft account. The application registration page opens in a new tab. Alternatively, you can navigate directly to the [My applications](https://apps.dev.microsoft.com) page, and select your application name to get to this page.
 
     ![WNS MPNS page](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
-4. Note the **Application Secrets** password and the **Package security identifier (SID)**.
+4. Note the **Application Secrets** password as well as both **Package security identifier (SID)** and **Application Identity** under the Windows Store section.
 
     >[!WARNING]
     >The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
@@ -145,7 +148,9 @@ Your notification hub is now configured to work with WNS. You have the connectio
 
     This action guarantees that the channel URI is registered in your notification hub each time the application launches.
 
-12. To run the app, press the keyboard's **F5** key. A dialog box containing the registration key will display. To close the dialog, click **OK**.
+12. Right-click on `Package.appxmanifest` and select View Code (**F7**). Locate  `<Identity .../>` and replace the value with the **Application Identity** from the WNS you created [earlier](#create-an-app-in-windows-store).
+
+13. To run the app, press the keyboard's **F5** key. A dialog box containing the registration key will display. To close the dialog, click **OK**.
 
     ![Registration successful](./media/notification-hubs-windows-store-dotnet-get-started/registration-successful.png)
 

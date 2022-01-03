@@ -1,14 +1,16 @@
 ---
 title: How to ensure validation of the Azure Database for MySQL - Data encryption
 description: Learn how to validate the encryption of the Azure Database for MySQL - Data encryption using the customers managed key.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/28/2020
 ---
 
 # Validating data encryption for Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 This article helps you validate that data encryption using customer managed key for Azure Database for MySQL is working as expected.
 
@@ -32,7 +34,7 @@ This article helps you validate that data encryption using customer managed key 
 
 2. On the Azure portal, if you can ensure that the encryption key is set, then data is encrypted using the customers key used in the Azure portal.
 
-  ![Access policy overview](media/concepts-data-access-and-security-data-encryption/byok-validate.png)
+  :::image type="content" source="media/concepts-data-access-and-security-data-encryption/byok-validate.png" alt-text="Access policy overview":::
 
 ### From CLI
 

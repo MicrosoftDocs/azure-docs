@@ -116,7 +116,7 @@ To block creating a connection altogether in a logic app, follow these steps:
 
 1. Under **Policy definition**, provide the information for your policy definition, based on the properties described under the example:
 
-   ![Policy definition properties](./media/block-connections-connectors/policy-definition-create-connections-1.png)
+   ![Screenshot that shows the "Policy definition" properties.](./media/block-connections-connectors/policy-definition-create-connections-1.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
@@ -175,7 +175,7 @@ To block creating a connection altogether in a logic app, follow these steps:
 
    Here is the way that the **POLICY RULE** box appears:
 
-   ![Rule for policy definition](./media/block-connections-connectors/policy-definition-create-connections-2.png)
+   ![Screenshot that shows the "POLICY RULE" box with a policy rule example.](./media/block-connections-connectors/policy-definition-create-connections-2.png)
 
    For multiple connectors, you can add more conditions, for example:
 
@@ -215,11 +215,11 @@ To block creating a connection altogether in a logic app, follow these steps:
 
 1. Next, to assign the policy definition where you want enforce the policy, [create a policy assignment](#create-policy-assignment).
 
-For more information about Azure policy definitions, see these topics:
+For more information about Azure Policy definitions, see these topics:
 
-* [Policy structure definition](../governance/policy/concepts/definition-structure.md)
+* [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md)
 * [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
-* [Azure Policy built-in policy definitions for Azure Logic Apps](../logic-apps/policy-samples.md)
+* [Azure Policy built-in policy definitions for Azure Logic Apps](./policy-reference.md)
 
 <a name="create-policy-connector-usage"></a>
 
@@ -302,11 +302,11 @@ When you create a connection inside a logic app, that connection exists as separ
 
 1. Next, to assign the policy definition where you want enforce the policy, [create a policy assignment](#create-policy-assignment).
 
-For more information about Azure policy definitions, see these topics:
+For more information about Azure Policy definitions, see these topics:
 
-* [Policy structure definition](../governance/policy/concepts/definition-structure.md)
+* [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md)
 * [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
-* [Azure Policy built-in policy definitions for Azure Logic Apps](../logic-apps/policy-samples.md)
+* [Azure Policy built-in policy definitions for Azure Logic Apps](./policy-reference.md)
 
 <a name="create-policy-assignment"></a>
 

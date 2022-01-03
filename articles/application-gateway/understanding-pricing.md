@@ -256,9 +256,19 @@ If processing capacity equivalent to 10 additional CUs was available for use wit
 
 Fixed Price = $0.246  * 730 (Hours) =  $179.58
 
-Variable Costs = $0.008 * ( 3(Instance Units) * 10(capacity units) + 5 (additional capacity units) ) * 730 (Hours) = $204.4
+Variable Costs = $0.008 * ( 3(Instance Units) * 10(capacity units) + 10 (additional capacity units) ) * 730 (Hours) = $233.6
 
-Total Costs = $179.58 + $204.4 = $383.98
+Total Costs = $179.58 + $233.6 = $413.18
+
+However, if processing capacity equivalent to only say 7 additional CUs was available for use within the 3 reserved instances.
+In this scenario the Application Gateway resource is under scaled and could potentially lead to increase in latency or requests getting dropped.
+
+Fixed Price = $0.246  * 730 (Hours) =  $179.58
+
+Variable Costs = $0.008 * ( 3(Instance Units) * 10(capacity units) + 7 (additional capacity units) ) * 730 (Hours) = $216.08
+
+Total Costs = $179.58 + $216.08 = $395.66
+
 
 ![Diagram of Manual-scale 2.](./media/pricing/manual-scale-2.png)
 
@@ -330,9 +340,9 @@ Monthly price estimates are based on 730 hours of usage per month.
 
 Fixed Price = $0.443 * 730 (Hours) =  $323.39
 
-Variable Costs = $0.0144  * 730 (Hours) * {Max (25/50, 8.88/2.22)} = $23.36 (4 Capacity units required to handle 8.88 Mbps)
+Variable Costs = $0.0144  * 730 (Hours) * {Max (25/50, 8.88/2.22)} = $42.048 (4 Capacity units required to handle 8.88 Mbps)
 
-Total Costs = $323.39 + $23.36 = $346.75
+Total Costs = $323.39 + $42.048 = $365.438
 
 ### Example 5 (a) – Standard_V2 with Autoscaling, time-based calculations
 
@@ -386,4 +396,4 @@ Observed Capacity Units in metrics = 49.23
 See the following articles to learn more about how pricing works in Azure Application Gateway:
 
 * [Azure Application Gateway pricing page](https://azure.microsoft.com/pricing/details/application-gateway/)
-* [Azure Application Gateway pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/?service=application-gateway)
+* [Azure Application Gateway pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=application-gateway)

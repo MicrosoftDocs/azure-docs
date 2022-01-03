@@ -1,15 +1,15 @@
 ---
-title: 'What is a workspace'
+title: 'What is a workspace?'
 titleSuffix: Azure Machine Learning
-description: The workspace is the top-level resource for Azure Machine Learning. It keeps a history of all training runs, including logs, metrics, output, and a snapshot of your scripts. You use this information to determine which training run produces the best model
+description: The workspace is the top-level resource for Azure Machine Learning. It keeps a history of all training runs, with logs, metrics, output, and a snapshot of your scripts. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/08/2020
-# As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
+ms.date: 10/21/2021
+#Customer intent: As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
 ---
 
 
@@ -17,9 +17,7 @@ ms.date: 07/08/2020
 
 The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning.  The workspace keeps a history of all training runs, including logs, metrics, output, and a snapshot of your scripts. You use this information to determine which training run produces the best model.  
 
-Once you have a model you like, you register it with the workspace. You then use the registered model and scoring scripts to deploy to Azure Container Instances, Azure Kubernetes Service, or to a field-programmable gate array (FPGA) as a REST-based HTTP endpoint. You can also deploy the model to an Azure IoT Edge device as a module.
-
-Pricing and features available depend on whether [Basic or Enterprise edition](overview-what-is-azure-ml.md#sku) is selected for the workspace. You select the edition when you [create the workspace](#create-workspace).  You can also [upgrade](#upgrade) from Basic to Enterprise edition.
+Once you have a model you like, you register it with the workspace. You then use the registered model and scoring scripts to deploy to Azure Container Instances, Azure Kubernetes Service, or to a field-programmable gate array (FPGA) as a REST-based HTTP endpoint.
 
 ## Taxonomy 
 
@@ -51,10 +49,9 @@ You can interact with your workspace in the following ways:
 
 + On the web:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
-    + [Azure Machine Learning designer (preview)](concept-designer.md) - Available only in [Enterprise edition](overview-what-is-azure-ml.md#sku) workspaces.
-+ In any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
-+ In any R environment with the [Azure Machine Learning SDK for R (preview)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
-+ On the command line using the Azure Machine Learning [CLI extension](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli)
+    + [Azure Machine Learning designer](concept-designer.md) 
++ In any Python environment with the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
++ On the command line using the Azure Machine Learning [CLI extension](./reference-azure-machine-learning-cli.md)
 + [Azure Machine Learning VS Code Extension](how-to-manage-resources-vscode.md#workspaces)
 
 
@@ -74,11 +71,10 @@ Machine learning tasks read and/or write artifacts to your workspace.
 
 You can also perform the following workspace management tasks:
 
-| Workspace management task   | Portal              | Studio | Python SDK / R SDK       | CLI        | VS Code
+| Workspace management task   | Portal              | Studio | Python SDK      | Azure CLI        | VS Code
 |---------------------------|---------|---------|------------|------------|------------|
 | Create a workspace        | **&check;**     | | **&check;** | **&check;** | **&check;** |
 | Manage workspace access    | **&check;**   || |  **&check;**    ||
-| Upgrade to Enterprise edition    | **&check;** | **&check;**  | |     ||
 | Create and manage compute resources    | **&check;**   | **&check;** | **&check;** |  **&check;**   ||
 | Create a Notebook VM |   | **&check;** | |     ||
 
@@ -87,53 +83,73 @@ You can also perform the following workspace management tasks:
 
 ## <a name='create-workspace'></a> Create a workspace
 
-When you create a workspace, you decide whether to create it with [Basic or Enterprise edition](overview-what-is-azure-ml.md#sku). The edition determines the features available in the workspace. Among other features, Enterprise edition gives you access to [Azure Machine Learning designer](concept-designer.md) and the studio version of building [automated machine learning experiments](tutorial-first-experiment-automated-ml.md).  For more information and pricing information, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
-
 There are multiple ways to create a workspace:  
 
-* Use the [Azure portal](how-to-manage-workspace.md) for a point-and-click interface to walk you through each step.
-* Use the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#&preserve-view=trueworkspace) to create a workspace on the fly from Python scripts or Jupiter notebooks
+* Use the [Azure portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) for a point-and-click interface to walk you through each step.
+* Use the [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) to create a workspace on the fly from Python scripts or Jupyter notebooks
 * Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) when you need to automate or customize the creation with corporate security standards.
 * If you work in Visual Studio Code, use the [VS Code extension](how-to-manage-resources-vscode.md#create-a-workspace).
 
 > [!NOTE]
 > The workspace name is case-insensitive.
 
-## <a name="upgrade"></a> Upgrade to Enterprise edition
+## <a name="sub-resources"></a> Sub resources
 
-You can [upgrade your workspace from Basic to Enterprise edition](how-to-manage-workspace.md#upgrade) using Azure portal. You cannot downgrade an Enterprise edition workspace to a Basic edition workspace. 
+These sub resources are the main resources that are made in the AML workspace.
+
+* VMs: provide computing power for your AML workspace and are an integral part in deploying and training models.
+* Load Balancer: a network load balancer is created for each compute instance and compute cluster to manage traffic even while the compute instance/cluster is stopped.
+* Virtual Network: these help Azure resources communicate with one another, the internet, and other on-premises networks.
+* Bandwidth: encapsulates all outbound data transfers across regions.
 
 ## <a name="resources"></a> Associated resources
 
 When you create a new workspace, it automatically creates several Azure resources that are used by the workspace:
 
-+ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registers docker containers that you use during training and when you deploy a model. To minimize costs, ACR is **lazy-loaded** until deployment images are created.
-+ [Azure Storage account](https://azure.microsoft.com/services/storage/): Is used as the default datastore for the workspace.  Jupyter notebooks that are used with your Azure Machine Learning compute instances are stored here as well.
++ [Azure Storage account](https://azure.microsoft.com/services/storage/): Is used as the default datastore for the workspace.  Jupyter notebooks that are used with your Azure Machine Learning compute instances are stored here as well. 
+  
+  > [!IMPORTANT]
+  > By default, the storage account is a general-purpose v1 account. You can [upgrade this to general-purpose v2](../storage/common/storage-account-upgrade.md) after the workspace has been created. 
+  > Do not enable hierarchical namespace on the storage account after upgrading to general-purpose v2.
+
+  To use an existing Azure Storage account, it cannot be of type BlobStorage or a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage nor hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
+  
++ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registers docker containers that are used for the following components:
+    * [Azure Machine Learning environments](concept-environments.md) when training and deploying models
+    * [AutoML](concept-automated-ml.md) when deploying
+    * [Data profiling](how-to-connect-data-ui.md#data-profile-and-preview)
+
+    To minimize costs, ACR is **lazy-loaded** until images are needed.
+
+    > [!NOTE]
+    > If your subscription setting requires adding tags to resources under it, Azure Container Registry (ACR) created by Azure Machine Learning will fail, since we cannot set tags to ACR.
+
 + [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Stores monitoring information about your models.
+
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Stores secrets that are used by compute targets and other sensitive information that's needed by the workspace.
 
 > [!NOTE]
-> In addition to creating new versions, you can also use existing Azure services.
+> You can instead use existing Azure resource instances when you create the workspace with the [Python SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace) or the Azure Machine Learning CLI [using an ARM template](how-to-create-workspace-template.md).
 
-### Azure storage account
+<a name="wheres-enterprise"></a>
 
-The Azure Storage account created by default with the workspace is a general-purpose v1 account. You can upgrade this to general-purpose v2 after the workspace has been created by following the steps in the [Upgrade to a general-purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) article.
+## What happened to Enterprise edition
 
-> [!IMPORTANT]
-> Do not enable hierarchical namespace on the storage account after upgrading to general-purpose v2.
+As of September 2020, all capabilities that were available in Enterprise edition workspaces are now also available in Basic edition workspaces. 
+New Enterprise workspaces can no longer be created.  Any SDK, CLI, or Azure Resource Manager calls that use the `sku` parameter will continue to work but a Basic workspace will be provisioned.
 
-If you want to use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
+Beginning December 21st, all Enterprise Edition workspaces will be automatically set to Basic Edition, which has the same capabilities. No downtime will occur during this process. On January 1, 2021, Enterprise Edition will be formally retired. 
 
-
+In either editions, customers are responsible for the costs of Azure resources consumed and will not need to pay any additional charges for Azure Machine Learning. Please refer to the [Azure Machine Learning pricing page](https://azure.microsoft.com/pricing/details/machine-learning/) for more details.
 
 ## Next steps
 
+To learn more about planning a workspace for your organization's requirements, see [Organize and set up Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization).
+
 To get started with Azure Machine Learning, see:
 
-+ [Azure Machine Learning overview](overview-what-is-azure-ml.md)
-+ [Create a workspace](how-to-manage-workspace.md)
-+ [Manage a workspace](how-to-manage-workspace.md)
-+ [Tutorial: Get started creating your first ML experiment with the Python SDK](tutorial-1st-experiment-sdk-setup.md)
-+ [Tutorial: Get started with Azure Machine Learning with the R SDK](tutorial-1st-r-experiment.md)
-+ [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md) (Available only in [Enterprise edition](overview-what-is-azure-ml.md#sku) workspaces)
-+ [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md) (Available only in [Enterprise edition](overview-what-is-azure-ml.md#sku) workspaces)
++ [What is Azure Machine Learning?](overview-what-is-azure-machine-learning.md)
++ [Create and manage a workspace](how-to-manage-workspace.md)
++ [Tutorial: Get started with Azure Machine Learning](quickstart-create-resources.md)
++ [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md) 
++ [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)

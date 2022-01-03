@@ -10,17 +10,19 @@ ms.date: 06/22/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: nigu
+ms.collection: M365-identity-device-management
 
 #Customer intent: As an IT admin, I want to know how to use the What If tool for my existing Conditional Access policies, so that I can understand the impact they have on my environment. 
-ms.collection: M365-identity-device-management
 ---
 # Troubleshoot using the What If tool in Conditional Access
 
 [Conditional Access](./overview.md) is a capability of Azure Active Directory (Azure AD) that enables you to control how authorized users access your cloud apps. How do you know what to expect from the Conditional Access policies in your environment? To answer this question, you can use the **Conditional Access What If tool**.
 
 This article explains how you can use this tool to test your Conditional Access policies.
+
+> [!VIDEO https://www.youtube.com/embed/M_iQVM-3C3E]
 
 ## What it is
 
@@ -34,7 +36,7 @@ In the **Conditional Access What If tool**, you first need to configure the sett
 
 - The user you want to test 
 - The cloud apps the user would attempt to access
-- The conditions under which access to the configures cloud apps is performed
+- The conditions under which access to the configured cloud apps is performed
      
 As a next step, you can initiate a simulation run that evaluates your settings. Only policies that are enabled are part of an evaluation run.
 
@@ -46,7 +48,7 @@ You can find the **What If** tool on the **[Conditional Access - Policies](https
 
 To start the tool, in the toolbar on top of the list of policies, click **What If**.
 
-![What If](./media/what-if-tool/01.png)
+:::image type="content" source="./media/what-if-tool/01.png" alt-text="Screenshot of the Conditional Access - Policies page in the Azure portal. In the toolbar, the What if item is highlighted." border="false":::
 
 Before you can run an evaluation, you must configure the settings.
 
@@ -54,7 +56,7 @@ Before you can run an evaluation, you must configure the settings.
 
 This section provides you with information about the settings of simulation run.
 
-![What If](./media/what-if-tool/02.png)
+:::image type="content" source="./media/what-if-tool/02.png" alt-text="Screenshot of the Azure portal What If page, with fields for a user, cloud apps, an I P address, a device platform, a client app, and a sign-in risk." border="false":::
 
 ### User
 
@@ -63,6 +65,9 @@ You can only select one user. This is the only required field.
 ### Cloud apps
 
 The default for this setting is **All cloud apps**. The default setting performs an evaluation of all available policies in your environment. You can narrow down the scope to policies affecting specific cloud apps.
+
+> [!NOTE]
+> When using the What If tool, it does not test for [Conditional Access service dependencies](service-dependencies.md). For example, if you are using What If to test a Conditional Access policy for Microsoft Teams, the result will not take into consideration any policy that would apply to Office 365 Exchange Online, a Conditional Access service dependency for Microsoft Teams.
 
 ### IP address
 
@@ -88,7 +93,7 @@ This setting mimics the [sign-in risk condition](concept-conditional-access-cond
 
 You start an evaluation by clicking **What If**. The evaluation result provides you with a report that consists of: 
 
-![What If](./media/what-if-tool/03.png)
+:::image type="content" source="./media/what-if-tool/03.png" alt-text="Screenshot of an evaluation report. Text indicates that at least one classic policy is configured. Tabs are available for viewing policies." border="false":::
 
 - An indicator whether classic policies exist in your environment
 - Policies that apply to your user

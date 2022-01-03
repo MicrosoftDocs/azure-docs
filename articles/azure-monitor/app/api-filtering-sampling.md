@@ -3,7 +3,8 @@ title: Filtering and preprocessing in the Application Insights SDK | Microsoft D
 description: Write telemetry processors and telemetry initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.custom: "devx-track-javascript, devx-track-csharp"
+ms.devlang: csharp, javascript, python
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Filter and preprocess telemetry in the Application Insights SDK
@@ -287,7 +288,7 @@ protected void Application_Start()
 }
 ```
 
-See more of [this sample](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
+See more of [this sample](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
 
 ASP.NET **Core/Worker service apps: Load your initializer**
 
@@ -307,44 +308,21 @@ For apps written by using [ASP.NET Core](asp-net-core.md#adding-telemetryinitial
 ### JavaScript telemetry initializers
 *JavaScript*
 
-Insert a telemetry initializer immediately after the initialization code that you got from the portal:
+Insert a telemetry initializer using the snippet onInit callback:
 
-```JS
+```html
 <script type="text/javascript">
-    // ... initialization code
-    ...({
-        instrumentationKey: "your instrumentation key"
-    });
-    window.appInsights = appInsights;
-
-
-    // Adding telemetry initializer.
-    // This is called whenever a new telemetry item
-    // is created.
-
-    appInsights.queue.push(function () {
-        appInsights.context.addTelemetryInitializer(function (envelope) {
-            var telemetryItem = envelope.data.baseData;
-
-            // To check the telemetry items type - for example PageView:
-            if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
-                // this statement removes url from all page view documents
-                telemetryItem.url = "URL CENSORED";
-            }
-
-            // To set custom properties:
-            telemetryItem.properties = telemetryItem.properties || {};
-            telemetryItem.properties["globalProperty"] = "boo";
-
-            // To set custom metrics:
-            telemetryItem.measurements = telemetryItem.measurements || {};
-            telemetryItem.measurements["globalMetric"] = 100;
-        });
-    });
-
-    // End of inserted code.
-
-    appInsights.trackPageView();
+!function(T,l,y){<!-- Removed the Snippet code for brevity -->}(window,document,{
+src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
+crossOrigin: "anonymous",
+onInit: function (sdk) {
+  sdk.addTelemetryInitializer(function (envelope) {
+    envelope.data.someField = 'This item passed through my telemetry initializer';
+  });
+}, // Once the application insights instance has loaded and initialized this method will be called
+cfg: { // Application Insights Configuration
+    instrumentationKey: "YOUR_INSTRUMENTATION_KEY"
+}});
 </script>
 ```
 
@@ -494,7 +472,7 @@ public void Initialize(ITelemetry telemetry)
 
 #### Add information from HttpContext
 
-The following sample initializer reads data from [`HttpContext`](/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) and appends it to a `RequestTelemetry` instance. The `IHttpContextAccessor` is automatically provided through constructor dependency injection.
+The following sample initializer reads data from [`HttpContext`](/aspnet/core/fundamentals/http-context) and appends it to a `RequestTelemetry` instance. The `IHttpContextAccessor` is automatically provided through constructor dependency injection.
 
 ```csharp
 public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
@@ -531,6 +509,9 @@ What's the difference between telemetry processors and telemetry initializers?
 * All registered telemetry initializers are guaranteed to be called for every telemetry item. For telemetry processors, SDK guarantees calling the first telemetry processor. Whether the rest of the processors are called or not is decided by the preceding telemetry processors.
 * Use telemetry initializers to enrich telemetry with additional properties or override an existing one. Use a telemetry processor to filter out telemetry.
 
+> [!NOTE]
+> JavaScript only has telemetry initializers which can [filter out events by using ITelemetryInitializer](#javascript-web-applications)
+
 ## Troubleshoot ApplicationInsights.config
 
 * Confirm that the fully qualified type name and assembly name are correct.
@@ -550,5 +531,5 @@ What's the difference between telemetry processors and telemetry initializers?
 ## <a name="next"></a>Next steps
 * [Search events and logs](./diagnostic-search.md)
 * [sampling](./sampling.md)
-* [Troubleshooting](../faq.md)
+* [Troubleshooting](../faq.yml)
 

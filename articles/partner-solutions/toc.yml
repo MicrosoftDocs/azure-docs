@@ -1,0 +1,13 @@
+- name: Azure partner solutions documentation
+  href: overview.md
+- name: Partner solutions
+  expanded: true
+  items:
+  - name: Apache Kafka on Confluent Cloud
+    href: ./apache-kafka-confluent-cloud/index.yml
+  - name: Datadog
+    href: ./datadog/index.yml
+  - name: Elastic
+    href: ./elastic/index.yml
+  - name: Logz.io
+    href: ./logzio/index.yml

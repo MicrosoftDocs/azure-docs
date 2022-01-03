@@ -1,13 +1,13 @@
 ---
 title: 'Tutorial: Deploy ASP.NET apps to Azure Functions with Azure DevOps Starter'
 description: Azure DevOps Starter makes it easy to get started on Azure. With DevOps Starter, you can deploy your ASP.NET app to Azure Functions in a few quick steps.
-ms.author: mlearned
+ms.author: gwallace
 ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
-author: mlearned
+author: georgewallace
 ms.custom: devx-track-csharp
 ---
 
@@ -90,7 +90,7 @@ DevOps Starter automatically configures a CI/CD pipeline in your Azure DevOps or
 
 1. Click on the hyperlink under **Build**. A browser tab displays the build pipeline for your new project.
 
-    ![Build](_img/azure-devops-project-functions/build.png)
+    ![Screenshot shows the Azure portal DevOps Starter dashboard with an arrow pointing to a link under Build in the C I / C D pipeline.](_img/azure-devops-project-functions/build.png)
 
 1. Select **Edit**. In this pane, you can examine the various tasks for your build pipeline. The build performs various tasks, such as fetching source code from the Git repo, building the application, running unit tests, and publishing outputs that are used for deployments.
 

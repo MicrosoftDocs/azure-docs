@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure Peakon automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Peakon .
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/28/2019
-ms.author: zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Peakon for automatic user provisioning
@@ -26,8 +26,11 @@ The objective of this tutorial is to demonstrate the steps to be performed in Pe
 The scenario outlined in this tutorial assumes that you already have the following prerequisites
 
 * An Azure AD tenant.
-* [A Peakon tenant](https://peakon.com/us/pricing/).
+* [A Peakon tenant](https://www.workday.com/en-us/products/employee-voice/overview.html).
 * A user account in Peakon  with Admin permissions.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Assigning users to Peakon
 
@@ -41,7 +44,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 * It is recommended that a single Azure AD user is assigned to Peakon  to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
-* When assigning a user to Peakon , you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
+* When assigning a user to Peakon, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
 ## Set up Peakon for provisioning
 
@@ -51,11 +54,11 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 2. 	Select **Integrations**.
 	
-	![Peakon-employee-provision](media/Peakon-provisioning-tutorial/Peakon-select-integration.png)
+	![Screenshot of the Configuration options with the Integrations option called out.](media/Peakon-provisioning-tutorial/Peakon-select-integration.png)
 
 3.	Enable **Employee Provisioning**.
 
-	![Peakon-employee-provision](media/Peakon-provisioning-tutorial/peakon05.png)
+	![Screenshot of the Employee Provisioning section with the Enable option called out.](media/Peakon-provisioning-tutorial/peakon05.png)
 
 4.	Copy the values for **SCIM 2.0 URL** and **OAuth Bearer Token**. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Peakon application in the Azure portal.
 
@@ -100,11 +103,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input the **SCIM 2.0 URL** and **OAuth Bearer Token** values retrieved earlier in **Tenant URL** and **Secret Token** respectively. Click **Test Connection** to ensure Azure AD can connect to Peakon. If the connection fails, ensure your Peakon account has Admin permissions and try again.
 

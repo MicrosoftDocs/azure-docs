@@ -24,7 +24,7 @@ portal](https://www.microsoftazuresponsorships.com/).
 
 After you exhaust your available credit or reach the end of 12 months, your Azure subscription becomes 
 disabled. The Azure for Students subscription is not renewable. To continue using Azure, you may upgrade 
-to a pay-as-you-go subscription in the [Azure Account portal](https://account.azure.com/). If you decide 
+to a pay-as-you-go subscription in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). If you decide 
 not to upgrade at the end of 12 months or after you've exhausted your $100 credit, whichever occurs first, 
 any products you've deployed are decommissioned and you won't be able to access them. You have 90 days 
 from the end of your free subscription to upgrade to a pay-as-you-go subscription.
@@ -36,4 +36,4 @@ To get detailed terms of use for Azure for Students, see the [offer terms](https
 - [Get help with login errors](troubleshoot-login.md)
 - [Download software (Azure for Students)](download-software.md)
 - [Azure for Students Starter overview](azure-students-starter-program.md)
-- [Microsoft Learn: a free online learning platform](https://docs.microsoft.com/learn/)
+- [Microsoft Learn: a free online learning platform](/learn/)

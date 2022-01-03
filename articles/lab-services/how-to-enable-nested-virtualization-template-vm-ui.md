@@ -2,7 +2,7 @@
 title: Enable nested virtualization on a template VM in Azure Lab Services (UI) | Microsoft Docs
 description: Learn how to create a template VM with multiple VMs inside.  In other words, enable nested virtualization on a template VM in Azure Lab Services. 
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: enewman
 ---
@@ -151,7 +151,7 @@ The following steps are instruction to add DHCP scope.  In this article, our NAT
 
 ## Conclusion
 
-Now your template machine is ready to create Hyper-V virtual machines.   See [Create a Virtual Machine in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) for instructions about how to create Hyper-V virtual machines.  Also see the [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/) to check out available operating systems and software.
+Now your template machine is ready to create Hyper-V virtual machines.   See [Create a Virtual Machine in Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) for instructions about how to create Hyper-V virtual machines.  Also see the [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/) to check out available operating systems and software.
 
 ## Next steps
 

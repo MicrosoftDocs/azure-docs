@@ -10,8 +10,9 @@ ms.author: alkohli
 
 # Manage the StorSimple Data Manager service in Azure portal
 
-This article explains how you can use the StorSimple Data Manager UI to transform the data residing on the StorSimple 8000 series devices. The transformed data can then be consumed by other Azure services such as Azure Media Services, Azure HDInsight, Azure Machine Learning, and Azure Cognitive Search.
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
+The remainder of this article focuses on how to use the Data Manager when blob storage is the target.
 
 ## Use StorSimple Data Transformation
 
@@ -37,7 +38,7 @@ Perform the following steps to create a StorSimple Data Manager service.
 
    2. Choose a **Subscription** from the dropdown list. The subscription is linked to your billing account. This field is automatically populated (and not selectable) if you have only one subscription.
 
-   3. Select an existing resource group or create a new group. For more information, see [Azure resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal).
+   3. Select an existing resource group or create a new group. For more information, see [Azure resource groups](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
    4. Specify the **Location** for your service that houses your storage accounts and your StorSimple Data Manager service. Your StorSimple Device Manager service, Data Manager service, and the associated storage account should all be in the supported regions.
     

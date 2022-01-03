@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 07/13/2021
 
-ms.author: iainfou
-author: iainfoulds
-manager: daveba
+ms.author: justinha
+author: justinha
+manager: karenhoran
 ms.reviewer: rogoya
 
 ms.collection: M365-identity-device-management
@@ -21,7 +21,7 @@ A lot of security guidance recommends that you don't use the same password in mu
 
 With Azure AD Password Protection, default global banned password lists are automatically applied to all users in an Azure AD tenant. To support your own business and security needs, you can define entries in a custom banned password list. When users change or reset their passwords, these banned password lists are checked to enforce the use of strong passwords.
 
-You should use additional features like [Azure Multi-Factor Authentication](concept-mfa-howitworks.md), not just rely on strong passwords enforced by Azure AD Password Protection. For more information on using multiple layers of security for your sign-in events, see [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
+You should use additional features like [Azure AD Multi-Factor Authentication](concept-mfa-howitworks.md), not just rely on strong passwords enforced by Azure AD Password Protection. For more information on using multiple layers of security for your sign-in events, see [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
 > [!IMPORTANT]
 > This conceptual article explains to an administrator how Azure AD Password Protection works. If you're an end user already registered for self-service password reset and need to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr).
@@ -171,7 +171,7 @@ Consider the following example:
 The next step is to identify all instances of banned passwords in the user's normalized new password. Points are assigned based on the following criteria:
 
 1. Each banned password that's found in a user's password is given one point.
-1. Each remaining unique character is given one point.
+1. Each remaining character that is not part of a banned password is given one point.
 1. A password must be at least five (5) points to be accepted.
 
 For the next two example scenarios, Contoso is using Azure AD Password Protection and has "contoso" on their custom banned password list. Let's also assume that "blank" is on the global list.
@@ -199,13 +199,17 @@ Let's look a slightly different example to show how additional complexity in a p
 > [!IMPORTANT]
 > The banned password algorithm, along with the global banned password list, can and do change at any time in Azure based on ongoing security analysis and research.
 >
-> For the on-premises DC agent service in hybrid scenarios, updated algorithms only take effect after the DC agent software is re-installed.
+> For the on-premises DC agent service in hybrid scenarios, updated algorithms only take effect after the DC agent software is upgraded.
 
 ## What do users see
 
-When a user attempts to reset a password to something that would be banned, the following error message is displayed:
+When a user attempts to reset or change a password to something that would be banned, one of the following error messages are displayed:
 
 *"Unfortunately, your password contains a word, phrase, or pattern that makes your password easily guessable. Please try again with a different password."*
+
+*"We've seen that password too many times before. Choose something harder to guess."*
+
+*"Choose a password that's harder for people to guess."*
 
 ## License requirements
 
@@ -217,7 +221,7 @@ When a user attempts to reset a password to something that would be banned, the 
 > [!NOTE]
 > On-premises AD DS users that aren't synchronized to Azure AD also benefit from Azure AD Password Protection based on existing licensing for synchronized users.
 
-Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
+Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Next steps
 

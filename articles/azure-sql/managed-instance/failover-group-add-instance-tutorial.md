@@ -7,10 +7,10 @@ ms.service: sql-managed-instance
 ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
-ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sashan, carlrab
+ms.topic: tutorial
+author: emlisa
+ms.author: emlisa
+ms.reviewer: mathoma
 ms.date: 08/27/2019
 ---
 # Tutorial: Add SQL Managed Instance to a failover group
@@ -26,7 +26,7 @@ Add managed instances of Azure SQL Managed Instance to a failover group. In this
   > [!NOTE]
   > - When going through this tutorial, ensure you are configuring your resources with the [prerequisites for setting up failover groups for SQL Managed Instance](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
   > - Creating a managed instance can take a significant amount of time. As a result, this tutorial could take several hours to complete. For more information on provisioning times, see [SQL Managed Instance management operations](sql-managed-instance-paas-overview.md#management-operations). 
-  > - Managed instances participating in a failover group require either [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) or two connected VPN gateways. Global VNet Peering is not supported. This tutorial provides steps for creating and connecting the VPN gateways. Skip these steps if you already have ExpressRoute configured. 
+  > - Managed instances participating in a failover group require [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md), global VNet peering, or two connected VPN gateways. This tutorial provides steps for creating and connecting the VPN gateways. Skip these steps if you already have ExpressRoute configured. 
 
 
 ## Prerequisites
@@ -49,6 +49,8 @@ To complete the tutorial, make sure you have the following items:
 ## Create a resource group and primary managed instance
 
 In this step, you will create the resource group and the primary managed instance for your failover group using the Azure portal or PowerShell. 
+
+Deploy both managed instances to [paired regions](../../availability-zones/cross-region-replication-azure.md) for performance reasons. Managed instances residing in geo-paired regions have much better performance compared to unpaired regions. 
 
 
 # [Portal](#tab/azure-portal) 
@@ -734,6 +736,8 @@ For two managed instances to participate in a failover group, there must be eith
 
 This article provides steps to create the two VPN gateways and connect them, but you can skip ahead to creating the failover group if you have configured ExpressRoute instead. 
 
+> [!NOTE]
+> The SKU of the gateway affects throughput performance. This tutorial deploys a gateway with the most basic SKU (`HwGw1`). Deploy a higher SKU (example: `VpnGw3`) to achieve higher throughput. For all available options, see [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark)
 
 # [Portal](#tab/azure-portal)
 
@@ -975,7 +979,7 @@ Create the failover group using the Azure portal.
 
 1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, and then type `Azure SQL` in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
 1. Select the primary managed instance you created in the first section, such as `sql-mi-primary`. 
-1. Under **Settings**, navigate to **Instance Failover Groups** and then choose **Add group** to open the **Instance Failover Group** page. 
+1. Under **Data management**, navigate to **Failover groups** and then choose **Add group** to open the **Instance Failover Group** page. 
 
    ![Add a failover group](./media/failover-group-add-instance-tutorial/add-failover-group.png)
 

@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: jmprieur
 ms.reviewer: kkrishna
@@ -76,11 +76,8 @@ for details on how to handle SameSite cookies in ASP.NET and ASP.NET Core, see a
 
 Learn more about SameSite and the Web app scenario:
 
-> [!div class="nextstepaction"]
-> [Google Chrome's FAQ on SameSite](https://www.chromium.org/updates/same-site/faq)
+- [Google Chrome's FAQ on SameSite](https://www.chromium.org/updates/same-site/faq)
 
-> [!div class="nextstepaction"]
-> [Chromium SameSite page](https://www.chromium.org/updates/same-site)
+- [Chromium SameSite page](https://www.chromium.org/updates/same-site)
 
-> [!div class="nextstepaction"]
-> [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md)
+- [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md)

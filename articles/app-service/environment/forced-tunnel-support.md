@@ -1,16 +1,18 @@
 ---
 title: Configure forced tunneling
 description: Learn how to enable your App Service Environment to work when outbound traffic is forced tunneled in your virtual network.
-author: ccompy
-
+author: madsd
 ms.assetid: 384cf393-5c63-4ffb-9eb2-bfd990bc7af1
 ms.topic: quickstart
 ms.date: 05/29/2018
-ms.author: ccompy
-ms.custom: mvc, seodec18
+ms.author: madsd
+ms.custom: mvc, seodec18, mode-other
 ---
 
 # Configure your App Service Environment with forced tunneling
+> [!NOTE]
+> This article is about the App Service Environment v2 which is used with Isolated App Service plans
+> 
 
 The App Service Environment (ASE) is a deployment of Azure App Service in a customer's Azure Virtual Network. Many customers configure their Azure virtual networks to be extensions of their on-premises networks with VPNs or Azure ExpressRoute connections. Forced tunneling is when you redirect internet bound traffic to your VPN or a virtual appliance instead. Virtual appliances are often used to inspect and audit outbound network traffic. 
 
@@ -69,7 +71,7 @@ To route all outbound traffic from your ASE, except that which goes to Azure SQL
 
 2. Enable Service Endpoints with Azure SQL and Azure Storage with your ASE subnet.  After this step is completed, you can then configure your VNet with forced tunneling.
 
-To create your ASE in a virtual network that is already configured to route all traffic on premises, you need to create your ASE using a resource manager template.  It is not possible to create an ASE with the portal into a pre-existing subnet.  When deploying your ASE into a VNet that is already configured to route outbound traffic on premises, you need to create your ASE using a resource manager template, which does allow you to specify a pre-existing subnet. For details on deploying an ASE with a template, read [Creating an App Service Environment using a template][template].
+For details on deploying an ASE with a template, read [Creating an App Service Environment using a template][template].
 
 Service Endpoints enable you to restrict access to multi-tenant services to a set of Azure virtual networks and subnets. You can read more about Service Endpoints in the [Virtual Network Service Endpoints][serviceendpoints] documentation. 
 
@@ -127,7 +129,7 @@ _To create your ASE with the egress addresses_: Follow the directions in [Create
 
 These changes send traffic to Azure Storage directly from the ASE and allow access to the Azure SQL from additional addresses other than the VIP of the ASE.
 
-   ![Forced tunnel with SQL whitelist][3]
+   ![Forced tunnel with SQL allowlist][3]
 
 ## Preventing issues ##
 

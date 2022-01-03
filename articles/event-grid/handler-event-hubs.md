@@ -2,7 +2,7 @@
 title: Event hub as an event handler for Azure Event Grid events
 description: Describes how you can use event hubs as event handlers for Azure Event Grid events.
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/30/2021
 ---
 
 # Event hub as an event handler for Azure Event Grid events
@@ -16,19 +16,10 @@ See the following examples:
 |Title  |Description  |
 |---------|---------|
 | [Quickstart: Route custom events to Azure Event Hubs with Azure CLI](custom-event-to-eventhub.md) | Sends a custom event to an event hub for processing by an application. |
-| [Resource Manager template: Create an Event Grid custom topic and send events to an event hub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| A Resource Manager template that creates a subscription for a custom topic. It sends events to an Azure Event Hubs. |
+| [Resource Manager template: Create an Event Grid custom topic and send events to an event hub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-event-hubs-handler)| A Resource Manager template that creates a subscription for a custom topic. It sends events to an Azure Event Hubs. |
 
-## Message properties
-If you use an **event hub** as an event handler for events from Event Grid, set the following message headers: 
+[!INCLUDE [event-grid-message-headers](./includes/event-grid-message-headers.md)]
 
-| Property name | Description |
-| ------------- | ----------- | 
-| aeg-subscription-name | Name of event subscription. |
-| aeg-delivery-count | <p>Number of attempts made for the event.</p> <p>Example: "1"</p> |
-| aeg-event-type | <p>Type of the event.</p><p> Example: "Microsoft.Storage.blobCreated"</p> | 
-| aeg-metadata-version | <p>Metadata version of the event.</p> <p>Example: "1".</p><p> For **Event Grid event schema**, this property represents the metadata version and for **cloud event schema**, it represents the **spec version**. </p>|
-| aeg-data-version | <p>Data version of the event.</p><p>Example: "1".</p><p>For **Event Grid event schema**, this property represents the data version and for **cloud event schema**, it doesn't apply.</p> |
-| aeg-output-event-id | ID of the Event Grid event. |
 
 ## REST examples (for PUT)
 
@@ -37,18 +28,18 @@ If you use an **event hub** as an event handler for events from Event Grid, set 
 
 ```json
 {
-	"properties": 
-	{
-		"destination": 
-		{
-			"endpointType": "EventHub",
-			"properties": 
-			{
-				"resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
-			}
-		},
-		"eventDeliverySchema": "EventGridSchema"
-	}
+  "properties": 
+  {
+    "destination": 
+    {
+      "endpointType": "EventHub",
+      "properties": 
+      {
+        "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
+      }
+    },
+    "eventDeliverySchema": "EventGridSchema"
+  }
 }
 ```
 
@@ -56,26 +47,37 @@ If you use an **event hub** as an event handler for events from Event Grid, set 
 
 ```json
 {
-	"properties": {
-		"deliveryWithResourceIdentity": 
-		{
-			"identity": 
-			{
-				"type": "SystemAssigned"
-			},
-			"destination": 
-			{
-				"endpointType": "EventHub",
-				"properties": 
-				{
-					"resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
-				}
-			}
-		},
-		"eventDeliverySchema": "EventGridSchema"
-	}
+  "properties": {
+    "deliveryWithResourceIdentity": 
+    {
+      "identity": 
+      {
+        "type": "SystemAssigned"
+      },
+      "destination": 
+      {
+        "endpointType": "EventHub",
+        "properties": 
+        {
+          "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
+        }
+      }
+    },
+    "eventDeliverySchema": "EventGridSchema"
+  }
 }
 ```
+
+## Delivery properties
+Event subscriptions allow you to set up HTTP headers that are included in delivered events. This capability allows you to set custom headers that are required by a destination. You can set custom headers on the events that are delivered to Azure Event Hubs.
+
+If you need to publish events to a specific partition within an event hub, set the `ParitionKey` property on your event subscription to specify the partition key that identifies the target event hub partition.
+
+| Header name | Header type |
+| :-- | :-- |
+|`PartitionKey` | Static |
+
+For more information, see [Custom delivery properties](delivery-properties.md). 
 
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 

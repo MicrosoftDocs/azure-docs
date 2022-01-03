@@ -1,12 +1,12 @@
 ---
 title: Choose distribution columns – Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Learn how to choose distribution columns in common hyperscale scenarios in Azure Database for PostgreSQL.
+description: Learn how to choose distribution columns in common scenarios in Azure Database for PostgreSQL - Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 12/06/2021
 ---
 
 # Choose distribution columns in Azure Database for PostgreSQL – Hyperscale (Citus)
@@ -129,8 +129,7 @@ hash distribution leads to network overhead.
     ranges. Distributing a Postgres-partitioned table in Hyperscale (Citus) 
     creates shards for the inherited tables.
 
-Read the [time-series tutorial](https://aka.ms/hyperscale-tutorial-timeseries)
-for an example of how to build this kind of application.
-
 ## Next steps
+
 - Learn how [colocation](concepts-hyperscale-colocation.md) between distributed data helps queries run fast.
+- Discover the distribution column of a distributed table, and other [useful diagnostic queries](howto-hyperscale-useful-diagnostic-queries.md).

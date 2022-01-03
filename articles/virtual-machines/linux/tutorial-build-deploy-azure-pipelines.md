@@ -1,30 +1,29 @@
 ---
-title: Tutorial - CI/CD to Azure VMs using Azure Pipelines
-description: In this tutorial, you learn how to set up continuous integration (CI) and continuous deployment (CD) of a Node.js app to Azure VMs using YAML based Azure pipeline.
+title: CI/CD to Azure VMs using Azure Pipelines
+description: Learn how to set up continuous integration (CI) and continuous deployment (CD) of a Node.js app to Azure VMs using YAML based Azure pipeline.
+ms.service: virtual-machines
 author: ushan
-
 tags: azure-devops-pipelines
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-ms.topic: tutorial
-ms.tgt_pltfrm: azure-pipelines
+ms.collection: linux
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
-ms.custom: devops, devx-track-javascript
+ms.custom: devops, devx-track-js
 
 #Customer intent: As a developer, I want to learn about CI/CD features in Azure so that I can use devops services like Azure Pipelines to build and deploy my applications automatically.
 ---
 
-# Tutorial: Deploy your app to Linux virtual machines in Azure using Azure DevOps Services and Azure Pipelines
+# Deploy your app to Linux virtual machines in Azure using Azure DevOps Services and Azure Pipelines
+
+**Applies to:** :heavy_check_mark: Linux VMs 
 
 Continuous integration (CI) and continuous deployment (CD) form a pipeline by which you can build, release, and deploy your code after every code commit. 
 This document contains the steps associated with setting up a CI/CD pipeline for doing multi-machine deployments using Azure Pipelines.
 
 Azure Pipelines provides a complete, fully featured set of CI/CD automation tools for deployments to Virtual machines, both on-prem or on any cloud.
 
-In this tutorial, you will set up a YAML based CI/CD pipeline to deploy your app to an Azure Pipelines [Environment](/azure/devops/pipelines/process/environments?view=azure-devops) with Linux Virtual machines as resources, each of which serve as web servers to run the app.
+In this tutorial, you will set up a YAML based CI/CD pipeline to deploy your app to an Azure Pipelines [Environment](/azure/devops/pipelines/process/environments) with Linux Virtual machines as resources, each of which serve as web servers to run the app.
 
 You learn how to:
 
@@ -41,7 +40,7 @@ You learn how to:
   You can get a [free Azure DevOps Services organization](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
-  > For more information, see [Connect to Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects?view=vsts).
+  > For more information, see [Connect to Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects).
 
 *  You need a Linux virtual machine for a deployment target.  For more information, see [Create and manage Linux VMs with the Azure CLI](./tutorial-manage-vm.md).
 
@@ -91,7 +90,7 @@ Follow the additional steps described below based on the runtime stack used for 
 
 #### [JavaScript](#tab/java-script)
 
-To install a javascript app or a Node.js app, you'll need a Linux VM with Nginx web server to deploy the app.
+To install a JavaScript app or a Node.js app, you'll need a Linux VM with Nginx web server to deploy the app.
 If you don't already have a Linux VM with Nginx, create one now in Azure using the steps in
 [this example](./quick-create-cli.md).
 
@@ -120,7 +119,7 @@ You can create an environment in the “**Environments**” hub within the “**
 
     ![VMresource_view](media/tutorial-deploy-vms-azure-pipelines/vm-resourceview.png)
 
-9. You can add tags to the VM as part of the interactive PS registration script (or) you can also add/remove the same from the resource view by clicking on the triple dots at the end of each VM resource in the resources view.
+9. You can add tags to the VM as part of the interactive PowerShell registration script (or) you can also add/remove the same from the resource view by clicking on the triple dots at the end of each VM resource in the resources view.
 
    The tags you assign allow you to limit deployment to specific virtual machines when the environment is used in a Deployment job. Tags are each limited to 256 characters, but there is no limit to the number of tags you can use.
 
@@ -149,7 +148,7 @@ a deployment script that can be run locally on the Ubuntu server. Set up a CI bu
 
 Select the **starter** template and copy the below YAML snippet that builds your Java project and runs tests with Apache Maven:
 
-```YAML
+```yaml
 jobs:
 - job: Build
   displayName: Build Maven Project
@@ -174,7 +173,7 @@ For more guidance, follow the steps mentioned in [Build your Java app with Maven
 
 Select the **starter** template and copy the below YAML snippet that builds a general Node.js project with npm.
 
-```YAML
+```yaml
 - stage: Build
   displayName: Build stage
   jobs:  
@@ -205,7 +204,7 @@ For more guidance, follow the steps in [Build your Node.js app with gulp](/azure
 
 - Take a look at the pipeline to see what it does. Make sure that all the default inputs are appropriate for your code.
 
-- Select **Save and run**, then select **Commit directly to the master branch**, and then choose **Save and run** again.
+- Select **Save and run**, then select **Commit directly to the main branch**, and then choose **Save and run** again.
 
 - A new run is started. Wait for the run to finish.
 
@@ -215,7 +214,7 @@ For more guidance, follow the steps in [Build your Node.js app with gulp](/azure
 
 1. Change the YAML file for the above pipeline to include a [deployment job](/azure/devops/pipelines/process/deployment-jobs) by referencing the environment and the VM resources which you have earlier using the YAML syntax below:
 
-   ```YAML
+   ```yaml
    jobs:  
    - deployment: VMDeploy
      displayName: web
@@ -225,14 +224,14 @@ For more guidance, follow the steps in [Build your Node.js app with gulp](/azure
        tags: web
    ```
 2. You can select specific sets of virtual machines from the environment to receive the deployment by specifying the **tags** that you have defined for each virtual machine in the environment.
-[Here](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) is the complete YAML schema for Deployment job.
+[Here](/azure/devops/pipelines/yaml-schema?tabs=schema#deployment-job) is the complete YAML schema for Deployment job.
 
-3. You can specify eithor `runOnce` or `rolling` as deployment strategy. 
+3. You can specify either `runOnce` or `rolling` as deployment strategy. 
 
    `runOnce` is the simplest deployment strategy wherein all the life cycle hooks, namely `preDeploy` `deploy`, `routeTraffic`, and `postRouteTraffic`, are executed once. Then,  either `on:` `success` or `on:` `failure` is executed.
 
    Below is the example YAML snippet for `runOnce` :
-   ```YAML
+   ```yaml
    jobs:
    - deployment: VMDeploy
      displayName: web
@@ -250,7 +249,7 @@ For more guidance, follow the steps in [Build your Node.js app with gulp](/azure
 
 4. Below is an example of the YAML snippet that you can use to define a rolling strategy for Virtual machines updates upto 5 targets in each iteration. `maxParallel` will determine the number of targets that can be deployed to, in parallel. The selection accounts for absolute number or percentage of targets that must remain available at any time excluding the targets that are being deployed to. It is also used to determine the success and failure conditions during deployment.
 
-   ```YAML
+   ```yaml
    jobs: 
    - deployment: VMDeploy
      displayName: web

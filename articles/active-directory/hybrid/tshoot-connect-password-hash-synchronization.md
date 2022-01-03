@@ -4,14 +4,13 @@ description: This article provides information about how to troubleshoot passwor
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/13/2017
 ms.subservice: hybrid
@@ -116,7 +115,7 @@ Each on-premises Active Directory connector has its own password hash synchroniz
 
 If the AD DS account that's used by the on-premises Active Directory connector to synchronize password hashes does not have the appropriate permissions, the following error is returned:
 
-![Incorrect credential](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
+![Screenshot that shows the error that's returned when the AD DS account has an incorrect username or password.](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
 
 #### Incorrect AD DS account username or password
 
@@ -253,7 +252,7 @@ Follow these steps to determine why no passwords are synchronized:
 
 4. Look in the event log for errors. Look for the following events, which would indicate a problem:
     * Source: "Directory synchronization" ID: 0, 611, 652, 655
-    If you see these events, you have a connectivity problem. The event log message contains forest information where you have a problem. For more information, see [Connectivity problem](#connectivity problem).
+    If you see these events, you have a connectivity problem. The event log message contains forest information where you have a problem.
 
 5. If you see no heartbeat or if nothing else worked, run [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords). Run the script only once.
 
@@ -335,7 +334,7 @@ You can easily troubleshoot password hash synchronization issues by reviewing th
 
     i. Click **Metaverse Object Properties** to display a list of user attributes.  
 
-    ![Metaverse information](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
+    ![Screenshot that shows the list of user attributes for the Metaverse Object Properties.](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
 
     Verify that there is no **cloudFiltered** attribute present. Make sure that the domain attributes (domainFQDN and domainNetBios) have the expected values.
 
@@ -377,7 +376,7 @@ if ($aadConnectors -ne $null -and $adConnectors -ne $null)
 {
     if ($aadConnectors.Count -eq 1)
     {
-        $features = Get-ADSyncAADCompanyFeature -ConnectorName $aadConnectors[0].Name
+        $features = Get-ADSyncAADCompanyFeature
         Write-Host
         Write-Host "Password sync feature enabled in your Azure AD directory: "  $features.PasswordHashSync
         foreach ($adConnector in $adConnectors)

@@ -7,7 +7,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 10/8/2019
+ms.date: 12/17/2021
 ---
 
 # Troubleshoot connection issues to Azure Database for PostgreSQL - Hyperscale (Citus)
@@ -22,7 +22,7 @@ Connection problems may be caused by several things, such as:
 * Service maintenance
 * The coordinator node failing over to new hardware
 
-Generally, connection issues to Hyperscale can be classified as follows:
+Generally, connection issues to Hyperscale (Citus) can be classified as follows:
 
 * Transient errors (short-lived or intermittent)
 * Persistent or non-transient errors (errors that regularly recur)
@@ -33,7 +33,7 @@ Transient errors occur for a number of reasons. The most common include system
 Maintenance, error with hardware or software, and coordinator node vCore
 upgrades.
 
-Enabling high availability for Hyperscale server group nodes can mitigate these
+Enabling high availability for Hyperscale (Citus) server group nodes can mitigate these
 types of problems automatically. However, your application should still be
 prepared to lose its connection briefly. Also other events can take longer to
 mitigate, such as when a large transaction causes a long-running recovery.
@@ -60,7 +60,7 @@ mitigate, such as when a large transaction causes a long-running recovery.
 If the application persistently fails to connect to Hyperscale (Citus), the
 most common causes are firewall misconfiguration or user error.
 
-* Coordinator node firewall configuration: Make sure that the Hyperscale server
+* Coordinator node firewall configuration: Make sure that the Hyperscale (Citus) server
   firewall is configured to allow connections from your client, including proxy
   servers and gateways.
 * Client firewall configuration: The firewall on your client must allow
@@ -83,7 +83,8 @@ most common causes are firewall misconfiguration or user error.
    create a firewall rule for an appropriately limited IP address or address
    range.
 2. On all firewalls between the client and the internet, make sure that port
-   5432 is open for outbound connections.
+   5432 is open for outbound connections (and 6432 if using [connection
+   pooling](concepts-hyperscale-connection-pool.md)).
 3. Verify your connection string and other connection settings.
 4. Check the service health in the dashboard.
 

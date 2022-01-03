@@ -6,8 +6,9 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
-ms.author: victorh
+ms.date: 09/24/2020
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create an application gateway with external redirection using Azure PowerShell
@@ -151,9 +152,4 @@ You should see *bing.com* appear in your browser.
 
 ## Next steps
 
-In this article, you learned how to:
-
-> [!div class="checklist"]
-> * Set up the network
-> * Create a listener and redirection rule
-> * Create an application gateway
+- [Create an application gateway with internal redirection using Azure PowerShell](redirect-internal-site-powershell.md)

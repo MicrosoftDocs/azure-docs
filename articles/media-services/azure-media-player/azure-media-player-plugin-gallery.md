@@ -5,7 +5,7 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 04/20/2020
+ms.date: 04/05/2021
 ---
 
 # Azure Media Player Plugin Gallery #
@@ -16,7 +16,7 @@ ms.date: 04/20/2020
 |-------------------------------------|-----------------------------|----------------------------|----------------|
 | Additional Features                 | | | |
 | **New!** AMP360Video                | [Demo](http://www.babylonjs.com/demos/amp360video/)                        | [GitHub](https://github.com/BabylonJS/Extensions/tree/master/Amp360Video)                     | The plugin lets you visualize 360 video in Amp either on your desktop or in VR compatible devices. The full documentation is available [here](https://doc.babylonjs.com/extensions/amp360video): |
-|  Sprite Tip                         | [Demo](http://www.skymedia.tv/asset/sprite)                        | [GitHub](https://github.com/RickShahid/SpriteTip)                    | Azure Media Player (AMP) plugin for timeline rendering of a video thumbnail image sprite that is generated from Azure Media Services (AMS) Media Encoder Standard (MES). |
+|  Sprite Tip                         | [Demo](https://www.smwcentral.net/?p=section&a=details&id=10301)                        | [GitHub](https://github.com/RickShahid/SpriteTip)                    | Azure Media Player (AMP) plugin for timeline rendering of a video thumbnail image sprite that is generated from Azure Media Services (AMS) Media Encoder Standard (MES). |
 | Diagnostics Overlay                 | [Demo](https://openidconnectweb.azurewebsites.net/Diagnoverlay.html)                        | [GitHub](https://github.com/willzhan/diagnoverlay)                     | This plugin displays: All key parameters, stats of video, all events in the video playback lifecycle, and DRM protection info, such as key ID, license acquisition URLs, if protected.                                                                                                                                                                      |
 | Frame rate and Timecode  calculator | No demo available | [GitHub](https://github.com/mconverti/media-services-javascript-azure-media-player-framerate-timecode-calculator-plugin)                     | This plugin calculates the frame rate of video based on the `tfhd`/`trun` MP4 boxes of the first MPEG-DASH video fragment, parses the time scale value from the MPEG-DASH client manifest, and also provides a way to generate the timecode for a given absolute time from the player (as well as provides the player absolute time given the timecode) |
 | <strike>Playback Speed</strike>                      | [Demo](https://azure-samples.github.io/media-services-javascript-Azure-Media-Player-playback-rate-plugin/)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-time-tip-plugin)                     | This plugin enables viewers to control what speed of the video. *Note, this functionality is automatically available in version AMP v2.0.0+ but disabled by default.* To learn how to enable it, check out our samples [here](https://github.com/Azure-Samples/azure-media-player-samples) |

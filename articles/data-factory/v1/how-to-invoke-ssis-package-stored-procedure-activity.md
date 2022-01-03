@@ -1,20 +1,13 @@
 ---
 title: Invoke SSIS package using Azure Data Factory - Stored Procedure Activity 
 description: This article describes how to invoke a SQL Server Integration Services (SSIS) package from an Azure Data Factory pipeline using the Stored Procedure Activity.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.subservice: v1
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 10/22/2021
 ms.author: jingwang
-
 ---
 # Invoke an SSIS package using stored procedure activity in Azure Data Factory
 This article describes how to invoke an SSIS package from an Azure Data Factory pipeline by using a stored procedure activity. 
@@ -28,7 +21,7 @@ This article describes how to invoke an SSIS package from an Azure Data Factory 
 The walkthrough in this article uses Azure SQL Database. You can also use an Azure SQL Managed Instance.
 
 ### Create an Azure-SSIS integration runtime
-Create an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](../tutorial-create-azure-ssis-runtime-portal.md). You cannot use Data Factory version 1 to create an Azure-SSIS integration runtime. 
+Create an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](../tutorial-deploy-ssis-packages-azure.md). You cannot use Data Factory version 1 to create an Azure-SSIS integration runtime. 
 
 ## Azure PowerShell
 In this section you use Azure PowerShell to create a Data Factory pipeline with a stored procedure activity that invokes an SSIS package.
@@ -41,18 +34,21 @@ Install the latest Azure PowerShell modules by following instructions in [How to
 The following procedure provides steps to create a data factory. You create a pipeline with a stored procedure activity in this data factory. The stored procedure activity executes a stored procedure in the SSISDB database to run your SSIS package.
 
 1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../../azure-resource-manager/management/overview.md) in double quotes, and then run the command. For example: `"adfrg"`. 
-   
-     ```powershell
+
+    ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 
     If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$ResourceGroupName` variable and run the command again
+
 2. To create the Azure resource group, run the following command: 
 
     ```powershell
     $ResGrp = New-AzResourceGroup $resourceGroupName -location 'eastus'
     ``` 
-    If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$ResourceGroupName` variable and run the command again. 
+
+    If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$ResourceGroupName` variable and run the command again.
+
 3. Define a variable for the data factory name. 
 
     > [!IMPORTANT]
@@ -64,7 +60,7 @@ The following procedure provides steps to create a data factory. You create a pi
 
 5. To create the data factory, run the following **New-AzDataFactory** cmdlet, using the Location and ResourceGroupName property from the $ResGrp variable: 
     
-    ```powershell       
+    ```powershell
     $df = New-AzDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
     ```
 
@@ -82,8 +78,8 @@ Create a linked service to link your database in Azure SQL Database that hosts t
 
 1. Create a JSON file named **AzureSqlDatabaseLinkedService.json** in **C:\ADF\RunSSISPackage** folder with the following content: 
 
-	> [!IMPORTANT]
-	> Replace &lt;servername&gt;, &lt;username&gt;@&lt;servername&gt; and &lt;password&gt; with values of your Azure SQL Database before saving the file.
+    > [!IMPORTANT]
+    > Replace &lt;servername&gt;, &lt;username&gt;@&lt;servername&gt; and &lt;password&gt; with values of your Azure SQL Database before saving the file.
 
     ```json
     {
@@ -134,7 +130,7 @@ In this step, you create a pipeline with a stored procedure activity. The activi
 1. Create a JSON file named **MyPipeline.json** in the **C:\ADF\RunSSISPackage** folder with the following content:
 
     > [!IMPORTANT]
-	> Replace &lt;folder name&gt;, &lt;project name&gt;, &lt;package name&gt; with names of folder, project, and package in the SSIS catalog before saving the file.
+    > Replace &lt;folder name&gt;, &lt;project name&gt;, &lt;package name&gt; with names of folder, project, and package in the SSIS catalog before saving the file.
 
     ```json
     {
@@ -174,14 +170,14 @@ In this step, you create a pipeline with a stored procedure activity. The activi
 
 1. Run **Get-AzDataFactorySlice** to get details about all slices of the output dataset**, which is the output table of the pipeline.
 
-	```powershell
+    ```powershell
     Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
     Notice that the StartDateTime you specify here is the same start time specified in the pipeline JSON. 
 1. Run **Get-AzDataFactoryRun** to get the details of activity runs for a specific slice.
 
-	```powershell
-	Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
+    ```powershell
+    Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
 
     You can keep running this cmdlet until you see the slice in **Ready** state or **Failed** state. 
@@ -194,4 +190,3 @@ In this step, you create a pipeline with a stored procedure activity. The activi
 
 ## Next steps
 For details about the stored procedure activity, see the [Stored Procedure activity](data-factory-stored-proc-activity.md) article.
-

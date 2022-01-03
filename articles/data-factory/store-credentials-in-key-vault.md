@@ -1,23 +1,17 @@
 ---
 title: Store credentials in Azure Key Vault 
 description: Learn how to store credentials for data stores used in an Azure key vault that Azure Data Factory can automatically retrieve at runtime. 
-services: data-factory
-author: linda33wj
-manager: shwang
-editor: ''
-
+author: nabhishek
 ms.service: data-factory
-ms.workload: data-services
-
-
+ms.subservice: security
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.author: jingwang
+ms.author: abnarain
 ---
 
 # Store credential in Azure Key Vault
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 You can store credentials for data stores and computes in an [Azure Key Vault](../key-vault/general/overview.md). Azure Data Factory retrieves the credentials when executing an activity that uses the data store/compute.
 
@@ -49,11 +43,11 @@ The following properties are supported for Azure Key Vault linked service:
 
 Select **Connections** -> **Linked Services** -> **New**. In New linked service, search for and select "Azure Key Vault":
 
-![Search Azure Key Vault](media/store-credentials-in-key-vault/search-akv.png)
+:::image type="content" source="media/store-credentials-in-key-vault/search-akv.png" alt-text="Search Azure Key Vault":::
 
 Select the provisioned Azure Key Vault where your credentials are stored. You can do **Test Connection** to make sure your AKV connection is valid. 
 
-![Configure Azure Key Vault](media/store-credentials-in-key-vault/configure-akv.png)
+:::image type="content" source="media/store-credentials-in-key-vault/configure-akv.png" alt-text="Configure Azure Key Vault":::
 
 **JSON example:**
 
@@ -87,7 +81,7 @@ Select **Azure Key Vault** for secret fields while creating the connection to yo
 >[!TIP]
 >For connectors using connection string in linked service like SQL Server, Blob storage, etc., you can choose either to store only the secret field e.g. password in AKV, or to store the entire connection string in AKV. You can find both options on the UI.
 
-![Configure Azure Key Vault secret](media/store-credentials-in-key-vault/configure-akv-secret.png)
+:::image type="content" source="media/store-credentials-in-key-vault/configure-akv-secret.png" alt-text="Configure Azure Key Vault secret":::
 
 **JSON example: (see the "password" section)**
 

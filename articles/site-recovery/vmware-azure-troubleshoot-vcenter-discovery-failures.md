@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot VMware vCenter discovery failures in Azure Site Recovery 
 description: This article describes how to troubleshooting VMware vCenter discovery failures in Azure Site Recovery. 
-author: mayurigupta13
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2019
-ms.author: mayg
+ms.author: sharrai
+ms.date: 05/27/2021
 
 ---
 # Troubleshoot vCenter Server discovery failures
@@ -49,7 +49,7 @@ The following situations occur when this issue is encountered:
 
 To resolve the issue:
 
-Download the [PsExec tool](https://aka.ms/PsExec). 
+Download the [PsExec tool](/sysinternals/downloads/psexec). 
 
 Use the PsExec tool to access the System user context and determine whether the proxy address is configured. You can then add vCenter to the bypass list using the following procedures.
 
@@ -76,4 +76,4 @@ For DRA proxy configuration:
 
 ## Next steps
 
-[Manage the configuration server for VMware VM disaster recovery](./vmware-azure-manage-configuration-server.md#refresh-configuration-server) 
+[Manage the configuration server for VMware VM disaster recovery](./vmware-azure-manage-configuration-server.md#refresh-configuration-server)

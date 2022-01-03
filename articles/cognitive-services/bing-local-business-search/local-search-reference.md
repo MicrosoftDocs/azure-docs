@@ -14,6 +14,11 @@ ms.author: rosh
 
 # Bing Local Business Search API v7 reference
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
 The Local Business Search API sends a search query to Bing to get results that include restaurants, hotels, or other local businesses. For places, the query can specify the name of the local business or a category (for example, restaurants near me). Entity results include persons, places, or things. Place in this context is business entities, states, countries/regions, etc.  
 
 This section provides technical details about the response objects, and the query parameters and headers that affect the search results. For examples that show how to make requests, see [Local Business Search C# quickstart](quickstarts/local-quickstart.md) or [Local Business Search Java quickstart](quickstarts/local-search-java-quickstart.md). 
@@ -24,7 +29,7 @@ For information about query parameters that requests should include, see [Query 
   
 For information about the JSON objects that the response includes, see [Response objects](#response-objects).
 
-For information about permitted use and display of results, see [Use and display requirements](use-display-requirements.md).
+For information about permitted use and display of results, see [Use and display requirements](../bing-web-search/use-display-requirements.md).
 
 
   

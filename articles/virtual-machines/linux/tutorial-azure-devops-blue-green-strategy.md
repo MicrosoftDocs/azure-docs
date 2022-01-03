@@ -1,13 +1,11 @@
 ---
-title: Tutorial - Configure canary deployments for Azure Linux virtual machines
-description: In this tutorial, you learn how to set up a continuous deployment (CD) pipeline. This pipeline updates a group of Azure Linux virtual machines using the blue-green deployment strategy.
+title: Configure canary deployments for Azure Linux virtual machines
+description: Learn how to set up a continuous deployment (CD) pipeline. This pipeline updates a group of Azure Linux virtual machines using the blue-green deployment strategy.
 author: moala
-manager: jpconnock
 tags: azure-devops-pipelines
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-ms.topic: tutorial
+ms.service: virtual-machines
+ms.collection: linux
+ms.topic: how-to
 ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
 ms.date: 4/10/2020
@@ -17,13 +15,15 @@ ms.custom: devops
 #Customer intent: As a developer, I want to learn about CI/CD features in Azure so that I can use Azure DevOps services like Azure Pipelines to build and deploy my applications automatically.
 ---
 
-# Tutorial - Configure the blue-green deployment strategy for Azure Linux virtual machines
+# Configure the blue-green deployment strategy for Azure Linux virtual machines
+
+**Applies to:** :heavy_check_mark: Linux VMs 
 
 ## Infrastructure as a service (IaaS) - Configure CI/CD
 
 Azure Pipelines provides a fully featured set of CI/CD automation tools for deployments to virtual machines. You can configure a continuous-delivery pipeline for an Azure VM from the Azure portal.
 
-This article shows how to set up a CI/CD pipeline that uses the blue-green strategy for multimachine deployments. The Azure portal also supports other strategies like [rolling](https://aka.ms/AA7jlh8) and [canary](https://aka.ms/AA7jdrz).
+This article shows how to set up a CI/CD pipeline that uses the blue-green strategy for multimachine deployments. The Azure portal also supports other strategies like [rolling](./tutorial-devops-azure-pipelines-classic.md) and [canary](./tutorial-azure-devops-canary-strategy.md).
 
 ### Configure CI/CD on virtual machines
 
@@ -71,8 +71,8 @@ Using the continuous-delivery option, you can configure blue-green deployments t
 
 ## Other deployment strategies
 
-- [Configure the rolling deployment strategy](https://aka.ms/AA7jlh8)
-- [Configure the canary deployment strategy](https://aka.ms/AA7jdrz)
+- [Configure the rolling deployment strategy](./tutorial-devops-azure-pipelines-classic.md)
+- [Configure the canary deployment strategy](./tutorial-azure-devops-canary-strategy.md)
 
 ## Azure DevOps Projects
 

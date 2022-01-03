@@ -1,11 +1,12 @@
 ---
 title: Mapping data flow video tutorials
 description: A list of video tutorials explaining mapping data flow concepts
-author: djpmsft
-ms.author: daperlov
+author: kromerm
+ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 12/13/2021
 ---
 
 # Mapping data flow video tutorials
@@ -33,6 +34,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Benchmark timings](http://youtu.be/6CSbWm4lRhw?hd=1)
 
 [Debugging workflows for data flows](https://youtu.be/y3suL7UsWVw)
+
+[Updated monitoring view](https://www.youtube.com/watch?v=FWCBslsk6KE)
 
 ## Transformation overviews
 
@@ -78,7 +81,31 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Flatten transformation](https://youtu.be/VY2tFQJoAXE)
 
-[Transform Hierarchical Data](https://youtu.be/oAEh21NFgWQ)
+[Flowlets](https://www.youtube.com/watch?v=bVdeBFiiJNQ)
+ 
+[Stringify transformation](https://www.youtube.com/watch?v=1X4sRHf5W2U)
+
+[External Call transformation](https://www.youtube.com/watch?v=dIMfbwX8r0A)
+
+[Transform hierarchical data](https://youtu.be/oAEh21NFgWQ)
+
+[Rank transformation](https://youtu.be/6XvgkbMtws0)
+
+[Cached lookup](https://www.youtube.com/watch?v=HqCn42FaRJs)
+
+[Row context via Window transformation](http://youtu.be/jqt1gmX2XUg)
+
+[Parse transformation](https://www.youtube.com/watch?v=r7O7AJcuqoY)
+
+[Transform complex data types](https://youtu.be/Wk0C76wnSDE)
+
+[Output to next activity](http://youtu.be/r1m3Ya14qpE?hd=1)
+
+[Stringify transformation](https://www.youtube.com/watch?v=1X4sRHf5W2U)
+
+[External Call transformation](https://www.youtube.com/watch?v=dIMfbwX8r0A)
+
+[Assert transformation](https://www.youtube.com/watch?v=8K7flL7JWMo)
 
 ## Source and sink
 
@@ -118,6 +145,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Azure Integration Runtimes for Data Flows](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
+[Quick cluster start-up time with Azure IR](https://www.youtube.com/watch?v=mxzsOZX6WVY)
+
 ## Mapping data flow scenarios
 
 [Fuzzy lookups](http://youtu.be/7gdwExjHBbw)
@@ -154,6 +183,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Generic type 2 slowly changing dimension](http://youtu.be/tc283k8CWh8)
 
+[Delete rows in target when not present in source](https://www.youtube.com/watch?v=9i7qf1vczUw)
+
 ## Data flow expressions
 
 [Date/Time expressions](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
@@ -167,3 +198,9 @@ As updates are constantly made to the product, some features have added or diffe
 [Data Quality Expressions](https://www.youtube.com/watch?v=O8gmv5-lXhs)
 
 [Collect aggregate function](https://www.youtube.com/watch?v=zneE18EHJSE)
+
+[Dynamic expressions as parameters](https://www.youtube.com/watch?v=q7W6J-DUuJY)
+
+## Metadata
+
+[Metadata validation rules](https://www.youtube.com/watch?v=E_UD3R-VpYE)

@@ -1,12 +1,12 @@
 ---
 title: Azure IoT Hub Develop for Constrained Devices using IoT Hub C SDK
 description: Developer guide - guidance on how to develop using Azure IoT SDKs for constrained devices. 
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.author: robinsh
+ms.author: lizross
 ms.custom: [amqp, mqtt]
 ---
 
@@ -22,6 +22,9 @@ C SDK is available in package form from apt-get, NuGet, and MBED. To target cons
 ## Building the C SDK for constrained devices
 
 Build the C SDK for constrained devices.
+
+> [!NOTE]
+> The Embedded C SDK is an alternative for constrained devices that supports the bring your own network (BYON) approach. IoT developers have the freedom to bring the MQTT client, TLS, and socket of their choice to create a device solution. [Learn more about the Embedded C SDK](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot).
 
 ### Prerequisites
 

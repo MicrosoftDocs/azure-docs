@@ -1,15 +1,15 @@
 ---
-title: Preview - Add a spot node pool to an Azure Kubernetes Service (AKS) cluster
+title: Add a spot node pool to an Azure Kubernetes Service (AKS) cluster
 description: Learn how to add a spot node pool to an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.service: container-service
 ms.topic: article
-ms.date: 02/25/2020
+ms.date: 10/19/2020
 
 #Customer intent: As a cluster operator or developer, I want to learn how to add a spot node pool to an AKS Cluster.
 ---
 
-# Preview - Add a spot node pool to an Azure Kubernetes Service (AKS) cluster
+# Add a spot node pool to an Azure Kubernetes Service (AKS) cluster
 
 A spot node pool is a node pool backed by a [spot virtual machine scale set][vmss-spot]. Using spot VMs for nodes with your AKS cluster allows you to take advantage of unutilized capacity in Azure at a significant cost savings. The amount of available unutilized capacity will vary based on many factors, including node size, region, and time of day.
 
@@ -21,49 +21,13 @@ In this article, you add a secondary spot node pool to an existing Azure Kuberne
 
 This article assumes a basic understanding of Kubernetes and Azure Load Balancer concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-This feature is currently in preview.
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Before you begin
 
-When you create a cluster to use a spot node pool, that cluster must also use Virtual Machine Scale Sets for node pools and the *Standard* SKU load balancer. You must also add an additional node pool after you create your cluster to use a spot node pool. Adding an additional node pool is covered in a later step, but you first need to enable a preview feature.
+When you create a cluster to use a spot node pool, that cluster must also use Virtual Machine Scale Sets for node pools and the *Standard* SKU load balancer. You must also add an additional node pool after you create your cluster to use a spot node pool. Adding an additional node pool is covered in a later step.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-### Register spotpoolpreview preview feature
-
-To create an AKS cluster that uses a spot node pool, you must enable the *spotpoolpreview* feature flag on your subscription. This feature provides the latest set of service enhancements when configuring a cluster.
-
-Register the *spotpoolpreview* feature flag using the [az feature register][az-feature-register] command as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "spotpoolpreview"
-```
-
-It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/spotpoolpreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-### Install aks-preview CLI extension
-
-To create an AKS cluster that uses a spot node pool, you need the *aks-preview* CLI extension version 0.4.32 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
- 
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+This article requires that you are running the Azure CLI version 2.14 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ### Limitations
 
@@ -102,7 +66,7 @@ By default, you create a node pool with a *priority* of *Regular* in your AKS cl
 The command also enables the [cluster autoscaler][cluster-autoscaler], which is recommended to use with spot node pools. Based on the workloads running in your cluster, the cluster autoscaler scales up and scales down the number of nodes in the node pool. For spot node pools, the cluster autoscaler will scale up the number of nodes after an eviction if additional nodes are still needed. If you change the maximum number of nodes a node pool can have, you also need to adjust the `maxCount` value associated with the cluster autoscaler. If you do not use a cluster autoscaler, upon eviction, the spot pool will eventually decrease to zero and require a manual operation to receive any additional spot nodes.
 
 > [!Important]
-> Only schedule workloads on spot node pools that can handle interruptions, such as batch processing jobs and testing environments. It is recommended that you set up [taints and tolerations][taints-tolerations] on your spot node pool to ensure that only workloads that can handle node evictions are scheduled on a spot node pool. For example, the above command ny default adds a taint of *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* so only pods with a corresponding toleration are scheduled on this node.
+> Only schedule workloads on spot node pools that can handle interruptions, such as batch processing jobs and testing environments. It is recommended that you set up [taints and tolerations][taints-tolerations] on your spot node pool to ensure that only workloads that can handle node evictions are scheduled on a spot node pool. For example, the above command by default adds a taint of *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* so only pods with a corresponding toleration are scheduled on this node.
 
 ## Verify the spot node pool
 
@@ -145,14 +109,8 @@ In this article, you learned how to add a spot node pool to an AKS cluster. For 
 <!-- LINKS - Internal -->
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-group-deploy-create]: /cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
-[az-provider-register]: /cli/azure/provider#az-provider-register
-[az-template-deploy]: ../azure-resource-manager/templates/deploy-cli.md#deployment-scope
+[azure-cli-install]: /cli/azure/install-azure-cli
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
 [cluster-autoscaler]: cluster-autoscaler.md
 [eviction-policy]: ../virtual-machine-scale-sets/use-spot.md#eviction-policy
 [kubernetes-concepts]: concepts-clusters-workloads.md

@@ -1,11 +1,9 @@
 ---
 title: Run an Apache Spark job with Azure Kubernetes Service (AKS)
 description: Use Azure Kubernetes Service (AKS) to create and run an Apache Spark job for large-scale data processing.
-author: lenadroid
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.author: alehall
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Running Apache Spark jobs on AKS
@@ -39,7 +37,7 @@ az group create --name mySparkCluster --location eastus
 Create a Service Principal for the cluster. After it is created, you will need the Service Principal appId and password for the next command.
 
 ```azurecli
-az ad sp create-for-rbac --name SparkSP
+az ad sp create-for-rbac --name SparkSP --role Contributor
 ```
 
 Create the AKS cluster with nodes that are of size `Standard_D3_v2`, and values of appId and password passed as service-principal and client-secret parameters.
@@ -335,7 +333,7 @@ Check out Spark documentation for more details.
 <!-- LINKS - external -->
 [apache-spark]: https://spark.apache.org/
 [docker-hub]: https://docs.docker.com/docker-hub/
-[java-install]: https://aka.ms/azure-jdks
+[java-install]: /azure/developer/java/fundamentals/java-support-on-azure
 [maven-install]: https://maven.apache.org/install.html
 [sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
 [spark-docs]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
@@ -347,5 +345,5 @@ Check out Spark documentation for more details.
 [acr-aks]: cluster-container-registry-integration.md
 [acr-create]: ../container-registry/container-registry-get-started-azure-cli.md
 [aks-quickstart]: ./index.yml
-[azure-cli]: /cli/azure/?view=azure-cli-latest
+[azure-cli]: /cli/azure/
 [storage-account]: ../storage/blobs/storage-quickstart-blobs-cli.md

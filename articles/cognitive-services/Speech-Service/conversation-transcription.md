@@ -3,16 +3,17 @@ title: Conversation Transcription (Preview) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Conversation Transcription is a solution for meetings, that combines recognition, speaker ID, and diarization to provide transcription of any conversation.
 services: cognitive-services
-author: trevorbye
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.author: trbye
+ms.date: 03/26/2021
+ms.author: eur
+ms.custom: ignite-fall-2021
 ---
 
-# What is Conversation Transcription in meetings (Preview)?
+# What is Conversation Transcription (Preview)?
 
 Conversation Transcription is a [speech-to-text](speech-to-text.md) solution that combines speech recognition, speaker identification, and sentence attribution to each speaker (also known as _diarization_) to provide real-time and/or asynchronous transcription of any conversation. Conversation Transcription distinguishes speakers in a conversation to determine who said what and when, and makes it easy for developers to add speech-to-text to their applications that perform multi-speaker diarization.
 
@@ -29,9 +30,11 @@ Conversation Transcription is a [speech-to-text](speech-to-text.md) solution tha
 > [!NOTE]
 > Although Conversation Transcription does not put a limit on the number of speakers in the room, it is optimized for 2-10 speakers per session.
 
-## Use cases
+## Get started
 
-### Inclusive meetings
+See the real-time conversation transcription [quickstart](how-to-use-conversation-transcription.md) to get started.
+
+## Use cases
 
 To make meetings inclusive for everyone, such as participants who are deaf and hard of hearing, it is important to have transcription in real time. Conversation Transcription in real-time mode takes meeting audio and determines who is saying what, allowing all meeting participants to follow the transcript and participate in the meeting without a delay.
 
@@ -47,8 +50,15 @@ This is a high-level overview of how Conversation Transcription works.
 
 ## Expected inputs
 
-- **Multi-channel audio stream** – For specification and design details, see [Microsoft Speech Device SDK Microphone](https://aka.ms/cts/microphone). To learn more or purchase a development kit, see [Get Microsoft Speech Device SDK](https://aka.ms/cts/getsdk).
-- **User voice samples** – Conversation Transcription needs user profiles in advance of the conversation. You will need to collect audio recordings from each user, then send the recordings to the [Signature Generation Service](https://aka.ms/cts/signaturegenservice) to validate the audio and generate user profiles.
+- **Multi-channel audio stream** – For specification and design details, see [Microphone array recommendations](./speech-sdk-microphone.md). 
+- **User voice samples** – Conversation Transcription needs user profiles in advance of the conversation for speaker identification. You will need to collect audio recordings from each user, then send the recordings to the [Signature Generation Service](https://aka.ms/cts/signaturegenservice) to validate the audio and generate user profiles.
+
+> [!NOTE]
+> User voice samples for voice signatures are required for speaker identification. Speakers who do not have voice samples will be recognized as "Unidentified". Unidentified speakers can still be differentiated when the `DifferentiateGuestSpeakers` property is enabled (see example below). The transcription output will then show speakers as "Guest_0", "Guest_1", etc. instead of recognizing as pre-enrolled specific speaker names.
+> ```csharp
+> config.SetProperty("DifferentiateGuestSpeakers", "true");
+> ```
+
 
 ## Real-time vs. asynchronous
 
@@ -68,9 +78,9 @@ Audio data is processed live to return speaker identifier + transcript, and, in 
 
 ## Language support
 
-Currently, Conversation Transcription supports "en-US" and "zh-CN" in the following regions: *centralus* and *eastasia*. If you require additional locale support, contact the [Conversation Transcription Feature Crew](mailto:CTSFeatureCrew@microsoft.com).
+Currently, Conversation Transcription supports [all speech-to-text languages](language-support.md#speech-to-text) in the following regions: `centralus`, `eastasia`, `eastus`, `westeurope`. If you require additional locale support, contact the [Conversation Transcription Feature Crew](mailto:CTSFeatureCrew@microsoft.com).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Transcribe conversations in real time](how-to-use-conversation-transcription-service.md)
+> [Transcribe conversations in real time](how-to-use-conversation-transcription.md)

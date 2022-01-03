@@ -3,13 +3,13 @@ title: 'Quickstart: Translate speech-to-text, Java (Windows, Linux) - Speech ser
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
-author: erhopf
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
-ms.author: erhopf
+ms.author: eur
 ---
 
 ## Prerequisites
@@ -17,7 +17,7 @@ ms.author: erhopf
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Create an Azure Speech Resource](../../../../overview.md#try-the-speech-service-for-free)
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=jre)
 
 ## Add sample code

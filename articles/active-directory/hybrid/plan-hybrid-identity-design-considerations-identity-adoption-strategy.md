@@ -4,11 +4,10 @@ description: With Conditional Access control, Azure AD checks the specific condi
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
@@ -49,13 +48,13 @@ The following table helps in determining the advantages and disadvantages of eac
 | Strategy | Advantages | Disadvantages |
 | --- | --- | --- |
 | **Cloud identities** |Easier to manage for small organization. <br> Nothing to install on-premises. No additional hardware needed<br>Easily disabled if the user leaves the company |Users will need to sign in when accessing workloads in the cloud <br> Passwords may or may not be the same for cloud and on-premises identities |
-| **Synchronized** |On-premises password authenticates both on-premises and cloud directories <br>Easier to manage for small, medium, or large organizations <br>Users can have single sign-on (SSO) for some resources <br> Microsoft preferred method for synchronization <br> Easier to manage |Some customers may be reluctant to synchronize their directories with the cloud due specific company’s police |
+| **Synchronized** |On-premises password authenticates both on-premises and cloud directories <br>Easier to manage for small, medium, or large organizations <br>Users can have single sign-on (SSO) for some resources <br> Microsoft preferred method for synchronization <br> Easier to manage |Some customers may be reluctant to synchronize their directories with the cloud due specific company’s policies |
 | **Federated** |Users can have single sign-on (SSO) <br>If a user is terminated or leaves, the account can be immediately disabled and access revoked,<br> Supports advanced scenarios that cannot be accomplished with synchronized |More steps to set up and configure <br> Higher maintenance <br> May require additional hardware for the STS infrastructure <br> May require additional hardware to install the federation server. Additional software is required if AD FS is used <br> Require extensive setup for SSO <br> Critical point of failure if the federation server is down, users won’t be able to authenticate |
 
 ### Client experience
 The strategy that you use will dictate the user sign-in experience.  The following tables provide you with information on what the users should expect their sign-in experience to be.  Not all federated identity providers support SSO in all scenarios.
 
-**Doman-joined and private network applications**:
+**Domain-joined and private network applications**:
 
 | Application | Synchronized Identity | Federated Identity |
 | --- | --- | --- |
@@ -173,7 +172,7 @@ The following is not supported and should not be chosen as an implementation:
 > 
 
 ## Define multi-factor authentication strategy
-In this task you will define the multi-factor authentication strategy to use.  Azure Multi-Factor Authentication comes in two different versions.  One is a cloud-based and the other is on-premises based using the Azure MFA Server.  Based on the evaluation you did above you can determine which solution is the correct one for your strategy.  Use the table below to determine which design option best fulfills your company’s security requirement:
+In this task you will define the multi-factor authentication strategy to use.  Azure AD Multi-Factor Authentication comes in two different versions.  One is a cloud-based and the other is on-premises based using the Azure MFA Server.  Based on the evaluation you did above you can determine which solution is the correct one for your strategy.  Use the table below to determine which design option best fulfills your company’s security requirement:
 
 Multi-factor design options:
 

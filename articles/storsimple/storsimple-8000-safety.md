@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: 
 ms.service: storsimple
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -110,7 +109,7 @@ The device is designed to operate with two PCMs. Each of the PCMs has a power su
 
 To reduce the likelihood of injury, electrical shock, or death:
 
-* Do not remove the covers from the PCM. There is a danger of electric shock inside. To return the PCM and obtain a replacement, [contact Microsoft Support](storsimple-contact-microsoft-support.md).
+* Do not remove the covers from the PCM. There is a danger of electric shock inside. To return the PCM and obtain a replacement, [contact Microsoft Support](./storsimple-8000-contact-microsoft-support.md).
 
 ![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:**
 

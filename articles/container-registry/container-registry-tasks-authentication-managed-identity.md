@@ -54,7 +54,7 @@ To enable a system-assigned identity, pass `--assign-identity` with no value or 
 az acr task create \
     --image hello-world:{{.Run.ID}} \
     --name hello-world --registry MyRegistry \
-    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git \
+    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git#main \
     --file Dockerfile \
     --commit-trigger-enabled false \
     --assign-identity
@@ -66,7 +66,7 @@ To enable a user-assigned identity, pass `--assign-identity` with a value of the
 az acr task create \
     --image hello-world:{{.Run.ID}} \
     --name hello-world --registry MyRegistry \
-    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git \
+    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git#main \
     --file Dockerfile \
     --commit-trigger-enabled false
     --assign-identity <resourceID>
@@ -136,10 +136,10 @@ In this article, you learned how to enable and use a user-assigned or system-ass
 
 
 <!-- LINKS - Internal -->
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[az-identity-create]: /cli/azure/identity#az-identity-create
-[az-identity-show]: /cli/azure/identity#az-identity-show
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
-[az-acr-task-credential-add]: /cli/azure/acr/task/credential#az-acr-task-credential-add
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[az-identity-create]: /cli/azure/identity#az_identity_create
+[az-identity-show]: /cli/azure/identity#az_identity_show
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
+[az-acr-task-credential-add]: /cli/azure/acr/task/credential#az_acr_task_credential_add
 [azure-cli-install]: /cli/azure/install-azure-cli

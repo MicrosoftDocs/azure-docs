@@ -3,19 +3,19 @@ title: Service tiers - DTU-based purchase model
 description: Learn about service tiers in the DTU-based purchase model for Azure SQL Database to provide compute and storage sizes.  
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: references_regions
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: carlrab
-ms.date: 11/26/2019
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: kendralittle, mathoma
+ms.date: 8/12/2021
 ---
 # Service tiers in the DTU-based purchase model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Service tiers in the DTU-based purchase model are differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers in the DTU-based purchase model provide flexibility of changing compute sizes with minimal [downtime](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/); however, there is a switch over period where connectivity is lost to the database for a short amount of time, which can be mitigated using retry logic. Single databases and elastic pools are billed hourly based on service tier and compute size.
+Service tiers in the DTU-based purchase model are differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers in the DTU-based purchase model provide flexibility of changing compute sizes with minimal [downtime](https://azure.microsoft.com/support/legal/sla/azure-sql-database); however, there is a switch over period where connectivity is lost to the database for a short amount of time, which can be mitigated using retry logic. Single databases and elastic pools are billed hourly based on service tier and compute size.
 
 > [!IMPORTANT]
 > [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) does not support a DTU-based purchasing model. 
@@ -34,16 +34,21 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 |**Uptime SLA**|99.99%|99.99%|99.99%|
 |**Maximum backup retention**|7 days|35 days|35 days|
 |**CPU**|Low|Low, Medium, High|Medium, High|
-|**IO throughput (approximate)** |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
+|**IOPS (approximate)**\* |1-4 IOPS per DTU| 1-4 IOPS per DTU | >25 IOPS per DTU|
 |**IO latency (approximate)**|5 ms (read), 10 ms (write)|5 ms (read), 10 ms (write)|2 ms (read/write)|
 |**Columnstore indexing** |N/A|S3 and above|Supported|
 |**In-memory OLTP**|N/A|N/A|Supported|
 
+\* All read and write IOPS against data files, including background IO (checkpoint and lazy writer)
+
 > [!IMPORTANT]
-> The Basic, Standard S0, S1 and S2 service tiers provide less than one vCore (CPU).  For CPU-intensive workloads, a service tier of S3 or greater is recommended. 
+> The Basic, S0, S1 and S2 service objectives provide less than one vCore (CPU).  For CPU-intensive workloads, a service objective of S3 or greater is recommended. 
 >
->Regarding data storage, the Basic, Standard S0, and S1 service tiers are placed on Standard Page Blobs. Standard Page Blobs use hard disk drive (HDD)-based storage media and are best suited for development, testing, and other infrequently accessed workloads that are less sensitive to performance variability.
+> In the Basic, S0, and S1 service objectives, database files are stored in Azure Standard Storage, which uses hard disk drive (HDD)-based storage media. These service objectives are best suited for development, testing, and other infrequently accessed workloads that are less sensitive to performance variability.
 >
+
+> [!TIP]
+> To see actual [resource governance](resource-limits-logical-server.md#resource-governance) limits for a database or elastic pool, query the [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) view.
 
 > [!NOTE]
 > You can get a free database in Azure SQL Database at the Basic service tier in conjunction with an Azure free account to explore Azure. For information, see [Create a managed cloud database with your Azure free account](https://azure.microsoft.com/free/services/sql-database/).
@@ -167,6 +172,9 @@ The key metrics in the benchmark are throughput and response time.
 | Premium |Transactions per second |95th percentile at 0.5 seconds |
 | Standard |Transactions per minute |90th percentile at 1.0 seconds |
 | Basic |Transactions per hour |80th percentile at 2.0 seconds |
+
+> [!NOTE]
+> Response time metrics are specific to the [DTU Benchmark](#dtu-benchmark). Response times for other workloads are workload-dependent and will differ.
 
 ## Next steps
 

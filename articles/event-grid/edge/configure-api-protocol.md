@@ -1,11 +1,12 @@
 ---
 title: Configure API protocols - Azure Event Grid IoT Edge | Microsoft Docs 
-description: Configure API protocols exposed by Event Grid on IoT Edge.  
+description: Learn about the possible protocol configurations of an Event Grid module.  
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 07/08/2020
+ms.date: 05/10/2021
+ms.subservice: iot-edge
 ms.topic: article
 ---
 

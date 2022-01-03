@@ -1,15 +1,15 @@
 ---
 title: Profile model memory and CPU usage
 titleSuffix: Azure Machine Learning
-description: Learn to profile your model memory and CPU usage
+description: Learn to profile your model before deployment. Profiling determines the memory and CPU usage of your model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: gopalv
-author: gvashishtha
 ms.date: 07/31/2020
-ms.topic: conceptual
+ms.topic: how-to
 zone_pivot_groups: aml-control-methods
+ms.reviewer: larryfr
+ms.custom: deploy
 ---
 
 # Profile your model to determine resource utilization
@@ -19,6 +19,10 @@ This article shows how to profile a machine learning to model to determine how m
 ## Prerequisites
 
 This article assumes you have trained and registered a model with Azure Machine Learning. See the [sample tutorial here](how-to-train-scikit-learn.md) for an example of training and registering a scikit-learn model with Azure Machine Learning.
+
+## Limitations
+
+* Profiling will not work when the Azure Container Registry (ACR) for your workspace is behind a virtual network.
 
 ## Run the profiler
 
@@ -126,9 +130,8 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 * [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Create client applications to consume web services](how-to-consume-web-service.md)
 * [Update web service](how-to-deploy-update-web-service.md)
-* [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
+* [How to deploy a model using a custom Docker image](./how-to-deploy-custom-container.md)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)
 * [Create event alerts and triggers for model deployments](how-to-use-event-grid.md)
-

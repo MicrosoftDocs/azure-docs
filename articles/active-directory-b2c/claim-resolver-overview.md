@@ -3,14 +3,14 @@ title: Claim resolvers in custom policies
 titleSuffix: Azure AD B2C
 description: Learn how to use claims resolvers in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
-ms.author: mimart
+ms.date: 12/12/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -36,11 +36,9 @@ In the technical profile, map the claim resolver to the claim type. Azure AD B2C
 <InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
 ```
 
-## Claim resolver types
+## Culture
 
-The following sections list available claim resolvers.
-
-### Culture
+The following table lists the claim resolvers with information about the language used in the authorization request:
 
 | Claim | Description | Example |
 | ----- | ----------- | --------|
@@ -49,7 +47,9 @@ The following sections list available claim resolvers.
 | {Culture:RegionName} | The two letter ISO code for the region. | US |
 | {Culture:RFC5646} | The RFC5646 language code. | en-US |
 
-### Policy
+## Policy
+
+The following table lists the claim resolvers with information about the policy used in the authorization request:
 
 | Claim | Description | Example |
 | ----- | ----------- | --------|
@@ -58,7 +58,32 @@ The following sections list available claim resolvers.
 | {Policy:TenantObjectId} | The tenant object ID of the relying party policy. | 00000000-0000-0000-0000-000000000000 |
 | {Policy:TrustFrameworkTenantId} | The tenant ID of the trust framework. | your-tenant.onmicrosoft.com |
 
-### OpenID Connect
+
+## Context
+
+The following table lists the contextual claim resolvers of the authorization request:
+
+| Claim | Description | Example |
+| ----- | ----------- | --------|
+| {Context:BuildNumber} | The Identity Experience Framework version (build number).  | 1.0.507.0 |
+| {Context:CorrelationId} | The correlation ID.  | 00000000-0000-0000-0000-000000000000 |
+| {Context:DateTimeInUtc} |The date time in UTC.  | 10/10/2021 12:00:00 PM |
+| {Context:DeploymentMode} |The policy deployment mode.  | Production |
+| {Context:HostName} | The host name of the current request.  | contoso.b2clogin.com |
+| {Context:IPAddress} | The user IP address. | 11.111.111.11 |
+| {Context:KMSI} | Indicates whether [Keep me signed in](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) checkbox is selected. |  true |
+
+## Claims 
+
+This section describes how to get a claim value as a claim resolver.
+
+| Claim | Description | Example |
+| ----- | ----------- | --------|
+| {Claim:claim type} | An identifier of a claim type already defined in the [ClaimsSchema](claimsschema.md) section in the policy file or parent policy file.  For example: `{Claim:displayName}`, or `{Claim:objectId}`. | A claim type value.|
+
+## OpenID Connect
+
+The following table lists the claim resolvers with information about the OpenID Connect authorization request:
 
 | Claim | Description | Example |
 | ----- | ----------- | --------|
@@ -68,32 +93,14 @@ The following sections list available claim resolvers.
 | {OIDC:LoginHint} |  The `login_hint` query string parameter. | someone@contoso.com |
 | {OIDC:MaxAge} | The `max_age`. | N/A |
 | {OIDC:Nonce} |The `Nonce`  query string parameter. | defaultNonce |
-| {OIDC:Password}| The [resource owner password credentials flow](ropc-custom.md) user's password.| password1| 
+| {OIDC:Password}| The [resource owner password credentials flow](add-ropc-policy.md) user's password.| password1| 
 | {OIDC:Prompt} | The `prompt` query string parameter. | login |
 | {OIDC:RedirectUri} |The `redirect_uri`  query string parameter. | https://jwt.ms |
 | {OIDC:Resource} |The `resource`  query string parameter. | N/A |
 | {OIDC:Scope} |The `scope`  query string parameter. | openid |
-| {OIDC:Username}| The [resource owner password credentials flow](ropc-custom.md) user's username.| emily@contoso.com| 
+| {OIDC:Username}| The [resource owner password credentials flow](add-ropc-policy.md) user's username.| emily@contoso.com|
 
-### Context
-
-| Claim | Description | Example |
-| ----- | ----------- | --------|
-| {Context:BuildNumber} | The Identity Experience Framework version (build number).  | 1.0.507.0 |
-| {Context:CorrelationId} | The correlation ID.  | 00000000-0000-0000-0000-000000000000 |
-| {Context:DateTimeInUtc} |The date time in UTC.  | 10/10/2018 12:00:00 PM |
-| {Context:DeploymentMode} |The policy deployment mode.  | Production |
-| {Context:IPAddress} | The user IP address. | 11.111.111.11 |
-| {Context:KMSI} | Indicates whether [Keep me signed in](custom-policy-keep-me-signed-in.md) checkbox is selected. |  true |
-
-### Claims 
-
-| Claim | Description | Example |
-| ----- | ----------- | --------|
-| {Claim:claim type} | An identifier of a claim type already defined in the ClaimsSchema section in the policy file or parent policy file.  For example: `{Claim:displayName}`, or `{Claim:objectId}`. | A claim type value.|
-
-
-### OAuth2 key-value parameters
+## OAuth2 key-value parameters
 
 Any parameter name included as part of an OIDC or OAuth2 request can be mapped to a claim in the user journey. For example, the request from the application might include a query string parameter with a name of `app_session`, `loyalty_number`, or any custom query string.
 
@@ -104,14 +111,9 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 | {OAUTH-KV:loyalty_number} | A query string parameter. | 1234 |
 | {OAUTH-KV:any custom query string} | A query string parameter. | N/A |
 
-### OAuth2
+## SAML
 
-| Claim | Description | Example |
-| ----- | ----------------------- | --------|
-| {oauth2:access_token} | The access token. | N/A |
-
-
-### SAML
+The following table lists the claim resolvers  with information about the SAML authorization request:
 
 | Claim | Description | Example |
 | ----- | ----------- | --------|
@@ -122,6 +124,17 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 | {SAML:ForceAuthn} | The `ForceAuthN` attribute value, from the `AuthnRequest` element of the SAML request. | True |
 | {SAML:ProviderName} | The `ProviderName` attribute value, from the `AuthnRequest` element of the SAML request.| Contoso.com |
 | {SAML:RelayState} | The `RelayState` query string parameter.| 
+| {SAML:Subject} | The `Subject` from the NameId element of the SAML AuthN request.| 
+| {SAML:Binding} | The `ProtocolBinding` attribute value, from the `AuthnRequest` element of the SAML request. | urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST |
+
+## OAuth2 identity provider
+
+The following table lists the [OAuth2 identity provider](oauth2-technical-profile.md) claim resolvers:
+
+| Claim | Description | Example |
+| ----- | ----------------------- | --------|
+| {oauth2:access_token} | The access token. | N/A |
+| {oauth2:refresh_token} | The refresh token. | N/A |
 
 ## Using claim resolvers
 
@@ -135,7 +148,7 @@ You can use claims resolvers with the following elements:
 |[OpenID Connect](openid-connect-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[Claims transformation](claims-transformation-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[RESTful provider](restful-technical-profile.md) technical profile| `InputClaim`| 1, 2|
-|[SAML identity provider](saml-identity-provider-technical-profile.md)  technical profile| `OutputClaim`| 1, 2|
+|[SAML identity provider](identity-provider-generic-saml.md)  technical profile| `OutputClaim`| 1, 2|
 |[Self-Asserted](self-asserted-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[ContentDefinition](contentdefinitions.md)| `LoadUri`| |
 |[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
@@ -179,7 +192,7 @@ Using claim resolvers, you can prepopulate the sign-in name or direct sign-in to
 
 ### Dynamic UI customization
 
-Azure AD B2C enables you to pass query string parameters to your HTML content definition endpoints to dynamically render the page content. For example, this feature allows the ability to modify the background image on the Azure AD B2C sign-up or sign-in page based on a custom parameter that you pass from your web or mobile application. For more information, see [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri). You can also localize your HTML page based on a language parameter, or you can change the content based on the client ID.
+Azure AD B2C enables you to pass query string parameters to your HTML content definition endpoints to dynamically render the page content. For example, this feature allows the ability to modify the background image on the Azure AD B2C sign-up or sign-in page based on a custom parameter that you pass from your web or mobile application. For more information, see [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri). You can also localize your HTML page based on a language parameter, or you can change the content based on the client ID.
 
 The following example passes in the query string parameter named **campaignId** with a value of `Hawaii`, a **language** code of `en-US`, and **app** representing the client ID:
 

@@ -7,9 +7,8 @@ documentationcenter: na
 author: asudbring
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: how-to
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
@@ -19,8 +18,8 @@ ms.author: allensu
 # Create a public load balancer with IPv6 using Azure CLI
 
 >[!NOTE] 
->This article describes an introductory IPv6 feature to allow Basic Load Balancers to provide both IPv4 and IPv6 connectivity. Comprehensive IPv6 connectivity is now available with [IPv6 for Azure VNETs](../virtual-network/ipv6-overview.md) which integrates IPv6 connectivity with your Virtual Networks and includes key features such as IPv6 Network Security Group rules, IPv6 User-defined routing, IPv6 Basic and Standard load balancing, and more.  IPv6 for Azure VNETs is the recommended standard for IPv6 applications in Azure. 
-See [IPv6 for Azure VNET Powershell Deployment](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
+>This article describes an introductory IPv6 feature to allow Basic Load Balancers to provide both IPv4 and IPv6 connectivity. Comprehensive IPv6 connectivity is now available with [IPv6 for Azure VNETs](../virtual-network/ip-services/ipv6-overview.md) which integrates IPv6 connectivity with your Virtual Networks and includes key features such as IPv6 Network Security Group rules, IPv6 User-defined routing, IPv6 Basic and Standard load balancing, and more.  IPv6 for Azure VNETs is the recommended standard for IPv6 applications in Azure. 
+See [IPv6 for Azure VNET Powershell Deployment](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
 
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. Load balancers provide high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Load balancers can also present these services on multiple ports or multiple IP addresses or both.
 
@@ -54,7 +53,7 @@ To deploy a load balancer, create and configure the following objects:
 
 In this example, you run the Azure CLI tools in a PowerShell command window. To improve readability and reuse, you use PowerShell's scripting capabilities, not the Azure PowerShell cmdlets.
 
-1. [Install and Configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) by following the steps in the linked article and sign in to your Azure account.
+1. [Install and Configure the Azure CLI](/cli/azure/install-azure-cli) by following the steps in the linked article and sign in to your Azure account.
 
 2. Set up PowerShell variables for use with the Azure CLI commands:
 
@@ -280,7 +279,7 @@ To create VMs, you must have a storage account. For load balancing, the VMs need
     ```
 
     > [!WARNING]
-    > This example uses the username and password for the VMs in cleartext. Take appropriate care when you use these credentials in cleartext. For a more secure method of handling credentials in PowerShell, see the [`Get-Credential`](https://technet.microsoft.com/library/hh849815.aspx) cmdlet.
+    > This example uses the username and password for the VMs in cleartext. Take appropriate care when you use these credentials in cleartext. For a more secure method of handling credentials in PowerShell, see the [`Get-Credential`](/powershell/module/microsoft.powershell.security/get-credential) cmdlet.
 
 2. Create the availability set:
 
@@ -295,5 +294,3 @@ To create VMs, you must have a storage account. For load balancing, the VMs need
 
 	az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
 	```
-
-

@@ -1,18 +1,18 @@
 ---
-title: 'Quickstart: Create a CI/CD pipeline for PHP with Azure DevOps Starter' 
+title: 'Quickstart: Create a CI/CD pipeline for PHP with Azure DevOps Starter'
 description: DevOps Starter makes it easy to get started on Azure. It helps you launch an app on an Azure service of your choice in few quick steps.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
-author: mlearned
+author: georgewallace
 manager: gwallace
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
-ms.author: mlearned
-ms.custom: mvc
+ms.author: gwallace
+ms.custom: mvc, mode-other
 ---
 
 # Create a CI/CD pipeline for PHP with Azure DevOps Starter
@@ -59,9 +59,9 @@ If you don't have an Azure subscription, you can get one for free through [Visua
 
  DevOps Starter creates a Git repository in Azure Repos or GitHub. To view the repository and make code changes to your application, take the following steps:
 
-1. On the left of the DevOps Starter dashboard, select the link for your master branch. This link opens a view to the newly created Git repository.
+1. On the left of the DevOps Starter dashboard, select the link for your main branch. This link opens a view to the newly created Git repository.
 
-1. To view the repository clone URL, select **Clone** from the top right of the browser. You can clone your Git repository in your favorite IDE. In the next few steps, use the web browser to make and commit code changes directly to the master branch.
+1. To view the repository clone URL, select **Clone** from the top right of the browser. You can clone your Git repository in your favorite IDE. In the next few steps, use the web browser to make and commit code changes directly to the main branch.
 
 1. On the left, go to the **resources/views/welcome.blade.php** file.
 
@@ -120,4 +120,4 @@ You can delete Azure App Service and other related resources when you don't need
 When you configured your CI/CD process, build and release pipelines were automatically created. You can modify these build and release pipelines to meet the needs of your team. To learn more about the CI/CD pipeline, see this tutorial:
 
 > [!div class="nextstepaction"]
-> [Customize CD process](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Customize CD process](/azure/devops/pipelines/release/define-multistage-release-process)

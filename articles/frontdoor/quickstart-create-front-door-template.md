@@ -2,18 +2,17 @@
 title: 'Quickstart: Create an Azure Front Door Service by using an Azure Resource Manager template (ARM template)'
 description: This quickstart describes how to create an Azure Front Door Service by using Azure Resource Manager template (ARM template).
 services: front-door
-documentationcenter: ''
+documentationcenter: 
 author: duongau
-editor: ''
-ms.assetid:
-ms.service: frontdoor
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/14/2020
 ms.author: duau
-# Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
+editor: 
+ms.date: 09/14/2020
+ms.topic: quickstart
+ms.service: frontdoor
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+#Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
 # Quickstart: Create a Front Door using an ARM template
@@ -24,7 +23,7 @@ This quickstart describes how to use an Azure Resource Manager template (ARM Tem
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-front-door-create-basic%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Ffront-door-create-basic%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -33,11 +32,11 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-front-door-create-basic).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/front-door-create-basic).
 
-In this quickstart, you'll create a Front Door configuration with a single backend and a single default path matching "/*". 
+In this quickstart, you'll create a Front Door configuration with a single backend and a single default path matching `/*`.
 
-:::code language="json" source="~/quickstart-templates/101-front-door-create-basic/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/front-door-create-basic/azuredeploy.json":::
 
 One Azure resource is defined in the template:
 
@@ -45,12 +44,12 @@ One Azure resource is defined in the template:
 
 ## Deploy the template
 
-1. Select **Try it** from the following code block to open Azure Cloud Shell, and then follow the instructions to sign in to Azure. 
+1. Select **Try it** from the following code block to open Azure Cloud Shell, and then follow the instructions to sign in to Azure.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-front-door-create-basic/azuredeploy.json"
+    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/front-door-create-basic/azuredeploy.json"
 
     $resourceGroupName = "${projectName}rg"
 
@@ -68,7 +67,7 @@ One Azure resource is defined in the template:
 
 1. Enter the values.
 
-    The template deployment creates a Front Door with a single backend. In this example *<span>microsoft.</span>com* is used as the **backendAddress**.
+    The template deployment creates a Front Door with a single backend. In this example `microsoft.com` is used as the **backendAddress**.
 
     The resource group name is the project name with **rg** appended.
 
@@ -105,8 +104,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## Next steps
 
-In this quickstart, you created a:
-* Front Door
+In this quickstart, you created a Front Door.
 
 To learn how to add a custom domain to your Front Door, continue to the Front Door tutorials.
 

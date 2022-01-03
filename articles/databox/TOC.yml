@@ -1,5 +1,5 @@
 - name:  Azure Data Box Documentation - Offline Transfer
-  href: /azure/databox
+  href: ./index.yml
   items:
   - name: Data Box
     items:
@@ -75,11 +75,15 @@
       - name: Security
         items:
         - name: Security baseline
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/databox-security-baseline?context=/azure/databox/context/context
+        - name: Security controls by Azure Policy
+          href: ./security-controls-policy.md
         - name: Review security 
-          href: data-box-security.md 
+          href: data-box-security.md
+      - name: Transfer ACLs and metadata
+        href: data-box-file-acls-preservation.md 
       - name: FAQ
-        href: data-box-faq.md 
+        href: data-box-faq.yml 
     - name: How to
       items:  
       - name: Manage via Azure portal
@@ -88,6 +92,8 @@
         href: data-box-local-web-ui-admin.md
       - name: Use self-managed shipping
         href: data-box-portal-customer-managed-shipping.md
+      - name: Bring your own certificates
+        href: data-box-bring-your-own-certificates.md
       - name: Enable customer managed key
         href: data-box-customer-managed-encryption-key-portal.md
       - name: Use Customer Lockbox
@@ -101,19 +107,25 @@
       - name: Migrate
         items:
         - name: To SharePoint Online
-          href: https://docs.microsoft.com/sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=/azure/databox/context/context
+          href: /sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=%2fazure%2fdatabox%2fcontext%2fcontext
         - name: To Azure File Sync
-          href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+          href: ../storage/files/storage-files-migration-server-hybrid-databox.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
         - name: From HDFS store
           href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json 
         - name: To Azure backup
           href: ../backup/offline-backup-azure-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json 
       - name: Troubleshoot
         items:
-        - name: Data Box issues
+        - name: Data Box share access
+          href: data-box-troubleshoot-share-access.md
+        - name: Data Box copy issues
           href: data-box-troubleshoot.md
+        - name: Data Box upload issues
+          href: data-box-troubleshoot-data-upload.md
         - name: Data Box Blob storage issues
           href: data-box-troubleshoot-rest.md    
+        - name: Data Box time sync issues
+          href: data-box-troubleshoot-time-sync.md
  
   - name: Data Box Disk 
     items:
@@ -126,6 +138,7 @@
       items:
       - name: Set up - Azure portal
         href: data-box-disk-quickstart-portal.md
+        displayName: Azure CLI, az databox job create, create Data Box job
     - name: Tutorials
       items:
       - name: 1 - Order
@@ -147,7 +160,7 @@
       - name: Review security 
         href: data-box-disk-security.md 
       - name: FAQ
-        href: data-box-disk-faq.md  
+        href: data-box-disk-faq.yml  
     - name: How to
       items:
       - name: Manage via Azure portal
@@ -162,7 +175,7 @@
           href: data-box-disk-troubleshoot-data-copy.md
         - name: Validation issues
           href: data-box-disk-troubleshoot.md
-        - name: Upload issues
+        - name: Data upload issues
           href: data-box-disk-troubleshoot-upload.md 
       - name: Contact Support
         href: data-box-disk-contact-microsoft-support.md  
@@ -177,6 +190,7 @@
       items:
       - name: Set up - Azure portal
         href: data-box-heavy-quickstart-portal.md
+        displayName: Azure CLI, az databox job create, create Data Box job
     - name: Tutorials
       items:
       - name: 1 - Order
@@ -207,6 +221,8 @@
         href: data-box-heavy-system-requirements.md
       - name: Understand limits
         href: data-box-heavy-limits.md
+      - name: FAQ
+        href: data-box-faq.yml
     - name: How to
       items:
       - name: Manage via Azure portal
@@ -226,17 +242,22 @@
         - name: To SharePoint Online
           href: data-box-heavy-migrate-spo.md
         - name: To Azure File Sync
-          href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+          href: ../storage/files/storage-files-migration-server-hybrid-databox.md
         - name: From HDFS store
           href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
   - name: Reference
     items:
     - name: Azure CLI
-      href: /cli/azure/ext/databox/databox
+      href: /cli/azure/databox
     - name: Azure PowerShell
       href: /powershell/module/az.databox
     - name: .NET APIs
       href: /dotnet/api/overview/azure/databox/management
+    - name: .NET SDK
+      href: https://www.nuget.org/packages/Microsoft.Azure.Management.DataBox/
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
   - name: Resources
     items:
     - name: Data Box product
@@ -245,3 +266,5 @@
       href: https://azure.microsoft.com/pricing/details/databox/
     - name: Data Box Disk pricing
       href: https://azure.microsoft.com/pricing/details/databox/disk/
+    - name: Data Box partners
+      href: https://cloudchampions.blob.core.windows.net/db-partners/PartnersTable.pdf

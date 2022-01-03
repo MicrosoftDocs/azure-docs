@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: troubleshooting
-ms.date: 04/19/2019
+ms.date: 01/25/2021
 ms.author: alkohli
 ---
 
@@ -61,6 +61,7 @@ These errors are not specific to any application.
 |Error message  |Recommended action |
 |---------|---------|
 |The connection times out. |Sign into the Data Box device and check that it is unlocked. Any time the device restarts, it stays locked until someone signs in.|
+|The REST API authentication fails with the error: Server failed to authenticate the request. Make sure the value of Authorization header is formed correctly including the signature. ErrorCode:AuthenticationFailed. |One of the reasons why this could happen is when the device time is not synced with that of Azure. If there is a large time skew, the REST API authentication will break when you are trying to copy data to the Data Box via the REST API. In this situation, you can open the outbound UDP 123 port to allow access to `time.windows.com`. Once the device time is synced with that of Azure, authentication should succeed. |
 
 ## Next steps
 

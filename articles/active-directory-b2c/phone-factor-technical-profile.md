@@ -3,14 +3,14 @@ title: Define a phone factor technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define a phone factor technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/31/2020
-ms.author: mimart
+ms.date: 10/12/2020
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -96,7 +96,7 @@ The **CryptographicKeys** element is not used.
 
 ### UI elements
 
-The phone factor authentication page user interface elements can be [localized](localization-string-ids.md#azure-mfa-error-messages).
+The phone factor authentication page user interface elements can be [localized](localization-string-ids.md#phone-factor-authentication-page-user-interface-elements).
 
 ## Next steps
 

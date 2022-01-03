@@ -1,18 +1,16 @@
 ---
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.date: 06/22/2020
+ms.date: 11/20/2020
 ms.topic: include
-ms.author: crtreasu
+ms.author: parkerra
 ms.service: azure-spatial-anchors
 ---
 ## Putting everything together
 
-Here is how the complete `AzureSpatialAnchorsScript` class file should look like, after all
-the different elements have been put together. You can use it as a reference to
-compare against your own file, and spot if you may have any differences left.
+Here is how the complete `AzureSpatialAnchorsScript` class file should look like, after all the different elements have been put together. You can use it as a reference to compare against your own file, and spot if you may have any differences left.
 
 ```csharp
 using Microsoft.Azure.SpatialAnchors;
@@ -402,4 +400,4 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
 In this tutorial, you've learn more about how to use Azure Spatial Anchors in a new Unity HoloLens app. To learn more about how to use Azure Spatial Anchors in a new Android app, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Starting a new Android app](/azure/spatial-anchors/tutorials/tutorial-new-android-app)
+> [Starting a new Android app](../articles/spatial-anchors/tutorials/tutorial-new-android-app.md)

@@ -5,7 +5,9 @@ services: automation
 ms.subservice: dsc
 ms.date: 04/06/2020
 ms.topic: conceptual
+ms.custom: devx-track-azurepowershell
 ---
+
 # Compile DSC configurations in Azure Automation State Configuration
 
 You can compile Desired State Configuration (DSC) configurations in Azure Automation State Configuration in the following ways:
@@ -21,7 +23,7 @@ You can compile Desired State Configuration (DSC) configurations in Azure Automa
   - Work with node and non-node data at scale
   - Significant performance improvement
 
-You can also use Azure Resource Manager templates with Azure Desired State Configuration (DSC) extension to push configurations to your Azure VMs. The Azure DSC extension uses the Azure VM Agent framework to deliver, enact, and report on DSC configurations running on Azure VMs. For compilation details using Azure Resource Manager templates, see [Desired State Configuration extension with Azure Resource Manager templates](../virtual-machines/extensions/dsc-template.md#details). 
+You can also use Azure Resource Manager templates with Azure Desired State Configuration (DSC) extension to push configurations to your Azure VMs. The Azure DSC extension uses the Azure VM Agent framework to deliver, enact, and report on DSC configurations running on Azure VMs. For compilation details using Azure Resource Manager templates, see [Desired State Configuration extension with Azure Resource Manager templates](../virtual-machines/extensions/dsc-template.md#details).
 
 ## Compile a DSC configuration in Azure State Configuration
 
@@ -117,7 +119,7 @@ For information about passing `PSCredential` objects as parameters, see [Credent
 
 ### Compile configurations containing composite resources in Azure Automation
 
-The **Composite Resources** feature allows you to use DSC configurations as nested resources inside a configuration. This feature enables the application of multiple configurations to a single resource. See [Composite resources: Using a DSC configuration as a resource](/powershell/scripting/dsc/resources/authoringresourcecomposite) to learn more about composite resources.
+The **Composite Resources** feature allows you to use DSC configurations as nested resources inside a configuration. This feature enables the application of multiple configurations to a single resource. See [Composite resources: Using a DSC configuration as a resource](/powershell/dsc/resources/authoringresourcecomposite) to learn more about composite resources.
 
 > [!NOTE]
 > So that configurations containing composite resources compile correctly, you must first import into Azure Automation any DSC resources that the composites rely upon. Adding a DSC composite resource is no different from adding any PowerShell module to Azure Automation. This process is documented in [Manage Modules in Azure Automation](./shared-resources/modules.md).
@@ -247,7 +249,7 @@ Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -Automa
 ## Compile your DSC configuration in Windows PowerShell
 
 The process to compile DSC configurations in Windows PowerShell is included in the PowerShell DSC documentation
-[Write, Compile, and Apply a Configuration](/powershell/scripting/dsc/configurations/write-compile-apply-configuration#compile-the-configuration).
+[Write, Compile, and Apply a Configuration](/powershell/dsc/configurations/write-compile-apply-configuration#compile-the-configuration).
 You can execute this process from a developer workstation or within a build service, such as [Azure DevOps](https://dev.azure.com). You can then import the MOF files produced by compiling the configuration into the Azure State Configuration service.
 
 Compiling in Windows PowerShell also provides the option to sign configuration content. The DSC agent verifies a signed node configuration locally on a managed node. Verification ensures that the configuration applied to the node comes from an authorized source.
@@ -283,6 +285,6 @@ Import-AzAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomationAcco
 
 - To get started, see [Get started with Azure Automation State Configuration](automation-dsc-getting-started.md).
 - To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compile DSC configurations in Azure Automation State Configuration](automation-dsc-compile.md).
-- For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/).
 - For an example of using State Configuration in a continuous deployment pipeline, see [Set up continuous deployment with Chocolatey](automation-dsc-cd-chocolatey.md).

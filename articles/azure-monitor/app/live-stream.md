@@ -2,14 +2,18 @@
 title: Diagnose with Live Metrics Stream - Azure Application Insights
 description: Monitor your web app in real time with custom metrics, and diagnose issues with a live feed of failures, traces, and events.
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 10/12/2021
 
 ms.reviewer: sdash
+ms.devlang: csharp
 ---
 
 # Live Metrics Stream: Monitor & Diagnose with 1-second latency
 
 Monitor your live, in-production web application by using Live Metrics Stream (also known as QuickPulse) from [Application Insights](./app-insights-overview.md). Select and filter metrics and performance counters to watch in real time, without any disturbance to your service. Inspect stack traces from sample failed requests and exceptions. Together with [Profiler](./profiler.md) and [Snapshot debugger](./snapshot-debugger.md), Live Metrics Stream provides a powerful and non-invasive diagnostic tool for your live web site.
+
+> [!NOTE]
+> Live Metrics only supports TLS 1.2. For more information refer to [Troubleshooting](#troubleshooting). 
 
 With Live Metrics Stream, you can:
 
@@ -32,6 +36,7 @@ Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
    * [ASP.NET Core](./asp-net-core.md)- Live Metrics is enabled by default.
    * [.NET/.NET Core Console/Worker](./worker-service.md)- Live Metrics is enabled by default.
    * [.NET Applications - Enable using code](#enable-livemetrics-using-code-for-any-net-application).
+    * [Java](./java-in-process-agent.md) - Live Metrics is enabled by default.
    * [Node.js](./nodejs.md#live-metrics)
 
 2. In the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app, and then open Live Stream.
@@ -145,7 +150,7 @@ As with metrics, you can specify any arbitrary criteria to any of the Applicatio
 
 See the details of an item in the live feed by clicking it. You can pause the feed either by clicking **Pause** or simply scrolling down, or clicking an item. Live feed will resume after you scroll back to the top, or by clicking the counter of items collected while it was paused.
 
-![Sampled live failures](./media/live-stream/sample-telemetry.png)
+![Screenshot shows the Sample telemetry window with an exception selected and the exception details displayed at the bottom of the window.](./media/live-stream/sample-telemetry.png)
 
 ## Filter by server instance
 
@@ -156,7 +161,7 @@ If you want to monitor a particular server role instance, you can filter by serv
 ## Secure the control channel
 
 > [!NOTE]
-> Currently, you can only set up an authenticated channel using code based monitoring and cannot authenticate servers using codeless attach.
+> Currently, you can only set up an authenticated channel using manual instrumentation (SDK) and cannot authenticate servers using Azure service integration (or auto instrumentation).
 
 The custom filters criteria you specify in Live Metrics portal are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key in addition to the instrumentation key.
 
@@ -171,7 +176,7 @@ The custom filters criteria you specify in Live Metrics portal are sent back to 
 
 In the applicationinsights.config file, add the AuthenticationApiKey to the QuickPulseTelemetryModule:
 
-```XML
+```xml
 <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
       <AuthenticationApiKey>YOUR-API-KEY-HERE</AuthenticationApiKey>
 </Add>
@@ -229,8 +234,8 @@ However, if you recognize and trust all the connected servers, you can try the c
 
 ![Live Metrics Auth options](./media/live-stream/live-stream-auth.png)
 
->[!NOTE]
->We strongly recommend that you set up the authenticated channel before entering potentially sensitive information like CustomerID in the filter criteria.
+> [!NOTE]
+> We strongly recommend that you set up the authenticated channel before entering potentially sensitive information like CustomerID in the filter criteria.
 >
 
 ## Supported features table
@@ -241,7 +246,7 @@ However, if you recognize and trust all the connected servers, you can try the c
 | .NET Core (target=.NET Framework)| Supported (V2.4.1+) | Supported (V2.4.1+) | Supported (V2.4.1+) | Supported (V2.4.1+) | Supported (V2.4.1+)  |
 | .NET Core (target=.NET Core)     | Supported (V2.4.1+) | Supported*          | Supported (V2.4.1+) | Supported (V2.4.1+) | **Not Supported**    |
 | Azure Functions v2               | Supported           | Supported           | Supported           | Supported           | **Not Supported**    |
-| Java                             | Supported (V2.0.0+) | Supported (V2.0.0+) | **Not Supported**   | **Not Supported**   | **Not Supported**    |
+| Java                             | Supported (V2.0.0+) | Supported (V2.0.0+) | **Not Supported**   | Supported (V3.2.0+) | **Not Supported**    |
 | Node.js                          | Supported (V1.3.0+) | Supported (V1.3.0+) | **Not Supported**   | Supported (V1.3.0+) | **Not Supported**    |
 
 Basic metrics include request, dependency, and exception rate. Performance metrics (performance counters) include memory and CPU. Sample telemetry shows a stream of detailed information for failed requests and dependencies, exceptions, events, and traces.
@@ -255,6 +260,8 @@ Basic metrics include request, dependency, and exception rate. Performance metri
 ## Troubleshooting
 
 Live Metrics Stream uses different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](./ip-addresses.md) are open in your firewall. Also check the [outgoing ports for Live Metrics Stream](./ip-addresses.md#outgoing-ports) are open in the firewall of your servers.
+
+As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), Live Metrics now only supports TLS 1.2 by default. If you are using an older version of TLS , Live Metrics will not display any data. For applications based on .NET Framework 4.5.1 refer to [How to enable Transport Layer Security (TLS) 1.2 on clients - Configuration Manager](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client#bkmk_net) to support newer TLS version. 
 
 ## Next steps
 

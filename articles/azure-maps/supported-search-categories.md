@@ -7,14 +7,13 @@ ms.date: 05/14/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: 
 ---
 
 
 
 # Azure Maps supported categories
 
-When doing a [category search](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) for points of interest, there are over a hundred supported categories. Below is a list of the category codes for supported category names. Category codes are generated for top-level categories. All sub categories share same category code. This category list is subject to change with new data releases.
+When doing a [category search](/rest/api/maps/search/getsearchpoicategory) for points of interest, there are over a hundred supported categories. Below is a list of the category codes for supported category names. Category codes are generated for top-level categories. All sub categories share same category code. This category list is subject to change with new data releases.
 
 <br/>
 

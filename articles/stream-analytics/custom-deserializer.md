@@ -1,19 +1,18 @@
 ---
 title: Tutorial - Custom .NET deserializers for Azure Stream Analytics cloud jobs
 description: This tutorial demonstrates how to create a custom .NET deserializer for an Azure Stream Analytics cloud job using Visual Studio.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 05/06/2019
+ms.date: 12/17/2020
 ---
 
 # Tutorial: Custom .NET deserializers for Azure Stream Analytics
 
 Azure Stream Analytics has [built-in support for three data formats](stream-analytics-parsing-json.md): JSON, CSV, and Avro. With custom .NET deserializers, you can read data from other formats such as [Protocol Buffer](https://developers.google.com/protocol-buffers/), [Bond](https://github.com/Microsoft/bond) and other user defined formats for both cloud and edge jobs.
 
-This tutorial demonstrates how to create a custom .NET deserializer for an Azure Stream Analytics cloud job using Visual Studio. 
+This tutorial demonstrates how to create a custom .NET deserializer for an Azure Stream Analytics cloud job using Visual Studio. To learn how to create .NET deserializers in Visual Studio Code, see [Create .NET deserializers for Azure Stream Analytics jobs in Visual Studio Code](visual-studio-code-custom-deserializer.md).
 
 In this tutorial, you learn how to:
 
@@ -21,17 +20,16 @@ In this tutorial, you learn how to:
 > * Create a custom deserializer for protocol buffer.
 > * Create an Azure Stream Analytics job in Visual Studio.
 > * Configure your Stream Analytics job to use the custom deserializer.
-> * Run your Stream Analytics job locally to test the custom deserializer.
+> * Run your Stream Analytics job locally to test and debug the custom deserializer.
+
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) or [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/). Enterprise (Ultimate/Premium), Professional, and Community editions are supported. Express edition isn't supported.
+* Install [Visual Studio 2019 (recommended)](https://www.visualstudio.com/downloads/) or [Visual Studio 2017](https://www.visualstudio.com/vs/older-downloads/). Enterprise (Ultimate/Premium), Professional, and Community editions are supported. Express edition isn't supported. 
 
-* [Install the Stream Analytics tools for Visual Studio](stream-analytics-tools-for-visual-studio-install.md) or update to the latest version. The following versions of Visual Studio are supported:
-   * Visual Studio 2015
-   * Visual Studio 2017
+* [Install the Stream Analytics tools for Visual Studio](stream-analytics-tools-for-visual-studio-install.md) or update to the latest version. 
 
 * Open **Cloud Explorer** in Visual Studio, and sign in to your Azure subscription.
 
@@ -111,11 +109,13 @@ You have successfully implemented a custom deserializer for your Stream Analytic
 
 ## Debug your deserializer
 
-You can debug your .NET deserializer locally the same way you debug standard .NET code. 
+You can debug your .NET deserializer locally the same way you debug standard .NET code.
 
-1. Add breakpoints in your function.
+1. Right click **ProtobufCloudDeserializer** project name and set it as startup project.
 
-2. Press **F5** to start debugging. The program will stop at your breakpoints as expected.
+2. Add breakpoints in your function.
+
+3. Press **F5** to start debugging. The program will stop at your breakpoints as expected.
 
 ## Clean up resources
 

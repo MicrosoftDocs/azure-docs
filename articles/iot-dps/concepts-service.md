@@ -28,12 +28,12 @@ The device provisioning endpoint is the single endpoint all devices use for auto
 
 ## Linked IoT hubs
 
-The Device Provisioning Service can only provision devices to IoT hubs that have been linked to it. Linking an IoT hub to an instance of the Device Provisioning service gives the service read/write permissions to the IoT hub's device registry; with the link, a Device Provisioning service can register a device ID and set the initial configuration in the device twin. Linked IoT hubs may be in any Azure region. You may link hubs in other subscriptions to your provisioning service.
+The Device Provisioning Service can only provision devices to IoT hubs that have been linked to it. Linking an IoT hub to an instance of the Device Provisioning Service gives the service read/write permissions to the IoT hub's device registry; with the link, a Device Provisioning Service can register a device ID and set the initial configuration in the device twin. Linked IoT hubs may be in any Azure region. You may link hubs in other subscriptions to your provisioning service.
 
 
 ## Allocation policy
 
-The service-level setting that determines how Device Provisioning Service assigns devices to an IoT hub. There are three supported allocation policies:
+The service-level setting that determines how Device Provisioning Service assigns devices to an IoT hub. There are four supported allocation policies:
 
 * **Evenly weighted distribution**: linked IoT hubs are equally likely to have devices provisioned to them. The default setting. If you are provisioning devices to only one IoT hub, you can keep this setting.
 
@@ -41,7 +41,7 @@ The service-level setting that determines how Device Provisioning Service assign
 
 * **Static configuration via the enrollment list**: specification of the desired IoT hub in the enrollment list takes priority over the service-level allocation policy.
 
-* **Custom (Use Azure Function)**: A custom allocation policy gives you more control over how devices are assigned to an IoT hub. This is accomplished by using custom code in an Azure Function to assign devices to an IoT hub. The device provisioning service calls your Azure Function code providing all relevant information about the device and the enrollment to your code. Your function code is executed and returns the IoT hub information used to provisioning the device.
+* **Custom (Use Azure Function)**: A [custom allocation policy](how-to-use-custom-allocation-policies.md) gives you more control over how devices are assigned to an IoT hub. This is accomplished by using custom code in an Azure Function to assign devices to an IoT hub. The device provisioning service calls your Azure Function code providing all relevant information about the device and the enrollment to your code. Your function code is executed and returns the IoT hub information used to provisioning the device.
 
 ## Enrollment
 
@@ -67,7 +67,6 @@ An individual enrollment is an entry for a single device that may register. Indi
 > [!TIP]
 > We recommend using individual enrollments for devices that require unique initial configurations, or for devices that can only authenticate using SAS tokens via TPM attestation.
 
-
 ## Attestation mechanism
 
 An attestation mechanism is the method used for confirming a device's identity. The attestation mechanism is configured on an enrollment entry and tells the provisioning service which method to use when verifying the identity of a device during registration.
@@ -78,7 +77,7 @@ An attestation mechanism is the method used for confirming a device's identity. 
 The Device Provisioning Service supports the following forms of attestation:
 * **X.509 certificates** based on the standard X.509 certificate authentication flow. For more information, see [X.509 attestation](concepts-x509-attestation.md).
 * **Trusted Platform Module (TPM)** based on a nonce challenge, using the TPM standard for keys to present a signed Shared Access Signature (SAS) token. This does not require a physical TPM on the device, but the service expects to attest using the endorsement key per the [TPM spec](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/). For more information, see [TPM attestation](concepts-tpm-attestation.md).
-* **Symmetric Key** based on shared access signature (SAS) [Security tokens](../iot-hub/iot-hub-devguide-security.md#security-tokens), which include a hashed signature and an embedded expiration. For more information, see [Symmetric key attestation](concepts-symmetric-key-attestation.md).
+* **Symmetric Key** based on shared access signature (SAS) [Security tokens](../iot-hub/iot-hub-dev-guide-sas.md#security-tokens), which include a hashed signature and an embedded expiration. For more information, see [Symmetric key attestation](concepts-symmetric-key-attestation.md).
 
 
 ## Hardware security module
@@ -90,15 +89,12 @@ The hardware security module, or HSM, is used for secure, hardware-based storage
 
 Device secrets may also be stored in software (memory), but it is a less secure form of storage than an HSM.
 
-
-
 ## ID scope
 
 The ID scope is assigned to a Device Provisioning Service when it is created by the user and is used to uniquely identify the specific provisioning service the device will register through. The ID scope is generated by the service and is immutable, which guarantees uniqueness.
 
 > [!NOTE]
 > Uniqueness is important for long-running deployment operations and merger and acquisition scenarios.
-
 
 ## Registration
 
@@ -115,8 +111,6 @@ The registration ID is used to uniquely identify a device registration with the 
 ## Device ID
 
 The device ID is the ID as it appears in IoT Hub. The desired device ID may be set in the enrollment entry, but it is not required to be set. Setting the desired device ID is only supported in individual enrollments. If no desired device ID is specified in the enrollment list, the registration ID is used as the device ID when registering the device. Learn more about [device IDs in IoT Hub](../iot-hub/iot-hub-devguide-identity-registry.md).
-
-
 
 ## Operations
 

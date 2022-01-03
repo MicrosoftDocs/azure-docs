@@ -1,14 +1,14 @@
 ---
 title: Secure code best practices
 titleSuffix: Azure Machine Learning
-description: Learn about potential security threats that may exist when developing for Azure Machine Learning. Learn about the mitigations that Azure ML provides, and best practices to ensure that your development environments remain secure.
+description: Learn about potential security threats that may exist when developing for Azure Machine Learning, mitigations, and best practices.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: larryfr
-author: larryfr
-ms.date: 11/12/2019
+author: blackmist
+ms.date: 10/21/2021
 ---
 
 # Secure code best practices with Azure Machine Learning

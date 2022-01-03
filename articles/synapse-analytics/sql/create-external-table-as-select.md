@@ -1,6 +1,6 @@
 ---
-title: Store query results to storage
-description: In this article, you'll learn how to store query results to storage using SQL on-demand (preview).
+title: Store query results from serverless SQL pool
+description: In this article, you'll learn how to store query results to storage using serverless SQL pool.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
-# Store query results to storage using SQL on-demand (preview) using Azure Synapse Analytics
+# Store query results to storage using serverless SQL pool in Azure Synapse Analytics
 
-In this article, you'll learn how to store query results to storage using SQL On-demand (preview).
+In this article, you'll learn how to store query results to storage using serverless SQL pool.
 
 ## Prerequisites
 
@@ -69,6 +69,9 @@ FROM
 
 ```
 
+> [!NOTE]
+> You must modify this script and change the target location to execute it again. External tables cannot be created on the location where you already have some data.
+
 ## Use the external table
 
 You can use the external table created through CETAS like a regular external table.
@@ -88,6 +91,16 @@ WHERE
 ORDER BY
     [population] DESC;
 ```
+
+## Remarks
+
+Once you store your results, the data in the external table cannot be modified. You cannot repeat this script because CETAS will not overwrite the underlying data created in the previous execution. Vote for the following feedback items if some of these are required in your scenarios, or propose the new ones on Azure feedback site:
+- [Enable inserting new data into external table](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8)
+- [Enable deleting data from external table](https://feedback.azure.com/d365community/idea/fb5a00c9-0a25-ec11-b6e6-000d3a4f07b8)
+- [Specify partitions in CETAS](https://feedback.azure.com/d365community/idea/e28278db-0a25-ec11-b6e6-000d3a4f07b8)
+- [Specify file sizes and counts](https://feedback.azure.com/d365community/idea/262048b9-0925-ec11-b6e6-000d3a4f07b8)
+
+The only supported output types are Parquet and CSV. You can vote for the other types on [Azure feedback site](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8).
 
 ## Next steps
 

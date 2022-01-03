@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Learn how to manage the process of labeling images so they can be used in multi-class image classification models.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
-ms.date: 04/09/2020
-
+ms.date: 10/21/2021
+ms.custom: data4ml
 # Customer intent: As a project administrator, I want to manage the process of labeling images so they can be used in machine learning models.
 # THIS ARTICLE SHOWS A SAS TOKEN THAT EXPIRES IN 2025
 ---
 
 # Tutorial: Create a labeling project for multi-class image classification 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 This tutorial shows you how to manage the process of labeling (also referred to as tagging) images to be used as data for building machine learning models. Data labeling in Azure Machine Learning is in public preview.
 
@@ -34,13 +34,13 @@ In this tutorial, you'll use images of cats and dogs.  Since each image is eithe
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
 ## Create a workspace
 
 An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the service.
 
-You create a workspace via the Azure portal, a web-based console for managing your Azure resources.
+There are many [ways to create a workspace](how-to-manage-workspace.md). In this tutorial, you create a workspace via the Azure portal, a web-based console for managing your Azure resources.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -69,7 +69,7 @@ Azure Machine Learning datastores are used to store connection information, like
     Account selection method | Select **Enter manually**.
     URL | `https://azureopendatastorage.blob.core.windows.net/openimagescontainer`
     Authentication type | Select **SAS token**.
-    Account key | `?sv=2019-02-02&ss=bfqt&srt=sco&sp=rl&se=2025-03-25T04:51:17Z&st=2020-03-24T20:51:17Z&spr=https&sig=7D7SdkQidGT6pURQ9R4SUzWGxZ%2BHlNPCstoSRRVg8OY%3D`
+    Account key | `ZPlDx0bFHFEqwoy8/B/ZZg1YKi/+cIiPamOPUrRptWbvkO6d84n4loitnSMorv/AxrvE0s86cUr6rULWaSGA2A==`
 
 1. Select **Create** to create the datastore.
 
@@ -94,6 +94,10 @@ Now that you have access to the data you want to have labeled, create your label
     
     Select **Next** to continue creating the project.
 
+### Add workforce (optional)
+
+Select **Next** to continue.  You won't be using an external workforce for this tutorial.
+
 ### Select or create a dataset
 
 1.   On the **Select or create a dataset** form, select the second choice, **Create a dataset**, then select the link **From datastore**.
@@ -101,7 +105,8 @@ Now that you have access to the data you want to have labeled, create your label
 1. Use the following input for the **Create dataset from datastore** form:
 
     1. On the **Basic info** form, add a name, here we'll use **images-for-tutorial**.  Add a description if you wish.  Then select **Next**.
-    1. On the **Datastore selection** form, use the dropdown to select your **Previously created datastore**, for example **tutorial_images (Azure Blob Storage)**
+    1. On the **Datastore selection** form, select **Previously created datastore**, then click on the datastore name and select **Select datastore**.
+    1. On the next page, verify that the currently selected datastore is correct. If not, select **Previously created datastore** and repeat the prior step.
     1. Next, still on the **Datastore selection** form, select **Browse** and then select **MultiClass - DogsCats**.  Select **Save** to use **/MultiClass - DogsCats** as the path.
     1. Select **Next** to confirm details and then **Create** to create the dataset.
     1. Select the circle next to the dataset name in the list, for example **images-for-tutorial**.
@@ -128,7 +133,7 @@ Select **Next** to continue.
 
 1. Select **Next**.
 
-1. If you are using an Enterprise workspace, you will see a **ML assisted labeling** section.  Leave the checkbox unchecked. ML assisted labeling requires more data than you'll be using in this tutorial.
+1. In the **ML assisted labeling** section, leave the checkbox unchecked. ML assisted labeling requires more data than you'll be using in this tutorial.
 
 1. Select **Create project**.
 
@@ -205,7 +210,5 @@ Image labels can be exported in [COCO format](http://cocodataset.org/#format-dat
 
 ## Next steps
 
-In this tutorial, you labeled images.  Now use your labeled data:
-
 > [!div class="nextstepaction"]
-> [Train a machine learning image recognition model](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/labeled-datasets/labeled-datasets.ipynb).
+> [Train a machine learning image recognition model](how-to-use-labeled-dataset.md).

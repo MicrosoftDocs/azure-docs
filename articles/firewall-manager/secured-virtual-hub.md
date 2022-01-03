@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/12/2020
 ms.author: victorh
 ---
 
@@ -15,13 +15,21 @@ A virtual hub is a Microsoft-managed virtual network that enables connectivity f
 
 A *secured* virtual hub is an [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources) with associated security and routing policies configured by Azure Firewall Manager. Use secured virtual hubs to easily create hub-and-spoke and transitive architectures with native security services for traffic governance and protection. 
 
-You can use a secured virtual hub as a managed central VNet with no on-prem connectivity. It replaces the central VNet that was previously required for an Azure Firewall deployment. Since the secured virtual hub provides automated routing, there's no need to configure your own UDRs (user defined routes) to route traffic through your firewall.
+You can use a secured virtual hub to filter traffic between virtual networks (V2V), virtual networks and branch offices (B2V) and traffic to the Internet (B2I/V2I). A secured virtual hub provides automated routing. There's no need to configure your own UDRs (user defined routes) to route traffic through your firewall.
 
-It's also possible to use secured virtual hubs as part of a full Virtual WAN architecture. This architecture provides secured, optimized, and automated branch connectivity to and through Azure. You can choose the services to protect and govern your network traffic, including Azure Firewall and other third-party security as a service (SECaaS) providers.
+You can choose the required security providers to protect and govern your network traffic, including Azure Firewall, third-party security as a service (SECaaS) providers, or both. Currently, a secured hub doesn’t support Branch to Branch (B2B) filtering and filtering across multiple hubs. To learn more, see [What is Azure Firewall Manager?](overview.md#known-issues). 
 
 ## Create a secured virtual hub
 
 Using Firewall Manager in the Azure portal, you can either create a new secured virtual hub, or convert an existing virtual hub that you previously created using Azure Virtual WAN.
+
+## Gated public preview   
+
+The below features are currently in gated public preview.
+
+| Feature | Description |
+| ---------- | --------- |
+| Routing Intent and Policies enabling Inter-hub security | This feature allows customers to configure internet-bound, private or inter-hub traffic flow through the Azure Firewall. Please review [Routing Intent and Policies](../virtual-wan/how-to-routing-policies.md) to learn more. |
 
 ## Next steps
 

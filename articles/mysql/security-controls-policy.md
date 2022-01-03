@@ -1,14 +1,16 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Database for MySQL
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Database for MySQL. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 09/10/2020
+ms.date: 12/17/2021
 ms.topic: sample
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 [Regulatory Compliance in Azure Policy](../governance/policy/concepts/regulatory-compliance.md)
 provides Microsoft created and managed initiative definitions, known as _built-ins_, for the

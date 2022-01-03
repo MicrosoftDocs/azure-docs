@@ -1,0 +1,47 @@
+- name: Azure Automanage (preview)
+  href: automanage-virtual-machines.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Enable on VMs in the Azure portal
+    href: quick-create-virtual-machines-portal.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: Automanage for Linux
+    href: automanage-linux.md
+  - name: Automanage for Windows Server
+    href: automanage-windows-server.md
+    items:
+      - name: Automanage for Windows Server services
+        href: automanage-windows-server-services-overview.md
+      - name: Hotpatch for new virtual machines
+        href: automanage-hotpatch.md
+      - name: SMB over QUIC
+        href: automanage-smb-over-quic.md
+  - name: Automanage for Azure Arc-enabled servers
+    href: automanage-arc.md
+- name: How to
+  expanded: true
+  items:
+  - name: Create custom profile
+    href: virtual-machines-custom-profile.md
+  - name: Enable on VMs through Azure Policy
+    href: virtual-machines-policy-enable.md
+  - name: Enable on VMs through an ARM template
+    href: arm-deploy.md
+  - name: Upgrade machines to latest Automanage Version
+    href: automanage-upgrade.md
+  - name: Troubleshoot onboarding errors
+    href: common-errors.md
+  - name: Repair a broken Automanage account
+    href: repair-automanage-account.md
+  - name: Move an Automanaged virtual machine across regions
+    href: move-automanaged-vms.md
+- name: Resources
+  expanded: true
+  items:
+  - name: FAQ
+    href: faq.yml
+  - name: Cloud Adoption Framework
+    href: /azure/cloud-adoption-framework/manage/azure-server-management/

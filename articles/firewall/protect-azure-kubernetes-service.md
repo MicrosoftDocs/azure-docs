@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 08/03/2021
 ms.author: victorh
 ---
 
@@ -16,6 +16,10 @@ Azure Kubernetes Service (AKS) offers a managed Kubernetes cluster on Azure. It 
 Kubernetes orchestrates clusters of virtual machines and schedules containers to run on those virtual machines based on their available compute resources and the resource requirements of each container. Containers are grouped into pods, the basic operational unit for Kubernetes, and those pods scale to the state that you want.
 
 For management and operational purposes, nodes in an AKS cluster need to access certain ports and fully qualified domain names (FQDNs). These actions could be to communicate with the API server, or to download and then install core Kubernetes cluster components and node security updates. Azure Firewall can help you lock down your environment and filter outbound traffic.
+
+See the following video by Jorge Cortes for an overview:
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWIcAo]
 
 Follow the guidelines in this article to provide additional protection for your Azure Kubernetes cluster using Azure Firewall.
 
@@ -42,7 +46,7 @@ Azure Firewall provides an AKS FQDN Tag to simplify the configuration. Use the f
    - TCP [*IPAddrOfYourAPIServer*]:443 is required if you have an app that needs to talk to the API server. This change can be set after the cluster is created.
    - TCP port 9000,  and UDP port 1194 for the tunnel front pod to communicate with the tunnel end on the API server.
 
-      To be more specific, see the **.hcp.<location>.azmk8s.io* and addresses in the following table:
+      To be more specific, see the addresses in the following table:
 
    | Destination Endpoint                                                             | Protocol | Port    | Use  |
    |----------------------------------------------------------------------------------|----------|---------|------|

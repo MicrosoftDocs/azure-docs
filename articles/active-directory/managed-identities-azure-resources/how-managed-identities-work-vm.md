@@ -4,7 +4,7 @@ description: Description of managed identities for Azure resources work with Azu
 services: active-directory
 documentationcenter:
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor:
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
@@ -14,8 +14,6 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 06/11/2020
 ms.author: barclayn
-
-#As a developer, I'd like to ...
 ms.collection: M365-identity-device-management
 ---
 

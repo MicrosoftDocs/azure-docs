@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Design a server - Azure portal - Azure Database for MySQL'
 description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 3/20/2020
@@ -10,6 +10,8 @@ ms.custom: mvc
 ---
 
 # Tutorial: Design an Azure Database for MySQL database using the Azure portal
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database for MySQL is a managed service that enables you to run, manage, and scale highly available MySQL databases in the cloud. Using the Azure portal, you can easily manage your server and design a database.
 
@@ -24,6 +26,8 @@ In this tutorial, you use the Azure portal to learn how to:
 > * Update data
 > * Restore data
 
+## Prerequisites
+
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Sign in to the Azure portal
@@ -32,17 +36,17 @@ Open your favorite web browser, and visit the [Microsoft Azure portal](https://p
 
 ## Create an Azure Database for MySQL server
 
-An Azure Database for MySQL server is created with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). The server is created within an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+An Azure Database for MySQL server is created with a defined set of [compute and storage resources](./concepts-pricing-tiers.md). The server is created within an [Azure resource group](../azure-resource-manager/management/overview.md).
 
 1. Select the **Create a resource** button (+) in the upper left corner of the portal.
 
 2. Select **Databases** > **Azure Database for MySQL**. If you cannot find MySQL Server under the **Databases** category, click **See all** to show all available database services. You can also type **Azure Database for MySQL** in the search box to quickly find the service.
    
-   ![Navigate to MySQL](./media/tutorial-design-database-using-portal/1-Navigate-to-MySQL.png)
+   :::image type="content" source="./media/tutorial-design-database-using-portal/1-Navigate-to-MySQL.png" alt-text="Navigate to MySQL":::
 
 3. Click **Azure Database for MySQL** tile. Fill out the Azure Database for MySQL form.
    
-   ![Create form](./media/tutorial-design-database-using-portal/2-create-form.png)
+   :::image type="content" source="./media/tutorial-design-database-using-portal/2-create-form.png" alt-text="Create form":::
 
     **Setting** | **Suggested value** | **Field description**
     ---|---|---
@@ -57,7 +61,7 @@ An Azure Database for MySQL server is created with a defined set of [compute and
     Version | *The latest version*| The latest version (unless you have specific requirements that require another version).
     Pricing tier | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Pricing tier**. Next, select the **General Purpose** tab. *Gen 5*, *2 vCores*, *5 GB*, and *7 days* are the default values for **Compute Generation**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is. To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
 
-   ![Pricing tier](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
+   :::image type="content" source="./media/tutorial-design-database-using-portal/3-pricing-tier.png" alt-text="Pricing tier":::
 
    > [!TIP]
    > With **auto-growth** enabled your server increases storage when you are approaching the allocated limit, without impacting your workload.
@@ -70,7 +74,7 @@ Azure Databases for MySQL are protected by a firewall. By default, all connectio
 
 1. Click your newly created server, and then click **Connection security**.
 
-   ![Connection security](./media/tutorial-design-database-using-portal/1-Connection-security.png)
+   :::image type="content" source="./media/tutorial-design-database-using-portal/1-Connection-security.png" alt-text="Connection security":::
 2. You can **Add My IP**, or configure firewall rules here. Remember to click **Save** after you have created the rules.
 You can now connect to the server using mysql command-line tool or MySQL Workbench GUI tool.
 
@@ -84,7 +88,7 @@ Get the fully qualified **Server name** and **Server admin login name** for your
 1. In [Azure portal](https://portal.azure.com/), click **All resources** from the left-hand menu, type the name, and search for your Azure Database for MySQL server. Select the server name to view the details.
 
 2. From the **Overview** page, note down **Server Name** and **Server admin login name**. You may click the copy button next to each field to copy to the clipboard.
-   ![4-2 server properties](./media/tutorial-design-database-using-portal/2-server-properties.png)
+   :::image type="content" source="./media/tutorial-design-database-using-portal/2-server-properties.png" alt-text="4-2 server properties":::
 
 In this example, the server name is *mydemoserver.mysql.database.azure.com*, and the server admin login is *myadmin\@mydemoserver*.
 
@@ -163,11 +167,11 @@ Imagine you have accidentally deleted an important database table, and cannot re
 
 1. In the Azure portal, locate your Azure Database for MySQL. On the **Overview** page, click **Restore** on the toolbar. The Restore page opens.
 
-   ![10-1 restore a database](./media/tutorial-design-database-using-portal/1-restore-a-db.png)
+   :::image type="content" source="./media/tutorial-design-database-using-portal/1-restore-a-db.png" alt-text="10-1 restore a database":::
 
 2. Fill out the **Restore** form with the required information.
 
-   ![10-2 restore form](./media/tutorial-design-database-using-portal/2-restore-form.png)
+   :::image type="content" source="./media/tutorial-design-database-using-portal/2-restore-form.png" alt-text="10-2 restore form":::
 
    - **Restore point**: Select a point-in-time that you want to restore to, within the timeframe listed. Make sure to convert your local timezone to UTC.
    - **Restore to new server**: Provide a new server name you want to restore to.
@@ -175,6 +179,14 @@ Imagine you have accidentally deleted an important database table, and cannot re
    - **Pricing tier**: The pricing tier is the same as the source server, and cannot be changed.
    
 3. Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md) before the table was deleted. Restoring a server creates a new copy of the server, as of the point in time you specify.
+
+## Clean up resources
+
+If you don't expect to need these resources in the future, you can delete them by deleting the resource group or just delete the MySQL server. To delete the resource group, follow these steps:
+1. In the Azure portal, search for and select **Resource groups**. 
+2. In the resource group list, choose the name of your resource group.
+3. In the Overview page of your resource group, select **Delete resource group**.
+4. In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
 
 ## Next steps
 

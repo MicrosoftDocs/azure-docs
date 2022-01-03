@@ -3,7 +3,7 @@ title: Architecture Fundamentals in Azure Lab Services | Microsoft Docs
 description: This article will cover the fundamental resources used by Lab Services and basic architecture of a lab.  
 author: emaher
 ms.topic: overview
-ms.date: 06/26/2020
+ms.date: 09/16/2020
 ms.author: enewman
 ---
 
@@ -11,11 +11,11 @@ ms.author: enewman
 
 Azure Lab Services is a SaaS (software as a service) solution, which means that the resources needed by Lab Services are handled for you. This article will cover the fundamental resources used by Lab Services and basic architecture of a lab.  
 
-Azure Lab Services does provide a couple areas that allow you to use your own resources in conjunction with Lab Services.  For more information about using VMs on your own network, see how to [peer a virtual network](how-to-connect-peer-virtual-network.md).  To reuse images from a Shared Image Gallery, see how to [attach a Shared Image Gallery](how-to-attach-detach-shared-image-gallery.md).
+Azure Lab Services does provide a couple of areas that allow you to use your own resources in conjunction with Lab Services.  For more information about using VMs on your own network, see how to [peer a virtual network](how-to-connect-peer-virtual-network.md).  To reuse images from a Shared Image Gallery, see how to [attach a Shared Image Gallery](how-to-attach-detach-shared-image-gallery.md).
 
 Below is the basic architecture of a classroom lab.  The lab account is hosted in your subscription. The student VMs, along with the resources needed to support the VMs are hosted in a subscription owned by Lab Services. Let’s talk about what is in Lab Service's subscriptions in more detail.
 
-![Classroom labs basic architecture](./media/classroom-labs-fundamentals/labservices-basic-architecture.png)
+![labs basic architecture](./media/classroom-labs-fundamentals/labservices-basic-architecture.png)
 
 ## Hosted Resources
 
@@ -35,4 +35,4 @@ Student VMs that are hosted in the classroom lab have a username and password se
 
 ## Next steps
 
-To learn more about features available in Lab Services, see [Azure Lab Services concepts](classroom-labs-concepts.md) and [Azure Lab Services overview](classroom-labs-overview.md).
+To learn more about features available in Lab Services, see [Azure Lab Services concepts](classroom-labs-concepts.md) and [Azure Lab Services overview](lab-services-overview.md).

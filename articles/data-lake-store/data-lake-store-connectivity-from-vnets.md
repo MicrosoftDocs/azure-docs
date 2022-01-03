@@ -9,7 +9,6 @@ editor: cgronlun
 
 ms.assetid: 683fcfdc-cf93-46c3-b2d2-5cb79f5e9ea5
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: how-to
 ms.date: 01/31/2018
 ms.author: elsung
@@ -43,7 +42,7 @@ Aliases:  mydatastore.azuredatalakestore.net
 
 
 ### Enabling connectivity from VMs restricted by using NSG
-When an NSG rule is used to block access to the Internet, then you can create another NSG that allows access to the Data Lake Storage Gen1 IP Address. For more information about NSG rules, see [Network security groups overview](../virtual-network/security-overview.md). For instructions on how to create NSGs, see [How to create a network security group](../virtual-network/tutorial-filter-network-traffic.md).
+When an NSG rule is used to block access to the Internet, then you can create another NSG that allows access to the Data Lake Storage Gen1 IP Address. For more information about NSG rules, see [Network security groups overview](../virtual-network/network-security-groups-overview.md). For instructions on how to create NSGs, see [How to create a network security group](../virtual-network/tutorial-filter-network-traffic.md).
 
 ### Enabling connectivity from VMs restricted by using UDR or ExpressRoute
 When routes, either UDRs or BGP-exchanged routes, are used to block access to the Internet, a special route needs to be configured so that VMs in such subnets can access Data Lake Storage Gen1 endpoints. For more information, see [User-defined routes overview](../virtual-network/virtual-networks-udr-overview.md). For instructions on creating UDRs, see [Create UDRs in Resource Manager](../virtual-network/tutorial-create-route-table-powershell.md).
@@ -54,4 +53,3 @@ When an ExpressRoute circuit is configured, the on-premises servers can access D
 ## See also
 * [Overview of Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Securing data stored in Azure Data Lake Storage Gen1](data-lake-store-security-overview.md)
-

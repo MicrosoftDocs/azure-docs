@@ -1,81 +1,38 @@
 ---
-title: Create a search index
+title: Index overview
 titleSuffix: Azure Cognitive Search
-description: Introduces indexing concepts and tools in Azure Cognitive Search, including schema definitions and the physical data structure.
+description: Explains what is a search index in Azure Cognitive Search and describes content, construction, physical expression, and the index schema.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
+
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 11/12/2021
 ---
-# Create a basic search index in Azure Cognitive Search
 
-In Azure Cognitive Search, a *search index* stores searchable content used for full text and filtered queries. An index is defined by a schema and saved to the service, with data import following as a second step. 
+# Indexes in Azure Cognitive Search
 
-Indexes contain *documents*. Conceptually, a document is a single unit of searchable data in your index. A retailer might have a document for each product, a news organization might have a document for each article, and so forth. Mapping these concepts to more familiar database equivalents: a *search index* equates to a *table*, and *documents* are roughly equivalent to *rows* in a table.
+In Azure Cognitive Search, a *search index* is your searchable content, available to the search engine for indexing, full text search, and filtered queries. An index is defined by a schema and saved to the search service, with data import following as a second step. This content exists within your search service, apart from your primary data stores, which is necessary for the millisecond response times expected in modern applications. Except for specific indexing scenarios, the search service will never connect to or query your local data.
 
-The physical structure of an index is determined by the schema, with fields marked as "searchable" resulting in an inverted index created for that field. 
+If you're creating and managing a search index, this article will help you understand the following:
 
-You can create an index with the following tools and APIs:
++ Content (documents and schema)
++ Physical representation
++ Basic operations
 
-* In the Azure portal, use **Add Index** or **Import data** wizard
-* Using the [Create Index (REST API)](/rest/api/searchservice/create-index)
-* Using the [.NET SDK](./search-get-started-dotnet.md)
+Prefer to be hands-on right away? See [Create a search index](search-how-to-create-search-index.md) instead.
 
-It's easier to learn with a portal tool. The portal enforces requirements and schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. Once you have a workable index, you can transition to code by retrieving the JSON definition from the service using [Get Index (REST API)](/rest/api/searchservice/get-index) and adding it to your solution.
+## Content of a search index
 
-## Recommended workflow
+In Cognitive Search, indexes contain *search documents*. Conceptually, a document is a single unit of searchable data in your index. For example, a retailer might have a document for each product, a news organization might have a document for each article, a travel site might have a document for each hotel and destination, and so forth. Mapping these concepts to more familiar database equivalents: a *search index* equates to a *table*, and *documents* are roughly equivalent to *rows* in a table.
 
-Arriving at a final index design is an iterative process. It's common to start with the portal to create the initial index and then switch to code to place the index under source control.
-
-1. Determine whether you can use [**Import data**](search-import-data-portal.md). The wizard performs all-in-one indexer-based indexing if the source data is from a [supported data source type in Azure](search-indexer-overview.md#supported-data-sources).
-
-1. If you can't use **Import data**, start with **Add Index** to define the schema.
-
-   ![Add index command](media/search-what-is-an-index/add-index.png "Add index command")
-
-1. Provide a name and key used to uniquely identify each search document in the index. The key is mandatory and must be of type Edm.String. During import, you should plan on mapping a unique field in source data to this field. 
-
-   The portal gives you an `id` field for the key. To override the default `id`, create a new field  (for example, a new field definition called `HotelId`) and then select it in **Key**.
-
-   ![Fill in required properties](media/search-what-is-an-index//field-attributes.png "Fill in required properties")
-
-1. Add more fields. The portal shows you which [field attributes](#index-attributes) are available for different data types. If you're new to index design, this is helpful.
-
-   If incoming data is hierarchical in nature, assign the [complex type](search-howto-complex-data-types.md) data type to represent the nested structures. The built-in sample data set, Hotels, illustrates complex types using an Address (contains multiple sub-fields) that has a one-to-one relationship with each hotel, and a Rooms complex collection, where multiple rooms are associated with each hotel. 
-
-1. Assign any [Analyzers](#analyzers) to string fields before the index is created. Do the same for [suggesters](#suggesters) if you want to enabled autocomplete on specific fields.
-
-1. Click **Create** to build the physical structures in your search service.
-
-1. After an index is created, use additional commands to review definitions or add more elements.
-
-   ![Add index page showing attributes by data type](media/search-what-is-an-index//field-definitions.png "Add index page showing attributes by data type")
-
-1. Download the index schema using [Get Index (REST API)](/rest/api/searchservice/get-index) and a web testing tool like [Postman](search-get-started-postman.md). You now have a JSON representation of the index that you can adapt for code.
-
-1. [Load your index with data](search-what-is-data-import.md). Azure Cognitive Search accepts JSON documents. To load your data programmatically, you can use Postman with JSON documents in the request payload. If your data is not easily expressed as JSON, this step will be the most labor intensive. 
-
-    Once an index is loaded with data, most edits to existing fields will require that you drop and rebuild an index.
-
-1. Query your index, examine results, and further iterate on the index schema until you begin to see the results you expect. You can use [**Search explorer**](search-explorer.md) or Postman to query your index.
-
-During development, plan on frequent rebuilds. Because physical structures are created in the service, [dropping and recreating indexes](search-howto-reindex.md) is necessary for most modifications to an existing field definition. You might consider working with a subset of your data to make rebuilds go faster. 
-
-> [!Tip]
-> Code, rather than a portal approach, is recommended for working on index design and data import simultaneously. As an alternative, tools like [Postman and the REST API](search-get-started-postman.md) are helpful for proof-of-concept testing when development projects are still in early phases. You can make incremental changes to an index definition in a request body, and then send the request to your service to recreate an index using an updated schema.
-
-## Index schema
-
-An index is required to have a name and one designated key field (of Edm.string) in the fields collection. The [*fields collection*](#fields-collection) is typically the largest part of an index, where each field is named, typed, and attributed with allowable behaviors that determine how it is used. 
-
-Other elements include [suggesters](#suggesters), [scoring profiles](#scoringprofiles), [analyzers](#analyzers) used to process strings into tokens according to linguistic rules or other characteristics supported by the analyzer, and [cross-origin remote scripting (CORS)](#corsoptions) settings.
+The structure of a document is determined by the index schema, as illustrated below. The "fields" collection is typically the largest part of an index, where each field is named, assigned a [data type](/rest/api/searchservice/Supported-data-types), and attributed with allowable behaviors that determine how it is used.
 
 ```json
 {
-  "name": (optional on PUT; required on POST) "name_of_index",
+  "name": "name_of_index, unique across the service",
   "fields": [
     {
       "name": "name_of_field",
@@ -92,94 +49,36 @@ Other elements include [suggesters](#suggesters), [scoring profiles](#scoringpro
       "synonymMaps": [ "name_of_synonym_map" ] (optional, only one synonym map per field is currently supported)
     }
   ],
-  "suggesters": [
-    {
-      "name": "name of suggester",
-      "searchMode": "analyzingInfixMatching",
-      "sourceFields": ["field1", "field2", ...]
-    }
-  ],
-  "scoringProfiles": [
-    {
-      "name": "name of scoring profile",
-      "text": (optional, only applies to searchable fields) {
-        "weights": {
-          "searchable_field_name": relative_weight_value (positive #'s),
-          ...
-        }
-      },
-      "functions": (optional) [
-        {
-          "type": "magnitude | freshness | distance | tag",
-          "boost": # (positive number used as multiplier for raw score != 1),
-          "fieldName": "...",
-          "interpolation": "constant | linear (default) | quadratic | logarithmic",
-          "magnitude": {
-            "boostingRangeStart": #,
-            "boostingRangeEnd": #,
-            "constantBoostBeyondRange": true | false (default)
-          },
-          "freshness": {
-            "boostingDuration": "..." (value representing timespan leading to now over which boosting occurs)
-          },
-          "distance": {
-            "referencePointParameter": "...", (parameter to be passed in queries to use as reference location)
-            "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends)
-          },
-          "tag": {
-            "tagsParameter": "..." (parameter to be passed in queries to specify a list of tags to compare against target fields)
-          }
-        }
-      ],
-      "functionAggregation": (optional, applies only when functions are specified) 
-        "sum (default) | average | minimum | maximum | firstMatching"
-    }
-  ],
+  "suggesters": [ ],
+  "scoringProfiles": [ ],
   "analyzers":(optional)[ ... ],
   "charFilters":(optional)[ ... ],
   "tokenizers":(optional)[ ... ],
   "tokenFilters":(optional)[ ... ],
   "defaultScoringProfile": (optional) "...",
-  "corsOptions": (optional) {
-    "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
-    "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
-  },
-  "encryptionKey":(optional){
-    "keyVaultUri": "azure_key_vault_uri",
-    "keyVaultKeyName": "name_of_azure_key_vault_key",
-    "keyVaultKeyVersion": "version_of_azure_key_vault_key",
-    "accessCredentials":(optional){
-      "applicationId": "azure_active_directory_application_id",
-      "applicationSecret": "azure_active_directory_application_authentication_key"
-    }
+  "corsOptions": (optional) { },
+  "encryptionKey":(optional){ }
   }
 }
 ```
 
-<a name="fields-collection"></a>
+Other elements are collapsed for brevity, but the following links can provide the detail: 
 
-## Fields collection and field attributes
++ [Suggesters](index-add-suggesters.md) support type-ahead queries like autocomplete
++ [Scoring Profiles](index-add-scoring-profiles.md) are used for relevance tuning
++ [Analyzers](search-analyzers.md) are used to process strings into tokens according to linguistic rules or other characteristics supported by the analyzer
++ [Cross-origin remote scripting (CORS)](search-how-to-create-search-index.md#corsoptions) is used for apps that issues requests from different domains
++ [Encryption key](search-security-manage-encryption-keys.md) is used for double-encryption of sensitive content in the index.
 
-Fields have a name, a type that classifies the stored data, and attributes that specify how the field is used.
+### Field definitions
 
-### Data types
+A search document is defined by the "fields" collection in the body of [Create Index request](/rest/api/searchservice/create-index). You will need fields for document identification (keys), storing searchable text, and fields for supporting filters, facets, and sorts. You might also need fields for data that a user never sees. For example, you might want fields for profit margins or marketing promotions that you can use to modify search rank.
 
-| Type | Description |
-|------|-------------|
-| Edm.String |Text that can optionally be tokenized for full-text search (word-breaking, stemming, and so forth). |
-| Collection(Edm.String) |A list of strings that can optionally be tokenized for full-text search. There is no theoretical upper limit on the number of items in a collection, but the 16 MB upper limit on payload size applies to collections. |
-| Edm.Boolean |Contains true/false values. |
-| Edm.Int32 |32-bit integer values. |
-| Edm.Int64 |64-bit integer values. |
-| Edm.Double |Double-precision numeric data. |
-| Edm.DateTimeOffset |Date time values represented in the OData V4 format (for example, `yyyy-MM-ddTHH:mm:ss.fffZ` or `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
-| Edm.GeographyPoint |A point representing a geographic location on the globe. |
-
-For more information, see [supported data types](/rest/api/searchservice/Supported-data-types).
+If incoming data is hierarchical in nature, you can represent it within an index as a [complex type](search-howto-complex-data-types.md), used to represent nested structures. The built-in sample data set, Hotels, illustrates complex types using an Address (contains multiple sub-fields) that has a one-to-one relationship with each hotel, and a Rooms complex collection, where multiple rooms are associated with each hotel. 
 
 <a name="index-attributes"></a>
 
-### Attributes
+### Field attributes
 
 Field attributes determine how a field is used, such as whether it is used in full text search, faceted navigation, sort operations, and so forth. 
 
@@ -199,58 +98,78 @@ Although you can add new fields at any time, existing field definitions are lock
 > [!NOTE]
 > The APIs you use to build an index have varying default behaviors. For the [REST APIs](/rest/api/searchservice/Create-Index), most attributes are enabled by default (for example, "searchable" and "retrievable" are true for string fields) and you often only need to set them if you want to turn them off. For the .NET SDK, the opposite is true. On any property you do not explicitly set, the default is to disable the corresponding search behavior unless you specifically enable it.
 
-## `analyzers`
-
-The analyzers element sets the name of the language analyzer to use for the field. For more information about the range of analyzers available to you, see [Adding analyzers to an Azure Cognitive Search index](search-analyzers.md). Analyzers can only be used with searchable fields. Once the analyzer is assigned to a field, it cannot be changed unless you rebuild the index.
-
-## `suggesters`
-
-A suggester is a section of the schema that defines which fields in an index are used to support auto-complete or type-ahead queries in searches. Typically, partial search strings are sent to the [Suggestions (REST API)](/rest/api/searchservice/suggestions) while the user is typing a search query, and the API returns a set of suggested documents or phrases. 
-
-Fields added to a suggester are used to build type-ahead search terms. All of the search terms are created during indexing and stored separately. For more information about creating a suggester structure, see [Add suggesters](index-add-suggesters.md).
-
-## `corsOptions`
-
-Client-side JavaScript cannot call any APIs by default since the browser will prevent all cross-origin requests. To allow cross-origin queries to your index, enable CORS (Cross-Origin Resource Sharing) by setting the **corsOptions** attribute. For security reasons, only query APIs support CORS. 
-
-The following options can be set for CORS:
-
-+ **allowedOrigins** (required): This is a list of origins that will be granted access to your index. This means that any JavaScript code served from those origins will be allowed to query your index (assuming it provides the correct api-key). Each origin is typically of the form `protocol://<fully-qualified-domain-name>:<port>` although `<port>` is often omitted. See [Cross-origin resource sharing (Wikipedia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) for more details.
-
-  If you want to allow access to all origins, include `*` as a single item in the **allowedOrigins** array. *This is not recommended practice for production search services* but it is often useful for development and debugging.
-
-+ **maxAgeInSeconds** (optional): Browsers use this value to determine the duration (in seconds) to cache CORS preflight responses. This must be a non-negative integer. The larger this value is, the better performance will be, but the longer it will take for CORS policy changes to take effect. If it is not set, a default duration of 5 minutes will be used.
-
-## `scoringProfiles`
-
-A [scoring profile](index-add-scoring-profiles.md) is a section of the schema that defines custom scoring behaviors that let you influence which items appear higher in the search results. Scoring profiles are made up of field weights and functions. To use them, you specify a profile by name on the query string.
-
-A default scoring profile operates behind the scenes to compute a search score for every item in a result set. You can use the internal, unnamed scoring profile. Alternatively, set **defaultScoringProfile** to use a custom profile as the default, invoked whenever a custom profile is not specified on the query string.
-
 <a name="index-size"></a>
 
-## Attributes and index size (storage implications)
+## Physical structure and size
 
-The size of an index is determined by the size of the documents you upload, plus index configuration, such as whether you include suggesters, and how you set attributes on individual fields. 
+In Azure Cognitive Search, the physical structure of an index is largely an internal implementation. You can access its schema, query its content, monitor its size, and manage capacity, but the clusters themselves (indices, [shards](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards), and other files and folders) are managed internally by Microsoft.
 
-The following screenshot illustrates index storage patterns resulting from various combinations of attributes. The index is based on the **real estate sample index**, which you can create easily using the Import data wizard. Although the index schemas are not shown, you can infer the attributes based on the index name. For example, *realestate-searchable* index has the "searchable" attribute selected and nothing else, *realestate-retrievable* index has the "retrievable" attribute selected and nothing else, and so forth.
+The size of an index is determined by:
+
++ Quantity and composition of your documents
++ Index configuration (specifically, whether you include suggesters)
++ Attributes on individual fields
+
+You can monitor index size in the Indexes tab in the Azure portal, or by issuing a [GET INDEX request](/rest/api/searchservice/get-index) against your search service.
+
+### Factors influencing index size
+
+Document composition and quantity will be determined by what you choose to import. Remember that a search index should only contain searchable content. If source documents include binary fields, you would generally omit those fields from the index schema (unless you are using AI enrichment to crack and analyze the content to create text searchable information.)
+
+Index configuration can include other components besides documents, such as suggesters, customer analyzers, scoring profiles, CORS settings, and encryption key information. From the above list, the only component that has the potential for impacting index size is suggesters. [**Suggesters**](index-add-suggesters.md) are constructs that support type-ahead or autocomplete queries. As such, when you include a suggester, the indexing process will create the data structures necessary for verbatim character matches. Suggesters are implemented at the field level, so choose only those fields that are reasonable for type-ahead.
+
+Field attributes are the third consideration of index size. Attributes determine behaviors. To support those behaviors, the indexing process will create the supporting data structures. For example, "searchable" invokes [full text search](search-lucene-query-architecture.md), which scans inverted indices for the tokenized term. In contrast, a "filterable" or "sortable" attribute supports iteration over unmodified strings.
+
+### Example demonstrating the storage implications of attributes and suggesters
+
+The following screenshot illustrates index storage patterns resulting from various combinations of attributes. The index is based on the **real estate sample index**, which you can create easily using the Import data wizard and built-in sample data. Although the index schemas are not shown, you can infer the attributes based on the index name. For example, *realestate-searchable* index has the "searchable" attribute selected and nothing else, *realestate-retrievable* index has the "retrievable" attribute selected and nothing else, and so forth.
 
 ![Index size based on attribute selection](./media/search-what-is-an-index/realestate-index-size.png "Index size based on attribute selection")
 
-Although these index variants are artificial, we can refer to them for broad comparisons of how attributes affect storage. Does setting "retrievable" increase index size? No. Does adding fields to a **suggester** increase index size? Yes.
+Although these index variants are somewhat artificial, we can refer to them for broad comparisons of how attributes affect storage:
 
-Indexes that support filter and sort are proportionally larger than indexes supporting just full text search. This is because filter and sort operations scan for exact matches, requiring the presence of verbatim text strings. In contrast, searchable fields supporting full-text queries use inverted indexes, which are populated with tokenized terms that consume less space than whole documents. 
++ "retrievable" has no impact on index size.
++ "filterable", "sortable", "facetable" consume more storage.
++ **suggester** has a large potential for increasing index size, but not as much as the screenshot would indicate (all fields that could be made suggester-aware were selected, which isn't a likely scenario in most indexes).
 
-> [!Note]
-> Storage architecture is considered an implementation detail of Azure Cognitive Search and could change without notice. There is no guarantee that current behavior will persist in the future.
+Also not reflected in the above table is the impact of [analyzers](search-analyzers.md). If you are using the edgeNgram tokenizer to store verbatim sequences of characters (a, ab, abc, abcd), the size of the index will be larger than if you used a standard analyzer.
+
+## Basic operations and interaction
+
+Now that you have a better idea of what an index is, this section introduces index run time operations, including connecting to and securing a single index.
+
+> [!NOTE]
+> When managing an index, be aware that there is no portal or API support for moving or copying an index. Instead, customers typically point their application deployment solution at a different search service (if using the same index name), or revise the name to create a copy on the current search service, and then build it.
+
+### Index isolation
+  
+In Cognitive Search, you'll work with one index at a time, where all index-related operations target a single index. There is no concept of related indexes or the joining of independent indexes for either indexing or querying. 
+
+### Continuously available
+
+An index is continuously available, with no ability to pause or take it offline. Because it's designed for continuous operation, any updates to its content, or additions to the index itself, happen in real time. As a result, queries might temporarily return incomplete results if a request coincides with a document update.
+
+Notice that query continuity exists for document operations (refreshing or deleting) and for modifications that don't impact the existing structure and integrity of the current index (such as adding new fields). If you need to make structural updates (changing existing fields), those are typically managed using a drop-and-rebuild workflow in a development environment, or by creating a new version of the index on production service.
+
+To avoid an [index rebuild](search-howto-reindex.md), some customers who are making small changes choose to "version" a field by creating a new one that coexists alongside a previous version. Over time, this leads to orphaned content in the form of obsolete fields or obsolete custom analyzer definitions, especially in a production index that is expensive to replicate. You can address these issues on planned updates to the index as part of index lifecycle management.
+
+### Endpoint connection and security
+
+All indexing and query requests target an index. Endpoints are usually one of the following:
+
+| Endpoint | Connection and access control |
+|----------|-------------------------------|
+| `<your-service>.search.windows.net/indexes` | Targets the indexes collection. Used when creating, listing, or deleting an index. Admin rights are required for these operations, available through admin [API keys](search-security-api-keys.md) or a [Search Contributor role](search-security-rbac.md#built-in-roles-used-in-search). |
+| `<your-service>.search.windows.net/indexes/<your-index>/docs` | Targets the documents collection of a single index. Used when querying an index or data refresh. For queries, read rights are sufficient, and available through query API keys or a data reader role. For data refresh, admin rights are required. |
 
 ## Next steps
 
-With an understanding of index composition, you can continue in the portal to create your first index. We recommend starting with **Import data** wizard, choosing either the *realestate-us-sample* or *hotels-sample* hosted data sources.
+You can get hands-on experience creating an index using almost any sample or walkthrough for Cognitive Search. For starters, you could choose any of the quickstarts from the table of contents.
 
-> [!div class="nextstepaction"]
-> [Import data wizard (portal)](search-get-started-portal.md)
+But you'll also want to become familiar with methodologies for loading an index with data. Index definition and data import strategies are defined in tandem. The following articles provide more information about creating and loading an index.
 
-For both data sets, the wizard can infer an index schema, import the data, and output a searchable index that you can query using Search Explorer. Find these data sources in the **Connect to your data** page of the **Import data** wizard.
++ [Create a search index](search-how-to-create-search-index.md)
 
-   ![Create a sample index](media/search-what-is-an-index//import-wizard-sample-data.png "Create a sample index")
++ [Data import overview](search-what-is-data-import.md)
+
++ [Add, Update or Delete Documents (REST)](/rest/api/searchservice/addupdate-or-delete-documents) 

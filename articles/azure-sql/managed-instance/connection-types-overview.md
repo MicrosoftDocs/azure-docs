@@ -4,12 +4,12 @@ titleSuffix: Azure SQL Managed Instance
 description: Learn about Azure SQL Managed Instance connection types
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: connect
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto
-ms.date: 10/07/2019 
+ms.date: 12/01/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -22,14 +22,14 @@ This article explains how clients connect to Azure SQL Managed Instance dependin
 
 Azure SQL Managed Instance supports the following two connection types:
 
-- **Redirect (recommended):** Clients establish connections directly to the node hosting the database. To enable connectivity using redirect, you must open firewalls and Network Security Groups (NSG) to allow access on ports 1433, and 11000-11999. Packets go directly to the database, and hence there are latency and throughput performance improvements using redirect over proxy.
-- **Proxy (default):** In this mode, all connections are using a proxy gateway component. To enable connectivity, only port 1433 for private networks and port 3342 for public connection need to be opened. Choosing this mode can result in higher latency and lower throughput, depending on nature of the workload. We highly recommend the redirect connection policy over the proxy connection policy for the lowest latency and highest throughput.
+- **Redirect (recommended):** Clients establish connections directly to the node hosting the database. To enable connectivity using redirect, you must open firewalls and Network Security Groups (NSG) to allow access on ports 1433, and 11000-11999. Packets go directly to the database, and hence there are latency and throughput performance improvements using redirect over proxy. Impact of planned maintenance events of gateway component is also minimized with redirect connection type compared to proxy since connections, once established, have no dependency on gateway. 
+- **Proxy (default):** In this mode, all connections are using a proxy gateway component. To enable connectivity, only port 1433 for private networks and port 3342 for public connection need to be opened. Choosing this mode can result in higher latency and lower throughput, depending on nature of the workload. Also, planned maintenance events of gateway component break all live connections in proxy mode. We highly recommend the redirect connection policy over the proxy connection policy for the lowest latency, highest throughput, and minimized impact of planned maintenance.
 
 ## Redirect connection type
 
 In the redirect connection type, after the TCP session is established to the SQL engine, the client session obtains the destination virtual IP of the virtual cluster node from the load balancer. Subsequent packets flow directly to the virtual cluster node, bypassing the gateway. The following diagram illustrates this traffic flow.
 
-![redirect.png](./media/connection-types-overview/redirect.png)
+![Diagram shows an on-premises network with redirect-find-db connected to a gateway in an Azure virtual network and a redirect-query connected to a database primary node in the virtual network.](./media/connection-types-overview/redirect.png)
 
 > [!IMPORTANT]
 > The redirect connection type currently works only for a private endpoint. Regardless of the connection type setting, connections coming through the public endpoint would be through a proxy.
@@ -38,7 +38,7 @@ In the redirect connection type, after the TCP session is established to the SQL
 
 In the proxy connection type, the TCP session is established using the gateway and all subsequent packets flow through it. The following diagram illustrates this traffic flow.
 
-![proxy.png](./media/connection-types-overview/proxy.png)
+![Diagram shows an on-premises network with a proxy connected to a gateway in an Azure virtual network, connect next to a database primary node in the virtual network.](./media/connection-types-overview/proxy.png)
 
 ## Changing Connection Type
 

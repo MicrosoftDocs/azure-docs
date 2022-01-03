@@ -26,4 +26,4 @@ If you're having trouble connecting to a virtual machine over your VPN connectio
 - If you can connect to the VM by using the private IP address, but not the computer name, verify that you have configured DNS properly. For more information about how name resolution works for VMs, see [Name Resolution for VMs](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 - Verify that the VPN client configuration package is generated after you specify the DNS server IP addresses for the VNet. If you update the DNS server IP addresses, generate and install a new VPN client configuration package.
 
-For more troubleshooting information, see [Troubleshoot Remote Desktop connections to a VM](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md).
+For more troubleshooting information, see [Troubleshoot Remote Desktop connections to a VM](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection).

@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
 ms.service: storage
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -22,7 +21,7 @@ ms.author: cawa
 
 ## Overview
 
-[Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md) is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS.
+[Azure Blob Storage](./storage/blobs/storage-quickstart-blobs-dotnet.md) is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS.
 You can use Blob storage to expose data publicly to the world, or to store application data privately. In this article, you'll learn how to use Storage Explorer
 to work with blob containers and blobs.
 
@@ -105,7 +104,7 @@ The following steps illustrate how to copy a blob container from one storage acc
 
 ## Get the SAS for a blob container
 
-A [shared access signature (SAS)](storage/common/storage-dotnet-shared-access-signature-part-1.md) provides delegated access to resources in your storage account.
+A [shared access signature (SAS)](./storage/common/storage-sas-overview.md) provides delegated access to resources in your storage account.
 This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to
 share your account access keys.
 

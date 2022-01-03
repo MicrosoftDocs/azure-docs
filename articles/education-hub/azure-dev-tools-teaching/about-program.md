@@ -52,6 +52,9 @@ Students don't need to sign up for an Azure subscription to access their softwar
 Microsoft does offer USD$100 in Azure credit plus access to free Azure services for students: students 
 can sign up for the [Azure for Students offer](azure-students-program.md) without needing a credit card.
 
+## Why can’t I purchase Azure Dev Tools for Teaching?
+Azure Dev Tools for Teaching is now only available to redeem if you have a Volume Licensing (VL) agreement with Microsoft.  If you have a VL agreement with Microsoft and are still having issues redeeming, please contact support.  For more information on Volume Licensing for Education, please visit https://aka.ms/ees
+
 ## Getting help
 
 [!INCLUDE [Subscription support](../../../includes/edu-dev-tools-program-support.md)]

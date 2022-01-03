@@ -6,24 +6,26 @@ metadata:
   title: Conversation scenarios documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: trevorbye
+  author: eric-urban
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/16/2020
-  ms.author: trbye
+  ms.author: eur
 
 landingContent:
 - title: About Conversation Transcription (meeting scenario)
   linkLists:
     - linkListType: overview
       links:
-      - text: What is Conversation Transcription in meetings?
+      - text: What is Conversation Transcription?
         url: conversation-transcription.md
+    - linkListType: quickstart
+      links:
+        - text: Real-time Conversation Transcription quickstart
+          url: how-to-use-conversation-transcription.md
     - linkListType: how-to-guide
       links:
-        - text: Real-time Conversation Transcription
-          url: how-to-use-conversation-transcription.md
         - text: Asynchronous Conversation Transcription
           url: how-to-async-conversation-transcription.md
 - title: About Multi-device Conversation (meeting scenario)
@@ -52,3 +54,10 @@ landingContent:
           url: multi-device-conversation.md#language-support
         - text: Speech transcription pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+
+- title: Help and feedback
+  linkLists:
+  - linkListType: reference
+    links:
+      - text: Support and help options
+        url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

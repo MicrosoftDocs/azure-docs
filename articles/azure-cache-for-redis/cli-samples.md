@@ -1,8 +1,8 @@
 ---
 title: Manage Azure Cache for Redis with Azure CLI
 description: 'Azure CLI samples for managing Azure Cache for Redis: Create a cache, deleting a cache, get cache details,  hostname, ports and keys, connecting a web app.'
-author: yegu-ms
-ms.author: yegu
+author: flang-msft
+ms.author: franlanglois
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: conceptual
@@ -24,4 +24,4 @@ The following table includes links to bash scripts built using the Azure CLI.
 |**Delete cache**| **Description** |
 | [Delete a cache](./scripts/delete-cache.md) | Deletes an Azure Cache for Redis instance  |
 
-For more information about the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+For more information about the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli) and [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).

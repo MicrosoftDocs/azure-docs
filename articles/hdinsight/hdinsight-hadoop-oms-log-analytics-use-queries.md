@@ -1,9 +1,6 @@
 ---
 title: Query Azure Monitor logs to monitor Azure HDInsight clusters 
 description: Learn how to run queries on Azure Monitor logs to monitor jobs running in an HDInsight cluster.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -35,13 +32,13 @@ Learn how to look for specific metrics for your HDInsight cluster.
     search *
     ```
 
-    ![Apache Ambari analytics search all metrics](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "Search all metrics")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png" alt-text="Apache Ambari analytics search all metrics":::
 
 1. From the left menu, select the **Filter** tab.
 
 1. Under **Type**, select **Heartbeat**. Then select **Apply & Run**.
 
-    ![log analytics search specific metrics](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png "Search for specific metrics")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png" alt-text="log analytics search specific metrics":::
 
 1. Notice that the query in the text box changes to:
 
@@ -52,13 +49,13 @@ Learn how to look for specific metrics for your HDInsight cluster.
 
 1. You can dig deeper by using the options available in the left menu. For example:
 
-    - To see logs from a specific node:
+   - To see logs from a specific node:
 
-        ![Search for specific errors output1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-node.png "Search for specific errors output1")
+     :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-node.png" alt-text="Search for specific errors output1":::
 
-    - To see logs at certain times:
+   - To see logs at certain times:
 
-        ![Search for specific errors output2](./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-time.png "Search for specific errors output2")
+     :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-time.png" alt-text="Search for specific errors output2":::
 
 1. Select **Apply & Run** and review the results. Also note that the query was updated to:
 
@@ -100,11 +97,11 @@ The first step to create an alert is to arrive at a query based on which the ale
 
 1. Select **New alert rule** on the top of the page.
 
-    ![Enter query to create an alert1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "Enter query to create an alert1")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png" alt-text="New alert rule":::
 
 1. In the **Create rule** window, enter the query and other details to create an alert, and then select **Create alert rule**.
 
-    ![Enter query to create an alert2](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "Enter query to create an alert2")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png" alt-text="Define alert condition.":::
 
 ### Edit or delete an existing alert
 
@@ -118,11 +115,11 @@ The first step to create an alert is to arrive at a query based on which the ale
 
 1. You have the following options: **Save**, **Discard**, **Disable**, and **Delete**.
 
-    ![HDInsight Azure Monitor logs alert delete edit](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
+    :::image type="content" source="media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png" alt-text="HDInsight Azure Monitor logs alert delete edit":::
 
-For more information, see [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/platform/alerts-metric.md).
+For more information, see [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
 
 ## See also
 
-* [Get started with log queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
-* [Create custom views by using View Designer in Azure Monitor](../azure-monitor/platform/view-designer.md)
+* [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
+* [Create custom views by using View Designer in Azure Monitor](../azure-monitor/visualize/view-designer.md)

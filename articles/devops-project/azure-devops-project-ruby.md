@@ -5,14 +5,14 @@ ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
-author: mlearned
+author: georgewallace
 manager: gwallace
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
-ms.author: mlearned
-ms.custom: mvc
+ms.author: gwallace
+ms.custom: mvc, mode-other
 ---
 
 # Create a CI/CD pipeline for Ruby on Rails by using Azure DevOps Starter
@@ -58,9 +58,9 @@ Azure DevOps Starter creates a CI/CD pipeline in Azure Repos. You can create a n
 
 Azure DevOps Starter creates a Git repo in Azure Pipelines or GitHub. To view the repo and make code changes to your app, do the following:
 
-1. On the DevOps Starter dashboard, at the left, select the link for your master branch. The link opens a view to the newly created Git repo.
+1. On the DevOps Starter dashboard, at the left, select the link for your main branch. The link opens a view to the newly created Git repo.
 
-1. To view the repo clone URL, select **Clone** at the top right. You can clone your Git repo in your favorite IDE. In the next few steps, you can use the web browser to make and commit code changes directly to the master branch.
+1. To view the repo clone URL, select **Clone** at the top right. You can clone your Git repo in your favorite IDE. In the next few steps, you can use the web browser to make and commit code changes directly to the main branch.
 
 1. At the left, go to the *app/views/pages/home.html.erb* file, and then select **Edit**.
 
@@ -121,4 +121,4 @@ When they are no longer needed, you can delete the Azure App Service instance an
 To learn more about modifying the build and release pipelines to meet the needs of your team, see:
 
 > [!div class="nextstepaction"]
-> [Define your multi-stage continuous deployment (CD) pipeline](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Define your multi-stage continuous deployment (CD) pipeline](/azure/devops/pipelines/release/define-multistage-release-process)

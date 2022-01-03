@@ -31,7 +31,7 @@ Replication couldn't be enabled for the virtual machine <VmName>.
 
 ### Fix the problem
 
-Contact [Azure billing support](../azure-portal/supportability/resource-manager-core-quotas-request.md) to enable your subscription to create VMs of the required sizes in the target location. Then, retry the failed operation.
+Contact [Azure billing support](../azure-portal/supportability/regional-quota-requests.md) to enable your subscription to create VMs of the required sizes in the target location. Then, retry the failed operation.
 
 If the target location has a capacity constraint, disable replication to that location. Then, enable replication to a different location where your subscription has sufficient quota to create VMs of the required sizes.
 
@@ -186,18 +186,21 @@ To check if the VM uses a custom DNS setting:
 
 Try to access the DNS server from the virtual machine. If the DNS server isn't accessible, make it accessible by either failing over the DNS server or creating the line of site between DR network and DNS.
 
+> [!NOTE]
+> If you use private endpoints, ensure that the VMs can resolve the private DNS records.
+
 :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/custom_dns.png" alt-text="com-error.":::
 
 ### Issue 2: Site Recovery configuration failed (151196)
 
 #### Possible cause
 
-A connection can't be established to Office 365 authentication and identity IP4 endpoints.
+A connection can't be established to Microsoft 365 authentication and identity IP4 endpoints.
 
 #### Fix the problem
 
-Azure Site Recovery required access to Office 365 IP ranges for authentication.
-If you're using Azure Network Security Group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure that you use [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to AAD. We no longer support IP address-based NSG rules.
+Azure Site Recovery required access to Microsoft 365 IP ranges for authentication.
+If you're using Azure Network Security Group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure that you use [Azure Active Directory (AAD) service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule for allowing access to AAD. We no longer support IP address-based NSG rules.
 
 ### Issue 3: Site Recovery configuration failed (151197)
 

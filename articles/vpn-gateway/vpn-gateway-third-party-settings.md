@@ -7,7 +7,7 @@ manager: dcscontentpm
 
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 06/15/2018
+ms.date: 02/10/2021
 ms.author: delhan
 
 ---
@@ -38,7 +38,6 @@ The following table lists several common devices and related help:
 
 ## Next step
 
-[Azure Gateways settings](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)
+[Azure Gateways settings](./vpn-gateway-about-vpn-devices.md)
 
-[Known compatible devices](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)
-
+[Known compatible devices](./vpn-gateway-about-vpn-devices.md)

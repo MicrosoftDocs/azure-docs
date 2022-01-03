@@ -1,8 +1,8 @@
---- 
+---
 title: Azure VMware Solution by CloudSimple - Optimize your CloudSimple Private Cloud for Oracle RAC
 description: Describes how to deploy a new cluster and optimize a VM for Oracle Real Application Clusters (RAC) installation and configuration
-author: sharaths-cs
-ms.author: b-shsury 
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/06/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -74,7 +74,7 @@ Each Oracle virtual machine is configured with multiple disks for the host opera
 * Sharing is set to **No sharing**.
 * Redundancy is defined on the storage using vSAN policies.  
 
-![Oracle RAC data disk group configuration](media/oracle-vm-os-disks.png)
+![Diagram that shows the Oracle RAC OS disk physical configuration.](media/oracle-vm-os-disks.png)
 
 ### Data disk configuration
 
@@ -143,7 +143,7 @@ The fast recovery area (FRA) is file system managed by Oracle ASM disk group.  F
 * The disks must be configured as an ASM disk group.  
 * ASM redundancy is set to **External** redundancy.
 
-![Oracle RAC voting disk group configuration](media/oracle-vm-fra-disks.png)
+![Diagram that shows the Oracle RAC voting disk group configuration.](media/oracle-vm-fra-disks.png)
 
 ## Deploy CloudSimple Private Cloud vSphere cluster
 
@@ -196,7 +196,7 @@ To create a VM for Oracle, clone an existing VM or create a new one.  This secti
 14. Review the settings and click **OK** to create the new VM.
 15. Power on the VM. Install the operating system and any updates required
 
-After the operating system is installed, you can clone a second VM. Right-click the VM entry and select the and clone option.
+After the operating system is installed, you can clone a second VM. Right-click the VM entry and select and clone option.
 
 ### Create shared disks for VMs
 
@@ -215,7 +215,7 @@ Oracle uses shared disk to store the data, log, and redo log files.  You can cre
 9. For sharing, specify **Multi-writer**.
 10. For the virtual device node, select the new SCSI controller that was created in step 2.
 
-    ![Create disks on first VM](media/oracle-rac-new-hard-disk.png)
+    ![Screenshot that highlights the fields needed to create disks on the first VM.](media/oracle-rac-new-hard-disk.png)
 
 Repeat steps 2 – 10 for all the new disks required for the Oracle data, logs, and redo log files.
 
@@ -257,4 +257,3 @@ VM-to-host affinity rules ensure that the VM runs on the desired host.  You can 
 ## References
 
 * [About vSAN Policies](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-08911FD3-2462-4C1C-AE81-0D4DBC8F7990.html)
-* [VMware Multi-Writer Attribute for Shared VMDKs](https://docs.vmware.com/en/VMware-Cloud-on-AWS/solutions/VMware-Cloud-on-AWS.df6735f8b729fee463802083d46fdc75/GUID-A7642A82B3D6C5F7806DB40A3F2766D9.html)

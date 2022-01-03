@@ -1,24 +1,17 @@
 ---
 title: Migrate Azure web resources from Azure Germany to global Azure
 description: This article provides information about migrating your Azure web resources from Azure Germany to global Azure.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 07/02/2020
-ms.topic: article
 ms.custom: bfmigrate
 ---
 
 # Migrate web resources to global Azure
 
-> [!IMPORTANT]
-> Since [August 2018](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/), we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations.
->
-> Based on the evolution in customers' needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft's global cloud network, as well as market competitive pricing. 
->
-> Take advantage of the breadth of functionality, enterprise-grade security, and comprehensive features available in our new German datacenter regions by [migrating](germany-migration-main.md) today.
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 This article has information that can help you migrate Azure web resources from Azure Germany to global Azure.
 
@@ -70,7 +63,7 @@ Migrating apps that you created by using the Web Apps feature of Azure App Servi
 
 For more information:
 
-- Refresh your knowledge by completing the [App Service tutorials](https://docs.microsoft.com/azure/app-service/tutorial-dotnetcore-sqldb-app).
+- Refresh your knowledge by completing the [App Service tutorials](../app-service/tutorial-dotnetcore-sqldb-app.md).
 - Get information about how to [export Azure Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md).
 - Review the [Azure Resource Manager overview](../azure-resource-manager/management/overview.md).
 - Review the [App Service overview](../app-service/overview.md).
@@ -87,7 +80,7 @@ To migrate settings from one Azure Notification Hubs instance to another instanc
 
 For more information:
 
-- Refresh your knowledge by completing the [Notification Hubs tutorials](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started).
+- Refresh your knowledge by completing the [Notification Hubs tutorials](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).
 - Review the [Notification Hubs overview](../notification-hubs/notification-hubs-push-notification-overview.md).
 
 ## Event Hubs

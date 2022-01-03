@@ -11,14 +11,13 @@ ms.assetid:
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
 ---
 
 # Persist files in Azure Cloud Shell
-Cloud Shell utilizes Azure File storage to persist files across sessions. On initial start, Cloud Shell prompts you to associate a new or existing file share to persist files across sessions.
+Cloud Shell utilizes Azure Files to persist files across sessions. On initial start, Cloud Shell prompts you to associate a new or existing file share to persist files across sessions.
 
 > [!NOTE]
 > Bash and PowerShell share the same file share. Only one file share can be associated with automatic mounting in Cloud Shell.
@@ -51,11 +50,13 @@ When the storage setup prompt appears, select **Show advanced settings** to view
 ![The Resource group setting](media/persisting-shell-storage/advanced-storage.png)
 
 ## Securing storage access
-For security, each user should provision their own storage account.  For role-based access control (RBAC), users must have contributor access or above at the storage account level.
+For security, each user should provision their own storage account.  For Azure role-based access control (Azure RBAC), users must have contributor access or above at the storage account level.
 
 Cloud Shell uses an Azure File Share in a storage account, inside a specified subscription. Due to inherited permissions, users with sufficient access rights to the subscription will be able to access all the storage accounts, and file shares contained in the subscription.
 
 Users should lock down access to their files by setting the permissions at the storage account or the subscription level.
+
+The Cloud Shell storage account will contain files created by the Cloud Shell user in their home directory, which may include sensitive information including access tokens or credentials.
 
 ## Supported storage regions
 To find your current region you may run `env` in Bash and locate the variable `ACC_LOCATION`, or from PowerShell run `$env:ACC_LOCATION`. File shares receive a 5-GB image created for you to persist your `$Home` directory.

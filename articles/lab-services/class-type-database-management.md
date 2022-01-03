@@ -2,7 +2,7 @@
 title: Set up a lab to teach database management for relational databases | Microsoft Docs
 description: Learn how to set up a lab to teach the management of relational databases. 
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: enewman
 ---
@@ -19,7 +19,7 @@ To set up this lab, you need an Azure subscription and lab account to get starte
 
 ### Lab account settings
 
-Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see [Specify Marketplace images available to lab creators](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see [Specify Marketplace images available to lab creators](./specify-marketplace-images.md).
 
 | Lab account setting | Instructions |
 | ------------------- | ------------ |
@@ -36,7 +36,7 @@ Use the settings in the table below when setting up a classroom lab.  For more i
 
 ## Template machine configuration
 
-To install MySQL on Windows Server 2019, you can follow the steps mentioned in [Install and Run MySQL Community Server on a Virtual Machine](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
+To install MySQL on Windows Server 2019, you can follow the steps mentioned in [Install and Run MySQL Community Server on a Virtual Machine](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
 
 SQL Server 2019 is pre-installed in the virtual machine image we chose when creating the new lab.
 

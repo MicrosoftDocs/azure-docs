@@ -4,23 +4,30 @@ description: Learn how to discover Azure resources to manage in Azure AD Privile
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 12/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ---
 
 # Discover Azure resources to manage in Privileged Identity Management
 
-Using Azure Active Directory (Azure AD) Privileged Identity Management (PIM), you can improve the protection of your Azure resources. This is helpful to organizations that already use Privileged Identity Management to protect Azure AD roles, and to management group and subscription owners who are looking to secure production resources.
+Using Azure Active Directory (Azure AD) Privileged Identity Management (PIM), you can improve the protection of your Azure resources. This is helpful to:
 
-When you first set up Privileged Identity Management for Azure resources, you need to discover and select the resources to protect with Privileged Identity Management. There's no limit to the number of resources that you can manage with Privileged Identity Management. However, we recommend starting with your most critical (production) resources.
+- Organizations that already use Privileged Identity Management to protect Azure AD roles
+- Management group and subscription owners who are trying to secure production resources
+
+When you first set up Privileged Identity Management for Azure resources, you need to discover and select the resources you want to protect with Privileged Identity Management. When you discover resources through Privileged Identity Management, PIM creates the PIM service principal (MS-PIM) assigned as User Access Administrator on the resource. There's no limit to the number of resources that you can manage with Privileged Identity Management. However, we recommend starting with your most critical production resources.
+
+## Required permissions
+
+You can view and manage the management groups or subscriptions to which you have Microsoft.Authorization/roleAssignments/write permissions, such as User Access Administrator or Owner roles. If you are not a subscription owner, but are a Global Administrator and don't see any Azure subscriptions or management groups to manage, then you can [elevate access to manage your resources](../../role-based-access-control/elevate-access-global-admin.md).
 
 ## Discover resources
 
@@ -40,22 +47,26 @@ When you first set up Privileged Identity Management for Azure resources, you ne
 
 1. Select **Discover resources** to launch the discovery experience.
 
-    ![Discovery pane listing resources that can be managed such as subscriptions and management groups](./media/pim-resource-roles-discover-resources/discovery-pane.png)
+    ![Discovery pane lists resources that can be managed, such as subscriptions and management groups](./media/pim-resource-roles-discover-resources/discovery-pane.png)
 
 1. On the **Discovery** page, use **Resource state filter** and **Select resource type** to filter the management groups or subscriptions you have write permission to. It's probably easiest to start with **All** initially.
 
-    You can only search for and select management group or subscription resources to manage using Privileged Identity Management. When you manage a management group or a subscription in Privileged Identity Management, you can also manage its child resources.
+   You can search for and select management group or subscription resources to manage in Privileged Identity Management. When you manage a management group or a subscription in Privileged Identity Management, you can also manage its child resources.
 
-1. Select the checkbox next to any unmanaged resources you want to manage.
+   > [!Note]
+   > When you add a new child Azure resource to a PIM-managed management group, you can bring the child resource under management by searching for it in PIM.
 
-1. Select **Manage resource** to start managing the selected resources.
+1. Select any unmanaged resources that you want to manage.
+
+1. Select **Manage resource** to start managing the selected resources. The PIM service principal (MS-PIM) is 
+assigned as User Access Administrator on the resource.
 
     > [!NOTE]
     > Once a management group or subscription is managed, it can't be unmanaged. This prevents another resource administrator from removing Privileged Identity Management settings.
-
+     
     ![Discovery pane with a resource selected and the Manage resource option highlighted](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-1. If you see a message to confirm the onboarding of the selected resource for management, select **Yes**.
+1. If you see a message to confirm the onboarding of the selected resource for management, select **Yes**. PIM will then be configured to manage all the new and existing child objects under the resource(s).
 
     ![Message confirming to onboard the selected resources for management](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 

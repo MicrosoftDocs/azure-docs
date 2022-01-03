@@ -1,21 +1,17 @@
 ---
 title: Copy data from Azure Blob Storage to Azure SQL Database
 description: 'This tutorial provides step-by-step instructions for copying  data from Azure Blob Storage to Azure SQL Database.'
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 11/08/2019
-ms.author: jingwang
+ms.date: 02/18/2021
+ms.author: jianleishen
 ---
+
 # Copy data from Azure Blob to Azure SQL Database using Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this tutorial, you create a Data Factory pipeline that copies data from Azure Blob Storage to Azure SQL Database. The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -43,7 +39,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ### Create a blob and a SQL table
 
-Now, prepare your Azure Blob and Azure SQL Database for the tutorial by creating a source blog and a sink SQL table.
+Now, prepare your Azure Blob and Azure SQL Database for the tutorial by creating a source blob and a sink SQL table.
 
 #### Create a source blob
 

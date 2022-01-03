@@ -3,8 +3,9 @@ title: Quickstart - Use the Azure CLI to create a Service Bus queue | Microsoft 
 description: In this quickstart, you learn how to use the Azure CLI to create a Service Bus namespace and then a queue in that namespace.
 author: spelluru
 ms.topic: quickstart
-ms.date: 08/12/2020
+ms.date: 09/28/2021
 ms.author: spelluru
+ms.custom: mode-api
 ---
 
 # Use the Azure CLI to create a Service Bus namespace and a queue
@@ -19,7 +20,7 @@ In this quickstart, you use Azure Cloud Shell that you can launch after sign int
 
 ## Provision resources
 1. Sign into the [Azure portal](https://portal.azure.com).
-2. Launch Azure Cloud Shell by selecting the icon shown in the following image. Switch to **Bash** mode if the CloudShell is in **PowerShell** mode. 
+2. Launch Azure Cloud Shell by selecting the icon shown in the following image. Switch to **Bash** mode if the Cloud Shell is in **PowerShell** mode. 
 
     :::image type="content" source="./media/service-bus-quickstart-powershell/launch-cloud-shell.png" alt-text="Launch Cloud Shell":::
 3. Run the following command to create an Azure resource group. Update the resource group name and the location if you want. 
@@ -51,10 +52,8 @@ In this article, you created a Service Bus namespace and a queue in the namespac
 
 - [.NET](service-bus-dotnet-get-started-with-queues.md)
 - [Java](service-bus-java-how-to-use-queues.md)
-- [JavaScript](service-bus-nodejs-how-to-use-queues-new-package.md)
+- [JavaScript](service-bus-nodejs-how-to-use-queues.md)
 - [Python](service-bus-python-how-to-use-queues.md)
 - [PHP](service-bus-php-how-to-use-queues.md)
-- [Ruby](service-bus-ruby-how-to-use-queues.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-

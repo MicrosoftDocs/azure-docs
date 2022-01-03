@@ -1,9 +1,6 @@
 ---
 title: Migrate Apache Spark 2.1 or 2.2 workloads to 2.3 or 2.4 - Azure HDInsight
 description: Learn how to migrate Apache Spark 2.1 and 2.2 to 2.3 or 2.4.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
@@ -13,7 +10,7 @@ ms.date: 05/20/2020
 
 This document explains how to migrate Apache Spark workloads on Spark 2.1 and 2.2 to 2.3 or 2.4.
 
-As discussed in the [Release Notes](../hdinsight-release-notes.md#upcoming-changes), starting July 1, 2020, the following cluster configurations will not be supported and customers will not be able to create new clusters with these configurations:
+As discussed in the [Release Notes](../hdinsight-release-notes-archive.md), starting July 1, 2020, the following cluster configurations will not be supported and customers will not be able to create new clusters with these configurations:
  - Spark 2.1 and 2.2 in an HDInsight 3.6 Spark cluster
  - Spark 2.3 in an HDInsight 4.0 Spark cluster
 

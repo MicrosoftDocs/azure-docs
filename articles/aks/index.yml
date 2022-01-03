@@ -28,8 +28,6 @@ landingContent:
         links:
           - text: Kubernetes core concepts for AKS
             url: concepts-clusters-workloads.md
-          - text: Baseline architecture for an AKS cluster
-            url: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
           - text: Clusters and workloads
             url: concepts-clusters-workloads.md
           - text: Access and identity
@@ -42,6 +40,14 @@ landingContent:
             url: concepts-storage.md
           - text: Scale
             url: concepts-scale.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Kubernetes Service
+            url: /learn/modules/intro-to-azure-kubernetes-service/
+          - text: Introduction to containers on Azure
+            url: /learn/modules/intro-to-containers/
+          - text: Build and store container images with Azure Container Registry
+            url: /learn/modules/build-and-store-container-images/
 
   # Card (optional)
   - title: Deploy an AKS cluster in 5 minutes
@@ -56,14 +62,44 @@ landingContent:
             url: kubernetes-walkthrough-rm-template.md
 
   # Card
-  - title: Develop and debug applications with Local Process with Kubernetes
+  - title: Develop and debug applications
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Develop with Helm
+            url: quickstart-helm.md
+          - text: Develop with Dapr
+            url: quickstart-dapr.md
       - linkListType: how-to-guide
         links:
-          - text: Use Local Process with Kubernetes with Visual Studio Code (preview)
-            url: https://code.visualstudio.com/docs/containers/local-process-kubernetes
-          - text: Use Local Process with Kubernetes with Visual Studio (preview)
-            url: /visualstudio/containers/local-process-kubernetes
+          - text: Use Bridge to Kubernetes with Visual Studio Code
+            url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+          - text: Use Bridge to Kubernetes with Visual Studio
+            url: /visualstudio/containers/bridge-to-kubernetes
+
+
+
+
+
+  # Card
+  - title: Architecture guidance
+    linkLists:
+      - linkListType: architecture
+        links:
+            - text: Baseline architecture
+              url: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks?WT.mc_id=AKSDOCSPAGE
+            - text: Baseline for microservices
+              url: /azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced?WT.mc_id=AKSDOCSPAGE            
+            - text: Baseline for PCI-DSS 3.2.1
+              url: /azure/architecture/reference-architectures/containers/aks-pci/aks-pci-intro?WT.mc_id=AKSDOCSPAGE
+            - text: Baseline for multiregion
+              url: /azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster?WT.mc_id=AKSDOCSPAGE                 
+            - text: Day-2 operations guide
+              url: /azure/architecture/operator-guides/aks/day-2-operations-guide?WT.mc_id=AKSDOCSPAGE
+            - text: Best practices for cluster operators and developers
+              url: best-practices.md
+            - text: Other AKS solutions
+              url: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE   
 
   # Card
   - title: Deploy, manage, and update applications
@@ -85,14 +121,13 @@ landingContent:
           - text: 7. Upgrade Kubernetes in AKS
             url: tutorial-kubernetes-upgrade-cluster.md
 
-    # Card
-  - title: Build your skills with Microsoft Learn
+  - title: Extend the capabilities of your cluster
     linkLists:
-      - linkListType: learn
+      - linkListType: concept
         links:
-          - text: Introduction to Azure Kubernetes Service
-            url: /learn/modules/intro-to-azure-kubernetes-service/
-          - text: Introduction to containers on Azure
-            url: /learn/modules/intro-to-containers/
-          - text: Build and store container images with Azure Container Registry
-            url: /learn/modules/build-and-store-container-images/
+          - text: Open Service Mesh add-on
+            url: open-service-mesh-about.md
+          - text: Dapr cluster extension
+            url: dapr.md
+          - text: Cluster extensions
+            url: cluster-extensions.md

@@ -1,8 +1,8 @@
 ---
 title: Connect with redirection - Azure Database for MariaDB
 description: This article describes how you can configure you application to connect to Azure Database for MariaDB with redirection.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/8/2020
@@ -16,6 +16,9 @@ This topic explains how to connect an application your Azure Database for MariaD
 Sign in to the [Azure portal](https://portal.azure.com). Create an Azure Database for MariaDB server with engine version 10.2 or 10.3. 
 
 For details, refer to how to create an Azure Database for MariaDB server using the [Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md) or [Azure CLI](quickstart-create-mariadb-server-database-using-azure-cli.md).
+
+> [!IMPORTANT]
+> Redirection is currently not supported with [Private Link for Azure Database for MariaDB](concepts-data-access-security-private-link.md).
 
 ## Enable redirection
 

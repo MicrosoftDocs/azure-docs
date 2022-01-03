@@ -4,7 +4,7 @@ description: Learn how to determine the public IP address and port number range 
 author: emaher
 ms.author: enewman
 ms.date: 06/26/2020
-ms.topic: article
+ms.topic: how-to
 ---
 
 # Firewall settings for Azure Lab Services
@@ -15,6 +15,9 @@ Each lab uses single public IP address and multiple ports.  All VMs, both the te
 
 >[!IMPORTANT]
 >Each lab will have a different public IP address.
+
+> [!NOTE]
+> If your school needs to perform content filtering, such as for compliance with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), you will need to use 3rd party software.  For more information, read guidance on [content filtering with Lab Services](./administrator-guide.md#content-filtering).
 
 ## Find public IP for a lab
 

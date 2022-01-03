@@ -21,7 +21,7 @@ Integrating Peakon with Azure AD provides you with the following benefits:
 * You can enable your users to be automatically signed-in to Peakon (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -39,6 +39,7 @@ To configure Azure AD integration with Peakon, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Peakon supports **SP** and **IDP** initiated SSO
+* Peakon supports [**automated** user provisioning and deprovisioning](peakon-provisioning-tutorial.md) (recommended).
 
 ## Adding Peakon from the gallery
 
@@ -106,7 +107,7 @@ To configure Azure AD single sign-on with Peakon, perform the following steps:
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Peakon Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot that shows the "Set additional U R Ls" selected with the "Sing on U R L" text box highlighted.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL:
     `https://app.peakon.com/login`
@@ -226,29 +227,28 @@ In the case of Peakon, provisioning is a manual task.
 
 3. On the top right side of the page, click **Add employee**.
 
-	  ![The add employee](./media/peakon-tutorial/tutorial_peakon_addemployee.png)
+    ![The add employee](./media/peakon-tutorial/tutorial_peakon_addemployee.png)
 
 3. On the **New employee** dialog page, perform the following steps:
 
-	 ![The new employee](./media/peakon-tutorial/tutorial_peakon_create.png)
+    ![The new employee](./media/peakon-tutorial/tutorial_peakon_create.png)
 
-	a. In the **Name** textbox, type first name as **Britta** and last name as **simon**.
+    1. In the **Name** textbox, type first name as **Britta** and last name as **simon**.
 
-	b. In the **Email** textbox, type the email address like **Brittasimon\@contoso.com**.
+    1. In the **Email** textbox, type the email address like **Brittasimon\@contoso.com**.
 
-	c. Click **Create employee**.
+    1. Click **Create employee**.
 
 ### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Peakon tile in the Access Panel, you should be automatically signed in to the Peakon for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Peakon tile in the Access Panel, you should be automatically signed in to the Peakon for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

@@ -1,7 +1,7 @@
 ---
 title: Enable graphical remote desktop for Linux in Azure Lab Services | Microsoft Docs
 description: Learn how to enable remote desktop for Linux virtual machines in a lab in Azure Lab Services.  
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
@@ -14,18 +14,21 @@ This article shows you how to do the following tasks:
 ## Set up graphical remote desktop solution
 When a lab is created from a **Linux** image, **SSH** (Secure Shell) access is automatically configured so that the instructor can connect to the template VM from the command line using SSH.  Likewise, when the template VM is published, students can also connect to their VMs using SSH.
 
-To connect to a Linux VM using a **GUI** (graphical user interface), we recommend using either **RDP** or **X2Go**.  Both of these options require the instructor to do some additional setup on the template VM:
+To connect to a Linux VM using a **GUI** (graphical user interface), we recommend using either **RDP** or **X2Go**.  The rest of this article shows the steps to set up RDP or X2Go on a lab's template VM.
+
+> [!NOTE]
+> Linux uses an open-source version of RDP called, [Xrdp](https://en.wikipedia.org/wiki/Xrdp).  For simplicity, we use the term RDP throughout this article.
 
 ### RDP Setup
 To use RDP, the instructor must:
   - Enable remote desktop connection; this is specifically needed to open the VM's port for RDP.
   - Install the RDP remote desktop server.
-  - Install a Linux graphical desktop environment (such as MATE, XFCE, and so on).
+  - Install a Linux graphical desktop environment.
 
 ### X2Go Setup
 To use X2Go, the instructor must:
 - Install the X2Go remote desktop server.
-- Install a Linux graphical desktop environment (such as MATE, XFCE, and so on).
+- Install a Linux graphical desktop environment.
 
 X2Go uses the same port that is already enabled for SSH.  As a result, no extra configuration required to open a port on the VM for X2Go.
 
@@ -33,7 +36,7 @@ X2Go uses the same port that is already enabled for SSH.  As a result, no extra 
 > In some cases, such as with Ubuntu LTS 18.04, X2Go provides better performance.  If you use RDP and notice latency when interacting with the graphical desktop environment, consider trying X2Go since it may improve performance.
 
 > [!IMPORTANT]
->  Some marketplace images already have a graphical desktop environment and remote desktop server installed.  For example, the [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) already has [XFCE and X2Go Server installed and configured to accept client connections](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#x2go).
+>  Some marketplace images already have a graphical desktop environment and remote desktop server installed.  For example, the [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) already has [XFCE and X2Go Server installed and configured to accept client connections](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#x2go).
 
 ## Enable remote desktop connection for RDP
 
@@ -41,7 +44,7 @@ This step is only needed to connect using RDP.  If instead you plan to use X2Go,
 
 1.  During lab creation, the instructor has the option to **Enable Remote Desktop Connection**.  The instructor must **enable** this option to open the port on the Linux VM that is needed for an RDP remote desktop session.  Otherwise, if this option is left **disabled**, only the port for SSH is opened.
   
-    ![Enable remote desktop connection for a Linux image](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
+    ![Screenshot that shows the "New lab" window with the "Enable Remote Desktop Connection" option.](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
 2. On the **Enabling Remote Desktop Connection** message box, select **Continue with Remote Desktop**. 
 
@@ -49,9 +52,9 @@ This step is only needed to connect using RDP.  If instead you plan to use X2Go,
 
 ## Install RDP or X2Go
 
-After the lab is created, the instructor needs to ensure that a graphical desktop environment and remote desktop server are installed on the template VM.  Instructors must first connect to the template VM using SSH to install the packages for:
+After the lab is created, the instructor needs to ensure that a graphical desktop environment and remote desktop server are installed on the template VM.  The instructor must first connect to the template VM using SSH to install the packages for:
 - Either the RDP or X2Go remote desktop server.
-- A graphical desktop environment, such as MATE, XFCE, etc.
+- A graphical desktop environment, such as [GNOME](https://www.gnome.org/), [MATE](https://mate-desktop.org/), [XFCE](https://www.xfce.org/), [Xubuntu](https://xubuntu.org/), etc.
 
 After this is set up, the instructor can connect to the template VM using either the **Microsoft Remote Desktop (RDP)** client or **X2Go** client.
 
@@ -67,9 +70,23 @@ Follow the below steps to set up the template VM:
  
     ![SSH connection string](./media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
-4. Install either RDP or X2Go along with the graphical desktop environment of your choice.  Refer to the following instructions:
-    - [Install and configure RDP](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop)
-    - [Install and configure X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/X2GoRemoteDesktop)
+1. Finally, install either RDP or X2Go along with the graphical desktop environment of your choice.
+
+  For optimal performance, we typically recommend using the XFCE graphical desktop and for users to connect to the desktop using X2Go.  To set up XFCE with X2Go on Ubuntu, use the following instructions:
+    - [Install and configure X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/XFCE_Xubuntu/ReadMe.md)
+
+  In cases where you instead need to have users connect to the graphical desktop with RDP, use the following instructions for Ubuntu:
+    - [Install and configure RDP](../virtual-machines/linux/use-remote-desktop.md)
+
+### Using GNOME or MATE graphical desktops
+
+For the GNOME or MATE graphical desktop environments, you may encounter a networking conflict with the Azure Linux Agent which is needed for the VMs to work properly in Azure Lab Services.  This networking conflict causes the following side effects when Ubuntu 18.04 LTS is used with either GNOME or MATE installed:
+ - Lab creation using the image will fail with the error message, **Communication could not be established with the VM agent.  Please verify that the VM agent is enabled and functioning.**  
+ - Publishing student VMs will stop responding if the auto-shutdown settings are enabled.
+ - Resetting the student VM password will stop responding.
+
+We recommend using the following instructions to set up the GNOME or MATE graphical desktops on Ubuntu.  These instructions include a fix for the networking conflict that exists with Ubuntu 18.04 LTS.  They also support installing GNOME and MATE on Ubuntu 20.04 LTS and 21.04 LTS:
+ - [Install and configure GNOME/RDP and MATE/X2go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/GNOME_MATE/ReadMe.md)
 
 ## Connect to the template VM via the GUI
 
@@ -77,7 +94,7 @@ After the template VM is set up, the instructor can connect via the GUI using ei
 
 ### Microsoft Remote Desktop (RDP) client
 
-The Microsoft Remote Desktop (RDP) client is used to connect to a template VM that has RDP configured.  The Remote Desktop client can be used on Windows, Chromebooks, Macs and more.  Refer to the article on [Remote Desktop clients](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) for further details.
+The Microsoft Remote Desktop (RDP) client is used to connect to a template VM that has RDP configured.  The Remote Desktop client can be used on Windows, Chromebooks, Macs and more.  Refer to the article on [Remote Desktop clients](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) for further details.
 
 Follow the below steps based on the type of computer used to connect to the template VM:
 

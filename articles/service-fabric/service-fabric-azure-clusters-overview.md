@@ -1,13 +1,10 @@
 ---
 title: Create clusters on Windows Server and Linux 
-description: Service Fabric clusters run on Windows Server and Linux, which means you'll be able to deploy and host Service Fabric applications anywhere you can run Windows Server or Linux.
+description: Service Fabric clusters run on Windows Server and Linux. You can deploy and host Service Fabric applications anywhere you can run Windows Server or Linux.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
-
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: dekapur
 ---
 
 # Overview of Service Fabric clusters on Azure
@@ -44,9 +41,9 @@ You can use scale sets to deploy and manage a collection of virtual machines as 
 For more information, read [Service Fabric node types and virtual machine scale sets](service-fabric-cluster-nodetypes.md).
 
 ### Azure Load Balancer
-VM instances are joined behind an [Azure load balancer](../load-balancer/load-balancer-overview.md), which is associated with a [public IP address](../virtual-network/public-ip-addresses.md) and DNS label.  When you provision a cluster with *&lt;clustername&gt;*, the DNS name, *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com* is the DNS label associated with the load balancer in front of the scale set.
+VM instances are joined behind an [Azure load balancer](../load-balancer/load-balancer-overview.md), which is associated with a [public IP address](../virtual-network/ip-services/public-ip-addresses.md) and DNS label.  When you provision a cluster with *&lt;clustername&gt;*, the DNS name, *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com* is the DNS label associated with the load balancer in front of the scale set.
 
-VMs in a cluster have only [private IP addresses](../virtual-network/private-ip-addresses.md).  Management traffic and service traffic are routed through the public facing load balancer.  Network traffic is routed to these machines through NAT rules (clients connect to specific nodes/instances) or load-balancing rules (traffic goes to VMs round robin).  A load balancer has an associated public IP with a DNS name in the format: *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com*.  A public IP is another Azure resource in the resource group.  If you define multiple node types in a cluster, a load balancer is created for each node type/scale set. Or, you can setup a single load balancer for multiple node types.  The primary node type has the DNS label *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com*, other node types have the DNS label *&lt;clustername&gt;-&lt;nodetype&gt;.&lt;location&gt;.cloudapp.azure.com*.
+VMs in a cluster have only [private IP addresses](../virtual-network/ip-services/private-ip-addresses.md).  Management traffic and service traffic are routed through the public facing load balancer.  Network traffic is routed to these machines through NAT rules (clients connect to specific nodes/instances) or load-balancing rules (traffic goes to VMs round robin).  A load balancer has an associated public IP with a DNS name in the format: *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com*.  A public IP is another Azure resource in the resource group.  If you define multiple node types in a cluster, a load balancer is created for each node type/scale set. Or, you can setup a single load balancer for multiple node types.  The primary node type has the DNS label *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com*, other node types have the DNS label *&lt;clustername&gt;-&lt;nodetype&gt;.&lt;location&gt;.cloudapp.azure.com*.
 
 ### Storage accounts
 Each cluster node type is supported by an [Azure storage account](../storage/common/storage-introduction.md) and managed disks.
@@ -66,17 +63,17 @@ In addition to client certificates, Azure Active Directory can also be configure
 
 For more information, read [Client-to-node security](service-fabric-cluster-security.md#client-to-node-security)
 
-### Role-Based Access Control
-Role-Based Access Control (RBAC) allows you to assign fine-grained access controls on Azure resources.  You can assign different access rules to subscriptions, resource groups, and resources.  RBAC rules are inherited along the resource hierarchy unless overridden at a lower level.  You can assign any user or user groups on your AAD with RBAC rules so that designated users and groups can modify your cluster.  For more information, read the [Azure RBAC overview](../role-based-access-control/overview.md).
+### Role-based access control
+Azure role-based access control (Azure RBAC) allows you to assign fine-grained access controls on Azure resources.  You can assign different access rules to subscriptions, resource groups, and resources.  Azure RBAC rules are inherited along the resource hierarchy unless overridden at a lower level.  You can assign any user or user groups on your AAD with Azure RBAC rules so that designated users and groups can modify your cluster.  For more information, read the [Azure RBAC overview](../role-based-access-control/overview.md).
 
 Service Fabric also supports access control to limit access to certain cluster operations for different groups of users. This helps make the cluster more secure. Two access control types are supported for clients that connect to a cluster: Administrator role and User role.  
 
-For more information, read [Service Fabric Role-Based Access Control (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
+For more information, read [Service Fabric role-based access control](service-fabric-cluster-security.md#service-fabric-role-based-access-control).
 
 ### Network security groups 
 Network security groups (NSGs) control inbound and outbound traffic of a subnet, VM, or specific NIC.  By default, when multiple VMs are put on the same virtual network they can communicate with each other through any port.  If you want to constrain communications among the machines you can define NSGs to segment the network or isolate VMs from each other.  If you have multiple node types in a cluster, you can apply NSGs to subnets to prevent machines belonging to different node types from communicating with each other.  
 
-For more information, read about [security groups](../virtual-network/security-overview.md)
+For more information, read about [security groups](../virtual-network/network-security-groups-overview.md)
 
 ## Scaling
 
@@ -90,24 +87,7 @@ An Azure Service Fabric cluster is a resource that you own, but is partly manage
 For more information, read [Upgrading clusters](service-fabric-cluster-upgrade.md).
 
 ## Supported operating systems
-You are able to create clusters on virtual machines running these operating systems:
-
-| Operating system | Earliest supported Service Fabric version |
-| --- | --- |
-| Windows Server 2012 R2 | All versions |
-| Windows Server 2016 | All versions |
-| Windows Server 1709 | 6.0 |
-| Windows Server 1803 | 6.4 |
-| Windows Server 1809 | 6.4.654.9590 |
-| Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16.04 | 6.0 |
-| Linux Ubuntu 18.04 | 7.1 |
-
-For additional information see [Supported Cluster Versions in Azure](./service-fabric-versions.md#supported-operating-systems)
-
-> [!NOTE]
-> If you decide to deploy Service Fabric on Windows Server 1709, please note that (1) it is not a long term servicing branch, so you may have to move versions in the future, and (2) if you deploy containers, containers built on Windows Server 2016 do not work on Windows Server 1709, and vice versa (you will have to rebuild them to deploy them).
->
+Please see [Supported Versions in Azure](./service-fabric-versions.md) for additional information
 
 
 ## Next steps

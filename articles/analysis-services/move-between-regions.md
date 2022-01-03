@@ -1,13 +1,13 @@
-﻿---
+---
 title: Move Azure Analysis Services to a different region | Microsoft Docs
 description: Describes how to move an Azure Analysis Services resource to a different region.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.custom: references_regions 
+ms.custom: references_regions, devx-track-azurepowershell
 #Customer intent: As an Azure service administrator, I want to move Analysis Services server resources to different Azure region.
 ---
 
@@ -36,7 +36,7 @@ Before moving a server to a different region, it's recommended you create a deta
 > Client applications and connection strings connect to Analysis Services by using the full server name, which is a Uri that includes the region the server is in. For example, `asazure://westcentralus.asazure.windows.net/advworks01`. When moving a server to a different region, you are effectively creating a new server resource in a different region, which will have a different region in the server name Uri. Client applications and connection strings used in scripts must connect to the new server using the new server name Uri. Using a [Server name alias](analysis-services-server-alias.md) can mitigate the number of places the server name Uri has to be changed, but must be implemented prior to a region move.
 
 > [!IMPORTANT]
-> Azure regions use different IP address ranges. If you have firewall exceptions configured for the region your server and/or storage account is in, it may be necessary to configure a different IP address range. To learn more, see [Frequently asked questions about Analysis Services network connectivity](analysis-services-network-faq.md).
+> Azure regions use different IP address ranges. If you have firewall exceptions configured for the region your server and/or storage account is in, it may be necessary to configure a different IP address range. To learn more, see [Frequently asked questions about Analysis Services network connectivity](analysis-services-network-faq.yml).
 
 > [!NOTE]
 > This article describes restoring a database backup to a target server from a storage container in the source server's region. In some cases, restoring backups from a different region can have poor performance, especially for large databases. For the best performance during database restore, migrate or create a a new storage container in the target server region. Copy the .abf backup files from the source region storage container to the target region storage container prior to restoring the database to the target server. While out of scope for this article, in some cases, particularly with very large databases, scripting out a database from your source server, recreating, and then processing on the target server to load database data may be more cost effective than using backup/restore.
@@ -84,7 +84,7 @@ To export a template by using Azure portal:
 
 To export a template by using PowerShell:
 
-1. Sign in to your Azure subscription with the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) command and follow the on-screen directions:
+1. Sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions:
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -173,7 +173,7 @@ To modify the template:
 
 #### Regions
 
-To get Azure regions, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/). To get regions by using PowerShell, run the [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) command.
+To get Azure regions, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/). To get regions by using PowerShell, run the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command.
 
 ```azurepowershell-interactive
    Get-AzLocation | format-table 
@@ -297,4 +297,4 @@ Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceG
 ---
 
 > [!NOTE]
-> After completing a region move, it's recommended your new target server use a storage container in the same region for backups, rather than the storage container in the source server region. 
+> After completing a region move, it's recommended your new target server use a storage container in the same region for backups, rather than the storage container in the source server region.

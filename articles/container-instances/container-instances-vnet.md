@@ -1,9 +1,9 @@
 ---
 title: Deploy container group to Azure virtual network
-description: Learn how to deploy a container group to a new or existing Azure virtual network by using the Azure command-line interface.
+description: Learn how to deploy a container group to a new or existing Azure virtual network via the Azure CLI.
 ms.topic: article
-ms.date: 07/02/2020
-ms.custom: devx-track-javascript
+ms.date: 11/11/2021
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Deploy container instances into an Azure virtual network
@@ -15,10 +15,11 @@ This article shows how to use the [az container create][az-container-create] com
 For networking scenarios and limitations, see [Virtual network scenarios and resources for Azure Container Instances](container-instances-virtual-network-concepts.md).
 
 > [!IMPORTANT]
-> Container group deployment to a virtual network is generally available for Linux containers, in most regions where Azure Container Instances is available. For details, see [Regions and resource availability](container-instances-virtual-network-concepts.md#where-to-deploy). 
+> Container group deployment to a virtual network is generally available for Linux containers, in most regions where Azure Container Instances is available. For details, see [Regions and resource availability][container-regions]. 
+
+[!INCLUDE [network profile callout](./includes/network-profile/network-profile-callout.md)]
 
 Examples in this article are formatted for the Bash shell. If you prefer another shell such as PowerShell or Command Prompt, adjust the line continuation characters accordingly.
-
 
 ## Deploy to new virtual network
 
@@ -35,7 +36,7 @@ Once you've deployed your first container group with this method, you can deploy
 
 ### Example
 
-The following [az container create][az-container-create] command specifies settings for a new virtual network and subnet. Provide the name of a resource group that was created in a region where container group deployments in a virtual network are [available](container-instances-region-availability.md#availability---virtual-network-deployment). This command deploys the public Microsoft [aci-helloworld][aci-helloworld] container that runs a small Node.js webserver serving a static web page. In the next section, you'll deploy a second container group to the same subnet, and test communication between the two container instances.
+The following [az container create][az-container-create] command specifies settings for a new virtual network and subnet. Provide the name of a resource group that was created in a region where container group deployments in a virtual network are [available](container-instances-region-availability.md). This command deploys the public Microsoft [aci-helloworld][aci-helloworld] container that runs a small Node.js webserver serving a static web page. In the next section, you'll deploy a second container group to the same subnet, and test communication between the two container instances.
 
 ```azurecli
 az container create \
@@ -110,7 +111,7 @@ The log output should show that `wget` was able to connect and download the inde
 
 ### Example - YAML
 
-You can also deploy a container group to an existing virtual network by using a YAML file, a [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+You can also deploy a container group to an existing virtual network by using a YAML file, a [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet
 ), or another programmatic method such as with the Python SDK. 
 
 For example, when using a YAML file, you can deploy to a virtual network with a subnet delegated to Azure Container Instances. Specify the following properties:
@@ -118,26 +119,14 @@ For example, when using a YAML file, you can deploy to a virtual network with a 
 * `ipAddress`: The private IP address settings for the container group.
   * `ports`: The ports to open, if any.
   * `protocol`: The protocol (TCP or UDP) for the opened port.
-* `networkProfile`: Network settings for the virtual network and subnet.
-  * `id`: The full Resource Manager resource ID of the `networkProfile`.
+* `subnetIds`: The resource IDs of the subnets to be deployed to
+  * `id`: The resource ID of the subnet
+  * `name`: The name of the subnet
 
-To get the ID of the network profile, run the [az network profile list][az-network-profile-list] command, specifying the name of the resource group that contains your virtual network and delegated subnet.
-
-``` azurecli
-az network profile list --resource-group myResourceGroup \
-  --query [0].id --output tsv
-```
-
-Sample output:
-
-```console
-/subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
-```
-
-Once you have the network profile ID, copy the following YAML into a new file named *vnet-deploy-aci.yaml*. Under `networkProfile`, replace the `id` value with ID you just retrieved, then save the file. This YAML creates a container group named *appcontaineryaml* in your virtual network.
+This YAML creates a container group named *appcontaineryaml* in your virtual network.
 
 ```YAML
-apiVersion: '2019-12-01'
+apiVersion: '2021-07-01'
 location: westus
 name: appcontaineryaml
 properties:
@@ -157,10 +146,11 @@ properties:
     ports:
     - protocol: tcp
       port: '80'
-  networkProfile:
-    id: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
   osType: Linux
   restartPolicy: Always
+  subnetIds:
+    - id: <subnet-id>
+      name: default
 tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
@@ -219,7 +209,7 @@ az network vnet delete --resource-group $RES_GROUP --name aci-vnet
 
 ## Next steps
 
-To deploy a new virtual network, subnet, network profile, and container group using a Resource Manager template, see [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+To deploy a new virtual network, subnet, network profile, and container group using a Resource Manager template, see [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet
 ).
 
 <!-- IMAGES -->
@@ -229,7 +219,8 @@ To deploy a new virtual network, subnet, network profile, and container group us
 [aci-helloworld]: https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-show]: /cli/azure/container#az-container-show
-[az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
-[az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-show]: /cli/azure/container#az_container_show
+[az-network-vnet-create]: /cli/azure/network/vnet#az_network_vnet_create
+[az-network-profile-list]: /cli/azure/network/profile#az_network_profile_list
+[container-regions]: container-instances-region-availability.md

@@ -2,8 +2,9 @@
 title: Monitor Node.js services with Azure Application Insights | Microsoft Docs
 description: Monitor performance and diagnose problems in Node.js services with Application Insights.
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.custom: devx-track-javascript
+ms.date: 10/12/2021
+ms.devlang: javascript
+ms.custom: devx-track-js
 ---
 
 # Monitor your Node.js services and apps with Application Insights
@@ -15,6 +16,9 @@ To receive, store, and explore your monitoring data, include the SDK in your cod
 The Node.js SDK can automatically monitor incoming and outgoing HTTP requests, exceptions, and some system metrics. Beginning in version 0.20, the SDK also can monitor some common [third-party packages](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules), like MongoDB, MySQL, and Redis. All events related to an incoming HTTP request are correlated for faster troubleshooting.
 
 You can use the TelemetryClient API to manually instrument and monitor additional aspects of your app and system. We describe the TelemetryClient API in more detail later in this article.
+
+> [!NOTE]
+> A preview [OpenTelemetry-based Node.js offering](opentelemetry-enable.md?tabs=nodejs) is available. [Learn more](opentelemetry-overview.md).
 
 ## Get started
 
@@ -35,6 +39,9 @@ Before you begin, make sure that you have an Azure subscription, or [get a new o
 ### <a name="sdk"></a> Set up the Node.js SDK
 
 Include the SDK in your app, so it can gather data.
+
+> [!IMPORTANT]
+> [Connection Strings](./sdk-connection-string.md?tabs=nodejs) are recommended over instrumentation keys. New Azure regions **require** the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
 
 1. Copy your resource's instrumentation Key (also called an *ikey*) from your newly created resource. Application Insights uses the ikey to map data to your Azure resource. Before the SDK can use your ikey, you must specify the ikey in an environment variable or in your code.  
 
@@ -61,6 +68,9 @@ Include the SDK in your app, so it can gather data.
     You can try the SDK without sending telemetry by setting `appInsights.defaultClient.config.disableAppInsights = true`.
 
 5. Start automatically collecting and sending data by calling `appInsights.start();`.
+
+> [!NOTE]
+> As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. You have the option to disable non-essential data collection. [Learn More](./statsbeat.md).
 
 ### <a name="monitor"></a> Monitor your app
 
@@ -327,6 +337,12 @@ server.on("listening", () => {
 });
 ```
 
+### Flush
+
+By default, telemetry is buffered for 15 seconds before it is sent to the ingestion server. If your application has a short lifespan (e.g. a CLI tool), it might be necessary to manually flush your buffered telemetry when application terminates, `appInsights.defaultClient.flush()`.
+
+If the SDK detects that your application is crashing, it will call flush for you, `appInsights.defaultClient.flush({ isAppCrashing: true })`. With the flush option `isAppCrashing`, your application is assumed to be in an abnormal state, not suitable for sending telemetry. Instead, the SDK will save all buffered telemetry to [persistent storage](./data-retention-privacy.md#nodejs) and let your application terminate. When you application starts again, it will try to send any telemetry that was saved to persistent storage.
+
 ### Preprocess data with telemetry processors
 
 You can process and filter collected data before it is sent for retention using *Telemetry Processors*. Telemetry processors are called one by one in the order they were added before the telemetry item is sent to the cloud.
@@ -411,10 +427,9 @@ These properties are client specific, so you can configure `appInsights.defaultC
 ## Next steps
 
 * [Monitor your telemetry in the portal](./overview-dashboard.md)
-* [Write Analytics queries over your telemetry](../log-query/get-started-portal.md)
+* [Write Analytics queries over your telemetry](../logs/log-analytics-tutorial.md)
 
 <!--references-->
 
 [portal]: https://portal.azure.com/
-[FAQ]: ../faq.md
-
+[FAQ]: ../faq.yml

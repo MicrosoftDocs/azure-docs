@@ -12,7 +12,7 @@ ms.assetid: f41beea1-0d62-4418-9ffc-c9d70607a1b7
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: tutorial
 ms.custom: "mvc, devx-track-csharp"
 ms.date: 01/04/2019
@@ -383,7 +383,7 @@ In this tutorial, you take the following steps:
 
 10. Because you are not passing the real coordinates (which might not be within the boundaries at the moment) and are using predefined test values, you see a notification show up on update:
 
-    ![Screenshot of a Windows desktop displaying teh TEST message.](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
+    ![Screenshot of a Windows desktop displaying the TEST message.](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
 ## Next steps
 

@@ -4,15 +4,15 @@ description: Learn how to approve or deny requests for role-assignable groups in
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2020
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -41,7 +41,7 @@ As a delegated approver, you'll receive an email notification when an Azure reso
 
 1. Find and select the request that you want to approve and select **Approve**.
 
-    ![Approve requests - approve or deny pane with details and Justification box](./media/groups-approval-workflow/groups-confirm-approval.png)
+    ![Screenshot that shows the "Approve requests" page with the "Approve" and "Confirm" buttons highlighted.](./media/groups-approval-workflow/groups-confirm-approval.png)
 
 1. In the **Justification** box, enter the business justification.
 

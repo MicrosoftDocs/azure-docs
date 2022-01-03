@@ -3,20 +3,17 @@ title: Perform advanced encoding by customizing MES presets | Microsoft Docs
 description: This topic shows how to perform advanced encoding by customizing Media Encoder Standard task presets.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 2a4ade25-e600-4bce-a66e-e29cf4a38369
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: juliako
+ms.date: 3/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 
 # Perform advanced encoding by customizing MES presets
@@ -30,7 +27,7 @@ This topic shows how to customize Media Encoder Standard presets. The [Encoding 
 If using an XML preset, make sure to preserve the order of elements, as shown in XML samples below (for example, KeyFrameInterval should precede SceneChangeDetection).
 
 > [!NOTE] 
-> Many of the advanced Media Services v2 features of the Media Encoder Standard are currently not available in v3. For more information, see [feature gaps](../latest/media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
+> Many of the advanced Media Services v2 features of the Media Encoder Standard are currently not available in v3. For more information, see [the Migration Guide](../latest/migrate-v-2-v-3-migration-introduction.md).
 
 ## Support for relative sizes
 
@@ -951,7 +948,7 @@ See the [Crop videos with Media Encoder Standard](media-services-crop-video.md) 
 
 ## <a id="no_video"></a>Insert a video track when input has no video
 
-By default, if you send an input to the encoder that contains only audio, and no video, then the output asset contains files that contain only audio data. Some players, including Azure Media Player (see [this](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) may not be able to handle such streams. You can use this setting to force the encoder to add a monochrome video track to the output in that scenario.
+By default, if you send an input to the encoder that contains only audio, and no video, then the output asset contains files that contain only audio data. Some players, including Azure Media Player (see [this](https://feedback.azure.com/d365community/idea/aaacdea0-0d25-ec11-b6e6-000d3a4f09d0)) may not be able to handle such streams. You can use this setting to force the encoder to add a monochrome video track to the output in that scenario.
 
 > [!NOTE]
 > Forcing the encoder to insert an output video track increases the size of the output Asset, and thereby the cost incurred for the encoding Task. You should run tests to verify that this resultant increase has only a modest impact on your monthly charges.

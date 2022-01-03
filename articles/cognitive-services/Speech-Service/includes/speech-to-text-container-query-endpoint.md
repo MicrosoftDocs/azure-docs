@@ -1,11 +1,11 @@
 ---
-author: trevorbye
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/18/2020
-ms.author: aahi
+ms.author: eur
 ms.custom: devx-track-csharp
 ---
 
@@ -24,7 +24,7 @@ Change from using this Azure-cloud initialization call:
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
-to this call using the container [host](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet):
+To using this call with the container [host](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost):
 
 ```csharp
 var config = SpeechConfig.FromHost(
@@ -38,6 +38,13 @@ Change from using this Azure-cloud initialization call:
 ```python
 speech_config = speechsdk.SpeechConfig(
     subscription=speech_key, region=service_region)
+```
+
+To using this call with the container [endpoint](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig):
+
+```python
+speech_config = speechsdk.SpeechConfig(
+    host="ws://localhost:5000")
 ```
 
 ---

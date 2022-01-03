@@ -5,8 +5,9 @@ author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
-ms.date: 09/11/2020
+ms.topic: tutorial
+ms.date: 08/17/2021
+
 ---
 
 # Tutorial: Deploy and walk through a connected logistics application template
@@ -18,6 +19,10 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a connected logistics application.
 > * Use the key features in the application.
+> * Use Dashboard to show the critical logistics device operations activity.
+> * Use Device Template
+> * Follow Rules
+> * Use Jobs
 
 ## Prerequisites
 
@@ -32,9 +37,10 @@ Create the application using following steps:
 
     :::image type="content" source="media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png" alt-text="Connected logistics template":::
 
-2. Select **Create app** under **Connected Logistics Application**.
+1. Select **Create app** under **Connected Logistics**.
 
-3. **Create app** opens the **New application** form. Enter the following details:
+1. **Create app** opens the **New application** form. Enter the following details:
+
 
     * **Application name**: you can use default suggested name or enter your friendly application name.
     * **URL**: you can use suggested default URL or enter your friendly unique memorable URL. Next, the default setting is recommended if you already have an Azure Subscription. You can start with 7-day free trial pricing plan and choose to convert to a standard pricing plan at any time before the free trail expires.
@@ -47,7 +53,7 @@ Create the application using following steps:
 
 ## Walk through the application
 
-The following sections walk you through the key features of the application:
+The following sections walk you through the key features of the application.
 
 ### Dashboard
 
@@ -57,16 +63,16 @@ This dashboard is pre-configured to show the critical logistics device operation
 
 The dashboard enables two different gateway device management operations:
 
-* View the logistics routes for truck shipments and the location details of ocean shipments.
+* View the logistics routes for truck shipments and the [location](../core/howto-use-location-data.md) details of ocean shipments.
 * View the gateway status and other relevant information.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png" alt-text="Connected logistics dashboard":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard-1.png" alt-text="Connected logistics dashboard":::
 
 * You can track the total number of gateways, active, and unknown tags.
 * You can do device management operations such as: update firmware, disable and enable sensors, update a sensor threshold, update telemetry intervals, and update device service contracts.
 * View device battery consumption.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard2.png" alt-text="Connected logistics dashboard status":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard-2.png" alt-text="Connected logistics dashboard status":::
 
 #### Device Template
 
@@ -74,11 +80,11 @@ Select **Device templates** to see the gateway capability model. A capability mo
 
 **Gateway Telemetry & Property** - This interface defines all the telemetry related to sensors, location, and device information. The interface also defines device twin property capabilities such as sensor thresholds and update intervals.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png" alt-text="Telemetry and property interface":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-device-template-1.png" alt-text="Telemetry and property interface":::
 
 **Gateway Commands** - This interface organizes all the gateway command capabilities:
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate2.png" alt-text="Gateway commands interface":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-device-template-2.png" alt-text="Gateway commands interface":::
 
 ### Rules
 
@@ -86,13 +92,13 @@ Select the **Rules** tab to the rules in this application template. These rules 
 
 **Gateway theft alert**: This rule triggers when there's unexpected light detection by the sensors during the journey. Operators must be notified immediately to investigate potential theft.
 
-**Unresponsive Gateway**: This rule triggers if the gateway doesn't report to the cloud for a prolonged period. The gateway could be unresponsive because of low battery, loss of connectivity, or device damage.
+**Lost gateway alert**: This rule triggers if the gateway doesn't report to the cloud for a prolonged period. The gateway could be unresponsive because of low battery, loss of connectivity, or device damage.
 
 :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png" alt-text="Rule definitions":::
 
 ### Jobs
 
-Select the **Jobs** tab to see the jobs in this application:
+Select the **Jobs** tab to create the jobs in this application. The following screenshot shows an example of jobs created.
 
 :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png" alt-text="Jobs to run":::
 
@@ -110,5 +116,7 @@ If you're not going to continue to use this application, delete the application 
 
 ## Next steps
 
-* Learn more about [connected logistics concept](./architecture-connected-logistics.md)
-* Learn more about other [IoT Central retail templates](./overview-iot-central-retail.md)
+Learn more about :
+
+> [!div class="nextstepaction"]
+> [Connected logistics concepts](./architecture-connected-logistics.md)

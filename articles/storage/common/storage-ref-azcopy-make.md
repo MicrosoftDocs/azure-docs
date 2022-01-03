@@ -25,9 +25,8 @@ azcopy make [resourceURL] [flags]
 ## Related conceptual articles
 
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
-- [Transfer data with AzCopy and Blob storage](storage-use-azcopy-blobs.md)
+- [Transfer data with AzCopy and Blob storage](./storage-use-azcopy-v10.md#transfer-data)
 - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
-- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
 
 ## Examples
 
@@ -40,7 +39,7 @@ azcopy make "https://[account-name].[blob,file,dfs].core.windows.net/[top-level-
 |Option|Description|
 |--|--|
 |-h, --help|Show help content for the make command. |
-|--quota-gb uint32|Specifies the maximum size of the share in gigabytes (GiB), zero means you accept the file service's default quota.|
+|--quota-gb uint32|Specifies the maximum size of the share in gigabytes (GB), zero means you accept the file service's default quota.|
 
 ## Options inherited from parent commands
 

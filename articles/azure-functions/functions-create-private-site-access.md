@@ -10,7 +10,7 @@ ms.date: 06/17/2020
 
 # Tutorial: Establish Azure Functions private site access
 
-This tutorial shows you how to enable [private site access](./functions-networking-options.md#private-site-access) with Azure Functions. By using private site access, you can require that your function code is only triggered from a specific virtual network.
+This tutorial shows you how to enable [private site access](./functions-networking-options.md#private-endpoint-connections) with Azure Functions. By using private site access, you can require that your function code is only triggered from a specific virtual network.
 
 Private site access is useful in scenarios when access to the function app needs to be limited to a specific virtual network. For example, the function app may be applicable to only employees of a specific organization, or services which are within the specified virtual network (such as another Azure Function, Azure Virtual Machine, or an AKS cluster).
 
@@ -68,7 +68,7 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 1. Choose the _Networking_ tab and select **Create new** to configure a new virtual network.
 
     >[!div class="mx-imgBorder"]
-    >![Create a new virtual network for the new VM](./media/functions-create-private-site-access/create-vm-networking.png)
+    >![Screenshot that shows the "Networking" tab with the "Create new" action highlighted in the "Virtual network" section.](./media/functions-create-private-site-access/create-vm-networking.png)
 
 1. In _Create virtual network_, use the settings in the table below the image:
 
@@ -108,7 +108,7 @@ The first step in this tutorial is to create a new virtual machine inside a virt
     | _Subnet_ | AzureBastionSubnet | The subnet in your virtual network to which the new Bastion host resource will be deployed. You must create a subnet using the name value **AzureBastionSubnet**. This value lets Azure know which subnet to deploy the Bastion resources to. You must use a subnet of at least **/27** or larger (/27, /26, and so on). |
 
     > [!NOTE]
-    > For a detailed, step-by-step guide to creating an Azure Bastion resource, refer to the [Create an Azure Bastion host](../bastion/bastion-create-host-portal.md) tutorial.
+    > For a detailed, step-by-step guide to creating an Azure Bastion resource, refer to the [Create an Azure Bastion host](../bastion/tutorial-create-host-portal.md) tutorial.
 
 1. Create a subnet in which Azure can provision the Azure Bastion host. Choosing **Manage subnet configuration** opens a new pane where you can define a new subnet.  Choose **+ Subnet** to create a new subnet.
 1. The subnet must be of the name **AzureBastionSubnet** and the subnet prefix must be at least **/27**.  Select **OK** to create the subnet.
@@ -125,7 +125,7 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 
 ## Create an Azure Functions app
 
-The next step is to create a function app in Azure using the [Consumption plan](functions-scale.md#consumption-plan). You deploy your function code to this resource later in the tutorial.
+The next step is to create a function app in Azure using the [Consumption plan](consumption-plan.md). You deploy your function code to this resource later in the tutorial.
 
 1. In the portal, choose **Add** at the top of the resource group view.
 1. Select **Compute > Function App**
@@ -144,7 +144,7 @@ The next step is to create a function app in Azure using the [Consumption plan](
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
-    | _Storage account_ | Globally unique name | Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](./functions-scale.md#storage-account-requirements). |
+    | _Storage account_ | Globally unique name | Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](storage-considerations.md#storage-account-requirements). |
     | _Operating system_ | Preferred operating system | An operating system is pre-selected for you based on your runtime stack selection, but you can change the setting if necessary. |
     | _Plan_ | Consumption | The [hosting plan](./functions-scale.md) dictates how the function app is scaled and resources available to each instance. |
 1. Select **Review + Create** to review the app configuration selections.
@@ -154,7 +154,7 @@ The next step is to create a function app in Azure using the [Consumption plan](
 
 The next step is to configure [access restrictions](../app-service/app-service-ip-restrictions.md) to ensure only resources on the virtual network can invoke the function.
 
-[Private site](functions-networking-options.md#private-site-access) access is enabled by creating an Azure Virtual Network [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) between the function app and the specified virtual network. Access restrictions are implemented via service endpoints. Service endpoints ensure only traffic originating from within the specified virtual network can access the designated resource. In this case, the designated resource is the Azure Function.
+[Private site](functions-networking-options.md#private-endpoint-connections) access is enabled by creating an Azure Virtual Network [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) between the function app and the specified virtual network. Access restrictions are implemented via service endpoints. Service endpoints ensure only traffic originating from within the specified virtual network can access the designated resource. In this case, the designated resource is the Azure Function.
 
 1. Within the function app, select the **Networking** link under the _Settings_ section header.
 1. The _Networking_ page is the starting point to configure Azure Front Door, the Azure CDN, and also Access Restrictions.
@@ -167,7 +167,7 @@ The next step is to configure [access restrictions](../app-service/app-service-i
 1. The _Access Restrictions_ page now shows that there is a new restriction. It may take a few seconds for the _Endpoint status_ to change from Disabled through Provisioning to Enabled.
 
     >[!IMPORTANT]
-    > Each function app has an [Advanced Tool (Kudu) site](../app-service/app-service-ip-restrictions.md#scm-site) that is used to manage function app deployments. This site is accessed from a URL like: `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. Enabling access restrictions on the Kudu site prevents the deployment of the project code from a local developer workstation, and then an agent is needed within the virtual network to perform the deployment.
+    > Each function app has an [Advanced Tool (Kudu) site](../app-service/app-service-ip-restrictions.md#restrict-access-to-an-scm-site) that is used to manage function app deployments. This site is accessed from a URL like: `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. Enabling access restrictions on the Kudu site prevents the deployment of the project code from a local developer workstation, and then an agent is needed within the virtual network to perform the deployment.
 
 ## Access the functions app
 
@@ -189,10 +189,10 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
 
 1. Follow one of the following quickstarts to create and deploy your Azure Functions app.
 
-    * [Visual Studio Code](./functions-create-first-function-vs-code.md)
+    * [Visual Studio Code](./create-first-function-vs-code-csharp.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
-    * [Command line](./functions-create-first-azure-function-azure-cli.md)
-    * [Maven (Java)](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)
+    * [Command line](./create-first-function-cli-csharp.md)
+    * [Maven (Java)](./create-first-function-cli-java.md?tabs=bash,browser)
 
 1. When publishing your Azure Functions project, choose the function app resource that you created earlier in this tutorial.
 1. Verify the function is deployed.

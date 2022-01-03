@@ -1,23 +1,25 @@
 ---
-title: Troubleshoot Azure Data Factory | Microsoft Docs
-description: Learn how to troubleshoot external control activities in Azure Data Factory.
-services: data-factory
+title: General Troubleshooting
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to troubleshoot external control activities in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: nabhishek
 ms.service: data-factory
+ms.subservice: troubleshooting
+ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 09/01/2020
+ms.date: 09/30/2021
 ms.author: abnarain
-ms.reviewer: craigg
 ---
 
-# Troubleshoot Azure Data Factory
+# Troubleshoot Azure Data Factory and Synapse pipelines
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article explores common troubleshooting methods for external control activities in Azure Data Factory.
+This article explores common troubleshooting methods for external control activities in Azure Data Factory and Synapse pipelines.
 
 ## Connector and copy activity
 
-For connector issues such as an encounter error using the copy activity, refer to [Troubleshoot Azure Data Factory Connectors](connector-troubleshoot-guide.md).
+For connector issues such as an encounter error using the copy activity, refer to the [Troubleshoot Connectors](connector-troubleshoot-guide.md) article.
 
 ## Azure Databricks
 
@@ -103,6 +105,14 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 - **Recommendation**: Ensure the user has the required permissions in the workspace.
 
+<br/> 
+
+- **Message**: `Job is not fully initialized yet. Please retry later.`
+
+- **Cause**: The job has not initialized.
+
+- **Recommendation**: Wait and try again later.
+
 ### Error code: 3203
 
 - **Message**: `The cluster is in Terminated state, not available to receive jobs. Please fix the cluster or retry later.`
@@ -127,6 +137,20 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 - **Recommendation**: If you're using a self-hosted integration runtime, make sure that the network connection is reliable from the integration runtime nodes. If you're using Azure integration runtime, retry usually works.
  
+### The Boolean run output starts coming as string instead of expected int
+
+- **Symptoms**: Your Boolean run output starts coming as string (for example, `"0"` or `"1"`) instead of expected int (for example, `0` or `1`).
+
+   :::image type="content" source="media/data-factory-troubleshoot-guide/databricks-pipeline.png" alt-text="Screenshot of the Databricks pipeline.":::
+
+    You noticed this change on September 28, 2021 at around 9 AM IST when your pipeline relying on this output started failing. No change was made on the pipeline, and the Boolean output had been coming as expected before the failure. 
+
+   :::image type="content" source="media/data-factory-troubleshoot-guide/old-and-new-output.png" alt-text="Screenshot of the difference in the output.":::
+
+- **Cause**: This issue is caused by a recent change, which is by design. After the change, if the result is a number that starts with zero, Azure Data Factory will convert the number to the octal value, which is a bug. This number is always 0 or 1, which never caused issues before the change. So to fix the octal conversion, the string output is passed from the Notebook run as is. 
+
+- **Recommendation**: Change the **if** condition to something like `if(value=="0")`.
+
 ## Azure Data Lake Analytics
 
 The following table applies to U-SQL.
@@ -145,7 +169,7 @@ The following table applies to U-SQL.
 
 - **Cause**: This error is caused by throttling on Data Lake Analytics.
 
-- **Recommendation**: Reduce the number of submitted jobs to Data Lake Analytics. Either change Data Factory triggers and concurrency settings on activities, or increase the limits on Data Lake Analytics.
+- **Recommendation**: Reduce the number of submitted jobs to Data Lake Analytics. Either change triggers and concurrency settings on activities, or increase the limits on Data Lake Analytics.
 
 <br/> 
 
@@ -153,7 +177,7 @@ The following table applies to U-SQL.
 
 - **Cause**: This error is caused by throttling on Data Lake Analytics.
 
-- **Recommendation**: Reduce the number of submitted jobs to Data Lake Analytics. Either change Data Factory triggers and concurrency settings on activities, or increase the limits on Data Lake Analytics.
+- **Recommendation**: Reduce the number of submitted jobs to Data Lake Analytics. Either change triggers and concurrency settings on activities, or increase the limits on Data Lake Analytics.
 
 ### Error code: 2705
 
@@ -219,7 +243,7 @@ The following table applies to U-SQL.
 
 - **Message**: `Response Content is not a valid JObject.`
 
-- **Cause**: The Azure function that was called didn't return a JSON Payload in the response. Azure Data Factory (ADF) Azure function activity only supports JSON response content.
+- **Cause**: The Azure function that was called didn't return a JSON Payload in the response. Azure Data Factory and Synapse pipeline Azure function activity only support JSON response content.
 
 - **Recommendation**: Update the Azure function to return a valid JSON Payload such as a C# function may return `(ActionResult)new OkObjectResult("{\"Id\":\"123\"}");`
 
@@ -395,14 +419,6 @@ The following table applies to U-SQL.
 
 - **Recommendation**: Go to the Azure portal and find your storage, then copy-and-paste the connection string into your linked service and try again.
 
-### Error code: 2108
-
-- **Message**: `Error calling the endpoint '%url;'. Response status code: '%code;'`
-
-- **Cause**: The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation, or timeout.
-
-- **Recommendation**: Use Fiddler/Postman to validate the request.
-
 ### Error code: 2110
 
 - **Message**: `The linked service type '%linkedServiceType;' is not supported for '%executorType;' activities.`
@@ -426,14 +442,6 @@ The following table applies to U-SQL.
 - **Cause**: The cloud type is unsupported or couldn't be determined for storage from the EndpointSuffix.
 
 - **Recommendation**: Use storage in another cloud and try again.
-
-### Error code: 2128
-
-- **Message**: `No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
-
-- **Cause**: Network connectivity, DNS failure, server certificate validation or timeout.
-
-- **Recommendation**: Validate that the endpoint you are trying to hit is responding to requests. You may use tools like Fiddler/Postman.
 
 ## Custom
 
@@ -493,7 +501,7 @@ The following table applies to Azure Batch.
 
 - **Message**: `There are duplicate files in the resource folder.`
 
-- **Cause**: Multiple files of the same name are in different sub-folders of folderPath.
+- **Cause**: Multiple files of the same name are in different subfolders of folderPath.
 
 - **Recommendation**: Custom activities flatten folder structure under folderPath. If you need to preserve the folder structure, zip the files and extract them in Azure Batch by using an unzip command.
    
@@ -517,79 +525,29 @@ The following table applies to Azure Batch.
  
 ## HDInsight
 
-### Error code: 200
-
-- **Message**: `Unexpected error happened: '%error;'.`
-
-- **Cause**: There is an internal service issue.
-
-- **Recommendation**: Contact ADF support for further assistance.
-
-### Error code: 201
-
-- **Message**: `JobType %jobType; is not found.`
-
-- **Cause**: There is a new job type that isn't supported by ADF.
-
-- **Recommendation**: Contact ADF support team for further assistance.
-
-### Error code: 202
-
-- **Message**: `Failed to create on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
-
-- **Cause**: The error message includes the details of what went wrong.
-
-- **Recommendation**: The details of the error message should help you troubleshoot the issue. If there is no enough information, contact ADF support for further help.
-
-### Error code: 203
-
-- **Message**: `Failed to delete on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
-
-- **Cause**: The error message includes the details of what went wrong.
-
-- **Recommendation**: The details of the error message should help you troubleshoot the issue. If there is no enough information, contact ADF support for further help.
-
-### Error code: 204
-
-- **Message**: `The resumption token is missing for runId '%runId;'.`
-
-- **Cause**: There is an internal service issue.
-
-- **Recommendation**: Contact ADF support for further assistance.
-
-### Error code: 205
-
-- **Message**: `Failed to prepare cluster for LinkedService '%linkedServiceName;', the current resource status is '%status;'.`
-
-- **Cause**: There was an error when creating the HDI on-demand cluster.
-
-- **Recommendation**: Contact ADF support for further assistance.
-
 ### Error code: 206
 
-- **Message**: `The batch ID for Spark job is invalid. Please retry your job, and if the problem persists, contact the ADF support for further assistance.`
+- **Message**: `The batch ID for Spark job is invalid. Please retry your job.`
 
 - **Cause**: There was an internal problem with the service that caused this error.
 
-- **Recommendation**: This issue could be transient. Retry your job, and if the problem persists, contact the ADF support for further assistance.
+- **Recommendation**: This issue could be transient. Retry your job after sometime.
 
 ### Error code: 207
 
-- **Message**: `Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI or contact ADF support team and provide the activity run ID.`
+- **Message**: `Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI.`
 
 - **Cause**: There was an internal error while trying to determine the region from the primary storage account.
 
-- **Recommendation**: Try another storage. If this option isn't an acceptable solution, contact ADF support team for further assistance.
+- **Recommendation**: Try another storage. 
 
 ### Error code: 208
 
-- **Message**: `Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again. In case if this is not an acceptable solution, contact ADF support team for further assistance.`
+- **Message**: `Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again.`
 
 - **Cause**: There was an internal error while trying to read the Service Principal or instantiating the MSI authentication.
 
-- **Recommendation**: Consider providing a service principal, which has permissions to create an HDInsight cluster in the provided subscription and try again. Verify that the [Manage Identities are set up correctly](https://docs.microsoft.com/azure/hdinsight/hdinsight-managed-identities).
-
-   If this option isn't an acceptable solution, contact ADF support team for further assistance.
+- **Recommendation**: Consider providing a service principal, which has permissions to create an HDInsight cluster in the provided subscription and try again. Verify that the [Manage Identities are set up correctly](../hdinsight/hdinsight-managed-identities.md).
 
 ### Error code: 2300
 
@@ -599,7 +557,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: Verify that the cluster hasn't been deleted, and that the provided URI is correct. When you open the URI in a browser, you should see the Ambari UI. If the cluster is in a virtual network, the URI should be the private URI. To open it, use a Virtual Machine (VM) that is part of the same virtual network.
 
-   For more information, see [Directly connect to Apache Hadoop services](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#directly-connect-to-apache-hadoop-services).
+   For more information, see [Directly connect to Apache Hadoop services](../hdinsight/hdinsight-plan-virtual-network-deployment.md#directly-connect-to-apache-hadoop-services).
  
  </br>
 
@@ -607,9 +565,9 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: The problem could be either general HDInsight connectivity or network connectivity. First confirm that the HDInsight Ambari UI is available from any browser. Then check that your credentials are still valid.
    
-   If you're using a self-hosted integrated runtime (IR), perform this step from the VM or machine where the self-hosted IR is installed. Then try submitting the job from Data Factory again. If it still fails, contact the Data Factory team for support.
+   If you're using a self-hosted integrated runtime (IR), perform this step from the VM or machine where the self-hosted IR is installed. Then try submitting the job again.
 
-   For more information, read [Ambari Web UI](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-manage-ambari#ambari-web-ui).
+   For more information, read [Ambari Web UI](../hdinsight/hdinsight-hadoop-manage-ambari.md#ambari-web-ui).
 
  </br>
 
@@ -617,7 +575,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: Correct the credentials and redeploy the linked service. First verify that the credentials work on HDInsight by opening the cluster URI on any browser and trying to sign in. If the credentials don't work, you can reset them from the Azure portal.
 
-   For ESP cluster, reset the password through [self service password reset](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password).
+   For ESP cluster, reset the password through [self service password reset](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e).
 
  </br>
 
@@ -633,16 +591,16 @@ The following table applies to Azure Batch.
        For more information, look through the Azure HDInsight troubleshooting documentation. For example:
 
        * [Ambari UI 502 error](https://hdinsight.github.io/ambari/ambari-ui-502-error.html)
-       * [RpcTimeoutException for Apache Spark thrift server](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-troubleshoot-rpctimeoutexception)
-       * [Troubleshooting bad gateway errors in Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502).
+       * [RpcTimeoutException for Apache Spark thrift server](../hdinsight/spark/apache-spark-troubleshoot-rpctimeoutexception.md)
+       * [Troubleshooting bad gateway errors in Application Gateway](../application-gateway/application-gateway-troubleshooting-502.md).
 
  </br>
 
 - **Cause**: When the error message contains a message similar to `Unable to service the submit job request as templeton service is busy with too many submit job requests` or `Queue root.joblauncher already has 500 applications, cannot accept submission of application`, too many jobs are being submitted to HDInsight at the same time.
 
-- **Recommendation**: Limit the number of concurrent jobs submitted to HDInsight. Refer to Data Factory activity concurrency if the jobs are being submitted by the same activity. Change the triggers so the concurrent pipeline runs are spread out over time.
+- **Recommendation**: Limit the number of concurrent jobs submitted to HDInsight. Refer to activity concurrency if the jobs are being submitted by the same activity. Change the triggers so the concurrent pipeline runs are spread out over time.
 
-   Refer to [HDInsight documentation](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-templeton-webhcat-debug-errors) to adjust `templeton.parallellism.job.submit` as the error suggests.
+   Refer to [HDInsight documentation](../hdinsight/hdinsight-hadoop-templeton-webhcat-debug-errors.md) to adjust `templeton.parallellism.job.submit` as the error suggests.
 
 ### Error code: 2301
 
@@ -650,9 +608,9 @@ The following table applies to Azure Batch.
 
 - **Cause**: HDInsight cluster or service has issues.
 
-- **Recommendation**: This error occurs when ADF doesn't receive a response from HDInsight cluster when attempting to request the status of the running job. This issue might be on the cluster itself, or HDInsight service might have an outage.
+- **Recommendation**: This error occurs when the service doesn't receive a response from HDInsight cluster when attempting to request the status of the running job. This issue might be on the cluster itself, or HDInsight service might have an outage.
 
-   Refer to HDInsight troubleshooting documentation at https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guide, or contact their support for further assistance.
+   Refer to [HDInsight troubleshooting documentation](../hdinsight/hdinsight-troubleshoot-guide.md), or contact Microsoft support for further assistance.
 
 ### Error code: 2302
 
@@ -668,7 +626,7 @@ The following table applies to Azure Batch.
        1. For more information on alerts and resolutions to alerts, see [Managing and Monitoring a Cluster](https://docs.cloudera.com/HDPDocuments/Ambari-2.7.5.0/managing-and-monitoring-ambari/content/amb_predefined_alerts.html).
     1. Review your YARN memory. If your YARN memory is high, the processing of your jobs may be delayed. If you do not have enough resources to accommodate your Spark application/job, scale up the cluster to ensure the cluster has enough memory and cores. 
  1. Run a Sample test job.
-    1. If you run the same job on HDInsight backend, check that it succeeded. For examples of sample runs, see [Run the MapReduce examples included in HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux) 
+    1. If you run the same job on HDInsight backend, check that it succeeded. For examples of sample runs, see [Run the MapReduce examples included in HDInsight](../hdinsight/hadoop/apache-hadoop-run-samples-linux.md) 
  1. If the job still failed on HDInsight, check the application logs and information, which to provide to Support:
     1. Check whether the job was submitted to YARN. If the job wasn't submitted to yarn, use `--master yarn`.
     1. If the application finished execution, collect the start time and end time of the YARN Application. If the application didn't complete the execution, collect Start time/Launch time.
@@ -690,7 +648,7 @@ The following table applies to Azure Batch.
        1. For more information on alerts and resolutions to alerts, see [Managing and Monitoring a Cluster](https://docs.cloudera.com/HDPDocuments/Ambari-2.7.5.0/managing-and-monitoring-ambari/content/amb_predefined_alerts.html).
     1. Review your YARN memory. If your YARN memory is high, the processing of your jobs may be delayed. If you do not have enough resources to accommodate your Spark application/job, scale up the cluster to ensure the cluster has enough memory and cores. 
  1. Run a Sample test job.
-    1. If you run the same job on HDInsight backend, check that it succeeded. For examples of sample runs, see [Run the MapReduce examples included in HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux) 
+    1. If you run the same job on HDInsight backend, check that it succeeded. For examples of sample runs, see [Run the MapReduce examples included in HDInsight](../hdinsight/hadoop/apache-hadoop-run-samples-linux.md) 
  1. If the job still failed on HDInsight, check the application logs and information, which to provide to Support:
     1. Check whether the job was submitted to YARN. If the job wasn't submitted to yarn, use `--master yarn`.
     1. If the application finished execution, collect the start time and end time of the YARN Application. If the application didn't complete the execution, collect Start time/Launch time.
@@ -710,7 +668,7 @@ The following table applies to Azure Batch.
 
 - **Message**: `Failed to initialize the HDInsight client for the cluster '%cluster;'. Error: '%message;'`
 
-- **Cause**: The connection information for the HDI cluster is incorrect, the provided user doesn't have permissions to perform the required action, or the HDInsight service has issues responding to requests from ADF.
+- **Cause**: The connection information for the HDI cluster is incorrect, the provided user doesn't have permissions to perform the required action, or the HDInsight service has issues responding to requests from the service.
 
 - **Recommendation**: Verify that the user information is correct, and that the Ambari UI for the HDI cluster can be opened in a browser from the VM where the IR is installed (for a self-hosted IR), or can be opened from any machine (for Azure IR).
 
@@ -722,27 +680,27 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: The error message should help to identify the issue. Fix the json configuration and try again.
 
-   Check [Azure HDInsight on-demand linked service](https://docs.microsoft.com/azure/data-factory/compute-linked-services#azure-hdinsight-on-demand-linked-service) for more information.
+   Check [Azure HDInsight on-demand linked service](./compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for more information.
 
 ### Error code: 2310
 
 - **Message**: `Failed to submit Spark job. Error: '%message;'`
 
-- **Cause**: ADF tried to create a batch on a Spark cluster using Livy API (livy/batch), but received an error.
+- **Cause**: The service tried to create a batch on a Spark cluster using Livy API (livy/batch), but received an error.
 
-- **Recommendation**: Follow the error message to fix the issue. If there isn't enough information to get it resolved, contact the HDI team and provide them the batch ID and job ID, which can be found in the activity run Output in ADF Monitoring page. To troubleshoot further, collect the full log of the batch job.
+- **Recommendation**: Follow the error message to fix the issue. If there isn't enough information to get it resolved, contact the HDI team and provide them the batch ID and job ID, which can be found in the activity run Output in the service Monitoring page. To troubleshoot further, collect the full log of the batch job.
 
-   For more information on how to collect the full log, see [Get the full log of a batch job](https://docs.microsoft.com/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job).
+   For more information on how to collect the full log, see [Get the full log of a batch job](/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job).
 
 ### Error code: 2312
 
-- **Message**: `Spark job failed, batch id:%batchId;. Please follow the links in the activity run Output from ADF Monitoring page to troubleshoot the run on HDInsight Spark cluster. Please contact HDInsight support team for further assistance.`
+- **Message**: `Spark job failed, batch id:%batchId;. Please follow the links in the activity run Output from the service Monitoring page to troubleshoot the run on HDInsight Spark cluster. Please contact HDInsight support team for further assistance.`
 
 - **Cause**: The job failed on the HDInsight Spark cluster.
 
-- **Recommendation**: Follow the links in the activity run Output in ADF Monitoring page to troubleshoot the run on HDInsight Spark cluster. Contact HDInsight support team for further assistance.
+- **Recommendation**: Follow the links in the activity run Output in the service Monitoring page to troubleshoot the run on HDInsight Spark cluster. Contact HDInsight support team for further assistance.
 
-   For more information on how to collect the full log, see [Get the full log of a batch job](https://docs.microsoft.com/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job).
+   For more information on how to collect the full log, see [Get the full log of a batch job](/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job).
 
 ### Error code: 2313
 
@@ -752,7 +710,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: Troubleshoot batches on the HDInsight Spark cluster. Contact HDInsight support for further assistance. 
 
-   For more information on how to collect the full log, see [Get the full log of a batch job](https://docs.microsoft.com/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job), and share the full log with HDInsight support for further assistance.
+   For more information on how to collect the full log, see [Get the full log of a batch job](/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job), and share the full log with HDInsight support for further assistance.
 
 ### Error code: 2328
 
@@ -802,7 +760,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: 
     1. Verify that the credentials are correct by opening the HDInsight cluster's Ambari UI in a browser.
-    1. If the cluster is in Virtual Network (VNet) and a self-hosted IR is being used, the HDI URL must be the private URL in VNets, and should have '-int' listed after the cluster name.
+    1. If the cluster is in Virtual Network (VNet) and a self-hosted IR is being used, the HDI URL must be the private URL in VNets, and should have `-int` listed after the cluster name.
     
        For example, change `https://mycluster.azurehdinsight.net/` to `https://mycluster-int.azurehdinsight.net/`. Note the `-int` after `mycluster`, but before `.azurehdinsight.net`
     1. If the cluster is in VNet, the self-hosted IR is being used, and the private URL was used, and yet the connection still failed, then the VM where the IR is installed had problems connecting to the HDI. 
@@ -810,7 +768,7 @@ The following table applies to Azure Batch.
        Connect to the VM where the IR is installed and open the Ambari UI in a browser. Use the private URL for the cluster. This connection should work from the browser. If it doesn't, contact HDInsight support team for further assistance.
     1. If self-hosted IR isn't being used, then the HDI cluster should be accessible publicly. Open the Ambari UI in a browser and check that it opens up. If there are any issues with the cluster or the services on it, contact HDInsight support team for assistance.
 
-       The HDI cluster URL used in ADF linked service must be accessible for ADF IR (self-hosted or Azure) in order for the test connection to pass, and for runs to work. This state can be verified by opening the URL from a browser either from VM, or from any public machine.
+       The HDI cluster URL used in the linked service must be accessible for the IR (self-hosted or Azure) in order for the test connection to pass, and for runs to work. This state can be verified by opening the URL from a browser either from VM, or from any public machine.
 
 ### Error code: 2343
 
@@ -824,7 +782,7 @@ The following table applies to Azure Batch.
 
 - **Message**: `Failed to read the content of the hive script. Error: '%message;'`
 
-- **Cause**: The script file doesn't exist or ADF couldn't connect to the location of the script.
+- **Cause**: The script file doesn't exist or the service couldn't connect to the location of the script.
 
 - **Recommendation**: Verify that the script exists, and that the associated linked service has the proper credentials for a connection.
 
@@ -832,15 +790,15 @@ The following table applies to Azure Batch.
 
 - **Message**: `Failed to create ODBC connection to the HDI cluster with error message '%message;'.`
 
-- **Cause**: ADF tried to establish an Open Database Connectivity (ODBC) connection to the HDI cluster, and it failed with an error.
+- **Cause**: The service tried to establish an Open Database Connectivity (ODBC) connection to the HDI cluster, and it failed with an error.
 
 - **Recommendation**: 
 
    1. Confirm that you correctly set up your ODBC/Java Database Connectivity (JDBC) connection.
       1. For JDBC, if you're using the same virtual network, you can get this connection from:<br>
         `Hive -> Summary -> HIVESERVER2 JDBC URL`
-      1. To ensure that you have the correct JDBC set up, see [Query Apache Hive through the JDBC driver in HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-connect-hive-jdbc-driver).
-      1. For Open Database (ODB), see [Tutorial: Query Apache Hive with ODBC and PowerShell](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-query-odbc-driver-powershell) to ensure that you have the correct setup. 
+      1. To ensure that you have the correct JDBC set up, see [Query Apache Hive through the JDBC driver in HDInsight](../hdinsight/hadoop/apache-hadoop-connect-hive-jdbc-driver.md).
+      1. For Open Database (ODB), see [Tutorial: Query Apache Hive with ODBC and PowerShell](../hdinsight/interactive-query/apache-hive-query-odbc-driver-powershell.md) to ensure that you have the correct setup. 
    1. Verify that Hiveserver2, Hive Metastore, and Hiveserver2 Interactive are active and working. 
    1. Check the Ambari user interface (UI):
       1. Ensure that all services are still running.
@@ -853,15 +811,15 @@ The following table applies to Azure Batch.
 
 - **Message**: `Hive execution through ODBC failed with error message '%message;'.`
 
-- **Cause**: ADF submitted the hive script for execution to the HDI cluster via ODBC connection, and the script has failed on HDI.
+- **Cause**: The service submitted the hive script for execution to the HDI cluster via ODBC connection, and the script has failed on HDI.
 
 - **Recommendation**: 
 
    1. Confirm that you correctly set up your ODBC/Java Database Connectivity (JDBC) connection.
       1. For JDBC, if you're using the same virtual network, you can get this connection from:<br>
         `Hive -> Summary -> HIVESERVER2 JDBC URL`
-      1. To ensure that you have the correct JDBC set up, see [Query Apache Hive through the JDBC driver in HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-connect-hive-jdbc-driver).
-      1. For Open Database (ODB), see [Tutorial: Query Apache Hive with ODBC and PowerShell](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-query-odbc-driver-powershell) to ensure that you have the correct setup. 
+      1. To ensure that you have the correct JDBC set up, see [Query Apache Hive through the JDBC driver in HDInsight](../hdinsight/hadoop/apache-hadoop-connect-hive-jdbc-driver.md).
+      1. For Open Database (ODB), see [Tutorial: Query Apache Hive with ODBC and PowerShell](../hdinsight/interactive-query/apache-hive-query-odbc-driver-powershell.md) to ensure that you have the correct setup. 
    1. Verify that Hiveserver2, Hive Metastore, and Hiveserver2 Interactive are active and working. 
    1. Check the Ambari user interface (UI):
       1. Ensure that all services are still running.
@@ -884,7 +842,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: The credentials provided to connect to the storage where the files should be located are incorrect, or the files do not exist there.
 
-- **Recommendation**: This error occurs when ADF prepares for HDI activities, and tries to copy files to the main storage before submitting the job to HDI. Check that files exist in the provided location, and that the storage connection is correct. As ADF HDI activities do not support MSI authentication on storage accounts related to HDI activities, verify that those linked services have full keys or are using Azure Key Vault.
+- **Recommendation**: This error occurs when the service prepares for HDI activities, and tries to copy files to the main storage before submitting the job to HDI. Check that files exist in the provided location, and that the storage connection is correct. As HDI activities do not support MSI authentication on storage accounts related to HDI activities, verify that those linked services have full keys or are using Azure Key Vault.
 
 ### Error code: 2351
 
@@ -918,7 +876,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: Verify that the selected linked service has one of the supported types for the activity. HDI activities support AzureBlobStorage and AzureBlobFSStorage linked services.
 
-   For more information, read [Compare storage options for use with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-compare-storage-options)
+   For more information, read [Compare storage options for use with Azure HDInsight clusters](../hdinsight/hdinsight-hadoop-compare-storage-options.md)
 
 ### Error code: 2355
 
@@ -986,7 +944,7 @@ The following table applies to Azure Batch.
 
 - **Message**: `Failed to create on demand HDI cluster. Cluster name is '%clusterName;'.`
 
-- **Cause**: The cluster creation failed, and ADF did not get an error back from HDInsight service.
+- **Cause**: The cluster creation failed, and the service did not get an error back from HDInsight service.
 
 - **Recommendation**: Open the Azure portal and try to find the HDI resource with provided name, then check the provisioning status. Contact HDInsight support team for further assistance.
 
@@ -998,6 +956,16 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: Provide an Azure Blob storage account as an additional storage for HDInsight on-demand linked service.
 
+### SSL error when linked service using HDInsight ESP cluster
+
+- **Message**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
+
+- **Cause**: The issue is most likely related with System Trust Store.
+
+- **Resolution**: You can navigate to the path **Microsoft Integration Runtime\4.0\Shared\ODBC Drivers\Microsoft Hive ODBC Driver\lib** and open DriverConfiguration64.exe to change the setting.
+
+    :::image type="content" source="./media/connector-troubleshoot-guide/system-trust-store-setting.png" alt-text="Uncheck Use System Trust Store":::
+
 ## Web Activity
 
 ### Error code: 2128
@@ -1006,7 +974,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: This issue is due to either Network connectivity, a DNS failure, a server certificate validation, or a timeout.
 
-- **Recommendation**: Validate that the endpoint you are trying to hit is responding to requests. You may use tools like **Fiddler/Postman**.
+- **Recommendation**: Validate that the endpoint you are trying to hit is responding to requests. You may use tools like **Fiddler/Postman/Netmon/Wireshark**.
 
 ### Error code: 2108
 
@@ -1014,7 +982,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: The request failed due to an underlying issue such as network connectivity, a DNS failure, a server certificate validation, or a timeout.
 
-- **Recommendation**: Use Fiddler/Postman to validate the request.
+- **Recommendation**: Use Fiddler/Postman/Netmon/Wireshark to validate the request.
 
 #### More details
 To use **Fiddler** to create an HTTP session of the monitored web application:
@@ -1025,7 +993,7 @@ To use **Fiddler** to create an HTTP session of the monitored web application:
 
    1. In the HTTPS tab, select both **Capture HTTPS CONNECTs** and **Decrypt HTTPS traffic**.
 
-      ![Fiddler options](media/data-factory-troubleshoot-guide/fiddler-options.png)
+      :::image type="content" source="media/data-factory-troubleshoot-guide/fiddler-options.png" alt-text="Fiddler options":::
 
 1. If your application uses TLS/SSL certificates, add the Fiddler certificate to your device.
 
@@ -1054,15 +1022,33 @@ For more information, see [Getting started with Fiddler](https://docs.telerik.co
 ## General
 
 ### Activity stuck issue
-When you observe that the activity is running much longer than your normal runs with barely no progress, it may happen to be stuck. You can try canceling it and retry to see if it helps. If it’s a copy activity, you can learn about the performance monitoring and troubleshooting from [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md); if it’s a data flow, learn from [Mapping data flows performance](concepts-data-flow-performance.md) and tuning guide.
+
+When you observe that the activity is running much longer than your normal runs with barely no progress, it may happen to be stuck. You can try canceling it and retry to see if it helps. If it's a copy activity, you can learn about the performance monitoring and troubleshooting from [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md); if it's a data flow, learn from [Mapping data flows performance](concepts-data-flow-performance.md) and tuning guide.
+
+### Payload is too large
+
+**Error message:** `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
+
+**Cause:** The payload for each activity run includes the activity configuration, the associated dataset(s), and linked service(s) configurations if any, and a small portion of system properties generated per activity type. The limit of such payload size is 896 KB as mentioned in the Azure limits documentation for [Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) and [Azure Synapse Analytics](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-synapse-analytics-limits).
+
+**Recommendation:** You hit this limit likely because you pass in one or more large parameter values from either upstream activity output or external, especially if you pass actual data across activities in control flow. Check if you can reduce the size of large parameter values, or tune your pipeline logic to avoid passing such values across activities and handle it inside the activity instead.
+
+### Unsupported compression causes files to be corrupted
+
+**Symptoms**: You try to unzip a file that is stored in a blob container. A single copy activity in a pipeline has a source with the compression type set to "deflate64" (or any unsupported type). This activity runs successfully and produces the text file contained in the zip file. However, there is a problem with the text in the file, and this file appears corrupted. When this file is unzipped locally, it is fine.
+
+**Cause**: Your zip file is compressed by the algorithm of "deflate64", while the internal zip library of Azure Data Factory only supports "deflate". If the zip file is compressed by the Windows system and the overall file size exceeds a certain number, Windows will use "deflate64" by default, which is not supported in Azure Data Factory. On the other hand, if the file size is smaller or you use some third party zip tools that support specifying the compress algorithm, Windows will use "deflate" by default.
+
+> [!TIP]
+> Actually, both [Binary format in Azure Data Factory and Synapse Analytics](format-binary.md) and [Delimited text format in Azure Data Factory and Azure Synapse Analytics](format-delimited-text.md) clearly state that the "deflate64" format is not supported in Azure Data Factory.
 
 ## Next steps
 
 For more troubleshooting help, try these resources:
 
 * [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-* [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
+* [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 * [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
 * [Azure videos](https://azure.microsoft.com/resources/videos/index/)
-* [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+* [Microsoft Q&A question page](/answers/topics/azure-data-factory.html)

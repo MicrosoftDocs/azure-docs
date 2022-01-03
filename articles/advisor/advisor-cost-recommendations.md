@@ -2,7 +2,7 @@
 title: Reduce service costs using Azure Advisor
 description: Use Azure Advisor to optimize the cost of your Azure deployments.
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 10/29/2021
 
 ---
 
@@ -10,14 +10,22 @@ ms.date: 01/29/2019
 
 Azure Advisor helps you optimize and reduce your overall Azure spend by identifying idle and underutilized resources. You can get cost recommendations from the **Cost** tab on the Advisor dashboard.
 
+## How to access cost recommendations in Azure Advisor
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Search for and select [**Advisor**](https://aka.ms/azureadvisordashboard) from any page.
+
+1. On the **Advisor** dashboard, select the **Cost** tab.
+
 ## Optimize virtual machine spend by resizing or shutting down underutilized instances 
 
 Although certain application scenarios can result in low utilization by design, you can often save money by managing the size and number of your virtual machines. 
 
 The recommended actions are shut down or resize, specific to the resource being evaluated.
 
-The advanced evaluation model in Advisor considers shutting down virtual machines when both of these statements are true: 
-- P95th of the maximum of maximum value of CPU utilization is less than 3%. 
+The advanced evaluation model in Advisor considers shutting down virtual machines when all of these statements are true: 
+- P95th of the maximum value of CPU utilization is less than 3%. 
 - Network utilization is less than 2% over a seven-day period.
 - Memory pressure is lower than the threshold values
 
@@ -55,8 +63,8 @@ Advisor analyzes usage patterns for the past 30 days for the following resources
 ### Azure Cosmos DB reserved capacity
 Advisor analyzes your Azure Cosmos DB usage patterns for the past 30 days and recommends reserved capacity purchases to optimize costs. By using reserved capacity, you can pre-purchase Azure Cosmos DB hourly usage and save over your pay-as-you-go costs. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates savings estimates for individual subscriptions by using 3-year reservation pricing and by extrapolating the usage patterns observed over the past 30 days. Shared scope recommendations are available for reserved capacity purchases and can increase savings.
 
-### SQL PaaS reserved capacity
-Advisor analyzes SQL PaaS elastic database pools and SQL Managed Instance usage patterns over the past 30 days. It then recommends reserved capacity purchases that optimize costs. By using reserved capacity, you can pre-purchase SQL DB hourly usage and save over your SQL compute costs. Your SQL license is charged separately and isn't discounted by the reservation. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates savings estimates for individual subscriptions by using 3-year reservation pricing and by extrapolating the usage patterns observed over the past 30 days. Shared scope recommendations are available for reserved capacity purchases and can increase savings.
+### SQL Database and SQL Managed Instance reserved capacity
+Advisor analyzes SQL Database and SQL Managed Instance usage patterns over the past 30 days. It then recommends reserved capacity purchases that optimize costs. By using reserved capacity, you can pre-purchase SQL DB hourly usage and save over your SQL compute costs. Your SQL license is charged separately and isn't discounted by the reservation. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates savings estimates for individual subscriptions by using 3-year reservation pricing and by extrapolating the usage patterns observed over the past 30 days. Shared scope recommendations are available for reserved capacity purchases and can increase savings. For details, see [Azure SQL Database & SQL Managed Instance reserved capacity](../azure-sql/database/reserved-capacity-overview.md).
 
 ### App Service Stamp Fee reserved capacity
 Advisor analyzes the Stamp Fee usage pattern for your Azure App Service isolated environment over the past 30 days and recommends reserved capacity purchases that optimize costs. By using reserved capacity, you can pre-purchase hourly usage for the isolated environment Stamp Fee and save over your pay-as-you-go costs. Note that reserved capacity applies only to the Stamp Fee and not to App Service instances. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates saving estimates for individual subscriptions by using 3-year reservation pricing based on usage patterns over the past 30 days.
@@ -67,7 +75,7 @@ Advisor analyzes your Azure Blob storage and Azure Data Lake storage usage over 
 ### MariaDB, MySQL, and PostgreSQL reserved capacity
 Advisor analyzes your usage patterns for Azure Database for MariaDB, Azure Database for MySQL, and Azure Database for PostgreSQL over the past 30 days. It then recommends reserved capacity purchases that optimize costs. By using reserved capacity, you can pre-purchase MariaDB, MySQL, and PostgreSQL hourly usage and save over your current costs. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates savings estimates for individual subscriptions by using 3-year reservation pricing and the usage patterns observed over the past 30 days. Shared scope recommendations are available for reserved capacity purchases and can increase savings.
 
-### Azure Synapse Analytics (formerly SQL Data Warehouse) reserved capacity
+### Azure Synapse Analytics reserved capacity
 Advisor analyzes your Azure Synapse Analytics usage patterns over the past 30 days and recommends reserved capacity purchases that optimize costs. By using reserved capacity, you can pre-purchase Synapse Analytics hourly usage and save over your on-demand costs. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates savings estimates for individual subscriptions by using 3-year reservation pricing and the usage patterns observed over the past 30 days. Shared scope recommendations are available for reserved capacity purchases and can increase savings.
 
 ## Delete unassociated public IP addresses to save money
@@ -95,18 +103,17 @@ It's preferable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with st
 ## Reduce Azure Data Explorer table cache-period (policy) for cluster cost optimization (Preview)
 Advisor identifies resources where reducing the table cache policy will free up Azure Data Explorer cluster nodes having low CPU utilization, memory, and a high cache size configuration.
 
-## How to access cost recommendations in Azure Advisor
+## Configure manual throughput instead of autoscale on your Azure Cosmos DB database or container
+Based on your usage in the past 7 days, you can save by using manual throughput instead of autoscale. Manual throughput is more cost-effective when average utilization of your max throughput (RU/s) is greater than 66% or less than or equal to 10%. Cost savings amount represents potential savings from using the recommended manual throughput, based on usage in the past 7 days. Your actual savings may vary depending on the manual throughput you set and whether your average utilization of throughput continues to be similar to the time period analyzed. The estimated savings does not account for any discount that may apply to your account.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Search for and select [**Advisor**](https://aka.ms/azureadvisordashboard) from any page.
-
-1. On the **Advisor** dashboard, select the **Cost** tab.
+## Enable autoscale on your Azure Cosmos DB database or container
+Based on your usage in the past 7 days, you can save by enabling autoscale. For each hour, we compared the RU/s provisioned to the actual utilization of the RU/s (what autoscale would have scaled to) and calculated the cost savings across the time period. Autoscale helps optimize your cost by scaling down RU/s when not in use.
 
 ## Next steps
 
 To learn more about Advisor recommendations, see:
 * [Introduction to Advisor](advisor-overview.md)
+* [Advisor score](azure-advisor-score.md)
 * [Get started with Advisor](advisor-get-started.md)
 * [Advisor performance recommendations](advisor-performance-recommendations.md)
 * [Advisor high availability recommendations](advisor-high-availability-recommendations.md)

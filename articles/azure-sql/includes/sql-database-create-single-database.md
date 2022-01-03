@@ -1,7 +1,7 @@
 ---
 author: MashaMSFT
 ms.service: sql-database
-ms.subservice: single-database  
+ms.subservice: service-overview
 ms.topic: include
 ms.date: 03/10/2020
 ms.author: mathoma
@@ -64,6 +64,8 @@ To create a resource group, server, and single database in the Azure portal:
    For more information about firewall settings, see [Allow Azure services and resources to access this server](../database/network-access-controls-overview.md) and [Add a private endpoint](../database/private-endpoint-overview.md).
 
 1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**.
+1. Optionally, enable [Microsoft Defender for SQL](../database/azure-defender-for-sql.md).
+1. Optionally, set the [maintenance window](../database/maintenance-window.md) so planned maintenance is performed at the best time for your database.
 1. Select **Review + create** at the bottom of the page.
 
    ![Additional settings tab](./media/sql-database-create-single-database/additional-settings.png)
@@ -72,7 +74,7 @@ To create a resource group, server, and single database in the Azure portal:
 
 # [Azure CLI](#tab/azure-cli)
 
-You can create an Azure resource group, server, and single database using the Azure command-line interface (Azure CLI). If you don't want to use the Azure Cloud Shell, [install Azure CLI](/cli/azure/install-azure-cli) on your computer.
+You can create an Azure resource group, server, and single database using the Azure CLI. If you don't want to use the Azure Cloud Shell, [install the Azure CLI](/cli/azure/install-azure-cli) on your computer.
 
 To run the following code sample in Azure Cloud Shell, select **Try it** in the code sample title bar. When the Cloud Shell opens, select **Copy** in the code sample title bar, and paste the code sample into the Cloud Shell window. In the code, replace `<Subscription ID>` with your Azure Subscription ID, and for `$startip` and `$endip`, replace `0.0.0.0` with the public IP address of the computer you're using.
 
@@ -144,11 +146,11 @@ The preceding code uses these Azure CLI commands:
 
 | Command | Description |
 |---|---|
-| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) | Sets a subscription to be the current active subscription. |
-| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Creates a server that hosts databases and elastic pools. |
-| [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | Creates a server-level firewall rule. |
-| [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest) | Creates a database. |
+| [az account set](/cli/azure/account#az_account_set) | Sets a subscription to be the current active subscription. |
+| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az sql server create](/cli/azure/sql/server#az_sql_server_create) | Creates a server that hosts databases and elastic pools. |
+| [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_create) | Creates a server-level firewall rule. |
+| [az sql db create](/cli/azure/sql/db#az_sql_db_create) | Creates a database. |
 
 For more Azure SQL Database Azure CLI samples, see [Azure CLI samples](../database/az-cli-script-samples-content-guide.md).
 

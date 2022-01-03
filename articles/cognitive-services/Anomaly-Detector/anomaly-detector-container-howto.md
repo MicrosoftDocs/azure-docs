@@ -1,26 +1,33 @@
 ---
-title: How to install and run containers for using Anomaly Detector API
+title: Install and run Docker containers for the Anomaly Detector API
 titleSuffix: Azure Cognitive Services
-description: Learn how to install and use container for using the Anomaly Detector API's advanced algorithms.
+description: Use the Anomaly Detector API's algorithms to find anomalies in your data, on-premises using a Docker container.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 05/07/2020
-ms.author: aahi
+ms.date: 10/14/2021
+ms.author: mbullwin
+ms.custom: cog-serv-seo-aug-2020
+keywords: on-premises, Docker, container, streaming, algorithms
 ---
 
-# Install and run Anomaly Detector containers (Preview)
+# Install and run Docker containers for the Anomaly Detector API 
 
-The Anomaly Detector has the following container feature functionality:
+[!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
-| Function | Features |
-|--|--|
-| Anomaly detector | <li> Detects anomalies as they occur in real-time. <li> Detects anomalies throughout your data set as a batch. <li> Infers the expected normal range of your data. <li> Supports anomaly detection sensitivity adjustment to better fit your data. |
+Containers enable you to use the Anomaly Detector API your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run an Anomaly Detector container.
 
-For detailed information about the APIs, please see:
+Anomaly Detector offers a single Docker container for using the API on-premises. Use the container to:
+* Use the Anomaly Detector's algorithms on your data
+* Monitor streaming data, and detect anomalies as they occur in real-time.
+* Detect anomalies throughout your data set as a batch. 
+* Detect trend change points in your data set as a batch.
+* Adjust the anomaly detection algorithm's sensitivity to better fit your data.
+
+For detailed information about the API, please see:
 * [Learn more about Anomaly Detector API service](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
@@ -41,7 +48,7 @@ You must meet the following prerequisites before using Anomaly Detector containe
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-<!--* [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
+<!--* [Azure IoT Edge](../../iot-edge/index.yml). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
 
 ### Container requirements and recommendations
 
@@ -62,7 +69,7 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 
 | Container | Repository |
 |-----------|------------|
-| cognitive-services-anomaly-detector | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest` |
+| cognitive-services-anomaly-detector | `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector:latest` |
 
 <!--
 For a full description of available tags, such as `latest` used in the preceding command, see [anomaly-detector](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409) on Docker Hub.
@@ -90,7 +97,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest \
+mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector:latest \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -112,7 +119,7 @@ If you intend to run multiple containers with exposed ports, make sure to run ea
 
 Replace the `<container-registry>` and `<container-name>` with the values of the containers you use. These do not have to be the same container. You can have the Anomaly Detector container and the LUIS container running on the HOST together or you can have multiple Anomaly Detector containers running.
 
-Run the first container on port 5000.
+Run the first container on host port 5000.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -122,11 +129,11 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-Run the second container on port 5001.
+Run the second container on host port 5001.
 
 
 ```bash
-docker run --rm -it -p 5000:5001 --memory 4g --cpus 1 \
+docker run --rm -it -p 5001:5000 --memory 4g --cpus 1 \
 <container-registry>/microsoft/<container-name> \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -143,7 +150,7 @@ Use the host, http://localhost:5000, for container APIs.
 
 <!--  ## Validate container is running -->
 
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Stop the container
 
@@ -155,6 +162,9 @@ If you run the container with an output [mount](anomaly-detector-container-confi
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
+[!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
+
+
 ## Billing
 
 The Anomaly Detector containers send billing information to Azure, using an _Anomaly Detector_ resource on your Azure account.
@@ -163,16 +173,12 @@ The Anomaly Detector containers send billing information to Azure, using an _Ano
 
 For more information about these options, see [Configure containers](anomaly-detector-container-configuration.md).
 
-<!--blogs/samples/video coures -->
-
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
-
 ## Summary
 
 In this article, you learned concepts and workflow for downloading, installing, and running Anomaly Detector containers. In summary:
 
 * Anomaly Detector provides one Linux container for Docker, encapsulating anomaly detection with batch vs streaming, expected range inference, and sensitivity tuning.
-* Container images are downloaded from a private Azure Container Registry dedicated for containers preview.
+* Container images are downloaded from a private Azure Container Registry dedicated for containers.
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Anomaly Detector containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.

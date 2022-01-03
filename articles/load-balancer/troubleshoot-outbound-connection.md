@@ -2,18 +2,24 @@
 title: Troubleshoot outbound connections in Azure Load Balancer
 description: Resolutions for common problems with outbound connectivity through the Azure Load Balancer. 
 services: load-balancer
-author: erichrt
+author: anavinahar
 ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
-ms.author: errobin
+ms.author: anavin
 ---
 # <a name="obconnecttsg"></a> Troubleshooting outbound connections failures
 
-This article is intended that provide resolutions for common problems can occur with outbound connections from an Azure Load Balancer. Most problems with outbound connectivity that customers experience are due to SNAT port exhaustion and connection timeouts leading to dropped packets. This article provides steps for mitigating each of these issues.
+This article is intended to provide resolutions for common problems that can occur with outbound connections from an Azure Load Balancer. Most problems with outbound connectivity that customers experience are due to source network address translation (SNAT) port exhaustion and connection timeouts leading to dropped packets. This article provides steps for mitigating each of these issues.
+
+## Avoid SNAT
+
+The best way to avoid SNAT port exhaustion is to eliminate the need for SNAT in the first place, if possible. In some cases this might not be possible. For example, when connecting to public endpoints. However, in some cases this is possible and can be achieved by connecting privately to resources. If connecting to Azure services like Storage, SQL, Cosmos DB, or any other of the [Azure services listed here](../private-link/availability.md), leveraging Azure Private Link eliminates the need for SNAT. As a result, you will not risk a potential connectivity issue due to SNAT port exhaustion.
+
+Private Link Service is also supported by Snowflake, MongoDB, Confluent, Elastic and other such services.
 
 ## <a name="snatexhaust"></a> Managing SNAT (PAT) port exhaustion
-[Ephemeral ports](load-balancer-outbound-connections.md) used for [PAT](load-balancer-outbound-connections.md) are an exhaustible resource, as described in [Standalone VM without a Public IP address](load-balancer-outbound-connections.md) and [Load-balanced VM without a Public IP address](load-balancer-outbound-connections.md). You can monitor your usage of ephemeral ports and compare with your current allocation to determine the risk of or to confirm SNAT exhaustion using [this](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) guide.
+[Ephemeral ports](load-balancer-outbound-connections.md) used for [PAT](load-balancer-outbound-connections.md) are an exhaustible resource, as described in [Standalone VM without a Public IP address](load-balancer-outbound-connections.md) and [Load-balanced VM without a Public IP address](load-balancer-outbound-connections.md). You can monitor your usage of ephemeral ports and compare with your current allocation to determine the risk of or to confirm SNAT exhaustion using [this](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) guide.
 
 If you know that you're initiating many outbound TCP or UDP connections to the same destination IP address and port, and you observe failing outbound connections or are advised by support that you're exhausting SNAT ports (preallocated [ephemeral ports](load-balancer-outbound-connections.md#preallocatedports) used by [PAT](load-balancer-outbound-connections.md)), you have several general mitigation options. Review these options and decide what is available and best for your scenario. It's possible that one or more can help manage this scenario.
 
@@ -38,7 +44,7 @@ When [preallocated ephemeral ports](load-balancer-outbound-connections.md#preall
 Ephemeral ports have a 4-minute idle timeout (not adjustable). If the retries are too aggressive, the exhaustion has no opportunity to clear up on its own. Therefore, considering how--and how often--your application retries transactions is a critical part of the design.
 
 ## <a name="assignilpip"></a>Assign a Public IP to each VM
-Assigning a Public IP address changes your scenario to [Public IP to a VM](load-balancer-outbound-connections.md). All ephemeral ports of the public IP that are used for each VM are available to the VM. (As opposed to scenarios where ephemeral ports of a public IP are shared with all the VMs associated with the respective backend pool.) There are trade-offs to consider, such as the additional cost of public IP addresses and the potential impact of whitelisting a large number of individual IP addresses.
+Assigning a Public IP address changes your scenario to [Public IP to a VM](load-balancer-outbound-connections.md). All ephemeral ports of the public IP that are used for each VM are available to the VM. (As opposed to scenarios where ephemeral ports of a public IP are shared with all the VMs associated with the respective backend pool.) There are trade-offs to consider, such as the additional cost of public IP addresses and the potential impact of filtering a large number of individual IP addresses.
 
 >[!NOTE] 
 >This option is not available for web worker roles.
@@ -57,9 +63,9 @@ For example, two virtual machines in the backend pool would have 1024 SNAT ports
 If you scale out to the next larger backend pool size tier, there is potential for some of your outbound connections to time out if allocated ports have to be reallocated.  If you are only using some of your SNAT ports, scaling out across the next larger backend pool size is inconsequential.  Half the existing ports will be reallocated each time you move to the next backend pool tier.  If you don't want this to take place, you need to shape your deployment to the tier size.  Or make sure your application can detect and retry as necessary.  TCP keepalives can assist in detect when SNAT ports no longer function due to being reallocated.
 
 ## <a name="idletimeout"></a>Use keepalives to reset the outbound idle timeout
-Outbound connections have a 4-minute idle timeout. This timeout is adjustable via [Outbound rules](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout). You can also use transport (for example, TCP keepalives) or application-layer keepalives to refresh an idle flow and reset this idle timeout if necessary.  
+Outbound connections have a 4-minute idle timeout. This timeout is adjustable via [Outbound rules](outbound-rules.md). You can also use transport (for example, TCP keepalives) or application-layer keepalives to refresh an idle flow and reset this idle timeout if necessary.  
 
-When using TCP keepalives, it is sufficient to enable them on one side of the connection. For example, it is sufficient to enable them on the server side only to reset the idle timer of the flow and it is not necessary for both sides to initiated TCP keepalives.  Similar concepts exist for application layer, including database client-server configurations.  Check the server side for what options exist for application-specific keepalives.
+When using TCP keepalives, it is sufficient to enable them on one side of the connection. For example, it is sufficient to enable them on the server side only to reset the idle timer of the flow and it is not necessary for both sides to initiate TCP keepalives.  Similar concepts exist for application layer, including database client-server configurations.  Check the server side for what options exist for application-specific keepalives.
 
 ## Next Steps
 We are always looking to improve the experience of our customers. If you are experiencing issues with outbound connectivity that are not listed or resolved by this article, submit feedback through GitHub via the bottom of this page and we will address your feedback as soon as possible.

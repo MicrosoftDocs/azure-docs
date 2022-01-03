@@ -1,36 +1,34 @@
 ---
-title: Add a bar chart layer to the Azure Maps Power BI visual | Microsoft Azure Maps
-description: In this article, you will learn how to use the bar chart layer in the Microsoft Azure Maps visual for Power BI.
-author: rbrundritt
-ms.author: richbrun
-ms.date: 06/26/2020
+title: Add a bar chart layer to an Azure Maps Power BI visual
+titleSuffix: Microsoft Azure Maps
+description: In this article, you will learn how to use the bar chart layer in an Azure Maps Power BI visual.
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 11/29/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
-ms.custom: 
 ---
 
 # Add a bar chart layer
 
 The **Bar chart layer** is useful for taking data to the next dimension by allowing visualization of location data as 3D bars or cylinders on the map. Similar to the bubble layer, the bar chart later can easily visualize two metrics at the same time using color and relative height. In order for the bars to have height, a measure needs to be added to the **Size** bucket of the **Fields** pane. If a measure is not provided, bars with no height show as flat squares or circles depending on the **Bar shape** option.
 
-> [!div class="mx-imgBorder"]
-> ![A map displaying point data using the bar chart layer](media/power-bi-visual/bar-chart-layer-styled.png)
+:::image type="content" source="./media/power-bi-visual/bar-chart-layer-styled.png" alt-text="A map displaying point data using the bar chart layer":::
 
 Users can tilt and rotate the map to view your data from different perspectives. The map can be tilted or pitched using one of the following methods.
 
--   Turn on the **Navigation controls** option in the **Map settings** of the **Format** pane. This will add a button to tilt the map.
--   Press the right mouse button down and drag the mouse up or down.
--   Using a touch screen, touch the map with two fingers and drag them up or down together.
--   With the map focused, hold the **Shift** key, and press the **Up** or **Down arrow** keys.
+- Turn on the **Navigation controls** option in the **Map settings** of the **Format** pane. This will add a button to tilt the map.
+- Press the right mouse button down and drag the mouse up or down.
+- Using a touch screen, touch the map with two fingers and drag them up or down together.
+- With the map focused, hold the **Shift** key, and press the **Up** or **Down arrow** keys.
 
 The map can be rotated using one of the following methods.
 
--   Turn on the **Navigation controls** option in the **Map settings** of the **Format** pane. This will add a button to rotate the map.
--   Press the right mouse button down and drag the mouse left or right.
--   Using a touch screen, touch the map with two fingers and rotate.
--   With the map focused, hold the **Shift** key, and press the **Left** or **Right arrow** keys.
+- Turn on the **Navigation controls** option in the **Map settings** of the **Format** pane. This will add a button to rotate the map.
+- Press the right mouse button down and drag the mouse left or right.
+- Using a touch screen, touch the map with two fingers and rotate.
+- With the map focused, hold the **Shift** key, and press the **Left** or **Right arrow** keys.
 
 The following are all settings in the **Format** pane that are available in the **Bar chart layer** section.
 
@@ -52,6 +50,14 @@ The following are all settings in the **Format** pane that are available in the 
 
 ## Next steps
 
+Change how your data is displayed on the map:
+
+> [!div class="nextstepaction"]
+> [Add a bubble layer](power-bi-visual-add-bubble-layer.md)
+
+> [!div class="nextstepaction"]
+> [Add a heat map layer](power-bi-visual-add-heat-map-layer.md)
+
 Add more context to the map:
 
 > [!div class="nextstepaction"]
@@ -66,7 +72,7 @@ Add more context to the map:
 Customize the visual:
 
 > [!div class="nextstepaction"]
-> [Tips and tricks for color formatting in Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Tips and tricks for color formatting in Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
-> [Customize visualization titles, backgrounds, and legends](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [Customize visualization titles, backgrounds, and legends](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

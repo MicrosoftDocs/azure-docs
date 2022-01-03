@@ -3,14 +3,14 @@ title: String claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: String claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
-ms.author: mimart
+ms.date: 12/9/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -30,7 +30,7 @@ Compare two claims, and throw an exception if they are not equal according to th
 | InputClaim | inputClaim2 | string | Second claim's type, which is to be compared. |
 | InputParameter | stringComparison | string | string comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
 
-The **AssertStringClaimsAreEqual** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md), or a [DisplayConrtol](display-controls.md). The `UserMessageIfClaimsTransformationStringsAreNotEqual` metadata of a self-asserted technical profile controls the error message that is presented to the user. The error messages can be [localized](localization-string-ids.md#claims-transformations-error-messages).
+The **AssertStringClaimsAreEqual** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md), or a [DisplayControl](display-controls.md). The `UserMessageIfClaimsTransformationStringsAreNotEqual` metadata of a self-asserted technical profile controls the error message that is presented to the user. The error messages can be [localized](localization-string-ids.md#claims-transformations-error-messages).
 
 
 ![AssertStringClaimsAreEqual execution](./media/string-transformations/assert-execution.png)
@@ -81,6 +81,50 @@ The self-asserted technical profile calls the validation **login-NonInteractive*
 - Input parameters:
   - **stringComparison**:  ordinalIgnoreCase
 - Result: Error thrown
+
+## BuildUri
+
+Create the TOTP URI. The URI is a combination of the user's unique identifier, such as email address, and a secret key. The URI is later converted into a QR code that is presented to the user.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | path | string | The user's unique identifier, such as email address, username, or phone number. |
+| InputClaim|  query.secret| string | The TOTP secret key. |
+|InputParameter | scheme| string| The scheme part of the URI. For example, `otpauth`.| 
+|InputParameter | host| string| The scheme part of the URI. For example, `totp`.|
+|InputParameter | query.issuer| string| The issuer part of the URI. For example, `{AuthenticatorIssuer}`.|
+| OutputClaim | outputClaim | string | The ClaimType that is produced after this claims transformation has been invoked. |
+
+Use this claims transformation to generate a TOTP URI that will be displayed in the QR Code, or deep link.
+
+```xml
+<ClaimsTransformation Id="CreateUriString" TransformationMethod="BuildUri">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="uriLabel" TransformationClaimType="path" />
+    <InputClaim ClaimTypeReferenceId="secretKey" TransformationClaimType="query.secret" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="scheme" DataType="string" Value="otpauth" />
+    <InputParameter Id="host" DataType="string" Value="totp" />
+    <InputParameter Id="query.issuer" DataType="string" Value="{AuthenticatorIssuer}" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="qrCodeContent" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Input claims:
+  - **path**: emily@fabrikam.com
+  - **query.secret**: `fay2lj7ynpntjgqa`
+- Input parameters:
+    - **scheme**: `otpauth`
+    - **host**: `totp`
+    - **query.issuer**: `{AuthenticatorIssuer}`
+- Output claims:
+  - **outputClaim**: `otpauth://totp/Contoso%20demo:emily@fabrikam.com?secret=fay2lj7ynpntjgqa&issuer=Contoso+demo`
 
 ## ChangeCase
 
@@ -146,6 +190,66 @@ Use this claims transformation to set a string ClaimType value.
 - Output claims:
     - **createdClaim**: The TOS ClaimType contains the "Contoso terms of service..." value.
 
+## CreateOtpSecret
+
+Creates a TOTP string claim. The output of this claims transformation is a TOTP secret that is later stored in the Azure AD B2C user's account and shared with the Microsoft Authenticator app. The authenticator app uses the key to generate TOTP codes when the user needs to go through MFA. Your policy uses the key to validate the TOTP code provided by the user.
+
+| Item | TransformationClaimType | Data Type | Notes |
+|----- | ----------------------- | --------- | ----- |
+| OutputClaim | outputClaim | string | The ClaimType that is produced after this claims transformation has been invoked, with the generated TOTP code. |
+
+Use this claims transformation to create a secret for the TOTP multi-factor authenticator.
+
+```xml
+<ClaimsTransformation Id="CreateSecret" TransformationMethod="CreateOtpSecret">
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="secretKey" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Output claims:
+    - **outputClaim**: `hmlcmd4ph6fph64c`
+
+
+## CopyClaimIfPredicateMatch
+
+Copy value of a claim to another if the value of the input claim matches the output claim predicate. 
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | The claim type, which is to be copied. |
+| OutputClaim | outputClaim | string | The claim type that is produced after this claims transformation has been invoked. The value of the input claim is checked against this claim predicate. |
+
+The following example copies the signInName claim value to phoneNumber claim, only if the signInName is a phone number. For the complete sample, see [Phone number or email sign-in](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/scenarios/phone-number-passwordless/Phone_Email_Base.xml) starter pack policy.
+
+```xml
+<ClaimsTransformation Id="SetPhoneNumberIfPredicateMatch" TransformationMethod="CopyClaimIfPredicateMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="signInName" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example 1
+
+- Input claims:
+    - **inputClaim**: bob@contoso.com
+- Output claims:
+    - **outputClaim**: The output claim won't be changed from its original value.
+
+### Example 2
+
+- Input claims:
+    - **inputClaim**: +11234567890
+- Output claims:
+    - **outputClaim**: +11234567890
+
 ## CompareClaims
 
 Determine whether one string claim is equal to another. The result is a new boolean ClaimType with a value of `true` or `false`.
@@ -195,7 +299,7 @@ Determines whether a claim value is equal to the input parameter value.
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | The claim's type, which is to be compared. |
 | InputParameter | operator | string | Possible values: `EQUAL` or `NOT EQUAL`. |
-| InputParameter | compareTo | string | string comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
+| InputParameter | compareTo | string | String comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | boolean | Specifies whether this comparison should ignore the case of the strings being compared. |
 | OutputClaim | outputClaim | boolean | The ClaimType that is produced after this claims transformation has been invoked. |
 
@@ -252,6 +356,7 @@ Following example generates a global unique ID. This claims transformation is us
   </OutputClaims>
 </ClaimsTransformation>
 ```
+
 ### Example
 
 - Input parameters:
@@ -286,6 +391,77 @@ Following example generates an integer random value between 0 and 1000. The valu
     - **outputClaim**: OTP_853
 
 
+## FormatLocalizedString
+
+Format multiple claims according to a provided localized format string. This transformation uses the C# `String.Format` method.
+
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaims |  |string | The collection of input claims that acts as string format {0}, {1}, {2} parameters. |
+| InputParameter | stringFormatId | string |  The `StringId` of a [localized string](localization.md).   |
+| OutputClaim | outputClaim | string | The ClaimType that is produced after this claims transformation has been invoked. |
+
+> [!NOTE]
+> String format maximum allowed size is 4000.
+
+To use the FormatLocalizedString claims transformation:
+
+1. Define a [localization string](localization.md), and associate it with a [self-asserted-technical-profile](self-asserted-technical-profile.md).
+1. The `ElementType` of the `LocalizedString` element must be set to `FormatLocalizedStringTransformationClaimType`.
+1. The `StringId` is a unique identifier that you define, and use it later in your claims transformation `stringFormatId`.
+1. In the claims transformation, specify the list of claims to be set with the localized string. Then set the `stringFormatId` to the `StringId` of the localized string element. 
+1. In a [self-asserted technical profile](self-asserted-technical-profile.md), or a [display control](display-controls.md) input or output claims transformation, make a reference to your claims transformation.
+
+
+The following example generates an error message when an account is already in the directory. The example defines localized strings for English (default) and Spanish.
+
+```xml
+<Localization Enabled="true">
+  <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+    <SupportedLanguage>en</SupportedLanguage>
+    <SupportedLanguage>es</SupportedLanguage>
+   </SupportedLanguages>
+
+  <LocalizedResources Id="api.localaccountsignup.en">
+    <LocalizedStrings>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">The email '{0}' is already an account in this organization. Click Next to sign in with that account.</LocalizedString>
+      </LocalizedStrings>
+    </LocalizedResources>
+  <LocalizedResources Id="api.localaccountsignup.es">
+    <LocalizedStrings>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">Este correo electrónico "{0}" ya es una cuenta de esta organización. Haga clic en Siguiente para iniciar sesión con esa cuenta.</LocalizedString>
+    </LocalizedStrings>
+  </LocalizedResources>
+</Localization>
+```
+
+The claims transformation creates a response message based on the localized string. The message contains the user's email address embedded into the localized sting *ResponseMessge_EmailExists*.
+
+```xml
+<ClaimsTransformation Id="SetResponseMessageForEmailAlreadyExists" TransformationMethod="FormatLocalizedString">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="stringFormatId" DataType="string" Value="ResponseMessge_EmailExists" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Input claims:
+    - **inputClaim**: sarah@contoso.com
+- Input parameters:
+    - **stringFormat**:  ResponseMessge_EmailExists
+- Output claims:
+  - **outputClaim**: The email 'sarah@contoso.com' is already an account in this organization. Click Next to sign in with that account.
+
+
 ## FormatStringClaim
 
 Format a claim according to the provided format string. This transformation uses the C# `String.Format` method.
@@ -295,6 +471,9 @@ Format a claim according to the provided format string. This transformation uses
 | InputClaim | inputClaim |string |The ClaimType that acts as string format {0} parameter. |
 | InputParameter | stringFormat | string | The string format, including the {0}  parameter. This input parameter supports [string claims transformation expressions](string-transformations.md#string-claim-transformations-expressions).  |
 | OutputClaim | outputClaim | string | The ClaimType that is produced after this claims transformation has been invoked. |
+
+> [!NOTE]
+> String format maximum allowed size is 4000.
 
 Use this claims transformation to format any string with one parameter {0}. The following example creates a **userPrincipalName**. All social identity provider technical profiles, such as `Facebook-OAUTH` calls the **CreateUserPrincipalName** to generate a **userPrincipalName**.
 
@@ -327,10 +506,13 @@ Format two claims according to the provided format string. This transformation u
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim |string | The ClaimType that acts as string format {0} parameter. |
-| InputClaim | inputClaim | string | The ClaimType that acts as string format {1} parameter. |
+| InputClaim | inputClaim1 |string | The ClaimType that acts as string format {0} parameter. |
+| InputClaim | inputClaim2 | string | The ClaimType that acts as string format {1} parameter. |
 | InputParameter | stringFormat | string | The string format, including the {0} and {1} parameters. This input parameter supports [string claims transformation expressions](string-transformations.md#string-claim-transformations-expressions).   |
 | OutputClaim | outputClaim | string | The ClaimType that is produced after this claims transformation has been invoked. |
+
+> [!NOTE]
+> String format maximum allowed size is 4000.
 
 Use this claims transformation to format any string with two parameters, {0} and {1}. The following example creates a **displayName** with the specified format:
 
@@ -377,7 +559,7 @@ To use the GetLocalizedStringsTransformation claims transformation:
 
 ![GetLocalizedStringsTransformation](./media/string-transformations/get-localized-strings-transformation.png)
 
-The following example looks up the email subject, body, your code message, and the signature of the email, from localized strings. These claims later used by custom email verification template.
+The following example looks up the email subject, body, your code message, and the signature of the email, from localized strings. The claims later used by custom email verification template.
 
 Define localized strings for English (default) and Spanish.
 
@@ -460,7 +642,7 @@ The claims transformation looks up the text of the item and returns its value. I
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
   </InputClaims>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />        
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />        
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -601,6 +783,44 @@ Use this claims transformation to parse the domain name after the @ symbol of th
   - **emailAddress**: joe@outlook.com
 - Output claims:
     - **domain**: outlook.com
+
+## SetClaimIfBooleansMatch
+
+Checks that a boolean claim is `true`, or `false`. If yes, sets the output claims with the value present in `outputClaimIfMatched` input parameter.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | claimToMatch | string | The claim type, which is to be checked. Null value throws an exception. |
+| InputParameter | matchTo | string | The value to be compared with `claimToMatch` input claim. Possible values: `true`, or `false`.  |
+| InputParameter | outputClaimIfMatched | string | The value to be set if input claim equals to the `matchTo` input parameter. |
+| OutputClaim | outputClaim | string | If the `claimToMatch` input claim equals to the `matchTo` input parameter, this output claim contains the value of `outputClaimIfMatched` input parameter. |
+
+For example, the following claims transformation checks if the value of **hasPromotionCode** claim is equal to `true`. If yes, return the value to *Promotion code not found*.
+
+```xml
+<ClaimsTransformation Id="GeneratePromotionCodeError" TransformationMethod="SetClaimIfBooleansMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="hasPromotionCode" TransformationClaimType="claimToMatch" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="matchTo" DataType="string" Value="true" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="Promotion code not found." />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="promotionCode" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Input claims:
+    - **claimToMatch**: true
+- Input parameters:
+    - **matchTo**: true
+    - **outputClaimIfMatched**: "Promotion code not found."
+- Output claims:
+    - **outputClaim**: "Promotion code not found."
 
 ## SetClaimsIfRegexMatch
 
@@ -768,8 +988,8 @@ For example, the following claims transformation checks if the value of **ageGro
     - **stringComparison**: ordinalIgnoreCase
     - **outputClaimIfMatched**:  B2C_V1_90001
 - Output claims:
-    - **isMinorResponseCode**: B2C_V1_90001
-    - **isMinor**: true
+    - **isMinorResponseCode**: true
+    - **isMinor**: B2C_V1_90001
 
 
 ## StringContains
@@ -882,7 +1102,7 @@ For example, normalize a phone number, by removing the `-` characters
     - **inputClaim**: "+164-411-452-054"
 - Input parameters:
     - **oldValue**: "-"
-    - **length**:  ""
+    - **newValue**:  ""
 - Output claims:
     - **outputClaim**: "+164411452054"
 
@@ -915,11 +1135,11 @@ The following example takes a string collection of user roles, and converts it t
 ### Example
 
 - Input claims:
-  - **inputClaim**: [ "Admin", "Author", "Reader" ]
+  - **inputClaim**: `[ "Admin", "Author", "Reader" ]`
 - Input parameters:
   - **delimiter**: ","
 - Output claims:
-  - **outputClaim**: "Admin,Author,Reader"
+  - **outputClaim**: `"Admin,Author,Reader"`
 
 
 ## StringSplit

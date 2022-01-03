@@ -2,9 +2,6 @@
 title: Analyze Azure Data Lake Storage Gen1 with HDInsight Apache Spark
 description: Run Apache Spark jobs to analyze data stored in Azure Data Lake Storage Gen1
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/13/2019
@@ -18,7 +15,7 @@ In this article, you use [Jupyter Notebook](https://jupyter.org/) available with
 
 * Azure Data Lake Storage Gen1 account. Follow the instructions at [Get started with Azure Data Lake Storage Gen1 using the Azure portal](../../data-lake-store/data-lake-store-get-started-portal.md).
 
-* Azure HDInsight Spark cluster with Data Lake Storage Gen1 as storage. Follow the instructions at [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Azure HDInsight Spark cluster with Data Lake Storage Gen1 as storage. Follow the instructions at [Quickstart: Set up clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 ## Prepare the data
 
@@ -68,7 +65,7 @@ If you created an HDInsight cluster with Data Lake Storage as additional storage
 
 3. Create a new notebook. Click **New**, and then click **PySpark**.
 
-    ![Create a new Jupyter notebook](./media/apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "Create a new Jupyter notebook")
+    :::image type="content" source="./media/apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png " alt-text="Create a new Jupyter Notebook" border="true":::
 
 4. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types required for this scenario. To do so, paste the following code snippet in a cell and press **SHIFT + ENTER**.
 
@@ -78,7 +75,7 @@ If you created an HDInsight cluster with Data Lake Storage as additional storage
 
     Every time you run a job in Jupyter, your web browser window title will show a **(Busy)** status along with the notebook title. You will also see a solid circle next to the **PySpark** text in the top-right corner. After the job is completed, this will change to a hollow circle.
 
-     ![Status of a Jupyter notebook job](./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Status of a Jupyter notebook job")
+     :::image type="content" source="./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png " alt-text="Status of a Jupyter Notebook job" border="true":::
 
 5. Load sample data into a temporary table using the **HVAC.csv** file you copied to the Data Lake Storage Gen1 account. You can access the data in the Data Lake Storage account using the following URL pattern.
 
@@ -119,7 +116,7 @@ If you created an HDInsight cluster with Data Lake Storage as additional storage
       hvacdf.registerTempTable("hvac")
       ```
 
-6. Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you just created by using the `%%sql` magic. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Apache Spark HDInsight clusters](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+6. Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you just created by using the `%%sql` magic. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter Notebooks with Apache Spark HDInsight clusters](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
 	```sql
     %%sql
@@ -127,11 +124,11 @@ If you created an HDInsight cluster with Data Lake Storage as additional storage
     ```
 7. Once the job is completed successfully, the following tabular output is displayed by default.
 
-      ![Table output of query result](./media/apache-spark-use-with-data-lake-store/jupyter-tabular-output.png "Table output of query result")
+      :::image type="content" source="./media/apache-spark-use-with-data-lake-store/jupyter-tabular-output.png " alt-text="Table output of query result" border="true":::
 
      You can also see the results in other visualizations as well. For example, an area graph for the same output would look like the following.
 
-     ![Area graph of query result](./media/apache-spark-use-with-data-lake-store/jupyter-area-output1.png "Area graph of query result")
+     :::image type="content" source="./media/apache-spark-use-with-data-lake-store/jupyter-area-output1.png " alt-text="Area graph of query result" border="true":::
 
 8. After you have finished running the application, you should shutdown the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**. This will shutdown and close the notebook.
 

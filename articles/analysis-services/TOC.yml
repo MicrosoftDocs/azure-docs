@@ -30,9 +30,9 @@
   - name: Automation with service principals
     href: analysis-services-service-principal.md
   - name: Client libraries
-    href: https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current
+    href: /analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true
   - name: Compatibility level
-    href: https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services?view=azure-analysis-services-current
+    href: /analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services?view=azure-analysis-services-current&preserve-view=true
   - name: Connecting to on-premises data sources
     href: analysis-services-gateway.md
   - name: Connecting to servers
@@ -44,7 +44,7 @@
   - name: Supported data sources
     href: analysis-services-datasource.md
   - name: Network connectivity FAQ
-    href: analysis-services-network-faq.md
+    href: analysis-services-network-faq.yml
 - name: How-to
   items:
   - name: Server
@@ -76,12 +76,12 @@
   - name: Model
     items:
     - name: Tabular modeling
-      href: https://docs.microsoft.com/analysis-services/tabular-models/tabular-models-ssas
+      href: /analysis-services/tabular-models/tabular-models-ssas
     - name: Deploy from Visual Studio
       href: analysis-services-deploy.md
     - name: Refresh with REST API
       href: analysis-services-async-refresh.md
-    - name: Refresh with Logic Apps 
+    - name: Refresh with Logic Apps
       href: analysis-services-refresh-logic-app.md
     - name: Refresh with Azure Automation
       href: analysis-services-refresh-azure-automation.md
@@ -104,17 +104,17 @@
   - name: PowerShell
     href: analysis-services-powershell.md
   - name: REST
-    href: /rest/api/analysisservices
+    href: /rest/api/analysisservices/
   - name: Resource Manager template
     href: /azure/templates/microsoft.analysisservices/servers
   - name: DAX
-    href: https://docs.microsoft.com/dax/data-analysis-expressions-dax-reference
+    href: /dax/
   - name: Power Query M
-    href: https://docs.microsoft.com/powerquery-m/power-query-m-reference
+    href: /powerquery-m/
   - name: Tabular Model Scripting Language (TMSL)
-    href: https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference?view=asallproducts-allversions
+    href: /analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference?view=azure-analysis-services-current&preserve-view=true
   - name: Tabular Object Model (TOM)
-    href: https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo?view=asallproducts-allversions
+    href: /analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo?view=azure-analysis-services-current&preserve-view=true
   - name: Resource and object limits
     href: analysis-services-capacity-limits.md
 - name: Resources
@@ -126,9 +126,9 @@
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?query=Analysis%20Services
   - name: Azure status
-    href: https://azure.microsoft.com/status/
+    href: https://status.azure.com/
   - name: Feedback
-    href: https://feedback.azure.com/forums/556165-azure-analysis-services
+    href: https://feedback.azure.com/d365community/forum/d92323a0-0525-ec11-b6e6-000d3a4f0858
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/analysis-services/
   - name: Pricing calculator

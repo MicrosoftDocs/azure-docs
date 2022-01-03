@@ -1,18 +1,17 @@
 ---
 title: No code deployment (preview)
 titleSuffix: Azure Machine Learning
-description: 'Learn to deploy a model without an entry script.'
+description: 'No code deployment lets you deploy a model as a web service without having to manually create an entry script.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: gopalv
-author: gvashishtha
 ms.date: 07/31/2020
-ms.topic: conceptual
-
+ms.topic: how-to
+ms.custom: deploy
+ms.reviewer: larryfr
 ---
 
-# (Preview) No-code model deployment
+# No-code model deployment (preview)
 
 No-code model deployment is currently in preview and supports the following machine learning frameworks:
 
@@ -57,7 +56,7 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-To score a model, see [Consume an Azure Machine Learning model deployed as a web service](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service). Many ONNX projects use protobuf files to compactly store training and validation data, which can make it difficult to know what the data format expected by the service. As a model developer, you should document for your developers:
+To score a model, see [Consume an Azure Machine Learning model deployed as a web service](./how-to-consume-web-service.md). Many ONNX projects use protobuf files to compactly store training and validation data, which can make it difficult to know what the data format expected by the service. As a model developer, you should document for your developers:
 
 * Input format (JSON or binary)
 * Input data shape and type (for example, an array of floats of shape [100,100,3])
@@ -128,7 +127,7 @@ print(output)
 * [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Create client applications to consume web services](how-to-consume-web-service.md)
 * [Update web service](how-to-deploy-update-web-service.md)
-* [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
+* [How to deploy a model using a custom Docker image](./how-to-deploy-custom-container.md)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)

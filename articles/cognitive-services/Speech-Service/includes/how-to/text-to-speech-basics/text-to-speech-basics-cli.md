@@ -1,10 +1,21 @@
 ---
-author: trevorbye
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/11/2020
-ms.author: trbye
+ms.author: eur
 ---
+
+In this quickstart, you learn common design patterns for doing Text-to-Speech synthesis using the Speech SDK. You start by doing basic configuration and synthesis, and move on to more advanced examples for custom application development including:
+
+* Getting responses as in-memory streams
+* Customizing output sample rate and bit rate
+* Submitting synthesis requests using SSML (speech synthesis markup language)
+* Using neural voices
+
+## Prerequisites
+
+This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 [!INCLUDE [SPX Setup](../../spx-setup.md)]
 

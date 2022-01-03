@@ -1,211 +1,215 @@
 ---
-title: Quickstart -  Azure Key Vault client library for Node.js (v4)
-description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the Node.js client library
+title: Quickstart -  Azure Key Vault secret client library for JavaScript (version 4)
+description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the JavaScript client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 10/20/2019
+ms.date: 12/13/2021
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: devx-track-javascript
+ms.devlang: javascript
+ms.custom: devx-track-js, mode-api
 ---
 
-# Quickstart: Azure Key Vault client library for Node.js (v4)
+# Quickstart: Azure Key Vault secret client library for JavaScript (version 4)
 
-Get started with the Azure Key Vault client library for Node.js. Follow the steps below to install the package and try out example code for basic tasks.
+Get started with the Azure Key Vault secret client library for JavaScript. [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets. You can securely store keys, passwords, certificates, and other secrets. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you learn how to create, retrieve, and delete secrets from an Azure key vault using the JavaScript client library
 
-Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. Use the Key Vault client library for Node.js to:
+Key Vault client library resources:
 
-- Increase security and control over keys and passwords.
-- Create and import encryption keys in minutes.
-- Reduce latency with cloud scale and global redundancy.
-- Simplify and automate tasks for TLS/SSL certificates.
-- Use FIPS 140-2 Level 2 validated HSMs.
+[API reference documentation](/javascript/api/overview/azure/key-vault-index) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [Package (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
 
-[API reference documentation](https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [Package (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
+For more information about Key Vault and secrets, see:
+- [Key Vault Overview](../general/overview.md)
+- [Secrets Overview](about-secrets.md)
 
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Current [Node.js](https://nodejs.org) for your operating system.
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/)
+- Current [Node.js LTS](https://nodejs.org).
+- [Azure CLI](/cli/azure/install-azure-cli)
+- An existing Key Vault - you can create one using:
+    - [Azure CLI](../general/quick-create-cli.md)
+    - [Azure portal](../general/quick-create-portal.md) 
+    - [Azure PowerShell](../general/quick-create-powershell.md)
 
-This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) in a Linux terminal window.
+This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli).
 
-## Setting up
+## Sign in to Azure
 
-### Install the package
+1. Run the `login` command.
 
-From the console window, install the Azure Key Vault secrets library for Node.js.
+    ```azurecli-interactive
+    az login
+    ```
 
-```console
-npm install @azure/keyvault-secrets
-```
+    If the CLI can open your default browser, it will do so and load an Azure sign-in page.
 
-For this quickstart, you will need to install the azure.identity package as well:
+    Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the authorization code displayed in your terminal.
 
-```console
-npm install @azure/identity
-```
+2. Sign in with your account credentials in the browser.
 
-### Create a resource group and key vault
+## Create new Node.js application
 
-[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
+Create a Node.js application that uses your key vault. 
 
-### Create a service principal
+1. In a terminal, create a folder named `key-vault-node-app` and change into that folder:
 
-[!INCLUDE [Create a service principal](../../../includes/key-vault-sp-creation.md)]
+    ```terminal
+    mkdir key-vault-node-app && cd key-vault-node-app
+    ```
 
-#### Give the service principal access to your key vault
+1. Initialize the Node.js project:
 
-[!INCLUDE [Give the service principal access to your key vault](../../../includes/key-vault-sp-kv-access.md)]
+    ```terminal
+    npm init -y
+    ```
 
-#### Set environmental variables
+## Install Key Vault packages
 
-[!INCLUDE [Set environmental variables](../../../includes/key-vault-set-environmental-variables.md)]
+1. Using the terminal, install the Azure Key Vault secrets library, [@azure/keyvault-secrets](https://www.npmjs.com/package/@azure/keyvault-secrets) for Node.js.
 
-## Object model
+    ```terminal
+    npm install @azure/keyvault-secrets
+    ```
 
-The Azure Key Vault client library for Node.js allows you to manage keys and related assets such as certificates and secrets. The code samples below will show you how to create a client, set a secret, retrieve a secret, and delete a secret.
+1. Install the Azure Identity library, [@azure/identity](https://www.npmjs.com/package/@azure/identity) package to authenticate to a Key Vault.
 
-The entire console app is available at https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
+    ```terminal
+    npm install @azure/identity
+    ```
 
-## Code examples
+## Grant access to your key vault
 
-### Add directives
-
-Add the following directives to the top of your code:
-
-```javascript
-const { DefaultAzureCredential } = require("@azure/identity");
-const { SecretClient } = require("@azure/keyvault-secrets");
-```
-
-### Authenticate and create a client
-
-Authenticating to your key vault and creating a key vault client depends on the environmental variables from the [Set environmental variables](#set-environmental-variables) step above, and the [SecretClient constructor](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#secretclient-string--tokencredential--pipelineoptions-). 
-
-The name of your key vault is expanded to the key vault URI, in the format `https://<your-key-vault-name>.vault.azure.net`. 
-
-```javascript
-const keyVaultName = process.env["KEY_VAULT_NAME"];
-const KVUri = "https://" + keyVaultName + ".vault.azure.net";
-
-const credential = new DefaultAzureCredential();
-const client = new SecretClient(KVUri, credential);
-```
-
-### Save a secret
-
-Now that your application is authenticated, you can put a secret into your keyvault using the [client.setSecret method](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#setsecret-string--string--setsecretoptions-) This requires a name for the secret -- we're using "mySecret" in this sample.  
-
-```javascript
-await client.setSecret(secretName, secretValue);
-```
-
-You can verify that the secret has been set with the [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) command:
+Create an access policy for your key vault that grants secret permissions to your user account with the [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) command.
 
 ```azurecli
-az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
+az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --secret-permissions delete get list set purge
 ```
 
-### Retrieve a secret
+## Set environment variables
 
-You can now retrieve the previously set value with the [client.getSecret method](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#getsecret-string--getsecretoptions-).
+This application is using key vault name as an environment variable called `KEY_VAULT_NAME`.
 
-```javascript
-const retrievedSecret = await client.getSecret(secretName);
- ```
-
-Your secret is now saved as `retrievedSecret.value`.
-
-### Delete a secret
-
-Finally, let's delete the secret from your key vault with the [client.beginDeleteSecret method](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#begindeletesecret-string--begindeletesecretoptions-).
-
-```javascript
-await client.beginDeleteSecret(secretName)
+Windows
+```cmd
+set KEY_VAULT_NAME=<your-key-vault-name>
+````
+Windows PowerShell
+```powershell
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
-You can verify that the secret is gone with the [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) command:
-
-```azurecli
-az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
+macOS or Linux
+```cmd
+export KEY_VAULT_NAME=<your-key-vault-name>
 ```
 
-## Clean up resources
+## Code example
 
-When no longer needed, you can use the Azure CLI or Azure PowerShell to remove your key vault and the corresponding  resource group.
+The code samples below will show you how to create a client, set a secret, retrieve a secret, and delete a secret. 
 
-```azurecli
-az group delete -g "myResourceGroup"
-```
+1. Create new text file and paste the following code into the **index.js** file. 
 
-```azurepowershell
-Remove-AzResourceGroup -Name "myResourceGroup"
-```
-
-## Sample code
-
-```javascript
-const { DefaultAzureCredential } = require("@azure/identity");
-const { SecretClient } = require("@azure/keyvault-secrets");
-
-const readline = require('readline');
-
-function askQuestion(query) {
-    const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout,
+    ```javascript
+    const { SecretClient } = require("@azure/keyvault-secrets");
+    const { DefaultAzureCredential } = require("@azure/identity");
+    
+    // Load the .env file if it exists
+    const dotenv = require("dotenv");
+    dotenv.config();
+    
+    async function main() {
+      // DefaultAzureCredential expects the following three environment variables:
+      // - AZURE_TENANT_ID: The tenant ID in Azure Active Directory
+      // - AZURE_CLIENT_ID: The application (client) ID registered in the AAD tenant
+      // - AZURE_CLIENT_SECRET: The client secret for the registered application
+      const credential = new DefaultAzureCredential();
+    
+      const keyVaultName = process.env["KEY_VAULT_NAME"];
+      const url = "https://" + keyVaultName + ".vault.azure.net";
+    
+      const client = new SecretClient(url, credential);
+    
+      // Create a secret
+      const uniqueString = new Date().getTime();
+      const secretName = `secret${uniqueString}`;
+      const result = await client.setSecret(secretName, "MySecretValue");
+      console.log("result: ", result);
+    
+      // Read the secret we created
+      const secret = await client.getSecret(secretName);
+      console.log("secret: ", secret);
+    
+      // Update the secret with different attributes
+      const updatedSecret = await client.updateSecretProperties(secretName, result.properties.version, {
+        enabled: false
+      });
+      console.log("updated secret: ", updatedSecret);
+    
+      // Delete the secret
+      // If we don't want to purge the secret later, we don't need to wait until this finishes
+      await client.beginDeleteSecret(secretName);
+    }
+    
+    main().catch((error) => {
+      console.error("An error occurred:", error);
+      process.exit(1);
     });
+    ```
 
-    return new Promise(resolve => rl.question(query, ans => {
-        rl.close();
-        resolve(ans);
-    }))
-}
+## Run the sample application
 
-async function main() {
+1. Run the app:
 
-  const keyVaultName = process.env["KEY_VAULT_NAME"];
-  const KVUri = "https://" + keyVaultName + ".vault.azure.net";
+    ```terminal
+    node index.js
+    ```
 
-  const credential = new DefaultAzureCredential();
-  const client = new SecretClient(KVUri, credential);
+1. The create and get methods return a full JSON object for the secret:
 
-  const secretName = "mySecret";
-  var secretValue = await askQuestion("Input the value of your secret > ");
+    ```JSON
+    {
+        "value": "MySecretValue",
+        "name": "secret1637692472606",
+        "properties": {
+            "createdOn": "2021-11-23T18:34:33.000Z",
+            "updatedOn": "2021-11-23T18:34:33.000Z",
+            "enabled": true,
+            "recoverableDays": 90,
+            "recoveryLevel": "Recoverable+Purgeable",
+            "id": "https: //YOUR-KEYVAULT-NAME.vault.azure.net/secrets/secret1637692472606/YOUR-VERSION",
+            "vaultUrl": "https: //YOUR-KEYVAULT-NAME.vault.azure.net",
+            "version": "YOUR-VERSION",
+            "name": "secret1637692472606"
+        }
+    }
+    ```
 
-  console.log("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...");
-  await client.setSecret(secretName, secretValue);
+    The update method returns the **properties** name/values pairs:
 
-  console.log("Done.");
+    ```JSON
+    "createdOn": "2021-11-23T18:34:33.000Z",
+    "updatedOn": "2021-11-23T18:34:33.000Z",
+    "enabled": true,
+    "recoverableDays": 90,
+    "recoveryLevel": "Recoverable+Purgeable",
+    "id": "https: //YOUR-KEYVAULT-NAME.vault.azure.net/secrets/secret1637692472606/YOUR-VERSION",
+    "vaultUrl": "https: //YOUR-KEYVAULT-NAME.vault.azure.net",
+    "version": "YOUR-VERSION",
+    "name": "secret1637692472606"
+    ```
 
-  console.log("Forgetting your secret.");
-  secretValue = "";
-  console.log("Your secret is '" + secretValue + "'.");
+## Integrating with App Configuration
 
-  console.log("Retrieving your secret from " + keyVaultName + ".");
-
-  const retrievedSecret = await client.getSecret(secretName);
-
-  console.log("Your secret is '" + retrievedSecret.value + "'.");
-  console.log("Deleting your secret from " + keyVaultName + " ...");
-
-  await client.beginDeleteSecret(secretName);
-
-  console.log("Done.");
-
-}
-
-main()
-
-```
+The Azure SDK provides a helper method, [parseKeyVaultSecretIdentifier](/javascript/api/@azure/keyvault-secrets/#parseKeyVaultSecretIdentifier_string_), to parse the given Key Vault Secret ID. This is necessary if you use [App Configuration](/azure/azure-app-configuration/) references to Key Vault. App Config stores the Key Vault Secret ID. You need the _parseKeyVaultSecretIdentifier_ method to parse that ID to get the secret name. Once you have the secret name, you can get the current secret value using code from this quickstart.  
 
 ## Next steps
 
-In this quickstart you created a key vault, stored a secret, and retrieved that secret. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
+In this quickstart, you created a key vault, stored a secret, and retrieved that secret. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
+- Read an [Overview of Azure Key Vault Secrets](about-secrets.md)
+- How to [Secure access to a key vault](../general/security-features.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- Review [Azure Key Vault best practices](../general/best-practices.md)
+- Review the [Key Vault security overview](../general/security-features.md)

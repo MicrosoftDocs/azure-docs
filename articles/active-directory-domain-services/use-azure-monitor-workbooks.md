@@ -1,15 +1,15 @@
 ---
 title: Use Azure Monitor Workbooks with Azure AD Domain Services | Microsoft Docs
 description: Learn how to use Azure Monitor Workbooks to review security audits and understand issues in an Azure Active Directory Domain Services managed domain.
-author: iainfoulds
-manager: daveba
+author: justinha
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
+ms.author: justinha
 
 ---
 # Review security audit events in Azure Active Directory Domain Services using Azure Monitor Workbooks
@@ -42,7 +42,7 @@ Azure AD DS includes the following two workbook templates:
 * Security overview report
 * Account activity report
 
-For more information about how to edit and manage workbooks, see [Azure Monitor Workbooks overview](../azure-monitor/platform/workbooks-overview.md).
+For more information about how to edit and manage workbooks, see [Azure Monitor Workbooks overview](../azure-monitor/visualize/workbooks-overview.md).
 
 ## Use the security overview report workbook
 
@@ -50,11 +50,11 @@ To help you better understand usage and identify potential security threats, the
 
 To access the workbook template for the security overview report, complete the following steps:
 
-1. Search for and select **Azure Active Directory Domain Services** in the Azure portal.
+1. Search for and select **Azure AD Domain Services** in the Azure portal.
 1. Select your managed domain, such as *aaddscontoso.com*
 1. From the menu on the left-hand side, choose **Monitoring > Workbooks**
 
-    ![Select the Workbooks menu option in the Azure portal](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
+    ![Screenshot that hightlights where to select the Security Overview Report and the Account Activity Report.](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
 
 1. Choose the **Security Overview Report**.
 1. From the drop-down menus at the top of the workbook, select your Azure subscription and then an Azure Monitor workspace.
@@ -79,7 +79,7 @@ To help you troubleshoot issues for a specific user account, the account activit
 
 To access the workbook template for the account activity report, complete the following steps:
 
-1. Search for and select **Azure Active Directory Domain Services** in the Azure portal.
+1. Search for and select **Azure AD Domain Services** in the Azure portal.
 1. Select your managed domain, such as *aaddscontoso.com*
 1. From the menu on the left-hand side, choose **Monitoring > Workbooks**
 1. Choose the **Account Activity Report**.
@@ -118,5 +118,5 @@ For problems with users, learn how to troubleshoot [account sign-in problems][tr
 [password-policy]: password-policy.md
 [troubleshoot-sign-in]: troubleshoot-sign-in.md
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md
-[azure-monitor-queries]: ../azure-monitor/log-query/query-language.md
+[azure-monitor-queries]: /azure/data-explorer/kusto/query/
 [kusto-queries]: /azure/kusto/query/tutorial?pivots=azuredataexplorer

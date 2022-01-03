@@ -1,13 +1,13 @@
 ---
 title: 'Tutorial: Deploy your ASP.NET Core app to Azure Service Fabric by using Azure DevOps Starter'
 description: Azure DevOps Starter makes it easy to get started on Azure. With DevOps Projects, you can deploy your ASP.NET Core app to Azure Service Fabric in a few quick steps.
-ms.author: mlearned
+ms.author: gwallace
 ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
-author: mlearned
+author: georgewallace
 ---
 
 # Tutorial: Deploy your ASP.NET Core app to Azure Service Fabric by using Azure DevOps Starter
@@ -153,4 +153,4 @@ You can optionally modify the Azure CI/CD pipeline to meet the needs of your tea
 To learn more about Service Fabric and microservices, see:
 
 > [!div class="nextstepaction"]
-> [Use a microservices approach for building applications](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Use a microservices approach for building applications](/azure/devops/pipelines/release/define-multistage-release-process)

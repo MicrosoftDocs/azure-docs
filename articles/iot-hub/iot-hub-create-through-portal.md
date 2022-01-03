@@ -1,12 +1,12 @@
 ---
 title: Use the Azure portal to create an IoT Hub | Microsoft Docs
 description: How to create, manage, and delete Azure IoT hubs through the Azure portal. Includes information about pricing tiers, scaling, security, and messaging configuration.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.author: robinsh
+ms.author: lizross
 ms.custom: ['Role: Cloud Development']
 ---
 
@@ -24,11 +24,7 @@ To use the steps in this tutorial, you need an Azure subscription. If you don't 
 
 ## Change the settings of the IoT hub
 
-You can change the settings of an existing IoT hub after it's created from the IoT Hub pane.
-
-![Screenshot showing the settings for the IoT hub](./media/iot-hub-create-through-portal/iot-hub-settings-panel.png)
-
-Here are some of the properties you can set for an IoT hub:
+You can change the settings of an existing IoT hub after it's created from the IoT Hub pane. Here are some of the properties you can set for an IoT hub:
 
 **Pricing and scale**: You can use this property to migrate to a different tier or set the number of IoT Hub units. 
 
@@ -54,7 +50,7 @@ Click **Add** to open the **Add a shared access policy** blade.  You can enter t
 
 Click **Create** to add this newly created policy to the existing list.
 
-For more detailed information about the access granted by specific permissions, see [IoT Hub permissions](./iot-hub-devguide-security.md#iot-hub-permissions).
+For more detailed information about the access granted by specific permissions, see [IoT Hub permissions](./iot-hub-dev-guide-sas.md#access-control-and-permissions).
 
 ## Register a new device in the IoT hub
 
@@ -72,7 +68,7 @@ Routes is the first tab on the Message Routing pane. To add a new route, click +
 
 ![Screenshot showing adding a new route](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
 
-Name your hub. The name must be unique within the list of routes for that hub. 
+Name your route. The route name must be unique within the list of routes for that hub. 
 
 For **Endpoint**, you can select one from the dropdown list, or add a new one. In this example, a storage account and container are already available. To add them as an endpoint, click +**Add** next to the Endpoint dropdown and select **Blob Storage**. The following screen shows where the storage account and container are specified.
 
@@ -119,5 +115,4 @@ To delete an Iot hub, find the IoT hub you want to delete, then click the **Dele
 Follow these links to learn more about managing Azure IoT Hub:
 
 * [Message routing with IoT Hub](tutorial-routing.md)
-* [IoT Hub metrics](iot-hub-metrics.md)
-* [Operations monitoring](iot-hub-operations-monitoring.md)
+* [Monitor your IoT hub](monitor-iot-hub.md)

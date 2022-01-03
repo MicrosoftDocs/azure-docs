@@ -3,16 +3,16 @@ title: Diagnostic logs
 titleSuffix: Azure Content Delivery Network
 description: Learn how to use Azure diagnostic logs to save core analytics, which allows you to export usage metrics from your Azure Content Delivery Network endpoint.
 services: cdn
-author: asudbring
+author: duongau
 manager: KumudD
 ms.assetid: 
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
-ms.author: allensu
+ms.author: duau 
+ms.custom: devx-track-azurepowershell
 ---
 
 
@@ -55,7 +55,7 @@ Follow these steps enable logging for your Azure CDN endpoint:
 To use a storage account to store the logs, follow these steps:
 
  >[!NOTE] 
- >A storage account is required to complete these steps. Refer to: **[Create an Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)** for more information.
+ >A storage account is required to complete these steps. Refer to: **[Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)** for more information.
 	
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
  
@@ -74,7 +74,7 @@ To use a storage account to store the logs, follow these steps:
 To use Log Analytics for the logs, follow these steps:
 
 >[!NOTE] 
->A log analytics workspace is required to complete these steps. Refer to: **[Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)** for more information.
+>A log analytics workspace is required to complete these steps. Refer to: **[Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md)** for more information.
 	
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
 
@@ -91,7 +91,7 @@ To use Log Analytics for the logs, follow these steps:
 To use an event hub for the logs, follow these steps:
 
 >[!NOTE] 
->An event hub is required to complete these steps. Refer to: **[Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)** for more information.
+>An event hub is required to complete these steps. Refer to: **[Quickstart: Create an event hub using Azure portal](../event-hubs/event-hubs-create.md)** for more information.
 	
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
 
@@ -191,12 +191,11 @@ To download the tool, see [Azure Storage Explorer](https://storageexplorer.com/)
 6.	Each blob *PT1H.json* file represents the analytics logs for one hour for a specific CDN endpoint or its custom domain.
 7.	The schema of the contents of this JSON file is described in the section schema of the core analytics logs.
 
-
 #### Blob path format
 
-Core analytics logs are generated every hour and the data is collected and stored inside a single Azure blob as a JSON payload. Storage explorer tool interprets '/' as a directory separator and shows the hierarchy. The path to the Azure blob appears as if there's a hierarchical structure and represents the blob name. The name of the blob follows the following naming convention:	
+Core analytics logs are generated every hour and the data is collected and stored inside a single Azure blob as a JSON payload. Storage explorer tool interprets '/' as a directory separator and shows the hierarchy. The path to the Azure blob appears as if there's a hierarchical structure and represents the blob name. The name of the blob follows the following naming convention:
 
-```resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json```
+`resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y=/m=/d=/h=/m=/PT1H.json`
 
 **Description of fields:**
 
@@ -365,14 +364,7 @@ Example properties:
 
 ## Additional resources
 
-* [Azure Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
-* [Core analytics via Azure CDN supplemental portal](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
-* [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
-
-
-
-
-
-
-
+* [Azure Diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md)
+* [Core analytics via Azure CDN supplemental portal](./cdn-analyze-usage-patterns.md)
+* [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md)
+* [Azure Log Analytics REST API](/rest/api/loganalytics)

@@ -1,12 +1,17 @@
-﻿---
+---
 title: Troubleshooting - QnA Maker
 description: The curated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: troubleshooting
-ms.date: 03/25/2020
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 # Troubleshooting for QnA Maker
 
 The curated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
+
+[!INCLUDE [Custom question answering](./includes/new-version.md)]
 
 <a name="how-to-get-the-qnamaker-service-hostname"></a>
 
@@ -65,7 +70,7 @@ It's possible that QnA Maker can't auto-extract some question-and-answer (QnA) c
 <summary><b>How large a knowledge base can I create?</b></summary>
 
 **Answer**:
-The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](./Tutorials/choosing-capacity-qnamaker-deployment.md) for more details.
+The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](./concepts/azure-resources.md) for more details.
 
 </details>
 
@@ -81,7 +86,7 @@ You haven't created any QnA Maker services in Azure yet. Read [here](./How-To/se
 <summary><b>How do I share a knowledge base with others?</b></summary>
 
 **Answer**:
-Sharing works at the level of a QnA Maker service, that is, all knowledge bases in the service will be shared. Read [here](./How-To/collaborate-knowledge-base.md) how to collaborate on a knowledge base.
+Sharing works at the level of a QnA Maker service, that is, all knowledge bases in the service will be shared. Read [here](./index.yml) how to collaborate on a knowledge base.
 
 </details>
 
@@ -89,7 +94,7 @@ Sharing works at the level of a QnA Maker service, that is, all knowledge bases 
 <summary><b>Can you share a knowledge base with a contributor that is not in the same AAD tenant, to modify a knowledge base?</b></summary>
 
 **Answer**:
-Sharing is based on Azure role-based access control (Azure RBAC). If you can share _any_ resource in Azure with another user, you can also share QnA Maker.
+Sharing is based on Azure role-based access control. If you can share _any_ resource in Azure with another user, you can also share QnA Maker.
 
 </details>
 
@@ -109,7 +114,7 @@ The default message is part of the settings in your App service.
 - Go to your App service resource in the Azure portal
 
 ![qnamaker appservice](./media/qnamaker-faq/qnamaker-resource-list-appservice.png)
-- Click on the **Settings** option
+- Select the **Settings** option
 
 ![qnamaker appservice settings](./media/qnamaker-faq/qnamaker-appservice-settings.png)
 - Change the value of the **DefaultAnswer** setting
@@ -117,14 +122,13 @@ The default message is part of the settings in your App service.
 
 ![qnamaker appservice restart](./media/qnamaker-faq/qnamaker-appservice-restart.png)
 
-
 </details>
 
 <details>
 <summary><b>Why is my SharePoint link not getting extracted?</b></summary>
 
 **Answer**:
-See [Data source locations](./Concepts/knowledge-base.md#data-source-locations) for more information.
+See [Data source locations](./concepts/data-sources-and-content.md#data-source-locations) for more information.
 
 </details>
 
@@ -132,7 +136,7 @@ See [Data source locations](./Concepts/knowledge-base.md#data-source-locations) 
 <summary><b>The updates that I made to my knowledge base are not reflected on publish. Why not?</b></summary>
 
 **Answer**:
-Every edit operation, whether in a table update, test, or setting, needs to be saved before it can be published. Be sure to click the **Save and train** button after every edit operation.
+Every edit operation, whether in a table update, test, or setting, needs to be saved before it can be published. Be sure to select **Save and train** button after every edit operation.
 
 </details>
 
@@ -156,7 +160,7 @@ Once QnA pairs are in the knowledge base, you can edit an answer's markdown text
 <summary><b>Does QnA Maker support non-English languages?</b></summary>
 
 **Answer**:
-See more details about [supported languages](./Overview/languages-supported.md).
+See more details about [supported languages](./overview/language-support.md).
 
 If you have content from multiple languages, be sure to create a separate service for each language.
 
@@ -184,7 +188,15 @@ If you delete an Azure Cognitive Search index, the operation is final and the in
 <summary><b>I deleted my `testkb` index in my Search service. How can I fix this?</b></summary>
 
 **Answer**:
-Your old data can't be recovered. Create a new QnA Maker resource and create your knowledge base again.
+In case you deleted the `testkb` index in your Search service, you can restore the data from the last published KB. Please use the recovery tool [RestoreTestKBIndex](https://github.com/pchoudhari/QnAMakerBackupRestore/tree/master/RestoreTestKBFromProd) available on GitHub. 
+
+</details>
+
+<details>
+<summary><b>I am receiving the following error: Please check if QnA Maker App service's CORS settings allow https://www.qnamaker.ai or if there are any organization specific network restrictions. How can I resolve this?</b></summary>
+
+**Answer**:
+In the API section of the App service pane, update the CORS setting to * or "https://www.qnamaker.ai". If this doesn't resolve the issue, check for any organization-specific restrictions.
 
 </details>
 
@@ -200,7 +212,7 @@ Refresh your endpoint keys if you suspect that they have been compromised.
 <summary><b>Can I use the same Azure Cognitive Search resource for knowledge bases using multiple languages?</b></summary>
 
 **Answer**:
-To use multiple language and multiple knowledge bases, the user has to create an QnA Maker resource for each language. This will create a separate Azure search service per language. Mixing different language knowledge bases in a single Azure search service will result in degraded relevance of results.
+To use multiple language and multiple knowledge bases, the user has to create a QnA Maker resource for each language. This will create a separate Azure search service per language. Mixing different language knowledge bases in a single Azure search service will result in degraded relevance of results.
 
 </details>
 
@@ -220,7 +232,7 @@ The disk space for your app service might be full. Steps to fix your disk space:
 
 1. In the [Azure portal](https://portal.azure.com), select your QnA Maker's App service, then stop the service.
 1. While still on the App service, select **Development Tools**, then **Advanced Tools**, then **Go**. This opens a new browser window.
-1. Select **Debug console**, then **CMD** to open a command line tool.
+1. Select **Debug console**, then **CMD** to open a command-line tool.
 1. Navigate to the _site/wwwroot/Data/QnAMaker/_ directory.
 1. Remove all the folders whose name begins with `rd`.
 
@@ -234,6 +246,31 @@ The disk space for your app service might be full. Steps to fix your disk space:
 1. Access your knowledge base to verify it works now.
 
 </details>
+<details>
+<summary><b>Why is my Application Insights not working?</b></summary>
+
+**Answer**:
+Please cross check and update below steps to fix the issue:
+
+1. In App Service -> Settings group -> Configuration section -> Application Settings -> Name "UserAppInsightsKey" parameters is configured properly and set to the respective application insights Overview tab ("Instrumentation Key") Guid. 
+
+1. In App Service -> Settings group -> "Application Insights" section -> Make sure app insights is enabled and connected to respective application insights resource.
+
+</details>
+
+<details>
+<summary><b>My Application Insights is enabled but why is it not working properly?</b></summary>
+
+**Answer**:
+Please follow the below given steps: 
+
+1.  Copy the value of '“APPINSIGHTS_INSTRUMENTATIONKEY” name' into 'UserAppInsightsKey' name by overriding if there is some value already present there. 
+
+1.  If the 'UserAppInsightsKey' key does not exist in app settings, please add a new key with that name and copy the value.
+
+1.  Save it and this will automatically restart the app service. This should resolve the issue. 
+
+</details>
 
 ## Integrate with other services including Bots
 
@@ -241,7 +278,7 @@ The disk space for your app service might be full. Steps to fix your disk space:
 <summary><b>Do I need to use Bot Framework in order to use QnA Maker?</b></summary>
 
 **Answer**:
-No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) with QnA Maker. However, QnA Maker is offered as one of several templates in [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0). Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server-less environment.
+No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) with QnA Maker. However, QnA Maker is offered as one of several templates in [Azure Bot Service](/azure/bot-service/). Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server-less environment.
 
 </details>
 
@@ -273,7 +310,7 @@ The knowledge base's endpoint key is labeled `QnAAuthkey` in the ABS service.
 <summary><b>Can two or more client applications share a knowledge base?</b></summary>
 
 **Answer**:
-Yes, the knowledge base can be queried from any number of clients. If the response from the knowledge base appears to be slow or time out, consider upgrading the service tier for the app service associated with the knowledge base.
+Yes, the knowledge base can be queried from any number of clients. If the response from the knowledge base appears to be slow, or timed out, consider upgrading the service tier for the app service associated with the knowledge base.
 
 </details>
 
@@ -284,7 +321,7 @@ Yes, the knowledge base can be queried from any number of clients. If the respon
 Follow these steps to embed the QnA Maker service as a web-chat control in your website:
 
 1. Create your FAQ bot by following the instructions [here](./Quickstarts/create-publish-knowledge-base.md).
-2. Enable the web chat by following the steps [here](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat)
+2. Enable the web chat by following the steps [here](/azure/bot-service/bot-service-channel-connect-webchat)
 
 </details>
 

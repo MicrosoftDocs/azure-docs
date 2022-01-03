@@ -3,13 +3,13 @@ title: Profanity filtering - Translator
 titleSuffix: Azure Cognitive Services
 description: Use profanity filtering to determine the level of profanity translated in your text in the Azure Cognitive Services Translator.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ---
 
 # Add profanity filtering with the Translator

@@ -1,34 +1,31 @@
 ---
-title: PII Detection cognitive skill (preview)
+title: PII Detection cognitive skill
 titleSuffix: Azure Cognitive Search
-description: Extract and mask personally identifiable information from text in an enrichment pipeline in Azure Cognitive Search. This skill is currently in public preview.
+description: Extract and mask personal information from text in an enrichment pipeline in Azure Cognitive Search.
 
 manager: nitinme
 author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 06/17/2020
+ms.topic: reference
+ms.date: 12/09/2021
 ---
 
-#    PII Detection cognitive skill
+# Personally Identifiable Information (PII) Detection cognitive skill
 
-> [!IMPORTANT] 
-> This skill is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). There is currently no portal or .NET SDK support.
-
-The **PII Detection** skill extracts personally identifiable information from an input text and gives you the option to mask it from that text in various ways. This skill uses the machine learning models provided by [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services.
+The **PII Detection** skill extracts personal information from an input text and gives you the option of masking it. This skill uses the [detection models](../cognitive-services/language-service/personally-identifiable-information/overview.md) provided in [Azure Cognitive Services for Language](../cognitive-services/language-service/overview.md).
 
 > [!NOTE]
-> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
+> This skill is bound to Cognitive Services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
 >
-> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 
+## @odata.type
 
-## @odata.type  
 Microsoft.Skills.Text.PIIDetectionSkill
 
 ## Data limits
-The maximum size of a record should be 50,000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
+
+The maximum size of a record should be 50,000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to chunk your data before sending it to the skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
 
 ## Skill parameters
 
@@ -36,27 +33,29 @@ Parameters are case-sensitive and all are optional.
 
 | Parameter name     | Description |
 |--------------------|-------------|
-| `defaultLanguageCode` |    Language code of the input text. For now, only `en` is supported. |
+| `defaultLanguageCode` | (Optional) The language code to apply to documents that don't specify language explicitly.  If the default language code is not specified,  English (en) will be used as the default language code. <br/> See the [full list of supported languages](../cognitive-services/language-service/personally-identifiable-information/language-support.md). |
 | `minimumPrecision` | A value between 0.0 and 1.0. If the confidence score (in the `piiEntities` output) is lower than the set `minimumPrecision` value, the entity is not returned or masked. The default is 0.0. |
-| `maskingMode` | A parameter that provides various ways to mask the detected PII in the input text. The following options are supported: <ul><li>`none` (default): This means that no masking will be performed and the `maskedText` output will not be returned. </li><li> `redact`: This option will remove the detected entities from the input text and not replace them with anything. Note that in this case, the offset in the `piiEntities` output will be in relation to the original text, and not the masked text. </li><li> `replace`: This option will replace the detected entities with the character given in the `maskingCharacter` parameter.  The character will be repeated to the length of the detected entity so that the offsets will correctly correspond to both the input text as well as the output `maskedText`.</li></ul> |
-| `maskingCharacter` | The character that will be used to masked the text if the `maskingMode` parameter is set to `replace`. The following options are supported: `*` (default), `#`, `X`. This parameter can only be `null` if `maskingMode` is not set to `replace`. |
-
+| `maskingMode` | A parameter that provides various ways to mask the personal information detected in the input text. The following options are supported: <ul><li>`"none"` (default): No masking occurs and the `maskedText` output will not be returned. </li><li> `"replace"`: Replaces the detected entities with the character given in the `maskingCharacter` parameter. The character will be repeated to the length of the detected entity so that the offsets will correctly correspond to both the input text and the output `maskedText`.</li></ul> <br/> When this skill was in public preview, the `maskingMode` option `redact` was also supported, which allowed removing the detected entities entirely without replacement. The `redact` option has since been deprecated and are longer be supported. |
+| `maskingCharacter` | The character used to mask the text if the `maskingMode` parameter is set to `replace`. The following option is supported: `*` (default). This parameter can only be `null` if `maskingMode` is not set to `replace`. <br/><br/> When this skill was in public preview, there was support for the `maskingCharacter` options, `X` and `#`. Both `X` and `#` options have since been deprecated and are longer be supported. |
+| `domain`   | (Optional) A string value, if specified, will set the domain to include only a subset of the entity categories. Possible values include: `"phi"` (detect confidential health information only), `"none"`. |
+| `piiCategories`   | (Optional) If you want to specify which entities will be detected and returned, use this optional parameter (defined as a list of strings) with the appropriate entity categories. This parameter can also let you detect entities that aren't enabled by default for your document language. See [Supported Personally Identifiable Information entity categories](../cognitive-services/language-service/personally-identifiable-information/concepts/entity-categories.md) for the full list.  |
+| `modelVersion`   | (Optional) Specifies the [version of the model](../cognitive-services/language-service/personally-identifiable-information/how-to-call.md#determine-how-to-process-the-data-optional) to use when calling personally identifiable information detection. It will default to the most recent version when not specified. We recommend you do not specify this value unless it's necessary. |
 
 ## Skill inputs
 
 | Input name      | Description                   |
 |---------------|-------------------------------|
-| `languageCode`    | Optional. Default is `en`.  |
+| `languageCode`    | A string indicating the language of the records. If this parameter is not specified, the default language code will be used to analyze the records. <br/>See the [full list of supported languages](../cognitive-services/language-service/personally-identifiable-information/language-support.md).  |
 | `text`          | The text to analyze.          |
 
 ## Skill outputs
 
 | Output name      | Description                   |
 |---------------|-------------------------------|
-| `piiEntities` | An array of complex types that contains the following fields: <ul><li>text (The actual PII as extracted)</li> <li>type</li><li>subType</li><li>score (Higher value means it's more likely to be a real entity)</li><li>offset (into the input text)</li><li>length</li></ul> </br> [Possible types and subTypes can be found here.](../cognitive-services/text-analytics/named-entity-types.md?tabs=personal) |
-| `maskedText` | If `maskingMode` is set to a value other than `none`, this output will be the string result of the masking performed on the input text as described by the selected `maskingMode`.  If `maskingMode` is set to `none`, this output will not be present. |
+| `piiEntities` | An array of complex types that contains the following fields: <ul><li>`"text"` (The actual personally identifiable information as extracted)</li> <li>`"type"`</li><li>`"subType"`</li><li>`"score"` (Higher value means it's more likely to be a real entity)</li><li>`"offset"` (into the input text)</li><li>`"length"`</li></ul> </br> See [Supported Personally Identifiable Information entity categories](../cognitive-services/language-service/personally-identifiable-information/concepts/entity-categories.md) for the full list.  |
+| `maskedText` | If `maskingMode` is set to a value other than `none`, this output will be the string result of the masking performed on the input text as described by the selected `maskingMode`. If `maskingMode` is set to `none`, this output will not be present. |
 
-##    Sample definition
+## Sample definition
 
 ```json
   {
@@ -81,7 +80,8 @@ Parameters are case-sensitive and all are optional.
     ]
   }
 ```
-##    Sample input
+
+## Sample input
 
 ```json
 {
@@ -97,7 +97,7 @@ Parameters are case-sensitive and all are optional.
 }
 ```
 
-##    Sample output
+## Sample output
 
 ```json
 {
@@ -123,14 +123,15 @@ Parameters are case-sensitive and all are optional.
 }
 ```
 
-Note that the offsets returned for entities in the output of this skill are directly returned from the [Text Analytics API](../cognitive-services/text-analytics/overview.md), which means if you are using them to index into the original string, you should use the [StringInfo](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) class in .NET in order to extract the correct content.  [More details can be found here.](../cognitive-services/text-analytics/concepts/text-offsets.md)
+The offsets returned for entities in the output of this skill are directly returned from the [Language Service APIs](../cognitive-services/language-service/overview.md), which means if you are using them to index into the original string, you should use the [StringInfo](/dotnet/api/system.globalization.stringinfo) class in .NET in order to extract the correct content. For more information, see [Multilingual and emoji support in Language service features](../cognitive-services/language-service/concepts/multilingual-emoji-support.md).
 
-## Error and warning cases
+## Errors and warnings
+
 If the language code for the document is unsupported, a warning is returned and no entities are extracted.
-If your text is empty, a warning will be produced.
+If your text is empty, a warning is returned.
 If your text is larger than 50,000 characters, only the first 50,000 characters will be analyzed and a warning will be issued.
 
-If the skill returns a warning, the output `maskedText` may be empty.  This means that if you expect that output to exist for input into later skills, it will not work as intended. Keep this in mind when writing your skillset definition.
+If the skill returns a warning, the output `maskedText` may be empty, which can impact any downstream skills that expect the output. For this reason, be sure to investigate all warnings related to missing output when writing your skillset definition.
 
 ## See also
 

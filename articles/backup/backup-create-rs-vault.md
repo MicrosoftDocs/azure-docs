@@ -1,8 +1,8 @@
 ---
 title: Create and configure Recovery Services vaults
-description: In this article, learn how to create and configure Recovery Services vaults that store the backups and recovery points.
+description: In this article, learn how to create and configure Recovery Services vaults that store the backups and recovery points. Learn how to use Cross Region Restore to restore in a secondary region.
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 08/06/2021
 ms.custom: references_regions 
 ---
 
@@ -17,7 +17,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
 > [!NOTE]
 > Changing **Storage Replication type** (Locally redundant/ Geo-redundant) for a Recovery Services vault has to be done before configuring backups in the vault. Once you configure backup, the option to modify is disabled.
 >
->- If you haven't yet configured the backup, then [follow these steps](#set-storage-redundancy) to review and modify the settings.
+>- If you haven't yet configured the backup, complete the following steps to review and modify the settings.
 >- If you've already configured the backup and must move from GRS to LRS, then [review these workarounds](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
 1. From the **Recovery Services vaults** pane, select the new vault. Under the **Settings** section, select  **Properties**.
@@ -25,35 +25,30 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
 
 1. Select the storage replication type, and select **Save**.
 
-     ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+     ![Set the storage configuration for new vault](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
 
    - We recommend that if you're using Azure as a primary backup storage endpoint, continue to use the default **Geo-redundant** setting.
    - If you don't use Azure as a primary backup storage endpoint, then choose **Locally redundant**, which reduces the Azure storage costs.
-   - Learn more about [geo](../storage/common/storage-redundancy.md) and [local](../storage/common/storage-redundancy.md) redundancy.
+   - Learn more about [geo](../storage/common/storage-redundancy.md#geo-redundant-storage) and [local](../storage/common/storage-redundancy.md#locally-redundant-storage) redundancy.
+   - If you need data availability without downtime in a region, guaranteeing data residency, then choose [zone-redundant storage](../storage/common/storage-redundancy.md#zone-redundant-storage).
 
 >[!NOTE]
 >The Storage Replication settings for the vault aren't relevant for Azure file share backup as the current solution is snapshot based and there's no data transferred to the vault. Snapshots are stored in the same storage account as the backed up file share.
 
 ## Set Cross Region Restore
 
-As one of the restore options, Cross Region Restore (CRR) allows you to restore Azure VMs in a secondary region, which is an [Azure paired region](../best-practices-availability-paired-regions.md). This option allows you to:
+The restore option Cross Region Restore (CRR) allows you to restore data in a secondary, [Azure paired region](../availability-zones/cross-region-replication-azure.md). You can use it to conduct drills when there is an audit or compliance requirement (or) restore the data if there's a disaster in the primary region.
 
-- conduct drills when there's an audit or compliance requirement
-- restore the VM or its disk if there's a disaster in the primary region.
-
-To choose this feature, select **Enable Cross Region Restore** from the **Backup Configuration** pane.
-
-For this process, there are pricing implications as it's at the storage level.
-
->[!NOTE]
->Before you begin:
->
->- Review the [support matrix](backup-support-matrix.md#cross-region-restore) for a list of supported managed types and regions.
->- The Cross Region Restore (CRR) feature is now previewed in all Azure public regions.
->- CRR is a vault level opt-in feature for any GRS vault (turned off by default).
->- After opting-in, it might take up to 48 hours for the backup items to be available in secondary regions.
->- Currently CRR is supported only for Backup Management Type - ARM Azure VM (classic Azure VM won't be supported).  When additional management types support CRR, then they'll be **automatically** enrolled.
->- Cross Region Restore currently can't be reverted back to GRS or LRS once the protection is initiated for the first time.
+Before you begin:
+- CRR is supported:
+     - Only for Recovery Services Vault with [GRS replication type](#set-storage-redundancy).
+     - Azure VMs (you can restore the VM or its disk) that are ARM based Azure VMs and encrypted Azure VMs. Classic VMs won’t be supported.  
+     - SQL/SAP HANA databases hosted on Azure VMs (you can restore databases or their files)
+     - Review the [support matrix](backup-support-matrix.md#cross-region-restore) for a list of supported managed types and regions
+- Using CRR will incur additional charges , [learn more](https://azure.microsoft.com/pricing/details/backup/)
+- After opting-in, it might **take up to 48 hours for the backup items to be available in secondary regions**.
+- CRR currently can't be reverted back to GRS or LRS once the protection is initiated for the first time.
+- Currently, secondary region RPO is up to 12 hours from the primary region, even though [read-access geo-redundant storage (RA-GRS)](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) replication is 15 minutes.
 
 ### Configure Cross Region Restore
 
@@ -61,18 +56,20 @@ A vault created with GRS redundancy includes the option to configure the Cross R
 
  ![Backup Configuration banner](./media/backup-azure-arm-restore-vms/banner.png)
 
-1. From the portal, go to Recovery Services vault > Settings > Properties.
-2. Select **Enable Cross Region Restore in this vault** to enable the functionality.
+>[!Note]
+>If you've access to restricted paired regions and still unable to view Cross Region Restore settings in **Backup Configuration** blade, then re-register the recovery services resource provider. <br><br> To re-register the provider, go to your subscription in the Azure portal, navigate to **Resource provider** on the left navigation bar, then select **Microsoft.RecoveryServices** and select **Re-register**.
 
-   ![Before you select Enable Cross Region restore in this vault](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
+1. From the portal, go to your Recovery Services vault > **Properties** (under **Settings**).
+1. Under **Backup Configuration**, select **Update**.
+1. Select **Enable Cross Region Restore in this vault** to enable the functionality.
 
-   ![After you select Enable Cross Region restore in this vault](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
+   ![Enable Cross Region restore](./media/backup-azure-arm-restore-vms/backup-configuration.png)
 
-Learn how to [view backup items in the secondary region](backup-azure-arm-restore-vms.md#view-backup-items-in-secondary-region).
+See these articles for more information about backup and restore with CRR:
 
-Learn how to [restore in the secondary region](backup-azure-arm-restore-vms.md#restore-in-secondary-region).
-
-Learn how to [monitor secondary region restore jobs](backup-azure-arm-restore-vms.md#monitoring-secondary-region-restore-jobs).
+- [Cross Region Restore for Azure VMs](backup-azure-arm-restore-vms.md#cross-region-restore)
+- [Cross Region Restore for SQL databases](restore-sql-database-azure-vm.md#cross-region-restore)
+- [Cross Region Restore for SAP HANA databases](sap-hana-db-restore.md#cross-region-restore)
 
 ## Set encryption settings
 
@@ -90,7 +87,7 @@ To configure your vault to encrypt with customer-managed keys, these steps must 
 
 1. Assign the encryption key to the Recovery Services vault
 
-Instructions for each of these steps can be found [in this article](encryption-at-rest-with-cmk.md#configuring-a-vault-to-encrypt-using-customer-managed-keys).
+Instructions for each of these steps can be found [in this article](encryption-at-rest-with-cmk.md#configure-a-vault-to-encrypt-using-customer-managed-keys).
 
 ## Modifying default settings
 

@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure SAP Cloud Platform Identity Authentication for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to SAP Cloud Platform Identity Authentication.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2019
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure SAP Cloud Platform Identity Authentication for automatic user provisioning
@@ -27,8 +27,11 @@ The objective of this tutorial is to demonstrate the steps to be performed in SA
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant
-* [A SAP Cloud Platform Identity Authentication tenant](https://cloudplatform.sap.com/pricing.html)
+* [A SAP Cloud Platform Identity Authentication tenant](https://www.sap.com/products/cloud-platform.html)
 * A user account in SAP Cloud Platform Identity Authentication with Admin permissions.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Assigning users to SAP Cloud Platform Identity Authentication
 
@@ -89,7 +92,7 @@ Before configuring SAP Cloud Platform Identity Authentication for automatic user
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in SAP Cloud Platform Identity Authentication based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for SAP Cloud Platform Identity Authentication , following the instructions provided in the [SAP Cloud Platform Identity Authentication Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for SAP Cloud Platform Identity Authentication, following the instructions provided in the [SAP Cloud Platform Identity Authentication Single sign-on tutorial](./sap-hana-cloud-platform-identity-authentication-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
 
 ### To configure automatic user provisioning for SAP Cloud Platform Identity Authentication in Azure AD:
 
@@ -103,11 +106,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input `https://<tenantID>.accounts.ondemand.com/service/scim ` in **Tenant URL**. Input the **User ID** and **Password** values retrieved earlier in **Admin Username** and **Admin Password** respectively. Click **Test Connection** to ensure Azure AD can connect to SAP Cloud Platform Identity Authentication. If the connection fails, ensure your SAP Cloud Platform Identity Authentication account has Admin permissions and try again.
 
@@ -157,4 +160,3 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 ## Next steps
 
 * [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
-

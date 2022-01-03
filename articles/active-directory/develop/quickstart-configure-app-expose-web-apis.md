@@ -5,16 +5,15 @@ description: In this quickstart, your register a web API with the Microsoft iden
 services: active-directory
 author: mmacy
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, contperfq1
+ms.custom: aaddev, contperf-fy21q1, mode-api
 ms.reviewer: aragra, lenalepa, sureshja
-# Customer intent: As an application developer, I need learn to how to register my web API with the Microsoft identity platform and expose permissions (scopes) to make the API's resources available to users of my client application.
+#Customer intent: As an application developer, I need learn to how to register my web API with the Microsoft identity platform and expose permissions (scopes) to make the API's resources available to users of my client application.
 ---
 
 # Quickstart: Configure an application to expose a web API
@@ -42,7 +41,7 @@ The code in a client application requests permission to perform operations defin
 
 First, follow these steps to create an example scope named `Employees.Read.All`:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/quickstart-configure-app-expose-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
 1. Select **Azure Active Directory** > **App registrations**, and then select your API's app registration.
 1. Select **Expose an API** > **Add a scope**.
@@ -52,6 +51,8 @@ First, follow these steps to create an example scope named `Employees.Read.All`:
 1. You're prompted to set an **Application ID URI** if you haven't yet configured one.
 
    The App ID URI acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form `api://<application-client-id>`, or specify a more readable URI like `https://contoso.com/api`.
+   
+   More information on valid app ID URI patterns is available in the [Azure AD app manifest reference](reference-app-manifest.md).
 
 1. Next, specify the scope's attributes in the **Add a scope** pane. For this walk-through, you can use the example values or specify your own.
 

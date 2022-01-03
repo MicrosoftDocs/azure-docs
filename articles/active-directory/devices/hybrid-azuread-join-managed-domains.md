@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 03/06/2020
+ms.date: 10/25/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to set up hybrid Azure Active Directory (Azure AD) joined devices for managed domains so I can automatically create and manage device identities in Azure AD for my Active Directory domain-joined computers
@@ -58,6 +58,9 @@ Familiarize yourself with these articles:
 
 Verify that Azure AD Connect has synced the computer objects of the devices you want to be hybrid Azure AD joined to Azure AD. If the computer objects belong to specific organizational units (OUs), configure the OUs to sync in Azure AD Connect. To learn more about how to sync computer objects by using Azure AD Connect, see [Organizational unit–based filtering](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
 
+> [!NOTE]
+> To get device registration sync join to succeed, as part of the device registration configuration, do not exclude the default device attributes from your Azure AD Connect sync configuration. To learn more about default device attributes synced to AAD, see [Attributes synchronized by Azure AD Connect](../hybrid/reference-connect-sync-attributes-synchronized.md#windows-10).
+
 Beginning with version 1.1.819.0, Azure AD Connect includes a wizard to configure hybrid Azure AD join. The wizard significantly simplifies the configuration process. The wizard configures the service connection points (SCPs) for device registration.
 
 The configuration steps in this article are based on using the wizard in Azure AD Connect.
@@ -70,7 +73,7 @@ Hybrid Azure AD join requires devices to have access to the following Microsoft 
 - `https://autologon.microsoftazuread-sso.com` (If you use or plan to use seamless SSO)
 
 > [!WARNING]
-> If your organization uses proxy servers that intercept SSL traffic for scenarios like data loss prevention or Azure AD tenant restrictions, ensure that traffic to 'https://device.login.microsoftonline.com' is excluded from TLS break-and-inspect. Failure to exclude 'https://device.login.microsoftonline.com' may cause interference with client certificate authentication, causing issues with device registration and device-based Conditional Access.
+> If your organization uses proxy servers that intercept SSL traffic for scenarios like data loss prevention or Azure AD tenant restrictions, ensure that traffic to these URLs are excluded from TLS break-and-inspect. Failure to exclude these URLs may cause interference with client certificate authentication, cause issues with device registration, and device-based Conditional Access.
 
 If your organization requires access to the internet via an outbound proxy, you can use [implementing Web Proxy Auto-Discovery (WPAD)](/previous-versions/tn-archive/cc995261(v=technet.10)) to enable Windows 10 computers for device registration with Azure AD. To address issues configuring and managing WPAD, see [Troubleshooting Automatic Detection](/previous-versions/tn-archive/cc302643(v=technet.10)). In Windows 10 devices prior to 1709 update, WPAD is the only available option to configure a proxy to work with Hybrid Azure AD join. 
 
@@ -81,7 +84,7 @@ If you don't use WPAD, you can configure WinHTTP proxy settings on your computer
 
 If your organization requires access to the internet via an authenticated outbound proxy, make sure that your Windows 10 computers can successfully authenticate to the outbound proxy. Because Windows 10 computers run device registration by using machine context, configure outbound proxy authentication by using machine context. Follow up with your outbound proxy provider on the configuration requirements.
 
-Verify the device can access the above Microsoft resources under the system account by using the [Test Device Registration Connectivity](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) script.
+Verify the device can access the above Microsoft resources under the system account by using the [Test Device Registration Connectivity](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/) script.
 
 ## Configure hybrid Azure AD join
 
@@ -89,23 +92,21 @@ To configure a hybrid Azure AD join by using Azure AD Connect:
 
 1. Start Azure AD Connect, and then select **Configure**.
 
-   ![Welcome](./media/hybrid-azuread-join-managed-domains/welcome-azure-ad-connect.png)
-
 1. In **Additional tasks**, select **Configure device options**, and then select **Next**.
 
    ![Additional tasks](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-additional-tasks.png)
 
 1. In **Overview**, select **Next**.
 
-   ![Overview](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-overview.png)
-
 1. In **Connect to Azure AD**, enter the credentials of a global administrator for your Azure AD tenant.  
-
-   ![Connect to Azure AD](./media/hybrid-azuread-join-managed-domains/connect-to-azure-ad-username-password.png)
 
 1. In **Device options**, select **Configure Hybrid Azure AD join**, and then select **Next**.
 
    ![Device options](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-options.png)
+
+1. In **Device operating systems**, select the operating systems that devices in your Active Directory environment use, and then select **Next**.
+
+   ![Device operating system](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-operating-systems.png)
 
 1. In **SCP configuration**, for each forest where you want Azure AD Connect to configure the SCP, complete the following steps, and then select **Next**.
 
@@ -115,17 +116,9 @@ To configure a hybrid Azure AD join by using Azure AD Connect:
 
    ![SCP](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-scp-configuration.png)
 
-1. In **Device operating systems**, select the operating systems that devices in your Active Directory environment use, and then select **Next**.
-
-   ![Device operating system](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-operating-systems.png)
-
 1. In **Ready to configure**, select **Configure**.
 
-   ![Ready to configure](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-ready-to-configure.png)
-
 1. In **Configuration complete**, select **Exit**.
-
-   ![Configuration complete](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-configuration-complete.png)
 
 ## Enable Windows down-level devices
 
@@ -134,6 +127,14 @@ If some of your domain-joined devices are Windows down-level devices, you must:
 - Configure the local intranet settings for device registration
 - Configure seamless SSO
 - Install Microsoft Workplace Join for Windows down-level computers
+
+Windows down-level devices are devices with older operating systems. The following are Windows down-level devices:
+
+- Windows 7
+- Windows 8.1
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows Server 2012 R2
 
 > [!NOTE]
 > Windows 7 support ended on January 14, 2020. For more information, see [Windows 7 support ended](https://support.microsoft.com/help/4057281/windows-7-support-ended-on-january-14-2020).
@@ -179,7 +180,7 @@ Here are 3 ways to locate and verify the device state:
 
 ### Using PowerShell
 
-Verify the device registration state in your Azure tenant by using **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. This cmdlet is in the [Azure Active Directory PowerShell module](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0).
+Verify the device registration state in your Azure tenant by using **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. This cmdlet is in the [Azure Active Directory PowerShell module](/powershell/azure/active-directory/install-msonlinev1).
 
 When you use the **Get-MSolDevice** cmdlet to check the service details:
 

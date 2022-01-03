@@ -1,12 +1,9 @@
 ---
 title: Apache Oozie workflows & Enterprise Security - Azure HDInsight
 description: Secure Apache Oozie workflows using the Azure HDInsight Enterprise Security Package. Learn how to define an Oozie workflow and submit an Oozie job.
-author: omidm1
-ms.author: omidm
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,seodec18,seoapr2020
+ms.custom: seoapr2020
 ms.date: 05/14/2020
 ---
 
@@ -52,7 +49,7 @@ For more information on Secure Shell (SSH), see [Connect to HDInsight (Hadoop) u
 
 Oozie workflow definitions are written in Apache Hadoop Process Definition Language (hPDL). hPDL is an XML process definition language. Take the following steps to define the workflow:
 
-1. Set up a domain user’s workspace:
+1. Set up a domain user's workspace:
 
    ```bash
    hdfs dfs -mkdir /user/<DomainUser>
@@ -226,8 +223,8 @@ Oozie workflow definitions are written in Apache Hadoop Process Definition Langu
    ```
 
    - Use the `adl://home` URI for the `nameNode` property if you have Azure Data Lake Storage Gen1 as your primary cluster storage. If you're using Azure Blob Storage, then change to `wasb://home`. If you're using Azure Data Lake Storage Gen2, then change to `abfs://home`.
-   - Replace `domainuser` with your username for the domain.  
-   - Replace `ClusterShortName` with the short name for the cluster. For example, if the cluster name is https:// *[example link]* sechadoopcontoso.azurehdisnight.net, the `clustershortname` is the first six characters of the cluster: **sechad**.  
+   - Replace `domainuser` with your username for the domain.
+   - Replace `ClusterShortName` with the short name for the cluster. For example, if the cluster name is https:// *[example link]* sechadoopcontoso.azurehdisnight.net, the `clustershortname` is the first six characters of the cluster: **sechad**.
    - Replace `jdbcurlvalue` with the JDBC URL from the Hive configuration. An example is jdbc:hive2://headnodehost:10001/;transportMode=http.
    - To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.
 
@@ -308,17 +305,17 @@ CoordAction ID: -
 
 Actions
 ------------------------------------------------------------------------------------------------
-ID						Status	Ext ID			ExtStatus	ErrCode
+ID                        Status    Ext ID            ExtStatus                 ErrCode
 ------------------------------------------------------------------------------------------------
-0000015-180626011240801-oozie-oozi-W@:start:	OK	-			OK		-
+0000015-180626011240801-oozie-oozi-W@:start:    OK    -                         OK             -
 ------------------------------------------------------------------------------------------------
-0000015-180626011240801-oozie-oozi-W@mr-test	OK	job_1529975666160_0051	SUCCEEDED	-
+0000015-180626011240801-oozie-oozi-W@mr-test    OK    job_1529975666160_0051    SUCCEEDED      -
 ------------------------------------------------------------------------------------------------
-0000015-180626011240801-oozie-oozi-W@myHive2	OK	job_1529975666160_0053	SUCCEEDED	-
+0000015-180626011240801-oozie-oozi-W@myHive2    OK    job_1529975666160_0053    SUCCEEDED      -
 ------------------------------------------------------------------------------------------------
-0000015-180626011240801-oozie-oozi-W@myHive	OK	job_1529975666160_0055	SUCCEEDED	-
+0000015-180626011240801-oozie-oozi-W@myHive    OK     job_1529975666160_0055    SUCCEEDED      -
 ------------------------------------------------------------------------------------------------
-0000015-180626011240801-oozie-oozi-W@end	OK	-			OK		-
+0000015-180626011240801-oozie-oozi-W@end       OK     -                         OK             -
 -----------------------------------------------------------------------------------------------
 ```
 

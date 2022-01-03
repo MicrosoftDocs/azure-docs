@@ -2,11 +2,11 @@
 title: REST - Service-to-service authentication - Data Lake Storage Gen1 - Azure
 description: Learn how to achieve service-to-service authentication with Azure Data Lake Storage Gen1 and Azure Active Directory using the REST API.
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Service-to-service authentication with Azure Data Lake Storage Gen1 using REST API
@@ -44,7 +44,7 @@ The output of the request includes an authorization token (denoted by `access-to
 {"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
 ```
 
-This article uses the **non-interactive** approach. For more information on non-interactive (service-to-service calls), see [Service to service calls using credentials](https://msdn.microsoft.com/library/azure/dn645543.aspx).
+This article uses the **non-interactive** approach. For more information on non-interactive (service-to-service calls), see [Service to service calls using credentials](/previous-versions/azure/dn645543(v=azure.100)).
 
 ## Next steps
 

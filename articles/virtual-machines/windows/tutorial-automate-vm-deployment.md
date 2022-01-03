@@ -2,17 +2,19 @@
 title: Tutorial - Install applications on a Windows VM in Azure 
 description: In this tutorial, you learn how to use the Custom Script Extension to run scripts and deploy applications to Windows virtual machines in Azure  
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 
 #Customer intent: As an IT administrator or developer, I want learn about how to install applications on Windows VMs so that I can automate the process and reduce the risk of human error of manual configuration tasks.
 ---
 
 # Tutorial - Deploy applications to a Windows virtual machine in Azure with the Custom Script Extension
+**Applies to:** :heavy_check_mark: Window :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 To configure virtual machines (VMs) in a quick and consistent manner, you can use the [Custom Script Extension for Windows](../extensions/custom-script-windows.md). In this tutorial you learn how to:
 
@@ -36,7 +38,7 @@ You can use the Custom Script Extension with both Windows and Linux VMs.
 
 
 ## Create virtual machine
-Set the administrator username and password for the VM with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
+Set the administrator username and password for the VM with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
