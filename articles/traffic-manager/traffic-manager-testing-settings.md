@@ -4,7 +4,6 @@ description: In this article, learn how to verify your Traffic Manager settings 
 services: traffic-manager
 author: duongau
 ms.service: traffic-manager
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
