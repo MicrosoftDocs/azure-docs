@@ -4,7 +4,6 @@ description: In this tutorial, you'll learn how to use Power BI to visualize dat
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
-manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: business-intelligence

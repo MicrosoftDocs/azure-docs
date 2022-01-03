@@ -4,7 +4,6 @@ description: In this tutorial, you'll use the NYC Taxi sample data to explore SQ
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
-manager: julieMSFT
 ms.reviewer: jrasnick, wiassaf
 ms.service: synapse-analytics
 ms.subservice: sql
