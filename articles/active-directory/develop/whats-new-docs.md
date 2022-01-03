@@ -26,7 +26,6 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Build Zero Trust-ready apps using Microsoft identity platform features and tools](zero-trust-for-developers.md)
 - [Quickstart: Sign in users in single-page apps (SPA) using the auth code flow](single-page-app-quickstart.md)
 - [Run automated integration tests](test-automate-integration-testing.md)
-- [Running automated integration tests](automated-integration-testing.md)
 - [Secure identity in line-of-business application using Zero Trust principles](secure-line-of-business-apps.md)
 - [What are workload identities?](workload-identities-overview.md)
 
