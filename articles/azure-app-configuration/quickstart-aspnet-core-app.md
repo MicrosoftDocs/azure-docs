@@ -71,6 +71,57 @@ dotnet new mvc --no-https --output TestAppConfig
 
     Access this secret using the .NET Core Configuration API. A colon (`:`) works in the configuration name with the Configuration API on all supported platforms. For more information, see [Configuration keys and values](/aspnet/core/fundamentals/configuration#configuration-keys-and-values).
 
+    > [!IMPORTANT]
+    > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.x. Select the correct syntax based on your environment.
+
+#### [.NET 6.x](#tab/core6x)
+
+1. In *Program.cs*, and replace its content with the following code: 
+    ```csharp
+    var builder = WebApplication.CreateBuilder(args);
+    builder.Host.ConfigureAppConfiguration(builder =>
+                    {
+                        builder.AddAzureAppConfiguration(options =>
+                        {
+                            //Connect to your App Config Store using a connection string 
+                            options.Connect(Environment.GetEnvironmentVariable("AppConfig"))
+                                   // Load all keys that start with `TestApp:` and have no label
+                                   .Select("TestApp:*");                               
+                        });
+                    })
+                    .ConfigureServices(services =>
+                    {
+                        // Make Azure App Configuration services available through dependency injection
+                        services.AddAzureAppConfiguration()
+                                .AddControllersWithViews();
+                    });
+    
+    var app = builder.Build();
+    
+    // Configure the HTTP request pipeline.
+    if (!app.Environment.IsDevelopment())
+    {
+        app.UseExceptionHandler("/Home/Error");
+    }
+    app.UseStaticFiles();
+    
+    app.UseAzureAppConfiguration(); 
+    
+    app.UseRouting();
+    
+    app.UseAuthorization();
+    
+    app.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+    
+    app.Run();
+    ```
+    This will connect to your App Configuration Store using a connection string and load all keys that have the *TestApp* prefix from a previous step. 
+
+
+#### [.NET 5.x](#tab/core5x)
+
 1. In *Program.cs*, add a reference to the .NET Core Configuration API namespace:
 
     ```csharp
@@ -79,10 +130,25 @@ dotnet new mvc --no-https --output TestAppConfig
 
 1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
 
-    > [!IMPORTANT]
-    > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.x. Select the correct syntax based on your environment.
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration(config =>
+                {
+                    var settings = config.Build();
+                    var connection = settings.GetConnectionString("AppConfig");
+                    config.AddAzureAppConfiguration(connection);
+                }).UseStartup<Startup>());
+    ```
+#### [.NET Core 3.x](#tab/core3x)
+1. In *Program.cs*, add a reference to the .NET Core Configuration API namespace:
 
-     #### [.NET 5.x](#tab/core5x)
+    ```csharp
+    using Microsoft.Extensions.Configuration;
+    ```
+
+1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
 
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -95,21 +161,16 @@ dotnet new mvc --no-https --output TestAppConfig
                     config.AddAzureAppConfiguration(connection);
                 }).UseStartup<Startup>());
     ```
-    #### [.NET Core 3.x](#tab/core3x)
+
+#### [.NET Core 2.x](#tab/core2x)
+
+1. In *Program.cs*, add a reference to the .NET Core Configuration API namespace:
 
     ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-                webBuilder.ConfigureAppConfiguration(config =>
-                {
-                    var settings = config.Build();
-                    var connection = settings.GetConnectionString("AppConfig");
-                    config.AddAzureAppConfiguration(connection);
-                }).UseStartup<Startup>());
+    using Microsoft.Extensions.Configuration;
     ```
 
-    #### [.NET Core 2.x](#tab/core2x)
+1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -123,7 +184,7 @@ dotnet new mvc --no-https --output TestAppConfig
             .UseStartup<Startup>();
     ```
 
-    ---
+---
 
     With the preceding change, the [configuration provider for App Configuration](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) has been registered with the .NET Core Configuration API.
 
@@ -171,7 +232,7 @@ In the preceding code, the App Configuration store's keys are used as follows:
     dotnet run
     ```
 
-1. If you're working on your local machine, use a browser to navigate to `http://localhost:5000`. This address is the default URL for the locally hosted web app. If you're working in the Azure Cloud Shell, select the **Web Preview** button followed by **Configure**.
+1. If you're working on your local machine, use a browser to navigate to `http://localhost:5000` or as specified in the command output. This address is the default URL for the locally hosted web app. If you're working in the Azure Cloud Shell, select the **Web Preview** button followed by **Configure**.
 
     ![Locate the Web Preview button](./media/quickstarts/cloud-shell-web-preview.png)
 
