@@ -41,10 +41,10 @@ PS> Install-Module Az -Scope CurrentUser
 
 1. Open PowerShell as Administrator on your machine and run the following command (you might be asked to restart after each step; restart when asked):
 
-   ```powershell
-   PS> Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
-   PS> Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-   ```
+```powershell
+PS> Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
+PS> Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+```
 
    (*You may be prompted to restart after this step*)
 
@@ -56,15 +56,15 @@ PS> Install-Module Az -Scope CurrentUser
 
 5. In PowerShell, run the following command to set Ubuntu to be the default Linux distribution:
 
-   ```powershell
-   PS> wsl --setdefault Ubuntu-18.04
-   ```
+```powershell
+PS> wsl --setdefault Ubuntu-18.04
+```
 
 6. List all Linux distributions, making sure that Ubuntu is the default one.
 
-   ```powershell
-   PS> wsl --list
-   ```
+```powershell
+PS> wsl --list
+```
 
 7. You should see: **Ubuntu-18.04 (Default)**
 
@@ -78,23 +78,23 @@ There are two versions of the agent. For this tutorial, since you're exercising 
 
 1. Start Ubuntu WSL and enter the following command (note that extra space and dot at the end).
 
-     ```shell
-     explorer.exe .
-     ```
+```shell
+explorer.exe .
+```
 
 2. Copy AducIotAgentSim-microsoft-swupdate (or AducIotAgentSim-microsoft-apt) from your local folder where it was downloaded under /mnt to your home folder in WSL.
 
 3. Run the following command to make the binaries executable.
 
-     ```shell
-     sudo chmod u+x AducIotAgentSim-microsoft-swupdate
-     ```
+```shell
+sudo chmod u+x AducIotAgentSim-microsoft-swupdate
+```
 
   or
 
-     ```shell
-     sudo chmod u+x AducIotAgentSim-microsoft-apt
-     ```
+```shell
+sudo chmod u+x AducIotAgentSim-microsoft-apt
+```
 Device Update for Azure IoT Hub software is subject to the following license terms:
    * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
    * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
@@ -122,21 +122,21 @@ Start Device Update Agent on your new Software Devices.
 2. Run the Device Update Agent and specify the device connection string from the previous section wrapped with apostrophes:
 
 Replace `<device connection string>` with your connection string
-   ```shell
-   sudo ./AducIotAgentSim-microsoft-swupdate "<device connection string>"
-   ```
+```shell
+sudo ./AducIotAgentSim-microsoft-swupdate "<device connection string>"
+```
 
 or
 
-   ```shell
-   ./AducIotAgentSim-microsoft-apt -c '<device connection string>'
-   ```
+```shell
+./AducIotAgentSim-microsoft-apt -c '<device connection string>'
+```
 
 3. Scroll up and look for the string indicating that the device is in "Idle" state. An "Idle" state signifies that the device is ready for service commands:
 
-   ```markdown
-   Agent running. [main]
-   ```
+```markdown
+Agent running. [main]
+```
 
 ## Add a tag to your device
 
@@ -148,11 +148,11 @@ or
 
 4. Add a new Device Update tag value as shown below.
 
-   ```JSON
-       "tags": {
-               "ADUGroup": "<CustomTagValue>"
-               }
-   ```
+```JSON
+    "tags": {
+            "ADUGroup": "<CustomTagValue>"
+            }
+```
 
 ## Import update
 
