@@ -14,7 +14,7 @@ ms.subservice: teams-interop
 ---
 # Build a custom Teams endpoint
 
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+[!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
 You can use Azure Communication Services and Graph API to build custom Teams endpoints to communicate with the Microsoft Teams client or other custom Teams endpoints. With a custom Teams endpoint, you can customize a voice, video, chat, and screen-sharing experience for Teams users.
 
