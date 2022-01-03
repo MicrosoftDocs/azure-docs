@@ -74,7 +74,7 @@ For pricing related details please reference [Azure Active Directory pricing](ht
 ### Issuer
 This property indicates the user’s primary identity provider. A user can have several identity providers which can be viewed by selecting issuer in the user’s profile or by querying the property via Microsoft Graph API.  
 
-Issuer property value | User state
+Issuer property value | Sign-in state
 --------------------- | -------------------------
 External Azure AD tenant | This user is homed in an external organization and authenticates by using an Azure AD account that belongs to the other organization. This type of sign-in corresponds to State 1.
 Microsoft account |  This user is homed in a Microsoft account and authenticates by using a Microsoft account. This type of sign-in corresponds to State 2.
