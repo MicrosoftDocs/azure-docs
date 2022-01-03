@@ -117,7 +117,7 @@ dotnet new mvc --no-https --output TestAppConfig
         app.Run();
         ```
     
-        This code will connect to your App Configuration Store using a connection string and load all keys that have the *TestApp* prefix from a previous step. 
+    This code will connect to your App Configuration Store using a connection string and load all keys that have the *TestApp* prefix from a previous step. 
     
     
     #### [.NET 5.x](#tab/core5x)
@@ -185,9 +185,8 @@ dotnet new mvc --no-https --output TestAppConfig
                     config.AddAzureAppConfiguration(connection);
                 })
                 .UseStartup<Startup>();
-        ```
-    
-    ---
+        ```  
+---
 
 With the preceding change, the [configuration provider for App Configuration](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) has been registered with the .NET Core Configuration API.
 
