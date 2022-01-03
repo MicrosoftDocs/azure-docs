@@ -143,8 +143,6 @@ When your Bicep file uses modules that are published to a registry, the `restore
 
 To restore external modules to the local cache, the account must have the correct permissions to access the registry. You can configure the credential precedence for authenticating to the registry in the [Bicep config file](./bicep-config-modules.md#credentials-for-publishingrestoring-modules).
 
-Depending on the type of account you use to deploy the module, you may need to customize which credentials are used. These credentials are needed to get the modules from the registry. By default, credentials are obtained from Azure CLI or Azure PowerShell. You can customize the precedence for getting the credentials in the **bicepconfig.json** file. For more information, see [Credentials for restoring modules](bicep-config-modules.md#credentials-for-restoring-modules).
-
 To use the restore command, you must have Bicep CLI version **0.4.1008 or later**. This command is currently only available when calling the Bicep CLI directly. It's not currently available through the Azure CLI command.
 
 To manually restore the external modules for a file, use:
