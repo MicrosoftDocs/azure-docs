@@ -53,14 +53,14 @@ public static async Task Run(
 
 ```javascript
 const df = require("durable-functions");
-const moment = require("moment");
+const { DateTime } = require("luxon");
 
 module.exports = df.orchestrator(function*(context) {
     yield context.df.callActivity("DoCleanup");
 
     // sleep for one hour between cleanups
-    const nextCleanup = moment.utc(context.df.currentUtcDateTime).add(1, "h");
-    yield context.df.createTimer(nextCleanup.toDate());
+    const nextCleanup = DateTime.fromJSDate(context.df.currentUtcDateTime, {zone: 'utc'}).plus({ hours: 1 });
+    yield context.df.createTimer(nextCleanup.toJSDate());
 
     yield context.df.continueAsNew(undefined);
 });
