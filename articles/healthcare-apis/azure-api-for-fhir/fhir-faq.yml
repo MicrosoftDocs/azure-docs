@@ -178,7 +178,7 @@ sections:
       - question: |
           What are the differences between delete types in Azure API for FHIR?
         answer: |
-          There're two basic Delete types supported within Azure API for FHIR - [Delete](fhir-rest-api-capabilities.md#delete-types) and [Conditional Delete](fhir-rest-api-capabilities.md#delete-and-conditional-delete).
+          There're two basic Delete types supported within Azure API for FHIR. These are [Delete and Conditional Delete](fhir-rest-api-capabilities.md#delete-and-conditional-delete).
           * With Delete, you can choose to do a soft delete (most common type) and still be able to recover historic versions of your record.
           * With Conditional Delete, you can pass a search criteria to delete a resource one item at a time or several at a time.
           * With either Delete or Conditional Delete, if you passed the `hardDelete` parameter, all the records and history are deleted and unrecoverable.

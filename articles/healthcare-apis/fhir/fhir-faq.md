@@ -128,7 +128,7 @@ No, the FHIR service doesn't support terminology operations today.
 
 ### What are the differences between delete types in the FHIR service? 
 
-There're two basic Delete types supported within the FHIR service - [Delete](././../fhir/fhir-rest-api-capabilities.md#delete-types) and [Conditional delete](././../fhir/fhir-rest-api-capabilities.md#delete-and-conditional-delete).
+There're two basic Delete types supported within the FHIR service. These are [Delete and Conditional Delete](././../fhir/fhir-rest-api-capabilities.md#delete-and-conditional-delete).
 
 
 * With Delete, you can choose to do a soft delete (most common type) and still be able to recover historic versions of your record.
