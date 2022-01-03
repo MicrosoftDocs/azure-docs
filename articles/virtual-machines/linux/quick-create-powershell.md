@@ -125,6 +125,26 @@ $nic = New-AzNetworkInterface `
 
 ## Create a virtual machine
 
+
+```azurepowershell-interactive
+New-AzVm `
+    -ResourceGroupName "myResourceGroup" `
+    -Name "myVM" `
+    -Location "East US" `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -OpenPorts 80,3389 `
+    -GenerateSshKey
+```
+
+
+
+
+
+---------------------
+
 To create a VM in PowerShell, you create a configuration that has settings like the image to use, size, and authentication options. Then the configuration is used to build the VM.
 
 Define the SSH credentials, OS information, and VM size. In this example, the SSH key is stored in `~/.ssh/id_rsa.pub`. 
