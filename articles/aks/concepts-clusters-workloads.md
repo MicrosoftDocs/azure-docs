@@ -58,7 +58,7 @@ AKS provides a single-tenant control plane, with a dedicated API server, schedul
 
 While you don't need to configure components (like a highly available *etcd* store) with this managed control plane, you can't access the control plane directly. Kubernetes control plane and node upgrades are orchestrated through the Azure CLI or Azure portal. To troubleshoot possible issues, you can review the control plane logs through Azure Monitor logs.
 
-To configure or directly access a control plane, deploy your own Kubernetes cluster using [Cluster API provider Azure][cluster-api-provider-azure].
+To configure or directly access a control plane, deploy a self-managed Kubernetes cluster using [Cluster API provider Azure][cluster-api-provider-azure].
 
 For associated best practices, see [Best practices for cluster security and upgrades in AKS][operator-best-practices-cluster-security].
 
