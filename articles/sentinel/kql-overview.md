@@ -30,19 +30,19 @@ Because Kusto Query Language is a part of nearly everything you do in Microsoft 
 
 A KQL query is a read-only request to process data and return results – it doesn’t write any data. Queries operate on data that's organized into a hierarchy of [databases](/data-explorer/kusto/query/schema-entities/databases), [tables](/data-explorer/kusto/query/schema-entities/tables), and [columns](/data-explorer/kusto/query/schema-entities/columns), similar to SQL.
 
-KQL requests are stated in plain language and use a data-flow model designed to make the syntax easy to read, write, and automate.
+KQL requests are stated in plain language and use a data-flow model designed to make the syntax easy to read, write, and automate. We'll see this in detail.
 
 KQL queries are made up of *statements* separated by semicolons. There are many kinds of statements, but only two widely used types that we’ll discuss here:
 
-- ***let* statements** allow you to create and define variables and constants outside the body of the query, for easier readability and versatility. Optional. [Learn more](/azure/data-explorer/kusto/query/letstatement)
-
 - **tabular expression statements** are what we typically mean when we talk about queries – these are the actual body of the query. Required. [Learn more](/azure/data-explorer/kusto/query/tabularexpressionstatements)
+
+- ***let* statements** allow you to create and define variables and constants outside the body of the query, for easier readability and versatility. Optional. [Learn more](/azure/data-explorer/kusto/query/letstatement)
 
 You start KQL queries (actually, tabular expression statements) with a data source (a table or an expression representing a virtual table, possibly defined by a function or a *let* statement). You then perform a sequence of actions on those tables using operators to transform the data. Each of these actions passes the resulting data to the next action, and this passing is symbolized in the query by a pipe (|) delimiter.
 
 ## KQL demo environment
 
-You can practice KQL statements in a [Log Analytics demo environment](https://aka.ms/lademo) in the Azure portal. There is no charge to use this practice environment, but you do need an Azure account to access it.
+You can practice KQL statements - including the ones in this article - in a [Log Analytics demo environment](https://aka.ms/lademo) in the Azure portal. There is no charge to use this practice environment, but you do need an Azure account to access it.
 
 Explore the demo environment. Like Log Analytics in your production environment, it can be used in a number of ways:
 

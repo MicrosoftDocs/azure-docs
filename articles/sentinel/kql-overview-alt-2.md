@@ -10,15 +10,54 @@ ms.date: 10/19/2021
 
 # Kusto Query Language (KQL) in Microsoft Sentinel
 
-Read this article to learn some basic uses for Kusto Query Language (KQL) in Microsoft Sentinel.
-
 The Kusto Query Language, or KQL, is the language you will use to work with and manipulate data in Microsoft Sentinel. The logs you feed into your workspace aren't worth much if you can't analyze them and get the important information hidden in all that data. Kusto Query Language has not only the power and flexibility to get that information, but the simplicity to help you get started quickly. If you have a background in scripting or working with databases, a lot of the content of this article will feel very familiar. If not, don't worry, you will soon be ready to start writing your own queries and driving value for your organization.
 
 This article introduces the basics of KQL, covering some of the most used functions and operators, which should address 75 to 80 percent of the queries you will write day to day. When you'll need more depth, or to run more advanced queries, you can take advantage of the official KQL documentation as well as a variety of online courses.
 
+## Background - Why KQL?
+
+Microsoft Sentinel is built on top of the Azure Monitor service and it uses Azure Monitor’s [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) workspaces to store all of its data. This data includes any of the following:
+- data ingested from external sources into predefined tables using Microsoft Sentinel data connectors.
+- data ingested from external sources into user-defined custom tables, using custom-created data connectors as well as some types of out-of-the-box connectors. 
+- data created by Sentinel itself, resulting from the analyses Sentinel creates and performs - for example, alerts, incidents, and UEBA-related information.
+- data uploaded to Sentinel to assist with detection and analysis - for example, threat intelligence feeds and watchlists.
+
+[Kusto Query Language](/data-explorer/kusto/query/) (KQL) was developed as part of the [Azure Data Explorer](/data-explorer/) service, and it’s therefore optimized for searching through big-data stores in a cloud environment. Inspired by famed undersea explorer Jacques Cousteau (and pronounced accordingly "koo-STOH"), it’s designed to help you dive deep into your oceans of data and explore their hidden treasures. 
+
+KQL is also used in Azure Monitor (and therefore in Microsoft Sentinel), including some additional Azure Monitor features, to retrieve, visualize, analyze, and parse data in Log Analytics data stores. In Microsoft Sentinel, you're using tools based on Kusto Query Language whenever you’re visualizing and analyzing data and hunting for threats, whether in existing rules and workbooks, or in building your own.
+
+Because Kusto Query Language is a part of nearly everything you do in Microsoft Sentinel, a clear understanding of how KQL works will help you get that much more out of your SIEM.
+
+## KQL queries
+
+A KQL query is a read-only request to process data and return results – it doesn’t write any data. Queries operate on data that's organized into a hierarchy of [databases](/data-explorer/kusto/query/schema-entities/databases), [tables](/data-explorer/kusto/query/schema-entities/tables), and [columns](/data-explorer/kusto/query/schema-entities/columns), similar to SQL.
+
+KQL requests are stated in plain language and use a data-flow model designed to make the syntax easy to read, write, and automate. We'll see this in detail.
+
+KQL queries are made up of *statements* separated by semicolons. There are many kinds of statements, but only two widely used types that we’ll discuss here:
+
+- [**tabular expression statements**](/azure/data-explorer/kusto/query/tabularexpressionstatements) are what we typically mean when we talk about queries – these are the actual body of the query, and at least one of these is required. Most of the rest of this article will discuss this kind of statement.
+
+- [***let* statements**](/azure/data-explorer/kusto/query/letstatement) allow you to create and define variables and constants outside the body of the query, for easier readability and versatility. These are optional and depend on your particular needs. We'll address this kind of statement at the end of the article. 
+
+## KQL demo environment
+
+You can practice KQL statements - including the ones in this article - in a [Log Analytics demo environment](https://aka.ms/lademo) in the Azure portal. There is no charge to use this practice environment, but you do need an Azure account to access it.
+
+Explore the demo environment. Like Log Analytics in your production environment, it can be used in a number of ways:
+
+- **Choose a table on which to build a query.** From the default **Tables** tab (shown in the red rectangle at the upper left), select a table from the list of tables grouped by topics (shown at the lower left). Expand the topics to see the individual tables, and you can further expand each table to see all its fields (columns). Double-clicking on a table or a field name will place it at the point of the cursor in the query window. Type the rest of your query following the table name, as directed below.
+
+- **Find an existing query to study or modify.** Select the **Queries** tab (shown in the red rectangle at the upper left) to see a list of queries available out-of-the-box. Or, select **Queries** from the button bar at the top right. You can explore the queries that come with Microsoft Sentinel out-of-the-box. Double-clicking a query will place the whole query in the query window at the point of the cursor.
+
+    :::image type="content" source="./media/kql-overview-alt/portal-placement.png" alt-text="Shows the Log Analytics demo environment.":::
+
+Like in this demo environment, you can query and filter data in the Microsoft Sentinel console  > **Logs** page. You can select a table and drill down to see columns. You can modify the default columns shown using the **Column chooser**, and you can set the default time range for queries. If the time range is explicitly defined in the query, the time filter will be unavailable (grayed out).
+
+
 ## The KQL query structure
 
-A good place to start learning KQL is to develop an understanding of the overall query structure. The first thing you'll notice when looking at a Kusto query is the use of the pipe symbol (` | `). The structure of a Kusto query is one where you pass your data across a "pipeline," and each step provides some level of processing. At the end of the pipeline, you will get your final result. In effect, this is our pipeline:
+A good place to start learning KQL is to understand the overall query structure. The first thing you'll notice when looking at a Kusto query is the use of the pipe symbol (` | `). The structure of a Kusto query starts with getting your data from a data source and then passing the data across a "pipeline," and each step provides some level of processing and then passes the data to the next step. At the end of the pipeline, you will get your final result. In effect, this is our pipeline:
 
 `Get Data | Filter | Summarize | Sort | Select`
 
@@ -35,21 +74,23 @@ SigninLogs                              // Get data
 | where RiskLevelDuringSignIn == 'none' // Filter
    and TimeGenerated >= ago(7d)         // Filter
 | summarize Count = count() by city     // Summarize
-| order by Count desc                   // Sort
+| sort by Count desc                   // Sort
 | take 5                                // Select
 ```
 
-One of the best parts of KQL is that within reason, you can make the steps happen in any order you choose, but be aware that the order can affect the query's performance, and sometimes even the results.
+In most cases and within certain boundaries, you can arrange the steps in any order you choose, but be aware that the order can affect the query's performance, and sometimes even the results.
 
-A good rule of thumb is to filter your data early, so you are only passing relevant data down the pipeline. This will greatly increase performance and ensure that you aren't accidentally including irrelevant data in summarization steps.
+> [!TIP]
+> - A good rule of thumb is to filter your data early, so you are only passing relevant data down the pipeline. This will greatly increase performance and ensure that you aren't accidentally including irrelevant data in summarization steps.
+> - This article will point out some other best practices to keep in mind. For a more complete list, see [query best practices](/azure/data-explorer/kusto/query/best-practices).
 
 Hopefully, you now have an appreciation for the overall structure of a KQL query. Now let's look at the actual KQL operators themselves, which are used to create a KQL query.
 
 ### Data types
 
-Before we get into the actual KQL operators, let's first touch on data types. As in most languages, the data type determines what calculations and manipulations can be run against a value. For example, if you have a value that is of type string, you won't be able to perform arithmetic calculations against it.
+Before we get into the actual KQL operators, let's first take a quick look at data types. As in most languages, the data type determines what calculations and manipulations can be run against a value. For example, if you have a value that is of type *string*, you won't be able to perform arithmetic calculations against it.
 
-In KQL, most of the data types follow traditional names you are used to seeing, but there are a few that you might not have seen before such as dynamic and timespan. The following table shows the full list:
+In KQL, most of the data types follow standard conventions and have names you've probably seen before. The following table shows the full list:
 
 #### Data type table
 
@@ -67,9 +108,9 @@ In KQL, most of the data types follow traditional names you are used to seeing, 
 | `decimal`  |                    | `System.Data.SqlTypes.SqlDecimal` |
 | | | |
 
-While most of the data types are standard, *dynamic*, *timespan*, and *guid* are less commonly seen.
+While most of the data types are standard, you might be less familiar with types like *dynamic*, *timespan*, and *guid*.
 
-***Dynamic*** has a structure very similar to JSON (JavaScript Object Notation) with one key difference: It can store KQL-specific data types that traditional JSON cannot, such as a nested dynamic value or timespan. Here's an example of a dynamic type:
+***Dynamic*** has a structure very similar to JSON (JavaScript Object Notation), but with one key difference: It can store KQL-specific data types that traditional JSON cannot, such as a nested *dynamic* value, or *timespan*. Here's an example of a dynamic type:
 
 ```json
 {
@@ -83,9 +124,9 @@ While most of the data types are standard, *dynamic*, *timespan*, and *guid* are
 }
 ```
 
-***Timespan*** is a data type that refers to a measure of time such as hours, days, or seconds. Do not confuse timespan with datetime, which is an actual date and time, not a measure of time. The following table shows a list of timespan suffixes.
+***Timespan*** is a data type that refers to a measure of time such as hours, days, or seconds. Do not confuse *timespan* with *datetime*, which evaluates to an actual date and time, not a measure of time. The following table shows a list of *timespan* suffixes.
 
-#### Timespan suffixes
+#### *Timespan* suffixes
 
 | Function | Description |
 | -------- | ----------- |
@@ -127,6 +168,7 @@ Using *take* earlier in the query can be useful for testing a query, when you do
 SigninLogs
       | take 5
 ```
+:::image type="content" source="media/kql-overview-alt/table-take-5.png" alt-text="Screenshot of results of take operator.":::
 
 > [!TIP]
 > When working on a brand-new query where you may not know what the query will look like, it can be useful to put a *take* statement at the beginning to artificially limit your dataset for faster processing and experimentation. Once you are happy with the full query, you can remove the initial *take* step.
@@ -143,6 +185,8 @@ SigninLogs
 
 As we mentioned, we put the *sort* operator before the *take* operator. We need to sort first to make sure we get the appropriate five records.
 
+:::image type="content" source="media/kql-overview-alt/table-take-sort.png" alt-text="Screenshot of results of sort operator, with take limit.":::
+
 #### *Top*
 
 The *top* operator allows us to combine the *sort* and *take* operations into a single operator:
@@ -156,7 +200,7 @@ In cases where two or more records have the same value in the column you are sor
 
 ```kusto
 SigninLogs
-| order by TimeGenerated, Identity desc
+| sort by TimeGenerated, Identity desc
 | take 5
 ```
 
@@ -169,7 +213,7 @@ The *where* operator is arguably the most important operator, because it's the k
 ```kusto
 SigninLogs
 | where TimeGenerated >= ago(7d)
-| order by TimeGenerated, Identity desc
+| sort by TimeGenerated, Identity desc
 | take 5
 ```
 
@@ -198,10 +242,8 @@ There are two types of comparison operators in KQL: string and numerical. The fo
 
 The list of string operators is a much longer list because it has permutations for case sensitivity, substring locations, prefixes, suffixes, and much more. The `==` operator is both a numeric and string operator, meaning it can be used for both numbers and text. For example, both of the following statements would be valid where statements:
 
-```kusto
-| where ResultType == 0
-| where Category == 'SignInLogs'
-```
+- `| where ResultType == 0`  
+- `| where Category == 'SignInLogs'`
 
 > [!TIP]
 > **Best Practice:** In most cases, you will probably want to filter your data by more than one column, or filter the same column in more than one way. In these instances, there are two best practices you should keep in mind.
@@ -247,7 +289,7 @@ Because the output of *summarize* is a new table, any columns not explicitly spe
 Perf
 | project ObjectName, CounterValue, CounterName
 | summarize count() by CounterName
-| order by ObjectName asc
+| sort by ObjectName asc
 ```
 
 On the second line, we are specifying that we only care about the columns *ObjectName*, *CounterValue*, and *CounterName*. We then summarized to get the record count by *CounterName* and finally, we attempt to sort the data in ascending order based on the *ObjectName* column. Unfortunately, this query will fail with an error indicating that the *ObjectName* is unknown. This is because when we summarized, we only included the *Count* and *CounterName* columns in our new table. To fix this, we can simply add *ObjectName* to the end of our *summarize* step, like this:
@@ -256,7 +298,7 @@ On the second line, we are specifying that we only care about the columns *Objec
 Perf
 | project ObjectName, CounterValue , CounterName
 | summarize count() by CounterName, ObjectName
-| order by ObjectName asc
+| sort by ObjectName asc
 ```
 
 The way to read the *summarize* line in your head would be: "summarize the count of records by *CounterName*, and sort by *ObjectName*". You can continue adding columns, separated by commas, to the end of the *summarize* statement.
@@ -267,7 +309,7 @@ Building on the previous example, if we want to aggregate multiple columns at th
 Perf
 | project ObjectName, CounterValue , CounterName
 | summarize count(), sum(CounterValue) by CounterName, ObjectName
-| order by ObjectName asc
+| sort by ObjectName asc
 ```
 
 This seems like a good time to talk about column names for these aggregated columns. At the start of this section, we said the *summarize* operator takes in a table of data and produces a new table, and only the columns you specify in the *summarize* statement will continue down the pipeline. Therefore, if you were to run the above example, the resulting columns for our aggregation would be *count_* and *sum_CounterValue*.
@@ -278,7 +320,7 @@ The KQL engine will automatically create a column name without us having to be e
 Perf
 | project ObjectName, CounterValue , CounterName
 | summarize Count = count(), CounterSum = sum(CounterValue) by CounterName, ObjectName
-| order by ObjectName asc
+| sort by ObjectName asc
 ```
 
 Now, our summarized columns will be named *Count* and *CounterSum*.
@@ -436,7 +478,7 @@ SigninLogs
 | where RiskLevelDuringSignIn == 'none'
    and TimeGenerated >= ago(7d)
 | summarize Count = count() by city
-| order by Count desc
+| sort by Count desc
 | take 5
 ```
 
@@ -457,6 +499,16 @@ The plugin used in the above example was called *bag_unpack*, and it makes it ve
 ```
 
 In this case, we wanted to summarize the data by city, but *city* is contained as a property within the *LocationDetails* column. To use the *city* property in our query, we had to first convert it to a column using *bag_unpack*.
+
+Going back to our original pipeline steps, we saw this:
+
+`Get Data | Filter | Summarize | Sort | Select`
+
+Now that we've considered the *evaluate* operator, we can see that it represents a new stage in the pipeline, which now looks like this:
+
+`Get Data | `***`Parse`***` | Filter | Summarize | Sort | Select`
+
+There are many other examples of operators and functions that can be used to parse data sources into a more readable and manipulatable format. You can learn about them - and the rest of the Kusto Query Language - in the full KQL documentation and
 
 ## Let statements
 
@@ -487,12 +539,12 @@ In this case, we created a second *let* statement, where we wrapped our whole qu
 
 ## Next steps
 
-As you can probably tell, we only scratched the surface on KQL, but the goal here was simply to demystify the basics of the language. In order to keep building your expertise around KQL, we recommend taking an online course and reading through the formal documentation.
+In this article, you learned - in keeping with the "80/20 rule" - the "20%" of Kusto Query Language that you'll be using "80%" of the time. Accordingly, we've barely scratched the surface on KQL, but hopefully you've now got the foundation necessary to really get to work in Microsoft Sentinel. In order to keep building your expertise around KQL, we recommend taking an online course and reading through the formal documentation.
 
-The following list of resources is, by no means, an exhaustive list. However, the information here will help you create your own custom Microsoft Sentinel notebooks.
+Here's a starter list of resources to help you broaden and deepen your knowledge of and expertise with KQL:
 
-https://aka.ms/KQLDocs [Official Documentation for KQL]
+- [Official Documentation for KQL](https://aka.ms/KQLDocs)
 
-https://aka.ms/KQLFromScratch [Pluralsight Course: KQL From Scratch]
+- [Pluralsight Course: KQL From Scratch](https://aka.ms/KQLFromScratch)
 
-https://aka.ms/KQLCheatSheet [KQL Cheat Sheet made by Marcus Bakker]
+- [KQL Cheat Sheet made by Marcus Bakker](https://aka.ms/KQLCheatSheet)
