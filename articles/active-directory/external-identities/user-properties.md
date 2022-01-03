@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 01/04/2022
+ms.date: 01    /04/2022
 
 ms.author: mimart
 author: msmimart
@@ -39,15 +39,15 @@ Now, let's see what an Azure AD B2B collaboration user looks like in Azure AD.
 
 ### Before invitation redemption
 
-State 1 and State 2 accounts are the result of inviting guest users to collaborate by using the guest users' own credentials. When the invitation is initially sent to the guest user, an account is created in your directory. This account doesn’t have any credentials associated with it because authentication is performed by the guest user's identity provider.
+State 1 and State 2 accounts are the result of inviting guest users to collaborate by using the guest users' own credentials. When the invitation is initially sent to the guest user, an account is created in your tenant. This account doesn’t have any credentials associated with it because authentication is performed by the guest user's identity provider.
 
-The **Issuer** property for the guest user account in your directory is set to **{resource tenant ID}** until the guest redeems their invitation. In the portal, the **Invitation accepted** property in the invited user’s Azure AD portal profile will be set to `No` and querying for **externalUserState** using the Microsoft Graph API will return `Pending Acceptance`.
+The **Issuer** property for the guest user account in your directory is set to the host's organization domain until the guest redeems their invitation. In the portal, the **Invitation accepted** property in the invited user’s Azure AD portal profile will be set to `No` and querying for **externalUserState** using the Microsoft Graph API will return `Pending Acceptance`.
 
 ![Screenshot showing user properties before offer redemption](media/user-properties/before-redemption.png)
 
 ### After invitation redemption
 
-After the guest user accepts the invitation, the **Source** property is updated based on the guest user’s identity provider.
+After the guest user accepts the invitation, the **Issuer** property is updated based on the guest user’s identity provider.
 
 For guest users in State 1, the **issuer** is **External Azure AD**.
 
@@ -74,21 +74,16 @@ For pricing related details please reference [Azure Active Directory pricing](ht
 ### Issuer
 This property indicates the user’s primary identity provider. A user can have several identity providers which can be viewed by selecting issuer in the user’s profile or by querying the property via Microsoft Graph API.  
 
-- External Azure AD {home tenant ID}: This user is homed in an external organization and authenticates by using an Azure AD account that belongs to the other organization. This type of sign-in corresponds to State 1.
-
-- Microsoft account: This user is homed in a Microsoft account and authenticates by using a Microsoft account. This type of sign-in corresponds to State 2.
-
-- {Host’s domain}: This user authenticates by using an Azure AD account that belongs to this organization. This type of sign-in corresponds to State 4.
-
-- google.com: This user has a Gmail account and has signed up by using self-service to the other organization. This type of sign-in corresponds to State 2.
-
-- facebook.com: This user has a Facebook account and has signed up by using self-service to the other organization. This type of sign-in corresponds to State 2.
-
-- mail: This user has an email address that does not match with verified Azure AD or SAML/WS-Fed domains, and is not a Gmail address or a Microsoft account. This type of sign-in corresponds to State 4.
-
-- phone: This user has an email address that does not match a verified Azure AD domain or a SAML/WS-Fed domain, and is not a Gmail address or Microsoft account. This type of sign-in corresponds to State 4.
-
-- {issuer URI}: This user is homed in an external organization that does not use Azure Active Directory as their identity provider, but instead uses a SAML/WS-Fed based identity providers. The issuer URI is shown when the issuer field is clicked. This type of sign-in corresponds to State 2. 
+Issuer property value | User state
+--------------------- | -------------------------
+External Azure AD tenant | This user is homed in an external organization and authenticates by using an Azure AD account that belongs to the other organization. This type of sign-in corresponds to State 1.
+Microsoft account |  This user is homed in a Microsoft account and authenticates by using a Microsoft account. This type of sign-in corresponds to State 2.
+{Host’s domain} | This user authenticates by using an Azure AD account that belongs to this organization. This type of sign-in corresponds to State 4.
+google.com | This user has a Gmail account and has signed up by using self-service to the other organization. This type of sign-in corresponds to State 2.
+facebook.com | This user has a Facebook account and has signed up by using self-service to the other organization. This type of sign-in corresponds to State 2.
+mail | This user has an email address that does not match with verified Azure AD or SAML/WS-Fed domains, and is not a Gmail address or a Microsoft account. This type of sign-in corresponds to State 4.
+phone | This user has an email address that does not match a verified Azure AD domain or a SAML/WS-Fed domain, and is not a Gmail address or Microsoft account. This type of sign-in corresponds to State 4.
+{issuer URI} | This user is homed in an external organization that does not use Azure Active Directory as their identity provider, but instead uses a SAML/WS-Fed based identity providers. The issuer URI is shown when the issuer field is clicked. This type of sign-in corresponds to State 2.
 
 ### Directory synced (or ‘onPremisesSyncEnabled in MS Graph)
 
