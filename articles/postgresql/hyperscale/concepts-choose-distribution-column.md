@@ -37,7 +37,7 @@ together on one node when both tables are restricted to the same
 account\_id.
 
 ![Multi-tenant
-colocation](media/concepts-hyperscale-choosing-distribution-column/multi-tenant-colocation.png)
+colocation](media/concepts-choosing-distribution-column/multi-tenant-colocation.png)
 
 To apply this design in your own schema, identify
 what constitutes a tenant in your application. Common instances include
@@ -61,7 +61,7 @@ store.
     query should request information for one tenant at a time.
 
 Read the [multi-tenant
-tutorial](./tutorial-design-database-hyperscale-multi-tenant.md) for an example of how to 
+tutorial](./tutorial-design-database-multi-tenant.md) for an example of how to 
 build this kind of application.
 
 ### Real-time apps
@@ -104,7 +104,7 @@ disproportionate amount of work.
     table to all of the nodes in the form of a reference table.
 
 Read the [real-time dashboard
-tutorial](./tutorial-design-database-hyperscale-realtime.md) for an example of how to build this kind of application.
+tutorial](./tutorial-design-database-realtime.md) for an example of how to build this kind of application.
 
 ### Time-series data
 
@@ -131,5 +131,5 @@ hash distribution leads to network overhead.
 
 ## Next steps
 
-- Learn how [colocation](concepts-hyperscale-colocation.md) between distributed data helps queries run fast.
-- Discover the distribution column of a distributed table, and other [useful diagnostic queries](howto-hyperscale-useful-diagnostic-queries.md).
+- Learn how [colocation](concepts-colocation.md) between distributed data helps queries run fast.
+- Discover the distribution column of a distributed table, and other [useful diagnostic queries](howto-useful-diagnostic-queries.md).

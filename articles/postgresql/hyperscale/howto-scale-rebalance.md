@@ -12,7 +12,7 @@ ms.date: 07/20/2021
 # Rebalance shards in Hyperscale (Citus) server group
 
 To take advantage of newly added nodes you must rebalance distributed table
-[shards](concepts-hyperscale-distributed-data.md#shards), which means moving
+[shards](concepts-distributed-data.md#shards), which means moving
 some shards from existing nodes to the new ones. Hyperscale (Citus) offers
 zero-downtime rebalancing, meaning queries can run without interruption during
 shard rebalancing.
@@ -32,9 +32,9 @@ recommended at this time**.
 
 To start the shard rebalancer, you need to connect to the coordinator node of
 the server group and run the
-[rebalance_table_shards](reference-hyperscale-functions.md#rebalance_table_shards)
+[rebalance_table_shards](reference-functions.md#rebalance_table_shards)
 SQL function on distributed tables. The function rebalances all tables in the
-[colocation](concepts-hyperscale-colocation.md) group of the table named in its
+[colocation](concepts-colocation.md) group of the table named in its
 argument. Thus you do not have to call the function for every distributed
 table, just call it on a representative table from each colocation group.
 
@@ -58,8 +58,8 @@ it will again say **Rebalancing is not recommended at this time**.
 ## Next steps
 
 - Learn more about server group [performance
-  options](concepts-hyperscale-configuration-options.md).
-- [Scale a server group](howto-hyperscale-scale-grow.md) up or out
+  options](concepts-configuration-options.md).
+- [Scale a server group](howto-scale-grow.md) up or out
 - See the
-  [rebalance_table_shards](reference-hyperscale-functions.md#rebalance_table_shards)
+  [rebalance_table_shards](reference-functions.md#rebalance_table_shards)
   reference material

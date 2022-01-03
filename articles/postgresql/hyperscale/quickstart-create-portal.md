@@ -15,7 +15,7 @@ ms.date: 11/16/2021
 
 Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This Quickstart shows you how to create an Azure Database for PostgreSQL - Hyperscale (Citus) server group using the Azure portal. You'll explore distributed data: sharding tables across nodes, ingesting sample data, and running queries that execute on multiple nodes.
 
-[!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
+[!INCLUDE [azure-postgresql-hyperscale-create-db](../../../includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## Create and distribute tables
 
@@ -74,7 +74,7 @@ SELECT create_distributed_table('github_events', 'user_id');
 SELECT create_distributed_table('github_users', 'user_id');
 ```
 
-[!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../includes/azure-postgresql-hyperscale-dist-alert.md)]
+[!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../../includes/azure-postgresql-hyperscale-dist-alert.md)]
 
 We're ready to load data. In psql still, shell out to download the files:
 
@@ -135,6 +135,6 @@ In the preceding steps, you created Azure resources in a server group. If you do
 In this quickstart, you learned how to provision a Hyperscale (Citus) server group. You connected to it with psql, created a schema, and distributed data.
 
 - Follow a tutorial to [build scalable multi-tenant
-  applications](./tutorial-design-database-hyperscale-multi-tenant.md)
+  applications](./tutorial-design-database-multi-tenant.md)
 - Determine the best [initial
-  size](howto-hyperscale-scale-initial.md) for your server group
+  size](howto-scale-initial.md) for your server group

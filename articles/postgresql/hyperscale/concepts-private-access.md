@@ -11,15 +11,15 @@ ms.date: 10/15/2021
 
 # Private access (preview) in Azure Database for PostgreSQL - Hyperscale (Citus)
 
-[!INCLUDE [azure-postgresql-hyperscale-access](../../includes/azure-postgresql-hyperscale-access.md)]
+[!INCLUDE [azure-postgresql-hyperscale-access](../../../includes/azure-postgresql-hyperscale-access.md)]
 
 This page describes the private access option. For public access, see
-[here](concepts-hyperscale-firewall-rules.md).
+[here](concepts-firewall-rules.md).
 
 > [!NOTE]
 >
 > Private access is available for preview in only [certain
-> regions](concepts-hyperscale-limits.md#regions).
+> regions](concepts-limits.md#regions).
 >
 > If the private access option is not selectable for your server group even
 > though your server group is within an allowed region, please open an Azure
@@ -108,7 +108,7 @@ network](../dns/private-dns-getstarted-portal.md#link-the-virtual-network).
 > `c.mygroup01.postgres.database.azure.com` for every node. However, selected
 > computers on the public internet can connect to the public hostname only if
 > the database administrator enables [public
-> access](concepts-hyperscale-firewall-rules.md) to the server group.
+> access](concepts-firewall-rules.md) to the server group.
 
 If you're using a custom DNS server, you must use a DNS forwarder to resolve
 the FQDN of Hyperscale (Citus) nodes. The forwarder IP address should be
@@ -135,14 +135,14 @@ consider:
 
 ## Limits and limitations
 
-See Hyperscale (Citus) [limits and limitations](concepts-hyperscale-limits.md)
+See Hyperscale (Citus) [limits and limitations](concepts-limits.md)
 page.
 
 ## Next steps
 
 * Learn how to [enable and manage private
-  access](howto-hyperscale-private-access.md) (preview)
-* Follow a [tutorial](tutorial-hyperscale-private-access.md) to see
+  access](howto-private-access.md) (preview)
+* Follow a [tutorial](tutorial-private-access.md) to see
   private access (preview) in action.
 * Learn about [private
   endpoints](../private-link/private-endpoint-overview.md)

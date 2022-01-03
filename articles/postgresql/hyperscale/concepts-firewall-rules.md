@@ -11,10 +11,10 @@ ms.date: 10/15/2021
 
 # Public access in Azure Database for PostgreSQL - Hyperscale (Citus)
 
-[!INCLUDE [azure-postgresql-hyperscale-access](../../includes/azure-postgresql-hyperscale-access.md)]
+[!INCLUDE [azure-postgresql-hyperscale-access](../../../includes/azure-postgresql-hyperscale-access.md)]
 
 This page describes the public access option. For private access, see
-[here](concepts-hyperscale-private-access.md).
+[here](concepts-private-access.md).
 
 ## Firewall overview
 
@@ -26,7 +26,7 @@ To configure your firewall, you create firewall rules that specify ranges of acc
 All database access to your coordinator node is blocked by the firewall by default. To begin using your server from another computer, you need to specify one or more server-level firewall rules to enable access to your server. Use the firewall rules to specify which IP address ranges from the Internet to allow. Access to the Azure portal website itself is not impacted by the firewall rules.
 Connection attempts from the Internet and Azure must first pass through the firewall before they can reach your PostgreSQL Database, as shown in the following diagram:
 
-:::image type="content" source="media/concepts-hyperscale-firewall-rules/1-firewall-concept.png" alt-text="Example flow of how the firewall works":::
+:::image type="content" source="../media/concepts-hyperscale-firewall-rules/1-firewall-concept.png" alt-text="Example flow of how the firewall works":::
 
 ## Connecting from the Internet and from Azure
 
@@ -37,7 +37,7 @@ When the firewall blocks connections, it can cause application errors. Using the
 > java.util.concurrent.ExecutionException: java.lang.RuntimeException:
 > org.postgresql.util.PSQLException: FATAL: no pg\_hba.conf entry for host "123.45.67.890", user "citus", database "citus", SSL
 
-See [Create and manage firewall rules](howto-hyperscale-manage-firewall-using-portal.md) to learn how the rules are defined.
+See [Create and manage firewall rules](howto-manage-firewall-using-portal.md) to learn how the rules are defined.
 
 ## Troubleshooting the database server firewall
 When access to the Microsoft Azure Database for PostgreSQL - Hyperscale (Citus) service doesn't behave as you expect, consider these points:
@@ -57,4 +57,4 @@ For example, using a JDBC client, the following error may appear.
 
 ## Next steps
 For articles on creating server-level and database-level firewall rules, see:
-* [Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal](howto-hyperscale-manage-firewall-using-portal.md)
+* [Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal](howto-manage-firewall-using-portal.md)

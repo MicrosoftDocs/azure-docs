@@ -11,12 +11,12 @@ ms.date: 11/16/2021
 
 # Private access (preview) in Azure Database for PostgreSQL Hyperscale (Citus)
 
-[Private access](concepts-hyperscale-private-access.md) (preview) allows
+[Private access](concepts-private-access.md) (preview) allows
 resources in an Azure virtual network to connect securely and privately to
 nodes in a Hyperscale (Citus) server group. This how-to assumes you've already
 created a virtual network and subnet. For an example of setting up
 prerequisites, see the [private access
-tutorial](tutorial-hyperscale-private-access.md).
+tutorial](tutorial-private-access.md).
 
 ## Create a server group with a private endpoint
 
@@ -41,7 +41,7 @@ tutorial](tutorial-hyperscale-private-access.md).
 	> [!NOTE]
 	>
 	> Private access is available for preview in only [certain
-	> regions](concepts-hyperscale-limits.md#regions).
+	> regions](concepts-limits.md#regions).
 	>
 	> If the private access option is not selectable for your server group
 	> even though your server group is within an allowed region,
@@ -96,7 +96,7 @@ To create a private endpoint to a node in an existing server group, open the
 
 ## Next steps
 
-* Learn more about [private access](concepts-hyperscale-private-access.md)
+* Learn more about [private access](concepts-private-access.md)
   (preview).
-* Follow a [tutorial](tutorial-hyperscale-private-access.md) to see private
+* Follow a [tutorial](tutorial-private-access.md) to see private
   access (preview) in action.

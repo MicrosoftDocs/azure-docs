@@ -42,7 +42,7 @@ fewer connections available for user queries than connections total.
 #### Connection pooling
 
 You can scale connections further using [connection
-pooling](concepts-hyperscale-connection-pool.md). Hyperscale (Citus) offers a
+pooling](concepts-connection-pool.md). Hyperscale (Citus) offers a
 managed pgBouncer connection pooler configured for up to 2,000 simultaneous
 client connections.
 
@@ -50,7 +50,7 @@ client connections.
 
 #### Server group name
 
-To be compatible with [private access](concepts-hyperscale-private-access.md),
+To be compatible with [private access](concepts-private-access.md),
 a Hyperscale (Citus) server group must have a name that is 40 characters or
 shorter.
 
@@ -82,7 +82,7 @@ be scaled down (decreased).
 
 Up to 2 TiB of storage is supported on coordinator and worker nodes. See the
 available storage options and IOPS calculation
-[above](concepts-hyperscale-configuration-options.md#compute-and-storage) for
+[above](concepts-configuration-options.md#compute-and-storage) for
 node and cluster sizes.
 
 ## Compute
@@ -94,7 +94,7 @@ independently adjustable quotas: vCores for coordinator nodes, and vCores for
 worker nodes. The default quota should be more than enough to experiment with
 Hyperscale (Citus). If you do need more vCores for a region in your
 subscription, see how to [adjust compute
-quotas](howto-hyperscale-compute-quota.md).
+quotas](howto-compute-quota.md).
 
 ## PostgreSQL
 
@@ -108,7 +108,7 @@ with an error.
 ### Columnar storage
 
 Hyperscale (Citus) currently has these limitations with [columnar
-tables](concepts-hyperscale-columnar.md):
+tables](concepts-columnar.md):
 
 * Compression is on disk, not in memory
 * Append-only (no UPDATE/DELETE support)
@@ -133,5 +133,5 @@ tables](concepts-hyperscale-columnar.md):
 ## Next steps
 
 * Learn how to [create a Hyperscale (Citus) server group in the
-  portal](quickstart-create-hyperscale-portal.md).
-* Learn to enable [connection pooling](concepts-hyperscale-connection-pool.md).
+  portal](quickstart-create-portal.md).
+* Learn to enable [connection pooling](concepts-connection-pool.md).

@@ -32,7 +32,7 @@ all worker nodes, or just for the coordinator node.
 Sets the policy to use when choosing nodes for SELECT queries. If it
 is set to 'always', then the planner will query only nodes that are
 marked as 'secondary' noderole in
-[pg_dist_node](reference-hyperscale-metadata.md#worker-node-table).
+[pg_dist_node](reference-metadata.md#worker-node-table).
 
 The supported values for this enum are:
 
@@ -94,7 +94,7 @@ SET citus.node_connection_timeout = 30000;
 #### citus.stat\_statements\_purge\_interval (integer)
 
 Sets the frequency at which the maintenance daemon removes records from
-[citus_stat_statements](reference-hyperscale-metadata.md#query-statistics-table)
+[citus_stat_statements](reference-metadata.md#query-statistics-table)
 that are unmatched in `pg_stat_statements`. This configuration value sets the
 time interval between purges in seconds, with a default value of 10. A value of
 0 disables the purges.
@@ -145,7 +145,7 @@ failures on a more frequent basis.
 
 Sets the shard count for hash-partitioned tables and defaults to 32.  This
 value is used by the
-[create_distributed_table](reference-hyperscale-functions.md#create_distributed_table)
+[create_distributed_table](reference-functions.md#create_distributed_table)
 UDF when creating hash-partitioned tables. This parameter can be set at
 run-time and is effective on the coordinator.
 
@@ -183,9 +183,9 @@ and is effective on the coordinator.
 
 > [!NOTE]
 > This GUC is applicable only when
-> [shard_replication_factor](reference-hyperscale-parameters.md#citusshard_replication_factor-integer)
+> [shard_replication_factor](reference-parameters.md#citusshard_replication_factor-integer)
 > is greater than one, or for queries against
-> [reference_tables](concepts-hyperscale-distributed-data.md#type-2-reference-tables).
+> [reference_tables](concepts-distributed-data.md#type-2-reference-tables).
 
 Sets the policy to use when assigning tasks to workers. The coordinator
 assigns tasks to workers based on shard locations. This configuration
@@ -548,5 +548,5 @@ all tasks may cause the EXPLAIN to take longer.
 
 ## Next steps
 
-* Another form of configuration, besides server parameters, are the resource [configuration options](concepts-hyperscale-configuration-options.md) in a Hyperscale (Citus) server group.
+* Another form of configuration, besides server parameters, are the resource [configuration options](concepts-configuration-options.md) in a Hyperscale (Citus) server group.
 * The underlying PostgreSQL data base also has [configuration parameters](http://www.postgresql.org/docs/current/static/runtime-config.html).

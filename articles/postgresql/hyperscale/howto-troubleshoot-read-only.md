@@ -32,7 +32,7 @@ continue to work.
 ### On the coordinator node
 
 * [Increase storage
-  size](howto-hyperscale-scale-grow.md#increase-storage-on-nodes)
+  size](howto-scale-grow.md#increase-storage-on-nodes)
   on the coordinator node, and/or
 * Distribute local tables to worker nodes, or drop data. You'll need to run
   `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE` after you've
@@ -41,9 +41,9 @@ continue to work.
 ### On a worker node
 
 * [Increase storage
-  size](howto-hyperscale-scale-grow.md#increase-storage-on-nodes)
+  size](howto-scale-grow.md#increase-storage-on-nodes)
   on the worker nodes, and/or
-* [Rebalance data](howto-hyperscale-scale-rebalance.md) to other nodes, or drop
+* [Rebalance data](howto-scale-rebalance.md) to other nodes, or drop
   some data.
 	* You'll need to set the worker node as read-write temporarily. You can
 	  connect directly to worker nodes and use `SET SESSION CHARACTERISTICS` as
@@ -54,12 +54,12 @@ continue to work.
 We recommend that you set up an alert to notify you when server storage is
 approaching the threshold. That way you can act early to avoid getting into the
 read-only state. For more information, see the documentation about [recommended
-alerts](howto-hyperscale-alert-on-metric.md#suggested-alerts).
+alerts](howto-alert-on-metric.md#suggested-alerts).
 
 ## Next steps
 
 * [Set up Azure
-  alerts](howto-hyperscale-alert-on-metric.md#suggested-alerts)
+  alerts](howto-alert-on-metric.md#suggested-alerts)
   for advance notice so you can take action before reaching the read-only state.
 * Learn about [disk
   usage](https://www.postgresql.org/docs/current/diskusage.html) in PostgreSQL

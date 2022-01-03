@@ -20,10 +20,10 @@ In this tutorial, you create a server group in Azure Database for PostgreSQL - H
 > * Allow network access
 > * Connect to the coordinator node
 
-[!INCLUDE [create server group](../../includes/azure-postgresql-hyperscale-create-db.md)]
+[!INCLUDE [create server group](../../includes/azure-postgresql-create-db.md)]
 
 ## Next steps
 
 With a server group provisioned, it's time to go on to the next tutorial:
 
-* [Work with distributed data](tutorial-hyperscale-shard.md)
+* [Work with distributed data](tutorial-shard.md)

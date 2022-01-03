@@ -61,10 +61,10 @@ Firewall settings and PostgreSQL server parameters are not preserved from the
 original server group, they are reset to default values. The firewall will
 prevent all connections. You will need to manually adjust these settings after
 restore. In general, see our list of suggested [post-restore
-tasks](howto-hyperscale-restore-portal.md#post-restore-tasks).
+tasks](howto-restore-portal.md#post-restore-tasks).
 
 ## Next steps
 
-* See the steps to [restore a server group](howto-hyperscale-restore-portal.md)
+* See the steps to [restore a server group](howto-restore-portal.md)
   in the Azure portal.
 * Learn about [Azure availability zones](../availability-zones/az-overview.md).

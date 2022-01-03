@@ -13,12 +13,12 @@ ms.date: 08/03/2021
 
 In this article, you learn how to create and manage read replicas in Hyperscale
 (Citus) from the Azure portal. To learn more about read replicas, see the
-[overview](concepts-hyperscale-read-replicas.md).
+[overview](concepts-read-replicas.md).
 
 
 ## Prerequisites
 
-A [Hyperscale (Citus) server group](quickstart-create-hyperscale-portal.md) to
+A [Hyperscale (Citus) server group](quickstart-create-portal.md) to
 be the primary.
 
 ## Create a read replica
@@ -42,7 +42,7 @@ After the read replica is created, it can be viewed from the **Replication** win
 > [!IMPORTANT]
 >
 > Review the [considerations section of the Read Replica
-> overview](concepts-hyperscale-read-replicas.md#considerations).
+> overview](concepts-read-replicas.md#considerations).
 >
 > Before a primary server group setting is updated to a new value, update the
 > replica setting to an equal or greater value. This action helps the replica
@@ -89,4 +89,4 @@ following these steps:
 ## Next steps
 
 * Learn more about [read replicas in Azure Database for
-  PostgreSQL - Hyperscale (Citus)](concepts-hyperscale-read-replicas.md).
+  PostgreSQL - Hyperscale (Citus)](concepts-read-replicas.md).

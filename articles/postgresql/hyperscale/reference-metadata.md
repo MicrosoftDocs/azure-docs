@@ -237,7 +237,7 @@ colocationid                |
 ### Colocation group table
 
 The pg\_dist\_colocation table contains information about which tables\' shards
-should be placed together, or [colocated](concepts-hyperscale-colocation.md).
+should be placed together, or [colocated](concepts-colocation.md).
 When two tables are in the same colocation group, Hyperscale (Citus) ensures
 shards with the same partition values will be placed on the same worker nodes.
 Colocation enables join optimizations, certain distributed rollups, and foreign key
@@ -264,7 +264,7 @@ SELECT * from pg_dist_colocation;
 ### Rebalancer strategy table
 
 This table defines strategies that
-[rebalance_table_shards](reference-hyperscale-functions.md#rebalance_table_shards)
+[rebalance_table_shards](reference-functions.md#rebalance_table_shards)
 can use to determine where to move shards.
 
 | Name                           | Type    | Description                                                                                                                                       |
@@ -314,9 +314,9 @@ differences in disk space.
 
 Here are examples of functions that can be used within new shard rebalancer
 strategies, and registered in the
-[pg_dist_rebalance_strategy](reference-hyperscale-metadata.md?#rebalancer-strategy-table)
+[pg_dist_rebalance_strategy](reference-metadata.md?#rebalancer-strategy-table)
 with the
-[citus_add_rebalance_strategy](reference-hyperscale-functions.md#citus_add_rebalance_strategy)
+[citus_add_rebalance_strategy](reference-functions.md#citus_add_rebalance_strategy)
 function.
 
 -   Setting a node capacity exception by hostname pattern:
@@ -331,7 +331,7 @@ function.
     ```
 
 -   Rebalancing by number of queries that go to a shard, as measured by the
-    [citus_stat_statements](reference-hyperscale-metadata.md#query-statistics-table):
+    [citus_stat_statements](reference-metadata.md#query-statistics-table):
 
     ```postgresql
     -- example of shard_cost_function
@@ -632,5 +632,5 @@ with Hyperscale (Citus) MX for instance).
 
 ## Next steps
 
-* Learn how some [Hyperscale (Citus) functions](reference-hyperscale-functions.md) alter system tables
-* Review the concepts of [nodes and tables](concepts-hyperscale-nodes.md)
+* Learn how some [Hyperscale (Citus) functions](reference-functions.md) alter system tables
+* Review the concepts of [nodes and tables](concepts-nodes.md)

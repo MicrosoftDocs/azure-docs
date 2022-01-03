@@ -80,7 +80,7 @@ following values:
 
 ### Basic tier
 
-The Hyperscale (Citus) [basic tier](concepts-hyperscale-tiers.md) is a server
+The Hyperscale (Citus) [basic tier](concepts-tiers.md) is a server
 group with just one node.  Because there isn't a distinction between
 coordinator and worker nodes, it's less complicated to choose compute and
 storage resources.
@@ -158,4 +158,4 @@ website, select **Add items**, expand the **Databases** category, and choose
 options.
  
 ## Next steps
-Learn how to [create a Hyperscale (Citus) server group in the portal](quickstart-create-hyperscale-portal.md).
+Learn how to [create a Hyperscale (Citus) server group in the portal](quickstart-create-portal.md).

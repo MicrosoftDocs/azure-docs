@@ -20,7 +20,7 @@ notification settings for upcoming and finished maintenance events.
 To complete this how-to guide, you need:
 
 - An [Azure Database for PostgreSQL - Hyperscale (Citus) server
-  group](quickstart-create-hyperscale-portal.md)
+  group](quickstart-create-portal.md)
 
 ## Specify maintenance schedule options
 
@@ -43,5 +43,5 @@ alerts in Azure Service Health to get notifications about maintenance events.
 
 ## Next steps
 
-* Learn about [scheduled maintenance in Azure Database for PostgreSQL – Hyperscale (Citus)](concepts-hyperscale-maintenance.md)
+* Learn about [scheduled maintenance in Azure Database for PostgreSQL – Hyperscale (Citus)](concepts-maintenance.md)
 * Lean about [Azure Service Health](../service-health/overview.md)

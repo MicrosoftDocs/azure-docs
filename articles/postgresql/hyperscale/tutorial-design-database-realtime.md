@@ -26,7 +26,7 @@ In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to 
 
 ## Prerequisites
 
-[!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
+[!INCLUDE [azure-postgresql-hyperscale-create-db](../../../includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## Use psql utility to create a schema
 
@@ -90,7 +90,7 @@ SELECT create_distributed_table('http_request',      'site_id');
 SELECT create_distributed_table('http_request_1min', 'site_id');
 ```
 
-[!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../includes/azure-postgresql-hyperscale-dist-alert.md)]
+[!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../../includes/azure-postgresql-hyperscale-dist-alert.md)]
 
 ## Generate sample data
 
@@ -230,6 +230,6 @@ In the preceding steps, you created Azure resources in a server group. If you do
 
 In this tutorial, you learned how to provision a Hyperscale (Citus) server group. You connected to it with psql, created a schema, and distributed data. You learned to query data in the raw form, regularly aggregate that data, query the aggregated tables, and expire old data.
 
-- Learn about server group [node types](./concepts-hyperscale-nodes.md)
+- Learn about server group [node types](./concepts-nodes.md)
 - Determine the best [initial
-  size](howto-hyperscale-scale-initial.md) for your server group
+  size](howto-scale-initial.md) for your server group

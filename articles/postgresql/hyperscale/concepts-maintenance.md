@@ -68,6 +68,6 @@ notify you five days before the next maintenance event.
 
 ## Next steps
 
-* Learn how to [change the maintenance schedule](howto-hyperscale-maintenance.md)
+* Learn how to [change the maintenance schedule](howto-maintenance.md)
 * Learn how to [get notifications about upcoming maintenance](../service-health/service-notifications.md) using Azure Service Health
 * Learn how to [set up alerts about upcoming scheduled maintenance events](../service-health/resource-health-alert-monitor-guide.md)

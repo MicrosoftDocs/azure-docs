@@ -23,7 +23,7 @@ under **Monitoring** in the Azure portal.
 
 Choose a dimension and an aggregation, for instance **CPU percent** and
 **Max**, to view the metric aggregated across all nodes. For an explanation of
-each metric, see [here](concepts-hyperscale-monitoring.md#list-of-metrics).
+each metric, see [here](concepts-monitoring.md#list-of-metrics).
 
 :::image type="content" source="media/howto-hyperscale-monitoring/dimensions.png" alt-text="Select dimension":::
 
@@ -44,4 +44,4 @@ The metrics will now be plotted in one color-coded line per node.
 
 ## Next steps
 
-* Review Hyperscale (Citus) [monitoring concepts](concepts-hyperscale-monitoring.md)
+* Review Hyperscale (Citus) [monitoring concepts](concepts-monitoring.md)

@@ -12,7 +12,7 @@ ms.date: 10/15/2021
 # Create server group with private access (preview) in Azure Database for PostgreSQL - Hyperscale (Citus)
 
 This tutorial creates a virtual machine and a Hyperscale (Citus) server group,
-and establishes [private access](concepts-hyperscale-private-access.md) between
+and establishes [private access](concepts-private-access.md) between
 them.
 
 ## Create a virtual network
@@ -104,7 +104,7 @@ az vm run-command invoke \
 	> [!NOTE]
 	>
 	> Private access is available for preview in only [certain
-	> regions](concepts-hyperscale-limits.md#regions).
+	> regions](concepts-limits.md#regions).
 	>
 	> If the private access option is not selectable for your server group
 	> even though your server group is within an allowed region,
@@ -169,7 +169,7 @@ az group delete --resource-group link-demo
 
 ## Next steps
 
-* Learn more about [private access](concepts-hyperscale-private-access.md)
+* Learn more about [private access](concepts-private-access.md)
   (preview)
 * Learn about [private
   endpoints](../private-link/private-endpoint-overview.md)

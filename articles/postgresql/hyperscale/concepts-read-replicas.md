@@ -21,7 +21,7 @@ Replicas are new server groups that you manage similar to regular Hyperscale
 compute in vCores and storage in GB/ month.
 
 Learn how to [create and manage
-replicas](howto-hyperscale-read-replicas-portal.md).
+replicas](howto-read-replicas-portal.md).
 
 ## When to use a read replica
 
@@ -59,7 +59,7 @@ replication. The default mode is streaming replication using replication slots.
 When necessary, log shipping is used to catch up.
 
 Learn how to [create a read replica in the Azure
-portal](howto-hyperscale-read-replicas-portal.md).
+portal](howto-read-replicas-portal.md).
 
 ## Connect to a replica
 
@@ -113,4 +113,4 @@ Hyperscale (Citus) server groups support only same-region replication.
 ## Next steps
 
 * Learn how to [create and manage read replicas in the Azure
-  portal](howto-hyperscale-read-replicas-portal.md).
+  portal](howto-read-replicas-portal.md).

@@ -38,4 +38,4 @@ successfully enabled for each node.
 
 ### Next steps
 
-Learn more about [high availability](concepts-hyperscale-high-availability.md).
+Learn more about [high availability](concepts-high-availability.md).

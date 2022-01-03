@@ -31,18 +31,18 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 Here are the features currently available for preview:
 
-* **[pgAudit](concepts-hyperscale-audit.md)**. Provides detailed
+* **[pgAudit](concepts-audit.md)**. Provides detailed
   session and object audit logging via the standard PostgreSQL
   logging facility. It produces audit logs required to pass
   certain government, financial, or ISO certification audits.
-* **[Private access](concepts-hyperscale-private-access.md)**.
+* **[Private access](concepts-private-access.md)**.
   Allow hosts on a virtual network (VNet) to securely access a
   Hyperscale (Citus) server group over a private endpoint.
 
 > [!NOTE]
 >
 > Private access is available for preview in only [certain
-> regions](concepts-hyperscale-limits.md#regions).
+> regions](concepts-limits.md#regions).
 
 ## Contact us
 

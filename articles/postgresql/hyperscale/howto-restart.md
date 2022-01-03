@@ -28,5 +28,5 @@ the database will experience connectivity downtime while the restart happens.
 **Next steps**
 
 - Changing some server parameters requires a restart. See the list of [all
-  server parameters](reference-hyperscale-parameters.md) configurable on
+  server parameters](reference-parameters.md) configurable on
   Hyperscale (Citus).

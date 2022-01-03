@@ -91,6 +91,6 @@ Output:
 
 ## Next steps
 
-* Learn to [scale a server group](howto-hyperscale-scale-grow.md) to hold more data.
-* Distinguish [table types](concepts-hyperscale-nodes.md) in a Hyperscale (Citus) server group.
-* See other [useful diagnostic queries](howto-hyperscale-useful-diagnostic-queries.md).
+* Learn to [scale a server group](howto-scale-grow.md) to hold more data.
+* Distinguish [table types](concepts-nodes.md) in a Hyperscale (Citus) server group.
+* See other [useful diagnostic queries](howto-useful-diagnostic-queries.md).

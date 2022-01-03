@@ -18,12 +18,12 @@ on all server group nodes.
 
 Upgrading PostgreSQL causes more changes than you might imagine, because
 Hyperscale (Citus) will also upgrade the [database
-extensions](concepts-hyperscale-extensions.md), including the Citus extension.
+extensions](concepts-extensions.md), including the Citus extension.
 We strongly recommend you to test your application with the new PostgreSQL and
 Citus version before you upgrade your production environment.
 
 A convenient way to test is to make a copy of your server group using
-[point-in-time restore](concepts-hyperscale-backup.md#restore). Upgrade the
+[point-in-time restore](concepts-backup.md#restore). Upgrade the
 copy and test your application against it. Once you've verified everything
 works properly, upgrade the original server group.
 
@@ -39,6 +39,6 @@ works properly, upgrade the original server group.
 
 ## Next steps
 
-* Learn about [supported PostgreSQL versions](concepts-hyperscale-versions.md).
-* See [which extensions](concepts-hyperscale-extensions.md) are packaged with
+* Learn about [supported PostgreSQL versions](concepts-versions.md).
+* See [which extensions](concepts-extensions.md) are packaged with
   each PostgreSQL version in a Hyperscale (Citus) server group.

@@ -12,7 +12,7 @@ ms.date: 08/03/2021
 # Pick initial size for Hyperscale (Citus) server group
 
 The size of a server group, both number of nodes and their hardware capacity,
-is [easy to change](howto-hyperscale-scale-grow.md)). However you still need to
+is [easy to change](howto-scale-grow.md)). However you still need to
 choose an initial size for a new server group. Here are some tips for a
 reasonable choice.
 
@@ -30,7 +30,7 @@ allowing smaller indices etc.
 
 The vCore count is actually the only decision. RAM allocation is currently
 determined based on vCore count, as described in the [Hyperscale (Citus)
-configuration options](concepts-hyperscale-configuration-options.md) page.
+configuration options](concepts-configuration-options.md) page.
 The coordinator node doesn't require as much RAM as workers, but there's
 no way to choose RAM and vCores independently.
 
@@ -48,7 +48,7 @@ the working set fits in memory. The type of queries your application uses
 affect memory requirements. You can run EXPLAIN ANALYZE on a query to determine
 how much memory it requires. Remember that vCores and RAM are scaled together
 as described in the [Hyperscale (Citus) configuration
-options](concepts-hyperscale-configuration-options.md) article.
+options](concepts-configuration-options.md) article.
 
 ## Choosing a Hyperscale (Citus) tier
 
@@ -63,10 +63,10 @@ scaled to suffice, and in other cases it requires the cooperation of multiple
 nodes.
 
 For a comparison of the tiers, see the [basic
-tier](concepts-hyperscale-tiers.md) concepts page.
+tier](concepts-tiers.md) concepts page.
 
 ## Next steps
 
-- [Scale a server group](howto-hyperscale-scale-grow.md)
+- [Scale a server group](howto-scale-grow.md)
 - Learn more about server group [performance
-  options](concepts-hyperscale-configuration-options.md).
+  options](concepts-configuration-options.md).

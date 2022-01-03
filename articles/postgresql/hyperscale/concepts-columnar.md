@@ -35,7 +35,7 @@ Hyperscale (Citus) converts rows to columnar storage in "stripes" during
 insertion. Each stripe holds one transaction's worth of data, or 150000 rows,
 whichever is less.  (The stripe size and other parameters of a columnar table
 can be changed with the
-[alter_columnar_table_set](reference-hyperscale-functions.md#alter_columnar_table_set)
+[alter_columnar_table_set](reference-functions.md#alter_columnar_table_set)
 function.)
 
 For example, the following statement puts all five rows into the same stripe,
@@ -192,7 +192,7 @@ storage](https://docs.citusdata.com/en/stable/use_cases/timeseries.html#archivin
 ## Limitations
 
 This feature still has significant limitations. See [Hyperscale
-(Citus) limits and limitations](concepts-hyperscale-limits.md#columnar-storage).
+(Citus) limits and limitations](concepts-limits.md#columnar-storage).
 
 ## Next steps
 

@@ -35,7 +35,7 @@ Permissions for the `citus` role:
   even views or extensions normally visible only to superusers.
 * Execute monitoring functions that may take ACCESS SHARE locks on tables,
   potentially for a long time.
-* [Create PostgreSQL extensions](concepts-hyperscale-extensions.md) (because
+* [Create PostgreSQL extensions](concepts-extensions.md) (because
   the role is a member of `azure_pg_admin`).
 
 Notably, the `citus` role has some restrictions:
@@ -66,7 +66,7 @@ can sign in to the database.
 New user roles are commonly used to provide database access with restricted
 privileges. To modify user privileges, use standard PostgreSQL commands, using
 a tool such as PgAdmin or psql. (See [connecting with
-psql](quickstart-create-hyperscale-portal.md#connect-to-the-database-using-psql)
+psql](quickstart-create-portal.md#connect-to-the-database-using-psql)
 in the Hyperscale (Citus) quickstart.)
 
 For example, to allow `db_user` to read `mytable`, grant the permission:
@@ -98,7 +98,7 @@ The `citus` role is privileged and can't be deleted.
 
 Open the firewall for the IP addresses of the new users' machines to enable
 them to connect: [Create and manage Hyperscale (Citus) firewall rules using
-the Azure portal](howto-hyperscale-manage-firewall-using-portal.md).
+the Azure portal](howto-manage-firewall-using-portal.md).
 
 For more information about database user account management, see PostgreSQL
 product documentation:

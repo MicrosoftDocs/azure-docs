@@ -11,13 +11,13 @@ ms.date: 11/16/2021
 # Manage public access for Azure Database for PostgreSQL - Hyperscale (Citus)
 
 Server-level firewall rules can be used to manage [public
-access](concepts-hyperscale-firewall-rules.md) to a Hyperscale (Citus)
+access](concepts-firewall-rules.md) to a Hyperscale (Citus)
 coordinator node from a specified IP address (or range of IP addresses) in the
 public internet.
 
 ## Prerequisites
 To step through this how-to guide, you need:
-- A server group [Create an Azure Database for PostgreSQL – Hyperscale (Citus) server group](quickstart-create-hyperscale-portal.md).
+- A server group [Create an Azure Database for PostgreSQL – Hyperscale (Citus) server group](quickstart-create-portal.md).
 
 ## Create a server-level firewall rule in the Azure portal
 
@@ -62,4 +62,4 @@ Repeat the steps to manage the firewall rules.
 * To delete an existing rule, click the ellipsis […] and click **Delete** to remove the rule. Click **Save** to save the changes.
 
 ## Next steps
-- Learn more about [Concept of firewall rules](concepts-hyperscale-firewall-rules.md), including how to troubleshoot connection problems.
+- Learn more about [Concept of firewall rules](concepts-firewall-rules.md), including how to troubleshoot connection problems.

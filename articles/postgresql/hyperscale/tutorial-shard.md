@@ -26,7 +26,7 @@ In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to 
 
 This tutorial requires a running Hyperscale (Citus) server group with two
 worker nodes. If you don't have a running server group, follow the [create
-server group](tutorial-hyperscale-server-group.md) tutorial and then come back
+server group](tutorial-server-group.md) tutorial and then come back
 to this one.
 
 ## Hash-distributed data
@@ -43,7 +43,7 @@ two worker nodes.
 
 The coordinator node's metadata tables track workers and distributed data. We
 can check the active workers in the
-[pg_dist_node](reference-hyperscale-metadata.md#worker-node-table) table.
+[pg_dist_node](reference-metadata.md#worker-node-table) table.
 
 ```sql
 select nodeid, nodename from pg_dist_node where isactive;
@@ -81,7 +81,7 @@ row will be in exactly one shard, and every shard can contain multiple rows.
 
 By default `create_distributed_table()` makes 32 shards, as we can see by
 counting in the metadata table
-[pg_dist_shard](reference-hyperscale-metadata.md#shard-table):
+[pg_dist_shard](reference-metadata.md#shard-table):
 
 ```sql
 select logicalrelid, count(shardid)
@@ -118,7 +118,7 @@ placement*.
 ![shards assigned to workers](tutorial-hyperscale-shard/shard-placement.png)
 
 We can look at the shard placements in
-[pg_dist_placement](reference-hyperscale-metadata.md#shard-placement-table).
+[pg_dist_placement](reference-metadata.md#shard-placement-table).
 Joining it with the other metadata tables we've seen shows where each shard
 lives.
 
@@ -228,7 +228,7 @@ select create_distributed_table('books', 'owner_email');
 
 For efficiency, we distribute `books` the same way as `users`: by the owner's
 email address. Distributing by similar column values is called
-[colocation](concepts-hyperscale-colocation.md).
+[colocation](concepts-colocation.md).
 
 We had no problem distributing books with a foreign key to users, because the
 key was on a distribution column. However, we would have trouble making `isbn`
@@ -255,7 +255,7 @@ alter table books add constraint books_isbn unique (owner_email, isbn);
 
 The above constraint merely makes isbn unique per user. Another option is to
 make books a [reference
-table](howto-hyperscale-modify-distributed-tables.md#reference-tables) rather
+table](howto-modify-distributed-tables.md#reference-tables) rather
 than a distributed table, and create a separate distributed table associating
 books with users.
 
@@ -313,6 +313,6 @@ In this tutorial, we created a distributed table, and learned about its shards
 and placements. We saw a challenge of using uniqueness and foreign key
 constraints, and finally saw how distributed queries work at a high level.
 
-* Read more about Hyperscale (Citus) [table types](concepts-hyperscale-nodes.md)
-* Get more tips on [choosing a distribution column](concepts-hyperscale-choose-distribution-column.md)
-* Learn the benefits of [table colocation](concepts-hyperscale-colocation.md)
+* Read more about Hyperscale (Citus) [table types](concepts-nodes.md)
+* Get more tips on [choosing a distribution column](concepts-choose-distribution-column.md)
+* Learn the benefits of [table colocation](concepts-colocation.md)

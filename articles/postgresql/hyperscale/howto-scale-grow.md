@@ -15,7 +15,7 @@ Azure Database for PostgreSQL - Hyperscale (Citus) provides self-service
 scaling to deal with increased load. The Azure portal makes it easy to add new
 worker nodes, and to increase the vCores of existing nodes. Adding nodes causes
 no downtime, and even moving shards to the new nodes (called [shard
-rebalancing](howto-hyperscale-scale-rebalance.md)) happens without interrupting
+rebalancing](howto-scale-rebalance.md)) happens without interrupting
 queries.
 
 ## Add worker nodes
@@ -26,7 +26,7 @@ group.  Dragging the slider for **Worker node count** changes the value.
 > [!NOTE]
 >
 > A Hyperscale (Citus) server group created with the [basic
-> tier](concepts-hyperscale-tiers.md) has no workers. Increasing the worker
+> tier](concepts-tiers.md) has no workers. Increasing the worker
 > count automatically graduates the server group to the standard tier.  After
 > graduating a server group to the standard tier, you can't downgrade it back
 > to the basic tier.
@@ -41,8 +41,8 @@ Click the **Save** button to make the changed value take effect.
 
 > [!NOTE]
 > To take advantage of newly added nodes you must [rebalance distributed table
-> shards](howto-hyperscale-scale-rebalance.md), which means moving some
-> [shards](concepts-hyperscale-distributed-data.md#shards) from existing nodes
+> shards](howto-scale-rebalance.md), which means moving some
+> [shards](concepts-distributed-data.md#shards) from existing nodes
 > to the new ones. Rebalancing can work in the background, and requires no
 > downtime.
 
@@ -61,7 +61,7 @@ adjusted independently. Adjust the **vCores** slider under  **Configuration
 > There is a vCore quota per Azure subscription per region.  The default quota
 > should be more than enough to experiment with Hyperscale (Citus).  If you
 > need more vCores for a region in your subscription, see how to [adjust
-> compute quotas](howto-hyperscale-compute-quota.md).
+> compute quotas](howto-compute-quota.md).
 
 ## Increase storage on nodes
 
@@ -81,8 +81,8 @@ adjusted independently. Adjust the **storage** slider under  **Configuration
 ## Next steps
 
 - Learn more about server group [performance
-  options](concepts-hyperscale-configuration-options.md).
-- [Rebalance distributed table shards](howto-hyperscale-scale-rebalance.md)
+  options](concepts-configuration-options.md).
+- [Rebalance distributed table shards](howto-scale-rebalance.md)
   so that all worker nodes can participate in parallel queries
 - See the sizes of distributed tables, and other [useful diagnostic
-  queries](howto-hyperscale-useful-diagnostic-queries.md).
+  queries](howto-useful-diagnostic-queries.md).

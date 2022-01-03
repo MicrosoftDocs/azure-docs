@@ -38,12 +38,12 @@ libraries](./concepts-connection-libraries.md) and minimal changes.
 ## Next steps
 
 - Get started by [creating your
-  first](./quickstart-create-hyperscale-portal.md) Azure Database for
+  first](./quickstart-create-portal.md) Azure Database for
 PostgreSQL - Hyperscale (Citus) server group.
 - See the [pricing
   page](https://azure.microsoft.com/pricing/details/postgresql/) for cost
 comparisons and calculators. Hyperscale (Citus) offers prepaid Reserved
 Instance discounts as well, see [Hyperscale (Citus) RI
-pricing](concepts-hyperscale-reserved-pricing.md) pages for details.
+pricing](concepts-reserved-pricing.md) pages for details.
 - Determine the best [initial
-  size](howto-hyperscale-scale-initial.md) for your server group
+  size](howto-scale-initial.md) for your server group

@@ -46,7 +46,7 @@ The output contains the host and port of the worker database.
 
 Each distributed table in Hyperscale (Citus) has a "distribution column." (For
 more information, see [Distributed Data
-Modeling](concepts-hyperscale-choose-distribution-column.md).) It can be
+Modeling](concepts-choose-distribution-column.md).) It can be
 important to know which column it is. For instance, when joining or filtering
 tables, you may see error messages with hints like, "add a filter to the
 distribution column."
@@ -200,7 +200,7 @@ Example output:
 ```
 
 Note there are other Hyperscale (Citus) functions for querying distributed
-table size, see [determining table size](howto-hyperscale-table-size.md).
+table size, see [determining table size](howto-table-size.md).
 
 ## Identifying unused indices
 
@@ -381,5 +381,5 @@ want to consider increasing the cache available to your database.
 
 ## Next steps
 
-* Learn about other [system tables](reference-hyperscale-metadata.md)
+* Learn about other [system tables](reference-metadata.md)
   that are useful for diagnostics

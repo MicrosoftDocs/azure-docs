@@ -44,5 +44,5 @@ has been replicated, the node has reached full recovery.
 ### Next steps
 
 - Learn how to [enable high
-  availability](howto-hyperscale-high-availability.md) in a Hyperscale (Citus) server
+  availability](howto-high-availability.md) in a Hyperscale (Citus) server
   group.

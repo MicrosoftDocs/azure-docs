@@ -75,7 +75,7 @@ most common causes are firewall misconfiguration or user error.
 
 ### Steps to resolve persistent connectivity issues
 
-1. Set up [firewall rules](howto-hyperscale-manage-firewall-using-portal.md) to
+1. Set up [firewall rules](howto-manage-firewall-using-portal.md) to
    allow the client IP address. For temporary testing purposes only, set up a
    firewall rule using 0.0.0.0 as the starting IP address and using
    255.255.255.255 as the ending IP address. That rule opens the server to all IP
@@ -84,11 +84,11 @@ most common causes are firewall misconfiguration or user error.
    range.
 2. On all firewalls between the client and the internet, make sure that port
    5432 is open for outbound connections (and 6432 if using [connection
-   pooling](concepts-hyperscale-connection-pool.md)).
+   pooling](concepts-connection-pool.md)).
 3. Verify your connection string and other connection settings.
 4. Check the service health in the dashboard.
 
 ## Next steps
 
-* Learn the concepts of [Firewall rules in Azure Database for PostgreSQL - Hyperscale (Citus)](concepts-hyperscale-firewall-rules.md)
-* See how to [Manage firewall rules for Azure Database for PostgreSQL - Hyperscale (Citus)](howto-hyperscale-manage-firewall-using-portal.md)
+* Learn the concepts of [Firewall rules in Azure Database for PostgreSQL - Hyperscale (Citus)](concepts-firewall-rules.md)
+* See how to [Manage firewall rules for Azure Database for PostgreSQL - Hyperscale (Citus)](howto-manage-firewall-using-portal.md)

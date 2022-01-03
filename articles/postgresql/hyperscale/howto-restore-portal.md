@@ -12,7 +12,7 @@ ms.date: 07/09/2021
 # Point-in-time restore of a Hyperscale (Citus) server group
 
 This article provides step-by-step procedures to perform [point-in-time
-recoveries](concepts-hyperscale-backup.md#restore) for a Hyperscale (Citus)
+recoveries](concepts-backup.md#restore) for a Hyperscale (Citus)
 server group using backups. You can restore either to the earliest backup or to
 a custom restore point within your retention period.
 
@@ -91,8 +91,8 @@ back up and running:
 
 ## Next steps
 
-* Learn more about [backup and restore](concepts-hyperscale-backup.md) in
+* Learn more about [backup and restore](concepts-backup.md) in
   Hyperscale (Citus).
 * Set [suggested
-  alerts](./howto-hyperscale-alert-on-metric.md#suggested-alerts) on Hyperscale
+  alerts](./howto-alert-on-metric.md#suggested-alerts) on Hyperscale
   (Citus) server groups.

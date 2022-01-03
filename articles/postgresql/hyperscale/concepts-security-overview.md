@@ -33,17 +33,17 @@ disabled.
 
 ## Network security
 
-[!INCLUDE [azure-postgresql-hyperscale-access](../../includes/azure-postgresql-hyperscale-access.md)]
+[!INCLUDE [azure-postgresql-hyperscale-access](../../../includes/azure-postgresql-hyperscale-access.md)]
 
 ## Limits and limitations
 
-See Hyperscale (Citus) [limits and limitations](concepts-hyperscale-limits.md)
+See Hyperscale (Citus) [limits and limitations](concepts-limits.md)
 page.
 
 ## Next steps
 
 * Learn how to [enable and manage private
-  access](howto-hyperscale-private-access.md) (preview)
+  access](howto-private-access.md) (preview)
 * Learn about [private
   endpoints](../private-link/private-endpoint-overview.md)
 * Learn about [virtual

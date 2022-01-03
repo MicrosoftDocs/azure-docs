@@ -52,14 +52,14 @@ of another table. By default tables are colocated when they are distributed by
 columns of the same type, have the same shard count, and have the same
 replication factor. Possible values for `colocate_with` are `default`, `none`
 to start a new colocation group, or the name of another table to colocate
-with that table.  (See [table colocation](concepts-hyperscale-colocation.md).)
+with that table.  (See [table colocation](concepts-colocation.md).)
 
 Keep in mind that the default value of `colocate_with` does implicit
-colocation. [Colocation](concepts-hyperscale-colocation.md)
+colocation. [Colocation](concepts-colocation.md)
 can be a great thing when tables are related or will be joined.  However when
 two tables are unrelated but happen to use the same datatype for their
 distribution columns, accidentally colocating them can decrease performance
-during [shard rebalancing](howto-hyperscale-scale-rebalance.md).  The
+during [shard rebalancing](howto-scale-rebalance.md).  The
 table shards will be moved together unnecessarily in a \"cascade.\"
 
 If a new distributed table is not related to other tables, it's best to
@@ -246,7 +246,7 @@ SELECT create_distributed_function(
 ### alter_columnar_table_set
 
 The alter_columnar_table_set() function changes settings on a [columnar
-table](concepts-hyperscale-columnar.md). Calling this function on a
+table](concepts-columnar.md). Calling this function on a
 non-columnar table gives an error. All arguments except the table name are
 optional.
 
@@ -390,7 +390,7 @@ name. The translation is useful to determine the distribution column of a
 distributed table.
 
 For a more detailed discussion, see [choosing a distribution
-column](concepts-hyperscale-choose-distribution-column.md).
+column](concepts-choose-distribution-column.md).
 
 #### Arguments
 
@@ -502,7 +502,7 @@ pg_size_pretty
 ### citus\_stat\_statements\_reset
 
 Removes all rows from
-[citus_stat_statements](reference-hyperscale-metadata.md#query-statistics-table).
+[citus_stat_statements](reference-metadata.md#query-statistics-table).
 This function works independently from `pg_stat_statements_reset()`. To reset
 all stats, call both functions.
 
@@ -680,11 +680,11 @@ command. The possible values are:
 
 **drain\_only:** (Optional) When true, move shards off worker nodes who have
 `shouldhaveshards` set to false in
-[pg_dist_node](reference-hyperscale-metadata.md#worker-node-table); move no
+[pg_dist_node](reference-metadata.md#worker-node-table); move no
 other shards.
 
 **rebalance\_strategy:** (Optional) the name of a strategy in
-[pg_dist_rebalance_strategy](reference-hyperscale-metadata.md#rebalancer-strategy-table).
+[pg_dist_rebalance_strategy](reference-metadata.md#rebalancer-strategy-table).
 If this argument is omitted, the function chooses the default strategy, as
 indicated in the table.
 
@@ -779,7 +779,7 @@ SELECT * FROM get_rebalance_progress();
 ### citus\_add\_rebalance\_strategy
 
 Append a row to
-[pg_dist_rebalance_strategy](reference-hyperscale-metadata.md?#rebalancer-strategy-table)
+[pg_dist_rebalance_strategy](reference-metadata.md?#rebalancer-strategy-table)
 .
 
 #### Arguments
@@ -812,7 +812,7 @@ N/A
 ### citus\_set\_default\_rebalance\_strategy
 
 Update the
-[pg_dist_rebalance_strategy](reference-hyperscale-metadata.md#rebalancer-strategy-table)
+[pg_dist_rebalance_strategy](reference-metadata.md#rebalancer-strategy-table)
 table, changing the strategy named by its argument to be the default chosen
 when rebalancing shards.
 
@@ -912,7 +912,7 @@ assigned to the new shard.
 
 **cascade\_option:** (Optional) When set to \"CASCADE,\" also isolates a shard
 from all tables in the current table's [colocation
-group](concepts-hyperscale-colocation.md).
+group](concepts-colocation.md).
 
 #### Return Value
 
@@ -937,5 +937,5 @@ SELECT isolate_tenant_to_new_shard('lineitem', 135);
 
 ## Next steps
 
-* Many of the functions in this article modify system [metadata tables](reference-hyperscale-metadata.md)
-* [Server parameters](reference-hyperscale-parameters.md) customize the behavior of some functions
+* Many of the functions in this article modify system [metadata tables](reference-metadata.md)
+* [Server parameters](reference-parameters.md) customize the behavior of some functions

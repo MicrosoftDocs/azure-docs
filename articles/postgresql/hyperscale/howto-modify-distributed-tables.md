@@ -60,7 +60,7 @@ the worker postgres instances to view or run commands on individual shards.
 
 You're now ready to insert data into the distributed table and run queries on
 it. You can also learn more about the UDF used in this section in the [table
-and shard DDL](reference-hyperscale-functions.md#table-and-shard-ddl)
+and shard DDL](reference-functions.md#table-and-shard-ddl)
 reference.
 
 ### Reference Tables
@@ -118,7 +118,7 @@ SELECT upgrade_to_reference_table('table_name');
 ```
 
 For another example of using reference tables, see the [multi-tenant database
-tutorial](tutorial-design-database-hyperscale-multi-tenant.md).
+tutorial](tutorial-design-database-multi-tenant.md).
 
 ### Distributing Coordinator Data
 
@@ -169,7 +169,7 @@ node.
 Colocation means placing keeping related information on the same machines. It
 enables efficient queries, while taking advantage of the horizontal scalability
 for the whole dataset. For more information, see
-[colocation](concepts-hyperscale-colocation.md).
+[colocation](concepts-colocation.md).
 
 Tables are colocated in groups. To manually control a table's colocation group
 assignment, use the optional `colocate_with` parameter of
@@ -199,7 +199,7 @@ SELECT create_distributed_table('A', 'foo', colocate_with => 'none');
 ```
 
 Splitting unrelated tables into their own colocation groups will improve [shard
-rebalancing](howto-hyperscale-scale-rebalance.md) performance, because
+rebalancing](howto-scale-rebalance.md) performance, because
 shards in the same group have to be moved together.
 
 When tables are indeed related (for instance when they will be joined), it can
@@ -219,9 +219,9 @@ SELECT create_distributed_table('products', 'store_id', colocate_with => 'stores
 ```
 
 Information about colocation groups is stored in the
-[pg_dist_colocation](reference-hyperscale-metadata.md#colocation-group-table)
+[pg_dist_colocation](reference-metadata.md#colocation-group-table)
 table, while
-[pg_dist_partition](reference-hyperscale-metadata.md#partition-table) reveals
+[pg_dist_partition](reference-metadata.md#partition-table) reveals
 which tables are assigned to which groups.
 
 ## Dropping tables
@@ -246,7 +246,7 @@ an error and leave tables on the coordinator node unchanged.
 
 Here is a reference of the categories of DDL statements that propagate.
 Automatic propagation can be enabled or disabled with a [configuration
-parameter](reference-hyperscale-parameters.md#citusenable_ddl_propagation-boolean)
+parameter](reference-parameters.md#citusenable_ddl_propagation-boolean)
 
 ### Adding/Modifying Columns
 
@@ -267,7 +267,7 @@ ALTER TABLE products ALTER COLUMN price SET DEFAULT 7.77;
 
 Significant changes to an existing column like renaming it or changing its data
 type are fine too. However the data type of the [distribution
-column](concepts-hyperscale-nodes.md#distribution-column) cannot be altered.
+column](concepts-nodes.md#distribution-column) cannot be altered.
 This column determines how table data distributes through the Hyperscale
 (Citus) cluster, and modifying its data type would require moving the data.
 
@@ -303,10 +303,10 @@ Foreign keys may be created in these situations:
 
 -   between two local (non-distributed) tables,
 -   between two reference tables,
--   between two [colocated](concepts-hyperscale-colocation.md) distributed
+-   between two [colocated](concepts-colocation.md) distributed
     tables when the key includes the distribution column, or
 -   as a distributed table referencing a [reference
-    table](concepts-hyperscale-nodes.md#type-2-reference-tables)
+    table](concepts-nodes.md#type-2-reference-tables)
 
 Foreign keys from reference tables to distributed tables are not
 supported.
@@ -376,7 +376,7 @@ supports this feature for CHECK constraints and foreign keys, using
 PostgreSQL\'s \"NOT VALID\" constraint designation.
 
 For example, consider an application that stores user profiles in a
-[reference table](concepts-hyperscale-nodes.md#type-2-reference-tables).
+[reference table](concepts-nodes.md#type-2-reference-tables).
 
 ```postgres
 -- we're using the "text" column type here, but a real application
