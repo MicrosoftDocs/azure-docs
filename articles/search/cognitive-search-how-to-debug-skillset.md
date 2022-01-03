@@ -56,7 +56,9 @@ The debug session begins by executing the indexer and skillset on the selected d
 
 ## Start with errors and warnings
 
-Indexer execution history in the portal gives you the full error and warning list for all documents. In a debug session, the errors and warnings will be limited to one document. You'll work through this list, make your changes, and then return to the list to verify whether issues are resolved. To view the messages, select a skill in **AI Enrichment > Skill Graph** and then select **Errors/Warnings** in the details pane.
+Indexer execution history in the portal gives you the full error and warning list for all documents. In a debug session, the errors and warnings will be limited to one document. You'll work through this list, make your changes, and then return to the list to verify whether issues are resolved. 
+
+To view the messages, select a skill in **AI Enrichment > Skill Graph** and then select **Errors/Warnings** in the details pane.
 
 As a best practice, resolve problems with inputs before moving on to outputs.
 
@@ -70,9 +72,9 @@ To prove whether a modification resolves an error, follow these steps:
 
 ## View content of enrichment nodes
 
-AI enrichment pipelines extract or infer information and structure from source documents, creating an enriched document in the process. An enriched document is first created during document cracking and populated with a root node (`/document`) plus nodes for any content that are directly ported from the data source (such as a document key). Additional nodes are created during skill execution, where each skill output adds a new node to the enrichment tree. 
+AI enrichment pipelines extract or infer information and structure from source documents, creating an enriched document in the process. An enriched document is first created during document cracking and populated with a root node (`/document`) plus nodes for any content that is directly ported from the data source (such as a document key) and metadata. Additional nodes are created by skills during skill execution, where each skill output adds a new node to the enrichment tree. 
 
-Enriched documents are internal objects, but a debug session gives you access to the content produced during skill execution. To view the content or output of each skill, follow these steps:
+Enriched documents are internal, but a debug session gives you access to the content produced during skill execution. To view the content or output of each skill, follow these steps:
 
 1. Start with the default views: **AI enrichment > Skill Graph**, with the graph type set to **Dependency Graph**.
 
@@ -85,6 +87,27 @@ Enriched documents are internal objects, but a debug session gives you access to
 1. Alternatively, open **AI enrichment > Enriched Data Structure** to scroll down the list of nodes. The list includes potential and actual nodes, with a column for output, and another column that indicates the upstream object used to produce the output.
 
    :::image type="content" source="media/cognitive-search-debug/enriched-doc-output.png" alt-text="Screenshot of enriched document showing output values." border="true":::
+
+## Edit skill definitions
+
+If the field mappings are correct, check individual skills for configuration and content. If a skill fails to produce output, it might be missing a property or parameter, which can be determined through error and validation messages. 
+
+Other issues, such as an invalid context or input expression, can be harder to resolve because the error will tell you what is wrong, but not how to fix it. For help with context and input syntax, see [Reference annotations in an Azure Cognitive Search skillset](cognitive-search-concept-annotations-syntax.md#background-concepts). For help with individual messages, see [Troubleshooting common indexer errors and warnings](cognitive-search-common-errors-warnings.md).
+
+The following steps show you how to get information about a skill.
+
+1. In **AI enrichment > Skill Graph**, select a skill. The Skill Details pane opens to the right.
+
+1. Edit a skill definition using either approach:
+
+   + **Skill Settings** if you prefer a visual editor
+   + **Skill JSON Editor** to edit the JSON document directly
+
+1. Check the [path syntax for referencing nodes](cognitive-search-concept-annotations-syntax.md) in an enrichment tree. Inputs are usually one of the following:
+
+   + `/document/content` for chunks of text. This node is populated from the blob's content property.
+   + `/document/merged_content` for chunks of text in skillets that include Text Merge skill.
+   + `/document/normalized_images/*` for text that is recognized or inferred from images.
 
 ## Check field mappings
 
@@ -101,18 +124,6 @@ If skills produce output but the search index is empty, check the field mappings
    Verify that the fields in **Output Field Mappings** exist in the search index as specified, checking for spelling and [enrichment node path syntax](cognitive-search-concept-annotations-syntax.md). 
 
    :::image type="content" source="media/cognitive-search-debug/output-field-mappings.png" alt-text="Screenshot of the Output Field Mappings node and details." border="true":::
-
-## Edit skill definitions
-
-If the field mappings are correct, check individual skills for configuration and content. If a skill fails to produce output, it might be missing a property or parameter, which can be determined through error and validation messages. 
-
-Other issues, such as an invalid context or input expression, can be harder to resolve because the error will tell you what is wrong, but not how to fix it. For help with context and input syntax, see [Reference annotations in an Azure Cognitive Search skillset](cognitive-search-concept-annotations-syntax.md#background-concepts). For help with individual messages, see [Troubleshooting common indexer errors and warnings](cognitive-search-common-errors-warnings.md).
-
-The following steps show you how to get information about a skill.
-
-1. In **AI enrichment > Skill Graph**, select a skill. The Skill Details pane opens to the right.
-
-1. Edit a skill definition using either **Skill Settings** if you prefer a visual editor, or **Skill JSON Editor** for access to the JSON document.
 
 ## Next steps
 
