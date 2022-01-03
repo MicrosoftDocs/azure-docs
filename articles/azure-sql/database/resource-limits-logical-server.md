@@ -10,7 +10,7 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 01/15/2022
+ms.date: 01/5/2022
 ---
 
 # Resource management in Azure SQL Database
@@ -74,13 +74,13 @@ When encountering high space utilization, mitigation options include:
 Sessions, workers, and requests are defined as follows:
 
 - A session represents a process connected to the database engine.
-- A request is the logical representation of a query or batch. A request is issued by a session.
-- A worker thread, also known as a worker or thread, is a logical representation of an operating system thread. A request may have many workers when executed with a parallel query execution plan, or a single worker when executed with a serial (single threaded) execution plan.
+- A request is the logical representation of a query or batch. A request is issued by a client connected to a session. Over time, multiple requests may be issued on the same session.
+- A worker thread, also known as a worker or thread, is a logical representation of an operating system thread. A request may have many workers when executed with a parallel query execution plan, or a single worker when executed with a serial (single threaded) execution plan. Workers are also required to support activities outside of requests: for example, a worker is required to process a login request as a session connects.
 
 The maximum numbers of sessions and workers are determined by the service tier and compute size. New requests are rejected when session or worker limits are reached, and clients receive an error message. While the number of connections available can be controlled by the application, the number of concurrent workers is often harder to estimate and control. This is especially true during peak load periods when database resource limits are reached and workers pile up due to longer running queries, large blocking chains, or excessive query parallelism.
 
 > [!NOTE]
-> The initial offering of Azure SQL Database supported only single threaded queries. At that time, the number of requests was always equivalent to the number of workers. Error message 10928 in Azure SQL Database contains the wording "The request limit for the database is *N* and has been reached" for backwards compatibility purposes.  The limit reached is actually the number of workers. If your max degree of parallelism (MAXDOP) setting is equal to zero or is greater than one, the number of workers may be much higher than the number of requests. Learn more about error 10928 in [Resource governance errors](troubleshoot-common-errors-issues.md#resource-governance-errors).
+> The initial offering of Azure SQL Database supported only single threaded queries. At that time, the number of requests was always equivalent to the number of workers. Error message 10928 in Azure SQL Database contains the wording "The request limit for the database is *N* and has been reached" for backwards compatibility purposes.  The limit reached is actually the number of workers. If your max degree of parallelism (MAXDOP) setting is equal to zero or is greater than one, the number of workers may be much higher than the number of requests, and the limit may be reached much sooner than when MAXDOP is equal to one. Learn more about error 10928 in [Resource governance errors](troubleshoot-common-errors-issues.md#resource-governance-errors).
 
 You can mitigate approaching or hitting worker or session limits by:
 

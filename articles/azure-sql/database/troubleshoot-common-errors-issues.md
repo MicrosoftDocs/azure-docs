@@ -9,7 +9,7 @@ ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: kendralittle, mathoma, vanto
-ms.date: 01/15/2022
+ms.date: 01/5/2022
 ---
 
 # Troubleshooting connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance
@@ -178,7 +178,7 @@ The detailed error message in this case reads: `Resource ID : 1. The request lim
 This error message indicates that the worker limit for Azure SQL Database has been reached. A value will be present instead of the placeholder *%d*. This value indicates the worker limit for your database at the time the limit was reached.
 
 > [!NOTE]
-> The initial offering of Azure SQL Database supported only single threaded queries. At that time, the number of requests was always equivalent to the number of workers. Error message 10928 in Azure SQL Database contains the wording "The request limit for the database is *N* and has been reached" for backwards compatibility purposes. The limit reached is actually the number of workers. If your max degree of parallelism (MAXDOP) setting is equal to zero or is greater than one, the number of workers may be much higher than the number of requests.
+> The initial offering of Azure SQL Database supported only single threaded queries. At that time, the number of requests was always equivalent to the number of workers. Error message 10928 in Azure SQL Database contains the wording "The request limit for the database is *N* and has been reached" for backwards compatibility purposes. The limit reached is actually the number of workers. If your max degree of parallelism (MAXDOP) setting is equal to zero or is greater than one, the number of workers may be much higher than the number of requests, and the limit may be reached much sooner than when MAXDOP is equal to one.
 > 
 > Learn more about [Sessions, workers, and requests](resource-limits-logical-server.md#sessions-workers-and-requests).
 
@@ -188,12 +188,18 @@ If a live incident is ongoing where the worker limit has been reached, you may r
 
 To establish a connection with the DAC from SSMS:
 
-- Disconnect all connections to the database, including the Object Explorer and all open query windows.
 - From the menu, select **File > New > Database Engine Query**
 - From the connection dialog box in the Server Name field, enter `admin:<fully_qualified_server_name>` (this will be something like `admin:servername.database.windows.net`).
+- Select **Options >>**
+- Select the **Connection Properties** tab
+- In the **Connect to database:** box, type the name of your database
 - Select **Connect**.
 
-If you receive Error 40613, `Database '%.&#x2a;ls' on server '%.&#x2a;ls' is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of '%.&#x2a;ls'`, this may indicate that another session is already connected to the DAC. Only one session may connect to the DAC for a [logical server in Azure SQL Database](logical-servers.md) at a time.
+If you receive Error 40613, `Database '%.&#x2a;ls' on server '%.&#x2a;ls' is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of '%.&#x2a;ls'`, this may indicate that another session is already connected to the DAC. Only one session may connect to the DAC for a single database or an elastic pool at a time.
+
+If you encounter the error 'Failed to connect to server' after selecting **Connect**, the DAC session may still have been established successfully if you are using a version of [SSMS prior to 18.9](/sql/ssms/release-notes-ssms#bug-fixes-in-189). Early versions of SSMS attempted to provide Intellisense for connections to the DAC. This failed, as the DAC supports only a single worker and Intellisense requires a separate worker. 
+
+You cannot use a DAC connection with Object Explorer.
 
 #### Review your max_worker_percent usage
 
@@ -217,28 +223,31 @@ Blocking chains can cause of a sudden surge in the number of workers in a databa
 
 Triage an incident with insufficient workers with the following steps:
 
-1. Investigate if blocking is occurring. The following quick procedure can be used to check for blocking when your database is returning Error 10928. You'll likely need to [connect with the Dedicated Admin Connection (DAC)](#connect-with-the-dedicated-admin-connection-dac-if-needed) to execute these steps:
+1. Investigate if blocking is occurring or if you can identify a large volume of concurrent workers. Run the following query to examine current requests and check for blocking when your database is returning Error 10928. You may need to [connect with the Dedicated Admin Connection (DAC)](#connect-with-the-dedicated-admin-connection-dac-if-needed) to execute the query.
+    
+    ```sql
+    SELECT
+        r.session_id, r.request_id, r.blocking_session_id, r.start_time, 
+        r.status, r.command, DB_NAME(r.database_id) AS database_name,
+        (SELECT COUNT(*) 
+            FROM sys.dm_os_tasks AS t 
+            WHERE t.session_id=r.session_id and t.request_id=r.request_id) AS worker_count,
+        i.parameters, i.event_info AS input_buffer,
+        r.last_wait_type, r.open_transaction_count, r.total_elapsed_time, r.cpu_time,
+        r.logical_reads, r.writes, s.login_time, s.login_name, s.program_name, s.host_name
+    FROM sys.dm_exec_requests as r
+    JOIN sys.dm_exec_sessions as s on r.session_id=s.session_id
+    OUTER APPLY sys.dm_exec_input_buffer (r.session_id,r.request_id) AS i
+    WHERE s.is_user_process=1;
+    GO
+    ```
+    1. Look for rows with a `blocking_session_id` to identify blocked sessions. Find each `blocking_session_id` in the list to determine if that session is also blocked. This will eventually lead you to the head blocker. Tune the head blocker query.
 
-    - Run the following Transact-SQL query to check [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) to see any blocking requests. Look for rows with a `blocking_session_id` to identify blocked sessions. Find each `blocking_session_id` in the list to determine if that session is also blocked. This will eventually lead you to the head blocker.
+       > [!NOTE]
+       > For more thorough information on troubleshooting long running or blocking queries, see [Understand and resolve Azure SQL Database blocking problems](understand-resolve-blocking.md).
     
-       ```sql
-       SELECT * 
-       FROM sys.dm_exec_requests;
-       ```
-    
-    - Determine the **input buffer** for the head blocker using the [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) dynamic management function, and the session_id of the offending query, for example:
-    
-       ```sql 
-       SELECT * 
-       FROM sys.dm_exec_input_buffer (100,0);
-       ```
-    
-    - Tune the head blocker query.
-    
+    1. To identify a large volume of concurrent workers, review the number of requests overall and the `worker_count` column for each request. `Worker_count` is the number of workers at the time sampled and may change over time as the request is executed. Tune queries to reduce resource utilization if the cause of increased workers is concurrent queries that are running at their optimal degree of parallelism. For more information, see [Query Tuning/Hinting](performance-guidance.md#query-tuning-and-hinting).
 
-    > [!NOTE]
-    > This is a minimalist approach that might not resolve the issue. For more thorough information on troubleshooting long running or blocking queries, see [Understand and resolve Azure SQL Database blocking problems](understand-resolve-blocking.md).
-1. Optimize queries to reduce resource utilization if the cause of increased workers is contention for compute resources. For more information, see [Query Tuning/Hinting](performance-guidance.md#query-tuning-and-hinting).
 1. Evaluate the [maximum degree of parallelism (MAXDOP)](configure-max-degree-of-parallelism.md) setting for the database.
 
 #### Increase worker limits
@@ -272,7 +281,7 @@ For more information about resource limits, see [Logical SQL server resource lim
 
 This error occurs when the database has reached its size quota.
 
-The following steps can either help you work around the problem or provide you with additional options:
+The following steps can either help you work around the problem or provide you with more options:
 
 1. Check the current size of the database by using the dashboard in the Azure portal.
 
@@ -287,6 +296,7 @@ The following steps can either help you work around the problem or provide you w
    JOIN sys.dm_db_partition_stats p on p.object_id = o.object_id
    GROUP BY o.name
    ORDER BY [Table Size (MB)] DESC;
+   GO
    ```
 
 2. If the current size does not exceed the maximum size supported for your edition, you can use ALTER DATABASE to increase the MAXSIZE setting.
@@ -302,24 +312,30 @@ The following steps can either help you work around the problem or provide you w
 
 If you repeatedly encounter this error, try to resolve the issue by following these steps:
 
-1. Check the `sys.dm_exec_requests` view to see any open sessions that have a high value for the `total_elapsed_time` column. Perform this check by running the following SQL script:
+1. Run the following query to see any open sessions that have a high value for the `duration_ms` column:
 
-   ```sql
-   SELECT * FROM sys.dm_exec_requests;
-   ```
-
-2. Determine the input buffer for the head blocker using the [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) dynamic management function, and the `session_id` of the offending query, for example:
-
-   ```sql 
-   SELECT * FROM sys.dm_exec_input_buffer (100,0);
-   ```
-
-3. Tune the query.
+    ```sql
+    SELECT
+        r.start_time, DATEDIFF(ms,start_time, SYSDATETIME()) as duration_ms, 
+    	r.session_id, r.request_id, r.blocking_session_id,  
+        r.status, r.command, DB_NAME(r.database_id) AS database_name,
+        i.parameters, i.event_info AS input_buffer,
+        r.last_wait_type, r.open_transaction_count, r.total_elapsed_time, r.cpu_time,
+        r.logical_reads, r.writes, s.login_time, s.login_name, s.program_name, s.host_name
+    FROM sys.dm_exec_requests as r
+    JOIN sys.dm_exec_sessions as s on r.session_id=s.session_id
+    OUTER APPLY sys.dm_exec_input_buffer (r.session_id,r.request_id) AS i
+    WHERE s.is_user_process=1
+    ORDER BY start_time ASC;
+    GO
+    ```
+    You may choose to ignore rows where the `input_buffer` column shows a query reading from `sys.fn_MSxe_read_event_stream`: these requests are related to Extended Event sessions. 
+1. Review the `blocking_session_id` column to see if blocking is contributing to long-running transactions.
 
     > [!NOTE]
     > For more information on troubleshooting blocking in Azure SQL Database, see [Understand and resolve Azure SQL Database blocking problems](understand-resolve-blocking.md).
 
-Also consider batching your queries. For information on batching, see [How to use batching to improve SQL Database application performance](../performance-improve-use-batching.md).
+1. Consider batching your queries. For information on batching, see [How to use batching to improve SQL Database application performance](../performance-improve-use-batching.md).
 
 ### Error 40551: The session has been terminated because of excessive TEMPDB usage
 
@@ -378,7 +394,7 @@ The following errors are related to creating and using elastic pools:
 | Error code | Severity | Description | Corrective action |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |The elastic pool has reached its storage limit. The storage usage for the elastic pool cannot exceed (%d) MBs. Attempting to write data to a database when the storage limit of the elastic pool has been reached. For information on resource limits, see: <br/>&bull; &nbsp;[DTU-based limits for elastic pools](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](resource-limits-vcore-elastic-pools.md). <br/> |Consider increasing the DTUs of and/or adding storage to the elastic pool if possible in order to increase its storage limit, reduce the storage used by individual databases within the elastic pool, or remove databases from the elastic pool. For elastic pool scaling, see [Scale elastic pool resources](elastic-pool-scale.md). For more information on removing unused space from databases, see [Manage file space for databases in Azure SQL Database](file-space-manage.md).|
-| 10929 | 16 |The %s minimum guarantee is %d, maximum limit is %d, and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. For information on resource limits, see: <br/>&bull; &nbsp;[DTU-based limits for elastic pools](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](resource-limits-vcore-elastic-pools.md). <br/> Otherwise, try again later. DTU / vCore min per database; DTU / vCore max per database. The total number of concurrent [workers (requests)](resource-limits-logical-server.md#sessions-workers-and-requests) across all databases in the elastic pool attempted to exceed the pool limit. |Consider increasing the DTUs or vCores of the elastic pool if possible in order to increase its worker limit, or remove databases from the elastic pool. |
+| 10929 | 16 |The %s minimum guarantee is %d, maximum limit is %d, and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. For information on resource limits, see: <br/>&bull; &nbsp;[DTU-based limits for elastic pools](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](resource-limits-vcore-elastic-pools.md). <br/> Otherwise, try again later. DTU / vCore min per database; DTU / vCore max per database. The total number of [concurrent workers](resource-limits-logical-server.md#sessions-workers-and-requests) across all databases in the elastic pool attempted to exceed the pool limit. |Consider increasing the DTUs or vCores of the elastic pool if possible in order to increase its worker limit, or remove databases from the elastic pool. |
 | 40844 | 16 |Database '%ls' on Server '%ls' is a '%ls' edition database in an elastic pool and cannot have a continuous copy relationship.  |N/A |
 | 40857 | 16 |Elastic pool not found for server: '%ls', elastic pool name: '%ls'. Specified elastic pool does not exist in the specified server. | Provide a valid elastic pool name. |
 | 40858 | 16 |Elastic pool '%ls' already exists in server: '%ls'. Specified elastic pool already exists in the specified server. | Provide new elastic pool name. |
@@ -441,7 +457,7 @@ For additional guidance on fine-tuning performance, see the following resources:
 2. Check the application's connection string to make sure it's configured correctly. For example, make sure that the connection string specifies the correct port (1433) and fully qualified server name.
 See [Get connection information](./connect-query-ssms.md#get-server-connection-information).
 3. Try increasing the connection timeout value. We recommend using a connection timeout of at least 30 seconds.
-4. Test the connectivity between the application server and the Azure SQL Database by using [SQL Server management Studio (SSMS)](./connect-query-ssms.md), a UDL file, ping, or telnet. For more information, see [Troubleshooting connectivity issues](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) and [Diagnostics for connectivity issues](./troubleshoot-common-connectivity-issues.md#diagnostics).
+4. Test the connectivity between the application server and the Azure SQL Database by using [SQL Server Management Studio (SSMS)](./connect-query-ssms.md), a UDL file, ping, or telnet. For more information, see [Troubleshooting connectivity issues](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) and [Diagnostics for connectivity issues](./troubleshoot-common-connectivity-issues.md#diagnostics).
 
    > [!NOTE]
    > As a troubleshooting step, you can also test connectivity on a different client computer.
