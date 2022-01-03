@@ -35,13 +35,13 @@ Run a command like this to download the files replace the value of the pod name 
 >  Use the pod name of the Coordinator node of the Postgres Hyperscale server group. Its name is \<server group name\>c-0 (for example postgres01c-0, where c stands for Coordinator node).  If you are not sure of the pod name run the command `kubectl get pod`
 
 ```console
-kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres  -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
+kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres  -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/cluster_api/capi_azure/arm_template/artifacts/AdventureWorks2019.sql"
 
 #Example:
-#kubectl exec postgres02-0 -n arc -c postgres -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
+#kubectl exec postgres02-0 -n arc -c postgres -- /bin/bash -c "cd /tmp && curl -k -O hthttps://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/cluster_api/capi_azure/arm_template/artifacts/AdventureWorks2019.sql"
 ```
 
-## Step 2: Import the AdventureWorks database
+## Import the AdventureWorks database
 
 Similarly, you can run a kubectl exec command to use the psql CLI tool that is included in the PostgreSQL Hyperscale server group containers to create and load the database.
 

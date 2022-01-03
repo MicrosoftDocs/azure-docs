@@ -15,8 +15,6 @@ items:
     href: device-update-ubuntu-agent.md
   - name: Device Update for Azure Real-time-operating-system
     href: device-update-azure-real-time-operating-system.md
-  - name: Proxy Update using device update binary agent
-    href: device-update-howto-proxy-updates.md
 - name: Concepts
   items:
   - name: Device update account and instance
@@ -53,12 +51,6 @@ items:
     href: import-schema.md
   - name: Device Update limits
     href: device-update-limits.md
-  - name: How Proxy Updates works
-    href: device-update-proxy-updates.md
-  - name: How Multi-step Updates work
-    href: device-update-multi-step-updates.md  
-  - name: How to use Components Enumerator
-    href: components-enumerator.md
 
 - name: How-to guides
   items:
