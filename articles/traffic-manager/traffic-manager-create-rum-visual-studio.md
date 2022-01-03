@@ -6,13 +6,13 @@ documentationcenter: traffic-manager
 author: duongau
 
 ms.service: traffic-manager
-ms.devlang: na
+ms.devlang: java
 ms.topic: how-to
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: duau
-ms.custom: devx-track-js
+ms.custom: devx-track-java
 ---
 
 # How to send Real User Measurements to Traffic Manager with Visual Studio Mobile Center

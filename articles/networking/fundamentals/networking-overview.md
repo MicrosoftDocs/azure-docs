@@ -5,7 +5,6 @@ services: networking
 documentationcenter: na
 author: KumudD
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/07/2021
