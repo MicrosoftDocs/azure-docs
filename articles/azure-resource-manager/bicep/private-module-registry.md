@@ -21,23 +21,23 @@ A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-r
 
 1. Get the login server name. You need this name when linking to the registry from your Bicep files. The format of the login server name is: `<registry-name>.azurecr.io`.
 
-   # [PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/azure-powershell)
 
-   To get the login server name, use [Get-AzContainerRegistry](/powershell/module/az.containerregistry/get-azcontainerregistry).
+    To get the login server name, use [Get-AzContainerRegistry](/powershell/module/az.containerregistry/get-azcontainerregistry).
 
-   ```azurepowershell
-   Get-AzContainerRegistry -ResourceGroupName "<resource-group-name>" -Name "<registry-name>"  | Select-Object LoginServer
-   ```
+    ```azurepowershell
+    Get-AzContainerRegistry -ResourceGroupName "<resource-group-name>" -Name "<registry-name>"  | Select-Object LoginServer
+    ```
 
-   # [Azure CLI](#tab/azure-cli)
+    # [Azure CLI](#tab/azure-cli)
 
-   To get the login server name, use [az acr show](/cli/azure/acr#az_acr_show).
+    To get the login server name, use [az acr show](/cli/azure/acr#az_acr_show).
 
-   ```azurecli
-   az acr show --resource-group <resource-group-name> --name <registry-name> --query loginServer
-   ```
+    ```azurecli
+    az acr show --resource-group <resource-group-name> --name <registry-name> --query loginServer
+    ```
 
-   ---
+    ---
 
 1. To publish modules to a registry, you must have permission to **push** an image. To deploy a module from a registry, you must have permission to **pull** the image. For more information about the roles that grant adequate access, see [Azure Container Registry roles and permissions](../../container-registry/container-registry-roles.md).
 
