@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 12/30/2021
+ms.date: 01/03/2022
 ms.author: cavoeg
 ---
 
@@ -17,18 +17,18 @@ In this article, we'll cover some of the nuances of the RESTful interactions of 
 
 The FHIR service supports create, conditional create, update, and conditional update as defined by the FHIR specification. One useful header in these scenarios is the [If-Match](https://www.hl7.org/fhir/http.html#concurrency) header. The `If-Match` header is used and will validate the version being updated before making the update. If the `ETag` doesn’t match the expected `ETag`, it will produce the error message *412 Precondition Failed*. 
 
-## Delete types
+## Delete and Conditional Delete
 
 The FHIR service offers two delete types. There is [Delete](https://www.hl7.org/fhir/http.html#delete), which is also know as Hard + Soft Delete, and [Conditional Delete](https://www.hl7.org/fhir/http.html#3.1.0.7.1).
 
-## Delete (Hard + Soft Delete)
+### Delete (Hard + Soft Delete)
 
 Delete defined by the FHIR specification requires that after deleting a resource, subsequent non-version specific reads of a resource returns a 410 HTTP status code. Therefore, the resource is no longer found through searching. Additionally, the FHIR service enables you to fully delete (including all history) the resource. To fully delete the resource, you can pass a parameter settings `hardDelete` to true `(DELETE {{FHIR_URL}}/{resource}/{id}?hardDelete=true)`. If you don't pass this parameter or set `hardDelete` to false, the historic versions of the resource will still be available.
 
 > [!NOTE]
 > If you only want to delete the history, the FHIR service supports a custom operation called `$purge-history`. This operation allows you to delete the history off of a resource.
 
-## Conditional Delete
+### Conditional Delete
 
  Conditional Delete allows you to pass search criteria to delete a resource. By default, the Conditional Delete allows you to delete one item at a time. You can also specify the `_count` parameter to delete up to 100 items at a time. Below are some examples of using Conditional Delete.
 
@@ -44,7 +44,7 @@ To delete multiple resources, include `_count=100` parameter. This parameter wil
 
 `DELETE https://{{FHIR_URL}}/Patient?identifier=1032704&_count=100`
  
-## Recovery of deleted files
+### Recovery of deleted files
 
 If you don't use the hard delete parameter, then the record(s) in the FHIR service should still exist. The record(s) can be found by doing a history search on the resource and looking for the last version with data.
  
