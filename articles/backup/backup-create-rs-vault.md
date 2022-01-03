@@ -37,7 +37,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
 
 ## Set Cross Region Restore
 
-The restore option Cross Region Restore (CRR) allows you to restore data in a secondary, Azure paired region. You can use it to conduct drills when there is an audit or compliance requirement (or) restore the data if there's a disaster in the primary region.
+The restore option Cross Region Restore (CRR) allows you to restore data in a secondary, [Azure paired region](../availability-zones/cross-region-replication-azure.md). You can use it to conduct drills when there is an audit or compliance requirement (or) restore the data if there's a disaster in the primary region.
 
 Before you begin:
 - CRR is supported:

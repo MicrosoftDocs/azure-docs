@@ -3,7 +3,7 @@ title: How to enable Microsoft Defender for Containers in Microsoft Defender for
 description: Enable the container protections of Microsoft Defender for Containers
 ms.topic: overview
 zone_pivot_groups: k8s-host
-ms.date: 12/12/2021
+ms.date: 01/02/2022
 ---
 # Enable Microsoft Defender for Containers
 
@@ -110,6 +110,7 @@ Request Body:
  
 ```rest
 {
+  "location": "{{Location}}",
   "properties": {
     "securityProfile": {
             "azureDefender": {
@@ -125,6 +126,7 @@ Request body parameters:
 
 | Name                                                                     | Description                                                                              | Mandatory |
 |--------------------------------------------------------------------------|------------------------------------------------------------------------------------------|-----------|
+| location                                                                 | Cluster's location                                                                       | Yes       |
 | properties.securityProfile.azureDefender.enabled                         | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes       |
 | properties.securityProfile.azureDefender.logAnalyticsWorkspaceResourceId | Log Analytics workspace Azure resource ID                                                | Yes       |
 |                                                                          |                                                                                          |           |
@@ -495,7 +497,7 @@ A full list of supported alerts is available in the [reference table of all Defe
 
 ::: zone pivot="defender-for-container-arc"
 
-## Removing the Defender extension
+## Remove the Defender extension
 
 You can remove the extension using Azure portal, Azure CLI, or REST API as explained in the tabs below.
 
@@ -605,11 +607,11 @@ Request body:
  
 ```rest
 {
+  "location": "{{Location}}",
   "properties": {
     "securityProfile": {
             "azureDefender": {
-                "enabled": false,
-                "logAnalyticsWorkspaceResourceId": "" // leave empty
+                "enabled": false
             }
         }
     }
@@ -620,8 +622,8 @@ Request body parameters:
 
 | Name                                                                     | Description                                                                              | Mandatory |
 |--------------------------------------------------------------------------|------------------------------------------------------------------------------------------|-----------|
+| location                                                                 | Cluster's location                                                                       | Yes       |
 | properties.securityProfile.azureDefender.enabled                         | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes       |
-| properties.securityProfile.azureDefender.logAnalyticsWorkspaceResourceId | Log Analytics workspace Azure resource ID                                                | Yes       |
 |                                                                          |                                                                                          |           |
 
 
@@ -646,13 +648,20 @@ The relevant template and parameters to remove the Defender profile from AKS are
         …
         "securityProfile": { 
             "azureDefender": { 
-                "enabled": false, 
-                "logAnalyticsWorkspaceResourceId": "" // leave empty
+                "enabled": false
             }
         },
     }
 }
+```
 
 ---
 
+## Remove the Defender extension
+
+If you've tried the Defender extension and decided not to use it, or you're troubleshooting a problem and need to uninstall then reinstall, follow the procedure described in [Remove the add-on](../governance/policy/concepts/policy-for-kubernetes.md#remove-the-add-on).
+
+
+
 ::: zone-end
+

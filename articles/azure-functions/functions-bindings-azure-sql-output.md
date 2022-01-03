@@ -6,6 +6,7 @@ ms.topic: reference
 ms.date: 12/15/2021
 ms.author: drskwier
 ms.reviewer: cachai
+ms.devlang: csharp
 ---
 
 # Azure SQL output binding for Azure Functions (preview)

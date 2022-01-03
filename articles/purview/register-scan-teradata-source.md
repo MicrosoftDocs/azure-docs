@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 12/16/2021
+ms.date: 12/28/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -23,6 +23,19 @@ This article outlines how to register Teradata, and how to authenticate and inte
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
 The supported Teradata database versions are 12.x to 17.x.
+
+When scanning Teradata source, Purview supports:
+
+- Extracting technical metadata including:
+
+    - Server
+    - Databases
+    - Tables including the columns, foreign keys, indexes, and constraints
+    - Views including the columns
+    - Stored procedures including the parameter dataset and result set
+    - Functions including the parameter dataset
+
+- Fetching static lineage on assets relationships among tables, views and stored procedures.
 
 ## Prerequisites
 

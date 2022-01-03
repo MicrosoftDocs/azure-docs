@@ -30,7 +30,7 @@ In this quickstart, you'll use following features to analyze and extract data an
 
 * [**Layout model**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
-* [**Prebuilt model**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained invoice model.
+* [**Prebuilt model**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained model.
 
 ## Prerequisites
 
@@ -169,7 +169,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 ## General document model
 
-##### Extract text, tables, structure, key-value pairs, and named entities from documents.
+Extract text, tables, structure, key-value pairs, and named entities from documents.
 
 > [!div class="checklist"]
 >
@@ -284,7 +284,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ## Layout model
 
-##### Extract text, selection marks, text styles, table structures, and bounding region coordinates from documents.
+Extract text, selection marks, text styles, table structures, and bounding region coordinates from documents.
 
 > [!div class="checklist"]
 >
@@ -369,16 +369,18 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ## Prebuilt model
 
-### Choose the invoice prebuilt model ID
+Extract and analyze data from common document types using a pre-trained model.
+
+##### Choose a prebuilt model ID
 
 You are not limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the model IDs for the prebuilt models currently supported by the Form Recognizer service:
 
 * [**prebuilt-invoice**](../concept-invoice.md): extracts text, selection marks, tables, key-value pairs, and key information from invoices.
 * [**prebuilt-receipt**](../concept-receipt.md): extracts text and key information from receipts.
-* [**prebuilt-idDocument**](../concept-id-document.md): extracts text and key information from U.S. drivers licenses and international passports.
+* [**prebuilt-idDocument**](../concept-id-document.md): extracts text and key information from driver licenses and international passports.
 * [**prebuilt-businessCard**](../concept-business-card.md): extracts text and key information from business cards.
 
-##### Extract and analyze data from common document types using a pre-trained model.
+#### Try the prebuilt invoice sample
 
 > [!div class="checklist"]
 >
