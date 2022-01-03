@@ -235,7 +235,7 @@ sections:
           Follow this process to check if the RT is revoked or not:
           1. Retrieve the `RefreshToken` and the `AccessToken` by redeeming `authorization_code`.
           1. Wait for 7 mins
-          1. Run RevokeAllRefreshToken command. You can use PowerShell cmdlet [Revoke-AzureADUserAllRefreshToken](https://docs.microsoft.com/en-us/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) or Microsoft Graph [invalidateAllRefreshTokens](https://docs.microsoft.com/en-us/graph/api/user-invalidateallrefreshtokens?view=graph-rest-beta&tabs=http)
+          1. Use PowerShell cmdlet [Revoke-AzureADUserAllRefreshToken](https://docs.microsoft.com/en-us/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) or Microsoft Graph API [invalidateAllRefreshTokens](https://docs.microsoft.com/en-us/graph/api/user-invalidateallrefreshtokens?view=graph-rest-beta&tabs=http) to run the `RevokeAllRefreshToken` command.
           1. Wait for 10 mins
           1. This way we are making sure that the difference between refreshTokenIssuedTime and updated refreshTokenValidFromDateTime is more than 5 mins
           1. Now try to redeem the RefreshToken you got in step 1
