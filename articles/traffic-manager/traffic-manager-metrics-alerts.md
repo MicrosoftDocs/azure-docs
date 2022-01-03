@@ -4,7 +4,6 @@ description: In this article, learn the metrics and alerts available for Traffic
 services: traffic-manager
 author: duongau
 ms.service: traffic-manager
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

@@ -4,7 +4,6 @@ description: This article helps you understand the different traffic routing met
 services: traffic-manager
 author: duongau
 ms.service: traffic-manager
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

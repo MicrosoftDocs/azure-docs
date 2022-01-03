@@ -9,7 +9,6 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: ddos-protection
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
