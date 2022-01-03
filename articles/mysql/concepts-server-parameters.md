@@ -100,7 +100,7 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-
 ### innodb_file_per_table
 
 > [!NOTE]
-> `innodb_file_per_table` can only be updated in the General Purpose and Memory Optimized pricing tiers on [general purpose storage v2](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage) and [general purpose storage v1] (https://docs.microsoft.com/en-us/azure/mysql/concepts-pricing-tiers#general-purpose-storage-v1-supports-up-to-4-tb).
+> `innodb_file_per_table` can only be updated in the General Purpose and Memory Optimized pricing tiers on [general purpose storage v2](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage) and [general purpose storage v1](concepts-pricing-tiers.md#general-purpose-storage-v1-supports-up-to-4-tb).
 
 MySQL stores the InnoDB table in different tablespaces based on the configuration you provided during the table creation. The [system tablespace](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) is the storage area for the InnoDB data dictionary. A [file-per-table tablespace](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) contains data and indexes for a single InnoDB table, and is stored in the file system in its own data file. This behavior is controlled by the `innodb_file_per_table` server parameter. Setting `innodb_file_per_table` to `OFF` causes InnoDB to create tables in the system tablespace. Otherwise, InnoDB creates tables in file-per-table tablespaces.
 
