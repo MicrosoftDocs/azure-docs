@@ -121,6 +121,8 @@ Periodically, we will retire Gateways using old hardware and migrate the traffic
 | West US 3            | 20.150.168.0, 20.150.184.2   | 20.150.168.32/29, 20.150.176.32/29, 20.150.184.32/29 |
 |                      |                    |                    |
 
+For US Gov Region gateway addresses, please see this [link](https://www.microsoft.com/en-us/download/details.aspx?id=57063).
+
 ## Next steps
 
 - For information on how to change the Azure SQL Database connection policy for a server, see [conn-policy](/cli/azure/sql/server/conn-policy).
