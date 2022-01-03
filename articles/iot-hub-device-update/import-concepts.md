@@ -33,7 +33,7 @@ To simplify update deployments, Device Update for IoT Hub compares compatibility
 
 ### InstalledCriteria
 
-The InstalledCriteria is used by the update agent on a device to determine if an update has been installed successfully.
+The InstalledCriteria is used by the update agent on a device to determine if an update has been installed successfully, in order to report the result to the Device Update service.
 
 
 ## Next steps
