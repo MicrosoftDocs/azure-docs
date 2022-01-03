@@ -268,7 +268,7 @@ The list of string operators is a much longer list because it has permutations f
 
 ## Summarizing data
 
-Summarizing is one of the most important tabular operators in KQL, but it also is one of the more complex operators to learn if you are new to query languages in general. The job of *summarize* is to take in a table of data and output a *new table* that is aggregated by one or more columns.
+[*Summarize*](/azure/data-explorer/kusto/query/summarizeoperator) is one of the most important tabular operators in KQL, but it also is one of the more complex operators to learn if you are new to query languages in general. The job of *summarize* is to take in a table of data and output a *new table* that is aggregated by one or more columns.
 
 ### Structure of the summarize statement
 
@@ -283,6 +283,8 @@ Perf
 | summarize count() by CounterName
 ```
 
+:::image type="content" source="media/kql-overview-alt/table-summarize-count.png" alt-text="Screenshot of results of summarize operator with count aggregation.":::
+
 Because the output of *summarize* is a new table, any columns not explicitly specified in the *summarize* statement will **not** be passed down the pipeline. To illustrate this concept, consider this example:
 
 ```kusto
@@ -292,7 +294,7 @@ Perf
 | sort by ObjectName asc
 ```
 
-On the second line, we are specifying that we only care about the columns *ObjectName*, *CounterValue*, and *CounterName*. We then summarized to get the record count by *CounterName* and finally, we attempt to sort the data in ascending order based on the *ObjectName* column. Unfortunately, this query will fail with an error indicating that the *ObjectName* is unknown. This is because when we summarized, we only included the *Count* and *CounterName* columns in our new table. To fix this, we can simply add *ObjectName* to the end of our *summarize* step, like this:
+On the second line, we are specifying that we only care about the columns *ObjectName*, *CounterValue*, and *CounterName*. We then summarized to get the record count by *CounterName* and finally, we attempt to sort the data in ascending order based on the *ObjectName* column. Unfortunately, this query will fail with an error (indicating that the *ObjectName* is unknown) because when we summarized, we only included the *Count* and *CounterName* columns in our new table. To avoid this error, we can simply add *ObjectName* to the end of our *summarize* step, like this:
 
 ```kusto
 Perf
@@ -301,9 +303,11 @@ Perf
 | sort by ObjectName asc
 ```
 
-The way to read the *summarize* line in your head would be: "summarize the count of records by *CounterName*, and sort by *ObjectName*". You can continue adding columns, separated by commas, to the end of the *summarize* statement.
+The way to read the *summarize* line in your head would be: "summarize the count of records by *CounterName*, and group by *ObjectName*". You can continue adding columns, separated by commas, to the end of the *summarize* statement.
 
-Building on the previous example, if we want to aggregate multiple columns at the same time, we can achieve this by adding aggregations to the *summarize* operator, separated by commas. In the example below, we are getting a sum of the *CounterValue* column in addition to getting a count of records:
+:::image type="content" source="media/kql-overview-alt/table-summarize-group.png" alt-text="Screenshot of results of summarize operator with two arguments.":::
+
+Building on the previous example, if we want to aggregate multiple columns at the same time, we can achieve this by adding aggregations to the *summarize* operator, separated by commas. In the example below, we are getting not only a count of all the records but also a sum of the values in the *CounterValue* column across all records (that match any filters in the query):
 
 ```kusto
 Perf
@@ -312,9 +316,11 @@ Perf
 | sort by ObjectName asc
 ```
 
+:::image type="content" source="media/kql-overview-alt/table-summarize-multiple.png" alt-text="Screenshot of results of summarize operator with multiple aggregations.":::
+
 This seems like a good time to talk about column names for these aggregated columns. At the start of this section, we said the *summarize* operator takes in a table of data and produces a new table, and only the columns you specify in the *summarize* statement will continue down the pipeline. Therefore, if you were to run the above example, the resulting columns for our aggregation would be *count_* and *sum_CounterValue*.
 
-The KQL engine will automatically create a column name without us having to be explicit, but often, you will find that you will prefer your new column have a friendlier name. To do this, you can easily name your column in the *summarize* statement, like so:
+The KQL engine will automatically create a column name without us having to be explicit, but often, you will find that you will prefer your new column have a friendlier name. You can easily rename your column in the *summarize* statement by specifying a new name, followed by ` = ` and the aggregation, like so:
 
 ```kusto
 Perf
@@ -325,17 +331,18 @@ Perf
 
 Now, our summarized columns will be named *Count* and *CounterSum*.
 
+:::image type="content" source="media/kql-overview-alt/friendly-column-names.png" alt-text="Screenshot of friendly column names for aggregations.":::
+
 There is much more to the *summarize* operator than we can cover here, but you should invest the time to learn it because it is a key component to any data analysis you plan to perform on your Microsoft Sentinel data.
 
 ### Aggregation reference
 
-The are many aggregation functions, but some of the most commonly used are sum(), count(), and avg(). Here's the full list:
+The are many [aggregation functions](/azure/data-explorer/kusto/query/aggregation-functions), but some of the most commonly used are sum(), count(), and avg(). Here's a partial list (see the full list at the link above):
 
 #### Aggregation Functions
 
 | Function        | Description                                                            |
 | --------------- | ---------------------------------------------------------------------- |
-| `any()`         | Returns random non-empty value for the group                           |
 | `arg_max()`     | Returns one or more expressions when argument is maximized             |
 | `arg_min()`     | Returns one or more expressions when argument is minimized             |
 | `avg()`         | Returns average value across the group                                 |
@@ -351,24 +358,25 @@ The are many aggregation functions, but some of the most commonly used are sum()
 | `percentiles()` | Returns the percentile approximate of the group                        |
 | `stdev()`       | Returns the standard deviation across the group                        |
 | `sum()`         | Returns the sum of the elements within the group                       |
+| `take_any()`    | Returns random non-empty value for the group                           |
 | `variance()`    | Returns the variance across the group                                  |
 | 
 
 
 ## Selecting: adding and removing columns
 
-As you start working more with KQL, you will find that you either have more columns than you need from a table, or you need to add a new calculated column. Let's look at a few of the key operators for column manipulation.
+As you start working more with KQL, you may find that you have more information than you need on your subjects (that is, too many columns in your table). Or you might need more information than you have (that is, you need to add a new column that will contain the results of analysis of other columns). Let's look at a few of the key operators for column manipulation.
 
 ### *Project* and *project-away*
 
-*Project* is roughly equivalent to many languages' *select* statements. It allows you to choose which columns to keep. The order of the columns returned will match the order of the columns you list in your *project* statement, as shown in this example:
+[*Project*](/azure/data-explorer/kusto/query/projectoperator) is roughly equivalent to many languages' *select* statements. It allows you to choose which columns to keep. The order of the columns returned will match the order of the columns you list in your *project* statement, as shown in this example:
 
 ```kusto
 Perf
 | project ObjectName, CounterValue, CounterName
 ```
 
-As you can imagine, when you are working with very wide datasets, you may have lots of columns you want to keep, and specifying them all by name would require a lot of typing. For those cases, you have *project-away*, which lets you specify which columns to remove, rather than which ones to keep, like so:
+As you can imagine, when you are working with very wide datasets, you may have lots of columns you want to keep, and specifying them all by name would require a lot of typing. For those cases, you have [*project-away*](/azure/data-explorer/kusto/query/projectawayoperator), which lets you specify which columns to remove, rather than which ones to keep, like so:
 
 ```kusto
 Perf
@@ -380,7 +388,7 @@ Perf
 > 
 ### *Extend*
 
-*Extend* is used to create a new calculated column. This can be useful when you want to perform a calculation against existing columns and see the output for every row. Let's look at a simple example where we calculate a new column called *Kbytes*, which we can calculate by multiplying the MB value (in the existing *Quantity* column) by 1,024.
+[*Extend*](/azure/data-explorer/kusto/query/extendoperator) is used to create a new calculated column. This can be useful when you want to perform a calculation against existing columns and see the output for every row. Let's look at a simple example where we calculate a new column called *Kbytes*, which we can calculate by multiplying the MB value (in the existing *Quantity* column) by 1,024.
 
 ```kusto
 Usage
@@ -408,14 +416,14 @@ Much of your work in Microsoft Sentinel can be carried out by using a single log
 *Union* simply takes two or more tables and returns all the rows. For example:
 
 ```kusto
-OfficeActivity // SUBSTITUTE OTHER TABLE!
+OfficeActivity
 | union SecurityEvent
 ```
 
 This would return all rows from both the *OfficeActivity* and *SecurityEvent* tables. *Union* offers a few parameters that can be used to adjust how the union behaves. Two of the most useful are *withsource* and *kind*:
 
 ```kusto
-OfficeActivity // SUBSTITUTE OTHER TABLE!
+OfficeActivity
 | union withsource = SourceTable kind = inner SecurityEvent
 ```
 
