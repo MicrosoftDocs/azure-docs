@@ -8,7 +8,7 @@ ms.custom: references_regions
 
 # Create and configure a Recovery Services vault
 
-In this article, you'll create and configure Azure Backup Recovery Services vaults that store backups and recovery points. You'll also use Cross Region Restore to restore in a secondary region.
+In this article, you'll create and configure an Azure Backup Recovery Services vault that stores backups and recovery points. You'll also use Cross Region Restore to restore in a secondary region.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -39,7 +39,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
 >[!NOTE]
 >The storage replication settings for the vault aren't relevant for Azure file share backup, because the current solution is snapshot based and no data is transferred to the vault. Snapshots are stored in the same storage account as the backed-up file share.
 
-## Configure Cross Region Restore
+## Set Cross Region Restore
 
 The Cross Region Restore option allows you to restore data in a secondary, [Azure paired region](../availability-zones/cross-region-replication-azure.md). You can use Cross Region Restore to conduct drills when there's an audit or compliance requirement. You can also use it to restore the data if there's a disaster in the primary region.
 
@@ -77,7 +77,7 @@ For more information about backup and restore with Cross Region Restore, see the
 
 ## Set encryption settings
 
-By default, the data in the Recovery Services vault is encrypted through platform-managed keys. You don't need to take any explicit actions to enable this encryption. It applies to all workloads being backed up to your Recovery Services vault. 
+By default, the data in the Recovery Services vault is encrypted through platform-managed keys. You don't need to take any explicit actions to enable this encryption. It applies to all workloads that are backed up to your Recovery Services vault. 
 
 You can choose to bring your own key (a *customer-managed key*) to encrypt the backup data in this vault. If you want to encrypt backup data by using your own key, you must specify the encryption key before any item is added to this vault. After you enable encryption with your key, it can't be reversed.
 
@@ -96,7 +96,7 @@ We highly recommend that you review the default settings for storage replication
 
 By default, **Soft delete** is set to **Enabled** on newly created vaults to help protect backup data from accidental or malicious deletions. To review and modify the settings, [follow these steps](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
 
-Before you decide to move from GRS to LRS, review the trade-offs between lower cost and higher data durability that fit your scenario. If you must move from GRS to LRS after you configure backup, you have the following two choices. They depend on your business requirements to retain the backup data.
+Before you decide to move from GRS to LRS, review the trade-offs between lower cost and higher data durability that fit your scenario. If you must move from GRS to LRS after you configure backup, you have the following two choices. Your choice will depend on your business requirements to retain the backup data.
 
 ### Don't need to preserve previous backed-up data
 
@@ -111,7 +111,7 @@ To stop and delete current protection on the GRS vault:
 
 1. Stop protection and delete backups from the existing GRS vault. On the vault dashboard menu, select **Backup Items**. If you need to move items that are listed here to the LRS vault, you must remove them and their backup data. See [Delete protected items in the cloud](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) and [Delete protected items on-premises](backup-azure-delete-vault.md#delete-protected-items-on-premises).
 
-1. If you're planning to move Azure file shares, SQL Server instances, or SAP HANA servers, you'll also need to unregister them. On the vault dashboard menu, select **Backup Infrastructure**. For steps beyond that, see [Unregister a SQL Server instance](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [Unregister a storage account associated with Azure file shares](manage-afs-backup.md#unregister-a-storage-account), or [Unregister an SAP HANA instance](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
+1. If you're planning to move Azure file shares, SQL Server instances, or SAP HANA servers, you'll also need to unregister them. On the vault dashboard menu, select **Backup Infrastructure**. For steps beyond that, see [Unregister a storage account associated with Azure file shares](manage-afs-backup.md#unregister-a-storage-account), [Unregister a SQL Server instance](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), or [Unregister an SAP HANA instance](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
 
 1. After you remove Azure file shares, SQL Server instances, or SAP HANA servers from the GRS vault, continue to configure the backups for your workload in the new LRS vault.
 
