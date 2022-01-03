@@ -20,8 +20,8 @@ Azure Active Directory (Azure AD) offers many capabilities for protecting users,
 
 The ability to securely access internal apps from outside your network becomes even more critical in the modern workplace. With scenarios such as BYOD (Bring Your Own Device) and mobile devices, IT professionals are challenged to meet two goals:
 
-* Empower end-users to be productive anytime and anywhere
-* Protect corporate assets at all times
+* Empower users to be productive anytime and anywhere.
+* Protect corporate assets at all times.
 
 Many organizations believe they are in control and protected when resources exist within the boundaries of their corporate networks. But in today's digital workplace, that boundary has expanded with managed mobile devices and resources and services in the cloud. You now need to manage the complexity of protecting your users' identities and data stored on their devices and apps.
 
@@ -68,11 +68,11 @@ With Application Proxy, Azure AD keeps track of users who need to access web app
 
 ### An overview of how App Proxy works
 
-Application Proxy is an Azure AD service you configure in the Azure portal. It enables you to publish an external public HTTP/HTTPS URL endpoint in the Azure Cloud, which connects to an internal application server URL in your organization. These on-premises web apps can be integrated with Azure AD to support single sign-on. End-users can then access on-premises web apps in the same way they access Microsoft 365 and other SaaS apps.
+Application Proxy is an Azure AD service you configure in the Azure portal. It enables you to publish an external public HTTP/HTTPS URL endpoint in the Azure Cloud, which connects to an internal application server URL in your organization. These on-premises web apps can be integrated with Azure AD to support single sign-on. Users can then access on-premises web apps in the same way they access Microsoft 365 and other SaaS apps.
 
 Components of this feature include the Application Proxy service, which runs in the cloud, the Application Proxy connector, which is a lightweight agent that runs on an on-premises server, and Azure AD, which is the identity provider. All three components work together to provide the user with a single sign-on experience to access on-premises web applications.
 
-After signing in, external users can access on-premises web applications by using a friendly URL or [My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) from their desktop or iOS/MAC devices. For example, App Proxy can provide remote access and single sign-on to Remote Desktop, SharePoint sites, Tableau, Qlik, Outlook on the web, and line-of-business (LOB) applications.
+After signing in, external users can access on-premises web applications by using a display URL or [My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) from their desktop or iOS/MAC devices. For example, App Proxy can provide remote access and single sign-on to Remote Desktop, SharePoint sites, Tableau, Qlik, Outlook on the web, and line-of-business (LOB) applications.
 
 ![Azure AD Application Proxy architecture](media/what-is-application-proxy/azure-ad-application-proxy-architecture.png)
 
@@ -119,7 +119,7 @@ To learn more about migrating your apps to Azure AD, see the [Migrating Your App
 
 ## Architecture
 
-The following diagram illustrates in general how Azure AD authentication services and Application Proxy work together to provide single sign-on to on-premises applications to end-users.
+The following diagram illustrates in general how Azure AD authentication services and Application Proxy work together to provide single sign-on to on-premises applications to users.
 
 ![Azure AD Application Proxy authentication flow](media/what-is-application-proxy/azure-ad-application-proxy-authentication-flow.png)
 
@@ -133,7 +133,7 @@ The following diagram illustrates in general how Azure AD authentication service
 
 |**Component**|**Description**|
 |:-|:-|
-|Endpoint|The endpoint is a URL or an [end-user portal](../manage-apps/end-user-experiences.md). Users can reach applications while outside of your network by accessing an external URL. Users within your network can access the application through a URL or an end-user portal. When users go to one of these endpoints, they authenticate in Azure AD and then are routed through the connector to the on-premises application.|
+|Endpoint|The endpoint is a URL or an [user portal](../manage-apps/end-user-experiences.md). Users can reach applications while outside of your network by accessing an external URL. Users within your network can access the application through a URL or an user portal. When users go to one of these endpoints, they authenticate in Azure AD and then are routed through the connector to the on-premises application.|
 |Azure AD|Azure AD performs the authentication using the tenant directory stored in the cloud.|
 |Application Proxy service|This Application Proxy service runs in the cloud as part of Azure AD. It passes the sign-on token from the user to the Application Proxy Connector. Application Proxy forwards any accessible headers on the request and sets the headers as per its protocol, to the client IP address. If the incoming request to the proxy already has that header, the client IP address is added to the end of the comma-separated list that is the value of the header.|
 |Application Proxy connector|The connector is a lightweight agent that runs on a Windows Server inside your network. The connector manages communication between the Application Proxy service in the cloud and the on-premises application. The connector only uses outbound connections, so you don't have to open any inbound ports or put anything in the DMZ. The connectors are stateless and pull information from the cloud as necessary. For more information about connectors, like how they load-balance and authenticate, see [Understand Azure AD Application Proxy connectors](./application-proxy-connectors.md).|
@@ -179,7 +179,7 @@ For more information about choosing where to install your connectors and optimiz
 Up to this point, we've focused on using Application Proxy to publish on-premises apps externally while enabling single sign-on to all your cloud and on-premises apps. However, there are other use cases for App Proxy that are worth mentioning. They include:
 
 * **Securely publish REST APIs**. When you have business logic or APIs running on-premises or hosted on virtual machines in the cloud, Application Proxy provides a public endpoint for API access. API endpoint access lets you control authentication and authorization without requiring incoming ports. It provides additional security through Azure AD Premium features such as multi-factor authentication and device-based Conditional Access for desktops, iOS, MAC, and Android devices using Intune. To learn more, see [How to enable native client applications to interact with proxy applications](./application-proxy-configure-native-client-application.md) and [Protect an API by using OAuth 2.0 with Azure Active Directory and API Management](../../api-management/api-management-howto-protect-backend-with-aad.md).
-* **Remote Desktop Services** **(RDS)**. Standard RDS deployments require open inbound connections. However, the [RDS deployment with Application Proxy](./application-proxy-integrate-with-remote-desktop-services.md) has a permanent outbound connection from the server running the connector service. This way, you can offer more applications to end-users by publishing on-premises applications through Remote Desktop Services. You can also reduce the attack surface of the deployment with a limited set of two-step verification and Conditional Access controls to RDS.
+* **Remote Desktop Services** **(RDS)**. Standard RDS deployments require open inbound connections. However, the [RDS deployment with Application Proxy](./application-proxy-integrate-with-remote-desktop-services.md) has a permanent outbound connection from the server running the connector service. This way, you can offer more applications to users by publishing on-premises applications through Remote Desktop Services. You can also reduce the attack surface of the deployment with a limited set of two-step verification and Conditional Access controls to RDS.
 * **Publish applications that connect using WebSockets**. Support with [Qlik Sense](./application-proxy-qlik.md) is in Public Preview and will be expanded to other apps in the future.
 * **Enable native client applications to interact with proxy applications**. You can use Azure AD Application Proxy to publish web apps, but it also can be used to publish [native client applications](./application-proxy-configure-native-client-application.md) that are configured with Microsoft Authentication Library (MSAL). Native client applications differ from web apps because they're installed on a device, while web apps are accessed through a browser.
 
