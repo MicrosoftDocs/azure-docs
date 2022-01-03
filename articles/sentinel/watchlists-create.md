@@ -15,6 +15,8 @@ Create a watchlist from a local file or by using a template.
 
 Before you create a watchlist, review the [limitations of watchlists](watchlists.md).
 
+Be aware that if you delete and recreate a watchlist, you might see both the deleted and recreated entries in Log Analytics within the five-minute SLA for data ingestion. If you see these entries together in Log Analytics for a longer period of time, please submit a support ticket.
+
 ## Create a watchlist from a local file
 
 You can upload a CSV file from your local machine to create a watchlist.
