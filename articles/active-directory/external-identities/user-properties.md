@@ -51,11 +51,11 @@ After the guest user accepts the invitation, the **Issuer** property is updated 
 
 For guest users in State 1, the **issuer** is **External Azure AD**.
 
-![State 1 guest user after offer redemption](media/user-properties/after-redemption-state1.png)
+![State 1 guest user after offer redemption](media/user-properties/after-redemption-state-1.png)
 
 For guest users in State 2, the **issuer** is **Microsoft Account**.
 
-![State 2 guest user after offer redemption](media/user-properties/after-redemption-state2.png)
+![State 2 guest user after offer redemption](media/user-properties/after-redemption-state-2.png)
 
 For guest users in State 3 and State 4, the **issuer** property is set to the host’s organization domain. The **Directory synced** property in the Azure portal or **onPremisesSyncEnabled** in Microsoft Graph can be used to distinguish between state 3 and 4, yes indicating that the user is homed in the host’s on premises Active Directory.
 
