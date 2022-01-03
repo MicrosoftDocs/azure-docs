@@ -3,7 +3,7 @@ title: Visual Studio Code extension
 description: This reference article explains how to use the various pieces of functionality in the Visual Studio Code extension for Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: reference
-ms.date: 11/04/2021
+ms.date: 01/03/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -61,11 +61,11 @@ As topologies are effectively templates that you may make multiple live pipeline
 
 In the parameterization window, you can create a new parameter which will work as a value you fill in at live pipeline creation, or select from an existing one.  Creating a new one requires you to fill out the name and type.  You can optionally enter a default value if this will only sometimes need to be changed.  When a live pipeline is created only parameters without a default value will be required.  When you are done, click `Set`.
 
-If you wish to manage your existing parameters, this can be done with the `Manage parameters` option along the top.  The pane that comes allows you to add new parameters, and either edit or delete existing ones.
+If you wish to manage your existing parameters, this can be done with the `Manage parameters` option along the top. The pane that comes allows you to add new parameters, and either edit or delete existing ones.
 
 ### System variable
 
-When creating a series of live pipelines, there are likely cases where you want to use variables to help name files or outputs.  For example, you may wish to name a video clip with the live pipeline name and date / time so you know where it came from and at what time.  Video Analyzer provides three system variables you can use in your modules to help here.
+When creating a series of live pipelines, there are likely cases where you want to use variables to help name files or outputs. For example, you may wish to name a video clip with the live pipeline name and date / time so you know where it came from and at what time.  Video Analyzer provides three system variables you can use in your modules to help here.
 
 | System Variable        | Description                                                  | Example              |
 | :--------------------- | :----------------------------------------------------------- | :------------------- |
@@ -75,6 +75,99 @@ When creating a series of live pipelines, there are likely cases where you want 
 
 ### Connections 
 
-When you create a topology, you will need to connect the various modules together.  This is done with connections.  From the circle on the edge of a module, drag to the circle on the next module you want data to flow to.  This will produce a connection.
+When you create a topology, you will need to connect the various modules together. This is done with connections. From the circle on the edge of a module, drag to the circle on the next module you want data to flow to.  This will produce a connection.
 
 By default, connections send video data from one module to another. If you want to send only audio data or application data, you can left click on the connection and edit the output types. Selectable types of data include video, audio, and application. Selecting none of the output types will be treated as sending all applicable data from the sender node.
+
+## Sample pipeline topologies
+
+The following sample pipeline topologies are available on the extension:
+
+### Continuous Video Recording
+
+#### Record to Video Analyzer video
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/cvrtovideosink.png" alt-text="CVRToVideoSink":::
+
+#### Record using gRPC Extension
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/cvrwithgrpcextension.png" alt-text="CVRWithGrpcExtension":::
+
+#### Record using HTTP Extension
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/cvrwithhttpextension.png" alt-text="CVRWithHttpExtension":::
+
+#### Record on motion detection
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/cvrwithmotiondetection.png" alt-text="CVRWithMotionDetection":::
+
+#### Record audio with video
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/audiovideo.png" alt-text="AudioVideo":::
+
+### Event-based Video Recording
+
+#### Record using gRPC Extension
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/evrtovideosinkbygrpcextension.png" alt-text="EVRtoVideoSinkByGrpcExtension":::
+
+#### Record using HTTP Extension
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/evrtovideosinkbyhttpextension.png" alt-text="EVRtoVideoSinkByHttpExtension":::
+
+#### Record to Video Analyzer video based on inference events
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/evrtovideosinkonobjdetect.png" alt-text="EVRtoVideoSinkOnObjDetect":::
+
+#### Record to local files based on inference events
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/evrtofilesbasedonhubmessages.png" alt-text="EVRtoFilesBasedOnHubMessages":::
+
+#### Record motion events to Video Analyzer video and local files 
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/evrtofilesandvideosinkonmotion.png" alt-text="EVRToFilesAndVideoSinkOnMotion":::
+
+#### Record motion events to Video Analyzer video
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/evrtovideosinkonmotiondetection.png" alt-text="EVRtoVideoSinkOnMotionDetection":::
+
+#### Record motion events to local files
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/evrtofilesonmotiondetection.png" alt-text="EVRToFilesOnMotionDetection":::
+
+### Motion Detection
+
+#### Publish motion events to IoT Hub
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/motiondetection.png" alt-text="MotionDetection":::
+
+#### Analyze motion events using gRPC Extension
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/evronmotionplusgrpcextension.png" alt-text="EVROnMotionPlusGrpcExtension":::
+
+#### Analyze motion events using HTTP Extension
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/evronmotionplushttpextension.png" alt-text="EVROnMotionPlusHttpExtension":::
+
+### Extensions
+
+#### Analyze video using HTTP Extension
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/inferencingwithhttpextension.png" alt-text="InferencingWithHttpExtension":::
+
+#### Analyze video with Intel OpenVINO Model Server
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/inferencingwithopenvino.png" alt-text="InferencingWithOpenVINO":::
+
+### Computer Vision
+
+#### Person count operation with Computer Vision for Spatial Analysis
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/personcounttopology.png" alt-text="PersonCountTopology":::
+
+#### Person crossing line operation with Computer Vision for Spatial Analysis
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/personcrossinglinetopology.png" alt-text="PersonCrossingLineTopology":::
+
+#### Person crossing zone operation with Computer Vision for Spatial Analysis
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/personzonecrossingtopology.png" alt-text="PersonZoneCrossingTopology":::
+
+#### Person distance operation with Computer Vision for Spatial Analysis
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/persondistancetopology.png" alt-text="PersonDistanceTopology":::
+
+#### Custom operation with Computer Vision for Spatial Analysis
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/personattributestopology.png" alt-text="PersonAttributesTopology":::
+
+### AI Composition
+
+#### Record to the Video Analyzer service using multiple AI models
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/aicomposition.png" alt-text="AIComposition":::
+
+### Miscellaneous 
+
+#### Record video based on the object tracking AI model
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/objecttrackingwithhttpextension.png" alt-text="ObjectTrackingWithHttpExtension":::
+
+#### Record video based on the line crossing AI model
+[!div class="mx-imgBorder"] :::image type="content" source="./media/video-studio-code-extension/linecrossingwithhttpextension.png" alt-text="LineCrossingWithHttpExtension":::
