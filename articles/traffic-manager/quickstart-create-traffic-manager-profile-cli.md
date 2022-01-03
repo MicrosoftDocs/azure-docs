@@ -5,7 +5,6 @@ services: traffic-manager
 author: duongau
 manager: kumud
 ms.service: traffic-manager
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
