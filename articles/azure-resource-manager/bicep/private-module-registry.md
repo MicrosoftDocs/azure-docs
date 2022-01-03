@@ -41,9 +41,9 @@ A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-r
 
    The format of the login server name is: `<registry-name>.azurecr.io`.
 
-- To publish modules to a registry, you must have permission to **push** an image. To deploy a module from a registry, you must have permission to **pull** the image. For more information about the roles that grant adequate access, see [Azure Container Registry roles and permissions](../../container-registry/container-registry-roles.md).
+1. To publish modules to a registry, you must have permission to **push** an image. To deploy a module from a registry, you must have permission to **pull** the image. For more information about the roles that grant adequate access, see [Azure Container Registry roles and permissions](../../container-registry/container-registry-roles.md).
 
-- Depending on the type of account you use to deploy the module, you may need to customize which credentials are used. These credentials are needed to get the modules from the registry. By default, credentials are obtained from Azure CLI or Azure PowerShell. You can customize the precedence for getting the credentials in the **bicepconfig.json** file. For more information, see [Credentials for restoring modules](bicep-config-modules.md#credentials-for-restoring-modules).
+1. Depending on the type of account you use to deploy the module, you may need to customize which credentials are used. These credentials are needed to get the modules from the registry. By default, credentials are obtained from Azure CLI or Azure PowerShell. You can customize the precedence for getting the credentials in the **bicepconfig.json** file. For more information, see [Credentials for restoring modules](bicep-config-modules.md#credentials-for-restoring-modules).
 
 > [!IMPORTANT]
 > The private container registry is only available to users with the required access. However, it's accessed through the public internet. For more security, you can require access through a private endpoint. See [Connect privately to an Azure container registry using Azure Private Link](../../container-registry/container-registry-private-link.md).
@@ -67,8 +67,6 @@ az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bic
 ```
 
 ---
-
-To configure the correct permissions to access the registry, see [Credentials for publishing/restoring modules](./bicep-config-modules.md#credentials-for-publishingrestoring-modules).
 
 ## View files in registry
 
