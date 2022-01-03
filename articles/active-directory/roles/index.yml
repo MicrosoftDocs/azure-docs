@@ -37,14 +37,6 @@ landingContent:
             url: groups-concept.md
 
   # Card
-  - title: Get started
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: List role assignments
-            url: view-assignments.md
-
-  # Card
   - title: Choose roles
     linkLists:
       - linkListType: how-to-guide
@@ -57,6 +49,14 @@ landingContent:
             url: permissions-reference.md
           - text: Least privileged roles by task
             url: delegate-by-task.md
+
+  # Card
+  - title: List role assignments
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: List role assignments
+            url: view-assignments.md
 
   # Card
   - title: Assign roles
