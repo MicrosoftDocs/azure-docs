@@ -238,7 +238,7 @@ sections:
           1. Use PowerShell cmdlet [Revoke-AzureADUserAllRefreshToken](https://docs.microsoft.com/en-us/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) or Microsoft Graph API [invalidateAllRefreshTokens](https://docs.microsoft.com/en-us/graph/api/user-invalidateallrefreshtokens?view=graph-rest-beta&tabs=http) to run the `RevokeAllRefreshToken` command.
           1. Wait for 10 minutes.
           
-          1. Now try to redeem the RefreshToken you got in step 1
+          1. Retrieve the `RefreshToken` again.
           
       - question: |
           How do I report issues with Azure AD B2C?
