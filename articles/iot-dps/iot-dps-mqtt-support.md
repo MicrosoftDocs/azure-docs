@@ -36,7 +36,7 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
 * For the **ClientId** field, use **registrationId**.
 
-* For the **Username** field, use `{idScope}/registrations/{registration_id}/api-version=2019-03-31`, where `{idScope}` is the [ID scope](./concepts-service.md#id-scope) of the DPS and `{resgistration_id}` is the [Registration ID](./concepts-service.md#registration-id) for your device.
+* For the **Username** field, use `{idScope}/registrations/{registration_id}/api-version=2019-03-31`, where `{idScope}` is the [ID scope](./concepts-service.md#id-scope) of the DPS and `{registration_id}` is the [Registration ID](./concepts-service.md#registration-id) for your device.
 
   > [!NOTE]
   > If you use X.509 certificate authentication, the registration ID is provided by the subject common name (CN) of your device leaf (end-entity) certificate. `{registration_id}` in the **Username** field must match the common name.
