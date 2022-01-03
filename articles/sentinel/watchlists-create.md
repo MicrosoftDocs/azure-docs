@@ -15,8 +15,6 @@ Create a watchlist from a local file or by using a template.
 
 Before you create a watchlist, review the [limitations of watchlists](watchlists.md).
 
-Be aware that if you delete and recreate a watchlist, you might see both the deleted and recreated entries in Log Analytics within the five-minute SLA for data ingestion. If you see these entries together in Log Analytics for a longer period of time, please submit a support ticket.
-
 ## Create a watchlist from a local file
 
 You can upload a CSV file from your local machine to create a watchlist.
@@ -55,7 +53,6 @@ You can upload a CSV file from your local machine to create a watchlist.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-complete.png" alt-text="watchlist successful creation notification" lightbox="./media/watchlists/sentinel-watchlist-complete.png":::
 
-
 ## Create a watchlist by using a template (public preview)
 
 Download one of the watchlist templates from Microsoft Sentinel to populate with your data. Then upload that file when you create the watchlist in Microsoft Sentinel.
@@ -90,6 +87,9 @@ To create the watchlist from the template you populated,
 1. On the **Source** tab, select **Browse for files** and select the file you created from the template.
 1. Select **Next: Review and Create** > **Create**.
 
+## Deleted and recreated watchlists in Log Analytics view
+
+Be aware that if you delete and recreate a watchlist, you might see both the deleted and recreated entries in Log Analytics within the five-minute SLA for data ingestion. If you see these entries together in Log Analytics for a longer period of time, please submit a support ticket.
 
 ## Next steps
 
