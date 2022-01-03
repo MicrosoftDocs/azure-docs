@@ -45,7 +45,7 @@ page.
 * Learn how to [enable and manage private
   access](howto-private-access.md) (preview)
 * Learn about [private
-  endpoints](../private-link/private-endpoint-overview.md)
+  endpoints](../../private-link/private-endpoint-overview.md)
 * Learn about [virtual
   networks](../virtual-network/concepts-and-best-practices.md)
-* Learn about [private DNS zones](../dns/private-dns-overview.md)
+* Learn about [private DNS zones](../../dns/private-dns-overview.md)

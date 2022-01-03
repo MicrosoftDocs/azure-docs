@@ -17,7 +17,7 @@ Colocation means storing related information together on the same nodes. Queries
 
 In Azure Database for PostgreSQL – Hyperscale (Citus), a row is stored in a shard if the hash of the value in the distribution column falls within the shard's hash range. Shards with the same hash range are always placed on the same node. Rows with equal distribution column values are always on the same node across tables.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-shards.png" alt-text="Shards":::
+:::image type="content" source="../media/concepts-hyperscale-colocation/colocation-shards.png" alt-text="Shards":::
 
 ## A practical example of colocation
 
@@ -99,7 +99,7 @@ application.
 
 Running the queries must consult data in shards scattered across nodes.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Inefficient queries":::
+:::image type="content" source="../media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Inefficient queries":::
 
 In this case, the data distribution creates substantial drawbacks:
 
@@ -144,7 +144,7 @@ query can be answered by using the set of colocated shards that contain the data
 for that particular tenant. A single PostgreSQL node can answer the query in
 a single step.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Better query":::
+:::image type="content" source="../media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Better query":::
 
 In some cases, queries and table schemas must be changed to include the tenant ID in unique constraints and join conditions. This change is usually straightforward.
 

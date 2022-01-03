@@ -50,7 +50,7 @@ database, or if an application accidentally overwrites good data with bad data.
 > server group, all nodes that belong to the server group are deleted and can't
 > be recovered. To protect server group resources, post deployment, from
 > accidental deletion or unexpected changes, administrators can leverage
-> [management locks](../azure-resource-manager/management/lock-resources.md).
+> [management locks](../../azure-resource-manager/management/lock-resources.md).
 
 The restore process creates a new server group in the same Azure region,
 subscription, and resource group as the original. The server group has the
@@ -67,4 +67,4 @@ tasks](howto-restore-portal.md#post-restore-tasks).
 
 * See the steps to [restore a server group](howto-restore-portal.md)
   in the Azure portal.
-* Learn about [Azure availability zones](../availability-zones/az-overview.md).
+* Learn about [Azure availability zones](../../availability-zones/az-overview.md).

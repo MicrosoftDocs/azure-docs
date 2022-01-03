@@ -31,7 +31,7 @@ group.  Dragging the slider for **Worker node count** changes the value.
 > graduating a server group to the standard tier, you can't downgrade it back
 > to the basic tier.
 
-:::image type="content" source="./media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="Resource sliders":::
+:::image type="content" source="../media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="Resource sliders":::
 
 Click the **Save** button to make the changed value take effect.
 

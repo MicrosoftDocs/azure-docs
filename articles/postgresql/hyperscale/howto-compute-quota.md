@@ -32,7 +32,7 @@ worker nodes.
    * Quota increase details, for example "Need to increase worker node quota
      in West Europe to 512 vCores"
 
-![support request in Azure portal](media/howto-hyperscale-compute-quota/support-request.png)
+![support request in Azure portal](../media/howto-hyperscale-compute-quota/support-request.png)
 
 ## Next steps
 

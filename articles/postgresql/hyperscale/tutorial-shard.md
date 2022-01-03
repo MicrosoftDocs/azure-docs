@@ -39,7 +39,7 @@ parallel to execute queries.
 In the prerequisites section, we created a Hyperscale (Citus) server group with
 two worker nodes.
 
-![coordinator and two workers](tutorial-hyperscale-shard/nodes.png)
+![coordinator and two workers](../tutorial-hyperscale-shard/nodes.png)
 
 The coordinator node's metadata tables track workers and distributed data. We
 can check the active workers in the
@@ -77,7 +77,7 @@ Hyperscale (Citus) assigns each row to a shard based on the value of the
 *distribution column*, which, in our case, we specified to be `email`. Every
 row will be in exactly one shard, and every shard can contain multiple rows.
 
-![users table with rows pointing to shards](tutorial-hyperscale-shard/table.png)
+![users table with rows pointing to shards](../tutorial-hyperscale-shard/table.png)
 
 By default `create_distributed_table()` makes 32 shards, as we can see by
 counting in the metadata table
@@ -115,7 +115,7 @@ The mapping of rows to shards is purely logical. Shards must be assigned to
 specific worker nodes for storage, in what Hyperscale (Citus) calls *shard
 placement*.
 
-![shards assigned to workers](tutorial-hyperscale-shard/shard-placement.png)
+![shards assigned to workers](../tutorial-hyperscale-shard/shard-placement.png)
 
 We can look at the shard placements in
 [pg_dist_placement](reference-metadata.md#shard-placement-table).
@@ -279,7 +279,7 @@ select avg(current_date - bday) as avg_days_old from users;
  17926.348000000000
 ```
 
-![query going to shards via coordinator](tutorial-hyperscale-shard/query-fragments.png)
+![query going to shards via coordinator](../tutorial-hyperscale-shard/query-fragments.png)
 
 Behind the scenes, the Hyperscale (Citus) executor creates a separate query for
 each shard, runs them on the workers, and combines the result. You can see it

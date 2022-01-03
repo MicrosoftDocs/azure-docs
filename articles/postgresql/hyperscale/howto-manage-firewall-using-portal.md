@@ -24,11 +24,11 @@ To step through this how-to guide, you need:
 > [!NOTE]
 > These settings are also accessible during the creation of an Azure Database for PostgreSQL - Hyperscale (Citus) server group. Under the **Networking** tab, select **Public access (allowed IP address)**.
 >
-> :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png" alt-text="Azure portal - networking tab":::
+> :::image type="content" source="../media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png" alt-text="Azure portal - networking tab":::
 
 1. On the PostgreSQL server group page, under the Security heading, click **Networking** to open the Firewall rules.
 
-   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png" alt-text="Azure portal - click Networking":::
+   :::image type="content" source="../media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png" alt-text="Azure portal - click Networking":::
 
 2. Select **Allow public access from Azure services and resources within Azure to this server group**.
 
@@ -41,7 +41,7 @@ Alternately, clicking **+Add 0.0.0.0 - 255.255.255.255** (to the right of option
 5. Verify your IP address before saving the configuration. In some situations, the IP address observed by Azure portal differs from the IP address used when accessing the internet and Azure servers. Thus, you may need to change the Start IP and End IP to make the rule function as expected.
    Use a search engine or other online tool to check your own IP address. For example, search for "what is my IP."
 
-   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/3-what-is-my-ip.png" alt-text="Bing search for What is my IP":::
+   :::image type="content" source="../media/howto-hyperscale-manage-firewall-using-portal/3-what-is-my-ip.png" alt-text="Bing search for What is my IP":::
 
 6. Add more address ranges. In the firewall rules, you can specify a single IP address or a range of addresses. If you want to limit the rule to a single IP address, type the same address in the field for Start IP and End IP. Opening the firewall enables administrators, users, and applications to access the coordinator node on ports 5432 and 6432.
 

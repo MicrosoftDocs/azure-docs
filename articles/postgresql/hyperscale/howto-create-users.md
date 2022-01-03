@@ -50,11 +50,11 @@ users. To add a user, use the Azure portal interface.
 
 1. Go to the **Roles** page for your Hyperscale (Citus) server group, and click **+ Add**:
 
-   :::image type="content" source="media/howto-hyperscale-create-users/1-role-page.png" alt-text="The roles page":::
+   :::image type="content" source="../media/howto-hyperscale-create-users/1-role-page.png" alt-text="The roles page":::
 
 2. Enter the role name and password. Click **Save**.
 
-   :::image type="content" source="media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="Add role":::
+   :::image type="content" source="../media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="Add role":::
 
 The user will be created on the coordinator node of the server group,
 and propagated to all the worker nodes. Roles created through the Azure
@@ -90,7 +90,7 @@ To update a user, visit the **Roles** page for your Hyperscale (Citus) server gr
 and click the ellipses **...** next to the user. The ellipses will open a menu
 to delete the user or reset their password.
 
-   :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="Edit a role":::
+   :::image type="content" source="../media/howto-hyperscale-create-users/edit-role.png" alt-text="Edit a role":::
 
 The `citus` role is privileged and can't be deleted.
 

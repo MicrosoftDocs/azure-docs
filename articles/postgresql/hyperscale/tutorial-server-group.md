@@ -20,7 +20,7 @@ In this tutorial, you create a server group in Azure Database for PostgreSQL - H
 > * Allow network access
 > * Connect to the coordinator node
 
-[!INCLUDE [create server group](../../includes/azure-postgresql-create-db.md)]
+[!INCLUDE [create server group](../../../includes/azure-postgresql-create-db.md)]
 
 ## Next steps
 

@@ -172,7 +172,7 @@ az group delete --resource-group link-demo
 * Learn more about [private access](concepts-private-access.md)
   (preview)
 * Learn about [private
-  endpoints](../private-link/private-endpoint-overview.md)
+  endpoints](../../private-link/private-endpoint-overview.md)
 * Learn about [virtual
-  networks](../virtual-network/concepts-and-best-practices.md)
-* Learn about [private DNS zones](../dns/private-dns-overview.md)
+  networks](../../virtual-network/concepts-and-best-practices.md)
+* Learn about [private DNS zones](../../dns/private-dns-overview.md)

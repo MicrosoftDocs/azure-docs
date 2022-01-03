@@ -27,7 +27,7 @@ step-by-step guidance, see [How to set up
 alerts](howto-alert-on-metric.md).  Other tasks include setting up
 automated actions, running advanced analytics, and archiving history. For more
 information, see the [Azure Metrics
-Overview](../azure-monitor/data-platform.md).
+Overview](../../azure-monitor/data-platform.md).
 
 ### Per node vs aggregate
 
@@ -53,7 +53,7 @@ These metrics are available for Hyperscale (Citus) nodes:
 |---|---|---|---|
 |active_connections|Active Connections|Count|The number of active connections to the server.|
 |cpu_percent|CPU percent|Percent|The percentage of CPU in use.|
-|iops|IOPS|Count|See the [IOPS definition](../virtual-machines/premium-storage-performance.md#iops) and [Hyperscale (Citus) throughput](concepts-configuration-options.md)|
+|iops|IOPS|Count|See the [IOPS definition](../../virtual-machines/premium-storage-performance.md#iops) and [Hyperscale (Citus) throughput](concepts-configuration-options.md)|
 |memory_percent|Memory percent|Percent|The percentage of memory in use.|
 |network_bytes_ingress|Network In|Bytes|Network In across active connections.|
 |network_bytes_egress|Network Out|Bytes|Network Out across active connections.|
@@ -70,6 +70,6 @@ multiple nodes can be placed on the same graph.
 - See [how to set up alerts](howto-alert-on-metric.md) for guidance
   on creating an alert on a metric.
 - Learn how to do [metric
-  splitting](../azure-monitor/essentials/metrics-charts.md#metric-splitting) to
+  splitting](../../azure-monitor/essentials/metrics-charts.md#metric-splitting) to
   inspect metrics per node in a server group.
 - See other measures of database health with [useful diagnostic queries](howto-useful-diagnostic-queries.md).

@@ -22,12 +22,12 @@ To access PostgreSQL logs for a Hyperscale (Citus) coordinator or worker node,
 you have to enable the PostgreSQLLogs diagnostic setting. In the Azure
 portal, open **Diagnostic settings**, and select **+ Add diagnostic setting**.
 
-:::image type="content" source="media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="Add diagnostic settings button":::
+:::image type="content" source="../media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="Add diagnostic settings button":::
 
 Pick a name for the new diagnostics settings, check the **PostgreSQLLogs** box,
 and check the **Send to Log Analytics workspace** box.  Then select **Save**.
 
-:::image type="content" source="media/howto-hyperscale-logging/diagnostic-create-setting.png" alt-text="Choose PostgreSQL logs":::
+:::image type="content" source="../media/howto-hyperscale-logging/diagnostic-create-setting.png" alt-text="Choose PostgreSQL logs":::
 
 ## Viewing logs
 
@@ -35,11 +35,11 @@ To view and filter the logs, we'll use Kusto queries. Open **Logs** in the
 Azure portal for your Hyperscale (Citus) server group. If a query selection
 dialog appears, close it:
 
-:::image type="content" source="media/howto-hyperscale-logging/logs-dialog.png" alt-text="Logs page with dialog box open":::
+:::image type="content" source="../media/howto-hyperscale-logging/logs-dialog.png" alt-text="Logs page with dialog box open":::
 
 You'll then see an input box to enter queries.
 
-:::image type="content" source="media/howto-hyperscale-logging/logs-query.png" alt-text="Input box to query logs":::
+:::image type="content" source="../media/howto-hyperscale-logging/logs-query.png" alt-text="Input box to query logs":::
 
 Enter the following query and select the **Run** button.
 
@@ -76,5 +76,5 @@ AzureDiagnostics
 
 ## Next steps
 
-- [Get started with log analytics queries](../azure-monitor/logs/log-analytics-tutorial.md)
-- Learn about [Azure event hubs](../event-hubs/event-hubs-about.md)
+- [Get started with log analytics queries](../../azure-monitor/logs/log-analytics-tutorial.md)
+- Learn about [Azure event hubs](../../event-hubs/event-hubs-about.md)

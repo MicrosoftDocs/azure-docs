@@ -37,7 +37,7 @@ together on one node when both tables are restricted to the same
 account\_id.
 
 ![Multi-tenant
-colocation](media/concepts-choosing-distribution-column/multi-tenant-colocation.png)
+colocation](../media/concepts-choosing-distribution-column/multi-tenant-colocation.png)
 
 To apply this design in your own schema, identify
 what constitutes a tenant in your application. Common instances include

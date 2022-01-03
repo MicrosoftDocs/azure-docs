@@ -33,7 +33,7 @@ Hyperscale (Citus) delivers:
 
 Applications built for PostgreSQL can run distributed queries on Hyperscale
 (Citus) with standard [connection
-libraries](./concepts-connection-libraries.md) and minimal changes.
+libraries](../concepts-connection-libraries.md) and minimal changes.
 
 ## Next steps
 
