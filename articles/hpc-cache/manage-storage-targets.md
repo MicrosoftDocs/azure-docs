@@ -1,11 +1,11 @@
 ---
 title: Manage Azure HPC Cache storage targets
 description: How to suspend, remove, force delete, and flush Azure HPC Cache storage targets, and how to understand the storage target state
-author: femila
+author: rohogue
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/27/2021
-ms.author: femila
+ms.date: 12/29/2021
+ms.author: rohogue
 ---
 
 # View and manage storage targets
@@ -35,7 +35,7 @@ These options are available:
 * **Force remove** - Delete a storage target, skipping some safety steps (**Force remove can cause data loss**)
 * **Delete** - Permanently remove a storage target
 
-Some storage targets also have a **Refresh DNS** option on this menu, which updates the storage target IP address from a custom DNS server. This configuration is uncommon.
+Some storage targets also have a **Refresh DNS** option on this menu, which updates the storage target IP address from a custom DNS server<!-- or from an Azure Storage private endpoint -->. This configuration is uncommon. <!-- is it still uncommon when we support private endpoints? --> <!-- need to update the section below also -->
 
 Read the rest of this article for more detail about these options.
 
@@ -105,13 +105,19 @@ $ az hpc-cache storage-target remove --resource-group cache-rg --cache-name doc-
 
 ---
 
-### Update IP address (custom DNS configurations only)
+### Update IP address (specific configurations only)
 
-If your cache uses a non-default DNS configuration, it's possible for your NFS storage target's IP address to change because of back-end DNS changes. If your DNS server changes the back-end storage system's IP address, Azure HPC Cache can lose access to the storage system.
+In some situations, you might need to update your storage target's IP address. This can happen in two scenarios:
 
-Ideally, you should work with the manager of your cache's custom DNS system to plan for any updates, because these changes make storage unavailable.
+* Your cache uses a custom DNS system instead of the default setup, and the network infrastructure has changed.
 
-If you need to update a storage target's DNS-provided IP address, use the **Storage targets** page. Click the **...** symbol in the right column to open the context menu. Choose **Refresh DNS** to query the custom DNS server for a new IP address.
+* Your storage target uses a private endpoint to access Azure Blob or NFS-mounted blob storage, and you have updated the endpoint's configuration. (You should suspend storage targets before modifying their private endpoints, as described in the [prerequisites article](#work-with-private-endpoints).)
+
+With a custom DNS system, it's possible for your NFS storage target's IP address to change because of back-end DNS changes. If your DNS server changes the back-end storage system's IP address, Azure HPC Cache can lose access to the storage system. Ideally, you should work with the manager of your cache's custom DNS system to plan for any updates, because these changes make storage unavailable.
+
+If you use a private endpoint for secure storage access, the endpoint's IP addresses can change if you modify its configuration. If you need to change your private endpoint configuration, you should suspend the storage target (or targets) that use the endpoint, then refresh their IP addresses when you re-activate them. Read [Work with private endpoints](#work-with-private-endpoints) for additional information.
+
+***NOTE: Need to check the GUI on this*** If you need to update a storage target's IP address, use the **Storage targets** page. Click the **...** symbol in the right column to open the context menu. Choose **Refresh DNS** to query the custom DNS server or private endpoint for a new IP address.
 
 ![Screenshot of storage target list. For one storage target, the "..." menu in the far right column is open and these options appear: Flush, Suspend, Refresh DNS, Force remove, Resume (this option is disabled), and Delete.](media/refresh-dns.png)
 

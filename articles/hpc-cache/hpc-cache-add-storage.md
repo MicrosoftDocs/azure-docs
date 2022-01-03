@@ -1,12 +1,12 @@
 ---
 title: Add storage to an Azure HPC Cache
 description: How to define storage targets so that your Azure HPC Cache can use your on-premises NFS system or Azure Blob containers for long-term file storage 
-author: femila
+author: rohogue
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/22/2021
+ms.date: 12/29/2021
 ms.custom: subject-rbac-steps
-ms.author: femila
+ms.author: rohogue
 ---
 
 # Add storage targets
@@ -120,7 +120,7 @@ You can do this ahead of time, or by clicking a link on the portal page where yo
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
 1. Assign the following roles, one at a time. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
-    
+
     | Setting | Value |
     | --- | --- |
     | Roles | [Storage Account Contributor](../role-based-access-control/built-in-roles.md#storage-account-contributor) <br/>  [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) |
@@ -149,7 +149,7 @@ Steps to add the Azure roles:
 
 1. Click the **Save** button at the bottom.
 
-1. Repeat this process to assign the role "Storage Blob Data Contributor".  
+1. Repeat this process to assign the role "Storage Blob Data Contributor".
 
 ![screenshot of add role assignment GUI](media/hpc-cache-add-role.png) -->
 
@@ -320,6 +320,7 @@ az hpc-cache nfs-storage-target add --resource-group "hpc-cache-group" --cache-n
 ```
 
 Output:
+
 ```azurecli
 
 {- Finished ..

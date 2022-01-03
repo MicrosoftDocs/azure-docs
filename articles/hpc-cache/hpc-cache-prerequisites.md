@@ -4,7 +4,7 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 11/03/2021
+ms.date: 01/03/2022
 ms.author: rohogue
 ---
 
@@ -132,6 +132,8 @@ To create a compatible storage account, use one of these combinations:
 
 The storage account must be accessible from your cache's private subnet. If your account uses a private endpoint or a public endpoint that is restricted to specific virtual networks, make sure to enable access from the cache's subnet. (An open public endpoint is not recommended.)
 
+Read [Work with private endpoints](#work-with-private-endpoints) for tips about using private endpoints with HPC Cache storage targets.
+
 It's a good practice to use a storage account in the same Azure region as your cache.
 
 You also must give the cache application access to your Azure storage account as mentioned in [Permissions](#permissions), above. Follow the procedure in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to give the cache the required access roles. If you are not the storage account owner, have the owner do this step.
@@ -207,6 +209,8 @@ This is a general overview of the steps. These steps might change, so always ref
    * Instead of the using the storage account settings for a standard blob storage account, follow the instructions in the [how-to document](../storage/blobs/network-file-system-protocol-support-how-to.md). The type of storage account supported might vary by Azure region.
 
    * In the Networking section, choose a private endpoint in the secure virtual network you created (recommended), or choose a public endpoint with restricted access from the secure VNet.
+  
+     Read [Work with private endpoints](#work-with-private-endpoints) for tips about using private endpoints with HPC Cache storage targets.
 
    * Do not forget to complete the Advanced section, where you enable NFS access.
 
@@ -215,6 +219,25 @@ This is a general overview of the steps. These steps might change, so always ref
      If you are not the storage account owner, have the owner do this step.
 
 Learn more about using ADLS-NFS storage targets with Azure HPC Cache in [Use NFS-mounted blob storage with Azure HPC Cache](nfs-blob-considerations.md).
+
+### Work with private endpoints <!-- [Work with private endpoints](#work-with-private-endpoints) -->
+
+Azure Storage supports private endpoints to allow secure data access. You can use private endpoints with Azure Blob or NFS-mounted blob storage targets.
+
+[Learn more about private endpoints](../storage/common/storage-private-endpoints)
+
+Keep these tips in mind if you use storage targets with private endpoints:
+
+* If you need to change a private endpoint's configuration, first suspend any storage targets that use the endpoint. Follow this procedure to avoid communication problems between the storage and the HPC Cache:
+
+  1. Suspend the storage target (or all of the storage targets if more than one uses the endpoint)
+  1. Make changes to the private endpoint, and save those changes
+  1. Put the storage target back into service with the "resume" command
+  1. Refresh the storage target's DNS setting
+
+  Read [View and manage storage targets](manage-storage-targets.md) to learn how to suspend, resume, and refresh DNS for storage targets.
+
+* For NFS-mounted blob storage, you cannot delete the storage endpoint that was created with the storage subnet. You might assume that the subnet's storage endpoint is not needed after you set up a private endpoint, but some Azure processes still expect it to exist. <!--the storage endpoint that is associated with the subnet ***[??? is this the storage's subnet? And you think you should be able to delete it because you're using NFS or something? ???]*** -->
 
 ## Set up Azure CLI access (optional)
 
