@@ -6,23 +6,27 @@ ms.date: 01/03/2022
 ---
 
 # Get an Event Hubs connection string
-To communicate with an event hub, you need a connection string to the namespace or to a specific event hub. 
+To communicate with an event hub in a namespace, you need a connection string for the namespace or the event hub. If you use a connection string to the namespace from your application, the application will have the provided access (manage, read, or write) to all event hubs in the namespace. If you use a connection string to the event hub, you will have the provided access to that specific event hub. 
 
-The connection string for Azure Event Hubs has the following components embedded within it,
+The connection string for a namespace has the following components embedded within it,
 
 * FQDN = the FQDN of the Event Hubs namespace you created (it includes the Event Hubs namespace name followed by servicebus.windows.net)
 * SharedAccessKeyName = the name you chose for your application's SAS keys
 * SharedAccessKey = the generated value of the key.
 
-The connection string for a namespace looks like
+The connection string for a namespace looks like:
+
 ```
-Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>
+Endpoint=sb://<NamespaceName>.servicebus.windows.net/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>
 ```
 
-An example connection string might look like
-`Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=`
+The connection string for an event hub has an additional component in it. That's, `EntityPath=<EventHubName>`. 
 
-This article shows you how to get a connection string to a namespace or a specific event hub by using Azure portal, PowerShell, or CLI. 
+```
+Endpoint=sb://<NamespaceName>.servicebus.windows.net/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>;EntityPath=<EventHubName>
+```
+
+This article shows you how to get a connection string to a namespace or a specific event hub by using the Azure portal, PowerShell, or CLI. 
 
 ## Azure portal
 
