@@ -5,7 +5,6 @@ services: traffic-manager
 documentationcenter: traffic-manager
 author: duongau
 ms.service: traffic-manager
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure

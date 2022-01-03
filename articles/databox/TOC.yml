@@ -221,6 +221,8 @@
         href: data-box-heavy-system-requirements.md
       - name: Understand limits
         href: data-box-heavy-limits.md
+      - name: FAQ
+        href: data-box-faq.yml
     - name: How to
       items:
       - name: Manage via Azure portal
