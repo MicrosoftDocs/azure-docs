@@ -38,7 +38,7 @@ Optionally, you can also use custom Teams endpoints to integrate chat capabiliti
 
 |   Permission    |  Display string   |  Description | Admin consent required | Microsoft account supported |
 |:--- |:--- |:--- |:--- |:--- |
-| _`https://auth.msft.communication.azure.com/VoIP`_ | Manage calls in Teams | Start, join, forward, transfer, or leave Teams calls and update call properties. | No | No |
+| _`https://auth.msft.communication.azure.com/Teams.ManageCalls`_ | Manage calls in Teams | Start, join, forward, transfer, or leave Teams calls and update call properties. | No | No |
 
 ### Application permissions
 
@@ -47,8 +47,10 @@ None.
 ### Roles for granting consent on behalf of a company
 
 - Global admin
-- Application admin (only in private preview)
-- Cloud application admin (only in private preview)
+- Application admin
+- Cloud application admin
+
+Find more details in [Azure Active Directory documentation](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference).
 
 ## Next steps
 
