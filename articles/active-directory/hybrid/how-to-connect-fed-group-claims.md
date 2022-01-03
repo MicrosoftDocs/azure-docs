@@ -4,7 +4,7 @@ description: Information on how to configure group claims for use with Azure AD.
 services: active-directory
 documentationcenter: ''
 ms.reviewer: paulgarn
-manager: daveba
+manager: karenhoran
 ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity

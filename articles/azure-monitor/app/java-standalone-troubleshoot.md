@@ -3,6 +3,7 @@ title: Troubleshooting Azure Monitor Application Insights for Java
 description: Learn how to troubleshoot the Java agent for Azure Monitor Application Insights
 ms.topic: conceptual
 ms.date: 11/30/2020
+ms.devlang: java
 ms.custom: devx-track-java
 ---
 # Troubleshooting guide: Azure Monitor Application Insights for Java
