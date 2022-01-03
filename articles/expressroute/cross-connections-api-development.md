@@ -145,7 +145,8 @@ Once you receive the ExpressRoute service key from the target customer, follow t
 
 2. **GET expressRouteCrossConnection:** Once you have identified both the *Name* and *ResourceGroupName* of the target expressRouteCrossConnection resource, you need to perform the GET expressRouteCrossConnection API call.
 
-  ```GET /subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24?api-version=2018-02-01 HTTP/1.1
+  ```
+  GET /subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24?api-version=2018-02-01 HTTP/1.1
   Host: management.azure.com
   Authorization: Bearer eyJ0eXAiOiJKV...
   User-Agent: ARMClient/1.2.0.0
@@ -190,7 +191,8 @@ Once you receive the ExpressRoute service key from the target customer, follow t
   ```
 3. **PUT expressRouteCrossConnection:** Once you provision layer-2 connectivity, update the *ServiceProviderProvisioningState* to **Provisioned**. At this point, the customer can configure Microsoft or Private Peering and create a connection from the ExpressRoute circuit to a virtual network gateway deployed in the customer's subscription.
 
-  ```PUT /subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24?api-version=2018-02-01 HTTP/1.1
+  ```
+  PUT /subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24?api-version=2018-02-01 HTTP/1.1
   Host: management.azure.com
   Authorization: Bearer eyJ0eXAiOiJKV...
   User-Agent: ARMClient/1.2.0.0
@@ -253,7 +255,8 @@ Once you receive the ExpressRoute service key from the target customer, follow t
 
 4. **(Optional) PUT expressRouteCrossConnection to configure Private Peering** If you manage layer-3 BGP connectivity, you can enable Private Peering
 
-  ```PUT /subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24/peerings/AzurePrivatePeering?api-version=2018-02-01 HTTP/1.1
+  ```
+  PUT /subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24/peerings/AzurePrivatePeering?api-version=2018-02-01 HTTP/1.1
   Host: management.azure.com
   Authorization: Bearer eyJ0eXAiOiJKV...
   User-Agent: ARMClient/1.2.0.0
@@ -312,7 +315,8 @@ Once you receive the ExpressRoute service key from the target customer, follow t
 
   5. **(Optional) PUT expressRouteCrossConnection to configure Microsoft Peering** If you manage layer-3 BGP connectivity, you can enable Microsoft Peering
 
-  ```PUT /subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24/peerings/MicrosoftPeering?api-version=2018-02-01 HTTP/1.1
+  ```
+  PUT /subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24/peerings/MicrosoftPeering?api-version=2018-02-01 HTTP/1.1
   Host: management.azure.com
   Authorization: Bearer eyJ0eXAiOiJKV...
   User-Agent: ARMClient/1.2.0.0
