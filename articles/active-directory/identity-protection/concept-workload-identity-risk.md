@@ -25,7 +25,7 @@ A workload identity is an identity that allows an application or service princip
 - Need to store their credentials or secrets somewhere.
 - May use multiple identities.
 
-This makes workload identities harder to manage and puts them at higher risk for compromise.
+These differences make workload identities harder to manage and puts them at higher risk for compromise.
 
 > [!IMPORTANT]
 > In public preview, you can secure workload identities with Identity Protection and Azure Active Directory Premium P2 edition active in your tenant. After general availability, additional licenses might be required.
@@ -52,6 +52,7 @@ We detect risk on workload identities across sign-in behavior and offline indica
 | Azure AD threat intelligence | Offline | This risk detection indicates some activity that is consistent with known attack patterns based on Microsoft's internal and external threat intelligence sources. |
 | Suspicious Sign-ins | Offline | This risk detection indicates sign-in properties or patterns that are unusual for this service principal. <br><br> The detection learns the baselines sign-in behavior for workload identities in your tenant in between 2 and 60 days, and fires if one or more of the following unfamiliar properties appear during a later sign-in: IP address / ASN, target resource, user agent, hosting/non-hosting IP change, IP country, credential type. <br><br> Due to the programmatic nature of workload identity sign-ins, we provide a timestamp for the suspicious activity instead of flagging a specific sign-in event. <br><br> We mark accounts at high risk when the Suspicious Sign-ins detection fires because this detection can indicate account takeover for the subject application. <br><br>  Legitimate changes to an application’s configuration sometimes trigger this detection. |
 | Leaked Credentials | Offline | This risk detection indicates that the account's valid credentials have been leaked. This leak can occur when someone checks in the credentials in public code artifact on GitHub, or when the credentials are leaked through a data breach. <br><br> When the Microsoft leaked credentials service acquires credentials from GitHub, the dark web, paste sites, or other sources, they're checked against Azure AD identities’ current valid credentials to find valid matches. For more information about leaked credentials, see [Common questions](). |
+| Admin confirmed account compromised | Offline | This detection indicates an admin has selected 'Confirm compromised' in the Risky Workload Identities UI or using riskyServicePrincipals API. To see which admin has confirmed this account compromised, check the account’s risk history (via UI or API). |
 
 ## Identify risky workload identities
 
