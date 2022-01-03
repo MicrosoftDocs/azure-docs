@@ -19,7 +19,7 @@ The control plane deployment for the [SAP deployment automation framework on Azu
 
 ## Prepare the deployment credentials
 
-The SAP Deployment Frameworks uses Service Principals when doing the deployment. You can create the Service Principal for the Control Plane deployment using the following steps using an account with permissions to create Service Principals:
+The SAP Deployment Frameworks uses Service Principals when doing the deployments. You can create the Service Principal for the Control Plane deployment using the following steps using an account with permissions to create Service Principals:
 
 
 ```azurecli
@@ -35,7 +35,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
    > - password
    > - tenant
 
-Assign the correct permissions to the Service Principal: 
+Optionally assign the following permissions to the Service Principal: 
 
 ```azurecli
 az role assignment create --assignee <appId> --role "User Access Administrator"
@@ -56,7 +56,7 @@ You can copy the sample configuration files to start testing the deployment auto
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -R sap-automation/samples/WORKSPACES WORKSPACES
+cp -Rp sap-automation/samples/WORKSPACES WORKSPACES
 
 ```
 
@@ -117,6 +117,6 @@ New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP00-INFRAS
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Configure SAP Workload Zone](automation-deploy-workload-zone.md)
+> [Configure SAP Workload Zone](automation-configure-workload-zone.md)
 
 
