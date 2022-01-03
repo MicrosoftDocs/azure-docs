@@ -167,7 +167,7 @@ Disabling local authentication doesn't take effect immediately. Allow a few minu
 }
 ```
 
-## Shared Access Signature token authentication
+## Shared access signature token authentication
 
 [!INCLUDE [preview features callout](./includes/preview-callout.md)]
 
@@ -227,7 +227,7 @@ For example, if two SAS tokens are created in, and use the same location as an A
 | token 1 | 250                                 | 250                    | 60                                    | ~7500                                     |
 | token 2 | 250                                 | 250                    | 60                                    | ~7500                                     |
 
-### Understand SAS token Access Control
+### Understand SAS token access control
 
 SAS tokens use RBAC to control access to the REST API. When you create a SAS token, the prerequisite managed identity on the Map Account is assigned an Azure RBAC role which grants access to specific REST API actions. See [Picking a role definition](./azure-maps-authentication.md#picking-a-role-definition) to determine which API should be allowed by the application.
 
@@ -288,7 +288,7 @@ After the application receives a SAS token, the Azure Maps SDK and/or applicatio
 > [!NOTE] 
 > `jwt-sas` is the authentication scheme to denote using SAS token. Do not include `x-ms-client-id` or other Authorization headers or `subscription-key` query string parameter.
 
-## Cross Origin Resource Sharing (CORS)
+## Cross origin resource sharing (CORS)
 
 [!INCLUDE [preview features callout](./includes/preview-callout.md)]
 
@@ -317,7 +317,7 @@ A CORS request from an origin domain may consist of two separate requests:
 
 - The actual request, made against the desired resource.
 
-### Preflight Request
+### Preflight request
 
 The preflight request is done not only as a security measure to ensure that the server understands the method and headers that will be sent in the actual request and that the server knows and trusts the source of the request, but it also queries the CORS restrictions that have been established for the map account. The web browser (or other user agent) sends an OPTIONS request that includes the request headers, method and origin domain. The map account service tries to fetch any CORS rules if account authentication is possible through the CORS preflight protocol. 
 

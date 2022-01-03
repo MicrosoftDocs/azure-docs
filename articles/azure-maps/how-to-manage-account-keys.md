@@ -18,7 +18,7 @@ You can manage your Azure Maps account through the Azure portal. After you have 
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you continue.
 - For picking account location and you're unfamiliar with managed identities for Azure resources, check out the [overview section](../active-directory/managed-identities-azure-resources/overview.md).
 
-## Account Location
+## Account location
 
 Picking a location for your Azure Maps account that aligns with other resources in your subscription, like managed identities, may help to improve the level of service for [control-plane](../azure-resource-manager/management/control-plane-and-data-plane.md) operations. 
 

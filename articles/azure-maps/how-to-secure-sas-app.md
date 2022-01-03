@@ -41,7 +41,7 @@ The following sample scenario will perform the steps outlined below with two Azu
 
 When completed, you should see output from Azure Maps `Search Address (Non-Batch)` REST API results on PowerShell with Azure CLI. The Azure resources will be deployed with permissions to connect to the Azure Maps account with controls for maximum rate limit, allowed regions, `localhost` configured CORS policy, and Azure RBAC.
 
-### Azure Resource Deployment with Azure CLI
+### Azure resource deployment with Azure CLI
 
 The following steps describe how to create and configure an Azure Maps account with SAS token authentication. The Azure CLI is assumed to be running in a PowerShell instance.
 
