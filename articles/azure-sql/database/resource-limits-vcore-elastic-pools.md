@@ -62,7 +62,7 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>3</sup> |400|800|1200|1600|2000|2400|
 |Max log rate per pool (MBps)|6|12|18|24|30|36|
-|Max concurrent workers per pool (requests) <sup>4</sup> |210|420|630|840|1050|1260|
+|Max concurrent workers per pool<sup>4</sup> |210|420|630|840|1050|1260|
 |Max concurrent logins per pool <sup>4</sup> |210|420|630|840|1050|1260|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
@@ -96,8 +96,8 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>3</sup>|2800|3200|3600|4000|6400|9600|
 |Max log rate per pool (MBps)|42|48|54|60|62.5|62.5|
-|Max concurrent workers per pool (requests) <sup>4</sup>|1470|1680|1890|2100|3360|5040|
-|Max concurrent logins pool (requests) <sup>4</sup>|1470|1680|1890|2100|3360|5040|
+|Max concurrent workers per pool <sup>4</sup>|1470|1680|1890|2100|3360|5040|
+|Max concurrent logins pool <sup>4</sup>|1470|1680|1890|2100|3360|5040|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |Number of replicas|1|1|1|1|1|1|
@@ -132,8 +132,8 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>3</sup>|800|1600|2400|3200|4000|4800|5600|
 |Max log rate per pool (MBps)|12|24|36|48|60|62.5|62.5|
-|Max concurrent workers per pool (requests) <sup>4</sup>|210|420|630|840|1050|1260|1470|
-|Max concurrent logins per pool (requests) <sup>4</sup>|210|420|630|840|1050|1260|1470|
+|Max concurrent workers per pool <sup>4</sup>|210|420|630|840|1050|1260|1470|
+|Max concurrent logins per pool <sup>4</sup>|210|420|630|840|1050|1260|1470|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Number of replicas|1|1|1|1|1|1|1|
@@ -166,8 +166,8 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>3</sup> |6,400|7,200|8,000|9,600|12,800|16,000|16,000|
 |Max log rate per pool (MBps)|62.5|62.5|62.5|62.5|62.5|62.5|62.5|
-|Max concurrent workers per pool (requests) <sup>4</sup>|1680|1890|2100|2520|3360|4200|8400|
-|Max concurrent logins per pool (requests) <sup>4</sup>|1680|1890|2100|2520|3360|4200|8400|
+|Max concurrent workers per pool <sup>4</sup>|1680|1890|2100|2520|3360|4200|8400|
+|Max concurrent logins per pool <sup>4</sup>|1680|1890|2100|2520|3360|4200|8400|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...16, 24, 32, 40|0, 0.25, 0.5, 1...16, 24, 32, 40, 80|
 |Number of replicas|1|1|1|1|1|1|1|
@@ -202,8 +202,8 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>3</sup>|2560|3200|3840|4480|5120|
 |Max log rate per pool (MBps)|48|60|62.5|62.5|62.5|
-|Max concurrent workers per pool (requests) <sup>4</sup>|400|500|600|700|800|
-|Max concurrent logins per pool (requests) <sup>4</sup>|800|1000|1200|1400|1600|
+|Max concurrent workers per pool <sup>4</sup>|400|500|600|700|800|
+|Max concurrent logins per pool <sup>4</sup>|800|1000|1200|1400|1600|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|
 |Min/max elastic pool vCore choices per database|0-8|0-10|0-12|0-14|0-16|
 |Number of replicas|1|1|1|1|1|
@@ -236,8 +236,8 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>3</sup>|5760|6400|7680|10240|11520|12800|
 |Max log rate per pool (MBps)|62.5|62.5|62.5|62.5|62.5|62.5|
-|Max concurrent workers per pool (requests) <sup>4</sup>|900|1000|1200|1600|1800|3600|
-|Max concurrent logins per pool (requests) <sup>4</sup>|1800|2000|2400|3200|3600|7200|
+|Max concurrent workers per pool <sup>4</sup>|900|1000|1200|1600|1800|3600|
+|Max concurrent logins per pool <sup>4</sup>|1800|2000|2400|3200|3600|7200|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
 |Min/max elastic pool vCore choices per database|0-18|0-20|0-24|0-32|0-36|0-72|
 |Number of replicas|1|1|1|1|1|1|
@@ -270,8 +270,8 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>3</sup>|800|1600|2400|3200|
 |Max log rate per pool (MBps)|12|24|36|48|
-|Max concurrent workers per pool (requests) <sup>4</sup>|168|336|504|672|
-|Max concurrent logins per pool (requests) <sup>4</sup>|168|336|504|672|
+|Max concurrent workers per pool <sup>4</sup>|168|336|504|672|
+|Max concurrent logins per pool <sup>4</sup>|168|336|504|672|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|
 |Min/max elastic pool vCore choices per database|2|2...4|2...6|2...8|
 |Number of replicas|1|1|1|1|
@@ -310,8 +310,8 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS per pool <sup>3</sup>|9,000|13,500|18,000|22,500|27,000|
 |Max log rate per pool (MBps)|20|30|40|50|60|
-|Max concurrent workers per pool (requests) <sup>4</sup>|420|630|840|1050|1260|
-|Max concurrent logins per pool (requests) <sup>4</sup>|420|630|840|1050|1260|
+|Max concurrent workers per pool <sup>4</sup>|420|630|840|1050|1260|
+|Max concurrent logins per pool <sup>4</sup>|420|630|840|1050|1260|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |Number of replicas|4|4|4|4|4|
@@ -345,8 +345,8 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS per pool <sup>3</sup>|31,500|36,000|40,500|45,000|72,000|96,000|
 |Max log rate per pool (MBps)|70|80|80|80|80|80|
-|Max concurrent workers per pool (requests) <sup>4</sup>|1470|1680|1890|2100|3360|5040|
-|Max concurrent logins per pool (requests) <sup>4</sup>|1470|1680|1890|2100|3360|5040|
+|Max concurrent workers per pool <sup>4</sup>|1470|1680|1890|2100|3360|5040|
+|Max concurrent logins per pool <sup>4</sup>|1470|1680|1890|2100|3360|5040|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |Number of replicas|4|4|4|4|4|4|
@@ -382,8 +382,8 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS per pool <sup>3</sup>|18,000|27,000|36,000|45,000|54,000|63,000|
 |Max log rate per pool (MBps)|60|90|120|120|120|120|
-|Max concurrent workers per pool (requests) <sup>4</sup>|420|630|840|1050|1260|1470|
-|Max concurrent logins per pool (requests) <sup>4</sup>|420|630|840|1050|1260|1470|
+|Max concurrent workers per pool <sup>4</sup>|420|630|840|1050|1260|1470|
+|Max concurrent logins per pool <sup>4</sup>|420|630|840|1050|1260|1470|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Number of replicas|4|4|4|4|4|4|
@@ -417,8 +417,8 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS per pool <sup>3</sup>|72,000|81,000|90,000|108,000|144,000|180,000|256,000|
 |Max log rate per pool (MBps)|120|120|120|120|120|120|120|
-|Max concurrent workers per pool (requests) <sup>4</sup>|1680|1890|2100|2520|3360|4200|8400|
-|Max concurrent logins per pool (requests) <sup>4</sup>|1680|1890|2100|2520|3360|4200|8400|
+|Max concurrent workers per pool <sup>4</sup>|1680|1890|2100|2520|3360|4200|8400|
+|Max concurrent logins per pool <sup>4</sup>|1680|1890|2100|2520|3360|4200|8400|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...20, 24, 32, 40|0, 0.25, 0.5, 1...20, 24, 32, 40, 80|
 |Number of replicas|4|4|4|4|4|4|4|
@@ -454,8 +454,8 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS per pool <sup>3</sup>|12,499|15,624|18,748|21,873|24,998|28,123|
 |Max log rate per pool (MBps)|48|60|72|84|96|108|
-|Max concurrent workers per pool (requests) <sup>4</sup>|800|1,000|1,200|1,400|1,600|1,800|
-|Max concurrent logins per pool (requests) <sup>4</sup>|800|1,000|1,200|1,400|1,600|1,800|
+|Max concurrent workers per pool <sup>4</sup>|800|1,000|1,200|1,400|1,600|1,800|
+|Max concurrent logins per pool <sup>4</sup>|800|1,000|1,200|1,400|1,600|1,800|
 |Max concurrent sessions|30000|30000|30000|30000|30000|30000|
 |Min/max elastic pool vCore choices per database|0-8|0-10|0-12|0-14|0-16|0-18|
 |Number of replicas|4|4|4|4|4|4|
@@ -489,8 +489,8 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS per pool <sup>3</sup>|31,248|37,497|49,996|99,993|160,000|
 |Max log rate per pool (MBps)|120|144|192|264|264|
-|Max concurrent workers per pool (requests) <sup>4</sup>|2,000|2,400|3,200|6,400|12,800|
-|Max concurrent logins per pool (requests) <sup>4</sup>|2,000|2,400|3,200|6,400|12,800|
+|Max concurrent workers per pool <sup>4</sup>|2,000|2,400|3,200|6,400|12,800|
+|Max concurrent logins per pool <sup>4</sup>|2,000|2,400|3,200|6,400|12,800|
 |Max concurrent sessions|30000|30000|30000|30000|30000|
 |Number of replicas|4|4|4|4|4|
 |Multi-AZ|No|No|No|No|No|
@@ -523,8 +523,8 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS per pool <sup>3</sup>|15750|31500|47250|56000|
 |Max log rate per pool (MBps)|20|60|90|120|
-|Max concurrent workers per pool (requests) <sup>4</sup>|168|336|504|672|
-|Max concurrent logins per pool (requests) <sup>4</sup>|168|336|504|672|
+|Max concurrent workers per pool <sup>4</sup>|168|336|504|672|
+|Max concurrent logins per pool <sup>4</sup>|168|336|504|672|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|
 |Min/max elastic pool vCore choices per database|2|2...4|2...6|2...8|
 |Number of replicas|4|4|4|4|

@@ -532,7 +532,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max data IOPS <sup>2</sup>|28,000|32,000|36,000|40,000|64,000|76,800|
 |Max log rate (MBps)|56|64|64|64|64|64|
 |Max concurrent workers|1400|1600|1800|2000|3200|4800|
-|Max concurrent logins (requests)|1400|1600|1800|2000|3200|4800|
+|Max concurrent logins|1400|1600|1800|2000|3200|4800|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
 |Number of replicas|4|4|4|4|4|4|
 |Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
