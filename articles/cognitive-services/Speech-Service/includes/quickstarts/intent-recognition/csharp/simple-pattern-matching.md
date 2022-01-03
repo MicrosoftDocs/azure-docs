@@ -128,16 +128,16 @@ case ResultReason.NoMatch:
     var noMatch = NoMatchDetails.FromResult(result);
     switch (noMatch->Reason)
     {
-    case NoMatchReason::NotRecognized:
+    case NoMatchReason.NotRecognized:
         Console.WriteLine($"NOMATCH: Speech was detected, but not recognized.");
         break;
-    case NoMatchReason::InitialSilenceTimeout:
+    case NoMatchReason.InitialSilenceTimeout:
         Console.WriteLine($"NOMATCH: The start of the audio stream contains only silence, and the service timed out waiting for speech.");
         break;
-    case NoMatchReason::InitialBabbleTimeout:
+    case NoMatchReason.InitialBabbleTimeout:
         Console.WriteLine($"NOMATCH: The start of the audio stream contains only noise, and the service timed out waiting for speech.");
         break;
-    case NoMatchReason::KeywordNotRecognized:
+    case NoMatchReason.KeywordNotRecognized:
         Console.WriteLine($"NOMATCH: Keyword not recognized");
         break;
     }
@@ -219,16 +219,16 @@ At this point, your code should look like this:
                         var noMatch = NoMatchDetails.FromResult(result);
                         switch (noMatch->Reason)
                         {
-                        case NoMatchReason::NotRecognized:
+                        case NoMatchReason.NotRecognized:
                             Console.WriteLine($"NOMATCH: Speech was detected, but not recognized.");
                             break;
-                        case NoMatchReason::InitialSilenceTimeout:
+                        case NoMatchReason.InitialSilenceTimeout:
                             Console.WriteLine($"NOMATCH: The start of the audio stream contains only silence, and the service timed out waiting for speech.");
                             break;
-                        case NoMatchReason::InitialBabbleTimeout:
+                        case NoMatchReason.InitialBabbleTimeout:
                             Console.WriteLine($"NOMATCH: The start of the audio stream contains only noise, and the service timed out waiting for speech.");
                             break;
-                        case NoMatchReason::KeywordNotRecognized:
+                        case NoMatchReason.KeywordNotRecognized:
                             Console.WriteLine($"NOMATCH: Keyword not recognized");
                             break;
                         }
