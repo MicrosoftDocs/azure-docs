@@ -41,3 +41,5 @@ To see the supported plans in your market, select **Plans + Pricing**.
 To see the Enterprise Tier creation page, select **Set up + subscribe**
 
 ![VMWare Offer](./media/enterprise/marketplace/marketplace-view.png)
+
+## Next Steps
