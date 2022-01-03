@@ -10,7 +10,8 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/15/2021
 ms.author: chschrae
-ms.custom: devx-track-cpp
+zone_pivot_groups: programming-languages-set-nine
+ms.custom: devx-track-cpp, devx-track-csharp, mode-other
 ---
 
 # How to use simple language pattern matching with the C++ Speech SDK
