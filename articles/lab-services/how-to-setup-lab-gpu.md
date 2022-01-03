@@ -24,16 +24,16 @@ In this process, you have the option of selecting either **Visualization** or **
 
 As described in the following table, the *compute* GPU size is intended for compute-intensive applications.  For example, the [Deep Learning in Natural Language Processing class type](./class-type-deep-learning-natural-language-processing.md) uses the **Small GPU (Compute)** size.  The compute GPU is suitable for this type of class, because students use deep learning frameworks and tools that are provided by the [Data Science Virtual Machine image](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) to train deep learning models with large sets of data.
 
-| Size | Cores | RAM | Description |
+| Size | vCPUs | RAM | Description |
 | ---- | ----- | --- | ----------- |
-| Small GPU (Compute) | -&nbsp;6&nbsp;cores<br>-&nbsp;56&nbsp;GB&nbsp;RAM  | [Standard_NC6](../virtual-machines/nc-series.md) |This size is best suited for compute-intensive applications such as artificial intelligence (AI) and deep learning. |
+| Small GPU (Compute) | 6  vCPUs | 56 GB RAM  | [Standard_NC6](../virtual-machines/nc-series.md). This size is best suited for compute-intensive applications such as artificial intelligence (AI) and deep learning. |
 
 The *visualization* GPU sizes are intended for graphics-intensive applications.  For example, the [SOLIDWORKS engineering class type](./class-type-solidworks.md) shows using the **Small GPU (Visualization)** size.  The visualization GPU is suitable for this type of class, because students interact with the SOLIDWORKS 3D computer-aided design (CAD) environment for modeling and visualizing solid objects.
 
-| Size | Cores | RAM | Description |
+| Size | vCPUs | RAM | Description |
 | ---- | ----- | --- | ----------- |
-| Small GPU (Visualization) | -&nbsp;6&nbsp;cores<br>-&nbsp;56&nbsp;GB&nbsp;RAM  | [Standard_NV6](../virtual-machines/nv-series.md) | This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
-| Medium GPU (Visualization) | -&nbsp;12&nbsp;cores<br>-&nbsp;112&nbsp;GB&nbsp;RAM  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
+| Small GPU (Visualization) | 6 vCPUs | 56 GB RAM  | [Standard_NV6](../virtual-machines/nv-series.md).  This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
+| Medium GPU (Visualization) | 12 vCPUs  | 112 GB RAM  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
 
 > [!NOTE]
 > You may not see some of these VM sizes in the list when creating a classroom lab. The list is populated based on the current capacity of the lab's location. If the lab plan creator [allows lab creators to pick a location for the lab](allow-lab-creator-pick-lab-location.md), you may try choosing a different location for the lab and see if the VM size is available. For availability of VMs, see [Products available by region](https://azure.microsoft.com/regions/services/?products=virtual-machines).
