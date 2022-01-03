@@ -62,7 +62,7 @@ When you run the FHIR Server for Azure, you have direct access to the underlying
 
 ### In which regions is the FHIR service available?
 
-The FHIR service is available in all regions that the Azure Healthcare APIs is available. You can see that on the [Products by Region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-api-for-fhir) page.
+The FHIR service is available in all regions that the Azure Healthcare APIs is available. You can see that on the [Products by Region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir) page.
 
 ### Where can I see what is releasing into the FHIR service?
 
@@ -128,7 +128,7 @@ No, the FHIR service doesn't support terminology operations today.
 
 ### What are the differences between delete types in the FHIR service? 
 
-There're two basic Delete types supported within the FHIR service - [Delete](././../fhir/fhir-rest-api-capabilities.md#delete-types) and [Conditional delete](././../fhir/fhir-rest-api-capabilities.md#conditional-delete).
+There're two basic Delete types supported within the FHIR service - [Delete](././../fhir/fhir-rest-api-capabilities.md#delete-types) and [Conditional delete](././../fhir/fhir-rest-api-capabilities.md#delete-and-conditional-delete).
 
 
 * With Delete, you can choose to do a soft delete (most common type) and still be able to recover historic versions of your record.
