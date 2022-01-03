@@ -97,7 +97,11 @@ For information about viewing your client ID, see [View authentication details](
 
 ## Authorization with role-based access control
 
-Azure Maps supports access to all principal types for [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) including: individual Azure AD users, groups, applications, Azure resources, and Azure managed identities. If you are new to Azure RBAC, the Azure role-based access control overview provides d Principal types are granted a set of permissions, also known as a role definition. A role definition provides permissions to REST API actions. Applying access to one or more Azure Maps accounts is known as a scope. When applying a principal, role definition, and scope then a role assignment is created.
+### Prerequisites
+
+If you are new to Azure RBAC, [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) overview provides Principal types are granted a set of permissions, also known as a role definition. A role definition provides permissions to REST API actions. Azure Maps supports access to all principal types for [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) including: individual Azure AD users, groups, applications, Azure resources, and Azure managed identities. Applying access to one or more Azure Maps accounts is known as a scope. When applying a principal, role definition, and scope then a role assignment is created.
+
+### Overview
 
 The next sections discuss concepts and components of Azure Maps integration with Azure RBAC. As part of the process to set up your Azure Maps account, an Azure AD directory is associated to the Azure subscription, which the Azure Maps account resides.
 
@@ -202,7 +206,7 @@ For example, a single SAS token with a `maxRatePerSecond` of 10 can be used to l
 1. Create SAS tokens with designated allowed Azure locations for targeted geography. Continue reading to understand creating SAS tokens.
 1. Use geographic data-plane REST API endpoints, `https://us.atlas.microsoft.com` or `https://eu.atlas.microsoft.com`.
 
-Consider the application topology where the endpoint `https://us.atlas.microsoft.com` routes to the same US locations that the Azure Maps services are hosted, such as `East US`, `West Central US`, or `West US 2`. The same idea applies to other geographical endpoints such as `https://eu.atlas.microsoft.com` between `West Europe` and `North Europe`. To prevent unexpected authorization denials, leverage a SAS token that uses the same Azure locations that the application consumes. The endpoint location is defined using the [Azure Maps Management REST API](/rest/api/maps-management/).
+Consider the application topology where the endpoint `https://us.atlas.microsoft.com` routes to the same US locations that the Azure Maps services are hosted, such as `East US`, `West Central US`, or `West US 2`. The same idea applies to other geographical endpoints such as `https://eu.atlas.microsoft.com` between `West Europe` and `North Europe`. To prevent unexpected authorization denials, leverage a SAS token that uses the same Azure locations that the application consumes. The endpoint location is defined using the Azure Maps Management REST API.
 
 #### Default rate limits take precedent over SAS token rate limits
 
@@ -405,11 +409,6 @@ Azure Maps does not count billing transactions for:
 See [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps) for additional information on billing transactions as well as other Azure Maps pricing information.
 
 ## Next steps
-
-To learn more about Azure RBAC, see
-
-> [!div class="nextstepaction"] 
-> [Azure role-based access control](../role-based-access-control/overview.md)
 
 To learn more about authenticating an application with Azure AD and Azure Maps, see
 
