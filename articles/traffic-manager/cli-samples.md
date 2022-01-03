@@ -6,7 +6,6 @@ documentationcenter: virtual-network
 author: duongau
 manager: twooley
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
