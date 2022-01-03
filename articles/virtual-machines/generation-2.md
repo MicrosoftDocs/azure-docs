@@ -94,9 +94,9 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 
 | Generation 2 feature                | On-premises Hyper-V | Azure |
 |-------------------------------------|---------------------|-------|
-| Secure boot                         | :heavy_check_mark:  | With [trusted launch] (trusted-launch.md)   |
+| Secure boot                         | :heavy_check_mark:  | With [trusted launch](trusted-launch.md)   |
 | Shielded VM                         | :heavy_check_mark:  | :x:   |
-| vTPM                                | :heavy_check_mark:  | With [trusted launch] (trusted-launch.md)  |
+| vTPM                                | :heavy_check_mark:  | With [trusted launch](trusted-launch.md)  |
 | Virtualization-based security (VBS) | :heavy_check_mark:  | :heavy_check_mark:   |
 | VHDX format                         | :heavy_check_mark:  | :x:   |
 
@@ -150,8 +150,6 @@ Below are the steps to create a generation 2 (Gen2) VM in Azure portal.
 10. Fill in the **Administrator account** information and then **Inbound port rules**
 11.	At the bottom of the page, select **Review + Create**
 12.	On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. Once validation shows as passed, select **Create**.
-
-![Select Gen 1 or Gen 2 VM](./media/generation-2/gen1-gen2-select.png)
 
 #### PowerShell
 

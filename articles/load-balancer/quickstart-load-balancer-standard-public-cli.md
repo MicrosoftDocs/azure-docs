@@ -7,15 +7,14 @@ documentationcenter: na
 author: asudbring
 manager: KumudD
 tags: azure-resource-manager
-# Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: allensu
-ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-other
+ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api
+#Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---
 # Quickstart: Create a public load balancer to load balance VMs using Azure CLI
 

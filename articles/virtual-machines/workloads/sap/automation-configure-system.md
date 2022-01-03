@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
 
-# Configure SAP system parameters for automation
+# Configure SAP system parameters 
 
 Configuration for the [SAP deployment automation framework on Azure](automation-deployment-framework.md)] happens through parameters files. You provide information about your SAP system properties in a tfvars file, which the automation framework uses for deployment. 
 
-The configuration of the SAP workload zone is done via a Terraform tfvars variable file.
+The configuration of the SAP system is done via a Terraform tfvars variable file.
 
 ## Terraform Parameters
 
@@ -40,6 +40,8 @@ The table below contains the parameters that define the resource group and the r
 > | `location`              | The Azure region in which to deploy.     | Required   | 
 > | `resource_group_name`   | Name of the resource group to be created | Optional   |
 > | `resource_group_arm_id` | Azure resource identifier for an existing resource group | Optional   | 
+> | `custom_prefix`         | Specifies the custom prefix used in the resource naming  | Optional   | 
+> | `use_prefix`            | Controls if the resource naming includes the prefix, DEV-WEEU-SAP01-X00_xxxx | Optional   | 
 
 ## Network Parameters
 
@@ -99,7 +101,7 @@ The database tier defines the infrastructure for the database tier, supported da
 > | Variable                          | Description                                                                              | Type         | Notes              |
 > | --------------------------------  | -----------------------------------------------------------------------------------------| -----------  | ------------------ |
 > | `database_platform`               | Defines the database backend                                                             | Required     |                    |
-> | `database_high_availability`      | Defines if the database tier is deployed highly available                                | Optional     | See [High availability configuration ](automation-configure-system.md#high-availability-configuration) |
+> | `database_high_availability`      | Defines if the database tier is deployed highly available                                | Optional     | See [High availability configuration](automation-configure-system.md#high-availability-configuration) |
 > | `database_server_count`           | Defines the number of database servers                                                   | Optional     | Default value is 1 |
 > | `database_vm_names`               | Defines the database server virtual machine names if the default naming is not acceptable | Optional    |                    |
 > | `database_size`                   | Defines the database sizing information                                                  | Required     | See [Custom Sizing](automation-configure-extra-disks.md) |
@@ -249,7 +251,7 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 > | `resource_offset`                              | Provides and offset for resource naming. The offset number for resource naming when creating multiple resources. The default value is 0, which creates a naming pattern of disk0, disk1, and so on. An offset of 1 creates a naming pattern of disk1, disk2, and so on. | Optional    |
 > | `disk_encryption_set_id`                       | The disk encryption key to use for encrypting managed disks using customer provided keys | Optional   |
 > | `use_loadbalancers_for_standalone_deployments` | Controls if load balancers are deployed for standalone installations | Optional |
-> | `bom_name`                                     | Name of the SAP BOM to use                                           | Optional |
+> | `license_type`                                 | Specifies the license type for the virtual machines. | Possible values are `RHEL_BYOS` and `SLES_BYOS`. For Windows the possible values are `None`, `Windows_Client` and `Windows_Server`. |
 
 
 ## Azure NetApp Support

@@ -69,7 +69,6 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 No additional cost to existing VM pricing.
 
 **The following features are not supported**:
-- Backup
 - Azure Site Recovery
 - Azure Compute Gallery (formerly known as Shared Image Gallery)
 - Ephemeral OS disk

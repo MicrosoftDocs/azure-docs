@@ -31,7 +31,10 @@ Application Gateway integration with Key Vault offers many benefits, including:
 
 Application Gateway currently supports software-validated certificates only. Hardware security module (HSM)-validated certificates are not supported. 
 
-After Application Gateway is configured to use Key Vault certificates, its instances retrieve the certificate from Key Vault and install them locally for TLS termination. The instances poll Key Vault at four-hour intervals to retrieve a renewed version of the certificate, if it exists. If an updated certificate is found, the TLS/SSL certificate that's currently associated with the HTTPS listener is automatically rotated. 
+After Application Gateway is configured to use Key Vault certificates, its instances retrieve the certificate from Key Vault and install them locally for TLS termination. The instances poll Key Vault at four-hour intervals to retrieve a renewed version of the certificate, if it exists. If an updated certificate is found, the TLS/SSL certificate that's currently associated with the HTTPS listener is automatically rotated.
+
+> [!TIP]
+> Any change to Application Gateway will force a check against Key Vault to see if any new versions of certificates are available. This includes, but not limited to, changes to Frontend IP Configurations, Listeners, Rules, Backend Pools, Resource Tags, and more. If an updated certificate is found, the new certificate will immediately be presented.
 
 Application Gateway uses a secret identifier in Key Vault to reference the certificates. For Azure PowerShell, the Azure CLI, or Azure Resource Manager, we strongly recommend that you use a secret identifier that doesn't specify a version. This way, Application Gateway will automatically rotate the certificate if a newer version is available in your key vault. An example of a secret URI without a version is `https://myvault.vault.azure.net/secrets/mysecret/`.
 
@@ -113,7 +116,10 @@ For Cert name, type a friendly name for the certificate to be referenced in Key 
 Once selected, select  **Add** (if creating) or **Save** (if editing) to apply the referenced Key Vault certificate to the listener.
 
 #### Key Vault Azure role-based access control permission model
-Application Gateway supports certificates referenced in Key Vault via the Role-based access control permission model. However, the first few steps to reference the key vault must be completed via ARM, Bicep, CLI, or  PowerShell. Azure portal support for this scenario isn't offered yet.
+Application Gateway supports certificates referenced in Key Vault via the Role-based access control permission model. The first few steps to reference the key vault must be completed via ARM, Bicep, CLI, or  PowerShell.
+
+> [!Note]
+> Specifying Azure Key Vault certificates that are subject to the role-based access control permission model is not supported via the portal.
 
 In this example, we will use PowerShell to reference a new Key Vault certificate.
 ```

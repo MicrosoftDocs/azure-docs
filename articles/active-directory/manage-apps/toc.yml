@@ -41,6 +41,26 @@
   - name: Concepts
     expanded: true
     items: 
+    - name: Application gallery
+      href: overview-application-gallery.md
+    - name: Application ownership
+      href: overview-assign-app-owners.md
+    - name: Application security
+      items:
+      - name: App access options
+        href: what-is-access-management.md
+      - name: Certificate signing options
+        href: certificate-signing-options.md
+      - name: Manage certificates
+        href: manage-certificates-for-federated-single-sign-on.md 
+      - name: Tenant restrictions
+        href: tenant-restrictions.md
+      - name: Configure SAML token encryption
+        href: howto-saml-token-encryption.md
+      - name: End-user portals
+        href: end-user-experiences.md
+      - name: Cloud app visibility and control
+        href: cloud-app-security.md
     - name: Home realm discovery policy
       href: home-realm-discovery-policy.md
     - name: Planning a cloud app integration
@@ -55,24 +75,14 @@
         href: what-is-single-sign-on.md
       - name: Plan for deployment
         href: plan-sso-deployment.md
-    - name: Application security
+    - name: Consent and permissions
       items:
-      - name: App access options
-        href: what-is-access-management.md
-      - name: Certificate signing options
-        href: certificate-signing-options.md
-      - name: Manage certificates
-        href: manage-certificates-for-federated-single-sign-on.md
+      - name: Consent and permissions overview
+        href: consent-and-permissions-overview.md
+      - name: Manage and evaluate consent requests
+        href: manage-consent-requests.md
       - name: Protect against consent phishing
         href: protect-against-consent-phishing.md
-      - name: Tenant restrictions
-        href: tenant-restrictions.md
-      - name: Configure SAML token encryption
-        href: howto-saml-token-encryption.md
-      - name: End-user portals
-        href: end-user-experiences.md
-      - name: Cloud app visibility and control
-        href: cloud-app-security.md
   - name: How-to guides
     expanded: false
     items:
@@ -80,22 +90,26 @@
       href: assign-app-owners.md
     - name: Manage access
       items:
-      - name: Consent and permissions
+      - name: Manage consent and permissions
         items:
         - name: Configure user consent
           href: configure-user-consent.md
         - name: Configure group owner consent
           href: configure-user-consent-groups.md
+        - name: Configure risked-based step-up consent
+          href: configure-risk-based-step-up-consent.md
         - name: Configure permission classifications
           href: configure-permission-classifications.md
         - name: Manage app consent policies
           href: manage-app-consent-policies.md
         - name: Configure admin consent workflow
           href: configure-admin-consent-workflow.md
-        - name: Manage and evaluate consent requests
-          href: manage-consent-requests.md
+        - name: Review admin consent requests
+          href: review-admin-consent-requests.md
         - name: Grant tenant-wide admin consent
           href: grant-admin-consent.md
+        - name: Grant consent on behalf of a single user
+          href: grant-consent-single-user.md
         - name: Review permissions granted to apps
           href: manage-application-permissions.md
       - name: Manage user assignment
@@ -144,20 +158,24 @@
         href: datawiza-with-azure-ad.md 
       - name: F5
         items:
-        - name: F5 BIG-IP and Azure AD integration
+        - name: Integrate F5 BIG-IP with Azure Active Directory
           href: f5-aad-integration.md
-        - name: F5 BIG-IP VE deployment in Azure IaaS
+        - name: Deploy F5 BIG-IP Virtual Edition VM in Azure
           href: f5-bigip-deployment-guide.md
-        - name: F5 BIG-IP with Azure AD for passwordless VPN
+        - name: Configure F5 BIG-IP SSL-VPN solution in Azure AD
           href: f5-aad-password-less-vpn.md
-        - name: F5 BIG-IP with Azure AD for forms-based authentication SSO
+        - name: Configure F5 BIG-IP Access Policy Manager for form-based SSO
           href: f5-big-ip-forms-advanced.md
-        - name: F5 BIG-IP with Azure AD SSO for header based authentication
+        - name: Configure F5 BIG-IP Access Policy Manager for header-based SSO
           href: f5-big-ip-header-advanced.md
-        - name: Protect on-premises applications with F5 BIG-IP and Azure AD B2C
-          href: https://docs.microsoft.com/en-us/azure/active-directory-b2c/partner-f5
-        - name: F5 BIG-IP for SSO to header-based and LDAP applications          
+        - name: Extend Azure Active Directory B2C to protect on-premises applications using F5 BIG-IPC
+          href: https://docs.microsoft.com/azure/active-directory-b2c/partner-f5
+        - name: Configure F5 BIG-IP Easy Button for Header-based and LDAP SSO        
           href: f5-big-ip-ldap-header-easybutton.md
+        - name: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication    
+          href: f5-big-ip-kerberos-advanced.md
+        - name: Configure F5 BIG-IP Access Easy Button for Kerberos SSO    
+          href: f5-big-ip-kerberos-easy-button.md
       - name: Silverfort
         href: silverfort-azure-ad-integration.md
     - name: Single sign-on
@@ -188,10 +206,12 @@
         href: application-sign-in-problem-first-party-microsoft.md
   - name: Reference
     items:
+    - name: Admin consent workflow FAQ
+      href: admin-consent-workflow-faq.md
     - name: App Management certificates FAQ
       href: application-management-certs-faq.md
-    - name: Reasons apps appear in Enterprise Applications
-      href: application-types.md
+    - name: Application list
+      href: application-list.md
     - name: Reasons users are assigned to an app
       href: ways-users-get-assigned-to-applications.md
     - name: Methods of removing user access to an app

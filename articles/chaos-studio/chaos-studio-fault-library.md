@@ -700,7 +700,7 @@ Known issues on Linux:
 |-|-|
 | Capability Name | Failover-1.0 |
 | Target type | Microsoft-CosmosDB |
-| Description | Causes a Cosmos DB account with a single write region to fail over to a specified read region to simulate a [write region outage](../cosmos-db/high-availability.md#multi-region-accounts-with-a-single-write-region-write-region-outage) |
+| Description | Causes a Cosmos DB account with a single write region to fail over to a specified read region to simulate a [write region outage](../cosmos-db/high-availability.md) |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:cosmosDB:failover/1.0 |
 | Parameters (key, value) |  |

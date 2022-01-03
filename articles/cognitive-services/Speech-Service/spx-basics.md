@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/28/2021
 ms.author: eur
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Get started with the Azure Speech CLI
@@ -20,7 +20,7 @@ In this article, you'll learn how to use the Azure Speech CLI (command-line inte
 This article assumes that you have working knowledge of the command prompt, terminal, or PowerShell.
 
 > [!NOTE]
-> In PowerShell, the [stop-parsing token](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_special_characters?view=powershell-7.2#stop-parsing-token---) (`--%`) should follow `spx`. For example, run `spx --% config @region` to view the current region config value.
+> In PowerShell, the [stop-parsing token](/powershell/module/microsoft.powershell.core/about/about_special_characters#stop-parsing-token---) (`--%`) should follow `spx`. For example, run `spx --% config @region` to view the current region config value.
 
 [!INCLUDE [](includes/spx-setup.md)]
 

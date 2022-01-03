@@ -6,6 +6,11 @@
           "redirect_document_id": false
         },
         {
+           "source_path_from_root": "/articles/active-directory/authentication/how-to-authentication-kerberos.md",
+           "redirect_url": "/azure/virtual-desktop/create-profile-container-azure-ad",
+           "redirect_document_id": false
+        },
+        {
           "source_path_from_root": "/articles/active-directory/manage-apps/application-management-fundamentals.md",
           "redirect_url": "/azure/active-directory/manage-apps/what-is-application-management",
           "redirect_document_id": false
@@ -4270,17 +4275,17 @@
             "redirect_url": "/azure/active-directory/governance/self-access-review",
             "redirect_document_id": false
         },
-{
+        {
             "source_path_from_root": "/azure/active-directory/governance/entitlement-management-access-reviews-self-review.md",
             "redirect_url": "/azure/active-directory/governance/self-access-review",
             "redirect_document_id": false
         },
-{
+        {
             "source_path_from_root": "/azure/active-directory/governance/manage-guest-access-with-access-reviews.md",
             "redirect_url": "/azure/active-directory/governance/manage-access-review",
             "redirect_document_id": false
         },
-{
+        {
             "source_path_from_root": "/azure/active-directory/governance/manage-user-access-with-access-reviews.md",
             "redirect_url": "/azure/active-directory/governance/manage-access-review",
             "redirect_document_id": false
@@ -4393,6 +4398,21 @@
         {
             "source_path_from_root": "/articles/active-directory/cloud-provisioning/tutorial-pilot-aadc-aadccp.md",
             "redirect_url": "/azure/active-directory/cloud-sync/tutorial-pilot-aadc-aadccp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/governance/what-is-app-provisioning.md",
+            "redirect_url": "/azure/active-directory/app-provisioning/user-provisioning",
+            "redirect_document_id": false
+        },
+{
+            "source_path_from_root": "/articles/active-directory/governance/what-is-hr-driven-provisioning.md",
+            "redirect_url": "azure/active-directory/app-provisioning/what-is-hr-driven-provisioning",
+            "redirect_document_id": false
+        },
+{
+            "source_path_from_root": "/articles/active-directory/governance/what-is-inter-directory-provisioning.md",
+            "redirect_url": "azure/active-directory/hybrid/what-is-inter-directory-provisioning",
             "redirect_document_id": false
         },
         {
@@ -7147,13 +7167,23 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/users-groups-roles/roles-admin-units-add-manage-groups.md",
-            "redirect_url": "/azure/active-directory/roles/admin-units-add-manage-groups",
-            "redirect_document_id": true
+            "redirect_url": "/azure/active-directory/roles/admin-units-members-add",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/roles/admin-units-add-manage-groups.md",
+            "redirect_url": "/azure/active-directory/roles/admin-units-members-add",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/users-groups-roles/roles-admin-units-add-manage-users.md",
-            "redirect_url": "/azure/active-directory/roles/admin-units-add-manage-users",
+            "redirect_url": "/azure/active-directory/roles/admin-units-members-add",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/roles/admin-units-add-manage-users.md",
+            "redirect_url": "/azure/active-directory/roles/admin-units-members-add",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/users-groups-roles/roles-admin-units-assign-roles.md",
@@ -10594,8 +10624,33 @@
             "source_path": "articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-rest.md",
             "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-rest",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/verifiable-credentials/enable-your-tenant-verifiable-credentials.md",
+            "redirect_url": "/azure/active-directory/verifiable-credentials/verifiable-credentials-configure-tenant",
+            "redirect_document_id": false
         }
-   
+        ,
+        {
+            "source_path": "articles/active-directory/verifiable-credentials/issue-verify-verifiable-credentials-your-tenant.md",
+            "redirect_url": "/azure/active-directory/verifiable-credentials/verifiable-credentials-configure-issuer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/verifiable-credentials/get-started-verifiable-credentials.md",
+            "redirect_url": "/azure/active-directory/verifiable-credentials/verifiable-credentials-configure-tenant",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/manage-apps/application-types.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/reports-monitoring/reference-basic-info-identifiers.md",
+            "redirect_url": "/azure/active-directory/reports-monitoring/reference-basic-info-sign-in-logs",
+            "redirect_document_id": false
+        }
          
     ]
 }

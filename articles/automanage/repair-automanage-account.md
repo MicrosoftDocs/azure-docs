@@ -1,8 +1,7 @@
 ---
 title: Repair a broken Azure Automanage Account
 description: If you've recently moved a subscription that contains an Automanage Account to a new tenant, you need to reconfigure it. In this article, you'll learn how. 
-ms.service: virtual-machines
-ms.subservice: automanage
+ms.service: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/05/2020

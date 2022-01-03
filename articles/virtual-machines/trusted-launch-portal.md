@@ -7,7 +7,7 @@ ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to
-ms.date: 12/01/2021
+ms.date: 12/07/2021
 ms.custom: template-how-to
 ---
 
@@ -68,25 +68,25 @@ Create a virtual machine with Trusted Launch.
 
 ```azurecli-interactive
 az group create -n myresourceGroup -l eastus 
-az vm create \ 
-   --resource-group myResourceGroup \ 
-   --name myVM \ 
-   --image UbuntuLTS \ 
-   --admin-username azureuser \ 
-   --generate-ssh-keys \ 
-   --SecurityType trustedLaunch \ 
-   --EnableSecureBoot true \  
-   --EnableVtpm true \
+az vm create \
+   --resource-group myResourceGroup \
+   --name myVM \
+   --image Canonical:UbuntuServer:18_04-lts-gen2:latest \
+   --admin-username azureuser \
+   --generate-ssh-keys \
+   --security-type TrustedLaunch \
+   --enable-secure-boot true \ 
+   --enable-vtpm true 
 ```
  
 For existing VMs, you can enable or disable secure boot and vTPM settings. Updating the virtual machine with secure boot and vTPM settings will trigger auto-reboot.
 
 ```azurecli-interactive
-az vm update \  
-   --resource-group myResourceGroup \ 
-   --name myVM \ 
-   --EnableSecureBoot \  
-   --EnableVtpm 
+az vm update \
+   --resource-group myResourceGroup \
+   --name myVM \
+   --enable-secure-boot true \
+   --enable-vtpm true 
 ```  
 
 ### [PowerShell](#tab/powershell)
@@ -101,7 +101,7 @@ $vmName = "myTrustedVM"
 $vmSize = Standard_B2s
 $publisher = "MicrosoftWindowsServer"
 $offer = "WindowsServer"
-$sku = "2019-Datacenter"
+$sku = "2019-datacenter-gensecond"
 $version = latest
 $cred = Get-Credential `
    -Message "Enter a username and password for the virtual machine."
