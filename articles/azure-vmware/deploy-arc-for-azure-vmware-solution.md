@@ -60,33 +60,7 @@ az feature show –-name AzureArcForAVS --namespace Microsoft.AVS
 
 ## How to deploy Azure Arc
 
-While invoking the script, you'll be required to define one of the following operations: **Onboard**, or **Off board**.
-
-**Onboard**
-
-1. Download and install the required tools to execute preview software from jump box (Azure CLI tools, Python, etc.). 
-1. Create Azure VMware Solution segment as per details if not present already. 
-1. Create Domain Name Server (DNS) and zones if not present already. 
-1. Fetch vCenter credentials. 
-1. Create template for Arc Appliance and take snapshot from template created. 
-1. Deploy the Arc for Azure VMware Solution appliance VM. 
-1. Create an Azure Resource Manager (ARM) template resource for the appliance. 
-1. Create a Kubernetes extension resource for Azure VMware Solution. 
-1. Create a custom location.  
-1. Create an Azure representation of the vCenter. 
-1. Link the vCenter resource to the AVS Azure VMware Solution private cloud resource. 
-
-**Off board**
-
-1. Download and install the tools you'll need to execute preview software from jump box (Azure CLI tools, Python, etc.). 
-1. Unlink the vCenter resource from the Azure VMware Solution private cloud resource. 
-1. Delete the Azure representation of the vCenter. 
-1. Delete the Custom Location resource, the Kubernetes extension for Azure VMware operator, the Appliance resource.   
-1. Delete the appliance VM. 
-
-### Process to onboard in Arc for Azure VMware Solution preview
-
-Use the steps below to onboard in Arc for Azure VMware Solution preview.
+The steps below guide you through the process to onboard in Arc for Azure VMware Solution preview.
 
 1. Log into the jumpbox VM and extract the contents from the compressed file from the following [location path](). The extracted file contains the scripts to install the preview software.
 1. Open the 'config_avs.json' file and populate all the variables.
@@ -428,7 +402,7 @@ The guest management needs to be enabled on teh VMware virtual machine (VM) befo
 
 1. Go to Azure portal.
 1. Locate the VMware VM you want to check for guest management and install extensions on, select the name of the VM.
-1.  Click **Configuration** for a VMware VM.
+1.  Click **Configuration** in the left sidebar for a VMware VM.
 1. Verify that **Enable guest management** has been checked.
 
 >[!NOTE]
