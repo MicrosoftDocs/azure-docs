@@ -130,7 +130,7 @@ Data that is analyzed can be stored on various storage types. The following tabl
 | **Azure Data Lake v2** | Yes | Yes, you can use external tables and the `OPENROWSET` function to read data from ADLS. |
 | **Azure Blob Storage** | Yes | Yes, you can use external tables and the `OPENROWSET` function to read data from Azure Blob Storage. |
 | **Azure SQL (remote)** | No | No, serverless SQL pool cannot reference Azure SQL database. You can reference serverless SQL pools from Azure SQL using [elastic queries](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) or [linked servers](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance) |
-| **Dataverse** | No | Yes, using [Synapse link](https://docs.microsoft.com/powerapps/maker/data-platform/azure-synapse-link-data-lake). |
+| **Dataverse** | No | Yes, using [Synapse link](/powerapps/maker/data-platform/azure-synapse-link-data-lake). |
 | **Azure CosmosDB transactional storage** | No | No, use Spark pools to update the Cosmos DB transactional storage. |
 | **Azure CosmosDB analytical storage** | No | Yes, using [Synapse Link](../../cosmos-db/synapse-link.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) |
 | **Apache Spark tables (in workspace)** | No | Only PARQUET and CSV tables using [metadata synchronization](develop-storage-files-spark-tables.md) |
