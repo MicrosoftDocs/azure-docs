@@ -315,7 +315,7 @@ See the output binding [example](#example) for more detail.
  
 ## Configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `RabbitMQ` attribute.
+The following table explains the binding configuration properties that you set in the *function.json* file.
 
 |function.json property |Description|
 |---------|----------------------|

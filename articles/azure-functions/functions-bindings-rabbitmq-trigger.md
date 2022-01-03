@@ -67,7 +67,7 @@ Like with Json objects, an error will occur if the message isn't properly format
 
 # [Isolated process](#tab/isolated-process)
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/RabbitMQ/RabbitMQFunction.cs" range="17-25":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/RabbitMQ/RabbitMQFunction.cs" range="12-23" :::
 
 # [C# Script](#tab/csharp-script)
 
@@ -256,7 +256,7 @@ The annotation supports the following configuration options:
 
 ## Configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `RabbitMQTrigger` attribute.
+The following table explains the binding configuration properties that you set in the *function.json* file.
 
 |function.json property | Description|
 |---------|----------------------|
