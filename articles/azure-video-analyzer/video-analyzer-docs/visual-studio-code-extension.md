@@ -86,88 +86,88 @@ The following sample pipeline topologies are available on the extension:
 ### Continuous Video Recording
 
 #### Record to Video Analyzer video
-![CVRToVideoSink](./media/video-studio-code-extension/cvrtovideosink.png)
+![CVRToVideoSink](./media/visual-studio-code-extension/cvrtovideosink.png)
 
 #### Record using gRPC Extension
-![CVRWithGrpcExtension](./media/video-studio-code-extension/cvrwithgrpcextension.png)
+![CVRWithGrpcExtension](./media/visual-studio-code-extension/cvrwithgrpcextension.png)
 
 #### Record using HTTP Extension
-![CVRWithHttpExtension](./media/video-studio-code-extension/cvrwithhttpextension.png)
+![CVRWithHttpExtension](./media/visual-studio-code-extension/cvrwithhttpextension.png)
 
 #### Record on motion detection
-![CVRWithMotionDetection](./media/video-studio-code-extension/cvrwithmotiondetection.png)
+![CVRWithMotionDetection](./media/visual-studio-code-extension/cvrwithmotiondetection.png)
 
 #### Record audio with video
-![AudioVideo](./media/video-studio-code-extension/audiovideo.png)
+![AudioVideo](./media/visual-studio-code-extension/audiovideo.png)
 
 ### Event-based Video Recording
 
 #### Record using gRPC Extension
-![EVRtoVideoSinkByGrpcExtension](./media/video-studio-code-extension/evrtovideosinkbygrpcextension.png) 
+![EVRtoVideoSinkByGrpcExtension](./media/visual-studio-code-extension/evrtovideosinkbygrpcextension.png) 
 
 #### Record using HTTP Extension
-![EVRtoVideoSinkByHttpExtension](./media/video-studio-code-extension/evrtovideosinkbyhttpextension.png) 
+![EVRtoVideoSinkByHttpExtension](./media/visual-studio-code-extension/evrtovideosinkbyhttpextension.png) 
 
 #### Record to Video Analyzer video based on inference events
-![EVRtoVideoSinkOnObjDetect](./media/video-studio-code-extension/evrtovideosinkonobjdetect.png) 
+![EVRtoVideoSinkOnObjDetect](./media/visual-studio-code-extension/evrtovideosinkonobjdetect.png) 
 
 #### Record to local files based on inference events
-![EVRtoFilesBasedOnHubMessages](./media/video-studio-code-extension/evrtofilesbasedonhubmessages.png) 
+![EVRtoFilesBasedOnHubMessages](./media/visual-studio-code-extension/evrtofilesbasedonhubmessages.png) 
 
 #### Record motion events to Video Analyzer video and local files 
-![EVRToFilesAndVideoSinkOnMotion](./media/video-studio-code-extension/evrtofilesandvideosinkonmotion.png) 
+![EVRToFilesAndVideoSinkOnMotion](./media/visual-studio-code-extension/evrtofilesandvideosinkonmotion.png) 
 
 #### Record motion events to Video Analyzer video
-![EVRtoVideoSinkOnMotionDetection](./media/video-studio-code-extension/evrtovideosinkonmotiondetection.png) 
+![EVRtoVideoSinkOnMotionDetection](./media/visual-studio-code-extension/evrtovideosinkonmotiondetection.png) 
 
 #### Record motion events to local files
-![EVRToFilesOnMotionDetection](./media/video-studio-code-extension/evrtofilesonmotiondetection.png) 
+![EVRToFilesOnMotionDetection](./media/visual-studio-code-extension/evrtofilesonmotiondetection.png) 
 
 ### Motion Detection
 
 #### Publish motion events to IoT Hub
-![MotionDetection](./media/video-studio-code-extension/motiondetection.png) 
+![MotionDetection](./media/visual-studio-code-extension/motiondetection.png) 
 
 #### Analyze motion events using gRPC Extension
-![EVROnMotionPlusGrpcExtension](./media/video-studio-code-extension/evronmotionplusgrpcextension.png) 
+![EVROnMotionPlusGrpcExtension](./media/visual-studio-code-extension/evronmotionplusgrpcextension.png) 
 
 #### Analyze motion events using HTTP Extension
-![EVROnMotionPlusHttpExtension](./media/video-studio-code-extension/evronmotionplushttpextension.png) 
+![EVROnMotionPlusHttpExtension](./media/visual-studio-code-extension/evronmotionplushttpextension.png) 
 
 ### Extensions
 
 #### Analyze video using HTTP Extension
-![InferencingWithHttpExtension](./media/video-studio-code-extension/inferencingwithhttpextension.png) 
+![InferencingWithHttpExtension](./media/visual-studio-code-extension/inferencingwithhttpextension.png) 
 
 #### Analyze video with Intel OpenVINO Model Server
-![InferencingWithOpenVINO](./media/video-studio-code-extension/inferencingwithopenvino.png) 
+![InferencingWithOpenVINO](./media/visual-studio-code-extension/inferencingwithopenvino.png) 
 
 ### Computer Vision
 
 #### Person count operation with Computer Vision for Spatial Analysis
-![PersonCountTopology](./media/video-studio-code-extension/personcounttopology.png) 
+![PersonCountTopology](./media/visual-studio-code-extension/personcounttopology.png) 
 
 #### Person crossing line operation with Computer Vision for Spatial Analysis
-![PersonCrossingLineTopology](./media/video-studio-code-extension/personcrossinglinetopology.png) 
+![PersonCrossingLineTopology](./media/visual-studio-code-extension/personcrossinglinetopology.png) 
 
 #### Person crossing zone operation with Computer Vision for Spatial Analysis
-![PersonZoneCrossingTopology](./media/video-studio-code-extension/personzonecrossingtopology.png) 
+![PersonZoneCrossingTopology](./media/visual-studio-code-extension/personzonecrossingtopology.png) 
 
 #### Person distance operation with Computer Vision for Spatial Analysis
-![PersonDistanceTopology](./media/video-studio-code-extension/persondistancetopology.png) 
+![PersonDistanceTopology](./media/visual-studio-code-extension/persondistancetopology.png) 
 
 #### Custom operation with Computer Vision for Spatial Analysis
-![PersonAttributesTopology](./media/video-studio-code-extension/personattributestopology.png) 
+![PersonAttributesTopology](./media/visual-studio-code-extension/personattributestopology.png) 
 
 ### AI Composition
 
 #### Record to the Video Analyzer service using multiple AI models
-![AIComposition](./media/video-studio-code-extension/aicomposition.png) 
+![AIComposition](./media/visual-studio-code-extension/aicomposition.png) 
 
 ### Miscellaneous 
 
 #### Record video based on the object tracking AI model
-![ObjectTrackingWithHttpExtension](./media/video-studio-code-extension/objecttrackingwithhttpextension.png) 
+![ObjectTrackingWithHttpExtension](./media/visual-studio-code-extension/objecttrackingwithhttpextension.png) 
 
 #### Record video based on the line crossing AI model
-![LineCrossingWithHttpExtension](./media/video-studio-code-extension/linecrossingwithhttpextension.png) 
+![LineCrossingWithHttpExtension](./media/visual-studio-code-extension/linecrossingwithhttpextension.png) 
