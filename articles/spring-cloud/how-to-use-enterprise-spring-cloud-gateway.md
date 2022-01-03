@@ -35,9 +35,9 @@ Default resource usage
 | Spring Cloud Gateway operator | 2 | 1 core | 2Gi |
 
 ## Prerequisites
-- An already provisioned Azure Spring Cloud Enterprise tier service instance with Spring Cloud Gateway enabled. For more information, see [Get started with Enterprise Tier](./get-started-enterprise.md)
-
-   ![Spring Cloud Gateway Overview image](./media/enterprise/gateway/overview.png)
+- An already provisioned Azure Spring Cloud Enterprise tier service instance. For more information, see [Get started with Enterprise Tier](./get-started-enterprise.md)
+- Spring Cloud Gateway installed and enabled. For more information, see [Installing Spring Cloud Gateway for VMware Tanzu](https://docs.vmware.com/Spring-Cloud-Gateway-for-VMware-Tanzu/1.1/spring-cloud-gateway/GUID-installing.html)
+- [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
 
 ## Configure Spring Cloud Gateway
 
@@ -126,7 +126,7 @@ Not all the filters/predicates are supported in Azure Spring Cloud because of se
 
 1. See [Create and configure apps](get-started-enterprise.md#create-and-configure-apps) to create an app in Azure Spring Cloud which the Spring Cloud Gateway would route traffic to. Select `customers-service` in this example.
     
-1. See [Deploy apps](get-started-enterprise.md#deploy-apps) to deploy the `customers-service` app. The app has an API `owners` to which routing rule will be created.
+1. See [Build and deploy applications](get-started-enterprise.md#build-and-deploy-applications) to deploy the `customers-service` app. The app has an API `owners` to which routing rule will be created.
 
 1. Assign a public endpoint to the gateway to access it.
 
