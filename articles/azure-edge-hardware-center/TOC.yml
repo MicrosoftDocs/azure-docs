@@ -25,7 +25,7 @@
     - name: Open Support ticket
       href: azure-edge-hardware-center-contact-microsoft-support.md
   - name: References
-    href: /powershell/module/az.edgeorder/?view=azps-7.0.0#edgeorder           
+    href: /powershell/module/az.edgeorder           
   - name: Resources
     items:
     - name: Azure Stack Edge product  
