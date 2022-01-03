@@ -75,6 +75,26 @@ The following built-in file activity content is supported for ASIM normalization
 - [SUNSPOT log file creation ](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/SUNSPOTLogFile.yaml)
 - [Known ZINC Comebacker and Klackring malware hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
 
+## Network Session security content
+
+The following built-in network session related content is supported for ASIM normalization.
+
+### Analytics rules
+
+- [Log4j vulnerability exploit aka Log4Shell IP IOC](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Log4J_IPIOC_Dec112021.yaml)
+- [Excessive number of failed connections from a single source (ASIM Network Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimNetworkSession/ExcessiveDenyFromSource.yaml)
+- [Potential beaconing activity (ASIM Network Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimNetworkSession/PossibleBeaconingActivity.yaml)
+- [User agent search for log4j exploitation attempt](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/UserAgentSearch_log4j.yaml)
+
+### Hunting queries
+
+- [Connection from external IP to OMI related Ports](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/NetworkConnectiontoOMIPorts.yaml)
+
+## Workbooks
+
+- The Threat Intelligence Workbook
+
+
 ## Process Activity security content
 
 The following built-in process activity content is supported for ASIM normalization.
@@ -115,6 +135,18 @@ The following built-in registry activity content is supported for ASIM normaliza
 
 - [Persisting Via IFEO Registry Key](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/PersistViaIFEORegistryKey.yaml)
 
+## Web Session security content
+
+The following built-in web session related content is supported for ASIM normalization.
+
+### Analytics rules
+
+- [Potential communication with a Domain Generation Algorithm (DGA) based hostname (ASIM Network Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimWebSession/PossibleDGAContacts.yaml)
+- [A client made a web request to a potentially harmful file (ASIM Web Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimWebSession/PotentiallyHarmfulFileTypes.yaml)
+- [A host is potentially running a crypto miner (ASIM Web Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimWebSession/UnusualUACryptoMiners.yaml)
+- [A host is potentially running a hacking tool (ASIM Web Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimWebSession/UnusualUAHackTool.yaml)
+- [A host is potentially running PowerShell to send HTTP(S) requests (ASIM Web Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimWebSession/UnusualUAPowershell.yaml)
+
 ## <a name="modify"></a>Modify your content to use normalized data
 
 To enable your custom content to use normalization:
@@ -141,25 +173,33 @@ InfobloxNIOS
 | extend timestamp = TimeGenerated, IPCustomEntity = Client_IP
 ```
 
-The following code is the source-agnostic version, which uses normalization to provide the same detection for any source providing DNS query events:
+The following code is the source-agnostic version, which uses normalization to provide the same detection for any source providing DNS query events. The example uses built-in ASIM parsers:
 
 ```kusto
-imDns(responsecodename='NXDOMAIN')
+_Im_Dns(responsecodename='NXDOMAIN')
 | summarize count() by SrcIpAddr, bin(TimeGenerated,15m)
 | where count_ > threshold
 | join kind=inner (imDns(responsecodename='NXDOMAIN')) on SrcIpAddr
 | extend timestamp = TimeGenerated, IPCustomEntity = SrcIpAddr```
 ```
 
+To use workspace deployed ASIM parsers, replace the first line with:
+
+```kusto
+imDns(responsecodename='NXDOMAIN')
+```
+
+The two options are functionally identical.
+
 The normalized, source-agnostic version has the following differences:
 
-- The `imDns`normalized parser is used instead of the Infoblox Parser.
+- The `_In_Dns` or `imDns`normalized parsers are used instead of the Infoblox Parser.
 
-- `imDns` fetches only DNS query events, so there is no need for checking the event type, as performed by the `where ProcessName =~ "named" and Log_Type =~ "client"` in the Infoblox version.
+- The normalized parsers fetch only DNS query events, so there is no need for checking the event type, as performed by the `where ProcessName =~ "named" and Log_Type =~ "client"` in the Infoblox version.
 
 - The `SrcIpAddr` field is used instead of `Client_IP`.
  
-- Parser parameter filtering is used for ResponseCodeName, eliminating the need for explicit where clauses.
+- Parser parameter filtering is used for ResponseCodeName, eliminating the need for an explicit where clauses.
 
 
 Apart from supporting any normalized DNS source, the normalized version is shorter and easier to understand. 

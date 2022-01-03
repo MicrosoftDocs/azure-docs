@@ -16,13 +16,14 @@ An [ASIM](normalization.md) schema is a set of fields that represent an activity
 
 Schema references outline the fields that comprise each schema. ASIM currently defines the following schemas:
 
- - [Network Session](normalization-schema.md)
+ - [Authentication Event](authentication-normalization-schema.md)
+ - [File Activity](file-event-normalization-schema.md)
  - [DNS Activity](dns-normalization-schema.md)
  - [DHCP Activity](dhcp-normalization-schema.md)
+ - [Network Session](normalization-schema.md)
  - [Process Event](process-events-normalization-schema.md)
- - [Authentication Event](authentication-normalization-schema.md)
  - [Registry Event](registry-event-normalization-schema.md)
- - [File Activity](file-event-normalization-schema.md)
+ - [Wen Session]()
 
 > [!IMPORTANT]
 > ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

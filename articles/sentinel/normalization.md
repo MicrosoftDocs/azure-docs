@@ -17,7 +17,7 @@ Microsoft Sentinel ingests data from many sources. Working with various data typ
 
 Sometimes, you'll need separate rules, workbooks, and queries, even when data types share common elements, such as firewall devices. Correlating between different types of data during an investigation and hunting can also be challenging.
 
-This article provides an overview of the Advanced Security Information and Event Management (SIEM) Information Model (ASIM), which provides a solution for the challenges of handling multiple types of data.
+This article provides an overview of the Advanced Security Information and Event Management (SIEM) Information Model (ASIM), which provides a solution for the challenges of handling multiple, often incompatible, representations of data.
 
 > [!TIP]
 > Also watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [webinar slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG). For more information, see [Next steps](#next-steps).
@@ -26,6 +26,10 @@ This article provides an overview of the Advanced Security Information and Event
 > [!IMPORTANT]
 > ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+
+## About normalization
+
+ASIM address the challenge of handling multiple representations of data by converting security data collected from different sources to a uniform representation. The convertion process includes parsing and mapping the data into consistent field names and field values. This process is commonly referred to as normalization.
 
 ## Common ASIM usage
 
@@ -51,14 +55,14 @@ For more information, see the [OSSEM reference documentation](https://ossemproje
 
 The following image shows how non-normalized data can be translated into normalized content and used in Microsoft Sentinel. For example, you can start with a custom, product-specific, non-normalized table, and use a parser and a normalization schema to convert that table to normalized data. Use your normalized data in both Microsoft and custom analytics, rules, workbooks, queries, and more.
 
- :::image type="content" source="media/normalization/sentinel-information-model-components.png" alt-text="Non-normalized to normalized data conversion flow and usage in Microsoft Sentinel":::
+ :::image type="content" source="media/normalization/ASIM_architecture.png" alt-text="Non-normalized to normalized data conversion flow and usage in Microsoft Sentinel":::
 
 The Advanced SIEM Information Model includes the following components:
 
 |Component  |Description  |
 |---------|---------|
 |**Normalized schemas**     |   Cover standard sets of predictable event types that you can use when building unified capabilities. <br><br>Each schema defines the fields that represent an event, a normalized column naming convention, and a standard format for the field values. <br><br> ASIM currently defines the following schemas:<br> - [Network Session](./network-normalization-schema.md)<br> - [DNS Activity](dns-normalization-schema.md)<br> - [Process Event](process-events-normalization-schema.md)<br> - [Authentication Event](authentication-normalization-schema.md)<br> - [Registry Event](registry-event-normalization-schema.md)<br> - [File Activity](file-event-normalization-schema.md)  <br><br>For more information, see [Advanced SIEM Information Model schemas](normalization-about-schemas.md).  |
-|**Parsers**     |  Map existing data to the normalized schemas using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions). <br><br>Deploy the Microsoft-developed normalizing parsers from the [`Parsers` folder in the Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers). Normalized parsers are located in subfolders starting with **ASim***.  <br><br>For more information, see [Advanced SIEM Information Model parsers](normalization-about-parsers.md).     |
+|**Parsers**     |  Map existing data to the normalized schemas using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions). <br><br>Many ASIM parsers are available out of the box in Microsoft Sentinel. Additional parsers, as well as versions of the built-in parsers that can be modified can be deployed from The [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelASim). <br><br>For more information, see [Advanced SIEM Information Model parsers](normalization-about-parsers.md).     |
 |**Content for each normalized schema**     |    Includes analytics rules, workbooks, hunting queries, and more. Content for each normalized schema works on any normalized data without the need to create source-specific content. <br><br>For more information, see [Advanced SIEM Information Model content](normalization-content.md).   |
 | | |
 
@@ -79,17 +83,10 @@ The Advanced SIEM Information Model uses the following terms:
 
 To start using ASIM:
 
-1. Deploy all ASIM parsers quickly from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelASim).
-
-1. Activate analytics rule templates that use ASIM. For more information, see the [Advanced SIEM Information Model (ASIM) content list](normalization-content.md#builtin).
-
-1. Use ASIM in your workspace, using the following methods:
-
-    - Use the ASIM hunting queries from the Microsoft Sentinel GitHub repository, when querying logs in KQL in the Microsoft Sentinel **Logs** page. For more information, see the [Advanced SIEM Information Model (ASIM) content list](normalization-content.md#builtin).
-
-    - Write your own analytics rules using ASIM or [convert existing ones](normalization-content.md#builtin).
-
-    - Enable your custom data to use built-in analytics by [writing parsers](normalization-about-parsers.md) for your custom sources and [adding](normalization-about-parsers.md#include) them to the relevant source agnostic parser.
+- Activate analytics rule templates that use ASIM. For more information, see the [Advanced SIEM Information Model (ASIM) content list](normalization-content.md#builtin).
+- Use the ASIM hunting queries from the Microsoft Sentinel GitHub repository, when querying logs in KQL in the Microsoft Sentinel **Logs** page. For more information, see the [Advanced SIEM Information Model (ASIM) content list](normalization-content.md#builtin).
+- Write your own analytics rules using ASIM or [convert existing ones](normalization-content.md#builtin).
+- Enable your custom data to use built-in analytics by [writing parsers](normalization-about-parsers.md) for your custom sources and [adding](normalization-about-parsers.md#include) them to the relevant source agnostic parser.
 
 ## <a name="next-steps"></a>Next steps
 
