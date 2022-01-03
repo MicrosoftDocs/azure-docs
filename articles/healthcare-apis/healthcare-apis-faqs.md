@@ -40,7 +40,7 @@ During the public preview phase, Azure Healthcare APIs is available for you to u
 Please refer to the [Products by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir) page for the most current information. 
           
 ### What are the subscription quota limits for the Azure Healthcare APIs?
-Please refer to [Healthcare APIs service limits](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-healthcare-apis) for the most current information.
+Please refer to [Healthcare APIs service limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-healthcare-apis) for the most current information.
 
 ## More frequently asked questions
 [FAQs about Azure Healthcare APIs FHIR service](./fhir/fhir-faq.md)
