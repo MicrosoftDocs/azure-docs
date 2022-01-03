@@ -47,5 +47,5 @@ page.
 * Learn about [private
   endpoints](../../private-link/private-endpoint-overview.md)
 * Learn about [virtual
-  networks](../virtual-network/concepts-and-best-practices.md)
+  networks](../../virtual-network/concepts-and-best-practices.md)
 * Learn about [private DNS zones](../../dns/private-dns-overview.md)
