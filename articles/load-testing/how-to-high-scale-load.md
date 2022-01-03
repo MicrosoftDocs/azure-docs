@@ -32,6 +32,8 @@ You can apply the following formula: RPS = (# of VUs) * (1/latency).
 
 For example, if application latency is 20 milliseconds (ms), and you're generating a load of 2,000 VUs, you can achieve around 100,000 RPS.
 
+Apache JMeter only reports requests that made it to the server and back, either successful or not. If Apache JMeter is unable to connect to your application, the actual number of requests per second will be lower than the maximum value. Possible causes might be that the server is too busy to handle the request, or that an TLS/SSL certificate is missing. To diagnose connection problems, you can check the **Errors** chart in the load testing dashboard and [download the load test log files](./how-to-find-download-logs.md).
+
 ## Test engine instances
 
 In Azure Load Testing, *test engine* instances are responsible for executing a test plan. If you use an Apache JMeter script to create the test plan, each test engine executes the Apache JMeter script.
