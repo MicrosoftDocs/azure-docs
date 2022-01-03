@@ -91,8 +91,8 @@
   items:
   - name: Pipeline
     href: pipeline.md
-  - name: Live pipeline topologies
-    href: live-pipeline-topologies.md    
+  - name: List of pipeline topologies
+    href: pipeline-topologies-list.md    
   - name: Pipeline extension
     href: pipeline-extension.md
   - name: Video recording
