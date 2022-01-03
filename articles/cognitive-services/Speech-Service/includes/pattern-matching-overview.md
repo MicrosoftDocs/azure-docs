@@ -113,7 +113,7 @@ These can all be reduced to a single pattern with optional items.
 
 >"Take me [to | the] {floorName} [please]"
 
-It is also possible to include optional entities. Imagine there are multiple parking levels and you want to matchthe word before the {floorName}. You could do so with a pattern like this:
+It is also possible to include optional entities. Imagine there are multiple parking levels and you want to match the word before the {floorName}. You could do so with a pattern like this:
 
 >"Take me to [{floorType}] {floorName}"
 
