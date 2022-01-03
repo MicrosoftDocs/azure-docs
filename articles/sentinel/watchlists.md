@@ -90,6 +90,12 @@ Common scenarios for using watchlists include:
 
 1. Continue as you would when [creating a new watchlist from scratch](#review-and-create), and then use your watchlist with [queries](#use-watchlists-in-queries) and [analytics rules](#use-watchlists-in-analytics-rules).
 
+> [!NOTE]
+> 
+> - Log Analytics has a 5-minute SLA for data ingestion. Deleting and recreating a watchlist will result in data ingestion for both deleting the old entries and populating the new entries operations in Log Analytics and also an update to our Sentinel database. Therefore, there is chance that you can see both old and new entries in Log Analytics within this 5-minute window. Note that this won't happen in the watchlist UI, since the UI doesn't retrieve the data from Log Analytics but retrieve the data directly from our database.
+> 
+> - If you are seeing a watchlist in this state, old and new entries together, for a lot longer of time, then please submit a support ticket.
+
 ## Use watchlists in queries
 
 > [!TIP]
