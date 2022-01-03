@@ -21,8 +21,6 @@ This article describes the use of the API portal with Azure Spring Cloud Enterpr
 - An already provisioned Azure Spring Cloud Enterprise tier service instance with the API portal enabled. For more information, see [Get started with Enterprise Tier](./get-started-enterprise.md)
 - [Spring Cloud Gateway](./how-to-use-enterprise-spring-cloud-gateway.md) is enabled during provisioning and the corresponding API metadata is configured.
 
-   ![API Portal Installed Overview image](./media/enterprise/api-portal/overview.png)
-
 ## Configure the API portal
 
 ### Configure Single Sign-On (SSO)
@@ -53,10 +51,11 @@ To access the API portal, use the following steps to assign a public endpoint:
 
 1. Select **API portal**.
 1. Select **Overview** to show the running state and resources allocated to the API portal.
-1. Select **Assign endpoint** to assign a public endpoint. A URL will be generated within a few minutes.
-1. Save the URL for use later.
+1. Select **Yes** next to *Assign endpoint* to assign a public endpoint. A URL will be generated within a few minutes.
 
-   ![Assign public endpoint for API portal](./media/enterprise/api-portal/overview.png)
+  ![Assign public endpoint for API portal](./media/enterprise/api-portal/overview.png)
+
+1. Save the URL for use later. 
 
 You can also use the CLI to assign a public endpoint with the following command:
 

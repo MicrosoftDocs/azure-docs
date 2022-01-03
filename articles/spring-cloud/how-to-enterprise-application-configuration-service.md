@@ -22,8 +22,6 @@ With Application Configuration Service, you have a central place to manage exter
 
 - An already provisioned Azure Spring Cloud Enterprise tier service instance with Application Configuration Service enabled. For more information, see [Get started with Enterprise Tier](./get-started-enterprise.md)
 
-   ![acs-overview](./media/enterprise/application-configuration-service/overview.png)
-
 ## Manage Application Configuration Service settings
 
 Application Configuration Service supports Azure DevOps, GitHub, GitLab, and Bitbucket for storing you config file.
@@ -44,14 +42,14 @@ The properties for each entry are described in the following table.
 
 ### Pattern
 
-Configuration will be pulled from Git backends using what is defined in a pattern, which is combination of *{application}/{profile}* as described in the following list.
+Configuration will be pulled from Git backends using what is defined in a pattern. A pattern is a combination of *{application}/{profile}* as described in the following list.
 
 - {application} - The name of an application for which the configuration is being retrieved. The value `application` is considered the default application and includes configuration shared across multiple applications. Any other value specifies a specific application and will include properties for both the specified application and shared properties for the default application.
 - {profile} - Optional. The name of a profile for which properties may be retrieved. An empty value, or the value `default`, includes properties that are shared across any and all profiles. Non-default values include properties for the specified profile and properties for the default profile.
 
 ### Authentication
 
-Application Configuration Service supports three repository types. The following list provides more details.
+The following list shows the three types of repositories supported by Application Configuration Service.
 
 ![acs-auth](./media/enterprise/application-configuration-service/auth.png)
 
@@ -88,17 +86,17 @@ To validate access to the target URI, select **Validate**. After validation is c
 There are some restrictions when you use Application Configuration Service with a Git back end.
 
 > [!WARNING]
-> To avoid deployment errors, you must not include `spring-cloud-starter-config` in the app's *pom.xml* file.
+> To avoid deployment errors, do not include `spring-cloud-starter-config` in the app's *pom.xml* file.
 > <s>
 > ```xml
 > <dependency>
 > <groupId>org.springframework.cloud</groupId>
-> <artifactId>spring-cloud-starter-config</artifactId>
+> <artifactId>spring-cloud-starter-config</artifactId> 
 > </dependency>
 > ```
 > </s>
 
-To claim that the app will use the centralized configurations, you must bind the app to Application Configuration Service. After that, you'll need to configure which pattern to be used by the app. Use the following steps to accomplish these tasks:
+To have the app use the centralized configurations, you must bind the app to Application Configuration Service. After binding the app, you'll need to configure which pattern to be used by the app by following these steps:
 
 1. Open the **App binding** tab.
 
@@ -120,3 +118,5 @@ To claim that the app will use the centralized configurations, you must bind the
    c. Open the **Configuration** section and find the **General settings** tab. Under the **Config file patterns** property, choose one or more patterns from the dropdown list. Select **Save** to save the changes.
 
       ![acs-pattern](./media/enterprise/application-configuration-service/pattern.png)
+
+## Next Steps

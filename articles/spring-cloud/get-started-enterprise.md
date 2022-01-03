@@ -96,7 +96,7 @@ To use Application Configuration Service, follow these steps.
 > [!NOTE]
 > To use Application Configuration Service, you must enable it when you provision your Azure Spring Cloud service instance. You cannot enable it after provisioning at this time.
 
-1. Select **Application Configuration Service** to see the **Overview** section. The **Overview** shows the running state and resources allocated to Application Configuration Service.
+1. Select **Application Configuration Service**. The **Overview** shows the running state and resources allocated to Application Configuration Service.
 
    ![Application Configuration Service Overview screen](./media/enterprise/application-configuration-service/overview.png)
 
