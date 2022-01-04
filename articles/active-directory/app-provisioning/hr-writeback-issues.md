@@ -2,7 +2,7 @@
 title: Troubleshoot write back issues with HR provisioning
 description: Learn how to troubleshoot write back issues with HR provisioning
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: troubleshooting

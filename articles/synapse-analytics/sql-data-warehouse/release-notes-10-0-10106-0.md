@@ -8,7 +8,7 @@ ms.subservice: sql-dw
 ms.date: 4/30/2020
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse

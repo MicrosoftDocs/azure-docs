@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 11/02/2021
+ms.date: 12/28/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -23,7 +23,10 @@ This article outlines how to register Salesforce, and how to authenticate and in
 |---|---|---|---|---|---|---|
 | [Yes](#register)| [Yes](#scan)| No | No | No | No| No|
 
-When scanning Salesforce, Purview supports extracting metadata including Salesforce organizations, objects, fields, foreign keys, and unique_constraints.
+When scanning Salesforce source, Purview supports extracting technical metadata including:
+
+- Organization
+- Objects including the fields, foreign keys, and unique_constraints
 
 ## Prerequisites
 

@@ -39,7 +39,7 @@ To get started with the Azure Monthly Credit Subscription using your GitHub acco
 
 ![Screenshot of the sign in options page.](media/how-to-sign-into-azure-with-github/sign-in.png "Sign in options page.")  
 
-![Screenshot of the Microsoft sign into Github to continue to Microsoft-Corporation.](media/how-to-sign-into-azure-with-github/microsoft-sign-in.png "Sign into Github to continue to Microsoft-Corporation.")  
+![Screenshot of the Microsoft sign into GitHub to continue to Microsoft-Corporation.](media/how-to-sign-into-azure-with-github/microsoft-sign-in.png "Sign into GitHub to continue to Microsoft-Corporation.")  
 
 If you haven’t activated your credits yet, go to the [Monthly Azure Credits for Visual Studio Subscribers](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers) page, select “Activate Your Credits” then “Sign in with GitHub” to get started.  
 

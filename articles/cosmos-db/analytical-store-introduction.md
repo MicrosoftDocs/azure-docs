@@ -261,7 +261,7 @@ The well-defined schema representation creates a simple tabular representation o
 
 ```SQL
 SELECT CAST (num as float) as num
-FROM OPENROWSET(​PROVIDER = 'CosmosDB',
+FROM OPENROWSET(PROVIDER = 'CosmosDB',
                 CONNECTION = '<your-connection',
                 OBJECT = 'IntToFloat',
                 SERVER_CREDENTIAL = 'your-credential'
@@ -269,13 +269,16 @@ FROM OPENROWSET(​PROVIDER = 'CosmosDB',
 WITH (num varchar(100)) AS [IntToFloat]
 ```
 
-  * Properties that don't follow the base schema data type won't be represented in analytical store. For example, consider the 2 documents below, and that the first one defined the analytical store base schema. The second document, where `id` is `2`, doesn't have a well-defined schema since property `"a"` is a string and the first document has `"a"` as a number. In this case, the analytical store registers the data type of `"a"` as `integer` for lifetime of the container. The second document will still be included in analytical store, but its `"a"` property will not.
+  * Properties that don't follow the base schema data type won't be represented in analytical store. For example, consider the documents below: the first one defined the analytical store base schema. The second document, where `id` is `"2"`, **doesn't** have a well-defined schema since property `"code"` is a string and the first document has `"code"` as a number. In this case, the analytical store registers the data type of `"code"` as `integer` for lifetime of the container. The second document will still be included in analytical store, but its `"code"` property will not.
   
-    * `{"id": "1", "a":123}` 
-    * `{"id": "2", "a": "str"}`
+    * `{"id": "1", "code":123}` 
+    * `{"id": "2", "code": "123"}`
      
  > [!NOTE]
- > This condition above doesn't apply for null properties. For example, `{"a":123} and {"a":null}` is still well defined.
+ > The condition above doesn't apply for null properties. For example, `{"a":123} and {"a":null}` is still well defined.
+
+> [!NOTE]
+ > The condition above doesn't change if you update `"code"` of document `"1"` to a string in your transactional store. In analytical store, `"code"` will be kept as `integer` since currently we don't support schema reset.
 
 * Array types must contain a single repeated type. For example, `{"a": ["str",12]}` is not a well-defined schema because the array contains a mix of integer and string types.
 

@@ -8,7 +8,7 @@ ms.topic: troubleshooting
 ms.subservice: sql
 ms.date: 11/18/2020 
 ms.author: procha 
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Compatibility issues with third-party applications and Azure Synapse Analytics

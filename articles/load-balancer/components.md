@@ -5,11 +5,10 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/26/2021
+ms.date: 12/27/2021
 ms.author: allensu
 
 ---
@@ -118,6 +117,7 @@ Basic load balancer doesn't support outbound rules.
 
 - Learn about load balancer [limits](../azure-resource-manager/management/azure-subscription-service-limits.md) 
 - Load balancer provides load balancing and port forwarding for specific TCP or UDP protocols. Load-balancing rules and inbound NAT rules support TCP and UDP, but not other IP protocols including ICMP.
+- Load Balancer backend pool cannot consist of a [Private Endpoint](../private-link/private-endpoint-overview.md).
 - Outbound flow from a backend VM to a frontend of an internal Load Balancer will fail.
 - A load balancer rule cannot span two virtual networks. All load balancer frontends and their backend instances must be in a single virtual network.  
 - Forwarding IP fragments isn't supported on load-balancing rules. IP fragmentation of UDP and TCP packets isn't supported on load-balancing rules. HA ports load-balancing rules can be used to forward existing IP fragments. For more information, see [High availability ports overview](load-balancer-ha-ports-overview.md).
