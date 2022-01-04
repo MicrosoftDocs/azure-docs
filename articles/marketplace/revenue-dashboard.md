@@ -242,7 +242,7 @@ In the lower left of most widgets, you’ll see a thumbs up and thumbs down icon
 |
 ## Next steps
 
-- For common questions about the revenue dashboard or commercial marketplace analytics, and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics common questions](/analytics-faq).
+- For common questions about the revenue dashboard or commercial marketplace analytics, and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics common questions](analytics-faq.yml).
 - For information on payout statements, see [Payout statements](/partner-center/payout-statement).
 - For information on Payout schedules, see [Payout schedules and processes](/partner-center/payout-policy-details).
 - For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage dashboard in commercial marketplace analytics](usage-dashboard.md).
