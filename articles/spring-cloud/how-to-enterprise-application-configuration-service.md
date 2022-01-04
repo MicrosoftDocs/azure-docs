@@ -49,7 +49,7 @@ Configuration will be pulled from Git backends using what is defined in a patter
 
 ### Authentication
 
-The following list shows the three types of repositories supported by Application Configuration Service.
+The following image shows the three types of repositories supported by Application Configuration Service.
 
 ![acs-auth](./media/enterprise/application-configuration-service/auth.png)
 
@@ -79,24 +79,62 @@ The following list shows the three types of repositories supported by Applicatio
 
 To validate access to the target URI, select **Validate**. After validation is completed successfully, select **Apply** to update the configuration settings.
 
-![acs-settings2](./media/enterprise/application-configuration-service/settings.png)
+![acs-settings](./media/enterprise/application-configuration-service/settings.png)
+
+## Refresh strategies
+
+The section describes how to get the configuration in your application to be refreshed after you update the configuration file in Git repo.
+
+There are two steps to load the new configuration files.
+
+1. Load to Application Configuration Service
+
+The refresh frequency is managed by Azure Spring Cloud and fixed to 60 seconds.
+
+1. Load to your application
+
+A Spring application holds the properties as the beans of the Spring Application Context via the Environment interface. There are several ways to load the new configurations.
+
+- Restart the application. After restarting, the application will always load the new configuration.
+
+- By calling the /actuator/refresh endpoint exposed on the config client via the Spring Actuator.
+
+   To use the method, you will add the following dependency to our config client’s pom.xml
+
+   ``` xml
+   <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+   </dependency>
+   ```
+
+   You will also enable the actuator endpoint by adding the following configurations
+   ```
+   management.endpoints.web.exposure.include=refresh, bus-refresh, beans, env
+   ```
+
+   Just after the reloading of property sources by calling the /actuator/refresh endpoint, the attributes bounded with @Value in the beans having the annotation @RefreshScope is refreshed.
+
+   ``` java
+   @Service
+   @Getter @Setter
+   @RefreshScope
+   public class MyService {
+      @Value
+      private Boolean activated;
+   }
+   ```
+
+   Lastly, curl the application endpoint to refresh the new configuration.
+   ``` bash
+   curl -X POST http://{app-endpoint}/actuator/refresh
+   ```
 
 ## Restriction on using Application Configuration Service with apps
 
 There are some restrictions when you use Application Configuration Service with a Git back end.
 
-> [!WARNING]
-> To avoid deployment errors, do not include `spring-cloud-starter-config` in the app's *pom.xml* file.
-> <s>
-> ```xml
-> <dependency>
-> <groupId>org.springframework.cloud</groupId>
-> <artifactId>spring-cloud-starter-config</artifactId> 
-> </dependency>
-> ```
-> </s>
-
-To have the app use the centralized configurations, you must bind the app to Application Configuration Service. After binding the app, you'll need to configure which pattern to be used by the app by following these steps:
+To use the centralized configurations, you must bind the app to Application Configuration Service. After binding the app, you'll need to configure which pattern to be used by the app by following these steps:
 
 1. Open the **App binding** tab.
 
@@ -107,7 +145,7 @@ To have the app use the centralized configurations, you must bind the app to App
    > [!NOTE]
    > When you change the bind/unbind status, you must restart or redeploy the app to for the binding to take effect.
 
-1. Go to the **Apps** section and choose the [pattern(s)](./how-to-enterprise-application-configuration-service.md#pattern) to be used by the apps.
+1. Select **Apps**, then select the [pattern(s)](./how-to-enterprise-application-configuration-service.md#pattern) to be used by the apps.
 
    a. Open the **Apps** section to list all the apps.
 
@@ -120,3 +158,4 @@ To have the app use the centralized configurations, you must bind the app to App
       ![acs-pattern](./media/enterprise/application-configuration-service/pattern.png)
 
 ## Next Steps
+
