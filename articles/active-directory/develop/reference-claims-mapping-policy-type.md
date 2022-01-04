@@ -33,6 +33,9 @@ There are certain sets of claims that define how and when they're used in tokens
 
 ### Table 1: JSON Web Token (JWT) restricted claim set
 
+> [!NOTE]
+> Any claim starting with "xms_" is restricted.
+
 | Claim type (name) |
 | ----- |
 |.|
@@ -168,55 +171,6 @@ There are certain sets of claims that define how and when they're used in tokens
 |xcb2b_rclient|
 |xcb2b_rcloud|
 |xcb2b_rtenant|
-|xms_aadfed_aam|
-|xms_aadfed_groups|
-|xms_ap_rep|
-|xms_as_rep|
-|xms_az_nwperimid|
-|xms_az_rid|
-|xms_az_tm|
-|xms_caechecks|
-|xms_caeerror|
-|xms_cap|
-|xms_cc|
-|xms_chlgs|
-|xms_dch|
-|xms_drt|
-|xms_et|
-|xms_filter_index|
-|xms_group_sids_map|
-|xms_istv|
-|xms_mfa_time|
-|xms_mirid|
-|xms_mpci|
-|xms_naaspolids|
-|xms_ot|
-|xms_pci|
-|xms_pdl|
-|xms_piar|
-|xms_pl|
-|xms_plids|
-|xms_plrid|
-|xms_pta_mtn|
-|xms_rclient|
-|xms_rid|
-|xms_rm|
-|xms_rmdctx|
-|xms_rp_ipaddr|
-|xms_rtenant|
-|xms_sip|
-|xms_sip|
-|xms_sk|
-|xms_spcu|
-|xms_sptype|
-|xms_ssm|
-|xms_st|
-|xms_stk|
-|xms_tcdt|
-|xms_tpl|
-|xms_trpid|
-|xms_wsit|
-|xms_x5t|
 |ztdid|
 
 ### Table 2: SAML restricted claim set
