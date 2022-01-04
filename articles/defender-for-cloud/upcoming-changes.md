@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 12/12/2021
+ms.date: 01/04/2022
 ---
 # Important upcoming changes to Microsoft Defender for Cloud
 
@@ -20,17 +20,17 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change                                                                                                                                                                      | Estimated date for change |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)                                     | December 2021             |
-| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)                        | December 2021             |
-| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)                                                                                       | December 2021             |
-|                                                                                        | January 2022             |
+| [Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)                                     | January 2022              |
+| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)                        | January 2022              |
+| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)                                                                                       | January 2022              |
+| [Deprecating the recommendation to use service principals to protect your subscriptions](#deprecating-the-recommendation-to-use-service-principals-to-protect-your-subscriptions)   | February 2022             |
 | [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                           | Q1 2022                   |
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)                                     | March 2022                |
 |                                                                                                                                                                                     |                           |
 
 ### Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses
 
-**Estimated date for change:** December 2021
+**Estimated date for change:** January 2022 
 
 We'll be deprecating the following preview alert:
 
@@ -43,7 +43,7 @@ We've created new alerts that provide this information and add to it. In additio
 
 ### Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013
 
-**Estimated date for change:** November 2021
+**Estimated date for change:** January 2022 
 
 The legacy implementation of ISO 27001 will be removed from Defender for Cloud's regulatory compliance dashboard. If you're tracking your ISO 27001 compliance with Defender for Cloud, onboard the new ISO 27001:2013 standard for all relevant management groups or subscriptions, and the current legacy ISO 27001 will soon be removed from the dashboard.
 
@@ -52,7 +52,7 @@ The legacy implementation of ISO 27001 will be removed from Defender for Cloud's
 
 ### Multiple changes to identity recommendations
 
-**Estimated date for change:** December 2021
+**Estimated date for change:** January 2022
 
 Defender for Cloud includes multiple recommendations for improving the management of users and accounts. In December, we'll be making the changes outlined below.
 
@@ -97,23 +97,23 @@ Defender for Cloud includes multiple recommendations for improving the managemen
     |||
 
 
-### Deprecating a recommendation: 
+### Deprecating the recommendation to use service principals to protect your subscriptions
 
-**Estimated date for change:** January 2022
+**Estimated date for change:** February 2022
 
-We'll be deprecating the following recommendation:
+As organizations are moving away from using management certificates to manage their subscriptions, and [our recent announcement of the deprecation of RDFE (RedDog Front End)](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/), we'll be deprecating the following Defender for Cloud recommendation and its related policy:
 
 |Recommendation |Description |Severity |
 |---|---|---|
 |[Service principals should be used to protect your subscriptions instead of Management Certificates](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/2acd365d-e8b5-4094-bce4-244b7c51d67c) |Management certificates allow anyone who authenticates with them to manage the subscription(s) they are associated with. To manage subscriptions more securely, using service principals with Resource Manager is recommended to limit the blast radius in the case of a certificate compromise. It also automates resource management. <br />(Related policy: [Service principals should be used to protect your subscriptions instead of management certificates](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6646a0bd-e110-40ca-bb97-84fcee63c414)) |Medium |
 |||
 
-We've created new alerts that provide this information and add to it. In addition, the newer alerts (ARM_OperationFromSuspiciousIP, ARM_OperationFromSuspiciousProxyIP) don't require a license for Microsoft Defender for Cloud Apps (formerly known as Microsoft Cloud App Security).
+Learn more:
 
+- [Cloud Services (classic) deployment model is retiring on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/)
+- [Overview of Azure Cloud Services (classic)](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)
+- [Workflow of Windows Azure classic VM Architecture - including RDFE workflow basics](https://docs.microsoft.com/azure/cloud-services/cloud-services-workflow-process)
 
-
-
- 
 
 ### Enhancements to recommendation to classify sensitive data in SQL databases
 
