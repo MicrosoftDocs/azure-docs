@@ -13,7 +13,7 @@ Azure multi-tier web apps or SharePoint farms use multiple virtual machines (VMs
 
 Multi-VM ARM environment templates use the [Microsoft.Compute/virtualmachines](/azure/templates/microsoft.compute/virtualmachines) resource type. Lab users can use the templates to easily and consistently deploy multiple VMs with preinstalled resources as a single environment. The VMs created with this resource type appear under their environments in the lab's **My environments** list.
 
-![Screenshot that shows V Ms in an environment.](./media/devtest-lab-create-environment-from-arm/environment.png)
+![Screenshot that shows V Ms in an environment.](./media/devtest-lab-create-environment-from-arm/environments.png)
 
 You can configure DevTest Labs to load ARM environment templates directly from public or private Git source control repositories. Lab users can then create environments by selecting the templates in the Azure portal, just as they select individual [VM base images](devtest-lab-comparing-vm-base-image-types.md) to create VMs.
 
