@@ -8,7 +8,7 @@ ms.author: cesardl
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.date: 12/15/2021
+ms.date: 01/15/2022
 ---
 
 # Generate an AutoML model's training code (preview)
@@ -19,11 +19,11 @@ In this article, you learn how to generate the training code from any automated 
 
 Code generation for automated ML trained models allows you to see the underlying data preprocessing, algorithm selection, featurization, hyperparameter tuning automated ML uses to train and develop the model for a specific run. You can select any automated ML trained model, recommended or child run, and generate the Python training code that created that specific model.
 
-There are multiple actions you might want to do with this generated model's training code:
+With the generated code you can, 
 
-1. *Learn:* Learn what featurization process and hyperparameters the model algorithm uses
-1. *Track/version/audit*: Train the model with the generated code and store versioned code to track what specific training code is used by the model to be deployed to production.
-1. *Customize*: Customize the training code by changing hyperparameters or applying your ML and algorithms skills/experience, and retrain a new model with your customized code.
+*  **Learn** what featurization process and hyperparameters the model algorithm uses.
+* **Track/version/audit** trained models. Store versioned code to track what specific training code is used with the model that's to be deployed to production.
+* **Customize** the training code by changing hyperparameters or applying your ML and algorithms skills/experience, and retrain a new model with your customized code.
 
 You can generate the code for the following scenarios: 
 
@@ -51,7 +51,7 @@ You can generate the code for the following scenarios:
 
 ## Enable code generation for automated ML experiments
 
-You can enable code generation for your automated ML experiments in your AutoMLConfig object. Before submitting your automated ML experiment, you need to set the `enable_code_generation=True` parameter. Confirm that you call `experiment.submit()` from a Conda environment that contains the latest Azure ML SDK with automated ML. This ensures that that code generation is triggered properly for the experiments that are run on a remote compute target.
+You can enable code generation for your automated ML experiments in your AutoMLConfig object. Before submitting your automated ML experiment, you need to set the `enable_code_generation=True` parameter. Confirm that you call `experiment.submit()` from a Conda environment that contains the latest Azure ML SDK with automated ML. This ensures that code generation is triggered properly for the experiments that are run on a remote compute target.
 
 ```python
 config = AutoMLConfig( task="classification",
@@ -133,7 +133,7 @@ def prepare_data(dataframe):
 ```
 
 
-Here, the dataframe from the data loading step is passed in. The label column and sample weights, if originally specified, are extracted.And  then rows containing NaN are dropped from the input data.
+At this point, the dataframe from the data loading step is passed in. The label column and sample weights, if originally specified, are extracted and rows containing `NaN` are dropped from the input data.
 
 If additional data preparation is desired, it can be done in this step.
 
@@ -141,7 +141,7 @@ If additional data preparation is desired, it can be done in this step.
 
 The function `generate_data_transformation_config()` specifies the featurization step in the final scikit-learn pipeline. The featurizers used in the original experiment are reproduced here, along with their parameters.
 
-For example, a possible data transformation that can happen in this function would be multiple columns could be transformed with a imputer (i.e. SimpleImputer(), StringCastTransformer(), LabelEncoderTransformer(), etc.).
+For example, a possible data transformation that can happen in this function would be multiple columns could be transformed with an imputer like, `SimpleImputer()`, `StringCastTransformer()`, or `LabelEncoderTransformer()`. 
 
 > [!NOTE] 
 > Transformers are applied depending on each column, so if you have many columns in your dataset (i.e. 50 or 100 columns) you can end up with tens of blocks of code doing the column's data transformations, so the size of this function can be very significant depending on the number of columns in your dataset.
@@ -358,7 +358,7 @@ y_predictions = model.predict(test_data_df)
 
 In an Azure ML compute instance you should have all the automated ML dependencies, so you should be able to load the model and predict from any notebook in a compute instance recently created.
 
-However, in order to load that model in a notebook in your custom local Conda environment, you need to have installed all the dependencies coming from the environment used when training (AutoML environment).
+However, in order to load that model in a notebook in your custom local Conda environment, you need to have all the dependencies coming from the environment used when training (AutoML environment) installed.
 
 ## Next steps
 
