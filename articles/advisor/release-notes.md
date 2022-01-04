@@ -12,7 +12,7 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ### Azure Advisor now supports cross SKU family series resize recommendations for Virtual Machines
 
-We would to make sure customers get the most out of their Azure resources for the lowest cost. This is why we generate the “Shutdown/Resize your virtual machines” recommendation which provides customers with cost savings opportunities by targeting VMs that are not utilized efficiently. 
+We would to make sure customers get the most out of their Azure resources for the lowest cost. This is why we generate the [**Shutdown/Resize your virtual machines**](advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances) recommendation which provides customers with cost savings opportunities by targeting VMs that are not utilized efficiently. 
  
 As part of our mission to continually improve our recommendations, we’ve made a number of changes that increase the saving opportunity for customers as well as quality and actionability of recommendations. 
  
@@ -24,4 +24,4 @@ Some of our bigger improvements are:
  
 With these changes you should see increase in savings opportunities thanks to our cross-series/version recommendations, with some of the recommendations removed due to the addition of new constraints. 
 
-Read the [How-to guide](../advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances) to learn more.
+Read the [How-to guide](advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances) to learn more.
