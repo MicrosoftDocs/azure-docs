@@ -33,7 +33,7 @@ To provide educators the permission to create labs for their classes, add them t
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
     > [!NOTE]
-    > If you are adding a non-Microsoft account user as a lab creator, see the [Add a non-Microsoft account user as a lab creator](#add-a-non-microsoft-account-user-as-a-lab-creator) section.
+    > If you are adding a non-Microsoft account user as a lab creator, see [Adding a guest user as a lab creator](#adding-a-guest-user-as-a-lab-creator).
 
 ## Adding a guest user as a lab creator
 

@@ -91,7 +91,7 @@ For more information, see [Azure Lab Services in Microsoft Teams](./lab-services
 After you understand the requirements for your class's lab, you're ready to set it up. To learn how, follow the links in this section. Instructions are also provided for setting up labs in Teams.
 
 1. **Create a lab**. See the following tutorials:
-    - [Create a lab](./tutorial-setup-classroom-lab.md#create-a-classroom-lab)
+    - [Create a lab](./tutorial-setup-classroom-lab.md#create-a-lab)
     - [Create a lab in Teams](./how-to-get-started-create-lab-within-teams.md)
     - [Create a lab in Canvas](how-to-get-started-create-lab-within-canvas.md)
 
