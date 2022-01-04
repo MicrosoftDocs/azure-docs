@@ -30,7 +30,7 @@ Additional resources:
 - [Node.js](https://nodejs.org)
 - [Microsoft Visual Studio Code](https://code.visualstudio.com)
 - A Visual Studio Code extension for browser debugging, such as:
-  - [Debugger for Microsoft Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge)
+  - [Debugger for Microsoft Edge](https://devblogs.microsoft.com/visualstudio/debug-javascript-in-microsoft-edge-from-visual-studio/)
   - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
   - [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug)
 
