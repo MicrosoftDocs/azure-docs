@@ -86,8 +86,12 @@
         href: api-management-api-import-restrictions.md
       - name: Virtual network overview
         href: virtual-network-concepts.md
-      - name: Self-hosted gateway overview
-        href: self-hosted-gateway-overview.md
+      - name: Self-hosted gateway
+        items:
+            - name: Overview
+              href: self-hosted-gateway-overview.md
+            - name: Observability
+              href: self-hosted-gateway-observability.md
       - name: Observability
         href: observability.md
       - name: CI/CD using ARM templates
@@ -150,6 +154,8 @@
               href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
             - name: Deploy a self-hosted gateway to Kubernetes
               href: how-to-deploy-self-hosted-gateway-kubernetes.md
+            - name: Deploy self-hosted gateway to Kubernetes with OpenTelemetry Collector integration
+              href: how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md
             - name: Deploy a self-hosted gateway to Docker
               href: how-to-deploy-self-hosted-gateway-docker.md
             - name: Configure custom domain for self-hosted gateway
