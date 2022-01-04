@@ -23,7 +23,7 @@ Configure a contact profile with Azure Orbital to save and reuse contact configu
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
 ## Create a contact profile resource
 

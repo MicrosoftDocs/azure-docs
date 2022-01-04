@@ -21,7 +21,7 @@ To contact a satellite, it must be registered as a spacecraft resource with the 
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
 ## Create spacecraft resource
 
