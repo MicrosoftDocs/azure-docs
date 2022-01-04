@@ -23,7 +23,7 @@ This article provides the steps for deploying self-hosted gateway component of A
 - Create a Kubernetes cluster, or have access to an existing one.
    > [!TIP]
    > [Single-node clusters](https://kubernetes.io/docs/setup/#learning-environment) work well for development and evaluation purposes. Use [Kubernetes Certified](https://kubernetes.io/partners/#conformance) multi-node clusters on-premises or in the cloud for production workloads.
-* [Create an Azure API Management instance](get-started-create-service-instance.md)
+* [Create an Azure API Management instance](get-started-create-service-instance.md).
 * [Provision a gateway resource in your API Management instance](api-management-howto-provision-self-hosted-gateway.md).
 * [Install Helm v3][helm-install].
 
@@ -69,11 +69,11 @@ This article provides the steps for deploying self-hosted gateway component of A
     * Download the image of the self-hosted gateway from the Microsoft Container Registry and run it as a container.
     * Configure the container to expose HTTP (8080) and HTTPS (8081) ports.
 
-> [!IMPORTANT]
-> By default, the gateway is using a ClusterIP service and is only exposed inside the cluster.
-> You can change this by specifying the type of Kubernetes service during installation.
-> 
-> For example, you can expose it through a load balancer by adding `--set service.type=LoadBalancer`
+   > [!IMPORTANT]
+   > By default, the gateway is using a ClusterIP service and is only exposed inside the cluster.
+   > You can change this by specifying the type of Kubernetes service during installation.
+   > 
+   > For example, you can expose it through a load balancer by adding `--set service.type=LoadBalancer`
 
 8. Run the following command to check the gateway pod is running. Your pod name will be different.
 
