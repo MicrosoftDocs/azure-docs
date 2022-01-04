@@ -49,18 +49,21 @@ Last updated: 11/24/2021
 
 | Region | **Premium-series** | **Memory optimized premium-series** | 
 |:--- |:--- |:--- |
+| Canada Central | Yes | | 
+| Canada East | Yes | | 
 | Central US | Yes | Yes | 
-| East US  | Yes |  | 
+| East US  | Yes | Yes | 
 | East US 2 | Yes | Yes | 
+| France Central |  | Yes | 
 | North Central US | Yes | Yes | 
 | North Europe | Yes | Yes | 
-| South Central US | Yes |  | 
-| UK South | Yes | Yes | 
+| South Central US | Yes | Yes | 
+| Southeast Asia | Yes |  | 
+| UK South |  | Yes | 
 | West Europe | Yes | Yes | 
 | West US | Yes | Yes |  
 | West US 2 | Yes | Yes | 
 | West US 3 | Yes | Yes | 
-
 
 ### In-memory OLTP available space 
 
