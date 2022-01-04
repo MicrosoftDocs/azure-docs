@@ -1,11 +1,11 @@
 ---
 title: Monitor an app in Azure Container Apps Preview
 description: Learn how applications are monitored and logged in Azure Container Apps.
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
-ms.date: 10/21/2021
+ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
@@ -79,7 +79,7 @@ az monitor log-analytics query \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az monitor log-analytics query `
   --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
   --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated | take 3" `

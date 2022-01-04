@@ -1,11 +1,11 @@
 ---
-title: Analyze Live Video with Computer Vision for Spatial Analysis - Azure
+title: Analyze Live Video with Computer Vision for Spatial Analysis
 description: This tutorial shows you how to use Azure Video Analyzer together with Computer Vision spatial analysis AI feature from Azure Cognitive Services to analyze a live video feed from a (simulated) IP camera.
 author: Juliako
 ms.author: juliako
 ms.service: azure-video-analyzer
 ms.topic: tutorial
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -155,7 +155,7 @@ In your deployment template file:
 1. `IpcMode` in `avaedge` and `spatialanalysis` module createOptions should be same and set to **host**.
 1. For the RTSP simulator to work, ensure that you have set up the Volume Bounds when using an Azure Stack Edge device.
 
-   1. [Connect to the SMB share](../../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) and copy the [sample retail shop video file](https://lvamedia.blob.core.windows.net/public/retailshop-15fps.mkv) to the Local share.
+   1. [Connect to the SMB share](../../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) and copy the [sample retail shop video file](https://avamedia.blob.core.windows.net/public/retailshop-15fps.mkv) to the Local share.
 
       > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWMIPP]
 

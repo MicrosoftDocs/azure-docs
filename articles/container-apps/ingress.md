@@ -1,11 +1,11 @@
 ---
 title: Set up HTTPS ingress in Azure Container Apps Preview
 description: Enable public and private endpoints in your app with Azure Container Apps
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---

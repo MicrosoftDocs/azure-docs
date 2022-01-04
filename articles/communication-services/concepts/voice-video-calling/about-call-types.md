@@ -51,5 +51,5 @@ We support up to Full HD 1080p on the native (iOS, Android) SDKs. For Web (JS) S
 
 For more information, see the following articles:
 - Familiarize yourself with general [call flows](../call-flows.md)
-- [Phone number types](../telephony-sms/plan-solution.md)
+- [Phone number types](../telephony/plan-solution.md)
 - Learn about the [Calling SDK capabilities](../voice-video-calling/calling-sdk-features.md)

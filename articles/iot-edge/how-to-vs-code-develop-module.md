@@ -292,22 +292,24 @@ When debugging modules using this method, your modules are running on top of the
       ptvsd.break_into_debugger()
       ```
 
-     For example, if you want to debug the `receive_message_listener` function, you would insert that line of code as shown below:
+     For example, if you want to debug the `receive_message_handler` function, you would insert that line of code as shown below:
 
-      ```python
-      def receive_message_listener(client):
-          ptvsd.break_into_debugger()
-          global RECEIVED_MESSAGES
-          while True:
-              message = client.receive_message_on_input("input1")   # blocking call
-              RECEIVED_MESSAGES += 1
-              print("Message received on input1")
-              print( "    Data: <<{}>>".format(message.data) )
-              print( "    Properties: {}".format(message.custom_properties))
-              print( "    Total calls received: {}".format(RECEIVED_MESSAGES))
-              print("Forwarding message to output1")
-              client.send_message_to_output(message, "output1")
-              print("Message successfully forwarded")
+    ```python
+
+    async def receive_message_handler(message):
+        # NOTE: This function only handles messages sent to "input1".
+        # Messages sent to other inputs, or to the default, will be discarded
+
+        ptvsd.break_into_debugger()
+
+        if message.input_name == "input1":
+            print("the data in the message received on input1 was ")
+            print(message.data)
+            print("custom properties are")
+            print(message.custom_properties)
+            print("forwarding mesage to output1")
+            await client.send_message_to_output(message, "output1")
+
       ```
 
 1. In the Visual Studio Code command palette:

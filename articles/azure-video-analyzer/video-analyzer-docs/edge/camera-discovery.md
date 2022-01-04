@@ -2,7 +2,7 @@
 title: Discovering ONVIF-capable cameras in the local subnet
 description: This how-to shows you how you can use Video Analyzer edge module to discover ONVIF-capable cameras in your local subnet.
 ms.topic: how-to
-ms.date: 10/22/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -308,4 +308,4 @@ This section covers some troubleshooting steps:
 
 ## Next steps
 
-- Try the [quickstart for analyzing live video](analyze-live-video-use-your-model-http.md) with the discovered ONVIF device
+- Try [Quickstart: Analyze a live video feed from a (simulated) IP camera using your own HTTP model](analyze-live-video-use-your-model-http.md) with the discovered ONVIF device

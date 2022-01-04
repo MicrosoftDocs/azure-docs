@@ -1,11 +1,11 @@
 ---
 title: Container Apps Preview ARM template API specification
 description: Explore the available properties in the Container Apps ARM template.
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: reference
-ms.date: 10/21/2021
+ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 
 Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) template. The following tables describe the properties available in the container app ARM template.
 
-The the [sample ARM template for usage examples](#example).
+The [sample ARM template for usage examples](#examples).
 
 ## Resources
 
@@ -74,7 +74,7 @@ A resource's `properties.template` object has the following properties:
 
 Changes made to the `template` section are [revision-scope changes](revisions.md#revision-scope-changes), which triggers a new revision.
 
-## Example
+## Examples
 
 The following is an example ARM template used to deploy a container app.
 
@@ -155,4 +155,47 @@ The following is an example ARM template used to deploy a container app.
         }
     ]
 }
+```
+
+The following is an example YAML configuration used to deploy a container app.
+
+```yaml
+kind: containerapp
+location: northeurope
+name: mycontainerapp
+resourceGroup: myresourcegroup
+type: Microsoft.Web/containerApps
+tags:
+    tagname: value
+properties:
+    kubeEnvironmentId: /subscriptions/mysubscription/resourceGroups/myresourcegroup/providers/Microsoft.Web/kubeEnvironments/myenvironment
+    configuration:
+        activeRevisionsMode: Multiple
+        secrets:
+        - name: mysecret
+          value: thisismysecret
+        ingress:
+            external: True
+            allowInsecure: false
+            targetPort: 80
+            traffic:
+            - latestRevision: true
+              weight: 100
+            transport: Auto
+    template:
+        revisionSuffix: myrevision
+        containers:
+        - image: nginx
+          name: nginx
+          env:
+          - name: HTTP_PORT
+            value: 80
+          - name: secret_name
+            secretRef: mysecret
+          resources:
+              cpu: 0.5
+              memory: 1Gi
+        scale:
+            minReplicas: 1
+            maxReplicas: 1
 ```

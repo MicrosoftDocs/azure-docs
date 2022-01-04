@@ -2,14 +2,15 @@
 title: Enable managed identity on Azure Event Grid system topic
 description: This article describes how enable managed service identity for an Azure Event Grid system topic. 
 ms.topic: how-to
-ms.date: 08/20/2021
+ms.date: 11/02/2021
 ---
 
 # Assign a system-managed identity to an Event Grid system topic
-In this article, you learn how to assign system-assigned or user-assigned identity to an existing Event Grid system topic. To learn about managed identities, see [What are managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).  
+In this article, you learn how to assign a system-assigned or a user-assigned identity to an Event Grid system topic. To learn about managed identities in general, see [What are managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).  
 
-> [!IMPORTANT]
-> You can enable either system-assigned identity or user-assigned identity for a system topic, but not both. You can have at most two user-assigned identities assigned to a system topic. 
+> [!NOTE]
+> - You can assign one system-assigned identity and up to two user-assigned identities to a system topic. 
+> - You can enable identities for system topics associated with global Azure resources such as Azure subscriptions, resource groups, or Azure Maps. System topics for these global sources are also not associated with a specific region.
 
 ## Enable managed identity for an existing system topic
 This section shows you how to enable a managed identity for an existing system topic. 
@@ -17,7 +18,7 @@ This section shows you how to enable a managed identity for an existing system t
 1. Go to the [Azure portal](https://portal.azure.com).
 2. Search for **event grid system topics** in the search bar at the top.
 3. Select the **system topic** for which you want to enable the managed identity. 
-4. Select **Identity** on the left menu. You don't see this option for a system topic that's in the global location. 
+4. Select **Identity** on the left menu.  
 
 ### Enable system-assigned identity
 1. Turn **on** the switch to enable the identity. 
@@ -36,7 +37,7 @@ This section shows you how to enable a managed identity for an existing system t
 1. First, create a user-assigned identity by following instructions in the [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) article. 
 1. On the **Identity** page, switch to the **User assigned** tab in the right pane, and then select **+ Add** on the toolbar.
 
-    :::image type="content" source="./media/managed-service-identity/system-topic-user-identity-add-button.png" alt-text="Image showing the Add button seleted in the User assigned tab of the Identity page.":::
+    :::image type="content" source="./media/managed-service-identity/system-topic-user-identity-add-button.png" alt-text="Image showing the Add button selected in the User assigned tab of the Identity page.":::
 1. In the **Add user managed identity** window, follow these steps:
     1. Select the **Azure subscription** that has the user-assigned identity. 
     1. Select the **user-assigned identity**. 
@@ -67,14 +68,8 @@ This section shows you how to enable a managed identity for an existing system t
                 1. Select **Add**.                         
 
 > [!NOTE]
-> Currently, you can't enable a managed identity for a new system topic when creating an event subscription on an Azure resource that supports system topics. 
-
-
-## Global Azure sources
-You can enable system-managed identity only for the regional Azure resources. You can't enable it for system topics associated with global Azure resources such as Azure subscriptions, resource groups, or Azure Maps. The system topics for these global sources are also not associated with a specific region. You don't see the **Identity** page for the system topic whose location is set to **Global**. 
-
-:::image type="content" source="./media/managed-service-identity/system-topic-location-global.png" alt-text="System topic with location set to Global"::: 
-
+> - Currently, Azure portal doesn't allow you to assign both system assigned and user assigned identities when creating a system topic. You can assign both after the system topic is created. 
+> - Currently, you can't enable a managed identity for a new system topic when creating an event subscription on an Azure resource that supports system topics. 
 
 
 ## Next steps

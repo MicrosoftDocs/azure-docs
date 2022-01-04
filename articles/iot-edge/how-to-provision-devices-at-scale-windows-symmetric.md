@@ -3,7 +3,6 @@ title: Create and provision IoT Edge devices using symmetric keys on Windows - A
 description: Use symmetric key attestation to test provisioning Windows devices at scale for Azure IoT Edge with device provisioning service
 author: kgremban
 ms.author: kgremban
-ms.reviewer: v-tcassi
 ms.date: 10/27/2021
 ms.topic: conceptual
 ms.service: iot-edge
@@ -15,6 +14,13 @@ monikerRange: "=iotedge-2018-06"
 [!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 This article provides end-to-end instructions for autoprovisioning one or more Windows IoT Edge devices using symmetric keys. You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml) (DPS). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before continuing.
+
+>[!NOTE]
+>Azure IoT Edge with Windows containers will not be supported starting with version 1.2 of Azure IoT Edge.
+>
+>Consider using the new method for running IoT Edge on Windows devices, [Azure IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md).
+>
+>If you want to use Azure IoT Edge for Linux on Windows, you can follow the steps in the [equivalent how-to guide](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md).
 
 The tasks are as follows:
 
@@ -28,7 +34,7 @@ Symmetric key attestation is a simple approach to authenticating a device with a
 <!-- Cloud resources prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
 
-### IoT Edge installation
+### Device requirements
 
 A physical or virtual Windows device to be the IoT Edge device.
 
@@ -54,13 +60,11 @@ Have the following information ready:
 
 1. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers, so use the `-DpsSymmetricKey` flag to use automatic provisioning with symmetric key authentication.
 
-   Replace the placeholder values for `{scope_id}`, `{registration_id}`, and `{symmetric_key}` with the data you collected earlier.
-
-   Add the `-RegistrationId {registration_id}` parameter if you want to set the device ID as something other than the CN name of the identity certificate.
+   Replace the placeholder values for `paste_scope_id_here`, `paste_registration_id_here`, and `paste_symmetric_key_here` with the data you collected earlier.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -DpsSymmetricKey -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
+   Initialize-IoTEdge -DpsSymmetricKey -ScopeId paste_scope_id_here -RegistrationId paste_registration_id_here -SymmetricKey paste_symmetric key_here
    ```
 
 ## Verify successful installation

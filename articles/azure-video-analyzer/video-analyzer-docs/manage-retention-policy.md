@@ -1,9 +1,9 @@
 ---
-title: Manage retention policy with Azure Video Analyzer
+title: Manage retention policy 
 description: This topic explains how to manage retention policy with Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 10/17/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 # Manage retention policy with Video Analyzer

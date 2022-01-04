@@ -28,7 +28,6 @@ This is the basic template format:
       "<name>": "<value>"
     },
     "identity": {},			 
-    "dependsOn": [], 
     "properties": { 
       "buildTimeoutInMinutes": <minutes>, 
       "vmProfile": {
@@ -87,7 +86,7 @@ Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant 
  
 ## vmProfile
 ## buildVM
-By default Image Builder will use a "Standard_D1_v2" build VM, this is built from the image you specify in the `source`. You can override this and may wish to do this for these reasons:
+By default Image Builder will use a "Standard_D1_v2" build VM for Gen1 images and a "Standard_D2ds_v4" build VM for Gen2 images, this is built from the image you specify in the `source`. You can override this and may wish to do this for these reasons:
 1. Performing customizations that require increased memory, CPU and handling large files (GBs).
 2. Running Windows builds, you should use "Standard_D2_v2" or equivalent VM size.
 3. Require [VM isolation](../isolation.md).
@@ -118,16 +117,6 @@ If you do not specify any VNET properties, then Image Builder will create its ow
 ## Tags
 
 These are key/value pairs you can specify for the image that's generated.
-
-## Depends on (optional)
-
-This optional section can be used to ensure that dependencies are completed before proceeding. 
-
-```json
-    "dependsOn": [],
-```
-
-For more information, see [Define resource dependencies](../../azure-resource-manager/templates/resource-dependency.md#dependson).
 
 ## Identity
 
@@ -174,7 +163,7 @@ Azure Image Builder supports Windows Server and client, and Linux  Azure Marketp
             "offer": "UbuntuServer",
             "sku": "18.04-LTS",
             "version": "latest"
-        },
+        },	
 ```
 
 
@@ -646,7 +635,7 @@ You can output to a VHD. You can then copy the VHD, and use it to publish to Azu
 { 
     "type": "VHD",
     "runOutputName": "<VHD name>",
-    "tags": {
+    "artifactTags": {
         "<name>": "<value>",
         "<name>": "<value>"
     }
