@@ -1,11 +1,11 @@
 ---
 title: What is a watchlist - Microsoft Sentinel
 description: Learn what watchlists are in Microsoft and when to use them.
-author: yelevin
-ms.author: yelevin
-ms.topic: how-to
+author: cwatson-cat
+ms.author: cwatson
+ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
-ms.date: 11/09/2021
+ms.date: 1/04/2022
 ---
 
 # Use watchlists in Microsoft Sentinel

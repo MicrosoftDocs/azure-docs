@@ -1,10 +1,10 @@
 ---
 title: Build queries or rules with watchlists - Microsoft Sentinel
 description: Use watchlists in searches or detection rules for Microsoft Sentinel.
-author: yelevin
-ms.author: yelevin
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: how-to
-ms.date: 12/15/2021
+ms.date: 1/04/2022
 ---
 
 # Build queries or detection rules with watchlists in Microsoft Sentinel
@@ -49,8 +49,6 @@ To use a watchlist in search query, write a Kusto query that uses the _GetWatchl
 ## Create an analytics rule with a watchlist
 
 To use watchlists in analytics rules, create a rule using the _GetWatchlist('watchlist-name') function in the query.
-
-To use watchlists in analytics rules,
 
 1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
 1. Under **Configuration**, select **Analytics**.

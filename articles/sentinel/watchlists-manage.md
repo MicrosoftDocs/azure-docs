@@ -1,15 +1,15 @@
 ---
 title: Edit watchlist - Microsoft Sentinel
 description: Edit or add items to watchlists in Microsoft Sentinel watchlists.
-author: yelevin
-ms.author: yelevin
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: how-to
-ms.date: 12/15/2021
+ms.date: 1/04/2022
 ---
 
 # Manage watchlists in Microsoft Sentinel
 
-Watchlists in Microsoft Sentinel allow you to correlate data from a data source you provide with the events in your Microsoft Sentinel environment. Use watchlists in your search, detection rules, threat hunting, and response playbooks.
+We recommend you edit an existing watchlist instead of deleting and recreating a watchlist. Log analytics has a five-minute SLA for data ingestion. If you delete and recreate a watchlist, you might see both the deleted and recreated entries in Log Analytics during this five-minute window. If you see these duplicate entries in Log Analytics for a longer period of time, submit a support ticket.
 
 ## Edit a watchlist in Microsoft Sentinel
 

@@ -4,7 +4,7 @@ description: Create watchlist in  Microsoft Sentinel for allowlists or blocklist
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
-ms.date: 12/14/2021
+ms.date: 1/04/2022
 ---
 
 # Create watchlists in Microsoft Sentinel
@@ -13,7 +13,7 @@ Watchlists in Microsoft Sentinel allow you to correlate data from a data source 
 
 Create a watchlist from a local file or by using a template.
 
-Before you create a watchlist, review the [limitations of watchlists](watchlists.md).
+File uploads are currently limited to files of up to 3.8 MB in size. Before you create a watchlist, review the [limitations of watchlists](watchlists.md).
 
 ## Create a watchlist from a local file
 
