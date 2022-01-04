@@ -78,13 +78,13 @@ In this tutorial, you learn how to:
 Next you will need to prepare your secrets for your Azure function. Your project secrets are your: 
 * Endpoint
 * Resource key
-* Model ID
+* Deployment name
 
 ### Get your custom NER project secrets
 
 * You will need your **Project name**, Project names are case sensitive.
 
-* You will also need the deployment slot. 
+* You will also need the deployment name. 
    * If you have deployed your model via Language Studio, your deployment slot will be `prod` by default. 
    * If you have deployed your model programmatically, using the API, this is the deployment name you assigned in your request.
 
