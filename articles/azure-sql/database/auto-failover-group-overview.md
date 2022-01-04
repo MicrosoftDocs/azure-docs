@@ -227,7 +227,7 @@ The following diagram illustrates a typical configuration of a geo-redundant clo
 > See [Add managed instance to a failover group](../managed-instance/failover-group-add-instance-tutorial.md) for a detailed step-by-step tutorial adding a SQL Managed Instance to use failover group.
 
 >[!IMPORTANT]
->When deploying Autofailover groups in a Hub and Spoke network topology cross region replication traffic should go directly between the two Managed Instance subnets and not directed through the Hub networks.
+>When deploying Auto-failover groups in a Hub and Spoke network topology cross-region, replication traffic should go directly between the two managed instance subnets rather than directed through the Hub networks.
 
 If your application uses SQL Managed Instance as the data tier, follow these general guidelines when designing for business continuity:
 
