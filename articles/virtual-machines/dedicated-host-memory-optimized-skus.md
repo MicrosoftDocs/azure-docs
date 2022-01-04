@@ -19,6 +19,77 @@ This document goes through the hardware specifications and VM packings for all m
 
 The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 
+## Eadsv5
+### Eadsv5-Type1
+
+The Eadsv5-Type1 is a Dedicated Host SKU utilizing AMD's EPYC™ 7763v processor. It offers 64 physical cores, 96 vCPUs, and 768 GiB of RAM. The Eadsv5-Type1 runs [Eadsv5-series](easv5-eadsv5-series.md#eadsv5-series) VMs.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto a Eadsv5-Type1 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size   | # VMs |
+|----------------|-----------------|---------------|-----------|-------|
+| 64             | 96             | 768 GiB       | E2ads v5  | 32    |
+|                |                 |               | E4ads v5  | 21    |
+|                |                 |               | E8ads v5  | 10    |
+|                |                 |               | E16ads v5 | 5     |
+|                |                 |               | E20ads v5 | 4     |
+|                |                 |               | E32ads v5 | 2     |
+|                |                 |               | E48ads v5 | 1     |
+|                |                 |               | E64ads v5 | 1     |
+## Easv5
+### Easv5-Type1
+
+The Easv5-Type1 is a Dedicated Host SKU utilizing AMD's EPYC™ 7763v processor. It offers 64 physical cores, 96 vCPUs, and 768 GiB of RAM. The Easv5-Type1 runs [Easv5-series](easv5-eadsv5-series.md#easv5-series) VMs.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto a Easv5-Type1 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
+|----------------|-----------------|---------------|----------|-------|
+| 64             | 96              | 768 GiB       | E2as v5  | 32    |
+|                |                 |               | E4as v5  | 21    |
+|                |                 |               | E8as v5  | 10    |
+|                |                 |               | E16as v5 | 5     |
+|                |                 |               | E20as v5 | 4     |
+|                |                 |               | E32as v5 | 2     |
+|                |                 |               | E48as v5 | 1     |
+|                |                 |               | E64as v5 | 1     |
+
+## Edsv5
+### Edsv5-Type1
+
+The Edsv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 96 vCPUs, and 768 GiB of RAM. The Edsv5-Type1 runs [Edsv5-series](edv5-edsv5-series.md#edsv5-series) VMs.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto a Edsv5-Type1 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
+|----------------|-----------------|---------------|----------|-------|
+| 64             | 96              | 768 GiB       | E2ds v5  | 32    |
+|                |                 |               | E4ds v5  | 21    |
+|                |                 |               | E8ds v5  | 10    |
+|                |                 |               | E16ds v5 | 5     |
+|                |                 |               | E20ds v5 | 4     |
+|                |                 |               | E32ds v5 | 2     |
+|                |                 |               | E48ds v5 | 1     |
+|                |                 |               | E64ds v5 | 1     |
+
+## Esv5
+### Esv5-Type1
+
+The Esv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 96 vCPUs, and 768 GiB of RAM. The Esv5-Type1 runs [Esv5-series](ev5-esv5-series.md#esv5-series) VMs.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto a Esv5-Type1 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
+|----------------|-----------------|---------------|---------|-------|
+| 64             | 96              | 768 GiB       | E2s v5  | 32    |
+|                |                 |               | E4s v5  | 21    |
+|                |                 |               | E8s v5  | 10    |
+|                |                 |               | E16s v5 | 5     |
+|                |                 |               | E20s v5 | 4     |
+|                |                 |               | E32s v5 | 2     |
+|                |                 |               | E48s v5 | 1     |
+|                |                 |               | E64s v5 | 1     |
+
 ## Easv4
 ### Easv4-Type1
 

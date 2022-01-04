@@ -125,7 +125,7 @@ In the fourth tab (**Details**), you give this rule a name, pick where it will b
 ### [Azure CLI](#tab/azure-cli)
 
 > [!NOTE]
-> The Azure CLI is in the process of being updated to leverage the latest preview version of alert processing rules. Until then, you can use existing CLI capabilities under the **action rule** command to create alert processing rules. That CLI does not support some of the newer alert processing rules features.
+> The Azure CLI is in the process of being updated to leverage the GA API of alert processing rules. Until then, you can use existing CLI capabilities under the **action rule** command to create alert processing rules. Meanwhile, the existing CLI does not support some of the newer alert processing rules features.
 
 You can create alert processing rules with the Azure CLI using the [az monitor action-rule create](/cli/azure/monitor/action-rule#az_monitor_action_rule_create) command.  The `az monitor action-rule` reference is just one of many [Azure CLI references for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
 
@@ -214,7 +214,7 @@ From here, you can enable, disable, or delete alert processing rules at scale by
 ### [Azure CLI](#tab/azure-cli)
 
 > [!NOTE]
-> The Azure CLI is in the process of being updated to leverage the latest preview version of alert processing rules. Until then, you can use existing CLI capabilies under the **action rule** command to create alert processing rules. That CLI does not support some of the newer alert processing rules features.
+> The Azure CLI is in the process of being updated to leverage the GA API of alert processing rules. Until then, you can use existing CLI capabilies under the **action rule** command to create alert processing rules. Meanwhile, the existing CLI does not support some of the newer alert processing rules features.
 
 You can view and manage your alert processing rules using the [az monitor action-rule](/cli/azure/monitor) command from the Azure CLI.
 
