@@ -19,13 +19,8 @@ Virtual visits are a communication scenario where a consumer and a business asse
 
 No matter the industry, there are at least three personas involved in a virtual visit and certain tasks they accomplish:
 - **Office Manager.** The office manager configures the business’ availability and booking rules for providers and consumers.
-- **Provider.** The provider gets on the call with the consumer. They must be able to:
- 1. View upcoming virtual visits
- 2. Join the virtual visit and engage in communication
-- **Consumer**. The consumer who schedules and motivates the visit. They must:
- 1. Schedule a visit
- 2. Enjoy reminders of the visit, typically through SMS or email
- 3. Join the virtual visit and engage in communication. 
+- **Provider.** The provider gets on the call with the consumer. They must be able to view upcoming virtual visits and join the virtual visit and engage in communication.
+- **Consumer**. The consumer who schedules and motivates the visit. They must schedule a visit, enjoy reminders of the visit, typically through SMS or email, and oin the virtual visit and engage in communication. 
 
  Azure and Teams are interoperable, and this allows organizations to deliver virtual visits from a flexible spectrum of solutions in Microsoft’s cloud such as:
  
@@ -44,7 +39,7 @@ These three examples are summarized in the table and diagram below.
 | Consumer| Be reminded of a visit | Bookings | Bookings | Azure Communication Services SMS |
 | Consumer| Join the visit | Teams or Virtual Visits | Custom Azure Communication Services app | Azure Communication Services Calling & Chat |
 
-![Diagram of virtual visit implementation options](./tutorials/media/sample-builder/virtual-visit-options.svg)
+![Diagram of virtual visit implementation options](./media/sample-builder/virtual-visit-options.svg)
 
 
 These are examples, and there are other ways to customize and combine Microsoft assets in a virtual visit scenario:
@@ -61,7 +56,7 @@ architectures. The diagram below shows user steps for a virtual visit:
 5. The users communicate with each other using voice, video, and text in a call.
 
 
-![High-level architecture of a hybrid virtual visits solution](./tutorials/media/sample-builder/virtual-visit-arch.svg)
+![High-level architecture of a hybrid virtual visits solution](./media/sample-builder/virtual-visit-arch.svg)
 
 # Building a virtual visit sample
 In this section we’re going to use a Sample Builder tool to deploy an Microsoft 365 + Azure hybrid virtual visits application to an Azure subscription. This application will be a desktop and mobile friendly browser experience, with code that you can use to explore and productionize.
@@ -69,30 +64,30 @@ In this section we’re going to use a Sample Builder tool to deploy an Microsof
 ### Step 1 - Configure bookings
 This sample uses Microsoft 365 to power the consumer scheduling experience and create meetings for providers. Thus the first step is creating a Bookings calendar and getting the Booking page URL from https://outlook.office.com/bookings/calendar.
 
-![Booking configuration experience](./tutorials/media/sample-builder/bookings-url.png)
+![Booking configuration experience](./media/sample-builder/bookings-url.png)
 
 ### Step 2 – Sample Builder
 Use the Sample Builder to customize the consumer experience. You provide the Booking URL configured in the last step, and can configure if Chat or Screen Sharing should be enabled. You can preview your configuration live from the page in both Desktop and Mobile browser form-factors.
 
-![Sample builder start page](./tutorials/media/sample-builder/sample-builder-start.png)
+![Sample builder start page](./media/sample-builder/sample-builder-start.png)
 
 ### Step 3 - Deploy
 At the end of the Sample Builder wizard, you can \`Deploy to Azure\` or download the code as a zip. The sample builder code is publicly available on [GitHub](https://github.com/Azure-Samples/communication-services-virtual-visits-solution). 
 
-![sample builder landing page](./tutorials/media/sample-builder/sample-builder-landing.png)
+![sample builder landing page](./media/sample-builder/sample-builder-landing.png)
 
 The deployment fires an Azure Resource Manager (ARM) template and deploys the themed application you configured to an Azure subscription of your choice. 
 
-![Sample builder arm template](./tutorials/media/sample-builder/sample-builder-arm.png)
+![Sample builder arm template](./media/sample-builder/sample-builder-arm.png)
 
 ### Step 4 - Test
 The Sample Builder creates three resources in the selected Azure subscriptions. The App Service is the consumer front end, powered by Azure Communication Services. 
 
-![produced azure resources in azure portal](./tutorials/media/sample-builder/azure-resources.png) 
+![produced azure resources in azure portal](./media/sample-builder/azure-resources.png) 
 
 Opening the App Service’s URL and navigating to `https://<YOUR URL>/VISITS` allows you to try out the consumer experience and join a Teams meeting.  `https://<YOUR URL>/BOOK` embeds the Booking experience for consumer scheduling.
 
-![final view of azure app service](./tutorials/media/sample-builder/azure-resource-final.png) 
+![final view of azure app service](./media/sample-builder/azure-resource-final.png) 
 
 # Going to production
 The Sample Builder gives you the basics of a Microsoft 365 and Azure virtual visit: consumer scheduling via Bookings, consumer joins via custom app, and the provider joins via Teams. However, there are several things to consider as you take this scenario to production.
