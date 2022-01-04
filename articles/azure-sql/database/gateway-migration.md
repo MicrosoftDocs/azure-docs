@@ -16,7 +16,7 @@ ms.date: 07/01/2019
 
 As Azure infrastructure improves, Microsoft will periodically refresh hardware to ensure we provide the best possible customer experience. In the coming months, we plan to add gateways built on newer hardware generations, migrate traffic to them, and eventually decommission gateways built on older hardware in some regions. 
 
-We have published [SQL Gateway IP subnet ranges](https://docs.microsoft.com/en-us/azure/azure-sql/database/connectivity-architecture#gateway-ip-addresses) and new SQL Gateway IP addresses will be picked up from this range with no notification sent in advance. Customer need to allow the communication with SQL Gateway IP subnet ranges for the region to avoid service disruptions. 
+We have published [SQL Gateway IP subnet ranges](https://docs.microsoft.com/en-us/azure/azure-sql/database/connectivity-architecture#gateway-ip-addresses) and new SQL Gateway IP addresses will be picked up from this range with no notification sent in advance. Customer need to allow the communication with SQL Gateway IP subnet ranges for the region to avoid service disruptions. Customers can [use the Azure portal to set up activity log alerts](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
 The most up-to-date information will be maintained in the [Azure SQL Database gateway IP addresses](connectivity-architecture.md#gateway-ip-addresses) table.
 
