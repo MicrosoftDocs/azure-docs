@@ -79,15 +79,15 @@ The cause of this problem can be one of three things:
 
 *	Backend Server is returning a certificate that does not match the FQDN of the AFD backend Pool
 
-    a. To resolve we will either need the certificate returned to match the FQDN (or)
+    - To resolve we will either need the certificate returned to match the FQDN (or)
     
-    b. The EnforceCertificateNameCheck must be disabled
+    - The EnforceCertificateNameCheck must be disabled
   
 *	Backend Pool is an Azure Web Apps server
 
-    a. Check if Azure web app is configured with Ip Based SSL instead of SNI based. If it’s configured as IpBased then this should be changed to SNI.
+    - Check if Azure web app is configured with Ip Based SSL instead of SNI based. If it’s configured as IpBased then this should be changed to SNI.
     
-    b. If the backend is unhealthy due to a certificate failure, we will return a 503. You can verify the health of the backends on port 80 and 443.  If only 443 is unhealthy, this is likely an issue with SSL.  Since the backend is configured to use the FQDN, we know it’s sending SNI.
+    - If the backend is unhealthy due to a certificate failure, we will return a 503. You can verify the health of the backends on port 80 and 443.  If only 443 is unhealthy, this is likely an issue with SSL.  Since the backend is configured to use the FQDN, we know it’s sending SNI.
 
     Using OPENSSL, verify the certificate that is being returned. To do this, connect to the backend using "-servername" and it should return the SNI which needs to match with the FQDN of the backend pool.
 
