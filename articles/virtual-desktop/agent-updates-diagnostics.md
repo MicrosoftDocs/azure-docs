@@ -15,11 +15,11 @@ This article describes how to use diagnostic logs in a Log Analytics workspace t
 
 ## Enable diagnostics to be sent to a Log Analytics workspace
 
-1. Create a Log Analytics workspace, if you have not done so already, and get the workspace ID and primary key using the instructions [here](diagnostics-log-analytics#before-you-get-started).
+1. Create a Log Analytics workspace, if you have not done so already, and get the workspace ID and primary key using the instructions [here](diagnostics-log-analytics.md#before-you-get-started).
 
-2. Enable diagnostics to be sent to the Log Analytics workspace you just created using the instructions [here](diagnostics-log-analytics#push-diagnostics-data-to-your-workspace). 
+2. Enable diagnostics to be sent to the Log Analytics workspace you just created using the instructions [here](diagnostics-log-analytics.md#push-diagnostics-data-to-your-workspace). 
 
-3. Access the logs in your Log Analytics workspace using the instructions [here](diagnostics-log-analytics#how-to-access-log-analytics). 
+3. Access the logs in your Log Analytics workspace using the instructions [here](diagnostics-log-analytics.md#how-to-access-log-analytics). 
 
 > [!NOTE]
 Only the past 30 days of data is accessible when running any of the queries below.
