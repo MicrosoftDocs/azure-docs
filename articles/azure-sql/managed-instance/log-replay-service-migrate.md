@@ -86,22 +86,27 @@ After LRS is stopped, either automatically through autocomplete, or manually thr
 - Shared access signature (SAS) security token with read and list permissions generated for the Blob Storage container
 
 ### Azure RBAC permissions
+
 Running LRS through the provided clients requires one of the following Azure roles:
 - Subscription Owner role
 - [Managed Instance Contributor](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) role
 - Custom role with the following permission: `Microsoft.Sql/managedInstances/databases/*`
+
+## Requirements
+
+Please ensure the following requirements are met:
+- Use the full recovery model on SQL Server (mandatory).
+- Use `CHECKSUM` for backups on SQL Server (mandatory).
+- Place backup files for an individual database inside a separate folder in a flat-file structure (mandatory). Nested folders inside database folders are not supported.
+- Plan to complete the migration within 36 hours after you start LRS (mandatory). This is a grace period during which system-managed software patches are postponed.
 
 ## Best practices
 
 We recommend the following best practices:
 - Run [Data Migration Assistant](/sql/dma/dma-overview) to validate that your databases are ready to be migrated to SQL Managed Instance. 
 - Split full and differential backups into multiple files, instead of using a single file.
-- Use the full recovery model (mandatory).
-- Use `CHECKSUM` for backups (mandatory).
-- Enable backup compression.
-- Place backup files for an individual database inside a separate folder. Use flat-file structure as nested folders are not supported.
+- Enable backup compression to help the network transfer speeds.
 - Use Cloud Shell to run PowerShell or CLI scripts, because it will always be updated to the latest cmdlets released.
-- Plan to complete the migration within 36 hours after you start LRS. This is a grace period during which system-managed software patches are postponed.
 
 > [!IMPORTANT]
 > - You can't use databases being restored through LRS until the migration process completes. 
