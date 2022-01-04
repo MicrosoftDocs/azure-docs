@@ -426,7 +426,7 @@ If your VM template already has these changes incorporated, you won't need to pe
 
 1. Go to Azure portal. 
 1. Find the Arc enabled Azure VMware Solution VM that you want to install an extension on and click on the VM name. 
-1. Navigate to **Extensions** and click on **Add**.
+1. Navigate to **Extensions** in the left side bar, click on **Add**.
 1. Select the extension you want to install. 
 1. Based on the extension, you will need to provide details. For example, `workspace Id` and `key` for LogAnalytics extension. 
 1. Click on **Review + create**. 
@@ -508,14 +508,25 @@ Yes
 DHCP support is on the road map and will soon be available for customers. Currently, we are only supporting static IP.
 
 >[!NOTE]
-> This is Azure VMware Solution 2.0 only. It is not available for Azure VMware Solution by Cloudsimple.
+> This is Azure VMware Solution 2.0 only. It's not available for Azure VMware Solution by Cloudsimple.
 
 ## Debugging tips for known issues
 
-The following serve as your self-help guide.
+Use the tips below for your self-help guide.
+
+**What happens if I face an error related to Azure CLI?**
 
 - In windows jumpbox, if you have 32 bit Azure CLI installed, verify that your current version of Azure CLI has been uninstalled (this can be done from the Control Panel).
+- You can ensure it's uninstalled by tryint 
 
+**What happens if In-case my script stopped with the timed-out?**
 
+- Retry the script for `create`. A prompt will ask you to select **Y** and re-run it.
+- It could be a cluster extension issue that would result in adding the extension in the pending state.
+- Check the helm for the script with the version.
+- Verify that the VMware pod is running correctly on the system in the running state.
 
+**Basic trouble-shooting steps if the script run was unsuccessful.**
+
+- 
 
