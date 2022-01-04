@@ -250,3 +250,7 @@ In the lower left of most widgets, you’ll see a thumbs up and thumbs down icon
 - For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](downloads-dashboard.md).
 - For an overview of analytics reports available in the commercial marketplace, see [Access analytic reports for the commercial marketplace in Partner Center](analytics.md).
 - For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics common questions](/analytics-faq).
+
+## Next steps
+
+- [Analytics FAQ](analytics-faq.md)

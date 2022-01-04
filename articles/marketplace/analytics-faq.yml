@@ -30,7 +30,7 @@ sections:
           - Your offers may be listed as **Contact Me**, which are list-only offers and cannot be purchased by customers in the commercial marketplace. Although these offers generate leads and are shared with you, orders aren't created for these offers as they cannot be purchased. To check your offer listing type, go to the setup page for your offer.
           
       - question: |
-          I know I have analytics data, so why does the **No Analytics Available** message appear?
+          I know I have analytics data, so why does the <i>No Analytics Available</i> message appear?
         answer: |
           [![No data for your offers yet.](./media/analytics-faq-no-data.png)](./media/analytics-faq-no-data.png#lightbox)
           
