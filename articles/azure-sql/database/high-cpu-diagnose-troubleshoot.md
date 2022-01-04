@@ -94,11 +94,14 @@ The top five queries running in that period are displayed in vertical bars above
 
 :::image type="content" source="./media/high-cpu-troubleshoot/azure-portal-query-performance-insight-cpu-queries.png" lightbox="./media/high-cpu-troubleshoot/azure-portal-query-performance-insight.png" alt-text="Screenshot shows Query Performance Insight in the Azure portal.":::
 
-Select each query ID exhibiting high CPU to open details for the query. Details include query text along with performance history for the query. Examine if CPU has increased for the query recently. Take note of the query ID to further investigate the query plan.
+Select each query ID exhibiting high CPU to open details for the query. Details include query text along with performance history for the query. Examine if CPU has increased for the query recently. 
+
+Take note of the query ID to further investigate the query plan using Query Store in the following section.
+### Review query plans for top queries identified in the Azure portal
 
 Follow these steps to use a query ID in SSMS's interactive Query Store tools to examine the query's execution plan over time.
 
-1. Open SSMS
+1. Open SSMS.
 1. Connect to your Azure SQL Database in Object Explorer.
 1. Expand the database node in Object Explorer
 1. Expand the **Query Store** folder. 
@@ -107,9 +110,6 @@ Follow these steps to use a query ID in SSMS's interactive Query Store tools to 
 1. If necessary, select **Configure** to adjust the time interval to match the time when high CPU utilization was occurring.
  
 The page will show the execution plan(s) and related metrics for the query over the most recent 24 hours.
-
-> [!NOTE]
-> **This content is focused on Azure SQL Database.** Azure SQL Database is based on the latest stable version of the Microsoft SQL Server database engine, so much of the content is similar though troubleshooting and configuration options differ. For information on monitoring CPU usage in SQL Server, see [Monitor CPU usage](/sql/relational-databases/performance-monitor/monitor-cpu-usage).
 
 ### Identify currently running queries with Transact-SQL
 
@@ -347,7 +347,7 @@ If you identify cases where queries sometimes use an execution plan which is not
 
 If you identify non-parameterized queries with a high number of plans, consider parameterizing these queries, making sure to fully declare parameter data types, including length and precision. This may be done by modifying the queries, creating a [plan guide to force parameterization](/sql/relational-databases/performance/specify-query-parameterization-behavior-by-using-plan-guides) of a specific query, or by enabling [forced parameterization](/sql/relational-databases/query-processing-architecture-guide#execution-plan-caching-and-reuse) at the database level.
 
-If you identify queries with high compilation rates, identify what causes the frequent compilation. The most common cause of frequent compilation is [RECOMPILE hints](/sql/t-sql/queries/hints-transact-sql-query). Whenever possible, identify when the ``RECOMPILE`` hint was added and what problem it was meant to solve. Investigate whether an alternate performance tuning solution can be implemented to provide consistent performance for frequently running queries without a ``RECOMPILE`` hint.
+If you identify queries with high compilation rates, identify what causes the frequent compilation. The most common cause of frequent compilation is [RECOMPILE hints](/sql/t-sql/queries/hints-transact-sql-query). Whenever possible, identify when the `RECOMPILE` hint was added and what problem it was meant to solve. Investigate whether an alternate performance tuning solution can be implemented to provide consistent performance for frequently running queries without a `RECOMPILE` hint.
 
 ### Reduce CPU usage by tuning the max degree of parallelism
 
