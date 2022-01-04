@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/28/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -23,8 +23,24 @@ This article outlines how to register Looker, and how to authenticate and intera
 |---|---|---|---|---|---|---|
 | [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-looker.md)|
 
-> [!Important]
-> Supported Looker server version is 7.2
+The supported Looker server version is 7.2.
+
+When scanning Looker source, Purview supports:
+
+- Extracting technical metadata including:
+
+    - Server
+    - Folders
+    - Projects
+    - Models
+    - Dashboards
+    - Looks
+    - Explore diagrams including the joins
+    - Views including the dimensions, measures, parameters, and filters
+    - Layouts including the chart layouts, table layouts, text, and fields
+    - Queries including the query fields
+
+- Fetching static lineage on assets relationships among views, queries and layouts.
 
 ## Prerequisites
 

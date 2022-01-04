@@ -7,6 +7,7 @@ ms.date: 09/23/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
+ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-api
 ---
 

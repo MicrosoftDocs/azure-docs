@@ -3,7 +3,7 @@ title: Azure IoT Central data integration guide | Microsoft Docs
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This guide describes how to integrate your IoT Central application with other services to extend its capabilities.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/16/2021
+ms.date: 01/04/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -31,14 +31,14 @@ A typical IoT solution:
 
 When you use IoT Central to create an IoT solution, tasks include:
 
-- Configure data transformations to facilitate extracting business value from your data.
+- Configure data transformations to make it easier to extract business value from your data.
 - Configure dashboards and views in the IoT Central web UI.
 - Use the built-in rules and analytics tools to derive business insights from the connected devices.
 - Use the data export, rules capabilities, and APIs to integrate IoT Central with other services and applications.
 
 ## Transform data at ingress
 
-Devices may send complex telemetry that needs to be simplified before it's used in IoT Central or exported. In some scenarios you need to normalize the telemetry from different devices so that you can display and process the telemetry consistently. To learn more, see [Map telemetry on ingress to IoT Central](howto-map-data.md).
+Devices may send complex telemetry that needs to be simplified before it's used in IoT Central or exported. In some scenarios, you need to normalize the telemetry from different devices so that you can display and process the telemetry consistently. To learn more, see [Map telemetry on ingress to IoT Central](howto-map-data.md).
 
 ## Extract business value
 
@@ -107,7 +107,7 @@ You can use IoT Edge devices connected to your IoT Central application to integr
 
 IoT Central provides rich operator dashboards and visualizations. However, some IoT solutions must integrate with existing applications, or require new companion applications to expand their capabilities. To integrate with other applications, use IoT Central extensibility points such as the REST API and the continuous data export feature.
 
-You use data plane REST APIs to access the entities in and the capabilities of your IoT Central application. For example managing devices, device templates, users, and roles. The IoT Central REST API operations are *data plane* operations. To learn more, see [How to use the IoT Central REST API to manage users and roles](howto-manage-users-roles-with-rest-api.md).
+You use data plane REST APIs to access the entities in and the capabilities of your IoT Central application. For example, managing devices, device templates, users, and roles. The IoT Central REST API operations are *data plane* operations. To learn more, see [How to use the IoT Central REST API to manage users and roles](howto-manage-users-roles-with-rest-api.md).
 
 You use the *control plane* to manage IoT Central-related resources in your Azure subscription. You can use the Azure CLI and Resource Manager templates for control plane operations. For example, you can use the Azure CLI to create an IoT Central application. To learn more, see [Manage IoT Central from Azure CLI](howto-manage-iot-central-from-cli.md).
 

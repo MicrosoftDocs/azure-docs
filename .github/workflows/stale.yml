@@ -14,12 +14,12 @@ jobs:
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         days-before-pr-stale: 14
-        days-before-pr-close: 9999
+        days-before-pr-close: 90
         stale-pr-label: inactive
         close-pr-label: auto-close
         exempt-pr-labels: keep-open
         operations-per-run: 1200
-        ascending: false
+        ascending: true
         # start-date: '2021-03-19'
         stale-pr-message: >
           This pull request has been inactive for at least 14 days.

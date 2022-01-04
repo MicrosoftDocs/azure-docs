@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: thvankra
-
+ms.devlang: python, scala
 ---
 
 # Migrate one-to-few relational data into Azure Cosmos DB SQL API account

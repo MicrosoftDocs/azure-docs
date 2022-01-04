@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 12/09/2021
+ms.date: 12/19/2021
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -19,7 +19,7 @@ Listed below are the support, breaking change policies for Microsoft Defender fo
 
 ### Servicing information and timelines
 
-Microsoft plans to release updates for Defender for IoT no less than once per quarter. Each general availability (GA) version of the Defender for IoT sensor, and on-premises management console is supported for up to nine months after its release. Fixes, and new functionality will be applied to the current GA version that are currently in support, and will not be applied to older GA versions.
+Microsoft plans to release updates for Defender for IoT no less than once per quarter. Each general availability (GA) version of the Defender for IoT sensor, and on-premises management console is supported for nine months after release. Fixes, and new functionality will be applied to the current GA version that are currently in support, and will not be applied to older GA versions.
 
 ### Versions and support dates
 
@@ -33,6 +33,22 @@ Microsoft plans to release updates for Defender for IoT no less than once per qu
 
 ## December 2021
 
+- [Enhanced integration with Microsoft Sentinel (Preview)](#enhanced-integration-with-microsoft-sentinel-preview)
+- [Apache Log4j vulnerability](#apache-log4j-vulnerability)
+- [Alerting](#alerting)
+
+### Enhanced integration with Microsoft Sentinel (Preview)
+
+The new **IoT OT Threat Monitoring with Defender for IoT solution** is available and provides enhanced capabilities for Microsoft Defender for IoT integration with Microsoft Sentinel. The **IoT OT Threat Monitoring with Defender for IoT solution** is a set of bundled content, including analytics rules, workbooks, and playbooks, configured specifically for Defender for IoT data. This solution currently supports only Operational Networks (OT/ICS). 
+
+For information on integrating with Microsoft Sentinel, see [Tutorial: Integrate Defender for Iot and Sentinel](/azure/sentinel/iot-solution?tabs=use-out-of-the-box-analytics-rules-recommended)
+
+### Apache Log4j vulnerability
+
+Version 10.5.4 of Microsoft Defender for IoT mitigates the Apache Log4j vulnerability. For details, see [the security advisory update](https://techcommunity.microsoft.com/t5/microsoft-defender-for-iot/updated-15-dec-defender-for-iot-security-advisory-apache-log4j/m-p/3036844).
+
+### Alerting
+
 Version 10.5.4 of Microsoft Defender for IoT delivers important alert enhancements:
 
 - Alerts for certain minor events or edge-cases are now disabled.
@@ -40,7 +56,7 @@ Version 10.5.4 of Microsoft Defender for IoT delivers important alert enhancemen
 
 These changes reduce alert volume and enable more efficient targeting and analysis of security and operational events.
 
-### Alerts permanently disabled
+#### Alerts permanently disabled
 
 The alerts listed below are permanently disabled with version 10.5.4. Detection and monitoring are still supported for traffic associated with the alerts.
 
@@ -50,7 +66,7 @@ The alerts listed below are permanently disabled with version 10.5.4. Detection 
 - Unauthorized HTTP Server
 - Abnormal usage of MAC Addresses
 
-### Alerts disabled by default
+#### Alerts disabled by default
 
 The alerts listed below are disabled by default with version 10.5.4. You can re-enable the alerts from the Support page of the sensor console, if required.
 
@@ -71,7 +87,7 @@ Disabling these alerts also disables monitoring of related traffic. Specifically
 - Unauthorized HTTP User Agent alert and HTTP User Agents Data Mining traffic
 - Unauthorized HTTP SOAP Action and HTTP SOAP Actions Data Mining traffic
 
-### Updated Alert Functionality
+#### Updated alert functionality
 
 **Unauthorized Database Operation alert**
 Previously, this alert covered DDL and DML alerting and Data Mining reporting. Now:
@@ -81,7 +97,7 @@ Previously, this alert covered DDL and DML alerting and Data Mining reporting. N
 **New Asset Detected alert**
 This alert is disabled for new devices detected in IT subnets. The New Asset Detected alert is still triggered for new devices discovered in OT subnets. OT subnets are detected automatically and can be updated by users if required.
 
-### Minimized Alerting
+### Minimized alerting
 
 Alert triggering for specific scenarios has been minimized to help reduce alert volume and simplify alert investigation. In these scenarios, if a device performs repeated activity on targets, an alert is triggered once.  Previously, a new alert was triggered each time the same activity was carried out.
 

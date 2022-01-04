@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Convert an NFS volume between NFSv3 and NFSv4.1
 
@@ -62,7 +61,7 @@ The option to convert an NFS volume between NFSv3 and NFSv4.1 is currently in pr
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFProtocolTypeNFSConversion
     ```
-You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Convert from NFSv3 to NFSv4.1
 

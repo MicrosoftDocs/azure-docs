@@ -1,9 +1,9 @@
 ---
 title: Azure IoT Central device management guide
-description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This guide describes how to manage the IoT devices connected to your IoT Central application and analyze the data they send. 
+description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This guide describes how to manage the IoT devices connected to your IoT Central application. 
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/16/2021
+ms.date: 01/04/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -43,7 +43,10 @@ The [troubleshooting guide](troubleshoot-connection.md) helps you to diagnose an
 
 ## Add and remove devices
 
-You can add and remove devices to your IoT Central application either individually or in bulk. To learn more, see [Manage individual devices in your Azure IoT Central application](howto-manage-devices-individually.md) and [Manage devices in bulk in your Azure IoT Central application](howto-manage-devices-in-bulk.md).
+You can add and remove devices in your IoT Central application either individually or in bulk. To learn more, see:
+
+- [Manage individual devices in your Azure IoT Central application](howto-manage-devices-individually.md).
+- [Manage devices in bulk in your Azure IoT Central application](howto-manage-devices-in-bulk.md).
 
 ## Personalize
 

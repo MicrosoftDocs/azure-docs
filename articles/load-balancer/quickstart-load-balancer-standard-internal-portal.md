@@ -168,9 +168,6 @@ During the creation of the load balancer, you'll configure:
 
 9. Select **Zone-redundant** in **Availability zone**.
 
-    > [!NOTE]
-    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
-
 10. Select **Add**.
 
 11. Select **Next: Backend pools** at the bottom of the page.

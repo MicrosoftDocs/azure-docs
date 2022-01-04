@@ -32,7 +32,7 @@ A IoT device is a standalone device connects directly to IoT Central. A IoT devi
 
 ### IoT Edge device
 
-An IoT Edge device connects directly to IoT Central. An IoT Edge device can send its own telemetry, report its properties, and respond to writable property updates and commands. IoT Edge modules can process data locally on the IoT Edge device. An IoT Edge device can also act as an intermediary for other devices known as leaf devices. Scenarios that use IoT Edge devices include:
+An IoT Edge device connects directly to IoT Central. An IoT Edge device can send its own telemetry, report its properties, and respond to writable property updates and commands. IoT Edge modules process data locally on the IoT Edge device. An IoT Edge device can also act as an intermediary for other devices known as leaf devices. Scenarios that use IoT Edge devices include:
 
 - Aggregate or filter telemetry before it's sent to IoT Central. This approach can help to reduce the costs of sending data to IoT Central.
 - Enable devices that can't connect directly to IoT Central to connect through the IoT Edge device. For example, a leaf device might use bluetooth to connect to the IoT Edge device, which then connects over the internet to IoT Central.
@@ -94,7 +94,7 @@ The following options support persistent device connections:
 
 - Use IoT Central Device Bridge to connect devices that use a custom protocol:
 
-  Some devices use a protocol or encoding, such as LWM2M or COAP, that IoT Central doesn't currently support. IoT Central Device Bridge acts as a translator that forwards telemetry to IoT Central. Because the connection the bridge maintains is persistent, this option enables command and control of the devices connected to the bridge.
+  Some devices use a protocol or encoding, such as LWM2M or COAP, that IoT Central doesn't currently support. IoT Central Device Bridge acts as a translator that forwards telemetry to IoT Central. Because the bridge maintains a persistent connection, this option enables command and control of the devices connected to the bridge.
 
   To learn more, see the [Azure IoT Central Device Bridge](https://github.com/Azure/iotc-device-bridge) GitHub repository.
 
