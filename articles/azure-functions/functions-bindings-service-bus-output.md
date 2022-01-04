@@ -20,8 +20,6 @@ For information on setup and configuration details, see the [overview](functions
 
 ::: zone pivot="programming-language-csharp"
 
-<!--Optional intro text goes here, followed by the C# modes include.-->
-
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
 # [In-process](#tab/in-process)
@@ -39,8 +37,9 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
 ```
 # [Isolated process](#tab/isolated-process)
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusFunction.cs" range="10-25":::
+The following example shows a [C# function](dotnet-isolated-process-guide.md) that receives a Service Bus queue message, logs the message, and sends a message to different Service Bus queue:
 
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusFunction.cs" range="10-25":::
 
 # [C# Script](#tab/csharp-script)
 
@@ -208,12 +207,12 @@ Here's the binding data in the *function.json* file:
 Here's the PowerShell that creates a message as the function's output.
 
 ```powershell
-param($QueueItem, $TriggerMetadata) 
+param($QueueItem, $TriggerMetadata) 
 
-Push-OutputBinding -Name outputSbMsg -Value @{ 
-    name = $QueueItem.name 
-    employeeId = $QueueItem.employeeId 
-    address = $QueueItem.address 
+Push-OutputBinding -Name outputSbMsg -Value @{ 
+    name = $QueueItem.name 
+    employeeId = $QueueItem.employeeId 
+    address = $QueueItem.address 
 } 
 ```
 
@@ -274,24 +273,22 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
-
-<!-- If the attribute's constructor takes parameters, you'll need to include a table like this, where the values are from the original table in the Configuration section:
-
-The attribute's constructor takes the following parameters:
-
-|Parameter | Description|
-|---------|----------------------|
-|**Parameter1** |Description 1|
-|**Parameter2** | Description 2|
-
--->
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the output binding. C# script instead uses a function.json configuration file.
 
 # [In-process](#tab/in-process)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [ServiceBusAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs).
 
-The attribute's constructor takes the name of the queue or the topic and subscription. You can also specify the connection's access rights. How to choose the access rights setting is explained in the [Output - configuration](#configuration) section. Here's an example that shows the attribute applied to the return value of the function:
+The following table explains the properties you can set using the attribute:
+
+| Property |Description|
+| --- | --- |
+|**QueueName**|Name of the queue.  Set only if sending queue messages, not for a topic. |
+|**TopicName**|Name of the topic. Set only if sending topic messages, not for a queue.|
+|**Connection**|The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
+|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
+
+Here's an example that shows the attribute applied to the return value of the function:
 
 ```csharp
 [FunctionName("ServiceBusOutput")]
@@ -313,16 +310,35 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-For a complete example, see [Output - example](#example).
+For a complete example, see [Example](#example).
 
-You can use the `ServiceBusAccount` attribute to specify the Service Bus account to use at class, method, or parameter level.  For more information, see [Trigger - attributes](functions-bindings-service-bus-trigger.md#attributes).
+You can use the `ServiceBusAccount` attribute to specify the Service Bus account to use at class, method, or parameter level.  For more information, see [Attributes](functions-bindings-service-bus-trigger.md#attributes) in the trigger reference.
+
 # [Isolated process](#tab/isolated-process)
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusFunction.cs" range="12-15":::
+In [C# class libraries](dotnet-isolated-process-guide.md), use the [ServiceBusOutputAttribute](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/extensions/Worker.Extensions.ServiceBus/src/ServiceBusOutputAttribute.cs) to define the queue or topic written to by the output.
+
+The following table explains the properties you can set using the attribute:
+
+| Property |Description|
+| --- | --- |
+|**EntityType**|Sets the entity type as either `Queue` for sending messages to a queue or `Topic` when sending messages to a topic. |
+|**QueueOrTopicName**|Name of the topic or queue to send messages to. Use `EntityType` to set the destination type.|
+|**Connection**|The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
 
 # [C# script](#tab/csharp-script)
 
-Attributes are not supported by C# Script.
+C# script uses a *function.json* file for configuration instead of attributes. The following table explains the binding configuration properties that you set in the *function.json* file.
+
+|function.json property | Description|
+|---------|---------|----------------------|
+|**type** |Must be set to "serviceBus". This property is set automatically when you create the trigger in the Azure portal.|
+|**direction**  | Must be set to "out". This property is set automatically when you create the trigger in the Azure portal. |
+|**name**  | The name of the variable that represents the queue or topic message in function code. Set to "$return" to reference the function return value. |
+|**queueName**|Name of the queue.  Set only if sending queue messages, not for a topic.
+|**topicName**|Name of the topic. Set only if sending topic messages, not for a queue.|
+|**connection**|The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
+|**accessRights** (v1 only)|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
 
 ---
 
@@ -332,25 +348,25 @@ Attributes are not supported by C# Script.
 
 The `ServiceBusQueueOutput` and `ServiceBusTopicOutput` annotations are available to write a message as a function output. The parameter decorated with these annotations must be declared as an `OutputBinding<T>` where `T` is the type corresponding to the message's type.
 
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
 ::: zone-end  
-::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file and the `ServiceBus` attribute.
 
-|function.json property | Attribute property |Description|
+|function.json property | Description|
 |---------|---------|----------------------|
-|**type** | n/a | Must be set to "serviceBus". This property is set automatically when you create the trigger in the Azure portal.|
-|**direction** | n/a | Must be set to "out". This property is set automatically when you create the trigger in the Azure portal. |
-|**name** | n/a | The name of the variable that represents the queue or topic message in function code. Set to "$return" to reference the function return value. |
-|**queueName**|**QueueName**|Name of the queue.  Set only if sending queue messages, not for a topic.
-|**topicName**|**TopicName**|Name of the topic. Set only if sending topic messages, not for a queue.|
-|**connection**|**Connection**|The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
-|**accessRights** (v1 only)|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
+|**type** |Must be set to "serviceBus". This property is set automatically when you create the trigger in the Azure portal.|
+|**direction**  | Must be set to "out". This property is set automatically when you create the trigger in the Azure portal. |
+|**name**  | The name of the variable that represents the queue or topic message in function code. Set to "$return" to reference the function return value. |
+|**queueName**|Name of the queue.  Set only if sending queue messages, not for a topic.
+|**topicName**|Name of the topic. Set only if sending topic messages, not for a queue.|
+|**connection**|The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
+|**accessRights** (v1 only)|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
-
-[!INCLUDE [functions-service-bus-connections](../../includes/functions-service-bus-connections.md)]
 
 ::: zone-end  
 
@@ -358,63 +374,75 @@ See the [Example section](#example) for complete examples.
 
 ## Usage
 
-In Azure Functions 1.x, the runtime creates the queue if it doesn't exist and you have set `accessRights` to `manage`. In Functions version 2.x and higher, the queue or topic must already exist; if you specify a queue or topic that doesn't exist, the function will fail. 
+::: zone pivot="programming-language-csharp"
 
+The following output parameter types are supported by all C# modalities and extension versions:
 
-::: zone pivot="programming-language-csharp"  
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+| Type | Description |
+| --- | --- |
+| **[System.String](/dotnet/api/system.string)** | Use when the message to write is simple text. When the parameter value is null when the function exits, Functions doesn't create a message.|
+| **byte[]** | Use for writing binary data messages. When the parameter value is null when the function exits, Functions doesn't create a message. |
+| **Object** | When a message contains JSON, Functions serializes the object into a JSON message payload. When the parameter value is null when the function exits, Functions creates a message with a null object.|
 
-# [In-process](#tab/in-process)
+Messaging-specific parameter types contain additional message metadata. The specific types supported by the Event Grid Output binding depend on the Functions runtime version, the extension package version, and the C# modality used.
 
-Use the following parameter types for the output binding:
+# [Extension v5.x](#tab/extensionv5/in-process)
 
-* `out T paramName` - `T` can be any JSON-serializable type. If the parameter value is null when the function exits, Functions creates the message with a null object.
-* `out string` - If the parameter value is null when the function exits, Functions does not create a message.
-* `out byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
-* `out BrokeredMessage` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 1.x)
-* `out Message` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 2.x and higher)
-* `ICollector<T>` or `IAsyncCollector<T>` (for async methods) - For creating multiple messages. A message is created when you call the `Add` method.
+Use the [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) type when sending messages with metadata. Parameters are defined as `return` type attributes. Use an `ICollector<T>` or `IAsyncCollector<T>` to wite multiple messages. A message is created when you call the `Add` method.
 
-When working with C# functions:
+When the parameter value is null when the function exits, Functions doesn't create a message.
 
-* Async functions need a return value or `IAsyncCollector` instead of an `out` parameter.
+[!INCLUDE [functions-service-bus-account-attribute](../../includes/functions-service-bus-account-attribute.md)]
 
-* To access the session ID, bind to a [`Message`](/dotnet/api/microsoft.azure.servicebus.message) type and use the `sessionId` property.
+# [Functions 2.x and higher](#tab/functionsv2/in-process)
 
-### Additional types 
+Use the [Message](/dotnet/api/microsoft.azure.servicebus.message) type when sending messages with metadata. Parameters are defined as `return` type attributes. Use an `ICollector<T>` or `IAsyncCollector<T>` to wite multiple messages. A message is created when you call the `Add` method.
 
-Apps using the 5.0.0 or higher version of the Service Bus extension use the `ServiceBusMessage` type in [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusmessage) instead of the one in the [Microsoft.Azure.ServiceBus](/dotnet/api/microsoft.azure.servicebus.message) namespace. This version drops support for the legacy `Message` type in favor of the following types:
+When the parameter value is null when the function exits, Functions doesn't create a message.
 
-- [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage)
+[!INCLUDE [functions-service-bus-account-attribute](../../includes/functions-service-bus-account-attribute.md)]
 
-# [Isolated process](#tab/isolated-process)
+# [Functions 1.x](#tab/functionsv1/in-process)
 
-<!--If available, call out any usage information from the linked example in the worker repo. -->
+Use the [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) type when sending messages with metadata. Parameters are defined as `return` type attributes. When the parameter value is null when the function exits, Functions doesn't create a message.
 
-# [C# script](#tab/csharp-script)
+[!INCLUDE [functions-service-bus-account-attribute](../../includes/functions-service-bus-account-attribute.md)]
 
-Use the following parameter types for the output binding:
+# [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
-* `out T paramName` - `T` can be any JSON-serializable type. If the parameter value is null when the function exits, Functions creates the message with a null object.
-* `out string` - If the parameter value is null when the function exits, Functions does not create a message.
-* `out byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
-* `out BrokeredMessage` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 1.x)
-* `out Message` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 2.x and higher)
-* `ICollector<T>` or `IAsyncCollector<T>` - For creating multiple messages. A message is created when you call the `Add` method.
+Messaging-specific types are not yet supported. 
 
-When working with C# functions:
+# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 
-* Async functions need a return value or `IAsyncCollector` instead of an `out` parameter.
+Messaging-specific types are not yet supported.
 
-* To access the session ID, bind to a [`Message`](/dotnet/api/microsoft.azure.servicebus.message) type and use the `sessionId` property.
+# [Functions 1.x](#tab/functionsv1/isolated-process)
 
-### Additional types 
-Apps using the 5.0.0 or higher version of the Service Bus extension use the `ServiceBusMessage` type in [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusmessage) instead of the one in the[Microsoft.Azure.ServiceBus](/dotnet/api/microsoft.azure.servicebus.message) namespace. This version drops support for the legacy `Message` type in favor of the following types:
+Messaging-specific types are not yet supported.
 
-- [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage)
+# [Extension 5.x and higher](#tab/extensionv5/csharp-script)
+
+Use the [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) type when sending messages with metadata. Parameters are defined as `out` parameters. Use an `ICollector<T>` or `IAsyncCollector<T>` to wite multiple messages. A message is created when you call the `Add` method.
+
+When the parameter value is null when the function exits, Functions doesn't create a message.
+
+# [Functions 2.x and higher](#tab/functionsv2/csharp-script)
+
+Use the [Message](/dotnet/api/microsoft.azure.servicebus.message) type when sending messages with metadata. Parameters are defined as `out` parameters. Use an `ICollector<T>` or `IAsyncCollector<T>` to wite multiple messages. A message is created when you call the `Add` method.
+
+When the parameter value is null when the function exits, Functions doesn't create a message.
+
+# [Functions 1.x](#tab/functionsv1/csharp-script)
+
+Use the [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) type when sending messages with metadata. Parameters are defined as `out` parameters. Use an `ICollector<T>` or `IAsyncCollector<T>` to wite multiple messages. A message is created when you call the `Add` method. 
+
+When the parameter value is null when the function exits, Functions doesn't create a message.
+
 ---
-
 ::: zone-end  
+
+In Azure Functions 1.x, the runtime creates the queue if it doesn't exist and you have set `accessRights` to `manage`. In Functions version 2.x and higher, the queue or topic must already exist; if you specify a queue or topic that doesn't exist, the function fails. 
+
 <!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-java"
 Use the [Azure Service Bus SDK](../service-bus-messaging/index.yml) rather than the built-in output binding.
@@ -428,6 +456,9 @@ Output to the Service Bus is available via the `Push-OutputBinding` cmdlet where
 ::: zone pivot="programming-language-python"  
 Use the [Azure Service Bus SDK](../service-bus-messaging/index.yml) rather than the built-in output binding.
 ::: zone-end  
+For a complete example, see [the examples section](#example).
+
+[!INCLUDE [functions-service-bus-connections](../../includes/functions-service-bus-connections.md)]
 
 ## Exceptions and return codes
 

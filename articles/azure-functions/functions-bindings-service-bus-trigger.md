@@ -21,8 +21,6 @@ For information on setup and configuration details, see the [overview](functions
 
 ::: zone pivot="programming-language-csharp"
 
-<!--Optional intro text goes here, followed by the C# modes include.-->
-
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
 # [In-process](#tab/in-process)
@@ -48,6 +46,7 @@ public static void Run(
 ```
 # [Isolated process](#tab/isolated-process)
 
+The following example shows a [C# function](dotnet-isolated-process-guide.md) that receives a Service Bus queue message, logs the message, and sends a message to different Service Bus queue:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusFunction.cs" range="10-25":::
 
@@ -245,72 +244,22 @@ def main(msg: func.ServiceBusMessage):
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [ServiceBusTriggerAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusTriggerAttribute.cs) to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [ServiceBusTriggerAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusTriggerAttribute.cs) attribute to define the function trigger. C# script instead uses a function.json configuration file.
 
-The following table explains the properties you can define using the attribute:
+# [In-process](#tab/in-process)
+
+The following table explains the properties you can set using this trigger attribute:
 
 | Property |Description|
 | --- | --- |
-|**QueueName**|Name of the queue to monitor.  Set only if monitoring a queue, not for a topic.
+|**QueueName**|Name of the queue to monitor. Set only if monitoring a queue, not for a topic. |
 |**TopicName**|Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
 |**SubscriptionName**|Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
 |**Connection**| The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
 |**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
 |**IsSessionsEnabled**|`true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
-|**AutoComplete**|`true` Whether the trigger should automatically call complete after processing, or if the function code will manually call complete.<br><br>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br><br>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) methods to complete, abandon, or deadletter the message. If an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed. |
+|**AutoComplete**|`true` Whether the trigger should automatically call complete after processing, or if the function code will manually call complete.<br/><br/>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) methods to complete, abandon, or deadletter the message. If an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed. |
 
-# [In-process](#tab/in-process)
-
-In [C# class libraries](functions-dotnet-class-library.md), the attribute's constructor takes the name of the queue or the topic and subscription. In Azure Functions version 1.x, you can also specify the connection's access rights. If you don't specify access rights, the default is `Manage`. For more information, see the [Trigger - configuration](#configuration) section.
-
-  Here's an example that shows the attribute used with a string parameter:
-
-  ```csharp
-  [FunctionName("ServiceBusQueueTriggerCSharp")]                    
-  public static void Run(
-      [ServiceBusTrigger("myqueue")] string myQueueItem, ILogger log)
-  {
-      ...
-  }
-  ```
-
-  Since the `Connection` property isn't defined, Functions looks for an app setting named `AzureWebJobsServiceBus`, which is the default name for the Service Bus connection string. You can also set the `Connection` property to specify the name of an application setting that contains the Service Bus connection string to use, as shown in the following example:
-
-  ```csharp
-  [FunctionName("ServiceBusQueueTriggerCSharp")]                    
-  public static void Run(
-      [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] 
-      string myQueueItem, ILogger log)
-  {
-      ...
-  }
-  ```
-
-  For a complete example, see [the examples section](#example).
-
-You can also use the [ServiceBusAccountAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAccountAttribute.cs) to specify the Service Bus account to use. The constructor takes the name of an app setting that contains a Service Bus connection string. The attribute can be applied at the parameter, method, or class level. The following example shows class level and method level:
-
-  ```csharp
-  [ServiceBusAccount("ClassLevelServiceBusAppSetting")]
-  public static class AzureFunctions
-  {
-      [ServiceBusAccount("MethodLevelServiceBusAppSetting")]
-      [FunctionName("ServiceBusQueueTriggerCSharp")]
-      public static void Run(
-          [ServiceBusTrigger("myqueue", AccessRights.Manage)] 
-          string myQueueItem, ILogger log)
-  {
-      ...
-  }
-  ```
-
-The Service Bus account to use is determined in the following order:
-
-* The `ServiceBusTrigger` attribute's `Connection` property.
-* The `ServiceBusAccount` attribute applied to the same parameter as the `ServiceBusTrigger` attribute.
-* The `ServiceBusAccount` attribute applied to the function.
-* The `ServiceBusAccount` attribute applied to the class.
-* The "AzureWebJobsServiceBus" app setting.
 
 # [Isolated process](#tab/isolated-process)
 
@@ -320,21 +269,22 @@ The Service Bus account to use is determined in the following order:
 
 C# script uses a *function.json* file for configuration instead of attributes. The following table explains the binding configuration properties that you set in the *function.json* file.
 
-|function.json property | Attribute property |Description|
-|---------|---------|----------------------|
-|**type** | n/a | Must be set to "serviceBusTrigger". This property is set automatically when you create the trigger in the Azure portal.|
-|**direction** | n/a | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
-|**name** | n/a | The name of the variable that represents the queue or topic message in function code. |
-|**queueName**|**QueueName**|Name of the queue to monitor.  Set only if monitoring a queue, not for a topic.
-|**topicName**|**TopicName**|Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
-|**subscriptionName**|**SubscriptionName**|Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
-|**connection**|**Connection**| The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
-|**accessRights**|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
-|**isSessionsEnabled**|**IsSessionsEnabled**|`true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
-|**autoComplete**|**AutoComplete**|`true` Whether the trigger should automatically call complete after processing, or if the function code will manually call complete.<br><br>Setting to `false` is only supported in C#.<br><br>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br><br>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) methods to complete, abandon, or deadletter the message. If an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br><br>In non-C# functions, exceptions in the function results in the runtime calls `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. This property is available only in Azure Functions 2.x and higher. |
+|function.json property | Description|
+|---------|----------------------|
+|**type** |  Must be set to `serviceBusTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
+|**name** | The name of the variable that represents the queue or topic message in function code. |
+|**queueName**| Name of the queue to monitor.  Set only if monitoring a queue, not for a topic.
+|**topicName**| Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
+|**subscriptionName**| Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
+|**connection**|  The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
+|**accessRights**| Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
+|**isSessionsEnabled**| `true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
+|**autoComplete**| `true` when the trigger should automatically call complete after processing, or if the function code will manually call complete.<br/><br/>Setting to `false` is only supported in C#.<br/><br/>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) methods to complete, abandon, or deadletter the message. If an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br/><br/>This property is available only in Azure Functions 2.x and higher. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ---
-
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
@@ -343,6 +293,8 @@ C# script uses a *function.json* file for configuration instead of attributes. T
 The `ServiceBusQueueTrigger` annotation allows you to create a function that runs when a Service Bus queue message is created. Configuration options available include queue name and connection string name.
 
 The `ServiceBusTopicTrigger` annotation allows you to designate a topic and subscription to target what data triggers the function.
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 See the trigger [example](#example) for more detail.
 
@@ -354,20 +306,19 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** |  Must be set to "serviceBusTrigger". This property is set automatically when you create the trigger in the Azure portal.|
+|**type** |  Must be set to `serviceBusTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
 |**direction** | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | The name of the variable that represents the queue or topic message in function code. |
-|**queueName**|**QueueName**|Name of the queue to monitor.  Set only if monitoring a queue, not for a topic.
-|**topicName**|**TopicName**|Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
-|**subscriptionName**|**SubscriptionName**|Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
-|**connection**|**Connection**| The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
-|**accessRights**|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
-|**isSessionsEnabled**|**IsSessionsEnabled**|`true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
-|**autoComplete**|**AutoComplete**|`true` Whether the trigger should automatically call complete after processing, or if the function code will manually call complete.<br><br>Setting to `false` is only supported in C#.<br><br>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br><br>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) methods to complete, abandon, or deadletter the message. If an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br><br>In non-C# functions, exceptions in the function results in the runtime calls `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. This property is available only in Azure Functions 2.x and higher. |
+|**queueName**| Name of the queue to monitor.  Set only if monitoring a queue, not for a topic.
+|**topicName**| Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
+|**subscriptionName**| Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
+|**connection**|  The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
+|**accessRights**| Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
+|**isSessionsEnabled**| `true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
+|**autoComplete**| Must be `true` for non-C# functions, which means that the trigger should either automatically call complete after processing, or the function code manually calls complete.<br/><br/>When set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/>Exceptions in the function results in the runtime calls `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. This property is available only in Azure Functions 2.x and higher. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-[!INCLUDE [functions-service-bus-connections](../../includes/functions-service-bus-connections.md)]
 ::: zone-end  
 
 See the [Example section](#example) for complete examples.
@@ -375,56 +326,78 @@ See the [Example section](#example) for complete examples.
 ## Usage
 
 ::: zone pivot="programming-language-csharp"  
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+The following parameter types are supported by all C# modalities and extension versions:
 
-# [In-process](#tab/in-process)
+| Type | Description |
+| --- | --- |
+| **[System.String](/dotnet/api/system.string)** | Use when the message is simple text. |
+| **byte[]** | Use for binary data messages. |
+| **Object** | When a message contains JSON, Functions tries to deserialize the JSON data into known plain-old CLR object type. |
+
+Messaging-specific parameter types contain additional message metadata. The specific types supported by the Event Grid trigger depend on the Functions runtime version, the extension package version, and the C# modality used.
+
+# [Extension v5.x](#tab/extensionv5/in-process)
+
+Use the [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) type to receive message metadata from Service Bus Queues and Subscriptions. To learn more, see [Messages, payloads, and serialization](../service-bus-messaging/service-bus-messages-payloads.md).
+
+In [C# class libraries](functions-dotnet-class-library.md), the attribute's constructor takes the name of the queue or the topic and subscription. 
+
+[!INCLUDE [functions-service-bus-account-attribute](../../includes/functions-service-bus-account-attribute.md)]
+
+# [Functions 2.x and higher](#tab/functionsv2/in-process)
+
+Use the [Message](/dotnet/api/microsoft.azure.servicebus.message) type to receive messages with metadata. To learn more, see [Messages, payloads, and serialization](../service-bus-messaging/service-bus-messages-payloads.md).
+
+In [C# class libraries](functions-dotnet-class-library.md), the attribute's constructor takes the name of the queue or the topic and subscription. 
+
+[!INCLUDE [functions-service-bus-account-attribute](../../includes/functions-service-bus-account-attribute.md)]
+
+# [Functions 1.x](#tab/functionsv1/in-process)
 
 The following parameter types are available for the queue or topic message:
 
-* `string` - If the message is text.
-* `byte[]` - Useful for binary data.
-* A custom type - If the message contains JSON, Azure Functions tries to deserialize the JSON data.
-* `BrokeredMessage` - Gives you the deserialized message with the [BrokeredMessage.GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
-  method.
-* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) - Used to receive and acknowledge messages from the message container (required when `autoComplete` is set to `false`)
+* [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) - Gives you the deserialized message with the [BrokeredMessage.GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) method.
+* [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) - Used to receive and acknowledge messages from the message container, which is required when `autoComplete` is set to `false`.
 
-These parameter types are for Azure Functions version 1.x; for 2.x and higher, use [`Message`](/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
+In [C# class libraries](functions-dotnet-class-library.md), the attribute's constructor takes the name of the queue or the topic and subscription. In Azure Functions version 1.x, you can also specify the connection's access rights. If you don't specify access rights, the default is `Manage`. 
 
-### Additional types 
-Apps using the 5.0.0 or higher version of the Service Bus extension use the `ServiceBusReceivedMessage` type in [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) instead of the one in the [Microsoft.Azure.ServiceBus](/dotnet/api/microsoft.azure.servicebus.message) namespace. This version drops support for the legacy `Message` type in favor of the following types:
+[!INCLUDE [functions-service-bus-account-attribute](../../includes/functions-service-bus-account-attribute.md)]
 
-- [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage)
+# [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
-# [Isolated process](#tab/isolated-process)
+Messaging-specific types are not yet supported.
 
-<!--If available, call out any usage information from the linked example in the worker repo. -->
+# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 
-# [C# script](#tab/csharp-script)
+Messaging-specific types are not yet supported.
+
+# [Functions 1.x](#tab/functionsv1/isolated-process)
+
+Messaging-specific types are not yet supported.
+
+# [Extension 5.x and higher](#tab/extensionv5/csharp-script)
+
+Use the [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) type to receive message metadata from Service Bus Queues and Subscriptions. To learn more, see [Messages, payloads, and serialization](../service-bus-messaging/service-bus-messages-payloads.md).
+
+# [Functions 2.x and higher](#tab/functionsv2/csharp-script)
+
+Use the [Message](/dotnet/api/microsoft.azure.servicebus.message) type to receive messages with metadata. To learn more, see [Messages, payloads, and serialization](../service-bus-messaging/service-bus-messages-payloads.md).
+
+# [Functions 1.x](#tab/functionsv1/csharp-script)
 
 The following parameter types are available for the queue or topic message:
 
-* `string` - If the message is text.
-* `byte[]` - Useful for binary data.
-* A custom type - If the message contains JSON, Azure Functions tries to deserialize the JSON data.
-* `BrokeredMessage` - Gives you the deserialized message with the [BrokeredMessage.GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
-  method.
-
-These parameters are for Azure Functions version 1.x; for 2.x and higher, use [`Message`](/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
-
-### Additional types 
-Apps using the 5.0.0 or higher version of the Service Bus extension use the `ServiceBusReceivedMessage` type in [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) instead of the one in the [Microsoft.Azure.ServiceBus](/dotnet/api/microsoft.azure.servicebus.message) namespace. This version drops support for the legacy `Message` type in favor of the following types:
-
-- [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage)
+* [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) - Gives you the deserialized message with the [BrokeredMessage.GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) method.
+* [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) - Used to receive and acknowledge messages from the message container, which is required when `autoComplete` is set to `false`.
 
 ---
 
+When the `Connection` property isn't defined, Functions looks for an app setting named `AzureWebJobsServiceBus`, which is the default name for the Service Bus connection string. You can also set the `Connection` property to specify the name of an application setting that contains the Service Bus connection string to use.
+
 ::: zone-end  
-<!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-java"
 
 The incoming Service Bus message is available via a `ServiceBusQueueMessage` or `ServiceBusTopicMessage` parameter.
-
-[See the example for details](#example).
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
@@ -435,7 +408,10 @@ The Service Bus instance is available via the parameter configured in the *funct
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
 The queue message is available to the function via a parameter typed as `func.ServiceBusMessage`. The Service Bus message is passed into the function as either a string or JSON object.
-::: zone-end  
+::: zone-end 
+For a complete example, see [the examples section](#example).
+
+[!INCLUDE [functions-service-bus-connections](../../includes/functions-service-bus-connections.md)]
 
 ## Poison messages
 
@@ -447,9 +423,49 @@ The Functions runtime receives a message in [PeekLock mode](../service-bus-messa
 
 The `maxAutoRenewDuration` is configurable in *host.json*, which maps to [OnMessageOptions.MaxAutoRenewDuration](/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration). The maximum allowed for this setting is 5 minutes according to the Service Bus documentation, whereas you can increase the Functions time limit from the default of 5 minutes to 10 minutes. For Service Bus functions you wouldn’t want to do that then, because you’d exceed the Service Bus renewal limit.
 
+::: zone pivot="programming-language-csharp" 
 ## Message metadata
 
-The Service Bus trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These properties are members of the [Message](/dotnet/api/microsoft.azure.servicebus.message) class.
+Messaging-specific types let you easily retrieve [metadata as properties of the object](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties depend on the Functions runtime version, the extension package version, and the C# modality used.
+
+# [Extension v5.x](#tab/extensionv5/in-process)
+
+These properties are members of the [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) class.
+
+|Property|Type|Description|
+|--------|----|-----------|
+|`ApplicationProperties`|`ApplicationProperties`|Properties set by the sender.|
+|`ContentType`|`string`|A content type identifier utilized by the sender and receiver for application-specific logic.|
+|`CorrelationId`|`string`|The correlation ID.|
+|`DeliveryCount`|`Int32`|The number of deliveries.|
+|`EnqueuedTime`|`DateTime`|The enqueued time in UTC.|
+|`ScheduledEnqueueTimeUtc`|`DateTime`|The scheduled enqueued time in UTC.|
+|`ExpiresAt`|`DateTime`|The expiration time in UTC.|
+|`MessageId`|`string`|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|`ReplyTo`|`string`|The reply to queue address.|
+|`Subject`|`string`|The application-specific label which can be used in place of the `Label` metadata property.|
+|`To`|`string`|The send to address.|
+
+# [Functions 2.x and higher](#tab/functionsv2/in-process)
+
+These properties are members of the [Message](/dotnet/api/microsoft.azure.servicebus.message) class.
+
+|Property|Type|Description|
+|--------|----|-----------|
+|`ContentType`|`string`|A content type identifier utilized by the sender and receiver for application-specific logic.|
+|`CorrelationId`|`string`|The correlation ID.|
+|`DeliveryCount`|`Int32`|The number of deliveries.|
+|`ScheduledEnqueueTimeUtc`|`DateTime`|The scheduled enqueued time in UTC.|
+|`ExpiresAtUtc`|`DateTime`|The expiration time in UTC.|
+|`Label`|`string`|The application-specific label.|
+|`MessageId`|`string`|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|`ReplyTo`|`string`|The reply to queue address.|
+|`To`|`string`|The send to address.|
+|`UserProperties`|`IDictionary<string, object>`|Properties set by the sender. |
+
+# [Functions 1.x](#tab/functionsv1/in-process)
+
+These properties are members of the [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) and [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) classes.
 
 |Property|Type|Description|
 |--------|----|-----------|
@@ -466,21 +482,83 @@ The Service Bus trigger provides several [metadata properties](./functions-bindi
 |`ReplyTo`|`string`|The reply to queue address.|
 |`SequenceNumber`|`long`|The unique number assigned to a message by the Service Bus.|
 |`To`|`string`|The send to address.|
-|`UserProperties`|`IDictionary<string, object>`|Properties set by the sender. (For version 5.x+ of the extension this is not supported, please use `ApplicationProperties`.)|
+|`UserProperties`|`IDictionary<string, object>`|Properties set by the sender. |
 
-See [code examples](#example) that use these properties earlier in this article.
+# [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
-### Additional message metadata
+Messaging-specific types are not yet supported.
 
-The below metadata properties are supported for apps using 5.0.0 of the extension or higher. These properties are members of the [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) class.
+# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
+
+Messaging-specific types are not yet supported.
+
+# [Functions 1.x](#tab/functionsv1/isolated-process)
+
+Messaging-specific types are not yet supported.
+
+# [Extension 5.x and higher](#tab/extensionv5/csharp-script)
+
+These properties are members of the [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) class.
 
 |Property|Type|Description|
 |--------|----|-----------|
-|`ApplicationProperties`|`ApplicationProperties`|Properties set by the sender. Use this in place of the `UserProperties` metadata property.|
+|`ApplicationProperties`|`ApplicationProperties`|Properties set by the sender.|
+|`ContentType`|`string`|A content type identifier utilized by the sender and receiver for application-specific logic.|
+|`CorrelationId`|`string`|The correlation ID.|
+|`DeliveryCount`|`Int32`|The number of deliveries.|
+|`EnqueuedTime`|`DateTime`|The enqueued time in UTC.|
+|`ScheduledEnqueueTimeUtc`|`DateTime`|The scheduled enqueued time in UTC.|
+|`ExpiresAt`|`DateTime`|The expiration time in UTC.|
+|`MessageId`|`string`|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|`ReplyTo`|`string`|The reply to queue address.|
 |`Subject`|`string`|The application-specific label which can be used in place of the `Label` metadata property.|
-|`MessageActions`|`ServiceBusMessageActions`|The set of actions which can be performed on a `ServiceBusReceivedMessage`. This can be used in place of the `MessageReceiver` metadata property.
-|`SessionActions`|`ServiceBusSessionMessageActions`|The set of actions that can be performed on a session and a `ServiceBusReceivedMessage`. This can be used in place of the `MessageSession` metadata property.|
+|`To`|`string`|The send to address.|
+
+# [Functions 2.x and higher](#tab/functionsv2/csharp-script)
+
+These properties are members of the [Message](/dotnet/api/microsoft.azure.servicebus.message) class.
+
+|Property|Type|Description|
+|--------|----|-----------|
+|`ContentType`|`string`|A content type identifier utilized by the sender and receiver for application-specific logic.|
+|`CorrelationId`|`string`|The correlation ID.|
+|`DeliveryCount`|`Int32`|The number of deliveries.|
+|`ScheduledEnqueueTimeUtc`|`DateTime`|The scheduled enqueued time in UTC.|
+|`ExpiresAtUtc`|`DateTime`|The expiration time in UTC.|
+|`Label`|`string`|The application-specific label.|
+|`MessageId`|`string`|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|`ReplyTo`|`string`|The reply to queue address.|
+|`To`|`string`|The send to address.|
+|`UserProperties`|`IDictionary<string, object>`|Properties set by the sender. |
+
+# [Functions 1.x](#tab/functionsv1/csharp-script)
+
+These properties are members of the [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) and [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) classes.
+
+|Property|Type|Description|
+|--------|----|-----------|
+|`ContentType`|`string`|A content type identifier utilized by the sender and receiver for application-specific logic.|
+|`CorrelationId`|`string`|The correlation ID.|
+|`DeadLetterSource`|`string`|The dead letter source.|
+|`DeliveryCount`|`Int32`|The number of deliveries.|
+|`EnqueuedTimeUtc`|`DateTime`|The enqueued time in UTC.|
+|`ExpiresAtUtc`|`DateTime`|The expiration time in UTC.|
+|`Label`|`string`|The application-specific label.|
+|`MessageId`|`string`|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|`MessageReceiver`|`MessageReceiver`|Service Bus message receiver. Can be used to abandon, complete, or deadletter the message.|
+|`MessageSession`|`MessageSession`|A message receiver specifically for session-enabled queues and topics.|
+|`ReplyTo`|`string`|The reply to queue address.|
+|`SequenceNumber`|`long`|The unique number assigned to a message by the Service Bus.|
+|`To`|`string`|The send to address.|
+|`UserProperties`|`IDictionary<string, object>`|Properties set by the sender. |
+
+---
+
+::: zone-end
 
 ## Next steps
 
 - [Send Azure Service Bus messages from Azure Functions (Output binding)](./functions-bindings-service-bus-output.md)
+
+
+[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
