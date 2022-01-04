@@ -25,7 +25,7 @@ Updates in January include:
 - [Microsoft Defender for Resource Manager updated with new alerts and greater emphasis on MITRE ATT&CK® Matrix](#microsoft-defender-for-resource-manager-updated-with-new-alerts-and-greater-emphasis-on-mitre-attck-matrix)
 
 
-### Microsoft Defender for Resource Manager updated with new alerts and greater emphasis on MITRE ATT&CK® Matrix 
+### Microsoft Defender for Resource Manager updated with new alerts and greater emphasis on high-risk operations mapped to MITRE ATT&CK® Matrix
 
 The cloud management layer is a crucial service connected to all your cloud resources. Because of this, it is also a potential target for attackers. Consequently, we recommend security operations teams closely monitor the resource management layer.
 
@@ -35,7 +35,7 @@ The plan's protections greatly enhance an organization's resiliency against atta
 
 In December 2020, we introduced the preview of Defender for Resource Manager, and in May 2021 the plan was release for general availability. 
 
-With this update, we've comprehensively revised the focus of the Microsoft Defender for Resource Manager plan. The updated plan includes many new alerts and a greater emphasis on monitoring for attacks across the *complete* [MITRE ATT&CK® matrix for cloud-based techniques](https://attack.mitre.org/matrices/enterprise/cloud/).
+With this update, we've comprehensively revised the focus of the Microsoft Defender for Resource Manager plan. The updated plan includes many **new alerts focused on identifying suspicious invocation of high-risk operations**. These new alerts provide extensive monitoring for attacks across the *complete* [MITRE ATT&CK® matrix for cloud-based techniques](https://attack.mitre.org/matrices/enterprise/cloud/).
 
 This matrix covers the following range of potential intentions of threat actors who may be targeting your organization's resources: *Initial Access, Execution, Persistence, Privilege Escalation, Defense Evasion, Credential Access, Discovery, Lateral Movement, Collection, Exfiltration, and Impact*.
 
