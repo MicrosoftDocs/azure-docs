@@ -57,6 +57,8 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 | ecdsa-sha2-nistp384| diffie-hellman-group16-sha512 | aes256-cbc |  | 
 ||| aes192-cbc ||
 
+SFTP support for Azure Blob Storage currently limits its cryptographic algorithm support in accordance to the Microsoft Security Development Lifecycle (SDL). We strongly recommend that customers utilize SDL approved algorithms to securely access their data. More details can be found [here](/security/sdl/cryptographic-recommendations)
+
 ## Security
 
 - Host keys are published [here](secure-file-transfer-protocol-host-keys.md). During the public preview, host keys will rotate up to once per month.
