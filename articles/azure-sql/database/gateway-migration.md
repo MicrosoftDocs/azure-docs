@@ -22,7 +22,6 @@ To avoid service disruptions during refreshes, allow the communication with SQL 
 
 Customers can [use the Azure portal to set up activity log alerts](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
-The most up-to-date information will be maintained in the [Azure SQL Database gateway IP addresses](connectivity-architecture.md#gateway-ip-addresses) table.
 
 ## Status updates
 
