@@ -49,6 +49,50 @@ The cause of this problem can be one of three things:
 
     :::image type="content" source="./media/troubleshoot-issues/remove-encoding-rule.png" alt-text="Screenshot of accept-encoding rule in a Rule Set.":::
 
+## 503 responses from Azure Front Door only for HTTPS
+
+### Symptom
+
+*	503 responses are returned only for AFD HTTPS enabled endpoints
+*	Regular requests sent to your backend without going through Azure Front Door are succeeding. Going via Azure Front Door results in 503 error responses.
+*	Intermittent 503 errors with log `ErrorInfo: OriginInvalidResponse`
+
+### Cause
+The cause of this problem can be one of three things:
+*	Backend Pool is an IP address
+*	Backend Server is returning a certificate that does not match the FQDN of the AFD backend Pool
+*	Backend Pool is an Azure Web Apps server
+
+### Troubleshooting steps
+
+*	Backend Pool is an IP address
+
+    `EnforceCertificateNameCheck` must be disabled.
+    
+    AFD has a switch called "enforceCertificateNameCheck". By default, this setting is enabled. When enabled, AFD checks that the backend pool host name FQDN matches the backend server certificate's Certificate Name (CN) or one of the entries in the Subject Alternative Names (SAN) extension.
+
+    How to disable EnforceCertifiateNameCheck from Portal:
+    
+    In the portal there is a toggle button, that will allow you to turn this on/off in the Azure Front Door Design Blade.
+    
+    ![image](https://user-images.githubusercontent.com/63200992/148067710-1b9b6053-efe3-45eb-859f-f747de300653.png)
+
+*	Backend Server is returning a certificate that does not match the FQDN of the AFD backend Pool
+
+    a. To resolve we will either need the certificate returned to match the FQDN (or)
+    
+    b. The EnforceCertificateNameCheck must be disabled
+  
+*	Backend Pool is an Azure Web Apps server
+
+    a. Check if Azure web app is configured with Ip Based SSL instead of SNI based. If it’s configured as IpBased then this should be changed to SNI.
+    
+    b. If the backend is unhealthy due to a certificate failure, we will return a 503. You can verify the health of the backends on port 80 and 443.  If only 443 is unhealthy, this is likely an issue with SSL.  Since the backend is configured to use the FQDN, we know it’s sending SNI.
+
+    Using OPENSSL, verify the certificate that is being returned. To do this, connect to the backend using "-servername" and it should return the SNI which needs to match with the FQDN of the backend pool.
+
+    _openssl s_client -connect backendvm.contoso.com:443  -servername backendvm.contoso.com_
+    
 ## Requests sent to the custom domain return a 400 status code
 
 ### Symptom
