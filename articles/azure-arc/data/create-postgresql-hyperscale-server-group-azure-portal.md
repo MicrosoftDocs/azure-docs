@@ -62,7 +62,7 @@ After you deployed an Arc data controller enabled for Direct connectivity mode, 
 
 ### Option 1: Deploy from the Azure Marketplace
 1. Open a browser to the following URL [https://portal.azure.com](https://portal.azure.com)
-2. In the search window at the top of the page search for "*azure arc postgres*" in the Azure Market Place and select **Azure Database for PostgreSQL server groups - Azure Arc**.
+2. In the search window at the top of the page search for "*azure arc postgres*" in the Azure Market Place and select **Azure Arc-enabled PostgreSQL Hyperscale server groups**.
 3. In the page that opens, click **+ Create** at the top left corner. 
 4. Fill in the form like you deploy an other Azure resource.
 
