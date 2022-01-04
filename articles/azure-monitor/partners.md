@@ -57,6 +57,16 @@ Customers can deploy the BMC Helix platform with the cloud deployment of their c
 
 See the [Botmetric introduction for Azure](https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/).
 
+## Centreon
+
+Centreon’s IT monitoring platform provides holistic visibility to complex IT workflows from Cloud-to-Edge.
+
+The Centreon Plugin Pack library includes a complete set of configuration templates and auto-discovery rules to monitor your Microsoft Azure environment for a clear and comprehensive view.
+
+Centreon's Auto-Discovery Engine seamlessly integrates with Azure Monitor to automatically discover and then constantly monitor your cloud infrastructure, from Azure VMs to DevOps environment or Cosmos DB, and many more! 
+
+For more information, see the [Centreon Documentation](https://docs.centreon.com/en/current).
+
 ## Circonus
 
 ![Circonus logo.](./media/partners/circonus.png)
