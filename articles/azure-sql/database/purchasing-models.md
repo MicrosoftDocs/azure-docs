@@ -53,7 +53,7 @@ If your database consumes more than 300 DTUs, converting to the vCore-based purc
 
 To convert from the DTU-based purchasing model to the vCore-based purchasing model, see [Migrate from DTU to vCore](migrate-dtu-to-vcore.md).
 
-## Compare models
+## Compare purchasing models
 
 
 The following table and chart compare and contrast the vCore-based and the DTU-based purchasing models:
@@ -66,9 +66,7 @@ The following table and chart compare and contrast the vCore-based and the DTU-b
 
 :::image type="content" source="./media/purchasing-models/pricing-model.png" alt-text="Pricing model comparison" lightbox="./media/purchasing-models/pricing-model.png":::
 
-Want to optimize and save on your cloud spending?
 
-[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## Compute costs
 

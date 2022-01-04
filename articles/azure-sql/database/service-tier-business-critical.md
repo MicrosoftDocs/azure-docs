@@ -22,11 +22,11 @@ This article describes and compares the business critical service tier used by A
 
 ## Overview
 
-The business critical service tier model is based on a cluster of database engine processes. This architectural model relies on a fact that there is always a quorum of available database engine nodes and has minimal performance impact on your workload even during maintenance activities. The hyperscale service tier is currently only available for Azure SQL Database (not SQL Managed Instance), and is a highly scalable storage and compute performance tier that leverages the Azure architecture to scale out the storage and compute resources for a database in Azure SQL Database substantially beyond the limits available for the general purpose and business critical service tiers.
+The business critical service tier model is based on a cluster of database engine processes. This architectural model relies on a fact that there is always a quorum of available database engine nodes and has minimal performance impact on your workload even during maintenance activities. 
 
 Azure upgrades and patches underlying operating system, drivers, and SQL Server database engine transparently with the minimal down-time for end users. 
 
-Premium availability is enabled in the business critical service tier and is designed for intensive workloads that cannot tolerate any performance impact due to the ongoing maintenance operations.
+Premium availability is enabled in the business critical service tier and is designed for intensive workloads that cannot tolerate reduced availability due to the ongoing maintenance operations.
 
 Compute and storage is integrated on the single node in the premium model. High availability in this architectural model is achieved by replication of compute (SQL Server database engine process) and storage (locally attached SSD) deployed to a  four node cluster, using technology similar to SQL Server [Always On availability groups](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server).
 
