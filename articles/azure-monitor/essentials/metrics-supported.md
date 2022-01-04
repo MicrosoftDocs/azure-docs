@@ -54,6 +54,7 @@ The Azure Monitor agent replaces the Azure Diagnostics extension and Log Analyti
 
 This latest update adds a new column and reorders the metrics to be alphabetical. The additional information means that the tables might have a horizontal scroll bar at the bottom, depending on the width of your browser window. If you seem to be missing information, use the scroll bar to see the entirety of the table.
 
+
 ## Microsoft.AnalysisServices/servers
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
