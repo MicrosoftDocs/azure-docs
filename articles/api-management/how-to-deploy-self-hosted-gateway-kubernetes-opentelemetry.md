@@ -19,7 +19,7 @@ This article describes the steps for deploying the self-hosted gateway component
 You learn how to:
 
 > [!div class="checklist"]
-> * Configure & deploy a standalone OpenTelemetry Collector on Kubernetes
+> * Configure and deploy a standalone OpenTelemetry Collector on Kubernetes
 > * Deploy the self-hosted gateway with OpenTelemetry metrics.
 > * Generate metrics by consuming APIs on the self-hosted gateway.
 > * Use the metrics from the OpenTelemetry Collector.
@@ -35,7 +35,7 @@ You learn how to:
 We will start by deploying a standalone OpenTelemetry Collector on Kubernetes by using Helm.
 
 > [!TIP]
-> While we will be using the Collector Helm chart, they also provide an [OpenTelemetry Collector Operator](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-operator) allowing you to use
+> While we will be using the Collector Helm chart, they also provide an [OpenTelemetry Collector Operator](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-operator)
 
 To start with, we have to add the Helm chart repository:
 1. Add the Helm repository
@@ -143,7 +143,7 @@ In this section, we will deploy the self-hosted gateway to our cluster with Helm
    ```
 
 > [!NOTE]
-> `opentelemetry-collector` in the command above is the name of  the OpenTelemetry Collector, align the name if your service has a different name.
+> `opentelemetry-collector` in the command above is the name of  the OpenTelemetry Collector. Update the name if your service has a different name.
 
 2. Verify the installation by getting all the resources for our Helm chart
  
@@ -164,11 +164,11 @@ In this section, we will deploy the self-hosted gateway to our cluster with Helm
     
 3. Take note of the external IP of the self-hosted gateway's service, so we can query it later on.
 
-## Generate & consume the OpenTelemetry metrics
+## Generate and consume the OpenTelemetry metrics
 
 Now that both our OpenTelemetry Collector and the self-hosted gateway are deployed, we can start consuming the APIs to generate metrics.
 
-> [!WARNING]
+> [!NOTE]
 > We will be consuming the default "Echo API" for this walkthrough.
 > 
 > Make sure that it is configured to:
@@ -178,7 +178,7 @@ Now that both our OpenTelemetry Collector and the self-hosted gateway are deploy
 1. Query the Echo API in the self-hosted gateway:
 
     ```console
-    $ curl -i "http://<self-hosted-gateway-ip>:8080/echo/resource?param1=sample&subscription-key=9434ccd147714d20b1dd8ec46ae45a02"
+    $ curl -i "http://<self-hosted-gateway-ip>:8080/echo/resource?param1=sample&subscription-key=abcdef0123456789"
     HTTP/1.1 200 OK
     Date: Mon, 20 Dec 2021 12:58:09 GMT
     Server: Microsoft-IIS/8.5
@@ -205,66 +205,22 @@ The self-hosted gateway will now measure the request and send the metrics to the
     # HELP azure_apim_BackendDurationInMs 
     # TYPE azure_apim_BackendDurationInMs histogram
     azure_apim_BackendDurationInMs_bucket{Hostname="20.71.82.110",le="5"} 0 1640093731340
-    azure_apim_BackendDurationInMs_bucket{Hostname="20.71.82.110",le="10"} 0 1640093731340
-    azure_apim_BackendDurationInMs_bucket{Hostname="20.71.82.110",le="25"} 0 1640093731340
-    azure_apim_BackendDurationInMs_bucket{Hostname="20.71.82.110",le="50"} 0 1640093731340
-    azure_apim_BackendDurationInMs_bucket{Hostname="20.71.82.110",le="100"} 0 1640093731340
-    azure_apim_BackendDurationInMs_bucket{Hostname="20.71.82.110",le="250"} 21 1640093731340
-    azure_apim_BackendDurationInMs_bucket{Hostname="20.71.82.110",le="500"} 22 1640093731340
-    azure_apim_BackendDurationInMs_bucket{Hostname="20.71.82.110",le="1000"} 22 1640093731340
-    azure_apim_BackendDurationInMs_bucket{Hostname="20.71.82.110",le="2500"} 22 1640093731340
-    azure_apim_BackendDurationInMs_bucket{Hostname="20.71.82.110",le="5000"} 22 1640093731340
-    azure_apim_BackendDurationInMs_bucket{Hostname="20.71.82.110",le="10000"} 22 1640093731340
-    azure_apim_BackendDurationInMs_bucket{Hostname="20.71.82.110",le="+Inf"} 22 1640093731340
-    azure_apim_BackendDurationInMs_sum{Hostname="20.71.82.110"} 3428 1640093731340
+    [...]
     azure_apim_BackendDurationInMs_count{Hostname="20.71.82.110"} 22 1640093731340
     # HELP azure_apim_ClientDurationInMs 
     # TYPE azure_apim_ClientDurationInMs histogram
     azure_apim_ClientDurationInMs_bucket{Hostname="20.71.82.110",le="5"} 22 1640093731340
-    azure_apim_ClientDurationInMs_bucket{Hostname="20.71.82.110",le="10"} 22 1640093731340
-    azure_apim_ClientDurationInMs_bucket{Hostname="20.71.82.110",le="25"} 22 1640093731340
-    azure_apim_ClientDurationInMs_bucket{Hostname="20.71.82.110",le="50"} 22 1640093731340
-    azure_apim_ClientDurationInMs_bucket{Hostname="20.71.82.110",le="100"} 22 1640093731340
-    azure_apim_ClientDurationInMs_bucket{Hostname="20.71.82.110",le="250"} 22 1640093731340
-    azure_apim_ClientDurationInMs_bucket{Hostname="20.71.82.110",le="500"} 22 1640093731340
-    azure_apim_ClientDurationInMs_bucket{Hostname="20.71.82.110",le="1000"} 22 1640093731340
-    azure_apim_ClientDurationInMs_bucket{Hostname="20.71.82.110",le="2500"} 22 1640093731340
-    azure_apim_ClientDurationInMs_bucket{Hostname="20.71.82.110",le="5000"} 22 1640093731340
-    azure_apim_ClientDurationInMs_bucket{Hostname="20.71.82.110",le="10000"} 22 1640093731340
-    azure_apim_ClientDurationInMs_bucket{Hostname="20.71.82.110",le="+Inf"} 22 1640093731340
-    azure_apim_ClientDurationInMs_sum{Hostname="20.71.82.110"} 3 1640093731340
+    [...]
     azure_apim_ClientDurationInMs_count{Hostname="20.71.82.110"} 22 1640093731340
     # HELP azure_apim_DurationInMs 
     # TYPE azure_apim_DurationInMs histogram
     azure_apim_DurationInMs_bucket{Hostname="20.71.82.110",le="5"} 0 1640093731340
-    azure_apim_DurationInMs_bucket{Hostname="20.71.82.110",le="10"} 0 1640093731340
-    azure_apim_DurationInMs_bucket{Hostname="20.71.82.110",le="25"} 0 1640093731340
-    azure_apim_DurationInMs_bucket{Hostname="20.71.82.110",le="50"} 0 1640093731340
-    azure_apim_DurationInMs_bucket{Hostname="20.71.82.110",le="100"} 0 1640093731340
-    azure_apim_DurationInMs_bucket{Hostname="20.71.82.110",le="250"} 0 1640093731340
-    azure_apim_DurationInMs_bucket{Hostname="20.71.82.110",le="500"} 21 1640093731340
-    azure_apim_DurationInMs_bucket{Hostname="20.71.82.110",le="1000"} 22 1640093731340
-    azure_apim_DurationInMs_bucket{Hostname="20.71.82.110",le="2500"} 22 1640093731340
-    azure_apim_DurationInMs_bucket{Hostname="20.71.82.110",le="5000"} 22 1640093731340
-    azure_apim_DurationInMs_bucket{Hostname="20.71.82.110",le="10000"} 22 1640093731340
-    azure_apim_DurationInMs_bucket{Hostname="20.71.82.110",le="+Inf"} 22 1640093731340
-    azure_apim_DurationInMs_sum{Hostname="20.71.82.110"} 7096 1640093731340
+    [...]
     azure_apim_DurationInMs_count{Hostname="20.71.82.110"} 22 1640093731340
     # HELP azure_apim_GatewayDurationInMs 
     # TYPE azure_apim_GatewayDurationInMs histogram
     azure_apim_GatewayDurationInMs_bucket{Hostname="20.71.82.110",le="5"} 0 1640093731340
-    azure_apim_GatewayDurationInMs_bucket{Hostname="20.71.82.110",le="10"} 0 1640093731340
-    azure_apim_GatewayDurationInMs_bucket{Hostname="20.71.82.110",le="25"} 0 1640093731340
-    azure_apim_GatewayDurationInMs_bucket{Hostname="20.71.82.110",le="50"} 0 1640093731340
-    azure_apim_GatewayDurationInMs_bucket{Hostname="20.71.82.110",le="100"} 0 1640093731340
-    azure_apim_GatewayDurationInMs_bucket{Hostname="20.71.82.110",le="250"} 21 1640093731340
-    azure_apim_GatewayDurationInMs_bucket{Hostname="20.71.82.110",le="500"} 21 1640093731340
-    azure_apim_GatewayDurationInMs_bucket{Hostname="20.71.82.110",le="1000"} 22 1640093731340
-    azure_apim_GatewayDurationInMs_bucket{Hostname="20.71.82.110",le="2500"} 22 1640093731340
-    azure_apim_GatewayDurationInMs_bucket{Hostname="20.71.82.110",le="5000"} 22 1640093731340
-    azure_apim_GatewayDurationInMs_bucket{Hostname="20.71.82.110",le="10000"} 22 1640093731340
-    azure_apim_GatewayDurationInMs_bucket{Hostname="20.71.82.110",le="+Inf"} 22 1640093731340
-    azure_apim_GatewayDurationInMs_sum{Hostname="20.71.82.110"} 3646 1640093731340
+    [...]
     azure_apim_GatewayDurationInMs_count{Hostname="20.71.82.110"} 22 1640093731340
     # HELP azure_apim_Requests 
     # TYPE azure_apim_Requests counter
