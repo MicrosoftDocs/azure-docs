@@ -45,7 +45,6 @@ Hardware generations have different characteristics, as described in the followi
 ### Regional support for premium-series hardware generations (preview)
 
 Support for the premium-series hardware generations (public preview) is currently available only in these specific regions: <br>
-Last updated: 11/24/2021
 
 | Region | **Premium-series** | **Memory optimized premium-series** | 
 |:--- |:--- |:--- |
