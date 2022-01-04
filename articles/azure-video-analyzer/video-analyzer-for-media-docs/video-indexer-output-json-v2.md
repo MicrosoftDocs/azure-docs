@@ -271,6 +271,7 @@ Example:
 |top|The top location in px|
 |left| The left location in px|
 |width|The width of the  OCR rectangle|
+|angle|The angle of the OCR rectangle, from -180 to 180. 0 means left to right horizontal, 90 means top to bottom vertical, 180 means right to left horizontal and -90 means bottom to top vertical. 30 means from top left to bottom right. |
 
 ```json
 "ocr": [
@@ -282,7 +283,8 @@ Example:
       "language": "en-US",
       "left": 31,
       "top": 97,
-      "width": 400,      
+      "width": 400,
+      "angle": 30,
       "instances": [
         {
           "start": "00:00:26",
