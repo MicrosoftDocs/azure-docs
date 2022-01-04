@@ -372,11 +372,11 @@ az vm extension set \
   --protected-settings ./protected-config.json
 ```
 
-## Virtual Machine Scale Sets
->[!NOTE]
->When deploying the Custom Script Extension from the Azure Portal you don't have control over the expiration of the SAS token for accessing the script in your storage account. So this means that the initial deployment will work, but then after the storage account SAS token expires any subsequent scaling operation will fail as the CSE can no longer access the storage account.
->
->For this reason it is highly recommended to use [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.Compute/Add-azVmssExtension?view=azps-7.0.0), [CLI](https://docs.microsoft.com/en-us/cli/azure/vmss/extension?view=azure-cli-latest), or an ARM template when deploying the Custom Script Extension on a VMSS. This way you can choose to use a managed identity or have direct control of the expiration of the SAS token for accessing the script in your storage account for as long as you need.
+## Virtual machine scale sets
+
+If you deploy the Custom Script Extension from the Azure portal, you don't have control over the expiration of the shared access signature token for accessing the script in your storage account. The result is that the initial deployment works, but when the storage account shared access signature token expires, any subsequent scaling operation fails because the Custom Script Extension can no longer access the storage account.
+
+We recommend that you use [PowerShell](/powershell/module/az.Compute/Add-azVmssExtension?view=azps-7.0.0), the [Azure CLI](/cli/azure/vmss/extension?view=azure-cli-latest), or an Azure Resource Manager template when you deploy the Custom Script Extension on a virtual machine scale set. This way, you can choose to use a managed identity or have direct control of the expiration of the shared access signature token for accessing the script in your storage account for as long as you need.
 
 ## Troubleshooting
 When the Custom Script Extension runs, the script is created or downloaded into a directory that's similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` files.
