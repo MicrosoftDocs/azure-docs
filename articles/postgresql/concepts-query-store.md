@@ -109,7 +109,7 @@ View and manage Query Store using the following views and functions. Anyone in t
 Queries are normalized by looking at their structure after removing literals and constants. If two queries are identical except for literal values, they will have the same hash.
 
 ### query_store.qs_view
-This view returns all the data in Query Store. There is one row for each distinct database ID, user ID, and query ID. 
+This view returns query text data in Query Store. There is one row for each distinct query_text. The data isn't available via the Intelligent Performance section in the portal, APIs, or the CLI - but It can be found by connecting to azure_sys and querying 'query_store.query_texts_view'.
 
 |**Name**	|**Type** |	**References**	| **Description**|
 |---|---|---|---|
