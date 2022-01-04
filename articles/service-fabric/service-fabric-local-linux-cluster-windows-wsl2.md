@@ -58,13 +58,13 @@ For manual installation of the Service Fabric runtime and common SDK, follow the
 ## Set up a local cluster
 Service Fabric inside WSL2 VM is recommended to manage from host windows
 
-1. Install Service Fabric SDK (verson >= 5.2.186) in Windows host
+1. Install Service Fabric SDK (version >= 5.3) in Windows host
 
 2. In Windows, cluster can be managed using ServiceFabricLocalClusterManager tool provided as part of SF SDK
 
-3. Option to manage Linux Local Cluster is enabled only when a. WSL2 VM is running and b. Systemd-genie, servicefabricruntime, and servicefabricsdkcommon packages are properly installed inside VM. You can set up or switch to Linux Local Cluster from this tool.
+3. Option to manage Linux Local Cluster is enabled only when a. WSL2 VM is running, b. Systemd-genie, servicefabricruntime, and servicefabricsdkcommon packages are properly installed inside VM and c. Systemd-genie is in running state. You can set up or switch to Linux Local Cluster from this tool.
 
-4. Another way of setting up linux cluster is to deploy using cluster setup scripts provided as part SD SDK.
+4. Another way of setting up linux cluster is to deploy using cluster setup scripts provided as part SF SDK.
 
 5. Open a web browser and go to Service Fabric Explorer ``http://localhost:19080``. When the cluster starts, you see the Service Fabric Explorer dashboard. It might take several minutes for the cluster to be set up.
    If your browser fails to open the URL or Service Fabric Explorer doesn't show the cluster, wait for a few minutes and try again. You can also see the cluster in ServiceFabricExplorer provided in SF SDK.
