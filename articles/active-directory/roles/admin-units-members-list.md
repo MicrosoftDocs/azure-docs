@@ -87,7 +87,7 @@ You can list the users, groups, or devices in administrative units using the Azu
 
 Use the [Get-AzureADMSAdministrativeUnit](/powershell/module/azuread/get-azureadmsadministrativeunit) and [Get-AzureADMSAdministrativeUnitMember](/powershell/module/azuread/get-azureadmsadministrativeunitmember) commands to list users or groups for an administrative unit.
 
-Use the [Get-AzureADMSAdministrativeUnit (Preview)](/powershell/module/azuread/get-azureadmsadministrativeunit?view=azureadps-2.0-preview) and [Get-AzureADMSAdministrativeUnitMember (Preview)](/powershell/module/azuread/get-azureadmsadministrativeunitmember?view=azureadps-2.0-preview) commands to list devices for an administrative unit.
+Use the [Get-AzureADMSAdministrativeUnit (Preview)](/powershell/module/azuread/get-azureadmsadministrativeunit?view=azureadps-2.0-preview&preserve-view=true) and [Get-AzureADMSAdministrativeUnitMember (Preview)](/powershell/module/azuread/get-azureadmsadministrativeunitmember?view=azureadps-2.0-preview&preserve-view=true) commands to list devices for an administrative unit.
 
 > [!NOTE]
 > By default, [Get-AzureADMSAdministrativeUnitMember](/powershell/module/azuread/get-azureadmsadministrativeunitmember) returns only top members of an administrative unit. To retrieve all members, add the `-All $true` parameter.
@@ -149,7 +149,7 @@ foreach ($member in (Get-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id)
 
 Use the [List members](/graph/api/administrativeunit-list-members) API to list users or groups for an administrative unit.
 
-Use the [List members (Beta)](/graph/api/administrativeunit-list-members?view=graph-rest-beta) API to list devices for an administrative unit.
+Use the [List members (Beta)](/graph/api/administrativeunit-list-members?view=graph-rest-beta&preserve-view=true) API to list devices for an administrative unit.
 
 ### List the administrative units for a user
 

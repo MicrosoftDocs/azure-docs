@@ -111,7 +111,7 @@ You can add users, groups, or devices to administrative units using the Azure po
 
 Use the [Add-AzureADMSAdministrativeUnitMember](/powershell/module/azuread/add-azureadmsadministrativeunitmember) command to add users or groups to an administrative unit.
 
-Use the [Add-AzureADMSAdministrativeUnitMember (Preview)](/powershell/module/azuread/add-azureadmsadministrativeunitmember?view=azureadps-2.0-preview) command to add devices to an administrative unit.
+Use the [Add-AzureADMSAdministrativeUnitMember (Preview)](/powershell/module/azuread/add-azureadmsadministrativeunitmember?view=azureadps-2.0-preview&preserve-view=true) command to add devices to an administrative unit.
 
 ### Add users to an administrative unit
 
@@ -141,7 +141,7 @@ Add-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id -RefObjectId $deviceO
 
 Use the [Add a member](/graph/api/administrativeunit-post-members) API to add users or groups to an administrative unit.
 
-Use the [Add a member (Beta)](/graph/api/administrativeunit-post-members?view=graph-rest-beta) API to add devices to an administrative unit.
+Use the [Add a member (Beta)](/graph/api/administrativeunit-post-members?view=graph-rest-beta&preserve-view=true) API to add devices to an administrative unit.
 
 
 ### Add users to an administrative unit

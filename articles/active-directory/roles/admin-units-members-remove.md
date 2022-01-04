@@ -103,7 +103,7 @@ You can remove users, groups, or devices from administrative units individually 
 
 Use the [Remove-AzureADMSAdministrativeUnitMember](/powershell/module/azuread/remove-azureadmsadministrativeunitmember) command to remove users or groups from an administrative unit.
 
-Use the [Remove-AzureADMSAdministrativeUnitMember (Preview)](/powershell/module/azuread/remove-azureadmsadministrativeunitmember?view=azureadps-2.0-preview) command to remove devices from an administrative unit.
+Use the [Remove-AzureADMSAdministrativeUnitMember (Preview)](/powershell/module/azuread/remove-azureadmsadministrativeunitmember?view=azureadps-2.0-preview&preserve-view=true) command to remove devices from an administrative unit.
 
 ### Remove users from an administrative unit
 
@@ -130,7 +130,7 @@ Remove-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitId -MemberId $devic
 
 Use the [Remove a member](/graph/api/administrativeunit-delete-members) API to remove users or groups from an administrative unit.
 
-Use the [Remove a member (Beta)](/graph/api/administrativeunit-delete-members?view=graph-rest-beta) API to remove devices from an administrative unit.
+Use the [Remove a member (Beta)](/graph/api/administrativeunit-delete-members?view=graph-rest-beta&preserve-view=true) API to remove devices from an administrative unit.
 
 ### Remove users from an administrative unit
 
