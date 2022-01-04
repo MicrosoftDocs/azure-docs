@@ -69,14 +69,14 @@ Examine:
     - [Review CPU metrics and related top queries in the Azure portal](#review-cpu-usage-metrics-and-related-top-queries-in-the-azure-portal) 
     - [Query the top recent 15 queries by CPU usage](#query-the-top-recent-15-queries-by-cpu-usage) with Transact-SQL.
     - [Use interactive Query Store tools in SSMS to identify top queries by CPU time](#use-interactive-query-store-tools-to-identify-top-queries-by-cpu-time)
-1. Are some queries in the workload using more CPU per execution than they did in the past? If so, has the query execution plan changed? These queries may [have parameter sensitive plan (PSP) problems](../identify-query-performance-issues.md). Use either of the following techniques to investigate. Look for queries with multiple query execution plans with significantly variation in CPU usage:
+1. Are some queries in the workload using more CPU per execution than they did in the past? If so, has the query execution plan changed? These queries may [have parameter sensitive plan (PSP) problems](../identify-query-performance-issues.md). Use either of the following techniques to investigate. Look for queries with multiple query execution plans with significant variation in CPU usage:
     - [Query the top recent 15 queries by CPU usage](#query-the-top-recent-15-queries-by-cpu-usage) with Transact-SQL.
     - [Use interactive Query Store tools in SSMS to identify top queries by CPU time](#use-interactive-query-store-tools-to-identify-top-queries-by-cpu-time)
 1. Is there evidence of a large amount of compilation or recompilation occurring? Query the [most frequently compiled queries by query hash](#query-the-most-frequently-compiled-queries-by-query-hash) and review how frequently they compile.
 1. Are queries using excessive parallelism? Query your [MAXDOP database scoped configuration](configure-max-degree-of-parallelism.md#maxdop-database-scoped-configuration-1) and review your [vCore count](#understand-vcore-count). Excessive parallelism often occurs in databases where MAXDOP is set to 0 with a core count higher than eight.
 
 > [!Note]
-> Azure SQL Database requires compute resources to implement core service features such as high availability and disaster recovery, database backup and restore, monitoring, Query Store, Automatic tuning, etc. Use of these compute resources may be particularly noticeable on databases with low vCore counts or databases in dense [Elastic pools](elastic-pool-overview.md). Learn more in [Resource management in Azure SQL Database](resource-limits-logical-server.md#resource-consumption-by-user-workloads-and-internal-processes).
+> Azure SQL Database requires compute resources to implement core service features such as high availability and disaster recovery, database backup and restore, monitoring, Query Store, automatic tuning, etc. Use of these compute resources may be particularly noticeable on databases with low vCore counts or databases in dense [elastic pools](elastic-pool-overview.md). Learn more in [Resource management in Azure SQL Database](resource-limits-logical-server.md#resource-consumption-by-user-workloads-and-internal-processes).
 
 
 ### Review CPU usage metrics and related top queries in the Azure portal
@@ -299,7 +299,7 @@ Select a bar in the chart to drill in and see queries running in a specific time
 
 In the default view, the **Top Resource Consuming Queries** pane shows queries by **Duration (ms)**. Duration may sometimes be lower than CPU time: queries using parallelism may use much more CPU time than their overall duration. Duration may also be higher than CPU time if waits were significant. To see queries by CPU time, select the **Metric** drop-down at the top left of the pane and select **CPU Time(ms)**.
 
-Each bar in the top-left quadrant represents a query. Select a bar to see details for that query. The top-right quadrant of the screen shows how many execution plans are in Query Store for that query, and maps them according to when they were executed and how much of your selected metric was used. Select each plan ID to control which query execution plan is displayed in the bottom half of the screen.
+Each bar in the top-left quadrant represents a query. Select a bar to see details for that query. The top-right quadrant of the screen shows how many execution plans are in Query Store for that query and maps them according to when they were executed and how much of your selected metric was used. Select each **Plan ID** to control which query execution plan is displayed in the bottom half of the screen.
 
 > [!NOTE]
 > For a guide to interpreting Query Store views and the shapes which appear in the Top Resource Consumers view, see [Best practices with Query Store](/sql/relational-databases/performance/best-practice-with-the-query-store#start-with-query-performance-troubleshooting)
@@ -368,17 +368,19 @@ WHERE name=N'MAXDOP';
 GO
 ```
 
-Consider experimenting with small changes in the MAXDOP configuration at the database level, or, modifying individual problematic queries to use a non-default MAXDOP using a query hint. For more information, see the examples in [configure max degree of parallelism](configure-max-degree-of-parallelism.md).
+Consider experimenting with small changes in the MAXDOP configuration at the database level, or modifying individual problematic queries to use a non-default MAXDOP using a query hint. For more information, see the examples in [configure max degree of parallelism](configure-max-degree-of-parallelism.md).
 
 ## When to add CPU resources
 
-In some cases you may find that your workload's queries and indexes are properly tuned, or that performance tuning requires changes that you cannot make in the short term due to internal processes or other reasons. Adding more CPU resources may be beneficial for these databases. You can [scale database resources with minimal downtime](scale-resources.md).
+You may find that your workload's queries and indexes are properly tuned, or that performance tuning requires changes that you cannot make in the short term due to internal processes or other reasons. Adding more CPU resources may be beneficial for these databases. You can [scale database resources with minimal downtime](scale-resources.md).
 
 You can add more CPU resources to your Azure SQL Database by configuring the vCore count or the [hardware generation](service-tiers-sql-database-vcore.md#hardware-generations) for databases using the [vCore purchase model](service-tiers-sql-database-vcore.md).
 
 Under the [DTU-based purchase model](service-tiers-dtu.md), you can raise your service tier and increase the number of database transaction units (DTUs). A DTU represents a blended measure of CPU, memory, reads, and writes.  One benefit of the vCore purchase model is that it allows more granular control over the hardware in use and the number of vCores. You can [migrate Azure SQL Database from the DTU-based model to the vCore-based model](migrate-dtu-to-vcore.md) to transition between purchase models.
 
 ## Next steps
+
+Learn more about monitoring and performance tuning Azure SQL Database in the following articles:
 
 * [Monitoring Azure SQL Database and Azure SQL Managed Instance performance using dynamic management views](monitoring-with-dmvs.md)
 * [SQL Server index architecture and design guide](/sql/relational-databases/sql-server-index-design-guide)
