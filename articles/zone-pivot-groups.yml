@@ -461,7 +461,7 @@ groups:
 # Service:       Active Directory (active-directory)
 # Sub-service:   Microsoft identity platform (develop)
 # Referenced by: /articles/active-directory/develop/*
-# Owner(s):      marsma, dmwendia, celested, ryanwi, cchiedo
+# Owner(s):      marsma, dmwendia, celested, ryanwi, cchiedo,henrymbugua
 ## SPA ##
 - id: web-app-quickstart
   title: web-app-quickstart
@@ -474,7 +474,7 @@ groups:
   - id: devlang-nodejs-msal
     title: Node.js - MSAL
   - id: devlang-nodejs-passport
-    title: Node.js - Passport.js
+    title: Node.js - Passport
   - id: devlang-java
     title: Java
   - id: devlang-python
