@@ -9,21 +9,21 @@ ms.custom: mode-api
 
 # Quickstart: Publish Bicep modules to private module registry
 
-Learn how to publish Bicep modules to private modules registry, and how to call the modules from your Bicep files.
+Learn how to publish Bicep modules to private modules registry, and how to call the modules from your Bicep files. Private module registry allows you to share Bicep modules within your organization.  To learn more, see [Create private registry for Bicep modules](./private-module-registry.md).
 
 ## Prerequisites
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-To work with module registries, you must have Bicep CLI version **0.4.1008** or later. To use with Azure CLI, you must also have version **2.31.0** or later; to use with Azure PowerShell, you must also have version **7.0.0** or later.
+To work with module registries, you must have Bicep CLI version **0.4.1008** or later. To use with Azure CLI, you must also have Azure CLI version **2.31.0** or later; to use with Azure PowerShell, you must also have Azure PowerShell version **7.0.0** or later.
 
 A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-registry/container-registry-intro.md). To create one, see [Quickstart: Create a container registry by using a Bicep file](../../container-registry/container-registry-get-started-bicep.md).
 
-To set up your environment for Bicep development, see [Install Bicep tools](install.md). After completing those steps, you'll have [Visual Studio Code](https://code.visualstudio.com/) and the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). You also have either the latest [Azure CLI](/cli/azure/) or the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az).
+To set up your environment for Bicep development, see [Install Bicep tools](install.md). After completing those steps, you'll have [Visual Studio Code](https://code.visualstudio.com/) and the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 
-## Create Bicep module
+## Create Bicep modules
 
-A module is just a Bicep file that is deployed from another Bicep file. Any Bicep file can be used as a module. The following Bicep file creates a storage account:
+A module is a Bicep file that is deployed from another Bicep file. Any Bicep file can be used as a module. You can use the following Bicep file in this tutorial.  It creates a storage account:
 
 ```bicep
 @minLength(3)
@@ -60,9 +60,11 @@ resource stg 'Microsoft.Storage/storageAccounts@2021-06-01' = {
 output storageEndpoint object = stg.properties.primaryEndpoints
 ```
 
+Save the Bicep file with a file name called **storage.bicep**.
+
 ## Publish modules
 
-The login server name of the Azure container registry (ACR) is needed.  The format of the login server name is: `<registry-name>.azurecr.io`. To get the name:
+The login server name of the Azure container registry (ACR) is needed. The format of the login server name is: `<registry-name>.azurecr.io`. To get the name:
 
 Get the login server name. You need this name when linking to the registry from your Bicep files.
 
@@ -84,7 +86,7 @@ az acr show --resource-group <resource-group-name> --name <registry-name> --quer
 
 ---
 
-Use the following syntax to publish a Bicep file as a module to a private module registry.  In the sample, **./storage.bicep** is the Bicep file to be published.
+Use the following syntax to publish a Bicep file as a module to a private module registry.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -102,20 +104,60 @@ az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bic
 
 ---
 
+In the sample, **./storage.bicep** is the Bicep file to be published. Update the file path if it is needed.  The module path has the following syntax:
 
+```bicep
+br:<registry-name>.azurecr.io/<file-path>:<tag>
+```
 
------------------------
+- **br** is the schema name for a Bicep registry.
+- **file path** is called `repository` in Azure Container Registry. The **file path** can contain segments that are separated by the `/` character. This file path is created if it doesn't exist.
+- **tag** is used for specifying a version for the module.
 
-## Create a single instance
+To verify the published modules, you can list the ACR repository:
 
-In this section, you define a Bicep file for creating a storage account, and then deploy the Bicep file. The subsequent sections provide the Bicep samples for different `for` syntaxes. You can use the same deployment method to deploy and experiment those samples. If your deployment fails, it is likely one of the two causes:
+# [PowerShell](#tab/azure-powershell)
 
-- The storage account name is too long. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
-- The storage account name is not unique. Your storage account name must be unique within Azure.
+```azurepowershell
+Get-AzContainerRegistryRepository -RegistryName <registry-name>
+```
 
-The following Bicep file defines one storage account:
+# [Azure CLI](#tab/azure-cli)
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/createStorage.bicep":::
+To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+
+```azurecli
+az acr repository list --name <registry-name> --output table
+```
+
+---
+
+## Call modules
+
+To call a module, create a new Bicep file in Visual Studio Code. In the new Bicep file, enter the following line.
+
+```bicep
+module stgModule 'br:<registry-name>.azurecr.io/bicep/modules/storage:v1' =
+```
+
+Replace **<registry-name>** with your ACR registry name.  It takes a short moment to restore the module to your local registry. After the module is restored, the red curly line underneath the module path shall go away. Add a space after **=**, and select **required-properties**.  The module structure is automatically populated.
+
+The following example is a completed Bicep file.
+
+```bicep
+@minLength(3)
+@maxLength(11)
+param namePrefix string
+param location string = resourceGroup().location
+
+module stgModule 'br:myacr0104.azurecr.io/bicep/modules/storage:v1' = {
+  name: 'stgStorage'
+  params: {
+    location: location
+    storagePrefix: namePrefix
+  }
+}
+```
 
 Save the Bicep file locally, and then use Azure CLI or Azure PowerShell to deploy the Bicep file:
 
@@ -141,85 +183,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location eastus
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFile
 ```
 
----
-
-## Use integer index
-
-A for loop with an index is used in the following sample to create two storage accounts:
-
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopNumbered.bicep" highlight="2,4-5":::
-
-The index number is used as a part of the storage account name. After deploying the Bicep file, you get two storage accounts that are similar to:
-
-:::image type="content" source="./media/quickstart-loops/bicep-loop-number-0-2.png" alt-text="Use integer index with 0 as the starting number":::
-
-Inside range(), the first number is the starting number, and the second number is the number of times the loop will run. So if you change it to **range(3,2)**, you will also get two storage accounts:
-
-:::image type="content" source="./media/quickstart-loops/bicep-loop-number-3-2.png" alt-text="Use integer index with 3 as the starting number":::
-
-The output of the preceding sample shows how to reference the resources created in a loop. The output is similar to:
-
-```json
-"outputs": {
-  "names": {
-    "type": "Array",
-    "value": [
-      {
-        "name": "0storage52iyjssggmvue"
-      },
-      {
-        "name": "1storage52iyjssggmvue"
-      }
-    ]
-  }
-},
-```
-
-## Use array elements
-
-You can loop through an array. The following sample shows an array of strings.
-
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopArrayString.bicep" highlight="2-5,7-8":::
-
-The loop uses all the strings in the array as a part of the storage account names. In this case, it creates two storage accounts:
-
-:::image type="content" source="./media/quickstart-loops/bicep-loop-array-string.png" alt-text="Use an array of strings":::
-
-You can also loop through an array of objects. The loop not only customizes the storage account names, but also configures the SKUs.
-
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopArrayObject.bicep" highlight="2-11,13-14,17":::
-
-The loop creates two storage accounts. The SKU of the storage account with the name starting with **fabrikam** is **Premium_LRS**.
-
-:::image type="content" source="./media/quickstart-loops/bicep-loop-array-string.png" alt-text="Use an array of strings":::
-
-## Use array and index
-
-In same cases, you might want to combine an array loop with an index loop. The following sample shows how to use the array and the index number for the naming convention.
-
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopArrayStringAndNumber.bicep" highlight="2-5,7-8":::
-
-After deploying the preceding sample, you create two storage accounts that are similar to:
-
-:::image type="content" source="./media/quickstart-loops/bicep-loop-array-string-number.png" alt-text="Use an array of strings and index number":::
-
-## Use dictionary object
-
-To iterate over elements in a dictionary object, use the [items function](./bicep-functions-array.md#items), which converts the object to an array. Use the `value` property to get properties on the objects.
-
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopObject.bicep" highlight="3-12,14,15,18":::
-
-The loop creates two storage accounts. The SKU of the storage account with the name starting with **fabrikam** is **Premium_LRS**.
-
-:::image type="content" source="./media/quickstart-loops/bicep-loop-dictionary-object.png" alt-text="Use a dictionary object":::
-
-## Loop with condition
-
-For resources and modules, you can add an `if` expression with the loop syntax to conditionally deploy the collection.
-
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopWithCondition.bicep" highlight="3,5":::
-
-For more information, see [conditional deployment in Bicep](./conditional-resource-deployment.md).
+From the Azure portal, verify the storage account has been created successfully.
 
 ## Clean up resources
 
