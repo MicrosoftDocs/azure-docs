@@ -47,6 +47,21 @@ The following FastPath features are in Public preview:
 **VNet Peering** - FastPath will send traffic directly to any VM deployed in a virtual network peered to the one connected to ExpressRoute, bypassing the ExpressRoute virtual network gateway.
 
 **Private Link** - Private Link traffic sent over ExpressRoute FastPath will bypass the ExpressRoute virtual network gateway in the data path.
+This preview is available in the following Azure Regions.
+- Australia East
+- East Asia
+- East US
+- East US 2
+- North Central US
+- North Europe
+- South Central US
+- South East Asia
+- UK South
+- West Central US
+- West Europe
+- West US
+- West US 2
+- West US 3
 
 > [!NOTE]
 > Private Link pricing will not apply to traffic sent over ExpressRoute FastPath during Public preview. For more information about pricing, check out the [Private Link pricing page](https://azure.microsoft.com/pricing/details/private-link/).

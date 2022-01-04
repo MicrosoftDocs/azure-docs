@@ -122,8 +122,9 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
     }
 
 ```
+
 > [!Note]
-> For **groupId** of other data sources, you can get them from [private link resource](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource).
+> For **groupId** of other data sources, you can get them from [private link resource](../private-link/private-endpoint-overview.md#private-link-resource).
 
 ## Limitations and known issues
 
@@ -131,6 +132,7 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 The following data sources have native Private Endpoint support and can be connected through private link from ADF Managed Virtual Network.
 - Azure Blob Storage (not including Storage account V1)
 - Azure Cognitive Search
+- Azure Cosmos DB MongoDB API
 - Azure Cosmos DB SQL API
 - Azure Data Lake Storage Gen2
 - Azure Database for MariaDB

@@ -20,7 +20,6 @@ The following is a list of links to demos of the Azure Media Player. You can dow
 | Basic |
 | Set Source | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_setsource.html) | [Static](https://amp.azure.net/libs/amp/latest/samples/videotag_setsource.html) |Playback unprotected content.|
 | Features |
-| VOD Ad insertion - VAST | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_vast_ads_vod.html) | N/A | Insert pre- mid- and post- roll VAST ads into a VOD asset. |
 | Playback Speed | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_playback_speed.html)| N/A | Enables viewers to control what speed they're watching their video at. |
 | AMP Flush Skin | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_flush_skin.html) | [Static](https://amp.azure.net/libs/amp/latest/samples/videotag_flush_skin.html) | Enables new AMP skin. **Note:** AMP flush is only supported in AMP versions 2.1.0+ |
 | Captions and Subtitles | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_webvtt.html) | [Static](https://amp.azure.net/libs/amp/latest/samples/videotag_webvtt.html) | Playback with WebVTT subtitles.

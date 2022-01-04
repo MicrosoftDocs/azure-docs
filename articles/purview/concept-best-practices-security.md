@@ -21,14 +21,14 @@ Before applying these recommendations to your environment, you should consult yo
 
 Azure Purview is a Platform as a Service (PaaS) solution in Azure. You can enable the following network security capabilities for your Azure Purview accounts: 
 
-- [Enable end-to-end network isolation](catalog-private-link-end-to-end.md) using Private Link Service. 
-- Use [Azure Purview Firewall]() to disable Public access.
-- Deployment of Network Security Group (NSG) rules for data sources, Purview and self-hosted runtime VMs. 
+- Enable [end-to-end network isolation](catalog-private-link-end-to-end.md) using Private Link Service. 
+- Use [Azure Purview Firewall](catalog-private-link-end-to-end.md#firewalls-to-restrict-public-access) to disable Public access.
+- Deploy [Network Security Group (NSG) rules](#use-network-security-groups) for subnets where Azure data sources private endpoints, Azure Purview private endpoints and self-hosted runtime VMs are deployed. 
 - Implement Azure Purview with private endpoints managed by a Network Virtual Appliance, such as [Azure Firewall](../firewall/overview.md) for network inspection and network filtering.
 
 :::image type="content" source="media/concept-best-practices/security-networking.png" alt-text="Screenshot that shows Azure Purview account in a network."lightbox="media/concept-best-practices/security-networking.png":::
 
-For more information, see [Best practices related to connectivity to Azure PaaS Services](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure-paas-services.md).
+For more information, see [Best practices related to connectivity to Azure PaaS Services](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure-paas-services).
 
 ### Deploy private endpoints for Azure Purview accounts
 
@@ -40,9 +40,9 @@ The Azure Purview _portal_ private endpoint is required to enable connectivity t
 
 Azure Purview can scan data sources in Azure or an on-premises environment by using ingestion private endpoints. 
 
-- Review [known limitations](/catalog-private-link-troubleshoot.md).
-- For scanning Azure _platform as a service_ data sources, review [Support matrix for scanning data sources through ingestion private endpoint](/catalog-private-link.md#support-matrix-for-scanning-data-sources-through-ingestion-private-endpoint).
-- If you are deploying end-to-end isolation, to scan Azure data sources, they must be also configured with private endpoints.
+- For scanning Azure _platform as a service_ data sources, review [Support matrix for scanning data sources through ingestion private endpoint](catalog-private-link.md#support-matrix-for-scanning-data-sources-through-ingestion-private-endpoint).
+- If you are deploying Azure Purview with end-to-end network isolation, to scan Azure data sources, these data sources must be also configured with private endpoints.
+- Review [known limitations](catalog-private-link-troubleshoot.md).
 
 For more information, see [Azure Purview network architecture and best practices](concept-best-practices-network.md). 
 
@@ -52,7 +52,7 @@ You can disable Azure Purview Public access to cut off access to the Azure Purvi
 
 - Azure Purview must be deployed based on [end-to-end network isolation scenario](catalog-private-link-end-to-end.md).
 - To access Purview Studio and Purview endpoints, you need to use a management machine that is connected to private network to access Azure Purview through private network.
-- Review [known limitations](/catalog-private-link-troubleshoot.md).
+- Review [known limitations](catalog-private-link-troubleshoot.md).
 - To scan Azure platform as a service data sources, review [Support matrix for scanning data sources through ingestion private endpoint](catalog-private-link.md#support-matrix-for-scanning-data-sources-through-ingestion-private-endpoint).
 - Azure data sources must be also configured with private endpoints.
 - To scan data sources you must use a self-hosted integration runtime.
@@ -118,7 +118,7 @@ Related to roles and access management in Azure Purview, you can apply the follo
   - Define roles and task needed to perform data management and governance using Azure Purview.  
 - Assign roles to Azure Active Directory groups instead of assigning roles to individual users. 
 - Use Azure [Active Directory Entitlement Management](../active-directory/governance/entitlement-management-overview.md) to map user access to Azure AD groups using Access Packages. 
-- Enforce multifactor authentication for Purview users, especially, for users with privileged roles such as collection admins, data source admins or data curators.
+- Enforce multi-factor authentication for Purview users, especially, for users with privileged roles such as collection admins, data source admins or data curators.
 
 ### Manage an Azure Purview account in control plane and data plane 
 
@@ -136,7 +136,7 @@ Examples of control plane operations and data plane operations:
 |Setup a Private Endpoint for Azure Purview     | Control plane         | Contributor         | Azure RBAC roles        |
 |Delete a Purview account      | Control plane         | Contributor         | Azure RBAC roles        |
 |View Purview metrics to get current capacity units       | Control plane         | Reader       | Azure RBAC roles        |
-|Create a collection      | Data plane           | Control plane        | Azure RBAC roles        |
+|Create a collection      | Data plane           | Collection Admin        | Azure Purview roles        |
 |Register a data source    | Data plane          | Collection Admin         | Azure Purview roles         |
 |Scan a SQL Server      | Data plane          | Data source admin and data reader or data curator          | Azure Purview roles         |
 |Search inside Purview Data Catalog      | Data plane          | Data source admin and data reader or data curator          | Azure Purview roles         |
@@ -170,7 +170,7 @@ Use [Azure Purview collections](concept-best-practices-collections.md#define-a-c
 
 Follow least privilege access model when assigning roles inside Azure Purview collections by segregating duties within your team and grant only the amount of access to users that they need to perform their jobs. 
 
-For more information how to assign least privilege access model in Azure Purview, based on Purview collection hierarchy, see [Access control in Azure Purview](/catalog-permissions#assign-permissions-to-your-users.md#a-collections-example).
+For more information how to assign least privilege access model in Azure Purview, based on Purview collection hierarchy, see [Access control in Azure Purview](catalog-permissions.md#assign-permissions-to-your-users).
 
 ### Lower exposure of privileged accounts 
 
@@ -178,13 +178,13 @@ Securing privileged access is a critical first step to protecting business asset
 
 Reduce the number of users with write access inside your Purview instance. Keep the number of collection admins and data curator roles minimum at root collection.  
 
-### Use multifactor authentication and Conditional Access 
+### Use multi-factor authentication and conditional access 
 
-[Azure Active Directory multifactor authentication](../active-directory/authentication/concept-mfa-howitworks.md) provides another layer of security and authentication. For more security, we recommend enforcing [conditional access policies](../active-directory/conditional-access/overview.md) for all privileged accounts.  
+[Azure Active Directory Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) provides another layer of security and authentication. For more security, we recommend enforcing [conditional access policies](../active-directory/conditional-access/overview.md) for all privileged accounts.  
 
-By using Azure Active Directory Conditional Access policies, apply Azure AD multifactor authentication at sign-in for all individual users who are assigned to Purview roles with modify access inside your Purview instances: Collection Admin, Data Source Admin, Data Curator. 
+By using Azure Active Directory Conditional Access policies, apply Azure AD Multi-Factor Authentication at sign-in for all individual users who are assigned to Purview roles with modify access inside your Purview instances: Collection Admin, Data Source Admin, Data Curator. 
 
-Enable multifactor authentication for your admin accounts and ensure that admin account users have registered for MFA. 
+Enable multi-factor authentication for your admin accounts and ensure that admin account users have registered for MFA. 
 
 You can define your Conditional Access policies by selecting Azure Purview as a Cloud App. 
 
@@ -205,7 +205,7 @@ Plan for a break glass strategy for your Azure Active Directory tenant, Azure su
 
 For more information about Azure AD and Azure emergency access planning, see [Manage emergency access accounts in Azure AD](../active-directory/roles/security-emergency-access.md).
 
-For more information about Azure Purview break glass strategy, see [Purview collections best practices and design recommendations](/concept-best-practices-collections#design-recommendations).
+For more information about Azure Purview break glass strategy, see [Purview collections best practices and design recommendations](concept-best-practices-collections.md#design-recommendations).
 
 
 ## Threat protection and preventing data exfiltration 
@@ -222,13 +222,15 @@ If you have extended your Microsoft 365 sensitivity labels for assets and databa
 
 - For alerts, we've assigned **severity labels** to each alert to help you prioritize the order in which you attend to each alert. Learn more in [How are alerts classified?](../defender-for-cloud/alerts-overview.md#how-are-alerts-classified).
 
-For more information, see [Integrate Azure Purview with Azure security products](/how-to-integrate-with-azure-security-products.md). 
+For more information, see [Integrate Azure Purview with Azure security products](how-to-integrate-with-azure-security-products.md). 
 
 ## Information Protection 
 
 ### Secure metadata extraction and storage
 
 Azure Purview is a data governance solution in cloud. You can register and scan different data sources from various data systems from your on-premises, Azure, or multi-cloud environments into Azure Purview. While data source is registered and scanned in Purview, the actual data and data sources stay in their original locations, only metadata is extracted from data sources and stored in Purview Data Map which means, you do not need to move data out of the region or their original location to extract the metadata into Azure Purview.
+
+When an Azure Purview account is deployed, in addition, a managed resource group is also deployed in your Azure subscription. A managed Azure Storage Account and a Managed Event Hub are deployed inside this resource group. The managed storage account is used to ingest metadata from data sources during the scan. Since these resources are consumed by the Azure Purview they cannot be accessed by any other users or principals, except the Azure Purview account. This is because an Azure role-based access control (RBAC) deny assignment is added automatically for all principals to this resource group at the time of Purview account deployment, preventing any CRUD operations on these resources if they are not initiated from Azure Purview.
 
 ### Where is metadata stored? 
 
@@ -294,7 +296,7 @@ To add another layer of security in addition to access controls, Azure Purview s
 
 Azure Purview supports data encryption in transit with Transport Layer Security (TLS) v1.2 or greater. 
 
-For more information, see, [Encrypt sensitive information in transit](/security/benchmark/azure/baselines/purview-security-baseline.md#dp-4-encrypt-sensitive-information-in-transit).
+For more information, see, [Encrypt sensitive information in transit](/security/benchmark/azure/baselines/purview-security-baseline#dp-4-encrypt-sensitive-information-in-transit).
 
 #### Transparent data encryption (Encryption-at-rest) 
 
@@ -303,7 +305,7 @@ Data at rest includes information that resides in persistent storage on physical
 To add another layer of security in addition to access controls, Azure Purview encrypts data at rest to protect against 'out of band' attacks (such as accessing underlying storage). 
 It uses encryption with Microsoft-managed keys. This practice helps make sure attackers can't easily read or modify the data. 
 
-For more information, see [Encrypt sensitive data at rest](/security/benchmark/azure/baselines/purview-security-baseline.md#dp-5-encrypt-sensitive-data-at-rest). 
+For more information, see [Encrypt sensitive data at rest](/security/benchmark/azure/baselines/purview-security-baseline#dp-5-encrypt-sensitive-data-at-rest). 
 
 ## Credential management
 
@@ -318,15 +320,15 @@ It is recommended prioritizing the use of the following credential options for s
 3. Service Principals
 4. Other options such as Account key, SQL Authentication, etc.  
 
-If you use any options rather than managed identities, all credentials must be stored and protected inside an [Azure key vault](/manage-credentials.ms#create-azure-key-vaults-connections-in-your-azure-purview-account). Azure Purview requires get/list access to secret on the Azure Key Vault resource. 
+If you use any options rather than managed identities, all credentials must be stored and protected inside an [Azure key vault](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account). Azure Purview requires get/list access to secret on the Azure Key Vault resource. 
 
 As a general rule, you can use the following options to set up integration runtime and credentials to scan data source systems: 
 
 |Scenario  |Runtime option   |Supported Credentials   |
 |---------|---------|---------|
 |Data source is an Azure Platform as a Service, such as Azure Data Lake Storage Gen 2 or Azure SQL inside public network      | Option 1: Azure Runtime          | Azure Purview Managed Identity, Service Principal or Access Key / SQL Authentication (depending on Azure data source type)         |
-|Data source is an Azure Platform as a Service, such as Azure Data Lake Storage Gen 2 Gen 2 or Azure SQL inside public network      | Option 2: Self-hosted integration runtime          | Service Principal or Access Key / SQL Authentication (depending on Azure data source type)         |
-|Data source is an Azure Platform as a Service, such as Azure Data Lake Storage Gen 2 Gen 2 or Azure SQL inside private network using Azure Private Link Service      |  Self-hosted integration runtime         | Service Principal or Access Key / SQL Authentication (depending on Azure data source type)         |
+|Data source is an Azure Platform as a Service, such as Azure Data Lake Storage Gen 2 or Azure SQL inside public network      | Option 2: Self-hosted integration runtime          | Service Principal or Access Key / SQL Authentication (depending on Azure data source type)         |
+|Data source is an Azure Platform as a Service, such as Azure Data Lake Storage Gen 2 or Azure SQL inside private network using Azure Private Link Service      |  Self-hosted integration runtime         | Service Principal or Access Key / SQL Authentication (depending on Azure data source type)         |
 |Data source is inside an Azure IaaS VM such as SQL Server       | Self-hosted integration runtime deployed in Azure         | SQL Authentication or Basic Authentication (depending on Azure data source type)         |
 |Data source is inside an on-premises system such as SQL Server or Oracle      | Self-hosted integration runtime deployed in Azure or in the on-premises network        | SQL Authentication or Basic Authentication (depending on Azure data source type)         |
 |Multi-cloud      | Azure runtime or self-hosted integration runtime based on data source types          |  Supported credential options vary based on data sources types       |
@@ -338,7 +340,7 @@ Use [this guide](purview-connector-overview.md) to read more about each connecto
 
 ### Define required number of Purview accounts for your organization
 
-As part of security planning for implementation of Azure Purview in your organization, review your business and security requirements to define [how many Purview accounts are needed](concept-best-practices-accounts.md) in your organization. various factors may impact the decision, such as [multitenancy](/azure/cloud-adoption-framework/ready/enterprise-scale/enterprise-enrollment-and-azure-ad-tenants.md#define-azure-ad-tenants) billing or compliance requirements. 
+As part of security planning for implementation of Azure Purview in your organization, review your business and security requirements to define [how many Purview accounts are needed](concept-best-practices-accounts.md) in your organization. various factors may impact the decision, such as [multi-tenancy](/azure/cloud-adoption-framework/ready/enterprise-scale/enterprise-enrollment-and-azure-ad-tenants#define-azure-ad-tenants) billing or compliance requirements. 
 
 ### Apply security best practices for Self-hosted runtime VMs
 

@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 11/23/2021
+ms.date: 12/28/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -27,8 +27,16 @@ The supported IBM DB2 versions are DB2 for LUW 9.7 to 11.x. DB2 for z/OS (mainfr
 
 When scanning IBM DB2 source, Purview supports:
 
-- Extracting metadata including DB2 server, databases, schemas, tables, views, triggers, table/view columns, foreign keys, unique constraints, and indexes.
-- Fetching lineage on assets relationships among tables and views.
+- Extracting technical metadata including:
+
+    - Server
+    - Databases
+    - Schemas
+    - Tables including the columns, foreign keys, indexes, and constraints
+    - Views including the columns
+    - Triggers
+
+- Fetching static lineage on assets relationships among tables and views.
 
 ## Prerequisites
 
@@ -38,7 +46,7 @@ When scanning IBM DB2 source, Purview supports:
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See [Azure Purview Permissions page](catalog-permissions.md) for details.
 
-* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md). The minimal supported Self-hosted Integration Runtime version is 5.12.7984.1.
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.12.7984.1.
 
 * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
 

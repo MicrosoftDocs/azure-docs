@@ -21,6 +21,8 @@
         href: quickstart-setup-config-server.md
       - name: Build and deploy apps
         href: quickstart-deploy-apps.md
+      - name: Set up Log Analytics
+        href: quickstart-setup-log-analytics.md
       - name: Use logs, metrics and tracing
         href: quickstart-logs-metrics-tracing.md
       - name: Integrate with Azure Database for MySQL

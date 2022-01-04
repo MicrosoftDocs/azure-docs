@@ -9,6 +9,7 @@ manager: bsiva
 ms.topic: how-to
 ms.date: 4/25/2021
 ms.author: rahugup
+ms.reviewer: mathoma
 ---
 # Migrate availability group to SQL Server on Azure VM
 

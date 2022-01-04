@@ -1,8 +1,8 @@
 ---
 title: Connect Azure Percept DK over LTE by using a MultiTech MultiConnect USB modem 
 description: This article explains how to connect Azure Percept DK over 5G or LTE networks by using a MultiTech MultiConnect USB modem.
-author: juhaluoto
-ms.author: amiyouss
+author: nkhuyent
+ms.author: jluoto
 ms.service: azure-percept
 ms.topic: how-to 
 ms.date: 09/23/2021

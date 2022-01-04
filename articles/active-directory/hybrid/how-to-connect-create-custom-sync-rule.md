@@ -4,12 +4,11 @@ description: Learn how to use the synchronization rule editor to edit or create 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: curtand
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 01/31/2019
 ms.subservice: hybrid

@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/13/2021
+ms.date: 12/07/2021
 ms.author: tisande
 ---
 
@@ -55,7 +55,7 @@ Taking the same example again:
             { "country": "Germany", "city": "Berlin" },
             { "country": "France", "city": "Paris" }
         ],
-        "headquarters": { "country": "Belgium", "employees": 250 }
+        "headquarters": { "country": "Belgium", "employees": 250 },
         "exports": [
             { "city": "Moscow" },
             { "city": "Athens" }

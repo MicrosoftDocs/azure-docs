@@ -15,7 +15,7 @@ ms.date: 11/23/2021
 The question answering Authoring API is used to automate common tasks like adding new question answer pairs, as well as creating, publishing, and maintaining projects/knowledge bases. 
 
 > [!NOTE]
-> Currently authoring functionality is only available via the REST API. This article provides examples of using the REST API with cURL. For full documentation of all parameters and functionality available consult the [REST API reference content](https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering-projects).
+> Currently authoring functionality is only available via the REST API. This article provides examples of using the REST API with cURL. For full documentation of all parameters and functionality available consult the [REST API reference content](/rest/api/cognitiveservices/questionanswering/question-answering-projects).
 
 ## Prerequisites
 
@@ -736,7 +736,7 @@ curl -X GET -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: applicat
 ### Example query
 
 ```bash
-curl -X GET -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: application/json" -d '{
+curl -X PUT -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: application/json" -d '{
 "value": [
     {
       "alterations": [

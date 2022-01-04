@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: reference
 ms.date: 09/27/2021
-## Customer intent: As a data steward or catalog administrator, I need to understand what's supported under classifications.
+#Customer intent: As a data steward or catalog administrator, I need to understand what's supported under classifications.
 ---
 
 # Supported classifications in Azure Purview
@@ -26,15 +26,19 @@ Azure Purview classifies data by [RegEx](https://wikipedia.org/wiki/Regular_expr
 
 Each classification name is prefixed by MICROSOFT.
 
+> [!Note]
+> Azure Purview can classify both structured (CSV, TSV, JSON, SQL Table etc.) as well as unstructured data (DOC, PDF, TXT etc.). However, there are certain classifications that are only applicable to structured data. Here is the list of classifications that Purview doesn't apply on unstructured data - City Name, Country Name, Date Of Birth, Email, Ethnic Group, GeoLocation, Person Name, U.S. Phone Number, U.S. States, U.S. ZipCode
+
+
 ## Bloom Filter Classifications
 
 ## City, Country, and Place
 
 The City, Country, and Place filters have been prepared using best datasets available for preparing the data.
 
-## Person
+## Person Name
 
-Person bloom filter has been prepared using the below two datasets.
+Person Name bloom filter has been prepared using the below two datasets.
 
 - [2010 US Census Data for Last Names (162-K entries)](https://www.census.gov/topics/population/genealogy/data/2010_surnames.html)
 - [Popular Baby Names (from SSN), using all years 1880-2019 (98-K entries)](https://www.ssa.gov/oact/babynames/limits.html)
@@ -7631,6 +7635,27 @@ not applicable
 - date of issue
 - date of expiry
 
+## Location
+
+### Format
+Longitude can range from -180.0 to 180.0. Latitude can range from -90.0 to 90.0.
+
+### Checksum
+Not applicable
+
+### Keywords
+
+- lat
+- latitude
+- long
+- longitude
+- coord
+- coordinates
+- geo
+- geolocation
+- loc
+- location
+- position
 
 ## Luxemburg driver's license number
 

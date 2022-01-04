@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 * [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v3 or higher preferred) to run Azure Function apps locally and deploy to Azure.
 
-* [Azure command-line interface (Azure CLI)](/cli/azure) to manage Azure resources.
+* The [Azure CLI](/cli/azure) to manage Azure resources.
 
 # [C#](#tab/csharp)
 
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 * [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v3 or higher preferred) to run Azure Function apps locally and deploy to Azure.
 
-* [Azure command-line interface (Azure CLI)](/cli/azure) to manage Azure resources.
+* The [Azure CLI](/cli/azure) to manage Azure resources.
 
 ---
 
@@ -138,7 +138,7 @@ In this tutorial, you learn how to:
    - Update `index.cs` and replace `Run` function with following codes.
         ```c#
         [FunctionName("index")]
-        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req)
+        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req, ILogger log)
         {
             string indexFile = "index.html";
             if (Environment.GetEnvironmentVariable("HOME") != null)

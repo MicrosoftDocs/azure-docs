@@ -8,7 +8,7 @@ ms.custom: seo-dt-2019, sqldbrb=1
 ms.topic: how-to
 author: rmatchoro
 ms.author: ronmat
-ms.reviewer: vanto
+ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 12/01/2020
 ---
 # Configure Advanced Threat Protection for Azure SQL Database

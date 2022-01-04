@@ -9,6 +9,7 @@ manager: bsiva
 ms.topic: how-to
 ms.date: 4/25/2021
 ms.author: rahugup
+ms.reviewer: mathoma
 ---
 # Migrate failover cluster instance to SQL Server on Azure VMs
 

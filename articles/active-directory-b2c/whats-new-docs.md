@@ -15,6 +15,30 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md).
 
+## December 2021
+
+### New articles
+
+- [TOTP display control](display-control-time-based-one-time-password.md)
+- [Set up sign-up and sign-in with a SwissID account using Azure Active Directory B2C](identity-provider-swissid.md)
+- [Set up sign-up and sign-in with a PingOne account using Azure Active Directory B2C](identity-provider-ping-one.md)
+- [Tutorial: Configure Haventec with Azure Active Directory B2C for single step, multifactor passwordless authentication](partner-haventec.md)
+- [Tutorial: Acquire an access token for calling a web API in Azure AD B2C](tutorial-acquire-access-token.md)
+- [Tutorial: Sign in and sign out users with Azure AD B2C in a Node.js web app](tutorial-authenticate-nodejs-web-app-msal.md)
+- [Tutorial: Call a web API protected with Azure AD B2C](tutorial-call-api-with-access-token.md)
+
+### Updated articles
+
+- [About claim resolvers in Azure Active Directory B2C custom policies](claim-resolver-overview.md)
+- [Azure Active Directory B2C service limits and restrictions](service-limits.md)
+- [Add Conditional Access to user flows in Azure Active Directory B2C](conditional-access-user-flow.md)
+- [Display controls](display-controls.md)
+- ['Azure AD B2C: Frequently asked questions (FAQ)'](faq.yml)
+- [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-operations.md)
+- [Define an Azure AD MFA technical profile in an Azure AD B2C custom policy](multi-factor-auth-technical-profile.md)
+- [Enable multifactor authentication in Azure Active Directory B2C](multi-factor-authentication.md)
+- [String claims transformations](string-transformations.md)
+
 ## November 2021
 
 ### Updated articles

@@ -4,7 +4,7 @@ description: Create a managed instance, network environment, and client VM for a
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: mode-other
+ms.custom: mode-ui
 ms.devlang: 
 ms.topic: quickstart
 author: urosmil

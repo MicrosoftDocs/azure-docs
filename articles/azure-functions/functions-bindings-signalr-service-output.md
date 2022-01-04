@@ -3,6 +3,7 @@ title: Azure Functions SignalR Service output binding
 description: Learn about the SignalR Service output binding for Azure Functions.
 author: craigshoemaker
 ms.topic: reference
+ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
