@@ -189,12 +189,14 @@ In this section, you create a Python console app that initiates a remote **lockD
 3. Add the following `import` statements and variables at the start of the **scheduleJobService.py** file. Replace the `{IoTHubConnectionString}` placeholder with the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string). Replace the `{deviceId}` placeholder with the device ID you registered in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub):
 
     ```python
+    import os
     import sys
+    import datetime
     import time
     import threading
     import uuid
 
-    from azure.iot.hub import IoTHubRegistryManager
+    from azure.iot.hub import IoTHubJobManager, IoTHubRegistryManager
     from azure.iot.hub.models import Twin, TwinProperties, CloudToDeviceMethod, CloudToDeviceMethodResult, QuerySpecification, QueryResult
 
     CONNECTION_STRING = "{IoTHubConnectionString}"
@@ -228,7 +230,6 @@ In this section, you create a Python console app that initiates a remote **lockD
 
         iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
 
-
         if query_condition(iothub_registry_manager, device_id):
             deviceMethod = CloudToDeviceMethod(method_name=METHOD_NAME, payload=METHOD_PAYLOAD)
 
@@ -242,16 +243,20 @@ In this section, you create a Python console app that initiates a remote **lockD
         print ( "Scheduling job " + str(job_id) )
         time.sleep(wait_time)
 
-        iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
+        # Create IoTHubJobManager
+        iothub_job_manager = IoTHubJobManager.from_connection_string(CONNECTION_STRING)
 
-        if query_condition(iothub_registry_manager, device_id):
-
-            twin = iothub_registry_manager.get_twin(DEVICE_ID)
-            twin_patch = Twin(properties= TwinProperties(desired=UPDATE_PATCH))
-            twin = iothub_registry_manager.update_twin(DEVICE_ID, twin_patch, twin.etag)
-
-            print ( "" )
-            print ( "Device twin updated." )
+        job_request = JobRequest()
+        job_request.job_id = job_id
+        job_request.type = "scheduleUpdateTwin"
+        job_request.start_time = datetime.datetime.utcnow().isoformat()
+        job_request.update_twin = Twin(etag="*", properties=TwinProperties(desired=UPDATE_PATCH))
+        job_request.query_condition = "SELECT * FROM devices WHERE deviceId = '{}'".format(device_id)"
+        
+        new_job_response = iothub_job_manager.create_scheduled_job(job_id, job_request)
+        
+        print ( "" )
+        print ( "Device twin updated." )
     ```
 
 6. Add the following code to schedule the jobs and update job status. Also include the `main` routine:
