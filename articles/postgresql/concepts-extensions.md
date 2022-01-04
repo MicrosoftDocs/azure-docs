@@ -278,11 +278,11 @@ For more details on restore method wiith Timescae enabled database see [Timescal
 
 ### Restoring a Timescale database using timescaledb-backup
 
- While running `SELECT timescaledb_post_restore();` procedure above you may get permissions denied error updating timescaledb.restoring flag. This is due to limited ALTER DATABASE permission in Cloud PaaS database services. In this case you can perform alternative method using `timescaledb-backup` tool to backup and restore Timescale database. Timescaledb-backup is a program for making dumping and restoring a TimescaleDB database simpler, less error-prone, and more performant. 
+ While running `SELECT timescaledb_post_restore()` procedure listed above you may get permissions denied error updating timescaledb.restoring flag. This is due to limited ALTER DATABASE permission in Cloud PaaS database services. In this case you can perform alternative method using `timescaledb-backup` tool to backup and restore Timescale database. Timescaledb-backup is a program for making dumping and restoring a TimescaleDB database simpler, less error-prone, and more performant. 
  To do so you should do following
    1. Install  tools as detailed [here](https://github.com/timescale/timescaledb-backup#installing-timescaledb-backup)
    2. Create target Azure Database for PostgreSQL server and database
-   3. Enable Timescale extension as [shown above](./concepts-extensions#installing-timescaledb)
+   3. Enable Timescale extension as shown above
    4. Grant azure_pg_admin [role](https://www.postgresql.org/docs/11/database-roles.html) to user that will be used by [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore)
    5. Run [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore) to restore database
 
