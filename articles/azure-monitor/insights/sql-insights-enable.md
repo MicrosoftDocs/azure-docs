@@ -169,7 +169,7 @@ The profile will store the information that you want to collect from your SQL sy
 
 For example, you might create one profile named *SQL Production* and another named *SQL Staging* with different settings for frequency of data collection, what data to collect, and which workspace to send the data to. 
 
-The profile is stored as a [data collection rule](../agents/data-collection-rule-overview.md) resource in the subscription and resource group you select. Each profile needs the following:
+The profile is stored as a [data collection rule](../platform/data-collection-rule-overview.md) resource in the subscription and resource group you select. Each profile needs the following:
 
 - Name. Cannot be edited once created.
 - Location. This is an Azure region.

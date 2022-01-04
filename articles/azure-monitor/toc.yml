@@ -371,7 +371,7 @@ items:
   - name: Data collection
     items:
     - name: Data collection rules
-      href: agents/data-collection-rule-overview.md
+      href: platform/data-collection-rule-overview.md
     - name: Log data ingestion time
       displayName: latency
       href: logs/data-ingestion-time.md
