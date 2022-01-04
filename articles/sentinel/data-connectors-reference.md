@@ -1680,6 +1680,16 @@ Follow the instructions to obtain the credentials.
 | **Supported by** | Microsoft |
 | | |
 
+### Troubleshooting your Windows DNS Server data connector
+
+If your DNS events don't show up in Microsoft Sentinel:
+        
+1. Go to Azure DNS Analytics.
+1. In the **Configuration** area, change any of the settings and save your changes. Change your settings back if you need to, and then save your changes again.
+1. Check your Azure DNS Analytics to make sure that your events and queries display properly.
+
+For more information, see [Gather insights about your DNS infrastructure with the DNS Analytics Preview solution](/azure/azure-monitor/insights/dns-analytics).
+
 ## Windows Forwarded Events (Preview)
 
 | Connector attribute | Description |
