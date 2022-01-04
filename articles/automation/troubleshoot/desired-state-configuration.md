@@ -333,7 +333,7 @@ DSC configurations that take a long time to compile can cause this error.
 
 You can make your DSC configurations parse faster by explicitly including the `ModuleName` parameter for any [Import-DSCResource](/powershell/dsc/configurations/import-dscresource) calls.
 
-## <a name="agent-has-a-problem"></a>Scenario: Error while onboarding a machine
+## Scenario: Error while onboarding a machine
 
 #### Issue
 
