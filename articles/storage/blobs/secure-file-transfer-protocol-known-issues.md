@@ -119,7 +119,7 @@ SFTP support for Azure Blob Storage currently limits its cryptographic algorithm
   
   - The account needs to be in a [supported regions](secure-file-transfer-protocol-support.md#regional-availability).
   
-  - Customer's subscription needs to be signed up for the preview. See this.
+  - Customer's subscription needs to be signed up for the preview. To enroll in the preview, complete [this form](https://forms.office.com/r/gZguN0j65Y) *and* request to join via 'Preview features' in the Azure portal.
 
 - To resolve the `Home Directory not accessible error.` error, check that:
   
