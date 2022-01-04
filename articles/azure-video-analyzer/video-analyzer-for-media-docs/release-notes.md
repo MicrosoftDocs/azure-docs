@@ -24,12 +24,9 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
 
 The projects feature is now GA and ready for productive use. There is no pricing impact related to the "Preview to GA" transition. See [Add video clips to your projects](use-editor-create-project.md).
  
-### Support for STT, translation and search
+### New source languages support for STT, translation, and search on API level 
 
-Video Analyzer for Media introduces source languages support for STT (speech-to-text), translation and search in Hebrew, Portuguese, and Persian.
-
-> [!NOTE]
-> Use [API](https://api-portal.videoindexer.ai/) for translation and search.
+Video Analyzer for Media introduces source languages support for STT (speech-to-text), translation, and search in Hebrew (he-IL), Portuguese (pt-PT), and Persian (fa-IR) on the API level.
 
 ### Matched person detection capability
 
