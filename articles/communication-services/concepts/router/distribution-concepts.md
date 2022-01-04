@@ -201,7 +201,7 @@ When the distribution process locates a suitable Worker who has an open channel 
 
 **OfferTTL -** The time-to-live for each offer generated
 
-**Mode -** The **distribution modes** which contain both `minConcurrentOffers` and `maxConcurrentOffers` properties. Set two integers for these two variables to control the concurrent numbers of active workers that job offer will be distributed. Example of setting min and max concurrent offers variables:
+**Mode -** The **distribution modes** which contain both `minConcurrentOffers` and `maxConcurrentOffers` properties. Set two integers for these two variables to control the concurrent numbers of active workers that job offer will be distributed. For example:
 
 ```csharp
   "mode": {
@@ -213,8 +213,7 @@ When the distribution process locates a suitable Worker who has an open channel 
 }
 ```
 
-By setting min to 1, active offers are distributed to minimum 1 active worker if there is; by setting max to 5, offers are distributed to maximum 5 active workers if there are. Moreover, it always try to match to most workers, for example, if there are 5 suitable workers, the offers would be sent to all 5 workers instead of 1. 
-
+In the above example, minConcurrentOffers and maxConcurrentOffers will distribute at least one offer and up to a maximum of five offers to active Workers who match the requirements of the Job.
 
 > [!Important]
 > When a Job offer is generated for a Worker it consumes one of the channel configurations matching the channel ID of the Job. The consumption of this channel means the Worker will not receive another offer unless additional capacity for that channel is available on the Worker. If the Worker declines the offer or the offer expires, the channel is released.
