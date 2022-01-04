@@ -21,7 +21,7 @@ This page shows the supported authentication types and client types of Azure Cac
 
 | Client Type | System-assigned Managed Identity | User-assigned Managed Identity | Secret/ConnectionString | Service Principal |
 | --- | --- | --- | --- | --- |
-| .Net (StackExchange.Redis) | | | ![yes icon](./media/green-check.png) | |
+| .NET (StackExchange.Redis) | | | ![yes icon](./media/green-check.png) | |
 | Java (Jedis) | | | ![yes icon](./media/green-check.png) | |
 | Java - Spring Boot (spring-boot-starter-data-redis) | | | ![yes icon](./media/green-check.png) | |
 | Node.js (node-redis) | | | ![yes icon](./media/green-check.png) | |
