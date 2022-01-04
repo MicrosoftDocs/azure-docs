@@ -262,12 +262,12 @@ Copy the parameters as follows:
 
    :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-01.png" alt-text="Screenshot that shows copying the first part of the token.":::
 
-2. Copy the second part of the token, starting from the question mark (`?`) all the way until the end of the string. Use it as the `StorageContainerSasToken` parameter in PowerShell or the Azure CLI for starting LRS.
+2. Copy the second part of the token, starting after the question mark (`?`) all the way until the end of the string. Use it as the `StorageContainerSasToken` parameter in PowerShell or the Azure CLI for starting LRS.
 
    :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-02.png" alt-text="Screenshot that shows copying the second part of the token.":::
    
 > [!NOTE]
-> Don't include the question mark when you copy either part of the token.
+> Don't include the question mark (`?`) when you copy either part of the token.
 > 
 
 ### Log in to Azure and select a subscription
