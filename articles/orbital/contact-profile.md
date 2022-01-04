@@ -35,12 +35,12 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
    | --- | --- |
    | Subscription | Select your subscription |
    | Resource group | Select your resource group |
-   | Name | Enter contact profile name. Specify the antenna provider and mission information here. *i.e. Microsoft_Aqua_Uplink+Downlink_1* |
+   | Name | Enter contact profile name. Specify the antenna provider and mission information here. Like *Microsoft_Aqua_Uplink+Downlink_1* |
    | Region | Select **West US 2** |
-   | Minimum viable contact duration | Define the minimum duration of the contact as a prerequisite to show you available time slots to communicate with your spacecraft. If an available time window is less than this time, it won't show in the list of available options. Provide minimum contact duration in ISO 8601 format. *i.e. PT1M* |
+   | Minimum viable contact duration | Define the minimum duration of the contact as a prerequisite to show you available time slots to communicate with your spacecraft. If an available time window is less than this time, it won't show in the list of available options. Provide minimum contact duration in ISO 8601 format. Like *PT1M* |
    | Minimum elevation | Define minimum elevation of the contact, after acquisition of signal (AOS), as a prerequisite to show you available time slots to communicate with your spacecraft. Using higher value can reduce the duration of the contact. Provide minimum viable elevation in decimal degrees. |
    | Auto track configuration | Select the frequency band to be used for autotracking during the contact. X band, S band, or Disabled. |
-   | Event Hubs Namespace | Select an Event Hubs Namespace to which you will send telemetry data of your contacts. Select a Subscription before you can select an Event Hubs Namespace. |
+   | Event Hubs Namespace | Select an Event Hubs Namespace to which you'll send telemetry data of your contacts. Select a Subscription before you can select an Event Hubs Namespace. |
    | Event Hubs Instance | Select an Event Hubs Instance that belongs to the previously selected Namespace. *This field will only appear if an Event Hubs Namespace is selected first*. |
 
    :::image type="content" source="media/orbital-eos-contact-profile.png" alt-text="Contact Profile Resource Page" lightbox="media/orbital-eos-contact-profile.png":::
