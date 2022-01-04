@@ -52,12 +52,12 @@ Advisor considers resizing virtual machines when it's possible to fit the curren
     - The new SKU has the same Accelerated Networking and Premium Storage capabilities 
   - The new SKU is supported in the current region of the Virtual Machine with the recommendation
   - The new SKU is less expensive 
-- Advisor determines the type of workload (user facing/non user facing) by analyzing the CPU utilization characteristics of the workload. This is based on some fascinating findings by Microsoft Research . You can find more details here: [Prediction-Based Power Oversubscription in Cloud Platforms - Microsoft Research](https://www.microsoft.com/en-us/research/publication/prediction-based-power-oversubscription-in-cloud-platforms/).
+- Advisor determines the type of workload (user facing/non user facing) by analyzing the CPU utilization characteristics of the workload. This is based on some fascinating findings by Microsoft Research . You can find more details here: [Prediction-Based Power Oversubscription in Cloud Platforms - Microsoft Research](https://www.microsoft.com/research/publication/prediction-based-power-oversubscription-in-cloud-platforms/).
 - Advisor recommends not just smaller SKUs in the same family (for e.g. D3v2 to D2v2) but also SKUs in a newer version (for e.g. D3v2 to D2v3) or even a completely different family (for e.g. D3v2 to E3v2) based on the best fit and the cheapest costs with no performance impacts. 
 
 ### Burstable recommendations
 
-This is a special kind of resize recommendation, where Advisor analyzes workloads to determine eligibility to run on specialized SKUs called Burstable SKUs that allow for variable workload performance requirements and are generally cheaper than general purpose SKUs. Learn more about burstable SKUs here: [B-series burstable - Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-b-series-burstable).
+This is a special kind of resize recommendation, where Advisor analyzes workloads to determine eligibility to run on specialized SKUs called Burstable SKUs that allow for variable workload performance requirements and are generally cheaper than general purpose SKUs. Learn more about burstable SKUs here: [B-series burstable - Azure Virtual Machines](../virtual-machines/sizes-b-series-burstable.md).
 
 - A burstable SKU recommendation is made if:
 - The average CPU utilization is less than a Burstable SKUs baseline performance
