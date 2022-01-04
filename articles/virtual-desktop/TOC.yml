@@ -118,6 +118,12 @@
         href: autoscale-diagnostics.md
       - name: Autoscale feature FAQ (preview)
         href: autoscale-faq.yml
+  - name: Manage agent updates
+    items:
+      - name: Scheduled Agent Updates (preview)
+        href: scheduled-agent-updates.md
+      - name: Set up diagnostics to monitor agent updates
+        href: agent-updates-diagnostics.md
   - name: Customize feed
     href: customize-feed-for-virtual-desktop-users.md
   - name: Use service diagnostics
