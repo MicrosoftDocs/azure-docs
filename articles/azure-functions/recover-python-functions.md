@@ -4,6 +4,7 @@ description: Learn how to troubleshoot Python functions.
 
 ms.topic: article
 ms.date: 07/29/2020
+ms.devlang: python
 ms.custom: devx-track-python
 ---
 

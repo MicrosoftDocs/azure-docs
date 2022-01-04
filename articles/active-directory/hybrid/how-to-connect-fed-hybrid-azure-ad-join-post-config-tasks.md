@@ -4,13 +4,12 @@ description: This document details post configuration tasks needed to complete t
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: billmath
 ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 08/10/2018
 ms.subservice: hybrid
