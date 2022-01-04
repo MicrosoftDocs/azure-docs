@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/03/2022
+ms.date: 01/04/2022
 ms.author: v-ydequadros
 ---
 
@@ -21,7 +21,7 @@ This topic provides an overview of the components of the **Audit Trail** dashboa
 At the top of the **Audit Trail** dashboard, CloudKnox displays: 
 - A tab for each existing query - Select the tab to see details about the query.
 - **New Query** tab - Select the tab to create a new query.
-- **(+)** (**New Tab**) - Select the tab to add a **New Query** tab.
+- **New Tab (+)** - Select the tab to add a **New Query** tab.
 - **Saved Queries** - Select to view a list of saved queries.
     - To return to the main page, select **Back to Audit Trail**.
 - Down arrow - Displays a list of **Saved Queries**.

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/03/2022
+ms.date: 01/04/2022
 ms.author: v-ydequadros
 ---
 
@@ -22,11 +22,11 @@ This topic provides an overview of the components of the **JEP Controller** dash
 > Only users with the **Viewer**, **Controller**, or **Administrator** role can view this tab. </p>Only users with the **Controller** and **Administrator** role can make changes on this tab.
 
 > [!NOTE]
-> A role/policy is an object associated with an identity or resource that defines their permissions. </p>The Amazon Web Services (AWS) authorization system uses the term *policy*. The Microsoft Azure and Google Cloud Platform (GCP) authorization systems both use the term *role*.
+> A role/policy is an object associated with an identity or resource that defines their permissions. </p>The Amazon Web Services (AWS) authorization system uses the term *policy*. The Microsoft Azure and Google Cloud Platform (GCP) authorization systems both use the term *role*. </p>In the CloudKnox documentation, we use *role/policy* to refer to both terms.
 
 ## The Roles/Policies tab 
 
-Use this tab to add filters to your role/policy.
+Use the **Role/Policies** tab to add filters to your role/policy.
 
 - **Authorization System Type** - Displays a drop-down list of authorization system types you can access. May include Amazon Web Services (AWS), Microsoft Azure (Azure), Google Cloud Platform (GCP), and so on.
 - **Authorization System** - Displays a list of authorization systems accounts you can access.
@@ -95,7 +95,7 @@ The **Pending Requests** table displays the following information:
 -  **Request Date** - Displays the date when the request was made.
 - **Submitted** - Displays the period since the request was made.
 - The ellipses **(...)** menu - Select the ellipses, and then select **Details**, **Approve**, or **Reject**.
-- Select from the following actions:
+- Select an option:
     - **Reload** - Select to refresh the displayed list of roles/policies.
     - **Search** - Select to search for a specific role/policy.
     - **||| Columns** - From the drop-down list, select the columns you want to display.
@@ -125,7 +125,7 @@ The **Pending Requests** table displays the following information:
 -  **Request Date** - Displays the date when the request was made.
 - **Submitted** - Displays the period since the request was made.
 - The ellipses **(...)** menu - Select the ellipses, and then select **Details**, **Approve**, or **Reject**.
-- Select from the following actions:
+- Other available actions:
     - **Reload** - Select to refresh the displayed list of roles/policies.
     - **Search** - Select to search for a specific role/policy.
     - **||| Columns** - From the drop-down list, select the columns you want to display.

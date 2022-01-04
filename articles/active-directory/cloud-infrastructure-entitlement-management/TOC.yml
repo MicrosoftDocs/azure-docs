@@ -108,7 +108,7 @@
   - name: User management
     expanded: true
     items:
-    - name: View usage analytics about users
+    - name: View details about identities, resources, and tasks
       href: cloudknox-product-usage-analytics.md
     - name: Adjust permissions with the JEP Controller
       href: cloudknox-product-jep-controller.md

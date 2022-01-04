@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/03/2022
+ms.date: 01/04/2022
 ms.author: v-ydequadros
 ---
 
@@ -37,13 +37,13 @@ The following information displays in the table:
 - **Last Modified** - Displays the date and time the rule was last modified.
 - **Subscription** - Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
 
-- To view available the following options, click the ellipses **(...)**:
+To view the available options, click the ellipses **(...)**:
 
-    - **View Rule** - Displays the details of the rule.
-    - **Delete Rule** - Deletes the rule. Only the user who created the selected rule can delete the rule. 
-    - **Generate Recommendations** - Creates recommendations for each user and the authorization system. Only the user who created the selected rule can create recommendations.
-    - **View Recommendations** - Displays the recommendations for each user and authorization system.
-    - **Notification Settings** - Displays the users subscribed to this rule. Only the user who created the selected rule can add other users to be notified.
+- **View Rule** - Displays the details of the rule.
+- **Delete Rule** - Deletes the rule. Only the user who created the selected rule can delete the rule. 
+- **Generate Recommendations** - Creates recommendations for each user and the authorization system. Only the user who created the selected rule can create recommendations.
+- **View Recommendations** - Displays the recommendations for each user and authorization system.
+- **Notification Settings** - Displays the users subscribed to this rule. Only the user who created the selected rule can add other users to be notified.
 
 You can also select:
 
