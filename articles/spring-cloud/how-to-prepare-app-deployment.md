@@ -150,7 +150,7 @@ Spring Boot version | Spring Cloud version
 > - Please upgrade Spring Boot to 2.5.2 or 2.4.8 to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you are using Spring Security, please upgrade it to 5.5.1, 5.4.7, 5.3.10 or 5.2.11.
 > - An issue was identified with Spring Boot 2.4.0 on TLS authentication between apps and Spring Cloud Service Registry, please use 2.4.1 or above. Please refer to [FAQ](./faq.md?pivots=programming-language-java#development) for the workaround if you insist on using 2.4.0.
 
-### Dependencies for Spring Boot version 2.4/2.5
+### Dependencies for Spring Boot version 2.4/2.5/2.6
 
 For Spring Boot version 2.4/2.5 add the following dependencies to the application POM file.
 
