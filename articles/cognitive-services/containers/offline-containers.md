@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 12/15/2021
+ms.date: 01/04/2022
 ms.author: aahi
 ---
 
@@ -63,12 +63,13 @@ See the following articles for more information
 
 ## Download a license file 
 
-After you have been approved and purchased a commitment plan for disconnected containers, you will need to download a license file that will enable your Docker container to run when it isn't connected to the internet. To get your license file:
+After you have been approved and purchased a commitment plan for disconnected containers, you will need to download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container.
 
-1. Log in to the [Azure portal](https://portal.azure.com/), and navigate to the Azure resource you purchased a commitment plan for.
-1. in the left navigation menu, select TBD to download your license file. 
+ To get your license file:
+
+1. Log in to the [Azure portal](https://portal.azure.com/), and navigate to the Azure resource you purchased a commitment plan for. Make sure **Overview** is selected in the left navigation menu.
+1. Under **Activate the container(s) with the licensing file**, download the file shown. 
 1. The license file will be named `license.dat`. Place this file in a memorable location on your computer.
-
 
 ## Download a Docker container with `docker pull`
 
@@ -77,6 +78,9 @@ After you have a license file, download the Docker container you have approval t
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:latest
 ```
+
+> [!IMPORTANT]
+> You can only use a license file with the appropriate container that you've been approved for. For example, you cannot use a license file for a speech-to-text container with a form recognizer container. 
 
 ## Configure the container to be run in a disconnected environment.
 
@@ -89,10 +93,13 @@ The following example shows the formatting of the `docker run` command you'll us
 | `{LICENSE_MOUNT}` | The path where the license will be downloaded, and mounted.  | `/path/to/license/directory` |
 | `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 | `{API_KEY}` | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| `{MEMORY_SIZE}` | The appropriate size of memory to allocate for your container. | `4g` | 
+| `{NUMBER_CPUS}` | The appropriate number of CPUs to allocate for your container. | `4` |
 | `{LICENSE_LOCATION}` | The path where the license will be downloaded, and mounted.  | `/path/to/license/directory` |
 
 ```bash
-docker run -v {LICENSE_MOUNT} {IMAGE} \
+docker run -v {LICENSE_MOUNT}  --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus 4 \ 
+{IMAGE} \
 eula=accept \
 billing={ENDPOINT_URI} \
 apikey={API_KEY} \
