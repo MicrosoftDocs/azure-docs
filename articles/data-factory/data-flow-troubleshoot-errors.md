@@ -222,7 +222,7 @@ This article lists common error codes and messages reported by mapping data flow
 - **Recommendation**: In the Cosmos DB linked service, specify the account name or account endpoint.
 
 ## Error code: DF-Github-WriteNotSupported
-- **Message**: Github store does not allow writes.
+- **Message**: GitHub store does not allow writes.
 - **Cause**: The GitHub store is read only.
 - **Recommendation**: The store entity definition is in some other place.
   

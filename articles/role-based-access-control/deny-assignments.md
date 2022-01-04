@@ -4,11 +4,10 @@ description: Learn about Azure deny assignments in Azure role-based access contr
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 
 ms.assetid: 
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
