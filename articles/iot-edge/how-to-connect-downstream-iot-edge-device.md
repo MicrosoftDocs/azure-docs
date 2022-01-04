@@ -536,11 +536,39 @@ The API proxy module was designed to be customized to handle most common gateway
 
 You can enhance the connectivity between the agent, and the cloud by using leaf device proxying.
 
-To configure the enhaned integration with IoT Edge using leaf device proxying:
+**To configure the enhanced integration with IoT Edge using leaf device proxying**:
 
-1. Set the connecction string using the following format `HostName=nested11.azure-devices.net;DeviceId=leaf1;ModuleId=module1;SharedAccessKey=xxx;GatewayHostName=10.16.7.4`.
+1. Sign in to the Azure portal.
 
-1. Enable the connection to the IoT Hub and  the edge gateway as the parent device.
+1. Navigate to **IoT Hub** > **`Your Hub`** > **Device management** > **Devices**
+
+1. Select your device.
+
+1. Select the module ID.
+
+1. Select the :::image type="icon" source="media/how-to-connect-downstream-iot-edge-device/view-icon.png" border="false"::: button to see your Connection string (primary key).
+
+1. Select the :::image type="icon" source="media/how-to-connect-downstream-iot-edge-device/copy-icon.png" border="false"::: button to copy your Connection string (primary key).
+
+1. Paste the Connection string into a word editor such as Notepad, and add the GatewayHostName to the string. For example, `HostName=nested11.azure-devices.net;DeviceId=leaf1;ModuleId=module1;SharedAccessKey=xxx;GatewayHostName=10.16.7.4`.
+
+1. Save the file as `connection_string.txt`.
+
+1. Place a the named `connection_string.txt` containing the connection string encoded in utf-8 in the Defender for Cloud agent directory `/var/defender_iot_micro_agent` path by entering the following command:
+
+    ```bash
+    sudo bash -c 'echo "<connection string>" > /var/defender_iot_micro_agent/connection_string.txt'
+    ```
+
+    The `connection_string.txt` should be located in the following path location `/var/defender_iot_micro_agent/connection_string.txt`.
+
+1. Restart the service using this command:  
+
+    ```bash
+    sudo systemctl restart defender-iot-micro-agent.service 
+    ```
+
+1. Enable the connection to the IoT Hub and the edge gateway as the parent device.
 
     :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/leaf-device-proxying.png" alt-text="Screenshot of the leaf device proxying connection.":::
 
