@@ -163,10 +163,6 @@ Save the Bicep file locally, and then use Azure CLI or Azure PowerShell to deplo
 
 # [Azure CLI](#tab/azure-cli)
 
-To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
-
-# [Azure CLI](#tab/azure-cli)
-
 ```azurecli
 resourceGroupName = "{provide-a-resource-group-name}"
 templateFile="{provide-the-path-to-the-bicep-file}"
