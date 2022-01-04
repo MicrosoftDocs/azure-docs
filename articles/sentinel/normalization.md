@@ -84,8 +84,11 @@ The Advanced SIEM Information Model uses the following terms:
 To start using ASIM:
 
 - Activate analytics rule templates that use ASIM. For more information, see the [Advanced SIEM Information Model (ASIM) content list](normalization-content.md#builtin).
+
 - Use the ASIM hunting queries from the Microsoft Sentinel GitHub repository, when querying logs in KQL in the Microsoft Sentinel **Logs** page. For more information, see the [Advanced SIEM Information Model (ASIM) content list](normalization-content.md#builtin).
+
 - Write your own analytics rules using ASIM or [convert existing ones](normalization-content.md#builtin).
+
 - Enable your custom data to use built-in analytics by [writing parsers](normalization-about-parsers.md) for your custom sources and [adding](normalization-about-parsers.md#include) them to the relevant source agnostic parser.
 
 ## <a name="next-steps"></a>Next steps
