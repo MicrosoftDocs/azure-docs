@@ -111,8 +111,8 @@ As organizations are moving away from using management certificates to manage th
 Learn more:
 
 - [Cloud Services (classic) deployment model is retiring on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/)
-- [Overview of Azure Cloud Services (classic)](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)
-- [Workflow of Windows Azure classic VM Architecture - including RDFE workflow basics](https://docs.microsoft.com/azure/cloud-services/cloud-services-workflow-process)
+- [Overview of Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md)
+- [Workflow of Windows Azure classic VM Architecture - including RDFE workflow basics](../cloud-services/cloud-services-workflow-process)
 
 
 ### Enhancements to recommendation to classify sensitive data in SQL databases
