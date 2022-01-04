@@ -282,7 +282,7 @@ For more details on restore method wiith Timescae enabled database see [Timescal
  To do so you should do following
    1. Install  tools as detailed [here](https://github.com/timescale/timescaledb-backup#installing-timescaledb-backup)
    2. Create target Azure Database for PostgreSQL server and database
-   3. Enable Timescale extension as [shown above](https://docs.microsoft.com/en-us/azure/postgresql/concepts-extensions#installing-timescaledb)
+   3. Enable Timescale extension as [shown above](./concepts-extensions#installing-timescaledb)
    4. Grant azure_pg_admin [role](https://www.postgresql.org/docs/11/database-roles.html) to user that will be used by [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore)
    5. Run [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore) to restore database
 
