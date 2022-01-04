@@ -80,7 +80,7 @@ When you run the command, the `pom.xml`, `App.java`, and other files are created
    
    ```java
    try {
-        AzureProfile azureProfile = new AzureProfile(AzureEnvironment.AZURE);
+        AzureProfile azureProfile = new AzureProfile("<YOUR_TENANT_ID>", "<YOUR_SUBSCRIPTION_ID>", AzureEnvironment.AZURE);
         ClientSecretCredential clientSecretCredential = new ClientSecretCredentialBuilder()
             .clientId("<YOUR_CLIENT_ID>")
             .clientSecret("<YOUR_CLIENT_SECRET>")
