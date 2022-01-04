@@ -1433,7 +1433,7 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections) (Legacy)** |
 | **Log Analytics table(s)** | SecurityEvents |
 | **Supported by** | Microsoft |
 | | |
@@ -1675,7 +1675,7 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections) (Legacy)** |
 | **Log Analytics table(s)** | DnsEvents<br>DnsInventory |
 | **Supported by** | Microsoft |
 | | |
@@ -1709,7 +1709,7 @@ We recommend installing the [Advanced SIEM Information Model (ASIM)](normalizati
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections) (Legacy)** |
 | **Log Analytics table(s)** | WindowsFirewall |
 | **Supported by** | Microsoft |
 | | |
