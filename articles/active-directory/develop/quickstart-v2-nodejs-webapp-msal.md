@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/22/2020
 ms.author: marsma
-ms.custom: aaddev, "scenarios:getting-started", "languages:js", devx-track-js, mode-other
-# Customer intent: As an application developer, I want to know how to set up authentication in a web application built using Node.js and MSAL Node.
+ms.custom: aaddev, "scenarios:getting-started", "languages:js", devx-track-js, mode-api
+#Customer intent: As an application developer, I want to know how to set up authentication in a web application built using Node.js and MSAL Node.
 ---
 
-# Quickstart: Sign in users and get an access token in a Node web app using the auth code flow
+# Quickstart: Sign in users and get an access token in a Node.js web app using the auth code flow
 
 In this quickstart, you download and run a code sample that demonstrates how a Node.js web app can sign in users by using the authorization code flow. The code sample also demonstrates how to get an access token to call Microsoft Graph API.
 

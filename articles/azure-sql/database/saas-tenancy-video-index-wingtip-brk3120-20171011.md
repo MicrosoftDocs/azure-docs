@@ -6,8 +6,7 @@ ms.service: sql-database
 ms.subservice: scenario
 author: LitKnd
 ms.author: kendralittle
-
-ms.reviewer: 
+ms.reviewer: mathoma
 ms.custom: sqldbrb=1
 ms.date: 12/18/2018
 ms.topic: conceptual

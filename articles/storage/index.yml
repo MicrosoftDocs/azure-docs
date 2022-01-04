@@ -20,7 +20,7 @@ highlightedContent:
     # Card
     - title: Review options for storage in Azure
       itemType: concept
-      url: /azure/cloud-adoption-framework/ready/considerations/storage-options.md
+      url: /azure/cloud-adoption-framework/ready/considerations/storage-options
     - title: Introduction to the core Azure Storage services
       itemType: concept
       url: ./common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

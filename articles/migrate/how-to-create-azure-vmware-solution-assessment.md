@@ -32,6 +32,7 @@ There are three types of assessments you can create using Azure Migrate: Discove
 --- | --- 
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. You can assess your on-premises servers in [VMware](how-to-set-up-appliance-vmware.md) and [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
 **Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to Azure SQL Database or Azure SQL Managed Instance.
+**Azure App Service** | Assessments to migrate your on-premises ASP.NET web apps, running on IIS web servers, from your VMware environment to Azure App Service.
 **Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). You can assess your on-premises servers in [VMware environment](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
@@ -48,12 +49,9 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 
 ## Run an Azure VMware Solution (AVS) assessment
 
-1.  On the **Overview** page > **Windows, Linux and SQL Server**, click **Assess and migrate servers**.
-    :::image type="content" source="./media/tutorial-assess-sql/assess-migrate.png" alt-text="Overview page for Azure Migrate":::
+1.  On the **Overview** page > **Servers, databases and web apps**, click **Assess and migrate servers**.
 
 1. In **Azure Migrate: Discovery and assessment**, click **Assess**.
-
-   ![Location of Assess button](./media/tutorial-assess-vmware-azure-vmware-solution/assess.png)
 
 1. In **Assess servers** > **Assessment type**, select **Azure VMware Solution (AVS)**.
 
@@ -72,7 +70,9 @@ There are two types of sizing criteria that you can use to create Azure VMware S
     - In **Target location**, specify the Azure region to which you want to migrate.
        - Size and cost recommendations are based on the location that you specify.
    - The **Storage type** is defaulted to **vSAN**. This is the default storage type for an AVS private cloud.
-   - **Reserved Instances** aren't currently supported for AVS nodes.
+   - In **Reserved Instances**, specify whether you want to use reserve instances for Azure VMware Solution nodes when you migrate your VMs.
+    - If you select to use a reserved instance, you can't specify '**Discount (%)**
+    - [Learn more](../azure-vmware/reserved-instance.md)
 1. In **VM Size**:
     - The **Node type** is defaulted to **AV36**. Azure Migrate recommends the node of nodes needed to migrate the servers to AVS.
     - In **FTT setting, RAID level**, select the Failure to Tolerate and RAID combination.  The selected FTT option, combined with the on-premises server disk requirement, determines the total vSAN storage required in AVS.
@@ -128,6 +128,7 @@ compression and deduplication.
     - Limiting factor determines the number of hosts/nodes required to accommodate the resources.
 - **Monthly cost estimation**: The estimated monthly costs for all Azure VMware Solution (AVS) nodes running the on-premises VMs.
 
+You can click on  **Sizing assumptions** to understand the assumptions that went in node sizing and resource utilization calculations. You can also edit the assessment properties, or recalculate the assessment.
 
 ### View an assessment
 
@@ -145,8 +146,8 @@ compression and deduplication.
 
 2. Review the server status:
     - **Ready for AVS**: The server can be migrated as-is to Azure (AVS) without any changes. It will start in AVS with full AVS support.
-    - **Ready with conditions**: The server might have compatibility issues with the current vSphere version as well as requiring possibly VMware tools and or other settings before full functionality from the server can be achieved in AVS.
-    - **Not ready for AVS**: The server will not start in AVS. For example, if the on-premises server has an external device attached such as a cd-rom the VMotion operation will fail (if using VMware VMotion).
+    - **Ready with conditions**: There might be some compatibility issues example internet protocol or deprecated OS in VMware and need to be remediated before migrating to Azure VMware Solution. To fix any readiness problems, follow the remediation guidance the assessment suggests.
+    - **Not ready for AVS**: The VM will not start in AVS. For example, if the on-premises VMware VM has an external device attached such as a cd-rom the VMware VMotion operation will fail (if using VMware VMotion).
     - **Readiness unknown**: Azure Migrate couldn't determine the readiness of the server because of insufficient metadata collected from the on-premises environment.
 
 3. Review the Suggested tool:
@@ -157,12 +158,12 @@ compression and deduplication.
 
 ### Review cost details
 
-This view shows the estimated cost of running servers in Azure VMware Solution (AVS).
+This view shows the estimated cost of running servers in Azure VMware Solution.
 
 1. Review the monthly total costs. Costs are aggregated for all servers in the assessed group. 
 
     - Cost estimates are based on the number of AVS nodes required considering the resource requirements of all the  servers in total.
-    - As the pricing for Azure VMware Solution (AVS) is per node, the total cost does not have compute cost and storage cost distribution.
+    - As the pricing for Azure VMware Solution is per node, the total cost does not have compute cost and storage cost distribution.
     - The cost estimation is for running the on-premises servers in AVS. AVS assessment doesn't consider PaaS or SaaS costs.
     
 2. You can review monthly storage cost estimates. This view shows aggregated storage costs for the assessed group, split over different types of storage disks.

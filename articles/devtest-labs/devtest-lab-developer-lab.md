@@ -2,7 +2,7 @@
 title: Use Azure DevTest Labs for developers
 description: Learn about Azure DevTest Labs features that can be used to meet developer requirements and the detailed steps that you can follow to set up a lab.
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 12/10/2021
 ---
 
 # Use Azure DevTest Labs for developers
@@ -88,7 +88,10 @@ In this article, you learn about various Azure DevTest Labs features that can be
    
     DevTest Labs creates a new virtual network (VNET) whenever a lab is created. If you have configured your own VNET – for example, by using ExpressRoute or site-to-site VPN – you can add this VNET to your lab's virtual network settings so that it is available when creating VMs.
 
-    In addition, there is an Azure Active Directory domain join artifact available that will join a VM to a domain when the VM is being created. 
+    In addition, there is an Active Directory domain join artifact available that will join a VM to a domain when the VM is being created. 
+    
+    > [!Important]
+    > Only Domain join is supported. 
    
     Learn more by clicking on the links in the following table:
    

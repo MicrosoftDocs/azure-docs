@@ -539,7 +539,7 @@ If you use Web PubSub SDK, there is already an implementation to parse and proce
 Add the following code to expose a REST API at `/eventhandler` (which is done by the express middleware provided by Web PubSub SDK) to handle the client connected event:
 
 ```bash
-npm install --save @azure/web-pubsub-express@1.0.0-alpha.20211102.4
+npm install --save @azure/web-pubsub-express
 ```
 
 ```javascript

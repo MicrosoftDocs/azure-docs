@@ -57,6 +57,8 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 | ecdsa-sha2-nistp384| diffie-hellman-group16-sha512 | aes256-cbc |  | 
 ||| aes192-cbc ||
 
+SFTP support for Azure Blob Storage currently limits its cryptographic algorithm support in accordance to the Microsoft Security Development Lifecycle (SDL). We strongly recommend that customers utilize SDL approved algorithms to securely access their data. More details can be found [here](/security/sdl/cryptographic-recommendations)
+
 ## Security
 
 - Host keys are published [here](secure-file-transfer-protocol-host-keys.md). During the public preview, host keys will rotate up to once per month.
@@ -105,6 +107,27 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 - PowerShell and Azure CLI and not supported. You can leverage Portal and ARM templates for Public Preview.
 
+## Troubleshooting
+
+- To resolve the `Failed to update SFTP settings for account 'accountname'. Error: The value 'True' is not allowed for property isSftpEnabled.` error, ensure that the following pre-requisites are met at the storage account level:
+
+  - The account needs to be a GPv2 or Block Blob Storage account.
+  
+  - The account needs to have LRS or ZRS replication setup.
+  
+  - The account needs to have hierarchical namespace enabled on it.
+  
+  - The account needs to be in a [supported regions](secure-file-transfer-protocol-support.md#regional-availability).
+  
+  - Customer's subscription needs to be signed up for the preview. See this.
+
+- To resolve the `Home Directory not accessible error.` error, check that:
+  
+  - The user has been assigned appropriate permissions to the container.
+  
+  -	The container name is specified in the connection string if you have not configured (set home directory) and provisioned (create the directory inside the container) a home directory for the user.
+
 ## See also
 
 - [SSH File Transfer Protocol (SFTP) support in Azure Blob Storage](secure-file-transfer-protocol-support.md)
+- [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP) (preview)](secure-file-transfer-protocol-support-how-to.md)

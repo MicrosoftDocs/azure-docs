@@ -3,7 +3,7 @@ title: Create a VM from a specialized image version
 description: Create a VM using a specialized image version in an Azure Compute Gallery.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/05/2021

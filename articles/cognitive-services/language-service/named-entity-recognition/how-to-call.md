@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 12/03/2021
+ms.date: 12/10/2021
 ms.author: aahi
 ms.custom: language-service-ner, ignite-fall-2021
 ---
@@ -22,11 +22,7 @@ The NER feature can evaluate unstructured text, and extract named entities from 
 
 ### Specify the NER model
 
-By default, this feature will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform NER operations.
-
-| Supported Versions | latest version |
-|--|--|
-| `2019-10-01`, `2020-02-01`, `2020-04-01`,`2021-01-15`,`2021-06-01`  | `2021-06-01`   |
+By default, this feature will use the latest available AI model on your text. You can also configure your API requests to use a specific [model version](../concepts/model-lifecycle.md).
 
 
 ### Input languages

@@ -68,6 +68,8 @@ To verify that IoT Central is mapping the telemetry, navigate to **Raw data** vi
 
 If you don't see your mapped data after refreshing the **Raw data** several times, check that the JSONPath expression you're using matches the structure of the telemetry message.
 
+For IoT Edge devices, the data mapping applies to the telemetry from all the IoT Edge modules and hub. You can't apply mappings to a specific IoT edge module.
+
 For devices assigned to a device template, you can't map data for components or inherited interfaces. However, you can map any data from your device before you assign it to a device template.
 
 ## Manage mappings
@@ -75,6 +77,8 @@ For devices assigned to a device template, you can't map data for components or 
 To view, edit, or delete mappings, navigate to the **Mapped aliases** page. Select a mapping to edit or delete it. You can select multiple mappings and delete them at the same time:
 
 :::image type="content" source="media/howto-map-data/mapped-aliases.png" alt-text="Screenshot that shows the **Mapped aliases** view with the edit and delete buttons.":::
+
+By default, data exports from IoT Central include mapped data. To exclude mapped data, use a [data transformation](howto-transform-data-internally.md) in your data export.
 
 ## Next steps
 

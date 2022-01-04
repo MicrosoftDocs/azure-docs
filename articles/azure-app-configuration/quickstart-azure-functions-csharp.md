@@ -4,6 +4,7 @@ description: "In this quickstart, make an Azure Functions app with Azure App Con
 services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
+ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
 ms.date: 06/02/2021

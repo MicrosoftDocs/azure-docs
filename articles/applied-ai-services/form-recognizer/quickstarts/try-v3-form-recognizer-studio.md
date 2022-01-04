@@ -2,14 +2,14 @@
 title: "Quickstart: Form Recognizer Studio | Preview"
 titleSuffix: Azure Applied AI Services
 description: Form and document processing, data extraction, and analysis using Form Recognizer Studio (preview)
-author: sanjeev3
-manager: netahw
+author: laujan
+manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 09/14/2021
 ms.author: sajagtap
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: ignite-fall-2021, mode-ui
 ---
 
 # Get started: Form Recognizer Studio | Preview
@@ -33,6 +33,11 @@ To migrate your existing custom projects to the Studio, jump ahead to the [**Cus
 * A [**Form Recognizer**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [**Cognitive Services multi-service**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource.
 
 ## Sign into the Form Recognizer Studio preview
+
+> [!NOTE]
+> **Virtual networks (VNETs)** 
+> 
+> If you are using the Studio with service endpoints and blob storage configured within a virtual network (VNET), ensure that your computer is in the same VNET as the endpoint and the storage container.
 
 After you have completed the prerequisites, navigate to the [Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com).
 
