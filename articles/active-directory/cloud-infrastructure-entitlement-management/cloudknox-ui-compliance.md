@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Microsoft CloudKnox Permissions Management Compliance dashboard
 
-The Microsoft CloudKnox Permissions Management **Compliance** dashboard provides an overview of how you are following the national, regional, and industry-specific requirements that govern the collection and use of data.
+The Microsoft CloudKnox Permissions Management **Compliance** dashboard provides an overview of how you can follow the national, regional, and industry-specific requirements that govern the collection and use of data.
 
 This topic provides an overview of the components of the **Compliance** dashboard.
 

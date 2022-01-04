@@ -38,7 +38,7 @@ The left toolbar provides the following options:
     - To delete the selected tasks, select **Delete**, and then select **Apply**.
 
 The top toolbar provides the following options:
-- A drop-down list from which you can select one of the following: **Users**, **Groups**, **Active Resources**, **Active Tasks**, **Access Keys**, and **Serverless Functions.**
+- A drop-down list from which you can select one of the following options: **Users**, **Groups**, **Active Resources**, **Active Tasks**, **Access Keys**, and **Serverless Functions.**
 - **Export** - Select this button and then select to export the Usage report in CSV format.
 
     The following message displays: **We'll email you a link to download the file.** 

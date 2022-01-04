@@ -32,7 +32,7 @@
     - name: Integration with Splunk
       href: cloudknox-splunk.md
     - name: Integration with ServiceNow
-      href: cloudknox-product-dashboard.md
+      href: cloudknox-servicenow.md
     - name: CloudKnox FortSentry registration
       href: cloudknox-fortsentry-registration.md
   - name: How-to guides
