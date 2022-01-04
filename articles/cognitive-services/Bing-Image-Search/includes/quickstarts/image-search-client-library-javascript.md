@@ -23,8 +23,6 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
 * The `CognitiveServicesCredentials` class from `@azure/ms-rest-azure-js` package to authenticate the client.
      * To install, run `npm install @azure/ms-rest-azure-js`
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](~/includes/cognitive-services-bing-image-search-signup-requirements.md)]
-
 ## Create and initialize the application
 
 1. Create a new JavaScript file in your favorite IDE or editor, and set the strictness, https, and other requirements.

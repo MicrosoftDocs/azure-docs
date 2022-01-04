@@ -24,8 +24,6 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 * If you're using macOS or Linux, [VS Code](https://code.visualstudio.com) with [.NET Core installed](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install)
 * [A free Azure subscription](https://azure.microsoft.com/free/dotnet)
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](~/includes/cognitive-services-bing-image-search-signup-requirements.md)]
-
 See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Create a console project

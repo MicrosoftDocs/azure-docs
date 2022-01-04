@@ -31,8 +31,6 @@ Install the Bing Image Search client library dependencies by using Maven, Gradle
  </dependencies>
 ```
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](~/includes/cognitive-services-bing-image-search-signup-requirements.md)]
-
 ## Create and initialize the application
 
 1. Create a new Java project in your favorite IDE or editor, and add the following imports to your class implementation:
