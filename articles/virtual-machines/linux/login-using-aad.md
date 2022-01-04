@@ -8,7 +8,7 @@ ms.workload: infrastructure
 ms.date: 11/22/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 ms.custom: references_regions
 
