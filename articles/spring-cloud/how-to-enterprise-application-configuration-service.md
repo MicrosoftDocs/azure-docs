@@ -83,15 +83,13 @@ To validate access to the target URI, select **Validate**. After validation is c
 
 ## Refresh strategies
 
-The section describes how to get the configuration in your application to be refreshed after you update the configuration file in Git repo.
+To refresh your application configuration after you update the configuration file in the Git repo, follow these steps to load the new configuration files.
 
-There are two steps to load the new configuration files.
-
-1. Load to Application Configuration Service
+1. Load the configuration to Application Configuration Service
 
 The refresh frequency is managed by Azure Spring Cloud and fixed to 60 seconds.
 
-1. Load to your application
+1. Load the configuration to your application
 
 A Spring application holds the properties as the beans of the Spring Application Context via the Environment interface. There are several ways to load the new configurations.
 
@@ -99,7 +97,7 @@ A Spring application holds the properties as the beans of the Spring Application
 
 - By calling the /actuator/refresh endpoint exposed on the config client via the Spring Actuator.
 
-   To use the method, you will add the following dependency to our config client’s pom.xml
+   To use this method, add the following dependency to your configuration client’s pom.xml
 
    ``` xml
    <dependency>
@@ -108,12 +106,12 @@ A Spring application holds the properties as the beans of the Spring Application
    </dependency>
    ```
 
-   You will also enable the actuator endpoint by adding the following configurations
+   You will also enable the actuator endpoint by adding the following configurations:
    ```
    management.endpoints.web.exposure.include=refresh, bus-refresh, beans, env
    ```
 
-   Just after the reloading of property sources by calling the /actuator/refresh endpoint, the attributes bounded with @Value in the beans having the annotation @RefreshScope is refreshed.
+   After reloading the property sources by calling the /actuator/refresh endpoint, the attributes bound with @Value in the beans having the annotation @RefreshScope is refreshed.
 
    ``` java
    @Service
@@ -125,14 +123,14 @@ A Spring application holds the properties as the beans of the Spring Application
    }
    ```
 
-   Lastly, curl the application endpoint to refresh the new configuration.
+   Next, curl the application endpoint to refresh the new configuration.
    ``` bash
    curl -X POST http://{app-endpoint}/actuator/refresh
    ```
 
-## Restriction on using Application Configuration Service with apps
+## Important information on using Application Configuration Service with apps
 
-There are some restrictions when you use Application Configuration Service with a Git back end.
+When you use Application Configuration Service with a Git back end, keep the following items in mind.
 
 To use the centralized configurations, you must bind the app to Application Configuration Service. After binding the app, you'll need to configure which pattern to be used by the app by following these steps:
 
@@ -153,7 +151,7 @@ To use the centralized configurations, you must bind the app to Application Conf
 
    b. Select the target app to configure patterns.
 
-   c. Open the **Configuration** section and find the **General settings** tab. Under the **Config file patterns** property, choose one or more patterns from the dropdown list. Select **Save** to save the changes.
+   c. Open the **Configuration** section and select **General settings**. Under the **Config file patterns** property, choose one or more patterns from the dropdown list. Select **Save** to save the changes.
 
       ![acs-pattern](./media/enterprise/application-configuration-service/pattern.png)
 
