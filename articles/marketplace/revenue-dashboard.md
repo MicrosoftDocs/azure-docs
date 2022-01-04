@@ -242,15 +242,10 @@ In the lower left of most widgets, you’ll see a thumbs up and thumbs down icon
 |
 ## Next steps
 
-- For information on common questions on revenue dashboard, see [Revenue dashboard common questions](/revenue-dashboard-faq).
+- For common questions about the revenue dashboard or commercial marketplace analytics, and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics common questions](/analytics-faq).
 - For information on payout statements, see [Payout statements](/partner-center/payout-statement).
 - For information on Payout schedules, see [Payout schedules and processes](/partner-center/payout-policy-details).
 - For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage dashboard in commercial marketplace analytics](usage-dashboard.md).
 - For information about your orders in a graphical and downloadable format, see [Orders dashboard in commercial marketplace analytics](orders-dashboard.md).
 - For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](downloads-dashboard.md).
 - For an overview of analytics reports available in the commercial marketplace, see [Access analytic reports for the commercial marketplace in Partner Center](analytics.md).
-- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics common questions](/analytics-faq).
-
-## Next steps
-
-- [Analytics FAQ](analytics-faq.md)
