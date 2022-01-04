@@ -73,13 +73,7 @@ When the instance is finished deploying, use the **Go to resource** button to na
 
 :::image type="content" source= "media/quickstart-azure-digital-twins-explorer/deployment-complete.png" alt-text="Screenshot of the deployment page for Azure Digital Twins in the Azure portal. The page indicates that deployment is complete.":::
 
-Next, select the **Open Azure Digital Twins Explorer (preview)** button.
-
-:::image type="content" source="media/includes/azure-digital-twins-explorer-portal-access.png" alt-text="Screenshot of the Azure portal showing the Overview page for an Azure Digital Twins instance. There's a highlight around the Open Azure Digital Twins Explorer (preview) button." lightbox="media/includes/azure-digital-twins-explorer-portal-access.png":::
-
-This will open an Azure Digital Twins Explorer window connected to your instance.
-
-:::image type="content" source="media/quickstart-azure-digital-twins-explorer/explorer-blank.png" alt-text="Screenshot of Azure Digital Twins Explorer in an internet browser." lightbox="media/quickstart-azure-digital-twins-explorer/explorer-blank.png":::
+[!INCLUDE [digital-twins-access-explorer.md](../../includes/digital-twins-access-explorer.md)]
 
 ## Upload the sample materials
 
