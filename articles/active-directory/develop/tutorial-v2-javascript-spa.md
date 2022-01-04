@@ -262,7 +262,7 @@ You now have a simple server to serve your SPA. The intended folder structure at
 Before proceeding further with authentication, register your application on **Azure Active Directory**.
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
@@ -436,8 +436,8 @@ The `acquireTokenSilent` method handles token acquisition and renewal without an
 
    ```JavaScript
       const graphConfig = {
-        graphMeEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me",
-        graphMailEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me/messages"
+        graphMeEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me",
+        graphMailEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me/messages"
       };
    ```
 
@@ -480,6 +480,10 @@ In the sample application created by this guide, the `callMSGraph()` method is u
    npm start
    ```
 1. In your browser, enter **http://localhost:3000** or **http://localhost:{port}**, where *port* is the port that your web server is listening to. You should see the contents of your *index.html* file and the **Sign In** button.
+
+
+> [!Important]
+> Enable popups and redirects for your site in your browser settings.
 
 After the browser loads your *index.html* file, select **Sign In**. You're prompted to sign in with the Microsoft identity platform:
 

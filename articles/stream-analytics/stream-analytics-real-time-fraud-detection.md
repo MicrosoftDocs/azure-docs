@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.custom: contperf-fy21q2
 ms.date: 12/17/2020
 
-#Customer intent: "As an IT admin/developer I want to run a Stream Analytics job to analyze phone call data and visualize results in a Power BI dashboard."
+#Customer intent: As an IT admin/developer, I want to run a Stream Analytics job to analyze phone call data and visualize results in a Power BI dashboard.
 ---
 
 # Tutorial: Analyze fraudulent call data with Stream Analytics and visualize results in Power BI dashboard

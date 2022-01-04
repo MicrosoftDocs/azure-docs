@@ -181,7 +181,7 @@ The following sections specify the parameters required for all authentication ty
         Data Source=<URI Server>;Initial Catalog=<Database>
         ```
 
-    * **Managed identity**: Managed identity for Azure resources can authorize access to blob and queue data. Managed identity uses Azure AD credentials from applications running in Azure virtual machines, function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources and Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](../../storage/common/storage-auth-aad-msi.md#enable-managed-identities-on-a-vm). 
+    * **Managed identity**: Managed identity for Azure resources can authorize access to blob and queue data. Managed identity uses Azure AD credentials from applications running in Azure virtual machines, function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources and Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](../../storage/blobs/authorize-managed-identity.md#enable-managed-identities-on-a-vm). 
     
         You can create a managed identity in the Azure portal for your Azure Data Explorer (Kusto). Select **Permissions** > **Add**. The suggested role type is: **admin / viewer**.
         
@@ -195,13 +195,13 @@ The following sections specify the parameters required for all authentication ty
      
 * **Query**: To get and formulate data into multi-dimensional time series data, see [Kusto Query Language](/azure/data-explorer/kusto/query). You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted as follows: `yyyy-MM-ddTHH:mm:ssZ`.
 
-    Sample query:
+  Sample query:
     
-    ``` Kusto
-   [TableName] | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd);    
-   ```
+  ```kusto
+  [TableName] | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd);    
+  ```
 
-    For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md).
+  For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md).
 
 ## <span id="adl">Azure Data Lake Storage Gen2</span>
 
@@ -410,7 +410,7 @@ Azure Monitor Logs has the following authentication types: basic, service princi
         ```
     
         > [!NOTE]
-        > The `MI Name` is the managed identity name in Metrics Advisor (for service principal, it should be replaced with the service principal name). For more information, see [Authorize with a managed identity](../../storage/common/storage-auth-aad-msi.md#enable-managed-identities-on-a-vm). 
+        > The `MI Name` is the managed identity name in Metrics Advisor (for service principal, it should be replaced with the service principal name). For more information, see [Authorize with a managed identity](../../storage/blobs/authorize-managed-identity.md#enable-managed-identities-on-a-vm). 
             
         Here's an example of a connection string: 
        

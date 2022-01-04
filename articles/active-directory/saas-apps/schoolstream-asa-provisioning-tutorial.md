@@ -23,7 +23,8 @@ This tutorial describes the steps you need to perform in both SchoolStream ASA a
 > [!div class="checklist"]
 > * Create users in SchoolStream ASA 
 > * Remove users in SchoolStream ASA  when they do not require access anymore.
-> * Keep user attributes synchronized between Azure AD and SchoolStream ASA
+> * Keep user attributes synchronized between Azure AD and SchoolStream ASA.
+> * Provision groups and group memberships in SchoolStream ASA.
 > * [Single sign-on](../manage-apps/add-application-portal-setup-oidc-sso.md) to SchoolStream ASA (recommended).
 
 
@@ -51,11 +52,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 To start managing provisioning to SchoolStream ASA in your Azure AD, you need to add SchoolStream ASA from the Azure AD application gallery. 
 
 1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-2. On the left navigation pane, select the **Azure Active Directory** service.
-3. Navigate to **Enterprise Applications** and then select **All Applications**.
-4. To add new application, select **New application**.
-5. In the **Browse Azure AD Gallery** section, type **SchoolStream ASA** in the search box.
-6. Select **SchoolStream ASA** from results panel and then **Sign up for the app**. Wait a few seconds while the app is added to your tenant.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Browse Azure AD Gallery** section, type **SchoolStream ASA** in the search box.
+1. Select **SchoolStream ASA** from results panel and then **Sign up for the app**. Wait a few seconds while the app is added to your tenant.
 
 
 If you have previously setup SchoolStream ASA for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
@@ -139,7 +140,19 @@ This section guides you through the steps to configure the Azure AD provisioning
    |externalId|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String| 
 
-13. Select the **Save** button to commit any changes. You can go back to the **Application** tab and select **Edit provisioning** to continue.
+
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to UNIFI**.
+
+1. Review the group attributes that are synchronized from Azure AD to UNIFI in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in UNIFI for update operations. Select the **Save** button to commit any changes.
+
+      |Attribute|Type|Supported for filtering|
+      |---|---|---|
+      |displayName|String|&check;
+      |members|Reference|
+      |externalId|String|      
+
+
+1. Select the **Save** button to commit any changes. You can go back to the **Application** tab and select **Edit provisioning** to continue.
 
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -163,6 +176,10 @@ Once you've configured provisioning, use the following resources to monitor your
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## Change log
+
+* 09/24/2020 - Group provisioning got enabled.
 
 ## More resources
 

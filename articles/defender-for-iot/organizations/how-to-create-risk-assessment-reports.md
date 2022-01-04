@@ -1,7 +1,7 @@
 ---
 title: Create risk assessment reports
 description: Gain insight into network risks detected by individual sensors or an aggregate view of risks detected by all sensors.
-ms.date: 12/17/2020
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
@@ -39,7 +39,10 @@ Risk assessment reports provide:
 
 ### Risk mitigation
 
-Reports provide recommendations to help you improve your security score. For example, install the latest security updates, upgrade firmware to the latest version or follow up on alerts.
+Reports provide recommendations to help you improve your security score. For example:
+- Install the latest security updates.
+- Upgrade firmware to the latest version.
+- Investigate PLCs in unsecure states.
 
 ## About security scores
 
@@ -107,4 +110,3 @@ To import a company logo:
 ## See also
 
 [Attack vector reporting](how-to-create-attack-vector-reports.md)
-

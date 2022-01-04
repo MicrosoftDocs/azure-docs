@@ -4,14 +4,15 @@ description: Information for understanding the APIs in Azure AD Privileged Ident
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: how-to
-ms.date: 05/14/2021
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim 
 ms.collection: M365-identity-device-management
 ---

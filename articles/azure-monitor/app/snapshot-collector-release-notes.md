@@ -17,23 +17,29 @@ For bug reports and feedback, open an issue on GitHub at https://github.com/micr
 
 ## Release notes
 
+## [1.4.2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.2)
+A point release to address a user-reported bug.
+### Bug fixes
+- Fix [ArgumentException: Delegates must be of the same type.](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/16)
+
+## [1.4.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.1)
+A point release to revert a breaking change introduced in 1.4.0.
+### Bug fixes
+- Fix [Method not found in WebJobs](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/15)
+
 ## [1.4.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.0)
-A point release to address multiple improvements and added support for Azure Active Directory (AAD) authentication for Application Insights ingestion.
+Address multiple improvements and added support for Azure Active Directory (AAD) authentication for Application Insights ingestion.
 ### Changes
+- Snapshot Collector package size reduced by 60%. From 10.34 MB to 4.11 MB.
+- Target netstandard2.0 only in Snapshot Collector.
+- Bump Application Insights SDK dependency to 2.15.0.
 - Add back MinidumpWithThreadInfo when writing dumps.
 - Add CompatibilityVersion to improve synchronization between Snapshot Collector agent and uploader on breaking changes.
-- Remove the DebugQueryBufferSize detour.
-- Target netstandard2.0 only in Snapshot Collector.
-- Update to latest Azure SDK packages.
-- Change SnapshotUploader LogFile naming algorithm to avoid excessive file I/O in Antares.
-- Add pid, role name, and process start time to blob metadata.
+- Change SnapshotUploader LogFile naming algorithm to avoid excessive file I/O in App Service.
+- Add pid, role name, and process start time to uploaded blob metadata.
 - Use System.Diagnostics.Process where possible in Snapshot Collector and Snapshot Uploader.
-- Snapshot Collector package size reduced by 60%. From 10.34 mb to 4.11 mb.
-- Update to latest Application Insights 2.18.0. 
 ### New features
 - Add Azure Active Directory authentication to SnapshotCollector. Learn more about Azure AD authentication in Application Insights [here](./azure-ad-authentication.md).
-### Bug fixes
-- Fix [ObjectDisposedException on shutdown](https://github.com/microsoft/ApplicationInsights-dotnet/issues/2097).
 
 ## [1.3.7.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.5)
 A point release to backport a fix from 1.4.0-pre.

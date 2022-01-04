@@ -426,7 +426,7 @@ Once the Workday provisioning app configurations have been completed and you hav
 
 1. Once the initial sync is completed, it will write an audit summary report in the **Provisioning** tab, as shown below.
    > [!div class="mx-imgBorder"]
-   > ![Provisioning progress bar](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
+   > ![Provisioning progress bar](./media/sap-successfactors-inbound-provisioning/workday-sync.png)
 
 ## Frequently Asked Questions (FAQ)
 
@@ -499,7 +499,7 @@ Yes, this configuration is supported. Here are the high level steps to configure
 
 #### How do I suggest improvements or request new features related to Workday and Azure AD integration?
 
-Your feedback is highly valued as it helps us set the direction for the future releases and enhancements. We welcome all feedback and encourage you to submit your idea or improvement suggestion in the [feedback forum of Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory). For specific feedback related to the Workday integration, select the category *SaaS Applications* and search using the keywords *Workday* to find existing feedback related to the Workday.
+Your feedback is highly valued as it helps us set the direction for the future releases and enhancements. We welcome all feedback and encourage you to submit your idea or improvement suggestion in the [feedback forum of Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789). For specific feedback related to the Workday integration, select the category *SaaS Applications* and search using the keywords *Workday* to find existing feedback related to the Workday.
 
 > [!div class="mx-imgBorder"]
 > ![UserVoice SaaS Apps](media/workday-inbound-tutorial/uservoice_saas_apps.png)
@@ -684,17 +684,18 @@ Here is how you can handle such requirements for constructing *CN* or *displayNa
 
 * Extending the above example, let's say you would like to convert city names coming from Workday into shorthand values and then use it to build display names such as *Smith, John (CHI)* or *Doe, Jane (NYC)*, then this result can be achieved using a Switch expression with the Workday *Municipality* attribute as the determinant variable.
 
-     ```
-    Switch
-    (
-      [Municipality],
-      Join(", ", [PreferredLastName], [PreferredFirstName]),  
-           "Chicago", Append(Join(", ",[PreferredLastName], [PreferredFirstName]), "(CHI)"),
-           "New York", Append(Join(", ",[PreferredLastName], [PreferredFirstName]), "(NYC)"),
-           "Phoenix", Append(Join(", ",[PreferredLastName], [PreferredFirstName]), "(PHX)")
-    )
-     ```
-    See also:
+  ```
+  Switch
+  (
+    [Municipality],
+    Join(", ", [PreferredLastName], [PreferredFirstName]),  
+         "Chicago", Append(Join(", ",[PreferredLastName], [PreferredFirstName]), "(CHI)"),
+         "New York", Append(Join(", ",[PreferredLastName], [PreferredFirstName]), "(NYC)"),
+         "Phoenix", Append(Join(", ",[PreferredLastName], [PreferredFirstName]), "(PHX)")
+  )
+  ```
+
+  See also:
   * [Switch Function Syntax](../app-provisioning/functions-for-customizing-application-data.md#switch)
   * [Join Function Syntax](../app-provisioning/functions-for-customizing-application-data.md#join)
   * [Append Function Syntax](../app-provisioning/functions-for-customizing-application-data.md#append)

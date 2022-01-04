@@ -1,7 +1,7 @@
 ---
 title: Manage the on-premises management console 
 description: Learn about on-premises management console options like backup and restore, defining the host name, and setting up a proxy to sensors.
-ms.date: 1/12/2021
+ms.date: 11/09/2021
 ms.topic: article
 ---
 
@@ -19,7 +19,7 @@ After initial activation, the number of monitored devices might exceed the numbe
 
 **To upload an activation file:**
 
-1. Go to the Azure Defender for IoT **Pricing** page.
+1. Go to the Microsoft Defender for IoT **Pricing** page.
 1. Select the **Download the activation file for the management console** tab. The activation file is downloaded.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Download the activation file.":::
@@ -228,9 +228,9 @@ To define:
 1. Sign in to the CLI for the on-premises management with administrative credentials.
 1. Type ```nano /var/cyberx/properties/remote-interfaces.properties```.
 1. Select enter. The following prompts appear.
-```mail.smtp_server= ```
-```mail.port=25 ```
-```mail.sender=```
+   `mail.smtp_server=`
+   `mail.port=25`
+   `mail.sender=`
 1. Enter the SMTP server name  and sender and select enter.
 
 ## See also

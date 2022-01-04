@@ -3,9 +3,9 @@ title: Associate a virtual machine to a Capacity Reservation group (preview)
 description: Learn how to associate a new or existing virtual machine to a Capacity Reservation group.
 author: vargupt
 ms.author: vargupt
-ms.service: virtual-machines #Required
+ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 08/09/2021
+ms.date: 01/03/2022
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
 ---
@@ -18,11 +18,6 @@ This article walks you through the steps of associating a new or existing virtua
 > Capacity Reservation is currently in public preview.
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
-## Register for Capacity Reservation 
-
-Before you can use the Capacity Reservation feature, you must [register your subscription for the preview](capacity-reservation-overview.md#register-for-capacity-reservation). The registration may take several minutes to complete. You can use either Azure CLI or PowerShell to complete the feature registration.
 
 ## Associate a new VM
 
@@ -76,13 +71,25 @@ In the request body, include the `capacityReservationGroup` property as shown be
 1. Choose an **Image** and the **VM size**
 1. Under *Administrator account*, provide a **username** and a **password**
     1. The password must be at least 12 characters long and meet the defined complexity requirements
-1. Under *Inbound port rules*, choose **Allow selected ports** and then select **RDP** (3389) and **HTTP** (80) from the drop-down
 1. Go to the *Advanced section*
 1. In the **Capacity Reservations** dropdown, select the capacity reservation group that you want the VM to be associated with
 1. Select the **Review + create** button 
 1. After validation runs, select the **Create** button 
 1. After the deployment is complete, select **Go to resource**
 
+### [CLI](#tab/cli1)
+
+Use `az vm create` to create a new VM and add the `capacity-reservation-group` property to associate it to an existing capacity reservation group. The example below creates a Standard_D2s_v3 VM in the East US location and associate the VM to a capacity reservation group.
+
+```azurecli-interactive
+az vm create 
+--resource-group myResourceGroup 
+--name myVM 
+--location eastus 
+--size Standard_D2s_v3 
+--image UbuntuLTS 
+--capacity-reservation-group /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName}
+```
 
 ### [PowerShell](#tab/powershell1)
 
@@ -160,6 +167,24 @@ While Capacity Reservation is in preview, to associate an existing VM to a Capac
 1. Go to **Configurations** on the left
 1. In the **Capacity Reservation Group** dropdown, select the group that you want the VM to be associated with 
 
+### [CLI](#tab/cli2)
+
+1. Deallocate the VM
+
+    ```azurecli-interactive
+    az vm deallocate 
+    -g myResourceGroup 
+    -n myVM
+    ```
+
+1. Associate the VM to a capacity reservation group
+
+    ```azurecli-interactive
+    az vm update 
+    -g myresourcegroup 
+    -n myVM 
+    --capacity-reservation-group subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{CapacityReservationGroupName}
+    ```
 
 ### [PowerShell](#tab/powershell2)
 
@@ -243,6 +268,16 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
    }
 } 
 ``` 
+
+### [CLI](#tab/cli3)
+
+```azurecli-interactive
+az capacity reservation show 
+-g myResourceGroup
+-c myCapacityReservationGroup 
+-n myCapacityReservation 
+```
+
 ### [PowerShell](#tab/powershell3)
 
 ```powershell-interactive

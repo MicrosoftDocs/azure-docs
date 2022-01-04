@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/17/2021
+ms.date: 09/27/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: lvandenende
 
 ms.collection: M365-identity-device-management
@@ -56,21 +56,21 @@ All users in your tenant must register for multi-factor authentication (MFA) in 
 
 Users with privileged access have increased access to your environment. Because of the power these accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification for sign-in. In Azure AD, you can get a stronger account verification by requiring multi-factor authentication.
 
-After registration with Azure AD Multi-Factor Authentication is finished, the following nine Azure AD administrator roles will be required to do extra authentication every time they sign in:
+After registration with Azure AD Multi-Factor Authentication is finished, the following Azure AD administrator roles will be required to do extra authentication every time they sign in:
 
 - Global administrator
-- SharePoint administrator
-- Exchange administrator
-- Conditional Access administrator
-- Security administrator
-- Helpdesk administrator
-- Billing administrator
-- User administrator
-- Authentication administrator
-- Password administrator
-- Privileged authentication administrator
-- Application administrator
-- Cloud application administrator
+- Application administrator
+- Authentication administrator
+- Billing administrator
+- Cloud application administrator
+- Conditional Access administrator
+- Exchange administrator
+- Helpdesk administrator
+- Password administrator
+- Privileged authentication administrator
+- Security administrator
+- SharePoint administrator
+- User administrator
 
 > [!WARNING]
 > Ensure your directory has at least two accounts with global administrator privileges assigned to them. This will help in the case that one global administrator is locked out. For more detail see the article, [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
@@ -81,7 +81,7 @@ We tend to think that administrator accounts are the only accounts that need ext
 
 After these attackers gain access, they can request access to privileged information for the original account holder. They can even download the entire directory to do a phishing attack on your whole organization. 
 
-One common method to improve protection for all users is to require a stronger form of account verification, such as Multi-Factor Authentication, for everyone. After users complete Multi-Factor Authentication registration, they'll be prompted for another authentication whenever necessary. Users will be prompted primarily when they authenticate using a new device or application, or when doing critical roles and tasks. This functionality protects all applications registered with Azure AD including SaaS applications.
+One common method to improve protection for all users is to require a stronger form of account verification, such as Multi-Factor Authentication, for everyone. After users complete Multi-Factor Authentication registration, they'll be prompted for another authentication whenever necessary. Users will be prompted primarily when they authenticate using a new device from a new location, or when doing critical roles and tasks. This functionality protects all applications registered with Azure AD including SaaS applications.
 
 ### Blocking legacy authentication
 

@@ -4,17 +4,17 @@ description: Learn how to approve or deny requests for Azure AD roles in Azure A
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.service: active-directory
 ms.subservice: pim
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/10/2021
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -103,7 +103,7 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentSche
 
 1. Select **Approve**. You will receive an Azure notification of your approval.
 
-    ![Approve notification showing request was approved](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png))
+    ![Approve notification showing request was approved](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 ## Approve pending requests using Graph API
 

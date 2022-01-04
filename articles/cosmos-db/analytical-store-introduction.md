@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB transactional (row-based) and analytica
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 11/02/2021
 ms.author: rosouz
 ms.custom: "seo-nov-2020"
 ---
@@ -66,6 +66,9 @@ At the end of each execution of the automatic sync process, your transactional d
 
 > [!NOTE]
 > Your transactional data will be synchronized to analytical store even if your transactional TTL is smaller than 2 minutes. 
+
+> [!NOTE]
+> Please note that if you delete your container, analytical store is also deleted.
 
 ## Scalability & elasticity
 
@@ -144,7 +147,7 @@ The following constraints are applicable on the operational data in Azure Cosmos
   * The deletion of all documents in a collection doesn't reset the analytical store schema.
   * There is not schema versioning. The last version inferred from transactional store is what you will see in analytical store.
 
-* Currently Azure Synapse Spark can't read properties that contain some special characters in their names, listed bellow. If this is your case, please contact the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com) for more information.
+* Currently Azure Synapse Spark can't read properties that contain some special characters in their names, listed below. Azure Synapse SQL serverless isn't affected.
   * : (Colon)
   * ` (Grave accent)
   * , (Comma)
@@ -155,24 +158,79 @@ The following constraints are applicable on the operational data in Azure Cosmos
   * \t
   * = (Equal sign)
   * " (Quotation mark)
+
+> [!NOTE]
+> White spaces are also listed in the Spark error message returned when you reach this limitation. But we have added a special treatment for white spaces, please check out more details in the items below.
  
-* Azure Synapse Spark now supports properties with whitespaces in their names.
+* If you have properties names using the characters listed above, the alternatives are:
+   * Change your data model in advance to avoid these characters.
+   * Since we currently we don't support schema reset, you can change your application to add a redundant property with a similar name, avoiding these characters.
+   * Use Change Feed to create a materialized view of your container without these characters in properties names.
+   * Use the `dropColumn` Spark option to ignore the affected columns and load all other columns into a DataFrame. The syntax is:
+
+```Python
+# Removing one column:
+df = spark.read\
+     .format("cosmos.olap")\
+     .option("spark.synapse.linkedService","<your-linked-service-name>")\
+     .option("spark.synapse.container","<your-container-name>")\
+     .option("spark.synapse.dropColumn","FirstName,LastName")\
+     .load()
+     
+# Removing multiple columns:
+df = spark.read\
+     .format("cosmos.olap")\
+     .option("spark.synapse.linkedService","<your-linked-service-name>")\
+     .option("spark.synapse.container","<your-container-name>")\
+     .option("spark.synapse.dropColumn","FirstName,LastName;StreetName,StreetNumber")\
+     .option("spark.cosmos.dropMultiColumnSeparator", ";")\
+     .load()  
+```
+
+* Azure Synapse Spark now supports properties with white spaces in their names. For that, you need to use the `allowWhiteSpaceInFieldNames` Spark option to load the affected columns into a DataFrame, keeping the original name. The syntax is:
+
+```Python
+df = spark.read\
+     .format("cosmos.olap")\
+     .option("spark.synapse.linkedService","<your-linked-service-name>")\
+     .option("spark.synapse.container","<your-container-name>")\
+     .option("spark.cosmos.allowWhiteSpaceInFieldNames", "true")\
+    .load()
+```
+
+* The following BSON datatypes are not supported and won't be represented in analytical store:
+  * Decimal128
+  * Regular Expression
+  * DB Pointer
+  * JavaScript
+  * Symbol
+  * MinKey / MaxKey 
+
+* When using DateTime strings that follows the ISO 8601 UTC standard, expect the following behavior:
+  * Spark pools in Azure Synapse will represent these columns as `string`.
+  * SQL serverless pools in Azure Synapse will represent these columns as `varchar(8000)`.
+
+* SQL serverless pools in Azure Synapse support result sets with up to 1000 columns, and exposing nested columns also counts towards that limit. Please consider this information when designing your data architecture and modeling your transactional data.
+
+* If you rename a property, in one or many documents, it will be considered a new column. If you execute the same rename in all documents in the collection, all data will be migrated to the new column and the old column will be represented with `NULL` values.
 
 ### Schema representation
 
-There are two modes of schema representation in the analytical store. These modes define the schema representation method for all containers in the database account and have tradeoffs between the simplicity of query experience versus the convenience of a more inclusive columnar representation for polymorphic schemas.
+There are two types of schema representation in the analytical store. These types define the schema representation method for all containers in the database account and have tradeoffs between the simplicity of query experience versus the convenience of a more inclusive columnar representation for polymorphic schemas.
 
 * Well-defined schema representation, default option for SQL (CORE) API accounts. 
 * Full fidelity schema representation, default option for Azure Cosmos DB API for MongoDB accounts.
 
-It is possible to use Full Fidelity Schema for SQL (Core) API accounts. Here are the considerations about this possibility:
+#### Full fidelity schema for SQL API accounts
 
- * This option is only valid for accounts that don't have Synapse Link enabled.
- * It is not possible to turn Synapse Link off and on again, to reset the default option and change from well-defined to full fidelity.
- * It is not possible to change from well-defined to full fidelity using any other process.
- * MongoDB accounts are not compatible with this possibility of changing the method of representation.
- * Currently this decision cannot be made through the Azure portal.
- * The decision on this option should be made at the same time that Synapse Link is enabled on the account:
+It is possible to use full fidelity Schema for SQL (Core) API accounts, instead of the default option, by setting the schema type when enabling Synapse Link on a Cosmos DB account for the first time. Here are the considerations about changing the default schema representation type:
+
+ * This option is only valid for accounts that **don't** have Synapse Link already enabled.
+ * It isn't possible to reset the schema representation type, from well-defined to full fidelity or vice-versa.
+ * Currently Azure Cosmos DB API for MongoDB accounts aren't compatible with this possibility of changing the schema representation. All MongoDB accounts will always have full fidelity schema representation type.
+ * Currently this change can't be made through the Azure portal. All database accounts that have Synapse LinK enabled by the Azure portal will have the default schema representation type, well defined schema.
+ 
+The schema representation type decision must be made at the same time that Synapse Link is enabled on the account, using Azure CLI or PowerShell.
  
  With the Azure CLI:
  ```cli
@@ -203,7 +261,7 @@ The well-defined schema representation creates a simple tabular representation o
 
 ```SQL
 SELECT CAST (num as float) as num
-FROM OPENROWSET(​PROVIDER = 'CosmosDB',
+FROM OPENROWSET(PROVIDER = 'CosmosDB',
                 CONNECTION = '<your-connection',
                 OBJECT = 'IntToFloat',
                 SERVER_CREDENTIAL = 'your-credential'
@@ -211,13 +269,16 @@ FROM OPENROWSET(​PROVIDER = 'CosmosDB',
 WITH (num varchar(100)) AS [IntToFloat]
 ```
 
-  * Properties that don't follow the base schema data type won't be represented in analytical store. For example, consider the 2 documents below, and that the first one defined the analytical store base schema. The second document, where `id` is `2`, doesn't have a well-defined schema since property `"a"` is a string and the first document has `"a"` as a number. In this case, the analytical store registers the data type of `"a"` as `integer` for lifetime of the container. The second document will still be included in analytical store, but its `"a"` property will not.
+  * Properties that don't follow the base schema data type won't be represented in analytical store. For example, consider the documents below: the first one defined the analytical store base schema. The second document, where `id` is `"2"`, **doesn't** have a well-defined schema since property `"code"` is a string and the first document has `"code"` as a number. In this case, the analytical store registers the data type of `"code"` as `integer` for lifetime of the container. The second document will still be included in analytical store, but its `"code"` property will not.
   
-    * `{"id": "1", "a":123}` 
-    * `{"id": "2", "a": "str"}`
+    * `{"id": "1", "code":123}` 
+    * `{"id": "2", "code": "123"}`
      
  > [!NOTE]
- > This condition above doesn't apply for null properties. For example, `{"a":123} and {"a":null}` is still well defined.
+ > The condition above doesn't apply for null properties. For example, `{"a":123} and {"a":null}` is still well defined.
+
+> [!NOTE]
+ > The condition above doesn't change if you update `"code"` of document `"1"` to a string in your transactional store. In analytical store, `"code"` will be kept as `integer` since currently we don't support schema reset.
 
 * Array types must contain a single repeated type. For example, `{"a": ["str",12]}` is not a well-defined schema because the array contains a mix of integer and string types.
 
@@ -303,9 +364,13 @@ After the analytical store is enabled, based on the data retention needs of the 
 
 If you have a globally distributed Azure Cosmos DB account, after you enable analytical store for a container, it will be available in all regions of that account.  Any changes to operational data are globally replicated in all regions. You can run analytical queries effectively against the nearest regional copy of your data in Azure Cosmos DB.
 
+## Partitioning
+
+Analytical store partitioning is completely independent of partitioning in the transactional store. By default, data in analytical store is not partitioned. If your analytical queries have frequently used filters, you have the option to partition based on these fields for better query performance. To learn more, see the [introduction to custom partitioning](custom-partitioning-analytical-store.md) and [how to configure custom partitioning](configure-custom-partitioning.md) articles.  
+
 ## Security
 
-* **Authentication with the analytical store** is the same as the transactional store for a given database. You can use primary or read-only keys for authentication. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. For Azure Synapse SQL serverless, you can use SQL credentials to also prevent pasting the Azure Cosmos DB keys in the SQL notebooks. The Access to this Linked Services or to this credentials are available to anyone who has access to the workspace.
+* **Authentication with the analytical store** is the same as the transactional store for a given database. You can use primary, secondary, or read-only keys for authentication. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. For Azure Synapse SQL serverless, you can use SQL credentials to also prevent pasting the Azure Cosmos DB keys in the SQL notebooks. The Access to these Linked Services or to these SQL credentials are available to anyone who has access to the workspace.
 
 * **Network isolation using private endpoints** - You can control network access to the data in the transactional and analytical stores independently. Network isolation is done using separate managed private endpoints for each store, within managed virtual networks in Azure Synapse workspaces. To learn more, see how to [Configure private endpoints for analytical store](analytical-store-private-endpoints.md) article.
 
@@ -361,6 +426,7 @@ Some points to consider:
 *	While transactional TTL can be set at the container or item level, analytical TTL can only be set at the container level currently.
 *	You can achieve longer retention of your operational data in the analytical store by setting analytical TTL >= transactional TTL at the container level.
 *	The analytical store can be made to mirror the transactional store by setting analytical TTL = transactional TTL.
+*	If you have analytical TTL bigger than transactional TTL, at some point in time you will have data that only exists in analytical store. This data is read only.
 
 How to enable analytical store on a container:
 

@@ -12,12 +12,14 @@ ms.date: 09/16/2021
 
 # Add trading partners to integration accounts for workflows in Azure Logic Apps
 
-To represent your organization and others in business-to-business (B2B) enterprise integration workflows, create each participant in a business relationship as a *trading partner* in your [integration account](logic-apps-enterprise-integration-create-integration-account.md). Partners are business entities that participate in B2B transactions and can exchange messages with each other.
+To represent your organization and others in business-to-business (B2B) enterprise integration workflows, create a *trading partner* in your [integration account](logic-apps-enterprise-integration-create-integration-account.md) to represent each participant in a business relationship. Partners are business entities that participate in B2B transactions and exchange messages with each other.
 
 > [!IMPORTANT]
 > Before your define these partners, have a conversation with your partners about how to identify and validate the messages that you send 
 > each other. To participate in an agreement and exchange messages with each other, partners in your integration account have to use the 
 > same or compatible *business qualifiers*. After you agree on these details, you're ready to create partners in your integration account.
+
+This article shows how to create and manage partners, which you can later use to create agreements that define the specific industry-standard protocol for exchanging messages between partners.
 
 If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md)? For more information about B2B enterprise integration, review [B2B enterprise integration workflows with Azure Logic Apps](logic-apps-enterprise-integration-overview.md).
 
@@ -33,7 +35,11 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
   * If you're using the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), your integration account requires a [link to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account) before you can use artifacts in your workflow.
 
-  * If you're using the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), your integration account doesn't need a link to your logic app resource but is still required to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), [EDIFACT](logic-apps-enterprise-integration-edifact.md), and [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app.
+  * If you're using the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), your integration account doesn't need a link to your logic app resource but is still required to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
+
+  > [!NOTE]
+  > Currently, only the **Logic App (Consumption)** resource type supports [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. 
+  > The **Logic App (Standard)** resource type doesn't include [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations.
 
 <a name="add-partner"></a>
 

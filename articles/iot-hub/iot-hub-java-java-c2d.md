@@ -217,6 +217,4 @@ You are now ready to run the applications.
 
 In this tutorial, you learned how to send and receive cloud-to-device messages.
 
-To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Solution Accelerators](https://azure.microsoft.com/documentation/suites/iot-suite/).
-
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).

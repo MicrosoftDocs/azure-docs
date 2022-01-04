@@ -11,10 +11,9 @@ ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2021
-ms.author: allensu
+ms.author: duau
 ms.custom: references_regions
 
 ---
@@ -26,7 +25,7 @@ ms.custom: references_regions
 >
 
 
-This article lists current metros containing point-of-presence (POP) locations, sorted by region, for Azure Content Delivery Network (CDN) products. Each metro may contain more than one POP. For example, Azure CDN from Microsoft has 116 POPs across 100 metro cities. 
+This article lists current metros containing point-of-presence (POP) locations, sorted by region, for Azure Content Delivery Network (CDN) products. Each metro may contain more than one POP. For example, Azure CDN from Microsoft has 118 POPs across 100 metro cities. 
 
 > [!IMPORTANT]
 > Each Azure CDN product has a distinct way of building its CDN infrastructures, hence Microsoft recommends against using POP locations to decide which Azure CDN product to use. Instead, you should consider its features and end-user performance. Test the performance with each Azure CDN product to choose the right product for your users. 
@@ -55,4 +54,4 @@ This article lists current metros containing point-of-presence (POP) locations, 
 
 ## Next steps
 
-* To get the latest IP addresses for allow listing, see the [Azure CDN Edge Nodes API](/rest/api/cdn/cdn/edgenodes).
+* To get the latest IP addresses for allow listing, see the [Azure CDN Edge Nodes API](/rest/api/cdn/edge-nodes/list).

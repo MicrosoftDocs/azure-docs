@@ -1,8 +1,8 @@
 ---
 title: Monitor SSIS operations with Azure Monitor 
 description: Learn how to use Azure Monitor to monitor SSIS operations in Azure Data Factory.
-author: minhe-msft
-ms.author: hemin
+author: joshuha-msft
+ms.author: joowen
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring

@@ -10,7 +10,7 @@ ms.date: 07/20/2020
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: rogoya
 
 ms.collection: M365-identity-device-management
@@ -21,7 +21,7 @@ Smart lockout helps lock out bad actors that try to guess your users' passwords 
 
 ## How smart lockout works
 
-By default, smart lockout locks the account from sign-in attempts for one minute after 10 failed attempts for Azure Public tenants and 3 for Azure US Government tenants. The account locks again after each subsequent failed sign-in attempt, for one minute at first and longer in subsequent attempts. To minimize the ways an attacker could work around this behavior, we don't disclose the rate at which the lockout period grows over additional unsuccessful sign-in attempts.
+By default, smart lockout locks the account from sign-in attempts for one minute after 10 failed attempts for Azure Public and Azure China 21Vianet tenants and 3 for Azure US Government tenants. The account locks again after each subsequent failed sign-in attempt, for one minute at first and longer in subsequent attempts. To minimize the ways an attacker could work around this behavior, we don't disclose the rate at which the lockout period grows over additional unsuccessful sign-in attempts.
 
 Smart lockout tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior won't cause the account to lock out.
 
@@ -62,7 +62,7 @@ To verify your on-premises AD DS account lockout policy, complete the following 
 
 ## Manage Azure AD smart lockout values
 
-Based on your organizational requirements, you can customize the Azure AD smart lockout values. Customization of the smart lockout settings, with values specific to your organization, requires Azure AD Premium P1 or higher licenses for your users.
+Based on your organizational requirements, you can customize the Azure AD smart lockout values. Customization of the smart lockout settings, with values specific to your organization, requires Azure AD Premium P1 or higher licenses for your users. Customization of the smart lockout settings is not available for Azure China 21Vianet tenants.
 
 To check or modify the smart lockout values for your organization, complete the following steps:
 
@@ -81,13 +81,19 @@ To check or modify the smart lockout values for your organization, complete the 
 
 ![Customize the Azure AD smart lockout policy in the Azure portal](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
 
-## How to determine if the Smart lockout feature is working or not
+## Testing Smart lockout
 
 When the smart lockout threshold is triggered, you will get the following message while the account is locked:
 
 *Your account is temporarily locked to prevent unauthorized use. Try again later, and if you still have trouble, contact your admin.*
 
 When you test smart lockout, your sign-in requests might be handled by different datacenters due to the geo-distributed and load-balanced nature of the Azure AD authentication service. In that scenario, because each Azure AD datacenter tracks lockout independently, it might take more than your defined lockout threshold number of attempts to cause a lockout. A user has a maximum of (*threshold_limit * datacenter_count*) number of bad attempts before being completely locked out.
+
+Smart lockout tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior won't cause the account to lock out.
+
+
+## Default protections
+In addition to Smart lockout, Azure AD also protects against attacks by analyzing signals including IP traffic and identifying anomalous behavior. Azure AD will block these malicious sign-ins by default and return [AADSTS50053 - IdsLocked error code](../develop/reference-aadsts-error-codes.md), regardless of the password validity.
 
 ## Next steps
 

@@ -23,8 +23,9 @@ In this tutorial, you learn how to:
 
 >[!NOTE]
 >Before you create a new vNet, evaluate if you already have an existing vNet in Azure and plan to use it to connect to Azure VMware Solution; or whether to create a new vNet entirely.  
->* To use an existing vNet, use the **[Azure vNet connect](#select-an-existing-vnet)** tab under **Connectivity**. 
->* To create a new vNet, use the **[Azure vNet connect](#create-a-new-vnet)** tab or create one [manually](#create-a-vnet-manually).
+>* To use an existing vNet in same Azure subscription as Azure VMware Solution, use the **[Azure vNet connect](#select-an-existing-vnet)** tab under **Connectivity**. 
+>* To use an existing vNet in a different Azure subscription than Azure VMware Solution, use the guidance on **[Connect to the private cloud manually](#connect-to-the-private-cloud-manually)**. 
+>* To create a new vNet in same Azure subscription as Azure VMware Solution, use the **[Azure vNet connect](#create-a-new-vnet)** tab or create one [manually](#create-a-vnet-manually).
 
 ## Connect with the Azure vNet connect feature
 

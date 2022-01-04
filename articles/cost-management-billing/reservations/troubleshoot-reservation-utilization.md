@@ -35,6 +35,14 @@ As usage data arrives, the value changes toward the correct percentage. When all
 
 If you find that your utilization values don't match your expectations, review the graph to get the most view of your actual utilization. Any point value older than two days should be accurate. Longer term averages from seven to 30 days should be accurate.
 
+## Other common scenarios
+- You may have stopped running resource A and started running resource B which is not applicable for the reservation you purchased for. To solve this, you may need to exchange the reservation to match it to the right resource. 
+- You may have moved a resource from one subscription or resource group to another, whereas the scope of the reservation is different from where the resource is being moved to. To resolve this case, you may need to change the scope of the reservation.
+- You may have purchased another reservation that also applied a benefit to the same scope, and as a result, less of an existing reserved instance applied a benefit. To solve this, you may need to exchange/refund one of the reservations.
+- You may have stopped running a particular resource, and as a result it stopped emitting usage and the benefit stopped applying. To solve this, you may need to exchange the reservation to match it to the right resource. 
+- You may have changed the scope of the reservation and that caused it to stop applying a benefit to the resources. To rectify this, you may need to change the scope of the reservation again to make sure the resources are deployed in same scope.
+- The subscription that the reservation was scoped to was deleted or moved out, so the benefit is not being applied to the resources. To rectify this, you may need to change the scope of the reservation.
+
 ## Next steps
 
 - For more information about managing reservations, see [Manage Reservations for Azure resources](manage-reserved-vm-instance.md).

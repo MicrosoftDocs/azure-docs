@@ -1,7 +1,7 @@
 ---
 title: Example class types on Azure Lab Services | Microsoft Docs
 description: Provides some types of classes for which you can set up labs using Azure Lab Services. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 

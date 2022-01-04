@@ -3,15 +3,12 @@ title: Quickstart - Enable Azure Automanage for VMs in the Azure portal
 description: Learn how to quickly enable Automanage for virtual machines on a new or existing VM in the Azure portal.
 author: ju-shim
 ms.author: jushiman
-ms.date: 02/17/2021
+ms.date: 12/10/2021
 ms.topic: quickstart
-ms.service: virtual-machines
-ms.subservice: automanage
+ms.service: automanage
 ms.workload: infrastructure
-ms.custom:
-  - mode-portal
+ms.custom: mode-ui
 ---
-
 
 # Quickstart: Enable Azure Automanage for virtual machines in the Azure portal
 
@@ -26,12 +23,12 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 > Free trial accounts do not have access to the virtual machines used in this tutorial. Please upgrade to a Pay-As-You-Go subscription.
 
 > [!IMPORTANT]
-> You need to have the **Contributor** role on the resource group containing your VMs to enable Automanage using an existing Automanage Account. If you are enabling Automanage with a new Automanage Account, you need the following permissions: **Owner** role or **Contributor** along with **User Access Administrator** roles on your subscription.
+> You need to have the **Contributor** role on the resource group containing your VMs to enable Automanage. If you are enabling Automanage for the first time on a subscription, you need the following permissions: **Owner** role or **Contributor** along with **User Access Administrator** roles on your subscription.
 
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal](https://aka.ms/AutomanagePortal-Ignite21).
+Sign in to the [Azure portal](https://portal.azure.com)
 
 ## Enable Automanage on existing machines
 
@@ -41,48 +38,28 @@ Sign in to the [Azure portal](https://aka.ms/AutomanagePortal-Ignite21).
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\zero-vm-list-view.png" alt-text="Enable on existing VM.":::
 
-3. On the **Select machines** blade:
-    1. Filter the list by your **Subscription** and **Resource group**.
-    1. Check the checkbox of each virtual machine you want to onboard.
-    1. Click the **Select** button.
-    > [!NOTE]
-    > You may select both Azure VMs and Arc-enabled servers.
-
-    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Select existing VM from list of available VMs.":::
-
-4. Under **Environment**, select your environment type: **Dev/Test** or **Production**.
+4. Under **Configuration profile**, select your profile type: **Azure Best Practices - Production** or **Azure Best Practices - Dev/Test** or [**Custom profile**](virtual-machines-custom-profile.md)
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Select environments.":::
 
-   Click **Compare Environment Details** to see the differences between the environments.
+   Click **View best practice profiles** to see the differences between the environments.
     1. Select an environment on the dropdown: *Dev/Test* for testing, *Production* for production.
     1. Click the **OK** button.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Browse production environment.":::
 
-5. By default, the **Azure Best Practices** preference is selected for the configuration preferences. To change this, create a new preference or select an existing one.
+5. On the **Select machines** blade:
+    1. Filter the list by your **Subscription** and **Resource group**.
+    1. Check the checkbox of each virtual machine you want to onboard.
+    1. Click the **Select** button.
+    > [!NOTE]
+    > You may select both Azure VMs and Azure Arc-enabled servers.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\create-preference.png" alt-text="Create preference.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Select existing VM from list of available VMs.":::
+
 
 6. Click the **Enable** button.
 
-
-## Enable Automanage for a new VM
-
-Sign into the Azure portal [here](https://aka.ms/AzureAutomanagePreview) to create a new VM and enable Automanage.
-
-1. Fill out the **Basics** tab with your VM details.
-
-> [!NOTE]
-> Check the Automanage [supported regions](automanage-virtual-machines.md#supported-regions) and the Automanage supported [Linux distros](automanage-linux.md#supported-linux-distributions-and-versions) and [Windows Server versions](automanage-windows-server.md#supported-windows-server-versions).
-
-2. Browse to the **Management** tab and choose your **Automanage Environment**.
-
-    :::image type="content" source="media\quick-create-virtual-machine-portal\vmcreate-managementtab.png" alt-text="Enable Automanage in Management Tab.":::
-
-3. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
-
-4. When you see the message that validation has passed, select **Create**.
 
 ## Disable Automanage for VMs
 
@@ -111,7 +88,7 @@ Azure Automanage creates default resource groups to store resources in. Check re
 
 In this quickstart, you enabled Azure Automanage for VMs.
 
-Discover how you can create and apply customized preferences when enabling Automanage on your virtual machine.
+Discover how you can create and apply customize profiles when enabling Automanage on your virtual machine.
 
 > [!div class="nextstepaction"]
-> [Azure Automanage for VMs - Custom configuration preferences](virtual-machines-custom-preferences.md)
+> [Azure Automanage Custom Profiles](virtual-machines-custom-profile.md)

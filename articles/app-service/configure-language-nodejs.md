@@ -2,7 +2,7 @@
 title: Configure Node.js apps
 description: Learn how to configure a Node.js app in the native Windows instances, or in a pre-built Linux container, in Azure App Service. This article shows the most common configuration tasks. 
 ms.custom: devx-track-js, devx-track-azurecli
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: article
 ms.date: 04/23/2021
 zone_pivot_groups: app-service-platform-windows-linux
@@ -165,6 +165,9 @@ You can also configure a custom start file with the following extensions:
 
 - A *.js* file
 - A [PM2 file](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) with the extension *.json*, *.config.js*, *.yaml*, or *.yml*
+
+> [!NOTE]
+> Starting from **Node 14 LTS**, the container doesn't automatically start your app with PM2. To start your app with PM2, set the startup command to `pm2 start <.js-file-or-PM2-file> --no-daemon`. Be sure to use the `--no-daemon` argument because PM2 needs to run in the foreground for the container to work properly.
 
 To add a custom start file, run the following command in the [Cloud Shell](https://shell.azure.com):
 
@@ -365,6 +368,23 @@ When a working Node.js app behaves differently in App Service or has errors, try
     - Certain web frameworks may deploy static files differently in production mode.
     - Certain web frameworks may use custom startup scripts when running in production mode.
 - Run your app in App Service in development mode. For example, in [MEAN.js](https://meanjs.org/), you can set your app to development mode in runtime by [setting the `NODE_ENV` app setting](configure-common.md).
+
+::: zone pivot="platform-windows"
+
+#### You do not have permission to view this directory or page
+
+After deploying your Node.js code to a native Windows app in App Service, you may see the message `You do not have permission to view this directory or page.` in the browser when navigating to your app's URL. This is most likely because you don't have a *web.config* file (see the [template](https://github.com/projectkudu/kudu/blob/master/Kudu.Core/Scripts/iisnode.config.template) and an [example](https://github.com/Azure-Samples/nodejs-docs-hello-world/blob/master/web.config)).
+
+If you deploy your files by using Git, or by using ZIP deployment [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the deployment engine generates a *web.config* in the web root of your app (`%HOME%\site\wwwroot`) automatically if one of the following conditions is true:
+
+- Your project root has a *package.json* that defines a `start` script that contains the path of a JavaScript file.
+- Your project root has either a *server.js* or an *app.js*.
+
+The generated *web.config* is tailored to the detected start script. For other deployment methods, add this *web.config* manually. Make sure the file is formatted properly. 
+
+If you use [ZIP deployment](deploy-zip.md) (through Visual Studio Code, for example), be sure to [enable build automation](deploy-zip.md#enable-build-automation-for-zip-deploy) because it's not enabled by default. [`az webapp up`](/cli/azure/webapp#az_webapp_up) uses ZIP deployment with build automation enabled.
+
+::: zone-end
 
 ::: zone pivot="platform-linux"
 

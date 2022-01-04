@@ -34,6 +34,21 @@ For the Azure CLI command [az storage account create](/cli/azure/storage/account
 
 To update an existing storage account with Azure CLI, see [Require secure transfer with Azure CLI](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli).
 
+### Secure transfer error(s)
+
+
+If you accidentally enabled the 'Require secure transfer' option after creating the HDInsight cluster, you may be seeing error messages like the following:
+
+`com.microsoft.azure.storage.StorageException: The account being accessed does not support http.`
+
+For Hbase clusters only, you can try the following steps to restore the cluster functionality:
+1. Stop HBase from Ambari.
+2. Stop HDFS from Ambari.
+3. In Ambari, navigate to HDFS --> Configs --> Advanced --> fs.defaultFS
+4. Change wasb to wasbs and save it.
+5. If you are using the Accelerated Writes feature, the 'hbase.rootDir' under the hbase configs also needs to be changed from wasb to wasbs.
+6. Restart all required services.
+
 ## Add additional storage accounts
 
 There are several options to add additional secure transfer enabled storage accounts:

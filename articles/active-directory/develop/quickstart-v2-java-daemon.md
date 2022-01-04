@@ -5,14 +5,13 @@ description: In this quickstart, you learn how a Java app can get an access toke
 services: active-directory
 author: mmacy
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 01/22/2021
 ms.author: marsma
-ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
+ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-java, mode-api
 #Customer intent: As an application developer, I want to learn how my Java app can get an access token and call an API that's protected by Microsoft identity platform endpoint using client credentials flow.
 ---
 
@@ -50,7 +49,7 @@ To run this sample, you need:
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
 > 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. Enter a **Name** for your application, for example `Daemon-console`. Users of your app might see this name, and you can change it later.
@@ -83,7 +82,6 @@ To run this sample, you need:
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
-
 
 > [!div renderon="docs"]
 > #### Step 3: Configure the Java project
@@ -132,9 +130,9 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 ```
 
 > [!div renderon="docs"]
->> Where:
->> * `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
->> * `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
+> > Where:
+> > * `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
+> > * `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 4: Run the application
@@ -158,7 +156,6 @@ $ java -jar msal-client-credential-secret-1.0.0.jar
 
 After running, the application should display the list of users in the configured tenant.
 
-
 > [!IMPORTANT]
 > This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/ms-identity-java-daemon/tree/master/msal-client-credential-certificate) in the same GitHub repository for this sample, but in the second folder **msal-client-credential-certificate**.
 
@@ -172,7 +169,7 @@ Add MSAL4J to your application by using Maven or Gradle to manage your dependenc
 
 In pom.xml:
 
-```XML
+```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>msal4j</artifactId>

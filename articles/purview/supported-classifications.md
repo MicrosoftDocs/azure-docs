@@ -4,15 +4,15 @@ description: This page lists the supported system classifications in Azure Purvi
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: reference
-ms.date: 4/1/2021
-## Customer intent: As a data steward or catalog administrator, I need to understand what's supported under classifications.
+ms.date: 09/27/2021
+#Customer intent: As a data steward or catalog administrator, I need to understand what's supported under classifications.
 ---
 
 # Supported classifications in Azure Purview
 
-This article lists the supported and defined system classifications in Azure Purview (Preview).
+This article lists the supported and defined system classifications in Azure Purview.
 
 
 - **Distinct data threshold**: The total number of distinct data values that need to be found in a column before the scanner runs the data pattern on it. Distinct data threshold has nothing to do with pattern matching but it is a pre-requisite for pattern matching. Our system classification rules require there to be at least 8 distinct values in each column to subject them to classification. The system requires this value to make sure that the column contains enough data for the scanner to accurately classify it. For example, a column that contains multiple rows that all contain the value 1 won't be classified. Columns that contain one row with a value and the rest of the rows have null values also won't get classified. If you specify multiple patterns, this value applies to each of them.
@@ -26,18 +26,25 @@ Azure Purview classifies data by [RegEx](https://wikipedia.org/wiki/Regular_expr
 
 Each classification name is prefixed by MICROSOFT.
 
+> [!Note]
+> Azure Purview can classify both structured (CSV, TSV, JSON, SQL Table etc.) as well as unstructured data (DOC, PDF, TXT etc.). However, there are certain classifications that are only applicable to structured data. Here is the list of classifications that Purview doesn't apply on unstructured data - City Name, Country Name, Date Of Birth, Email, Ethnic Group, GeoLocation, Person Name, U.S. Phone Number, U.S. States, U.S. ZipCode
+
+
 ## Bloom Filter Classifications
 
 ## City, Country, and Place
 
 The City, Country, and Place filters have been prepared using best datasets available for preparing the data.
 
-## Person
+## Person Name
 
-Person bloom filter has been prepared using the below two datasets.
+Person Name bloom filter has been prepared using the below two datasets.
 
 - [2010 US Census Data for Last Names (162-K entries)](https://www.census.gov/topics/population/genealogy/data/2010_surnames.html)
 - [Popular Baby Names (from SSN), using all years 1880-2019 (98-K entries)](https://www.ssa.gov/oact/babynames/limits.html)
+
+> [!NOTE]
+> Azure Purview classifies columns only when the data contains first/last names. Azure Purview doesn't classify columns that contain full names.
 
 ## RegEx Classifications
 
@@ -45,7 +52,7 @@ Person bloom filter has been prepared using the below two datasets.
 
 ### Format
 
-nine digits that may be in a formatted or unformatted pattern
+Nine digits that can be in a formatted or unformatted pattern.
 
 ### Pattern
 
@@ -157,7 +164,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 
 ### Format
@@ -198,7 +205,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -404,7 +411,9 @@ eight or nine alphanumeric characters
 ### Pattern
 
 - one letter (N, E, D, F, A, C, U, X) followed by seven digits
-or
+
+**or**
+
 - Two letters (PA, PB, PC, PD, PE, PF, PU, PW, PX, PZ) followed by seven digits.
 
 ### Checksum
@@ -619,7 +628,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -790,7 +799,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -800,7 +809,7 @@ This sensitive information type is only available for use in:
 
 11-character alphanumeric pattern:
 
-- A or a
+- Or a
 - T or t
 - Optional space
 - U or u
@@ -1121,7 +1130,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -1442,7 +1451,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -1560,10 +1569,13 @@ No
 A Canada Bank Account Number is 7 or 12 digits.
 
 A Canada bank account transit number is:
+
 - five digits
 - a hyphen
 - three digits
-OR
+
+**or**
+
 - a zero "0"
 - eight digits
 
@@ -2740,7 +2752,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -2821,7 +2833,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -3412,33 +3424,6 @@ Yes
 - sygesikringsnummer
 
 
-## Drug Enforcement Agency (DEA) number
-
-### Format
-
-two letters followed by seven digits
-
-### Pattern
-
-Pattern must include all of the following:
-- one letter (not case-sensitive) from this set of possible letters: abcdefghjklmnprstux, which is a registrant code
-- one letter (not case-sensitive), which is the first letter of the registrant's last name or digit '9'
-- seven digits, the last of which is the check digit
-
-### Checksum
-
-Yes
-
-### Keywords
-
-#### Keyword_dea_number
-
-- dea
-- dea#
-- drug enforcement administration
-- drug enforcement agency
-
-
 ## Estonia driver's license number
 
 ### Format
@@ -3593,7 +3578,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -4048,39 +4033,6 @@ These entities are in the EU Driver's License Number and are sensitive informati
 - [U.K.](#uk-drivers-license-number)
 
 
-## EU national identification number
-
-These entities are in the EU National Identification Number and are sensitive information types.
-
-- [Austria](#austria-identity-card)
-- [Belgium](#belgium-national-number)
-- [Bulgaria](#bulgaria-uniform-civil-number)
-- [Croatia](#croatia-identity-card-number)
-- [Cyprus](#cyprus-identity-card)
-- [Czech](#czech-national-identity-card-number)
-- [Denmark](#denmark-personal-identification-number)
-- [Estonia](#estonia-personal-identification-code)
-- [Finland](#finland-national-id)
-- [France](#france-national-id-card-cni)
-- [Germany](#germany-identity-card-number)
-- [Greece](#greece-national-id-card)
-- [Hungary](#hungary-personal-identification-number)
-- [Ireland](#ireland-personal-public-service-pps-number)
-- [Italy](#italy-fiscal-code)
-- [Latvia](#latvia-personal-code)
-- [Lithuania](#lithuania-personal-code)
-- [Luxemburg](#luxemburg-national-identification-number-natural-persons)
-- [Malta](#malta-identity-card-number)
-- [Netherlands](#netherlands-citizens-service-bsn-number)
-- [Poland](#poland-national-id-pesel)
-- [Portugal](#portugal-citizen-card-number)
-- [Romania](#romania-personal-numeric-code-cnp)
-- [Slovakia](#slovakia-personal-number)
-- [Slovenia](#slovenia-unique-master-citizen-number)
-- [Spain](#spain-dni)
-- [U.K.](#uk-national-insurance-number-nino)
-
-
 ## EU passport number
 
 These entities are in the EU passport number and are sensitive information types. These entities are in the EU passport number bundle.
@@ -4113,59 +4065,6 @@ These entities are in the EU passport number and are sensitive information types
 - [Spain](#spain-passport-number)
 - [Sweden](#sweden-passport-number)
 - [U.K.](#us--uk-passport-number)
-
-
-## EU social security number or equivalent identification
-
-These entities that are in the EU Social Security Number or equivalent identification and are sensitive information types.
-
-- [Austria](#austria-social-security-number)
-- [Belgium](#belgium-national-number)
-- [Croatia](#croatia-personal-identification-oib-number)
-- [Czech](#czech-national-identity-card-number)
-- [Denmark](#denmark-personal-identification-number)
-- [Finland](#finland-national-id)
-- [France](#france-social-security-number-insee)
-- [Germany](#germany-identity-card-number)
-- [Greece](#greece-national-id-card)
-- [Hungary](#hungary-social-security-number-taj)
-- [Portugal](#portugal-citizen-card-number)
-- [Spain](#spain-social-security-number-ssn)
-- [Sweden](#sweden-national-id)
-
-
-## EU Tax identification number
-
-These entities are in the EU Tax identification number sensitive information type.
-
-- [Austria](#austria-tax-identification-number)
-- [Belgium](#belgium-national-number)
-- [Bulgaria](#bulgaria-uniform-civil-number)
-- [Croatia](#croatia-identity-card-number)
-- [Cyprus](#cyprus-tax-identification-number)
-- [Czech](#czech-national-identity-card-number)
-- [Denmark](#denmark-personal-identification-number)
-- [Estonia](#estonia-personal-identification-code)
-- [Finland](#finland-national-id)
-- [France](#france-tax-identification-number)
-- [Germany](#germany-tax-identification-number)
-- [Greece](#greece-tax-identification-number)
-- [Hungary](#hungary-tax-identification-number)
-- [Ireland](#ireland-personal-public-service-pps-number)
-- [Italy](#italy-fiscal-code)
-- [Latvia](#latvia-personal-code)
-- [Lithuania](#lithuania-personal-code)
-- [Luxemburg](#luxemburg-national-identification-number-non-natural-persons)
-- [Malta](#malta-tax-identification-number)
-- [Netherlands](#netherlands-tax-identification-number)
-- [Poland](#poland-tax-identification-number)
-- [Portugal](#portugal-tax-identification-number)
-- [Romania](#romania-personal-numeric-code-cnp)
-- [Slovakia](#slovakia-personal-number)
-- [Slovenia](#slovenia-tax-identification-number)
-- [Spain](#spain-tax-identification-number)
-- [Sweden](#sweden-tax-identification-number)
-- [U.K.](#uk-unique-taxpayer-reference-number)
 
 
 ## Finland driver's license number
@@ -4330,7 +4229,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -4636,7 +4535,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -4857,7 +4756,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -5216,7 +5115,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -5478,7 +5377,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -5514,7 +5413,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -5774,7 +5673,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -5890,7 +5789,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -5943,7 +5842,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -6716,7 +6615,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -6829,7 +6728,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -6990,7 +6889,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -7029,7 +6928,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -7166,10 +7065,13 @@ No
 ### Pattern
 
 7-12 digits:
+
 - four digits
 - a hyphen (optional)
 - six digits
-OR
+
+*or*
+
 - 7-12 consecutive digits
 
 ### Checksum
@@ -7637,7 +7539,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -7733,6 +7635,27 @@ not applicable
 - date of issue
 - date of expiry
 
+## Location
+
+### Format
+Longitude can range from -180.0 to 180.0. Latitude can range from -90.0 to 90.0.
+
+### Checksum
+Not applicable
+
+### Keywords
+
+- lat
+- latitude
+- long
+- longitude
+- coord
+- coordinates
+- geo
+- geolocation
+- loc
+- location
+- position
 
 ## Luxemburg driver's license number
 
@@ -7883,7 +7806,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -8040,72 +7963,6 @@ No
 
 - date of issue
 - date of expiry
-
-
-## Luxemburg national identification number (non-natural persons)
-
-### Format
-
-11 digits
-
-### Pattern
-
-11 digits
-
-- two digits
-- an optional space
-- three digits
-- an optional space
-- three digits
-- an optional space
-- two digits
-- one check digit
-
-### Checksum
-
-Yes
-
-### Keywords
-
-#### Keywords_luxemburg_eu_tax_file_number
-
-- carte de sécurité sociale
-- étain non
-- étain#
-- identifiant d'impôt
-- luxembourg tax identifikatiounsnummer
-- numéro d'étain
-- numéro d'identification fiscal luxembourgeois
-- numéro d'identification fiscale
-- social security
-- sozialunterstützung
-- sozialversécherung
-- sozialversicherungsausweis
-- steier id
-- steier identifikatiounsnummer
-- steier nummer
-- steuer id
-- steueridentifikationsnummer
-- steuernummer
-- tax id
-- tax identification no
-- tax identification number
-- tax no#
-- tax no
-- tax number
-- tax registration number
-- taxid#
-- taxidno#
-- taxidnumber#
-- taxno#
-- taxnumber#
-- taxnumber
-- tin id
-- tin no
-- tin#
-- zinn#
-- zinn
-- zinnzahl
 
 
 ## Malaysia identification card number
@@ -8313,7 +8170,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -8686,7 +8543,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -8747,7 +8604,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -8787,7 +8644,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -8827,7 +8684,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -8920,7 +8777,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -8991,7 +8848,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -9339,7 +9196,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -9350,7 +9207,9 @@ This sensitive information type is only available for use in:
 nine digit or 14-digit number:
 
 - nine digits
-or
+
+**or**
+
 - nine digits
 - hyphen
 - five digits
@@ -9385,7 +9244,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -9887,7 +9746,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -10005,7 +9864,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -10051,7 +9910,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -10297,7 +10156,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -10558,7 +10417,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -10661,7 +10520,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -10923,7 +10782,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -11058,7 +10917,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -11390,7 +11249,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -11504,7 +11363,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -11649,56 +11508,6 @@ No
 - 居留證
 - 外僑居留證
 - 台灣地區居留證
-
-## Thai Citizen ID
-
-### Format
-
-13 digits
-
-### Pattern
-
-13 digits:
-- first digit isn't zero or nine
-- 12 digits
-
-### Checksum
-
-Yes
-
-### Keywords
-
-#### Keyword_thai_citizen_Id
-
-- ID Number
-- Identification Number
-- บัตรประชาชน
-- รหัสบัตรประชาชน
-- บัตรประชาชน
-- รหัสบัตรประชาชน
-
-## Turkish national identification number
-
-### Format
-
-11 digits
-
-### Pattern
-
-11 digits
-
-### Checksum
-
-Yes
-
-### Keywords
-
-#### Keyword_turkish_national_id
-
-- TC Kimlik No
-- TC Kimlik numarası
-- Vatandaşlık numarası
-- Vatandaşlık no
 
 ## U.K. driver's license number
 
@@ -11972,7 +11781,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -12300,7 +12109,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -12332,7 +12141,7 @@ This sensitive information type is only available for use in:
 - communication compliance policies
 - information governance
 - records management
-- Microsoft cloud app security
+- Microsoft Defender for Cloud Apps
 
 ### Format
 

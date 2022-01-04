@@ -3,9 +3,10 @@ title: Troubleshoot Application Insights in a Java web project
 description: Troubleshooting guide - monitoring live Java apps with Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-author: MS-jgol
+ms.devlang: java
 ms.custom: devx-track-java
-ms.author: jgol
+author: mattmccleary
+ms.author: mmcc
 ---
 
 # Troubleshooting and Q and A for Application Insights for Java SDK
@@ -20,7 +21,7 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 ## Build errors
 **In Eclipse or Intellij Idea, when adding the Application Insights SDK via Maven or Gradle, I get build or checksum validation errors.**
 
-* If the dependency `<version>` element is using a pattern with wildcard characters (e.g. (Maven) `<version>[2.0,)</version>` or (Gradle) `version:'2.+'`), try specifying a specific version instead like `2.6.2`.
+* If the dependency `<version>` element is using a pattern with wildcard characters (e.g. (Maven) `<version>[2.0,)</version>` or (Gradle) `version:'2.+'`), try specifying a specific version instead like `2.6.4`.
 
 ## No data
 **I added Application Insights successfully and ran my app, but I've never seen data in the portal.**
@@ -76,7 +77,7 @@ In code:
 
 Update ApplicationInsights.xml (in the resources folder in your project). Add the following under the root node:
 
-```XML
+```xml
 
     <DisableTelemetry>true</DisableTelemetry>
 ```
@@ -101,7 +102,7 @@ To get more information about what's happening in the API, add `<SDKLogger/>` un
 
 You can also instruct the logger to output to a file:
 
-```XML
+```xml
   <SDKLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->
     <Level>TRACE</Level>
     <UniquePrefix>AI</UniquePrefix>

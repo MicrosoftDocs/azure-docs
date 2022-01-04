@@ -7,7 +7,7 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 10/04/2021
 ---
 
 # Tips for better performance in Azure Cognitive Search
@@ -136,3 +136,4 @@ Review these additional articles related to service performance.
 + [Analyze performance](search-performance-analysis.md)
 + [Choose a service tier](search-sku-tier.md)
 + [Add capacity (replicas and partitions)](search-capacity-planning.md#adjust-capacity)
++ [Case Study: Use Cognitive Search to Support Complex AI Scenarios](https://techcommunity.microsoft.com/t5/azure-ai/case-study-effectively-using-cognitive-search-to-support-complex/ba-p/2804078)

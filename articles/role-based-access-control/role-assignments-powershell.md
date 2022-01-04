@@ -3,12 +3,12 @@ title: Assign Azure roles using Azure PowerShell - Azure RBAC
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure PowerShell and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/31/2021
-ms.author: rolyon 
+ms.date: 12/06/2021
+ms.author: rolyon
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -69,7 +69,7 @@ For a system-assigned or a user-assigned managed identity, you need the object I
 Get-AzADServicePrincipal -SearchString <principalName>
 (Get-AzADServicePrincipal -DisplayName <principalName>).id
 ```
-    
+
 ### Step 2: Select the appropriate role
 
 Permissions are grouped together into roles. You can select from a list of several [Azure built-in roles](built-in-roles.md) or you can use your own custom roles. It's a best practice to grant access with the least privilege that is needed, so avoid assigning a broader role.
@@ -77,17 +77,17 @@ Permissions are grouped together into roles. You can select from a list of sever
 To list roles and get the unique role ID, you can use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
-Get-AzRoleDefinition | FT Name, IsCustom, Id
+Get-AzRoleDefinition | Format-Table -Property Name, IsCustom, Id
 ```
 
 Here's how to list the details of a particular role.
 
 ```azurepowershell
-Get-AzRoleDefinition <roleName>
+Get-AzRoleDefinition -Name <roleName>
 ```
 
 For more information, see [List Azure role definitions](role-definitions-list.md#azure-powershell).
- 
+
 ### Step 3: Identify the needed scope
 
 Azure provides four levels of scope: resource, [resource group](../azure-resource-manager/management/overview.md#resource-groups), subscription, and [management group](../governance/management-groups/overview.md). It's a best practice to grant access with the least privilege that is needed, so avoid assigning a role at a broader scope. For more information about scope, see [Understand scope](scope-overview.md).
@@ -108,7 +108,7 @@ For resource group scope, you need the name of the resource group. You can find 
 Get-AzResourceGroup
 ```
 
-**Subscription scope** 
+**Subscription scope**
 
 For subscription scope, you need the subscription ID. You can find the ID on the **Subscriptions** page in the Azure portal or you can use [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
 
@@ -116,14 +116,14 @@ For subscription scope, you need the subscription ID. You can find the ID on the
 Get-AzSubscription
 ```
 
-**Management group scope** 
+**Management group scope**
 
 For management group scope, you need the management group name. You can find the name on the **Management groups** page in the Azure portal or you can use [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
 
 ```azurepowershell
 Get-AzManagementGroup
 ```
-    
+
 ### Step 4: Assign role
 
 To assign a role, use the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command. Depending on the scope, the command typically has one of the following formats.
@@ -158,7 +158,7 @@ New-AzRoleAssignment -ObjectId <objectId> `
 -ResourceGroupName <resourceGroupName>
 ```
 
-**Subscription scope** 
+**Subscription scope**
 
 ```azurepowershell
 New-AzRoleAssignment -SignInName <emailOrUserprincipalname> `
@@ -172,20 +172,20 @@ New-AzRoleAssignment -ObjectId <objectId> `
 -Scope /subscriptions/<subscriptionId>
 ```
 
-**Management group scope** 
+**Management group scope**
 
 ```azurepowershell
 New-AzRoleAssignment -SignInName <emailOrUserprincipalname> `
 -RoleDefinitionName <roleName> `
 -Scope /providers/Microsoft.Management/managementGroups/<groupName>
-``` 
+```
 
 ```azurepowershell
 New-AzRoleAssignment -ObjectId <objectId> `
 -RoleDefinitionName <roleName> `
 -Scope /providers/Microsoft.Management/managementGroups/<groupName>
-``` 
-    
+```
+
 ## Assign role examples
 
 #### Assign a role for all blob containers in a storage account resource scope

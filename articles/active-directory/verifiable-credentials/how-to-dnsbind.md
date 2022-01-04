@@ -3,7 +3,7 @@ title: Link your Domain to your Decentralized Identifier (DID) (preview) - Azure
 description: Learn how to DNS Bind?
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
@@ -13,7 +13,7 @@ ms.author: barclayn
 #Customer intent: Why are we doing this?
 ---
 
-# Link your domain to your Decentralized Identifier (DID)
+# Link your domain to your Decentralized Identifier (DID) (preview)
 
 > [!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview.
@@ -41,24 +41,25 @@ Linking a DID to a domain solves the initial trust problem by allowing any entit
 
 ## How do we link DIDs and domains?
 
-We make a link between a domain and a DID by implementing an open standard written by the Decentralized Identity Foundation called [Well-Known DID configuration](https://identity.foundation/.well-known/resources/did-configuration/). The verifiable credentials service in Azure Active Directory (Azure AD) helps your organization make the link between the DID and domain by included the domain information that you provided in your DID, and generating the well-known config file:
+We make a link between a domain and a DID by implementing an open standard written by the Decentralized Identity Foundation called [Well-Known DID configuration](https://identity.foundation/.well-known/resources/did-configuration/). The verifiable credentials service in Azure Active Directory (Azure AD) helps your organization make the link between the DID and domain by including the domain information that you provided in your DID, and generating the well-known config file:
 
 1. Azure AD uses the domain information you provide during organization setup to write a Service Endpoint within the DID Document. All parties who interact with your DID can see the domain your DID proclaims to be associated with.  
 
     ```json
-        "service": [
-          {
-            "id": "#linkeddomains",
-            "type": "LinkedDomains",
-            "serviceEndpoint": {
-              "origins": [
-                "https://www.contoso.com/"
-              ]
-            }
-          }
+    "service": [
+      {
+        "id": "#linkeddomains",
+        "type": "LinkedDomains",
+        "serviceEndpoint": {
+          "origins": [
+            "https://www.contoso.com/"
+          ]
+        }
+      }
+    ]
     ```
 
-2. The verifiable credential service in Azure AD generates a compliant well-known configuration resource that you can host on your domain. The configuration file includes a self-issued verifiable credential of credentialType 'DomainLinkageCredential' signed with your DID that has an origin of your domain. Here is an example of the config doc that is stored at the root domain url.
+2. The verifiable credential service in Azure AD generates a compliant well-known configuration resource that you can host on your domain. The configuration file includes a self-issued verifiable credential of credentialType 'DomainLinkageCredential' signed with your DID that has an origin of your domain. Here is an example of the config doc that is stored at the root domain URL.
 
 
     ```json
@@ -116,7 +117,7 @@ If any of the above are not true, the Microsoft Authenticator will display a ful
 
    ![Download well known config](media/how-to-dnsbind/verify-download.png) 
 
-3. Copy the JWT, open [jwt.ms](https://www.jwt.ms) and validate the domain is correct.
+3. Copy the linked_did value (JWT), open [https://jwt.ms/](https://www.jwt.ms), paste the JWT, and validate the domain is correct.
 
 4. Copy your DID and open the [ION Network Explorer](https://identity.foundation/ion/explorer) to verify the same domain is included in the DID Document. 
 

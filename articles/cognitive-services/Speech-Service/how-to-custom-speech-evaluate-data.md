@@ -3,13 +3,14 @@ title: "Evaluate and improve Custom Speech accuracy - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "In this document you learn how to quantitatively measure and improve the quality of our speech-to-text model or your custom model. Audio + human-labeled transcription data is required to test accuracy, and 30 minutes to 5 hours of representative audio should be provided."
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: pafarley
+ms.author: eur
+ms.custom: ignite-fall-2021
 ---
 
 # Evaluate and improve Custom Speech accuracy
@@ -92,12 +93,21 @@ Plan to maintain your custom model by adding source materials periodically. Your
 
 The following sections describe how each kind of additional training data can reduce errors.
 
-### Add related text sentences
+### Add plain text data
 
-When you train a new custom model, start by adding related text to improve the recognition of domain-specific words and phrases. Related text sentences can primarily reduce substitution errors related to misrecognition of common words and domain-specific words by showing them in context. Domain-specific words can be uncommon or made-up words, but their pronunciation must be straightforward to be recognized.
+When you train a new custom model, start by adding plain text sentences of related text to improve the recognition of domain-specific words and phrases. Related text sentences can primarily reduce substitution errors related to misrecognition of common words and domain-specific words by showing them in context. Domain-specific words can be uncommon or made-up words, but their pronunciation must be straightforward to be recognized.
 
 > [!NOTE]
 > Avoid related text sentences that include noise such as unrecognizable characters or words.
+
+### Add structured text data
+
+You can use structured text data in markdown format similarly to plain text sentences, but you would use structured text data when your data follows a particular pattern in particular utterances that only differ by words or phrases from a list. See [Structured text data for training](how-to-custom-speech-test-and-train.md#structured-text-data-for-training-public-preview) for more information. 
+
+> [!NOTE]
+> Training with structured text is only supported for these locales: `en-US`, `de-DE`, `en-UK`, `en-IN`, `fr-FR`, `fr-CA`, `es-ES`, `es-MX` and you must use the latest base model for these locales. See [Language support](language-support.md) for a list of base models that support training with structured text data.
+> 
+> For locales that don’t support training with structured text, the service will take any training sentences that don’t reference any classes as part of training with plain text data.
 
 ### Add audio with human-labeled transcripts
 
@@ -133,7 +143,7 @@ Words that are made-up or highly specialized may have unique pronunciations. The
 
 The following table shows voice recognition scenarios and lists source materials to consider within the three training content categories listed above.
 
-| Scenario | Related text sentences | Audio + human-labeled transcripts | New words with pronunciation |
+| Scenario | Plain text data and <br> structured text data | Audio + human-labeled transcripts | New words with pronunciation |
 |----------|------------------------|------------------------------|------------------------------|
 | Call center             | marketing documents, website, product reviews related to call center activity | call center calls transcribed by humans | terms that have ambiguous pronunciations (see Xbox above) |
 | Voice assistant         | list sentences using all combinations of commands and entities | record voices speaking commands into device, and transcribe into text | names (movies, songs, products) that have unique pronunciations |

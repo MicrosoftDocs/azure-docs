@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 05/24/2021
+ms.date: 09/27/2021
 ms.author: pafarley
 ---
 

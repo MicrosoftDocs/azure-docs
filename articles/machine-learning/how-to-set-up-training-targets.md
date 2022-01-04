@@ -8,7 +8,7 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 06/18/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
 ---
@@ -56,7 +56,7 @@ Or you can:
 
 ## Create an experiment
 
-Create an experiment in your workspace.
+Create an [experiment](concept-azure-machine-learning-architecture.md#experiments) in your workspace. An experiemnt is a light-weight container that helps to organize run submissions and keep track of code.
 
 ```python
 from azureml.core import Experiment
@@ -76,7 +76,7 @@ The example code in this article assumes that you have already created a compute
 
 [!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
-## Create an environment
+## <a name="environment"></a> Create an environment
 Azure Machine Learning [environments](concept-environments.md) are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, Docker image, environment variables, and software settings around your training and scoring scripts. They also specify runtimes (Python, Spark, or Docker).
 
 You can either define your own environment, or use an Azure ML curated environment. [Curated environments](./how-to-use-environments.md#use-a-curated-environment) are predefined environments that are available in your workspace by default. These environments are backed by cached Docker images which reduces the run preparation cost. See [Azure Machine Learning Curated Environments](./resource-curated-environments.md) for the full list of available curated environments.
@@ -108,7 +108,7 @@ myenv.python.user_managed_dependencies = True
 
 ## Create the script run configuration
 
-Now that you have a compute target (`my_compute_target`) and environment (`myenv`), create a script run configuration that runs your training script (`train.py`) located in your `project_folder` directory:
+Now that you have a compute target (`my_compute_target`, see [Prerequisites](#prerequisites) and environment (`myenv`, see [Create an environment](#environment)), create a script run configuration that runs your training script (`train.py`) located in your `project_folder` directory:
 
 ```python
 from azureml.core import ScriptRunConfig

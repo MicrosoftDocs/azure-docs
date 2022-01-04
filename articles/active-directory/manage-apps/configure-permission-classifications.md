@@ -1,5 +1,6 @@
 ---
-title: Configure permission classifications with Azure AD
+title: Configure permission classifications
+titleSuffix: Azure AD
 description: Learn how to manage delegated permission classifications.
 services: active-directory
 author: davidmu1
@@ -8,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/31/2021
+ms.date: 10/23/2021
 ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
@@ -18,22 +19,20 @@ ms.custom: contperf-fy21q2
 
 # Configure permission classifications
 
-Permission classifications allow you to identify the impact that different permissions have according to your organization's policies and risk evaluations. For example, you can use permission classifications in consent policies to identify the set of permissions that users are allowed to consent to.
-
-## Prerequisites
-
-To complete the tasks in this guide, you need the following:
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A Global Administrator role.
-- Set up Azure AD PowerShell. See [Azure AD PowerShell](/powershell/azure/)
-
-## Manage permission classifications
+In this article you'll learn how to configure permissions classifications in Azure Active Directory (Azure AD). Permission classifications allow you to identify the impact that different permissions have according to your organization's policies and risk evaluations. For example, you can use permission classifications in consent policies to identify the set of permissions that users are allowed to consent to.
 
 Currently, only the "Low impact" permission classification is supported. Only delegated permissions that don't require admin consent can be classified as "Low impact".
 
-> [!TIP]
-> The minimum permissions needed to do basic sign in are `openid`, `profile`, `email`, `User.Read` and `offline_access`, which are all delegated permissions on the Microsoft Graph. With these permissions an app can read the full profile details of the signed-in user and can maintain this access even when the user is no longer using the app.
+The minimum permissions needed to do basic sign in are `openid`, `profile`, `email`, `User.Read` and `offline_access`, which are all delegated permissions on the Microsoft Graph. With these permissions an app can read the full profile details of the signed-in user and can maintain this access even when the user is no longer using the app.
+
+## Prerequisites
+
+To configure permission classifications, you need:
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+
+## Manage permission classifications
 
 # [Portal](#tab/azure-portal)
 
@@ -124,12 +123,4 @@ You can use the latest Azure AD PowerShell Preview module, [AzureADPreview](/pow
 
 To learn more:
 
-* [Configure user consent settings](configure-user-consent.md)
-* [Configure the admin consent workflow](configure-admin-consent-workflow.md)
-* [Learn how to manage consent to applications and evaluate consent requests](manage-consent-requests.md)
-* [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
-* [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
-
-To get help or find answers to your questions:
-
-* [Azure AD on Microsoft Q&A](/answers/topics/azure-active-directory.html)
+- Go to [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
