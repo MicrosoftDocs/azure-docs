@@ -96,7 +96,7 @@
       - name: Transfer artifacts (preview)
         items:
         - name: Overview and prerequisites
-          href: container-registry-transfer-prereqs.md
+          href: container-registry-transfer-prerequisites.md
         - name: ACR Transfer with Az CLI
           href: container-registry-transfer-cli.md
         - name: ACR Transfer with ARM templates

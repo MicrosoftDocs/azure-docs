@@ -10,7 +10,7 @@ ms.custom:
 
 ## Complete Prerequisites
 
-Please complete the prerequisites outlined [here](./container-registry-transfer-prereqs.md) prior to attempting the actions in this article. This means that:
+Please complete the prerequisites outlined [here](./container-registry-transfer-prerequisites.md) prior to attempting the actions in this article. This means that:
 
 - You have an existing Premium SKU Registry in both clouds.
 - You have an existing Storage Account Container in both clouds.
