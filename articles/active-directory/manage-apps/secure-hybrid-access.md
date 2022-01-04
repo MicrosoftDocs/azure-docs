@@ -31,7 +31,7 @@ Using [Application Proxy](../app-proxy/what-is-application-proxy.md) you can pro
 
 In addition to [Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md), Microsoft partners with third-party providers to enable secure access to your on-premises applications and applications that use legacy authentication.
 
-![Image shows secure hybrid access with app proxy and partners](./media/secure-hybrid-access/secure-hybrid-access.png)
+![Illustration of Secure Hybrid Access partner integrations and Application Proxy providing access to legacy and on-premises applications after authentication with Azure AD.](./media/secure-hybrid-access/secure-hybrid-access.png)
 
 The following partners offer pre-built solutions to support **conditional access policies per application** and provide detailed guidance for integrating with Azure AD. 
 
