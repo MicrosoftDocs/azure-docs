@@ -14,15 +14,13 @@ ms.custom: [mvc, device-developer]
 
 # IoT Central device connectivity guide
 
-An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is intended for device developers who implement code to run on devices that connect to IoT Central.
+An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is for device developers who implement the code to run on devices that connect to IoT Central.
 
-Devices interact with an IoT Central application using the following primitives:
+Devices interact with an IoT Central application by using the following primitives:
 
 - _Telemetry_ is data that a device sends to IoT Central. For example, a stream of temperature values from an onboard sensor.
 - _Properties_ are state values that a device reports to IoT Central. For example, the current firmware version of the device. You can also have writable properties that IoT Central can update on the device such as a target temperature.
 - _Commands_ are called from IoT Central to control the behavior a device. For example, your IoT Central application might call a command to reboot a device.
-
-A solution builder is responsible for configuring dashboards and device views in the IoT Central web UI to visualize telemetry, manage properties, and call commands.
 
 ## Types of device
 
@@ -63,17 +61,91 @@ To learn more, see [Get connected to Azure IoT Central](./concepts-get-connected
 
 ### Security
 
-The connection between a device and your IoT Central application is secured using either [shared access signatures](./concepts-get-connected.md#sas-group-enrollment) or industry-standard [X.509 certificates](./concepts-get-connected.md#x509-group-enrollment).
+The connection between a device and your IoT Central application is secured by using either [shared access signatures](./concepts-get-connected.md#sas-group-enrollment) or industry-standard [X.509 certificates](./concepts-get-connected.md#x509-group-enrollment).
 
 ### Communication protocols
 
 Communication protocols that a device can use to connect to IoT Central include MQTT, AMQP, and HTTPS. Internally, IoT Central uses an IoT hub to enable device connectivity. For more information about the communication protocols that IoT Hub supports for device connectivity, see [Choose a communication protocol](../../iot-hub/iot-hub-devguide-protocols.md).
 
+## Connectivity patterns
+
+Device developers typically use one of the device SDKs to implement devices that connect to an IoT Central application. Some scenarios, such as for devices that can't connect to the internet, also require a gateway. To learn more about the device connectivity options available to device developers, see:
+
+- [Get connected to Azure IoT Central](concepts-get-connected.md)
+- [Connect Azure IoT Edge devices to an Azure IoT Central application](concepts-iot-edge.md)
+
+A solution design must take into account the required device connectivity pattern. These patterns fall in to two broad categories. Both categories include devices sending telemetry to your IoT Central application:
+
+### Persistent connections
+
+Persistent connections are required your solution needs *command and control* capabilities. In command and control scenarios, the IoT Central application sends commands to devices to control their behavior in near real time. Persistent connections maintain a network connection to the cloud and reconnect whenever there's a disruption. Use either the MQTT or the AMQP protocol for persistent device connections to IoT Central.
+
+The following options support persistent device connections:
+
+- Use the IoT device SDKs to connect devices and send telemetry:
+
+  The device SDKs enable both the MQTT and AMQP protocols for creating persistent connections to IoT Central. To learn more, see [Get connected to Azure IoT Central](concepts-get-connected.md).
+
+- Connect devices over a local network to an IoT Edge device that forwards telemetry to IoT Central:
+
+  An IoT Edge device can make a persistent connection to IoT Central. For devices that can't connect to the internet or that require network isolation, use an IoT Edge device as a local gateway. The gateway forwards device telemetry to IoT Central. This option enables command and control of the downstream devices connected to the IoT Edge device.
+
+  To learn more, see [Connect Azure IoT Edge devices to an Azure IoT Central application](concepts-iot-edge.md).
+
+- Use IoT Central Device Bridge to connect devices that use a custom protocol:
+
+  Some devices use a protocol or encoding, such as LWM2M or COAP, that IoT Central doesn't currently support. IoT Central Device Bridge acts as a translator that forwards telemetry to IoT Central. Because the connection the bridge maintains is persistent, this option enables command and control of the devices connected to the bridge.
+
+  To learn more, see the [Azure IoT Central Device Bridge](https://github.com/Azure/iotc-device-bridge) GitHub repository.
+
+### Ephemeral connections
+
+Ephemeral connections are brief connections for devices to send telemetry to your IoT Central application. After a device sends the telemetry, it drops the connection. The device reconnects when it has more telemetry to send. Ephemeral connections aren't suitable for command and control scenarios.
+
+The following options support ephemeral device connections:
+
+- Connect devices and send telemetry by using HTTP:
+
+  IoT Central supports device clients that use the HTTP API to send telemetry. To learn more, see the [Send Device Event](/rest/api/iothub/device/send-device-event) API documentation.
+
+  > [!NOTE]
+  > Use DPS to provision and register your device with IoT Central before you use the HTTP API to send telemetry.
+
+- Use IoT Central Device Bridge in stateless mode to connect devices:
+  
+  Deploy IoT Central Device Bridge as an Azure Function. The function accepts incoming telemetry data as HTTP requests and forwards it to IoT Central. IoT Central Device Bridge integrates with DPS and automatically handles device provisioning for you.
+
+  To learn more, see [Azure IoT Central Device Bridge](https://github.com/iot-for-all/iotc-device-bridge) GitHub repository.
+
+- Use IoT Central Device Bridge in stateless mode to connect external clouds:
+  
+  Use Azure IoT Central Device Bridge to forward messages to IoT Central from other IoT clouds, such as SigFox, Particle, and The Things Network.
+
+  To learn more, see [Azure IoT Central Device Bridge](https://github.com/iot-for-all/iotc-device-bridge) GitHub repository.
+
+### Data transformation and custom computation on ingress
+
+Some scenarios require device telemetry augmented with data from external systems or stores. Augmenting telemetry before it reaches IoT Central enables features such as dashboards and rules to use the augmented data.
+
+Some scenarios require you to transform telemetry before it reaches IoT Central. For example, transforming telemetry from legacy formats.
+
+The following options are available for custom transformations or computations before IoT Central ingests the telemetry:
+
+- Use IoT Edge:
+  
+  Use custom modules in IoT Edge for custom transformations and computations. Use IoT Edge when your devices use the Azure IoT device SDKs.
+
+- Use IoT Central Device Bridge:
+  
+  Use IoT Central Device Bridge adapters for custom transformations and computations.
+
+To learn more, see [Transform data for IoT Central](howto-transform-data.md).
+
 ## Implement the device
 
 An IoT Central device template includes a _model_ that specifies the behaviors a device of that type should implement. Behaviors include telemetry, properties, and commands.
 
-To learn more about best practices you edit a model, see [Edit an existing device template](howto-edit-device-template.md).
+To learn more, see [Edit an existing device template](howto-edit-device-template.md).
 
 > [!TIP]
 > You can export the model from IoT Central as a [Digital Twins Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl) JSON file.
@@ -86,7 +158,7 @@ The [Azure IoT device SDKs](#languages-and-sdks) include support for the IoT Plu
 
 ### Device model
 
-A device model is defined using the [DTDL](https://github.com/Azure/opendigitaltwins-dtdl). This language lets you define:
+A device model is defined by using the [DTDL](https://github.com/Azure/opendigitaltwins-dtdl) modeling language. This language lets you define:
 
 - The telemetry the device sends. The definition includes the name and data type of the telemetry. For example, a device sends temperature telemetry as a double.
 - The properties the device reports to IoT Central. A property definition includes its name and data type. For example, a device reports the state of a valve as a Boolean.
@@ -96,7 +168,7 @@ A device model is defined using the [DTDL](https://github.com/Azure/opendigitalt
 A DTDL model can be a _no-component_ or a _multi-component_ model:
 
 - No-component model: A simple model doesn't use embedded or cascaded components. All the telemetry, properties, and commands are defined a single _root component_. For an example, see the [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) model.
-- Multi-component model. A more complex model that includes two or more components. These components include a single root component, and one or more additional nested components. For an example, see the [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) model.
+- Multi-component model. A more complex model that includes two or more components. These components include a single root component, and one or more nested components. For an example, see the [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) model.
 
 To learn more, see [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md)
 
@@ -138,4 +210,4 @@ For more information about the supported languages and SDKs, see [Understand and
 
 If you're a device developer and want to dive into some code, the suggested next step is to [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md).
 
-If you want to learn more about using IoT Central, the suggested next steps are to try the quickstarts, beginning with [Create an Azure IoT Central application](./quick-deploy-iot-central.md).
+To learn more about using IoT Central, the suggested next steps are to try the quickstarts, beginning with [Create an Azure IoT Central application](./quick-deploy-iot-central.md).

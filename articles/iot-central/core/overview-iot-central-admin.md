@@ -16,15 +16,15 @@ ms.custom: mvc
 
 An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is for administrators who manage IoT Central applications.
 
-In IoT Central, an administrator:
+IoT Central application administration includes the following tasks:
 
-- Manages users and roles in the application.
-- Creates and manages organizations.
-- Manages security such as device authentication.
-- Configures application settings.
-- Upgrades applications.
-- Exports and shares applications.
-- Monitors application health.
+- Manage users and roles in the application.
+- Create and manage organizations.
+- Manage security such as device authentication.
+- Configure application settings.
+- Upgrade applications.
+- Export and share applications.
+- Monitor application health.
 
 ## Users and roles
 
