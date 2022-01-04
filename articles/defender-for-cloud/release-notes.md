@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 01/03/2022
+ms.date: 01/04/2022
 ---
 # What's new in Microsoft Defender for Cloud?
 
@@ -22,7 +22,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in January include:
 
-- [Microsoft Defender for Resource Manager updated with new alerts and greater emphasis on MITRE ATT&CK® Matrix](#microsoft-defender-for-resource-manager-updated-with-new-alerts-and-greater-emphasis-on-mitre-attck-matrix)
+- [Microsoft Defender for Resource Manager updated with new alerts and greater emphasis on high-risk operations mapped to MITRE ATT&CK® Matrix](#microsoft-defender-for-resource-manager-updated-with-new-alerts-and-greater-emphasis-on-high-risk-operations-mapped-to-mitre-attck-matrix)
 
 
 ### Microsoft Defender for Resource Manager updated with new alerts and greater emphasis on high-risk operations mapped to MITRE ATT&CK® Matrix
