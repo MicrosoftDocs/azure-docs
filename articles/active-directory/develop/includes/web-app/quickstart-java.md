@@ -17,7 +17,7 @@ ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
 
 In this quickstart, you download and run a code sample that demonstrates how a Java web application can sign in users and call the Microsoft Graph API. Users from any Azure Active Directory (Azure AD) organization can sign in to the application.
 
- For an overview, see the [diagram of how the sample works](#how-the-sample-works).
+See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 
@@ -65,8 +65,8 @@ To register your application and manually add the app's registration information
 
 #### Step 3: Configure the code sample
 1. Extract the zip file to a local folder.
-1. *Optional.* If you use an integrated development environment, open the sample in that environment.
-1. Open the *application.properties* file. You can find it in the *src/main/resources/* folder. Replace the values in the fields `aad.clientId`, `aad.authority`, and `aad.secretKey` with the application ID, tenant ID, and client secret values, respectively. Here's what it should look like:
+2. *Optional.* If you use an integrated development environment, open the sample in that environment.
+3. Open the *application.properties* file. You can find it in the *src/main/resources/* folder. Replace the values in the fields `aad.clientId`, `aad.authority`, and `aad.secretKey` with the application ID, tenant ID, and client secret values, respectively. Here's what it should look like:
 
      ```file
       aad.clientId=Enter_the_Application_Id_here
@@ -81,8 +81,7 @@ To register your application and manually add the app's registration information
    - `Enter_the_Application_Id_here` is the application ID for the application you registered.
    - `Enter_the_Client_Secret_Here` is the **Client Secret** you created in **Certificates & secrets** for the application you registered.
    - `Enter_the_Tenant_Info_Here` is the **Directory (tenant) ID** value of the application you registered.
-
-1. To use HTTPS with localhost, provide the `server.ssl.key` properties. To generate a self-signed certificate, use the keytool utility (included in JRE).
+4. To use HTTPS with localhost, provide the `server.ssl.key` properties. To generate a self-signed certificate, use the keytool utility (included in JRE).
 
  Here's an example:
 
@@ -94,7 +93,7 @@ server.ssl.key-store=classpath:keystore.p12
 server.ssl.key-store-password=password
 server.ssl.key-alias=testCert
 ```
-1. Put the generated keystore file in the *resources* folder.
+5. Put the generated keystore file in the *resources* folder.
 
 #### Step 4: Run the code sample
 
