@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 01/04/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021, mode-api
 ---
-
+<!-- markdownlint-disable MD025 -->
 # Quickstart: Form Recognizer JavaScript client library SDKs v3.0 | Preview
 
 >[!NOTE]
