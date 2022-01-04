@@ -3,12 +3,12 @@ title: 'Configure BGP for VPN Gateway: Portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure BGP for Azure VPN Gateway.
 services: vpn-gateway
-author: yushwang
+author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 07/26/2021
-ms.author: yushwang 
+ms.author: cherylmc 
 
 
 ---
