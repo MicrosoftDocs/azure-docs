@@ -42,8 +42,9 @@ Follow these steps to access the **Mappings** feature of user provisioning:
    ![Use Attribute Mapping to configure attribute mappings for apps](./media/customize-application-attributes/22.png)
 
    In this screenshot, you can see that the **Username** attribute of a managed object in Salesforce is populated with the **userPrincipalName** value of the linked Azure Active Directory Object.
-   Unticking the "create" button does not impact existing users, it will only impact newly created users, as they will not be created.
    
+   > [!NOTE]
+   > Clearing **Create** doesn't affect existing users. If **Create** isn't selected, you can't create new users.   
 
 1. Select an existing **Attribute Mapping** to open the **Edit Attribute** screen. Here you can edit the user attributes that flow between Azure AD and the target application.
 
