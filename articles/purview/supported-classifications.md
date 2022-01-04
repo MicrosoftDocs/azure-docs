@@ -7640,6 +7640,9 @@ not applicable
 ### Format
 Longitude can range from -180.0 to 180.0. Latitude can range from -90.0 to 90.0.
 
+### Checksum
+Not applicable
+
 ### Keywords
 
 - lat
