@@ -46,20 +46,24 @@ Warnings are common with some types of indexers, and do not always indicate a pr
 
 For more information about investigating indexer errors and warnings, see [Indexer troubleshooting guidance](search-indexer-troubleshooting.md).
 
-## Monitor using Azure Monitoring Metrics on Azure Portal
+## Monitor with Azure Monitoring Metrics
 
-You can also see basic metrics about number of indexer processed documents and number of skill invocations (if applicable) on the portal. These metrics can be used to monitor indexer progress and set up alerts. For more information on setting up alerts, please see [metric alerts](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-metric-overview).
+Cognitive Search is a monitored resource in Azure Monitor, which means that you can use [Metrics Explorer](/azure/azure-monitor/essentials/data-platform-metrics#metrics-explorer) to see basic metrics about the number of indexer-processed documents and skill invocations. These metrics can be used to monitor indexer progress and [set up alerts](/azure/azure-monitor/alerts/alerts-metric-overview). 
 
-   ![Indexer documents processed metric](media/search-monitor-indexers/indexers-documents-processed-metric.png "Indexer documents processed metric")
-
-   ![Indexer skills invoked metric](media/search-monitor-indexers/indexers-skill-invocation-metric.png "Indexer skill invocation metric")
-
-Metric views can also be filtered or split up by a set of predefined dimensions.
+Metric views can be filtered or split up by a set of predefined dimensions.
 
 | Metric Name  |  Description | Dimensions  | Sample use cases |
 |---|---|---|---|
 | Document processed count  | Shows the number of indexer processed documents.  | Data source name, failed, index name, indexer name, skillset name  | <ul><li>Can be referenced as a rough measure of throughput (number of documents processed by indexer over time) </li><li>Set up to alert on failed documents</li></ul> | 
 |  Skill execution invocation count | Shows the number of skill invocations. | Data source name, failed, index name, indexer name, skill name, skill type, skillset name | <ul><li>Reference to ensure skills are invoked as expected by comparing relative invocation numbers between skills and number of skill invocation to the number of documents. </li><li>Set up to alert on failed skill invocations</li></ul> |
+
+The screenshot below shows the number of documents processed by indexers within a service over an hour, split up by indexer name.
+
+   ![Indexer documents processed metric](media/search-monitor-indexers/indexers-documents-processed-metric.png "Indexer documents processed metric")
+
+You can also configure the graph to see the number of skill invocation over the same hour interval.
+
+   ![Indexer skills invoked metric](media/search-monitor-indexers/indexers-skill-invocation-metric.png "Indexer skill invocation metric")
 
 
 ## Monitor using Get Indexer Status (REST API)
