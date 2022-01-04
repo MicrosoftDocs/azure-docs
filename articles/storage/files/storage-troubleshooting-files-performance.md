@@ -280,6 +280,13 @@ To confirm, you can use Azure Metrics in the portal -
 
 To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
+## Slow performance when unzipping files in SMB file shares
+
+If you're trying to transfer large numbers of files to Azure Files, use [AzCopy](../common/storage-use-azcopy-v10.md) or Azure PowerShell. These tools have been optimized for network transfer.
+
+Depending on the unzip utility, when you unzip a file it issues reads on the compressed file. If the decompressed data is targeted back at the file share then this will result in writes back to the share to write the decompressed folders/files. This is similar to what happens when a zipped file is on a regular on-prem SMB share, but the latency and bandwidth to the Azure file share can amplify the overall perceived delay. If you unzip to local disk then AzCopy or Robocopy to Azure Files, you can use multiple threads to compensate for the higher latency.
+
+
 ## How to create alerts if a premium file share is trending toward being throttled
 
 1. In the Azure portal, go to your storage account.
