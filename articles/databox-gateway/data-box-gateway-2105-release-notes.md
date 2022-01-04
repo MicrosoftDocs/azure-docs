@@ -19,7 +19,7 @@ The release notes are continuously updated. As critical issues that require a wo
 
 This release corresponds to the software versions:
 
-- **Data Box Gateway 2105 (2105b.1.6.1588.3220-42623-42265845)** **<!--REPLACES (1.6.1475.2528)**- How to handle "2015b" in the release number? No precedent in 2012.--> - KB 4603462
+- **Data Box Gateway 2105 (1.6.1588.3220-42623-42265845)** - KB 4603462 <VERIFY KB #>
 
 > [!NOTE]
 > Update 2105 can be applied only to Data Box Gateway devices that are running general availability (GA) versions of the software or later. <!--REPLACES: Update 2101 can be applied only to all devices that are running general availability (GA) versions of the software or later.-->
@@ -32,10 +32,7 @@ This release contains the following bug fix:
 
 This release also contains the following updates:
 
-- Windows Cumulative Update 4B, which includes:
-  - **[KB4601558](https://support.microsoft.com/en-us/topic/may-11-2021-kb4601558-cumulative-update-for-net-framework-3-5-and-4-7-2-for-windows-10-version-1809-and-windows-server-version-2019-19f6d33a-8685-9c24-418f-5db20cf59b73):** Cumulative update for .NET Framework 3.5 and 4.7.2 for Windows 10 version 1809 and Windows Server version 2019
-  - **KB5001439**: Servicing Stack Updates (SSU) *BLOCKING ISSUE: Can't find KB.*
-  - **KB5001341**: Latest cumulative update (LCU) *BLOCKING ISSUE: Can't find KB.*
+- All cumulative updates and .NET framework updates through April 2021. <!--KB link needed.-->
 
 ## Known issues in this release
 
