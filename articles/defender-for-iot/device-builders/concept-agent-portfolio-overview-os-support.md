@@ -23,7 +23,7 @@ Most of the Linux Operating Systems (OS) are covered by both agents. The agents 
 
 For a more granular view of the micro agent-operating system dependencies, see [Linux dependencies](concept-micro-agent-linux-dependencies.md#linux-dependencies).
 
-For additional information, supported operating systems, or to request access to the source code so you can incorporate it as a part of the device's firmware, contact your account manager, or send an email to <defender_micro_agent@microsoft.com>.
+For additional information on supported operating systems, or to request access to the source code so you can incorporate it as a part of the device's firmware, contact your account manager, or send an email to <defender_micro_agent@microsoft.com>.
 
 ## Azure RTOS micro agent
 
