@@ -65,13 +65,13 @@ You must have both an Azure account and AWS account with an active subscription.
 ### <a name ="create-vnet"></a> Create a VNet
 Create a virtual network with the following values by following the steps in the [create a gateway tutorial](./tutorial-create-gateway-portal.md#CreatVNet).
 
-* **VNet Name**: VNet1
-* **Address space**: 10.1.0.0/16
+* **Subscription**: If you have more than one subscription, verify that you're using the correct one.
+* **Resource group**: TestRG1
+* **Name**: VNet1
+* **Location**: East US
+* **IPv4 address space**: 10.1.0.0/16
 * **Subnet name**: FrontEnd
 * **Subnet address range**: 10.1.0.0/24
-* **Subscription**: If you have more than one subscription, verify that you're using the correct one.
-* **Resource Group**: TestRG1
-* **Location**: East US
 
 ### <a name ="create-gateway"></a> Create an active-active VPN gateway with BGP
 Create a VPN gateway using the following values:
