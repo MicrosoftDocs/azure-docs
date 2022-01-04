@@ -195,6 +195,12 @@ If you receive any errors related to your customer-managed key, use the followin
 | SsemUserErrorCrossTenantIdentityAccessForbidden | Managed identity access operation failed. <br> Note: This is for the scenario when subscription is moved to different tenant. Customer has to manually move the identity to new tenant. PFA mail for more details. | Please try adding a different user assigned identity selected to your key vault to enable access to the customer managed key. For more information, see how to [Enable the key](#enable-key).|
 | SsemUserErrorKeyVaultBadRequestException | Applied a customer managed key but the key access has not been granted or has been revoked, or unable to access key vault due to firewall being enabled. | Add the identity selected to your key vault to enable access to the customer managed key. If key vault has firewall enabled, switch to a system assigned identity and then add a customer managed key. For more information, see how to [Enable the key](#enable-key). |
 | Generic error  | Could not fetch the passkey.| This is a generic error. Contact Microsoft Support to troubleshoot the error and determine the next steps.|
+| SsemUserErrorEncryptionKeyTypeNotSupported | Encryption key type not supported for the operation. | Enable the appropriate encryption type - for example, RSA or RSAHSM. *QUERY: What does RSAHSM stand for?* |
+| SsemUserErrorSoftDeleteAndPurgeProtectionNotEnabled | Key vault does not have soft delete enabled, or purge protection is enabled. | Ensure that both soft delete and purge protection are enabled on the key vault. |
+| SsemUserErrorInvalidKeyVaultUrl<br>(Command-line only) | An invalid key vault URL was used. | Get the correct key vault URL. *QUERY: Which command gets this?* |
+| SsemUserErrorKeyVaultUrlWithInvalidScheme | Only HTTPS is supported for passing the key vault URL. | Pass the key vault URL over HTTPS. |
+| SsemUserErrorKeyVaultUrlInvalidHost | The key vault URL host does not match the whitelisted host for the geo. *QUERIES: 1) Is "geo" a reference to a geographical region? 2) What does it mean for a host to be "whitelisted"? Write around the term if possible. Recommended sub involves "assignment permissions."* | In the public cloud, the key vault URL should end with `vault.azure.net`. For Fairfax, the key vault URL should end with `vault.usgovcloudapi.net`. *QUERY: Is Fairfax a reference to Azure Government cloud?* |  
+
 
 ## Next steps
 
