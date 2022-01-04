@@ -14,7 +14,7 @@ ms.topic: how-to
 
 In this article, you'll learn how to configure your load test to monitor server-side application metrics by using Azure Load Testing Preview.
 
-Azure Load Testing integrates with Azure Monitor to capture server-side resource metrics for Azure-hosted applications. You can specify which Azure components and resource metrics to monitor for your load test run.
+Azure Load Testing integrates with Azure Monitor to capture server-side resource metrics for Azure-hosted applications. You can specify which [Azure components](./resource-supported-azure-resource-types.md) and resource metrics to monitor for your load test run.
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -26,7 +26,9 @@ Azure Load Testing integrates with Azure Monitor to capture server-side resource
 
 ## Configure server-side monitoring for a load test
 
-In this section, you'll update an existing load test to configure the Azure application components to capture server-side resource metrics.
+In this section, you'll update an existing load test to configure the Azure application components to capture server-side resource metrics. When the load test finishes, you can view the server-side metrics in the dashboard, or [compare metrics across multiple test runs](./how-to-compare-multiple-test-runs.md).
+
+For the list of Azure components that Azure Load Testing supports, see [Supported Azure resource types](./resource-supported-azure-resource-types.md).
 
 1. In the [Azure portal](https://portal.azure.com), go to your Azure Load Testing resource. 
 
@@ -71,3 +73,5 @@ In this section, you'll update an existing load test to configure the Azure appl
 - For information about high-scale load tests, see [Set up a high-scale load test](./how-to-high-scale-load.md).
 
 - To learn about performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
+
+- To learn how to identify performance regressions across test runs, see [Compare multiple test runs](./how-to-compare-multiple-test-runs.md).
