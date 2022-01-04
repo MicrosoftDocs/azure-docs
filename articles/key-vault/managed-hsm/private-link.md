@@ -19,6 +19,9 @@ An Azure Private Endpoint is a network interface that connects you privately and
 
 For more information, see [What is Azure Private Link?](../../private-link/private-link-overview.md)
 
+> [!NOTE]
+> Managed HSM does not currently support IP rules or [Virtual Network Service Endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) 
+> 
 ## Prerequisites
 
 To integrate a managed HSM with Azure Private Link, you will need the following:
@@ -61,7 +64,7 @@ az network private-dns link vnet create --resource-group {RG} --virtual-network 
 
 ### Allow trusted services to access Managed HSM
 
-When the firewall is turned on, all access to the HSM from any location that are not using a private endpoints connection will be denied, including public Internet and Azure services. Use `--baypss AzureServices` option if you want to allow Microsoft services to access your keys in your Managed HSM. The individual entities (such as an Azure Storage account or a Azure SQL Server) still need to have specific role assignments in place to be able to access a key. 
+When the firewall is turned on, all access to the HSM from any location that are not using a private endpoints connection will be denied, including public Internet and Azure services. Use `--bypass AzureServices` option if you want to allow Microsoft services to access your keys in your Managed HSM. The individual entities (such as an Azure Storage account or a Azure SQL Server) still need to have specific role assignments in place to be able to access a key. 
 
 > [!NOTE]
 > Only specific trusted services usage scenarios are supported. Refer to the [list of trusted services usage scenarios](../general/overview-vnet-service-endpoints.md#trusted-services) for more details.

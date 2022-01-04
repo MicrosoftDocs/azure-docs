@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot Azure Cache for Redis client-side issues
 description: Learn how to resolve common client-side issues with Azure Cache for Redis such as Redis client memory pressure, traffic burst, high CPU, limited bandwidth, large requests or large response size.
-author: curib
-ms.author: cauribeg
+author: flang-msft
+ms.author: franlanglois
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
@@ -102,6 +102,15 @@ Resolutions for large response sizes are varied but include:
     - Use a round-robin approach to make requests over different connection objects.
 
  -->
+ 
+## High client connections
+
+Client connections reaching the maximum for the cache can cause failures in client requests for connections beyond the maximum, and can also cause high server CPU usage on the cache due to processing repeated reconnection attempts.
+
+High client connections may indicate a connection leak in client code.  Connections may not be getting re-used or closed properly.  Review client code for connection use.
+
+If the high connections are all legitimate and required client connections, upgrading your cache to a size with a higher connection limit may be required.
+
 ## Additional information
 
 - [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)

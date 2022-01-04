@@ -9,7 +9,7 @@ ms.custom: sqldbrb=2
 ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 10/25/2021
 ---
 
@@ -226,6 +226,9 @@ The following diagram illustrates a typical configuration of a geo-redundant clo
 > [!NOTE]
 > See [Add managed instance to a failover group](../managed-instance/failover-group-add-instance-tutorial.md) for a detailed step-by-step tutorial adding a SQL Managed Instance to use failover group.
 
+> [!IMPORTANT]
+> If you deploy auto-failover groups in a hub-and-spoke network topology cross-region, replication traffic should go directly between the two managed instance subnets rather than be directed through the hub networks.
+
 If your application uses SQL Managed Instance as the data tier, follow these general guidelines when designing for business continuity:
 
 ### <a name="creating-the-secondary-instance"></a> Create the geo-secondary managed instance
@@ -239,7 +242,7 @@ For more information about creating the secondary SQL Managed Instance in the sa
 
 ### <a name="using-geo-paired-regions"></a> Use paired regions
 
-Deploy both managed instances to [paired regions](../../best-practices-availability-paired-regions.md) for performance reasons. SQL Managed Instance failover groups in paired regions have better performance compared to unpaired regions.
+Deploy both managed instances to [paired regions](../../availability-zones/cross-region-replication-azure.md) for performance reasons. SQL Managed Instance failover groups in paired regions have better performance compared to unpaired regions.
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a> Enable geo-replication traffic between two managed instances
 

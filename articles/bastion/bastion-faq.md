@@ -97,6 +97,10 @@ To establish the correct key mappings for your target language, you must set eit
 
 Azure Bastion currently does not support timezone redirection and is not timezone configurable.
 
+### <a name="subnet"></a>Can I have an Azure Bastion subnet of size /27 or smaller (/28, /29, etc.)?
+
+For Azure Bastion resources deployed on or after November 2, 2021, the minimum AzureBastionSubnet size is /26 or larger (/25, /24, etc.). All Azure Bastion resources deployed in subnets of size /27 prior to this date are unaffected by this change and will continue to work, but we highly recommend increasing the size of any existing AzureBastionSubnet to /26 in case you choose to take advantage of [host scaling](./configure-host-scaling.md) in the future.
+
 ### <a name="udr"></a>Is user-defined routing (UDR) supported on an Azure Bastion subnet?
 
 No. UDR is not supported on an Azure Bastion subnet.
@@ -161,3 +165,6 @@ Make sure the user has **read** access to both the VM, and the peered VNet. Addi
 |Microsoft.Network/virtualNetworks/read|Get the virtual network definition|Action|
 |Microsoft.Network/virtualNetworks/subnets/virtualMachines/read|Gets references to all the virtual machines in a virtual network subnet|Action|
 |Microsoft.Network/virtualNetworks/virtualMachines/read|Gets references to all the virtual machines in a virtual network|Action|
+
+### What is the maximum screen resolution supported via Bastion?  
+Currently, 1920x1080 (1080p) is the maximum supported resolution. 

@@ -3,7 +3,7 @@ title: Azure Video Analyzer for Media (formerly Video Indexer) release notes | M
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Analyzer for Media (formerly Video Indexer).
 ms.topic: article
 ms.custom: references_regions
-ms.date: 08/01/2021
+ms.date: 01/03/2022
 ms.author: juliako
 ---
 
@@ -18,13 +18,37 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
 * Bug fixes
 * Deprecated functionality
 
+## December 2021 
+ 
+### The projects feature is now GA
+
+The projects feature is now GA and ready for productive use. There is no pricing impact related to the "Preview to GA" transition. See [Add video clips to your projects](use-editor-create-project.md).
+ 
+### New source languages support for STT, translation, and search on API level 
+
+Video Analyzer for Media introduces source languages support for STT (speech-to-text), translation, and search in Hebrew (he-IL), Portuguese (pt-PT), and Persian (fa-IR) on the API level.
+
+### Matched person detection capability
+
+When indexing a video through our advanced video settings, you can view the new matched person detection capability. If there are people observed  in your media file, you can now view the specific person who matched each of them through the media player. 
+
 ## November 2021
  
-### Public preview of Azure Video Analyzer for Media account management based on ARM
+### Public preview of Video Analyzer for Media account management based on ARM
 
 Azure Video Analyzer for Media introduces a public preview of Azure Resource Manager (ARM) based account management. You can leverage ARM-based APIs to create, edit, and delete an account from the Azure portal.
 
 For more information go to [create a Video Analyzer for Media account](https://techcommunity.microsoft.com/t5/azure-ai/azure-video-analyzer-for-media-is-now-available-as-an-azure/ba-p/2912422).
+
+### People’s clothing detection
+
+When indexing a video through the advanced video settings, you can view the new **People’s clothing detection** capability. If there are people detected in your media file, you can now view the clothing type they are wearing through the media player. 
+
+### Face bounding box (preview)
+
+You can now turn on a bounding box for detected faces during indexing of the media file. The face bounding box feature is available when indexing your file by choosing the **standard**, **basic**, or **advanced** indexing presets.
+
+You can enable the bounding boxes through the player.
 
 ## October 2021
 

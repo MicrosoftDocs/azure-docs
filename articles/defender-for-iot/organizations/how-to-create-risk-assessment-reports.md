@@ -1,7 +1,7 @@
 ---
 title: Create risk assessment reports
 description: Gain insight into network risks detected by individual sensors or an aggregate view of risks detected by all sensors.
-ms.date: 12/17/2020
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

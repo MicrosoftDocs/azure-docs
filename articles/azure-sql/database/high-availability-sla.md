@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
-ms.reviewer: mathoma, emlisa
+ms.reviewer: kendralittle, mathoma, emlisa
 ms.date: 09/24/2021
 ---
 
@@ -29,6 +29,9 @@ There are two high availability architectural models:
 - **Premium availability model** that is based on a cluster of database engine processes. It relies on the fact that there is always a quorum of available database engine nodes. This architecture targets mission critical applications with high IO performance, high transaction rate and guarantees minimal performance impact to your workload during maintenance activities.
 
 SQL Database and SQL Managed Instance both run on the latest stable version of the SQL Server database engine and Windows operating system, and most users would not notice that upgrades are performed continuously.
+
+> [!div class="nextstepaction"]
+> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## Basic, Standard, and General Purpose service tier locally redundant availability
 

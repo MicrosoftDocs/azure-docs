@@ -1,5 +1,5 @@
 ---
-title: "The Azure CLI: Scale an elastic pool"
+title: "Azure CLI example: Scale an elastic pool"
 description: Use an Azure CLI example script to scale an elastic pool in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -9,8 +9,8 @@ ms.devlang: azurecli
 ms.topic: sample
 author: arvindshmicrosoft 
 ms.author: arvindsh
-ms.reviewer: mathoma
-ms.date: 06/25/2019
+ms.reviewer: kendralittle, mathoma
+ms.date: 12/23/2021
 ---
 
 # Use the Azure CLI to scale an elastic pool in Azure SQL Database
@@ -21,22 +21,41 @@ This Azure CLI script example creates elastic pools in Azure SQL Database, moves
 
 If you choose to install and use the Azure CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
+> [!IMPORTANT]
+> When running Bash on Windows, run this script from within a Docker container.
+
 ## Sample script
+
+### Launch Azure Cloud Shell
+
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
+
+To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com](https://shell.azure.com).
+
+When Cloud Shell opens, verify that **Bash** is selected for your environment. Subsequent sessions will use Azure CLI in a Bash environment, Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
 
 ### Sign in to Azure
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+Cloud Shell is automatically authenticated under the initial account signed-in with. Use the following script to sign in using a different subscription, replacing `<Subscription ID>` with your Azure Subscription ID.  [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+
+```azurecli-interactive
+subscription="<subscriptionId>" # add subscription here
+
+az account set -s $subscription # ...or use 'az login'
+```
+
+For more information, see [set active subscription](/cli/azure/account#az_account_set) or [log in interactively](/cli/azure/reference-index#az_login)
 
 ### Run the script
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/scale-pool/scale-pool.sh "Move database between pools")]
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/scale-pool/scale-pool.sh" range="4-35":::
 
-### Clean up deployment
+### Clean up resources
 
-Use the following command to remove  the resource group and all resources associated with it.
+Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command- unless you have additional needs for these resources. Some of these resources may take a while to create, as well as to delete.
 
-```azurecli-interactive
-az group delete --name $resource
+```azurecli
+az group delete --name $resourceGroup
 ```
 
 ## Sample reference

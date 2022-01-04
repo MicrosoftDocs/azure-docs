@@ -5,12 +5,12 @@ description: In this quickstart, you'll learn how to record and download calls u
 author: GrantMeStrength
 manager: anvalent
 services: azure-communication-services
-
 ms.author: jken
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
+ms.custom: mode-other
 ---
 
 # Record and download calls with Event Grid

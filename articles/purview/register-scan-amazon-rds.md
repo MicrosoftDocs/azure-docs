@@ -188,7 +188,7 @@ Credentials supported for Amazon RDS data sources include username/password auth
 
 ### Create a secret for your RDS credentials to use in Purview
 
-1.	Add your password to an Azure KeyVault as a secret. For more information, see [Set and retrieve a secret from Key Vault using Azure portal](/azure/key-vault/secrets/quick-create-portal).
+1.	Add your password to an Azure KeyVault as a secret. For more information, see [Set and retrieve a secret from Key Vault using Azure portal](../key-vault/secrets/quick-create-portal.md).
 
 1.	Add an access policy to your KeyVault with **Get** and **List** permissions. For example:
 

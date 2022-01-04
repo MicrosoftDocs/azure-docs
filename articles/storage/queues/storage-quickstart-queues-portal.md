@@ -8,7 +8,7 @@ ms.date: 08/13/2020
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create a queue and add a message with the Azure portal

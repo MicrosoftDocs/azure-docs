@@ -71,7 +71,7 @@ When finished, select **Save**.
 
 ## Enable application logging (Linux/Container)
 
-To enable application logging for Linux apps or custom container apps in the [Azure portal](https://portal.azure.com), navigate to your app and select **App Service logs**.
+To enable application logging for Linux apps or custom containers in the [Azure portal](https://portal.azure.com), navigate to your app and select **App Service logs**.
 
 In **Application logging**, select **File System**.
 
@@ -162,10 +162,10 @@ If you configure the Azure Storage blobs option for a log type, you need a clien
 
 For logs stored in the App Service file system, the easiest way is to download the ZIP file in the browser at:
 
-- Linux/container apps: `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
+- Linux/custom containers: `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
 - Windows apps: `https://<app-name>.scm.azurewebsites.net/api/dump`
 
-For Linux/container apps, the ZIP file contains console output logs for both the docker host and the docker container. For a scaled-out app, the ZIP file contains one set of logs for each instance. In the App Service file system, these log files are the contents of the */home/LogFiles* directory.
+For Linux/custom containers, the ZIP file contains console output logs for both the docker host and the docker container. For a scaled-out app, the ZIP file contains one set of logs for each instance. In the App Service file system, these log files are the contents of the */home/LogFiles* directory.
 
 For Windows apps, the ZIP file contains the contents of the *D:\Home\LogFiles* directory in the App Service file system. It has the following structure:
 
@@ -198,7 +198,7 @@ The following table shows the supported log types and descriptions:
 | AppServiceAppLogs | ASP.NET & Tomcat <sup>1</sup> | ASP.NET & Tomcat <sup>1</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Application logs |
 | AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
 | AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
-| AppServiceAntivirusScanAuditLogs <sup>3</sup> | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender; **only available for Premium tier** | 
+| AppServiceAntivirusScanAuditLogs <sup>3</sup> | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender for Cloud; **only available for Premium tier** | 
 
 <sup>1</sup> For Tomcat apps, add `TOMCAT_USE_STARTUP_BAT` to the app settings and set it to `false` or `0`. Need to be on the *latest* Tomcat version and use *java.util.logging*.
 
@@ -211,3 +211,4 @@ The following table shows the supported log types and descriptions:
 * [How to Monitor Azure App Service](web-sites-monitor.md)
 * [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analyze app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)

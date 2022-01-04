@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: quickstart
 ms.date: 11/04/2021
-ms.custom: template-quickstart 
+ms.custom: template-quickstart, mode-other
 ---
 
 # Quickstart: Create a collection and assign permissions in Purview

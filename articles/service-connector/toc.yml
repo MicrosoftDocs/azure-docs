@@ -48,6 +48,8 @@ items:
       href: how-to-integrate-postgres.md
     - name: Azure Database for MySQL
       href: how-to-integrate-mysql.md
+    - name: Azure Cosmos DB
+      href: how-to-integrate-cosmos-db.md
     - name: Azure Blob Storage
       href: how-to-integrate-storage-blob.md
     - name: Azure Queue Storage
@@ -70,6 +72,6 @@ items:
   expanded: true
   items:
   - name: Rest API
-    href: /rest/api/servicelinker
+    href: /rest/api/
   - name: Python SDK
-    href: /python/api/overview/azure/servicelinker
+    href: /python/api/overview/azure/

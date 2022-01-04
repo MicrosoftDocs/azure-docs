@@ -5,7 +5,7 @@ description: Overview of gateway load balancer SKU for Azure Load Balancer.
 ms.service: load-balancer
 author: asudbring
 ms.author: allensu
-ms.date: 11/02/2021
+ms.date: 12/28/2021
 ms.topic: conceptual
 ms.custom: ignite-fall-2021
 ---
@@ -81,7 +81,6 @@ For pricing that will be effective during the general availability release, see 
 ## Limitations
 
 * Gateway Load Balancer doesn't work with the Global Load Balancer tier.
-* Gateway Load Balancer portal support is currently unavailable in China cloud and Government cloud regions. CLI, PowerShell, Templates or alternatives can be used.
 * Cross-tenant chaining is not supported through the Azure portal.
 
 ## Next steps

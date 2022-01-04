@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 11/10/2021
+ms.date: 12/09/2021
 ms.author: victorh
 ms.custom: references_regions
 ---
@@ -53,7 +53,36 @@ IDPS allows you to detect attacks in all ports and protocols for non-encrypted t
 
 The IDPS Bypass List allows you to not filter traffic to any of the IP addresses, ranges, and subnets specified in the bypass list.
 
-You can also use signature rules when the IDPS mode is set to **Alert**, but there are one or more specific signatures that you want to block, including their associated traffic. In this case, you can add new signature rules by setting the TLS Inspection mode to **deny**.
+### IDPS signature rules
+
+IDPS signature rules allow you to:
+
+- Customize one or more signatures and change their mode to *Disabled*, *Alert* or *Alert and Deny*. 
+
+   For example, if you receive a false positive where a legitimate request is blocked by Azure Firewall due to a faulty signature, you can use the signature ID from the network rules logs, and set its IDPS mode to off. This causes the "faulty" signature to be ignored and resolves the false positive issue.
+- You can apply the same fine-tuning procedure for signatures that are creating too many low-priority alerts, and therefore interfering with visibility for high-priority alerts.
+- Get a holistic view of the entire 55,000 signatures
+- Smart search
+
+   Allows you to search through the entire signatures database by any type of attribute. For example, you can search for specific CVE-ID to discovered what signatures are taking care of this CVE by simply typing the ID in the search bar.
+
+
+IDPS signature rules have the following properties:
+
+
+|Column  |Description  |
+|---------|---------|
+|Signature ID     |Internal ID for each signature. This ID is also presented in Azure Firewall Network Rules logs.|
+|Mode      |Indicates if the signature is active or not, and whether firewall will drop or alert upon matched traffic. The below signature mode can override IDPS mode<br>- **Disabled**: The signature is not enabled on your firewall.<br>- **Alert**: You will receive alerts when suspicious traffic is detected.<br>- **Alert and Deny**: You will receive alerts and suspicious traffic will be blocked. Few signature categories are defined as “Alert Only”, therefore by default, traffic matching their signatures will not be blocked even though IDPS mode is set to “Alert and Deny”. Customers may override this by customizing these specific signatures to “Alert and Deny” mode. <br><br> Note: IDPS alerts are available in the portal via network rule log query.|
+|Severity      |Each signature has an associated severity level that indicates the probability that the signature is an actual attack.<br>- **Low**: An abnormal event is one that does not normally occur on a network or Informational events are logged. Probability of attack is low.<br>- **Medium**: The signature indicates an attack of a suspicious nature. The administrator should investigate further.<br>- **High**: The attack signatures indicate that an attack of a severe nature is being launched. There is very little probability that the packets have a legitimate purpose.|
+|Direction      |The traffic direction for which the signature is applied.<br>- **Inbound**: Signature is applied only on traffic arriving from the Internet and destined in Azure private IP range (according to IANA RFC 1918).<br>- **Outbound**: Signature is applied only on traffic sent from Azure private IP range (according to IANA RFC 1918) to the Internet.<br>- **Bidirectional**: Signature is always applied on any traffic direction.|
+|Group      |The group name that the signature belongs to.|
+|Description      |Structured from the following three parts:<br>- **Category name**: The category name that the signature belongs to as described in [Azure Firewall IDPS signature rule categories](idps-signature-categories.md).<br>- High level description of the signature<br>- **CVE-ID** (optional) in the case where the signature is associated with a specific CVE. The ID is listed here.|
+|Protocol     |The protocol associated with this signature.|
+|Source/Destination Ports     |The ports associated with this signature.|
+|Last updated     |The last date that this signature was introduced or modified.|
+
+:::image type="content" source="media/idps-signature-categories/firewall-idps-signature.png" alt-text="Image showing the IDPS signature rule columns":::
 
 
 ## URL filtering
@@ -166,6 +195,7 @@ Untrusted customer signed certificates|Customer signed certificates are not trus
 |Certificate Propagation|After a CA certificate is applied on the firewall, it may take between 5-10 minutes for the certificate to take effect.|A fix is being investigated.|
 |TLS 1.3 support|TLS 1.3 is partially supported. The TLS tunnel from client to the firewall is based on TLS 1.2, and from the firewall to the external Web server is based on TLS 1.3.|Updates are being investigated.|
 |KeyVault Private Endpoint|KeyVault supports Private Endpoint access to limit its network exposure. Trusted Azure Services can bypass this limitation if an exception is configured as described in the [KeyVault documentation](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Azure Firewall is not currently listed as a trusted service and can't access the Key Vault.|A fix is being investigated.|
+|IDPS Bypass list|IDPS Bypass list doesn't support IP Groups.|A fix is being investigated.|
 
 ## Next steps
 

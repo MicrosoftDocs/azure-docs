@@ -2,7 +2,7 @@
 title: Classic agent based security alerts
 description: Learn about the classic version of Defender for IoT's security alerts, and recommended remediation using Defender for IoT device's features, and service.
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 11/09/2021
 ---
 
 # Classic Defender for IoT devices security alerts

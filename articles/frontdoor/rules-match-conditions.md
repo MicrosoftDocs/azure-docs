@@ -45,7 +45,7 @@ In this example, we match all requests that have been detected as coming from a 
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/device-type.png" alt-text="Portal screenshot showing device type match condition.":::
+:::image type="content" source="./media/rules-match-conditions/device-type.png" alt-text="Portal screenshot showing device type match condition.":::
 
 # [JSON](#tab/json)
 
@@ -103,7 +103,7 @@ In this example, we match all POST requests where a `customerName` argument is p
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/post-args.png" alt-text="Portal screenshot showing post args match condition.":::
+:::image type="content" source="./media/rules-match-conditions/post-args.png" alt-text="Portal screenshot showing post args match condition.":::
 
 # [JSON](#tab/json)
 
@@ -169,7 +169,7 @@ In this example, we match all requests where the query string contains the strin
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/query-string.png" alt-text="Portal screenshot showing query string match condition.":::
+:::image type="content" source="./media/rules-match-conditions/query-string.png" alt-text="Portal screenshot showing query string match condition.":::
 
 # [JSON](#tab/json)
 
@@ -230,7 +230,7 @@ In this example, we match all requests where the request has not originated from
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/remote-address.png" alt-text="Portal screenshot showing remote address match condition.":::
+:::image type="content" source="./media/rules-match-conditions/remote-address.png" alt-text="Portal screenshot showing remote address match condition.":::
 
 # [JSON](#tab/json)
 
@@ -287,7 +287,7 @@ In this example, we match all requests where the request body contains the strin
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/request-body.png" alt-text="Portal screenshot showing request body match condition.":::
+:::image type="content" source="./media/rules-match-conditions/request-body.png" alt-text="Portal screenshot showing request body match condition.":::
 
 # [JSON](#tab/json)
 
@@ -347,7 +347,7 @@ In this example, we match all requests where the request file name is `media.mp4
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/request-file-name.png" alt-text="Portal screenshot showing request file name match condition.":::
+:::image type="content" source="./media/rules-match-conditions/request-file-name.png" alt-text="Portal screenshot showing request file name match condition.":::
 
 # [JSON](#tab/json)
 
@@ -410,7 +410,7 @@ In this example, we match all requests where the request file extension is `pdf`
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/request-file-extension.png" alt-text="Portal screenshot showing request file extension match condition.":::
+:::image type="content" source="./media/rules-match-conditions/request-file-extension.png" alt-text="Portal screenshot showing request file extension match condition.":::
 
 # [JSON](#tab/json)
 
@@ -472,7 +472,7 @@ In this example, we match all requests where the request contains a header named
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/request-header.png" alt-text="Portal screenshot showing request header match condition.":::
+:::image type="content" source="./media/rules-match-conditions/request-header.png" alt-text="Portal screenshot showing request header match condition.":::
 
 # [JSON](#tab/json)
 
@@ -521,7 +521,7 @@ In this example, we match all requests where the request uses the `DELETE` metho
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/request-method.png" alt-text="Portal screenshot showing request method match condition.":::
+:::image type="content" source="./media/rules-match-conditions/request-method.png" alt-text="Portal screenshot showing request method match condition.":::
 
 # [JSON](#tab/json)
 
@@ -578,7 +578,7 @@ In this example, we match all requests where the request file path begins with `
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/request-path.png" alt-text="Portal screenshot showing request path match condition.":::
+:::image type="content" source="./media/rules-match-conditions/request-path.png" alt-text="Portal screenshot showing request path match condition.":::
 
 # [JSON](#tab/json)
 
@@ -640,7 +640,7 @@ In this example, we match all requests where the request uses the `HTTP` protoco
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/request-protocol.png" alt-text="Portal screenshot showing request protocol match condition.":::
+:::image type="content" source="./media/rules-match-conditions/request-protocol.png" alt-text="Portal screenshot showing request protocol match condition.":::
 
 # [JSON](#tab/json)
 
@@ -697,7 +697,7 @@ In this example, we match all requests where the request URL begins with `https:
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-match-conditions/request-url.png" alt-text="Portal screenshot showing request URL match condition.":::
+:::image type="content" source="./media/rules-match-conditions/request-url.png" alt-text="Portal screenshot showing request URL match condition.":::
 
 # [JSON](#tab/json)
 
