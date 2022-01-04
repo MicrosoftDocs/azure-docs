@@ -11,7 +11,7 @@ Microsoft Defender for IoT provides a large portfolio of agents based on the dev
 
 ## Standalone and Edge agent
 
-The standalone, and Edge agent cover most of the Linux Operating Systems (OS). These agents can be deployed as a binary package, or as a source code that can be incorporated as part of the firmware, and allow modification, and customization based on the customers needs. The following are some examples of supported OS:
+Most of the Linux Operating Systems (OS) are covered by both agents. The agents can be deployed as a binary package, or as a source code that can be incorporated as part of the firmware. The customer can modify, and customize the agents as needed.  The following are some examples of supported OS:
 
 | Operating system | AMD64 | ARM32v7 | ARM64 |
 |--|--|--|
