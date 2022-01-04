@@ -81,7 +81,7 @@ AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
 ```
 Where:
 
-- `Enter_the_Application_Id_here` - is the Application Id for the application you registered.
+- `Enter_the_Application_Id_here` - is the Application ID for the application you registered.
 - `Enter_the_Client_Secret_Here` - is the **Client Secret** you created in **Certificates & Secrets** for the application you registered.
 - `Enter_the_Tenant_Name_Here` - is the **Directory (tenant) ID** value of the application you registered.
 
