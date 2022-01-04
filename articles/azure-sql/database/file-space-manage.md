@@ -363,7 +363,7 @@ DBCC SHRINKFILE (4);
 
 If a workload is running concurrently with shrink, it may start using the storage space freed by shrink before shrink completes and truncates the file to reduce its allocated space. In this case, shrink will not be able to reduce the allocated space to the minimum possible.
 
-You can mitigate this by shrinking each file in steps. This means that in the `DBCC SHRINKFILE` command, you set the target that is slightly smaller than the current allocated space for the file, as seen in the results of [baseline space usage query](#capture_space_usage_baseline). For example, if allocated space for file with file_id 4 is 200,000 MB, you can first set the target to be 170,000:
+You can mitigate this by shrinking each file in steps. This means that in the `DBCC SHRINKFILE` command, you set the target that is slightly smaller than the current allocated space for the file, as seen in the results of [baseline space usage query](#capture-space-usage-baseline). For example, if allocated space for file with file_id 4 is 200,000 MB, you can first set the target to be 170,000:
 
 ```sql
 DBCC SHRINKFILE (4, 170000);
@@ -397,7 +397,7 @@ WHERE r.command IN ('DbccSpaceReclaim','DbccFilesCompact','DbccLOBCompact','DBCC
 > [!NOTE]
 > Shrink progress may be non-linear, and the value in the `percent_complete` column may remain virtually unchanged for long periods of time, even though shrink is still in progress.
 
-Once shrink has completed for all data files, rerun the [space usage query](#capture_space_usage_baseline) (or check in Azure portal) to determine the resulting reduction in allocated storage size. If is is insufficient and there is still a large difference between used space and allocated space, you can [rebuild indexes](#increase_index_page_density) as described earlier. This may temporarily increase allocated space further, however shrinking data files again after rebuilding indexes should result in a deeper reduction in allocated space.
+Once shrink has completed for all data files, rerun the [space usage query](#capture-space-usage-baseline) (or check in Azure portal) to determine the resulting reduction in allocated storage size. If is is insufficient and there is still a large difference between used space and allocated space, you can [rebuild indexes](#evaluate-index-page-density) as described earlier. This may temporarily increase allocated space further, however shrinking data files again after rebuilding indexes should result in a deeper reduction in allocated space.
 
 ## Transient errors during shrink
 
