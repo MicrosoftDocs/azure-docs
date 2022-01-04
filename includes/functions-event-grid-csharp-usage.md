@@ -12,7 +12,7 @@ ms.author: glenga
 | **[Azure.Messaging.EventGrid][EventGridEvent]** | ✔ | X |X|
 | **Microsoft.Azure.EventGrid.Models.EventGridEvent** |X|✔ |X |
 | **Newtonsoft.Json.Linq.JObject** | ✔ |✔ |✔ |
-| **[System.String](/dotnet/api/system.string)** | ✔ |✔ |✔ |
+| **[System.String](/dotnet/api/system.string)**     | ✔ |✔ |✔ |
 
 The [EventGridEvent] type is specific to Event Grid and defines properties for the fields common to all event types. The `EventGridEvent` type defines only the top-level properties; the `Data` property is a `JObject`.
 
