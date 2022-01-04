@@ -532,11 +532,11 @@ The API proxy module was designed to be customized to handle most common gateway
 1. Select **Review + create** to go to the final step.
 1. Select **Create** to deploy to your device.
 
-#### Configure leaf device proxying
+#### Integrate Microsoft Defender for IoT with IoT Edge gateway
 
-You can enhance the connectivity between the agent, and the cloud by using leaf device proxying.
+Leaf devices can be used to integrate the Microsoft Defender for IoT's micro agent with the IoT Edge gateway using leaf device proxying.
 
-**To configure the enhanced integration with IoT Edge using leaf device proxying**:
+**to integrate Microsoft Defender for IoT with IoT Edge using leaf device proxying**:
 
 1. Sign in to the Azure portal.
 
