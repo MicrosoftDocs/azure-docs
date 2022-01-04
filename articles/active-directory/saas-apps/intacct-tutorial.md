@@ -138,7 +138,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, sign in to your Sage Intacct company site as an administrator.
 
-1. Click the **Company** tab, and then click **Company Info**.
+1. Go to **Company**, click the **Setup** tab, and click **Company** under the Configuration section.
 
     ![Company](./media/intacct-tutorial/ic790037.png "Company")
 
@@ -159,39 +159,26 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     d. In **Login URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
     e. Open your **base-64** encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Certificate** box.
+    
+    f. Set **Requested authentication content type** to **Exact**.
 
-    f. Click **Save**.
+    g. Click **Save**.
 
-### Create Sage Intacct test user
+### Set up individual users in Intacct
 
-To set up Azure AD users so they can sign in to Sage Intacct, they must be provisioned into Sage Intacct. For Sage Intacct, provisioning is a manual task.
+When SSO is enabled for your company, you can individually require users to use SSO when logging in to your company. After you set up a user for SSO, the user will no longer be able to use a password to log in to your company directly. Instead, that user will need to use single sign-on and will be authenticated by your SSO identity provider as being an authorized user. Any users who aren't set up for SSO can continue to log in to your company using the basic signin page.
 
-**To provision user accounts, perform the following steps:**
+**To enable SSO for a user, perform the following steps:**
 
 1. Sign in to your **Sage Intacct** tenant.
 
-1. Click the **Company** tab, and then click **Users**.
+1. Go to **Company**, click the **Admin** tab, then click **Users**.
 
     ![Users](./media/intacct-tutorial/ic790041.png "Users")
 
-1. Click the **Add** tab.
+1. Locate the desired user and click **Edit** next to it.
 
     ![Add](./media/intacct-tutorial/ic790042.png "Add")
-
-1. In the **User Information** section, perform the following steps:
-
-    ![Screenshot shows the User Information section where you can enter the information in this step.](./media/intacct-tutorial/ic790043.png "User Information")
-
-    a. Enter the **User ID**, the **Last name**, **First name**, the **Email address**, the **Title**, and the **Phone** of an Azure AD account that you want to provision into the **User Information** section.
-
-	> [!NOTE]
-	> Make sure that the **User ID** in above screenshot and the **Source Attribute** value which is mapped with the **name** attribute in the **User Attributes** section in the Azure portal should be same.
-
-    b. Select the **Admin privileges** of an Azure AD account that you want to provision.
-
-    c. Click **Save**. 
-    
-    d. The Azure AD account holder receives an email and follows a link to confirm their account before it becomes active.
 
 1. Click **Single sign-on** tab and make sure that the **Federated SSO user ID** in below screenshot and the **Source Attribute** value which is mapped with the `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` in the **User Attributes** section in the Azure portal should be same.
 
