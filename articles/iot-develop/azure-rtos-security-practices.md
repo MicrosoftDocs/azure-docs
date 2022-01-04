@@ -10,7 +10,9 @@ ms.date: 11/11/2021
 
 # Guidelines to develop secure embedded applications with Azure RTOS
 
-**INTRO TEXT COMING**
+This article provides guidance that you can use to help you implement security measures on devices that you build using Azure RTOS. Azure RTOS is middleware. It incorporates many features that can help you build secure devices. However, the security of your devices will depend heavily on your choice of hardware and your implementation of secure firmware. The measures in this topic are primarily meant for devices that connect directly to the internet
+
+Microsoft recommends an approach based on the principle of zero-trust when designing IoT devices. We highly recommend reading the [Zero Trust: Cyber security for IoT](https://azure.microsoft.com/mediahandler/files/resourcefiles/zero-trust-cybersecurity-for-the-internet-of-things/Zero%20Trust%20Security%20Whitepaper_4.30_3pm.pdf) whitepaper as a prerequisite to this article. This brief paper outlines several categories to consider when implementing security across an IoT ecosystem with an emphasis on device security. 
 
 ## Embedded Security Components - Cryptography
 
@@ -475,6 +477,8 @@ The previous sections detailed specific design considerations with descriptions 
   Whenever possible, try to use accepted security protocols like TLS when securing your application.
 
 ## Next steps
+
+- The [Zero Trust: Cyber security for IoT](https://azure.microsoft.com/mediahandler/files/resourcefiles/zero-trust-cybersecurity-for-the-internet-of-things/Zero%20Trust%20Security%20Whitepaper_4.30_3pm.pdf) whitepaper provides an overview of Microsoft's approach to security across all aspects of an IoT ecosystem, with an emphasis on devices.
 
 - The [IoT Security Maturity Model (SMM)](https://www.iiconsortium.org/smm.htm) proposes a standard set of security domains, subdomains, and practices as well as an iterative process you can use to understand, target, and implement security measures important for your device. This set of standards is targeted to all levels of IoT stakeholders and provides a process framework for considering security in the context of a component’s interactions in an IoT system.
 
