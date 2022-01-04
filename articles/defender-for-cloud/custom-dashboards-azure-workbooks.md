@@ -36,7 +36,7 @@ With the integrated Azure Workbooks functionality, Microsoft Defender for Cloud 
 - ['Vulnerability Assessment Findings' workbook](#use-the-vulnerability-assessment-findings-workbook) - View the findings of vulnerability scans of your Azure resources
 - ['Compliance Over Time' workbook](#use-the-compliance-over-time-workbook) - View the status of a subscription's compliance with the regulatory or industry standards you've selected 
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-security-center.png" alt-text="Gallery of built-in workbooks in Microsoft Defender for Cloud.":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-microsoft-defender-for-cloud.png" alt-text="Gallery of built-in workbooks in Microsoft Defender for Cloud.":::
 
 Choose one of the supplied workbooks or create your own.
 

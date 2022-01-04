@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: pipeline
 ms.date: 11/03/2020
 ms.author: daperlov
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Ingest data into a dedicated SQL pool
