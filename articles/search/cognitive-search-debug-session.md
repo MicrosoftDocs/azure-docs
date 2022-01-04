@@ -32,22 +32,22 @@ The visual editor is organized into tabs and panes. This section introduces the 
 
 The **Skill Graph** provides a visual hierarchy of the skillset and its order of execution from top to bottom. Skills that are dependent upon the output of other skills are positioned lower in the graph. Skills at the same level in the hierarchy can execute in parallel. Color coded labels of skills in the graph indicate the types of skills that are being executed in the skillset (TEXT or VISION).
 
-Selecting a skill in the graph will display the details of that instance of the skill in the right pane, including it's definition, errors or warnings, and execution history. The **Skill Graph** is where you will select which skill to debug or enhance. When you select a skill, its details will be displayed in the skill details pane to the right of the graph.
+Selecting a skill in the graph will display the details of that instance of the skill in the right pane, including it's definition, errors or warnings, and execution history. The **Skill Graph** is where you will select which skill to debug or enhance. The details pane to the right is where you edit and explore.
 
 :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Screenshot of Skills Graph tab." border="true":::
 
 ### Skill details pane
 
-When you select an object in the **Skill Graph**, the adjacent pane displays a set of areas for working with it. An illustration of the details pane can be found in the previous screenshot.
+When you select an object in the **Skill Graph**, the adjacent pane provides interactive work areas in a tabbed layout. An illustration of the details pane can be found in the previous screenshot.
 
-In this pane, select a skill to review and edit its composition through **Skill Settings**, **Skill JSON Editor**, and **Executions**:
+Skill details includes the following areas:
 
-+ Skill Settings shows a formatted version of the skill definition.
-+ Skill JSON Editor shows the raw JSON document of the definition.
-+ Executions shows the number of times a skill was executed.
-+ Errors and warnings shows the messages generated upon session start or refresh.
++ **Skill Settings** shows a formatted version of the skill definition.
++ **Skill JSON Editor** shows the raw JSON document of the definition.
++ **Executions** shows the number of times a skill was executed.
++ **Errors and warnings** shows the messages generated upon session start or refresh.
 
-On the Executions pane, select the **`</>`** symbol to open the [**Expression Evaluator**](#expression-evaluator) used for viewing and editing the expressions of the skills inputs and outputs.
+On Executions or Skill Settings, select the **`</>`** symbol to open the [**Expression Evaluator**](#expression-evaluator) used for viewing and editing the expressions of the skills inputs and outputs.
 
 Nested input controls in Skill Settings can be used to build complex shapes for [projections](knowledge-store-projection-overview.md), [output field mappings](cognitive-search-output-field-mapping.md) for a complex type field, or an input to a skill. When used with the Expression Evaluator, nested inputs provide an easy test and validate expression builder.
 
