@@ -19,9 +19,9 @@ Both the source group and the target group are locked during the move operation.
 
 Moving a resource only moves it to a new resource group or subscription. It doesn't change the location of the resource.
 
-## Supported regions
+<!--## Supported regions
 
-All the Azure public regions where you can create an Azure Edge Hardware Center order resource. For more information, see [Region availability for Edge Hardware Center](azure-edge-hardware-center-overview.md#region-availability). 
+All the Azure public regions where you can create an Azure Edge Hardware Center order resource. For more information, see [Region availability for Edge Hardware Center](azure-edge-hardware-center-overview.md#region-availability). -->
 
 ## Prerequisites
 

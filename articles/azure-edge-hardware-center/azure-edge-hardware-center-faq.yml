@@ -62,7 +62,7 @@ sections:
           What happens to my order if the entire region associated with the order fails?
         answer: |
           In extreme circumstances where a region is lost because of a significant disaster, Microsoft may initiate a regional failover. No action on your part is required in this case. Your order will be fulfilled through the failover region if it is within the same country or commerce boundary. 
-          However, some Azure regions don't have a paired region in the same geographic or commerce boundary. If there is a disaster in any of those regions, you will need to create the Edge Hardware Center again from a different region that is available. For more information, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../best-practices-availability-paired-regions.md).
+          However, some Azure regions don't have a paired region in the same geographic or commerce boundary. If there is a disaster in any of those regions, you will need to create the Edge Hardware Center order again from a different region that is available. For more information, see [Data residency for Azure Stack Edge](../databox-online/azure-stack-edge-gpu-data-residency.md#azure-edge-hardware-center-ordering-and-management-resource).
 
       - question: |
           Can I delete my order? I am not able to do so. 

@@ -48,7 +48,7 @@ For more information, see [Register with an Azure Resource Provider](../azure-re
 
 ### Create orders
 
-You can create an Edge Hardware Center order via the Azure portal or via the Azure PowerShell, Azure CLI, or SDK. To create an order via Azure portal, see [Create an Edge Hardware Center order in the Azure portal](azure-edge-hardware-center-create-order.md).  
+You can create an Edge Hardware Center order via the Azure portal or via the SDK. To create an order via Azure portal, see [Create an Edge Hardware Center order in the Azure portal](azure-edge-hardware-center-create-order.md).  
 
 The independent Edge Hardware Center RP decouples the ordering process from that of the resource creation for the service that manages the device or the hardware. For example, you'll create an order for Azure Stack Edge using the Edge Hardware Center service. You'll then create a separate resource for Azure Stack Edge using the Azure Stack Edge service to manage and activate the device.
 
@@ -58,12 +58,14 @@ For more information, see [Create an Azure Stack Edge resource after you place t
 
 You can track the status of your order by going to the order item resource within Edge Hardware Center. For more information, see [Track the Edge Hardware Center order](azure-edge-hardware-center-manage-order.md#track-order). 
 
+You can also [Cancel the order](azure-edge-hardware-center-manage-order.md#cancel-order) or [Return hardware](azure-edge-hardware-center-manage-order.md#return-hardware ) once you are done.
+
 You can also enable alerts to receive email notifications if the order status changes. The email notifications are enabled when the order is placed.
 
 
-## Region availability
+<!--## Region availability
 
-The Edge Hardware Center service is available in East US, West Europe, and South East Asia for Azure public cloud. The orders created by Edge Hardware Center can also be used to deploy devices in Azure Government, Azure Government Secret, and Azure Government Top Secret.
+The Edge Hardware Center service is available in East US, West Europe, and South East Asia for Azure public cloud. The orders created by Edge Hardware Center can also be used to deploy devices in Azure Government, Azure Government Secret, and Azure Government Top Secret.-->
 
 ## Data residency
 
@@ -74,11 +76,9 @@ For more information, see [Data residency for Azure Stack Edge](../databox-onlin
 
 ## Billing and pricing
 
-The Azure Billing service is integrated with the Edge Hardware Center ordering RP. This integration lets you view your one-time billing charges for the Hardware-as-a-service and recurring monthly billing charges associated with the subscription. 
-
 You will be billed against the resource from where you have placed the order. If you place the order through the Edge Hardware Center, your bill is reflected against the resource created in the process. For each order item resource that you create, you are billed for the respective hardware unit.
 
-For specific information on pricing for the orders you created, go to the pricing page for the corresponding product. For Azure Stack Edge, see [Azure Stack Edge Pricing](https://azure.microsoft.com/pricing/details/).
+For specific information on pricing for the orders you created, go to the pricing page for the corresponding product. For Azure Stack Edge, see [Azure Stack Edge Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/).
 
 
 ## Next steps
