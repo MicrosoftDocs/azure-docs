@@ -42,6 +42,12 @@ HDInsight Spark cluster is created with Anaconda installation. There are two Pyt
 |Livy version|Default set to 2.7|Can change config to 3.5|
 |Jupyter|PySpark kernel|PySpark3 kernel|
 
+For Spark 3.1.2 cluster, Pyspark kernel is removed and a new Python 3.8 environment is installed under /usr/bin/miniforge/envs/py38/bin which is used by Pyspark3 kernel. PYSPARK_PYTHON and PYSPARK3_PYTHON are updated with the following:
+export PYSPARK_PYTHON=${PYSPARK_PYTHON:-/usr/bin/miniforge/envs/py38/bin/python}
+export PYSPARK3_PYTHON=${PYSPARK_PYTHON:-/usr/bin/miniforge/envs/py38/bin/python}
+
+
+
 ## Safely install external Python packages
 
 HDInsight cluster depends on the built-in Python environment, both Python 2.7 and Python 3.5. Directly installing custom packages in those default built-in environments may cause unexpected library version changes. And break the cluster further. To safely install custom external Python packages for your Spark applications, follow below steps.
