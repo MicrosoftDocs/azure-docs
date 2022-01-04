@@ -7,7 +7,7 @@ ms.date: 11/08/2021
 
 # Create and manage Lab Services schedules within Canvas
 
-Schedules allow you to configure a classroom lab such that VMs in the lab automatically start and shut down at a specified time. You can define a one-time schedule or a recurring schedule. The following procedures give you steps to create and manage schedules for a classroom lab:
+Schedules allow you to configure a lab such that VMs in the lab automatically start and shut down at a specified time. You can define a one-time schedule or a recurring schedule. The following procedures give you steps to create and manage schedules for a lab:
 
 Here's how schedules affect lab virtual machines:
 

@@ -31,7 +31,7 @@ Enable the settings described in the table below for the lab plan. For more info
 
 ### Lab settings
 
-Use the settings in the table below when setting up a classroom lab.  For more information how to create a classroom lab, see [set up a classroom lab tutorial](tutorial-setup-classroom-lab.md).
+Use the settings in the table below when setting up a lab.  For more information how to create a lab, see [set up a lab tutorial](tutorial-setup-classroom-lab.md).
 
 | Lab settings | Value/instructions |
 | ------------ | ------------------ |

@@ -16,8 +16,9 @@ This article shows you how to set up a lab to teach a big data analytics class. 
 In this lab, students will use a popular commercial version of Hadoop provided by [Cloudera](https://www.cloudera.com/), called [Hortonworks Data Platform (HDP)](https://www.cloudera.com/products/hdp.html).  Specifically, students will use [HDP Sandbox 3.0.1](https://www.cloudera.com/tutorials/getting-started-with-hdp-sandbox/1.html) which is a simplified, easy-to-use version of the platform that is free of cost and intended for learning and experimentation.  Although this class may use either Windows or Linux virtual machines (VM) with HDP Sandbox deployed, this article will show how to use Windows.
 
 Another interesting aspect of this lab, is that we will deploy HDP Sandbox on the lab VMs using [Docker](https://www.docker.com/) containers.  Each Docker container provides its own isolated environment for software applications to run inside.  Conceptually, Docker containers are like nested VMs and can be used to easily deploy and run a wide variety of software applications based on container images provided on [Docker Hub](https://www.docker.com/products/docker-hub).  Cloudera's deployment script for HDP Sandbox automatically pulls the [HDP Sandbox 3.0.1 Docker image](https://hub.docker.com/r/hortonworks/sandbox-hdp) from Docker Hub and runs two Docker containers:
-  - sandbox-hdp
-  - sandbox-proxy
+
+- sandbox-hdp
+- sandbox-proxy
 
 ## Lab configuration
 
@@ -35,7 +36,7 @@ Enable your lab plan settings as described in the following table. For more info
 
 ### Lab settings
 
-For instructions on how to create a lab, see [Tutorial: Set up a classroom lab](tutorial-setup-classroom-lab.md).  Use the following settings when creating the lab.
+For instructions on how to create a lab, see [Tutorial: Set up a lab](tutorial-setup-classroom-lab.md).  Use the following settings when creating the lab.
 
 | Lab settings | Value/instructions |
 | ------------ | ------------------ |
@@ -55,13 +56,13 @@ To set up the template machine, we will:
 
 ### Install Docker
 
-The steps in this section are based on [Cloudera's instructions for deploying with Docker containers](https://www.cloudera.com/tutorials/sandbox-deployment-and-install-guide/3.html). 
+The steps in this section are based on [Cloudera's instructions for deploying with Docker containers](https://www.cloudera.com/tutorials/sandbox-deployment-and-install-guide/3.html).
 
 To use Docker containers, you must first install Docker Desktop on the template VM:
 
-1. Follow the steps in the [Prerequisites section](https://www.cloudera.com/tutorials/sandbox-deployment-and-install-guide/3.html#prerequisites) to install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/). 
+1. Follow the steps in the [Prerequisites section](https://www.cloudera.com/tutorials/sandbox-deployment-and-install-guide/3.html#prerequisites) to install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/).
 
-    > [!IMPORTANT] 
+    > [!IMPORTANT]
     > Ensure that the **Use Windows containers instead of Linux containers** configuration option is left unchecked.
 
 1. Ensure that **Windows Containers and Hyper-V features** are turned on.
