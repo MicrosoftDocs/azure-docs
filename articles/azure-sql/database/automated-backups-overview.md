@@ -306,7 +306,7 @@ az sql db str-policy set \
     --diffbackup-hours 24
 ```
 
-#### [SQL Database](#tab/managed-instance)
+#### [SQL Managed Instance](#tab/managed-instance)
 
 Use the following example to change the PITR backup retention of a **single active** database in a SQL Managed Instance.
 
