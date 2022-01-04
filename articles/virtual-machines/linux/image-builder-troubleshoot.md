@@ -47,7 +47,7 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 > For PowerShell, you will need to install the [Azure Image Builder PowerShell Modules](../windows/image-builder-powershell.md#prerequisites).
 
 > [!IMPORTANT]
-> Our 2021-10-01 API introduces a new error schema that will be part of every future API release. Any customer that has automated our service needs to expect to receive a new error output when switching to 2021-10-01 or newer API versions (new schema shown below). We recommend that once customers switch to the new API version (2021-10-01 and beyond), they don't revert to older versions as they'll have to change their automation again to expect the older error schema. We do not anticipate changing the error schema again in future releases.
+> Our 2021-10-01 API introduces a change to the error schema that will be part of every future API release. Any customer that has automated our service needs to expect to receive a new error output when switching to 2021-10-01 or newer API versions (new schema shown below). We recommend that once customers switch to the new API version (2021-10-01 and beyond), they don't revert to older versions as they'll have to change their automation again to expect the older error schema. We do not anticipate changing the error schema again in future releases.
 
 For API versions 2020-02-14 and older, the error output will look like the following:
 ```text
@@ -63,6 +63,7 @@ For API versions 2021-10-01 and newer, the error output will look like the follo
   "error": {
     "code": "ValidationFailed",
     "message": "Validation failed: 'ImageTemplate.properties.source': Field 'imageId' has a bad value: '/subscriptions/subscriptionID/resourceGroups/resourceGroupName/providers/Microsoft.Compute//images//imageName'. Please review  http://aka.ms/azvmimagebuildertmplref  for details on fields requirements in the Image Builder Template."
+  }
 }
 ```
 
