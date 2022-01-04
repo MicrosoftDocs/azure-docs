@@ -509,8 +509,6 @@ Use the following command to remove the resource group and all resources associa
    az group delete --name $resourceGroup -y
    ```
 
-## Azure CLI resource group deletion reference
-
 This portion of the tutorial uses the following Azure CLI cmdlets:
 
 | Command | Notes |

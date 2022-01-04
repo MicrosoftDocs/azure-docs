@@ -15,7 +15,7 @@ ms.date: 12/23/2021
 
 # Use CLI to create an Azure SQL Managed Instance
 
-This Azure CLI script example creates an Azure SQL Managed Instance in a dedicated subnet within a new virtual network. It also configures a route table and a network security group for the virtual network. Once the script has been successfully run, the managed instance can be accessed from within the virtual network or from an on-premises environment. See [Configure Azure VM to connect to an Azure SQL Managed Instance]../../azure-sql/managed-instance/connect-vm-instance-configure.md) and [Configure a point-to-site connection to an Azure SQL Managed Instance from on-premises](../../../azure-sql/managed-instance/point-to-site-p2s-configure.md).
+This Azure CLI script example creates an Azure SQL Managed Instance in a dedicated subnet within a new virtual network. It also configures a route table and a network security group for the virtual network. Once the script has been successfully run, the managed instance can be accessed from within the virtual network or from an on-premises environment. See [Configure Azure VM to connect to an Azure SQL Managed Instance](../../../azure-sql/managed-instance/connect-vm-instance-configure.md) and [Configure a point-to-site connection to an Azure SQL Managed Instance from on-premises](../../../azure-sql/managed-instance/point-to-site-p2s-configure.md).
 
 > [!IMPORTANT]
 > For limitations, see [supported regions](../../../azure-sql/managed-instance/resource-limits.md#supported-regions) and [supported subscription types](../../../azure-sql/managed-instance/resource-limits.md#supported-subscription-types).
