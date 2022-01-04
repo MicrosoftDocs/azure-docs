@@ -25659,11 +25659,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/sql-database/scripts/setup-geodr-and-failover-database-cli.md",
-      "redirect_url": "/azure/azure-sql/database/scripts/setup-geodr-failover-database-cli",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/sql-database/scripts/setup-geodr-and-failover-pool-cli.md",
       "redirect_url": "/azure/azure-sql/database/scripts/setup-geodr-failover-pool-cli.",
       "redirect_document_id": false
@@ -25700,6 +25695,11 @@
     },
     {
       "source_path_from_root": "/articles/sql-database/scripts/sql-database-add-managed-instance-to-failover-group-cli.md",
+      "redirect_url": "/azure/azure-sql/database/az-cli-script-samples-content-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-auditing-and-threat-detection-cli.md",
       "redirect_url": "/azure/azure-sql/database/scripts/auditing-threat-detection-cli",
       "redirect_document_id": false
     },
