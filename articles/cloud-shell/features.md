@@ -11,7 +11,6 @@ ms.assetid:
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
@@ -21,7 +20,7 @@ ms.author: damaerte
 
 [!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
-Azure Cloud Shell runs on `Ubuntu 16.04 LTS`.
+Azure Cloud Shell runs on `Common Base Linux Delridge`.
 
 ## Features
 

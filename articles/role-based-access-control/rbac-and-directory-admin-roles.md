@@ -4,13 +4,12 @@ description: Describes the different roles in Azure - Classic subscription admin
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 05/20/2021
 ms.author: rolyon
@@ -120,7 +119,7 @@ By default, Azure roles and Azure AD roles do not span Azure and Azure AD. Howev
 
 Several Azure AD roles span Azure AD and Microsoft 365, such as the Global Administrator and User Administrator roles. For example, if you are a member of the Global Administrator role, you have global administrator capabilities in Azure AD and Microsoft 365, such as making changes to Microsoft Exchange and Microsoft SharePoint. However, by default, the Global Administrator doesn't have access to Azure resources.
 
-![Azure RBAC versus Azure AD roles](./media/rbac-and-directory-admin-roles/azure-office-roles.png)
+![Azure RBAC versus Azure AD roles](./media/rbac-and-directory-admin-roles/azure-roles-azure-ad-roles.png)
 
 ## Next steps
 

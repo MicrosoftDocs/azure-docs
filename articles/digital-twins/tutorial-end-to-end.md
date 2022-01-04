@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: 'Tutorial: Connect an end-to-end solution'
 titleSuffix: Azure Digital Twins
-description: Tutorial to build out an end-to-end Azure Digital Twins solution that's driven by device data.
+description: Follow this tutorial to learn how to build out an end-to-end Azure Digital Twins solution that's driven by device data.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 8/23/2021
+ms.date: 10/19/2021
 ms.topic: tutorial
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Tutorial: Build out an end-to-end solution
 
-To set up a full end-to-end solution driven by live data from your environment, you can connect your Azure Digital Twins instance to other Azure services for management of devices and data.
+This Azure Digital Twins tutorial describes how to build out an end-to-end solution that demonstrates the functionality of the service. To set up a full end-to-end solution driven by live data from your environment, you can connect your Azure Digital Twins instance to other Azure services for management of devices and data.
 
 In this tutorial, you will...
 > [!div class="checklist"]
@@ -52,7 +52,7 @@ Here are the components implemented by the building scenario *AdtSampleApp* samp
 * [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * *SampleClientApp* - A sample Azure Digital Twins solution
-* *SampleFunctionsApp* - An Azure Functions app that updates your Azure Digital Twins graph as a result of telemetry from IoT Hub and Azure Digital Twins events
+* *SampleFunctionsApp* - An Azure Functions app that updates your Azure Digital Twins graph based on telemetry from IoT Hub and Azure Digital Twins events
 
 ### Instantiate the pre-created twin graph
 
@@ -395,7 +395,7 @@ Back on the *Create Event Subscription* page, select **Create**.
 
 ## Run the simulation and see the results
 
-Now, events should be able to flow from the simulated device into Azure Digital Twins, and through the Azure Digital Twins graph to update twins as appropriate. In this section, you'll run the device simulator again to kick off the full event flow you've set up, and query Azure Digital Twins to see the live results
+Now, events should have the capability to flow from the simulated device into Azure Digital Twins, and through the Azure Digital Twins graph to update twins as appropriate. In this section, you'll run the device simulator again to kick off the full event flow you've set up, and query Azure Digital Twins to see the live results
 
 Go to your Visual Studio window where the _**DeviceSimulator**_ project is open, and run the project.
 
@@ -435,9 +435,9 @@ After completing this tutorial, you can choose which resources you want to remov
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-* **If you want to continue using the Azure Digital Twins instance you set up in this article, but clear out some or all of its models, twins, and relationships**, you can use the [az dt](/cli/azure/dt?view=azure-cli-latest&preserve-view=true) CLI commands in an [Azure Cloud Shell](https://shell.azure.com) window to delete the elements you want to remove.
+* **If you want to continue using the Azure Digital Twins instance you set up in this article, but clear out some or all of its models, twins, and relationships**, you can use the [az dt](/cli/azure/dt) CLI commands in an [Azure Cloud Shell](https://shell.azure.com) window to delete the elements you want to remove.
 
-    This option won't remove any of the other Azure resources created in this tutorial (IoT Hub, Azure Functions app, and so on). You can delete these individually using the [dt commands](/cli/azure/reference-index?view=azure-cli-latest&preserve-view=true) appropriate for each resource type.
+    This option won't remove any of the other Azure resources created in this tutorial (IoT Hub, Azure Functions app, and so on). You can delete these individually using the [dt commands](/cli/azure/reference-index) appropriate for each resource type.
 
 You may also want to delete the project folder from your local machine.
 

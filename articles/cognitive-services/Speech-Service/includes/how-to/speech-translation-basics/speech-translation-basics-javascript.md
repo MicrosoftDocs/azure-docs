@@ -1,9 +1,9 @@
 ---
-author: v-demjoh
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/14/2020
-ms.author: v-demjoh
+ms.author: eric-urban
 ms.custom: devx-track-js
 ---
 
@@ -109,7 +109,7 @@ const recognizer = new TranslationRecognizer(speechTranslationConfig, audioConfi
 
 The [TranslationRecognizer class](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer) for the Speech SDK for JavaScript exposes a few methods that you can use for speech translation.
 
-* Single-shot translation (async) - Performs translation in a non-blocking (asynchronous) mode. This will translate a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
+* At-start translation (async) - Performs translation in a non-blocking (asynchronous) mode. This will translate a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
 * Continuous translation (async) - Asynchronously initiates continuous translation operation. The user registers to events and handles various application states. To stop asynchronous continuous translation, call [`stopContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#stopcontinuousrecognitionasync).
 
 > [!NOTE]
@@ -127,9 +127,9 @@ speechTranslationConfig.speechRecognitionLanguage = "en-US";
 speechTranslationConfig.addTargetLanguage("de");
 ```
 
-### Single-shot recognition
+### At-start recognition
 
-Here's an example of asynchronous single-shot translation using [`recognizeOnceAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#recognizeonceasync):
+Here's an example of asynchronous at-start translation using [`recognizeOnceAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#recognizeonceasync):
 
 ```javascript
 recognizer.recognizeOnceAsync(result => {
@@ -178,7 +178,7 @@ recognizer.recognized = function (s, e) {
 
 ### Continuous translation
 
-Continuous translation is a bit more involved than single-shot recognition. It requires you to subscribe to the `recognizing`, `recognized`, and `canceled` events to get the recognition results. To stop translation, you must call [`stopContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#stopcontinuousrecognitionasync). Here's an example of how continuous translation is performed on an audio input file.
+Continuous translation is a bit more involved than at-start recognition. It requires you to subscribe to the `recognizing`, `recognized`, and `canceled` events to get the recognition results. To stop translation, you must call [`stopContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#stopcontinuousrecognitionasync). Here's an example of how continuous translation is performed on an audio input file.
 
 Let's start by defining the input and initializing a [`TranslationRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer):
 

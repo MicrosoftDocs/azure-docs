@@ -4,7 +4,6 @@ description: "Understand partnering opportunities enabled by Azure DDoS Protecti
 ms.service: ddos-protection
 documentationcenter: na
 author: aletheatoh
-mms.devlang: na
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: yitoh
@@ -33,7 +32,7 @@ For every protected application, Azure DDoS Protection Standard automatically tu
 ### Attack analytics, telemetry, monitoring, and alerting
 Azure DDoS Protection identifies and mitigates DDoS attacks without any user intervention.
 
-- If the protected resource is in the subscription covered under Azure Security Center, DDoS Protection Standard automatically sends an alert to Security Center whenever a DDoS attack is detected and mitigated against the protected application.
+- If the protected resource is in the subscription covered under Microsoft Defender for Cloud, DDoS Protection Standard automatically sends an alert to Defender for Cloud whenever a DDoS attack is detected and mitigated against the protected application.
 - Alternatively, to get notified when there’s an active mitigation for a protected public IP, you can [configure an alert](alerts.md) on the metric Under DDoS attack or not.
 - You can additionally choose to create alerts for the other DDoS metrics and [configure attack telemetry](telemetry.md) to understand the scale of the attack, traffic being dropped, attack vectors, top contributors, and other details.
 

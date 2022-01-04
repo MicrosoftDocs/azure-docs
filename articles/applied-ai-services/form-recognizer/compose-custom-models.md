@@ -7,14 +7,15 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 10/16/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
+ms.custom: ignite-fall-2021
 ---
 
 # Use custom and composed models
 
-Form Recognizer uses advanced machine learning technology to detect and extract information from document images and return the extracted data in a structured JSON output. With Form Recognizer, you can train standalone custom models or combine custom models to create composed models.
+Form Recognizer uses advanced machine-learning technology to detect and extract information from document images and return the extracted data in a structured JSON output. With Form Recognizer, you can train standalone custom models or combine custom models to create composed models.
 
 * **Custom models**. Form Recognizer custom models enable you to analyze and extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases.
 
@@ -24,7 +25,7 @@ Form Recognizer uses advanced machine learning technology to detect and extract 
 
 :::image type="content" source="media/studio/composed-model.png" alt-text="Screenshot: model configuration window in Form Recognizer Studio.":::
 
-In this article, we'll examine how to create Form Recognizer custom and composed models using our [Form Recognizer Sample Labeling tool](label-tool.md), [REST APIs](quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model), or [client-library SDKs](quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
+In this article, you'll learn how to create Form Recognizer custom and composed models using our [Form Recognizer Sample Labeling tool](label-tool.md), [REST APIs](quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model), or [client-library SDKs](quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
 
 ## Sample Labeling tool
 
@@ -43,11 +44,11 @@ In the Form Recognizer UI:
 
 1. Select **Use Custom to train a model with labels and get key value pairs**.
   
-      :::image type="content" source="media/label-tool/fott-use-custom.png" alt-text="Screenshot: fott tool selection of custom option.":::
+      :::image type="content" source="media/label-tool/fott-use-custom.png" alt-text="Screenshot: FOTT tool select custom option.":::
 
 1. In the next window, select **New project**:
 
-    :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: fott tool selection of new project."::: 
+    :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: FOTT tool select new project."::: 
 
 ## Create your models
 

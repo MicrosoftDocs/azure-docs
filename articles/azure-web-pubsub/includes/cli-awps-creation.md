@@ -21,9 +21,6 @@ Use the Azure CLI [az webpubsub create](/cli/azure/webpubsub#az_webpubsub_create
 az webpubsub create --name "<your-unique-resource-name>" --resource-group "myResourceGroup" --location "EastUS" --sku Free_F1
 ```
 
-> [!Note]
-> Since the Web PubSub service is still in preview, you might have noticed that there is a warning in the CLI console saying "The command requires the extension webpubsub. Do you want to install it now? The command will continue to run after the extension is installed. (Y/n)". Please press Y to install the extension.
-
 The output of this command shows properties of the newly created resource. Take note of the two properties listed below:
 
 - **Resource Name**: The name you provided to the `--name` parameter above.

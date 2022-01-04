@@ -76,8 +76,9 @@ If you can't find the keys in your records, you can generate a new key from the 
 ### Known limitations
 
 The StorSimple Data Manager and Azure file shares have a few limitations you should consider before you begin your migration, as they can prevent a migration:
-* Only NTFS volumes from your StorSimple appliance are supported.
-* The service doesn't work with volumes that are BitLocker encrypted.
+* Only NTFS volumes from your StorSimple appliance are supported. ReFS volumes are not supported.
+* Any volume placed on [Windows Server Dynamic Disks](/troubleshoot/windows-server/backup-and-storage/best-practices-using-dynamic-disks) is not supported. (deprecated before Windows Server 2012)
+* The service doesn't work with volumes that are BitLocker encrypted or have [Data Deduplication](/windows-server/storage/data-deduplication/understand) enabled.
 * Corrupted StorSimple backups can't be migrated.
 * Special networking options, such as firewalls or private endpoint-only communication can't be enabled on either the source storage account where StorSimple backups are stored, nor on the target storage account that holds you Azure file shares.
 
@@ -282,7 +283,8 @@ There are important aspects around choosing backups that need to be migrated:
 - Your migration jobs can only move backups, not live volume data. So the most recent backup is closest to the live data and should always be on the list of backups moved in a migration. When you open the Backup selection dialog, it is selected by default.
 - Make sure your latest backup is recent to keep the delta to the live share as small as possible. It could be worth manually triggering and completing another volume backup before creating a migration job. A small delta to the live share will improve your migration experience. If this delta can be zero = no more changes to the StorSimple volume happened after the newest backup was taken in your list - then Phase 5: User cut-over will be drastically simplified and sped up.
 - Backups must be played back into the Azure file share **from oldest to newest**. An older backup cannot be "sorted into" the list of backups on the Azure file share after a migration job has run. Therefore you must ensure that your list of backups is complete *before* you create a job. 
-- This list of backups in a job cannot be modified once the job is created - even if the job never ran. 
+- This list of backups in a job cannot be modified once the job is created - even if the job never ran.
+- In order to select backups, the StorSimple volume you want to migrate must be online.
 
 :::row:::
     :::column:::        

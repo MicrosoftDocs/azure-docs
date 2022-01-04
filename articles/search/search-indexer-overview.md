@@ -8,18 +8,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 12/17/2021
 ---
 
 # Indexers in Azure Cognitive Search
 
-An *indexer* in Azure Cognitive Search is a crawler that extracts searchable text and metadata from an external Azure data source and populates a search index using field-to-field mappings between source data and your index. This approach is sometimes referred to as a 'pull model' because the service pulls data in without you having to write any code that adds data to an index. Indexers also drive the [AI enrichment](cognitive-search-concept-intro.md) capabilities of Cognitive Search, integrating external processing of content en route to an index.
+An *indexer* in Azure Cognitive Search is a crawler that extracts searchable content from cloud data sources and populates a search index using field-to-field mappings between source data and a search index. This approach is sometimes referred to as a 'pull model' because the search service pulls data in without you having to write any code that adds data to an index. Indexers also drive the [AI enrichment](cognitive-search-concept-intro.md) capabilities of Cognitive Search, integrating external processing of content en route to an index.
 
-Indexers are Azure-only, with individual indexers for [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Azure Table Storage](search-howto-indexing-azure-tables.md) and [Blob Storage](search-howto-indexing-azure-blob-storage.md). When configuring an indexer, you'll specify a data source (origin), as well as an index (destination). Several sources, such as Blob storage, have additional configuration properties specific to that content type.
+Indexers are cloud-only, with individual indexers for supported data sources. When configuring an indexer, you'll specify a data source (origin) and a search index (destination). Several sources, such as Azure Blob storage, have additional configuration properties specific to that content type.
 
 You can run indexers on demand or on a recurring data refresh schedule that runs as often as every five minutes. More frequent updates require a ['push model'](search-what-is-data-import.md) that simultaneously updates data in both Azure Cognitive Search and your external data source.
 
-## Usage scenarios
+## How to use indexers
 
 You can use an indexer as the sole means for data ingestion, or as part of a combination of techniques that load and optionally transform or enrich content along the way. The following table summarizes the main scenarios.
 
@@ -49,10 +49,12 @@ Indexers crawl data stores on Azure and outside of Azure.
 + [Salesforce Reports](search-how-to-index-power-query-data-sources.md) (in preview)
 + [Smartsheet](search-how-to-index-power-query-data-sources.md) (in preview)
 + [Snowflake](search-how-to-index-power-query-data-sources.md) (in preview)
-+ [SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
++ [Azure SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 + [SQL Server on Azure Virtual Machines](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 
-Indexer connections to remote data sources can be made using standard Internet connections (public) or encrypted private connections when you use Azure virtual networks for client apps. You can also set up connections to authenticate using a trusted service identity. For more information about secure connections, see [Granting access via private endpoints](search-indexer-securing-resources.md#granting-access-via-private-endpoints) and [Connect to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
+Indexers accept flattened row sets, such as a table or view, or items in a container or folder. In most cases, it creates one search document per row, record, or item.
+
+Indexer connections to remote data sources can be made using standard Internet connections (public) or encrypted private connections when you use Azure virtual networks for client apps. You can also set up connections to authenticate using a managed identity. For more information about secure connections, see [Granting access via private endpoints](search-indexer-securing-resources.md#granting-access-via-private-endpoints) and [Connect to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
 
 ## Stages of indexing
 

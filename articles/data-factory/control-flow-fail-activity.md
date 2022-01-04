@@ -1,5 +1,5 @@
 ---
-title: Execute a Fail activity in Azure Data Factory and Synapse Analytics (Preview)
+title: Execute a Fail activity in Azure Data Factory and Synapse Analytics
 titleSuffix: Azure Data Factory & Azure Synapse
 description: This article discusses how a Fail activity in Azure Data Factory and Synapse Analytics intentionally throws an error in a pipeline.
 author: chez-charlie
@@ -11,12 +11,22 @@ ms.topic: conceptual
 ms.date: 09/22/2021
 ---
 
-# Execute a Fail activity in Azure Data Factory and Synapse Analytics (Preview)
+# Execute a Fail activity in Azure Data Factory and Synapse Analytics
 
 You might occasionally want to throw an error in a pipeline intentionally. A [Lookup activity](control-flow-lookup-activity.md) might return no matching data, or a [Custom activity](transform-data-using-dotnet-custom-activity.md) might finish with an internal error. Whatever the reason might be, now you can use a Fail activity in a pipeline and customize both its error message and error code.
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+## Create a Fail activity with UI
+
+To use a Fail activity in a pipeline, complete the following steps:
+
+1. Search for _Fail_ in the pipeline Activities pane, and drag a Fail activity to the pipeline canvas.
+1. Select the new Fail activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+   :::image type="content" source="media/control-flow-fail-activity/fail-activity.png" alt-text="Shows the UI for a Fail activity.":::
+
+1. Enter a failure message and error code. These can be literal string expressions, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
 
 ## Syntax
 
@@ -25,8 +35,8 @@ You might occasionally want to throw an error in a pipeline intentionally. A [Lo
     "name": "MyFailActivity",
     "type": "Fail",
     "typeProperties": {
-        "message": "500",
-        "errorCode": "My Custom Error Message"
+        "errorCode": "500",
+        "message": "My Custom Error Message"
     }
 }
 
@@ -72,3 +82,4 @@ See other supported control flow activities, including:
 - [Lookup activity](control-flow-lookup-activity.md)
 - [Web activity](control-flow-web-activity.md)
 - [Until activity](control-flow-until-activity.md)
+- [Understand pipeline error](tutorial-pipeline-failure-error-handling.md)

@@ -13,7 +13,7 @@ ms.custom: seodec18
 # Introduction to App Service Environment v1
 
 > [!NOTE]
-> This article is about the App Service Environment v1.  There is a newer version of the App Service Environment that is easier  to use and runs on more powerful infrastructure. To learn more about the new version start with the [Introduction to the App  Service Environment](intro.md).
+> This article is about the App Service Environment v1. There is a newer version of the App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version start with the [Introduction to the App Service Environment](overview.md).
 
 ## Overview
 

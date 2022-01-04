@@ -4,8 +4,8 @@ description: Set global parameters for each of your Azure Data Factory environme
 ms.service: data-factory
 ms.subservice: authoring
 ms.topic: conceptual
-author: jasonwhowell
-ms.author: jasonh
+author: joshuha-msft
+ms.author: joowen
 ms.date: 05/12/2021 
 ms.custom: devx-track-azurepowershell
 ---
@@ -109,5 +109,5 @@ Set-AzDataFactoryV2 -InputObject $dataFactory -Force
 
 ## Next steps
 
-* Learn about Azure Data Factory's [continuous integration and deployment process](continuous-integration-delivery.md)
+* Learn about Azure Data Factory's [continuous integration and deployment process](continuous-integration-delivery-improvements.md)
 * Learn how to use the [control flow expression language](control-flow-expression-language-functions.md)

@@ -3,7 +3,7 @@ title: Azure Enterprise REST APIs
 description: This article describes the REST APIs for use with your Azure enterprise enrollment.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/21/2021
+ms.date: 12/10/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -91,7 +91,7 @@ Usage and billing data files are updated every 24 hours for the current billing 
 
 ### Azure service catalog
 
-All Azure services are posted to a catalog in CSV format in an Azure storage blog. The catalog is useful if you need to build a curated catalog of all Azure services for your system. The current catalog is at [https://azurecatalog.blob.core.windows.net/catalog/AzureCatalog.csv](https://azurecatalog.blob.core.windows.net/catalog/AzureCatalog.csv).
+You can download all Azure services in the Azure portal as part of the Price Sheet download. For more information about downloading your price sheet, see [Download pricing for an Enterprise Agreement](ea-pricing.md#download-pricing-for-an-enterprise-agreement).
 
 ### CSV data file details
 
