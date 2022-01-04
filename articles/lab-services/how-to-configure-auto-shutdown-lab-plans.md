@@ -7,22 +7,24 @@ ms.date: 11/13/2021
 
 # Configure automatic shutdown of VMs for a lab plan
 
-You can enable several auto-shutdown cost control features to proactively prevent additional costs when the virtual machines are not being actively used. The combination of the following three automatic shutdown and disconnect features catches most of the cases where users accidentally leave their virtual machines running:
+You can enable several auto-shutdown cost control features to avoid extra costs when the virtual machines aren't being used.
 
-- Disconnect idle virtual machines
+- Disconnect idle virtual machines.
 - Shutdown virtual machines when users disconnect
-- Shutdown virtual machines when users do not connect
+- Shutdown virtual machines when users don't connect
 
 The **disconnect idle virtual machines** has two settings.  Both settings use a VM extension to detect idle.
 
 - **Detect idle based on user absence**.  Idle detection examines only mouse/keyboard input (user absence).
 - **Detect idle based on user absence and resource usage**. Idle detection examines both mouse/keyboard input (user absence) and disk/CPU usage (resource usage). By selecting resource usage, that is, disk/CPU usage, operations such as long-running queries are accounted for.
 
+With the [January 2022 Updates (preview)](lab-services-whats-new.md), the lab VM will be marked as stopped and billing will discontinue if Azure Lab Services detects that a student has shutdown their VM using the OS shutdown command. [Stopping the VM](how-to-use-classroom-lab.md#start-or-stop-the-vm) using the Azure Lab Services portal is the preferred method to stop a lab VM. There is a delay between detection of the VM being turned off and billing being stopped.
+
 Review more details about the auto-shutdown features in the [Maximize cost control with auto-shutdown settings](cost-management-guide.md#automatic-shutdown-settings-for-cost-control) section.
 
 ## Enable automatic shutdown
 
-1. In the [Azure portal](https://portal.azure.com/) navigate to the **Lab Plan** page.
+1. In the [Azure portal](https://portal.azure.com/), navigate to the **Lab Plan** page.
 1. Select **Labs settings** on the left menu.
 1. Select the auto-shutdown setting(s) that is appropriate for your scenario.  
 
