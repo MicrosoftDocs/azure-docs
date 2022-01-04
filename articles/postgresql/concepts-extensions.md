@@ -273,7 +273,7 @@ Now you can run pg_dump on the original database and then do pg_restore. After t
 ```SQL
 SELECT timescaledb_post_restore();
 ```
-For more details on restore method wiith Timescae enabled database see [Timescale documentation](https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/pg-dump-and-restore/#restore-your-entire-database-from-backup)
+For more details on restore method wiith Timescale enabled database see [Timescale documentation](https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/pg-dump-and-restore/#restore-your-entire-database-from-backup)
 
 
 ### Restoring a Timescale database using timescaledb-backup
@@ -286,7 +286,7 @@ For more details on restore method wiith Timescae enabled database see [Timescal
    4. Grant azure_pg_admin [role](https://www.postgresql.org/docs/11/database-roles.html) to user that will be used by [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore)
    5. Run [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore) to restore database
 
- More details on hese utilities can be found [here](https://github.com/timescale/timescaledb-backup). 
+ More details on these utilities can be found [here](https://github.com/timescale/timescaledb-backup). 
 > [!NOTE]
 > When using `timescale-backup` utilities to restore to Azure is that since database user names for non-flexible Azure Database for PostgresQL  must use the `<user@db-name>` format, you need to replace `@` with `%40` character encoding. 
 
