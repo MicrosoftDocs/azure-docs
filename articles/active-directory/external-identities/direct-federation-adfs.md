@@ -68,28 +68,30 @@ An AD FS server must already be set up and functioning before you begin this pro
 
 5. Click **Ok**.
 
-### Add the relying party trust and claim rules
+### Add the relying party trust
 
 1. On the AD FS server, go to **Tools** > **AD FS management**.
-2. In the navigation pane, select **Trust Relationships** > **Relying Party Trusts**.
+2. In the navigation pane, select **Relying Party Trusts**.
 3. Under **Actions**, select **Add Relying Party Trust**. 
-4. In the add relying party trust wizard for **Select Data Source**, use the option **Import data about the relying party published online or on a local network**. Specify this federation metadata URL- https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml. Leave other default selections. Select **Close**.
-5. The **Edit Claim Rules** wizard opens.
-6. In the **Edit Claim Rules** wizard, select **Add Rule**. In **Choose Rule Type**, select **Send LDAP Attributes as Claims**. Select **Next**.
-7. In **Configure Claim Rule**, specify the following values: 
+4. In the add relying party trust wizard select **Claims aware** and click **Start**.
+5. In the **Select Data Source** section, use the option **Import data about the relying party published online or on a local network**. Specify this federation metadata URL- https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml. Click **Next**.
+6. Leave the other settings in their default state. Continue to click **Next** and finally **Close** to finish the wizard.
+
+### Create claims rules
+1. Right-click the Relying Party Trust you just created and select **Edit Claim Issuance Policy**.
+2. In the **Edit Claim Rules** wizard, select **Add Rule**. 
+3. In **Claim rule template**, select **Send LDAP Attributes as Claims**. 
+4. In **Configure Claim Rule**, specify the following values: 
 
    - **Claim rule name**: Email claim rule 
    - **Attribute store**: Active Directory 
    - **LDAP Attribute**: E-Mail-Addresses 
    - **Outgoing Claim Type**: E-Mail Address
 
-8. Select **Finish**.
-9. The **Edit Claim Rules** window will show the new rule. Click **Apply**. 
-10. Click **Ok**.  
-
-### Create an email transform rule
-1. Go to **Edit Claim Rules** and click **Add Rule**. In **Choose Rule Type**, select **Transform an Incoming Claim** and click **Next**. 
-2. In **Configure Claim Rule**, specify the following values: 
+4. Select **Finish**.
+5. Once more, click **Add Rule**.
+6. In **Claim rule template**, select **Transform an Incoming Claim** and click **Next**. 
+7. In **Configure Claim Rule**, specify the following values: 
 
    - **Claim rule name**: Email transform rule 
    - **Incoming claim type**: E-mail Address 
