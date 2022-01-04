@@ -15,13 +15,13 @@ Azure Lab Services is a SaaS (software as a service) solution, which means that 
 
 Azure Lab Services does provide a couple of areas that allow you to use your own resources in conjunction with Lab Services.  For more information about using VMs on your own network, see how to [peer a virtual network](how-to-connect-peer-virtual-network.md).  If using the January 2022 update, see [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) to use virtual network injection instead of virtual network peering.  To reuse images from a Shared Image Gallery, see how to [attach a Shared Image Gallery](how-to-attach-detach-shared-image-gallery.md).
 
-Below is the basic architecture of a classroom lab.  The lab account or lab plan is hosted in your subscription. The student VMs, along with the resources needed to support the VMs are hosted in a subscription owned by Azure Lab Services. Let’s talk about what is in Azure Lab Service's subscriptions in more detail.
+Below is the basic architecture of a lab.  The lab account or lab plan is hosted in your subscription. The student VMs, along with the resources needed to support the VMs are hosted in a subscription owned by Azure Lab Services. Let’s talk about what is in Azure Lab Service's subscriptions in more detail.
 
 ![labs basic architecture](./media/classroom-labs-fundamentals/labservices-basic-architecture.png)
 
 ## Hosted Resources
 
-The resources required to run a classroom lab are hosted in one of the Microsoft-managed Azure subscriptions.  Resources include a template virtual machine for the instructor, virtual machine for each student, and network-related items such as a load balancer, virtual network, and network security group.  These subscriptions are monitored for suspicious activity.  It is important to note that this monitoring is done externally to the virtual machines through VM extension or network pattern monitoring.  If [shutdown on disconnect](how-to-enable-shutdown-disconnect.md) is enabled, a diagnostic extension is enabled on the virtual machine. The extension allows Lab Services to be informed of the remote desktop protocol (RDP) session disconnect event.
+The resources required to run a lab are hosted in one of the Microsoft-managed Azure subscriptions.  Resources include a template virtual machine for the instructor, virtual machine for each student, and network-related items such as a load balancer, virtual network, and network security group.  These subscriptions are monitored for suspicious activity.  It is important to note that this monitoring is done externally to the virtual machines through VM extension or network pattern monitoring.  If [shutdown on disconnect](how-to-enable-shutdown-disconnect.md) is enabled, a diagnostic extension is enabled on the virtual machine. The extension allows Lab Services to be informed of the remote desktop protocol (RDP) session disconnect event.
 
 ## Virtual Network
 
@@ -36,7 +36,7 @@ Lab Services handles the student’s ability to perform actions like start and s
 
 Lab Services also handles the registration of students to the service. There are currently two different access settings: restricted and nonrestricted. For more information, see the [manage lab users](how-to-configure-student-usage.md#send-invitations-to-users) article. Restricted access means Lab Services  verifies that the students are added as user before allowing access. Nonrestricted means any user can register as long as they have the registration link and there is capacity in the lab. Nonrestricted can be useful for hackathon events.
 
-Student VMs that are hosted in the classroom lab have a username and password set by the creator of the lab.  Alternately, the creator of the lab can allow registered students to choose their own password on first sign-in.  
+Student VMs that are hosted in the lab have a username and password set by the creator of the lab.  Alternately, the creator of the lab can allow registered students to choose their own password on first sign-in.  
 
 ## Next steps
 

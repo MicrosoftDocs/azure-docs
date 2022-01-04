@@ -13,7 +13,7 @@ This article shows you how to set up a class that focuses on forensics side of e
 
 In an ethical hacking class, students can learn modern techniques for defending against vulnerabilities. Each student gets a host virtual machine that has three nested virtual machines – two virtual machines with [Seed](https://seedsecuritylabs.org/lab_env.html) image and another machine with [Kali Linux](https://www.kali.org/) image. The Seed virtual machine is used for exploiting purposes and Kali virtual machine provides access to the tools needed to execute forensic tasks.
 
-This article has two main sections. The first section covers how to create the classroom lab. The second section covers how to create the template machine with nested virtualization enabled and with the tools and images needed. In this case, two Seed images and a Kali Linux image on a machine that has [VirtualBox](https://www.virtualbox.org/) enabled to host the images.
+This article has two main sections. The first section covers how to create the lab. The second section covers how to create the template machine with nested virtualization enabled and with the tools and images needed. In this case, two Seed images and a Kali Linux image on a machine that has [VirtualBox](https://www.virtualbox.org/) enabled to host the images.
 
 ## Lab configuration
 
@@ -23,7 +23,7 @@ Once you get have Azure subscription, you can create a new lab plan in Azure Lab
 
 ### Lab settings
 
-For instructions on how to create a lab, see [Tutorial: Set up a classroom lab](tutorial-setup-classroom-lab.md).  Use the following settings when creating the lab.
+For instructions on how to create a lab, see [Tutorial: Set up a lab](tutorial-setup-classroom-lab.md).  Use the following settings when creating the lab.
 
 | Lab settings | Value |
 | ------------ | ------------------ |

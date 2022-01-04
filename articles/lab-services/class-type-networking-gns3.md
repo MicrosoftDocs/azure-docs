@@ -11,7 +11,7 @@ ms.date: 01/19/2021
 
 This article shows you how to set up a class that focuses on allowing students to emulate, configure, test, and troubleshoot virtual and real networks using [GNS3](https://www.gns3.com/) software.
 
-This article has two main sections. The first section covers how to create the classroom lab. The second section covers how to create the template machine with nested virtualization enabled and with GNS3 installed and configured.
+This article has two main sections. The first section covers how to create the lab. The second section covers how to create the template machine with nested virtualization enabled and with GNS3 installed and configured.
 
 ## Lab configuration
 
@@ -21,7 +21,7 @@ Once you get have Azure subscription, you can create a new lab plan in Azure Lab
 
 ### Lab settings
 
-For instructions on how to create a lab, see [Tutorial: Set up a classroom lab](tutorial-setup-classroom-lab.md).  Use the following settings when creating the lab.
+For instructions on how to create a lab, see [Tutorial: Set up a lab](tutorial-setup-classroom-lab.md).  Use the following settings when creating the lab.
 
 Follow [this tutorial](tutorial-setup-classroom-lab.md) to create a new lab and then apply the following settings:
 

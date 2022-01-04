@@ -14,11 +14,11 @@
   items:
   - name: Set up a lab plan
     href: tutorial-setup-lab-plan.md
-  - name: Set up a classroom lab
+  - name: Set up a lab
     href: tutorial-setup-classroom-lab.md 
-  - name: Access a classroom lab
+  - name: Access a lab
     href: tutorial-connect-virtual-machine-classroom-lab.md
-  - name: Track usage of a classroom lab
+  - name: Track usage of a lab
     href: tutorial-track-usage.md
   - name: Set up a lab account (deprecated)
     href: tutorial-setup-lab-account.md

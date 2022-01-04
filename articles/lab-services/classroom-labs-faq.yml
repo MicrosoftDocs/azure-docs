@@ -60,14 +60,14 @@ sections:
       - question: |
           Can I attach additional disks to a virtual machine?
         answer: |
-          No. it's not possible to attach additional disks to a VM in a classroom lab. 
+          No. it's not possible to attach additional disks to a VM in a lab. 
 
   - name: Users
     questions:
       - question: |
-          How many users can be in a classroom lab?
+          How many users can be in a lab?
         answer: |
-          You can add up to 400 users to a classroom lab.
+          You can add up to 400 users to a lab.
 
           ## Blog post
           

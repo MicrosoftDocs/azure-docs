@@ -29,13 +29,13 @@ Enable your lab plan settings as described in the following table. For more info
 
 ### Lab settings
 
-For instructions on how to create a lab, see [Tutorial: Set up a classroom lab](tutorial-setup-classroom-lab.md).  Use the following settings when creating the lab.
+For instructions on how to create a lab, see [Tutorial: Set up a lab](tutorial-setup-classroom-lab.md).  Use the following settings when creating the lab.
 
 | Lab settings | Value/instructions |
 | ------------ | ------------------ |
 | Virtual machine (VM) size | Small  |
 | VM image | Ubuntu Server 18.04 LTS|
-| Enable remote desktop connection | Enable. <p>Enabling this setting will allow teachers and students to connect to their VMs using the remote desktop (RDP). For more information, see [Enable remote desktop for Linux virtual machines in a lab in Azure Lab Services](how-to-enable-remote-desktop-linux.md). </p>|
+| Enable remote desktop connection | **Enable**. Enabling this setting will allow teachers and students to connect to their VMs using the remote desktop (RDP). For more information, see [Enable remote desktop for Linux virtual machines in a lab in Azure Lab Services](how-to-enable-remote-desktop-linux.md). </p>|
 
 ## Template machine configuration
 

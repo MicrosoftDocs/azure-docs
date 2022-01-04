@@ -50,10 +50,10 @@ The following steps illustrate how to use the Azure portal to create a lab plan 
 
 ## Add a user to the Lab Creator role
 
-To set up a classroom lab in a lab plan, the user must be a member of the **Lab Creator** role in the lab plan. To provide educators the permission to create labs for their classes, add them to the **Lab Creator** role: For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+To set up a lab in a lab plan, the user must be a member of the **Lab Creator** role in the lab plan. To provide educators the permission to create labs for their classes, add them to the **Lab Creator** role: For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 > [!NOTE]
-> The account you used to create the lab plan is automatically added to this role. If you are planning to use the same user account to create a classroom lab in this tutorial, skip this step.
+> The account you used to create the lab plan is automatically added to this role. If you are planning to use the same user account to create a lab in this tutorial, skip this step.
 
 1. On the **Lab Plan** page, select **Access control (IAM)**
 
@@ -71,7 +71,7 @@ To set up a classroom lab in a lab plan, the user must be a member of the **Lab 
 
 ## Next steps
 
-In this tutorial, you created a lab plan and gave lab creation permissions to an educator. To learn about how to create a classroom lab as an educator, advance to the next tutorial:
+In this tutorial, you created a lab plan and gave lab creation permissions to an educator. To learn about how to create a lab as an educator, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Set up a classroom lab](tutorial-setup-classroom-lab.md)
+> [Set up a lab](tutorial-setup-classroom-lab.md)

@@ -50,7 +50,7 @@ The lab plan owner, typically an IT administrator of organization's cloud resour
 
 Typically, users such as a teacher or an online trainer, create labs using a pre-created lab plan. An educator does the following tasks:
 
-- Creates a classroom lab.
+- Creates a lab.
 - Creates virtual machines in the lab.
 - Installs the appropriate software on virtual machines.
 - Specifies who can access the lab.

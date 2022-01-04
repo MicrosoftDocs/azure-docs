@@ -1,13 +1,13 @@
 ---
-title: Access a classroom lab in Azure Lab Services | Microsoft Docs
-description: In this tutorial, students access virtual machines in a classroom lab that's set up by an educator. 
+title: Access a lab in Azure Lab Services | Microsoft Docs
+description: In this tutorial, students access virtual machines in a lab that's set up by an educator. 
 ms.topic: tutorial
 ms.date: 06/26/2020
 ---
 
-# Tutorial: Access a classroom lab in Azure Lab Services
+# Tutorial: Access a lab in Azure Lab Services
 
-In this tutorial, you, as a student, connect to a virtual machine (VM) in a classroom lab by completing the following actions:
+In this tutorial, you, as a student, connect to a virtual machine (VM) in a lab by completing the following actions:
 
 > [!div class="checklist"]
 > * Register to the lab
@@ -54,7 +54,7 @@ In this tutorial, you, as a student, connect to a virtual machine (VM) in a clas
 
 ## Next steps
 
-In this tutorial, you accessed a classroom lab using the registration link you get from your educator.
+In this tutorial, you accessed a lab using the registration link you get from your educator.
 
 As a lab owner, you want to view who has registered with your lab and track the usage of VMs. Advance to the next tutorial to learn how to track the usage of the lab:
 

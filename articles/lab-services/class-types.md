@@ -7,7 +7,7 @@ ms.date: 06/26/2020
 
 # Class types overview - Azure Lab Services
 
-Azure Lab Services enables you to quickly set up classroom lab environments in the cloud. Articles in this section provide guidance on how to set up several types of labs using Azure Lab Services.
+Azure Lab Services enables you to quickly set up lab environments in the cloud. Articles in this section provide guidance on how to set up several types of labs using Azure Lab Services.
 
 ## Adobe Creative Cloud
 
@@ -29,7 +29,7 @@ For detailed information on how to set up this type of lab, see [Autodesk](class
 
 ## Big data analytics
 
-You can set up a GPU lab to teach a big data analytics class. With this type of class, students learn how to handle large volumes of data, and apply machine and statistical learning algorithms to derive data insights. A key objective for students is to learn to use data analytics tools, such as Apache Hadoop's open-source software package that provides tools for storing, managing, and processing big data. 
+You can set up a GPU lab to teach a big data analytics class. With this type of class, students learn how to handle large volumes of data, and apply machine and statistical learning algorithms to derive data insights. A key objective for students is to learn to use data analytics tools, such as Apache Hadoop's open-source software package that provides tools for storing, managing, and processing big data.
 
 For detailed information on how to set up this type of lab, see [Set up a lab for big data analytics using Docker deployment of HortonWorks Data Platform](class-type-big-data-analytics.md).
 
