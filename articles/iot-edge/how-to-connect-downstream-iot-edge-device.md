@@ -4,7 +4,7 @@ description: How to configure an IoT Edge device to connect to Azure IoT Edge ga
 author: kgremban
 
 ms.author: kgremban
-ms.date: 12/22/2021
+ms.date: 01/04/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
