@@ -46,6 +46,8 @@ There are many other services where you may want to ultimately direct your data,
 
 For example, if you're also using Azure Maps and want to correlate location with your Azure Digital Twins graph, you can use Azure Functions with Event Grid to establish communication between all the services in your deployment. For more information on integrating Azure Maps, see [Use Azure Digital Twins to update an Azure Maps indoor map](how-to-integrate-maps.md). For information on routing data in a similar way to Time Series Insights, see [Integrate with Time Series Insights](how-to-integrate-time-series-insights.md).
 
+Azure Digital Twins implements **at least once** delivery for data emitted to egress services. 
+
 ## Next steps
 
 Learn more about endpoints and routing events to external services:
