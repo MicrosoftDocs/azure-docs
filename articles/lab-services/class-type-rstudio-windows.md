@@ -37,7 +37,7 @@ Once you get have Azure subscription, you can create a new lab plan in Azure Lab
 
 ### Lab settings
 
-For instructions on how to create a lab, see [Tutorial: Set up a classroom lab](tutorial-setup-classroom-lab.md).  Use the following settings when creating the lab.
+For instructions on how to create a lab, see [Tutorial: Set up a lab](tutorial-setup-classroom-lab.md).  Use the following settings when creating the lab.
 
 | Lab setting | Value and description |
 | ------------ | ------------------ |

@@ -91,7 +91,7 @@ For more information, see [Azure Lab Services in Microsoft Teams](./lab-services
 After you understand the requirements for your class's lab, you're ready to set it up. To learn how, follow the links in this section. Instructions are also provided for setting up labs in Teams.
 
 1. **Create a lab**. See the following tutorials:
-    - [Create a classroom lab](./tutorial-setup-classroom-lab.md#create-a-classroom-lab)
+    - [Create a lab](./tutorial-setup-classroom-lab.md#create-a-classroom-lab)
     - [Create a lab in Teams](./how-to-get-started-create-lab-within-teams.md)
     - [Create a lab in Canvas](how-to-get-started-create-lab-within-canvas.md)
 
@@ -136,7 +136,7 @@ After you understand the requirements for your class's lab, you're ready to set 
 
    - [Create and manage Lab Services schedules in Teams](./how-to-create-schedules-within-teams.md)
 
-1. **Use the dashboard**. For instructions, see [Use the classroom lab dashboard](./use-dashboard.md).
+1. **Use the dashboard**. For instructions, see [Use the lab dashboard](./use-dashboard.md).
 
     > [!NOTE]
     > The estimated cost shown on the dashboard is the maximum cost that you can expect to incur for student lab usage. For example, you will *not* be charged for unused quota hours by your students. The estimated costs do *not* reflect any charges for using the template VM, the shared image gallery, or when the lab creator starts a user machine.
@@ -145,5 +145,5 @@ After you understand the requirements for your class's lab, you're ready to set 
 
 As part of managing your labs, see the following articles:
 
-- [Track classroom lab usage](tutorial-track-usage.md)  
-- [Access a classroom lab](tutorial-connect-virtual-machine-classroom-lab.md)
+- [Track lab usage](tutorial-track-usage.md)  
+- [Access a lab](tutorial-connect-virtual-machine-classroom-lab.md)

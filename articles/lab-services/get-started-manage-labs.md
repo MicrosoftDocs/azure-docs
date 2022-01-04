@@ -63,7 +63,7 @@ Dashboards for labs in Azure Lab Services provide a snapshot of different aspect
 1. Navigate and sign in to the [Azure Lab Services website](https://labs.azure.com/).
 1. Select your lab.
 1. You will see a **Dashboard** on the left-hand side of the window. Select on **Dashboard** and you will see tiles in your dashboard.
-1. Below the **Costs & Billing** tile, there are also tiles for Templates, Virtual Machine Pools, Users, and Schedules, which allow you to modify aspects and view more details on the Classroom Lab.
+1. Below the **Costs & Billing** tile, there are also tiles for Templates, Virtual Machine Pools, Users, and Schedules, which allow you to modify aspects and view more details on the lab.
 
     - Template - describes the date the template was created, and last published.
     - Virtual Machine Pool - number of assigned and unassigned VMs.

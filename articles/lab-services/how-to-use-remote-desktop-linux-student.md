@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
-# Connect to Linux virtual machines in a classroom lab of Azure Lab Services
+# Connect to Linux virtual machines in a lab of Azure Lab Services
 This article shows how students can connect to a Linux virtual machine (VM) in a lab using:
 - SSH (secure shell protocol) terminal
 - GUI (graphical user interface) remote desktop
@@ -103,5 +103,5 @@ Students need to find out from their instructor which Linux graphical desktop en
 2. When prompted, enter your password and click **OK**.  You will now be remotely connected to your VM's GUI desktop environment.
 
 ## Next steps
-To learn how to enable the remote desktop connection feature for Linux VMs in a classroom lab, see [Enable remote desktop for Linux virtual machines](how-to-enable-remote-desktop-linux.md). 
+To learn how to enable the remote desktop connection feature for Linux VMs in a lab, see [Enable remote desktop for Linux virtual machines](how-to-enable-remote-desktop-linux.md). 
 

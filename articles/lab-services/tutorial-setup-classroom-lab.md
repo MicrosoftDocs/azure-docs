@@ -1,25 +1,25 @@
 ---
-title: Set up a classroom lab using Azure Lab Services | Microsoft Docs
-description: In this tutorial, you use Azure Lab Services to set up a classroom lab with virtual machines that are used by students in your class. 
+title: Set up a lab using Azure Lab Services | Microsoft Docs
+description: In this tutorial, you use Azure Lab Services to set up a lab with virtual machines that are used by students in your class. 
 ms.topic: tutorial
 ms.date: 11/12/2021
 ---
 
-# Tutorial: Set up a classroom lab
+# Tutorial: Set up a lab
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
-In this tutorial, you set up a classroom lab with virtual machines that are used by students in the classroom by doing the following actions:
+In this tutorial, you set up a lab with virtual machines that are used by students in the classroom by doing the following actions:
 
 > [!div class="checklist"]
-> * Create a classroom lab
+> * Create a lab
 > * Add users to the lab
 > * Set schedule for the lab
 > * Send invitation email to students
 
 ## Prerequisites
 
-To set up a classroom lab, you must be a member of one of these roles in the lab plan: Owner, Lab Creator, or Contributor. The account you used to create a lab plan is automatically added to the owner role. So, you can use the user account that you used to create a lab plan to create a classroom lab.
+To set up a lab, you must be a member of one of these roles in the lab plan: Owner, Lab Creator, or Contributor. The account you used to create a lab plan is automatically added to the owner role. So, you can use the user account that you used to create a lab plan to create a lab.
 
 Here's the typical workflow when using Azure Lab Services:
 
@@ -27,7 +27,7 @@ Here's the typical workflow when using Azure Lab Services:
 2. Then, the educators create labs with VMs for their classes and send registration links to students in the class.
 3. Students use the registration link that they receive from educators to register to the lab. Once they're registered, they can use VMs in the labs to do the class work and homework.
 
-## Create a classroom lab
+## Create a lab
 
 In this step, you create a lab for your class in Azure.
 
@@ -35,7 +35,7 @@ In this step, you create a lab for your class in Azure.
 2. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts.
 3. Select **New lab**.
 
-    :::image type="content" source="./media/tutorial-setup-classroom-lab/new-lab-button.png" alt-text="Create a classroom lab":::
+    :::image type="content" source="./media/tutorial-setup-classroom-lab/new-lab-button.png" alt-text="Create a lab":::
 4. In the **New Lab** window, do the following actions:
     1. Specify a **name**, **lab plan**, **virtual machine image**, **size**, and **region** for your lab, and select **Next**.  
 
@@ -207,4 +207,4 @@ For more information about adding students to a class and managing their usage o
 In this tutorial, you created a lab for your class in Azure. To learn how a student can access a VM in the lab using the registration link, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Connect to a VM in the classroom lab](tutorial-connect-virtual-machine-classroom-lab.md)
+> [Connect to a VM in the lab](tutorial-connect-virtual-machine-classroom-lab.md)

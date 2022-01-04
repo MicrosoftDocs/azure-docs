@@ -27,7 +27,7 @@ Enable settings described in the table below for the lab account. For more infor
 
 | Lab plan setting | Instructions |
 | ------------------- | ------------ |
-| Marketplace image | Inside your lab account, enable one of the Azure Marketplace images based on your operating system needs: <br/><ul><li>Data Science Virtual Machine – Windows Server 2019</li><li>Data Science Virtual Machine – Ubuntu 18.04</li></ul> |
+| Marketplace image | Inside your lab account, enable either **Data Science Virtual Machine – Windows Server 2019** or **Data Science Virtual Machine – Ubuntu 18.04** depending on your OS needs. |
 
 > [!NOTE]
 > This article uses the Data Science virtual machine images available on the Azure marketplace because they are preconfigured with Jupyter Notebook. These images, however, also include many other development and modeling tools for data science. If you don't want those extra tools and want a lightweight setup with just Jupyter notebooks, create a custom VM image. For an example, [Installing JupyterHub on Azure](http://tljh.jupyter.org/en/latest/install/azure.html). Once the custom image is created, you can upload it to a shared image gallery to use the image inside Azure Lab Services. Learn more about [using Shared Image Gallery in Azure Lab Services](how-to-attach-detach-shared-image-gallery.md).
@@ -125,7 +125,7 @@ Once you publish the template, each student will have access to a VM that comes 
 
 If you’ve provided students with Windows VMs, they need to connect to their VMs and use Jupyter Notebooks that are available locally on them.
 
-To connect to a Windows VM, a student can use a remote desktop connection (RDP). For detailed steps, see [how to access a classroom lab](how-to-use-classroom-lab.md).
+To connect to a Windows VM, a student can use a remote desktop connection (RDP). For detailed steps, see [how to access a lab](how-to-use-classroom-lab.md).
 
 A student using a Mac or Chromebook can follow instructions from following articles to connect to the Data Science Windows VM.
 
@@ -145,7 +145,7 @@ The following sections provide details about these ways to connect to Jupyter no
 
 #### SSH to virtual machine
 
-Students can connect via SSH to their Linux VMs from a terminal session. For detailed steps, see [how to access a classroom lab](how-to-use-classroom-lab.md). If they are using a Windows client machine, they will need to enable an SSH client by downloading [PuTTY](https://www.putty.org/) or enabling [OpenSSH in Windows](/windows-server/administration/openssh/openssh_install_firstuse) to SSH from the command prompt.
+Students can connect via SSH to their Linux VMs from a terminal session. For detailed steps, see [how to access a lab](how-to-use-classroom-lab.md). If they are using a Windows client machine, they will need to enable an SSH client by downloading [PuTTY](https://www.putty.org/) or enabling [OpenSSH in Windows](/windows-server/administration/openssh/openssh_install_firstuse) to SSH from the command prompt.
 
 1. Start the VM.
 2. Once the VM is running, click **Connect**, which will pop up a dialog box that provides the SSH command string, which will look like the following sample:

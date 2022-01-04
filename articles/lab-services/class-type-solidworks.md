@@ -49,7 +49,7 @@ In addition to Windows 10, SOLIDWORKS supports other versions of Windows.  See [
 
 ### Lab settings
 
-For instructions on how to create a lab, see [Tutorial: Set up a classroom lab](tutorial-setup-classroom-lab.md).  Use the following settings when creating the lab.
+For instructions on how to create a lab, see [Tutorial: Set up a lab](tutorial-setup-classroom-lab.md).  Use the following settings when creating the lab.
 
 | Lab settings | Value/instructions |
 | ------------ | ------------------ |

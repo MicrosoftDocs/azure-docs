@@ -1,29 +1,29 @@
 ---
 title: Manage labs in Azure Lab Services (deprecated) | Microsoft Docs
-description: Learn how to create and configure a classroom lab, view all the labs, share the registration link with a lab user, or delete a lab. (deprecated)
+description: Learn how to create and configure a lab, view all the labs, share the registration link with a lab user, or delete a lab. (deprecated)
 ms.topic: how-to
 ms.date: 11/12/2021
 ---
 
 # Manage labs in Azure Lab Services (deprecated)
 
-This article describes how to create and delete a classroom lab. It also shows you how to view all the labs in a lab account.
+This article describes how to create and delete a lab. It also shows you how to view all the labs in a lab account.
 
 ## Prerequisites
 
-To set up a classroom lab in a lab account, you must be a member of the **Lab Creator** role in the lab account. The account you used to create a lab account is automatically added to this role. A lab owner can add other users to the Lab Creator role by using steps in the following article: [Add a user to the Lab Creator role](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+To set up a lab in a lab account, you must be a member of the **Lab Creator** role in the lab account. The account you used to create a lab account is automatically added to this role. A lab owner can add other users to the Lab Creator role by using steps in the following article: [Add a user to the Lab Creator role](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
-## Create a classroom lab
+## Create a lab
 
 1. Navigate to [Azure Lab Services website](https://labs.azure.com).
 2. Select **Sign in** and enter your credentials. Select or enter a **user ID** that is a member of the **Lab Creator** role in the lab account, and enter password. Azure Lab Services supports organizational accounts and Microsoft accounts.
 3. Select **New lab**.
 
-    ![Create a classroom lab](./media/tutorial-setup-classroom-lab/new-lab-button.png)
+    ![Create a lab](./media/tutorial-setup-classroom-lab/new-lab-button.png)
 4. In the **New Lab** window, do the following actions:
     1. Specify a **name** for your lab.
     1. Select the **size of the virtual machines** you need for the class. For the list of sizes available, see the [VM Sizes](#vm-sizes) section.
-    1. Select the **virtual machine image** that you want to use for the classroom lab. If you select a Linux image, you see an option to **enable remote desktop connection**. For details, see [Enable remote desktop connection for Linux](how-to-enable-remote-desktop-linux.md).
+    1. Select the **virtual machine image** that you want to use for the lab. If you select a Linux image, you see an option to **enable remote desktop connection**. For details, see [Enable remote desktop connection for Linux](how-to-enable-remote-desktop-linux.md).
 
         If you signed in using lab account owner credentials, you will see an option to enable more images for the lab. For more information, see [Enable images at the time of lab creation](specify-marketplace-images.md#enable-images-at-the-time-of-lab-creation).
     1. Review the **total price per hour** displayed on the page.
@@ -90,7 +90,7 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 For information on VM sizes and their cost, see the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
 > [!NOTE]
-> You may not see some of the expected VM sizes in the list when creating a classroom lab. The list is populated based on the current capacity of the lab's location. If the lab account creator [allows lab creators to pick a location for the lab](allow-lab-creator-pick-lab-location.md), you may try choosing a different location for the lab and see if the VM size is available.
+> You may not see some of the expected VM sizes in the list when creating a lab. The list is populated based on the current capacity of the lab's location. If the lab account creator [allows lab creators to pick a location for the lab](allow-lab-creator-pick-lab-location.md), you may try choosing a different location for the lab and see if the VM size is available.
 
 ## View all labs
 
@@ -103,16 +103,16 @@ For information on VM sizes and their cost, see the [Azure Pricing Calculator](h
     ![All labs](./media/how-to-manage-classroom-labs/all-labs.png)
 1. Use the drop-down list at the top to select a different lab account. You see labs in the selected lab account.
 
-## Delete a classroom lab
+## Delete a lab
 
 1. On the tile for the lab, select three dots (...) in the corner, and then select **Delete**.
 
     ![Delete button](./media/how-to-manage-classroom-labs/delete-button.png)
 1. On the **Delete lab** dialog box, select **Delete** to continue with the deletion.
 
-## Switch to another classroom lab
+## Switch to another lab
 
-To switch to another classroom lab from the current, select the drop-down list of labs in the lab account at the top.
+To switch to another lab from the current, select the drop-down list of labs in the lab account at the top.
 
 ![Select the lab from drop-down list at the top](./media/how-to-manage-classroom-labs/switch-lab.png)
 
