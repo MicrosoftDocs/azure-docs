@@ -344,7 +344,7 @@ This section shows users how to create a virtual machine on VMware vCenter using
     :::image type="content" source="media/deploy-arc-for-avs/deploy-vm-arc-avs-1.2.png" alt-text="Image showing the location of the plus Create drop down and Azure VMware Solution virtual machine selection option."lightbox="media/deploy-arc-for-avs/deploy-vm-arc-avs-1.2.png"::: 
 
 Near the top of the **Virtual machines** page, you'll find five tabs labeled: **Basics**, **Disks**, **Networking**, **Tags**, and **Review + create**. Follow the steps or options provided in each tab to create your Azure VMware Solution virtual machine.
-:::image type="content" source="media/deploy-arc-for-avs/deploy-vm-arc-avs-tabs.png" alt-text="Image showing the five tabs used in the walk-through steps listed below."lightbox="media/de    ploy-arc-for-avs/deploy-vm-arc-avs-tabs.png":::
+:::image type="content" source="media/deploy-arc-for-avs/deploy-vm-arc-avs-tabs.png" alt-text="Image showing the five tabs used in the walk-through steps listed below."lightbox="media/deploy-arc-for-avs/deploy-vm-arc-avs-tabs.png":::
 
 **Basics**
 1. Project details, select the **Subscription** and **Resource group** where you want to deploy your VM.
