@@ -163,9 +163,9 @@ Site-to-site connection 1 settings
 * **Routing Options**: Dynamic (requires BGP)
 * **Local IPv4 Network CIDR**: 0.0.0.0/0
 * **Tunnel Inside Ip Version**: IPv4
-* **Inside IPv4 CIDR for Tunnel 1**: 169.254.21.1
+* **Inside IPv4 CIDR for Tunnel 1**: 169.254.21.0/30
 * **Pre-Shared Key for Tunnel 1**: choose a secure key
-* **Inside IPv4 CIDR for Tunnel 2**: 169.254.22.1
+* **Inside IPv4 CIDR for Tunnel 2**: 169.254.22.0/30
 * **Pre-Shared Key for Tunnel 2**: choose a secure key
 * **Startup Action**: Start
 
@@ -178,9 +178,9 @@ Site-to-site connection 2 settings
 * **Routing Options**: Dynamic (requires BGP)
 * **Local IPv4 Network CIDR**: 0.0.0.0/0
 * **Tunnel Inside Ip Version**: IPv4
-* **Inside IPv4 CIDR for Tunnel 1**: 169.254.21.6
+* **Inside IPv4 CIDR for Tunnel 1**: 169.254.21.4/30
 * **Pre-Shared Key for Tunnel 1**: choose a secure key
-* **Inside IPv4 CIDR for Tunnel 2**: 169.254.22.6
+* **Inside IPv4 CIDR for Tunnel 2**: 169.254.22.4/30
 * **Pre-Shared Key for Tunnel 2**: choose a secure key
 * **Startup Action**: Start
 
