@@ -33,7 +33,6 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 
 ## Limitations
 
-- You can use Azure portal, CLI, or REST requests in data export configuration. PowerShell isn't supported yet.
 - All tables will be supported in export, but support is currently limited to those specified in the [supported tables](#supported-tables) section below. 
 - The current custom log tables won’t be supported in export. A new version of custom log preview available February 2022, will be supported in export.
 - You can define up to 10 enabled rules in your workspace. More rules are allowed when disabled. 
