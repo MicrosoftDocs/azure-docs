@@ -37,6 +37,7 @@ Azure NetApp Files standard network features are supported for the following reg
 
 *	North Central US
 *	South Central US
+*   West US 3
 
 ## Considerations  
 
