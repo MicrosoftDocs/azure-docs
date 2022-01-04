@@ -142,29 +142,6 @@ The steps below guide you through the process to onboard in Arc for Azure VMware
 > [!IMPORTANT]
 > You can't create the resources in a separate resource group. You'll need to use the Resource Group from where the Azure VMware Solution private cloud was created to create the resources. 
  
-## Overview of the Onboarding/Off boarding process 
-
-While invoking the script, you'll be required to define one of the Operations listed below. 
-
-**Onboard** 
-1. Download and install the tools you’ll need to execute preview software from jump box (Azure CLI tools, Python, etc.). If you already have the necessary tools installed, skip to the next step. 
-1. Create Azure VMware Solution segment as per details if not present already. Create a Domain Name server (DNS)  and zones if not already present and get the vCenter credentials. 
-1. Create a template for Arc Appliance and take a snapshot of it. 
-1. Deploy the Arc for Azure VMware Solution appliance VM. 
-1. Create an ARM processor resource for the appliance. 
-1. Create a Kubernetes extension resource for Azure VMware. 
-1. Create a custom location.  
-1. Create an Azure representation of the vCenter. 
-1. Link the vCenter resource to the Azure VMware Solution Private cloud resource. 
- 
-**Off board** 
-1. Download and install the tools you’ll need to execute preview software from jump box (Azure CLI tools, Python, etc.). If you already have the necessary tools installed, skip to the next step. 
-1. Unlink the vCenter resource from the Azure VMware Solution private cloud resource. 
-1. Delete the Azure representation of the vCenter. 
-1. Delete the Custom Location resource, the Kubernetes extension for Azure VMware operator, and the Appliance. 
-1. Delete the appliance VM. 
-
-
 ## Discover and project your VMware infrastructure resources to Azure
 
 Once Arc appliance is successfully deployed on your private cloud, you can perform the following actions.
