@@ -25,8 +25,6 @@ You can configure Azure SQL Database and SQL Managed Instance by using the <a hr
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - This tutorial requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-
 ## [Azure SQL Database](#tab/single-database)
 
 The following table includes links to Azure CLI script examples to manage single and pooled databases in Azure SQL Database.
