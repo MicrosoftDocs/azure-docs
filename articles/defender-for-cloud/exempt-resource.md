@@ -2,7 +2,7 @@
 title: Exempt a Microsoft Defender for Cloud recommendation from a resource, subscription, management group, and secure score
 description: Learn how to create rules to exempt security recommendations from subscriptions or management groups and prevent them from impacting your secure score
 ms.topic: how-to
-ms.date: 12/26/2021
+ms.date: 01/02/2022
 ---
 
 # Exempting resources and recommendations from your secure score 
@@ -193,17 +193,13 @@ These generally available recommendations don't support exemption:
 
 - All advanced threat protection types should be enabled in SQL managed instance advanced data security settings
 - All advanced threat protection types should be enabled in SQL server advanced data security settings
-- An Azure Active Directory administrator should be provisioned for SQL servers
-- Azure Defender for Key Vault should be enabled
 - Container CPU and memory limits should be enforced
 - Container images should be deployed from trusted registries only
 - Container with privilege escalation should be avoided
 - Containers sharing sensitive host namespaces should be avoided
 - Containers should listen on allowed ports only
-- CORS should not allow every resource to access your Web Applications
 - Default IP Filter Policy should be Deny
 - Immutable (read-only) root filesystem should be enforced for containers
-- Install endpoint protection solution on your machines
 - IoT Devices - Open Ports On Device
 - IoT Devices - Permissive firewall policy in one of the chains was found
 - IoT Devices - Permissive firewall rule in the input chain was found
@@ -215,7 +211,7 @@ These generally available recommendations don't support exemption:
 - Privileged containers should be avoided
 - Running containers as root user should be avoided
 - Services should listen on allowed ports only
-- System updates should be installed on your machines
+- SQL servers should have an Azure Active Directory administrator provisioned
 - Usage of host networking and ports should be restricted
 - Usage of pod HostPath volume mounts should be restricted to a known list to restrict node access from compromised containers
 

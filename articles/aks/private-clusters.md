@@ -137,18 +137,11 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### Create a private AKS cluster with Custom Private DNS Zone
-
-```azurecli-interactive
-# Custom Private DNS Zone name should be in format "privatelink.<region>.azmk8s.io"
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId>
-```
-
-### Create a private AKS cluster with Custom Private DNS SubZone
+### Create a private AKS cluster with Custom Private DNS Zone or Private DNS SubZone
 
 ```azurecli-interactive
 # Custom Private DNS Zone name should be in format "<subzone>.privatelink.<region>.azmk8s.io"
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId>
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone or custom private dns subzone ResourceId>
 ```
 
 ### Create a private AKS cluster with Custom Private DNS Zone and Custom Subdomain

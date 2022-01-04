@@ -8,14 +8,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 09/28/2021
+ms.date: 01/03/2022
 ms.custom: contperf-fy21q1
 ---
 # What is Azure Cognitive Search?
 
 Azure Cognitive Search ([formerly known as "Azure Search"](whats-new.md#new-service-name)) is a cloud search service that gives developers infrastructure, APIs, and tools for building a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications.
 
-Search is foundational to any app that surfaces text content to users, with common scenarios including catalog or document search, online retail, or knowledge mining for data science.
+Search is foundational to any app that surfaces text content to users, with common scenarios including catalog or document search, online retail, or data exploration.
 
 When you create a search service, you'll work with the following capabilities:
 
@@ -53,7 +53,7 @@ Azure Cognitive Search is well suited for the following application scenarios:
 
 + Easily implement search-related features: relevance tuning, faceted navigation, filters (including geo-spatial search), synonym mapping, and autocomplete.
 
-+ Transform large undifferentiated text or image files, or application files stored in Azure Blob Storage or Cosmos DB, into searchable JSON documents. This is achieved during index through [cognitive skills](cognitive-search-concept-intro.md) that add external processing.
++ Transform large undifferentiated text or image files, or application files stored in Azure Blob Storage or Cosmos DB, into searchable JSON documents. This is achieved during indexing through [cognitive skills](cognitive-search-concept-intro.md) that add external processing.
 
 + Add linguistic or custom text analysis. If you have non-English content, Azure Cognitive Search supports both Lucene analyzers and Microsoft's natural language processors. You can also configure analyzers to achieve specialized processing of raw content, such as filtering out diacritics, or recognizing and preserving patterns in strings.
 
@@ -63,15 +63,15 @@ For more information about specific functionality, see [Features of Azure Cognit
 
 An end-to-end exploration of core search features can be accomplished in four steps:
 
-1. [**Choose a tier**](search-sku-tier.md). One free search service is allowed per subscription. All quickstarts can be completed on the free tier. For more capacity and capabilities, you will need a [billable tier](https://azure.microsoft.com/pricing/details/search/).
+1. [**Decide on a tier**](search-sku-tier.md). One free search service is allowed per subscription. All quickstarts can be completed on the free tier. For more capacity and capabilities, you will need a [billable tier](https://azure.microsoft.com/pricing/details/search/).
 
 1. [**Create a search service**](search-create-service-portal.md) in the Azure portal.
 
-1. [**Start with Import data wizard**](search-get-started-portal.md). Choose a built-in sample data source to create, load, and query an index in minutes.
+1. [**Start with Import data wizard**](search-get-started-portal.md). Choose a built-in sample or a supported data source to create, load, and query an index in minutes.
 
 1. [**Finish with Search Explorer**](search-explorer.md), using a portal client to query the search index you just created.
 
-Alternatively, you can create, load, and query a search index in separate steps:
+Alternatively, you can create, load, and query a search index in atomically:
 
 1. [**Create a search index**](search-what-is-an-index.md) using the portal, [REST API](/rest/api/searchservice/create-index), [.NET SDK](search-howto-dotnet-sdk.md), or another SDK. The index schema defines the structure of searchable content.
 
