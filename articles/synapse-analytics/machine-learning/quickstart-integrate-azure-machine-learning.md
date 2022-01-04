@@ -5,7 +5,7 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: quickstart
-ms.reviewer: jrasnick, garye
+ms.reviewer: sngun, garye
 ms.date: 12/16/2021
 author: nelgson
 ms.author: negust
