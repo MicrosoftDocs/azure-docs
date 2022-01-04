@@ -268,8 +268,9 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                           | Description                                                            | Type         | Notes  |
-> | `azure_files_storage_account_id`   | If provided the Azure resource ID of the storage account for Azure Files | Option     |        |
+> | Variable                           | Description                                                            | Type         |
+> | ---------------------------------- | ----------------------------------------------------------------------- | ----------- |
+> | `azure_files_storage_account_id`   | If provided the Azure resource ID of the storage account for Azure Files | Optional    |  
 
 
 ## High availability configuration
