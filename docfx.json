@@ -570,7 +570,6 @@
         "articles/migrate/**/*.md": "evansma",
         "articles/remote-rendering/**/*.md": "jlyons",
         "articles/site-recovery/**/*.md": "evansma",
-        "articles/synapse-analytics/**/*.md": "jroth",
         "articles/virtual-machines/**/*.md": "mamccrea",
         "articles/virtual-machine-scale-sets/**/*.md": "mamccrea"
       },
