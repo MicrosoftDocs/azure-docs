@@ -108,6 +108,16 @@ const endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
 const apiKey = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
 ```
 
+> [!TIP]
+> If you would like to try more than one code sample:
+>
+> * Select one of the sample code blocks below to copy and paste into your application.
+> * [**Run your application**](#run-your-application).
+> * Comment out that sample code block but keep the set-up code and library directives.
+> * Select another sample code block to copy and paste into your application.
+> * [**Build and run your application**](#build-run-your-application).
+> * You can continue to comment out, copy/paste, and run the sample blocks of code.
+
 ### Select a code sample to copy and paste into your application:
 
 * [**General document**](#general-document-model)

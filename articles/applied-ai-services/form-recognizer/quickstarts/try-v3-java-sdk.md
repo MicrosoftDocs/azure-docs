@@ -156,8 +156,7 @@ public class FormRecognizer {
 > * Comment out that sample code block but keep the set-up code and library directives.
 > * Select another sample code block to copy and paste into your application.
 > * [**Build and run your application**](#build-and-run-your-application).
-> * You can continue to comment out, copy/paste, and run the sample blocks as you wish.
-
+> * You can continue to comment out, copy/paste, build, and run the sample blocks of code.
 
 #### Select a code sample to copy and paste into your application's main method:
 

@@ -155,6 +155,16 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
     :::image type="content" source="../media/quickstarts/add-code-here.png" alt-text="Screenshot: add the sample code to the Main method.":::
 
+> [!TIP]
+> If you would like to try more than one code sample:
+>
+> * Select one of the sample code blocks below to copy and paste into your application.
+> * [**Run your application**](#run-your-application).
+> * Comment out that sample code block but keep the set-up code and library directives.
+> * Select another sample code block to copy and paste into your application.
+> * [**Run your application**](#run-your-application).
+> * You can continue to comment out, copy/paste, and run the sample blocks of code.
+
 ### Select one of the following code samples to copy and paste into your application Program.cs file:
 
 * [**General document model**](#general-document-model)
