@@ -156,7 +156,7 @@ Do the following steps in the Azure portal to order a device:
 
     ![Screenshot of the Security tab for a Data Box import order. A selected User Identify is highlighted in the Encryption Type settings.](./media/data-box-order-portal/customer-managed-key-14.png)
 
-15. If you're using a customer-managed key, enable the **Get**, **Unwrap Key**, and **Wrap Key** permissions on the key. Without these permissions, order creation will fail. These permissions must remain for the lifetime of the order. They're also required during the Data Copy phase. For more info about key requirements, see [Troubleshoot errors for customer-managed keys](data-box-customer-managed-encryption-key-portal.md#troubleshoot-errors).
+15. If you're using a customer-managed key, enable the **Get**, **Unwrap Key**, and **Wrap Key** permissions on the key. Without these permissions, order creation will fail. These permissions must remain for the lifetime of the order. They're also required during the Data Copy phase. For more info about key requirements, see [Troubleshoot errors for customer-managed keys](../articles/databox/data-box-customer-managed-encryption-key-portal.md#troubleshoot-errors).
 
 16. If you don't want to use the system-generated passwords that Azure Data Box uses by default, expand **Bring your own password** on the **Security** screen.
 
