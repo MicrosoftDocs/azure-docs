@@ -254,7 +254,7 @@ We will enhance this part and avoid this error from users’ applications in sho
 
 ## Enterprise Tier
 
-### Error 112404: Failed to wait for deplaoyment instance to be ready. Please check the application log (see https://aka.ms/azure-spring-cloud-doc-log) and try again later.
+### Error 112404: Failed to wait for deployment instance to be ready. Please check the application log (see https://aka.ms/azure-spring-cloud-doc-log) and try again later.
 
 Check for the following error message in the application log.
 
@@ -313,9 +313,9 @@ You can view the billing account for your subscription if you have admin access.
 
 Azure Spring Cloud Enterprise tier is free for private preview.
 
-## How can I get Vmware Spring Runtime Support (Enterprise Tier only)?
+## How can I get VMware Spring Runtime Support (Enterprise Tier only)?
 
-Enterprise tier has built-in Vmware Spring Runtime Support so you can directly open support tickets to [Vmware](https://via.vmw.com/ascevsrsupport) if you think your issue is in scope of Vmware Spring Runtime Support. For more information, see [https://tanzu.vmware.com/spring-runtime](https://tanzu.vmware.com/spring-runtime) to open tickets to Vmware. For any other issues, directly open support tickets with Microsoft.
+Enterprise tier has built-in VMware Spring Runtime Support so you can directly open support tickets to [VMware](https://via.vmw.com/ascevsrsupport) if you think your issue is in scope of VMware Spring Runtime Support. For more information, see [https://tanzu.vmware.com/spring-runtime](https://tanzu.vmware.com/spring-runtime) to open tickets to VMware. For any other issues, directly open support tickets with Microsoft.
 
 ## Next steps
 

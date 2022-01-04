@@ -39,7 +39,7 @@ Application Insights can provide many observable perspectives, including:
 
 ## Using the Application Insights feature
 
-When the **Application Insights** feature is enabled, you can go to the **Overview** page of Application Insights to:
+When the **Application Insights** feature is enabled, select the **Overview** page of Application Insights to:
 
 * See an overview of all apps.
 
@@ -227,7 +227,7 @@ Enable the Java In-Process Agent by using the following procedure.
 
 ## Portal
 
-1. Go to the **service | Overview** page and select **Application Insights** in the **Monitoring** section.
+1. Select **service | Overview**, then select **Application Insights** in the **Monitoring** section.
 2. Select **Enable Application Insights** to enable Application Insights in Azure Spring Cloud.
 3. When **Application Insights** is enabled, you can configure one optional sampling rate (default 10.0%).
 
@@ -240,7 +240,7 @@ Enable the Java In-Process Agent by using the following procedure.
 
 When the **Application Insights** feature is enabled, you can:
 
-In the left navigation pane, select **Application Insights** to jump to the **Overview** page of Application Insights.
+In the left navigation pane, select **Application Insights** to view the **Overview** page of Application Insights.
 
 * Select **Application Map** to see the status of calls between applications.
 

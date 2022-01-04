@@ -44,7 +44,7 @@ Use the following steps to provision an Azure Spring Cloud service instance:
 
 1. On the **Azure Spring Cloud** page, select **Create**.
 
-1. Go to the Azure Spring Cloud **Create** page. For the **Pricing** option, select **Change** and choose the **Enterprise** tier.
+1. On the Azure Spring Cloud *Create* page, select **Change** next to the *Pricing* option, then select the **Enterprise** tier.
 
    ![Where to choose the Enterprise Tier on the Create Page](./media/enterprise/service-instance/choose-enterprise-tier.png)
 
@@ -96,7 +96,8 @@ To use Application Configuration Service, follow these steps.
 > [!NOTE]
 > To use Application Configuration Service, you must enable it when you provision your Azure Spring Cloud service instance. You cannot enable it after provisioning at this time.
 
-1. Select **Application Configuration Service**. The **Overview** shows the running state and resources allocated to Application Configuration Service.
+1. Select **Application Configuration Service**.
+1. Select **Overview** to view the running state and resources allocated to Application Configuration Service.
 
    ![Application Configuration Service Overview screen](./media/enterprise/application-configuration-service/overview.png)
 
@@ -111,7 +112,7 @@ To use Application Configuration Service, follow these steps.
 
    ![Application Configuration Service Settings overview](./media/enterprise/application-configuration-service/settings.png)
 
-1. Select **App binding**, then select **Bind app**. 
+1. Select **App binding**, then select **Bind app**.
 1. Choose one app in the dropdown and select **Apply** to bind the application to Application Configuration Service.
 
    ![ACS Bind an app dropdown](./media/enterprise/application-configuration-service/app-bind-dropdown.png)
@@ -127,9 +128,9 @@ To use Service Registry, follow these steps.
 > [!NOTE]
 > To use Service Registry, you must enable it when your Azure Spring Cloud service instance is provisioned. You cannot enable it after provisioning at this time.
 
-1. Select **Service Registry** and view the **Overview** section. **Overview** shows the running state and resources allocated to Service Registry.
-
-1. Select **App binding**, then select select **Bind app**.
+1. Select **Service Registry**.
+1. Select **Overview** to view the running state and resources allocated to Service Registry.
+1. Select **App binding**, then select **Bind app**.
 1. Choose one app in the dropdown and select **Apply** to bind the application to Service Registry.
 
    ![Service Registry bind an app dropdown](./media/enterprise/service-registry/app-bind-dropdown.png)
@@ -186,7 +187,7 @@ To build locally, use the following steps:
 
 ### Verify the applications
 
-Access the `application gateway` and `customers service` applications from the browser using the `Public Url` shown above. The Public Url has the format `https://<service_name>-api-gateway.azuremicroservices.io`.
+Access the `api gateway` and `customers service` applications from the browser using the `Public Url` shown above. The Public Url has the format `https://<service_name>-api-gateway.azuremicroservices.io`.
 
 ![Access petclinic customers service](./media/enterprise/app-deployment/access-customers-service.png)
 
@@ -201,9 +202,9 @@ To use Spring Cloud Gateway, follow these steps.
 
 Assign a public endpoint for the gateway to access to it, using the following steps:
 
-1. Open the **Spring Cloud Gateway** section, then select **Overview**. **Overview** shows the running state and resources allocated to Spring Cloud Gateway.
-
-1. Click on **Yes** next to *Assign endpoint* to assign a public endpoint. A URL will be generated for you after a few minutes.
+1. Select the **Spring Cloud Gateway** section.
+1. Select **Overview** to view the running state and resources allocated to Spring Cloud Gateway.
+1. Select **Yes** next to *Assign endpoint* to assign a public endpoint. A URL will be generated for you after a few minutes.
 
 ![Assign public endpoint for gateway](./media/enterprise/gateway/overview.png)
 
@@ -261,9 +262,9 @@ To use API portal, follow these steps to assign a public endpoint to the API por
 > [!NOTE]
 > To use the API portal, you must enable it when you provision your Azure Spring Cloud service instance. You cannot enable the API portal after provisioning, at this time.
 
-1. Select **API portal**, then select **Overview**. **Overview** shows the running state and resources allocated to the API portal.
-
-1. Click on **Yes** next to *Assign endpoint* to assign a public endpoint. A URL will be generated for you after a few minutes.
+1. Select **API portal**. 
+1. Select **Overview** to view the running state and resources allocated to the API portal.
+1. Select **Yes** next to *Assign endpoint* to assign a public endpoint. A URL will be generated for you after a few minutes.
 
    ![Assign public endpoint for API portal](./media/enterprise/api-portal/overview.png)
 
@@ -271,7 +272,7 @@ To use API portal, follow these steps to assign a public endpoint to the API por
 
    > Note: It usually take several minutes to sync between Spring Cloud Gateway and API portal.
 
-   Click on the assigned endpoint URL to go to API portal. You can see all the routes configured in Spring Cloud Gateway.
+   Select the assigned endpoint URL to go to API portal. You can see all the routes configured in Spring Cloud Gateway.
 
    ![API portal with configured routes](./media/enterprise/api-portal/portal.png)
 

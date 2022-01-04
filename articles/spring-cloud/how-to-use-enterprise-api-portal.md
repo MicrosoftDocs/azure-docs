@@ -50,7 +50,7 @@ Configuration of the instance count for the API portal is supported, unless you 
 To access the API portal, use the following steps to assign a public endpoint:
 
 1. Select **API portal**.
-1. Select **Overview** to show the running state and resources allocated to the API portal.
+1. Select **Overview** to view the running state and resources allocated to the API portal.
 1. Select **Yes** next to *Assign endpoint* to assign a public endpoint. A URL will be generated within a few minutes.
 
   ![Assign public endpoint for API portal](./media/enterprise/api-portal/overview.png)
@@ -67,7 +67,7 @@ az spring-cloud api-portal update --assign-endpoint
 
 > Note: It takes several minutes to sync between Spring Cloud Gateway and the API portal.
    
-Click on the `endpoint URL` to go to API portal. You will see all the routes configured in Spring Cloud Gateway.
+Select the `endpoint URL` to go to API portal. You will see all the routes configured in Spring Cloud Gateway.
 
 ![API portal routes image](./media/enterprise/api-portal/portal.png)
 

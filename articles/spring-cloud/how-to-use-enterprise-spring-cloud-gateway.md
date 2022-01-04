@@ -130,9 +130,9 @@ Not all the filters/predicates are supported in Azure Spring Cloud because of se
 
 1. Assign a public endpoint to the gateway to access it.
 
-   Open the **Spring Cloud Gateway** section and find the **Overview** tab, which shows the running state and resources given to Spring Cloud Gateway and its operator.
+   Select the **Spring Cloud Gateway** section, then select **Overview** to view the running state and resources given to Spring Cloud Gateway and its operator.
 
-   Click on the **Assign endpoint** toggle button to assign public endpoint. You'll get a URL in a few minutes. Save the URL to use later.
+   Select **Yes** next to *Assign endpoint* to assign a public endpoint. You'll get a URL in a few minutes. Save the URL to use later.
 
    ![Assign public endpoint for gateway](./media/enterprise/gateway/overview.png)
 
