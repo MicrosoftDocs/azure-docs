@@ -17,7 +17,7 @@ ms.date: 07/01/2019
 Microsoft periodically refreshes hardware to optimize the customer experience. During these refreshes, Azure adds gateways built on newer hardware generations, migrates traffic to them, and eventually decommissions gateways built on older hardware in some regions.
 
 
-To avoid service disruptions during refreshes, allow the communication with SQL Gateway IP subnet ranges for the region. Review [SQL Gateway IP subnet ranges](connectivity-architecture#gateway-ip-addresses) and include the ranges for your region.
+To avoid service disruptions during refreshes, allow the communication with SQL Gateway IP subnet ranges for the region. Review [SQL Gateway IP subnet ranges](connectivity-architecture.md#gateway-ip-addresses) and include the ranges for your region.
 
 
 Customers can [use the Azure portal to set up activity log alerts](../../service-health/alerts-activity-log-service-notifications-portal.md).
