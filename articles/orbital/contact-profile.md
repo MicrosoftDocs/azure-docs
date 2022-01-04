@@ -27,10 +27,9 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
 ## Create a contact profile resource
 
-1. Select **Create a resource** in the upper left-hand corner of the portal.
-2. In the search box, enter **Contact profile**. Select **Contact profile** in the search results. 
-3. In the **Contact profile** page, select **Create**.
-4. In **Create contact profile resource**, enter or select this information in the **Basics** tab:
+1. In the Azure portal search box, enter **Contact profile**. Select **Contact profile** in the search results. 
+2. In the **Contact profile** page, select **Create**.
+3. In **Create contact profile resource**, enter or select this information in the **Basics** tab:
 
    | **Field** | **Value** |
    | --- | --- |
@@ -46,9 +45,9 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
    :::image type="content" source="media/orbital-eos-contact-profile.png" alt-text="Contact Profile Resource Page" lightbox="media/orbital-eos-contact-profile.png":::
 
-5. Select the **Links** tab, or select the **Next: Links** button at the bottom of the page.
-6. In the **Links** page, select **Add new Link**
-7. In the **Add Link** page, enter, or select this information per link direction:
+4. Select the **Links** tab, or select the **Next: Links** button at the bottom of the page.
+5. In the **Links** page, select **Add new Link**
+6. In the **Add Link** page, enter, or select this information per link direction:
 
    | **Field** | **Value** |
    | --- | --- |
@@ -64,9 +63,9 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
    :::image type="content" source="media/orbital-eos-contact-link.png" alt-text="Contact Profile Links Page" lightbox="media/orbital-eos-contact-link.png":::
 
-8. Select the **Submit** button
-9. Select the **Review + create** tab or select the **Review + create** button
-10. Select the **Create** button
+7. Select the **Submit** button
+8. Select the **Review + create** tab or select the **Review + create** button
+9. Select the **Create** button
 
 ## Next steps
 
