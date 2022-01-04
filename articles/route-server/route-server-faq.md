@@ -53,7 +53,7 @@ If the route has the same AS path length, Azure Route Server will program multip
 
 ### Does Azure Route Server preserve the BGP AS Path of the route it receives?
 
-Yes, Azure Route Server propagates the route with the BGP AS Path in tact.
+Yes, Azure Route Server propagates the route with the BGP AS Path intact.
 
 ### Does Azure Route Server preserve the BGP communities of the route it receives?
 
