@@ -38,7 +38,7 @@ To integrate a Service Bus namespace with Azure Private Link, you'll need the fo
 
 Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it will automatically filter only virtual networks that are in that region. Your Service Bus namespace can be in a different region. And, Your private endpoint uses a private IP address in your virtual network.
 
-### steps
+### Steps
 
 If you already have an existing namespace, you can create a private endpoint by following these steps:
 
@@ -264,7 +264,7 @@ Aliases:  <service-bus-namespace-name>.servicebus.windows.net
 
 For more, see [Azure Private Link service: Limitations](../private-link/private-link-service-overview.md#limitations)
 
-## Next Steps
+## Next steps
 
 - Learn more about [Azure Private Link](../private-link/private-link-service-overview.md)
 - Learn more about [Azure Service Bus](service-bus-messaging-overview.md)
