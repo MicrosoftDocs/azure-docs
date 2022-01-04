@@ -102,11 +102,11 @@ After creating and connecting to the cluster, install the Open Liberty Operator.
 7. Observe the Open Liberty Operator is successfully installed and ready for use.  If you don't, diagnose and resolve the problem before continuing.
    :::image type="content" source="media/howto-deploy-java-liberty-app/open-liberty-operator-installed.png" alt-text="Installed Operators showing Open Liberty is installed.":::
 
-### Create an Azure Database for MySQL(Only if your application requires)
+### Create an Azure Database for MySQL(Only if required by your application)
 
 Follow the instructions below to set up an Azure Database for MySQL for use with your app.
 
-1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure Database for MySQL server by using the Azure portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
+1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure Database for MySQL server by using the Azure portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal). Return to this document after creating the database.
     > [!NOTE]
     >
     > * At **Basics** step, write down ***Server name**.mysql.database.azure.com*, **Server admin login** and **Password**.
@@ -120,9 +120,11 @@ Follow the instructions below to set up an Azure Database for MySQL for use with
 
 3. Open **your SQL database** > **Connection strings** > Select **JDBC**. Write down the **Port number** following sql server address. For example, **3306** is the port number in the example below.
 
-   ![get mysql server jdbc connection string](./media/howto-deploy-java-liberty-app/mysql-server-jdbc-connection-string.png)
+   ```text
+   String url ="jdbc:mysql://<Database name>.mysql.database.azure.com:3306/{your_database}?useSSL=true&requireSSL=false"; myDbConn = DriverManager.getConnection(url, "<Server admin login>", {your_password});
+   ```
 
-4. If you didn't create a database in above steps, follow the steps in [Quickstart: Create an Azure Database for MySQL server by using the Azure portal#connect-to-the-server-by-using-mysqlexe](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal#connect-to-the-server-by-using-mysqlexe) to create one.
+4. If you didn't create a database in above steps, follow the steps in [Quickstart: Create an Azure Database for MySQL server by using the Azure portal#connect-to-the-server-by-using-mysqlexe](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal#connect-to-the-server-by-using-mysqlexe) to create one. Return to this document after creating the database.
     > [!NOTE]
     >
     > * Write down **Database name** you created.
@@ -145,7 +147,7 @@ Clone the sample code for this guide. The sample is on [GitHub](https://github.c
 There are three samples in the repository.  We will use *open-liberty-on-aro/3-integration/connect-db/mysqls*. Here is the file structure of the application.
 
 ```
-javaee-app-db-using-actions/mssql
+open-liberty-on-aro/3-integration/connect-db/mysql
 ├─ src/main/
 │  ├─ aro/
 │  │  ├─ db-secret.yaml
@@ -199,7 +201,7 @@ We've prepared the *Dockerfile-local* and *Dockerfile-wlp-local* for it in the s
 1. Start the application in `liberty:devc` mode
 
   ```bash
-  cd <path-to-your-repo>/javaee-app-db-using-actions/mssql
+  cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
 
   # If you are running with Open Liberty
   mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -Ddockerfile=target/Dockerfile-local
@@ -208,7 +210,7 @@ We've prepared the *Dockerfile-local* and *Dockerfile-wlp-local* for it in the s
   mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -Ddockerfile=target/Dockerfile-wlp-local
   ```
 
-1. Verify the application works as expected. You should see `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser and verify the application is accessible and all functions are working.
+1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser and verify the application is accessible and all functions are working.
 
 1. Press `Ctrl+C` to stop `liberty:devc` mode.
 
