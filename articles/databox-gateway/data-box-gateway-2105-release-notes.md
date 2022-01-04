@@ -1,13 +1,13 @@
 ---
-title: Azure Data Box Gateway 2101 release notes| Microsoft Docs
-description: Describes critical open issues and resolutions for the Azure Data Box Gateway running 2101 release.
+title: Azure Data Box Gateway 2105 release notes| Microsoft Docs
+description: Describes critical open issues and resolutions for the Azure Data Box Gateway running 2105 release.
 services: databox
 author: v-dalc
  
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/03/2022
+ms.date: 01/04/2022
 ms.author: alkohli
 ---
 
