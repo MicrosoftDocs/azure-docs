@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 12/23/2021
+ms.date: 01/04/2022
 ms.author: bemabonsu
 recommendations: false
 #Customer intent: I want to learn how to use create a Form Recognizer service in the Azure portal.
@@ -41,7 +41,7 @@ Let's get started:
 
 1. Select **Review + Create**.
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-two.gif" alt-text="Still image showing the correct values for creating Form Recognizer resource.":::
+    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-two.png" alt-text="Still image showing the correct values for creating Form Recognizer resource.":::
 
 1. Azure will run a quick validation check, after a few seconds you should see a green banner that says **Validation Passed**. 
 
@@ -57,9 +57,9 @@ Let's get started:
 
 1. If your overview page does not have the keys and endpoint visible, you can select the **Keys and Endpoint** button on the left navigation bar and retrieve them there.
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-four.gif" alt-text="Still photo showing how to access resource key and endpoint URL":::
+    :::image border="true" type="content" source="media/containers/keys-and-endpoint.png" alt-text="Still photo showing how to access resource key and endpoint URL":::
 
-That's it! You're now ready to start automating data extraction using Form Recognizer.
+That's it! You're now ready to start automating data extraction using Azure Form Recognizer.
 
 ## Next Steps
 
