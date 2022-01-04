@@ -4,8 +4,8 @@ description: Learn about your support options for the commercial marketplace pro
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: navits09
-ms.author: navits
+author: aarathin
+ms.author: aarathin
 ms.date: 09/27/2021
 ---
 
