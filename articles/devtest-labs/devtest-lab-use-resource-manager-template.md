@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 01/03/2022
 ---
 
-# Create Azure virtual machines by using ARM templates
+# Use ARM templates to create DevTest Labs virtual machines
 
 You can use Azure Resource Manager (ARM) templates to create preconfigured Azure virtual machines (VMs) in Azure DevTest Labs. 
 
@@ -13,7 +13,7 @@ You can use Azure Resource Manager (ARM) templates to create preconfigured Azure
 
 Single-VM ARM templates use the [Microsoft.DevTestLab/labs/virtualmachines](/azure/templates/microsoft.devtestlab/2018-09-15/labs/virtualmachines) resource type. Each VM created with this resource type appears as a separate item in the lab's **My virtual machines** list.
 
-You can create your own single-VM ARM templates, access the public [DevTest Labs GitHub repository](https://github.com/Azure/azure-devtestlab) for preconfigured templates, or modify existing ARM templates to meet your needs.
+You can create your own single-VM ARM templates, access the public [DevTest Labs GitHub repository](https://github.com/Azure/azure-devtestlab) for preconfigured templates, or modify existing ARM templates to meet your needs. Lab users can use your ARM templates to create and deploy Azure VMs.
 
 This article describes how to:
 
@@ -96,7 +96,7 @@ Add your template repositories to your lab so all lab users can access the templ
 
    ![Screenshot that shows adding a new template repository to a lab.](./media/devtest-lab-create-environment-from-arm/repo-values.png)
 
-The repository now appears in the **Repositories** list for the lab. Users can now use the repository templates to [create multi-VM DevTest Labs environments](devtest-lab-create-environment-from-arm.md). Lab administrators can use the templates to [automate lab deployment and management tasks](devtest-lab-use-arm-and-powershell-for-lab-resources#arm-template-automation).
+The repository now appears in the **Repositories** list for the lab. Users can now use the repository templates to [create multi-VM DevTest Labs environments](devtest-lab-create-environment-from-arm.md). Lab administrators can use the templates to [automate lab deployment and management tasks](devtest-lab-use-arm-and-powershell-for-lab-resources.md#arm-template-automation).
 
 ### Next steps
 

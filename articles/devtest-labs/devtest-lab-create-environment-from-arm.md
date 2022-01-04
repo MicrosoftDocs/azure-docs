@@ -13,7 +13,9 @@ Azure multi-tier web apps or SharePoint farms use multiple virtual machines (VMs
 
 Multi-VM ARM environment templates use the [Microsoft.Compute/virtualmachines](/azure/templates/microsoft.compute/virtualmachines) resource type. Lab users can use the templates to easily and consistently deploy multiple VMs with preinstalled resources as a single environment. The VMs created with this resource type appear under their environments in the lab's **My environments** list.
 
-You can configure DevTest Labs to load ARM environment templates directly from public or private Git source control repositories. Lab users can then create environments by selecting the templates in the Azure portal, just as they can select individual [VM base images](devtest-lab-comparing-vm-base-image-types.md) to create VMs.
+![Screenshot that shows V Ms in an environment.](./media/devtest-lab-create-environment-from-arm/environment.png)
+
+You can configure DevTest Labs to load ARM environment templates directly from public or private Git source control repositories. Lab users can then create environments by selecting the templates in the Azure portal, just as they select individual [VM base images](devtest-lab-comparing-vm-base-image-types.md) to create VMs.
 
 VMs in the same environment share the same lifecycle, and lab users can manage the VMs together. You can track the cost of lab environments and PaaS resources, just as you track costs for individual lab VMs.
 
@@ -33,7 +35,7 @@ Azure DevTest Labs has a [public ARM template repository](https://github.com/Azu
 
 You can use the public environment templates as-is, or customize them to suit your needs. To suggest revisions or additions to the public templates, submit pull requests against the open-source [GitHub public template repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments) 
 
-You can also [store environment templates in your own Git repositories](devtest-lab-use-resource-manager-template.md#store-arm-templates-in-git-repositories), and [connect those repositories to your lab](devtest-lab-use-resource-manager-template.md#add-template-repositories-to-labs) to make your templates available to all lab users. For instructions, see [Create Azure virtual machines by using ARM templates](devtest-lab-use-resource-manager-template.md).
+You can also [store environment templates in your own Git repositories](devtest-lab-use-resource-manager-template.md#store-arm-templates-in-git-repositories), and [connect those repositories to your lab](devtest-lab-use-resource-manager-template.md#add-template-repositories-to-labs) to make your templates available to all lab users.
 
 ## Enable and configure public environments
 
@@ -105,7 +107,7 @@ By default, lab users have **Reader** role in environments, so they can't change
 
 If you need to create multiple environments for development or testing scenarios, you can automate environment deployment with Azure PowerShell or Azure CLI.
 
-Lab users can automate VM creation by using the Azure CLI commands [az lab vm create](/cli/azure/lab/vm#az_lab_vm_create) and [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create). For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+You can use the Azure CLI command [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) to create environments. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
 Lab owners and administrators can use Azure PowerShell to create VMs and environments from ARM templates.
 
