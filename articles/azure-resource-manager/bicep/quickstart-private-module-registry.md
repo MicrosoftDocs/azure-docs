@@ -74,7 +74,7 @@ To get the login server name, use [az acr show](/cli/azure/acr#az_acr_show).
 az acr show --resource-group <resource-group-name> --name <registry-name> --query loginServer
 ```
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 To get the login server name, use [Get-AzContainerRegistry](/powershell/module/az.containerregistry/get-azcontainerregistry).
 
@@ -94,7 +94,7 @@ To run this deployment command, you must have the [latest version](/cli/azure/in
 az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
 ```
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Publish-AzBicepModule -FilePath ./storage.bicep -Target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
@@ -122,7 +122,7 @@ To run this deployment command, you must have the [latest version](/cli/azure/in
 az acr repository list --name <registry-name> --output table
 ```
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Get-AzContainerRegistryRepository -RegistryName <registry-name>
@@ -161,7 +161,11 @@ module stgModule 'br:ace1207.azurecr.io/bicep/modules/storage:v1' = {
 
 Save the Bicep file locally, and then use Azure CLI or Azure PowerShell to deploy the Bicep file:
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/azure-cli)
+
+To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 resourceGroupName = "{provide-a-resource-group-name}"
@@ -172,7 +176,7 @@ az group create --name $resourceGroupName --location eastus
 az deployment group create --resource-group $resourceGroupName --template-file $templateFile
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = "{provide-a-resource-group-name}"
@@ -191,7 +195,7 @@ From the Azure portal, verify the storage account has been created successfully.
 
 When the Azure resources are no longer needed, use the Azure CLI or Azure PowerShell module to delete the quickstart resource group.
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 resourceGroupName = "{provide-the-resource-group-name}"
@@ -199,7 +203,7 @@ resourceGroupName = "{provide-the-resource-group-name}"
 az group delete --name $resourceGroupName
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = "{provide-the-resource-group-name}"
