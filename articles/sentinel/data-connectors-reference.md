@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: batamig
 ms.topic: reference
-ms.date: 12/23/2021
+ms.date: 01/04/2022
 ms.author: bagol
 ms.custom: ignite-fall-2021
 ---
@@ -1123,6 +1123,14 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Supported by** | Microsoft |
 | | |
 
+## Microsoft Sysmon for Linux (Preview)
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog**, with a Kusto function parser |
+| **Log Analytics table(s)** | Sysmon data |
+| **Supported by** | Microsoft |
+| | |
 
 
 ## Morphisec UTPP (Preview)
