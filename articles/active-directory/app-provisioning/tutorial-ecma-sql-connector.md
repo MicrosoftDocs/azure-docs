@@ -3,7 +3,7 @@ title:  Azure AD Provisioning to SQL applications
 description: This tutorial describes how to provision users from Azure AD into a SQL database.
 services: active-directory
 author: billmath
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial

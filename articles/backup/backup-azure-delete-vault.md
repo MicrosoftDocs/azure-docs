@@ -2,7 +2,7 @@
 title: Delete a Microsoft Azure Recovery Services vault 
 description: In this article, learn how to remove dependencies and then delete an Azure Backup Recovery Services vault.
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 12/20/2021
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -28,6 +28,8 @@ If you try to delete the vault without removing the dependencies, you'll encount
 
 ## Delete a Recovery Services vault
 
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWQGC5]
+
 Choose a client:
 
 # [Azure portal](#tab/portal)
@@ -37,10 +39,6 @@ Choose a client:
 
 >[!Note]
 >If you're sure that all backed-up items in the vault are no longer required and want to delete them at once without reviewing, [run this PowerShell script](/azure/backup/backup-azure-delete-vault?tabs=powershell#script-for-delete-vault). The script will delete all backup items recursively and eventually the entire vault.
-
-<br>
-
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWQGC5]
 
 To delete a vault, follow these steps:
 

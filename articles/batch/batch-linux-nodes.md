@@ -3,6 +3,7 @@ title: Run Linux on virtual machine compute nodes
 description: Learn how to process parallel compute workloads on pools of Linux virtual machines in Azure Batch.
 ms.topic: how-to
 ms.date: 12/13/2021
+ms.devlang: csharp, python
 ms.custom: "H1Hack27Feb2017, devx-track-python, devx-track-csharp"
 ---
 # Provision Linux compute nodes in Batch pools

@@ -3,7 +3,7 @@ title: Azure AD built-in roles - Azure Active Directory
 description: Describes the Azure Active Directory built-in roles and permissions.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity

@@ -70,6 +70,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Colt](https://www.colt.net/direct-connect/azure/)** |Supported |Supported |Amsterdam, Amsterdam2, Berlin, Chicago, Dublin, Frankfurt, Geneva, Hong Kong, London, London2, Marseille, Milan, Munich, Newport, New York, Osaka, Paris, Silicon Valley, Silicon Valley2, Singapore2, Tokyo, Washington DC, Zurich |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Supported |Supported |Chicago, Silicon Valley, Washington DC |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Supported |Supported |Chicago, Chicago2, Denver, Los Angeles, New York, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2 |
+| **[Cox Business Cloud Port](https://www.cox.com/business/networking/cloud-connectivity.html)** |Supported |Supported | Dallas, Phoenix, Silicon Valley, Washington DC |
 | **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange/find-a-cloud-service/detail/microsoft-azure)** | Supported |Supported |Amsterdam2, Dubai2, Frankfurt, Marseille, Mumbai, Munich, New York |
 | **[Devoli](https://devoli.com/expressroute)** | Supported |Supported | Auckland, Melbourne, Sydney |
 | **[Deutsche Telekom AG IntraSelect](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** | Supported |Supported |Frankfurt |
@@ -90,7 +91,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Supported| Supported | Chennai, Mumbai |
 | **[iAdvantage](https://www.scx.sunevision.com/)** | Supported | Supported | Hong Kong2 |
 | **Intelsat** | Supported | Supported | Washington DC2 |
-| **[InterCloud](https://www.intercloud.com/)** |Supported |Supported |Amsterdam, Chicago, Frankfurt, Hong Kong, London, New York, Paris, Silicon Valley, Singapore, Tokyo, Washington DC, Zurich |
+| **[InterCloud](https://www.intercloud.com/)** |Supported |Supported |Amsterdam, Chicago, Frankfurt, Hong Kong, London, New York, Paris, Sao Paulo, Silicon Valley, Singapore, Tokyo, Washington DC, Zurich |
 | **[Internet2](https://internet2.edu/services/cloud-connect/#service-cloud-connect)** |Supported |Supported |Chicago, Dallas, Silicon Valley, Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](https://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Supported |Supported |Osaka, Tokyo |
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Supported |Supported |Cape Town, Johannesburg, London |
@@ -161,7 +162,7 @@ The following table shows locations by service provider. If you want to view ava
 | **Vodacom** |Supported |Supported |Cape Town, Johannesburg|
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Supported |Supported |Amsterdam2, London, Singapore |
 | **[Vodafone Idea](https://www.vodafone.in/business/enterprise-solutions/connectivity/vpn-extended-connect)** | Supported | Supported | Mumbai2 |
-| **[XL Axiata]** | Supported | Supported | Jakarta |
+| **XL Axiata** | Supported | Supported | Jakarta |
 | **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Supported |Supported |Amsterdam, Chicago, Dallas, Denver, London, Los Angeles, Montreal, New York, Paris, Phoenix, Seattle, Silicon Valley, Toronto, Washington DC, Washington DC2 |
 
  **+** denotes coming soon
