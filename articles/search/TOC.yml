@@ -379,6 +379,8 @@
       href: cognitive-search-attach-cognitive-services.md
     - name: Create a skillset
       href: cognitive-search-defining-skillset.md
+    - name: Debug a skillset
+      href: cognitive-search-how-to-debug-skillset.md
     - name: Reference an annotation    
       href: cognitive-search-concept-annotations-syntax.md
     - name: Map to index fields

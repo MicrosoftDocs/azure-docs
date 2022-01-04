@@ -4,7 +4,7 @@ description: Learn about Azure role definitions in Azure role-based access contr
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
