@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: security
 ms.date: 12/1/2020
 ms.author: mesrivas
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # How to review Synapse RBAC role assignments
