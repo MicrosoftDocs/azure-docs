@@ -421,7 +421,7 @@ The Waittype, Open_Tran, and Status columns refer to information returned by [sy
 * [Quickstart: Extended events in SQL Server](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server)
 * [Intelligent Insights using AI to monitor and troubleshoot database performance](intelligent-insights-overview.md)
 
-## Next Steps
+## Next steps
 
 * [Azure SQL Database: Improving Performance Tuning with Automatic Tuning](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Improving-Performance-Tuning-with-Automatic-Tuning)
 * [Deliver consistent performance with Azure SQL](/learn/modules/azure-sql-performance/)

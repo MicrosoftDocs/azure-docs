@@ -65,15 +65,15 @@ To understand what is causing your high CPU incident, identify when high CPU uti
 
 Examine:
 
-1. Are new queries using significant CPU appearing in the workload, or are you seeing an increase in frequency of regularly running queries? Use any of the following methods to investigate. Look for queries with limited history (new queries), and at the frequency of execution for queries with longer history.
+- Are new queries using significant CPU appearing in the workload, or are you seeing an increase in frequency of regularly running queries? Use any of the following methods to investigate. Look for queries with limited history (new queries), and at the frequency of execution for queries with longer history.
     - [Review CPU metrics and related top queries in the Azure portal](#review-cpu-usage-metrics-and-related-top-queries-in-the-azure-portal) 
     - [Query the top recent 15 queries by CPU usage](#query-the-top-recent-15-queries-by-cpu-usage) with Transact-SQL.
     - [Use interactive Query Store tools in SSMS to identify top queries by CPU time](#use-interactive-query-store-tools-to-identify-top-queries-by-cpu-time)
-1. Are some queries in the workload using more CPU per execution than they did in the past? If so, has the query execution plan changed? These queries may [have parameter sensitive plan (PSP) problems](../identify-query-performance-issues.md). Use either of the following techniques to investigate. Look for queries with multiple query execution plans with significant variation in CPU usage:
+- Are some queries in the workload using more CPU per execution than they did in the past? If so, has the query execution plan changed? These queries may [have parameter sensitive plan (PSP) problems](../identify-query-performance-issues.md). Use either of the following techniques to investigate. Look for queries with multiple query execution plans with significant variation in CPU usage:
     - [Query the top recent 15 queries by CPU usage](#query-the-top-recent-15-queries-by-cpu-usage) with Transact-SQL.
     - [Use interactive Query Store tools in SSMS to identify top queries by CPU time](#use-interactive-query-store-tools-to-identify-top-queries-by-cpu-time)
-1. Is there evidence of a large amount of compilation or recompilation occurring? Query the [most frequently compiled queries by query hash](#query-the-most-frequently-compiled-queries-by-query-hash) and review how frequently they compile.
-1. Are queries using excessive parallelism? Query your [MAXDOP database scoped configuration](configure-max-degree-of-parallelism.md#maxdop-database-scoped-configuration-1) and review your [vCore count](#understand-vcore-count). Excessive parallelism often occurs in databases where MAXDOP is set to 0 with a core count higher than eight.
+- Is there evidence of a large amount of compilation or recompilation occurring? Query the [most frequently compiled queries by query hash](#query-the-most-frequently-compiled-queries-by-query-hash) and review how frequently they compile.
+- Are queries using excessive parallelism? Query your [MAXDOP database scoped configuration](configure-max-degree-of-parallelism.md#maxdop-database-scoped-configuration-1) and review your [vCore count](#understand-vcore-count). Excessive parallelism often occurs in databases where MAXDOP is set to 0 with a core count higher than eight.
 
 > [!Note]
 > Azure SQL Database requires compute resources to implement core service features such as high availability and disaster recovery, database backup and restore, monitoring, Query Store, automatic tuning, etc. Use of these compute resources may be particularly noticeable on databases with low vCore counts or databases in dense [elastic pools](elastic-pool-overview.md). Learn more in [Resource management in Azure SQL Database](resource-limits-logical-server.md#resource-consumption-by-user-workloads-and-internal-processes).
@@ -295,7 +295,7 @@ Select **Configure** in the top right of the pane to select a different time per
 
 Select a bar in the chart to drill in and see queries running in a specific time period. The **Top Resource Consuming Queries** pane will open. Alternately, you can open **Top Resource Consuming Queries** from the Query Store node under your database in Object Explorer directly.
 
-:::image type="content" source="./media/high-cpu-troubleshoot/ssms-query-store-top-resource-consuming-queries.png" alt-text="Screenshot shows the Top Resource Consuming Queries pane for Query Store in SSMS.":::
+:::image type="content" source="./media/high-cpu-troubleshoot/ssms-query-store-top-resource-consuming-queries.png" alt-text="Screenshot shows the Top Resource Consuming Queries pane for Query Store in S S M S.":::
 
 In the default view, the **Top Resource Consuming Queries** pane shows queries by **Duration (ms)**. Duration may sometimes be lower than CPU time: queries using parallelism may use much more CPU time than their overall duration. Duration may also be higher than CPU time if waits were significant. To see queries by CPU time, select the **Metric** drop-down at the top left of the pane and select **CPU Time(ms)**.
 
@@ -307,11 +307,11 @@ Each bar in the top-left quadrant represents a query. Select a bar to see detail
 ## Reduce CPU usage
 Part of your troubleshooting should include learning more about the queries identified in the previous section. You can reduce CPU usage by tuning indexes, modifying your application patterns, tuning queries, and adjusting CPU-related settings for your database.
 
-1. If you found new queries using significant CPU appearing in the workload, validate that indexes have been optimized for those queries. You can [tune indexes manually](#tune-indexes-manually) or [reduce CPU usage with automatic index tuning](#reduce-cpu-usage-with-automatic-index-tuning). Evaluate if your [max degree of parallelism](#reduce-cpu-usage-by-tuning-the-max-degree-of-parallelism) setting is correct for your increased workload.
-1. If you found that the overall execution count of queries is higher than it used to be, [tune indexes for your highest CPU consuming queries](#tune-indexes-manually) and consider [automatic index tuning](#reduce-cpu-usage-with-automatic-index-tuning). Evaluate if your [max degree of parallelism](#reduce-cpu-usage-by-tuning-the-max-degree-of-parallelism) setting is correct for your increased workload.
-1. If you found queries in the workload with [parameter sensitive plan (PSP) problems](../identify-query-performance-issues.md), consider [automatic plan correction (force plan)](#reduce-cpu-usage-with-automatic-plan-correction-force-plan). You can also [manually force a plan in Query Store](/sql/relational-databases/system-stored-procedures/sp-query-store-force-plan-transact-sql) or tune the Transact-SQL for the query to result in a consistently high-performing query plan.
-1. If you found evidence that a large amount of compilation or recompilation is occurring, [tune the queries so that they are properly parameterized or do not require recompile hints](#tune-your-application-queries-and-database-settings).
-1. If you found that queries are using excessive parallelism, [tune the max degree of parallelism](#reduce-cpu-usage-by-tuning-the-max-degree-of-parallelism).
+- If you found new queries using significant CPU appearing in the workload, validate that indexes have been optimized for those queries. You can [tune indexes manually](#tune-indexes-manually) or [reduce CPU usage with automatic index tuning](#reduce-cpu-usage-with-automatic-index-tuning). Evaluate if your [max degree of parallelism](#reduce-cpu-usage-by-tuning-the-max-degree-of-parallelism) setting is correct for your increased workload.
+- If you found that the overall execution count of queries is higher than it used to be, [tune indexes for your highest CPU consuming queries](#tune-indexes-manually) and consider [automatic index tuning](#reduce-cpu-usage-with-automatic-index-tuning). Evaluate if your [max degree of parallelism](#reduce-cpu-usage-by-tuning-the-max-degree-of-parallelism) setting is correct for your increased workload.
+- If you found queries in the workload with [parameter sensitive plan (PSP) problems](../identify-query-performance-issues.md), consider [automatic plan correction (force plan)](#reduce-cpu-usage-with-automatic-plan-correction-force-plan). You can also [manually force a plan in Query Store](/sql/relational-databases/system-stored-procedures/sp-query-store-force-plan-transact-sql) or tune the Transact-SQL for the query to result in a consistently high-performing query plan.
+- If you found evidence that a large amount of compilation or recompilation is occurring, [tune the queries so that they are properly parameterized or do not require recompile hints](#tune-your-application-queries-and-database-settings).
+- If you found that queries are using excessive parallelism, [tune the max degree of parallelism](#reduce-cpu-usage-by-tuning-the-max-degree-of-parallelism).
 
 Consider the following strategies in this section.
 
