@@ -38,7 +38,7 @@ Advisor identifies resources that have not been used at all over the last 7 days
 
 ### Resize SKU recommendations
 
-Advisor considers resizing virtual machines when it's possible to fit the current load on a more appropriate SKU which costs less than the current one (we currently consider retail rates only during recommendation generation). 
+Advisor considers resizing virtual machines when it's possible to fit the current load on a more appropriate SKU, which costs less than the current one (we currently consider retail rates only during recommendation generation). 
 
 -	Metrics considered are CPU, Memory and Outbound Network utilization 
 - The last 7 days of utilization data are considered
@@ -53,7 +53,7 @@ Advisor considers resizing virtual machines when it's possible to fit the curren
   - The new SKU is supported in the current region of the Virtual Machine with the recommendation
   - The new SKU is less expensive 
 - Advisor determines the type of workload (user facing/non user facing) by analyzing the CPU utilization characteristics of the workload. This is based on some fascinating findings by Microsoft Research . You can find more details here: [Prediction-Based Power Oversubscription in Cloud Platforms - Microsoft Research](https://www.microsoft.com/research/publication/prediction-based-power-oversubscription-in-cloud-platforms/).
-- Advisor recommends not just smaller SKUs in the same family (for e.g. D3v2 to D2v2) but also SKUs in a newer version (for e.g. D3v2 to D2v3) or even a completely different family (for e.g. D3v2 to E3v2) based on the best fit and the cheapest costs with no performance impacts. 
+- Advisor recommends not just smaller SKUs in the same family (for e.g. D3v2 to D2v2) but also SKUs in a newer version (for example D3v2 to D2v3) or even a completely different family (for e.g. D3v2 to E3v2) based on the best fit and the cheapest costs with no performance impacts. 
 
 ### Burstable recommendations
 
@@ -63,7 +63,7 @@ This is a special kind of resize recommendation, where Advisor analyzes workload
 - The average CPU utilization is less than a Burstable SKUs baseline performance
   - If the P95 of CPU is less than 2 times the Burstable SKUs baseline performance
   - If the current SKU does not have accelerated networking enabled (burstable SKUs don’t supported accelerated networking yet)
-  - If we determine that the Burstable SKU credits is sufficient to support the average CPU utilization over 7 days
+  - If we determine that the Burstable SKU credits are sufficient to support the average CPU utilization over 7 days
 - The result is a recommendation suggesting that the user resize their current VM to a burstable SKU (with the same number of cores) to take advantage of the low costs and the fact that the workload has low average utilization but high spikes in cases, which is perfect for the B-series SKU. 
  
 Advisor shows the estimated cost savings for either recommended action: resize or shut down. For resize, Advisor provides current and target SKU information.
@@ -145,7 +145,7 @@ It's preferable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with st
 Advisor identifies resources where reducing the table cache policy will free up Azure Data Explorer cluster nodes having low CPU utilization, memory, and a high cache size configuration.
 
 ## Configure manual throughput instead of autoscale on your Azure Cosmos DB database or container
-Based on your usage in the past 7 days, you can save by using manual throughput instead of autoscale. Manual throughput is more cost-effective when average utilization of your max throughput (RU/s) is greater than 66% or less than or equal to 10%. Cost savings amount represents potential savings from using the recommended manual throughput, based on usage in the past 7 days. Your actual savings may vary depending on the manual throughput you set and whether your average utilization of throughput continues to be similar to the time period analyzed. The estimated savings does not account for any discount that may apply to your account.
+Based on your usage in the past 7 days, you can save by using manual throughput instead of autoscale. Manual throughput is more cost-effective when average utilization of your max throughput (RU/s) is greater than 66% or less than or equal to 10%. Cost savings amount represents potential savings from using the recommended manual throughput, based on usage in the past 7 days. Your actual savings may vary depending on the manual throughput you set and whether your average utilization of throughput continues to be similar to the time period analyzed. The estimated savings do not account for any discount that may apply to your account.
 
 ## Enable autoscale on your Azure Cosmos DB database or container
 Based on your usage in the past 7 days, you can save by enabling autoscale. For each hour, we compared the RU/s provisioned to the actual utilization of the RU/s (what autoscale would have scaled to) and calculated the cost savings across the time period. Autoscale helps optimize your cost by scaling down RU/s when not in use.
