@@ -23,7 +23,7 @@ This topic provides an overview of the components of the **Autopilot** dashboard
 
 To display a list of **Autopilot Rules**:
 
-- **Authorization system types** - From a drop down list, select the authorization system types you can access. May include Amazon Web Services (AWS), Microsoft Azure (Azure), Google Cloud Platform (GCP), and so on.
+- **Authorization system types** - From a drop-down list, select the authorization system types you can access. May include Amazon Web Services (AWS), Microsoft Azure (Azure), Google Cloud Platform (GCP), and so on.
 - **Authorization systems** - Select the appropriate option from either the **List** or **Folders** section, and then select **Apply**. 
 
 The following information displays in the table:

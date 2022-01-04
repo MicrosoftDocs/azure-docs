@@ -26,14 +26,14 @@ The table in the **Usage Analytics** dashboard displays the following informatio
 - **Resources**
 - **User Groups**
 - **Last Activity On** date
-- An ellipses **(...)*** menu. Select the ellipses to display the associated **Tag**.
-- A down arrow. 
+- The ellipses **(...)** menu. Select the ellipses to display the associated **Tag**.
+- The down arrow. 
     - Select the down arrow to view details about the **Username** and its associated **Tasks** sorted by **Unused** and **Used**, **User Groups**, **Roles Available**, and **Policies**.
     Select the up arrow to return to the previous view.
 
 The left toolbar provides the following options:
 - **Authorization systems** (the lock icon) - Displays a list of authorization systems and accounts you can access. Select the systems and accounts you want to view and then select **Apply**.
-- **Users** (the people icon) - Displays a list of **User**, **Type of user**, **Role/ App/ Service a/c**, **Resources** and **Cross Account**  you can access. Select the users whose activity you want to view and then select **Apply**.
+- **Users** (the people icon) - Displays a list of **User**, **Type of user**, **Role/ App/ Service a/c**, **Resources**, and **Cross Account**  you can access. Select the users whose activity you want to view and then select **Apply**.
 - **Tasks** (the clipboard icon) - Displays a list of **Tasks** you can access. Select **All** or **High Risk Tasks**, and then select **Apply**.
     - To delete the selected tasks, select **Delete**, and then select **Apply**.
 
@@ -43,7 +43,8 @@ The top toolbar provides the following options:
 
     The following message displays: **We'll email you a link to download the file.** 
 
-    - Check your email for the message from the [CloudKnox Customer Success Team](reports@cloudknox.io) which contains a link to the **User Entitlements And Usage** report.
+    - Check your email for the message from the CloudKnox Customer Success Team. This email contains a link to the **User Entitlements And Usage** report.
+        <!---Ad Link reports@cloudknox.io---> 
     - The email includes a link to the **Reports** dashboard where you can configure how and when you can automatically receive reports.
 
 - **Account** - The name of the account.

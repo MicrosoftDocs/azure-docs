@@ -53,7 +53,8 @@ Use this tab to add filters to your role/policy.
 
     When the file is successfully exported, a message appears: **Exported successfully.**
 
-     - Check your email for the message from the [CloudKnox Customer Success Team](reports@cloudknox.io) which contains a link to the **Role Policy Details** report in CSV format.
+    - Check your email for the message from the CloudKnox Customer Success Team. This email contains a link to the **Role Policy Details** report in CSV format.
+        <!---Ad Link reports@cloudknox.io---> 
     - The email includes a link to the **Reports** dashboard where you can configure how and when you can automatically receive reports.
 
 
@@ -65,8 +66,8 @@ Use the **Permissions** tab to add filters to your permissions.
 - **Authorization System** - Displays a list of authorization systems accounts you can access.
 - **Search For** - From the drop-down list, select **Group**, **User**, or **Role**.
 - **User Status** - From the drop-down list, select **Any**, **Active**, or **Inactive**.
-- **Privilege Creep Index** - From the drop-down list, select **Any**, **High**, **Medium** or **Low**.
-- **Task Usage** - From the drop-down list, select **Any**, **Granted**, **Used** or **Unused**.
+- **Privilege Creep Index** - From the drop-down list, select **Any**, **High**, **Medium**, or **Low**.
+- **Task Usage** - From the drop-down list, select **Any**, **Granted**, **Used**, or **Unused**.
 - **Enter a username** - From the drop-down list, select  a username.
 - **Enter a Group Name** - From the drop-down list, select  a group name.
 - **Apply** - Select to save the changes you've made.
@@ -76,9 +77,8 @@ Use the **Permissions** tab to add filters to your permissions.
 
     When the file is successfully exported, a message appears: **Exported successfully.**
 
-     - Check your email for the message from the [CloudKnox Customer Success Team](reports@cloudknox.io) which contains a link to the **Role Policy Details** report in CSV format.
-    - The email includes a link to the **Reports** dashboard where you can configure how and when you can automatically receive reports.
-
+     - Check your email for the message from the CloudKnox Customer Success Team. This email contains a link to the **Role Policy Details** report in CSV format.
+        <!---Ad Link reports@cloudknox.io---> 
 ## The Requests tab 
 
 Use the **Requests** tab to view a list of **Pending**, **Approved**, and **Processed** requests for permissions your team members have made.
@@ -94,7 +94,7 @@ The **Pending Requests** table displays the following information:
 - **Task/Scope/Policies** - Displays the type of task/scope/policy selected.
 -  **Request Date** - Displays the date when the request was made.
 - **Submitted** - Displays the period since the request was made.
-- An ellipses **(...)*** menu - Select the ellipses, and then select **Details**, **Approve**, or **Reject**.
+- The ellipses **(...)** menu - Select the ellipses, and then select **Details**, **Approve**, or **Reject**.
 - Select from the following actions:
     - **Reload** - Select to refresh the displayed list of roles/policies.
     - **Search** - Select to search for a specific role/policy.
@@ -124,7 +124,7 @@ The **Pending Requests** table displays the following information:
 - **Task/Scope/Policies** - Displays the type of task/scope/policy selected.
 -  **Request Date** - Displays the date when the request was made.
 - **Submitted** - Displays the period since the request was made.
-- An ellipses **(...)*** menu - Select the ellipses, and then select **Details**, **Approve**, or **Reject**.
+- The ellipses **(...)** menu - Select the ellipses, and then select **Details**, **Approve**, or **Reject**.
 - Select from the following actions:
     - **Reload** - Select to refresh the displayed list of roles/policies.
     - **Search** - Select to search for a specific role/policy.

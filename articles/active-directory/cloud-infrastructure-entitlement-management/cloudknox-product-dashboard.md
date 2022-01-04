@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management dashboard
-description: How to use the Microsoft CloudKnox Permissions Management dashboard.
+title: Microsoft CloudKnox Permissions Management dashboard - How to read information on the CloudKnox dashboard
+description: How to read information on the Microsoft CloudKnox Permissions Management dashboard.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,19 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/15/2021
+ms.date: 01/03/2021
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management dashboard
+# Microsoft CloudKnox Permissions Management - How to read information on the CloudKnox dashboard
 
 Microsoft CloudKnox Permissions Management provides a visual, operational dashboard that summarizes and updates key statistics and data about an authorization system on an hourly basis. This dashboard is available for Amazon Web Services (AWS), Google Cloud Platform (GCP), Microsoft Azure, and vCenter Server virtual machine.
 
 This data shows metrics related to avoidable risk. It allows the CloudKnox administrator to quickly and easily identify areas to reduce risks related to the principle of least privilege.
 
-## The CloudKnox dashboard
-
-The CloudKnox dashboard contains the following information:
+The CloudKnox dashboard contains 2 main components:
 
 - Privilege Creep Index (PCI) gauge/chart - The PCI gauge identifies how many users who have been granted high-risk privileges aren't using them. The PCI chart identifies how many users are contributing to the PCI and where they're on the scale.
 
@@ -41,9 +39,9 @@ The CloudKnox dashboard contains the following information:
 5. The far right column displays **Highest PCI Change** for the last seven days and shows the Authorization system name with the PCI number and the change number, if applicable. 
 6. To view all authorization system changes, select **View All** at the bottom of the box.
 
-## How to read the dashboard
+## How to read the Privilege Creep Index
 
-1. The **Privilege Creep Index** heat map shows the incurred risk of users with access to high-risk privileges, and is a function of:
+The **Privilege Creep Index** heat map shows the incurred risk of users with access to high-risk privileges, and is a function of:
 
 	- Users who were given access to high-risk privileges but aren't actively using them. High-risk privileges include the ability to modify or delete contents within the authorization system.
 
@@ -61,9 +59,11 @@ The CloudKnox dashboard contains the following information:
 
    The distribution graph displays all the users who contribute to the PC. It displays how many users contribute to a particular score. For example, if the score from the PCI gauge is 14, the graph shows how many users have a score of 14.
 
-2. The PCI Trend graph shows you the historical trend of the PCI score over the last 90 days. To download the PCI History Report, select the **Download** icon.
+The PCI Trend graph shows you the historical trend of the PCI score over the last 90 days. To download the PCI History Report, select the **Download** icon.
 
-3. The **Usage Analytics Summary** section provides a snapshot of the following high-risk tasks or actions users have accessed, and displays the total number of users with the high-risk access, how many users are inactive or have unexecuted tasks, and how many users are active or have executed tasks:
+## How to read the Usage Analytics Summary
+
+The **Usage Analytics Summary** section provides a snapshot of the following high-risk tasks or actions users have accessed, and displays the total number of users with the high-risk access, how many users are inactive or have unexecuted tasks, and how many users are active or have executed tasks:
 
 	- **Users with Access to High Risk Tasks** - Displays the total number of users with access to a high risk task (**Total**), how many users have access but haven't used the task (**Inactive**), and how many users are actively using the task (**Active**).
 
@@ -77,15 +77,18 @@ The CloudKnox dashboard contains the following information:
 
 	- **Resources that Permit Delete Tasks** - Displays the total number of resources that permit delete tasks (**Total**), how many resources with delete tasks aren't used (**Inactive**), and how many resources with delete tasks are used (**Active**).
 
-4. To view specific information about the following, select the number displayed on the heat map:
+## How to view information about users, roles, resources, and the PCI Trend
+
+To view specific information about the following, select the number displayed on the heat map:
 	- **Users** - Displays the total number of users and how many fall into the high, medium, and low categories.
 	- **Roles** - Displays the total number of roles and how many fall into the high, medium, and low categories.
 	- **Resources** - Displays the total number of resources and how many fall into the high, medium, and low categories.
 	- **PCI Trend** - Displays a line graph of the PCI trend over the last several weeks.
 
-5. The **Identity** section below the heat map on the left side of the page shows all the relevant findings about identities, including roles that can access secret information, roles that are inactive, over provisioned active roles, and so on. 
+The **Identity** section below the heat map on the left side of the page shows all the relevant findings about identities, including roles that can access secret information, roles that are inactive, over provisioned active roles, and so on. 
 
    - To expand the full list, select **All Findings**.
-6. The **Resource** section below the heat map on the right side of the page shows all the relevant findings about resources. It includes unencrypted S3 buckets, open security groups, and so on.
+
+The **Resource** section below the heat map on the right side of the page shows all the relevant findings about resources. It includes unencrypted S3 buckets, open security groups, and so on.
 
 <!---## Next steps--->

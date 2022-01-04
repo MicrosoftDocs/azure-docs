@@ -14,9 +14,17 @@ ms.author: v-ydequadros
 
 # Microsoft CloudKnox Permissions Management Compliance dashboard
 
-The Microsoft CloudKnox Permissions Management **Compliance** dashboard provides an overview of how you are complying with national, regional, and industry-specific requirements governing the collection and use of data.
+The Microsoft CloudKnox Permissions Management **Compliance** dashboard provides an overview of how you are following the national, regional, and industry-specific requirements that govern the collection and use of data.
 
 This topic provides an overview of the components of the **Compliance** dashboard.
+
+## The Compliance dashboard
+
+The **Compliance** dashboard displays the following information:
+
+- The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard. It also displays how many recommendations were passed at the date shown.
+- The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
+- The last box on the dashboard displays the date range for which the information is displayed.
 
 ## The Filter toolbar
 
@@ -27,22 +35,14 @@ This topic provides an overview of the components of the **Compliance** dashboar
         - **NIST 800-53** - Next Generation Security and Privacy (NIST) 800-53
         - **PCI DSS Benchmarks** - Payment Card Industry / Data Security Standards (PCI DSS) benchmark frameworks
 
-    - **Authorization System Type** provides a drop down list of authorization system types you can access. The options may include:
+    - **Authorization System Type** provides a drop-down list of authorization system types you can access. The options may include:
         - **Amazon Web Services (AWS)**
         - **Microsoft Azure (Azure)**
         - **Google Cloud Platform (GCP)**
 
 - **Search** - Enter criteria to search for the required authorization system.
  
-## The Compliance dashboard
-
-The **Compliance** dashboard displays the following information:
-
-- The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard. It also displays how many recommendations were passed at the date shown.
-- The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
-- The last box on the dashboard displays the date range for which the information is displayed.
-
-## Reference information
+## More information about Compliance standards
 
 ### Amazon Web Services (AWS)
 

@@ -27,7 +27,7 @@ The **Systems Reports** tab displays the following information:
 - **Category** - Displays the report category. For example, **Permission**.
 - **Authorization systems** - Displays a drop-down list of authorization system types you can access. May include AWS, Azure, GCP, and so on.
 - **Format** - Displays the format of the report. For example, comma-separated values (CSV) file, portable document format (PDF), Microsoft Excel Open XML Spreadsheet (XLSX) file, and so on.
-- An ellipses **(...)** menu - Select the ellipses to download the report.
+- The ellipses **(...)** menu - Select the ellipses to download the report.
 
 You can also select:
 - **Search** to search for a specific role/policy.
@@ -41,7 +41,7 @@ You can also select:
 - **Category** - Displays the report category. For example, **Permission**.
 - **Authorization systems** - Displays a drop-down list of authorization system types you can access. May include AWS, Azure, GCP, and so on.
 - **Format** - Displays the format of the report. For example, comma-separated values (CSV) file, portable document format (PDF), Microsoft Excel Open XML Spreadsheet (XLSX) file, and so on.
-- An ellipses **(...)** menu - Select the ellipses to download the report.
+- The ellipses **(...)** menu - Select the ellipses to download the report.
 
 You can also select:
 - **Search** to search for a specific role/policy.

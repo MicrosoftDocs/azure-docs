@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management product usage analytics
-description: How to use Microsoft CloudKnox Permissions Management Usage Analytics to capture user activity details.
+title: Microsoft CloudKnox Permissions Management - View details about identities, resources, and tasks
+description: How to use Microsoft CloudKnox Permissions Management Usage Analytics to view details about identities, resources, and tasks.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2021
+ms.date: 01/03/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management product usage analytics
+# Microsoft CloudKnox Permissions Management - View details about identities, resources, and tasks
 
 The Microsoft CloudKnox Permissions Management Usage Analytics tab allows system administrators to collect, analyze, report on, and visualize data about all identity types. CloudKnox Usage Analytics captures user activity details in order for system administrators to make informed decisions about granting privileges, as well as reducing risk on unused privileges.
 
