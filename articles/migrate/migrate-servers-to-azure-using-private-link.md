@@ -45,22 +45,22 @@ Enable replication as follows:
 1. In **Replicate** > **Source settings** > **Are your machines virtualized?**, select **Yes, with VMware vSphere**.
 1. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up and click **OK**.
 
-    [Diagram that shows how to complete source settings.](./media/how-to-use-azure-migrate-with-private-endpoints/source-settings-vmware.png)
+    ![Diagram that shows how to complete source settings.](./media/how-to-use-azure-migrate-with-private-endpoints/source-settings-vmware.png)
 
 1. In **Virtual machines**, select the machines you want to replicate. To apply VM sizing and disk type from an assessment if you've run one, in **Import migration settings from an Azure Migrate assessment?**, select **Yes**, and select the VM group and assessment name. If you aren't using assessment settings, select **No**. 
 
-    [Diagram that shows how to select the VMs.](./media/how-to-use-azure-migrate-with-private-endpoints/migrate-machines-vmware.png) 
+    ![Diagram that shows how to select the VMs.](./media/how-to-use-azure-migrate-with-private-endpoints/migrate-machines-vmware.png) 
 
 1. In **Virtual machines**, select VMs you want to migrate. Then click **Next**. 
 
-    [Screenshot of selected VMs to be replicated.](./media/how-to-use-azure-migrate-with-private-endpoints/select-vm-vmware.png) 
+    ![Screenshot of selected VMs to be replicated.](./media/how-to-use-azure-migrate-with-private-endpoints/select-vm-vmware.png) 
 
 1. In **Target settings**, select the **target region** in which the Azure VMs will reside after migration.  
 
-    [Screenshot of the Target settings screen.](./media/how-to-use-azure-migrate-with-private-endpoints/target-settings-agentless-vmware.png)
+    ![Screenshot of the Target settings screen.](./media/how-to-use-azure-migrate-with-private-endpoints/target-settings-agentless-vmware.png)
 
 1. In **Replication storage account**, use the dropdown list to select a storage account to replicate over a private link.  
-    Next, [create a private endpoint for the storage account]() to enable replications over a private link.   
+    Next, [create a private endpoint for the storage account](migrate-servers-to-azure-using-private-link.md#Create-a-private-endpoint-for-the-storage-account) to enable replications over a private link.   
 1. Select the **Subscription** and **Resource group** in which the Azure VMs reside after migration. 
 1. In **Virtual network**, select the Azure VNet/subnet which the Azure VMs join after migration. 
 1. In **Availability options**, select: 
@@ -70,7 +70,6 @@ Enable replication as follows:
     - Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option. 
 
     - No infrastructure redundancy required option if you don't need either of these availability configurations for the migrated machines. 
-
 1. In **Disk encryption type**, select: 
 
     - Encryption-at-rest with platform-managed key 
@@ -79,51 +78,48 @@ Enable replication as follows:
 
     - Double encryption with platform-managed and customer-managed keys 
 
->[!Note] 
-> To replicate VMs with CMK, you'll need to create a disk encryption set under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE. 
-
+    >[!Note] 
+    > To replicate VMs with CMK, you'll need to [create a disk encryption set](./virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set)under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE. 
 1. In **Azure Hybrid Benefit**: 
 
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then click **Next**. 
 
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**. 
 
-1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with Azure requirements. 
+1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements). 
 
-    - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in Azure VM size. 
+    - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
 
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
 
     - **Availability Zone**: Specify the Availability Zone to use. 
 
     - **Availability Set**: Specify the Availability Set to use. 
-
 >[!Note] 
 > If you want to select a different availability option for a set of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines. 
-
 1. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium-managed disks) in Azure. Then click **Next**. 
 
-     [Screenshot shows the Disks tab of the Replicate dialog box.](./media/how-to-use-azure-migrate-with-private-endpoints/disks-agentless-vmware.png)
+     ![Screenshot shows the Disks tab of the Replicate dialog box.](./media/how-to-use-azure-migrate-with-private-endpoints/disks-agentless-vmware.png)
 
 1. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers. 
-    Next, follow the instructions to perform migrations. 
+    Next, follow the instructions to [perform migrations](tutorial-migrate-vmware.md#run-a-test-migration). 
 
 ## Create a private endpoint for the storage account  
 
-To replicate by using ExpressRoute with private peering, create a private endpoint for the cache/replication storage account (target subresource: blob). 
+To replicate by using ExpressRoute with private peering, [create a private endpoint](./private-link/tutorial-private-endpoint-storage-portal#create-storage-account-with-a-private-endpoint) for the cache/replication storage account (target subresource: *blob*). 
 
 >[!Note] 
-> You can create private endpoints only on a general-purpose v2 storage account. For pricing information, see Azure Page Blobs pricing and Azure Private Link pricing. 
+> You can create private endpoints only on a general-purpose v2 storage account. For pricing information, see [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) and [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/). 
 
 Create the private endpoint for the storage account in the same virtual network as the Azure Migrate project private endpoint or another virtual network connected to this network. 
 
-Select **Yes** and integrate with a private DNS zone. The private DNS zone helps in routing the connections from the virtual network to the storage account over a private link. Selecting **Yes** automatically links the DNS zone to the virtual network. It also adds the DNS records for the resolution of new IPs and FQDNs that are created. Learn more about private DNS zones. 
+Select **Yes** and integrate with a private DNS zone. The private DNS zone helps in routing the connections from the virtual network to the storage account over a private link. Selecting **Yes** automatically links the DNS zone to the virtual network. It also adds the DNS records for the resolution of new IPs and FQDNs that are created. Learn more about [private DNS zones](../dns/private-dns-overview). 
 
 If the user who created the private endpoint is also the storage account owner, the private endpoint creation will be auto approved. Otherwise, the owner of the storage account must approve the private endpoint for use. To approve or reject a requested private endpoint connection, on the storage account page under **Networking**, go to **Private endpoint connections**. 
 
 Review the status of the private endpoint connection state before you continue. 
 
-[Screenshot that shows the Private endpoint approval status.](./media/how-to-use-azure-migrate-with-private-endpoints/private-endpoint-status-vmware.png)
+![Screenshot that shows the Private endpoint approval status.](./media/how-to-use-azure-migrate-with-private-endpoints/private-endpoint-status-vmware.png)
 
 After you've created the private endpoint, use the dropdown list in **Replicate** > **Target settings** > **Cache storage account** to select the storage account for replicating over a private link. 
 
@@ -142,7 +138,7 @@ Ensure that the on-premises replication appliance has network connectivity to th
 
 # Perform agentless Hyper-V migrations using Private Link 
 
-This article shows you how to migrate on-premises Hyper-V VMs to Azure, using the **Azure Migrate:Server Migration** tool, with agentless migration. You can also migrate using agent-based migration.  
+This article shows you how to [migrate on-premises Hyper-V VMs to Azure](tutorial-migrate-hyper-v.md), using the [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool, with agentless migration. You can also migrate using agent-based migration.  
 
 ## Set up the replication provider for migration 
 
@@ -171,7 +167,7 @@ For migrating Hyper-V VMs, Azure Migrate: Server Migration installs software pro
 > [!Note]
 >Before you register the replication provider, ensure that the vault's private link FQDNs are reachable from the machine that hosts the replication appliance. Additional DNS configuration may be required for the on-premises replication appliance to resolve the private link FQDNs to their private IP addresses. Learn more about [how to verify network connectivity](./troubleshoot-network-connectivity.md#verify-dns-resolution)
 
-Next, follow these instructions to install and register the replication provider. 
+Next, follow these instructions to [install and register the replication provider](tutorial-migrate-hyper-v?tabs=UI.md#install-and-register-the-provider). 
   
 ## Replicate Hyper-V VMs
 
@@ -199,7 +195,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 
 1. In **Replication storage account**, select the Azure storage account in which replicated data will be stored in Azure.  
 
-    Next, [create a private endpoint for the storage account]() and [grant permissions to the Recovery Services vault managed identity]()to access the storage account required by Azure Migrate. This is mandatory before you proceed. 
+    Next, [create a private endpoint for the storage account](bookmark://_Create_a_private) and [grant permissions to the Recovery Services vault managed identity](bookmark://_Grant_access_permissions)to access the storage account required by Azure Migrate. This is mandatory before you proceed. 
 
     For Hyper-V VM migrations to Azure, if the replication storage account is of *Premium* type, you must select another storage account of *Standard* type for the cache storage account. In this case, you must create private endpoints for both the replication and cache storage account.
 
@@ -221,7 +217,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 
     ![Screenshot of Azure Hybrid benefit selection.](./media/how-to-use-azure-migrate-with-private-endpoints/azure-hybrid-benefit.png)
 
-1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with Azure requirements. 
+1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements). 
 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
 
@@ -235,14 +231,14 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
     - You can exclude disks from replication. 
     - If you exclude disks, they won't be present on the Azure VM after migration. 
 
-    [Screenshot shows the Disks tab of the Replicate dialog box.](./media/how-to-use-azure-migrate-with-private-endpoints/disks-agentless-vmware.png)
+    ![Screenshot shows the Disks tab of the Replicate dialog box.](./media/how-to-use-azure-migrate-with-private-endpoints/disks-agentless-vmware.png)
 
 1. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers. 
 
 >[!Note]
 > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts. 
 
-Next, follow the instructions to perform migrations. 
+Next, follow the instructions to [perform migrations](tutorial-migrate-physical-virtual-machines.md#run-a-test-migration). 
 
 ### Grant access permissions to the Recovery Services vault
 
@@ -279,7 +275,7 @@ The role permissions for the Azure Resource Manager vary depending on the type o
 
    ![Screenshot that shows Add role assignment.](./media/how-to-use-azure-migrate-with-private-endpoints/storage-role-assignment.png)
 
-1. On the **Add role assignment** page in the **Role** box, select the appropriate role from the permissions list previously mentioned. Enter the name of the vault noted previously, and select **Save**.
+1. On the **Add role assignment** page in the **Role** box, select the appropriate role from the permissions list previously mentioned. Enter the name of the vault noted previously and select **Save**.
 
     ![Screenshot that shows the Add role assignment page.](./media/how-to-use-azure-migrate-with-private-endpoints/storage-role-assignment-select-role.png)
 
@@ -296,9 +292,9 @@ To replicate by using ExpressRoute with private peering, [create a private endpo
 
 Create the private endpoint for the storage account in the same virtual network as the Azure Migrate project private endpoint or another virtual network connected to this network.
 
-Select **Yes**, and integrate with a private DNS zone. The private DNS zone helps in routing the connections from the virtual network to the storage account over a private link. Selecting **Yes** automatically links the DNS zone to the virtual network. It also adds the DNS records for the resolution of new IPs and FQDNs that are created. Learn more about [private DNS zones](../dns/private-dns-overview.md).
+Select **Yes** and integrate with a private DNS zone. The private DNS zone helps in routing the connections from the virtual network to the storage account over a private link. Selecting **Yes** automatically links the DNS zone to the virtual network. It also adds the DNS records for the resolution of new IPs and FQDNs that are created. Learn more about [private DNS zones](../dns/private-dns-overview.md).
 
-If the user who created the private endpoint is also the storage account owner, the private endpoint creation will be auto-approved. Otherwise, the owner of the storage account must approve the private endpoint for use. To approve or reject a requested private endpoint connection, on the storage account page under **Networking**, go to **Private endpoint connections**.
+If the user who created the private endpoint is also the storage account owner, the private endpoint creation will be auto approved. Otherwise, the owner of the storage account must approve the private endpoint for use. To approve or reject a requested private endpoint connection, on the storage account page under **Networking**, go to **Private endpoint connections**.
 
 Review the status of the private endpoint connection state before you continue.
 
@@ -322,7 +318,7 @@ Ensure that the on-premises replication appliance has network connectivity to th
 
 
 # Perform agent-based migrations using Azure Private Link 
-This article shows a proof-of-concept deployment path for agent-based replications to migrate your VMware VMs, Hyper-V VMs, physical servers, VMs running on AWS, VMs running on GCP, or VMs running on a different virtualization provider by using Azure private endpoints. 
+This article shows a proof-of-concept deployment path for agent-based replications to migrate your [VMware VMs](tutorial-migrate-vmware-agent.md), [Hyper-V VMs](tutorial-migrate-physical-virtual-machines.md), [physical servers](tutorial-migrate-physical-virtual-machines.md), [VMs running on AWS](tutorial-migrate-aws-virtual-machines.md), [VMs running on GCP](tutorial-migrate-gcp-virtual-machines.md), or VMs running on a different virtualization provider by using Azure private endpoints. 
 
 ## Set up a replication appliance for migration
 
@@ -366,7 +362,7 @@ Now, select machines for replication and migration.
 1. In **Virtual machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
 1. Select each VM you want to migrate. Then click **Next:Target settings**. 
 
-    [Screenshot of selected VMs to be replicated.](./media/how-to-use-azure-migrate-with-private-endpoints/select-vm-agent.png) 
+    ![Screenshot of selected VMs to be replicated.](./media/how-to-use-azure-migrate-with-private-endpoints/select-vm-agent.png) 
 
 1. In **Target settings**, select the subscription,the target region to which you'll migrate, and the resource group in which the Azure VMs will reside after migration.  
 
@@ -375,7 +371,7 @@ Now, select machines for replication and migration.
 1. In **Virtual network**, select the Azure VNet/subnet which the Azure VMs join after migration. 
 1. In **Cache storage account**, use the dropdown list to select a storage account to replicate over a private link.  
 
-Next, [create a private endpoint for the storage account]() and [grant permissions to the Recovery Services vault managed identity]() to access the storage account required by Azure Migrate. This is mandatory before you proceed.  
+Next, [create a private endpoint for the storage account](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint) and [grant permissions to the Recovery Services vault managed identity](bookmark://_Grant_access_permissions) to access the storage account required by Azure Migrate. This is mandatory before you proceed.  
 
 1. In **Availability options**, select: 
 
@@ -384,22 +380,17 @@ Next, [create a private endpoint for the storage account]() and [grant permissio
     - Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option. 
 
     - No infrastructure redundancy required option if you don't need either of these availability configurations for the migrated machines. 
-
 1. In **Disk encryption type**, select: 
 
     - Encryption-at-rest with platform-managed key 
     - Encryption-at-rest with customer-managed key 
     - Double encryption with platform-managed and customer-managed keys 
-
 > [!Note]
-> To replicate VMs with CMK, you'll need to create a disk encryption set under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE. 
-
+> To replicate VMs with CMK, you'll need to [create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE. 
 1. In **Azure Hybrid Benefit**: 
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then, click **Next**. 
-    - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**. 
-    
+    - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**.    
 1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-physical-migration.md#azure-vm-requirements). 
-
  - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
 
  - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
@@ -408,13 +399,13 @@ Next, [create a private endpoint for the storage account]() and [grant permissio
 
  - **Availability Set**: Specify the Availability Set to use. 
 
-    [Screenshot of Compute screen with VMs.](./media/how-to-use-azure-migrate-with-private-endpoints/compute-hyperv.png)
+    ![Screenshot of Compute screen with VMs.](./media/how-to-use-azure-migrate-with-private-endpoints/compute-hyperv.png)
 
 1. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then click **Next**. 
     - You can exclude disks from replication. 
     - If you exclude disks, they won't be present on the Azure VM after migration. 
 
-    [Screenshot shows the Disks tab of the Replicate dialog box.](./media/how-to-use-azure-migrate-with-private-endpoints/disks-agentless-vmware.png) 
+    ![Screenshot shows the Disks tab of the Replicate dialog box.](./media/how-to-use-azure-migrate-with-private-endpoints/disks-agentless-vmware.png) 
 
 1. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers. 
 
