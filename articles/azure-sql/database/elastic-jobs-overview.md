@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: srinia
 ms.author: srinia
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 12/18/2018
 ---
 # Create, configure, and manage elastic jobs (preview)

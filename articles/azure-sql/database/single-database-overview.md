@@ -7,9 +7,9 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer:
+author: LitKnd
+ms.author: kendralittle
+ms.reviewer: mathoma
 ms.date: 04/08/2019
 ---
 # What is a single database in Azure SQL Database?

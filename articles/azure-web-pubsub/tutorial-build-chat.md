@@ -378,7 +378,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-messaging-webpubsub</artifactId>
-        <version>1.0.0-beta.6</version>
+        <version>1.0.0</version>
     </dependency>
     ```
 
@@ -539,7 +539,7 @@ If you use Web PubSub SDK, there is already an implementation to parse and proce
 Add the following code to expose a REST API at `/eventhandler` (which is done by the express middleware provided by Web PubSub SDK) to handle the client connected event:
 
 ```bash
-npm install --save @azure/web-pubsub-express@1.0.0-alpha.20211102.4
+npm install --save @azure/web-pubsub-express
 ```
 
 ```javascript

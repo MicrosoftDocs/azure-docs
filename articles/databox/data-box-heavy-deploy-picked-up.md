@@ -9,7 +9,6 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 10/29/2021
 ms.author: alkohli
-ms.localizationpriority: high 
 
 # Customer intent: As an IT admin, I need to be able to return Data Box Heavy to upload on-premises data from my server onto Azure.
 ---

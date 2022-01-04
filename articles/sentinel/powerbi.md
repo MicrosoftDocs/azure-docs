@@ -3,7 +3,6 @@ title: Create a Power BI report from Microsoft Sentinel data
 description: Learn how to create a Power BI report using an exported query from Microsoft Sentinel Log Analytics. Share your report with others in the Power BI service and a Teams channel.
 author: batamig
 ms.author: bagol
-ms.service: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
@@ -204,5 +203,8 @@ Refresh your Power BI report on a schedule, so updated data always appears in th
 
 ## Next steps
 
+For more information, see:
+
+- [Azure Monitor service limits](/azure/azure-monitor/service-limits)
 - [Import Azure Monitor log data into Power BI](../azure-monitor/logs/log-powerbi.md)
 - [Power Query M formula language](/powerquery-m/)

@@ -1,21 +1,10 @@
 ---
 title: Handle ingestion delay in Microsoft Sentinel | Microsoft Docs
 description:  Handle ingestion delay in Microsoft Sentinel scheduled analytics rules.
-services: sentinel
-documentationcenter: na
 author: batamig
-manager: rkarlin
-editor: ''
-
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/25/2021
 ms.author: bagol
-
 ---
 
 # Handle ingestion delay in scheduled analytics rules
@@ -103,3 +92,5 @@ For more information, see:
 - [Create custom analytics rules to detect threats](detect-threats-custom.md)
 - [Customize alert details in Azure Sentinel](customize-alert-details.md)
 - [Manage template versions for your scheduled analytics rules in Azure Sentinel](manage-analytics-rule-templates.md)
+- [Use the health monitoring workbook](monitor-data-connector-health.md)
+- [Log data ingestion time in Azure Monitor](/azure/azure-monitor/logs/data-ingestion-time)

@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 11/10/2021
 ms.author: normesta
 ms.reviewer: fryu
+ms.devlang: csharp
 ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
 ---
 

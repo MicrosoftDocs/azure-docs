@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 08/03/2021
+ms.date: 12/10/2021
 ---
 
 # Scale a Hyperscale (Citus) server group
@@ -57,6 +57,12 @@ To change the vCores for all worker nodes, adjust the **vCores** slider under
 adjusted independently. Adjust the **vCores** slider under  **Configuration
 (coordinator node)**.
 
+> [!NOTE]
+> There is a vCore quota per Azure subscription per region.  The default quota
+> should be more than enough to experiment with Hyperscale (Citus).  If you
+> need more vCores for a region in your subscription, see how to [adjust
+> compute quotas](howto-hyperscale-compute-quota.md).
+
 ## Increase storage on nodes
 
 In addition to adding new nodes, you can increase the disk space of existing
@@ -78,3 +84,5 @@ adjusted independently. Adjust the **storage** slider under  **Configuration
   options](concepts-hyperscale-configuration-options.md).
 - [Rebalance distributed table shards](howto-hyperscale-scale-rebalance.md)
   so that all worker nodes can participate in parallel queries
+- See the sizes of distributed tables, and other [useful diagnostic
+  queries](howto-hyperscale-useful-diagnostic-queries.md).

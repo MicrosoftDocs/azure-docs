@@ -12,7 +12,8 @@ ms.workload: identity
 ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
-# Customer intent: As an administrator of an Azure AD tenant, I want to configure the properties of an enterprise application.
+ms.custom: mode-other
+#Customer intent: As an administrator of an Azure AD tenant, I want to configure the properties of an enterprise application.
 ---
 
 # Quickstart: Configure enterprise application properties

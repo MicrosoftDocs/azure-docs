@@ -1,17 +1,12 @@
 ---
 title: Use number matching in multifactor authentication (MFA) notifications (Preview) - Azure Active Directory
 description: Learn how to use number matching in MFA notifications
-
-services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/12/2021
-
+ms.date: 11/17/2021
 ms.author: justinha
 author: mjsantani
-manager: daveba
-
 ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
@@ -21,11 +16,12 @@ ms.collection: M365-identity-device-management
 This topic covers how to enable number matching in Microsoft Authenticator push notifications to improve user sign-in security.  
 
 >[!NOTE]
->Number matching is a key security upgrade to traditional second factor notifications in the Microsoft Authenticator app that will be enabled by default for all tenants at some point after general availability (GA). We highly recommend enabling number matching in the near-term for improved sign-in security.
+>Number matching is a key security upgrade to traditional second factor notifications in the Microsoft Authenticator app that will be enabled by default for all tenants a few months after general availability (GA).<br> 
+>We highly recommend enabling number matching in the near-term for improved sign-in security.
 
 ## Prerequisites
 
-Your organization will need to enable Microsoft Authenticator (traditional second factor) push notifications for some users or groups using the new Authentication Methods Policy API. For a consistent experience, upgrade to the latest versions of the AD FS adapter and NPS extension. 
+Your organization will need to enable Microsoft Authenticator (traditional second factor) push notifications for some users or groups using the new Authentication Methods Policy API. If your organization is using ADFS adapter or NPS extensions, please upgrade to the latest versions for a consistent experience. 
 
 ## Number matching
 
@@ -52,7 +48,7 @@ When a user responds to an MFA push notification using Microsoft Authenticator, 
 During self-service password reset, Microsoft Authenticator notification will show a number that the user will need to type in their Authenticator app notification. This number will only be seen to users who have been enabled for number matching.
 
 >[!NOTE]
->Number matching for admin roles during SSPR is initially pending and unavailable for a couple days.
+>Number matching for admin roles during SSPR is pending and unavailable for a couple days.
 
 ### Combined registration
 
@@ -75,7 +71,7 @@ Make sure you run the latest version of the [NPS extension](https://www.microsof
 
 Because the NPS extension can't show a number, a user who is enabled for number matching will still be prompted to **Approve**/**Deny**. However, you can create a registry key that overrides push notifications to ask a user to enter a One-Time Passcode (OTP). The user must have an OTP authentication method registered to see this behavior. Common OTP authentication methods include the OTP available in the Microsoft Authenticator app, other software tokens, and so on. 
 
-If the user doesn’t have an OTP method registered, they will continue to get the **Approve**/**Deny** experience. A user with number matching disabled will always see the **Approve**/**Deny** experience.
+If the user doesn't have an OTP method registered, they will continue to get the **Approve**/**Deny** experience. A user with number matching disabled will always see the **Approve**/**Deny** experience.
 
 To create the registry key that overrides push notifications:
 
@@ -106,7 +102,7 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 
 | Relationship | Type | Description |
 |--------------|------|-------------|
-| includeTargets | [microsoftAuthenticatorAuthenticationMethodTarget](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget.md?view=graph-rest-beta) |
+| includeTargets | [microsoftAuthenticatorAuthenticationMethodTarget](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget) |
 | collection | A collection of users or groups who are enabled to use the authentication method. |
  
 #### MicrosoftAuthenticator includeTarget properties
@@ -182,7 +178,7 @@ You need to PATCH the entire includeTarget to prevent overwriting any previous c
     "includeTargets": [
         {
             "targetType": "group",
-            "id": "1ca44590-e896-4dbe-98ed-b140b1e7a53a”,
+            "id": "1ca44590-e896-4dbe-98ed-b140b1e7a53a",
             "authenticationMode": "any",
             "displayAppInformationRequiredState": "enabled",
             "numberMatchingRequiredState": "enabled"
@@ -246,7 +242,7 @@ To enable number matching in the Azure AD portal, complete the following steps:
 
 ## Known issues
 
-- Number matching for admin roles during SSPR is initially pending and unavailable for a couple days.
+- Number matching for admin roles during SSPR is pending and unavailable for a couple days.
 
 ## Next steps
 

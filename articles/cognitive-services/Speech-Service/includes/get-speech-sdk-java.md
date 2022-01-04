@@ -30,8 +30,6 @@ To consume the package from your Android Studio project, make the following chan
   implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.19.0'
   ```
 
-The Java SDK is also part of the [Speech Devices SDK](../speech-devices-sdk.md).
-
 #### Additional resources
 
 - <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android" target="_blank">Android specific Java quickstart source code </a>

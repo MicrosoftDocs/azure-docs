@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/28/2021
+ms.date: 11/19/2021
 ms.author: justinha
 author: aanjusingh
-manager: daveba
+manager: karenhoran
 ms.reviewer: anjusingh
 
 ms.collection: M365-identity-device-management
@@ -24,7 +24,7 @@ SMS-based authentication is available to Microsoft apps integrated with the Micr
 | Office 365- Microsoft Online Services* | ● |   |
 | Microsoft One Note | ● |   |
 | Microsoft Teams | ● | ● |
-| Microsoft Intune/ Company portal | ● | ● |
+| Microsoft Intune Company portal | ● | ● |
 | My Apps Portal | ● |Not available|
 | Microsoft Forms | ● |Not available|
 | Microsoft Edge | ● |   |
@@ -32,7 +32,6 @@ SMS-based authentication is available to Microsoft apps integrated with the Micr
 | Microsoft Stream | ● |   |
 | Microsoft Power Apps | ● |   |
 | Microsoft Azure | ● | ● |
-| Microsoft Authenticator |   | ● |
 | Azure Virtual Desktop | ● |  | 
 
 *_SMS sign-in isn't available for office applications, such as Word, Excel, etc., when accessed directly on the web, but is available when accessed through the [Office 365 web app](https://www.office.com)_

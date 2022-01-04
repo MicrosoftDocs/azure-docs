@@ -8,7 +8,7 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 11/01/2021
 ms.author: stempesta
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-other
 ---
 
 # Quickstart: Create Intel SGX VM in the Azure Marketplace

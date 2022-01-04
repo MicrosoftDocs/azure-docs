@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 03/12/2019
 ---
 # Tutorial: Implement a geo-distributed database (Azure SQL Database)

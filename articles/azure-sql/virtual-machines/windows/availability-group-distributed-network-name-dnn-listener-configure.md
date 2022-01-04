@@ -4,11 +4,9 @@ description: Learn how to configure a distributed network name (DNN) listener to
 services: virtual-machines-windows
 documentationcenter: na
 author: rajeshsetlem
-manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: hadr
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server

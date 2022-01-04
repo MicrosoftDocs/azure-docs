@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: scoriani 
 ms.author: scoriani
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 01/25/2019
 
 ---
@@ -27,7 +27,7 @@ To migrate an existing sharded database:
 3. Prepare the individual shards.  
 4. Add mappings to the shard map.
 
-These techniques can be implemented using either the [.NET Framework client library](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), or the PowerShell scripts found at [Azure SQL Database - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). The examples here use the PowerShell scripts.
+These techniques can be implemented using either the [.NET Framework client library](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), or the PowerShell scripts found at [Azure SQL Database - Elastic Database tools scripts](https://github.com/Azure/elastic-db-tools/tree/master/Samples/PowerShell). The examples here use the PowerShell scripts.
 
 For more information about the ShardMapManager, see [Shard map management](elastic-scale-shard-map-management.md). For an overview of the Elastic Database tools, see [Elastic Database features overview](elastic-scale-introduction.md).
 
