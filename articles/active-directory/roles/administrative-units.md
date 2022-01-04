@@ -41,7 +41,7 @@ Using administrative units requires an Azure AD Premium P1 license for each admi
 You can manage administrative units by using the Azure portal, PowerShell cmdlets and scripts, or Microsoft Graph. For more information, see:
 
 - [Create or delete administrative units](admin-units-manage.md)
-- [Add users or groups to an administrative unit](admin-units-members-add.md)
+- [Add users, groups, or devices to an administrative unit](admin-units-members-add.md)
 - [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
 - [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units): Covers how to work with administrative units by using PowerShell.
 - [Administrative unit Graph support](/graph/api/resources/administrativeunit): Provides detailed documentation on Microsoft Graph for administrative units.
@@ -112,6 +112,6 @@ Managing devices in Intune is *not* supported at this time.
 ## Next steps
 
 - [Create or delete administrative units](admin-units-manage.md)
-- [Add users or groups to an administrative unit](admin-units-members-add.md)
+- [Add users, groups, or devices to an administrative unit](admin-units-members-add.md)
 - [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
 

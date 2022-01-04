@@ -211,4 +211,4 @@ Body
 ## Next steps
 
 - [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
-- [Remove users or groups from an administrative unit](admin-units-members-remove.md)
+- [Remove users, groups, or devices from an administrative unit](admin-units-members-remove.md)

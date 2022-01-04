@@ -152,5 +152,5 @@ DELETE https://graph.microsoft.com/beta/administrativeUnits/{admin-unit-id}/memb
 
 ## Next steps
 
-- [Add users or groups to an administrative unit](admin-units-members-add.md)
+- [Add users, groups, or devices to an administrative unit](admin-units-members-add.md)
 - [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
