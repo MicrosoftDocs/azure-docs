@@ -59,6 +59,8 @@ See the [Botmetric introduction for Azure](https://www.botmetric.com/blog/announ
 
 ## Centreon
 
+![Centreon logo.](./media/partners/centreon.png)
+
 Centreon’s IT monitoring platform provides holistic visibility to complex IT workflows from Cloud-to-Edge.
 
 The Centreon Plugin Pack library includes a complete set of configuration templates and auto-discovery rules to monitor your Microsoft Azure environment for a clear and comprehensive view.
