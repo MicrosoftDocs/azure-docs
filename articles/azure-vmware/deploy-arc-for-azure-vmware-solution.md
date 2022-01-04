@@ -344,7 +344,7 @@ This section shows users how to create a virtual machine on VMware vCenter using
     :::image type="content" source="media/deploy-arc-for-avs/deploy-vm-arc-avs-1.2.png" alt-text="Image showing the location of the plus Create drop down and Azure VMware Solution virtual machine selection option."lightbox="media/deploy-arc-for-avs/deploy-vm-arc-avs-1.2.png"::: 
 
 Near the top of the **Virtual machines** page, you'll find five tabs labeled: **Basics**, **Disks**, **Networking**, **Tags**, and **Review + create**. Follow the steps or options provided in each tab to create your Azure VMware Solution virtual machine.
-:::image type="content" source="media/deploy-arc-for-avs/deploy-vm-arc-avs-tabs.png" alt-text="Image showing the five tabs used in the walk-through steps listed below."lightbox="media/deploy-arc-for-avs/deploy-vm-arc-avs-tabs.png":::
+:::image type="content" source="media/deploy-arc-for-avs/deploy-vm-arc-avs-tabs.png" alt-text="Image showing the five tabs used in the walk-through steps listed below."lightbox="media/de    ploy-arc-for-avs/deploy-vm-arc-avs-tabs.png":::
 
 **Basics**
 1. Project details, select the **Subscription** and **Resource group** where you want to deploy your VM.
@@ -489,7 +489,7 @@ DHCP support is on the road map and will soon be available for customers. Curren
 
 ## Debugging tips for known issues
 
-Use the tips below for your self-help guide.
+Use the following tips as your self-help guide.
 
 **What happens if I face an error related to Azure CLI?**
 
@@ -505,5 +505,47 @@ Use the tips below for your self-help guide.
 
 **Basic trouble-shooting steps if the script run was unsuccessful.**
 
-- 
+- Verify the feature and resource providers are registered per the directions provided in the [Prerequisites](#prerequisites) section of this article.
+
+**What happens if the Arc for VMware section shows no data?**
+
+- If the Azure Arc VMware resources ni the Azure UI shows no data, verify your subscription was added in the global default subscription filter.
+
+**I see the error:** "`ApplianceClusterNotRunning` Appliance Cluster: `<resource-bridge-id>` expected state to be Succeeded found: Succeeded and expected status to be Running and found: Connected".
+
+- Run the script again.
+
+**I'm unable to install extensions on my virtual machine.**
+
+- Check that **guest management** has been successfully installed.
+- **VMtools** should be installed on teh VM.
+
+**I'm facing Network related issues during on-boarding.**
+
+- Look for an IP conflict. You need IPs with no conflict or from free pool.
+- Verify the internet is enabled fro the network segment.
+
+**Where can I find more information related to Azure Arc resource bridge?**
+
+- For more information, go to [Azure Arc resource bridge(preview) overview](https://review.docs.microsoft.com/azure/azure-arc/resource-bridge/overview)
+
+## Appendices
+
+Appendix 1 shows proxy URLs required by the Azure Arc enabled private Cloud.  
+
+| **Azure Arc Service** | **URL** |
+| :-- | :-- |
+|Microsoft container registry | https://mcr.microsoft.com |
+| Azure Arc Identity service | https://his.arc.azure.com |
+| Azure Arc configuration service | https://dp.kubernetesconfiguration.azure.com |
+| Cluster connect | https://servicebus.windows.net |
+| Guest Notification service | https://guestnotificationservice.azure.com |
+|Resource bridge (appliance) Dataplane service | https://dp.prod.appliances.azure.com |
+| Resource bridge (appliance) container image download | https://ecpacr.azurecr.io |
+|Resource bridge (appliance) image download | https://dl.delivery.mp.microsoft.com |
+| Azure Resource Manager | https://management.azure.com |
+|Azure Active Directory | https://login.mirosoftonline.com |
+
+
+
 
