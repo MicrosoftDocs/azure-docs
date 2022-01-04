@@ -32,6 +32,14 @@ Major changes to the way content is published in v3 API. The new publishing mode
 
 See publishing concepts, tutorials and how to guides below for specific steps.
 
+## Will v2 streaming locators continue to work after February 2024?
+
+Streaming locators created with v2 API will continue to work after our v2 API is turned off. Once the Streaming Locator data is created in the Media Services backend database, there is no dependency on the v2 REST API for streaming. We will not remove v2 specific records from the database when v2 is turned off in February 2024.
+ 
+There are some properties of assets and locators created with v2 that cannot be accessed or updated using the new v3 API. For example, v2 exposes an **Asset Files** API that does not have an equivalent feature in the v3 API. Often this is not a problem for most of our customers, since it is not a widely used feature and you can still stream old locators and delete them when they are no longer needed.
+
+After migration, you should avoid making any calls to the v2 API to modify streaming locators or assets.
+
 ## Publishing concepts, tutorials and how to guides
 
 ### Concepts
