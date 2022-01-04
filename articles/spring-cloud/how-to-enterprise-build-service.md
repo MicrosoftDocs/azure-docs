@@ -30,9 +30,15 @@ In the Enterprise Tier, a default builder is provided within Build Service with 
 
 Tanzu Buildpacks make it easier to integrate with other software like New Relic. They're configured as optional and will only run with proper configuration. For more information, see the [Buildpack Bindings](#buildpack-bindings) section.
 
-See [VMware Tanzu Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/index.html) for a list of available buildpacks.
+The following list shows the Tanzu Buildpacks available in Azure Spring Cloud Enterprise edition:
 
-Detailed information on each buildpack can be found at [Using the Tanzu Partner Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html).
+- tanzu-buildpacks/java-azure
+- tanzu-buildpacks/dotnet-core
+- tanzu-buildpacks/go
+- tanzu-buildpacks/nodejs
+- tanzu-buildpacks/python
+
+For details about buildpacks, see [Using the Tanzu Partner Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html).
 
 ## Create a Customized Builder to build apps
 
