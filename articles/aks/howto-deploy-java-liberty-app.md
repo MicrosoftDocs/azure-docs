@@ -123,7 +123,7 @@ NAME                                STATUS   ROLES   AGE     VERSION
 aks-nodepool1-xxxxxxxx-yyyyyyyyyy   Ready    agent   76s     v1.18.10
 ```
 
-## Create an Azure SQL Database(Only if your application requires)
+## Create an Azure SQL Database(Only if required by your application)
 
 The steps in this section guide you through creating an Azure SQL Database single database for use with your app.
 
@@ -241,7 +241,7 @@ We've prepared the *Dockerfile-local* and *Dockerfile-wlp-local* for it in the s
   mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -Ddockerfile=target/Dockerfile-wlp-local
   ```
 
-1. Verify the application works as expected. You should see `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser verify the application is accessible and all functions are working.
+1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser verify the application is accessible and all functions are working.
 
 1. Press `Ctrl+C` to stop `liberty:devc` mode.
 
@@ -280,10 +280,6 @@ docker push ${LOGIN_SERVER}/${IMAGE_NAME}:${IMAGE_VERSION}
 1. Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks).
 1. Change directory to `javaee-app-simple-cluster` of your local clone.
 1. Run `mvn clean package` to package the application.
-1. Start your local docker environment if not
-   ```bash
-   sudo dockerd
-   ```
 1. Run `mvn liberty:dev` to test the application. You should see `The defaultServer server is ready to run a smarter planet.` in the command output if successful. Use `CTRL-C` to stop the application.
 1. Retrieve values for properties `artifactId` and `version` defined in the `pom.xml`.
 
