@@ -20,10 +20,6 @@ This article summarizes the documentation changes associated with new features a
 
 For Azure SQL Database, see [What's new](../database/doc-changes-updates-release-notes-whats-new.md).
 
-> [!div class="nextstepaction"]
-> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
-
-
 ## Preview
 
 The following table lists the features of Azure SQL Managed Instance that are currently in preview:
