@@ -1,7 +1,7 @@
 ---
-title: Read CSV data in a JMeter load test
+title: Read CSV data in an Apache JMeter load test
 titleSuffix: Azure Load Testing
-description: Learn how to read data from a CSV file in JMeter and Azure Load Testing.
+description: Learn how to read external data from a CSV file in Apache JMeter and Azure Load Testing.
 services: load-testing
 ms.service: load-testing
 ms.author: nicktrog

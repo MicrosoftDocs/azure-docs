@@ -27,7 +27,7 @@ If Synapse Studio can't establish connection to serverless SQL pool, you'll noti
 1) Your network prevents communication to Azure Synapse backend. Most frequent case is that port 1443 is blocked. To get the serverless SQL pool to work, unblock this port. Other problems could prevent serverless SQL pool to work as well, [visit full troubleshooting guide for more information](../troubleshoot/troubleshoot-synapse-studio.md).
 2) You don't have permissions to log into serverless SQL pool. To gain access, one of the Azure Synapse workspace administrators should add you to workspace administrator or SQL administrator role. [Visit full guide on access control for more information](../security/synapse-workspace-access-control-overview.md).
 
-### Websocket connection was closed unexpectedly.
+### Websocket connection was closed unexpectedly
 
 If your query fails with the error message: 'Websocket connection was closed unexpectedly', it means that your browser connection to Synapse Studio was interrupted, for example because of a network issue. 
 
@@ -35,9 +35,24 @@ To resolve this issue, rerun this query. If this message occurs often in your en
 
 If the issue still continues, create a [support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md) through the Azure portal and try [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) for the same queries instead of Synapse Studio for further investigation.
 
-## Query execution
+### Serverless databases are not shown in Synapse studio
 
-You might get errors during the query execution if the caller [cannot access some objects](develop-storage-files-overview.md#permissions), query [cannot access external data](develop-storage-files-storage-access-control.md#storage-permissions), or you are using some functionalities that are [not supported in serverless SQL pools](overview-features.md).
+If you do not see the databases that are created in serverless SQL pool, check is your serverless SQL pool started. If the serverless SQL pool is deactivated, the databases will not be shown. Execute any query (for example `SELECT 1`) on the serverless pool to activate it, and the databases will be shown.
+
+### Synapse Serverless SQL pool is showing as unavailable
+Wrong network configuration is often the cause for this behavior. Make sure the ports are appropriately configured. In case you use firewall or Private Endpoint check their settings as well. Finally, make sure the appropriate roles are granted. 
+
+## Storage access
+
+If you are getting the errors while trying to access the files on storage, make sure that you have permissions to access data. You should be able to access publicly available files. If you are accessing data without credentials, make sure that your Azure AD identity can directly access the files.
+If you have SAS key that you should use to access files, make sure that you created a credential ([server-level](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential) or [database-scoped](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential)) that contains that credential. The credentials are required if you need to access data using the workspace [managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#database-scoped-credential) and custom [service principal name](develop-storage-files-storage-access-control.md?tabs=service-principal#database-scoped-credential).
+
+### Cannot read, list or access files on data lake storage
+
+If you are using Azure AD login without explicit credential, make sure that your Azure AD identity can access the files on storage. Your Azure AD identity need to have Blob Data Reader or list/read ACL permissions to access the files - see [Query fails because file cannot be opened](#query-fails-because-file-cannot-be-opened).
+
+If you are accessing storage using [credentials](develop-storage-files-storage-access-control.md#credentials), make sure that your [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) or [SPN](develop-storage-files-storage-access-control.md?tabs=service-principal) has Data Reader/Contributor role, or ALC permissions. If you have used [SAS token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) make sure that it has `rl` permission and that it didn't expired. 
+If you are using SQL login and the `OPENROWSET` function [without data source](develop-storage-files-overview.md#query-files-using-openrowset), make sure that you have a server-level credential that matches the storage URI and has permission to access the storage.
 
 ### Query fails because file cannot be opened
 
@@ -77,22 +92,6 @@ If you would like to query data2.csv in this example, the following permissions 
 
 > [!NOTE]
 > For guest users, this needs to be done directly with the Azure Data Lake Service as it can not be done directly through Azure Synapse. 
-
-### Query fails because it cannot be executed due to current resource constraints 
-
-If your query fails with the error message 'This query can't be executed due to current resource constraints', it means that serverless SQL pool isn't able to execute it at this moment due to resource constraints: 
-
-- Make sure data types of reasonable sizes are used.  
-
-- If your query targets Parquet files, consider defining explicit types for string columns because they'll be VARCHAR(8000) by default. [Check inferred data types](./best-practices-serverless-sql-pool.md#check-inferred-data-types).
-
-- If your query targets CSV files, consider [creating statistics](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
-
-- Visit [performance best practices for serverless SQL pool](./best-practices-serverless-sql-pool.md) to optimize query.  
-
-### Query timeout expired
-
-The **Query timeout expired** error is returned if the query executed more than 30 minutes on serverless SQL pool. This is a limit of serverless SQL pool that cannot be changed. Try to optimize your query by applying [best practices](best-practices-serverless-sql-pool.md#prepare-files-for-querying), or try to materialize parts of your queries using [CETAS](create-external-table-as-select.md). Check is there a concurrent workload running on the serverless pool because the other queries might take the resources. In that case you might split the workload on multiple workspaces.
 
 ### Content of directory on the path cannot be listed
 
@@ -135,9 +134,29 @@ with (line varchar(max)) as logs
 
 If this query fails, the caller does not have permission to read the underlying storage files.  
 
+## Query execution
+
+You might get errors during the query execution if the caller [cannot access some objects](develop-storage-files-overview.md#permissions), query [cannot access external data](develop-storage-files-storage-access-control.md#storage-permissions), or you are using some functionalities that are [not supported in serverless SQL pools](overview-features.md).
+
+### Query fails because it cannot be executed due to current resource constraints 
+
+If your query fails with the error message 'This query can't be executed due to current resource constraints', it means that serverless SQL pool isn't able to execute it at this moment due to resource constraints: 
+
+- Make sure data types of reasonable sizes are used.  
+
+- If your query targets Parquet files, consider defining explicit types for string columns because they'll be VARCHAR(8000) by default. [Check inferred data types](./best-practices-serverless-sql-pool.md#check-inferred-data-types).
+
+- If your query targets CSV files, consider [creating statistics](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
+
+- Visit [performance best practices for serverless SQL pool](./best-practices-serverless-sql-pool.md) to optimize query.  
+
+### Query timeout expired
+
+The error *Query timeout expired* is returned if the query executed more than 30 minutes on serverless SQL pool. This is a limit of serverless SQL pool that cannot be changed. Try to optimize your query by applying [best practices](best-practices-serverless-sql-pool.md#prepare-files-for-querying), or try to materialize parts of your queries using [CETAS](create-external-table-as-select.md). Check is there a concurrent workload running on the serverless pool because the other queries might take the resources. In that case you might split the workload on multiple workspaces.
+
 ###  Invalid object name
 
-This error indicates that you are using an object (table or view) that doesn't exist in the serverless SQL pool database.
+The error *Invalid object name 'table name'* indicates that you are using an object (table or view) that doesn't exist in the serverless SQL pool database.
 - List the tables/views and check does the object exists. Use SSMS or ADS because Synapse studio might show some tables that are not available in the serverless SQL pool.
 - If you see the object, check are you using some case-sensitive/binary database collation. Maybe the object name does not match the name that you used in the query. With a binary database collation, `Employee` and `employee` are two different objects.
 - If you don't see the object, maybe you are trying to query a table from a Lake/Spark database. There are a few reasons why the table might not be available in the serverless pool:
@@ -146,11 +165,12 @@ This error indicates that you are using an object (table or view) that doesn't e
 
 ### Could not allocate tempdb space while transferring data from one distribution to another
 
-This error is special case of the generic [query fails because it cannot be executed due to current resource constraints](#query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints) error. This error is returned when the resources allocated to the `tempdb` database are insufficient to run the query. 
+The error *Could not allocate tempdb space while transferring data from one distribution to another* is returned when the query execution engine cannot process data and transfer it between the nodes that are executing the query. 
+It is a special case of the generic [query fails because it cannot be executed due to current resource constraints](#query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints) error. This error is returned when the resources allocated to the `tempdb` database are insufficient to run the query. 
 
-Apply the same mitigation and the best practices before you file a support ticket.
+Apply the best practices before you file a support ticket.
 
-### Query fails with error while handling an external file
+### Query fails with error while handling an external file (max error count reached)
 
 If your query fails with the error message 'error handling external file: Max errors count reached', it means that there is a mismatch of a specified column type and the data that needs to be loaded. 
 To get more information about the error and which rows and columns to look at, change the parser version from ‘2.0’ to ‘1.0’. 
@@ -224,7 +244,7 @@ FROM
 
 ### Cannot bulk load because the file could not be opened
 
-This error is returned if a file is modified during the query execution. Usually, you are getting an error like:
+The error *Cannot bulk load because the file could not be opened* is returned if a file is modified during the query execution. Usually, you are getting an error like:
 `Cannot bulk load because the file {file path} could not be opened. Operating system error code 12(The access code is invalid.).`
 
 The serverless sql pools cannot read the files that are modified while the query is running. The query cannot take a lock on the files. 
@@ -480,20 +500,20 @@ FROM
 
 ### The query references an object that is not supported in distributed processing mode
 
-Some objects (such as system views) and functions cannot be used while querying data stored in Azure data lake or Cosmos DB analytical storage. Avoid using the queries that join external data with system views, load external data in a temp table, or use some security or metadata functions to filter external data. 
+The error *The query references an object that is not supported in distributed processing mode* indicates that you have used for object or function that cannot be used while querying data in Azure storage or Cosmos DB analytical storage. Some objects (such as system views) and functions cannot be used while querying data stored in Azure data lake or Cosmos DB analytical storage. Avoid using the queries that join external data with system views, load external data in a temp table, or use some security or metadata functions to filter external data. 
 
 ### `WaitIOCompletion` call failed
 
-This message indicates that the query failed while waiting to complete IO operation that reads data from the remote storage (Azure Data Lake).
+The error message *WaitIOCompletion call failed* indicates that the query failed while waiting to complete IO operation that reads data from the remote storage (Azure Data Lake).
 Make sure that your storage is placed in the same region as serverless SQL pool, and that you are not using `archive access` storage that is paused by default. Check the storage metrics and verify that there are no other workloads on the storage layer (uploading new files) that could saturate IO requests.
 
 ### Incorrect syntax near 'NOT'
 
-This error indicates that there are some external tables with the columns containing `NOT NULL` constraint in the column definition. Update the table to remove `NOT NULL` from the column definition. This error can sometimes also occur transiently with tables created from a CETAS statement. If the problem doesn't resolve, you can try dropping and recreating the external table.
+The error *Incorrect syntax near 'NOT'* indicates that there are some external tables with the columns containing `NOT NULL` constraint in the column definition. Update the table to remove `NOT NULL` from the column definition. This error can sometimes also occur transiently with tables created from a CETAS statement. If the problem doesn't resolve, you can try dropping and recreating the external table.
 
 ### Inserting value to batch for column type DATETIME2 failed
 
-The datetime value stored in Parquet/Delta Lake file cannot be represented as `DATETIME2` column. Inspect the minimum value in the file using spark and check are there some dates less than 0001-01-03. If you stored the files using the Spark 2.4, the date time values before are written using the Julain calendar that is not aligned with the Gregorian Proleptic calendar used in serverless SQL pools. There might be a 2-days difference between Julian calendar user to write the values in Parquet (in some Spark versions) and Gregorian Proleptic calendar used in serverless SQL pool, which might cause conversion to invalid (negative) date value. 
+The error *Inserting value to batch for column type DATETIME2 failed* indicates that the serverless pool cannot read the date values form the underlying files. The datetime value stored in Parquet/Delta Lake file cannot be represented as `DATETIME2` column. Inspect the minimum value in the file using spark and check are there some dates less than 0001-01-03. If you stored the files using the Spark 2.4, the date time values before are written using the Julain calendar that is not aligned with the Gregorian Proleptic calendar used in serverless SQL pools. There might be a 2-days difference between Julian calendar user to write the values in Parquet (in some Spark versions) and Gregorian Proleptic calendar used in serverless SQL pool, which might cause conversion to invalid (negative) date value. 
 
 Try to use Spark to update these values because they are treated as invalid date values in SQL. The following sample shows how to update the values that are out of SQL date ranges to `NULL` in Delta Lake:
 
@@ -518,9 +538,15 @@ spark.conf.set("spark.sql.legacy.parquet.int96RebaseModeInWrite", "CORRECTED")
 
 Serverless pools enable you to use T-SQL to configure database objects. There are some constraints, such as - you cannot create objects in master and lake house/spark databases, you need to have master key to create credentials, you need to have permission to reference data that is used in the objects.
 
+### Cannot create a database
+
+If you are getting the error '*CREATE DATABASE failed. User database limit has been already reached.*' you have created the maximal number of databases that are supported in one workspace (see [Constraints](#constraints)).
+- If you need to separate the objects, use schemas within the databases.
+- If you just need to reference Azure Data Lake storage, create Lake house databases or Spark databases that will be synchronized in the serverless SQL pool.
+
 ### Please create a master key in the database or open the master key in the session before performing this operation.
 
-If your query fails with the error message 'Please create a master key in the database or open the master key in the session before performing this operation.', it means that your user database has no access to a master key in the moment. 
+If your query fails with the error message *Please create a master key in the database or open the master key in the session before performing this operation*, it means that your user database has no access to a master key in the moment. 
 
 Most likely, you just created a new user database and did not create a master key yet. 
 
@@ -535,11 +561,7 @@ CREATE MASTER KEY [ ENCRYPTION BY PASSWORD ='password' ];
 
 ### CREATE STATEMENT is not supported in master database
 
-If your query fails with the error message:
-
-> 'Failed to execute query. Error: CREATE EXTERNAL TABLE/DATA SOURCE/DATABASE SCOPED CREDENTIAL/FILE FORMAT is not supported in master database.' 
-
-it means that master database in serverless SQL pool does not support creation of:
+If your query fails with the error message `Failed to execute query. Error: CREATE EXTERNAL TABLE/DATA SOURCE/DATABASE SCOPED CREDENTIAL/FILE FORMAT is not supported in master database` it means that master database in serverless SQL pool does not support creation of:
   - External tables
   - External data sources
   - Database scoped credentials
@@ -577,7 +599,7 @@ If you are getting an error while trying to create new Azure AD login or user in
 
 ## Cosmos DB
 
-Serverless SQL pools enable you to query Cosmos DB analytical storage using the `OPENROWSET` function.
+Serverless SQL pools enable you to query Cosmos DB analytical storage using the `OPENROWSET` function. Make sure that your Cosmos DB container has analytical storage. Make sure that you correctly specified account, database, and container name. also, make sure that you cosmos DB account key is valid - see [prerequisites](query-cosmos-db-analytical-store.md#prerequisites).
 
 ### Cannot query CosmosDB using the OPENROWSET function
 
@@ -749,16 +771,9 @@ Even if a tool enables you to enter only a logical server name and predefines `d
 
 Make sure that a user has permissions to access databases, [permissions to execute commands](develop-storage-files-overview.md#permissions), and permissions to access [data lake](develop-storage-files-storage-access-control.md?tabs=service-principal) or [Cosmos DB storage](query-cosmos-db-analytical-store.md#prerequisites). 
 
-### Cannot read, list or access files on data lake storage
-
-If you are using Azure AD login without explicit credential, make sure that your Azure AD identity can access the files on storage. Your Azure AD identity need to have Blob Data Reader or list/read ACL permissions to access the files - see [Query fails because file cannot be opened](#query-fails-because-file-cannot-be-opened).
-
-If you are accessing storage using [credentials](develop-storage-files-storage-access-control.md#credentials), make sure that your [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) or [SPN](develop-storage-files-storage-access-control.md?tabs=service-principal) has Data Reader/Contributor role, or ALC permissions. If you have used [SAS token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) make sure that it has `rl` permission and that it didn't expired. 
-If you are using SQL login and the `OPENROWSET` function [without data source](develop-storage-files-overview.md#query-files-using-openrowset), make sure that you have a server-level credential that matches the storage URI and has permission to access the storage.
-
 ### Cannot access Cosmos DB account
 
-Make sure that your Cosmos DB container has analytical storage. Make sure that you correctly specified account, database, and container name. You must use read-only cosmos DB credential to access your analytical storage, so make sure that it did not expire.
+You must use read-only Cosmos DB key to access your analytical storage, so make sure that it did not expire or that it is not re-generated.
 
 If you are getting the [Resolving Cosmos DB path has failed](#resolving-cosmosdb-path-has-failed) error, make sure that you configured firewall.
 
@@ -836,6 +851,8 @@ There are some general system constraints that may affect your workload:
 ### Cannot create a database in serverless SQL pool
 
 The serverless SQL pools have limitations and you cannot create more than 20 databases per workspace. If you need to separate objects and isolate them, use schemas.
+
+If you are getting the error '*CREATE DATABASE failed. User database limit has been already reached.*' you have created the maximal number of databases that are supported in one workspace.
 
 You don't need to use separate databases to isolate data for different tenants. All data is stored externally on a data lake and Cosmos DB. The metadata (table, views, function definitions) can be successfully isolated using schemas. Schema-based isolation is also used in Spark where databases and schemas are the same concepts.
 

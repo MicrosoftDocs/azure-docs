@@ -8,7 +8,7 @@ ms.date: 12/08/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
-manager: karenh444
+manager: karenhoran
 ---
 
 # Azure services that support Azure AD authentication
