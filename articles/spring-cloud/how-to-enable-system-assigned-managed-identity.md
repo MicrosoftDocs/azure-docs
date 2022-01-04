@@ -29,7 +29,7 @@ If you're unfamiliar with managed identities for Azure resources, see the [Manag
    ```azurecli
    az extension remove --name spring-cloud
    az extension add \
-       --source https://ascprivatecli.blob.core.windows.net/enterprise/spring_cloud-2.7.0a3-py3-none-any.whl \
+       --source https://ascprivatecli.blob.core.windows.net/enterprise/spring_cloud-2.12.1a1-py3-none-any.whl \
        --yes
    ```
 ::: zone-end
