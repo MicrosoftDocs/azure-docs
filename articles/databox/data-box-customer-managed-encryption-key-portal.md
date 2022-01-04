@@ -160,6 +160,8 @@ To change the identity used to manage access to the customer-managed key for thi
 
     ![Save updated encryption settings - 2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17-a.png)
 
+4. Enable the **Get**, **Unwrap Key**, and **Wrap Key** permissions on the key. These permissions are required during order creation and the Data Copy phase. For more info about key requirements, see [Troubleshoot errors for customer-managed keys](../articles/databox/data-box-customer-managed-encryption-key-portal.md#troubleshoot-errors).
+
 ## Use Microsoft managed key
 
 To change from using a customer-managed key to the Microsoft managed key for your order, follow these steps:
