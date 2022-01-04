@@ -32,7 +32,7 @@ To manage the service settings, open the **Settings** section and add a new entr
 
 The properties for each entry are described in the following table.
 
-| Property | Required? | Explanation |
+| Property | Required? | Description |
 | - | - | - |
 | Name | Yes | A unique name to label each Git repository. |
 | Patterns | Yes | Patterns to search in Git repositories. For each pattern, use a format like *{application}* or *{application}/{profile}* instead of *{application}-{profile}.yml*, and separate the patterns with commas. For more information, see the following [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) section. |
@@ -61,7 +61,7 @@ The following list shows the three types of repositories supported by Applicatio
 
    The following table shows all the configurable properties used to set up a private Git repository with basic authentication.
 
-   | Property | Required? | Explanation |
+   | Property | Required? | Description |
    | - | - | - |
    | username | Yes | The username used to access the repository. |
    | password | Yes | The password used to access the repository. |
@@ -70,7 +70,7 @@ The following list shows the three types of repositories supported by Applicatio
 
    The following table shows all configurable properties used to set up a private Git repository with SSH.
 
-   | Property | Required? | Explanation |
+   | Property | Required? | Description |
    | - | - | - |
    | Private key | Yes | The private key that identifies the Git user. Passphrase-encrypted private keys are not supported. |
    | Host key | No | The host key of the Git server. If you've connected to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Do not include the algorithm prefix as this is specified in `Host key algorithm`. |
