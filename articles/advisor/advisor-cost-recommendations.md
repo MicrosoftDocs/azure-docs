@@ -61,7 +61,7 @@ This is a special kind of resize recommendation, where Advisor analyzes workload
 
 - A burstable SKU recommendation is made if:
 - The average CPU utilization is less than a Burstable SKUs baseline performance
-  - If the P95 of CPU is less than 2 times the Busrtable SKUs baseline performance
+  - If the P95 of CPU is less than 2 times the Burstable SKUs baseline performance
   - If the current SKU does not have accelerated networking enabled (burstable SKUs don’t supported accelerated networking yet)
   - If we determine that the Burstable SKU credits is sufficient to support the average CPU utilization over 7 days
 - The result is a recommendation suggesting that the user resize their current VM to a burstable SKU (with the same number of cores) to take advantage of the low costs and the fact that the workload has low average utilization but high spikes in cases, which is perfect for the B-series SKU. 
