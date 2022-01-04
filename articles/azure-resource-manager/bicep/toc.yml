@@ -21,7 +21,7 @@
   - name: Use loops
     displayName: multiple
     href: quickstart-loops.md
-  - name: Publish to private module registry
+  - name: Use private module registry
     href: quickstart-private-module-registry.md
   - name: CI/CD
     items:

@@ -15,7 +15,7 @@ Learn how to publish Bicep modules to private modules registry, and how to call 
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-To work with module registries, you must have [Bicep CLI](./install.md#deployment-environment) version **0.4.1008** or later. To use with Azure CLI, you must also have Azure CLI version **2.31.0** or later; to use with Azure PowerShell, you must also have Azure PowerShell version **7.0.0** or later.
+To work with module registries, you must have [Bicep CLI](./install.md#deployment-environment) version **0.4.1008** or later. To use with [Azure CLI](/azure/install-azure-cli), you must also have Azure CLI version **2.31.0** or later; to use with [Azure PowerShell](/powershell/azure/install-az-ps), you must also have Azure PowerShell version **7.0.0** or later.
 
 A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-registry/container-registry-intro.md). To create one, see [Quickstart: Create a container registry by using a Bicep file](../../container-registry/container-registry-get-started-bicep.md).
 
@@ -23,7 +23,7 @@ To set up your environment for Bicep development, see [Install Bicep tools](inst
 
 ## Create Bicep modules
 
-A module is a Bicep file that is deployed from another Bicep file. Any Bicep file can be used as a module. You can use the following Bicep file in this tutorial.  It creates a storage account:
+A module is a Bicep file that is deployed from another Bicep file. Any Bicep file can be used as a module. You can use the following Bicep file in this quickstart.  It creates a storage account:
 
 ```bicep
 @minLength(3)
@@ -60,7 +60,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2021-06-01' = {
 output storageEndpoint object = stg.properties.primaryEndpoints
 ```
 
-Save the Bicep file with a file name called **storage.bicep**.
+Save the Bicep file as **storage.bicep**.
 
 ## Publish modules
 
@@ -68,15 +68,11 @@ If you don't have an Azure container registry (ACR), see [Prerequisites](#prereq
 
 # [Azure CLI](#tab/azure-cli)
 
-To get the login server name, use [az acr show](/cli/azure/acr#az_acr_show).
-
 ```azurecli
 az acr show --resource-group <resource-group-name> --name <registry-name> --query loginServer
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
-
-To get the login server name, use [Get-AzContainerRegistry](/powershell/module/az.containerregistry/get-azcontainerregistry).
 
 ```azurepowershell
 Get-AzContainerRegistry -ResourceGroupName "<resource-group-name>" -Name "<registry-name>"  | Select-Object LoginServer
@@ -87,8 +83,6 @@ Get-AzContainerRegistry -ResourceGroupName "<resource-group-name>" -Name "<regis
 Use the following syntax to publish a Bicep file as a module to a private module registry.
 
 # [Azure CLI](#tab/azure-cli)
-
-To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
 
 ```azurecli
 az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
@@ -102,21 +96,19 @@ Publish-AzBicepModule -FilePath ./storage.bicep -Target br:exampleregistry.azure
 
 ---
 
-In the preceding sample, **./storage.bicep** is the Bicep file to be published. Update the file path if it is needed.  The module path has the following syntax:
+In the preceding sample, **./storage.bicep** is the Bicep file to be published. Update the file path if needed.  The module path has the following syntax:
 
 ```bicep
 br:<registry-name>.azurecr.io/<file-path>:<tag>
 ```
 
 - **br** is the schema name for a Bicep registry.
-- **file path** is called `repository` in Azure Container Registry. The **file path** can contain segments that are separated by the `/` character. This file path is created if it doesn't exist.
+- **file path** is called `repository` in Azure Container Registry. The **file path** can contain segments that are separated by the `/` character. This file path is created if it doesn't exist in the registry.
 - **tag** is used for specifying a version for the module.
 
 To verify the published modules, you can list the ACR repository:
 
 # [Azure CLI](#tab/azure-cli)
-
-To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
 
 ```azurecli
 az acr repository list --name <registry-name> --output table
@@ -138,7 +130,7 @@ To call a module, create a new Bicep file in Visual Studio Code. In the new Bice
 module stgModule 'br:<registry-name>.azurecr.io/bicep/modules/storage:v1'
 ```
 
-Replace **&lt;registry-name>** with your ACR registry name.  It takes a short moment to restore the module to your local registry. After the module is restored, the red curly line underneath the module path will go away. At the end of the line,  add **=** and a space, and then select **required-properties**.  The module structure is automatically populated.
+Replace **&lt;registry-name>** with your ACR registry name.  It takes a short moment to restore the module to your local cache. After the module is restored, the red curly line underneath the module path will go away. At the end of the line,  add **=** and a space, and then select **required-properties** as shown in the following screenshot.  The module structure is automatically populated.
 
 :::image type="content" source="./media/quickstart-private-module-registry/visual-studio-code-required-properties.png" alt-text="Visual Studio Code Bicep extension required properties":::
 
