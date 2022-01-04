@@ -37,7 +37,6 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
 * The latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. *See* [Java in Visual Studio Code](https://code.visualstudio.com/docs/languages/java).
-),
 
   >[!TIP]
   >
