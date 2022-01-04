@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid:
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
