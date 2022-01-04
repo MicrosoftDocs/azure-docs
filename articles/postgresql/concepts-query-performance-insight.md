@@ -20,7 +20,7 @@ For Query Performance Insight to function, data must exist in the [Query Store](
 ## Viewing performance insights
 The [Query Performance Insight](concepts-query-performance-insight.md) view in the Azure portal will surface visualizations on key information from Query Store. 
 
-In the portal page of your Azure Database for PostgreSQL server, select **Query performance Insight** under the **Intelligent Performance** section of the menu bar. Displaying the Query Text is no longer supported and will show as empty until it’s taken out of Performance Insights. However, it can still be viewed by connecting to azure_sys and querying 'query_store.query_texts_view'.
+In the portal page of your Azure Database for PostgreSQL server, select **Query performance Insight** under the **Intelligent Performance** section of the menu bar. Displaying the **Query Text is no longer supported** and will show as empty until it’s taken out of Performance Insights. However, it can still be viewed by connecting to azure_sys and querying 'query_store.query_texts_view'.
 
 :::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-landing-page.png" alt-text="Query Performance Insight long running queries":::
 
