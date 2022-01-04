@@ -240,9 +240,10 @@ In the lower left of most widgets, you’ll see a thumbs up and thumbs down icon
 | Quantity | Indicates billed quantity for transactions. This can represent the seats and site purchase count for subscription-based offers, and usage units for consumption-based offers. |
 | Units | The unit quantity. Represents count of purchased seat/site SaaS orders and core hours for VM-based offers. Units will be displayed as NA for offers with custom meters. |
 |
+
 ## Next steps
 
-- For common questions about the revenue dashboard or commercial marketplace analytics, and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics common questions](analytics-faq.yml).
+- For common questions about the revenue dashboard or commercial marketplace analytics, and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics Frequently Asked Questions](analytics-faq.yml).
 - For information on payout statements, see [Payout statements](/partner-center/payout-statement).
 - For information on Payout schedules, see [Payout schedules and processes](/partner-center/payout-policy-details).
 - For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage dashboard in commercial marketplace analytics](usage-dashboard.md).
