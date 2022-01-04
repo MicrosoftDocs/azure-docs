@@ -219,9 +219,9 @@ FROM sys.dm_db_resource_stats;
 ```
 #### Lower worker usage when possible
 
-Blocking chains can cause of a sudden surge in the number of workers in a database. A large volume of concurrent parallel queries may cause a high number of workers. Increasing your [max degree of parallelism (MAXDOP](configure-max-degree-of-parallelism.md)) or setting MAXDOP to zero can increase the number of active workers.
+Blocking chains can cause a sudden surge in the number of workers in a database. A large volume of concurrent parallel queries may cause a high number of workers. Increasing your [max degree of parallelism (MAXDOP](configure-max-degree-of-parallelism.md)) or setting MAXDOP to zero can increase the number of active workers.
 
-Triage an incident with insufficient workers with the following steps:
+Triage an incident with insufficient workers by following these steps:
 
 1. Investigate if blocking is occurring or if you can identify a large volume of concurrent workers. Run the following query to examine current requests and check for blocking when your database is returning Error 10928. You may need to [connect with the Dedicated Admin Connection (DAC)](#connect-with-the-dedicated-admin-connection-dac-if-needed) to execute the query.
     
