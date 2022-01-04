@@ -8,8 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 12/07/2021
 ms.author: aahi
+ms.devlang: csharp, python
 ms.custom: language-service-clu, ignite-fall-2021
 ---
 
@@ -76,8 +77,8 @@ You can get the full URL for your endpoint by going to the **Deploy model** page
     
 5. See the following reference documentation for more information:
     
-    * [C#](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)
-    * [Python](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true)
+    * [C#](/dotnet/api/azure.ai.language.conversations?view=azure-dotnet-preview&preserve-view=true)
+    * [Python](/python/api/azure-ai-language-conversations/azure.ai.language.conversations?view=azure-python-preview&preserve-view=true)
     
 ## API response for a conversations project
 

@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 11/23/2021
+ms.date: 12/28/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -27,7 +27,7 @@ To get deployment scope values, see [Scope functions](template-functions-scope.m
 
 `extensionResourceId(baseResourceId, resourceType, resourceName1, [resourceName2], ...)`
 
-Returns the resource ID for an [extension resource](../management/extension-resource-types.md), which is a resource type that is applied to another resource to add to its capabilities.
+Returns the resource ID for an [extension resource](../management/extension-resource-types.md). An extension resource is a resource type that's applied to another resource to add to its capabilities.
 
 ### Parameters
 
@@ -105,7 +105,7 @@ The syntax for this function varies by name of the list operations. Each impleme
 |:--- |:--- |:--- |:--- |
 | resourceName or resourceIdentifier |Yes |string |Unique identifier for the resource. |
 | apiVersion |Yes |string |API version of resource runtime state. Typically, in the format, **yyyy-mm-dd**. |
-| functionValues |No |object | An object that has values for the function. Only provide this object for functions that support receiving an object with parameter values, such as **listAccountSas** on a storage account. An example of passing function values is shown in this article. |
+| functionValues |No |object | An object that has values for the function. Only provide this object for functions that support receiving an object with parameter values, such as `listAccountSas` on a storage account. An example of passing function values is shown in this article. |
 
 ### Valid uses
 
@@ -115,18 +115,18 @@ When used with [property iteration](copy-properties.md), you can use the list fu
 
 ### Implementations
 
-The possible uses of list* are shown in the following table.
+The possible uses of `list*` are shown in the following table.
 
 | Resource type | Function name |
 | ------------- | ------------- |
 | Microsoft.Addons/supportProviders | listsupportplaninfo |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
-| Microsoft.ApiManagement/service/authorizationServers | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/authorization-server/list-secrets) |
-| Microsoft.ApiManagement/service/gateways | [listKeys](/rest/api/apimanagement/2021-04-01-preview/gateway/list-keys) |
-| Microsoft.ApiManagement/service/identityProviders | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/identity-provider/list-secrets) |
-| Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/2021-04-01-preview/named-value/list-value) |
-| Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/openid-connect-provider/list-secrets) |
-| Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/subscription/list-secrets) |
+| Microsoft.ApiManagement/service/authorizationServers | [listSecrets](/rest/api/apimanagement/current-ga/authorization-server/list-secrets) |
+| Microsoft.ApiManagement/service/gateways | [listKeys](/rest/api/apimanagement/current-ga/gateway/list-keys) |
+| Microsoft.ApiManagement/service/identityProviders | [listSecrets](/rest/api/apimanagement/current-ga/identity-provider/list-secrets) |
+| Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/current-ga/named-value/list-value) |
+| Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/current-ga/openid-connect-provider/list-secrets) |
+| Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/current-ga/subscription/list-secrets) |
 | Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
 | Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringcloud/services/listtestkeys) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
@@ -264,7 +264,7 @@ To determine which resource types have a list operation, you have the following 
 
 ### Return value
 
-The returned object varies by the list function you use. For example, the listKeys for a storage account returns the following format:
+The returned object varies by the `list` function you use. For example, the `listKeys` for a storage account returns the following format:
 
 ```json
 {
@@ -283,17 +283,17 @@ The returned object varies by the list function you use. For example, the listKe
 }
 ```
 
-Other list functions have different return formats. To see the format of a function, include it in the outputs section as shown in the example template.
+Other `list` functions have different return formats. To see the format of a function, include it in the outputs section as shown in the example template.
 
 ### Remarks
 
-Specify the resource by using either the resource name or the [resourceId function](#resourceid). When using a list function in the same template that deploys the referenced resource, use the resource name.
+Specify the resource by using either the resource name or the [resourceId function](#resourceid). When using a `list` function in the same template that deploys the referenced resource, use the resource name.
 
-If you use a `list` function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the `list` function refers to a resource that doesn't exist. Use the `if` function to make sure the function is only evaluated when the resource is being deployed. See the [if function](template-functions-logical.md#if) for a sample template that uses if and list with a conditionally deployed resource.
+If you use a `list` function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the `list` function refers to a resource that doesn't exist. Use the `if` function to make sure the function is only evaluated when the resource is being deployed. See the [if function](template-functions-logical.md#if) for a sample template that uses `if` and `list` with a conditionally deployed resource.
 
 ### List example
 
-The following example uses listKeys when setting a value for [deployment scripts](deployment-script-template.md).
+The following example uses `listKeys` when setting a value for [deployment scripts](deployment-script-template.md).
 
 ```json
 "storageAccountSettings": {
@@ -302,7 +302,7 @@ The following example uses listKeys when setting a value for [deployment scripts
 }
 ```
 
-The next example shows a list function that takes a parameter. In this case, the function is **listAccountSas**. Pass an object for the expiry time. The expiry time must be in the future.
+The next example shows a `list` function that takes a parameter. In this case, the function is `listAccountSas`. Pass an object for the expiry time. The expiry time must be in the future.
 
 ```json
 "parameters": {
@@ -324,7 +324,7 @@ The next example shows a list function that takes a parameter. In this case, the
 
 `pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
 
-Determines whether a resource type supports zones for the specified location or region.  This function only supports zonal resources, zone redundant services will return an empty array.  For more information, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).  To use the pickZones function with zone redundant services, see the examples below.
+Determines whether a resource type supports zones for the specified location or region. This function **only supports zonal resources**. Zone redundant services return an empty array. For more information, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
 
 ### Parameters
 
@@ -338,7 +338,7 @@ Determines whether a resource type supports zones for the specified location or 
 
 ### Return value
 
-An array with the supported zones. When using the default values for offset and numberOfZones, a resource type and region that supports zones returns the following array:
+An array with the supported zones. When using the default values for offset and `numberOfZones`, a resource type and region that supports zones returns the following array:
 
 ```json
 [
@@ -365,13 +365,13 @@ When the resource type or region doesn't support zones, an empty array is return
 
 ### Remarks
 
-There are different categories for Azure Availability Zones - zonal and zone-redundant.  The pickZones function can be used to return an availability zone number or numbers for a zonal resource.  For zone redundant services (ZRS), the function will return an empty array.  Zonal resources can typically be identified by the use of a `zones` property on the resource header.  Zone redundant services have different ways for identifying and using availability zones per resource, use the documentation for a specific service to determine the category of support for availability zones.  For more information, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
+There are different categories for Azure Availability Zones - zonal and zone-redundant.  The `pickZones` function can be used to return an availability zone for a zonal resource.  For zone redundant services (ZRS), the function returns an empty array.  Zonal resources typically have a `zones` property at the top level of the resource definition. To determine the category of support for availability zones, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
 
-To determine if a given Azure region or location supports availability zones, call the pickZones() function with a zonal resource type, for example `Microsoft.Storage/storageAccounts`.  If the response is non-empty, the region supports availability zones.
+To determine if a given Azure region or location supports availability zones, call the `pickZones` function with a zonal resource type, such as `Microsoft.Network/publicIPAddresses`.  If the response isn't empty, the region supports availability zones.
 
 ### pickZones example
 
-The following template shows three results for using the pickZones function.
+The following template shows three results for using the `pickZones` function.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/pickzones.json":::
 
@@ -383,7 +383,7 @@ The output from the preceding examples returns three arrays.
 | notSupportedRegion | array | [] |
 | notSupportedType | array | [] |
 
-You can use the response from pickZones to determine whether to provide null for zones or assign virtual machines to different zones. The following example sets a value for the zone based on the availability of zones.
+You can use the response from `pickZones` to determine whether to provide null for zones or assign virtual machines to different zones. The following example sets a value for the zone based on the availability of zones.
 
 ```json
 "zones": {
@@ -391,7 +391,7 @@ You can use the response from pickZones to determine whether to provide null for
 },
 ```
 
-The following example shows how to use the pickZones function to enable zone redundancy for Cosmos DB.
+The following example shows how to use the `pickZones` function to enable zone redundancy for Cosmos DB.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/pickzones-cosmosdb.json":::
 
@@ -464,17 +464,17 @@ Use `'Full'` when you need resource values that aren't part of the properties sc
 
 ### Valid uses
 
-The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](copy-properties.md), you can use the reference function for `input` because the expression is assigned to the resource property.
+The `reference` function can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](copy-properties.md), you can use the `reference` function for `input` because the expression is assigned to the resource property.
 
-You can't use the reference function to set the value of the `count` property in a copy loop. You can use to set other properties in the loop. Reference is blocked for the count property because that property must be determined before the reference function is resolved.
+You can't use the `reference` function to set the value of the `count` property in a copy loop. You can use to set other properties in the loop. Reference is blocked for the count property because that property must be determined before the `reference` function is resolved.
 
 To use the `reference` function or any `list*` function in the outputs section of a nested template, you must set the `expressionEvaluationOptions` to use [inner scope](linked-templates.md#expression-evaluation-scope-in-nested-templates) evaluation or use a linked instead of a nested template.
 
-If you use the `reference` function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed.  You get an error if the `reference` function refers to a resource that doesn't exist. Use the `if` function to make sure the function is only evaluated when the resource is being deployed. See the [if function](template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
+If you use the `reference` function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed.  You get an error if the `reference` function refers to a resource that doesn't exist. Use the `if` function to make sure the function is only evaluated when the resource is being deployed. See the [if function](template-functions-logical.md#if) for a sample template that uses `if` and `reference` with a conditionally deployed resource.
 
 ### Implicit dependency
 
-By using the reference function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template and you refer to the resource by its name (not resource ID). You don't need to also use the dependsOn property. The function isn't evaluated until the referenced resource has completed deployment.
+By using the `reference` function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template and you refer to the resource by its name (not resource ID). You don't need to also use the `dependsOn` property. The function isn't evaluated until the referenced resource has completed deployment.
 
 ### Resource name or identifier
 
@@ -622,15 +622,15 @@ When the template is deployed at the scope of a resource group, the resource ID 
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-You can use the resourceId function for other deployment scopes, but the format of the ID changes.
+You can use the `resourceId` function for other deployment scopes, but the format of the ID changes.
 
-If you use resourceId while deploying to a subscription, the resource ID is returned in the following format:
+If you use `resourceId` while deploying to a subscription, the resource ID is returned in the following format:
 
 ```json
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-If you use resourceId while deploying to a management group or tenant, the resource ID is returned in the following format:
+If you use `resourceId` while deploying to a management group or tenant, the resource ID is returned in the following format:
 
 ```json
 /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -642,7 +642,7 @@ For [subscription-level resources](deploy-to-subscription.md), use the [subscrip
 
 For [management group-level resources](deploy-to-management-group.md), use the [extensionResourceId](#extensionresourceid) function to reference a resource that is implemented as an extension of a management group. For example, custom policy definitions that are deployed to a management group are extensions of the management group. Use the [tenantResourceId](#tenantresourceid) function to reference resources that are deployed to the tenant but available in your management group. For example, built-in policy definitions are implemented as tenant level resources.
 
-For [tenant-level resources](deploy-to-tenant.md), use the [tenantResourceId](#tenantresourceid) function. Use tenantResourceId for built-in policy definitions because they are implemented at the tenant level.
+For [tenant-level resources](deploy-to-tenant.md), use the [tenantResourceId](#tenantresourceid) function. Use `tenantResourceId` for built-in policy definitions because they're implemented at the tenant level.
 
 ### Remarks
 

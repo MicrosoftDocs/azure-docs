@@ -4,7 +4,7 @@ description: Learn about the scalability and performance targets for Azure Files
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/06/2021
+ms.date: 12/08/2021
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -54,7 +54,7 @@ Azure supports multiple types of storage accounts for different storage scenario
 | Provisioned size increase/decrease unit | N/A | 1 GiB |
 | Maximum size of a file share | <ul><li>100 TiB, with large file share feature enabled<sup>2</sup></li><li>5 TiB, default</li></ul> | 100 TiB |
 | Maximum number of files in a file share | No limit | No limit |
-| Maximum request rate (Max IOPS) | <ul><li>20,000, with large file share feature enabled<sup>2</sup></li><li>1,000 or 100 requests per 100 ms, default</li></ul> | <ul><li>Baseline IOPS: 400 + 1 IOPS per GiB, up to 100,000</li><li>IOPS bursting: Max (4000,3x IOPS per GiB), up to 100,000</li></ul> |
+| Maximum request rate (Max IOPS) | <ul><li>20,000, with large file share feature enabled<sup>2</sup></li><li>1,000 or 100 requests per 100 ms, default</li></ul> | <ul><li>Baseline IOPS: 3000 + 1 IOPS per GiB, up to 100,000</li><li>IOPS bursting: Max (10000, 3x IOPS per GiB), up to 100,000</li></ul> |
 | Throughput (ingress + egress) for a single file share | <ul><li>Up to 300 MiB/sec, with large file share feature enabled<sup>2</sup></li><li>Up to 60 MiB/sec, default</li></ul> | 100 + CEILING(0.04 * ProvisionedGiB) + CEILING(0.06 * ProvisionedGiB) |
 | Maximum number of share snapshots | 200 snapshots | 200 snapshots |
 | Maximum object (directories and files) name length | 2,048 characters | 2,048 characters |

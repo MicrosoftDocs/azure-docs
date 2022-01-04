@@ -3,6 +3,7 @@ title: Azure Service Bus - message expiration
 description: This article explains about expiration and time to live (TTL) of Azure Service Bus messages. After such a deadline, the message is no longer delivered.
 ms.topic: conceptual
 ms.date: 11/17/2021
+ms.custom: contperf-fy22q2
 ---
 
 # Azure Service Bus - Message expiration (Time to Live)

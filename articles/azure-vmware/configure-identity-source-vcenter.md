@@ -36,7 +36,7 @@ In this how-to, you learn how to:
 
 - If you use FQDN, enable DNS resolution on your on-premises AD.
 
- 
+ - Enable DNS Forwarder from Azure portal Ref: [Configure DNS forwarder for Azure VMware Solution - Azure VMware Solution | Microsoft Docs](/azure/azure-vmware/configure-identity-source-vcenter)
 
 ## List external identity
 

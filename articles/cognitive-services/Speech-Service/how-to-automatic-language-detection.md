@@ -11,6 +11,8 @@ ms.topic: conceptual
 ms.date: 05/21/2021
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
+ms.devlang: cpp, csharp, java, javascript, objective-c, python
+
 ---
 
 # How to use language identification

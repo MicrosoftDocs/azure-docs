@@ -147,15 +147,6 @@
       href: upgrade-basicInternal-standard.md
     - name: Upgrade an Internal Load Balancer - Outbound Connection Required
       href: upgrade-InternalBasic-To-PublicStandard.md
-  - name: Create public Load Balancer with IPv6
-    items:
-    - name: Azure CLI
-      href: ./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
-    - name: Azure PowerShell
-      href: ./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
-    - name: Azure Resource Manager template
-      href: ./ipv6-configure-standard-load-balancer-template-json.md
-      displayName: ARM
   - name: Configure TCP reset and idle timeout
     href: load-balancer-tcp-idle-timeout.md
   - name: Configure distribution mode for Load Balancer
@@ -172,7 +163,7 @@
       href: move-across-regions-external-load-balancer-portal.md
     - name: Public Load Balancer - PowerShell
       href: move-across-regions-external-load-balancer-powershell.md
-    - name: Public Load Balancer - Portal
+    - name: Internal load balancer - Portal
       href: move-across-regions-internal-load-balancer-portal.md
     - name: Internal load balancer - PowerShell
       href: move-across-regions-internal-load-balancer-powershell.md

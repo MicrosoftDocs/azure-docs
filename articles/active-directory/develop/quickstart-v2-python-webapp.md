@@ -11,7 +11,7 @@ ms.topic: portal
 ms.workload: identity
 ms.date: 11/22/2021
 ms.author: abpati
-ms.custom: aaddev, devx-track-python, "scenarios:getting-started", "languages:Python", mode-other
+ms.custom: aaddev, devx-track-python, "scenarios:getting-started", "languages:Python", mode-api
 ---
 
 # Quickstart: Add sign-in with Microsoft to a Python web app

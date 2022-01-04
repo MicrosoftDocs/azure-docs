@@ -85,6 +85,9 @@
       href: secure-score-security-controls.md
     - name: Reference list of recommendations
       href: recommendations-reference.md
+    - name: Reference list of AWS recommendations
+      href: recommendations-reference-aws.md
+
   - name: Cloud Workload Protection concepts
     items:
     - name: Security alerts and incidents
@@ -156,7 +159,7 @@
         href: remediate-vulnerability-findings-vm.md
       - name: Disable specific vulnerability findings
         displayName: qualys, rapid7, va
-        href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
+        href: remediate-vulnerability-findings-vm.md#disable-specific-findings
     - name: Secure management ports with just-in-time VM access
       items:
       - name: Overview of just-in-time VM access
@@ -209,15 +212,17 @@
       displayName: sql, database, data discovery
       href: sql-information-protection-policy.md
   - name: Protect your containerized environments
-    displayName: Azure Defender
     items:
-    - name: Container security features of Defender for Cloud
-      displayName: kubernetes, aks, acr, registries, k8s
-      href: container-security.md
-    - name: Overview of Defender for Kubernetes
+    - name: Overview of Defender for Containers
+      displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
+      href: defender-for-containers-introduction.md
+    - name: Enable Defender for Containers
+      displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
+      href: defender-for-containers-enable.md
+    - name: Defender for Kubernetes (deprecated)
       displayName: clusters, k8s, aks
       href: defender-for-kubernetes-introduction.md
-    - name: Overview of Defender for container registries
+    - name: Defender for container registries (deprecated)
       displayName: ACR, registry, images
       href: defender-for-container-registries-introduction.md
     - name: Scan your registry images for vulnerabilities
@@ -226,9 +231,6 @@
     - name: Scan images in your CI/CD workflows
       displayName: ACR, registry, images, trevi, vulnerabilities, scanner
       href: defender-for-container-registries-cicd.md
-    - name: Protect Azure Arc-enabled Kubernetes clusters
-      displayName: k8s, containers, aks, hybrid, arc, azure arc, multicloud
-      href: defender-for-kubernetes-azure-arc.md
     - name: Protect your Kubernetes workloads
       displayName: k8s, containers, aks
       href: kubernetes-workload-protections.md

@@ -877,6 +877,8 @@
               href: sql/couchbase-cosmos-migration.md
             - name: Migrate - DynamoDB to SQL API
               href: sql/dynamo-to-cosmos.md
+            - name: Migrate - HBase to SQL API
+              href: sql/migrate-hbase-to-cosmos-db.md
         - name: Security
           items:
             - name: Configure Cross Origin Resource Sharing(CORS)
@@ -1022,6 +1024,8 @@
           href: cassandra/apache-cassandra-consistency-mapping.md
     - name: How-to guides
       items:
+        - name: From Apache Cassandra to Cassandra API
+          href: cassandra/cassandra-adoption.md     
         - name: Migrate to Cassandra API
           items:
             - name: Migrate - Oracle DB to Cassandra API using Striim
@@ -1052,6 +1056,8 @@
           href: cassandra/access-data-spring-data-app.md
         - name: Troubleshoot common issues
           href: cassandra/troubleshoot-common-issues.md
+        - name: Troubleshoot NoHostAvailableException
+          href: cassandra/troubleshoot-nohostavailable-exception.md
         - name: Monitor using Diagnostics Logs
           href: cassandra/diagnostic-queries-cassandra.md
         - name: Cassandra and Spark
@@ -1286,8 +1292,6 @@
       items:
         - name: Graph data modeling
           href: graph/graph-modeling.md
-        - name: Third-party Graph Modeling solutions
-          href: graph/graph-modeling-tools.md
         - name: Graph data partitioning
           href: graph/graph-partitioning.md
         - name: Import graph data
@@ -1308,8 +1312,6 @@
           href: graph/use-regional-endpoints.md
         - name: Access system document properties
           href: graph/access-system-properties-gremlin.md
-        - name: Visualize graph data
-          href: graph/graph-visualization-partners.md
         - name: Monitor using Diagnostics Logs
           href: graph/diagnostic-queries-gremlin.md
         - name: Store and manage Spring Data
@@ -1323,8 +1325,14 @@
           href: graph/powershell-samples.md
         - name: Manage using Azure CLI
           href: graph/cli-samples.md
-        - name: Supply chain traceability solution
-          href: graph/supply-chain-traceability-solution.md
+        - name: Gremlin partner solutions
+          items:
+          - name: Visualization solutions
+            href: graph/graph-visualization-partners.md
+          - name: Modeling solutions
+            href: graph/graph-modeling-tools.md
+          - name: Supply chain traceability solution
+            href: graph/supply-chain-traceability-solution.md
     - name: Reference
       items:
         - name: Response Headers

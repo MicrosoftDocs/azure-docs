@@ -4,12 +4,11 @@ description: Learn how to view requests and remove for an access package in Azur
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 9/20/2021
@@ -65,7 +64,7 @@ You can also remove a completed request that is no longer needed. To remove a re
 
 ### Remove a request with Microsoft Graph
 
-You can also remove a request using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application with that application permission, can call the API to [remove an accessPackageAssignmentRequest](/graph/api/accesspackageassignmentrequest-delete?view=graph-rest-beta&preserve-view=true).
+You can also remove a request using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application with that application permission, can call the API to [remove an accessPackageAssignmentRequest](/graph/api/accesspackageassignmentrequest-delete).
 
 ## Next steps
 
