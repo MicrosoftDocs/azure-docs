@@ -31,11 +31,7 @@ This tutorial uses the [Azure portal](https://portal.azure.com). You can also us
 
 ## Prerequisites
 
-Before you begin, you require an Azure account with an active subscription. If you do not have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-## Prerequisites
-
-- An Azure subscription.
+Before you begin, you require an Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Sign in to Azure
 

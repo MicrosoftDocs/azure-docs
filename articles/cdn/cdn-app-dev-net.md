@@ -11,7 +11,6 @@ ms.assetid: 63cf4101-92e7-49dd-a155-a90e54a792ca
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
@@ -279,7 +278,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
     if (PromptUser(String.Format("Purge CDN endpoint {0}?", endpointName)))
     {
         Console.WriteLine("Purging endpoint. Please wait...");
-        cdn.Endpoints.PurgeContent(endpointName, profileName, resourceGroupName, new List<string>() { "/*" });
+        cdn.Endpoints.PurgeContent(resourceGroupName, profileName, endpointName, new List<string>() { "/*" });
         Console.WriteLine("Done.");
         Console.WriteLine();
     }

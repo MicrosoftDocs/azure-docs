@@ -11,7 +11,6 @@ ms.service: security
 services: azure
 
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ---
@@ -198,4 +197,4 @@ For information about YAML configuration for this task, check our [Post Analysis
 
 For information about YAML based configuration, refer to our [YAML Configuration guide](yaml-configuration.md).
 
-If you have further questions about the Security Code Analysis extension and the tools offered, check out [our FAQ page](security-code-analysis-faq.md).
+If you have further questions about the Security Code Analysis extension and the tools offered, check out [our FAQ page](security-code-analysis-faq.yml).

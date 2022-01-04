@@ -70,7 +70,7 @@ If you accidentally deleted a file and want to restore it to the same machine (f
     ![Screenshot of Recover Data Wizard Browse and Recover Files page (restore to same machine) - Confirm Recovery Volume Unmount](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > If you don't select **Unmount**, the recovery volume will remain mounted for 6 hours from the time when it was mounted. However, the mount time is extended up to a maximum of 24 hours in the case of an ongoing file-copy. No backup operations will run while the volume is mounted. Any backup operation scheduled to run during the time when the volume is mounted will run after the recovery volume is unmounted.
+    > If you don't select **Unmount**, the recovery volume will remain mounted for 6 hours from the time when it was mounted. However, the mount time is extended to a maximum of 7 days in  case of an ongoing file-copy. No backup operations will run while the volume is mounted. Any backup operation scheduled to run during the time when the volume is mounted will run after the recovery volume is unmounted.
     >
 
 ## Use Instant Restore to restore data to an alternate machine
@@ -102,7 +102,7 @@ These steps include the following terminology:
 
 5. Provide the vault credential file that corresponds to the sample vault, and select **Next**.
 
-    If the vault credential file is invalid (or expired), [download a new vault credential file from the sample vault](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) in the Azure portal. After you provide a valid vault credential, the name of the corresponding backup vault appears.
+    If the vault credential file is invalid (or expired), [download a new vault credential file from the sample vault](backup-azure-file-folder-backup-faq.yml#where-can-i-download-the-vault-credentials-file-) in the Azure portal. After you provide a valid vault credential, the name of the corresponding backup vault appears.
 
 6. On the **Select Backup Server** page, select the source machine from the list of displayed machines, and provide the passphrase. Then select **Next**.
 
@@ -140,4 +140,4 @@ These steps include the following terminology:
 
 * Now that you've recovered your files and folders, you can [manage your backups](backup-azure-manage-windows-server.md).
 
-* Find [Common questions about backing up files and folders](backup-azure-file-folder-backup-faq.md).
+* Find [Common questions about backing up files and folders](backup-azure-file-folder-backup-faq.yml).

@@ -17,11 +17,11 @@ If you are building a query for the first time, this article describes approache
 
 ## What's a query request?
 
-A query is a read-only request against the docs collection of a single search index. It specifies a 'search' parameter contains the query expression, consisting of terms, quote-enclosed phrases, and operators.
+A query is a read-only request against the docs collection of a single search index. It specifies a 'search' parameter, which contains the query expression consisting of terms, quote-enclosed phrases, and operators.
 
-Additional parameters provide more definition to the query and response. For example, 'searchFields' scopes query execution to specific fields, 'select' specifies which fields are returned in results, and 'count' returns the number of matches found in the index.
+Additional parameters on the request provide more definition to the query and response. For example, 'searchFields' scopes query execution to specific fields, 'select' specifies which fields are returned in results, and 'count' returns the number of matches found in the index.
 
-The following example gives you a general idea of a query request by showing a subset of the available parameters. For more information about query composition, see [Query types and compositions](search-query-overview.md) and [Search Documents (REST)](/rest/api/searchservice/search-documents).
+The following example gives you a general idea of a query request by showing some of the available parameters. For more information about query composition, see [Query types and compositions](search-query-overview.md) and [Search Documents (REST)](/rest/api/searchservice/search-documents).
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -41,7 +41,7 @@ You'll need a tool like Azure portal or Postman, or code that instantiates a que
 
 ### Permissions
 
-Any operation, including query requests, will work under an [admin API key](search-security-api-keys.md), but query requests can optionally use a [query API key](search-security-api-keys.md#create-query-keys). Query API keys are strongly recommended. You can create up to 50 per service and assign different keys to different applications.
+A query request requires read permissions, granted via an API key passed in the header. Any operation, including query requests, will work under an [admin API key](search-security-api-keys.md), but query requests can optionally use a [query API key](search-security-api-keys.md#create-query-keys). Query API keys are strongly recommended. You can create up to 50 per service and assign different keys to different applications.
 
 In Azure portal, access to tools, wizards, and objects require membership in the Contributor role or above on the service. 
 

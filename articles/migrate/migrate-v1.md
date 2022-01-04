@@ -221,7 +221,7 @@ After you configure a workspace, you download and install agents on each on-prem
 4. Copy the workspace ID and key. You need these when you install the MMA on the on-premises machine.
 
 > [!NOTE]
-> To automate the installation of agents you can use a deployment tool such as Configuration Manager or a partner tool such a, [Intigua](https://www.intigua.com/intigua-for-azure-migration), that provides an agent deployment solution for Azure Migrate.
+> To automate the installation of agents you can use a deployment tool such as Configuration Manager or a partner tool such as, Intigua, that provides an agent deployment solution for Azure Migrate.
 
 
 #### Install the MMA agent on a Windows machine
@@ -243,7 +243,7 @@ To install the agent on a Linux machine:
 1. Transfer the appropriate bundle (x86 or x64) to your Linux computer using scp/sftp.
 2. Install the bundle by using the --install argument.
 
-    ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
+    `sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>`
 
 [Learn more](../azure-monitor/agents/agents-overview.md#supported-operating-systems) about the list of Linux operating systems support by MMA.
 
@@ -256,7 +256,7 @@ For machines monitored by System Center Operations Manager 2012 R2 or later, the
 1. To install the Dependency agent on a Windows machine, double-click the setup file and follow the wizard.
 2. To install the Dependency agent on a Linux machine, install as root using the following command:
 
-    ```sh InstallDependencyAgent-Linux64.bin```
+    `sh InstallDependencyAgent-Linux64.bin`
 
 - Learn more about the [Dependency agent support](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) for the Windows and Linux operating systems.
 - [Learn more](../azure-monitor/vm/vminsights-enable-hybrid.md#dependency-agent) about how you can use scripts to install the Dependency agent.

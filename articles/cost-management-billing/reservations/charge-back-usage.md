@@ -1,11 +1,12 @@
 ---
 title: Charge back Azure Reservation costs
 description: Learn how to view Azure Reservation costs for chargeback.
-author: yashesvi
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 10/28/2021
 ms.author: banders
 ---
 
@@ -28,7 +29,7 @@ Users with an individual subscription can get the amortized cost data from their
 
 [![Example showing reservation resource costs that you can use for chargeback](./media/charge-back-usage/amortized-reservation-costs.png)](./media/charge-back-usage/amortized-reservation-costs.png#lightbox)
 
-Here's a video showing how to view reservation utilization costs in the Azure portal.
+Here's a video showing how to view reservation usage costs at subscription, resource group and resource level in the Azure portal.
 
  > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4sQOw] 
 

@@ -4,10 +4,8 @@ titleSuffix: Azure Machine Learning
 description: Learn how to work around, solve, and troubleshoot some common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-author: gvashishtha
-ms.author:  gopalv
-ms.date: 11/25/2020
+ms.subservice: mlops
+ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
 #Customer intent: As a data scientist, I want to figure out why my model deployment fails so that I can fix it.
@@ -27,7 +25,7 @@ Learn how to troubleshoot and solve, or work around, common errors you may encou
 
 ## Prerequisites
 
-* An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+* An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
 * The [Azure CLI](/cli/azure/install-azure-cli).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
@@ -55,7 +53,7 @@ The first step in debugging errors is to get your deployment logs. First, follow
 
 To get the logs from a deployed webservice, do:
 
-```bash
+```azurecli
 az ml service get-logs --verbose --workspace-name <my workspace name> --name <service name>
 ```
 
@@ -80,6 +78,28 @@ print(service.get_logs())
 ## Debug locally
 
 If you have problems when deploying a model to ACI or AKS, deploy it as a local web service. Using a local web service makes it easier to troubleshoot problems. To troubleshoot a deployment locally, see the [local troubleshooting article](./how-to-troubleshoot-deployment-local.md).
+
+## Azure Machine learning inference HTTP server
+
+The local inference server allows you to quickly debug your entry script (`score.py`). In case the underlying score script has a bug, the server will fail to initialize or serve the model. Instead, it will throw an exception & the location where the issues occurred. [Learn more about Azure Machine Learning inference HTTP Server](how-to-inference-server-http.md)
+
+1. Install the `azureml-inference-server-http` package from the [pypi](https://pypi.org/) feed:
+
+    ```bash
+    python -m pip install azureml-inference-server-http
+    ```
+
+2. Start the server and set `score.py` as the entry script:
+
+    ```bash
+    azmlinfsrv --entry_script score.py
+    ```
+
+3. Send a scoring request to the server using `curl`:
+
+    ```bash
+    curl -p 127.0.0.1:5001/score
+    ```
 
 ## Container cannot be scheduled
 
@@ -187,9 +207,11 @@ Take these actions for the following errors:
 
 |Error  | Resolution  |
 |---------|---------|
+| 409 conflict error| When an operation is already in progress, any new operation on that same web service will respond with 409 conflict error. For example, If create or update web service operation is in progress and if you trigger a new Delete operation it will throw an error. |
 |Image building failure when deploying web service     |  Add "pynacl==1.2.1" as a pip dependency to Conda file for image configuration       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Change the SKU for VMs used in your deployment to one that has more memory. |
 |FPGA failure     |  You will not be able to deploy models on FPGAs until you have requested and been approved for FPGA quota. To request access, fill out the quota request form: https://aka.ms/aml-real-time-ai       |
+
 
 ## Advanced debugging
 

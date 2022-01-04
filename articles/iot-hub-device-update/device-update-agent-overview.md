@@ -12,8 +12,7 @@ ms.service: iot-hub-device-update
 
 The Device Update Agent consists of two conceptual layers:
 
-* The Interface Layer builds on top of [Azure IoT Plug and Play
-(PnP)](../iot-pnp/overview-iot-plug-and-play.md)
+* The Interface Layer builds on top of [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md)
 allowing for messaging to flow between the Device Update Agent and Device Update Services.
 * The Platform Layer is responsible for the high-level update actions of Download, Install, and Apply that may be platform, or device specific.
 
@@ -69,22 +68,20 @@ of the update. Update Handler implementations are in `src/content_handlers`.
 
 ### Simulator Update Handler
 
-The Simulator Update Handler are used by the Simulator Platform Layer and can
+The Simulator Update Handler is used by the Simulator Platform Layer and can
 be used with the Linux Platform Layer to fake interactions with a Content
 Handler. The Simulator Update Handler implements the Update Handler APIs with
 mostly no-ops. The implementation of the Simulator Update Handler can be found below:
 * [Image update simulator](https://github.com/Azure/iot-hub-device-update/blob/main/src/content_handlers/swupdate_handler/inc/aduc/swupdate_simulator_handler.hpp)
 * [Package update apt simulator](https://github.com/Azure/iot-hub-device-update/blob/main/src/content_handlers/apt_handler/inc/aduc/apt_simulator_handler.hpp)
 
-Note: The InstalledCriteria field in
-the AzureDeviceUpdateCore PnP interface should be the sha256 hash of the
-content. This is the same hash that is present in the [Import Manifest
-Object](import-update.md#create-device-update-import-manifest). [Learn
-More](device-update-plug-and-play.md) about `installedCriteria` and the `AzureDeviceUpdateCore` interface.
+>[!Note] 
+>The InstalledCriteria field in the AzureDeviceUpdateCore PnP interface should be the sha256 hash of the content. This is the same hash that is present in the [Import Manifest
+Object](import-update.md#create-a-device-update-import-manifest). [Learn More](device-update-plug-and-play.md) about `installedCriteria` and the `AzureDeviceUpdateCore` interface.
 
 ### `SWUpdate` Update Handler
 
-The `SWUpdate` Update Handler" integrates with the `SWUpdate` command-line
+The `SWUpdate` Update Handler integrates with the `SWUpdate` command-line
 executable and other shell commands to implement A/B updates specifically for
 the Raspberry Pi reference image. Find the latest Raspberry Pi reference image [here](https://github.com/Azure/iot-hub-device-update/releases). The `SWUpdate` Update Handler is implemented in [src/content_handlers/swupdate_content_handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/swupdate_handler).
 
@@ -95,7 +92,7 @@ install or update the specified Debian package(s).
 
 ## Self-update Device update agent
 
-The device update agent and its dependencies can be updated through the Device Update for IoT Hub pipeline. If you are using an image-based update, include the latest device update agent in your new image. If you are using a package-based update, include the device update agent and its desired version in the apt manifest like any other package. [Learn more](device-update-apt-manifest.md) about apt manifest. You can check installed version of the Device Update agent and the Delivery Optimization agent in the Device Properties section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). [Learn more about device properties under ADU Core Interface](device-update-plug-and-play.md#device-properties).
+The device update agent and its dependencies can be updated through the Device Update for IoT Hub pipeline. If you are using an image-based update, include the latest device update agent in your new image. If you are using a package-based update, include the device update agent and its desired version in the apt manifest like any other package. [Learn more](device-update-apt-manifest.md) about apt manifest. You can check the installed version of the Device Update agent and the Delivery Optimization agent in the Device Properties section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). [Learn more about device properties under ADU Core Interface](device-update-plug-and-play.md#device-properties).
 
-## Next Steps
+## Next steps
 [Understand Device Update agent configuration file](device-update-configuration-file.md)

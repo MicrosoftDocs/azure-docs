@@ -3,19 +3,27 @@ title: Azure Activity log
 description: View the Azure Activity log and send it to Azure Monitor Logs, Azure Event Hubs, and Azure Storage.
 author: bwren
 services: azure-monitor
-
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 09/09/2021
 ms.author: bwren
 ---
 
 # Azure Activity log
-The Activity log is a [platform log](./platform-logs-overview.md) in Azure that provides insight into subscription-level events. This includes such information as when a resource is modified or when a virtual machine is started. You can view the Activity log in the Azure portal or retrieve entries with PowerShell and CLI. For additional functionality, you should create a diagnostic setting to send the Activity log to [Azure Monitor Logs](../logs/data-platform-logs.md), to Azure Event Hubs to forward outside of Azure, or to Azure Storage for archiving. This article provides details on viewing the Activity log and sending it to different destinations.
+The Activity log is a [platform log](./platform-logs-overview.md) in Azure that provides insight into subscription-level events. This includes such information as when a resource is modified or when a virtual machine is started. You can view the Activity log in the Azure portal or retrieve entries with PowerShell and CLI.   This article provides details on viewing the Activity log and sending it to different destinations.
+
+For additional functionality, you should create a diagnostic setting to send the Activity log to one or more of these locations for the following reasons: 
+-	to [Azure Monitor Logs](../logs/data-platform-logs.md) for more complex querying and alerting, and longer retention (up to 2 years) 
+-	to Azure Event Hubs to forward outside of Azure
+-	to Azure Storage for cheaper, long-term archiving
 
 See [Create diagnostic settings to send platform logs and metrics to different destinations](./diagnostic-settings.md) for details on creating a diagnostic setting.
 
 > [!NOTE]
 > Entries in the Activity Log are system generated and cannot be changed or deleted.
+
+## Retention Period 
+
+Activity log events are retained in Azure for **90 days** and then deleted. There is no charge for entries during this time regardless of volume. For additional functionality such as longer retention, you should create a diagnostic setting and route the entires to another location based on your needs. See the criteria in the earlier section of this article. 
 
 ## View the Activity log
 You can access the Activity log from most menus in the Azure portal. The menu that you open it from determines its initial filter. If you open it from the **Monitor** menu, then the only filter will be on the subscription. If you open it from a resource's menu, then the filter will be set to that resource. You can always change the filter though to view all other entries. Click **Add Filter** to add additional properties to the filter.
@@ -55,11 +63,11 @@ You can also access Activity log events using the following methods.
 - Consolidate log entries from multiple Azure subscriptions and tenants into one location for analysis together.
 - Use log queries to perform complex analysis and gain deep insights on Activity Log entries.
 - Use log alerts with Activity entries allowing for more complex alerting logic.
-- Store Activity log entries for longer than 90 days.
+- Store Activity log entries for longer than the Activity Log retention period.
 - No data ingestion charges for Activity log data stored in a Log Analytics workspace.
-- No data retention charges till 90 days for Activity log data stored in a Log Analytics workspace.
+- No data retention charges until after the Activity Log retention period expires for given entires.
 
-[Create a diagnostic setting](./diagnostic-settings.md) to send the Activity log to a Log Analytics workspace. You can send the Activity log from any single subscription to up to five  workspaces. Collecting logs across tenants requires [Azure Lighthouse](../../lighthouse/index.yml).
+[Create a diagnostic setting](./diagnostic-settings.md) to send the Activity log to a Log Analytics workspace. You can send the Activity log from any single subscription to up to five  workspaces. 
 
 Activity log data in a Log Analytics workspace is stored in a table called *AzureActivity* that you can retrieve with a [log query](../logs/log-query-overview.md) in [Log Analytics](../logs/log-analytics-tutorial.md). The structure of this table varies depending on the [category of the log entry](activity-log-schema.md). For a description of the table properties, see the [Azure Monitor data reference](/azure/azure-monitor/reference/tables/azureactivity).
 
@@ -140,8 +148,8 @@ Following is sample output data from Event Hubs for an Activity log:
 ```
 
 
-## Send to  Azure storage
-Send the Activity Log to an Azure Storage account if you want to retain your log data longer than 90 days for audit, static analysis, or backup. If you only need to retain your events for 90 days or less you do not need to set up archival to a storage account, since Activity Log events are retained in the Azure platform for 90 days.
+## Send to Azure storage
+Send the Activity Log to an Azure Storage account for audit, static analysis, or backup if you want to retain your log data longer than the Activity Log retention period. There is no need to set up Azure storage unless you need to retain the entries for one of these reasons.  
 
 When you send the Activity log to Azure, a storage container is created in the storage account as soon as an event occurs. The blobs in the container use the following naming convention:
 

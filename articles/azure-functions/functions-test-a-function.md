@@ -19,6 +19,7 @@ The content that follows is split into two different sections meant to target di
 
 - [C# in Visual Studio with xUnit](#c-in-visual-studio)
 - [JavaScript in VS Code with Jest](#javascript-in-vs-code)
+- [Python using pytest](./functions-reference-python.md?tabs=application-level#unit-testing)
 
 The sample repository is available on [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
 

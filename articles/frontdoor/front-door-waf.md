@@ -5,7 +5,6 @@ services: frontdoor
 documentationcenter: ''
 author: duongau
 ms.service: frontdoor
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -43,7 +42,7 @@ In this tutorial, you'll learn how to:
    ```
 
 > [!NOTE] 
-> For more information about the commands used in this tutorial, see [Azure CLI reference for Front Door](/cli/azure/ext/front-door).
+> For more information about the commands used in this tutorial, see [Azure CLI reference for Front Door](/cli/azure/).
 
 ## Create an Azure Front Door resource
 
@@ -139,7 +138,7 @@ We recommend you ensure only Azure Front Door edges can communicate with your we
 
 ## Clean up resources
 
-When you no longer need the resources used in this tutorial, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, Front Door, and WAF policy:
+When you no longer need the resources used in this tutorial, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, Front Door, and WAF policy:
 
 ```azurecli-interactive
   az group delete \

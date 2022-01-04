@@ -5,12 +5,12 @@ author: dkamstra
 services: azure-monitor
 
 ms.topic: conceptual
-ms.date: 02/19/2021
+ms.date: 12/14/2021
 ms.author: dukek
 ---
 
 # Create an action group with a Resource Manager template
-This article shows you how to use an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) to configure action groups. By using templates, you can automatically set up action groups that can be reused in certain types of alerts. These action groups ensure that all the correct parties are notified when an alert is triggered.
+This article shows you how to use an [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) to configure action groups. By using templates, you can automatically set up action groups that can be reused in certain types of alerts. These action groups ensure that all the correct parties are notified when an alert is triggered.
 
 The basic steps are:
 
@@ -45,7 +45,7 @@ First template, describes how to create a Resource Manager template for an actio
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2019-03-01",
+      "apiVersion": "2021-09-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -85,6 +85,27 @@ First template, describes how to create a Resource Manager template for an actio
           {
             "name": "contosoHook2",
             "serviceUri": "http://requestb.in/1bq62iu2",
+            "useCommonAlertSchema": true
+          }
+        ],
+         "SecurewebhookReceivers": [
+          {
+            "name": "contososecureHook",
+            "serviceUri": "http://requestb.in/1bq63iu1",
+            "useCommonAlertSchema": false
+          },
+          {
+            "name": "contososecureHook2",
+            "serviceUri": "http://requestb.in/1bq63iu2",
+            "useCommonAlertSchema": false
+          }
+        ],
+        "eventHubReceivers": [
+          {
+            "name": "contosoeventhub1",
+            "subscriptionId": "replace with subscription id GUID",
+            "eventHubNameSpace": "contosoeventHubNameSpace",
+            "eventHubName": "contosoeventHub",
             "useCommonAlertSchema": true
           }
         ]
@@ -133,7 +154,7 @@ First template, describes how to create a Resource Manager template for an actio
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2019-03-01",
+      "apiVersion": "2021-09-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {

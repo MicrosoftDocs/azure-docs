@@ -1,18 +1,16 @@
 ---
-title: Azure Sentinel data source schema reference
-description: This article lists Azure and third-party data source schemas supported by Azure Sentinel, with links to their reference documentation.
+title: Microsoft Sentinel data source schema reference
+description: This article lists Azure and third-party data source schemas supported by Microsoft Sentinel, with links to their reference documentation.
 author: batamig
 ms.author: bagol
-manager: rkarlin
-ms.assetid: 
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: reference
-ms.custom: 
-ms.date: 01/14/2021
+ms.custom: ignite-fall-2021
+ms.date: 11/09/2021
 ---
 
 # Data source schema reference
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article lists supported Azure and third-party data source schemas, with links to their reference documentation.
 
@@ -46,7 +44,7 @@ The following table lists supported third-party vendors and their Syslog or Comm
 | **Network** |	Fortigate	| ALL	| CommonSecurityLog	| [Log Schema Structure](https://docs.fortinet.com/document/fortigate/6.2.3/fortios-log-message-reference/738142/log-schema-structure)         |
 | **Network** |	Barracuda |	Web Application Firewall |	CommonSecurityLog	| [How to Configure Syslog and Other Logs](https://campus.barracuda.com/product/webapplicationfirewall/doc/4259935/how-to-configure-syslog-and-other-logs/)  |
 | **Network** |	Cisco |	ASA	| CommonSecurityLog	| [Cisco ASA Series Syslog Messages](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/b_syslog/about.html)    |
-| **Network** |	Cisco |	Firepower	| CommonSecurityLog	| [Cisco Firepower Threat Defense Syslog Messages](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/b_fptd_syslog_guide.pdf)    |
+| **Network** |	Cisco |	Firepower	| CommonSecurityLog	| [Cisco Firepower Threat Defense Syslog Messages](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/b_fptd_syslog_guide.html)    |
 | **Network** | Cisco	| Umbrella	| Custom Logs Table	 | [Log Formats and Versioning](https://docs.umbrella.com/deployment-umbrella/docs/log-formats-and-versioning)   |
 | **Network**	| Cisco	| Meraki	| CommonSecurityLog |	[Syslog Event Types and Log Samples](https://documentation.meraki.com/zGeneral_Administration/Monitoring_and_Reporting/Syslog_Event_Types_and_Log_Samples)    |
 | **Network**	| Zscaler |	Nano Streaming Service (NSS)|	CommonSecurityLog |	[Formatting NSS Feeds](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-feeds/formatting-nss-feeds) (Web, Firewall, DNS, and Tunnel logs only) |
@@ -62,8 +60,8 @@ The following table lists supported third-party vendors and their Syslog or Comm
 > 
 ## Next steps
 
-Learn more supported Azure Sentinel connectors, such as CEF, Syslog, direct, agent, and custom connectors:
+Learn more supported Microsoft Sentinel connectors, such as CEF, Syslog, direct, agent, and custom connectors:
 
 - [Connect data sources](connect-data-sources.md)
 
-- [Azure Sentinel Syslog, CEF, and other 3rd-party connectors](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-syslog-cef-and-other-3rd-party-connectors-grand/ba-p/803891)
+- [Microsoft Sentinel Syslog, CEF, and other 3rd-party connectors](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-syslog-cef-and-other-3rd-party-connectors-grand/ba-p/803891)

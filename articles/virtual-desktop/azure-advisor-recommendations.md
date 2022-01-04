@@ -1,6 +1,6 @@
 ---
-title: Azure Advisor Windows Virtual Desktop Walkthrough - Azure
-description: How to resolve Azure Advisor recommendations for Windows Virtual Desktop.
+title: Azure Advisor Azure Virtual Desktop Walkthrough - Azure
+description: How to resolve Azure Advisor recommendations for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/31/2021
@@ -9,7 +9,7 @@ manager: femila
 ---
 # How to resolve Azure Advisor recommendations
 
-This article describes how you can resolve recommendations that appear in Azure Advisor for Windows Virtual Desktop.
+This article describes how you can resolve recommendations that appear in Azure Advisor for Azure Virtual Desktop.
 
 ## “No validation environment enabled”
 
@@ -18,7 +18,7 @@ This article describes how you can resolve recommendations that appear in Azure 
 
 This recommendation appears under Operational Excellence. The recommendation should also show you a warning message like this:
 
-"You don't have a validation environment enabled in this subscription. When you made your host pools, you selected **No** for "Validation environment" in the Properties tab. To ensure business continuity through Windows Virtual Desktop service deployments, make sure you have at least one host pool with a validation environment where you can test for potential issues.”
+"You don't have a validation environment enabled in this subscription. When you made your host pools, you selected **No** for "Validation environment" in the Properties tab. To ensure business continuity through Azure Virtual Desktop service deployments, make sure you have at least one host pool with a validation environment where you can test for potential issues.”
 
 You can make this warning message go away by enabling a validation environment in one of your host pools.
 
@@ -69,4 +69,4 @@ To solve this recommendation, make sure you unblock all the URLs on the [Safe UR
 
 ## Next steps
 
-If you're looking for more in-depth guides about how to resolve common issues, check out [Troubleshooting overview, feedback, and support for Windows Virtual Desktop](troubleshoot-set-up-overview.md).
+If you're looking for more in-depth guides about how to resolve common issues, check out [Troubleshooting overview, feedback, and support for Azure Virtual Desktop](troubleshoot-set-up-overview.md).

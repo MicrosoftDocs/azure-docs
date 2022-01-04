@@ -1,20 +1,20 @@
 ---
-title: Tutorial`:` Use a managed identity to access Azure Resource Manager - Windows - Azure AD
+title: "Tutorial: Use a managed identity to access Azure Resource Manager - Windows - Azure AD"
 description: A tutorial that walks you through the process of using a user-assigned managed identity on a Windows VM, to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/02/2020
 ms.author: barclayn
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Use a user-assigned managed identity on a Windows VM to access Azure Resource Manager

@@ -7,7 +7,8 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure TLS policy versions and cipher suites on Application Gateway
@@ -114,7 +115,7 @@ The following example sets a custom TLS policy on an application gateway. It set
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 
 > [!IMPORTANT]
-> TLS_RSA_WITH_AES_256_CBC_SHA256 must be selected when configuring a custom TLS policy. Application gateway uses this cipher suite for backend management. You can use this in combination with any other suites, but this one must be selected as well. 
+> TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 must be selected when configuring a custom TLS policy. Application gateway uses this cipher suite for backend management. You can use this in combination with any other suites, but this one must be selected as well. 
 
 ```powershell
 # get an application gateway resource

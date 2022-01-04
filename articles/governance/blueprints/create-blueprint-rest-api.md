@@ -1,10 +1,10 @@
 ---
 title: "Quickstart: Create a blueprint with REST API"
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the REST API.
-ms.date: 01/27/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ---
-# Quickstart: Define and Assign an Azure Blueprint with REST API
+# Quickstart: Define and assign an Azure blueprint with REST API
 
 Learning how to create and assign blueprints enables the definition of common patterns to develop
 reusable and rapidly deployable configurations based on Azure Resource Manager templates (ARM
@@ -146,8 +146,8 @@ values:
 
 1. Add role assignment at subscription. The **Request Body** defines the _kind_ of artifact, the
    properties align to the role definition identifier, and the principal identities are passed as an
-   array of values. In the example below, the principal identities granted the specified role are
-   configured to a parameter that is set during blueprint assignment. This example uses the
+   array of values. In the following example, the principal identities granted the specified role
+   are configured to a parameter that is set during blueprint assignment. This example uses the
    _Contributor_ built-in role with a GUID of `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
    - REST API URI
@@ -381,7 +381,7 @@ values:
 - `{YourMG}` - Replace with the ID of your management group
 - `{subscriptionId}` - Replace with your subscription ID
 
-1. Provide the Azure Blueprint service principal the **Owner** role on the target subscription. The
+1. Provide the Azure Blueprints service principal the **Owner** role on the target subscription. The
    AppId is static (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), but the service principal ID varies by
    tenant. Details can be requested for your tenant using the following REST API. It uses
    [Azure Active Directory Graph API](/graph/migrate-azure-ad-graph-planning-checklist),
@@ -504,4 +504,4 @@ In this quickstart, you've created, assigned, and removed a blueprint with REST 
 about Azure Blueprints, continue to the blueprint lifecycle article.
 
 > [!div class="nextstepaction"]
-> [Learn about the blueprint lifecycle](./concepts/lifecycle.md)
+> [Learn about the blueprint lifecycle](./concepts/lifecycle.md) 

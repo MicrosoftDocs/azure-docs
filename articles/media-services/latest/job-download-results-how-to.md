@@ -115,7 +115,7 @@ private async static Task DownloadResults(IAzureMediaServicesClient client, stri
 }
 ```
 
-See the full code sample: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
+See the full code sample: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/VideoEncoding/Encoding_PredefinedPreset/Program.cs)
 
 ## Next steps
 

@@ -1,18 +1,18 @@
 ---
 title: Work around storage firewall settings
 description: A storage account network firewall setting can cause failure when creating an Azure Blob storage target in Azure HPC Cache. This article gives a workaround for the limitation until a software fix is in place.
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2021
-ms.author: v-erkel
+ms.author: femila
 ---
 
 # Work around Blob storage account firewall settings
 
 A particular setting used in storage account firewalls can cause your Blob storage target creation to fail. The Azure HPC Cache team is working on a software fix for this problem, but you can work around it by following the instructions in this article.
 
-The firewall setting that allows access only from "selected networks" can prevent the cache from creating or modifying a Blob storage target. This configuration is in the storage account's **Firewalls and virtual networks** settings page.
+The firewall setting that allows access only from "selected networks" can prevent the cache from creating or modifying a Blob storage target. This configuration is in the storage account's **Firewalls and virtual networks** settings page. (This issue does not apply to ADLS-NFS storage targets.)
 
 The issue is that the cache service uses a hidden service virtual network that is separate from customer environments. It isn't possible to explicitly authorize this network to access your storage account.
 

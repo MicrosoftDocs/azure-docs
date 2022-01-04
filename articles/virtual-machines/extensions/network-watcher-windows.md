@@ -7,7 +7,8 @@ ms.subservice: extensions
 author: amjads1
 ms.author: amjads
 ms.collection: windows
-ms.date: 02/14/2017
+ms.date: 02/14/2017 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Network Watcher Agent virtual machine extension for Windows

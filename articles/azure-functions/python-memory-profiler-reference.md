@@ -2,9 +2,8 @@
 title: Memory profiling on Python apps in Azure Functions
 description: Learn how to profile Python apps memory usage and identify memory bottleneck.
 ms.topic: how-to
-author: hazhzeng
-ms.author: hazeng
 ms.date: 3/22/2021
+ms.devlang: python
 ms.custom: devx-track-python
 ---
 # Profile Python apps memory usage in Azure Functions
@@ -44,7 +43,7 @@ Before you start developing a Python function app, you must meet these requireme
 3. Apply the following decorator above any functions that need memory profiling. This does not work directly on the trigger entrypoint `main()` method. You need to create subfunctions and decorate them. Also, due to a memory-profiler known issue, when applying to an async coroutine, the coroutine return value will always be None.
 
     ```python
-    @memory_profiler.profile(stream=memory_logger)
+    @memory_profiler.profile(stream=profiler_logstream)
 
 4. Test the memory profiler on your local machine by using azure Functions Core Tools command `func host start`. This should generate a memory usage report with file name, line of code, memory usage, memory increment, and the line content in it.
 

@@ -48,7 +48,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Use follow-up prompts to create multiple turns of a conversation
-            url: how-to/multiturn-conversation.md
+            url: ../language-service/question-answering/tutorials/guided-conversations.md
           - text: Add chit-chat
             url: how-to/chit-chat-knowledge-base.md
           - text: Add a secured SharePoint data source
@@ -118,7 +118,7 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
-            url: /cli/azure/cognitiveservices#az-cognitiveservices-list
+            url: /cli/azure/cognitiveservices#az_cognitiveservices_list
 
   - title: Help and feedback
     linkLists:

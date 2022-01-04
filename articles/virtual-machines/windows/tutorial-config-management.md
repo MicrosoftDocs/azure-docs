@@ -8,12 +8,13 @@ ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 
 #Customer intent: As an IT administrator, I want to learn about tracking configuration changes and performing software updates, so I can review changes made and install updates on Windows virtual machines.
 ---
 
 # Tutorial: Monitor changes and update a Windows virtual machine in Azure
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 With Azure [Change Tracking](../../automation/change-tracking/overview.md) and [Update Management](../../automation/update-management/overview.md), you can easily identify changes in your Windows virtual machines in Azure and manage operating system updates for those VMs.
 
@@ -67,9 +68,9 @@ For pricing information, see [Automation pricing for Update management](https://
 
 To enable Update Management for your VM:
 
-1. On the leftmost side of the window, select **Virtual machines**.
-1. Choose a VM from the list.
-1. In the **Operations** pane of the VM window, select **Update management**.
+1. Navigate to your VM in the Azure portal (search for **Virtual machines** in the search bar, then choose a VM from the list).
+1. Select **Guest + host updates** under Operations.
+1. Click on **Go to Update management**.
 1. The **Enable Update Management** window opens.
 
 Validation is done to determine if Update Management is enabled for this VM. Validation includes checks for a Log Analytics workspace, for a linked Automation account, and for whether the solution is in the workspace.
@@ -175,7 +176,7 @@ The available settings options for Windows are:
 * Windows Registry
 * Windows Files
 
-For detailed information on Change Tracking, see [Troubleshoot changes on a VM](../../automation/automation-tutorial-troubleshoot-changes.md).
+For detailed information on Change Tracking, see [Troubleshoot changes on a VM](../../automation/troubleshoot/change-tracking.md).
 
 ### View inventory
 

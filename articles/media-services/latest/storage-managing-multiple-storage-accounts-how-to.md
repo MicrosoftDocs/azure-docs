@@ -7,11 +7,10 @@ manager: femila
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2021
 ms.author: inhenkel
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurepowershell
 ---
 
 # Managing Media Services v3 assets across multiple storage accounts  

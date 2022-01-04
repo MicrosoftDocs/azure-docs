@@ -1,17 +1,17 @@
 ---
 title: Move a maintenance configuration to another Azure region
 description: Learn how to move a VM maintenance configuration to another Azure region
-author: shants123
 ms.service: virtual-machines
 ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.date: 03/04/2020
-ms.author: shants
 #Customer intent: As an admin responsible for maintenance, I want move a Maintenance Control configuration associated with Azure resources to another Azure region.
 ---
 
 
 # Move a Maintenance Control configuration to another region
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Follow this article to move a Maintenance Control configuration to a different Azure region. You might want to move a configuration for a number of reasons. For example, to take advantage of a new region, to deploy features or services available in a specific region, to meet internal policy and governance requirements, or in response to capacity planning.
 
@@ -35,7 +35,7 @@ Before you begin moving a maintenance control configuration:
 
 ## Prepare and move 
 
-1. Retrieve all of the maintenance configurations in each subscription. Run the CLI [az maintenance configuration list](/cli/azure/ext/maintenance/maintenance/configuration#ext-maintenance-az-maintenance-configuration-list) command to do this, replacing $subId with your subscription ID.
+1. Retrieve all of the maintenance configurations in each subscription. Run the CLI [az maintenance configuration list](/cli/azure/maintenance/configuration#az_maintenance_configuration_list) command to do this, replacing $subId with your subscription ID.
 
     ```
     az maintenance configuration list --subscription $subId --query "[*].{Name:name, Location:location, ResGroup:resourceGroup}" --output table

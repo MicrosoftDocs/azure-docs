@@ -4,16 +4,16 @@ description: Learn how to list the users, groups, service principals, and manage
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/12/2019
 ms.author: rolyon
-ms.reviewer: bagovind
+ms.reviewer: bagovind 
+ms.custom: devx-track-azurepowershell
 ---
 
 # List Azure deny assignments using Azure PowerShell

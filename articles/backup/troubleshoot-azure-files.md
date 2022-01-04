@@ -20,8 +20,10 @@ This article provides troubleshooting information to address any issues you come
   >All file shares in a Storage Account can be protected only under one Recovery Services vault. You can use [this script](scripts/backup-powershell-script-find-recovery-services-vault.md) to find the Recovery Services vault where your storage account is registered.
 
 - Ensure that the file share isn't present in any of the unsupported Storage Accounts. You can refer to the [Support matrix for Azure file share backup](azure-file-share-support-matrix.md) to find supported Storage Accounts.
+- Ensure that the storage account and recovery services vault are present in the same region.
 - Ensure that the combined length of the storage account name and the resource group name don't exceed 84 characters in the case of new Storage accounts and 77 characters in the case of classic storage accounts.
-- Check the firewall settings of storage account to ensure that the option of allowing trusted Microsoft Services to access storage account is enabled.
+- Check the firewall settings of storage account to ensure that the exception "_Allow Azure services on the trusted services list to access this storage account_" is granted. You can refer [this](../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) link for the steps to grant exception.
+
 
 ### Error in portal states discovery of storage accounts failed
 
@@ -37,6 +39,7 @@ Retry the registration. If the problem persists, contact support.
 - Ensure that the file share you're looking to protect hasn't been deleted.
 - Ensure that the Storage Account is a supported storage account for file share backup. You can refer to the [Support matrix for Azure file share backup](azure-file-share-support-matrix.md) to find supported Storage Accounts.
 - Check if the file share is already protected in the same Recovery Services vault.
+- Check the Network Routing setting of storage account to ensure that routing preference is set as Microsoft network routing .
 
 ### Backup file share configuration (or the protection policy configuration) is failing
 
@@ -121,6 +124,14 @@ Error Message: A backup job is already in progress for this file share.
 - File share backup doesn't support parallel snapshot requests against the same file share.
 
 - Wait for the existing backup job to finish and then try again. If you can’t find a backup job in the Recovery Services vault, check other Recovery Services vaults in the same subscription.
+
+### UserErrorStorageAccountInternetRoutingNotSupported- Storage accounts with Internet routing configuration are not supported by Azure Backup
+
+Error Code: UserErrorStorageAccountInternetRoutingNotSupported
+
+Error Message: Storage accounts with Internet routing configuration are not supported by Azure Backup
+
+Ensure that the routing preference set for the storage account hosting backed up file share is Microsoft network routing.
 
 ### FileshareBackupFailedWithAzureRpRequestThrottling/ FileshareRestoreFailedWithAzureRpRequestThrottling- File share backup or restore failed due to storage service throttling. This may be because the storage service is busy processing other requests for the given storage account
 
@@ -318,4 +329,4 @@ Check if the backed-up file share is permanently deleted. If yes, stop the backu
 For more information about backing up Azure file shares, see:
 
 - [Back up Azure file shares](backup-afs.md)
-- [Back up Azure file share FAQ](backup-azure-files-faq.md)
+- [Back up Azure file share FAQ](backup-azure-files-faq.yml)

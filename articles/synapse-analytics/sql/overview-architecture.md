@@ -6,7 +6,7 @@ author: mlee3gsd
 manager: rothja
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
@@ -110,4 +110,4 @@ The diagram below shows a replicated table that is cached on the first distribut
 
 ## Next steps
 
-Now that you know a bit about Synapse SQL, learn how to quickly [create a dedicated SQL pool](../quickstart-create-sql-pool-portal.md) and [load sample data](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./sql-data-warehouse-load-sample-databases.md). Or start [using serverless SQL pool](../quickstart-sql-on-demand.md). If you are new to Azure, you may find the [Azure glossary](../../azure-glossary-cloud-terminology.md) helpful as you encounter new terminology. 
+Now that you know a bit about Synapse SQL, learn how to quickly [create a dedicated SQL pool](../quickstart-create-sql-pool-portal.md) and [load sample data](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md). Or start [using serverless SQL pool](../quickstart-sql-on-demand.md). If you are new to Azure, you may find the [Azure glossary](../../azure-glossary-cloud-terminology.md) helpful as you encounter new terminology. 

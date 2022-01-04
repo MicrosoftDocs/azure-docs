@@ -3,14 +3,14 @@ title: Enable Azure DS Domain Services using PowerShell | Microsoft Docs
 description: Learn how to configure and enable Azure Active Directory Domain Services using Azure AD PowerShell and Azure PowerShell.
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 03/10/2021
+ms.date: 05/19/2021
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
 
@@ -209,7 +209,7 @@ $replicaSetParams = @{
   Location = $AzureLocation
   SubnetId = "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"
 }
-$replicaSet = New-AzADDomainServiceReplicaSetObject @replicaSetParams
+$replicaSet = New-AzADDomainServiceReplicaSet @replicaSetParams
 
 $domainServiceParams = @{
   Name = $ManagedDomainName
@@ -351,7 +351,7 @@ $replicaSetParams = @{
   Location = $AzureLocation
   SubnetId = "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"
 }
-$replicaSet = New-AzADDomainServiceReplicaSetObject @replicaSetParams
+$replicaSet = New-AzADDomainServiceReplicaSet @replicaSetParams
 
 $domainServiceParams = @{
   Name = $ManagedDomainName

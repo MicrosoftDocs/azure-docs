@@ -8,8 +8,9 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: 
+ms.devlang: csharp
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 05/25/2021
 ms.author: inhenkel
 ms.custom: seodec18
 ---
@@ -30,7 +31,7 @@ Clone a GitHub repository that contains the full .NET sample to your machine usi
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
  
-The ContentKeyPolicy with secrets example is located in the [EncryptWithDRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) folder.
+The ContentKeyPolicy with secrets example is located in the [EncryptWithDRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/main/AMSV3Tutorials/EncryptWithDRM) folder.
 
 ## Get ContentKeyPolicy with secrets 
 

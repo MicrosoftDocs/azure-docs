@@ -5,7 +5,6 @@ services: networking
 documentationcenter: na
 author: KumudD
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/07/2021
@@ -28,10 +27,10 @@ This section describes services that provide connectivity between Azure resource
 
 ### <a name="vnet"></a>Virtual network
 
-Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. You can use a VNets to:
+Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. You can use VNets to:
 - **Communicate between Azure resources**: You can deploy VMs, and several other types of Azure resources to a virtual network, such as Azure App Service Environments, the Azure Kubernetes Service (AKS), and Azure Virtual Machine Scale Sets. To view a complete list of Azure resources that you can deploy into a virtual network, see [Virtual network service integration](../../virtual-network/virtual-network-for-azure-services.md).
 - **Communicate between each other**: You can connect virtual networks to each other, enabling resources in either virtual network to communicate with each other, using virtual network peering. The virtual networks you connect can be in the same, or different, Azure regions. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md).
-- **Communicate to the internet**: All resources in a VNet can communicate outbound to the internet, by default. You can communicate inbound to a resource by assigning a public IP address or a public Load Balancer. You can also use [Public IP addresses](../../virtual-network/virtual-network-public-ip-address.md) or public [Load Balancer](../../load-balancer/load-balancer-overview.md) to manage your outbound connections.
+- **Communicate to the internet**: All resources in a VNet can communicate outbound to the internet, by default. You can communicate inbound to a resource by assigning a public IP address or a public Load Balancer. You can also use [Public IP addresses](../../virtual-network/ip-services/virtual-network-public-ip-address.md) or public [Load Balancer](../../load-balancer/load-balancer-overview.md) to manage your outbound connections.
 - **Communicate with on-premises networks**: You can connect your on-premises computers and networks to a virtual network using [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../../expressroute/expressroute-introduction.md).
 
 For more information, see [What is Azure Virtual Network?](../../virtual-network/virtual-networks-overview.md).
@@ -65,7 +64,7 @@ The Azure Bastion service is a new fully platform-managed PaaS service that you 
 
 ### <a name="nat"></a>Virtual network NAT Gateway
 Virtual Network NAT (network address translation) simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. 
-For more information, see [What is virtual network NAT gateway?](../../virtual-network/nat-overview.md).
+For more information, see [What is virtual network NAT gateway?](../../virtual-network/nat-gateway/nat-overview.md).
 
 :::image type="content" source="./media/networking-overview/flow-map.png" alt-text="Virtual network NAT gateway":::
 
@@ -91,7 +90,7 @@ This section describes networking services in Azure that help protect your netwo
 
 ### <a name="privatelink"></a>Azure Private Link
 [Azure Private Link](../../private-link/private-link-overview.md) enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a private endpoint in your virtual network.
-Traffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. You can create your own private link service in your virtual network and deliver it to your customers.
+Traffic between your virtual network and the service travels through the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. You can create your own private link service in your virtual network and deliver it to your customers.
 
 :::image type="content" source="./media/networking-overview/private-endpoint.png" alt-text="Private endpoint overview":::
 

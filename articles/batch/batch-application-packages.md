@@ -2,12 +2,9 @@
 title: Deploy application packages to compute nodes
 description: Use the application packages feature of Azure Batch to easily manage multiple applications and versions for installation on Batch compute nodes.
 ms.topic: how-to
-ms.date: 03/24/2021
-ms.custom: 
-   - H1Hack27Feb2017
-   - devx-track-csharp
-   - contperf-fy21q1
-
+ms.date: 04/13/2021
+ms.devlang: csharp
+ms.custom: H1Hack27Feb2017, devx-track-csharp, contperf-fy21q1
 ---
 # Deploy applications to compute nodes with Batch application packages
 
@@ -56,7 +53,7 @@ With application packages, your pool's start task doesn't have to specify a long
 You can use the [Azure portal](https://portal.azure.com) or the Batch Management APIs to manage the application packages in your Batch account. The following sections explain how to link a storage account, and how to add and manage applications and application packages in the Azure portal.
 
 > [!NOTE]
-> While you can define application values in the [Microsoft.Batch/batchAccounts](/templates/microsoft.batch/batchaccounts) resource of an [ARM template](quick-create-template.md), it's not currently possible to use an ARM template to upload application packages to use in your Batch account. You must upload them to your linked storage account as described [below](#add-a-new-application).
+> While you can define application values in the [Microsoft.Batch/batchAccounts](/azure/templates/microsoft.batch/batchaccounts) resource of an [ARM template](quick-create-template.md), it's not currently possible to use an ARM template to upload application packages to use in your Batch account. You must upload them to your linked storage account as described [below](#add-a-new-application).
 
 ### Link a storage account
 
@@ -149,7 +146,13 @@ CloudPool myCloudPool =
         poolId: "myPool",
         targetDedicatedComputeNodes: 1,
         virtualMachineSize: "standard_d1_v2",
-        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
+        VirtualMachineConfiguration: new VirtualMachineConfiguration(
+            imageReference: new ImageReference(
+                                publisher: "MicrosoftWindowsServer",
+                                offer: "WindowsServer",
+                                sku: "2019-datacenter-core",
+                                version: "latest"),
+            nodeAgentSkuId: "batch.node.windows amd64");
 
 // Specify the application and version to install on the compute nodes
 myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>

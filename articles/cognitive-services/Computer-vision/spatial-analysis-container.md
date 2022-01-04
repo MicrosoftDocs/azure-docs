@@ -3,13 +3,14 @@ title: How to install and run the Spatial Analysis container - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: The Spatial Analysis container lets you can detect people and distances.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
+ms.date: 10/14/2021
+ms.author: pafarley
+ms.custom: ignite-fall-2021
 ---
 
 # Install and run the Spatial Analysis container (Preview)
@@ -19,9 +20,9 @@ The Spatial Analysis container enables you to analyze real-time streaming video 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
+* [!INCLUDE [contributor-requirement](../includes/quickstarts/contributor-requirement.md)]
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> for the Standard S1 tier in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to run the Spatial Analysis container. You'll use your key and endpoint later.
-
 
 ### Spatial Analysis container requirements
 
@@ -54,7 +55,7 @@ In this article, you will download and install the following software packages. 
 * [NVIDIA graphics drivers](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) and [NVIDIA CUDA Toolkit](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
 * Configurations for [NVIDIA MPS](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf) (Multi-Process Service).
 * [Docker CE](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1) and [NVIDIA-Docker2](https://github.com/NVIDIA/nvidia-docker) 
-* [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) runtime.
+* [Azure IoT Edge](../../iot-edge/how-to-provision-single-device-linux-symmetric.md) runtime.
 
 #### [Azure VM with GPU](#tab/virtual-machine)
 In our example, we will utilize an [NC series VM](../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) that has one K80 GPU.
@@ -65,21 +66,6 @@ In our example, we will utilize an [NC series VM](../../virtual-machines/nc-seri
 |--|--|
 | Camera | The Spatial Analysis container is not tied to a specific camera brand. The camera device needs to: support Real-Time Streaming Protocol(RTSP) and H.264 encoding, be accessible to the host computer, and be capable of streaming at 15FPS and 1080p resolution. |
 | Linux OS | [Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/) must be installed on the host computer.  |
-
-
-## Request approval to run the container
-
-Fill out and submit the [request form](https://aka.ms/csgate) to request approval to run the container.
-
-The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team will review it and email you with a decision.
-
-> [!IMPORTANT]
-> * On the form, you must use an email address associated with an Azure subscription ID.
-> * The Computer Vision resource you use to run the container must have been created with the approved Azure subscription ID.
-
-After you're approved, you will be able to run the container after downloading it from the Microsoft Container Registry (MCR), described later in the article.
-
-You won't be able to run the container if your Azure subscription has not been approved.
 
 ## Set up the host computer
 
@@ -119,39 +105,54 @@ When the Edge compute role is set up on the Edge device, it creates two devices:
 
 ###  Enable MPS on Azure Stack Edge 
 
-1. Run a Windows PowerShell session as an Administrator. 
+Follow these steps to remotely connect from a Windows client.
 
-2. Make sure that the Windows Remote Management service is running on your client. In the PowerShell terminal, use the following command 
-    
+1. Run a Windows PowerShell session as an administrator.
+2. Make sure that the Windows Remote Management service is running on your client. At the command prompt, type:
+
     ```powershell
     winrm quickconfig
     ```
-    
-    If you see warnings about a firewall exception, check your network connection type, and see the [Windows Remote Management](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management) documentation.
 
-3. Assign a variable to the device IP address. 
-    
-    ```powershell
-    $ip = "<device-IP-address>" 
-    ```
-    
-4. To add the IP address of your device to the client's trusted hosts list, use the following command: 
-    
-    ```powershell
-    Set-Item WSMan:\localhost\Client\TrustedHosts $ip -Concatenate -Force 
-    ```
+    For more information, see [Installation and configuration for Windows Remote Management](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management#quick-default-configuration).
 
-5. Start a Windows PowerShell session on the device. 
+3. Assign a variable to the connection string used in the `hosts` file.
 
     ```powershell
-    Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell 
+    $Name = "<Node serial number>.<DNS domain of the device>"
+    ``` 
+
+    Replace `<Node serial number>` and `<DNS domain of the device>` with the node serial number and DNS domain of your device. You can get the values for node serial number from the **Certificates** page and DNS domain from the **Device** page in the local web UI of your device.
+
+4. To add this connection string for your device to the client’s trusted hosts list, type the following command:
+
+    ```powershell
+    Set-Item WSMan:\localhost\Client\TrustedHosts $Name -Concatenate -Force
     ```
 
-6. Provide the password when prompted. Use the same password that is used to sign into the local web UI. The default local web UI password is `Password1`.
+5. Start a Windows PowerShell session on the device:
 
-Type `Start-HcsGpuMPS` to start the MPS service on the device. 
+    ```powershell
+    Enter-PSSession -ComputerName $Name -Credential ~\EdgeUser -ConfigurationName Minishell -UseSSL
+    ```
 
-For help troubleshooting the Azure Stack Edge device, see [Troubleshooting the Azure Stack Edge device](spatial-analysis-logging.md#troubleshooting-the-azure-stack-edge-device) 
+    If you see an error related to trust relationship, then check if the signing chain of the node certificate uploaded to your device is also installed on the client accessing your device.
+
+6. Provide the password when prompted. Use the same password that is used to sign into the local web UI. The default local web UI password is *Password1*. When you successfully connect to the device using remote PowerShell, you see the following sample output:  
+
+    ```
+    Windows PowerShell
+    Copyright (C) Microsoft Corporation. All rights reserved.
+    
+    PS C:\WINDOWS\system32> winrm quickconfig
+    WinRM service is already running on this machine.
+    PS C:\WINDOWS\system32> $Name = "1HXQG13.wdshcsso.com"
+    PS C:\WINDOWS\system32> Set-Item WSMan:\localhost\Client\TrustedHosts $Name -Concatenate -Force
+    PS C:\WINDOWS\system32> Enter-PSSession -ComputerName $Name -Credential ~\EdgeUser -ConfigurationName Minishell -UseSSL
+
+    WARNING: The Windows PowerShell interface of your device is intended to be used only for the initial network configuration. Please engage Microsoft Support if you need to access this interface to troubleshoot any potential issues you may be experiencing. Changes made through this interface without involving Microsoft Support could result in an unsupported configuration.
+    [1HXQG13.wdshcsso.com]: PS>
+    ```
 
 #### [Desktop machine](#tab/desktop-machine)
 
@@ -268,7 +269,7 @@ sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<
 sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
 ```
 
-You will need to install [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) version 1.0.9. Follow these steps to download the correct version:
+You will need to install [Azure IoT Edge](../../iot-edge/how-to-provision-single-device-linux-symmetric.md) version 1.0.9. Follow these steps to download the correct version:
 
 Ubuntu Server 18.04:
 ```bash
@@ -301,7 +302,7 @@ Install the 1.0.9 release:
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-Next, register the host computer as an IoT Edge device in your IoT Hub instance, using a [connection string](../../iot-edge/how-to-register-device.md).
+Next, register the host computer as an IoT Edge device in your IoT Hub instance, using a [connection string](../../iot-edge/how-to-provision-single-device-linux-symmetric.md#register-your-device).
 
 You need to connect the IoT Edge device to your Azure IoT Hub. You need to copy the connection string from the IoT Edge device you created earlier. Alternatively, you can run the below command in the Azure CLI.
 
@@ -328,7 +329,10 @@ An Azure Virtual Machine with a GPU can also be used to run Spatial Analysis. Th
 
 Open the [Create a Virtual Machine](https://ms.portal.azure.com/#create/Microsoft.VirtualMachine) wizard in the Azure portal.
 
-Give your VM a name and select the region to be (US) West US 2. Be sure to set `Availability Options` to "No infrastructure redundancy required". Refer to the below figure for the complete configuration and the next step for help locating the correct VM size. 
+Give your VM a name and select the region to be (US) West US 2. 
+
+> [!IMPORTANT]
+> Be sure to set `Availability Options` to "No infrastructure redundancy required". Refer to the below figure for the complete configuration and the next step for help locating the correct VM size. 
 
 :::image type="content" source="media/spatial-analysis/virtual-machine-instance-details.jpg" alt-text="Virtual machine configuration details." lightbox="media/spatial-analysis/virtual-machine-instance-details.jpg":::
 
@@ -340,7 +344,7 @@ Then, select either **NC6** or **NC6_Promo**.
 
 :::image type="content" source="media/spatial-analysis/promotional-selection.png" alt-text="promotional selection" lightbox="media/spatial-analysis/promotional-selection.png":::
 
-Next, Create the VM. Once created, navigate to the VM resource in the Azure portal and select `Extensions` from the left pane. The extensions window will appear with all available extensions. Select `NVIDIA GPU Driver Extension`, click create, and complete the wizard.
+Next, Create the VM. Once created, navigate to the VM resource in the Azure portal and select `Extensions` from the left pane. Click on "Add" to bring up the extensions window with all available extensions. Search for and select `NVIDIA GPU Driver Extension`, click create, and complete the wizard.
 
 Once the extension is successfully applied, navigate to the VM main page in the Azure portal and click `Connect`. The VM can be accessed either through SSH or RDP. RDP will be helpful as it will be enable viewing of the visualizer window (explained later). Configure the RDP access by following [these steps](../../virtual-machines/linux/use-remote-desktop.md) and opening a remote desktop connection to the VM.
 
@@ -425,13 +429,13 @@ sudo az group create --name "<resource-group-name>" --location "<your-region>"
 ```
 See [Region Support](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) for available regions.
 ```bash
-sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<resource-group-name>"
+sudo az iot hub create --name "<iothub-name>" --sku S1 --resource-group "<resource-group-name>"
 ```
 ```bash
 sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
 ```
 
-You will need to install [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) version 1.0.9. Follow these steps to download the correct version:
+You will need to install [Azure IoT Edge](../../iot-edge/how-to-provision-single-device-linux-symmetric.md) version 1.0.9. Follow these steps to download the correct version:
 
 Ubuntu Server 18.04:
 ```bash
@@ -464,7 +468,7 @@ Install the 1.0.9 release:
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-Next, register the VM as an IoT Edge device in your IoT Hub instance, using a [connection string](../../iot-edge/how-to-register-device.md).
+Next, register the VM as an IoT Edge device in your IoT Hub instance, using a [connection string](../../iot-edge/how-to-provision-single-device-linux-symmetric.md#register-your-device).
 
 You need to connect the IoT Edge device to your Azure IoT Hub. You need to copy the connection string from the IoT Edge device you created earlier. Alternatively, you can run the below command in the Azure CLI.
 
@@ -549,7 +553,7 @@ If you want to start consuming the output generated by the container, see the fo
 
 ## Running Spatial Analysis with a recorded video file
 
-You can use Spatial Analysis with both recorded or live video. To use Spatial Analysis for recorded video, try recording a video file and save it as an mp4 file. Create a blob storage account in Azure, or use an existing one. Then update the following blob storage settings in the Azure portal:
+You can use Spatial Analysis with both recorded or live video. To use Spatial Analysis for recorded video, try recording a video file and save it as a mp4 file. Create a blob storage account in Azure, or use an existing one. Then update the following blob storage settings in the Azure portal:
     1. Change **Secure transfer required** to **Disabled**
     2. Change **Allow Blob public access** to **Enabled**
 
@@ -582,6 +586,8 @@ The Spatial Analysis module will start consuming video file and will continuousl
 ## Troubleshooting
 
 If you encounter issues when starting or running the container, see [telemetry and troubleshooting](spatial-analysis-logging.md) for steps for common issues. This article also contains information on generating and collecting logs and collecting system health.
+
+[!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
 
 ## Billing
 

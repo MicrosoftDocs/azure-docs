@@ -11,13 +11,12 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
 ---
 
-# Configure Azure Application Consistent Snapshot tool (preview)
+# Configure Azure Application Consistent Snapshot tool
 
 This article provides a guide for running the configure command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 
@@ -131,7 +130,7 @@ cat azacsnap.json
 
 ```output
 {
-  "version": "5.0 Preview",
+  "version": "5.0",
   "logPath": "./logs",
   "securityPath": "./security",
   "comments": [],

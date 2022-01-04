@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 10/22/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
-ms.reviewer: calebb
+manager: karenhoran
+ms.reviewer: calebb, sandeo-MSFT
 
 ms.collection: M365-identity-device-management
 ---
@@ -23,7 +23,7 @@ Within a Conditional Access policy, an administrator can make use of signals fro
 
 Multiple conditions can be combined to create fine-grained and specific Conditional Access policies.
 
-For example, when accessing a sensitive application an administrator may factor sign-in risk information from Identity Protection and location into their access decision in addition to other controls like multi-factor authentication.
+For example, when accessing a sensitive application an administrator may factor sign-in risk information from Identity Protection and location into their access decision in addition to other controls like multifactor authentication.
 
 ## Sign-in risk
 
@@ -31,7 +31,7 @@ For customers with access to [Identity Protection](../identity-protection/overvi
 
 ## User risk 
 
-For customers with access to [Identity Protection](../identity-protection/overview-identity-protection.md), user risk can be evaluated as part of a Conditional Access policy. User risk represents the probability that a given identity or account is compromised. More information about user risk can be found in the articles, [What is risk](../identity-protection/concept-identity-protection-risks.md#user-risk) and [How To: Configure and enable risk policies](../identity-protection/howto-identity-protection-configure-risk-policies.md).
+For customers with access to [Identity Protection](../identity-protection/overview-identity-protection.md), user risk can be evaluated as part of a Conditional Access policy. User risk represents the probability that a given identity or account is compromised. More information about user risk can be found in the articles, [What is risk](../identity-protection/concept-identity-protection-risks.md#user-linked-detections) and [How To: Configure and enable risk policies](../identity-protection/howto-identity-protection-configure-risk-policies.md).
 
 ## Device platforms
 
@@ -56,7 +56,7 @@ When configuring location as a condition, organizations can choose to include or
 
 When including **any location**, this option includes any IP address on the internet not just configured named locations. When selecting **any location**, administrators can choose to exclude **all trusted** or **selected locations**.
 
-For example, some organizations may choose to not require multi-factor authentication when their users are connected to the network in a trusted location such as their physical headquarters. Administrators could create a policy that includes any location but excludes the selected locations for their headquarters networks.
+For example, some organizations may choose to not require multifactor authentication when their users are connected to the network in a trusted location such as their physical headquarters. Administrators could create a policy that includes any location but excludes the selected locations for their headquarters networks.
 
 More information about locations can be found in the article, [What is the location condition in Azure Active Directory Conditional Access](location-condition.md).
 
@@ -79,14 +79,14 @@ The **Configure** toggle when set to **Yes** applies to checked items, when set 
       -  This option includes applications like the Office desktop and phone applications.
 - Legacy authentication clients
    - Exchange ActiveSync clients
-      - This includes all use of the Exchange ActiveSync (EAS) protocol.
+      - This selection includes all use of the Exchange ActiveSync (EAS) protocol.
       - When policy blocks the use of Exchange ActiveSync the affected user will receive a single quarantine email. This email with provide information on why they are blocked and include remediation instructions if able.
-      - Administrators can apply policy only to supported platforms (such as iOS, Android, and Windows) through the Conditional Access MS Graph API.
+      - Administrators can apply policy only to supported platforms (such as iOS, Android, and Windows) through the Conditional Access Microsoft Graph API.
    - Other clients
       - This option includes clients that use basic/legacy authentication protocols that do not support modern authentication.
          - Authenticated SMTP - Used by POP and IMAP client's to send email messages.
          - Autodiscover - Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.
-         - Exchange Online PowerShell - Used to connect to Exchange Online with remote PowerShell. If you block Basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell Module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+         - Exchange Online PowerShell - Used to connect to Exchange Online with remote PowerShell. If you block Basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell Module to connect. For instructions, see [Connect to Exchange Online PowerShell using multifactor authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
          - Exchange Web Services (EWS) - A programming interface that's used by Outlook, Outlook for Mac, and third-party apps.
          - IMAP4 - Used by IMAP email clients.
          - MAPI over HTTP (MAPI/HTTP) - Used by Outlook 2010 and later.
@@ -104,7 +104,7 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 
 | OS | Browsers |
 | :-- | :-- |
-| Windows 10 | Microsoft Edge, Internet Explorer, Chrome |
+| Windows 10 | Microsoft Edge, Internet Explorer, Chrome, [Firefox 91+](https://support.mozilla.org/kb/windows-sso) |
 | Windows 8 / 8.1 | Internet Explorer, Chrome |
 | Windows 7 | Internet Explorer, Chrome |
 | iOS | Microsoft Edge, Intune Managed Browser, Safari |
@@ -114,10 +114,13 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 | Windows Server 2016 | Internet Explorer |
 | Windows Server 2012 R2 | Internet Explorer |
 | Windows Server 2008 R2 | Internet Explorer |
-| macOS | Chrome, Safari |
+| macOS | Microsoft Edge, Chrome, Safari |
+
+These browsers support device authentication, allowing the device to be identified and validated against a policy. The device check fails if the browser is running in private mode or if cookies are disabled.
 
 > [!NOTE]
 > Edge 85+ requires the user to be signed in to the browser to properly pass device identity. Otherwise, it behaves like Chrome without the accounts extension. This sign-in might not occur automatically in a Hybrid Azure AD Join scenario. 
+> Safari is supported for device-based Conditional Access, but it can not satisfy the **Require approved client app** or **Require app protection policy** conditions. A managed browser like Microsoft Edge will satisfy approved client app and app protection policy requirements.
 
 #### Why do I see a certificate prompt in the browser
 
@@ -141,8 +144,6 @@ For Chrome support in **Windows 8.1 and 7**, create the following registry key:
 - Type REG_SZ (String)
 - Data {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}
 
-These browsers support device authentication, allowing the device to be identified and validated against a policy. The device check fails if the browser is running in private mode.
-
 ### Supported mobile applications and desktop clients
 
 Organizations can select **Mobile apps and desktop clients** as client app.
@@ -154,7 +155,7 @@ This setting has an impact on access attempts made from the following mobile app
 | Dynamics CRM app | Dynamics CRM | Windows 10, Windows 8.1, iOS, and Android |
 | Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication)| Exchange Online | Windows 10 |
 | MFA and location policy for apps. Device-based policies are not supported.| Any My Apps app service | Android and iOS |
-| Microsoft Teams Services - this controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, iOS, Android, WP, and web client | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android, and macOS |
+| Microsoft Teams Services - this client app controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, iOS, Android, WP, and web client | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android, and macOS |
 | Office 2016 apps, Office 2013 (with modern authentication), [OneDrive sync client](/onedrive/enable-conditional-access) | SharePoint | Windows 8.1, Windows 7 |
 | Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), [OneDrive sync client](/onedrive/enable-conditional-access) | SharePoint Online | Windows 10 |
 | Office 2016 (Word, Excel, PowerPoint, OneNote only). | SharePoint | macOS |
@@ -187,11 +188,23 @@ For more information, see the following articles:
 By selecting **Other clients**, you can specify a condition that affects apps that use basic authentication with mail protocols like IMAP, MAPI, POP, SMTP, and older Office apps that don't use modern authentication.
 
 ## Device state (preview)
+> [!CAUTION]
+> **This preview feature is being deprecated.** Customers should use **Filter for devices** condition in Conditional Access to satisfy scenarios, previously achieved using device state (preview) condition.
 
 The device state condition can be used to exclude devices that are hybrid Azure AD joined and/or devices marked as compliant with a Microsoft Intune compliance policy from an organization's Conditional Access policies.
 
 For example, *All users* accessing the *Microsoft Azure Management* cloud app including **All device state** excluding **Device Hybrid Azure AD joined** and **Device marked as compliant** and for *Access controls*, **Block**. 
    - This example would create a policy that only allows access to Microsoft Azure Management from devices that are either hybrid Azure AD joined or devices marked as compliant.
+
+The above scenario, can be configured using *All users* accessing the *Microsoft Azure Management* cloud app excluding **Filter for devices** condition with the following rule **device.trustType -ne "ServerAD" -or device.isCompliant -ne True** and for *Access controls*, **Block**.
+- This example would create a policy that only allows access to Microsoft Azure Management from devices that are either hybrid Azure AD joined or devices marked as compliant.
+
+> [!IMPORTANT]
+> Device state and filters for devices cannot be used together in Conditional Access policy. Filters for devices provides more granular targeting including support for targeting device state information through the `trustType` and `isCompliant` property.
+
+## Filter for devices
+
+There is a new optional condition in Conditional Access called filter for devices. When configuring filter for devices as a condition, organizations can choose to include or exclude devices based on a filter using a rule expression on device properties. The rule expression for filter for devices can be authored using rule builder or rule syntax. This experience is similar to the one used for dynamic membership rules for groups. For more information see the article, [Conditional Access: Filter for devices (preview)](concept-condition-filters-for-devices.md).
 
 ## Next steps
 

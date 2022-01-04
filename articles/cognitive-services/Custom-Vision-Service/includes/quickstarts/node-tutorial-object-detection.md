@@ -72,7 +72,7 @@ Create variables for your resource's Azure endpoint and keys.
 > [!IMPORTANT]
 > Go to the Azure portal. If the Custom Vision resources you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your keys and endpoint in the resources' **key and endpoint** pages, under **resource management**. You'll need to get the keys for both your training and prediction resources, along with the API endpoint for your training resource.
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For more information, see the Cognitive Services [security](../../../cognitive-services-security.md) article.
 
 Also add fields for your project name and a timeout parameter for asynchronous calls.
 
@@ -115,6 +115,12 @@ Add the following function to help make multiple asynchronous calls. You'll use 
 Start a new function to contain all of your Custom Vision function calls. Add the following code to to create a new Custom Vision service project.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ObjectDetection/CustomVisionQuickstart.js?name=snippet_create)]
+
+## Add tags to the project
+
+To create classification tags to your project, add the following code to your function:
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ObjectDetection/CustomVisionQuickstart.js?name=snippet_tags)]
 
 ## Upload and tag images
 
@@ -167,7 +173,7 @@ Run the application with the `node` command on your quickstart file.
 node index.js
 ```
 
-The output of the application should appear in the console. You can then verify that the test image (found in **<sampleDataRoot>/Test/**) is tagged appropriately and that the region of detection is correct. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
+The output of the application should appear in the console. You can then verify that the test image (found in **\<sampleDataRoot\>/Test/**) is tagged appropriately and that the region of detection is correct. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
 
 ## Clean up resources
 

@@ -1,19 +1,33 @@
 ---
-title: Validation activity in Azure Data Factory 
-description: The Validation activity does not continue execution of the pipeline until it validates the attached dataset with certain criteria the user specifies.
-author: dcstwh
-ms.author: weetok
+title: Validation activity
+titleSuffix: Azure Data Factory & Azure Synapse
+description: The Validation activity in Azure Data Factory and Synapse Analytics delays execution of the pipeline until it a dataset is validated with user-defined criteria.
+author: chez-charlie
+ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 09/09/2021
 ---
 
-# Validation activity in Azure Data Factory
+# Validation activity in Azure Data Factory and Synapse Analytics pipelines
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 You can use a Validation in a pipeline to ensure the pipeline only continues execution once it has validated the attached dataset reference exists, that it meets the specified criteria, or timeout has been reached.
 
+## Create a Validation activity with UI
+
+To use a Validation activity in a pipeline, complete the following steps:
+
+1. Search for _Validation_ in the pipeline Activities pane, and drag a Validation activity to the pipeline canvas.
+1. Select the new Validation activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+   :::image type="content" source="media/control-flow-validation-activity/validation-activity.png" alt-text="Shows the UI for a Validation activity.":::
+
+1. Select a dataset, or define a new one by selecting the New button.  For file based datasets like the delimited text example above, you can select either a specific file, or a folder.  When a folder is selected, the Validation activity allows you to ignore validation of the existence of child items in the folder, or require whether child items exist or not.
+1. The output of the Validation activity can be used as an input to any other activities, and referenced within those activities for any of their properties using dynamic expressions.
 
 ## Syntax
 
@@ -63,7 +77,7 @@ minimumSize | Minimum size of a file in bytes. If no value is specified, default
 
 
 ## Next steps
-See other control flow activities supported by Data Factory:
+See other supported control flow activities:
 
 - [If Condition Activity](control-flow-if-condition-activity.md)
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)

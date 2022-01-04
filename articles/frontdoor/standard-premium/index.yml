@@ -64,7 +64,7 @@ landingContent:
           - text: Origin
             url: concept-origin.md
           - text: Health probes
-            url: concept-health-probes.md
+            url: /azure/frontdoor/front-door-health-probes
       - linkListType: how-to-guide
         links:
           - text: Configure an Origin Group
@@ -96,7 +96,7 @@ landingContent:
           - text: WAF on Azure Front Door Standard/Premium
             url: ../../web-application-firewall/afds/afds-overview.md
           - text: DDoS protection
-            url: concept-ddos.md
+            url: /azure/frontdoor/front-door-ddos
       - linkListType: how-to-guide
         links:
           - text: Enable Private Link
@@ -137,8 +137,6 @@ landingContent:
         links:
           - text: Common routing issues
             url: troubleshoot-route-issues.md
-          - text: Allowed certificate authorities
-            url: troubleshoot-allowed-certificate-authority.md
 
   # Card
   - title: Learn about Azure Front Door

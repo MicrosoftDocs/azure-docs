@@ -14,14 +14,14 @@ ms.date: 01/25/2021
 
 # Tutorial: Index JSON blobs from Azure Storage using REST
 
-Azure Cognitive Search can index JSON documents and arrays in Azure blob storage using an [indexer](search-indexer-overview.md) that knows how to read semi-structured data. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data, which must be fully indexed, and formally structured data that adheres to a data model, such as a relational database schema, that can be indexed on a per-field basis.
+Azure Cognitive Search can index JSON documents and arrays in Azure Blob Storage using an [indexer](search-indexer-overview.md) that knows how to read semi-structured data. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data, which must be fully indexed, and formally structured data that adheres to a data model, such as a relational database schema, that can be indexed on a per-field basis.
 
 This tutorial uses Postman and the [Search REST APIs](/rest/api/searchservice/) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Configure an Azure Cognitive Search data source for an Azure blob container
 > * Create an Azure Cognitive Search index to contain searchable content
-> * Configure and run an indexer to read the container and extract searchable content from Azure blob storage
+> * Configure and run an indexer to read the container and extract searchable content from Azure Blob Storage
 > * Search the index you just created
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -41,7 +41,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## 1 - Create services
 
-This tutorial uses Azure Cognitive Search for indexing and queries, and Azure Blob storage to provide the data. 
+This tutorial uses Azure Cognitive Search for indexing and queries, and Azure Blob Storage to provide the data. 
 
 If possible, create both in the same region and resource group for proximity and manageability. In practice, your Azure Storage account can be in any region.
 
@@ -85,7 +85,7 @@ After the upload completes, the files should appear in their own subfolder insid
 
 The next resource is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this walkthrough. 
 
-As with Azure Blob storage, take a moment to collect the access key. Further on, when you begin structuring requests, you will need to provide the endpoint and admin api-key used to authenticate each request.
+As with Azure Blob Storage, take a moment to collect the access key. Further on, when you begin structuring requests, you will need to provide the endpoint and admin api-key used to authenticate each request.
 
 ### Get a key and URL
 

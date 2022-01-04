@@ -2,26 +2,26 @@
 title: Overview of user accounts in Azure Active Directory B2C
 description: Learn about the types of user accounts that can be used in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/05/2019
-ms.author: mimart
+ms.date: 10/22/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
 ---
 
 # Overview of user accounts in Azure Active Directory B2C
 
-In Azure Active Directory B2C (Azure AD B2C), there are several types of accounts that can be created. Azure Active Directory, Active Directory B2B, and Active Directory B2C share in the types of user accounts that can be used.
+In Azure Active Directory B2C (Azure AD B2C), there are several types of accounts that can be created. Azure Active Directory (Azure AD), Azure Active Directory B2B (Azure AD B2B), and Azure Active Directory B2C (Azure AD B2C) share in the types of user accounts that can be used.
 
 The following types of accounts are available:
 
 - **Work account** - A work account can access resources in a tenant, and with an administrator role, can manage tenants.
-- **Guest account** - A guest account can only be a Microsoft account or an Azure Active Directory user that can be used to access applications or manage tenants.
+- **Guest account** - A guest account can only be a Microsoft account or an Azure AD user that can be used to share administration responsibilities such as [managing a tenant](tenant-management.md).
 - **Consumer account** - A consumer account is used by a user of the applications you've registered with Azure AD B2C. Consumer accounts can be created by:
   - The user going through a sign-up user flow in an Azure AD B2C application
   - Using Microsoft Graph API
@@ -70,7 +70,7 @@ You can invite external users to your tenant as a guest user. A typical scenario
 
 When you invite a guest user to your tenant, you provide the email address of the recipient and a message describing the invitation. The invitation link takes the user to the consent page. If an inbox isn't attached to the email address, the user can navigate to the consent page by going to a Microsoft page using the invited credentials. The user is then forced to redeem the invitation the same way as clicking on the link in the email. For example: `https://myapps.microsoft.com/B2CTENANTNAME`.
 
-You can also use the [Microsoft Graph API](/graph/api/invitation-post?view=graph-rest-beta) to invite a guest user.
+You can also use the [Microsoft Graph API](/graph/api/invitation-post) to invite a guest user.
 
 ## Consumer user
 

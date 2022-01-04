@@ -3,12 +3,13 @@ title: Remove Azure role assignments - Azure RBAC
 description: Learn how to remove access to Azure resources for users, groups, service principals, or managed identities using Azure portal, Azure PowerShell, Azure CLI, or REST API.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
 ms.date: 02/15/2021
-ms.author: rolyon
+ms.author: rolyon 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Remove Azure role assignments
@@ -33,7 +34,7 @@ To remove role assignments, you must have:
 
 1. Click **Remove**.
 
-   ![Remove role assignment message](./media/role-assignments-remove/remove-role-assignment.png)
+   ![Remove role assignment message](./media/shared/remove-role-assignment.png)
 
 1. In the remove role assignment message that appears, click **Yes**.
 

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 03/08/2021
+ms.date: 12/03/2021
 ---
 
 # Geographic availability and currency support for the commercial marketplace
@@ -184,21 +184,3 @@ Microsoft receives payments from customers in their local currency, and pays you
 > Microsoft converts offer prices using the Microsoft Treasury exchange rates.
 
 [![The currency conversion flow.](media/marketplace-geo-availability-currencies/currency-exchange-flow.png)](media/marketplace-geo-availability-currencies/currency-exchange-flow.png#lightbox)
-
-## Retrieving currency information by API
-
-Individual prices (which, depending on how they were set, may have been influenced by the exchange rates on the day they were saved) can be retrieved using an API; currency information can't.
-
-For details on how to enter prices for specific offer types, refer to these articles:
-
-- [Create an Azure application offer](create-new-azure-apps-offer.md)
-- [Create an Azure container offer](./create-azure-container-offer.md)
-- [Create an Azure virtual machine offer](azure-vm-create.md)
-- [Create a consulting service offer](./create-consulting-service-offer.md)
-- [Create a Dynamics 365 for Customer Engagement & PowerApps offer](partner-center-portal/create-new-customer-engagement-offer.md)
-- [Create a Dynamics 365 for Operations offer](partner-center-portal/create-new-operations-offer.md)
-- [Create a Dynamics 365 Business Central offer](partner-center-portal/create-new-business-central-offer.md)
-- [Create an IoT Edge module offer](partner-center-portal/azure-iot-edge-module-creation.md)
-- [Create a Managed Service offer](./plan-managed-service-offer.md)
-- [Create a Power BI app](partner-center-portal/create-power-bi-app-offer.md)
-- [Create a SaaS offer](./create-new-saas-offer.md)

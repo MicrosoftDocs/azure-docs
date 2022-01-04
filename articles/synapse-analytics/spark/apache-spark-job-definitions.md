@@ -12,7 +12,7 @@ ms.date: 10/16/2020
 
 # Tutorial: Create Apache Spark job definition in Synapse Studio
 
-This tutorial demonstrates how to use the Azure Synapse Studio to create Apache Spark job definitions, and then submit them to a serverless Apache Spark pool.
+This tutorial demonstrates how to use the Synapse Studio to create Apache Spark job definitions, and then submit them to a serverless Apache Spark pool.
 
 This tutorial covers the following tasks:
 > [!div class="checklist"]
@@ -40,7 +40,7 @@ Before you start with this tutorial, make sure to meet the following requirement
 
 In this section, you create an Apache Spark job definition for PySpark (Python).
 
-1. Open [Azure Synapse Studio](https://web.azuresynapse.net/).
+1. Open [Synapse Studio](https://web.azuresynapse.net/).
 
 2. You can go to [Sample files for creating Apache Spark job definitions](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) to download **sample files for python.zip**, then unzip the compressed package, and extract the **wordcount.py** and **shakespeare.txt** files. 
 

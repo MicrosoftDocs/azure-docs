@@ -1,7 +1,7 @@
 ---
 title: Capture a browser trace for troubleshooting
 description: Capture network information from a browser trace to help troubleshoot issues with the Azure portal.
-ms.date: 03/25/2021
+ms.date: 08/16/2021
 ms.topic: troubleshooting
 ---
 
@@ -9,11 +9,14 @@ ms.topic: troubleshooting
 
 If you're troubleshooting an issue with the Azure portal, and you need to contact Microsoft support, we recommend you first capture a browser trace and some additional information. The information you collect can provide important details about the portal at the time the issue occurs. Follow the steps in this article for the developer tools in the browser you use: Google Chrome or Microsoft Edge (Chromium), Microsoft Edge (EdgeHTML), Apple Safari, or Firefox.
 
+> [!IMPORTANT]
+> Microsoft support uses these traces for troubleshooting purposes only. Please be mindful who you share your traces with, as they may contain sensitive information about your environment.
+
 ## Google Chrome and Microsoft Edge (Chromium)
 
 Google Chrome and Microsoft Edge (Chromium) are both based on the [Chromium open source project](https://www.chromium.org/Home). The following steps show how to use the developer tools, which are very similar in the two browsers. For more information, see [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) and [Microsoft Edge (Chromium) Developer Tools](/microsoft-edge/devtools-guide-chromium).
 
-1. Sign in to the [Azure portal](https://portal.azure.com). It's important to sign in _before_ you start the trace so that the trace doesn't contain sensitive information related to your sign-in. 
+1. Sign in to the [Azure portal](https://portal.azure.com). It's important to sign in _before_ you start the trace so that the trace doesn't contain sensitive information related to your sign-in.
 
 1. Start recording the steps you take in the portal, using [Steps Recorder](https://support.microsoft.com/help/22878/windows-10-record-steps).
 
@@ -159,7 +162,7 @@ The following steps show how to use the developer tools in Apple Safari. For mor
 
 The following steps show how to use the developer tools in Firefox. For more information, see [Firefox Developer Tools](https://developer.mozilla.org/docs/Tools).
 
-1. Sign in to the [Azure portal](https://portal.azure.com). It's important to sign in _before_ you start the trace so that the trace doesn't contain sensitive information related to your sign-in. 
+1. Sign in to the [Azure portal](https://portal.azure.com). It's important to sign in _before_ you start the trace so that the trace doesn't contain sensitive information related to your sign-in.
 
 1. Start recording the steps you take in the portal. Use [Steps Recorder](https://support.microsoft.com/help/22878/windows-10-record-steps) on Windows, or see [How to record the screen on your Mac](https://support.apple.com/HT208721).
 
@@ -199,4 +202,5 @@ The following steps show how to use the developer tools in Firefox. For more inf
 
 ## Next steps
 
-[Azure portal overview](azure-portal-overview.md)
+- Read more about the [Azure portal](azure-portal-overview.md).
+- Learn how to [open a support request](supportability/how-to-create-azure-support-request.md) in the Azure portal.

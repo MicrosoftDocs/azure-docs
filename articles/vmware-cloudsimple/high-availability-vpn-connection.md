@@ -1,8 +1,8 @@
---- 
+---
 title: Azure VMware Solution by CloudSimple - Configure high availability from on-premises to CloudSimple VPN gateway
 description: Describes how to configure a high availability connection from your on-premises environment to a CloudSimple VPN gateway enabled for high availability
-author: Ajayan1008
-ms.author: v-hborys 
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/14/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -35,7 +35,7 @@ For the Site-to-Site VPN to work, you must allow UDP 500/4500 and ESP (IP protoc
 
 To enable phase 1 (IKEv1) on the outside interface, enter the following CLI command in the Cisco ASA firewall.
 
-```crypto ikev1 enable outside```
+`crypto ikev1 enable outside`
 
 ### 2. Create an IKEv1 policy
 
@@ -116,13 +116,13 @@ crypto map mymap 1 set ikev1 transform-set devtest39
 
 Apply the crypto map on the outside interface:
 
-```crypto map mymap interface outside```
+`crypto map mymap interface outside`
 
 ### 8. Confirm applicable NAT rules
 
 The following is the NAT rule that is used. Ensure that the VPN traffic is not subjected to any other NAT rule.
 
-```nat (inside,outside) source static AZ_inside AZ_inside destination static CS_inside CS_inside```
+`nat (inside,outside) source static AZ_inside AZ_inside destination static CS_inside CS_inside`
 
 ### Sample IPsec Site-to-Site VPN established output from Cisco ASA
 
@@ -278,7 +278,7 @@ Configuring NAT on Cisco ASA:
 
 Supported IKEv1 and IKEv2 attributes on Cisco ASA:
 
-<a href="https://www.cisco.com/c/en/us/td/docs/security/asa/asa90/configuration/guide/asa_90_cli_config/vpn_ike.html#21661" target="_blank">Cisco ASA Series CLI Configuration Guide</a>
+<a href="https://www.cisco.com/c/en/us/td/docs/security/asa/asa72/configuration/guide/conf_gd/ike.html" target="_blank">Cisco ASA Series CLI Configuration Guide</a>
 
 Configuring IPsec Site-to-Site VPN on Cisco ASA with version 8.4 and later:
 

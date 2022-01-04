@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 09/12/2020
+ms.date: 05/13/2021
 ms.author: mjbrown
 ---
 
 # Move an Azure Cosmos DB account to another region
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article describes how to either:
 
@@ -35,6 +35,9 @@ Azure Cosmos DB supports data replication natively, so moving data from one regi
 1. Remove the original region.
 
     To remove a region from an Azure Cosmos DB account, see [Add/remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account).
+
+> [!NOTE]
+> If you perform a failover operation or add/remove a new region while an [asynchronous throughput scaling operation](scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) is in progress, the throughput scale-up operation will be paused. It will resume automatically when the failover or add/remove region operation is complete. 
 
 ## Migrate Azure Cosmos DB account metadata
 

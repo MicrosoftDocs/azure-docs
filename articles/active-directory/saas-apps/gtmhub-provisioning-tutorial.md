@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Gtmhub for automatic user provisioning with Azure Ac
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Gtmhub.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 10b68d00-a544-480b-9bd6-f6ac291a90d0
@@ -12,10 +12,9 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/03/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Gtmhub for automatic user provisioning
@@ -61,9 +60,9 @@ In order to connect your provisioning application to your Gtmhub account you wil
 
     ![Copy Token](media/gtmhub-provisioning-tutorial/token.png)
 
-### To compile the tenant url:
+### To compile the tenant URL:
 
-1. Your tenant url has to be in the following format:
+1. Your tenant URL has to be in the following format:
 
     `https://app.gtmhub.com/api/v1/scim/azure/{account_id}`
 

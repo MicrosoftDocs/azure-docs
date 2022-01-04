@@ -1,12 +1,14 @@
 ---
 title: Create Azure Data Factory using .NET SDK
-description: Create an Azure Data Factory and pipeline using .NET SDK to copy data from one location in Azure Blob storage to another location. 
+description: Create an Azure Data Factory and pipeline using .NET SDK to copy data from one location in Azure Blob storage to another location.
 author: linda33wj
 ms.service: data-factory
-ms.devlang: dotnet
+ms.subservice: data-movement
+ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 03/27/2021
+ms.date: 12/10/2021
 ms.author: jingwang
+ms.custom: devx-track-azurepowershell, mode-api
 ---
 # Quickstart: Create a data factory and pipeline using .NET SDK
 
@@ -21,7 +23,7 @@ This quickstart describes how to use .NET SDK to create an Azure Data Factory. T
 > [!NOTE]
 > This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
 
-[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
+[!INCLUDE [data-factory-quickstart-prerequisites](includes/data-factory-quickstart-prerequisites.md)] 
 
 ### Visual Studio
 
@@ -53,7 +55,7 @@ Next, create a C# .NET console application in Visual Studio:
     ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
     Install-Package Microsoft.Azure.Management.ResourceManager -IncludePrerelease
-    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+    Install-Package Microsoft.Identity.Client
     ```
 
 ## Create a data factory client
@@ -69,7 +71,7 @@ Next, create a C# .NET console application in Visual Studio:
     using Microsoft.Azure.Management.ResourceManager;
     using Microsoft.Azure.Management.DataFactory;
     using Microsoft.Azure.Management.DataFactory.Models;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Microsoft.Identity.Client;
     ```
 
 2. Add the following code to the **Main** method that sets the variables. Replace the placeholders with your own values. For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, and more) and computes (HDInsight and others) used by data factory can be in other regions.
@@ -108,10 +110,16 @@ Next, create a C# .NET console application in Visual Studio:
 
    ```csharp
    // Authenticate and create a data factory management client
-   var context = new AuthenticationContext("https://login.microsoftonline.com/" + tenantID);
-   ClientCredential cc = new ClientCredential(applicationId, authenticationKey);
-   AuthenticationResult result = context.AcquireTokenAsync(
-       "https://management.azure.com/", cc).Result;
+   IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create(applicationId)
+    .WithAuthority("https://login.microsoftonline.com/" + tenantID)
+    .WithClientSecret(authenticationKey)
+    .WithLegacyCacheCompatibility(false)
+    .WithCacheOptions(CacheOptions.EnableSharedCacheOptions)
+    .Build();
+
+   AuthenticationResult result = await app.AcquireTokenForClient(
+     new string[]{ "https://management.azure.com//.default"})
+      .ExecuteAsync();
    ServiceClientCredentials cred = new TokenCredentials(result.AccessToken);
    var client = new DataFactoryManagementClient(cred) {
        SubscriptionId = subscriptionId };

@@ -1,8 +1,9 @@
 ---
-title: Add an artifact repository to your lab in Azure DevTest Labs | Microsoft Docs
+title: Add an artifact repository to your lab
 description: Learn how to specify your own artifact repository for your lab in Azure DevTest Labs to store tools unavailable in the public artifact repository.
-ms.topic: article
-ms.date: 06/26/2020
+ms.topic: how-to
+ms.date: 10/19/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Add an artifact repository to your lab in DevTest Labs
@@ -40,9 +41,9 @@ To add a repository to your lab, first, get key information from your repository
 7. On the **Security > Personal access tokens** tab, select **+ New Token**.
 8. On the **Create a new personal access token** page:
    1. Enter a **Name** for the token.
-   2. In the **Organization** list, select **All accessible organizations**.
+   2. In the **Organization** list, select the organization the repo belongs to.
    3. In the **Expiration (UTC)** list, select **90 days**, or a custom defined expiration period.
-   4. Select the **Full access** option for Scopes.
+   4. Select the **Custom defined** option for Scopes and select only **Code - Read**.
    5. Select **Create**.
 9. The new token appears in the **Personal Access Tokens** list. Select **Copy Token**, and then save the token value for later use.
 10. Continue to the Connect your lab to the repository section.
@@ -69,12 +70,12 @@ This section provides steps to add an artifact repository to a lab in the Azure 
 6. Select **Save**.
 
 ## Use Azure Resource Manager template
-Azure Resource Management (Azure Resource Manager) templates are JSON files that describe resources in Azure that you want to create. For more information about these templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md).
+Azure Resource Management (Azure Resource Manager) templates are JSON files that describe resources in Azure that you want to create. For more information about these templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
 This section provides steps to add an artifact repository to a lab by using an Azure Resource Manager template.  The template creates the lab if it doesn't already exist.
 
 ### Template
-The sample template used in this article gathers the following information via parameters. Most of the parameters do have smart defaults, but there are a few values that must be specified. You must specify the lab name, URI for the artifact repository, and the security token for the repository.
+The sample template used in this article gathers the following information via parameters. Most of the parameters do have smart defaults, but there are a few values that must be specified. Specify the lab name, URI for the artifact repository, and the security token for the repository.
 
 - Lab name.
 - Display name for the artifact repository in the DevTest Labs user interface (UI). The default value is: `Team Repository`.
@@ -165,7 +166,7 @@ First, create a resource group using [New-AzResourceGroup](/powershell/module/az
 New-AzResourceGroup -Name MyLabResourceGroup1 -Location westus
 ```
 
-Next, create a deployment to the resource group using [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). This cmdlet applies the resource changes to Azure. Several resource deployments can be made to any given resource group. If you are deploying several times to the same resource group, make sure the name of each deployment is unique.
+Next, create a deployment to the resource group using [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). This cmdlet applies the resource changes to Azure. Several resource deployments can be made to any given resource group. If you're deploying several times to the same resource group, make sure the name of each deployment is unique.
 
 ```powershell
 New-AzResourceGroupDeployment `
@@ -181,7 +182,7 @@ After New-AzResourceGroupDeployment run successfully, the command outputs import
 This section provides you a sample PowerShell script that can be used to add an artifact repository to a lab. If you don't have Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/) for detailed instructions to install it.
 
 ### Full script
-Here is the full script, including some verbose messages and comments:
+Here's the full script, including some verbose messages and comments:
 
 **New-DevTestLabArtifactRepository.ps1**:
 
@@ -288,7 +289,7 @@ $propertiesObject = @{
     status = 'Enabled'
 }
 
-Write-Verbose @"Properties to be passed to New-AzResource:$($propertiesObject | Out-String)"
+Write-Verbose "Properties to be passed to New-AzResource:$($propertiesObject | Out-String)"
 
 #Resource will be added to current subscription.
 $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'
@@ -336,15 +337,15 @@ The sample PowerShell script in this article takes the following parameters:
 | Parameter | Description |
 | --------- | ----------- |
 | LabName | The name of the lab. |
-| ArtifactRepositoryName | Name for the new artifact repository. The script creates a random name for the repository if it is not specified. |
+| ArtifactRepositoryName | Name for the new artifact repository. The script creates a random name for the repository if it isn't specified. |
 | ArtifactRepositoryDisplayName | Display name for the artifact repository. This is the name that shows up in the Azure portal (https://portal.azure.com) when viewing all the artifact repositories for a lab. |
 | RepositoryUri | Uri to the repository. Examples: `https://github.com/<myteam>/<nameofrepo>.git` or `"https://MyProject1.visualstudio.com/DefaultCollection/_git/TeamArtifacts"`.|
-| RepositoryBranch | Branch in which artifact files can be found. Defaults to 'master'. |
+| RepositoryBranch | Branch in which artifact files can be found. Defaults to `master`. |
 | FolderPath | Folder under which artifacts can be found. Defaults to '/Artifacts' |
 | PersonalAccessToken | Security token for accessing the GitHub or VSOGit repository. See the prerequisites section for instructions to get personal access token |
-| SourceType | Whether artifact is VSOGit or GitHub repository. |
+| SourceType | Whether artifact is VSOGit or GitHub repository |
 
-The repository itself need an internal name for identification, which is different that the display name that is seen in the Azure portal. You do not see the internal name using the Azure portal, but you see it when using Azure REST APIs or Azure PowerShell. The script provides a name, if one is not specified by the user of our script.
+The repository itself need an internal name for identification, which is different than the display name that is seen in the Azure portal. You don't see the internal name using the Azure portal, but you see it when using Azure REST APIs or Azure PowerShell. The script provides a name, if one is not specified by the user of our script.
 
 ```powershell
 #Set artifact repository name, if not set by user
@@ -358,7 +359,7 @@ if ($ArtifactRepositoryName -eq $null){
 | PowerShell command | Notes |
 | ------------------ | ----- |
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | This command is used to get details about the lab such as its location. |
-| [New-AzResource](/powershell/module/az.resources/new-azresource) | There is no specific command for adding artifact repositories. The generic [New-AzResource](/powershell/module/az.resources/new-azresource) cmdlet does the job. This cmdlet needs either the **ResourceId** or the **ResourceName** and **ResourceType** pair to know the type of resource to create. This sample script uses the resource name and resource type pair. <br/><br/>Notice that you are creating the artifact repository source in the same location and under the same resource group as the lab.|
+| [New-AzResource](/powershell/module/az.resources/new-azresource) | There's no specific command for adding artifact repositories. The generic [New-AzResource](/powershell/module/az.resources/new-azresource) cmdlet does the job. This cmdlet needs either the **ResourceId** or the **ResourceName** and **ResourceType** pair to know the type of resource to create. This sample script uses the resource name and resource type pair. <br/><br/>Notice that you're creating the artifact repository source in the same location and under the same resource group as the lab.|
 
 The script adds a new resource to the current subscription. Use [Get-AzContext](/powershell/module/az.accounts/get-azcontext) to see this information. Use [Set-AzContext](/powershell/module/az.accounts/set-azcontext) to set the current tenant and subscription.
 
@@ -368,7 +369,7 @@ The best way to discover the resource name and resource type information is to u
 "/subscriptions/$SubscriptionId/resourceGroups/$($LabResource.ResourceGroupName)/providers/Microsoft.DevTestLab/labs/$LabName/artifactSources/$ArtifactRepositoryName"
 ```
 
-The resource type is everything listed after ‘providers’ in the URI, except for items listed in the curly brackets. The resource name is everything seen in the curly brackets. If more than one item is expected for the resource name, separate each item with a slash as we have done.
+The resource type is everything listed after ‘providers’ in the URI, except for items listed in the curly brackets. The resource name is everything seen in the curly brackets. If more than one item is expected for the resource name, separate each item with a slash as we've done.
 
 ```powershell
 $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'

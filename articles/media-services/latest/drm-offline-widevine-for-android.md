@@ -6,8 +6,9 @@ author: willzhan
 manager: femila
 ms.service: media-services
 ms.workload: media
+ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 05/25/2021
 ms.author: inhenkel
 ---
 
@@ -45,7 +46,7 @@ Before implementing offline DRM for Widevine on Android devices, you should firs
     - [Use DRM dynamic encryption and license delivery service](drm-protect-with-drm-tutorial.md)
 - Clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git.
 
-    You will need to modify the code in [Encrypt with DRM using .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) to add Widevine configurations.  
+    You will need to modify the code in [Encrypt with DRM using .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/main/AMSV3Tutorials/EncryptWithDRM) to add Widevine configurations.  
 - Become familiar with the Google ExoPlayer SDK for Android, an open-source video player SDK capable of supporting offline Widevine DRM playback. 
     - [ExoPlayer SDK](https://github.com/google/ExoPlayer)
     - [ExoPlayer Developer Guide](https://google.github.io/ExoPlayer/guide.html)
@@ -53,7 +54,7 @@ Before implementing offline DRM for Widevine on Android devices, you should firs
 
 ## Configure content protection in Azure Media Services
 
-In the [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L189) method, the following necessary steps are present:
+In the [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L192) method, the following necessary steps are present:
 
 1. Specify how content key delivery is authorized in the license delivery service: 
 
@@ -86,7 +87,7 @@ In the [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media
 
 ## Enable offline mode
 
-To enable **offline** mode for Widevine licenses, you need to configure [Widevine license template](drm-widevine-license-template-concept.md). In the **policy_overrides** object, set the **can_persist** property to **true** (default is false), as shown in [ConfigureWidevineLicenseTempate](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L563). 
+To enable **offline** mode for Widevine licenses, you need to configure [Widevine license template](drm-widevine-license-template-concept.md). In the **policy_overrides** object, set the **can_persist** property to **true** (default is false), as shown in [ConfigureWidevineLicenseTemplate](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L452). 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#ConfigureWidevineLicenseTempate)]
 
@@ -98,16 +99,16 @@ ExoPlayer version 2.6 and higher includes many classes that support offline Wide
 
 The following list of classes facilitates offline mode in the ExoPlayer SDK for Android:
 
-- library/core/src/main/java/com/google/android/exoplayer2/drm/OfflineLicenseHelper.java  
-- library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSession.java
-- library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSessionManager.java
-- library/core/src/main/java/com/google/android/exoplayer2/drm/DrmSession.java
-- library/core/src/main/java/com/google/android/exoplayer2/drm/ErrorStateDrmSession.java
-- library/core/src/main/java/com/google/android/exoplayer2/drm/ExoMediaDrm.java
-- library/core/src/main/java/com/google/android/exoplayer2/offline/SegmentDownloader.java
-- library/core/src/main/java/com/google/android/exoplayer2/offline/DownloaderConstructorHelper.java 
-- library/core/src/main/java/com/google/android/exoplayer2/offline/Downloader.java
-- library/dash/src/main/java/com/google/android/exoplayer2/source/dash/offline/DashDownloader.java 
+- `library/core/src/main/java/com/google/android/exoplayer2/drm/OfflineLicenseHelper.java`  
+- `library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSession.java`
+- `library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSessionManager.java`
+- `library/core/src/main/java/com/google/android/exoplayer2/drm/DrmSession.java`
+- `library/core/src/main/java/com/google/android/exoplayer2/drm/ErrorStateDrmSession.java`
+- `library/core/src/main/java/com/google/android/exoplayer2/drm/ExoMediaDrm.java`
+- `library/core/src/main/java/com/google/android/exoplayer2/offline/SegmentDownloader.java`
+- `library/core/src/main/java/com/google/android/exoplayer2/offline/DownloaderConstructorHelper.java` 
+- `library/core/src/main/java/com/google/android/exoplayer2/offline/Downloader.java`
+- `library/dash/src/main/java/com/google/android/exoplayer2/source/dash/offline/DashDownloader.java` 
 
 Developers should reference the [ExoPlayer Developer Guide](https://google.github.io/ExoPlayer/guide.html) and the corresponding [Developer Blog](https://medium.com/google-exoplayer) during development of an application. Google has not released a fully documented reference implementation or sample code for the ExoPlayer app supporting Widevine offline at this time, so the information is limited to the developers' guide and blog. 
 
@@ -149,6 +150,6 @@ The above open-source PWA app is authored in Node.js. If you want to host your o
 
 ## More information
 
-For more information, see [Widevine in the Questions Collection](questions-collection.md#widevine-streaming-for-android).
+For more information, see [Content Protection in the FAQ](frequently-asked-questions.yml).
 
 Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.

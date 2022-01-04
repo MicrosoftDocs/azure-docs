@@ -6,7 +6,6 @@ documentationcenter: na
 author: asudbring
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
@@ -19,7 +18,7 @@ ms.author: allensu
 
 
 >[!NOTE] 
->This content has been superseded by [IPv6 for Azure VNet Overview](../virtual-network/ipv6-overview.md). Azure recommends new IPv6 deployments use the new IPv6 for Azure Virtual Networks features.
+>This content has been superseded by [IPv6 for Azure VNet Overview](../virtual-network/ip-services/ipv6-overview.md). Azure recommends new IPv6 deployments use the new IPv6 for Azure Virtual Networks features.
 
 >[!NOTE]
 >Azure Load Balancer supports two different types: Basic and Standard. This article discusses Basic Load Balancer. For more information about Standard Load Balancer, see [Standard Load Balancer overview](./load-balancer-overview.md).

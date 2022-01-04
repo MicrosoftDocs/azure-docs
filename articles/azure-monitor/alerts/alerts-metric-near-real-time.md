@@ -5,7 +5,7 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 10/14/2021
 ---
 
 # Supported resources for metric alerts in Azure Monitor
@@ -31,8 +31,10 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Automation/automationAccounts | Yes| No | [Automation Accounts](../essentials/metrics-supported.md#microsoftautomationautomationaccounts) |
 |Microsoft.AVS/privateClouds | No | No | [Azure VMware Solution](../essentials/metrics-supported.md#microsoftavsprivateclouds) |
 |Microsoft.Batch/batchAccounts | Yes | No | [Batch Accounts](../essentials/metrics-supported.md#microsoftbatchbatchaccounts) |
+|Microsoft.Bing/accounts | Yes | No | [Bing Accounts](../essentials/metrics-supported.md#microsoftbingaccounts) |
 |Microsoft.BotService/botServices | Yes | No | [Bot Services](../essentials/metrics-supported.md#microsoftbotservicebotservices) |
 |Microsoft.Cache/redis | Yes | Yes | [Azure Cache for Redis](../essentials/metrics-supported.md#microsoftcacheredis) |
+|Microsoft.Cache/redisEnterprise | Yes | No | [Azure Cache for Redis Enterprise](../essentials/metrics-supported.md#microsoftcacheredisenterprise) |
 |microsoft.Cdn/profiles | Yes | No | [CDN Profiles](../essentials/metrics-supported.md#microsoftcdnprofiles) |
 |Microsoft.ClassicCompute/domainNames/slots/roles | No | No | [Classic Cloud Services](../essentials/metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
 |Microsoft.ClassicCompute/virtualMachines | No | No | [Classic Virtual Machines](../essentials/metrics-supported.md#microsoftclassiccomputevirtualmachines) |
@@ -46,6 +48,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Compute/cloudServices/roles | Yes | No |  [Cloud Service Roles](../essentials/metrics-supported.md#microsoftcomputecloudservicesroles) |
 |Microsoft.Compute/virtualMachines | Yes | Yes<sup>1</sup> | [Virtual Machines](../essentials/metrics-supported.md#microsoftcomputevirtualmachines) |
 |Microsoft.Compute/virtualMachineScaleSets | Yes | No |[Virtual Machine Scale Sets](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
+|Microsoft.ConnectedVehicle/platformAccounts | Yes | No |[Connected Vehicle Platform Accounts](../essentials/metrics-supported.md#microsoftconnectedvehicleplatformaccounts) |
 |Microsoft.ContainerInstance/containerGroups | Yes| No | [Container Groups](../essentials/metrics-supported.md#microsoftcontainerinstancecontainergroups) |
 |Microsoft.ContainerRegistry/registries | No | No | [Container Registries](../essentials/metrics-supported.md#microsoftcontainerregistryregistries) |
 |Microsoft.ContainerService/managedClusters | Yes | No | [Managed Clusters](../essentials/metrics-supported.md#microsoftcontainerservicemanagedclusters) |
@@ -97,6 +100,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Peering/peerings | Yes | No | [Peerings](../essentials/metrics-supported.md#microsoftpeeringpeerings) |
 |Microsoft.Peering/peeringServices | Yes | No | [Peering Services](../essentials/metrics-supported.md#microsoftpeeringpeeringservices) |
 |Microsoft.PowerBIDedicated/capacities | No | No | [Capacities](../essentials/metrics-supported.md#microsoftpowerbidedicatedcapacities) |
+|Microsoft.RecoveryServices/vaults | Yes | Yes | [Recovery Services vaults](../essentials/metrics-supported.md#microsoftrecoveryservicesvaults) |
 |Microsoft.Relay/namespaces | Yes | No | [Relays](../essentials/metrics-supported.md#microsoftrelaynamespaces) |
 |Microsoft.Search/searchServices | No | No | [Search services](../essentials/metrics-supported.md#microsoftsearchsearchservices) |
 |Microsoft.ServiceBus/namespaces | Yes | No | [Service Bus](../essentials/metrics-supported.md#microsoftservicebusnamespaces) |

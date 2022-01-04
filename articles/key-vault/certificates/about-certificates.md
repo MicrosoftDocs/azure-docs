@@ -3,7 +3,6 @@ title: About Azure Key Vault Certificates - Azure Key Vault
 description: Overview of Azure Key Vault REST interface and certificates.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -152,6 +151,19 @@ Certificate contacts contain contact information to send notifications triggered
 ## Certificate Access Control
 
  Access control for certificates is managed by Key Vault, and is provided by the Key Vault that contains those certificates. The access control policy for certificates is distinct from the access control policies for keys and secrets in the same Key Vault. Users may create one or more vaults to hold certificates, to maintain scenario appropriate segmentation and management of certificates.  For more information on certificate access control, see [here](certificate-access-control.md)
+
+
+## Certificate Use Cases
+
+### Secure communication and authentication
+
+TLS certificates can help encrypt communications over the internet and establish the identity of websites, making the entry point and mode of communication secure.  Additionally, a chained certificate signed by a public CA can help verify that the entities holding the certificates are whom they claim to be. As an example, the following are some excellent use cases of using certificates to secure communication and enable authentication:
+* Intranet/Internet websites: protect access to your intranet site and ensure encrypted data transfer over the internet using TLS certificates.
+* IoT and Networking devices: protect and secure your devices by using certificates for authentication and communication.
+* Cloud/Multi-Cloud: secure cloud-based applications on-prem, cross-cloud, or in your cloud provider's tenant.
+
+### Code signing
+A certificate can help secure the code/script of software, thereby ensuring that the author can share the software over the internet without being changed by malicious entities. Furthermore, once the author signs the code using a certificate leveraging the code signing technology, the software is marked with a stamp of authentication displaying the author and their website. Therefore, the certificate used in code signing helps validate the software's authenticity, promoting end-to-end security.
 
 ## Next steps
 

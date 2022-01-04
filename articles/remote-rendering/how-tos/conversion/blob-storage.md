@@ -67,6 +67,9 @@ To start converting a model, you need to upload it, using one of the following o
 
 For an example of how to upload data for conversion refer to Conversion.ps1 of the [Powershell Example Scripts](../../samples/powershell-example-scripts.md#script-conversionps1).
 
+> [!Note]
+> When uploading an input model take care to avoid long file names and/or folder structures in order to avoid [Windows path length limit](/windows/win32/fileio/maximum-file-path-limitation) issues on the service. 
+
 ## Get a SAS URI for the converted model
 
 This step is similar to [retrieving SAS for the storage containers](#retrieve-sas-for-the-storage-containers). However, this time you need to retrieve a SAS URI for the model file, that was written to the output container.

@@ -3,30 +3,61 @@ title: Gateway traffic migration notice
 description: Article provides notice to users about the migration of Azure SQL Database gateway IP addresses
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: sqldbrb=1 
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: vanto
+ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 07/01/2019
 ---
 # Azure SQL Database traffic migration to newer Gateways
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-As Azure infrastructure improves, Microsoft will periodically refresh hardware to ensure we provide the best possible customer experience. In the coming months, we plan to add gateways built on newer hardware generations, migrate traffic to them, and eventually decommission gateways built on older hardware in some regions.  
+Microsoft periodically refreshes hardware to optimize the customer experience. During these refreshes, Azure adds gateways built on newer hardware generations, migrates traffic to them, and eventually decommissions gateways built on older hardware in some regions.
 
-Customers will be notified via service health notifications well in advance of any change to gateways available in each region. Customers can [use the Azure portal to set up activity log alerts](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
-The most up-to-date information will be maintained in the [Azure SQL Database gateway IP addresses](connectivity-architecture.md#gateway-ip-addresses) table.
+To avoid service disruptions during refreshes, allow the communication with SQL Gateway IP subnet ranges for the region. Review [SQL Gateway IP subnet ranges](connectivity-architecture.md#gateway-ip-addresses) and include the ranges for your region.
+
+
+Customers can [use the Azure portal to set up activity log alerts](../../service-health/alerts-activity-log-service-notifications-portal.md).
+
 
 ## Status updates
 
 # [In progress](#tab/in-progress-ip)
+## August 2021
+New SQL Gateways are being added to the following regions:
+
+- Norway East: 51.120.104.32, 51.120.208.32
+- Japan East: 40.79.184.32
+- Central India: 40.80.48.32, 20.192.96.32
+
+These SQL Gateway shall start accepting customer traffic on 2 August 2021.
+
+## June 2021
+New SQL Gateways are being added to the following regions:
+
+- UK West: 51.140.208.96, 51.140.208.97
+- Korea Central: 20.44.24.32, 20.194.64.33
+- Japan East: 13.78.104.32
+
+These SQL Gateway shall start accepting customer traffic on 1 June 2021.
+
+# [Completed](#tab/completed-ip)
+The following gateway migrations are complete: 
+
+## May 2021
+New SQL Gateways are being added to the following regions:
+- UK South:  51.140.144.36, 51.105.72.32  
+- West Central US: 13.71.193.32, 13.71.193.33 
+
+This SQL Gateway shall start accepting customer traffic on 17 May 2021.
 
 ## April 2021
 New SQL Gateways are being added to the following regions:
 - East US 2:  40.70.144.193
+
 This SQL Gateway shall start accepting customer traffic on 30 April 2021.
 
 New SQL Gateways are being added to the following regions:
@@ -41,7 +72,6 @@ These SQL Gateways shall start accepting customer traffic on 5 April 2021.
 
 ## March 2021
 The following SQL Gateways in multiple regions are in the process of being deactivated:
-
 - Brazil South: 104.41.11.5
 - East Asia: 191.234.2.139
 - East US: 191.238.6.43
@@ -69,17 +99,16 @@ New SQL Gateways are being added to the following regions:
 - Australia Central 2:	20.36.112.6 
 - Brazil South: 191.234.144.16 ,191.234.152.3 
 - Canada East: 40.69.105.9 ,40.69.105.10
-- India Central: 104.211.86.30 , 104.211.86.31 
+- Central India: 104.211.86.30 , 104.211.86.31 
 - East Asia: 13.75.32.14 
 - France Central: 40.79.137.8, 40.79.145.12 
 - France South: 40.79.177.10 ,40.79.177.12
 - Korea Central: 52.231.17.22 ,52.231.17.23
-- India West: 104.211.144.4
+- West India: 104.211.144.4
 
 These SQL Gateways shall start accepting customer traffic on 31 January 2021.
 
-# [Completed](#tab/completed-ip)
-The following gateway migrations are complete: 
+
 
 ### October 2020
 
@@ -170,7 +199,7 @@ You will not be impacted if you have:
 
 ## What to do you do if you're affected
 
-We recommend that you allow outbound traffic to IP addresses for all the [gateway IP addresses](connectivity-architecture.md#gateway-ip-addresses) in the region on TCP port 1433, and port range 11000-11999. This recommendation is applicable to clients connecting from on-premises and also those connecting via Service Endpoints. For more information on port ranges, see [Connection policy](connectivity-architecture.md#connection-policy).
+We recommend that you allow outbound traffic to IP addresses for all the [gateway IP addresses](connectivity-architecture.md#gateway-ip-addresses) in the region on TCP port 1433. Also, allow port range 11000 thru 11999 when connecting from a client located within Azure (for example, an Azure VM) or when your Connection Policy is set to Redirection. This recommendation is applicable to clients connecting from on-premises and also those connecting via Service Endpoints. For more information on port ranges, see [Connection policy](connectivity-architecture.md#connection-policy).
 
 Connections made from applications using Microsoft JDBC Driver below version 4.0 might fail certificate validation. Lower versions of Microsoft JDBC rely on Common Name (CN) in the Subject field of the certificate. The mitigation is to ensure that the hostNameInCertificate property is set to *.database.windows.net. For more information on how to set the hostNameInCertificate property, see [Connecting with Encryption](/sql/connect/jdbc/connecting-with-ssl-encryption).
 

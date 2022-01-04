@@ -22,5 +22,4 @@ ms.author: glenga
 
 * [Complete the quickstart article](../articles/azure-functions/durable/quickstart-python-vscode.md)
 * [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-python/tree/master/samples/)
-
 ---

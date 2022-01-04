@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 08/27/2021
 ms.author: jeedes
 ---
 
@@ -21,7 +21,6 @@ In this tutorial, you'll learn how to integrate askSpoke with Azure Active Direc
 * Enable your users to be automatically signed-in to askSpoke with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -34,18 +33,18 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* askSpoke supports **SP and IDP** initiated SSO
-* askSpoke supports **Just In Time** user provisioning
-* Once you configure askSpoke you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* askSpoke supports **SP and IDP** initiated SSO.
+* askSpoke supports **Just In Time** user provisioning.
+* askSpoke supports [Automated user provisioning](askspoke-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-## Adding askSpoke from the gallery
+## Add askSpoke from the gallery
 
 To configure the integration of askSpoke into Azure AD, you need to add askSpoke from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
@@ -56,7 +55,7 @@ To configure the integration of askSpoke into Azure AD, you need to add askSpoke
 
 Configure and test Azure AD SSO with askSpoke using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in askSpoke.
 
-To configure and test Azure AD SSO with askSpoke, complete the following building blocks:
+To configure and test Azure AD SSO with askSpoke, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
@@ -69,9 +68,9 @@ To configure and test Azure AD SSO with askSpoke, complete the following buildin
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **askSpoke** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **askSpoke** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -126,15 +125,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **askSpoke**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure askSpoke SSO
@@ -143,15 +136,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Settings** tab from the left navigation pane.
 
-    ![askSpoke settings tab](./media/askspoke-tutorial/configure1.png)
+    ![askSpoke settings tab](./media/askspoke-tutorial/configure-1.png)
 
 1. Scroll down to **SSO** and click on **Connect**.
 
-    ![askSpoke connect](./media/askspoke-tutorial/configure2.png)
+    ![askSpoke connect](./media/askspoke-tutorial/configure-2.png)
 
 1. On the **Enable SAML & SCIM** section, perform the following steps:
 
-    ![askSpoke Enable SAML & SCIM section](./media/askspoke-tutorial/configure3.png)
+    ![askSpoke Enable SAML & SCIM section](./media/askspoke-tutorial/configure-3.png)
 
     1. In the **Sign-on URL** textbox, paste **Login URL** value, which you have copied from the Azure portal.
 
@@ -167,20 +160,25 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 In this section, a user called B.Simon is created in askSpoke. askSpoke supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in askSpoke, a new one is created when you attempt to access askSpoke.
 
+askSpoke also supports automatic user provisioning, you can find more details [here](./askspoke-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you click the askSpoke tile in the Access Panel, you should be automatically signed in to the askSpoke for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+#### SP initiated:
 
-## Additional resources
+* Click on **Test this application** in Azure portal. This will redirect to askspoke Sign on URL where you can initiate the login flow.  
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+* Go to askspoke Sign-on URL directly and initiate the login flow from there.
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+#### IDP initiated:
 
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the askspoke for which you set up the SSO. 
 
-- [Try askSpoke with Azure AD](https://aad.portal.azure.com/)
+You can also use Microsoft My Apps to test the application in any mode. When you click the askspoke tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the askspoke for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+
+## Next steps
+
+Once you configure askspoke you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

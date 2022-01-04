@@ -2,7 +2,7 @@
 title: Scripts for Azure IoT Edge with Windows containers | Microsoft Docs 
 description: Reference information for IoT Edge PowerShell scripts to install, uninstall, or update on Windows devices
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 10/06/2020
 ms.topic: reference
@@ -101,4 +101,4 @@ The Initialize-IoTEdge command configures IoT Edge with your device connection s
 
 Learn how to use these commands in the following article:
 
-* [Install or uninstall Azure IoT Edge for Windows](how-to-install-iot-edge-windows-on-windows.md)
+* [Install or uninstall Azure IoT Edge for Windows using symmetric keys](how-to-provision-single-device-windows-symmetric.md) or [using X.509 certificates](how-to-provision-single-device-windows-x509.md)

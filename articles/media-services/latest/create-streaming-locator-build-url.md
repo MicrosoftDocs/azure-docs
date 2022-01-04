@@ -8,6 +8,7 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: 
+ms.devlang: java,csharp
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
@@ -156,7 +157,7 @@ private static async Task<IList<string>> GetStreamingUrlsAsync(
 }
 ```
 
-See the full code sample: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
+See the full code sample: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/VideoEncoding/Encoding_PredefinedPreset/Program.cs)
 
 ## See also
 

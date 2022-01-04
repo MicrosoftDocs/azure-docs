@@ -69,7 +69,7 @@ A dispatch application has 500 dispatch sources, equivalent to 500 intents, as t
 * [Bot framework SDK](https://github.com/Microsoft/botframework)
 * [Dispatch model tutorial](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs)
 * [Dispatch CLI](https://github.com/Microsoft/botbuilder-tools)
-* Dispatch model bot sample - [.NET](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch), [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
+* Dispatch model bot sample - [.NET](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/14.nlp-with-orchestrator), [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/javascript_nodejs/14.nlp-with-orchestrator)
 
 ## Next steps
 

@@ -52,7 +52,7 @@ If you are using an older version of the agent, you must have the Virtual Machin
  - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-The python2 executable must be aliased to *python*. Following is one method that you can use to set this alias:
+Again, only if you are using an older version of the agent, the python2 executable must be aliased to *python*. Following is one method that you can use to set this alias:
 
 1. Run the following command to remove any existing aliases.
  
@@ -67,16 +67,17 @@ The python2 executable must be aliased to *python*. Following is one method that
     ```
 
 ## Supported Linux hardening
-The OMS Agent has limited customization support for Linux. 
+The OMS Agent has limited customization and hardening support for Linux.
 
 The following are currently supported: 
 - FIPs
+- SELINUX (Marketplace images for CENTOS and RHEL with their default settings)
 
-The following are in consideration but not yet supported:
+The following are not supported:
 - CIS
-- SELINUX
+- SELINUX (custom hardening like MLS)
 
-Other hardening and customization methods are not supported nor planned for OMS Agent.  
+CIS and SELINUX hardening support is planned for [Azure Monitoring Agent](./azure-monitor-agent-overview.md). Further hardening and customization methods are not supported nor planned for OMS Agent.  
 
 ## Agent prerequisites
 
@@ -96,6 +97,12 @@ The following table highlights the packages required for [supported Linux distro
 
 ## Network requirements
 See [Log Analytics agent overview](./log-analytics-agent.md#network-requirements) for the network requirements for the Linux agent.
+
+## Workspace ID and key
+
+Regardless of the installation method used, you will require the workspace ID and key for the Log Analytics workspace that the agent will connect to. Select the workspace from the **Log Analytics workspaces** menu in the Azure portal. Then select **Agents management** in the **Settings** section. 
+
+[![Workspace details](media/log-analytics-agent/workspace-details.png)](media/log-analytics-agent/workspace-details.png#lightbox)
 
 ## Agent install package
 

@@ -11,6 +11,8 @@ ms.custom: devx-track-azurecli
 
 # Data encryption for Azure Database for MySQL by using the Azure CLI
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Learn how to use the Azure CLI to set up and manage data encryption for your Azure Database for MySQL.
 
 ## Prerequisites for Azure CLI
@@ -58,6 +60,7 @@ You can verify the above attributes of the key by using the following command:
 ```azurecli-interactive
 az keyvault key show --vault-name <key_vault_name> -n <key_name>
 ```
+* The Azure Database for MySQL - Single Server should be on General Purpose or Memory Optimized pricing tier and on general purpose storage v2. Before you proceed further, refer limitations for [data encryption with customer managed keys](concepts-data-encryption-mysql.md#limitations).
 
 ## Set the right permissions for key operations
 
@@ -276,4 +279,7 @@ Additionally, you can use Azure Resource Manager templates to enable data encryp
 
 ## Next steps
 
- To learn more about data encryption, see [Azure Database for MySQL data encryption with customer-managed key](concepts-data-encryption-mysql.md).
+* [Validating data encryption for Azure Database for MySQL](howto-data-encryption-validation.md)
+* [Troubleshoot data encryption in Azure Database for MySQL](howto-data-encryption-troubleshoot.md)
+* [Data encryption with customer-managed key concepts](concepts-data-encryption-mysql.md).
+

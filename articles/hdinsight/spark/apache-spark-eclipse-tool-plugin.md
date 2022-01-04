@@ -19,7 +19,7 @@ Use HDInsight Tools in Azure Toolkit for [Eclipse](https://www.eclipse.org/) to 
 
 * Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-support-on-azure).
 
 * [Eclipse IDE](https://www.eclipse.org/downloads/). This article uses the Eclipse IDE for Java Developers.
 

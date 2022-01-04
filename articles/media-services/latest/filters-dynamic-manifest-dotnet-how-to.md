@@ -6,11 +6,10 @@ documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: ne
+ms.devlang: csharp
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
@@ -35,7 +34,7 @@ This topic shows how to use Media Services .NET SDK to define a filter for a Vid
 - Review [Filters and dynamic manifests](filters-dynamic-manifest-concept.md).
 - [Create a Media Services account](./account-create-how-to.md). Make sure to remember the resource group name and the Media Services account name. 
 - Get information needed to [access APIs](./access-api-howto.md)
-- Review [Upload, encode, and stream using Azure Media Services](stream-files-tutorial-with-api.md) to see how to [start using .NET SDK](stream-files-tutorial-with-api.md#start-using-media-services-apis-with-net-sdk)
+- Review [Upload, encode, and stream using Azure Media Services](stream-files-tutorial-with-api.md) to see how to [start using .NET SDK](stream-files-tutorial-with-api.md#start-using-media-services-apis-with-the-net-sdk)
 
 ## Define a filter  
 

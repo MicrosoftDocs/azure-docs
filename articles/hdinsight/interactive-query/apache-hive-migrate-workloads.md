@@ -126,6 +126,10 @@ HDInsight optionally integrates with Azure Active Directory using HDInsight Ente
 
 Refer to [HDInsight 4.0 Announcement](../hdinsight-version-release.md) for additional changes.
 
+## Troubleshooting guide
+
+[HDInsight 3.6 to 4.0 troubleshooting guide for Hive workloads](./interactive-query-troubleshoot-migrate-36-to-40.md) provides answers to common issues faced when migrating Hive workloads from HDInsight 3.6 to HDInsight 4.0.
+
 ## Further reading
 
 * [HDInsight 4.0 Announcement](../hdinsight-version-release.md)

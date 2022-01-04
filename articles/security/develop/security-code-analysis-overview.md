@@ -10,7 +10,6 @@ ms.service: security
 services: azure
 
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ---
@@ -108,4 +107,4 @@ For instructions on how to onboard and install Microsoft Security Code Analysis,
 
 For more information about configuring the build tasks, see our [Configuration guide](security-code-analysis-customize.md) or [YAML Configuration guide](yaml-configuration.md).
 
-If you have further questions about the extension and the tools offered, check out our [FAQ page](security-code-analysis-faq.md).
+If you have further questions about the extension and the tools offered, check out our [FAQ page](security-code-analysis-faq.yml).

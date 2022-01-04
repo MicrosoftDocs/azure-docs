@@ -1,27 +1,30 @@
 ---
-title: Image Builder - Create a Windows Virtual Desktop image
-description: Create an Azure VM image of Windows Virtual Desktop using Azure Image Builder in PowerShell.
-author: danielsollondon
-ms.author: danis
+title: Image Builder - Create a Azure Virtual Desktop image
+description: Create an Azure VM image of Azure Virtual Desktop using Azure Image Builder in PowerShell.
+author: kof-f
+ms.author: kofiforson
 ms.reviewer: cynthn
-ms.date: 01/27/2021
+ms.date: 05/12/2021
 ms.topic: article
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.collection: windows
-ms.subservice: imaging
+ms.subservice: image-builder 
+ms.custom: devx-track-azurepowershell
 ---
 
-# Create a Windows Virtual Desktop image using Azure VM Image Builder and PowerShell
+# Create an Azure Virtual Desktop image using Azure VM Image Builder and PowerShell
 
-This article shows you how to create a Windows Virtual Desktop image with these customizations:
+**Applies to:** :heavy_check_mark: Windows VMs 
+
+This article shows you how to create an Azure Virtual Desktop image with these customizations:
 
 * Installing [FsLogix](https://github.com/DeanCefola/Azure-WVD/blob/master/PowerShell/FSLogixSetup.ps1).
-* Running a [Windows Virtual Desktop Optimization script](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) from the community repo.
-* Install [Microsoft Teams](../../virtual-desktop/teams-on-wvd.md).
+* Running a [Azure Virtual Desktop Optimization script](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) from the community repo.
+* Install [Microsoft Teams](../../virtual-desktop/teams-on-avd.md).
 * [Restart](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-restart-customizer)
 * Run [Windows Update](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-update-customizer)
 
-We will show you how to automate this using the Azure VM Image Builder, and distribute the image to a [Shared Image Gallery](../shared-image-galleries.md), where you can replicate to other regions, control the scale, and share the image inside and outside your organizations.
+We will show you how to automate this using the Azure VM Image Builder, and distribute the image to an [Azure Compute Gallery](../shared-image-galleries.md) (formerly known as Shared Image Gallery), where you can replicate to other regions, control the scale, and share the image inside and outside your organizations.
 
 
 To simplify deploying an Image Builder configuration, this example uses an Azure Resource Manager template with the Image Builder template nested inside. This gives you some other benefits, like variables and parameter inputs. You can also pass parameters from the command line.
@@ -49,7 +52,7 @@ This article is intended to be a copy and paste exercise.
           "name": "installFsLogix",
           "runElevated": true,
           "runAsSystem": true,
-          "scriptUri": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/0_installConfFsLogix.ps1"
+          "scriptUri": "https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/14_Building_Images_WVD/0_installConfFsLogix.ps1"
     ```
 - Comment your code - The AIB build log (customization.log) is extremely verbose, if you comment your scripts using 'write-host' these will be sent to the logs, and make troubleshooting easier.
 
@@ -68,23 +71,16 @@ This article is intended to be a copy and paste exercise.
 
 ## Prerequisites
 
-You must have the latest Azure PowerShell CmdLets installed, see [here](/powershell/azure/overview) for install details.
+You must have the latest Azure PowerShell CmdLets installed, see [Overview of Azure PowerShell](/powershell/azure/overview) for install details.
 
 ```PowerShell
-# Register for Azure Image Builder Feature
-Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-
-Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-
-# wait until RegistrationState is set to 'Registered'
-
 # check you are registered for the providers, ensure RegistrationState is set to 'Registered'.
 Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
 Get-AzResourceProvider -ProviderNamespace Microsoft.Storage 
 Get-AzResourceProvider -ProviderNamespace Microsoft.Compute
 Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 
-# If they do not saw registered, run the commented out code below.
+# If they do not show as registered, run the commented out code below.
 
 ## Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
 ## Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
@@ -102,7 +98,7 @@ Import-Module Az.Accounts
 $currentAzContext = Get-AzContext
 
 # destination image resource group
-$imageResourceGroup="wvdImageDemoRg"
+$imageResourceGroup="avdImageDemoRg"
 
 # location (see possible locations in main docs)
 $location="westus2"
@@ -111,7 +107,7 @@ $location="westus2"
 $subscriptionID=$currentAzContext.Subscription.Id
 
 # image template name
-$imageTemplateName="wvd10ImageTemplate01"
+$imageTemplateName="avd10ImageTemplate01"
 
 # distribution properties object name (runOutput), i.e. this gives you the properties of the managed image on completion
 $runOutputName="sigOutput"
@@ -129,23 +125,23 @@ New-AzResourceGroup -Name $imageResourceGroup -Location $location
 # setup role def names, these need to be unique
 $timeInt=$(get-date -UFormat "%s")
 $imageRoleDefName="Azure Image Builder Image Def"+$timeInt
-$idenityName="aibIdentity"+$timeInt
+$identityName="aibIdentity"+$timeInt
 
 ## Add AZ PS modules to support AzUserAssignedIdentity and Az AIB
 'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
 
 # create identity
-New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName
+New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName
 
-$idenityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName).Id
-$idenityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName).PrincipalId
+$identityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).Id
+$identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).PrincipalId
 
 ```
 
 Assign permissions to the identity to distribute images. This command will download and update the template with the parameters specified earlier.
 
 ```azurepowershell-interactive
-$aibRoleImageCreationUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
+$aibRoleImageCreationUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
 $aibRoleImageCreationPath = "aibRoleImageCreation.json"
 
 # download config
@@ -159,27 +155,26 @@ Invoke-WebRequest -Uri $aibRoleImageCreationUrl -OutFile $aibRoleImageCreationPa
 New-AzRoleDefinition -InputFile  ./aibRoleImageCreation.json
 
 # grant role definition to image builder service principal
-New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+New-AzRoleAssignment -ObjectId $identityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 ```
 
 > [!NOTE] 
-> If you see this error: 'New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created.' see this article to resolve: https://docs.microsoft.com/azure/role-based-access-control/troubleshooting.
+> If you see this error: 'New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created.' see [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md).
 
 
+## Create the Azure Compute Gallery 
 
-## Create the Shared Image Gallery 
-
-If you don't already have a Shared Image Gallery, you need to create one.
+If you don't already have an Azure Compute Gallery, you need to create one.
 
 ```azurepowershell-interactive
 $sigGalleryName= "myaibsig01"
-$imageDefName ="win10wvd"
+$imageDefName ="win10avd"
 
 # create gallery
 New-AzGallery -GalleryName $sigGalleryName -ResourceGroupName $imageResourceGroup  -Location $location
 
 # create gallery definition
-New-AzGalleryImageDefinition -GalleryName $sigGalleryName -ResourceGroupName $imageResourceGroup -Location $location -Name $imageDefName -OsState generalized -OsType Windows -Publisher 'myCo' -Offer 'Windows' -Sku '10wvd'
+New-AzGalleryImageDefinition -GalleryName $sigGalleryName -ResourceGroupName $imageResourceGroup -Location $location -Name $imageDefName -OsState generalized -OsType Windows -Publisher 'myCo' -Offer 'Windows' -Sku '10avd'
 
 ```
 
@@ -221,7 +216,7 @@ Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsDesktop -Offer
 Now, you need to download the template and configure it for your use.
 
 ```azurepowershell-interactive
-$templateUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/armTemplateWVD.json"
+$templateUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/14_Building_Images_WVD/armTemplateWVD.json"
 $templateFilePath = "armTemplateWVD.json"
 
 Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing
@@ -234,11 +229,11 @@ Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing
 ((Get-Content -path $templateFilePath -Raw) -replace '<imageDefName>',$imageDefName) | Set-Content -Path $templateFilePath
 ((Get-Content -path $templateFilePath -Raw) -replace '<sharedImageGalName>',$sigGalleryName) | Set-Content -Path $templateFilePath
 ((Get-Content -path $templateFilePath -Raw) -replace '<region1>',$location) | Set-Content -Path $templateFilePath
-((Get-Content -path $templateFilePath -Raw) -replace '<imgBuilderId>',$idenityNameResourceId) | Set-Content -Path $templateFilePath
+((Get-Content -path $templateFilePath -Raw) -replace '<imgBuilderId>',$identityNameResourceId) | Set-Content -Path $templateFilePath
 
 ```
 
-Feel free to view the [template](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/armTemplateWVD.json), all the code is viewable.
+Feel free to view the [template](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/14_Building_Images_WVD/armTemplateWVD.json), all the code is viewable.
 
 
 ## Submit the template
@@ -246,7 +241,7 @@ Feel free to view the [template](https://raw.githubusercontent.com/danielsollond
 Your template must be submitted to the service, this will download any dependent artifacts (like scripts), validate, check permissions, and store them in the staging Resource Group, prefixed, *IT_*.
 
 ```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName $imageResourceGroup -TemplateFile $templateFilePath -api-version "2020-02-14" -imageTemplateName $imageTemplateName -svclocation $location
+New-AzResourceGroupDeployment -ResourceGroupName $imageResourceGroup -TemplateFile $templateFilePath -TemplateParameterObject @{"api-Version" = "2020-02-14"} -imageTemplateName $imageTemplateName -svclocation $location
 
 # Optional - if you have any errors running the above, run:
 $getStatus=$(Get-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $imageTemplateName)
@@ -274,7 +269,7 @@ $getStatus.LastRunStatusMessage
 $getStatus.LastRunStatusRunSubState
 ```
 ## Create a VM
-Now the build is finished you can build a VM from the image, use the examples from [here](/powershell/module/az.compute/new-azvm#examples).
+Now the build is finished you can build a VM from the image, use the examples from [New-AzVM (Az.Compute)](/powershell/module/az.compute/new-azvm#examples).
 
 ## Clean up
 
@@ -283,19 +278,19 @@ Delete the resource group template first, do not just delete the entire resource
 Remove the Image Template.
 
 ```azurepowershell-interactive
-Remove-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name wvd10ImageTemplate
+Remove-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name vd10ImageTemplate
 ```
 
 Delete the role assignment.
 
 ```azurepowershell-interactive
-Remove-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+Remove-AzRoleAssignment -ObjectId $identityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 
 ## remove definitions
-Remove-AzRoleDefinition -Name "$idenityNamePrincipalId" -Force -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+Remove-AzRoleDefinition -Name "$identityNamePrincipalId" -Force -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 
 ## delete identity
-Remove-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName -Force
+Remove-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName -Force
 ```
 
 Delete the resource group.
@@ -306,4 +301,5 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 
 ## Next steps
 
-You can try more examples [on GitHub](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
+You can try more examples [on GitHub](https://github.com/azure/azvmimagebuilder/tree/master/quickquickstarts).
+

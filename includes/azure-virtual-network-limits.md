@@ -41,13 +41,14 @@ The following limits apply only for networking resources managed through **Azure
 | User-defined route tables |200 |
 | User-defined routes per route table |400 |
 | Point-to-site root certificates per Azure VPN Gateway |20 |
+| Point-to-site revoked client certificates per Azure VPN Gateway |300 |
 | Virtual network TAPs |100 |
 | Network interface TAP configurations per virtual network TAP |100 |
 
 #### <a name="publicip-address"></a>Public IP address limits
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
-| Public IP addresses<sup>1</sup> | 10 for Basic. | Contact support. |
+| Public IP addresses<sup>1,2</sup> | 10 for Basic. | Contact support. |
 | Static Public IP addresses<sup>1</sup> | 10 for Basic. | Contact support. |
 | Standard Public IP addresses<sup>1</sup> | 10 | Contact support. |
 | [Public IP addresses per Resource Group](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md#microsoftnetwork) | 800 | Contact support. | 
@@ -55,6 +56,8 @@ The following limits apply only for networking resources managed through **Azure
 | Public IP prefix length | /28 | Contact support. |
 
 <sup>1</sup>Default limits for Public IP addresses vary by offer category type, such as Free Trial, Pay-As-You-Go, CSP. For example, the default for Enterprise Agreement subscriptions is 1000.
+
+<sup>2</sup>Public IP addresses limit refers to the total amount of Public IP addresses, including Basic and Standard. 
 
 #### <a name="load-balancer"></a>Load balancer limits
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
@@ -68,8 +71,8 @@ The following limits apply only for networking resources managed through Azure R
 | Rules per NIC (across all IPs on a NIC) | 300                           |
 | Frontend IP configurations              | 600                           |
 | Backend pool size                       | 1,000 IP configurations, single virtual network |
-| Backend resources per Load Balancer <sup>1<sup> | 1,200                   |
-| High-availability ports                 | 1 per internal frontend       |
+| Backend resources per Load Balancer <sup>1<sup> | 1,200                 |
+| High-availability ports rule            | 1 per internal frontend       |
 | Outbound rules per Load Balancer        | 600                           |
 | Load Balancers per VM                   | 2 (1 Public and 1 internal)   |
 

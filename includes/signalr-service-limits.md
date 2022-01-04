@@ -32,3 +32,8 @@ ms.author: zhshang
 
 To request an update to your subscription's default limits, open a support ticket.
 
+For more information about how connections and messages are counted, see [Messages and connections in Azure SignalR Service](../articles/azure-signalr/signalr-concept-messages-and-connections.md).
+
+If your requirements exceed the limits, switch from Free tier to Standard tier and add units. For more information, see [How to scale an Azure SignalR Service instance?](../articles/azure-signalr/signalr-howto-scale-signalr.md). 
+
+If your requirements exceed the limits of a single instance, add instances. For more information, see [How to scale SignalR Service with multiple instances?](../articles/azure-signalr/signalr-howto-scale-multi-instances.md).

@@ -4,9 +4,7 @@ description: Learn how to quickly create a Kubernetes cluster, deploy an applica
 services: container-service
 ms.topic: quickstart
 ms.date: 02/26/2021
-
-ms.custom: [H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, devx-track-azurecli, contperf-fy21q1]
-
+ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, devx-track-azurecli, contperf-fy21q1, mode-api
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
 
@@ -28,6 +26,7 @@ To learn more about creating a Windows Server node pool, see [Create an AKS clus
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.64 or greater of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](concepts-identity.md).
 
 > [!NOTE]
 > Run the commands as administrator if you plan to run the commands in this quickstart locally instead of in Azure Cloud Shell.
@@ -64,25 +63,23 @@ Output for successfully created resource group:
 
 ## Enable cluster monitoring
 
-1. Verify *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* are registered on your subscription. To check the registration status:
+Verify *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* are registered on your subscription. To check the registration status:
 
-    ```azurecli
-    az provider show -n Microsoft.OperationsManagement -o table
-    az provider show -n Microsoft.OperationalInsights -o table
-    ```
+```azurecli
+az provider show -n Microsoft.OperationsManagement -o table
+az provider show -n Microsoft.OperationalInsights -o table
+```
  
-    If they are not registered, register *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* using:
+If they are not registered, register *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* using:
  
-    ```azurecli
-    az provider register --namespace Microsoft.OperationsManagement
-    az provider register --namespace Microsoft.OperationalInsights
-    ```
-
-2. Enable [Azure Monitor for containers][azure-monitor-containers] using the *--enable-addons monitoring* parameter. 
+```azurecli
+az provider register --namespace Microsoft.OperationsManagement
+az provider register --namespace Microsoft.OperationalInsights
+```
 
 ## Create AKS cluster
 
-Create an AKS cluster using the [az aks create][az-aks-create] command. The following example creates a cluster named *myAKSCluster* with one node: 
+Create an AKS cluster using the [az aks create][az-aks-create] command with the *--enable-addons monitoring* parameter to enable [Azure Monitor for containers][azure-monitor-containers]. The following example creates a cluster named *myAKSCluster* with one node: 
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
@@ -157,7 +154,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
             app: azure-vote-back
         spec:
           nodeSelector:
-            "beta.kubernetes.io/os": linux
+            "kubernetes.io/os": linux
           containers:
           - name: azure-vote-back
             image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
@@ -200,7 +197,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
             app: azure-vote-front
         spec:
           nodeSelector:
-            "beta.kubernetes.io/os": linux
+            "kubernetes.io/os": linux
           containers:
           - name: azure-vote-front
             image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
@@ -292,7 +289,7 @@ Pre-existing container images were used in this quickstart to create a Kubernete
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and then deployed a multi-container application to it. [Access the Kubernetes web dashboard][kubernetes-dashboard] for your AKS cluster.
+In this quickstart, you deployed a Kubernetes cluster and then deployed a multi-container application to it.
 
 To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
@@ -322,5 +319,4 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [azure-portal]: https://portal.azure.com
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: concepts-network.md#services
-[kubernetes-dashboard]: kubernetes-dashboard.md
 [windows-container-cli]: windows-container-cli.md

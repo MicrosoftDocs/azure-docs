@@ -23,7 +23,7 @@ This article will cover concepts about how your web application deployment works
 
 ## Origin
 
-Azure Front Door Standard/Premium origin refers to the host name or public IP of your application that serves your client requests. Azure Front Door Standard/Premium supports both Azure and non-Azure resources in an origin group. The application can also be hosted in your on-premises datacenter or with another cloud provider. Origin shouldn't be confused with your database tier or storage tier. Origin should be viewed as the public endpoint for your application backend. When you add an origin to an Azure Front Door Standard/Premium origin group, you must also add the following information:
+Azure Front Door Standard/Premium origin refers to the host name or public IP of your application that serves your client requests. Azure Front Door Standard/Premium supports both Azure origins and also non-Azure origins, such as when application your application is hosted in your on-premises datacenter or with another cloud provider. Origin shouldn't be confused with your database tier or storage tier. Origin should be viewed as the endpoint for your application backend. When you add an origin to an Azure Front Door Standard/Premium origin group, you must also add the following information:
 
 * **Origin type:** The type of resource you want to add. Front Door supports autodiscovery of your application backends from App Service, Cloud Service, or Storage. If you want a different resource in Azure or even a non-Azure backend, select **Custom host**.
 
@@ -81,7 +81,7 @@ Azure Front Door Standard/Premium sends periodic HTTP/HTTPS probe requests to ea
     >[!NOTE]
     >For faster failovers, set the interval to a lower value. The lower the value, the higher the health probe volume your backends receive. For example, if the interval is set to 30 seconds with say, 100 Front Door POPs globally, each backend will receive about 200 probe requests per minute.
 
-For more information, see [Health probes](concept-health-probes.md).
+For more information, see [Health probes](/azure/frontdoor/front-door-health-probes).
 
 ### Load-balancing settings
 
@@ -105,7 +105,7 @@ There are four traffic routing methods available in Azure Front Door Standard/Pr
 * **[Priority](#priority):** You can assign priorities to your backends when you want to configure a primary backend to service all traffic. The secondary backend can be a backup in case the primary backend becomes unavailable.
 * **[Weighted](#weighted):** You can assign weights to your backends when you want to distribute traffic across a set of backends. Whether you want to evenly distribute or according to the weight coefficients.
 
-All Azure Front Door Standard/Premium configurations include monitoring of backend health and automated instant global failover. For more information, see [Backend Monitoring](concept-health-probes.md). Your Front Door can work based off of a single routing method. But depending on your application needs, you can also combine multiple routing methods to build an optimal routing topology.
+All Azure Front Door Standard/Premium configurations include monitoring of backend health and automated instant global failover. For more information, see [Backend Monitoring](/azure/frontdoor/front-door-health-probes). Your Front Door can work based off of a single routing method. But depending on your application needs, you can also combine multiple routing methods to build an optimal routing topology.
 
 ### <a name = "latency"></a>Lowest latencies based traffic-routing
 

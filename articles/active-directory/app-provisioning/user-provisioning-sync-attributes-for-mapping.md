@@ -3,16 +3,17 @@ title: Synchronize attributes to Azure Active Directory for mapping
 description: When configuring user provisioning with Azure Active Directory and SaaS apps, use the directory extension feature to add source attributes that aren't synchronized by default.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 03/31/2021
+ms.date: 08/24/2021
 ms.author: kenwith
+ms.reviewer: arvinh
 ---
 
-# Syncing extension attributes for app provisioning
+# Syncing extension attributes for Azure Active Directory Application Provisioning
 
 Azure Active Directory (Azure AD) must contain all the data (attributes) required to create a user profile when provisioning user accounts from Azure AD to a [SaaS app](../saas-apps/tutorial-list.md). When customizing attribute mappings for user provisioning, you might find the attribute you want to map doesn't appear in the **Source attribute** list. This article shows you how to add the missing attribute.
 
@@ -23,18 +24,18 @@ For users in on-premises Active Directory, you must sync the users to Azure AD. 
 ## Create an extension attribute on a cloud only user
 You can use Microsoft Graph and PowerShell to extend the user schema for users in Azure AD. These extension attributes are automatically discovered in most cases.
 
-When you've more than 1000 service principals, you may find extensions missing in the source attribute list. If an attribute you've created doesn't automatically appear, then verify the attribute was created and add it manually to your schema. To verify it was created, use Microsoft Graph and [Graph Explorer](/graph/graph-explorer/graph-explorer-overview.md). To add it manually to your schema, see [Editing the list of supported attributes](customize-application-attributes.md#editing-the-list-of-supported-attributes).
+When you've more than 1000 service principals, you may find extensions missing in the source attribute list. If an attribute you've created doesn't automatically appear, then verify the attribute was created and add it manually to your schema. To verify it was created, use Microsoft Graph and [Graph Explorer](/graph/graph-explorer/graph-explorer-overview). To add it manually to your schema, see [Editing the list of supported attributes](customize-application-attributes.md#editing-the-list-of-supported-attributes).
 
 ### Create an extension attribute on a cloud only user using Microsoft Graph
-You can extend the schema of Azure AD users using [Microsoft Graph](/graph/overview.md). 
+You can extend the schema of Azure AD users using [Microsoft Graph](/graph/overview). 
 
-First, list the apps in your tenant to get the ID of the app you're working on. To learn more, see [List extensionProperties](/graph/api/application-list-extensionproperty?view=graph-rest-1.0&tabs=http&preserve-view=true).
+First, list the apps in your tenant to get the ID of the app you're working on. To learn more, see [List extensionProperties](/graph/api/application-list-extensionproperty).
 
 ```json
 GET https://graph.microsoft.com/v1.0/applications
 ```
 
-Next, create the extension attribute. Replace the **ID** property below with the **ID** retrieved in the previous step. You'll need to use the **"ID"** attribute and not the "appId". To learn more, see [Create extensionProperty]/graph/api/application-post-extensionproperty.md?view=graph-rest-1.0&tabs=http&preserve-view=true).
+Next, create the extension attribute. Replace the **ID** property below with the **ID** retrieved in the previous step. You'll need to use the **"ID"** attribute and not the "appId". To learn more, see [Create extensionProperty]/graph/api/application-post-extensionproperty).
 
 ```json
 POST https://graph.microsoft.com/v1.0/applications/{id}/extensionProperties
@@ -49,7 +50,7 @@ Content-type: application/json
 }
 ```
 
-The previous request created an extension attribute with the format `extension_appID_extensionName`. You can now update a user with this extension attribute. To learn more, see [Update user](/graph/api/user-update.md?view=graph-rest-1.0&tabs=http&preserve-view=true).
+The previous request created an extension attribute with the format `extension_appID_extensionName`. You can now update a user with this extension attribute. To learn more, see [Update user](/graph/api/user-update).
 ```json
 PATCH https://graph.microsoft.com/v1.0/users/{id}
 Content-type: application/json
@@ -58,7 +59,7 @@ Content-type: application/json
   "extension_inputAppId_extensionName": "extensionValue"
 }
 ```
-Finally, verify the attribute for the user. To learn more, see [Get a user](/graph/api/user-get.md?view=graph-rest-1.0&tabs=http#example-3-users-request-using-select&preserve-view=true).
+Finally, verify the attribute for the user. To learn more, see [Get a user](/graph/api/user-get).
 
 ```json
 GET https://graph.microsoft.com/v1.0/users/{id}?$select=displayName,extension_inputAppId_extensionName
@@ -117,7 +118,7 @@ Get-AzureADUser -ObjectId 0ccf8df6-62f1-4175-9e55-73da9e742690 | Select -ExpandP
    ![Azure Active Directory Connect wizard Directory extensions selection page](./media/user-provisioning-sync-attributes-for-mapping/attribute-mapping-extensions.png)
 
 > [!NOTE]
-> The ability to provision reference attributes from on-premises AD, such as **managedby** or **DN/DistinguishedName**, is not supported today. You can request this feature on [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory). 
+> The ability to provision reference attributes from on-premises AD, such as **managedby** or **DN/DistinguishedName**, is not supported today. You can request this feature on [User Voice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789). 
 
 
 ## Next steps

@@ -2,7 +2,7 @@
 title: Azure Relay Hybrid Connections protocol guide | Microsoft Docs
 description: This article describes the client-side interactions with the Hybrid Connections relay for connecting clients in listener and sender roles. 
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 06/23/2021
 ---
 
 # Azure Relay Hybrid Connections protocol
@@ -746,7 +746,7 @@ header. If the header is present, the response is from the listener.
 
 ## Next steps
 
-* [Relay FAQ](relay-faq.md)
+* [Relay FAQ](relay-faq.yml)
 * [Create a namespace](relay-create-namespace-portal.md)
 * [Get started with .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Get started with Node](relay-hybrid-connections-node-get-started.md)

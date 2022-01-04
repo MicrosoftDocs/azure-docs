@@ -3,7 +3,7 @@ title: Performance benchmarks
 titleSuffix: Azure Cognitive Search
 description: Learn about the performance of Azure Cognitive Search through various performance benchmarks
 author: dereklegenzoff
-manager: luisca
+
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
@@ -17,7 +17,7 @@ Azure Cognitive Search's performance depends on a [variety of factors](search-pe
 To cover a range of different use cases, we ran benchmarks for two main scenarios:
 
 * **E-commerce search** - This benchmark emulates a real e-commerce scenario and is based on the Nordic e-commerce company [CDON](https://cdon.com).
-* **Document search** - This scenario is comprised of keyword search over full text documents from [Semantic Scholar](http://s2-public-api-prod.us-west-2.elasticbeanstalk.com/corpus/download/). This emulates a typical document search solution.
+* **Document search** - This scenario is comprised of keyword search over full text documents from [Semantic Scholar](https://www.aclweb.org/anthology/2020.acl-main.447/). This emulates a typical document search solution.
 
 While these scenarios reflect different use cases, every scenario is different so we always recommend performance testing your individual workload. We've published a [performance testing solution using JMeter](https://github.com/Azure-Samples/azure-search-performance-testing) so you can run similar tests against your own service.
 
@@ -177,6 +177,24 @@ Query latency varies based on the load of the service and services under higher 
 | 20%  | 45 ms  | 31 ms  | 55 ms   | 73 ms | 84 ms | 109 ms |
 | 50%  | 63 ms  | 39 ms  | 81 ms   | 106 ms | 123 ms | 163 ms |
 | 80%  | 115 ms  | 73 ms  | 145 ms   | 191 ms | 224 ms | 291 ms |
+
+### S3 Performance
+
+#### Queries per second
+
+The chart below shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
+
+![Highest maintainable QPS doc search s3](./media/performance-benchmarks/s3-docsearch-qps.png)
+
+#### Query latency
+
+Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The table below show the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+
+| Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
+|---|---|---|---| --- | --- | --- |
+| 20%  | 43 ms  | 29 ms  | 53 ms   | 74 ms | 86 ms | 111 ms |
+| 50%  | 65 ms  | 37 ms  | 85 ms   | 111 ms | 128 ms | 164 ms |
+| 80%  | 126 ms  | 83 ms  | 162 ms   | 205 ms | 233 ms | 281 ms |
 
 ## Takeaways
 

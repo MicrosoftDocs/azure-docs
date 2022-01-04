@@ -5,12 +5,13 @@ description: This quickstart shows you how to add Communication Services chat to
 author: fanche
 manager: phans
 services: azure-communication-services
-
-ms.author: mikben
-ms.date: 03/10/2021
+ms.author: rifox
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: chat
 zone_pivot_groups: acs-js-csharp-java-python-swift-android
+ms.custom: mode-other
 ---
 # Quickstart: Add Chat to your App
 
@@ -62,3 +63,5 @@ You may also want to:
 
  - Learn about [chat concepts](../../concepts/chat/concepts.md)
  - Familiarize yourself with [Chat SDK](../../concepts/chat/sdk-features.md)
+ - Using [Chat SDK in your React Native](./react-native.md) application.
+

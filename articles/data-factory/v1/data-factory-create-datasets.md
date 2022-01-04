@@ -5,8 +5,9 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 ---
 
 # Datasets in Azure Data Factory (version 1)
@@ -33,7 +34,7 @@ Here is a sample scenario. To copy data from Blob storage to SQL Database, you c
 
 The following diagram shows the relationships among pipeline, activity, dataset, and linked service in Data Factory:
 
-![Relationship between pipeline, activity, dataset, linked services](media/data-factory-create-datasets/relationship-between-data-factory-entities.png)
+:::image type="content" source="media/data-factory-create-datasets/relationship-between-data-factory-entities.png" alt-text="Relationship between pipeline, activity, dataset, linked services":::
 
 ## Dataset JSON
 A dataset in Data Factory is defined in JSON format as follows:
@@ -135,7 +136,7 @@ As you can see, the linked service defines how to connect to a SQL database. The
 ## <a name="Type"></a> Dataset type
 The type of the dataset depends on the data store you use. See the following table for a list of data stores supported by Data Factory. Click a data store to learn how to create a linked service and a dataset for that data store.
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 > [!NOTE]
 > Data stores with * can be on-premises or on Azure infrastructure as a service (IaaS). These data stores require you to install [Data Management Gateway](data-factory-data-management-gateway.md).

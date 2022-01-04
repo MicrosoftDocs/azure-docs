@@ -1,11 +1,9 @@
 ---
 title: Deploy a PyTorch model as an Azure Functions application
 description: Use a pre-trained ResNet 18 deep neural network from PyTorch with Azure Functions to assign 1 of 1000 ImageNet labels to an image.
-author: gvashishtha
 
 ms.topic: tutorial
 ms.date: 02/28/2020
-ms.author: gopalv
 ms.custom: devx-track-python, devx-track-azurepowershell
 
 ---
@@ -101,7 +99,7 @@ In Azure Functions, a function project is a container for one or more individual
     func init --worker-runtime python
     ```
 
-    After initialization, the *start* folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    After initialization, the *start* folder contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
     > [!TIP]
     > Because a function project is tied to a specific runtime, all the functions in the project must be written with the same language.

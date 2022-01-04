@@ -9,7 +9,6 @@ editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/10/2021
 ms.author: inhenkel
@@ -44,7 +43,7 @@ Click the image to view it full size.
 
 [![Diagram showing some of the most commonly used objects when developing against the Azure Media Services object data model.](./media/media-services-overview/media-services-overview-object-model-small.png)](./media/media-services-overview/media-services-overview-object-model.png#lightbox)
 
-You can view the whole model [here](https://media.windows.net/API/$metadata?api-version=2.15).  
+You can view the whole model [here](https://m.eet.com/media/1170326/ms-part1.pdf).  
 
 ## Protect content in storage and deliver streaming media in the clear (non-encrypted)
 

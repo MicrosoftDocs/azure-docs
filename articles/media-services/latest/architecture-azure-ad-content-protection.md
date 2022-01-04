@@ -8,7 +8,6 @@ manager: femila
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
@@ -129,7 +128,6 @@ The screen for parsing JWT tokens (access_token or id_token):
 The screen for testing protected content with different combinations of DRM/AES vs Streaming Protocols vs Container Format:
 
 ![Screenshot that shows testing protected content with different combinations of D R M or A E S versus Streaming Protocols versus Container Format](media/aad-ams-content-protection/testing-protected-content.png)
--->
 
 <!-- You can see a hosted version of the sample at [https://aka.ms/ott](https://aka.ms/ott)-->
 
@@ -337,7 +335,7 @@ if (tokenClaims != null && tokenClaims.Length > 0)
 }
 ```
 
-The *groups* claim is a member of a [Restricted Claim Set](../../active-directory/develop/active-directory-claims-mapping.md#claim-sets) in Azure AD.
+The *groups* claim is a member of a [Restricted Claim Set](../../active-directory/develop/reference-claims-mapping-policy-type.md#claim-sets) in Azure AD.
 
 #### Test
 

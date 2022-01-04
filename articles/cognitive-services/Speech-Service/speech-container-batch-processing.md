@@ -3,13 +3,13 @@ title: Batch processing kit for Speech containers
 titleSuffix: Azure Cognitive Services
 description: Use the Batch processing kit to scale Speech container requests. 
 services: cognitive-services
-author: aahill
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.author: aahi
+ms.author: eur
 ---
 
 # Batch processing kit for Speech containers
@@ -33,6 +33,8 @@ The batch kit container is available for free on [GitHub](https://github.com/mic
 ## Get the container image with `docker pull`
 
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download the latest batch kit container.
+
+[!INCLUDE [pull-image-include](../../../includes/pull-image-include.md)]
 
 ```bash
 docker pull docker.io/batchkit/speech-batch-kit:latest

@@ -11,11 +11,14 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 
 ---
 
 # Create video reviews using .NET
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 This article provides information and code samples to help you quickly get started using the [Content Moderator SDK with C#](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
 

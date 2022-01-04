@@ -7,7 +7,8 @@ ms.subservice: extensions
 author: amjads1 
 ms.author: amjads
 ms.collection: windows
-ms.date: 03/23/2018
+ms.date: 03/23/2018 
+ms.custom: devx-track-azurepowershell
 
 ---
 

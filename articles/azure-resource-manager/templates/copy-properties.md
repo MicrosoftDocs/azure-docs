@@ -2,8 +2,9 @@
 title: Define multiple instances of a property
 description: Use copy operation in an Azure Resource Manager template (ARM template) to iterate multiple times when creating a property on a resource.
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 12/20/2021
 ---
+
 # Property iteration in ARM templates
 
 This article shows you how to create more than one instance of a property in your Azure Resource Manager template (ARM template). By adding copy loop to the properties section of a resource in your template, you can dynamically set the number of items for a property during deployment. You also avoid having to repeat template syntax.
@@ -13,8 +14,6 @@ You can only use copy loop with top-level resources, even when applying copy loo
 You can also use copy loop with [resources](copy-resources.md), [variables](copy-variables.md), and [outputs](copy-outputs.md).
 
 ## Syntax
-
-# [JSON](#tab/json)
 
 Add the `copy` element to the resources section of your template to set the number of items for a property. The copy element has the following general format:
 
@@ -34,36 +33,6 @@ The `count` property specifies the number of iterations you want for the propert
 
 The `input` property specifies the properties that you want to repeat. You create an array of elements constructed from the value in the `input` property.
 
-# [Bicep](#tab/bicep)
-
-Loops can be used declare multiple properties by:
-
-- Iterating over an array:
-
-  ```bicep
-  <property-name>: [for <item> in <collection>: {
-    <properties>
-  }
-  ```
-
-- Iterating over the elements of an array
-
-  ```bicep
-  <property-name>: [for (<item>, <index>) in <collection>: {
-    <properties>
-  }
-  ```
-
-- Using loop index
-
-  ```bicep
-  <property-name>: [for <index> in range(<start>, <stop>): {
-    <properties>
-  }
-  ```
-
----
-
 ## Copy limits
 
 The count can't exceed 800.
@@ -80,8 +49,6 @@ Earlier versions of PowerShell, CLI, and the REST API don't support zero for cou
 ## Property iteration
 
 The following example shows how to apply copy loop to the `dataDisks` property on a virtual machine:
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -126,7 +93,7 @@ The following example shows how to apply copy loop to the `dataDisks` property o
 }
 ```
 
-Notice that when using `copyIndex` inside a property iteration, you must provide the name of the iteration. Property iteration also supports an offset argument. The offset must come after the name of the iteration, such as `copyIndex('dataDisks', 1)`.
+Notice that when using [copyIndex](template-functions-numeric.md#copyindex) inside a property iteration, you must provide the name of the iteration. Property iteration also supports an offset argument. The offset must come after the name of the iteration, such as `copyIndex('dataDisks', 1)`.
 
 The deployed template becomes:
 
@@ -157,7 +124,7 @@ The deployed template becomes:
       ...
 ```
 
-The copy operation is helpful when working with arrays because you can iterate through each element in the array. Use the `length` function on the array to specify the count for iterations, and `copyIndex` to retrieve the current index in the array.
+The copy operation is helpful when working with arrays because you can iterate through each element in the array. Use the [length](template-functions-array.md#length) function on the array to specify the count for iterations, and `copyIndex` to retrieve the current index in the array.
 
 The following example template creates a failover group for databases that are passed in as an array.
 
@@ -245,64 +212,7 @@ The `copy` element is an array so you can specify more than one property for the
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-@minValue(0)
-@maxValue(16)
-@description('The number of dataDisks to be returned in the output array.')
-param numberOfDataDisks int = 16
-
-resource vmName 'Microsoft.Compute/virtualMachines@2020-06-01' = {
-  ...
-  properties: {
-    storageProfile: {
-      ...
-      dataDisks: [for i in range(0, numberOfDataDisks): {
-        lun: i
-        createOption: 'Empty'
-        diskSizeGB: 1023
-      }]
-    }
-    ...
-  }
-}
-```
-
-The deployed template becomes:
-
-```json
-{
-  "name": "examplevm",
-  "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2020-06-01",
-  "properties": {
-    "storageProfile": {
-      "dataDisks": [
-        {
-          "lun": 0,
-          "createOption": "Empty",
-          "diskSizeGB": 1023
-        },
-        {
-          "lun": 1,
-          "createOption": "Empty",
-          "diskSizeGB": 1023
-        },
-        {
-          "lun": 2,
-          "createOption": "Empty",
-          "diskSizeGB": 1023
-        }
-      ],
-      ...
-```
-
----
-
-You can use resource and property iteration together. Reference the property iteration by name.
-
-# [JSON](#tab/json)
+You can use resource and property iterations together. Reference the property iteration by name.
 
 ```json
 {
@@ -336,37 +246,13 @@ You can use resource and property iteration together. Reference the property ite
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-resource vnetname_resource 'Microsoft.Network/virtualNetworks@2018-04-01' = [for i in range(0, 2): {
-  name: concat(vnetname, i)
-  location: resourceGroup().location
-  properties: {
-    addressSpace: {
-      addressPrefixes: [
-        addressPrefix
-      ]
-    }
-    subnets: [for j in range(0, 2): {
-      name: 'subnet-${j}'
-      properties: {
-        addressPrefix: subnetAddressPrefix[j]
-      }
-    }]
-  }
-}]
-```
-
----
-
 ## Example templates
 
 The following example shows a common scenario for creating more than one value for a property.
 
 |Template  |Description  |
 |---------|---------|
-|[VM deployment with a variable number of data disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Deploys several data disks with a virtual machine. |
+|[VM deployment with a variable number of data disks](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-windows-copy-datadisks) |Deploys several data disks with a virtual machine. |
 
 ## Next steps
 
@@ -375,5 +261,5 @@ The following example shows a common scenario for creating more than one value f
   - [Resource iteration in ARM templates](copy-resources.md)
   - [Variable iteration in ARM templates](copy-variables.md)
   - [Output iteration in ARM templates](copy-outputs.md)
-- If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+- If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](./syntax.md).
 - To learn how to deploy your template, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).

@@ -2,15 +2,17 @@
 title: Azure PowerShell - Enable end-to-end encryption on your VM host
 description: How to enable end-to-end encryption for your Azure VMs using encryption at host.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 11/17/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell, ignite-fall-2021
 ---
 
 # Use the Azure PowerShell module to enable end-to-end encryption using encryption at host
+
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on encryption at host, as well as other managed disk encryption types, see [Encryption at host - End-to-end encryption for your VM data](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
@@ -21,9 +23,8 @@ When you enable encryption at host, data stored on the VM host is encrypted at r
 
 ### Supported VM sizes
 
-[!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
-
-You may also find the VM sizes programmatically. To learn how to retrieve them programmatically, refer to the [Finding supported VM sizes](#finding-supported-vm-sizes) section.
+The complete list of supported VM sizes can be pulled programmatically. To learn how to retrieve them programmatically, refer to the [Finding supported VM sizes](#finding-supported-vm-sizes) section.
+Upgrading the VM size will result in validation to check if the new VM size supports the EncryptionAtHost feature.
 
 ## Prerequisites
 
@@ -166,6 +167,21 @@ $VM = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $VMName
 $VM.SecurityProfile.EncryptionAtHost
 ```
 
+### Disable encryption at host
+
+You must deallocate your VM before you can disable encryption at host.
+
+```powershell
+$ResourceGroupName = "yourResourceGroupName"
+$VMName = "yourVMName"
+
+$VM = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $VMName
+
+Stop-AzVM -ResourceGroupName $ResourceGroupName -Name $VMName -Force
+
+Update-AzVM -VM $VM -ResourceGroupName $ResourceGroupName -EncryptionAtHost $false
+```
+
 ### Create a virtual machine scale set with encryption at host enabled with customer-managed keys. 
 
 Create a virtual machine scale set with managed disks using the resource URI of the DiskEncryptionSet created earlier to encrypt cache of OS and data disks with customer-managed keys. The temp disks are encrypted with platform-managed keys. 
@@ -271,6 +287,19 @@ $VMScaleSetName = "yourVMSSName"
 $VMSS = Get-AzVmss -ResourceGroupName $ResourceGroupName -Name $VMScaleSetName
 
 $VMSS.VirtualMachineProfile.SecurityProfile.EncryptionAtHost
+```
+
+### Update a virtual machine scale set to disable encryption at host. 
+
+You can disable encryption at host on your virtual machine scale set but, this will only affect VMs created after you disable encryption at host. For existing VMs, you must deallocate the VM, [disable encryption at host on that individual VM](#disable-encryption-at-host), then reallocate the VM.
+
+```powershell
+$ResourceGroupName = "yourResourceGroupName"
+$VMScaleSetName = "yourVMSSName"
+
+$VMSS = Get-AzVmss -ResourceGroupName $ResourceGroupName -Name $VMScaleSetName
+
+Update-AzVmss -VirtualMachineScaleSet $VMSS -Name $VMScaleSetName -ResourceGroupName $ResourceGroupName -EncryptionAtHost $false
 ```
 
 ## Finding supported VM sizes

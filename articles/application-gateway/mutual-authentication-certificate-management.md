@@ -50,7 +50,7 @@ The following steps help you export the .pem or .cer file for your certificate:
 6. Click **Finish** to export the certificate.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot shows the Certificate Export Wizard after you complete the file export.](./media/certificates-for-backend-authentication/finish.png)
+    > ![Screenshot shows the Certificate Export Wizard after you complete the file export.](./media/certificates-for-backend-authentication/finish-screen.png)
 
 7. Your certificate is successfully exported.
 

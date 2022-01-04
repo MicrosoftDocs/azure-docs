@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Protect new resources with locks"
 description: In this tutorial, you use the Azure Blueprints resource locks options Read Only and Do Not Delete to protect newly deployed resources.
-ms.date: 03/08/2021
+ms.date: 08/17/2021
 ms.topic: tutorial
 ---
 # Tutorial: Protect new resources with Azure Blueprints resource locks
@@ -164,7 +164,7 @@ the blueprint definition unique.
      - **Assignment name**: The name is pre-populated based on the name of the blueprint
        definition. We want this assignment to represent locking the new resource group, so change
        the assignment name to **assignment-locked-storageaccount-TestingBPLocks**.
-     - **Location**: Select a region in which to create the managed identity. Azure Blueprint uses
+     - **Location**: Select a region in which to create the managed identity. Azure Blueprints uses
        this managed identity to deploy all artifacts in the assigned blueprint. To learn more, see
        [managed identities for Azure resources](../../../active-directory/managed-identities-azure-resources/overview.md).
        For this tutorial, select **East US 2**.
@@ -195,7 +195,7 @@ the blueprint definition unique.
      |-|-|-|-|-|
      |RGtoLock resource group|Resource group|Name|TestingBPLocks|Defines the name of the new resource group to apply blueprint locks to.|
      |RGtoLock resource group|Resource group|Location|West US 2|Defines the location of the new resource group to apply blueprint locks to.|
-     |StorageAccount|Resource Manager template|storageAccountType (StorageAccount)|Standard_GRS|The storage SKU. The default value is _Standard_LRS_.|
+     |StorageAccount|Resource Manager template|storageAccountType (StorageAccount) |Standard_GRS|The storage SKU. The default value is _Standard_LRS_.|
 
 1. After you've entered all parameters, select **Assign** at the bottom of the page.
 
@@ -218,7 +218,7 @@ assignment details page.
 
    From this page, we can see that the assignment succeeded and that the resources were deployed
    with the new blueprint lock state. If the assignment is updated, the **Assignment operation**
-   drop-down shows details about the deployment of each definition version. You can select the
+   dropdown list shows details about the deployment of each definition version. You can select the
    resource group to open the property page.
 
 1. Select the **TestingBPLocks** resource group.
@@ -277,7 +277,8 @@ doesn't remove the associated artifacts.
 
 1. Select **Resource groups** from the Azure menu, and then select **TestingBPLocks**.
 
-1. Select the **Access control (IAM)** page on the left and then select the **Role assignments** tab.
+1. Select the **Access control (IAM)** page on the left and then select the **Role assignments**
+   tab.
 
 The security for the resource group shows that the blueprint assignment no longer has _Owner_
 access.

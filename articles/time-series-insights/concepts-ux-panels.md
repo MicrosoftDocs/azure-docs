@@ -1,9 +1,10 @@
 ---
 title: 'Visualize data in the Time Series Insights Explorer - Azure Time Series Insights Gen2| Microsoft Docs'
 description:  Learn about features and options available in the Azure Time Series Insights Explorer.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: narmeens
+ms.author: narsam
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights

@@ -1,16 +1,16 @@
 ---
 title: CIS Microsoft Azure Foundations Benchmark v1.1.0 blueprint sample
 description: Overview of the CIS Microsoft Azure Foundations Benchmark v1.1.0 blueprint sample. This blueprint sample helps customers assess specific controls.
-ms.date: 03/11/2021
+ms.date: 09/08/2021
 ms.topic: sample
 ---
 # CIS Microsoft Azure Foundations Benchmark v1.1.0 blueprint sample
 
-The CIS Microsoft Azure Foundations Benchmark v1.1.0 blueprint sample provides governance
-guard-rails using [Azure Policy](../../policy/overview.md) that help you assess specific CIS
-Microsoft Azure Foundations Benchmark recommendations. This blueprint helps customers deploy a core
-set of policies for any Azure-deployed architecture that must implement CIS Microsoft Azure
-Foundations Benchmark v1.1.0 recommendations.
+The CIS Microsoft Azure Foundations Benchmark v1.1.0 blueprint sample provides governance guardrails
+using [Azure Policy](../../policy/overview.md) that help you assess specific CIS Microsoft Azure
+Foundations Benchmark recommendations. This blueprint helps customers deploy a core set of policies
+for any Azure-deployed architecture that must implement CIS Microsoft Azure Foundations Benchmark
+v1.1.0 recommendations.
 
 ## Recommendation mapping
 
@@ -100,7 +100,7 @@ to make each deployment of the copy of the blueprint sample unique.
        assignment will be created for each using the parameters entered.
      - **Assignment name**: The name is pre-populated for you based on the name of the blueprint.
        Change as needed or leave as is.
-     - **Location**: Select a region for the managed identity to be created in. Azure Blueprint uses
+     - **Location**: Select a region for the managed identity to be created in. Azure Blueprints uses
        this managed identity to deploy all artifacts in the assigned blueprint. To learn more, see
        [managed identities for Azure resources](../../../active-directory/managed-identities-azure-resources/overview.md).
      - **Blueprint definition version**: Pick a **Published** version of your copy of the blueprint

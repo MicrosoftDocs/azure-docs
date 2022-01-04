@@ -3,28 +3,27 @@ title: Azure Database for PostgreSQL - Flexible Server
 description: Provides an overview of Azure Database for PostgreSQL - Flexible Server.
 author: sunilagarwal
 ms.author: sunila
-ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 04/05/2021
+ms.date: 12/06/2021
+ms.custom: "mvc, references_regions"
 ---
 
-# Azure Database for PostgreSQL - Flexible Server
+# Overview - Azure Database for PostgreSQL - Flexible Server
 
 [Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
 
 - [Single Server](../overview-single-server.md)
-- Flexible Server (Preview)
+- Flexible Server 
 - Hyperscale (Citus)
 
 In this article, we will provide an overview and introduction to core concepts of flexible server deployment model.
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 ## Overview
 
-Azure Database for PostgreSQL - Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and server configuration customizations based on the user requirements. The flexible server architecture allows users to collocate database engine with the client-tier for lower latency,  choose high availability within a single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with ability to stop/start your server and burstable compute tier that is ideal for workloads that do not need full compute capacity continuously. The service currently supports community version of PostgreSQL 11 and 12. The service is currently in preview, available today in wide variety of  [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
+Azure Database for PostgreSQL - Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and server configuration customizations based on the user requirements. The flexible server architecture allows users to collocate database engine with the client-tier for lower latency,  choose high availability within a single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with ability to stop/start your server and burstable compute tier that is ideal for workloads that do not need full compute capacity continuously. The service currently supports community version of PostgreSQL 11, 12, and 13. The service is currently available in wide variety of  [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
 
 ![Flexible Server - Overview](./media/overview/overview-flexible-server.png)
 
@@ -37,7 +36,7 @@ Flexible servers are best suited for
   
 ## High availability
 
-The flexible server deployment model is designed to support high availability within single availability zone and across multiple availability zones. The architecture separates compute and storage. The database engine runs on a Linux virtual machine, while data files reside on Azure storage. The storage maintains three locally redundant synchronous copies of the database files ensuring data durability.
+The flexible server deployment model is designed to support high availability within single availability zone and across multiple availability zones. The architecture separates compute and storage. The database engine runs on a container inside a Linux virtual machine, while data files reside on Azure storage. The storage maintains three locally redundant synchronous copies of the database files ensuring data durability.
 
 During planned or unplanned failover events, if the server goes down, the service maintains high availability of the servers using following automated procedure:
 
@@ -49,7 +48,7 @@ Picture below shows transition for VM and storage failure.
 
  :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine.png" alt-text="Flexible server - VM and storage failures":::
 
-If zone redundant high availability is configured, the service provisions and maintains a hot standby server across availability zone within the same Azure region. The data changes on the source server is synchronously replicated to the standby server to ensure zero data loss. With zone redundant high availability, once the planned or unplanned failover event is triggered, the standby server comes online immediately and is available to process incoming transactions. This allows the service resiliency from availability zone failure within an Azure region that supports multiple availability zones as shown in the picture below.
+If zone redundant high availability is configured, the service provisions and maintains a warm standby server across availability zone within the same Azure region. The data changes on the source server is synchronously replicated to the standby server to ensure zero data loss. With zone redundant high availability, once the planned or unplanned failover event is triggered, the standby server comes online immediately and is available to process incoming transactions. This allows the service resiliency from availability zone failure within an Azure region that supports multiple availability zones as shown in the picture below.
 
  :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Zone redundant high availability":::
 
@@ -61,7 +60,7 @@ The service performs automated patching of the underlying hardware, OS, and data
 
 ## Automatic backups
 
-The flexible server service automatically creates server backups and stores them in user configured locally on zone redundant (ZRS). Backups can be used to restore your server to any point-in-time within the backup retention period. The default backup retention period is seven days. The retention can be optionally configured up to 35 days. All backups are encrypted using AES 256-bit encryption. See [Backups](./concepts-backup-restore.md) for more details.
+The flexible server service automatically creates server backups and stores them on zone redundant storage (ZRS) within the region. Backups can be used to restore your server to any point-in-time within the backup retention period. The default backup retention period is seven days. The retention can be optionally configured up to 35 days. All backups are encrypted using AES 256-bit encryption. See [Backups](./concepts-backup-restore.md) for more details.
 
 ## Adjust performance and scale within seconds
 
@@ -81,26 +80,48 @@ Flexible servers allows full private access to the servers using Azure virtual n
 
 The flexible server service is equipped with built-in performance monitoring and alerting features. All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. The service exposes host server metrics to monitor resources utilization and allows configuring slow query logs. Using these tools, you can quickly optimize your workloads, and configure your server for best performance.
 
+## Built-in PgBouncer
+
+The flexible server comes with a [built-in PgBouncer](concepts-pgbouncer.md), a connection pooler. You can optionally enable it and connect your applications to your database server via PgBouncer using the same host name and the port 6432.
+
 ## Azure regions
 
-One of the advantage of running your workload in Azure is it's global reach. The flexible server is available today in following Azure regions:
+One advantage of running your workload in Azure is global reach. The flexible server is currently available in the following Azure regions:
 
-| Region | Availability | Zone-redundant HA | 
-| --- | --- | --- |
-| West Europe | :heavy_check_mark: | :heavy_check_mark: |
-| North Europe | :heavy_check_mark: | :heavy_check_mark: |
-| UK South | :heavy_check_mark: | :heavy_check_mark: | 
-| East US 2 | :heavy_check_mark: | :heavy_check_mark: |
-| West US 2 | :heavy_check_mark: | :heavy_check_mark: |
-| Central US | :heavy_check_mark: | :heavy_check_mark: | 
-| East US | :heavy_check_mark: | :heavy_check_mark: | 
-| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
-| Japan East | :heavy_check_mark: | :heavy_check_mark: | 
-| Australia East | :heavy_check_mark: | :heavy_check_mark: | 
-| Canada Central | :heavy_check_mark: | :heavy_check_mark: | 
-| France Central | :heavy_check_mark: | :heavy_check_mark: | 
+| Region | V3/V4 compute availability | Zone-redundant HA | Geo-Redundant backup (Preview) |
+| --- | --- | --- | --- |
+| Australia East | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Australia Southeast | :heavy_check_mark: | :x: | :x: |
+| Brazil South | :heavy_check_mark: (v3 only) | :x: | :x: |
+| Canada Central | :heavy_check_mark: | :heavy_check_mark: | :x: | 
+| Central India | :heavy_check_mark: | :x: | :x: |
+| Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| East Asia | :heavy_check_mark: | :x: | :x: |
+| East US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| East US 2 | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| France Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Japan West | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Korea Central | :heavy_check_mark: | :x: | :x: |
+| Korea South | :heavy_check_mark: | :x: | :x: |
+| North Central US | :heavy_check_mark: | :x: | :x: |
+| North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Norway East | :heavy_check_mark: | :x: | :x: |
+| South Africa North | :heavy_check_mark: | :x: | :x: |
+| South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Southeast Asia | :heavy_check_mark: | :x: | :x: |
+| Sweden Central | :heavy_check_mark: | :x: | :x: |
+| Switzerland North | :heavy_check_mark: | :x: | :x: |
+| UAE North | :heavy_check_mark: | :x: | :x: |
+| UK South | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| UK West | :heavy_check_mark: | :x: | :x: |
+| West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| West US | :heavy_check_mark: | :x: | :x: |
+| West US 2 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| West US 3 | :heavy_check_mark: | :x: | :x: |
 
-We continue to add more regions for flexible server.
+<!-- We continue to add more regions for flexible server. -->
 
 ## Migration
 

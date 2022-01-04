@@ -10,11 +10,11 @@ ms.assetid: a892ebb0-0ea0-4fc8-b715-60347cc5c95b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
-ms.reviewer: milanga;cenkdin
+ms.reviewer: milanga;cenkdin 
+ms.custom: devx-track-azurepowershell
 ---
 # Update Media Services after rolling storage access keys
 

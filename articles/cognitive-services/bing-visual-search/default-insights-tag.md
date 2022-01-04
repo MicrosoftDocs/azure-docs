@@ -3,14 +3,14 @@ title: Default insights tag - Bing Visual Search
 titleSuffix: Azure Cognitive Services
 description: Provides details about the default insights that Bing Visual Search returns about an image.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: scottwhi
+
 ---
 
 # Default insights tag

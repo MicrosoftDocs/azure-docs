@@ -6,16 +6,15 @@ ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 9/22/2020
-ms.custom: mvc, devx-track-azurecli
+ms.date: 11/30/2021
+ms.custom: mvc, devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL Flexible Server using Azure CLI
 
 This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create an Azure Database for PostgreSQL Flexible Server in five minutes. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-> [!IMPORTANT] 
-> Azure Database for PostgreSQL Flexible Server is currently in preview.
+
 
 ## Launch Azure Cloud Shell
 
@@ -27,13 +26,13 @@ If you prefer to install and use the CLI locally, this quickstart requires Azure
 
 ## Prerequisites
 
-You'll need to log in to your account using the [az login](/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
+You'll need to log in to your account using the [az login](/cli/azure/reference-index#az_login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
 
 ```azurecli-interactive
 az login
 ```
 
-Select the specific subscription under your account using [az account set](/cli/azure/account#az-account-set) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](/cli/azure/account#az-account-list).
+Select the specific subscription under your account using [az account set](/cli/azure/account#az_account_set) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](/cli/azure/account#az_account_list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -116,6 +115,8 @@ With psql, connect using the below command. Replace values with your actual serv
 ```bash
 psql -h mydemoserver.postgres.database.azure.com -u mydemouser -p
 ```
+>[!Note]
+> If you get an error `The parameter PrivateDnsZoneArguments is required, and must be provided by customer`, this means you may be running an older version of Azure CLI. Please [upgrade Azure CLI](/cli/azure/update-azure-cli) and retry the operation.
 
 ## Clean up resources
 

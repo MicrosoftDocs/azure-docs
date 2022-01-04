@@ -3,14 +3,14 @@ title: Define a technical profile for a JWT issuer in a custom policy
 titleSuffix: Azure AD B2C
 description: Define a technical profile for a JSON web token (JWT) issuer in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/04/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -69,8 +69,8 @@ The CryptographicKeys element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| issuer_secret | Yes | The X509 certificate (RSA key set) to use to sign the JWT token. This is the `B2C_1A_TokenSigningKeyContainer` key you configure in [Get started with custom policies](custom-policy-get-started.md). |
-| issuer_refresh_token_key | Yes | The X509 certificate (RSA key set) to use to encrypt the refresh token. You configured the `B2C_1A_TokenEncryptionKeyContainer` key in [Get started with custom policies](custom-policy-get-started.md) |
+| issuer_secret | Yes | The X509 certificate (RSA key set) to use to sign the JWT token. This is the `B2C_1A_TokenSigningKeyContainer` key you configure in [Get started with custom policies](tutorial-create-user-flows.md?pivots=b2c-custom-policy). |
+| issuer_refresh_token_key | Yes | The X509 certificate (RSA key set) to use to encrypt the refresh token. You configured the `B2C_1A_TokenEncryptionKeyContainer` key in [Get started with custom policies](tutorial-create-user-flows.md?pivots=b2c-custom-policy) |
 
 ## Session management
 

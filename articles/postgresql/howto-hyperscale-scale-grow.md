@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 04/07/2021
+ms.date: 12/10/2021
 ---
 
 # Scale a Hyperscale (Citus) server group
@@ -25,11 +25,11 @@ group.  Dragging the slider for **Worker node count** changes the value.
 
 > [!NOTE]
 >
-> A Hyperscale (Citus) server group created with the [basic tier
-> (preview)](concepts-hyperscale-tiers.md) has no workers. Increasing the
-> worker count automatically graduates the server group to the standard tier.
-> After graduating a server group to the standard tier, you can't downgrade it
-> back to the basic tier.
+> A Hyperscale (Citus) server group created with the [basic
+> tier](concepts-hyperscale-tiers.md) has no workers. Increasing the worker
+> count automatically graduates the server group to the standard tier.  After
+> graduating a server group to the standard tier, you can't downgrade it back
+> to the basic tier.
 
 :::image type="content" source="./media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="Resource sliders":::
 
@@ -43,7 +43,8 @@ Click the **Save** button to make the changed value take effect.
 > To take advantage of newly added nodes you must [rebalance distributed table
 > shards](howto-hyperscale-scale-rebalance.md), which means moving some
 > [shards](concepts-hyperscale-distributed-data.md#shards) from existing nodes
-> to the new ones.
+> to the new ones. Rebalancing can work in the background, and requires no
+> downtime.
 
 ## Increase or decrease vCores on nodes
 
@@ -56,9 +57,32 @@ To change the vCores for all worker nodes, adjust the **vCores** slider under
 adjusted independently. Adjust the **vCores** slider under  **Configuration
 (coordinator node)**.
 
+> [!NOTE]
+> There is a vCore quota per Azure subscription per region.  The default quota
+> should be more than enough to experiment with Hyperscale (Citus).  If you
+> need more vCores for a region in your subscription, see how to [adjust
+> compute quotas](howto-hyperscale-compute-quota.md).
+
+## Increase storage on nodes
+
+In addition to adding new nodes, you can increase the disk space of existing
+nodes. Increasing disk space can allow you to do more with existing worker
+nodes before needing to add more worker nodes.
+
+To change the storage for all worker nodes, adjust the **storage** slider under
+**Configuration (per worker node)**. The coordinator node's storage can be
+adjusted independently. Adjust the **storage** slider under  **Configuration
+(coordinator node)**.
+
+> [!NOTE]
+> Once increased and saved, the storage per node cannot be decreased using the
+> slider.
+
 ## Next steps
 
 - Learn more about server group [performance
   options](concepts-hyperscale-configuration-options.md).
 - [Rebalance distributed table shards](howto-hyperscale-scale-rebalance.md)
   so that all worker nodes can participate in parallel queries
+- See the sizes of distributed tables, and other [useful diagnostic
+  queries](howto-hyperscale-useful-diagnostic-queries.md).

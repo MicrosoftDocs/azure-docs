@@ -1,9 +1,9 @@
 ---
-author: trevorbye
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/04/2021
-ms.author: trbye
+ms.author: eur
 ---
 
 First, load your keyword model file using the `FromFile()` static function, which returns a `KeywordRecognitionModel`. Use the path to the `.table` file you downloaded from Speech Studio. Additionally, you create an `AudioConfig` using the default microphone, then instantiate a new `KeywordRecognizer` using the audio configuration.
@@ -25,7 +25,7 @@ KeywordRecognitionResult result = await keywordRecognizer.RecognizeOnceAsync(key
 
 > [!NOTE]
 > The example shown here uses local keyword recognition, since it does not require a `SpeechConfig` 
-object for authentication context, and does not contact the back-end. However, you can run both keyword recognition and verification [utilizing a direct back-end connection](../../../tutorial-voice-enable-your-bot-speech-sdk.md#view-the-source-code-that-enables-keyword).
+object for authentication context, and does not contact the back-end. However, you can run both keyword recognition and verification [utilizing a direct back-end connection](../../../tutorial-voice-enable-your-bot-speech-sdk.md#view-the-source-code-that-enables-keyword-detection).
 
 ### Continuous recognition
 

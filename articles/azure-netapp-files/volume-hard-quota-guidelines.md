@@ -3,7 +3,7 @@ title: What changing to volume hard quota means for your Azure NetApp Files serv
 description: Describes the change to using volume hard quota, how to plan for the change, and how to monitor and manage capacities.   
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/29/2021
-ms.author: b-juche
+ms.author: anfdocs
 ---
 # What changing to volume hard quota means for your Azure NetApp Files service
 
@@ -156,7 +155,7 @@ You can use the portal or the CLI to manually increase the volume or capacity po
 
 ##### Portal 
 
-You can [change the size of a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-volume) as necessary. A volume's capacity consumption counts against its pool's provisioned capacity.
+You can [change the size of a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-volume-using-the-azure-portal) as necessary. A volume's capacity consumption counts against its pool's provisioned capacity.
 
 1. From the Manage NetApp Account blade, click **Volumes**.  
 2. Right-click the name of the volume that you want to resize or click the `…` icon at the end of the volume's row to display the context menu. 
@@ -166,7 +165,7 @@ You can [change the size of a volume](azure-netapp-files-resize-capacity-pools-o
 
    ![Screenshot that shows the Update Volume Quota window.](../media/azure-netapp-files/hard-quota-update-volume-quota.png) 
 
-In some cases, the hosting capacity pool does not have sufficient capacity to resize the volumes. However, you can [change the capacity pool size](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-the-capacity-pool) in 1-TiB increments or decrements. The capacity pool size cannot be smaller than 4 TiB. *Resizing the capacity pool changes the purchased Azure NetApp Files capacity.*
+In some cases, the hosting capacity pool does not have sufficient capacity to resize the volumes. However, you can [change the capacity pool size](azure-netapp-files-resize-capacity-pools-or-volumes.md#resizing-the-capacity-pool-or-a-volume-using-azure-cli) in 1-TiB increments or decrements. The capacity pool size cannot be smaller than 4 TiB. *Resizing the capacity pool changes the purchased Azure NetApp Files capacity.*
 
 1. From the Manage NetApp Account blade, click the capacity pool that you want to resize.
 2. Right-click the capacity pool name or click the `…` icon at the end of the capacity pool’s row to display the context menu.
@@ -192,13 +191,13 @@ This action will open the Azure Cloud Shell:
 
 [ ![Screenshot that shows Cloud Shell window.](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png) ](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png#lightbox)
 
-The following examples use the commands to [show](/cli/azure/netappfiles/volume#az-netappfiles-volume-show) and [update](/cli/azure/netappfiles/volume#az-netappfiles-volume-update) the size of a volume:
+The following examples use the commands to [show](/cli/azure/netappfiles/volume#az_netappfiles_volume_show) and [update](/cli/azure/netappfiles/volume#az_netappfiles_volume_update) the size of a volume:
  
 [ ![Screenshot that shows using PowerShell to show volume size.](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png) ](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png#lightbox)
 
 [ ![Screenshot that shows using PowerShell to update volume size.](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png) ](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png#lightbox)
 
-The following examples use the commands to [show](/cli/azure/netappfiles/pool#az-netappfiles-pool-show) and [update](/cli/azure/netappfiles/pool#az-netappfiles-pool-update) the size of a capacity pool:
+The following examples use the commands to [show](/cli/azure/netappfiles/pool#az_netappfiles_pool_show) and [update](/cli/azure/netappfiles/pool#az_netappfiles_pool_update) the size of a capacity pool:
 
 [ ![Screenshot that shows using PowerShell to show capacity pool size.](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png) ](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png#lightbox) 
 

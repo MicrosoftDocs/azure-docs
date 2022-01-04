@@ -13,7 +13,7 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.custom: custom-portals-hub
-  ms.date: 08/28/2020
+  ms.date: 10/08/2021
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -21,25 +21,25 @@ highlightedContent:
     - title: What are Cognitive Services?
       itemType: overview # controls the icon image and super-title text
       url: ./what-are-cognitive-services.md
-    - title: What's new in docs?
-      itemType: whats-new
-      url: whats-new-docs.md
+    - title: Cognitive Services on-premises containers
+      itemType: concept
+      url: ./containers/index.yml
+    - title: Responsible use of AI
+      itemType: concept
+      url: responsible-use-of-ai-overview.md
     - title: Development options
       itemType: concept
       url: ./cognitive-services-development-options.md
     - title: Cognitive Services and machine learning
       itemType: concept
       url: ./cognitive-services-and-machine-learning.md
-    - title: Cognitive Services on-prem containers
-      itemType: concept
-      url: ./containers/index.yml
     - title: Cognitive Services with databases
       itemType: concept
       url: ./big-data/cognitive-services-for-big-data.md
     - title: Language support
       itemType: reference
       url: ./language-support.md
-    - title: Support & help options
+    - title: Support and help options
       itemType: reference
       url: ./cognitive-services-support-options.md
 
@@ -59,27 +59,18 @@ conceptualContent:
         - url: ./face/index.yml
           itemType: overview
           text: Face
-        - url: ./form-recognizer/index.yml
-          itemType: overview
-          text: Form Recognizer
-        - url: ../media-services/video-indexer/index.yml
-          itemType: overview
-          text: Video Indexer
     - title: Language
       summary: Allow your apps to process natural language with pre-built scripts, evaluate sentiment and learn how to recognize what users want.
       links:
-        - url: ./immersive-reader/index.yml
+        - url: ./language-service/index.yml
           itemType: overview
-          text: Immersive Reader
+          text: Azure Cognitive Service for Language
         - url: ./luis/index.yml
           itemType: overview
           text: Language Understanding (LUIS)
         - url: ./qnamaker/index.yml
           itemType: overview
           text: QnA Maker
-        - url: ./text-analytics/index.yml
-          itemType: overview
-          text: Text Analytics
         - url: ./translator/index.yml
           itemType: overview
           text: Translator
@@ -108,9 +99,6 @@ conceptualContent:
         - url: ./content-moderator/index.yml
           itemType: overview
           text: Content Moderator
-        - url: ./metrics-advisor/index.yml
-          itemType: overview
-          text: Metrics Advisor (preview)
         - url: ./personalizer/index.yml
           itemType: overview
           text: Personalizer
@@ -155,7 +143,7 @@ conceptualContent:
           text: Use Cognitive Services within Azure Databricks and Azure Synapse Analytics
         - url: ./big-data/samples-python.md
           itemType: reference
-          text: Python Samples   
+          text: Python Samples
 additionalContent:
   sections:
     - title: Additional resources
@@ -193,6 +181,12 @@ additionalContent:
               url: ./big-data/cognitive-services-for-big-data.md
             - text: Cognitive Services Management REST API
               url: /rest/api/cognitiveservices/
+        - title: Explore other Azure AI Services
+          links:
+            - text: Azure Applied AI Services
+              url: ../applied-ai-services/index.yml
+            - text: Azure Machine Learning
+              url: ../machine-learning/index.yml
         - title: Tools
           links:
             - text: Azure CLI

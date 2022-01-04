@@ -3,7 +3,7 @@ title: Securing managed identities in Azure Active Directory
 description: Explanation of how to find, assess, and increase the security of managed identities.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
@@ -50,8 +50,6 @@ All of Azure’s control plane operations are managed by [Azure Resource Manager
 For more information about control and data planes, see [Control plane and data plane operations - Azure Resource Manager](../../azure-resource-manager/management/control-plane-and-data-plane.md).
 
 All Azure services will eventually support managed identities. For more information, see [Services that support managed identities for Azure resources](../managed-identities-azure-resources/services-support-managed-identities.md).
-
-##  
 
 ## Types of managed identities
 

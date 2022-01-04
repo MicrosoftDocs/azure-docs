@@ -45,10 +45,10 @@ To create a brand new Azure AD tenant with your Partner Center account:
     - **Domain name**: The unique name that we'll use for your Azure AD domain, along with ".onmicrosoft.com". For example, if you entered "example", your Azure AD domain would be "example.onmicrosoft.com".
     - **Contact email**: An email address where we can contact you about your account if necessary.
     - **Global administrator user account info**: The first name, last name, username, and password that you want to use for the new global administrator account.
-1. Select Create to confirm the new domain and account info.
+1. Select **Create** to confirm the new domain and account info.
 1. Sign in with your new Azure AD global administrator username and password to begin [adding and managing users](add-manage-users.md).
 
-For more information about creating new tenants inside your Azure portal, instead of the Partner Center portal, see the article [Create a new tenant in Azure Active Directory](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+For more information about creating new tenants inside your Azure portal, instead of the Partner Center portal, see the article [Create a new tenant in Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 ## Remove a tenant
 

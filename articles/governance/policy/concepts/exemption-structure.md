@@ -1,7 +1,7 @@
 ---
 title: Details of the policy exemption structure
 description: Describes the policy exemption definition used by Azure Policy to exempt resources from evaluation of initiatives or definitions.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ---
 # Azure Policy exemption structure
@@ -130,7 +130,7 @@ Two exemption categories exist and are used to group exemptions:
 
 ## Expiration
 
-To set when a resource hierarchy or an individual resource is no longer _exempt_ to an assignment,
+To set when a resource hierarchy or an individual resource is no longer _exempt_ from an assignment,
 set the `expiresOn` property. This optional property must be in the Universal ISO 8601 DateTime
 format `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
 
@@ -148,7 +148,7 @@ the `read` and `write` permissions and
 [Policy Insights Data Writer (Preview)](../../../role-based-access-control/built-in-roles.md#policy-insights-data-writer-preview)
 has the `read` permission.
 
-Exemptions have additional security measures because of the impact of granting an exemption. Beyond
+Exemptions have extra security measures because of the impact of granting an exemption. Beyond
 requiring the `Microsoft.Authorization/policyExemptions/write` operation on the resource hierarchy
 or individual resource, the creator of an exemption must have the `exempt/Action` verb on the target
 assignment.

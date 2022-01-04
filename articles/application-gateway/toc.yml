@@ -83,7 +83,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
   - name: SSL
     items:
     - name: SSL termination and end to end SSL
@@ -98,6 +98,8 @@
     href: ingress-controller-overview.md
   - name: Health monitoring
     items:
+    - name: Monitor Azure Application Gateway
+      href: monitor-application-gateway.md
     - name: Health probe
       href: application-gateway-probe-overview.md
     - name: Diagnostic logs and backend health
@@ -136,6 +138,8 @@
         href: tutorial-ssl-cli.md
       - name: Configure Key Vault - PowerShell
         href: configure-keyvault-ps.md
+      - name: Configure Key Vault - Portal
+        href: configure-key-vault-portal.md
     - name: End-to-end SSL
       items:
       - name: End-to-end SSL - Portal
@@ -276,12 +280,18 @@
         href: log-analytics.md
       - name: Backend health issues
         href: application-gateway-backend-health-troubleshooting.md
+      - name: Key Vault errors
+        href: application-gateway-key-vault-common-errors.md
+  - name: Proxy buffer configuration
+    href: proxy-buffers.md
   - name: Custom error pages
     href: custom-error.md
   - name: Migrate from v1 to v2
     href: migrate-v1-v2.md
 - name: Reference
   items:
+  - name: Monitoring data
+    href: monitor-application-gateway-reference.md
   - name: Ingress for AKS annotations
     href: ingress-controller-annotations.md
   - name: Azure CLI
@@ -289,15 +299,15 @@
   - name: Azure PowerShell
     href: /powershell/azure/
   - name: .NET
-    href: /dotnet/api
+    href: /dotnet/api/
   - name: Java
-    href: /java/api
+    href: /java/api/
   - name: Node.js
     href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: Python
     href: https://azure.microsoft.com/develop/python/
   - name: REST
-    href: /rest/api/applicationgateway
+    href: /rest/api/application-gateway/application-gateways
   - name: Azure Resource Manager
     displayName: ARM
     href: ../azure-resource-manager/management/overview.md
@@ -308,15 +318,15 @@
   items:
   - name: Author templates
     displayName: ARM
-    href: ../azure-resource-manager/templates/template-syntax.md
+    href: ../azure-resource-manager/templates/syntax.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Community templates
     displayName: ARM
-    href: https://azure.microsoft.com/documentation/templates
+    href: https://azure.microsoft.com/resources/templates/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/application-gateway/
   - name: Regional availability
-    href: https://azure.microsoft.com/regions/services/
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway

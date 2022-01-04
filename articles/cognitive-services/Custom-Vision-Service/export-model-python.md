@@ -11,6 +11,7 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 11/23/2020
 ms.author: pafarley
+ms.devlang: python
 ms.custom: devx-track-python
 ---
 
@@ -19,7 +20,7 @@ ms.custom: devx-track-python
 After you have [exported your TensorFlow model](./export-your-model.md) from the Custom Vision Service, this quickstart will show you how to use this model locally to classify images.
 
 > [!NOTE]
-> This tutorial applies only to models exported from image classification projects.
+> This tutorial applies only to models exported from "General (compact)" image classification projects. If you exported other models, please visit our [sample code repository](https://github.com/Azure-Samples/customvision-export-samples).
 
 ## Prerequisites
 

@@ -5,9 +5,8 @@ author: neilpeterson
 ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-
+ms.custom: devx-track-azurepowershell, mode-ui
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
-
 ---
 
 # Quickstart: Create ARM templates with Visual Studio Code
