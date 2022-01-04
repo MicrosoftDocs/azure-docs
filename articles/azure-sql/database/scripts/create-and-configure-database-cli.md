@@ -19,10 +19,7 @@ ms.date: 12/23/2021
 
 This Azure CLI script example creates a single database in Azure SQL Database and configures a server-level firewall rule. After the script has been successfully run, the database can be accessed from all Azure services and the configured IP address.
 
-If you choose to install and use Azure CLI locally, this topic requires that you are running Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
-
-> [!IMPORTANT]
-> When running Bash on Windows, run this script from within a Docker container.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

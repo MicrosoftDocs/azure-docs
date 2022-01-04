@@ -15,16 +15,13 @@ ms.date: 12/23/2021
 
 # Manage Transparent Data Encryption in a Managed Instance using your own key from Azure Key Vault
 
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqlmi.md)]
+
 This Azure CLI script example configures Transparent Data Encryption (TDE) with customer-managed key for Azure SQL Managed Instance, using a key from Azure Key Vault. This is often referred to as a Bring Your Own Key scenario for TDE. To learn more about the TDE with customer-managed key, see [TDE Bring Your Own Key to Azure SQL](../../../azure-sql/database/transparent-data-encryption-byok-overview.md).
 
-If you choose to install and use Azure CLI locally, this article requires that you are running Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+This sample requires an existing Managed Instance, see [Use Azure CLI to create an Azure SQL Managed Instance](create-configure-managed-instance-cli.md).
 
-> [!IMPORTANT]
-> When running Bash on Windows, run this script from within a Docker container.
-
-## Prerequisites
-
-An existing Managed Instance, see [Use Azure CLI to create an Azure SQL Managed Instance](create-configure-managed-instance-cli.md).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

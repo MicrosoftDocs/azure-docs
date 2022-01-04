@@ -15,12 +15,11 @@ ms.date: 12/23/2021
 
 # Use CLI to configure active geo-replication for a single database in Azure SQL Database
 
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
+
 This Azure CLI script example configures active geo-replication for a single database and fails it over to a secondary replica of the database.
 
-If you choose to install and use Azure CLI locally, this article requires that you are running Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-
-> [!IMPORTANT]
-> When running Bash on Windows, run this script from within a Docker container.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
