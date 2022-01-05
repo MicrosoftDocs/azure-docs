@@ -57,11 +57,11 @@ To set up a lab in a lab account, you must be a member of the **Lab Creator** ro
     ![Status of the template VM creation](./media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
 8. On the **Template** page, do the following steps: These steps are **optional** for the tutorial.
 
+    1. Start the template VM.
     1. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using SSH or a GUI remote desktop.  Additional setup is required to use a GUI remote desktop. See [Enable graphical remote desktop for Linux virtual machines](how-to-use-remote-desktop-linux-student.md) for more information.
     1. Select **Reset password** to reset the password for the VM. The VM must be running before the reset password button is available.
     1. Install and configure software on your template VM.
     1. **Stop** the VM.  
-    1. Enter a **description** for the template
 
 9. On **Template** page, select **Publish** on the toolbar.
 
