@@ -89,7 +89,6 @@ Azure Maps have been localized in variety languages across its services. The fol
 | zh-HanS-CN | Chinese (Simplified, China)              | ✓    |    ✓   |         |         |    ✓    |
 | zh-HanT-HK | Chinese (Traditional, Hong Kong SAR)     |      |        |          |         |    ✓    |
 | zh-HanT-TW | Chinese (Traditional, Taiwan)            | ✓    |    ✓   |    ✓    |         |    ✓    |
-| | | | | | | |
 
 <sup>1</sup> Neutral Ground Truth (Local) - Official languages for all regions in local scripts if available<br>
 <sup>2</sup> Neutral Ground Truth (Latin) - Latin exonyms will be used if available
