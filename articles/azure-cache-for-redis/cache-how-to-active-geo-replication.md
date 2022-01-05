@@ -25,7 +25,7 @@ Active geo-replication groups up to five Enterprise Azure Cache for Redis instan
 
 1. In the **Advanced** tab of **New Redis Cache** creation UI, select **Enterprise** for **Clustering Policy**.
 
-    For more information on choosing **Clustering policy**, see [Clustering Policy](#clustering-policy).
+    For more information on choosing **Clustering policy**, see [Clustering Policy](quickstart-create-redis-enterprise.md#clustering-policy).
 
     :::image type="content" source="media/cache-how-to-active-geo-replication/cache-active-geo-replication-not-configured.png" alt-text="Configure active geo-replication":::
 
