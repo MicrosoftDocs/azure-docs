@@ -11,18 +11,18 @@ ms.devlang: csharp, java
 ---
 
 # Troubleshoot NoHostAvailableException and NoNodeAvailableException
-The NoHostAvailableException is a top-level wrapper exception with many possible causes and inner exceptions, many of which can be client-related. This exception tends to occur if there are some issues with the cluster or connection settings, or if one or more Cassandra nodes are unavailable. 
+NoHostAvailableException is a top-level wrapper exception with many possible causes and inner exceptions, many of which can be client-related. This exception tends to occur if there are some issues with the cluster or connection settings, or if one or more Cassandra nodes are unavailable. 
 
 This article explores possible reasons for this exception, and it discusses specific details about the client driver that's being used.
 
 ## Driver settings
-One of the most common causes of a NoHostAvailableException is the default driver settings. We recommend that you use the [settings](#code-sample) listed at the end of this article. Here is some explanatory information:
+One of the most common causes of NoHostAvailableException is the default driver settings. We recommend that you use the [settings](#code-sample) listed at the end of this article. Here is some explanatory information:
 
-- The default value of the connections per host is 1, which we don't recommend for Azure CosmosDB. We do recommend a minimum value of 10. Although more aggregated Request Units (RU) are provided, increase the connection count. The general guideline is 10 connections per 200,000 RU.
-- Use the Azure CosmosDB retry policy to handle intermittent throttling responses. For more information, see the Azure CosmosDB extension libraries: 
+- The default value of the connections per host is 1, which we don't recommend for Azure Cosmos DB. We do recommend a minimum value of 10. Although more aggregated Request Units (RU) are provided, increase the connection count. The general guideline is 10 connections per 200,000 RU.
+- Use the Azure Cosmos DB retry policy to handle intermittent throttling responses. For more information, see the Azure Cosmos DB extension libraries: 
    - [Driver 3 extension library](https://github.com/Azure/azure-cosmos-cassandra-extensions)
    - [Driver 4 extension library](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.1)
-- For multi-region accounts, use the Azure CosmosDB load-balancing policy in the extension.
+- For multi-region accounts, use the Azure Cosmos DB load-balancing policy in the extension.
 - The read request timeout should be set at greater than 1 minute. We recommend 90 seconds.
 
 ## Exception messages
@@ -41,14 +41,14 @@ C# driver 3:
 All hosts tried for query failed (tried :10350: BusyPoolException 'All connections to host :10350 are busy, 2048 requests are in-flight on each 10 connection(s)')
 ```
 #### Recommendation
-Instead of tuning the `max requests per connection`, make sure that the `connections per host` is set to a minimum of 10. See the [code sample section](#code-sample).
+Instead of tuning `max requests per connection`, make sure that `connections per host` is set to a minimum of 10. See the [code sample section](#code-sample).
 
 ### TooManyRequest(429)
 OverloadException is thrown when the request rate is too great, which might happen when insufficient throughput is provisioned for the table and the RU budget is exceeded. For more information, see [large request](../sql/troubleshoot-request-rate-too-large.md#request-rate-is-large) and [server-side retry](prevent-rate-limiting-errors.md).
 #### Recommendation
 Apply one of the following options:
 - If throttling is persistent, increase the provisioned RU.
-- If throttling is intermittent, use the Azure CosmosDB retry policy.
+- If throttling is intermittent, use the Azure Cosmos DB retry policy.
 - If the extension library can't be referenced, [enable server-side retry](prevent-rate-limiting-errors.md).
 
 ### All hosts tried for query failed
@@ -61,7 +61,7 @@ When the client is set to connect to a region other than the primary contact poi
 - For C# driver 3: `System.ArgumentException: Datacenter West US does not match any of the nodes, available datacenters: West US 2`
 
 #### Recommendation
-Use the CosmosLoadBalancingPolicy in [Java driver 3](https://github.com/Azure/azure-cosmos-cassandra-extensions) and [Java driver 4](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.1). This policy falls back to the contact point of the primary write region where the specified local data is unavailable.
+Use CosmosLoadBalancingPolicy in [Java driver 3](https://github.com/Azure/azure-cosmos-cassandra-extensions) and [Java driver 4](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.1). This policy falls back to the contact point of the primary write region where the specified local data is unavailable.
 
 > [!NOTE]
 > If the preceding recommendations don't help resolve your issue, contact Azure Cosmos DB support. Be sure to provide the following details: exception message, exception stacktrace, datastax driver log, universal time of failure, consistent or intermittent failures, failing keyspace and table, request type that failed, and SDK version.
