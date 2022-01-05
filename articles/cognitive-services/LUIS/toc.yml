@@ -12,8 +12,8 @@ items:
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
   - name: What's new
     href: whats-new.md
-  - name: LUIS FAQ
-    href: troubleshooting.yml
+  - name: FAQ
+    href: faq.md
     displayName: Troubleshooting, import
 - name: LUIS quickstarts
   items:
@@ -42,17 +42,15 @@ items:
   - name: Start a new app
     href: luis-how-to-start-new-app.md
     displayName: import, export, container
+  - name: Use entities
+    href: how-to/entities.md
   - name: Build model
     items:
     - name: Add an intent
       href: luis-how-to-add-intents.md
-    - name: Add an entity to extract data
-      href: luis-how-to-add-entities.md
       displayName: roles, import
     - name: Use prebuilt models
       href: howto-add-prebuilt-models.md
-    - name: Label entity in utterance
-      href: label-entity-example-utterance.md
     - name: Add features
       displayName: synonym, interchange, phrase list, descriptor, feature
       href: luis-how-to-add-features.md
@@ -145,9 +143,6 @@ items:
     href: artificial-intelligence.md
   - name: Development lifecycle
     href: luis-concept-app-iteration.md
-  - name: Best practices
-    href: luis-concept-best-practices.md
-    displayName: phrase list, pattern, intent, utterance, version, do, don't, example utterances, iteration, cycle, correct, right
   - name: Plan your app
     displayName: simple, composite, prebuilt, list, regex, regular expression
     href: luis-how-plan-your-app.md

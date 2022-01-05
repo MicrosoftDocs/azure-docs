@@ -7663,9 +7663,26 @@
       "redirect_url": "/azure/cognitive-services/language-service/overview",
       "redirect_document_id": false
     },
-
-    
-    
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/troubleshooting.yml",
+      "redirect_url": "/azure/cognitive-services/LUIS/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-concept-best-practices.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-how-to-entities.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/how-to/entities",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/label-entity-example-utterance.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/how-to/entities",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-container-instances.md",
       "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
