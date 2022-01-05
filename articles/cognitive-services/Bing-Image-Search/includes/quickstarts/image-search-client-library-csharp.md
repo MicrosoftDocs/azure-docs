@@ -6,7 +6,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/21/2020
+ms.date: 01/05/2022
 ms.author: aahi
 ---
 
@@ -15,8 +15,6 @@ Use this quickstart to make your first image search using the Bing Image Search 
 The client search library is a wrapper for the REST API and contains the same features. 
 
 You'll create a C# application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
-
-The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) with additional error handling and annotations.
 
 ## Prerequisites
 
