@@ -155,7 +155,7 @@ To create a key expiration policy in the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 1. Under **Security + networking**, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
-1. Select the **Set rotation reminder** link.
+1. Select the **Set rotation reminder** button. If the **Set rotation reminder** button is grayed out, you will need to rotate each of your keys. Follow the steps described in [Manually rotate access keys](#manually-rotate-access-keys) to rotate the keys.
 1. In **Set a reminder to rotate access keys**, select the **Enable key rotation reminders** checkbox and set a frequency for the reminder.
 1. Select **Save**.
 
@@ -165,9 +165,26 @@ To create a key expiration policy in the Azure portal:
 
 To create a key expiration policy with PowerShell, use the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-KeyExpirationPeriodInDay` parameter to the interval in days until the access key should be rotated.
 
-```powershell
-$account = Set-AzStorageAccount -ResourceGroupName <resource-group> -Name `
-    <storage-account-name>  -KeyExpirationPeriodInDay <period-in-days> 
+The `KeyCreationTime` property indicates when the account access keys were created or last rotated. Older accounts may have a null value for the `KeyCreationTime` property because it has not yet been set. If the `KeyCreationTime` property is null, you cannot create a key expiration policy until you rotate the keys. For this reason, it's a good idea to check the `KeyCreationTime` property for the storage account before you attempt to set the key expiration policy.
+
+The following example checks whether the `KeyCreationTime` property has been set for each key. If the `KeyCreationTime` property has a value, then a key expiration policy is created for the storage account. Remember to replace the placeholder values in brackets with your own values.
+
+```azurepowershell
+$rgName = "<resource-group>"
+$accountName = "<account-name>"
+
+$account = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
+
+# Check whether the KeyCreationTime property has a value for each key before creating policy.
+if ($account.KeyCreationTime.Key1 -eq $null -or $account.KeyCreationTime.Key2 -eq $null)
+{
+    Write-Host("You must regenerate both keys at least once before setting key expiration policy")
+}
+else
+{
+    $account = Set-AzStorageAccount -ResourceGroupName $rgName -Name `
+        $accountName  -KeyExpirationPeriodInDay 60
+}
 ```
 
 You can also set the key expiration policy as you create a storage account by setting the `-KeyExpirationPeriodInDay` parameter of the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command.
@@ -177,22 +194,6 @@ To verify that the policy has been applied, check the storage account's `KeyPoli
 ```powershell
 $account.KeyPolicy
 ```
-
-The key expiration period appears in the console output.
-
-> [!div class="mx-imgBorder"]
-> ![access key expiration period](./media/storage-account-keys-manage/key-policy-powershell.png)
-
-To find out when a key was created or last rotated, use the `KeyCreationTime` property.
-
-```powershell
-$account.KeyCreationTime
-```
-
-The access key creation time for both access keys appears in the console output.
-
-> [!div class="mx-imgBorder"]
-> ![access key creation times](./media/storage-account-keys-manage/key-creation-time-powershell.png)
 
 ### [Azure CLI](#tab/azure-cli)
 
