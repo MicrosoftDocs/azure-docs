@@ -29,7 +29,7 @@ This scenario assumes:
 
 Applications that use SAS token authentication should store the keys in a secure store. A SAS token is a credential that grants the level of access specified during its creation to anyone who holds it, until the token expires or access is revoked. This scenario describes how to safely store your SAS token as a secret in Azure Key Vault and distribute the SAS token into a public client. Events in an application’s lifecycle may generate new SAS tokens without interrupting active connections using existing tokens. To understand how to configure Azure Key Vault, see the [Azure Key Vault developer's guide](../key-vault/general/developers-guide.md).
 
-The following sample scenario will perform the steps outlined below with two Azure resource manager (ARM) template deployments:
+The following sample scenario will perform the steps outlined below with two Azure Resource Manager (ARM) template deployments:
 
 - Create an Azure Key Vault.
 - Create a user-assigned managed identity.

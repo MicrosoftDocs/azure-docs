@@ -264,7 +264,7 @@ Once a managed identity is created, you can create or update the Azure Maps acco
 
 After the account has been successfully created or updated with the managed identity; assign role-based access control for the managed identity to an Azure Maps data role at the account scope. This enables the managed identity to be given access to the Azure Maps REST API for your map account.
 
-Next, you'll need to create a SAS token using the Azure Management SDK tooling, List SAS operation on Account Management API, or the Azure Portal Shared Access Signature page of the Map account resource.
+Next, you'll need to create a SAS token using the Azure Management SDK tooling, List SAS operation on Account Management API, or the Azure portal Shared Access Signature page of the Map account resource.
 
 SAS token parameters :
 
