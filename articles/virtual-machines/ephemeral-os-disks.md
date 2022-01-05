@@ -19,7 +19,7 @@ Ephemeral OS disks are created on the local virtual machine (VM) storage and not
  
 The key features of ephemeral disks are: 
 - Ideal for stateless applications.
-- Supported by  Marketplace, custom images, and by [Shared Image Gallery](./shared-image-galleries.md).
+- Supported by  Marketplace, custom images, and by [Azure Compute Gallery](./shared-image-galleries.md) (formerly known as Shared Image Gallery).
 - Ability to fast reset or reimage VMs and scale set instances to the original boot state.  
 - Lower latency, similar to a temporary disk. 
 - Ephemeral OS disks are free, you incur no storage cost for OS disks.
@@ -28,18 +28,21 @@ The key features of ephemeral disks are:
  
 Key differences between persistent and ephemeral OS disks:
 
-|                             | Persistent OS Disk                          | Ephemeral OS Disk                              |
-|-----------------------------|---------------------------------------------|------------------------------------------------|
-| **Size limit for OS disk**      | 2 TiB                                                                                        | Cache size for the VM size or 2 TiB, whichever is smaller. For the **cache size in GiB**, see [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md), and [GS](sizes-previous-gen.md#gs-series)              |
-| **VM sizes supported**          | All                                                                                          | VM sizes that support Premium storage such as DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M, Mdsv2,Bs, Dav4, Eav4                                               |
-| **Disk type support**           | Managed and unmanaged OS disk                                                                | Managed OS disk only                                                               |
-| **Region support**              | All regions                                                                                  | All regions                              |
-| **Data persistence**            | OS disk data written to OS disk are stored in Azure Storage                                  | Data written to OS disk is stored on local VM storage and isn't persisted to Azure Storage. |
-| **Stop-deallocated state**      | VMs and scale set instances can be stop-deallocated and restarted from the stop-deallocated state | VMs and scale set instances cannot be stop-deallocated                                  |
-| **Specialized OS disk support** | Yes                                                                                          | No                                                                                 |
-| **OS disk resize**              | Supported during VM creation and after VM is stop-deallocated                                | Supported during VM creation only                                                  |
-| **Resizing to a new VM size**   | OS disk data is preserved                                                                    | Data on the OS disk is deleted, OS is reprovisioned       
-| **Page file placement**   | For Windows, page file is stored on the resource disk                                              | For Windows, page file is stored on the OS disk (for both OS cache placement and Temp disk placement).   |
+|   | Persistent OS Disk | Ephemeral OS Disk |
+|---|---|---|
+| **Size limit for OS disk** | 2 TiB | Cache size for the VM size or 2 TiB, whichever is smaller. For the **cache size in GiB**, see [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md), and [GS](sizes-previous-gen.md#gs-series) |
+| **VM sizes supported** | All | VM sizes that support Premium storage such as DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M, Mdsv2,Bs, Dav4, Eav4 |
+| **Disk type support**| Managed and unmanaged OS disk| Managed OS disk only|
+| **Region support**| All regions| All regions|
+| **Data persistence**| OS disk data written to OS disk are stored in Azure Storage| Data written to OS disk is stored on local VM storage and isn't persisted to Azure Storage. |
+| **Stop-deallocated state**| VMs and scale set instances can be stop-deallocated and restarted from the stop-deallocated state | VMs and scale set instances cannot be stop-deallocated|
+| **Specialized OS disk support** | Yes| No|
+| **OS disk resize**| Supported during VM creation and after VM is stop-deallocated| Supported during VM creation only|
+| **Resizing to a new VM size**| OS disk data is preserved| Data on the OS disk is deleted, OS is reprovisioned |
+| **Redeploy** | OS disk data is preserved | Data on the OS disk is deleted, OS is reprovisioned | 
+| **Stop/ Start of VM** | OS disk data is preserved | Data on the OS disk is deleted, OS is reprovisioned | 
+| **Page file placement**| For Windows, page file is stored on the resource disk| For Windows, page file is stored on the OS disk (for both OS cache placement and Temp disk placement).|
+
 
 ## Size requirements
 
@@ -153,8 +156,35 @@ You can deploy a VM with an ephemeral OS disk using a template. The process to c
  } 
 ```
 
+## CLI
+
+To use an ephemeral disk for a CLI VM deployment, set the `--ephemeral-os-disk` parameter in [az vm create](/cli/azure/vm#az_vm_create) to `true` and the `--ephemeral-os-disk-placement` parameter to `ResourceDisk` for temp disk placement or `CacheDisk` for cache disk placement and the `--os-disk-caching` parameter to `ReadOnly`.
+
+```azurecli-interactive
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --image UbuntuLTS \
+  --ephemeral-os-disk true \
+  --ephemeral-os-disk-placement ResourceDisk \
+  --os-disk-caching ReadOnly \
+  --admin-username azureuser \
+  --generate-ssh-keys
+```
+
+For scale sets, you use the same `--ephemeral-os-disk true` parameter for [az-vmss-create](/cli/azure/vmss#az_vmss_create) and set the `--os-disk-caching` parameter to `ReadOnly` and the `--ephemeral-os-disk-placement` parameter to `ResourceDisk` for temp disk placement or `CacheDisk` for cache disk placement.
+
+## Reimage a VM using REST
+You can reimage a Virtual Machine instance with ephemeral OS disk using REST API as described below and via Azure portal by going to Overview pane of the VM. For scale sets, reimaging is already available through PowerShell, CLI, and the portal.
+
+```
+POST https://management.azure.com/subscriptions/{sub-
+id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}/reimage?a pi-version=2019-12-01" 
+```
+
+
 > [!NOTE] 
-> Ephemeral OS disk placement option (VM cache disk or VM temp/resource disk) is coming soon on PowerShell and CLI
+> Ephemeral OS disk placement option (VM cache disk or VM temp/resource disk) is coming soon on PowerShell
 
 ## PowerShell
 To use an ephemeral disk for a PowerShell VM deployment, use [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) in your VM configuration. Set the `-DiffDiskSetting` to `Local` and `-Caching` to `ReadOnly`.     
@@ -165,31 +195,6 @@ For scale set deployments, use the [Set-AzVmssStorageProfile](/powershell/module
 
 ```powershell
 Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
-```
-
-## CLI
-
-To use an ephemeral disk for a CLI VM deployment, set the `--ephemeral-os-disk` parameter in [az vm create](/cli/azure/vm#az_vm_create) to `true` and the `--os-disk-caching` parameter to `ReadOnly`.
-
-```azurecli-interactive
-az vm create \
-  --resource-group myResourceGroup \
-  --name myVM \
-  --image UbuntuLTS \
-  --ephemeral-os-disk true \
-  --os-disk-caching ReadOnly \
-  --admin-username azureuser \
-  --generate-ssh-keys
-```
-
-For scale sets, you use the same `--ephemeral-os-disk true` parameter for [az-vmss-create](/cli/azure/vmss#az_vmss_create) and set the `--os-disk-caching` parameter to `ReadOnly`.
-
-## Reimage a VM using REST
-You can reimage a Virtual Machine instance with ephemeral OS disk using REST API as described below and via Azure portal by going to Overview pane of the VM. For scale sets, reimaging is already available through PowerShell, CLI, and the portal.
-
-```
-POST https://management.azure.com/subscriptions/{sub-
-id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}/reimage?a pi-version=2019-12-01" 
 ```
  
 ## Frequently asked questions

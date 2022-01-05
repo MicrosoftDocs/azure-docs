@@ -4,12 +4,10 @@ description: This article tells how to reapply configurations on demand to serve
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: mgreenegit
-ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
-manager: nirb
 ---
+
 # Remediate noncompliant Azure Automation State Configuration servers
 
 When servers are registered with Azure Automation State Configuration,

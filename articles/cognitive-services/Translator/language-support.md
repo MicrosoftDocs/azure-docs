@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 06/10/2020
+ms.date: 10/28/2021
 ms.author: lajanuar
 ---
 # Translator language support
@@ -179,7 +179,8 @@ The [Transliterate operation](reference/v3-0-transliterate.md) in the Text Trans
 Add additional capabilities to your apps and workflows by utilizing other Cognitive Services with Translator. Language lists for additional services are below.
 * [Computer Vision](../computer-vision/language-support.md) 
 * [Speech](../speech-service/language-support.md) 
-* [Text Analytics ](../text-analytics/language-support.md) 
+* [Language service](../language-service/index.yml) 
+    * Select the feature you want to use, and then **Language support** on the left navigation menu.
 
 View all [Cognitive Services](../index.yml). 
 

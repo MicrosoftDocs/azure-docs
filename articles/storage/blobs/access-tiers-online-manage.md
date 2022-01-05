@@ -24,7 +24,7 @@ You can set a blob's access tier in any of the following ways:
 
 This article describes how manage a blob in an online access tier (Hot or Cool). For more information about how to move a blob to the Archive tier, see [Archive a blob](archive-blob.md). For more information about how to rehydrate a blob from the Archive tier, see [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md).
 
-For more information about access tiers for blobs, see [Hot, cool, and archive access tiers for blob data](access-tiers-overview.md).
+For more information about access tiers for blobs, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
 
 ## Set the default access tier for a storage account
 

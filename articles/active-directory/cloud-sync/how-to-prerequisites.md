@@ -3,7 +3,7 @@ title: 'Prerequisites for Azure AD Connect cloud sync in Azure AD'
 description: This article describes the prerequisites and hardware requirements you need for cloud sync.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to

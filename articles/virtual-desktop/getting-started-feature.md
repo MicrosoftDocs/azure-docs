@@ -6,6 +6,7 @@ ms.topic: quickstart
 ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
+ms.custom: mode-other
 ---
 
 # Deploy Azure Virtual Desktop with the getting started feature
@@ -14,26 +15,26 @@ The Azure portal's new getting started feature is a quick, easy way to install a
 
 ## Requirements
 
-You'll need the following things to use getting started:
+You'll need to meet the following requirements to be able to use getting started:
 
-- An Azure Active Directory (AD) tenant
-- An account with global admin permissions on Azure AD
+- An Azure Active Directory (AD) tenant.
+- An account with global admin permissions on Azure AD.
 
    >[!NOTE]
    >The getting started feature doesn't currently support MSA, B2B, or guest accounts at this time.
 
-- An active Azure subscription
+- An active Azure subscription.
 
    >[!NOTE]
    >The getting started feature doesn't currently support accounts with multi-factor authentication.
 
-- An account with **Owner permissions** on the subscription
+- An account with **Owner permissions** on the subscription.
 
 If you're using the getting started feature in an environment with Active Directory Domain Services (AD DS), you'll also need to meet these requirements:
 
-- AD DS domain admin credentials
-- You must configure Azure AD connect on your subscription and make sure the "USERS" container is syncing with Azure AD
-- The domain controller in your virtual machine (VM) must not have DSC extensions of type **Microsoft.Powershell.DSC**
+- AD DS domain admin credentials.
+- You must configure Azure AD connect on your subscription and make sure the "USERS" container is syncing with Azure AD.
+- The domain controller in your virtual machine (VM) must not have DSC extensions of type **Microsoft.Powershell.DSC**.
 
 If you're using the getting started feature in an environment without an identity provider, these are the extra requirements you should follow:
 

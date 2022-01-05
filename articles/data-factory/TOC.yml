@@ -176,6 +176,10 @@ items:
       href: tutorial-managed-virtual-network-on-premise-sql-server.md
     - name: Access SQL Managed Instance
       href: tutorial-managed-virtual-network-sql-managed-instance.md 
+  - name: Self-hosted integration runtime
+    items:
+    - name: Enable remote access from intranet with TLS/SSL certificate (Advanced)
+      href: tutorial-enable-remote-access-intranet-tls-ssl-certificate.md
 - name: Samples
   items:
   - name: Code samples
@@ -224,10 +228,15 @@ items:
             href: concepts-data-flow-performance-transformations.md
           - name: Using data flows in pipelines
             href: concepts-data-flow-performance-pipelines.md
+          - name: Memory optimized compute
+            href: memory-optimized-compute.md
       - name: Integration Runtime performance
         href: concepts-integration-runtime-performance.md
       - name: Manage data flow canvas
         href: concepts-data-flow-manage-graph.md
+      - name: Flowlets
+        href: concepts-data-flow-flowlet.md
+        displayName: flowlet
       - name: Expression builder
         href: concepts-data-flow-expression-builder.md
         displayName: regex, regular expressions
@@ -276,6 +285,8 @@ items:
         href: continuous-integration-delivery-sample-script.md
     - name: Automated publishing for CI/CD
       href: continuous-integration-delivery-improvements.md
+    - name: Deploy linked ARM templates with VSTS
+      href: deploy-linked-arm-templates-with-vsts.md
   - name: Connectors
     items:
     - name: Connector overview
@@ -582,6 +593,8 @@ items:
       href: transform-data-using-machine-learning.md
     - name: Machine Learning Studio (classic) Update Resource activity
       href: update-machine-learning-models.md
+    - name: Mapping data flows
+      href: tutorial-data-flow.md      
     - name: Stored Procedure activity
       href: transform-data-using-stored-procedure.md
     - name: Compute linked services
@@ -632,6 +645,8 @@ items:
     - name: Alter row
       href: data-flow-alter-row.md
       displayName: upsert
+    - name: Assert
+      href: data-flow-assert.md
     - name: Conditional split
       href: data-flow-conditional-split.md
     - name: Derived column
@@ -639,10 +654,15 @@ items:
     - name: Exists
       href: data-flow-exists.md
       displayName: timeout
+    - name: External call
+      href: data-flow-external-call.md
     - name: Filter
       href: data-flow-filter.md
     - name: Flatten
       href: data-flow-flatten.md
+    - name: Flowlet
+      href: data-flow-flowlet.md
+      displayName: flowlet
     - name: Join
       href: data-flow-join.md
       displayName: merge, timeout
@@ -741,6 +761,8 @@ items:
         href: monitor-install-analytics.md
     - name: Monitor with SDKs
       href: monitor-programmatically.md
+    - name: Pipeline failure and error handling
+      href: tutorial-pipeline-failure-error-handling.md
     - name: Monitor pipelines with email notifications
       href: how-to-send-email.md
     - name: Monitor pipelines with Microsoft Teams notifications
@@ -823,7 +845,11 @@ items:
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Virtual network configuration
           href: azure-ssis-integration-runtime-virtual-network-configuration.md
-        - name: Using the Azure Data Factory Studio UI
+        - name: Express virtual network injection
+          href: azure-ssis-integration-runtime-express-virtual-network-injection.md
+        - name: Standard virtual network injection
+          href: azure-ssis-integration-runtime-standard-virtual-network-injection.md
+        - name: Using Azure Data Factory UI
           href: join-azure-ssis-integration-runtime-virtual-network-ui.md
         - name: Using Azure PowerShell
           href: join-azure-ssis-integration-runtime-virtual-network-powershell.md
@@ -939,6 +965,8 @@ items:
       href: solution-template-move-files.md
     - name: Transformation with Azure Databricks
       href: solution-template-databricks-notebook.md
+    - name: Call Synapse pipeline with a notebook activity
+      href: solution-template-synapse-notebook.md
   - name: Understanding pricing
     items:
     - name: Data flow reserved capacity overview
@@ -1069,5 +1097,7 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Support options
     href: https://azure.microsoft.com/support/options/
+  - name: Request quota increases from support
+    href: quota-increase.md
   - name: Limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits

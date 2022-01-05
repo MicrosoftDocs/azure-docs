@@ -11,6 +11,7 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 01/05/2022
 ms.author: pafarley
+ms.devlang: python
 ms.custom: devx-track-python
 ---
 

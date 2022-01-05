@@ -6,7 +6,7 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 10/22/2021
 ms.author: abnarain 
 ms.custom: devx-track-azurepowershell, synapse
 ---
@@ -32,7 +32,7 @@ Managed identity provides the below benefits:
 
 - [Store credential in Azure Key Vault](store-credentials-in-key-vault.md), in which case managed identity is used for Azure Key Vault authentication.
 - Access data stores or computes using managed identity authentication, including Azure Blob storage, Azure Data Explorer, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, REST, Databricks activity, Web activity, and more. Check the connector and activity articles for details.
-- User-assigned managed identity is also used to encrypt/ decrypt meta-data using the customer-managed key stored in Azure Key Vault, providing double encryption. 
+- Managed identity is also used to encrypt/decrypt data and metadata using the customer managed key stored in Azure Key Vault, providing double encryption. 
 
 ## System-assigned managed identity 
 

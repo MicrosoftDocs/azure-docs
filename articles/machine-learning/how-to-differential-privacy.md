@@ -10,7 +10,7 @@ ms.custom: responsible-ml
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
-ms.date: 01/21/2020
+ms.date: 10/21/2021
 # Customer intent: As an experienced data scientist, I want to use differential privacy in Azure Machine Learning.
 ---
 

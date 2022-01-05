@@ -1,5 +1,5 @@
 ---
-title: CLI script - Restore an Azure Database for MySQL - Flexible Server (Preview)
+title: CLI script - Restore an Azure Database for MySQL - Flexible Server
 description: This Azure CLI sample script shows how to restore a single Azure Database for MySQL - Flexible Server to a previous point in time.
 author: shreyaaithal
 ms.author: shaithal
@@ -10,7 +10,7 @@ ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2021
 ---
 
-# Restore an Azure Database for MySQL - Flexible Server (Preview) using Azure CLI
+# Restore an Azure Database for MySQL - Flexible Server using Azure CLI
 
 Azure Database for MySQL - Flexible Server, automatically creates server backups and securely stores them in local redundant storage within the region.
 
@@ -51,5 +51,5 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-- Try additional scripts: [Azure CLI samples for Azure Database for MySQL - Flexible Server (Preview)](../sample-scripts-azure-cli.md)
+- Try additional scripts: [Azure CLI samples for Azure Database for MySQL - Flexible Server](../sample-scripts-azure-cli.md)
 - For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).

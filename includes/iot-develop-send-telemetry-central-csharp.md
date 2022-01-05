@@ -19,7 +19,7 @@ This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on th
 
 - Windows 10
 - Ubuntu 20.04 LTS
-- Raspberry Pi OS version 10 (Raspian) running on a Raspberry Pi 3 Model B+
+- Raspberry Pi OS (Raspbian) version 10, running on a Raspberry Pi 3 Model B+
 
 Install the following prerequisites on your development machine:
 
@@ -32,7 +32,7 @@ Install the following prerequisites on your development machine:
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
-## Run a device
+## Run the device sample
 In this section, you configure your local environment, install the Azure IoT C# samples, and run a sample that creates a temperature controller.
 
 ### Configure your environment

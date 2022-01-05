@@ -4,12 +4,12 @@ description: Learn how to assign sensitivity labels to groups. See troubleshooti
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/28/2021
+ms.date: 11/19/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -30,7 +30,7 @@ To apply published labels to groups, you must first enable the feature. These st
 1. Open a Windows PowerShell window on your computer. You can open it without elevated privileges.
 1. Run the following commands to prepare to run the cmdlets.
 
-    ```PowerShell
+    ```powershell
     Install-Module AzureADPreview
     Import-Module AzureADPreview
     Connect-AzureAD
@@ -39,8 +39,8 @@ To apply published labels to groups, you must first enable the feature. These st
     In the **Sign in to your account** page, enter your admin account and password to connect you to your service, and select **Sign in**.
 1. Fetch the current group settings for the Azure AD organization.
 
-    ```PowerShell
-    $setting = (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ)
+    ```powershell
+    $grpUnifiedSetting = (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ)
     $template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
     $setting = $template.CreateDirectorySetting()
     ```
@@ -50,21 +50,35 @@ To apply published labels to groups, you must first enable the feature. These st
 
 1. Next, display the current group settings.
 
-    ```PowerShell
+    ```powershell
     $Setting.Values
     ```
 
-1. Then enable the feature:
+1. Enable the feature:
 
-    ```PowerShell
+    ```powershell
     $Setting["EnableMIPLabels"] = "True"
     ```
+ 
+1. Check the new applied value:
 
-1. Then save the changes and apply the settings:
-
-    ```PowerShell
-    New-AzureADDirectorySetting -DirectorySetting $setting
+    ```powershell
+    $Setting.Values
     ```
+    
+1. Save the changes and apply the settings:
+
+    ```powershell
+    Set-AzureADDirectorySetting -Id $grpUnifiedSetting.Id -DirectorySetting $setting
+    ```
+
+If you’re receiving a Request_BadRequest error, it's because the settings already exist in the tenant, so when you try to create a new property:value pair, the result is an error. In this case, take the following steps:
+
+1. Repeat steps 1-4 from [Enable sensitivity label support in PowerShell](#enable-sensitivity-label-support-in-powershell).
+1. Issue a `Get-AzureADDirectorySetting | FL` cmdlet and check the ID. If several ID values are present, use the one where you see the EnableMIPLabels property on the Values settings. You will need the ID in step 4.
+1. Set the EnableMIPLabels property variable: `$Setting["EnableMIPLabels"] = "True"`
+1. Issue the `Set-AzureADDirectorySetting -DirectorySetting $Setting -ID` cmdlet, using the ID that you retrieved in step 2.
+1. Ensure that the value is now correctly updated by issuing `$Setting.Values` again.
 
 You will also need to synchronize your sensitivity labels to Azure AD. For instructions, see [How to enable sensitivity labels for containers and synchronize labels](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
 

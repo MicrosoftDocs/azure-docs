@@ -63,6 +63,7 @@ Use the following tips to ensure that your input images give the most accurate r
   * Differences in hair type or facial hair.
   * Changes in facial appearance because of age.
   * Extreme facial expressions.
+* You can utilize the qualityForRecognition attribute in the [face detection](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md) operation when using applicable detection models as a general guideline of whether the image is likely of sufficient quality to attempt face recognition on. Only "high" quality images are recommended for person enrollment and quality at or above "medium" is recommended for identification scenarios.
 
 ## Next steps
 

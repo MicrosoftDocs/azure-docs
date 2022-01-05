@@ -1,43 +1,40 @@
 ---
 title: How to call the Request Service REST API (preview)
 titleSuffix: Azure Active Directory Verifiable Credentials
-description: Learn how to issue and verify using the Request Service REST API
+description: Learn how to issue and verify by using the Request Service REST API
 documentationCenter: ''
 author: barclayn
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 10/08/2021
 ms.author: barclayn
 
-#Customer intent: As an administrator, I am trying to learn how to use the Request Service API and integrate it into my business application
+#Customer intent: As an administrator, I am trying to learn how to use the Request Service API and integrate it into my business application.
 ---
 
 # Request Service REST API (preview)
 
-Azure Active Directory verifiable credentials Request Service REST API allows you to issue and verify verifiable credentials using the Azure AD Verifiable Credentials Service. This article shows you how to start using the Request Service REST API.
+Azure Active Directory (Azure AD) Verifiable Credentials includes the Request Service REST API. This API allows you to issue and verify credentials. This article shows you how to start using the Request Service REST API.
 
 > [!IMPORTANT]
-> The Request Service REST API is currently in public preview (beta).
-> This preview version is provided without a service level agreement, you can expect breaking changes and deprecation of the API while in preview version from time to time. The API is not recommended for production workloads while in preview. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
+> The Request Service REST API is currently in preview. This preview version is provided without a service level agreement, and you can occasionally expect breaking changes and deprecation of the API while in preview. The preview version of the API isn't recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## API access token
 
-For your application to access the Request Service REST API, you need to include a valid access token with the required permissions. Access tokens issued by the Microsoft identity platform contain information (scopes) that the Request Service REST API uses to validate the caller. Ensuring that the caller has the proper permissions to perform the operation they're requesting.
+For your application to access the Request Service REST API, you need to include a valid access token with the required permissions. Access tokens issued by the Microsoft identity platform contain information (scopes) that the Request Service REST API uses to validate the caller. An access token ensures that the caller has the proper permissions to perform the operation they're requesting.
 
-To get an access token, your app must be registered with the Microsoft identity platform and be authorized by an administrator for access to the Request Service API. If you haven't register the *verifiable-credentials-app* application, follow the steps [how to register the app](verifiable-credentials-configure-tenant.md#step-3-register-an-application-in-azure-ad) and then [generate an application secret](verifiable-credentials-configure-issuer.md#configure-the-verifiable-credentials-app).
+To get an access token, your app must be registered with the Microsoft identity platform, and be authorized by an administrator for access to the Request Service REST API. If you haven't registered the *verifiable-credentials-app* application, see [how to register the app](verifiable-credentials-configure-tenant.md#register-an-application-in-azure-ad) and then [generate an application secret](verifiable-credentials-configure-issuer.md#configure-the-verifiable-credentials-app).
 
 ### Get an access token
 
-Use the [OAuth 2.0 client credentials grant flow](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) to acquire the access token using the of the Microsoft identity platform. We recommend that you use a trusted oauth library. In this tutorial, we use the Microsoft Authentication Library [MSAL](../../active-directory/develop/msal-overview.md). MSAL is a Microsoft provided library that simplifies adding authentication and authorization to your app that can call a secure web API.
+Use the [OAuth 2.0 client credentials grant flow](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) to acquire the access token by using the Microsoft identity platform. Use a trusted library for this purpose. In this tutorial, we use the Microsoft Authentication Library [MSAL](../../active-directory/develop/msal-overview.md). MSAL simplifies adding authentication and authorization to an app that can call a secure web API.
 
 # [HTTP](#tab/http)
 
 ```http
-Pleaes refer to to the Microsoft Authentication Library (MSAL) documentation for more information on how to acquire tokens via HTTP.
+Refer to to the Microsoft Authentication Library (MSAL) documentation for more information on how to acquire tokens via HTTP.
 ```
 
 # [C#](#tab/csharp)
@@ -91,19 +88,18 @@ const result = await mainApp.msalCca.acquireTokenByClientCredential(mainApp.msal
 
 ---
 
-In the code above provide the following parameters.
+In the preceding code, provide the following parameters:
 
 | Parameter | Condition | Description |
 | --- | --- | --- |
-| Authority | Required | The directory tenant the application plans to operate against. For example, `https://login.microsoftonline.com/{your-tenant}`, replace `your-tenant` with your [tenant ID or name](../fundamentals/active-directory-how-to-find-tenant.md). |
-| Client ID | Required | The application ID that's assigned to your app. You can find this information in Azure portal where you registered your app. |
+| Authority | Required | The directory tenant the application plans to operate against. For example: `https://login.microsoftonline.com/{your-tenant}`. (Replace `your-tenant` with your [tenant ID or name](../fundamentals/active-directory-how-to-find-tenant.md).) |
+| Client ID | Required | The application ID that's assigned to your app. You can find this information in the Azure portal, where you registered your app. |
 | Client secret | Required | The client secret that you generated for your app.|
 | Scopes | Required | Must be set to `bbb94529-53a3-4be5-a069-7eaf2712b826/.default`. |
 
+For more information about how to get an access token by using a console app's identity, see one of the following articles: [C#](../develop/quickstart-v2-netcore-daemon.md), [Python](../develop/quickstart-v2-python-daemon.md), [Node.js](../develop/quickstart-v2-nodejs-console.md), or [Java](../develop/quickstart-v2-java-daemon.md).
 
-For more information how to get an access token by using a console app's identity, see one of the following articles [C#](../develop/quickstart-v2-netcore-daemon.md), [Python](../develop/quickstart-v2-python-daemon.md) ,[Node.js](../develop/quickstart-v2-nodejs-console.md), or [Java](../develop/quickstart-v2-java-daemon.md).
-
-You can also [Access token request with a certificate](../develop/v2-oauth2-client-creds-grant-flow.md) instead of client secret.
+You can also [access a token request with a certificate](../develop/v2-oauth2-client-creds-grant-flow.md) instead of client secret.
 
 # [HTTP](#tab/http)
 
@@ -176,15 +172,15 @@ const result = await mainApp.msalCca.acquireTokenByClientCredential(mainApp.msal
 
 ## Call the API
 
-To issue, or verify a verifiable credential, follow these steps:
+To issue or verify a verifiable credential, follow these steps:
 
-1. Construct an HTTP POST request to the Request Service REST API. Replace the `{tenantID}` with your **tenant ID**, or your tenant name.
+1. Construct an HTTP POST request to the Request Service REST API. Replace the `{tenantID}` with your tenant ID, or your tenant name.
 
     ```http
     POST https://beta.did.msidentity.com/v1.0/{tenantID}/verifiablecredentials/request
     ```
 
-1. Attach the access token as a Bearer token to the Authorization header in an HTTP request.
+1. Attach the access token as a bearer token to the authorization header in an HTTP request.
 
     ```http
     Authorization: Bearer <token>
@@ -192,13 +188,13 @@ To issue, or verify a verifiable credential, follow these steps:
 
 1. Set the `Content-Type` header to `Application/json`.
 
-1. Prepare and attach the [Issuance](issuance-request-api.md#issuance-request-payload), or [Presentation](presentation-request-api.md#presentation-request-payload) request payload to the request body.
+1. Prepare and attach the [issuance](issuance-request-api.md#issuance-request-payload) or [presentation](presentation-request-api.md#presentation-request-payload) request payload to the request body.
 
 1. Submit the request to the Request Service REST API.
 
 ## Issuance request example
 
-The following example demonstrates a verifiable credentials issuance request. For information about the payload, see [Request Service REST API issuance specification](issuance-request-api.md)
+The following example demonstrates a verifiable credentials issuance request. For information about the payload, see [Request Service REST API issuance specification](issuance-request-api.md).
 
 ```http
 POST https://beta.did.msidentity.com/v1.0/contoso.onmicrosoft.com/verifiablecredentials/request
@@ -233,11 +229,14 @@ Authorization: Bearer  <token>
 }
 ```  
 
-For the complete code, check out one of the following code samples, [C#](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/AspNetCoreVerifiableCredentials/IssuerController.cs) and [Node.js](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/issuer.js).
+For the complete code, see one of the following code samples:
+
+- [C#](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/1-asp-net-core-api-idtokenhint/IssuerController.cs)
+- [Node.js](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/issuer.js)
 
 ## Presentation request example
 
-The following example demonstrates a verifiable credentials presentation request. For information about the payload, see [Request Service REST API presentation specification](presentation-request-api.md)
+The following example demonstrates a verifiable credentials presentation request. For information about the payload, see [Request Service REST API presentation specification](presentation-request-api.md).
 
 ```http
 POST https://beta.did.msidentity.com/v1.0/contoso.onmicrosoft.com/verifiablecredentials/request
@@ -272,24 +271,24 @@ Authorization: Bearer  <token>
 }
 ```
 
-For the complete code, check out one of the following code samples:
+For the complete code, see one of the following code samples:
 
 - [C#](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/1-asp-net-core-api-idtokenhint/VerifierController.cs) 
-- [Node.js](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/verifier.js).
+- [Node.js](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/verifier.js)
 
 ## Callback events
 
-The request payload contains the [issuance](issuance-request-api.md#callback-events) and [presentation](presentation-request-api.md#callback-events) callback endpoint. The endpoint is part of your web application and should be publicly available. Azure AD verifiable credentials service calls your endpoint to inform your app on certain events. For example, when a user scans the QR code, uses the deep link their authenticator app, or finishes the presentation process.
+The request payload contains the [issuance](issuance-request-api.md#callback-events) and [presentation](presentation-request-api.md#callback-events) callback endpoint. The endpoint is part of your web application, and should be publicly available. Azure AD Verifiable Credentials calls your endpoint to inform your app on certain events. For example, such events might be when a user scans the QR code, uses the deep link the authenticator app, or finishes the presentation process.
 
 The following diagram describes the call your app makes to the Request Service REST API, and the callbacks to your application.
 
-![Diagram describes the call to the API and the callback events.](media/get-started-request-api/callback-events.png)
+![Diagram that describes the call to the API and the callback events.](media/get-started-request-api/callback-events.png)
 
-Configure your endpoint to listen to incoming HTTP POST requests. The following code snippet demonstrates how to handle the issuance callback HTTP request and update the UI accordantly:
+Configure your endpoint to listen to incoming HTTP POST requests. The following code snippet demonstrates how to handle the issuance callback HTTP request, and how to update the UI accordingly:
 
 # [HTTP](#tab/http)
 
-Not applicable. Choose one of the programming languages above.
+Not applicable. Choose one of the other programming languages.
 
 # [C#](#tab/csharp)
 
@@ -318,7 +317,7 @@ try
 }
 ```
 
-For the complete code, see the [issuance](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/AspNetCoreVerifiableCredentials/IssuerController.cs) and [presentation](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/AspNetCoreVerifiableCredentials/VerifierController.cs) code on the GitHub repo.
+For the complete code, see the [issuance](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/1-asp-net-core-api-idtokenhint/IssuerController.cs) and [presentation](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/1-asp-net-core-api-idtokenhint/IssuerController.cs) code on the GitHub repo.
 
 # [Node.js](#tab/nodejs)
 
@@ -357,7 +356,7 @@ For the complete code, see the [issuance](https://github.com/Azure-Samples/activ
 
 ## Next steps
 
-Check out the following articles:
+Learn more about these specifications:
 
 - [Issuance API specification](issuance-request-api.md)
 - [Presentation API specification](presentation-request-api.md)

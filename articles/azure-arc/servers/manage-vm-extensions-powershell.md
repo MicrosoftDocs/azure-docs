@@ -1,14 +1,14 @@
 ---
 title: Enable VM extension using Azure PowerShell
 description: This article describes how to deploy virtual machine extensions to Azure Arc-enabled servers running in hybrid cloud environments using Azure PowerShell.
-ms.date: 10/15/2021
+ms.date: 10/21/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
 
 # Enable Azure VM extensions using Azure PowerShell
 
-This article shows you how to deploy and uninstall Azure VM extensions, supported by Azure Arc-enabled servers, to a Linux or Windows hybrid machine using Azure PowerShell.
+This article shows you how to deploy, update, and uninstall Azure VM extensions, supported by Azure Arc-enabled servers, to a Linux or Windows hybrid machine using Azure PowerShell.
 
 > [!NOTE]
 > Azure Arc-enabled servers does not support deploying and managing VM extensions to Azure virtual machines. For Azure VMs, see the following [VM extension overview](../../virtual-machines/extensions/overview.md) article.
@@ -100,7 +100,13 @@ Name    Location  PropertiesType        ProvisioningState
 custom  westus2   CustomScriptExtension Succeeded
 ```
 
-## Remove an installed extension
+## Update extensions
+
+To reconfigure an installed extension, you can use the [Update-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/update-azconnectedmachineextension) cmdlet with the `-Name`, `-MachineName`, `-ResourceGroupName`, and `-Settings` parameters.
+
+Refer to the reference article for the cmdlet to understand the different methods to provide the changes you want to the extension.
+
+## Remove extensions
 
 To remove an installed VM extension on your Azure Arc-enabled server, use [Remove-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/remove-azconnectedmachineextension) with the `-Name`, `-MachineName` and `-ResourceGroupName` parameters.
 
