@@ -307,7 +307,7 @@ The following examples deploy to an existing staging deployment. This deployment
           package: ${{ env.ASC_PACKAGE_PATH }}/**/*.jar
 ```
 
-For more information on blue-green deployments, including an alternative approach, see [Blue-green deployment strategies](./concepts-blue-green-deployment-strategies).
+For more information on blue-green deployments, including an alternative approach, see [Blue-green deployment strategies](./concepts-blue-green-deployment-strategies.md).
 
 ### Setting production deployment
 
