@@ -80,14 +80,14 @@ Import-Module             C:\Azure_SAP_Automated_Deployment\sap-automation\deplo
 
 ## Copy the samples
 
-You can copy the sample configuration files to start testing the deployment automation framework.
+The repo contains a set of sample configuration files to start testing the deployment automation framework. You can copy them using the following steps.
 
 # [Linux](#tab/linux)
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -R sap-automation/samples/WORKSPACES WORKSPACES
+cp -Rp sap-automation/samples/WORKSPACES WORKSPACES
 ```
 # [Windows](#tab/windows)
 
