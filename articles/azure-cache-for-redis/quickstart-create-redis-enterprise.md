@@ -17,7 +17,7 @@ Azure Cache for Redis' Enterprise tiers provide fully integrated and managed [Re
 * Enterprise, which uses volatile memory (DRAM) on a virtual machine to store data
 * Enterprise Flash, which uses both volatile and non-volatile memory (NVMe or SSD) to store data.
 
-Both Enterprise and Enterprise Flash support open-source Redis 6 and some new features not yet available in the Basic, Standard or Premium tiers, including some Redis modules.  
+Both Enterprise and Enterprise Flash support open-source Redis 6 and some new features not yet available in the Basic, Standard or Premium tiers, including some Redis modules enabling additional features like search, bloom filters, and time series.  
 
 ## Prerequisites
 
