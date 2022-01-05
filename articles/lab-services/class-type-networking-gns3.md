@@ -15,15 +15,13 @@ This article has two main sections. The first section covers how to create the l
 
 ## Lab configuration
 
-To set up this lab, you need access to an Azure subscription and a lab account. Discuss with your organization's admin to see if you can get access to an existing Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+[!INCLUDE [must have subscription](./includes/lab-services-class-type-subscription.md)]
 
-Once you get have Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md). You can also use an existing lab plan.
+[!INCLUDE [must have lab plan](./includes/lab-services-class-type-lab-plan.md)]
 
 ### Lab settings
 
-For instructions on how to create a lab, see [Tutorial: Set up a lab](tutorial-setup-classroom-lab.md).  Use the following settings when creating the lab.
-
-Follow [this tutorial](tutorial-setup-classroom-lab.md) to create a new lab and then apply the following settings:
+[!INCLUDE [create lab](./includes/lab-services-class-type-lab.md)]  Use the following settings when creating the lab.
 
 | Lab settings | Value |
 | ------------ | ------------------ |
@@ -32,7 +30,9 @@ Follow [this tutorial](tutorial-setup-classroom-lab.md) to create a new lab and 
 
 ## Template machine configuration
 
-After the template machine is created, start the machine and connect to it to complete the following major tasks.
+[!INCLUDE [configure template vm](./includes/lab-services-class-type-template-vm.md)]
+
+To configure the template VM, we'll complete the following major tasks.
 
 1. Prepare the template machine for nested virtualization.
 2. Install GNS3.
@@ -43,7 +43,7 @@ After the template machine is created, start the machine and connect to it to co
 
 ### Prepare template machine for nested virtualization
 
-- Follow instructions in [this article](how-to-enable-nested-virtualization-template-vm.md) to prepare your template virtual machine for nested virtualization.
+Follow instructions to [enable nested virtualization](how-to-enable-nested-virtualization-template-vm.md) to prepare your template virtual machine for nested virtualization.
 
 ### Install GNS3
 
@@ -55,7 +55,10 @@ Eventually you'll reach the GNS3 VM selection. Make sure to select the **Hyper-V
 
 ![SelectHyperV](./media/class-type-networking-gns3/gns3-vm-hyper-v.png)
 
-  This option will download the PowerShell script and VHD files to create the GNS3 VM in the Hyper-V manager. Continue installation using the default values. **Once the setup is complete, don't start GNS3**.
+  This option will download the PowerShell script and VHD files to create the GNS3 VM in the Hyper-V manager. Continue installation using the default values.
+
+  > [!IMPORTANT]
+  > Once the setup is complete, don't start GNS3.
 
 ### Create GNS3 VM
 
@@ -94,6 +97,9 @@ Now that the template VM is set up properly, and ready for publishing there are 
 - Close down GNS3, publishing while and running can lead to unintended side effects.
 - Clean up any installation files or other unnecessary files.
 
+>[!IMPORTANT]
+>Publishing while the VM is still running will corrupt the template VMs and create unusable lab VMs.
+
 ## Cost  
 
 If you would like to estimate the cost of this lab, you can use the following example:
@@ -102,7 +108,8 @@ For a class of 25 students with 20 hours of scheduled class time and 10 hours of
 
 25 students \* (20 + 10) hours \* 84 Lab Units \* 0.01 USD per hour = 630 USD.
 
-**Important:** Cost estimate is for example purposes only.  For current details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
+> [!IMPORTANT]
+> Cost estimate is for example purposes only. For current details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
 
 ## Conclusion
 
@@ -110,11 +117,4 @@ This article walked you through the steps to create a lab for network configurat
 
 ## Next steps
 
-The template image can now be published to the lab. See [publish the template VM](how-to-create-manage-template.md#publish-the-template-vm) for further instructions.
-
-As you set up your lab, see the following articles:
-
-- [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)
+[!INCLUDE [next steps for class types](./includes/lab-services-class-type-next-steps.md)]
