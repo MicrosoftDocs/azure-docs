@@ -61,7 +61,7 @@ High client CPU usage indicates the system can't keep up with the work it's been
 Monitor the client's system-wide CPU usage using metrics available in the Azure portal or through performance counters on the machine. Be careful not to monitor *process* CPU because a single process can have low CPU usage but the system-wide CPU can be high. Watch for spikes in CPU usage that correspond with timeouts. High CPU may also cause high `in: XXX` values in `TimeoutException` error messages as described in the [[Traffic burst](#traffic-burst-and-thread-pool-configuration)] section.
 
 > [!NOTE]
-> StackExchange.Redis 1.1.603 and later includes the `local-cpu` metric in `TimeoutException` error messages. Ensure you using the latest version of the [StackExchange.Redis NuGet package](https://www.nuget.org/packages/StackExchange.Redis/). There are bugs constantly being fixed in the code to make it more robust to timeouts so having the latest version is important.
+> StackExchange.Redis 1.1.603 and later includes the `local-cpu` metric in `TimeoutException` error messages. Ensure you are using the latest version of the [StackExchange.Redis NuGet package](https://www.nuget.org/packages/StackExchange.Redis/). Bugs are regularly fixed in the code to make it more robust to timeouts. Having the latest version is important.
 >
 
 To mitigate a client's high CPU usage:
@@ -83,7 +83,7 @@ Because of optimistic TCP settings in Linux, client applications hosted on Linux
 
 ### RedisSessionStateProvider retry timeout
 
-If you're using `RedisSessionStateProvider`, ensure you have set the retry timeout correctly. The `retryTimeoutInMilliseconds` value should be higher than the `operationTimeoutInMilliseconds` value. Otherwise, no retries occur. In the following example, `retryTimeoutInMilliseconds` is set to 3000. For more information, see [ASP.NET Session State Provider for Azure Cache for Redis](cache-aspnet-session-state-provider.md) and [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
+If you're using `RedisSessionStateProvider`, ensure you have set the retry timeout correctly. The `retryTimeoutInMilliseconds` value should be higher than the `operationTimeoutInMilliseconds` value. Otherwise, no retries occur. In the following example, `retryTimeoutInMilliseconds` is set to 3000. For more information, see [ASP.NET Session State Provider for Azure Cache for Redis](cache-aspnet-session-state-provider.md) and [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
  ```xml
  
@@ -106,7 +106,15 @@ If you're using `RedisSessionStateProvider`, ensure you have set the retry time
 
 ### Server maintenance
 
-Planned or unplanned maintenance can cause disruptions with client connections. The number and type of exceptions depends on the location of the request in the code path, when the cache closes its connections. For instance, an operation that sends a request but hasn't received a response when the failover occurs might get a time-out exception. New requests on the closed connection object receive connection exceptions until the reconnection happens successfully. To check whether your Azure Cache for Redis had a failover during when timeouts occurred, check the metric **Errors** by Typing `Failover` on the portal. For more information on failovers, see [Failover and patching for Azure Cache for Redis](cache-failover.md).
+Planned or unplanned maintenance can cause disruptions with client connections. The number and type of exceptions depends on the location of the request in the code path, and when the cache closes its connections. For instance, an operation that sends a request but hasn't received a response when the failover occurs might get a time-out exception. New requests on the closed connection object receive connection exceptions until the reconnection happens successfully.
+
+For information, check these other sections:
+
+- [Scheduling updates](cache-administration.md#schedule-updates)
+- [Connection resilience](cache-best-practices-connection.md#connection-resilience)
+- `AzureRedisEvents` [notifications](cache-failover.md#can-i-be-notified-in-advance-of-planned-maintenance)
+
+To check whether your Azure Cache for Redis had a failover during when timeouts occurred, check the metric **Errors** by typing `Failover` on the portal. For more information on failovers, see [Failover and patching for Azure Cache for Redis](cache-failover.md).
 
 ### High Server load
 

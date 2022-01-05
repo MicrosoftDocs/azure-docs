@@ -45,7 +45,7 @@ Using optimistic TCP settings in Linux might cause client applications to experi
 
 ## Azure Cache for Redis CLI
 
-Test connectivity using Azure Cache for Redis CLI. For more information on CLI,[Use the Redis command-line tool with Azure Cache for Redis](cache-how-to-redis-cli-tool.md).
+Test connectivity using Azure Cache for Redis CLI. For more information on CLI, [Use the Redis command-line tool with Azure Cache for Redis](cache-how-to-redis-cli-tool.md).
 
 ## PSPING
 
@@ -59,15 +59,15 @@ You can confirm the number of sent packets is equal to the received packets. Con
 
 ## Virtual network configuration
 
-1. Check if a virtual network is assigned to your cache from the "**Virtual Network**" section under the **Settings** on the Resource menu of the Azure portal.
+1. Check if a virtual network is assigned to your cache from the "**Virtual Network**" section under the **Settings** on the Resource menu of the Azure portal.
 1. Ensure that the client host machine is in the same virtual network as the Azure Cache For Redis.
 1. When the client application is in a different VNet than your Azure Cache For Redis, both VNets must have VNet peering enabled within the same Azure region.
-1. Validate that the [Inbound](cache-how-to-premium-vnet.md#inbound-port-requirements) and [Outbound](cache-how-to-premium-vnet.md#outbound-port-requirements) rules meet the requirement.
+1. Validate that the [Inbound](cache-how-to-premium-vnet.md#inbound-port-requirements) and [Outbound](cache-how-to-premium-vnet.md#outbound-port-requirements) rules meet the requirement.
 1. For more information, see [Configure a virtual network - Premium-tier Azure Cache for Redis instance](cache-how-to-premium-vnet.md#how-can-i-verify-that-my-cache-is-working-in-a-virtual-network).
 
 ## Private endpoint configuration
 
-1. `Public Network Access` flag is disabled by default on creating a private endpoint. Ensure that you have set the `Public Network Access` correctly. <!-- where is the flag? Look under settings| private endpoint -->
+1. `Public Network Access` flag is disabled by default on creating a private endpoint. Ensure that you have set the `Public Network Access` correctly. When you have your cache in Azure portal, look under **Private Endpoint** in the Resource menu on the left for this setting.
 1. If you're trying to connect to your cache private endpoint from outside your virtual network of your cache, `Public Network Access` needs to be enabled.
 1. If you've deleted your private endpoint, ensure that the public network access is enabled.
 1. Verify if your private endpoint is configured correctly. For more information, see [Create a private endpoint with a new Azure Cache for Redis instance](cache-private-link.md#create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance).
