@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2021
+ms.date: 01/04/2022
 ms.author: v-ydequadros
 ---
 
@@ -261,11 +261,11 @@ CloudKnox has the following set of predefined tags that can be applied:
 
 The **Groups** dashboard provides a high-level overview of group details.
 
-1. On the **Usage Analytics** page, select **Groups** from the  drop-down list across the top of the screen. The following components make up the **Groups** dashboard:
+- On the **Usage Analytics** page, select **Groups** from the  drop-down list across the top of the screen. The following components make up the **Groups** dashboard:
 
-- **Groups** - This section  displays the total number of groups, inactive, and active groups based on the authorization system selected. For more information, see [How to apply filters for groups](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-groups).
-- **Tasks** - This section  displays the number of tasks granted to groups, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see [How to apply filters to users](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-users).
-- **Resources** - This section  displays how many resources have been accessed by groups based on the authorization system selected. For more information, see [How to apply filters for groups](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-groups).
+    - **Groups** - This section  displays the total number of groups, inactive, and active groups based on the authorization system selected. For more information, see [How to apply filters for groups](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-groups).
+    - **Tasks** - This section  displays the number of tasks granted to groups, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see [How to apply filters to users](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-users).
+    - **Resources** - This section  displays how many resources have been accessed by groups based on the authorization system selected. For more information, see [How to apply filters for groups](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-groups).
 
 The **Groups** table  displays the privileges assigned,  privileges used, and resources accessed by users.
 
@@ -322,9 +322,9 @@ There are many filter options within the **Groups** screen, including filters by
  
     4. To remove all filters, click **X**.
 
-### How to read the Information Panel for groups
+### How to read the Information Pane for groups
 
-1. To view additional information about the group after you have applied the filters and selected the authorization system, click the icon at the end of the row.
+- To view additional information about the group after you have applied the filters and selected the authorization system, click the icon at the end of the row.
 
     - **Tasks** (All Authorization Systems) -  Displays unused and used tasks for each group. The tasks are grouped by service and can be expanded to view the task, application or service names.
 
@@ -332,7 +332,7 @@ There are many filter options within the **Groups** screen, including filters by
 
          A task can move from **Used** to **Unused** if that task has not been accessed for more than 90 days.
 
-2. You can perform the following actions in the **Tasks** section:
+- You can perform the following actions in the **Tasks** section:
 
     - **Search** - In the **Search** box, enter a specific task name and find how many of those tasks have been unused or used.
         - **All Tasks** - Use the **Tasks** drop-down to filter data by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
