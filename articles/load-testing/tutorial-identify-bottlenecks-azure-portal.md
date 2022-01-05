@@ -86,17 +86,22 @@ Now that you have the application deployed and running, you can run your first l
 
 ## Configure and create the load test
 
-In this section, you'll create a load test by using an existing Apache JMeter test script.
+In this section, you'll create a load test by using a sample Apache JMeter test script.
 
 ### Configure the Apache JMeter script
 
-The sample application's source repo includes an Apache JMeter script named *SampleApp.jmx*. This script makes three API calls on each test iteration:  
+The sample application's source repo includes an Apache JMeter script named *SampleApp.jmx*. This script makes three API calls to the web app on each test iteration:  
 
 * `add`: Carries out a data insert operation on Azure Cosmos DB for the number of visitors on the web app.
 * `get`: Carries out a GET operation from Azure Cosmos DB to retrieve the count.
 * `lasttimestamp`: Updates the time stamp since the last user went to the website.
 
-In this section, you'll update the Apache JMeter script with the URL of the sample web app that you just deployed.
+> [!NOTE]
+> When you open the sample script on your local Apache JMeter instance, you might encounter an error. The sample Apache JMeter script requires two plugins: Custom Thread Groups and Throughput Shaping Timer.
+>
+> To successfully open the script locally, you need to install both plugins. You can use the [Apache JMeter Plugins Manager](https://jmeter-plugins.org/install/Install/) to do this.
+
+To load test the sample web app that you deployed previously, you need to update the API URLs in the Apache JMeter script.
 
 1. Open the directory of the cloned sample app in Visual Studio Code:
 
