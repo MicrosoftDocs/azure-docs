@@ -48,7 +48,7 @@ Disk pools are currently available in the following regions:
 
 ## Billing
 
-When you deploy a disk pool, there are two areas that will incur billing costs: The price of the disk pool itself, and the price of each individual disk added to the pool. For example, if you have a disk pool with one P30 disk added, you will be billed for the P30 disk and the disk pool. Other than the disk pool and your disks, there are no extra service charges for a disk pool.
+When you deploy a disk pool, there are two areas that will incur billing costs: The price of the disk pool service fee itself, and the price of each individual disk added to the pool. For example, if you have a disk pool with one P30 disk added, you will be billed for the P30 disk and the disk pool. Other than the disk pool and your disks, there are no extra service charges for a disk pool and you will not be billed for the resources deployed in the managed resource group: MSP_(resource-group-name)_(diskpool-name)_(region-name).
 
 See the [Azure managed disk pricing page](https://azure.microsoft.com/pricing/details/managed-disks/) for regional pricing on disk pools and disks to evaluate the cost of a disk pool for you.
 
