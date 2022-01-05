@@ -119,8 +119,6 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
 
     ```bash
     dotnet add package Microsoft.Extensions.Azure
-    dotnet user-secrets init
-    dotnet user-secrets set Azure:WebPubSub:ConnectionString "<connection-string>"
     ```
 
 2. DI the service client inside `ConfigureServices` and don't forget to replace `<connection_string>` with the one of your services.
@@ -130,7 +128,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     {
         services.AddAzureClients(builder =>
         {
-            builder.AddWebPubSubServiceClient(Configuration["Azure:WebPubSub:ConnectionString"], "chat");
+            builder.AddWebPubSubServiceClient("<connection_string>", "chat");
         });
     }
     ```
@@ -148,7 +146,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
                 await context.Response.WriteAsync("missing user id");
                 return;
             }
-            var serviceClient = context.RequestServices.GetRequiredService<WebPubSubServiceClient>();
+            var serviceClient = context.RequestServices.GetRequiredService<Azure.Messaging.WebPubSub.WebPubSubServiceClient>();
             await context.Response.WriteAsync(serviceClient.GetClientAccessUri(userId: id).AbsoluteUri);
         });
     });
@@ -641,7 +639,7 @@ The `ce-type` of `message` event is always `azure.webpubsub.user.message`, detai
         // abuse protection
         endpoints.Map("/eventhandler/{*path}", async context =>
         {
-            var serviceClient = context.RequestServices.GetRequiredService<WebPubSubServiceClient>();
+            var serviceClient = context.RequestServices.GetRequiredService<Azure.Messaging.WebPubSub.WebPubSubServiceClient>();
             if (context.Request.Method == "OPTIONS")
             {
                 if (context.Request.Headers["WebHook-Request-Origin"].Count > 0)
@@ -720,6 +718,7 @@ The `ce-type` of `message` event is always `azure.webpubsub.user.message`, detai
     ```csharp
     app.UseEndpoints(endpoints =>
     {
+        var serviceClient = context.RequestServices.GetRequiredService<Azure.Messaging.WebPubSub.WebPubSubServiceClient>();
         // abuse protection
         endpoints.Map("/eventhandler/{*path}", async context =>
         {
