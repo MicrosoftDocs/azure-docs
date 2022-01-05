@@ -12,7 +12,7 @@ ms.date: 10/19/2021
 
 The Kusto Query Language, or KQL, is the language you will use to work with and manipulate data in Microsoft Sentinel. The logs you feed into your workspace aren't worth much if you can't analyze them and get the important information hidden in all that data. Kusto Query Language has not only the power and flexibility to get that information, but the simplicity to help you get started quickly. If you have a background in scripting or working with databases, a lot of the content of this article will feel very familiar. If not, don't worry, you will soon be ready to start writing your own queries and driving value for your organization.
 
-This article introduces the basics of KQL, covering some of the most used functions and operators, which should address 75 to 80 percent of the queries you will write day to day. When you'll need more depth, or to run more advanced queries, you can take advantage of the official KQL documentation as well as a variety of online courses.
+This article introduces the basics of KQL, covering some of the most used functions and operators, which should address 75 to 80 percent of the queries you will write day to day. When you'll need more depth, or to run more advanced queries, you can take advantage of the [official KQL documentation](/azure/data-explorer/kusto/query/) as well as a variety of online courses ([Pluralsight's](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch) is great).
 
 ## Background - Why KQL?
 
@@ -36,7 +36,7 @@ KQL requests are stated in plain language and use a data-flow model designed to 
 
 KQL queries are made up of *statements* separated by semicolons. There are many kinds of statements, but only two widely used types that we’ll discuss here:
 
-- [**tabular expression statements**](/azure/data-explorer/kusto/query/tabularexpressionstatements) are what we typically mean when we talk about queries – these are the actual body of the query, and at least one of these is required. Most of the rest of this article will discuss this kind of statement.
+- [**tabular expression statements**](/azure/data-explorer/kusto/query/tabularexpressionstatements) are what we typically mean when we talk about queries – these are the actual body of the query. The important thing to know about tabular expression statements is that they accept a tabular input (a table or another tabular expression) and produce a tabular output. At least one of these is required. Most of the rest of this article will discuss this kind of statement.
 
 - [***let* statements**](/azure/data-explorer/kusto/query/letstatement) allow you to create and define variables and constants outside the body of the query, for easier readability and versatility. These are optional and depend on your particular needs. We'll address this kind of statement at the end of the article. 
 
@@ -74,11 +74,11 @@ SigninLogs                              // Get data
 | where RiskLevelDuringSignIn == 'none' // Filter
    and TimeGenerated >= ago(7d)         // Filter
 | summarize Count = count() by city     // Summarize
-| sort by Count desc                   // Sort
+| sort by Count desc                    // Sort
 | take 5                                // Select
 ```
 
-In most cases and within certain boundaries, you can arrange the steps in any order you choose, but be aware that the order can affect the query's performance, and sometimes even the results.
+Because the output of every step serves as the input for the following step, the order of the steps can determine the query's results and affect its performance. It's crucial that you order the steps according to what you want to get out of the query.
 
 > [!TIP]
 > - A good rule of thumb is to filter your data early, so you are only passing relevant data down the pipeline. This will greatly increase performance and ensure that you aren't accidentally including irrelevant data in summarization steps.
@@ -146,7 +146,7 @@ While most of the data types are standard, you might be less familiar with types
 
 ## Getting, limiting, sorting, and filtering data
 
-The core vocabulary of Kusto Query Language - the foundation that will allow you to accomplish the overwhelming majority of your tasks - is a collection of operators for filtering, sorting, and selecting your data. The remaining tasks you will need to do will require you to stretch your knowledge of the language to meet your more advanced needs. Let's expand a bit on some of the commands we used in our above example and look at *take*, *sort*, and *where*.
+The core vocabulary of Kusto Query Language - the foundation that will allow you to accomplish the overwhelming majority of your tasks - is a collection of operators for filtering, sorting, and selecting your data. The remaining tasks you will need to do will require you to stretch your knowledge of the language to meet your more advanced needs. Let's expand a bit on some of the commands we used in our above example and look at `take`, `sort`, and `where`.
 
 For each of these operators, we'll examine its use in our previous *SigninLogs* example, and learn either a useful tip or a best practice.
 
@@ -160,9 +160,9 @@ Note that in Kusto Query Language, log names are case sensitive, so `SigninLogs`
 
 ### Limiting data: *take*
 
-The *take* operator is used to limit your results by returning only a given number of rows. It's followed by an integer that specifies the number of rows to return. Typically, it's used at the end of a query after you have determined your sort order, and in such a case it will return the given number of rows at the top of the sorted order.
+The `take` operator is used to limit your results by returning only a given number of rows. It's followed by an integer that specifies the number of rows to return. Typically, it's used at the end of a query after you have determined your sort order, and in such a case it will return the given number of rows at the top of the sorted order.
 
-Using *take* earlier in the query can be useful for testing a query, when you don't want to return large datasets. However, if you place the *take* operation before any *sort* operations, *take* will return rows selected at random - and possibly a different set of rows every time the query is run.  Here's an example of using take:
+Using `take` earlier in the query can be useful for testing a query, when you don't want to return large datasets. However, if you place the `take` operation before any `sort` operations, `take` will return rows selected at random - and possibly a different set of rows every time the query is run.  Here's an example of using take:
 
 ```kusto
 SigninLogs
@@ -171,11 +171,14 @@ SigninLogs
 :::image type="content" source="media/kql-overview-alt/table-take-5.png" alt-text="Screenshot of results of take operator.":::
 
 > [!TIP]
-> When working on a brand-new query where you may not know what the query will look like, it can be useful to put a *take* statement at the beginning to artificially limit your dataset for faster processing and experimentation. Once you are happy with the full query, you can remove the initial *take* step.
+> When working on a brand-new query where you may not know what the query will look like, it can be useful to put a `take` statement at the beginning to artificially limit your dataset for faster processing and experimentation. Once you are happy with the full query, you can remove the initial `take` step.
 
 ### Sorting data: *order* / *sort*
 
-The *sort* operator (the *order* operator is synonymous) is used to sort your data by a specified column. For example, here we ordered the results by *TimeGenerated* and we set the order direction to descending with the *desc* keyword, placing the highest values first; for ascending order we would use *asc*.
+The `sort` operator (the `order` operator is synonymous) is used to sort your data by a specified column. For example, here we ordered the results by *TimeGenerated* and we set the order direction to descending with the *desc* parameter, placing the highest values first; for ascending order we would use *asc*. 
+
+> [!NOTE]
+> The default direction for sorts is descending, to technically you only have to specify if you want to sort in ascending order. But it will make your query more readable to specify in any case.
 
 ```kusto
 SigninLogs
@@ -183,13 +186,13 @@ SigninLogs
 | take 5
 ```
 
-As we mentioned, we put the *sort* operator before the *take* operator. We need to sort first to make sure we get the appropriate five records.
+As we mentioned, we put the `sort` operator before the `take` operator. We need to sort first to make sure we get the appropriate five records.
 
 :::image type="content" source="media/kql-overview-alt/table-take-sort.png" alt-text="Screenshot of results of sort operator, with take limit.":::
 
 #### *Top*
 
-The *top* operator allows us to combine the *sort* and *take* operations into a single operator:
+The `top` operator allows us to combine the `sort` and `take` operations into a single operator:
 
 ```kusto
 SigninLogs
@@ -208,7 +211,7 @@ Now, if *TimeGenerated* is the same between multiple records, it will then try t
 
 ### Filtering data: *where*
 
-The *where* operator is arguably the most important operator, because it's the key to making sure you are only working with the subset of data that is relevant to your scenario. You should do your best to filter your data as early in the query as possible because doing so will improve query performance by reducing the amount of data that needs to be processed in subsequent steps; it also ensures that you are only performing calculations on the desired data. See this example:
+The `where` operator is arguably the most important operator, because it's the key to making sure you are only working with the subset of data that is relevant to your scenario. You should do your best to filter your data as early in the query as possible because doing so will improve query performance by reducing the amount of data that needs to be processed in subsequent steps; it also ensures that you are only performing calculations on the desired data. See this example:
 
 ```kusto
 SigninLogs
@@ -217,7 +220,7 @@ SigninLogs
 | take 5
 ```
 
-The *where* operator specifies a variable, a comparison (*scalar*) operator, and a value. In our case, we used >= to denote that the value in the *TimeGenerated* column needs to be greater than (that is, later than) or equal to seven days ago.
+The `where` operator specifies a variable, a comparison (*scalar*) operator, and a value. In our case, we used >= to denote that the value in the *TimeGenerated* column needs to be greater than (that is, later than) or equal to seven days ago.
 
 There are two types of comparison operators in KQL: string and numerical. The following table shows the full list of numerical operators:
 
@@ -248,7 +251,7 @@ The list of string operators is a much longer list because it has permutations f
 > [!TIP]
 > **Best Practice:** In most cases, you will probably want to filter your data by more than one column, or filter the same column in more than one way. In these instances, there are two best practices you should keep in mind.
 > 
-> You can combine multiple *where* statements into a single step by using the *and* keyword. For example:
+> You can combine multiple `where` statements into a single step by using the *and* keyword. For example:
 > 
 > ```kusto
 > SigninLogs
@@ -256,7 +259,7 @@ The list of string operators is a much longer list because it has permutations f
 >     and TimeGenerated >= ago(7d)
 > ```
 > 
-> When you have multiple filters joined into a single *where* statement using the *and* keyword, like above, you will get better performance by putting filters that only reference a single column first. So, a better way to write the above query would be:
+> When you have multiple filters joined into a single `where` statement using the *and* keyword, like above, you will get better performance by putting filters that only reference a single column first. So, a better way to write the above query would be:
 > 
 > ```kusto
 > SigninLogs
@@ -268,11 +271,11 @@ The list of string operators is a much longer list because it has permutations f
 
 ## Summarizing data
 
-[*Summarize*](/azure/data-explorer/kusto/query/summarizeoperator) is one of the most important tabular operators in KQL, but it also is one of the more complex operators to learn if you are new to query languages in general. The job of *summarize* is to take in a table of data and output a *new table* that is aggregated by one or more columns.
+[*Summarize*](/azure/data-explorer/kusto/query/summarizeoperator) is one of the most important tabular operators in KQL, but it also is one of the more complex operators to learn if you are new to query languages in general. The job of `summarize` is to take in a table of data and output a *new table* that is aggregated by one or more columns.
 
 ### Structure of the summarize statement
 
-The basic structure of a *summarize* statement is as follows:
+The basic structure of a `summarize` statement is as follows:
 
 `| summarize <aggregation> by <column>`
 
@@ -285,7 +288,7 @@ Perf
 
 :::image type="content" source="media/kql-overview-alt/table-summarize-count.png" alt-text="Screenshot of results of summarize operator with count aggregation.":::
 
-Because the output of *summarize* is a new table, any columns not explicitly specified in the *summarize* statement will **not** be passed down the pipeline. To illustrate this concept, consider this example:
+Because the output of `summarize` is a new table, any columns not explicitly specified in the `summarize` statement will **not** be passed down the pipeline. To illustrate this concept, consider this example:
 
 ```kusto
 Perf
@@ -294,7 +297,7 @@ Perf
 | sort by ObjectName asc
 ```
 
-On the second line, we are specifying that we only care about the columns *ObjectName*, *CounterValue*, and *CounterName*. We then summarized to get the record count by *CounterName* and finally, we attempt to sort the data in ascending order based on the *ObjectName* column. Unfortunately, this query will fail with an error (indicating that the *ObjectName* is unknown) because when we summarized, we only included the *Count* and *CounterName* columns in our new table. To avoid this error, we can simply add *ObjectName* to the end of our *summarize* step, like this:
+On the second line, we are specifying that we only care about the columns *ObjectName*, *CounterValue*, and *CounterName*. We then summarized to get the record count by *CounterName* and finally, we attempt to sort the data in ascending order based on the *ObjectName* column. Unfortunately, this query will fail with an error (indicating that the *ObjectName* is unknown) because when we summarized, we only included the *Count* and *CounterName* columns in our new table. To avoid this error, we can simply add *ObjectName* to the end of our `summarize` step, like this:
 
 ```kusto
 Perf
@@ -303,11 +306,11 @@ Perf
 | sort by ObjectName asc
 ```
 
-The way to read the *summarize* line in your head would be: "summarize the count of records by *CounterName*, and group by *ObjectName*". You can continue adding columns, separated by commas, to the end of the *summarize* statement.
+The way to read the `summarize` line in your head would be: "summarize the count of records by *CounterName*, and group by *ObjectName*". You can continue adding columns, separated by commas, to the end of the `summarize` statement.
 
 :::image type="content" source="media/kql-overview-alt/table-summarize-group.png" alt-text="Screenshot of results of summarize operator with two arguments.":::
 
-Building on the previous example, if we want to aggregate multiple columns at the same time, we can achieve this by adding aggregations to the *summarize* operator, separated by commas. In the example below, we are getting not only a count of all the records but also a sum of the values in the *CounterValue* column across all records (that match any filters in the query):
+Building on the previous example, if we want to aggregate multiple columns at the same time, we can achieve this by adding aggregations to the `summarize` operator, separated by commas. In the example below, we are getting not only a count of all the records but also a sum of the values in the *CounterValue* column across all records (that match any filters in the query):
 
 ```kusto
 Perf
@@ -318,9 +321,9 @@ Perf
 
 :::image type="content" source="media/kql-overview-alt/table-summarize-multiple.png" alt-text="Screenshot of results of summarize operator with multiple aggregations.":::
 
-This seems like a good time to talk about column names for these aggregated columns. At the start of this section, we said the *summarize* operator takes in a table of data and produces a new table, and only the columns you specify in the *summarize* statement will continue down the pipeline. Therefore, if you were to run the above example, the resulting columns for our aggregation would be *count_* and *sum_CounterValue*.
+This seems like a good time to talk about column names for these aggregated columns. At the start of this section, we said the `summarize` operator takes in a table of data and produces a new table, and only the columns you specify in the `summarize` statement will continue down the pipeline. Therefore, if you were to run the above example, the resulting columns for our aggregation would be *count_* and *sum_CounterValue*.
 
-The KQL engine will automatically create a column name without us having to be explicit, but often, you will find that you will prefer your new column have a friendlier name. You can easily rename your column in the *summarize* statement by specifying a new name, followed by ` = ` and the aggregation, like so:
+The KQL engine will automatically create a column name without us having to be explicit, but often, you will find that you will prefer your new column have a friendlier name. You can easily rename your column in the `summarize` statement by specifying a new name, followed by ` = ` and the aggregation, like so:
 
 ```kusto
 Perf
@@ -333,7 +336,7 @@ Now, our summarized columns will be named *Count* and *CounterSum*.
 
 :::image type="content" source="media/kql-overview-alt/friendly-column-names.png" alt-text="Screenshot of friendly column names for aggregations.":::
 
-There is much more to the *summarize* operator than we can cover here, but you should invest the time to learn it because it is a key component to any data analysis you plan to perform on your Microsoft Sentinel data.
+There is much more to the `summarize` operator than we can cover here, but you should invest the time to learn it because it is a key component to any data analysis you plan to perform on your Microsoft Sentinel data.
 
 ### Aggregation reference
 
@@ -369,7 +372,7 @@ As you start working more with KQL, you may find that you have more information 
 
 ### *Project* and *project-away*
 
-[*Project*](/azure/data-explorer/kusto/query/projectoperator) is roughly equivalent to many languages' *select* statements. It allows you to choose which columns to keep. The order of the columns returned will match the order of the columns you list in your *project* statement, as shown in this example:
+[*Project*](/azure/data-explorer/kusto/query/projectoperator) is roughly equivalent to many languages' *select* statements. It allows you to choose which columns to keep. The order of the columns returned will match the order of the columns you list in your `project` statement, as shown in this example:
 
 ```kusto
 Perf
@@ -384,7 +387,7 @@ Perf
 ```
 
 > [!TIP]
-> It can be useful to use *project* in two locations in your queries, at the beginning and at the end. Using *project* early in your query can help improve performance by stripping away large chunks of data you don't need to pass down the pipeline. Using it at the end lets you get rid of any columns that may have been created in previous steps and aren't needed in your final output.
+> It can be useful to use `project` in two locations in your queries, at the beginning and at the end. Using `project` early in your query can help improve performance by stripping away large chunks of data you don't need to pass down the pipeline. Using it at the end lets you get rid of any columns that may have been created in previous steps and aren't needed in your final output.
 > 
 ### *Extend*
 
@@ -397,7 +400,7 @@ Usage
 | project ResourceUri, MBytes=Quantity, KBytes
 ```
 
-On the final line in our *project* statement, we renamed the *Quantity* column to *Mbytes*, so we can easily tell which unit of measure is relevant to each column. It is worth noting that *extend* also works with previously calculated columns. For example, we can add one more column called *Bytes* that is calculated from *Kbytes*:
+On the final line in our `project` statement, we renamed the *Quantity* column to *Mbytes*, so we can easily tell which unit of measure is relevant to each column. It is worth noting that `extend` also works with already calculated columns. For example, we can add one more column called *Bytes* that is calculated from *Kbytes*:
 
 ```kusto
 Usage
@@ -409,18 +412,18 @@ Usage
 
 ## Joining tables
 
-Much of your work in Microsoft Sentinel can be carried out by using a single log type, but there are times when you will want to correlate data together or perform a lookup against another set of data. Like most query languages, KQL offers a few operators used to perform various types of joins. In this section, we will look at the most-used operators, *union* and *join*.
+Much of your work in Microsoft Sentinel can be carried out by using a single log type, but there are times when you will want to correlate data together or perform a lookup against another set of data. Like most query languages, KQL offers a few operators used to perform various types of joins. In this section, we will look at the most-used operators, `union` and `join`.
 
 ### *Union*
 
-*Union* simply takes two or more tables and returns all the rows. For example:
+`Union` simply takes two or more tables and returns all the rows. For example:
 
 ```kusto
 OfficeActivity
 | union SecurityEvent
 ```
 
-This would return all rows from both the *OfficeActivity* and *SecurityEvent* tables. *Union* offers a few parameters that can be used to adjust how the union behaves. Two of the most useful are *withsource* and *kind*:
+This would return all rows from both the *OfficeActivity* and *SecurityEvent* tables. `Union` offers a few parameters that can be used to adjust how the union behaves. Two of the most useful are *withsource* and *kind*:
 
 ```kusto
 OfficeActivity
@@ -433,7 +436,7 @@ The other parameter we specified was *kind*, which has two options: *inner* or *
 
 ### *Join*
 
-*Join* works similarly to *union*, except instead of joining tables to make a new table, we are joining *rows* to make a new table. Like most database languages, there are multiple types of joins you can perform. The general syntax for a *join* is:
+`Join` works similarly to `union`, except instead of joining tables to make a new table, we are joining *rows* to make a new table. Like most database languages, there are multiple types of joins you can perform. The general syntax for a `join` is:
 
 ```kusto
 T1
@@ -443,7 +446,7 @@ T1
 ) on $left.<T1Column> == $right.<T2Column>
 ```
 
-After the *join* operator, we specify the *kind* of join we want to perform followed by an open parenthesis. Within the parentheses is where you specify the table you want to join, as well as any other query statements on *that* table you wish to add. After the closing parenthesis, we use the *on* keyword followed by our left (*$left.\<columnName>* keyword) and right (*$right.\<columnName>*) columns separated with the == operator. Here's an example of an *inner join*:
+After the `join` operator, we specify the *kind* of join we want to perform followed by an open parenthesis. Within the parentheses is where you specify the table you want to join, as well as any other query statements on *that* table you wish to add. After the closing parenthesis, we use the *on* keyword followed by our left (*$left.\<columnName>* keyword) and right (*$right.\<columnName>*) columns separated with the == operator. Here's an example of an *inner join*:
 
 ```kusto
 OfficeActivity // SUBSTITUTE OTHER TABLE!
@@ -478,7 +481,7 @@ For your reference, the following table shows a list of available types of joins
 
 ## Evaluate
 
-You may remember that in the first KQL example, we saw the *evaluate* operator on one of the lines. The *evaluate* operator is less commonly used than the ones we have touched on previously. However, knowing how the *evaluate* operator works is well worth your time. Once more, here is that first query, where you will see *evaluate* on the second line.
+You may remember that in the first KQL example, we saw the `evaluate` operator on one of the lines. The `evaluate` operator is less commonly used than the ones we have touched on previously. However, knowing how the `evaluate` operator works is well worth your time. Once more, here is that first query, where you will see `evaluate` on the second line.
 
 ```kusto
 SigninLogs
@@ -512,7 +515,7 @@ Going back to our original pipeline steps, we saw this:
 
 `Get Data | Filter | Summarize | Sort | Select`
 
-Now that we've considered the *evaluate* operator, we can see that it represents a new stage in the pipeline, which now looks like this:
+Now that we've considered the `evaluate` operator, we can see that it represents a new stage in the pipeline, which now looks like this:
 
 `Get Data | `***`Parse`***` | Filter | Summarize | Sort | Select`
 
