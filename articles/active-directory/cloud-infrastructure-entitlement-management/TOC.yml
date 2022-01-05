@@ -32,7 +32,7 @@
     - name: Integration with Splunk
       href: cloudknox-splunk.md
     - name: Integration with ServiceNow
-      href: cloudknox-product-dashboard.md
+      href: cloudknox-servicenow.md
     - name: CloudKnox FortSentry registration
       href: cloudknox-fortsentry-registration.md
   - name: Configure authorization systems
@@ -63,6 +63,14 @@
       href: cloudknox-howto-analyze-usage.md
     - name: Create an alert trigger
       href: cloudknox-howto-create-alert-trigger.md
+    - name: Create and save product alerts
+      href: cloudknox-product-alerts.md
+    - name: Filter and query user activity
+      href: cloudknox-product-audit-trail.md
+    - name: Read information on the CloudKnox dashboard
+      href: cloudknox-product-dashboard.md
+    - name: View details about identities, resources, and tasks
+      href: cloudknox-product-user-management.md
   - name: Dashboards
     expanded: true
     items:
@@ -80,14 +88,36 @@
       href: cloudknox-ui-triggers.md
     - name: The Tasks pane
       href: cloudknox-ui-tasks.md
+    - name: The CloudKnox dashboard
+      href: cloudknox-ui-dashboard.md
+    - name: The Usage Analytics dashboard
+      href: cloudknox-ui-usage-analytics.md
+    - name: The Audit Trail dashboard
+      href: cloudknox-ui-audit-trail.md
+    - name: The JEP Controller dashboard
+      href: cloudknox-ui-jep-controller.md
+    - name: The Compliance dashboard
+      href: cloudknox-ui-compliance.md
+    - name: The Reports dashboard
+      href: cloudknox-ui-reports.md
+    - name: The Autopilot dashboard
+      href: cloudknox-ui-autopilot.md
     - name: The CloudKnox Account Explorer
       href: cloudknox-product-account-explorer.md
     - name: CloudKnox product account settings
       href: cloudknox-product-account-settings.md
+<<<<<<< HEAD
     - name: Create and save product alerts
       href: cloudknox-product-alerts.md
     - name: Filter and query user activity
       href: cloudknox-product-audit-trail.md
+=======
+  - name: Training material
+    expanded: true
+    items:
+    - name: Training videos
+      href: cloudknox-training-videos.md
+>>>>>>> 91edff88217d937c6ece29ce1cc8b94a5b3e2554
   - name: Data management
     expanded: true
     items:
@@ -102,7 +132,7 @@
   - name: User management
     expanded: true
     items:
-    - name: View usage analytics about users
+    - name: View details about identities, resources, and tasks
       href: cloudknox-product-usage-analytics.md
     - name: Adjust permissions with the JEP Controller
       href: cloudknox-product-jep-controller.md
