@@ -29,7 +29,7 @@ Currently, this feature has the following limitations:
 
 Before you begin, verify that you have met the following criteria:
 
-* The latest version of the CLI commands (version 2.30 or later) is installed. For information about installing the CLI commands, see [Install the Azure CLI](/cli/azure/install-azure-cli) and [Get Started with Azure CLI](/cli/azure/get-started-with-azure-cli).
+* The latest version of the CLI commands (version 2.32 or later) is installed. For information about installing the CLI commands, see [Install the Azure CLI](/cli/azure/install-azure-cli) and [Get Started with Azure CLI](/cli/azure/get-started-with-azure-cli).
 * An Azure virtual network.
 * A virtual machine in the virtual network.
 * If you plan to sign in to your virtual machine using your Azure AD credentials, make sure your virtual machine is set up using one of the following methods:

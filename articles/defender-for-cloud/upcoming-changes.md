@@ -44,7 +44,7 @@ We've created new alerts that provide this information and add to it. In additio
 
 ### Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013
 
-**Estimated date for change:** February 2022 
+**Estimated date for change:** January 2022 
 
 The legacy implementation of ISO 27001 will be removed from Defender for Cloud's regulatory compliance dashboard. If you're tracking your ISO 27001 compliance with Defender for Cloud, onboard the new ISO 27001:2013 standard for all relevant management groups or subscriptions, and the current legacy ISO 27001 will soon be removed from the dashboard.
 
@@ -53,7 +53,7 @@ The legacy implementation of ISO 27001 will be removed from Defender for Cloud's
 
 ### Multiple changes to identity recommendations
 
-**Estimated date for change:** January 2022
+**Estimated date for change:** February 2022
 
 Defender for Cloud includes multiple recommendations for improving the management of users and accounts. In December, we'll be making the changes outlined below.
 
