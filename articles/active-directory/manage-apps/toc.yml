@@ -169,7 +169,7 @@
                   href: f5-big-ip-kerberos-easy-button.md
                 - name: Headers and LDAP
                   href: f5-big-ip-ldap-header-easybutton.md
-            - name: Advanced configuration
+             - name: Advanced configuration
              items:
                 - name: Header
                   href: f5-big-ip-header-advanced.md
