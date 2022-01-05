@@ -2,7 +2,7 @@
 title: Tutorial - Restore a VM with Azure CLI
 description: Learn how to restore a disk and create a recover a VM in Azure with Backup and Recovery Services.
 ms.topic: tutorial
-ms.date: 01/04/2022
+ms.date: 01/05/2022
 ms.custom: mvc, devx-track-azurecli
 author: v-amallick
 ms.service: backup
@@ -103,37 +103,37 @@ This will restore managed disks as unmanaged disks to the given storage account 
 
 If you enable cross-region restore on the vault with which you've protected your VMs, the backup data is replicated to the secondary region. You can use the backup data to perform a restore operation.
 
-Use the --use-secondary-region flag in the [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks) command to restore disks to the secondary region. Make sure to specify a target storage account that is located in the secondary region.
+To restore disks to the secondary region, use the `--use-secondary-region` flag in the [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks) command. Ensure that you specify a target storage account that's located in the secondary region.
 
-    ```azurecli-interactive
-    az backup restore restore-disks \
-        --resource-group myResourceGroup \
-        --vault-name myRecoveryServicesVault \
-        --container-name myVM \
-        --item-name myVM \
-        --storage-account targetStorageAccountID \
-        --rp-name myRecoveryPointName \
-        --target-resource-group targetRG
-        --use-secondary-region
-    ```
+```azurecli-interactive
+az backup restore restore-disks \
+    --resource-group myResourceGroup \
+    --vault-name myRecoveryServicesVault \
+    --container-name myVM \
+    --item-name myVM \
+    --storage-account targetStorageAccountID \
+    --rp-name myRecoveryPointName \
+    --target-resource-group targetRG
+    --use-secondary-region
+```
 
 ### Cross-zonal restore
 
-[Azure zone pinned VMs](../virtual-machines/windows/create-portal-availability-zone.md) can be restored in any [availability zones](../availability-zones/az-overview.md) of the same region.
+You can restore [Azure zone pinned VMs](../virtual-machines/windows/create-portal-availability-zone.md) in any [availability zones](../availability-zones/az-overview.md) of the same region.
 
-To restore a VM to another zone, specify the TargetZoneNumber parameter in the [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks) command.
+To restore a VM to another zone, specify the `TargetZoneNumber` parameter in the [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks) command.
 
-    ```azurecli-interactive
-    az backup restore restore-disks \
-        --resource-group myResourceGroup \
-        --vault-name myRecoveryServicesVault \
-        --container-name myVM \
-        --item-name myVM \
-        --storage-account targetStorageAccountID \
-        --rp-name myRecoveryPointName \
-        --target-resource-group targetRG
-        --target-zone 3
-    ```
+```azurecli-interactive
+az backup restore restore-disks \
+    --resource-group myResourceGroup \
+    --vault-name myRecoveryServicesVault \
+    --container-name myVM \
+    --item-name myVM \
+    --storage-account targetStorageAccountID \
+    --rp-name myRecoveryPointName \
+    --target-resource-group targetRG
+    --target-zone 3
+```
 
 Cross-zonal restore is supported only in scenarios where:
 

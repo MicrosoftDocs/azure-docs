@@ -593,9 +593,9 @@ If cross-region restore is enabled on the vault with which you've protected your
 
 #### Cross-zonal restore
 
-[Azure zone pinned VMs](../virtual-machines/windows/create-portal-availability-zone.md) can be restored in any [availability zones](../availability-zones/az-overview.md) of the same region.
+You can restore [Azure zone pinned VMs](../virtual-machines/windows/create-portal-availability-zone.md) in any [availability zones](../availability-zones/az-overview.md) of the same region.
 
-To restore a VM to another zone, specify the _TargetZoneNumber_ parameter in the [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) cmdlet.
+To restore a VM to another zone, specify the `TargetZoneNumber` parameter in the [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) cmdlet.
 
 ```powershell
 $restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -VaultId $targetVault.ID -TargetZoneNumber 3
@@ -611,7 +611,7 @@ zonevmeus2       Restore              InProgress           1/3/2022 10:27:20 AM 
 Cross-zonal restore is supported only in scenarios where:
 
 - The source VM is zone pinned and is NOT encrypted.
-- The recovery point is present in vault-tier only (Snapshots only or snapshot and vault-tier are not supported).
+- The recovery point is present in vault tier only (Snapshots only or snapshot and vault tier are not supported).
 - The recovery option is to create a new VM or to restore disks (replace disks option replaces source data and hence the availability zone option is not applicable).
 - Creating VM/disks in the same region when vault's storage redundancy is ZRS (doesn't work when vault's storage redundancy is GRS even though the source VM is zone pinned).
 - Creating VM/disks in the paired region when vault's storage redundancy is enabled for Cross-Region-Restore and if the paired region supports zones.
