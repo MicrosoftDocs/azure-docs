@@ -164,6 +164,7 @@ There are certain sets of claims that define how and when they're used in tokens
 | verified_secondary_email |
 | wids |
 | win_ver |
+| nickname |
 
 ### Table 2: SAML restricted claim set
 
