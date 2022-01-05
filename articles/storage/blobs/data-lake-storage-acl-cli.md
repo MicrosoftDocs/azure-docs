@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli
 
 # Use Azure CLI to manage ACLs in Azure Data Lake Storage Gen2
 
-This article shows you how to use the [Azure Command-Line Interface (CLI)](/cli/azure/) to get, set, and update the access control lists of directories and files.
+This article shows you how to use the [Azure CLI](/cli/azure/) to get, set, and update the access control lists of directories and files.
 
 ACL inheritance is already available for new child items that are created under a parent directory. But you can also add, update, and remove ACLs recursively on the existing child items of a parent directory without having to make these changes individually for each child item.
 

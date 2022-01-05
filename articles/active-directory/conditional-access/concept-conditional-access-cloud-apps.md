@@ -42,7 +42,7 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - [Microsoft Azure Management](#microsoft-azure-management)
 - Microsoft Azure Subscription Management
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 - Microsoft Commerce Tools Access Control Portal
 - Microsoft Commerce Tools Authentication Service
 - Microsoft Forms
@@ -128,6 +128,8 @@ Administrators can add any Azure AD registered application to Conditional Access
 > [!NOTE]
 > Since Conditional Access policy sets the requirements for accessing a service you are not able to apply it to a client (public/native) application. Other words the policy is not set directly on a client (public/native) application, but is applied when a client calls a service. For example, a policy set on SharePoint service applies to the clients calling SharePoint. A policy set on Exchange applies to the attempt to access the email using Outlook client. That is why client (public/native) applications are not available for selection in the Cloud Apps picker and Conditional Access option is not available in the application settings for the client (public/native) application registered in your tenant. 
 
+Some applications do not appear in the picker at all. The only way to include these applications in a Conditional Access policy is to include **All apps**. 
+
 ## User actions
 
 User actions are tasks that can be performed by a user. Currently, Conditional Access supports two user actions: 
@@ -141,7 +143,7 @@ User actions are tasks that can be performed by a user. Currently, Conditional A
 
 ## Authentication context (Preview)
 
-Authentication context can be used to further secure data and actions in applications. These applications can be your own custom applications, custom line of business (LOB) applications, applications like SharePoint, or applications protected by Microsoft Cloud App Security (MCAS). 
+Authentication context can be used to further secure data and actions in applications. These applications can be your own custom applications, custom line of business (LOB) applications, applications like SharePoint, or applications protected by Microsoft Defender for Cloud Apps. 
 
 For example, an organization may keep files in SharePoint sites like the lunch menu or their secret BBQ sauce recipe. Everyone may have access to the lunch menu site, but users who have access to the secret BBQ sauce recipe site may need to access from a managed device and agree to specific terms of use.
 
@@ -173,7 +175,7 @@ Administrators can select published authentication contexts in their Conditional
 For more information about authentication context use in applications, see the following articles.
 
 - [Microsoft Information Protection sensitivity labels to protect SharePoint sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#more-information-about-the-dependencies-for-the-authentication-context-option)
-- [Microsoft Cloud App Security](/cloud-app-security/session-policy-aad?branch=pr-en-us-2082#require-step-up-authentication-authentication-context)
+- [Microsoft Defender for Cloud Apps](/cloud-app-security/session-policy-aad?branch=pr-en-us-2082#require-step-up-authentication-authentication-context)
 - [Custom applications](../develop/developer-guide-conditional-access-authentication-context.md)
 
 ## Next steps

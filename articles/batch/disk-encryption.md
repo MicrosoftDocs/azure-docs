@@ -1,10 +1,9 @@
 ---
 title: Create a pool with disk encryption enabled
 description: Learn how to use disk encryption configuration to encrypt nodes with a platform-managed key.
-author: pkshultz
 ms.topic: how-to
 ms.date: 04/16/2021
-ms.author: peshultz
+ms.devlang: csharp
 ms.custom: devx-track-azurecli
 ---
 

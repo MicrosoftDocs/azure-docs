@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 08/25/2021
+ms.date: 11/11/2021
 
 ms.author: justinha
 author: justinha
@@ -47,7 +47,7 @@ To complete this tutorial, you need the following resources and privileges:
     * If needed, [complete the previous tutorial to enable Azure AD SSPR](tutorial-enable-sspr.md).
 * An existing on-premises AD DS environment configured with a current version of Azure AD Connect.
     * If needed, configure Azure AD Connect using the [Express](../hybrid/how-to-connect-install-express.md) or [Custom](../hybrid/how-to-connect-install-custom.md) settings.
-    * To use password writeback, your Domain Controllers must be Windows Server 2016 or later.
+    * To use password writeback, domain controllers can run any supported version of Windows Server.
 
 ## Configure account permissions for Azure AD Connect
 

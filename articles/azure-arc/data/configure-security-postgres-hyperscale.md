@@ -1,11 +1,11 @@
---- 
+---
 title: Configure security for your Azure Arc-enabled PostgreSQL Hyperscale server group
 description: Configure security for your Azure Arc-enabled PostgreSQL Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: TheJY
-ms.author: jeanyd
+author: grrlgeek
+ms.author: jeschult
 ms.reviewer: mikeray
 ms.date: 11/03/2021
 ms.topic: how-to
@@ -146,7 +146,7 @@ When you connect with the application and pass a password, it looks up in the `m
 
    ```console
    select USERname from mysecrets where (USERpassword = crypt('MySecretPasswrod', USERpassword));
-   ``` 
+   ```
 
    Output:
 
@@ -224,7 +224,7 @@ If the AZDATA_PASSWORD **session** environment variable exists but has not value
    ```
 
 > [!NOTE]
-> To verify if the the AZDATA_PASSWORD session's environment variable exists and what value it has, run:
+> To verify if the AZDATA_PASSWORD session's environment variable exists and what value it has, run:
 > - On a Linux client:
 >
 > ```console

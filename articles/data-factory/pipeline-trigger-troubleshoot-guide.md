@@ -3,7 +3,7 @@ title: Troubleshoot pipeline orchestration and triggers in Azure Data Factory
 description: Use different methods to troubleshoot pipeline trigger issues in Azure Data Factory. 
 author: ssabat
 ms.service: data-factory
-ms.date: 08/17/2021
+ms.date: 11/22/2021
 ms.subservice: troubleshooting
 ms.topic: troubleshooting
 ms.author: susabat
@@ -257,6 +257,17 @@ You have not optimized mapping data flow.
 * Use a separate IR(integration runtime) for activities running in parallel.
 * Adjust the partitions at the source and sink accordingly. 
 * Review  [Data Flow Optimizations](concepts-data-flow-performance.md)
+
+### Error Code "BadRequest" when  passing parameters to child pipelines
+
+**Cause**
+
+Failure type is user configuration issue. String of parameters, instead of Array, is passed to the child pipeline.
+
+**Resolution**
+
+Input  **execute pipeline**  activity for pipeline parameter  as  *@createArray('a','b')* for example, if you want to pass parameters 'a' and 'b'. If you want to pass numbers, for example, use *@createArray(1,2,3)*.  Use createArray function to force parameters being passed as an array.
+
 
 ## Next steps
 

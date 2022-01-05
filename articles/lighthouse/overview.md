@@ -11,7 +11,7 @@ Azure Lighthouse enables multi-tenant management with scalability, higher automa
 
 With Azure Lighthouse, service providers can deliver managed services using [comprehensive and robust tooling built into the Azure platform](concepts/architecture.md). Customers maintain control over who has access to their tenant, which resources they can access, and what actions can be taken. [Enterprise organizations](concepts/enterprise.md) managing resources across multiple tenants can also use Azure Lighthouse to streamline management tasks.
 
-[Cross-tenant management experiences](concepts/cross-tenant-management-experience.md) lets you work more efficiently with Azure services like [Azure Policy](how-to/policy-at-scale.md), [Azure Sentinel](how-to/manage-sentinel-workspaces.md), [Azure Arc](how-to/manage-hybrid-infrastructure-arc.md), and many more. Users can see what changes were made and by whom [in the activity log](how-to/view-service-provider-activity.md), which is stored in the customer's tenant and can be viewed by users in the managing tenant.
+[Cross-tenant management experiences](concepts/cross-tenant-management-experience.md) lets you work more efficiently with Azure services like [Azure Policy](how-to/policy-at-scale.md), [Microsoft Sentinel](how-to/manage-sentinel-workspaces.md), [Azure Arc](how-to/manage-hybrid-infrastructure-arc.md), and many more. Users can see what changes were made and by whom [in the activity log](how-to/view-service-provider-activity.md), which is stored in the customer's tenant and can be viewed by users in the managing tenant.
 
 ![Overview diagram of Azure Lighthouse](media/azure-lighthouse-overview.jpg)
 

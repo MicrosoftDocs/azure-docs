@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 09/27/2021
+ms.date: 11/30/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -36,6 +36,12 @@ The Azure Virtual Desktop agent updates at least once per month.
 
 Here's what's changed in the Azure Virtual Desktop Agent:
 
+- Version 1.0.3719.1700: This update was released November 2021 and has the following changes:
+    - Updated agent error messages.
+    - Fixes an issue with the agent restarting every time the side-by-side stack was updated.
+    - General agent improvements.
+- Version 1.0.3583.2600: This update was released October 2021 and it fixes an issue where upgrading from Windows 10 to Windows 11 disabled the side-by-side stack.
+- Version 1.0.3373.2605: This update was released September 2021 and it fixes an issue with package deregistration getting stuck when using MSIX App Attach.
 - Version 1.0.3373.2600: This update was released September 2021 and has the following changes:
     - General agent improvements.
     - Fixes issues with restarting the agent on Windows 7 VMs.
@@ -64,6 +70,26 @@ Here's what's changed in the Azure Virtual Desktop Agent:
 ## FSLogix updates
 
 Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new).
+
+## November 2021
+
+Here's what changed in November 2021:
+
+### Azure Virtual Desktop for Azure Stack HCI
+
+Azure Virtual Desktop for Azure Stack HCI is now in public preview. This feature is for customers who need desktop virtualization for apps that have to stay on-premises for performance and data security reasons. To learn more, see [our blog post](https://aka.ms/avd-ignite2021-blogpost) and [the Azure Virtual Desktop for Azure Stack HCI documentation](azure-stack-hci-overview.md).
+
+### Autoscale public preview
+
+We're pleased to introduce the new autoscale feature, which lets you stop or start session hosts automatically based on a schedule you set. Autoscale lets you optimize infrastructure costs by configuring your shared or pooled desktops to only charge for the resources you actually use. You can learn more about the autoscale feature by reading [our documentation](autoscale-scaling-plan.md) and watching [our Azure Academy video](https://www.youtube.com/watch?v=JolOG7abfa4&ab_channel=AzureAcademy).
+
+### Azure Virtual Desktop starter kit for Power Automate
+
+Your organization can now use the Azure Virtual Desktop starter kit to manage its robotic process automation (RPA) workloads. Learn more by reading [our documentation](/power-automate/desktop-flows/avd-overview).
+
+### Tagging with Azure Virtual Desktop
+
+We recently released new documentation about how to configure tags for Azure Virtual Desktop to track and manage costs. For more information, see [Tag Azure Virtual Desktop resources](tag-virtual-desktop-resources.md).
 
 ## October 2021
 

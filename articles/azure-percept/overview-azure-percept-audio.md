@@ -1,8 +1,8 @@
 ---
 title: Azure Percept Audio device overview
 description: Learn more about Azure Percept Audio
-author: MrHamlet
-ms.author: amiyouss
+author: nkhuyent
+ms.author: davej
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021

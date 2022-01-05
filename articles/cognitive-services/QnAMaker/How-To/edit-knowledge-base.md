@@ -4,7 +4,7 @@ description: QnA Maker allows you to manage the content of your knowledge base b
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 11/19/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -53,7 +53,7 @@ If you do not have pre-existing content to populate the knowledge base, you can 
 
 1. Optionally, add **[metadata](../Quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)**. To view metadata, select **View options** in the context menu. Metadata provides filters to the answers that the client application, such as a chat bot, provides.
 
-1. Optionally, add **[follow-up prompts](multiturn-conversation.md)**. Follow-up prompts provide additional conversation paths to the client application to present to the user.
+1. Optionally, add **[follow-up prompts](multi-turn.md)**. Follow-up prompts provide additional conversation paths to the client application to present to the user.
 
 1. Select **Save and train** to see predictions including the new QnA pair.
 
@@ -123,7 +123,7 @@ Add alternate questions to an existing QnA pair to improve the likelihood of a m
 
 ## Linking QnA pairs
 
-Linking QnA pairs is provided with [follow-up prompts](multiturn-conversation.md). This is a logical connection between QnA pairs, managed at the knowledge base level. You can edit follow-up prompts in the QnA Maker portal.
+Linking QnA pairs is provided with [follow-up prompts](multi-turn.md). This is a logical connection between QnA pairs, managed at the knowledge base level. You can edit follow-up prompts in the QnA Maker portal.
 
 You can't link QnA pairs in the answer's metadata.
 

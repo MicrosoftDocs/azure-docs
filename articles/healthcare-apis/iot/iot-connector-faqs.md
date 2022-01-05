@@ -6,7 +6,7 @@ author: msjasteppe
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 11/03/2021
+ms.date: 11/05/2021
 ms.author: jasteppe
 ---
 
@@ -35,9 +35,9 @@ The IoT connector currently only supports the persistence of [HL7 FHIR&#174; R4]
 
 ### What are the subscription quota limits for IoT connector?
 
-* 25 IoT Connectors per Subscription (adjustable with an Azure support request)
-* 10 IoT Connectors per Workspace (adjustable with an Azure support request)
-* One FHIR Destination* per IoT Connector (not adjustable)
+* 25 IoT connectors per Subscription (not adjustable)
+* 10 IoT connectors per Workspace (not adjustable)
+* One FHIR destination* per IoT connector (not adjustable)
 
 (* - FHIR Destination is a child resource of IoT connector)
 

@@ -79,6 +79,12 @@ Set the following environment variable to enable OCI support in the Helm 3 clien
 export HELM_EXPERIMENTAL_OCI=1
 ```
 
+Set the following environment variables for the target registry. The ACR_NAME is the registry resource name. If the ACR registry url is myregistry.azurecr.io, set the ACR_NAME to myregistry
+
+```console
+ACR_NAME=<container-registry-name>
+```
+
 ## Create a sample chart
 
 Create a test chart using the following commands:
@@ -131,32 +137,52 @@ Successfully packaged chart and saved it to: /my/path/hello-world-0.1.0.tgz
 
 ## Authenticate with the registry
 
-Run  `helm registry login` to authenticate with the registry. You may pass [registry credentials](container-registry-authentication.md) appropriate for your scenario, such as service principal credentials, or a repository-scoped token.
+Run  `helm registry login` to authenticate with the registry. You may pass [registry credentials](container-registry-authentication.md) appropriate for your scenario, such as service principal credentials, user identity, or a repository-scoped token.
 
-For example, create an Azure Active Directory [service principal with pull and push permissions](container-registry-auth-service-principal.md#create-a-service-principal) (AcrPush role) to the registry. Then supply the service principal credentials to `helm registry login`. The following example supplies the password using an environment variable:
-
-```console
-echo $spPassword | helm registry login mycontainerregistry.azurecr.io \
-  --username <service-principal-id> \
-  --password-stdin
-```
-
-> [!TIP]
-> You can also login to the registry with your [individual Azure AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) to push and pull Helm charts.
+- Authenticate with an Azure Active Directory [service principal with pull and push permissions](container-registry-auth-service-principal.md#create-a-service-principal) (AcrPush role) to the registry.
+  ```bash
+  SERVICE_PRINCIPAL_NAME=<acr-helm-sp>
+  ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
+  PASSWORD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME \
+            --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
+             --role acrpull \
+            --query "password" --output tsv)
+  USER_NAME=$(az ad sp list --display-name $SERVICE_PRINCIPAL_NAME --query "[].appId" --output tsv)
+  ```
+- Authenticate with your [individual Azure AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) to push and pull Helm charts using an AD token.
+  ```bash
+  USER_NAME="00000000-0000-0000-0000-000000000000"
+  PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken)
+  ```
+- Authenticate with a [repository scoped token](container-registry-repository-scoped-permissions.md) (Preview).
+  ```bash
+  USER_NAME="helm-token"
+  PASSWORD=$(az acr token create -n $USER_NAME \
+                    -r $ACR_NAME \
+                    --scope-map _repositories_admin \
+                    --only-show-errors \
+                    --query "credentials.passwords[0].value" -o tsv)
+  ```
+- Then supply the credentials to `helm registry login`.
+  ```bash
+  helm registry login $ACR_NAME.azurecr.io \
+    --username $USER_NAME \
+    --password $PASSWORD
+  ```
 
 ## Push chart to registry as OCI artifact
 
 Run the `helm push` command in the Helm 3 CLI to push the chart archive to the fully qualified target repository. In the following example, the target repository namespace is `helm/hello-world`, and the chart is tagged `0.1.0`:
 
 ```console
-helm push hello-world-0.1.0.tgz oci://mycontainerregistry.azurecr.io/helm
+helm push hello-world-0.1.0.tgz oci://$ACR_NAME.azurecr.io/helm
 ```
 
 After a successful push, output is similar to:
 
 ```output
-Pushed: mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
-digest: sha256:5899db028dcf96aeaabdadfa5899db025899db025899db025899db025899db02
+Pushed: <registry>.azurecr.io/helm/hello-world:0.1.0
+digest: sha256:5899db028dcf96aeaabdadfa5899db02589b2899b025899b059db02
 ```
 
 ## List charts in the repository
@@ -167,7 +193,7 @@ For example, run [az acr repository show][az-acr-repository-show] to see the pro
 
 ```azurecli
 az acr repository show \
-  --name mycontainerregistry \
+  --name $ACR_NAME \
   --repository helm/hello-world
 ```
 
@@ -194,7 +220,7 @@ Run the [az acr repository show-manifests][az-acr-repository-show-manifests] com
 
 ```azurecli
 az acr repository show-manifests \
-  --name mycontainerregistry \
+  --name $ACR_NAME \
   --repository helm/hello-world --detail
 ```
 
@@ -220,7 +246,7 @@ Output, abbreviated in this example, shows a `configMediaType` of `application/v
 Run `helm install` to install the Helm chart you pushed to the registry. The chart tag is passed using the `--version` parameter. Specify a release name such as *myhelmtest*, or pass the `--generate-name` parameter. For example:
 
 ```console
-helm install myhelmtest oci://mycontainerregistry.azurecr.io/helm/hello-world --version 0.1.0
+helm install myhelmtest oci://$ACR_NAME.azurecr.io/helm/hello-world --version 0.1.0
 ```
 
 Output after successful chart installation is similar to:
@@ -253,7 +279,7 @@ helm uninstall myhelmtest
 You can optionally pull a chart from the container registry to a local archive using `helm pull`. The chart tag is passed using the `--version` parameter. If a local archive exists at the current path, this command overwrites it.
 
 ```console
-helm pull oci://mycontainerregistry.azurecr.io/helm/hello-world --version 0.1.0
+helm pull oci://$ACR_NAME.azurecr.io/helm/hello-world --version 0.1.0
 ```
 
 ## Delete chart from the registry
@@ -261,7 +287,7 @@ helm pull oci://mycontainerregistry.azurecr.io/helm/hello-world --version 0.1.0
 To delete a chart from the container registry, use the [az acr repository delete][az-acr-repository-delete] command. Run the following command and confirm the operation when prompted:
 
 ```azurecli
-az acr repository delete --name mycontainerregistry --image helm/hello-world:0.1.0
+az acr repository delete --name $ACR_NAME --image helm/hello-world:0.1.0
 ```
 
 ## Migrate your registry to store Helm OCI artifacts
@@ -319,25 +345,25 @@ A local chart archive such as `ingress-nginx-3.20.1.tgz` is created.
 Login to the registry:
 
 ```azurecli
-az acr login --name myregistry
+az acr login --name $ACR_NAME
 ```
 
 Push each chart archive to the registry. Example:
 
 ```console
-helm push ingress-nginx-3.20.1.tgz oci://myregistry.azurecr.io/helm
+helm push ingress-nginx-3.20.1.tgz oci://$ACR_NAME.azurecr.io/helm
 ```
 
 After pushing a chart, confirm it is stored in the registry:
 
 ```azurecli
-az acr repository list --name myregistry
+az acr repository list --name $ACR_NAME
 ```
 
 After pushing all of the charts, optionally remove the Helm 2-style chart repository from the registry. Doing so reduces storage in your registry:
 
 ```console
-helm repo remove myregistry
+helm repo remove $ACR_NAME
 ```
 
 ## Next steps

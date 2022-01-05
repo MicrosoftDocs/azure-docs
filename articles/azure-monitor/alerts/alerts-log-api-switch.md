@@ -12,16 +12,16 @@ ms.date: 09/22/2020
 > This article is only relevant to Azure public (**not** to Azure Government or Azure China cloud).
 
 > [!NOTE]
-> Once a user chooses to switch preference to the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules) it is not possible to revert back to the older [legacy Log Analytics Alert API](./api-alerts.md).
+> Once a user chooses to switch preference to the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-02-01-preview/scheduled-query-rules) it is not possible to revert back to the older [legacy Log Analytics Alert API](./api-alerts.md).
 
-In the past, users used the [legacy Log Analytics Alert API](./api-alerts.md) to manage log alert rules. Current workspaces use [ScheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). This article describes the benefits and the process of switching from the legacy API to the current API.
+In the past, users used the [legacy Log Analytics Alert API](./api-alerts.md) to manage log alert rules. Current workspaces use [ScheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-02-01-preview/scheduled-query-rules). This article describes the benefits and the process of switching from the legacy API to the current API.
 
 ## Benefits
 
 - Single template for creation of alert rules (previously needed three separate templates).
 - Single API for all Azure resources log alerting.
 - Support for stateful and 1-minute log alert previews.
-- [PowerShell cmdlets support](./alerts-log.md#managing-log-alerts-using-powershell).
+- [PowerShell cmdlets support](./alerts-manage-alerts-previous-version.md#manage-log-alerts-using-powershell).
 - Alignment of severities with all other alert types.
 - Ability to create [cross workspace log alert](../logs/cross-workspace-query.md) that span several external resources like Log Analytics workspaces or Application Insights resources.
 - Users can specify dimensions to split the alerts.
@@ -29,7 +29,7 @@ In the past, users used the [legacy Log Analytics Alert API](./api-alerts.md) to
 
 ## Impact
 
-- All new rules must be created/edited with the current API. See [sample use via Azure Resource Template](alerts-log-create-templates.md) and [sample use via PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
+- All new rules must be created/edited with the current API. See [sample use via Azure Resource Template](alerts-log-create-templates.md) and [sample use via PowerShell](./alerts-manage-alerts-previous-version.md#manage-log-alerts-using-powershell).
 - As rules become Azure Resource Manager tracked resources in the current API and must be unique, rules resource ID will change to this structure: `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Display names of the alert rule will remain unchanged.
 
 ## Process
@@ -79,7 +79,7 @@ You can also use [ARMClient](https://github.com/projectkudu/ARMClient) tool:
 armclient GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
-If the Log Analytics workspace was switched to [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules), the response is:
+If the Log Analytics workspace was switched to [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-02-01-preview/scheduled-query-rules), the response is:
 
 ```json
 {
@@ -100,5 +100,5 @@ If the Log Analytics workspace wasn't switched, the response is:
 
 - Learn about the [Azure Monitor - Log Alerts](./alerts-unified-log.md).
 - Learn how to [manage your log alerts using the API](alerts-log-create-templates.md).
-- Learn how to [manage log alerts using PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
+- Learn how to [manage log alerts using PowerShell](./alerts-manage-alerts-previous-version.md#manage-log-alerts-using-powershell).
 - Learn more about the [Azure Alerts experience](./alerts-overview.md).

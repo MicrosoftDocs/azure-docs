@@ -11,7 +11,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Back up a VM - Portal
+  - name: Back up a VM - Azure portal
     href: quick-backup-vm-portal.md
   - name: Back up a VM - PowerShell
     href: quick-backup-vm-powershell.md
@@ -20,6 +20,8 @@
   - name: Back up a VM - ARM template
     displayName: Resource Manager
     href: quick-backup-vm-template.md
+  - name: Back up a VM - Bicep template
+    href: quick-backup-vm-bicep-template.md
 - name: Tutorials
   items:
   - name: Back up multiple Azure VMs
@@ -74,6 +76,8 @@
       href: active-directory-backup-restore.md
     - name: Supported VM SKUs for Azure Policy
       href: backup-azure-policy-supported-skus.md
+    - name: Automation in Azure Backup
+      href: backup-support-automation.md
   - name: Frequently asked questions (FAQ)
     items:
     - name: FAQ-Recovery Services vaults
@@ -102,7 +106,7 @@
     href: guidance-best-practices.md
   - name: Glossary of terms
     href: azure-backup-glossary.md
-- name: How to guides
+- name: How-to guides
   items:
   - name: Vaults
     items:
@@ -146,6 +150,8 @@
         href: backup-instant-restore-capability.md
       - name: Enable backup when you create an Azure VM
         href: backup-during-vm-creation.md
+      - name: Back up an Azure VM using Enhanced policy
+        href: backup-azure-vms-enhanced-policy.md
       - name: Back up an Azure VM from VM settings
         href: backup-azure-vms-first-look-arm.md
       - name: Set up a vault and enable backup for Azure VMs
@@ -182,18 +188,28 @@
     items:
     - name: Overview
       href: backup-azure-sql-database.md
-    - name: Backup
+    - name: From the Azure portal
       items:
-      - name: Back up multiple SQL Server VMs from the vault
-        href: backup-sql-server-database-azure-vms.md
-      - name: Back up SQL Server Availability Group
-        href: backup-sql-server-on-availability-groups.md
-      - name: Back up a SQL Server VM from the VM pane
-        href: backup-sql-server-vm-from-vm-pane.md
-    - name: Restore
-      href: restore-sql-database-azure-vm.md
-    - name: Manage
-      href: manage-monitor-sql-database-backup.md
+      - name: Backup
+        items:
+        - name: Back up multiple SQL Server VMs from the vault
+          href: backup-sql-server-database-azure-vms.md
+        - name: Back up SQL Server Availability Group
+          href: backup-sql-server-on-availability-groups.md
+        - name: Back up a SQL Server VM from the VM pane
+          href: backup-sql-server-vm-from-vm-pane.md
+      - name: Restore
+        href: restore-sql-database-azure-vm.md
+      - name: Manage
+        href: manage-monitor-sql-database-backup.md
+    - name: With REST API
+      items:
+      - name: Backup
+        href: backup-azure-sql-vm-rest-api.md
+      - name: Restore
+        href: restore-azure-sql-vm-rest-api.md
+      - name: Manage
+        href: manage-azure-sql-vm-rest-api.md
   - name: Azure Database for PostgreSQL backup
     items:
     - name: Overview
@@ -215,7 +231,7 @@
     - name: With CLI
       items:
       - name: Backup
-        href: backup-postgresql-cli.md    
+        href: backup-postgresql-cli.md
       - name: Restore
         href: restore-postgresql-database-cli.md
     - name: With REST API
@@ -391,7 +407,7 @@
       - name: Back up Hyper-V virtual machines
         href: back-up-hyper-v-virtual-machines-mabs.md
       - name: Back up Azure Stack HCI virtual machines
-        href: back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md  
+        href: back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md
       - name: VMware server
         href: backup-azure-backup-server-vmware.md
       - name: Exchange
@@ -482,14 +498,14 @@
         href: backup-azure-diagnostics-mode-data-model.md
   - name: Automation
     items:
-    - name: Use Azure Backup automation
+    - name: Overview
       href: automation-backup.md
     - name: Built-in Azure Policy for Azure Backup
       items:
       - name: Auto-Enable Backup on VM Creation using Azure Policy
         href: backup-azure-auto-enable-backup.md
       - name: Configure vault diagnostics settings at scale
-        href: azure-policy-configure-diagnostics.md    
+        href: azure-policy-configure-diagnostics.md
     - name: Use PowerShell
       items:
       - name: Azure VMs
@@ -542,6 +558,8 @@
         href: soft-delete-sql-saphana-in-azure-vm.md
     - name: Delete protection for Azure file shares
       href: soft-delete-azure-file-share.md
+    - name: Ransomware protection
+      href: /azure/security/fundamentals/backup-plan-to-protect-against-ransomware
     - name: Security for hybrid backups
       href: backup-azure-security-feature.md
     - name: Private Endpoints
@@ -575,6 +593,8 @@
       href: backup-azure-vm-file-recovery-troubleshoot.md
     - name: Azure Backup agent or VM extension timed out
       href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
+    - name: Encrypted Azure VM backup
+      href: backup-azure-encrypted-vm-troubleshoot.md
     - name: Azure Backup agent
       href: backup-azure-mars-troubleshoot.md
     - name: Files and folders backup is slow
@@ -604,11 +624,11 @@
   - name: Azure CLI
     href: /cli/azure/backup
   - name: Azure Data Protection - CLI
-    href: /cli/azure/dataprotection?view=azure-cli-latest&preserve-view=true
+    href: /cli/azure/dataprotection
   - name: Azure PowerShell
-    href: /powershell/module/az.recoveryservices
+    href: /powershell/module/az.recoveryservices/
   - name: Azure Data Protection - PowerShell
-    href: /powershell/module/az.dataprotection/?view=azps-6.1.0&preserve-view=true
+    href: /powershell/module/az.dataprotection/
   - name: PowerShell – Azure Backup agent
     href: /powershell/module/msonlinebackup/?view=msonlinebackup-ps
   - name: REST - Azure Data Protection

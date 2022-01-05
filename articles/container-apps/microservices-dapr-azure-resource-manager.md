@@ -1,18 +1,19 @@
 ---
-title: 'Tutorial: Deploy a Dapr application to Azure Container Apps using an ARM template'
-description: Deploy a Dapr application to Azure Container Apps using an ARM template.
-services: app-service
+title: 'Tutorial: Deploy a Dapr application to Azure Container Apps using an ARM or Bicep template'
+description: Deploy a Dapr application to Azure Container Apps using an ARM or Bicep template.
+services: container-apps
 author: asw101
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aawislan
 ms.custom: ignite-fall-2021
+zone_pivot_groups: container-apps
 ---
 
-# Tutorial: Deploy a Dapr application to Azure Container Apps using an ARM template
+# Tutorial: Deploy a Dapr application to Azure Container Apps using an ARM or Bicep template
 
-[Dapr](https://dapr.io/) (Distributed Application Runtime) is a runtime that helps build resilient, stateless, and stateful microservices. In this tutorial, a sample Dapr application is deployed to Azure Container Apps.
+[Dapr](https://dapr.io/) (Distributed Application Runtime) is a runtime that helps you build resilient stateless and stateful microservices. In this tutorial, a sample Dapr application is deployed to Azure Container Apps.
 
 You learn how to:
 
@@ -24,13 +25,21 @@ You learn how to:
 
 Azure Container Apps offers a fully managed version of the Dapr APIs when building microservices. When you use Dapr in Azure Container Apps, you can enable sidecars to run next to your microservices that provide a rich set of capabilities. Available Dapr APIs include [Service to Service calls](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/), [Pub/Sub](https://docs.dapr.io/developing-applications/building-blocks/pubsub/), [Event Bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/), [State Stores](https://docs.dapr.io/developing-applications/building-blocks/state-management/), and [Actors](https://docs.dapr.io/developing-applications/building-blocks/actors/).
 
-In this tutorial, you deploy the same applications from the Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/hello-kubernetes) quickstart, which consists of a client (Python) app that generates messages, and a service (Node) app that consumes and persists those messages in a configured state store. The following architecture diagram illustrates the components that make up this tutorial:
+In this tutorial, you deploy the same applications from the Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/hello-kubernetes) quickstart. The quickstart consists of a client (Python) app that generates messages, and a service (Node) app that consumes and persists those messages in a configured state store. The following architecture diagram illustrates the components that make up this tutorial:
 
 :::image type="content" source="media/microservices-dapr/azure-container-apps-microservices-dapr.png" alt-text="Architecture diagram for Dapr Hello World microservices on Azure Container Apps":::
 
 ## Prerequisites
 
 * [Azure CLI](/cli/azure/install-azure-cli)
+
+::: zone pivot="container-apps-bicep"
+
+* [Bicep](/azure-resource-manager/bicep/install)
+
+::: zone-end
+
+* An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Before you begin
 
@@ -74,11 +83,11 @@ $STORAGE_ACCOUNT="<storage account name>"
 
 ---
 
-Choose a name for `STORAGE_ACCOUNT`. It will be created in a following step. Storage account names must be *unique within Azure* and between 3 and 24 characters in length and may contain numbers and lowercase letters only.
+Choose a name for `STORAGE_ACCOUNT`. It will be created in a following step. Storage account names must be *unique within Azure*.  It must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 
 ## Setup
 
-Begin by signing in to Azure from the CLI.
+Begin by signing in to Azure.
 
 Run the following command, and follow the prompts to complete the authentication process.
 
@@ -90,8 +99,8 @@ az login
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az login
+```powershell
+Connect-AzAccount
 ```
 
 ---
@@ -140,8 +149,8 @@ az provider register --namespace Microsoft.Web
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az provider register --namespace Microsoft.Web
+```powershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.Web
 ```
 
 ---
@@ -158,10 +167,8 @@ az group create \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az group create `
-  --name $RESOURCE_GROUP `
-  --location "$LOCATION"
+```powershell
+New-AzResourceGroup -Name $RESOURCE_GROUP -Location $LOCATION
 ```
 
 ---
@@ -170,7 +177,7 @@ With the CLI upgraded and a new resource group available, you can create a Conta
 
 ## Create an environment
 
-Azure Container Apps environments act as isolation boundaries between a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
+Azure Container Apps environments act as isolation boundaries between a group of container apps. Container Apps deployed to the same environment share the same virtual network and write logs to the same Log Analytics workspace.
 
 Azure Log Analytics is used to monitor your container app and is required when creating a Container Apps environment.
 
@@ -186,10 +193,11 @@ az monitor log-analytics workspace create \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az monitor log-analytics workspace create `
-  --resource-group $RESOURCE_GROUP `
-  --workspace-name $LOG_ANALYTICS_WORKSPACE
+```powershell
+New-AzOperationalInsightsWorkspace `
+  -Location $LOCATION `
+  -Name $LOG_ANALYTICS_WORKSPACE `
+  -ResourceGroupName $RESOURCE_GROUP
 ```
 
 ---
@@ -201,11 +209,11 @@ Next, retrieve the Log Analytics Client ID and client secret.
 Make sure to run each query separately to give enough time for the request to complete.
 
 ```bash
-LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv`
+LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE -o tsv | tr -d '[:space:]'`
 ```
 
 ```bash
-LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv`
+LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE -o tsv | tr -d '[:space:]'`
 ```
 
 # [PowerShell](#tab/powershell)
@@ -213,8 +221,12 @@ LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-sh
 Make sure to run each query separately to give enough time for the request to complete.
 
 ```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv)
+$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name $LOG_ANALYTICS_WORKSPACE).CustomerId
 ```
+
+<!--- This was taken out because of a breaking changes warning.  We should put it back after it's fixed. Until then we'll go with the az command
+$LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=(Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $RESOURCE_GROUP -Name $LOG_ANALYTICS_WORKSPACE).PrimarySharedKey
+--->
 
 ```powershell
 $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=(az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv)
@@ -267,13 +279,11 @@ az storage account create \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az storage account create `
-  --name $STORAGE_ACCOUNT `
-  --resource-group $RESOURCE_GROUP `
-  --location "$LOCATION" `
-  --sku Standard_RAGRS `
-  --kind StorageV2
+```powershell
+New-AzStorageAccount -ResourceGroupName $RESOURCE_GROUP `
+  -Name $STORAGE_ACCOUNT `
+  -Location $LOCATION `
+  -SkuName Standard_RAGRS
 ```
 
 ---
@@ -295,10 +305,12 @@ STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GRO
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$STORAGE_ACCOUNT_KEY=(az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv)
+$STORAGE_ACCOUNT_KEY=(Get-AzStorageAccountKey -ResourceGroupName $RESOURCE_GROUP -AccountName $STORAGE_ACCOUNT)| Where-Object -Property KeyName -Contains 'key1' | Select-Object -ExpandProperty Value
 ```
 
 ---
+
+::: zone pivot="container-apps-arm"
 
 ### Create Azure Resource Manager (ARM) templates
 
@@ -402,10 +414,100 @@ Save the following file as *serviceapp.json*:
 }
 ```
 
+::: zone-end
+
+::: zone pivot="container-apps-bicep"
+
+### Create Azure Bicep templates
+
+Create two Bicep templates.
+
+The Bicep template has the Container App definition and a Dapr component definition.
+
+The following example shows how your Bicep template should look when configured for your Azure Blob Storage account.
+
+Save the following file as *serviceapp.bicep*:
+
+```bicep
+param location string = 'canadacentral'
+param environment_name string
+param storage_account_name string
+param storage_account_key string
+param storage_container_name string
+
+resource nodeapp 'Microsoft.Web/containerapps@2021-03-01' = {
+  name: 'nodeapp'
+  kind: 'containerapp'
+  location: location
+  properties: {
+    kubeEnvironmentId: resourceId('Microsoft.Web/kubeEnvironments', environment_name)
+    configuration: {
+      ingress: {
+        external: true
+        targetPort: 3000
+      }
+      secrets: [
+        {
+          name: 'storage-key'
+          value: storage_account_key
+        }
+      ]
+    }
+    template: {
+      containers: [
+        {
+          image: 'dapriosamples/hello-k8s-node:latest'
+          name: 'hello-k8s-node'
+          resources: {
+            cpu: '0.5'
+            memory: '1Gi'
+          }
+        }
+      ]
+      scale: {
+        minReplicas: 1
+        maxReplicas: 1
+      }
+      dapr: {
+        enabled: true
+        appPort: 3000
+        appId: 'nodeapp'
+        components: [
+          {
+            name: 'statestore'
+            type: 'state.azure.blobstorage'
+            version: 'v1'
+            metadata: [
+              {
+                name: 'accountName'
+                value: storage_account_name
+              }
+              {
+                name: 'accountKey'
+                secretRef: 'storage-key'
+              }
+              {
+                name: 'containerName'
+                value: storage_container_name
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+
+```
+
+::: zone-end
+
 > [!NOTE]
 > Container Apps does not currently support the native [Dapr components schema](https://docs.dapr.io/operations/components/component-schema/). The above example uses the supported schema.
 >
 > In a production-grade application, follow [secret management](https://docs.dapr.io/operations/components/component-secrets) instructions to securely manage your secrets.
+
+::: zone pivot="container-apps-arm"
 
 Save the following file as *clientapp.json*:
 
@@ -459,9 +561,55 @@ Save the following file as *clientapp.json*:
 }
 ```
 
+::: zone-end
+
+::: zone pivot="container-apps-bicep"
+
+Save the following file as *clientapp.bicep*:
+
+```bicep
+param location string = 'canadacentral'
+param environment_name string
+
+resource pythonapp 'Microsoft.Web/containerApps@2021-03-01' = {
+  name: 'pythonapp'
+  kind: 'containerapp'
+  location: location
+  properties: {
+    kubeEnvironmentId: resourceId('Microsoft.Web/kubeEnvironments', environment_name)
+    configuration: {}
+    template: {
+      containers: [
+        {
+          image: 'dapriosamples/hello-k8s-python:latest'
+          name: 'hello-k8s-python'
+          resources: {
+            cpu: '0.5'
+            memory: '1Gi'
+          }
+        }
+      ]
+      scale: {
+        minReplicas: 1
+        maxReplicas: 1
+      }
+      dapr: {
+        enabled: true
+        appId: 'pythonapp'
+      }
+    }
+  }
+}
+    
+```
+
+::: zone-end
+
 ## Deploy the service application (HTTP web server)
 
-Navigate to the directory in which you stored the ARM template file and run the command below to deploy the service container app.
+::: zone pivot="container-apps-arm"
+
+Now let's deploy the service Container App.  Navigate to the directory in which you stored the ARM template file and run the command below.
 
 # [Bash](#tab/bash)
 
@@ -479,17 +627,65 @@ az deployment group create \
 
 # [PowerShell](#tab/powershell)
 
+```powershell
+$params = @{
+  environment_name = $CONTAINERAPPS_ENVIRONMENT
+  location = $LOCATION
+  storage_account_name =  $STORAGE_ACCOUNT
+  storage_account_key = $STORAGE_ACCOUNT_KEY
+  storage_container_name = $STORAGE_ACCOUNT_CONTAINER
+}
+
+New-AzResourceGroupDeployment `
+  -ResourceGroupName $RESOURCE_GROUP `
+  -TemplateParameterObject $params `
+  -TemplateFile ./serviceapp.json `
+  -SkipTemplateParameterPrompt 
+```
+
+::: zone-end
+
+::: zone pivot="container-apps-bicep"
+
+Now let's deploy the service Container App.  Navigate to the directory in which you stored the Bicep template file and run the command below.
+
+A warning (BCP081) may be displayed. This warning will have no effect on successfully deploying the Container App.
+
+# [Bash](#tab/bash)
+
 ```azurecli
-az deployment group create `
-  --resource-group "$RESOURCE_GROUP" `
-  --template-file ./serviceapp.json `
-  --parameters `
-      environment_name="$CONTAINERAPPS_ENVIRONMENT" `
-      location="$LOCATION" `
-      storage_account_name="$STORAGE_ACCOUNT" `
-      storage_account_key="$STORAGE_ACCOUNT_KEY" `
+az deployment group create \
+  --resource-group "$RESOURCE_GROUP" \
+  --template-file ./serviceapp.bicep \
+  --parameters \
+      environment_name="$CONTAINERAPPS_ENVIRONMENT" \
+      location="$LOCATION" \
+      storage_account_name="$STORAGE_ACCOUNT" \
+      storage_account_key="$STORAGE_ACCOUNT_KEY" \
       storage_container_name="$STORAGE_ACCOUNT_CONTAINER"
 ```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+$params = @{
+  environment_name = $CONTAINERAPPS_ENVIRONMENT
+  location = $LOCATION
+  storage_account_name =  $STORAGE_ACCOUNT
+  storage_account_key = $STORAGE_ACCOUNT_KEY
+  storage_container_name = $STORAGE_ACCOUNT_CONTAINER
+}
+
+New-AzResourceGroupDeployment `
+  -ResourceGroupName $RESOURCE_GROUP `
+  -TemplateParameterObject $params `
+  -TemplateFile ./serviceapp.bicep `
+  -SkipTemplateParameterPrompt 
+```
+
+
+
+::: zone-end
 
 ---
 
@@ -499,29 +695,69 @@ This command deploys the service (Node) app server on `targetPort: 3000` (the ap
 
 Run the command below to deploy the client container app.
 
+::: zone pivot="container-apps-arm"
+
 # [Bash](#tab/bash)
 
 ```azurecli
 az deployment group create --resource-group "$RESOURCE_GROUP" \
   --template-file ./clientapp.json \
   --parameters \
-    environment_name="$CONTAINERAPPS_ENVIRONMENT" \
-    location="$LOCATION"
+      environment_name="$CONTAINERAPPS_ENVIRONMENT" \
+      location="$LOCATION"
 ```
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az deployment group create --resource-group "$RESOURCE_GROUP" `
-  --template-file ./clientapp.json `
-  --parameters `
-    environment_name="$CONTAINERAPPS_ENVIRONMENT" `
-    location="$LOCATION"
+```powershell
+$params = @{
+  environment_name = $CONTAINERAPPS_ENVIRONMENT
+  location = $LOCATION
+}
+
+New-AzResourceGroupDeployment `
+  -ResourceGroupName $RESOURCE_GROUP `
+  -TemplateParameterObject $params `
+  -TemplateFile ./clientapp.json `
+  -SkipTemplateParameterPrompt 
 ```
+
+::: zone-end
+
+::: zone pivot="container-apps-bicep"
+
+A warning (BCP081) may be displayed. This warning will have no effect on successfully deploying the Container App.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az deployment group create --resource-group "$RESOURCE_GROUP" \
+  --template-file ./clientapp.bicep \
+  --parameters \
+      environment_name="$CONTAINERAPPS_ENVIRONMENT" \
+      location="$LOCATION"
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+$params = @{
+  environment_name = $CONTAINERAPPS_ENVIRONMENT
+  location = $LOCATION
+}
+
+New-AzResourceGroupDeployment `
+  -ResourceGroupName $RESOURCE_GROUP `
+  -TemplateParameterObject $params `
+  -TemplateFile ./clientapp.bicep `
+  -SkipTemplateParameterPrompt 
+```
+
+::: zone-end
 
 ---
 
-This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there is no `targetPort` to start a server, nor is there a need to enable ingress.
+This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there's no `targetPort` to start a server, nor is there a need to enable ingress.
 
 ## Verify the result
 
@@ -545,9 +781,9 @@ You can confirm the services are working correctly by viewing data in your Azure
 
 ### View Logs
 
-Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI. You may need to wait a few minutes for the analytics to arrive for the first time before you are able to query the logged data.
+Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or from the command line. You may need to wait a few minutes for the analytics to arrive for the first time before you can query the logged data.
 
-Use the following CLI command to view logs on the command line.
+Use the following command to view logs in bash or PowerShell.
 
 # [Bash](#tab/bash)
 
@@ -560,16 +796,14 @@ az monitor log-analytics query \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az monitor log-analytics query `
-  --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
-  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5" `
-  --out table
+```powershell
+$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $LOG_ANALYTICS_WORKSPACE_CLIENT_ID -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5"
+$queryResults.Results
 ```
 
 ---
 
-The following output demonstrates the type of response to expect from the CLI command.
+The following output demonstrates the type of response to expect from the command.
 
 ```console
 ContainerAppName_s    Log_s                            TableName      TimeGenerated
@@ -586,20 +820,19 @@ nodeapp               Got a new order! Order ID: 63    PrimaryResult  2021-10-22
 
 ## Clean up resources
 
-Once you are done, clean up your Container App resources by running the following command to delete your resource group.
+Once you're done, clean up your Container App resources by running the following command to delete your resource group.
 
 # [Bash](#tab/bash)
 
 ```azurecli
 az group delete \
-    --resource-group $RESOURCE_GROUP
+  --resource-group $RESOURCE_GROUP
 ```
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az group delete `
-    --resource-group $RESOURCE_GROUP
+```powershell
+Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 ```
 
 ---

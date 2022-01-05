@@ -3,14 +3,12 @@ title: Start translation
 titleSuffix: Azure Cognitive Services
 description: Start a document translation request with the Document Translation service.
 services: cognitive-services
-author: jann-skotdal
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/22/2021
-ms.author: v-jansk
 ---
 
 # Start translation

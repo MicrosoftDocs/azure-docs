@@ -61,12 +61,12 @@ When you add a guest user to your directory by [using the Azure portal](./b2b-qu
 4. The guest is guided through the [consent experience](#consent-experience-for-the-guest) described below.
 
 ## Redemption limitation with conflicting Contact object
-Sometimes the invited external guest user's email may conflict with an existing [Contact object](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true), resulting in the guest user being created without a proxyAddress. This is a known limitation that prevents guest users from: 
+Sometimes the invited external guest user's email may conflict with an existing [Contact object](/graph/api/resources/contact), resulting in the guest user being created without a proxyAddress. This is a known limitation that prevents guest users from: 
 - Redeeming an invitation through a direct link using [SAML/WS-Fed IdP](./direct-federation.md), [Microsoft Accounts](./microsoft-account.md), [Google Federation](./google-federation.md), or [Email One-Time Passcode](./one-time-passcode.md) accounts. 
 - Redeeming an invitation through an invitation email redemption link using [SAML/WS-Fed IdP](./direct-federation.md) and [Email One-Time Passcode](./one-time-passcode.md) accounts.
 - Signing back into an application after redemption using [SAML/WS-Fed IdP](./direct-federation.md) and [Google Federation](./google-federation.md) accounts.
 
-To unblock users who can't redeem an invitation due to a conflicting [Contact object](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true), follow these steps:
+To unblock users who can't redeem an invitation due to a conflicting [Contact object](/graph/api/resources/contact), follow these steps:
 1. Delete the conflicting Contact object.
 2. Delete the guest user in the Azure portal (the user's "Invitation accepted" property should be in a pending state).
 3. Re-invite the guest user.

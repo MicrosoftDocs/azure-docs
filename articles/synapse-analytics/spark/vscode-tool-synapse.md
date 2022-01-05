@@ -4,7 +4,7 @@ description: Tutorial - Use the Spark & Hive Tools for VSCode to develop Spark a
 services: synapse-analytics 
 author: jejiang
 ms.author: jejiang
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
@@ -187,6 +187,29 @@ for (word, count) in sortedCollection:
 >2. Switch to Synapse Pyspark kernel, disabling auto-settings in Azure Portal is encouraged. Otherwise it may take a long while to wake up the cluster and set synapse kernel for the first time use. 
 >
 >    ![auto settings](./media/vscode-tool-synapse/auto-settings.png)
+
+## Spark session config
+
+You can specify the timeout duration, the number, and the size of executors to give to the current Spark session in **Configure session**. Restart the Spark session is for configuration changes to take effect. All cached notebook variables are cleared.
+
+```python
+%%configure -f
+{
+    // refer to https://github.com/cloudera/livy#request-body for a list of valid parameters to config the session.
+    "driverMemory":"2g",
+    "driverCores":3,
+    "executorMemory":"2g",
+    "executorCores":2,
+    "jars":[],
+    "conf":{
+        "spark.driver.maxResultSize":"10g"
+    }
+}
+```
+
+> [!NOTE]
+>
+> Display function and Spark SQL may not be rendered properly in the output cell. 
 
 ## Submit PySpark batch job to Spark pool
 

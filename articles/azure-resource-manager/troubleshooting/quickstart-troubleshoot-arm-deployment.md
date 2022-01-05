@@ -1,14 +1,16 @@
 ---
-title: Troubleshoot ARM template deployments
-description: Learn how to troubleshoot Azure Resource Manager template (ARM template) deployments.
-ms.date: 11/04/2021
+title: Troubleshoot ARM template JSON deployments
+description: Learn how to troubleshoot Azure Resource Manager template (ARM template) JSON deployments.
+ms.date: 12/08/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, mode-arm
 ---
 
-# Quickstart: Troubleshoot ARM template deployments
+# Quickstart: Troubleshoot ARM template JSON deployments
 
-This quickstart describes how to troubleshoot Azure Resource Manager template (ARM template) deployment errors. You'll set up a template with errors and learn how to fix the errors.
+This quickstart describes how to troubleshoot Azure Resource Manager template (ARM template) JSON deployment errors. You'll set up a template with errors and learn how to fix the errors.
+
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 There are three types of errors that are related to a deployment:
 
@@ -84,11 +86,11 @@ Copy the following template and save it locally. You'll use this file to trouble
 
 ## Fix validation error
 
-Open the file in Visual Studio Code. The wavy lines under `parameterss:` indicate an error. Hover over the error to see the validation error.
+Open the file in Visual Studio Code. The wavy line under `parameterss:` indicates an error. To see the validation error, hover over the error.
 
 :::image type="content" source="media/quickstart-troubleshoot-arm-deployment/validation-error.png" alt-text="Screenshot of a template validation error in Visual Studio Code.":::
 
-You'll notice that `variables` and `resources` have errors for _undefined parameter reference_.
+You'll notice that `variables` and `resources` have errors for _undefined parameter reference_. To display the template's validation errors, select **View** > **Problems**.
 
 :::image type="content" source="media/quickstart-troubleshoot-arm-deployment/validation-undefined-parameter.png" alt-text="Screenshot of Visual Studio Code that shows undefined parameter reference errors.":::
 

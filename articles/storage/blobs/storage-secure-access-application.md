@@ -11,6 +11,7 @@ ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
+ms.devlang: csharp
 ms.custom: "mvc, devx-track-csharp, devx-track-azurecli"
 ---
 
@@ -40,7 +41,7 @@ In this part of the tutorial series, SAS tokens are used for accessing the thumb
 ```powershell
 $blobStorageAccount="<blob_storage_account>"
 
-blobStorageAccountKey=(Get-AzStorageAccountKey -ResourceGroupName myResourceGroup -AccountName $blobStorageAccount).Key1
+$blobStorageAccountKey=(Get-AzStorageAccountKey -ResourceGroupName myResourceGroup -AccountName $blobStorageAccount).Key1
 
 Set-AzStorageAccount -ResourceGroupName "MyResourceGroup" -AccountName $blobStorageAccount -KeyName $blobStorageAccountKey -AllowBlobPublicAccess $false
 ```

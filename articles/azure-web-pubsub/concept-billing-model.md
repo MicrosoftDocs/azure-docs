@@ -5,7 +5,7 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 11/08/2021
 ---
 
 # Billing model of Azure Web PubSub service

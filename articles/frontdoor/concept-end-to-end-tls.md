@@ -49,6 +49,8 @@ For HTTPS connections, Azure Front Door expects that your backend presents a cer
 
 From a security standpoint, Microsoft doesn't recommend disabling certificate subject name check. In certain use cases such as for testing, for example, your origin must use a self-signed certificate. As a work-around to resolve failing HTTPS connection, can you disable certificate subject name check for your Azure Front Door. The option to disable is present under the Azure Front Door settings in the Azure portal and on the BackendPoolsSettings in the Azure Front Door API. 
 
+## Frontend TLS connection (Client to Front Door)
+
 To enable the HTTPS protocol for secure delivery of contents on an Azure Front Door custom domain, you can choose to use a certificate that is managed by Azure Front Door or use your own certificate.  
 
 * Azure Front Door managed certificate provides a standard TLS/SSL certificate via DigiCert and is stored in Azure Front Door's Key Vault.   
@@ -57,11 +59,13 @@ To enable the HTTPS protocol for secure delivery of contents on an Azure Front D
 
 * Self-signed certificates aren't supported. Learn [how to enable HTTPS for a custom domain](front-door-custom-domain-https.md).
 
-For Azure Front Door managed certificates, the certificates are managed and autorotate within 90 days of expiry time by Azure Front Door. If you're using an Azure Front Door managed certificate and see that the certificate expiry date is less than 60 days away, file a support ticket. 
+### Certificate autorotation
+
+For the Azure Front Door managed certificate option, the certificates are managed and auto-rotates within 90 days of expiry time by Azure Front Door. For the Azure Front Door Standard/Premium managed certificate option, the certificates are managed and auto-rotates within 45 days of expiry time by Azure Front Door. If you're using an Azure Front Door managed certificate and see that the certificate expiry date is less than 60 days away or 30 days for the Standard/Premium SKU, file a support ticket. 
 
 For your own custom TLS/SSL certificate:
 
-1. You set the secret version to 'Latest' for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your key vault. For custom certificates, the certificate gets autorotated within 1-2 days with a newer version of certificate, no matter what the certificate expired time is.
+1. You set the secret version to 'Latest' for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your key vault. For custom certificates, the certificate gets auto-rotated within 1-2 days with a newer version of certificate, no matter what the certificate expired time is.
 
 1. If a specific version is selected, autorotation isn’t supported. You've will have to reselect the new version manually to rotate certificate. It takes up to 24 hours for the new version of the certificate/secret to be deployed.
 
@@ -69,7 +73,7 @@ For your own custom TLS/SSL certificate:
 
 ## Supported cipher suites
 
-### For TLS1.2 the following cipher suites are supported:
+For TLS1.2 the following cipher suites are supported:
 
 * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
@@ -79,7 +83,7 @@ For your own custom TLS/SSL certificate:
 > [!NOTE]
 > For Windows 10 and later versions, we recommend enabling one or both of the ECDHE cipher suites for better security. Windows 8.1, 8, and 7 aren't compatible with these ECDHE cipher suites. The DHE cipher suites have been provided for compatibility with those operating systems.
 
-### Using custom domains with TLS1.0/1.1 enabled the following cipher suites are supported:
+Using custom domains with TLS1.0/1.1 enabled the following cipher suites are supported:
 
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
@@ -101,6 +105,8 @@ For your own custom TLS/SSL certificate:
 * TLS_RSA_WITH_AES_128_CBC_SHA
 * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 * TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+
+Azure Front Door doesn’t support configuring specific cipher suites. You can get your own custom TLS/SSL certificate from your Certificate Authority (For example: Verisign, Entrust, or DigiCert). Then have specific cipher suites marked on the certificate when you generate it. 
 
 ## Next steps
 
