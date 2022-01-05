@@ -46,7 +46,7 @@ This article provides the steps for deploying self-hosted gateway component of A
    ```console
    $ helm search repo azure-apim-gateway
    NAME                                            CHART VERSION   APP VERSION     DESCRIPTION
-   azure-apim-gateway/azure-api-management-gateway 0.3.0           1.1.2           A Helm chart to deploy an Azure API Management ...
+   azure-apim-gateway/azure-api-management-gateway 1.0.0           1.2.5           A Helm chart to deploy an Azure API Management ...
    ```
 
 ## Deploy the self-hosted gateway to Kubernetes
@@ -60,8 +60,8 @@ This article provides the steps for deploying self-hosted gateway component of A
 
    ```console
    helm install azure-api-management-gateway \
-                --set gateway.endpoint='<your token>' \
-                --set gateway.authKey='<your configuration url>' \
+                --set gateway.configuration.uri='<your token>' \
+                --set gateway.auth.key='<your configuration url>' \
                 azure-apim-gateway/azure-api-management-gateway
    ```
    
