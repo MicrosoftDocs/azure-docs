@@ -136,9 +136,9 @@ conceptualContent:
     # Card
     - title: Azure Arc-enabled private clouds
       links:
-        - url: /resource-bridge/overview
+        - url: /azure/azure-arc/resource-bridge/overview
           itemType: overview
           text: Azure Arc resource bridge overview
-        - url: /vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script
+        - url: /azure/azure-arc/vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script
           itemType: quickstart
           text: Connect your VMware vCenter to Azure Arc
