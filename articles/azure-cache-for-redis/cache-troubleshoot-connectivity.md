@@ -2,8 +2,8 @@
 title: Troubleshoot connectivity in Azure Cache for Redis
 titleSuffix: Azure Cache for Redis
 description: Learn how to resolve connectivity problems when creating clients with Azure Cache for Redis.
-author: curib
-ms.author: cauribeg
+author: flang-msft
+ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual 
 ms.date: 12/01/2021
@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 # Connectivity troubleshooting
 
-Your client application could experience intermittent connectivity issues. If your application is unable to connect to your Azure Cache for Redis continually, it's possible some configuration on the cache isn't set up correctly. 
+Your client application might have intermittent connectivity issues caused by events such as patching or spikes in the number of connections. Some configuration settings on the cache can be changed to improve connectivity.
 
 In this article, we provide troubleshooting help for connecting your client application to Azure Cache for Redis.
 
@@ -41,7 +41,7 @@ Check if the Max aggregate for `Connected Clients` metric is close or higher tha
 
 ## Linux-based client application
 
-Using optimistic TCP settings in Linux can cause client applications to experience connectivity issues. See [Connection stalls lasting for 15 minutes](https://github.com/StackExchange/StackExchange.Redis/issues/1848#issuecomment-913064646).
+Using optimistic TCP settings in Linux might cause client applications to experience connectivity issues. See [Connection stalls lasting for 15 minutes](https://github.com/StackExchange/StackExchange.Redis/issues/1848#issuecomment-913064646).
 
 ## Azure Cache for Redis CLI
 
@@ -78,7 +78,7 @@ If you have a firewall configured for your Azure Cache For Redis, ensure that yo
 
 ### Third-party firewall or external proxy
 
-When you use a third-party firewall or proxy in your network, ensure that the endpoint for Azure Cache for Redis, `*.redis.cache.windows.net`, is allowed along with the ports `6379` and `6380`. You might need to allow more ports when using a clustered cache.
+When you use a third-party firewall or proxy in your network, check that the endpoint for Azure Cache for Redis, `*.redis.cache.windows.net`, is allowed along with the ports `6379` and `6380`. You might need to allow more ports when using a clustered cache.
 
 ## Next steps
 
