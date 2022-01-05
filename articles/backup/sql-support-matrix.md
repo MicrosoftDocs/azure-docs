@@ -2,8 +2,11 @@
 title: Azure Backup support matrix for SQL Server Backup in Azure VMs 
 description: Provides a summary of support settings and limitations when backing up SQL Server in Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 01/04/2022
 ms.custom: references_regions 
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Support matrix for SQL Server Backup in Azure VMs
@@ -16,7 +19,7 @@ You can use Azure Backup to back up SQL Server databases in Azure VMs hosted on 
 --- | ---
 **Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server manually installed) VMs are supported.
 **Supported regions** | Azure Backup for SQL Server databases is available in all regions, except France South (FRS), UK North (UKN), UK South 2 (UKS2), UG IOWA (UGI), and Germany (Black Forest).
-**Supported operating systems** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Linux isn't currently supported.
+**Supported operating systems** | Windows Server 2022, Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Linux isn't currently supported.
 **Supported SQL Server versions** | SQL Server 2019, SQL Server 2017 as detailed on the [Search product lifecycle page](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 and SPs as detailed on the [Search product lifecycle page](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express.<br><br>Express Local DB versions aren't supported.
 **Supported .NET versions** | .NET Framework 4.5.2 or later installed on the VM
 **Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server that is manually installed) VMs are supported. Support for standalone instances is always on [availability groups](backup-sql-server-on-availability-groups.md).
@@ -40,6 +43,7 @@ _*The database size limit depends on the data transfer rate that we support and 
 * TDE - enabled database backup is supported. To restore a TDE-encrypted database to another SQL Server, you need to first [restore the certificate to the destination server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). The backup compression for TDE-enabled databases for SQL Server 2016 and newer versions is available, but at lower transfer size as explained [here](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
 * The backup and restore operations for mirror databases and database snapshots aren't supported.
 * SQL Server **Failover Cluster Instance (FCI)** isn't supported.
+* Azure Backup supports only back up of database files with the following extensions - _.ad_, _.cs_, and _.master_. Database files with other extensions, such as _.dll_, aren't backed-up because the IIS server performs the [file extension request filtering](/iis/configuration/system.webserver/security/requestfiltering/fileextensions).
 
 ## Backup throughput performance
 
