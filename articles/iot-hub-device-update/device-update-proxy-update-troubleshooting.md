@@ -25,9 +25,12 @@ This document provides troubleshooting steps and a table of error messages that 
 |_Upload contains child manifest file(s)_ ('childmanifest.importmanifest.json') _that aren't listed in the parent. Delete it and try again._  | A proxy update may have a parent import manifest and also some number of child import manifests referenced from the parent. The parent import manifest includes references to all the child import manifests in your update. If you see this error along with a list of import manifests, those child import manifests aren't referenced in the parent import manifest. You'll need to remove those child import manifests to import the update, or else add references to them in your parent import manifest. [Learn more about import manifests.](.\import-update.md#create-a-device-update-import-manifest) |
 
 
-## Additional troubleshooting steps and FAQs
+<!-- Make sections visible when content is available --
+## Troubleshooting
 
-_These will be added as feedback is received._
+## FAQs
+-->
 
+## Next steps
 
-**[Next Steps: Troubleshoot other issues with Device Update](.\troubleshoot-device-update.md)**
+- [Troubleshoot other issues with Device Update](.\troubleshoot-device-update.md)
