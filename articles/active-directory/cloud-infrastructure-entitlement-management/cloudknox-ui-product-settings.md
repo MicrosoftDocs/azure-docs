@@ -44,7 +44,7 @@ You can also:
 - **Search** - Enter an ID or IP address to display specific authorization systems.
 - **Filters** - Select the uploaded and transformed systems you want to display: **All** or **Online** . 
 - **||| Columns** - Select the columns you want to display: **Recently Uploaded On** and **Recently Transformed On**.
-          - To return to the system default settings, select **Reset to default**.
+        - To return to the system default settings, select **Reset to default**.
 - **Deploy** - Deploy the Sentry Appliance. For more information, see Deploy the Sentry Appliance.
     <!---Add link--->
 
@@ -74,7 +74,7 @@ The authorization systems table displays the following information about the aut
 - **Benchmark status**
 - **Entitlements Status**
 - **||| Columns** - Select the columns you want to display: **Controller Status**, **Benchmark status**, and **Entitlements Status**.
-        - To return to the system default settings, select **Reset to default**.
+    - To return to the system default settings, Select **Reset to default**.
 
 ### The **Folders** subtab
 
