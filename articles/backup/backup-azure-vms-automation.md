@@ -2,8 +2,11 @@
 title: Back up and recover Azure VMs with PowerShell
 description: Describes how to back up and recover Azure VMs using Azure Backup with PowerShell
 ms.topic: conceptual
-ms.date: 09/11/2019 
+ms.date: 01/04/2022
 ms.custom: devx-track-azurepowershell
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Back up and restore Azure VMs with PowerShell
@@ -587,6 +590,31 @@ If cross-region restore is enabled on the vault with which you've protected your
     ------------     ---------            ------               ---------                 -------                   -----
     V2VM             CrossRegionRestore   InProgress           2/8/2021 4:24:57 PM                                 2d071b07-8f7c-4368-bc39-98c7fb2983f7
     ```
+
+#### Cross-zonal restore
+
+[Azure zone pinned VMs](../virtual-machines/windows/create-portal-availability-zone.md) can be restored in any [availability zones](../availability-zones/az-overview.md) of the same region.
+
+To restore a VM to another zone, specify the _TargetZoneNumber_ parameter in the [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) cmdlet.
+
+```powershell
+$restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -VaultId $targetVault.ID -TargetZoneNumber 3
+```
+The output will be similar to the following example:
+
+```output
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   -----
+zonevmeus2       Restore              InProgress           1/3/2022 10:27:20 AM                                b2298...
+```
+
+Cross-zonal restore is supported only in scenarios where:
+
+- The source VM is zone pinned and is NOT encrypted.
+- The recovery point is present in vault-tier only (Snapshots only or snapshot and vault-tier are not supported).
+- The recovery option is to create a new VM or to restore disks (replace disks option replaces source data and hence the availability zone option is not applicable).
+- Creating VM/disks in the same region when vault's storage redundancy is ZRS (doesn't work when vault's storage redundancy is GRS even though the source VM is zone pinned).
+- Creating VM/disks in the paired region when vault's storage redundancy is enabled for Cross-Region-Restore and if the paired region supports zones.
 
 ## Replace disks in Azure VM
 
