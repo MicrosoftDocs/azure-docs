@@ -165,7 +165,7 @@ $nsgRuleRDP = New-AzNetworkSecurityRuleConfig `
    -SourcePortRange * `
    -DestinationAddressPrefix * `
    -DestinationPortRange 3389 `
-   -Access Allow
+   -Access Deny
 $nsg = New-AzNetworkSecurityGroup `
    -ResourceGroupName $resourceGroup `
    -Location $location `
@@ -251,7 +251,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
           "protocol": "Tcp",
           "sourceAddressPrefix": "*",
           "destinationAddressPrefix": "*",
-          "access": "Allow",
+          "access": "Deny",
           "destinationPortRange": "3389",
           "sourcePortRange": "*",
           "priority": 1000,
