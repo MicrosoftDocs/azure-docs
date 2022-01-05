@@ -158,5 +158,5 @@ The following table provides supported views.
 | SA      | Saudi Arabia (Arabic View)                                  |   ✓  |        |
 | SY      | Syria (Arabic View)                                         |   ✓  |        |
 | YE      | Yemen (Arabic View)                                         |   ✓  |        |
-| Auto    | Return the map data Based on the location of the request    |   ✓  |    ✓   |
+| Auto    | Return the map data based on the location of the request    |   ✓  |    ✓   |
 | Unified | Unified View (Others)                                       |   ✓  |    ✓   |
