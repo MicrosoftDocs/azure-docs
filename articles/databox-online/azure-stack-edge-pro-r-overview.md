@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Stack Edge Pro R overview | Microsoft Docs
+title: Microsoft Azure Stack Edge Pro R overview
 description: Describes Azure Stack Edge Pro R devices, a storage solution that uses a physical device for network-based transfer into Azure and the solution can deployed in harsh environments.
 services: databox
 author: alkohli
