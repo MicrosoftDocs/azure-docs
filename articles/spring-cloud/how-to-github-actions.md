@@ -197,8 +197,15 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 ```
 
 ## End-to-End Sample Workflows
+
+The following examples demonstrate common usage scenarios.
+
 ### Deploying
+
+The following sections show you various options for deploying your app.
+
 #### To production
+
 Azure Spring Cloud supports deploying to deployments with built artifacts (e.g., JAR or .NET Core ZIP) or source code archive.
 The following example deploys to the default production deployment in Azure Spring Cloud using JAR file built by Maven. This is the only possible deployment scenario when using the Basic SKU:
 
