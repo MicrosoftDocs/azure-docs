@@ -1621,14 +1621,12 @@
     - name: Azure SDKs
       displayName: Configured managed identies
       href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?context=/azure/virtual-machines/context/context
-  - name: Linux Active Directory sign-in
-    displayName: aad
-    items:
-    - name: SSH with Azure Active Directory
-      href: ../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md
-      items:
-      - name: Previous version being deprecated August 15, 2021
-        href: ./linux/login-using-aad.md
+  - name: LInux VMs SSH with Azure AD
+    displayName: aad, ssh, active directory
+    href: ../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md?context=/azure/virtual-machines/context/context
+  - name: Windows VMs and Azure AD
+    displayname: aad, active directory
+    href: ../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md?context=/azure/virtual-machines/context/context
 - name: Updates and maintenance
   items:
   - name: Overview
