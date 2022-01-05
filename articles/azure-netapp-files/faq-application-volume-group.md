@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
-ms.author: b-hchen
+ms.author: anfdocs
 ms.date: 11/19/2021
 ---
 # Application volume group FAQs

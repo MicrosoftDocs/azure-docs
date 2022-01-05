@@ -37,6 +37,10 @@ The following table describes the recommended sizing for your virtual machine, d
 |**Multiple connectors**     |A *Standard_B4ms* VM, with: <br>- 4 cores<br>- 16-GB memory         |
 |     |         |
 
+Also, make sure that you have enough disk space for the Docker container runtime environment so that you'll have enough space for your operation agent logs. We recommend that you have 200 GB available. 
+
+For example, in Ubuntu, you can mount a disk to the `/var/lib/docker` directory before installing the container, as by default you may have little space allocated to the `/var` directory.
+
 ## Required SAP log change requests
 
 The following SAP log change requests are required for the SAP solution, depending on your SAP Basis version:

@@ -18,9 +18,6 @@ ms.date: 08/28/2021
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-> [!div class="nextstepaction"]
-> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
-
 ## What is a database backup?
 
 Database backups are an essential part of any business continuity and disaster recovery strategy, because they protect your data from corruption or deletion. These backups enable database restore to a point in time within the configured retention period. If your data protection rules require that your backups are available for an extended time (up to 10 years), you can configure [long-term retention](long-term-retention-overview.md) for both single and pooled databases.
@@ -47,7 +44,7 @@ For SQL Database, the backup storage redundancy can be configured at the time of
 > Zone-redundant storage is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> Backup storage redundancy for SQL Database and Hyperscale is currently in preview. 
+> Backup storage redundancy for Hyperscale is currently in preview. 
 
 ### Backup usage
 
@@ -225,7 +222,7 @@ For more details about backup storage pricing visit [Azure SQL Database pricing 
 > Backup storage redundancy for Hyperscale and SQL Managed Instance can only be set during database creation. This setting cannot be modified once the resource is provisioned. [Database copy](database-copy.md) process can be used to update the backup storage redundancy settings for an existing Hyperscale database. 
 
 > [!NOTE]
-> Backup storage redundancy for SQL Database and Hyperscale is currently in preview. 
+> Backup storage redundancy for Hyperscale is currently in preview. 
 
 ### Monitor costs
 
@@ -306,7 +303,7 @@ az sql db str-policy set \
     --diffbackup-hours 24
 ```
 
-#### [SQL Database](#tab/managed-instance)
+#### [SQL Managed Instance](#tab/managed-instance)
 
 Use the following example to change the PITR backup retention of a **single active** database in a SQL Managed Instance.
 

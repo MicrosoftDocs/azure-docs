@@ -5,7 +5,7 @@ ms.service: cosmos-db
 author: abhirockzz
 ms.author: abhishgu
 ms.subservice: cosmosdb-cassandra
-ms.devlang: go
+ms.devlang: golang
 ms.topic: quickstart
 ms.date: 07/14/2020
 ms.custom: mode-api

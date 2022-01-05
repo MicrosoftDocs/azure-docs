@@ -7,6 +7,7 @@ ms.date: 12/04/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
+ms.devlang: ruby
 ms.custom: mode-api
 ---
 

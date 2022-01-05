@@ -3,7 +3,7 @@ title: Azure AD built-in roles - Azure Active Directory
 description: Describes the Azure Active Directory built-in roles and permissions.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity
@@ -2208,6 +2208,8 @@ Workplace Device Join | Deprecated | [Deprecated roles documentation](#deprecate
 ## Password reset permissions
 
 Column headings represent the roles that can reset passwords. Table rows contain the roles for which their password can be reset.
+
+The following table is for roles assigned at the scope of a tenant. For roles assigned at the scope of an administrative unit, [further restrictions apply](admin-units-assign-roles.md#roles-that-can-be-assigned-with-administrative-unit-scope).
 
 Password can be reset | Password Admin | Helpdesk Admin | Authentication Admin | User Admin | Privileged Authentication Admin | Global Admin
 ------ | ------ | ------ | ------ | ------ | ------ | ------
