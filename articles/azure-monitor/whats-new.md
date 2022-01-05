@@ -2,12 +2,85 @@
 title: "What's new in Azure Monitor documentation"
 description: "What's new in Azure Monitor documentation"
 ms.topic: conceptual
-ms.date: 11/10/2021
+ms.date: 01/04/2022
 ---
 
 # What's new in Azure Monitor documentation
 
 This article lists significant changes to Azure Monitor documentation.
+
+## December, 2021
+
+## General
+
+**Updated articles**
+
+- [What is monitored by Azure Monitor?](monitor-reference.md)
+
+## Agents
+
+**Updated articles**
+
+- [Install Log Analytics agent on Windows computers](agents/agent-windows.md)
+- [Log Analytics agent overview](agents/log-analytics-agent.md)
+
+## Alerts
+
+**New articles**
+
+- [Manage alert rules created in previous versions](alerts/alerts-manage-alerts-previous-version.md)
+
+**Updated articles**
+
+- [Create an action group with a Resource Manager template](alerts/action-groups-create-resource-manager-template.md)
+- [Troubleshoot log alerts in Azure Monitor](alerts/alerts-troubleshoot-log.md)
+- [Troubleshooting problems in Azure Monitor alerts](alerts/alerts-troubleshoot.md)
+- [Create, view, and manage log alerts using Azure Monitor](alerts/alerts-log.md)
+- [Create, view, and manage activity log alerts by using Azure Monitor](alerts/alerts-activity-log.md)
+- [Create, view, and manage metric alerts using Azure Monitor](alerts/alerts-metric.md)
+
+## Application Insights
+
+**New articles**
+
+- [Analyzing product usage with HEART](app/usage-heart.md)
+
+**Updated articles**
+
+- [Tips for updating your JVM args - Azure Monitor Application Insights for Java](app/java-standalone-arguments.md)
+- [Troubleshooting guide: Azure Monitor Application Insights for Java](app/java-standalone-troubleshoot.md)
+- [Set up Azure Monitor for your Python application](app/opencensus-python.md)
+- [Click Analytics Auto-collection plugin for Application Insights JavaScript SDK](app/javascript-click-analytics-plugin.md)
+
+## Logs
+
+**New articles**
+
+- [Access the Azure Monitor Log Analytics API](logs/api/access-api.md)
+- [Set Up Authentication and Authorization for the Azure Monitor Log Analytics API](logs/api/authentication-authorization.md)
+- [Querying logs for Azure resources](logs/api/azure-resource-queries.md)
+- [Batch queries](logs/api/batch-queries.md)
+- [Caching](logs/api/cache.md)
+- [Cross workspace queries](logs/api/cross-workspace-queries.md)
+- [Azure Monitor Log Analytics API Errors](logs/api/errors.md)
+- [Azure Monitor Log Analytics API Overview](logs/api/overview.md)
+- [Prefer options](logs/api/prefer-options.md)
+- [Azure Monitor Log Analytics API request format](logs/api/request-format.md)
+- [Azure Monitor Log Analytics API response format](logs/api/response-format.md)
+- [Timeouts](logs/api/timeouts.md)
+
+**Updated articles**
+
+- [Log Analytics workspace data export in Azure Monitor (preview)](logs/logs-data-export.md)
+- [Resource Manager template samples for Log Analytics workspaces in Azure Monitor](logs/resource-manager-workspace.md)
+
+## Virtual Machines
+
+**Updated articles**
+
+- [Enable VM insights overview](vm/vminsights-enable-overview.md)
+
+
 
 ## November, 2021
 
