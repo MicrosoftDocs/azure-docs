@@ -16,7 +16,10 @@ sections:
 
       - question: What is the maximum number of public IP addresses that can be used by Virtual Network NAT gateway?
         answer: |
-          The Virtual Network NAT gateway resource can use up to 16 public IP addresses. The Virtual Network NAT can use any combination of public IP addresses and public IP address prefixes totaling to 16 addresses. The maximum prefix size that can be used by Virtual Network NAT is /28 (16 addresses).  
+          The Virtual Network NAT gateway resource can use up to 16 public IP addresses. The Virtual Network NAT can use any combination of public IP addresses and public IP address prefixes totaling to 16 addresses. The maximum prefix size that can be used by Virtual Network NAT is /28 (16 addresses). Other public IP prefix sizes that can be used by VNet NAT gateway include:
+          /29 (8 addresses)
+          /30 (4 addresses)
+          /31 (2 addresses)  
 
       - question: Can IPs of an existing Virtual Network NAT gateway be changed? 
         answer: |
@@ -29,6 +32,10 @@ sections:
       - question: If multiple public IP addresses are assigned to a VNet NAT gateway resource, which public IPs will be used by my subnet resources?
         answer: |
           Any of your subnet resources can use any of the public IP addresses configured to your Virtual Network NAT gateway resource for outbound connectivity. Each time a new outbound connection is made through Virtual Network NAT, the outbound public IP may be different. 
+      
+      - question: Can a VNet NAT gateway public IP connect directly to a private IP address over the internet?
+        answer: |
+          No. A public IP address of NAT gateway cannot connect directly to a private IP over the internet. 
       
       - question: Can Virtual Network NAT gateway be attached to multiple virtual networks?  
         answer: |
