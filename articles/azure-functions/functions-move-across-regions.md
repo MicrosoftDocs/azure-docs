@@ -5,7 +5,7 @@ description: Learn how to move Azure Functions resources from one region to anot
 ms.topic: how-to
 ms.service: azure-functions
 author: nzthiago
-ms.date: 05/11/2021
+ms.date: 11/09/2021
 ms.custom: subject-moving-resources
 
 #Customer intent: As an Azure service administrator, I want to move my Azure Functions resources to another Azure region.

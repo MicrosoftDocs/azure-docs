@@ -183,7 +183,7 @@ In this section, you provision a web app in App Service and deploy your code to 
    git remote add webapp <Git clone URL>
    ```
 
-8. To deploy the code to App Service, enter the following command in your command window. Make sure that you are in the sample directory *web-apps-code-iot-hub-data-visualization*. If you are prompted for credentials, enter the user-level deployment credentials that you created in step 5. Push to the master branch of the App Service remote.
+8. To deploy the code to App Service, enter the following command in your command window. Make sure that you are in the sample directory *web-apps-code-iot-hub-data-visualization*. If you are prompted for credentials, enter the user-level deployment credentials that you created in step 5. Push to the main branch of the App Service remote.
 
     ```cmd
     git push webapp master:master

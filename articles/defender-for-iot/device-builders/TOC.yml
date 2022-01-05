@@ -2,14 +2,14 @@
   href: index.yml
   items:
 - name: Overview
-  displayName: IoT, OT, getting started
-  href: overview.md
-  items:
+  expanded: true
+  items: 
+  - name: What is Defender for IoT for device builders?
+    displayName: IoT, OT, getting started
+    href: overview.md
   - name: What's new?
     displayName: version, versions, servicing, information, timeline, support, support date, dates, versioning, policy
     href: release-notes.md
-  - name: What is Agent-based solution architecture
-    href: architecture-agent-based.md
 - name: Quickstarts
   expanded: true
   items:
@@ -38,6 +38,10 @@
     - name: Create an azureiotsecurity module twin
       displayName: module twin, security module
       href: quickstart-create-security-twin.md
+- name: Tutorials
+  items:
+  - name: Configure a micro agent twin
+    href: tutorial-configure-micro-agent-twin.md
 - name: Concepts
   items:
   - name: Agent portfolio overview and OS support (Preview)                     
@@ -46,11 +50,11 @@
   - name: Standalone micro agent overview (Preview)
     displayName: endpoint, posture, distribution, flexible, model 
     href: concept-standalone-micro-agent-overview.md
+  - name: Data processing and residency
+    href: concept-data-processing.md
   - name: Security agent authentication (Preview)
     displayName: connection string, certificate, authentication
     href: concept-security-agent-authentication.md
-  - name: Security posture - CIS benchmark
-    href: concept-security-posture.md
   - name: Micro agent configurations (Preview)
     displayNAme: collectors, configuration, configurations, event-based, trigger, general
     href: concept-micro-agent-configuration.md
@@ -120,6 +124,11 @@
       href: concept-rtos-security-module.md
     - name: Defender-IoT-micro-agent for Azure RTOS alerts and recommendations 
       href: concept-rtos-security-alerts-recommendations.md
+  - name: Manage cloud device inventory
+    href: how-to-manage-device-inventory-on-the-cloud.md
+    displayNAme: device inventory, device, inventory, EIoT, eiot
+  - name: Move a resource to a different region
+    href: how-to-region-move.md
   - name: Classic
     items:
       - name: Which agent should I deploy?

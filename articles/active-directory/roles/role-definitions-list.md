@@ -3,7 +3,7 @@ title: List Azure AD role definitions - Azure AD
 description: Learn how to list Azure built-in and custom roles.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles

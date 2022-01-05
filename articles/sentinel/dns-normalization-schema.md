@@ -111,8 +111,8 @@ The following filtering parameters are available:
 | **srcipaddr** | string | Filter only DNS queries from this source IP address. |
 | **domain_has_any**| dynamic | Filter only DNS queries where the `domain` (or `query`) has any of the listed domain names, including as part of the event domain.
 | **responsecodename** | string | Filter only DNS queries for which the response code name matches the provided value. <br>For example: `NXDOMAIN` |
-| **response_has_ipv4** | string | Filter only DNS queries in which the response field starts with the provided IP address or IP address prefix. Use this parameter when you want to filter on a single IP address or prefix. <br><br>Results are not returned for sources that do not provide a response.|
-| **response_has_any_prefix** | dynamic| Filter only DNS queries in which the response field starts with any of the listed IP addresses or IP address prefixes. <br><br>Use this parameter when you want to filter on a list of IP addresses or prefixes. <br><br>Results are not returned for sources that do not provide a response. |
+| **response_has_ipv4** | string | Filter only DNS queries in which the response field includes the provided IP address or IP address prefix. Use this parameter when you want to filter on a single IP address or prefix. <br><br>Results are not returned for sources that do not provide a response.|
+| **response_has_any_prefix** | dynamic| Filter only DNS queries in which the response field includes any of the listed IP addresses or IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. <br><br>Use this parameter when you want to filter on a list of IP addresses or prefixes. <br><br>Results are not returned for sources that do not provide a response. |
 | **eventtype**| string | Filter only DNS queries of the specified type. If no value is specified, only lookup queries are returned. |
 | | | |
 
@@ -221,7 +221,6 @@ The fields below are specific to DNS events, although many are similar to fields
 | <a name=UrlCategory></a>**UrlCategory** |  Optional | String | A DNS event source may also look up the category of the requested Domains. The field is called **_UrlCategory_** to align with the Microsoft Sentinel network schema. <br><br>**_DomainCategory_** is added as an alias that's fitting to DNS. <br><br>Example: `Educational \\ Phishing` |
 | **DomainCategory** | Optional | Alias | Alias to [UrlCategory](#UrlCategory). |
 | **ThreatCategory** | Optional | String | If a DNS event source also provides DNS security, it may also evaluate the DNS event. For example, it may search for the IP address or domain in a threat intelligence database, and may assign the domain or IP address with a Threat Category. |
-| **EventSeverity** | Optional | String | If a DNS event source also provides DNS security, it may evaluate the DNS event. For example, it may search for the IP address or domain in a threat intelligence database, and may assign a severity based on the evaluation. <br><br>Example: `Informational`|
 | <a name="dnsnetworkduration"></a>**DnsNetworkDuration** | Optional | Integer | The amount of time, in milliseconds, for the completion of DNS request.<br><br>Example: `1500` |
 | **Duration** | Alias | | Alias to [DnsNetworkDuration](#dnsnetworkduration) |
 | **DnsFlagsAuthenticated** | Optional | Boolean | The DNS `AD` flag, which is related to DNSSEC, indicates in a response that all data included in the answer and authority sections of the response have been verified by the server according to the policies of that server. see [RFC 3655 Section 6.1](https://tools.ietf.org/html/rfc3655#section-6.1) for more information.    |
@@ -315,8 +314,6 @@ You can also provide an extra KQL function called `_imDNS<vendor>Flags_`, which 
 For more information, see:
 
 - [Normalization in Microsoft Sentinel](normalization.md)
-- [Microsoft Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
-- [Microsoft Sentinel data normalization schema reference](normalization-schema.md)
-- [Microsoft Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
-- [Microsoft Sentinel process event normalization schema reference](process-events-normalization-schema.md)
-- [Microsoft Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
+- [Advanced SIEM Information Model schemas](normalization-about-schemas.md)
+- [Advanced SIEM Information Model parsers](normalization-about-parsers.md)
+- [Advanced SIEM Information Model content](normalization-content.md)

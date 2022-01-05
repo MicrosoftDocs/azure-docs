@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley
-ms.date: 04/22/2021
+ms.date: 12/30/2021
 ms.topic: how-to
 ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4
 
@@ -29,6 +29,8 @@ As your needs change or requirements for automation increase you can also manage
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 By default, creating a workspace also creates an Azure Container Registry (ACR).  Since ACR does not currently support unicode characters in resource group names, use a resource group that does not contain these characters.
+
+[!INCLUDE [application-insight](../../includes/machine-learning-application-insight.md)]
 
 ## Create a workspace
 

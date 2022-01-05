@@ -13,5 +13,5 @@ ms.topic: include
 | Access Linux VM Private Keys in Azure Key Vault (AKV) | Available | Available |
 | Host scaling | N/A | Available |
 | Specify custom inbound port | N/A | Available|
-| Connect to Linux VM using RDP | N/A| Available|
-| Connect to Windows VM using SSH | N/A | Available|
+| Connect to Linux VM using SSH and RDP | N/A| Available|
+| Connect to Windows VM using RDP and SSH | N/A | Available|

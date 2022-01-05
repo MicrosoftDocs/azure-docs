@@ -5,13 +5,12 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 11/30/2021
 ---
 
 # Server parameters in Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 Azure Database for PostgreSQL provides a subset of configurable parameters for each server. For more information on Postgres parameters, see the [PostgreSQL documentation](https://www.postgresql.org/docs/13/config-setting.html).
 

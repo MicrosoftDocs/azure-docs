@@ -6,8 +6,8 @@ ms.author: hophan
 ms.date: 10/28/2021
 ms.topic: quickstart
 ms.service: purview
-ms.custom: devx-track-azurepowershell, mode-other
-# Customer intent: As a data steward, I want create a new Azure Purview Account so that I can scan and classify my data.
+ms.custom: devx-track-azurepowershell, mode-api
+#Customer intent: As a data steward, I want create a new Azure Purview Account so that I can scan and classify my data.
 ---
 # Quickstart: Create an Azure Purview account using Azure PowerShell/Azure CLI
 
@@ -82,7 +82,7 @@ For more information about Purview, [see our overview page](overview.md). For mo
     Use the [New-AzPurviewAccount](/powershell/module/az.purview/new-azpurviewaccount) cmdlet to create the Purview account:
 
     ```azurepowershell
-    New-AzPurviewAccount -Name yourPurviewAccountName -ResourceGroupName myResourceGroup -Location eastus -IdentityType SystemAssigned -SkuCapacity 4 -SkuName Standard -PublicNetworkAccess
+    New-AzPurviewAccount -Name yourPurviewAccountName -ResourceGroupName myResourceGroup -Location eastus -IdentityType SystemAssigned -SkuCapacity 4 -SkuName Standard -PublicNetworkAccess Enabled
     ```
 
     # [Azure CLI](#tab/azure-cli)
@@ -134,7 +134,7 @@ For more information about Purview, [see our overview page](overview.md). For mo
 1. If you deployed the Azure Purview account using a service principal, instead of a user account, you will also need to run the below command in the Azure CLI:
 
     ```azurecli
-    az purview account add-root-collection-admin --account-name --resource-group [--object-id]
+    az purview account add-root-collection-admin --account-name [Purview Account Name] --resource-group [Resource Group Name] --object-id [User Object Id]
     ```
 
     This command will grant the user account [collection admin](catalog-permissions.md#roles) permissions on the root collection in your Azure Purview account. This allows the user to access the Purview Studio and add permission for other users. For more information about permissions in Azure Purview, see our [permissions guide](catalog-permissions.md). For more information about collections, see our [manage collections article](how-to-create-and-manage-collections.md).

@@ -30,7 +30,7 @@ Other prerequisites for working with SNC include:
 
 - **A secure connection to SAP with SNC**. Define the connection-specific SNC parameters in the repository constants for the AS ABAP system you're connecting to. For more information, see the relevant [SAP community wiki page](https://wiki.scn.sap.com/wiki/display/Security/Securing+Connections+to+AS+ABAP+with+SNC).
 
-- **The SAPCAR utility**, downloaded from the SAP Service Marketplace. For more information, see the [SAP Installation Guide](https://help.sap.com/viewer/d1d04c0d65964a9b91589ae7afc1bd45/5.0.4/en-US/467291d0dc104d19bba073a0380dc6b4.html)
+- **The SAPCAR utility**, downloaded from the SAP Service Marketplace. For more information, see the [SAP Installation Guide](https://help.sap.com/viewer/d1d04c0d65964a9b91589ae7afc1bd45/2021.0/en-US/467291d0dc104d19bba073a0380dc6b4.html)
 
 For more information, see [Microsoft Sentinel SAP solution detailed SAP requirements (public preview)](sap-solution-detailed-requirements.md).
 

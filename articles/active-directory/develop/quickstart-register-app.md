@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 10/27/2021
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2, contperf-fy21q4, mode-other
-# Customer intent: As developer, I want to know how to register my application with the Microsoft identity platform so that the security token service can issue ID and/or access tokens to client applications that request them.
+#Customer intent: As developer, I want to know how to register my application with the Microsoft identity platform so that the security token service can issue ID and/or access tokens to client applications that request them.
 ---
 
 # Quickstart: Register an application with the Microsoft identity platform

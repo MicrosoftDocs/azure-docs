@@ -4,7 +4,7 @@ description: Learn how to create an access review of Azure resource and Azure AD
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 editor: ''
 ms.service: active-directory
 ms.workload: identity
@@ -27,7 +27,7 @@ The need for access to privileged Azure resource and Azure AD roles by employees
  To create access reviews for Azure resources, you must be assigned to the [Owner](../../role-based-access-control/built-in-roles.md#owner) or the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role for the Azure resources. To create access reviews for Azure AD roles, you must be assigned to the [Global Administrator](../roles/permissions-reference.md#global-administrator) or the [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
 
 > [!Note]
-> In public preview, you can scope an access review to service principals with access to Azure AD and Azure resource roles with an Azure Active Directory Premium P2 edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required.
+> In public preview, you can scope an access review to service principals with access to Azure AD and Azure resource roles with an Azure Active Directory Premium P2 edition active in your tenant. After general availability, additional licenses might be required.
 
 ## Create access reviews
 

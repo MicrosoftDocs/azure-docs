@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 03/24/2021
 ms.author: tamram
 ms.subservice: blobs
+ms.devlang: csharp, python
 ms.custom: devx-track-csharp
 ---
 

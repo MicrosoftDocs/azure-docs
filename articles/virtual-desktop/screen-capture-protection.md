@@ -19,7 +19,7 @@ The screen capture protection feature is configured on the session host level an
 Following clients currently support screen capture protection:
 
 * Windows Desktop client supports screen capture protection for full desktops only.
-* macOS client version 10.7.0 or older supports screen capture protection for both RemoteApp and full desktops.
+* macOS client version 10.7.0 or later supports screen capture protection for both RemoteApp and full desktops.
 
 Suppose the user attempts to use an unsupported client to connect to the protected session host. In that case, the connection will fail with error 0x1151.
 

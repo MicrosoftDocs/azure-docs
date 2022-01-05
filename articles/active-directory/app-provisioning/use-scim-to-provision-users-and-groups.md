@@ -3,7 +3,7 @@ title: Tutorial - Develop a SCIM endpoint for user provisioning to apps from Azu
 description: System for Cross-domain Identity Management (SCIM) standardizes automatic user provisioning. In this tutorial, you learn to develop a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and start automating provisioning users and groups into your cloud applications. 
 services: active-directory
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -269,7 +269,7 @@ This section provides example SCIM requests emitted by the AAD SCIM client and e
 
 ### User Operations
 
-* Users can be queried by `userName` or `email[type eq "work"]` attributes.  
+* Users can be queried by `userName` or `emails[type eq "work"]` attributes.  
 
 #### Create User
 
@@ -974,7 +974,6 @@ In the sample code, requests are authenticated using the Microsoft.AspNetCore.Au
                 services.AddAuthentication(options =>
                 {
                     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 })
                     .AddJwtBearer(options =>
@@ -1009,7 +1008,6 @@ public void ConfigureServices(IServiceCollection services)
     {
         services.AddAuthentication(options =>
         {
-            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
             options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
             options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
         })
