@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 01/05/2022
 ms.author: aahi
 ---
 
 # Frequently asked questions (FAQ) about the Bing Image Search API
 
-[!INCLUDE [Bing move notice](/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](includes/bing-move-notice.md)]
 
 Find answers to commonly asked questions about concepts, code, and scenarios related to the Bing Image Search API for Azure Cognitive Services on Azure.
 

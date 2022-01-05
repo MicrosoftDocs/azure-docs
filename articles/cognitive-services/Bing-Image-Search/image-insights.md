@@ -9,13 +9,13 @@ ms.assetid: 0BCD936E-D4C0-472D-AE40-F4B2AB6912D5
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 01/05/2022
 
 ---
 
 # Get image insights with the Bing Image Search API
 
-[!INCLUDE [Bing move notice](/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](includes/bing-move-notice.md)]
 
 > [!IMPORTANT]
 > Instead of using the /images/details endpoint to get image insights, you should use [Visual Search](../bing-visual-search/overview.md) since it provides more comprehensive insights.

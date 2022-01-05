@@ -9,7 +9,7 @@ ms.assetid: 1446AD8B-A685-4F5F-B4AA-74C8E9A40BE9
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: overview
-ms.date: 12/18/2019
+ms.date: 01/05/2022
 ms.author: aahi
 #Customer intent: As a developer, I want to integrate Bing's image search capabilities into my app, so that I can provide relevant, engaging images to my users.
 ms.custom: seodec2018
@@ -17,7 +17,7 @@ ms.custom: seodec2018
 
 # What is the Bing Image Search API?
 
-[!INCLUDE [Bing move notice](/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](includes/bing-move-notice.md)]
 
 The Bing Image Search API enables you to use Bing's image search capabilities in your application. By sending search queries to the API, you can get high-quality images similar to [bing.com/images](https://www.bing.com/images).
 
