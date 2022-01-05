@@ -91,6 +91,11 @@ To prepare Windows 10 or Server 2016 for IKEv2:
 
 2. Set the registry key value. Create or set “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD key in the registry to 1.
 
+### What is the IKEv2 traffic selectors limit for point-to-site connections?
+Windows 10 version 2004 (released September 2021) increased the traffic selector limit to 255. Versions of Windows earlier than this have a traffic selector limit of 25.
+
+The traffic selectors limit in Windows determines the maximum number of address spaces in your virtual network and the maximum sum of your local networks, VNet-to-VNet connections, and peered VNets connected to the gateway. Windows based point-to-site clients will fail to connect via IKEv2 if they surpass this limit.
+
 ### What happens when I configure both SSTP and IKEv2 for P2S VPN connections?
 
 When you configure both SSTP and IKEv2 in a mixed environment (consisting of Windows and Mac devices), the Windows VPN client will always try IKEv2 tunnel first, but will fall back to SSTP if the IKEv2 connection is not successful. MacOSX will only connect via IKEv2.
