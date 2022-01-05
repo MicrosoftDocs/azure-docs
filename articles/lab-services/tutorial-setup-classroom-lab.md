@@ -33,8 +33,8 @@ In this step, you create a lab for your class in Azure Lab Services portal.
 
 1. Navigate to [Azure Lab Services portal](https://labs.azure.com).
 2. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts.
-3. Select **New lab**.
-    :::image type="content" source="./media/tutorial-setup-classroom-lab/new-lab-button.png" alt-text="Create a lab.":::
+3. Select **New lab**.  
+    :::image type="content" source="./media/tutorial-setup-classroom-lab/new-lab-button.png" alt-text="Screenshot of Azure Lab Services portal.  New lab button is highlighted.":::
 4. In the **New Lab** window, do the following actions:
     1. Specify a **name**, **virtual machine image**, **size**, and **region** for your lab, and select **Next**.  Possibly, you'll need to choose a **lab plan**.  If there's more than one lab plan in the resource group, you'll see a dropdown to choose a lab plan.  If there's only one lab plan in the resource group, this option will be hidden.
         :::image type="content" source="./media/tutorial-setup-classroom-lab/new-lab-window.png" alt-text="Screenshot of the New lab window for Azure Lab Services.":::
@@ -63,10 +63,9 @@ In this step, you create a lab for your class in Azure Lab Services portal.
 6. If **Use a virtual machine image without customization** was selected on the **Template virtual machine settings** window when creating the lab, skip this step.  On the **Template** page, optionally do the following steps:
 
     1. Connect to the template VM by selecting **Start**. If it's a Linux template VM, you choose whether you want to connect using SSH or RDP (if RDP is enabled).
+        :::image type="content" source="./media/tutorial-setup-classroom-lab/start-template-vm.png" alt-text="Screenshot of the template page of an Azure Lab Services lab. Start template button is highlighted.":::
     2. Install and configure software required for your class on the template VM.
-    3. **Stop** the template VM.  
-
-    :::image type="content" source="./media/tutorial-setup-classroom-lab/start-template.png" alt-text="Screenshot of the template page of an Azure Lab Services lab.":::
+    3. **Stop** the template VM.
 
     > [!NOTE]
     > Template VMs incur **cost** when running, so ensure that the template VM is shutdown when you don’t need it to be running.
@@ -101,7 +100,7 @@ In this step, you publish the lab. When you publish the template VM, Azure Lab S
 
 Create a scheduled event for the lab so that VMs in the lab are automatically started and stopped at specific times. The user quota (default: 10 hours) you specified earlier is the extra time assigned to each student outside this scheduled time.
 
-1. Switch to the **Schedules** page, and select **Add scheduled event** on the toolbar.
+1. Switch to the **Schedules** page, and select **Add scheduled event** on the toolbar.  If the lab is in the process of being published, wait until the publish action is completed.
 
     :::image type="content" source="./media/how-to-create-schedules/add-schedule-button.png" alt-text="Screenshot of the Add scheduled event button on the Schedules page. The Schedules menu item and Add scheduled event button are highlighted.":::
 
@@ -118,7 +117,7 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
     2. Select the days on which you want the schedule to take effect. In the following example, Monday-Friday is selected.
     3. Select an **end date** for the schedule.
     4. Select **Save**.
-        :::image type="content" source="./media/how-to-create-schedules/select-current-schedule.png" alt-text="Screenshot of the Repeat windows for scheduled events. Event repeats every week, Monday through Friday.":::
+        :::image type="content" source="./media/how-to-create-schedules/set-repeat-schedule.png" alt-text="Screenshot of the Repeat windows for scheduled events. Event repeats every week, Monday through Friday.":::
 1. On the **Add scheduled event** page, for **Notes (optional)**, enter any description or notes for the schedule.
 1. On the **Add scheduled event** page, select **Save**.
     :::image type="content" source="./media/how-to-create-schedules/add-schedule-page-weekly.png" alt-text="Screenshot of the Add scheduled event window.":::

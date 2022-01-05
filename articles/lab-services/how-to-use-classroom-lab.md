@@ -44,7 +44,7 @@ This article describes how to register to a lab, view all the labs that you can 
 
 Select the second button as shown in the following image to **connect** to the lab's VM.
 
-    ![Connect to VM](./media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
+![Connect to VM](./media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
 
 If connecting *to a Windows VM*, do one of the following steps:
     1. If using Windows, save the **RDP** file. Then open the RDP file to connect to the virtual machine. Use the **user name** and **password** you get from your educator to sign in to the machine.
@@ -60,15 +60,15 @@ Linux VMs can have X2Go enabled and a graphical desktop installed.  For more inf
 
 By default Linux VMs have SSH installed.  If using Windows client to connect to a Linux VM, first install an ssh client like [PuTTY](https://www.putty.org/) or enable [OpenSSH in Windows](/windows-server/administration/openssh/openssh_install_firstuse). If connecting *to a Linux VM using SSH*, do the following:
 
-    1. [Start the VM](how-to-use-classroom-lab.md#start-or-stop-the-vm).
-    2. Once the VM is running, click **Connect**, which will pop up a dialog box that provides the SSH command string, which will look like the following sample:
-    
-        ```shell
-        ssh -p 12345 student@ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com
-        ```
-    
-    3. Go to your command prompt or terminal, and paste in this command, and then press **ENTER**.
-    4. Enter the password to sign in to the lab VM.
+1. [Start the VM](how-to-use-classroom-lab.md#start-or-stop-the-vm).
+1. Once the VM is running, click **Connect**, which will pop up a dialog box that provides the SSH command string, which will look like the following sample:
+
+    ```bash
+    ssh -p 12345 student@ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com
+    ```
+
+1. Go to your command prompt or terminal, and paste in this command, and then press **ENTER**.
+1. Enter the password to sign in to the lab VM.
 
 ## Progress bar
 
