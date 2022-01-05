@@ -4,8 +4,8 @@ description: The information you provide on the Co-sell with Microsoft tab for y
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: vikramb
-ms.author: vikrambmsft
+author: vikrambmsft
+ms.author: vikramb
 ms.reviewer: stmummer
 ms.date: 1/04/2021
 ---

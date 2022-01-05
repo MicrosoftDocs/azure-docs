@@ -4,8 +4,8 @@ description: Migrate Co-sell solutions from OCP GTM to Partner Center (Azure Mar
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: vikramb
-ms.author: vikrambmsft
+author: vikrambmsft
+ms.author: vikramb
 ms.reviewer: stmummer
 ms.date: 09/27/2021
 ---

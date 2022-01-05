@@ -4,8 +4,8 @@ description: Learn how to verify the co-sell status of an offer in the Microsoft
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: vikramb
-ms.author: vikrambmsft
+author: vikrambmsft
+ms.author: vikramb
 ms.reviewer: stmummer
 ms.date: 09/27/2021
 ---

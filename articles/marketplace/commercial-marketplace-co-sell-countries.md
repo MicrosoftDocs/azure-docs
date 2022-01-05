@@ -4,8 +4,8 @@ description: Use these two-letter country/region codes when providing contact in
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: vikramb
-ms.author: vikrambmsft
+author: vikrambmsft
+ms.author: vikramb
 ms.reviewer: palanis
 ms.date: 04/27/2021
 ---
