@@ -138,7 +138,7 @@ A function app must include these application settings:
 | AzureWebJobsStorage          | A connection string to a storage account that the Functions runtime uses for internal queueing | See [Storage account](#storage)       |
 | FUNCTIONS_EXTENSION_VERSION  | The version of the Azure Functions runtime                                                | `~3`                                  |
 | FUNCTIONS_WORKER_RUNTIME     | The language stack to be used for functions in this app                                   | `dotnet`, `node`, `java`, `python`, or `powershell` |
-| WEBSITE_NODE_DEFAULT_VERSION | Only needed if using the `node` language stack, specifies the version to use              | `10.14.1`                             |
+| WEBSITE_NODE_DEFAULT_VERSION | Only needed if using the `node` language stack, specifies the [version](/azure/azure-functions/functions-reference-node#node-version) to use              | `~14`                             |
 
 These properties are specified in the `appSettings` collection in the `siteConfig` property:
 
@@ -156,7 +156,7 @@ These properties are specified in the `appSettings` collection in the `siteConfi
             },
             {
                 "name": "WEBSITE_NODE_DEFAULT_VERSION",
-                "value": "10.14.1"
+                "value": "~14"
             },
             {
                 "name": "FUNCTIONS_EXTENSION_VERSION",
@@ -241,7 +241,7 @@ On Windows, a Consumption plan requires an another setting in the site configura
                 },
                 {
                     "name": "WEBSITE_NODE_DEFAULT_VERSION",
-                    "value": "10.14.1"
+                    "value": "~14"
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
@@ -283,7 +283,7 @@ On Linux, the function app must have its `kind` set to `functionapp,linux`, and 
                 },
                 {
                     "name": "WEBSITE_NODE_DEFAULT_VERSION",
-                    "value": "10.14.1"
+                    "value": "~14"
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
@@ -361,7 +361,7 @@ A function app on a Premium plan must have the `serverFarmId` property set to th
                 },
                 {
                     "name": "WEBSITE_NODE_DEFAULT_VERSION",
-                    "value": "10.14.1"
+                    "value": "~14"
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
@@ -451,7 +451,7 @@ A function app on an App Service plan must have the `serverFarmId` property set 
                 },
                 {
                     "name": "WEBSITE_NODE_DEFAULT_VERSION",
-                    "value": "10.14.1"
+                    "value": "~14"
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
@@ -467,9 +467,9 @@ Linux apps should also include a `linuxFxVersion` property under `siteConfig`. I
 
 | Stack            | Example value                                         |
 |------------------|-------------------------------------------------------|
-| Python           | `python|3.7`      |
-| JavaScript       | `node|12`          |
-| .NET             | `dotnet|3.1` |
+| Python           | `python\|3.7`      |
+| JavaScript       | `node\|14`          |
+| .NET             | `dotnet\|3.1` |
 
 ```json
 {
@@ -496,14 +496,14 @@ Linux apps should also include a `linuxFxVersion` property under `siteConfig`. I
                 },
                 {
                     "name": "WEBSITE_NODE_DEFAULT_VERSION",
-                    "value": "10.14.1"
+                    "value": "~14"
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
                     "value": "~3"
                 }
             ],
-            "linuxFxVersion": "node|12"
+            "linuxFxVersion": "node|14"
         }
     }
 }
@@ -536,7 +536,7 @@ If you are [deploying a custom container image](./functions-create-function-linu
                 },
                 {
                     "name": "WEBSITE_NODE_DEFAULT_VERSION",
-                    "value": "10.14.1"
+                    "value": "~14"
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
