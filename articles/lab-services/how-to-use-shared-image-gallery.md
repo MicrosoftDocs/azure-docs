@@ -9,7 +9,7 @@ ms.date: 11/13/2021
 
 An image contains the operating system, software applications, files, and settings that are installed on a VM.  There are two types of images that you can use when you set up a new lab:
 
-- Marketplace images that are prebuilt by Microsoft for use within Azure.  These images have either Windows or Linux installed and may also include software applications.  For example, the [Data Science Virtual Machine image](../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm) includes installed deep learning frameworks and tools.
+- Azure Marketplace images that are prebuilt by Microsoft for use within Azure.  These images have either Windows or Linux installed and may also include software applications.  For example, the [Data Science Virtual Machine image](../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm) includes installed deep learning frameworks and tools.
 - Custom images that are created by your institution’s IT department and\or other educators.  You can create both Windows and Linux custom images and have the flexibility to install Microsoft and 3rd party applications based on your unique needs.  You also can add files, change application settings, and more.
 
 This article shows how educators/lab admins can create and save a custom image from a template virtual machine to a [shared image gallery](../virtual-machines/shared-image-galleries.md) so that it can be used by others to create new labs.
@@ -29,7 +29,8 @@ Here are the couple of scenarios supported by this feature:
 ## Prerequisites
 
 - Create a [shared image gallery](../virtual-machines/create-gallery.md).
-- You have attached the shared image gallery to the lab plan. For step-by-step instructions, see [How to attach or detach shared image gallery](how-to-attach-detach-shared-image-gallery.md).
+- You have attached the shared image gallery to the lab plan. For step-by-step instructions, see [How to attach or detach shared image gallery](how-to-attach-detach-shared-image-gallery-2.md).
+- Image must be replicated to the same region as the lab plan.
 
 ## Save an image to the shared image gallery
 
@@ -59,12 +60,14 @@ After a shared image gallery is attached, a lab plan admin or an educator can sa
 
 ## Use a custom image from the shared image gallery
 
-An educator can pick a custom image available in the shared image gallery for the template VM that is created when you setup a new lab.
+An educator can pick a custom image available in the shared image gallery for the template VM that is created when you setup a new lab.  Educators can create a template VM based on both **generalized** and **specialized** images in Azure Lab Services.
 
 ![Use virtual machine image from the gallery](./media/how-to-use-shared-image-gallery/use-shared-image.png)
 
-> [!NOTE]
-> You can create a template VM based on both **generalized** and **specialized** images in Azure Lab Services.
+>[!IMPORTANT]
+>Azure Compute Gallery images will not show if they have been disabled or if the region of the lab plan is different than the gallery images.
+
+For more information about replicating images, see  [replication in Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries.md). For more information about disabling gallery images for a lab plan, see [enable and disable images](how-to-attach-detach-shared-image-gallery-2.md#enable-and-disable-images).
 
 ### Re-save a custom image to shared image gallery
 
@@ -78,7 +81,7 @@ If instead you choose **Update existing image**, the original custom image's def
 
 ## Next steps
 
-To learn about how to set up shared image gallery by attaching and detaching it to a lab plan, see [How to attach and detach shared image gallery](how-to-attach-detach-shared-image-gallery.md).
+To learn about how to set up shared image gallery by attaching and detaching it to a lab plan, see [How to attach and detach shared image gallery](how-to-attach-detach-shared-image-gallery-2.md).
 
 To explore other options for bringing custom images to shared image gallery outside of the context of a lab, see [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md).
 
