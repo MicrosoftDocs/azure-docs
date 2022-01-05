@@ -25,17 +25,7 @@ This sample requires an existing Managed Instance, see [Use Azure CLI to create 
 
 ## Sample script
 
-### Sign in to Azure
-
-For this script, use Azure CLI locally as it takes too long to run in Cloud Shell. Use the following script to sign in using a specific subscription. [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
-
-```azurecli-interactive
-subscription="<subscriptionId>" # add subscription here
-
-az account set -s $subscription # ...or use 'az login'
-```
-
-For more information, see [set active subscription](/cli/azure/account#az_account_set) or [log in interactively](/cli/azure/reference-index#az_login)
+[!INCLUDE [cli-run-local-sign-in.md](../../../../includes/cli-run-local-sign-in.md)]
 
 ### Run the script
 
