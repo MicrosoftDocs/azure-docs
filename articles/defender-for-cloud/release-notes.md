@@ -24,7 +24,7 @@ Updates in January include:
 
 - [Microsoft Defender for Resource Manager updated with new alerts and greater emphasis on high-risk operations mapped to MITRE ATT&CK® Matrix](#microsoft-defender-for-resource-manager-updated-with-new-alerts-and-greater-emphasis-on-high-risk-operations-mapped-to-mitre-attck-matrix)
 - [Recommendations to enable Microsoft Defender plans on workspaces (in preview)](#recommendations-to-enable-microsoft-defender-plans-on-workspaces-in-preview)
-- [Auto provision Log Analytics agent to Azure Arc-enabled machines too (preview)](#auto-provision-log-analytics-agent-to-azure-arc-enabled-machines-too-preview)
+- [Auto provision Log Analytics agent to Azure Arc-enabled machines (preview)](#auto-provision-log-analytics-agent-to-azure-arc-enabled-machines-preview)
 
 
 ### Microsoft Defender for Resource Manager updated with new alerts and greater emphasis on high-risk operations mapped to MITRE ATT&CK® Matrix
@@ -85,7 +85,7 @@ The two recommendations, which both offer automated remediation (the 'Fix' actio
 ||||
 
 
-### Auto provision Log Analytics agent to Azure Arc-enabled machines too (preview)
+### Auto provision Log Analytics agent to Azure Arc-enabled machines (preview)
 
 Defender for Cloud uses the Log Analytics agent to gather security-related data from machines. The agent reads various security-related configurations and event logs and copies the data to your workspace for analysis.
 
@@ -93,14 +93,14 @@ Defender for Cloud's auto provisioning settings have a toggle for each type of s
 
 In a further expansion of our hybrid cloud features, we've added an option to auto provision the Log Analytics agent to machines connected to Azure Arc. 
 
-:::image type="content" source="media/release-notes/auto-provisioning-agent-toggle.jpg" alt-text="Screenshot of how to auto provision the Log Analytics agent to your Azure Arc-enabled machines." lightbox="./media/release-notes/auto-provisioning-agent-toggle.jpg":::
-
 As with the other other auto provisioning options, this is configured at the subscription level.
 
 When you enable this option, you'll be prompted for the workspace. 
 
 > [!NOTE]
-> For this preview, you can't select the default workspaces that was created by Defender for Cloud. To ensure you received the full set of security features available for the Azure Arc-enabled servers, verify that you have the relevant security solution installed on the selected workspace.
+> For this preview, you can't select the default workspaces that was created by Defender for Cloud. To ensure you receive the full set of security features available for the Azure Arc-enabled servers, verify that you have the relevant security solution installed on the selected workspace.
+
+:::image type="content" source="media/release-notes/auto-provisioning-agent-toggle.jpg" alt-text="Screenshot of how to auto provision the Log Analytics agent to your Azure Arc-enabled machines." lightbox="./media/release-notes/auto-provisioning-agent-toggle.jpg":::
 
 ## December 2021
 
