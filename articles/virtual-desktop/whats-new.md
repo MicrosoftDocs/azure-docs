@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 01/04/2022
+ms.date: 01/05/2022
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -87,10 +87,10 @@ Azure Active Directory (Azure AD)-joined session hosts for FSLogix profiles on A
 
 We've made some significant updates to improve the Azure Virtual Desktop pricing experience on the Azure pricing calculator, including the following:
 
-- You can now calculate costs for over 100 users.
+- You can now calculate costs for any number of users greater than zero.
 - The calculator now includes storage and networking or bandwidth costs.
 - We've added new info messages for clarity.
-- Fixed bugs for storage configuration.
+- Fixed bugs that affected storage configuration.
 
 For more information, see the [pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
