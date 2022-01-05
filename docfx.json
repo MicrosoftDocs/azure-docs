@@ -151,6 +151,7 @@
       ],
       "recommendations": true,
       "uhfHeaderId": "azure",
+      "ms.suite": "office",
       "contributors_to_exclude": [
         "atookey",
         "chbain",
