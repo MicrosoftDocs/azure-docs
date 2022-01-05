@@ -19,27 +19,40 @@ If you have not set up the extension to connect to your edge device, follow the 
 
 ## Managing pipelines topology
 
-To create a topology, along the left under your module right-click on `Pipelines topologies` and select `Create pipeline topology`.  This will open up a new blank topology.  You can then either load one of the pre-made topologies by selecting from the `Try sample topologies` dropdown at the top, or building one yourself.  
+To create a topology, along the left panel under the Video Analyzer Edge module, right-click on `Pipelines topologies` and select `Create pipeline topology`.  This will open up a new blank topology.  Either load one of the pre-made topologies by selecting from the `Try sample topologies` dropdown at the top, or build one by dragging and dropping the available modules and connecting them.  
 
-After all required areas are complete, you will need to save the topology with the `Save` in the top right.  For sample topologies required field should be pre-filled.  This will make it available for use with creating live pipelines.
+After all required areas are complete, save the topology with the `Save` in the top right.  For sample topologies, the required fields should be pre-filled.  This will make it available for use with creating live pipelines.
 
-To edit an existing topology, on the left under Pipeline topologies right-click on the name of the topology, and select `Edit pipeline topology`.
+To edit an existing topology, on the left panel under `Pipeline topologies` right-click on the name of the topology, and select `Edit pipeline topology`.
 
-To delete an existing topology, on the left under Pipeline topologies right-click on the name of the topology, and select `Delete pipeline topology`.  Live pipelines will need to be removed first.
+To delete an existing topology, on the left under `Pipeline topologies` right-click on the name of the topology, and select `Delete pipeline topology`.  Live pipelines will need to be removed first.
 
-If you want to view the underlying JSON behind an existing topology, on the left under Pipeline topologies right-click on the name of the topology, and select `Show pipeline topology JSON`.
+To view the underlying JSON behind an existing topology, on the left panel under `Pipeline topologies` right-click on the name of the topology, and select `Show pipeline topology JSON`.
 
 ## Live pipelines
 
-To create a live pipeline, along the left under Pipeline topologies right-click on the name of the topology and select `Create live pipeline`.  You will then need to fill in a live pipeline name, and any required parameters before continuing.  In the top right you can then either click `Save` which will save it in an inactive state, or `Save and activate` which will start the live pipeline immediately. 
+To create a live pipeline, along the left panel under `Pipeline topologies` right-click on the name of the topology and select `Create live pipeline`. Fill in a live pipeline name and any required parameters before continuing.  In the top right, either click `Save` which will save it in an inactive state, or `Save and activate` which will start the live pipeline immediately. 
 
-To activate an existing live pipeline, along the left under Pipeline topologies right-click on the name of the live pipeline and select `Activate live pipeline`.
+To activate an existing live pipeline, along the left panel under `Pipeline topologies` right-click on the name of the live pipeline and select `Activate live pipeline`.
 
-To deactivate a running instance, along the left under Pipeline topologies right-click on the live pipeline and select `Deactivate live pipeline`.  This will not delete the live pipeline.
+To deactivate a running instance, along the left panel under `Pipeline topologies` right-click on the live pipeline and select `Deactivate live pipeline`.  This will not delete the live pipeline.
 
-To delete an existing live pipeline, along the left under Pipeline topologies right-click on the live pipeline and select `Delete live pipeline`.  You cannot delete an active live pipeline.
+To delete an existing live pipeline, along the left panel under `Pipeline topologies` right-click on the live pipeline and select `Delete live pipeline`.  Active live pipelines cannot be deleted.
 
-If you want to view the underlying JSON behind an existing live pipeline, on the left under Pipeline topologies right-click on the live pipeline and select `Show live pipeline JSON`.
+To view the underlying JSON behind an existing live pipeline, on the left panel under `Pipeline topologies` right-click on the live pipeline and select `Show live pipeline JSON`.
+
+## Remote device adapters
+
+To create a [remote device adapter](./cloud/connect-cameras-to-cloud.md#connect-via-a-remote-device-adapter), along the left panel under the Video Analzyer Edge module, right-click on `Remote device adapters` and select `Create remote device adapter`. Three additional dialog boxes appear, prompting for additional information:
+1. Enter a unique name for the remote device adapter. (There should be no other remote device adapters with this name.)
+2. Select a IoT Device. (Select the device that hosts Video Analyzer Edge module.)
+3. Enter a hostname or IP address of the remote device adapter. (For instance, enter the IP address of the network camera that will be connected.)
+
+After entering all the necessary information, the remote device adapter will be saved and listed under the `Remote device adapters` section.
+
+To delete an existing remote device adapter, along the left panel under `Remote device adapters` right-click on a remote device adapter and select `Delete remote device adapter`.
+
+To view the underlying JSON behind an existing remote device adapter, along the left panel under `Remote device adapters` right-click on a remote device adapter and select `Show remote device adapter JSON`.
 
 ## Editing a topology 
 
