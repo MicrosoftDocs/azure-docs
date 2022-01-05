@@ -15,7 +15,7 @@ Use a [distributed availability group (AG)](/sql/database-engine/availability-gr
 
 This article describes the prerequisites to prepare your source and target environments to migrate your SQL Server instance or availability group to SQL Server VMs using a distributed ag.
 
-Migrating a database (or multiple databases) from a standalone instance using a distributed availability is a simple solution that does not require a Windows Server Failover Cluster, or an availability group listener on either the source or the target. Migrating an availability group requires a cluster, and a listener on both source and target. 
+Migrating a database (or multiple databases) from a standalone instance using a distributed availability group is a simple solution that does not require a Windows Server Failover Cluster, or an availability group listener on either the source or the target. Migrating an availability group requires a cluster, and a listener on both source and target. 
 
 ## Source SQL Server  
 
