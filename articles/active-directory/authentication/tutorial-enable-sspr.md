@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 06/01/2021
+ms.date: 1/04/2022
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
@@ -53,8 +53,8 @@ In this tutorial, set up SSPR for a set of users in a test group. Use the *SSPR-
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account with *global administrator* permissions.
 1. Search for and select **Azure Active Directory**, then select **Password reset** from the menu on the left side.
-1. From the **Properties** page, under the option *Self service password reset enabled*, select **Select group**
-1. Browse for and select your Azure AD group, like *SSPR-Test-Group*, then choose *Select*.
+1. From the **Properties** page, under the option *Self service password reset enabled*, choose **Selected**.
+1. If your group isn't visible, choose **No groups selected**, browse for and select your Azure AD group, like *SSPR-Test-Group*, and then choose *Select*.
 
     [![Select a group in the Azure portal to enable for self-service password reset](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png)](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
 
