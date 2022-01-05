@@ -4,7 +4,7 @@ titleSuffix: Azure Maps
 description: This article describes how to configure an application to be secured with SAS token authentication.
 author: stack111
 ms.author: dstack
-ms.date: 11/23/2021
+ms.date: 01/05/2022
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -14,14 +14,14 @@ custom.ms: subject-rbac-steps
 
 # Secure an application with SAS token
 
-This article describes how to create an Azure Maps account and a SAS token which can be used to call the Azure Maps REST API.
+This article describes how to create an Azure Maps account with a SAS token that can be used to call the Azure Maps REST API.
 
 ## Prerequisites
 
 This scenario assumes:
 
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you continue.
-- The current user must have subscription `Owner` role permissions on the Azure subscription to create a Azure Key Vault, User Assigned Managed Identity, assign the Managed Identity a role, and create an Azure Maps Account.
+- The current user must have subscription `Owner` role permissions on the Azure subscription to create an [Azure Key Vault](/azure/key-vault/general/basic-concepts), user-assigned managed identity, assign the managed identity a role, and create an Azure Maps account.
 - Azure CLI is installed to deploy the resources. Read more on [How to install the Azure CLI](/cli/azure/install-azure-cli).
 - The current user is signed-in to Azure CLI with an active Azure subscription using `az login`.
 
@@ -37,7 +37,7 @@ The following sample scenario will perform the steps outlined below with two Azu
 - Create a map account with a CORS configuration and attach the user-assigned managed identity.
 - Create and save a SAS token into the Azure Key Vault
 - Retrieve the SAS token secret from Azure Key Vault.
-- Create an Azure Maps REST API request with the SAS token.
+- Create an Azure Maps REST API request using the SAS token.
 
 When completed, you should see output from Azure Maps `Search Address (Non-Batch)` REST API results on PowerShell with Azure CLI. The Azure resources will be deployed with permissions to connect to the Azure Maps account with controls for maximum rate limit, allowed regions, `localhost` configured CORS policy, and Azure RBAC.
 
