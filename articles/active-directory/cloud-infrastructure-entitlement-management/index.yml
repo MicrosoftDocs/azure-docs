@@ -13,7 +13,7 @@ metadata:
   ms.subservice: ciem
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 12/03/2021
+  ms.date: 01/04/2022
   ms.author: v-ydequadros
   
   
@@ -24,17 +24,67 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Microsoft CloudKnox Permissions Management account settings
+  - title: Install Microsoft CloudKnox Permissions Management 
     linkLists:
       - linkListType: overview
         links:
-          - text: Microsoft CloudKnox Permissions Management account settings
-            url: cloudknox-product-account-settings.md
+          - text: Install Microsoft CloudKnox Permissions Management 
+            url: cloudknox-welcome.md
   # Card
-  - title:  About Microsoft CloudKnox Permissions Management integration
+  - title: Integrate Microsoft CloudKnox Permissions Management with other systems
     linkLists:
       - linkListType: overview
         links:
-          - text: Microsoft CloudKnox Permissions Management integration with the API.
-            url: cloudknox-api.md
+          - text: Integrate Microsoft CloudKnox Permissions Management with other systems
+            url: cloudknox-product-integrations.md
+  # Card
+  - title: Use Microsoft CloudKnox Permissions Management Tasks
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Use Microsoft CloudKnox Permissions Management Tasks
+            url: cloudknox-howto-generate-custom-reports.md
+  # Card
+  - title: Use Microsoft CloudKnox Permissions Management Dashboards
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Use Microsoft CloudKnox Permissions Management Dashboards
+            url: cloudknox-ui-product-settings.md
+  # Card
+  - title: Learn with Microsoft CloudKnox Permissions Management training materials
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Learn with Microsoft CloudKnox Permissions Management training materials
+            url: cloudknox-training-videos.md
+  # Card
+  - title: Manage data with Microsoft CloudKnox Permissions Management
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Manage data with Microsoft CloudKnox Permissions Management
+            url: cloudknox-product-data-sources.md
+  # Card
+  - title: Manage users with Microsoft CloudKnox Permissions Management
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Manage users with Microsoft CloudKnox Permissions Management
+            url: cloudknox-product-usage-analytics.md
+  # Card
+  - title: Generate reports with Microsoft CloudKnox Permissions Management
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Generate reports with Microsoft CloudKnox Permissions Management Reports
+            url: cloudknox-all-reports.md
+  # Card
+  - title: Microsoft CloudKnox Permissions Management FAQs
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Microsoft CloudKnox Permissions Management FAQs
+            url: cloudknox-faqs.md
+
 

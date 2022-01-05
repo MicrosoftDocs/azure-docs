@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/03/2022
+ms.date: 01/05/2022
 ms.author: v-ydequadros
 ---
 
@@ -42,10 +42,11 @@ On the **Usage Analytics** tab:
 - The **Users** table  displays the privileges assigned,  privileges used, and resources accessed by users
     - **Username** - Provides the name of the user.
 
-         - To view more details about the user, click the username. 
+         - To view additional details about the user, select the username. 
 
            Users are denoted with an icon for Security Assertion Markup Language (SAML) users, an icon for Enterprise Directory (ED) user, an icon for local users, and an icon for cross-account users (users from another account). AWS roles, AWS EC2 instances, Azure applications, and Google service accounts are shown with their respective icons. 
            For more information, see How to use identity explorer for users. 
+    <!---Add link--->
 
     - **Domain/Account** - This column displays a domain name for SAML or ED users and displays an account name for local users, AWS roles, AWS  EC2 instances, Azure applications, and Google service accounts.
     - **Privilege Creep Index** (PCI) - Captures the incurred risk of users with access to high-risk privileges. Information is displayed in the following columns:
@@ -69,32 +70,33 @@ On the **Usage Analytics** tab:
 
     - **Tags** - Displays the number of tags applied to a user.
 
-    -  To expand details about the user, click the **Tags** icon. 
+    -  To expand details about the user, select the **Tags** icon. 
 
        For more information, see How to read the information panel for users. 
+<!---Add link--->
 
 ### How to apply filters for users
 
 There are many filter options on the **Users** screen, including filters by **Authorization systems**, filters by **User** types and filters by **Task** types. You can apply filters in one, two, or all three categories, depending on what information the system administrator wants. 
 
 - **Filtering by Authorization systems**
-    1. To expand the **Authorization systems** menu, click the icon on the left side of the page. Then select all applicable systems. 
+    1. To expand the **Authorization systems** menu, select the icon on the left side of the page. Then select all applicable systems. 
 
          The default filter is the first authorization system in the filter list if filters haven't been used before, or will default to the last filtered selection. 
 
-    2. To automatically select all options for a single authorization system, next to the authorization system name, click **Only**.
+    2. To automatically select all options for a single authorization system, next to the authorization system name, select **Only**.
 
-    3. To filter the data by the selection, click **Apply**. 
+    3. To filter the data by the selection, select **Apply**. 
 
          Both SAML and local users are listed if the selection spans multiple authorization systems. 
 
-    4. To remove all filters, click **X**.
+    4. To remove all filters, select **X**.
 
 - **Filtering by Users**
 
     System administrators can filter users details by type of user: AWS role/Azure application/Google service Account, or by resource.
 
-    1. To expand the **Users** menu. click the icon on the left. 
+    1. To expand the **Users** menu. select the icon on the left. 
     2. To filter by identity type, select the applicable option(s):
     
         - **All** -  Displays identities of all types
@@ -113,30 +115,30 @@ There are many filter options on the **Users** screen, including filters by **Au
          To filter across any category listed in step 1, select **Risky**.
 
     4. To view only identities included in the account level PCI calculation, select **Incl. In PCI Calculation Only**.
-    5. To filter by the selection, click **Apply**. 
+    5. To filter by the selection, select **Apply**. 
 
          Both Security Assertion Markup Language (SAML) and local users are listed if the selection spans multiple authorization systems. 
    
-    6. To remove all filters, click **X**.
+    6. To remove all filters, select **X**.
 
 - **Filtering by Tasks**
 
     System administrators can filter user details by the tasks they perform.
 
-    1. To expand the **Tasks** menu, click the icon on the left.
+    1. To expand the **Tasks** menu, select the icon on the left.
     2. To filter by task, select the applicable option(s):
         - **All** - Filters by all existing tasks a user can perform.
         - **High Risk Tasks** - Filters tasks by high risk, which includes modifying and deleting content.
     3. To filter users who have delete task privileges, select the box next to **Delete** under the **High Risk Tasks**  button.
-    4. To filter by the selection, click **Apply**.
+    4. To filter by the selection, select **Apply**.
 
          Both SAML and local users will be listed if the selection spans multiple authorization systems. 
     
-    5. To remove all filters, click **X**.
+    5. To remove all filters, select **X**.
 
 ### How to read the Information Panel for user information
 
-- To view more information about a user, click the icon at the end of the row, and then click **Domain/Account** to expand the user's details. 
+- To view additional information about a user, select the icon at the end of the row, and then select **Domain/Account** to expand the user's details. 
 
   - **Tasks** -  Displays unused and used tasks for the individual user, application, or service account. The tasks are grouped by service and can be expanded to view the individual tasks under each service. Task names are specific to the authorization system.
 
@@ -160,8 +162,8 @@ There are many filter options on the **Users** screen, including filters by **Au
   - When you select **User** from the **Users** filter section, the following side panels display:
 
       - **User Groups** (Local Users Only) (All Authorization Systems) -  Displays the specific groups the user belongs to, if applicable.
-      - **Roles Available** (AWS Only) - Lists all the roles the user can assume within the authorization system, including **Type**, **Name**, and **Domain**.
-        1. In the **Name** column, click **View json.** 
+      - **Roles Available** (AWS Only) - Lists all the roles the user can assume within the authorization system, including **Type**, **Name** and **Domain**.
+        1. In the **Name** column, select **View json.** 
 
              **Result:** The **Role Summary** screen opens and lists the **Role Name** and **Role Type** at the top.
 
@@ -169,12 +171,12 @@ There are many filter options on the **Users** screen, including filters by **Au
 
         2. Under **Policies**, a list will display showing all the policies directly attached to a user.  
 
-            - To expand and read the details of the policy, click the icon.
-        3. The purpose of the SCP section is to provide permission boundaries on each policy. Under **SCP** (Service Control Policy), three columns are displayed called **Policy Name**, **Source Name**, and **Source**. 
+            - To expand and read the details of the policy, select the icon.
+        3. The purpose of the SCP section is to provide permission boundaries on each policy. Under **SCP** (Service Control Policy), three columns are displayed called **Policy Name**, **Source Name** and **Source**. 
 
-            -  To expand and read the details of the policy, click the icon in the **Policy Name** column.
+            -  To expand and read the details of the policy, select the icon in the **Policy Name** column.
 
-        4. To view details on who can assume the role being viewed, click the **Trusted Entities** tab.
+        4. To view details on who can assume the role being viewed, select the **Trusted Entities** tab.
         
              - **Roles Accessed** (SAML Users Only) (AWS Only) - Lists all the roles the user has assumed within the authorization system, including **Type**, **Name**, and **Domain**.
              - **Roles** (Azure) - Lists all the roles the user can assume within the authorization system, including **Name**, **Resource**, **Type**, and **Status**.
@@ -225,25 +227,25 @@ There are many filter options on the **Users** screen, including filters by **Au
 ### How to view or add a tag to an identity
 
 - All identities displayed in the **Users** page can be tagged.
-    1. To apply a tag to a user or view tags applied to the user, click the icon from the far right column and click **Tags**. 
+    1. To apply a tag to a user or view tags applied to the user, select the icon from the far right column and select **Tags**. 
 
-       Alternately, click the number in the **Tags** column view and the click **Add Tag**.
+       Alternately, select the number in the **Tags** column view and the select **Add Tag**.
     1. On the **Tags** window, the **Identity Name**  displays the current user the tag is being created for and the **Type**  displays **User** since usage analytics are being viewed at the user level. 
     
-       The **Authorization Type**, **Tag**, **Value (Optional),** and **Authorization Systems** boxes are pre-loaded with information if a tag is already applied to the current user. These details cannot be edited, but the system administrator can click **Delete** to delete the current tag(s).
+       The **Authorization Type**, **Tag**, **Value (Optional),** and **Authorization Systems** boxes are pre-loaded with information if a tag is already applied to the current user. These details cannot be edited, but the system administrator can select **Delete** to delete the current tag(s).
     1. Click **Add Tag**. 
     1. Select the **Authorization System Type**. 
 
           If the current user is only part of one authorization system, the **Authorization System Type**  drop-down list won't have multiple options.
     1. Click in the **Tag** box. 
 
-          A  drop-down list of existing tags appears. Select from the current options or can type in a brand new tag and then click **Create**. 
+          A  drop-down list of existing tags appears. Select from the current options or can type in a brand new tag and then select **Create**. 
     1. Input a value in the **Value (Optional)** box, such as the date and time the tag is being created.
     1. Click in the **Authorization Systems** box. 
     
           If the current user is only part of one authorization system,  this box will be pre-populated. If they are part of multiple authorization systems, the system administrator can select the appropriate authorization system the tag being created.
-    1. To save the tag, click **Save**.
-    1. To close the **Tag** window, click the **X**.
+    1. To save the tag, select **Save**.
+    1. To close the **Tag** window, select the **X**.
 
 ### Using predefined tags
 
@@ -261,11 +263,11 @@ CloudKnox has the following set of predefined tags that can be applied:
 
 The **Groups** dashboard provides a high level overview of group details.
 
-1. On the **Usage Analytics** page, select **Groups** from the  drop-down list across the top of the screen. The following components make up the **Groups** dashboard:
+- On the **Usage Analytics** page, select **Groups** from the  drop-down list across the top of the screen. The following components make up the **Groups** dashboard:
 
-- **Groups** - This section  displays the total number of groups, inactive, and active groups based on the authorization system selected. For more information, see [How to apply filters for groups](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-groups).
-- **Tasks** - This section  displays the number of tasks granted to groups, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see [How to apply filters to users](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-users).
-- **Resources** - This section  displays how many resources have been accessed by groups based on the authorization system selected. For more information, see [How to apply filters for groups](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-groups).
+    - **Groups** - This section  displays the total number of groups, inactive, and active groups based on the authorization system selected. For more information, see [How to apply filters for groups](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-groups).
+    - **Tasks** - This section  displays the number of tasks granted to groups, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see [How to apply filters to users](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-users).
+    - **Resources** - This section  displays how many resources have been accessed by groups based on the authorization system selected. For more information, see [How to apply filters for groups](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-groups).
 
 The **Groups** table  displays the privileges assigned,  privileges used, and resources accessed by users.
 
@@ -276,7 +278,7 @@ The **Groups** table  displays the privileges assigned,  privileges used, and re
 - **Domain/Account** - This column displays a domain name for SAML or Enterprise Directory (ED) groups and displays an account name for local groups.
 - **Privilege Creep Index** - Captures the incurred risk of groups with access to high-risk privileges and is displayed in the following columns:
     - **Index** - Calculates a risk score for the group based on the high-risk privileges they have access to and if that privilege has been accessed.
-    - **Since** - Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level, that is **! High - 130 days**.
+    - **Since** - Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level. For example, **! High - 130 days**.
 
          You can hover over the information in this column for specific details on how long the user has had a high, medium, or low privilege creep index.
 
@@ -296,15 +298,15 @@ The **Groups** table  displays the privileges assigned,  privileges used, and re
 There are many filter options within the **Groups** screen, including filters by **Authorization System** and **Task**. Filters can be applied in both categories depending on what information the system administrator is looking for.  
 
 - **Filtering by Authorization Systems**
-    1. To expand the **Authorization systems** menu, and select all applicable systems, click the **Lock** icon on the left side of the page. 
+    1. To expand the **Authorization systems** menu, and select all applicable systems, select the **Lock** icon on the left side of the page. 
 
         The default filter will be the first authorization system in the filter list if filters haven't been used before, or will default to the last filtered selection.
 
-       -  To automatically select all options for a single authorization system, next to the authorization system name, click **Only**.
-    2. To filter by the selection, click **Apply**.
+       -  To automatically select all options for a single authorization system, next to the authorization system name, select **Only**.
+    2. To filter by the selection, select **Apply**.
 
          Both SAML and local users will be listed if the selection spans multiple authorization systems.
-    3. To remove all filters, click **X**.
+    3. To remove all filters, select **X**.
 
 - **Filtering by Tasks**
 
@@ -316,13 +318,15 @@ There are many filter options within the **Groups** screen, including filters by
 
     2. To filter groups that have delete task privileges, under the **High Risk Tasks**, select **Delete**. 
 
-    3. To filter by the selection, click **Apply**. 
+    3. To filter by the selection, select **Apply**. 
 
          Both SAML and local groups will be listed if the selection spans multiple authorization systems and accounts. The top of the screen will display the authorization system that is being viewed (for example, **Azure - Azure PIM**), or if multiple authorization systems were selected, **Multiple Authorization Systems** will display. 
  
-    4. To remove all filters, click **X**.
+    4. To remove all filters, select **X**.
 
-### How to read the Information Panel for groups
+### How to read the Information Pane for groups
+
+- To view additional information about the group after you have applied the filters and selected the authorization system, select the icon at the end of the row.
 
 1. To view more information about the group after you have applied the filters and selected the authorization system, click the icon at the end of the row.
 
@@ -332,7 +336,7 @@ There are many filter options within the **Groups** screen, including filters by
 
          A task can move from **Used** to **Unused** if that task hasn't been accessed for more than 90 days.
 
-2. You can perform the following actions in the **Tasks** section:
+- You can perform the following actions in the **Tasks** section:
 
     - **Search** - In the **Search** box, enter a specific task name and find how many of those tasks have been unused or used.
         - **All Tasks** - Use the **Tasks** drop-down to filter data by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
@@ -343,13 +347,13 @@ There are many filter options within the **Groups** screen, including filters by
 ## How to view or add a tag to a group
 
 - You can tag all groups displayed in the **Group** page.
-    1. Click the ellipses in the far right column and click **Tags** to apply a tag to a user or view tags applied to the user.
+    1. Click the ellipses in the far right column and select **Tags** to apply a tag to a user or view tags applied to the user.
     
-       Alternately, click the number in the **Tags** column view and apply tags.
+       Alternately, select the number in the **Tags** column view and apply tags.
     2. On the **Tags** window, the **Identity Name** will  display the current group the tag is being created for and the **Type** will  display **Group** since usage analytics are being viewed at the group level. 
 
         > [!NOTE]
-        >  The **Authorization Type**, **Tag**, **Value (Optional),** and **Authorization Systems** boxes are pre-loaded with information if a tag is already applied to the current group. </p>These details cannot be edited, but the system administrator can click **Delete** to delete the current tag(s).
+        >  The **Authorization Type**, **Tag**, **Value (Optional),** and **Authorization Systems** boxes are pre-loaded with information if a tag is already applied to the current group. </p>These details cannot be edited, but the system administrator can select **Delete** to delete the current tag(s).
 
     3. Click **Add Tag**.
     4. Select the **Authorization System Type**.
@@ -360,7 +364,7 @@ There are many filter options within the **Groups** screen, including filters by
 
          A  drop-down list of existing tags appears. Select a tag from the current options.
 
-         To create a new tag, enter a new tag name and then click **Create**.
+         To create a new tag, enter a new tag name and then select **Create**.
 
     6. Input a value in the **Value (Optional)** box, such as the date and time the tag is being created.
     7. Click in the **Authorization Systems** box. 
@@ -369,8 +373,8 @@ There are many filter options within the **Groups** screen, including filters by
 
          If they are part of multiple authorization systems, the system administrator can select the appropriate authorization system the tag is being created for.
 
-    8. To save the tag, click **Save**.
-    9. To close the **Tag** window, click the **X**.
+    8. To save the tag, select **Save**.
+    9. To close the **Tag** window, select the **X**.
 
 ### Using Predefined Tags
 
@@ -398,12 +402,13 @@ The **Active Resources** dashboard provides a high level overview of resource de
 
 - **Resource Name** - Provides the name of the resource.
 
-     - To view more details about the resource, click the resource name. For more information, see How to use identity explorer for Active Resources.
+     - To view additional details about the resource, select the resource name. For more information, see How to use identity explorer for Active Resources.
+     - <!---Add link--->
 
        Hovering over the resource name displays the resource ID. Two resources may potentially have the same name, but different IDs.
 
 - **Account** - Displays the account name the resource belongs to.
-- **Resource Type** - Displays the type of resource, that is, Key (encryption key) or bucket (storage).
+- **Resource Type** - Displays the type of resource. For example, Key (encryption key) or bucket (storage).
 - **No. of Times Users Accessed** - Provides the number of times a user has accessed a particular resource.
 - **Tasks** - Displays how many tasks are assigned to a particular user, and is broken into the following columns:
     - **Granted** - Captures the number of tasks that have been granted to the user directly, granted to the user if part of a group, or granted based on the role type the user can assume.
@@ -417,15 +422,15 @@ The **Active Resources** dashboard provides a high level overview of resource de
 There are many filter options within the **Active Resources** screen, including filters by **Authorization System**, filters by **Tasks** and filters by **Resource Type**. You can apply filters in one, two, or all three categories; depending on the type of information you want. 
 
 - **Filtering by Authorization Systems**
-    1. To expand the **Authorization systems** menu, on the left of the page, click the **Lock** icon. Then select all applicable systems. 
+    1. To expand the **Authorization systems** menu, on the left of the page, select the **Lock** icon. Then select all applicable systems. 
 
          The default filter is the first authorization system in the filter list if you haven't used filters before, or default to the last filtered selection. 
 
-        - To automatically select all options for a single authorization system, next to the authorization system name, click **Only**.
+        - To automatically select all options for a single authorization system, next to the authorization system name, select **Only**.
 
-    2. To filter by the selection, click **Apply**. 
+    2. To filter by the selection, select **Apply**. 
 
-    3. To remove all filters, click **X**.
+    3. To remove all filters, select **X**.
 
 - **Filtering by Tasks**
 
@@ -435,17 +440,17 @@ There are many filter options within the **Active Resources** screen, including 
         - **All** - Filters by all existing tasks a user can perform.
         - **High Risk Tasks** - Filters tasks by high risk, which includes modifying and deleting content.
     2. To filter users who have delete task privileges, under **High Risk Tasks**, select **Delete**.
-    3. To filter by the selection, click **Apply**. 
+    3. To filter by the selection, select **Apply**. 
 
 - **Filtering by Resource Type**
 
      AWS is currently the only **Resource Type** available. 
 
-    1. In the **Search** box, click **Resource Type** and **Service**. Then select the appropriate boxes under the **Resource Type** column.
+    1. In the **Search** box, select **Resource Type** and **Service**. Then select the appropriate boxes under the **Resource Type** column.
     1. When a resource is selected, a symbol appears next to the icon. 
 
-        To expand the menu, click the down caret icon.
-    1. Additional options under **Access Type** and **Encryptions Settings** appear:
+        To expand the menu, select the down caret icon.
+    1. More options under **Access Type** and **Encryptions Settings** appear:
         - **Access Type** - Select **All**, **Public**, **Private**, **Restricted**, or **Other Accounts**.
 
              To view information about each option, hover over the information **(i)** icon.
@@ -465,7 +470,7 @@ You can apply the following predefined tags in CloudKnox:
 
 ### How to read Information Panel for active resources
 
-1. Set the filters and select your Authorization System. Then click the icon at the end of the row to view more information about the active resource.
+1. Set the filters and select your Authorization System. Then select the icon at the end of the row to view additional information about the active resource.
 
 - The **Tasks** - **Used** section  displays tasks that were performed on the resource.
 
@@ -501,10 +506,10 @@ The dashboard only lists tasks that have been used in the last 90 days. The foll
 The following components make up the **Active Tasks** table:
 
 - **Task Name** - Provides the name of the task. 
-    - To view more details about the task, click the task name. For more information, see How to use identity explorer for Active Tasks. 
+    - To view additional details about the task, select the task name. For more information, see How to use identity explorer for Active Tasks. 
+        <!---Add link--->
 
         -  A **Deleted** icon next to the task name means the task is a delete task. 
-
         - A **High risk task** icon next to the task name means the task is high-risk. 
         - A **Task** icon next to the task name means the task is a normal task.
 
@@ -519,13 +524,13 @@ The following components make up the **Active Tasks** table:
 There are many filter options within the **Active Tasks** screen, including filters by **Authorization System**, filters by **User** and filters by **Task**. Filters can be applied in one, two, or all three categories depending on what information the system administrator is looking for. 
 
 - **Filtering by Authorization Systems**
-    1. To expand the **Authorization systems** menu, click the **Lock** icon on the left  of the page, and then select all applicable systems. 
+    1. To expand the **Authorization systems** menu, select the **Lock** icon on the left  of the page, and then select all applicable systems. 
 
          The default filter is the first authorization system in the filter list if filters haven't been used before, or the system defaults to the last filtered selection.
 
-       - To automatically select all options for a single authorization system, next to the authorization system name, click **Only**. 
+       - To automatically select all options for a single authorization system, next to the authorization system name, select **Only**. 
 
-    2. To filter by the selection, click **Apply**. 
+    2. To filter by the selection, select **Apply**. 
 
 - **Filtering by Users**
 
@@ -535,7 +540,7 @@ There are many filter options within the **Active Tasks** screen, including filt
         - **All** - Filters by all existing users regardless of role or services used.
         - **User** - Filters by users only, excluding transient users.
         - **Transient** - Filters by transient users only.
-    2. To filter by the selection, click **Apply**. 
+    2. To filter by the selection, select **Apply**. 
     
 - **Filtering by Tasks**
 
@@ -544,12 +549,12 @@ There are many filter options within the **Active Tasks** screen, including filt
     1. Select the applicable radio button option to filter by task:
         - **All** - Filters by all existing tasks a user can perform.
         - **High Risk Tasks** - Filters tasks by high risk, which includes modifying and deleting content.
-    2. To filter users who have delete task privileges, under **High Risk Tasks**. click **Delete**. 
-    3. To filter by the selection, click **Apply**. 
+    2. To filter users who have delete task privileges, under **High Risk Tasks**. select **Delete**. 
+    3. To filter by the selection, select **Apply**. 
 
 ### How to read the Information Panel for active tasks
 
-- Set the filters and select your Authorization System. Then click the icon at the end of the row to view more information about the active task.
+- Set the filters and select your Authorization System. Then select the icon at the end of the row to view additional information about the active task.
 
 - **Users with Privileges** -  Displays the total number of users who have access to the task, broken into the following categories:
      - **Unexecuted** - The names of users who have access to the task but haven't used the task.
@@ -572,7 +577,7 @@ The following components make up the **Access Keys** table:
 - **Account** - Displays the account name that the owner and access key reside in.
 - **Privilege Creep Index** - Captures the incurred risk of owners with access to high-risk privileges and is broken into the following columns:
     - **Index** - Calculates a risk score for the owner of the access key based on the high-risk privileges they have access to and if that privilege has been accessed.
-    - **Since** - Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level, that is **! High - 130 days**.
+    - **Since** - Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level. For example, **! High - 130 days**.
 
          Hover over the information in this column for specific details on how long the user has had a high, medium, or low privilege creep index. 
 
@@ -597,12 +602,12 @@ The following components make up the **Access Keys** table:
 There are many filter options within the **Access Keys** screen, including filters by **Authorization System**, **Access Keys**, and **Task**. Filters can be applied in one, two, or all three categories depending on what information the system administrator is looking for. 
 
 - **Filtering by Authorization Systems**
-    1. To expand the **Authorization systems** menu and select all applicable systems, click the **Lock** icon. 
+    1. To expand the **Authorization systems** menu and select all applicable systems, select the **Lock** icon. 
 
         > [!NOTE]
         > This feature only applies to AWS. It can be narrowed down by the authorization system.
 
-    2. To filter by the selection, click **Apply**. 
+    2. To filter by the selection, select **Apply**. 
 
 - **Filtering by Access Keys**
 
@@ -612,10 +617,10 @@ There are many filter options within the **Access Keys** screen, including filte
         - **Key Status** - Choose **All**, **Active**, or **Inactive**.
         - **Key Activity Status** - Choose **All**, **Used <90 days**, **Used <90 - 365 days**, **Used >365 days**, or **Not Used**.
         - **Key Age** - Choose  **All**, **<90 days**, **90 - 180 days**, or **>180 days**
-    2. To filter by the selection, click **Apply**. 
+    2. To filter by the selection, select **Apply**. 
 
          The top of the screen displays which filters were applied.
-    3. To  remove all filters, click **X**.
+    3. To  remove all filters, select **X**.
 
 - **Filtering by Tasks**
 
@@ -624,12 +629,12 @@ There are many filter options within the **Access Keys** screen, including filte
     1. To filter by task, select the applicable option:
         - **All** - Filters by all existing tasks a user can perform.
         - **High Risk Tasks** - Filters tasks by high risk, which includes modifying and deleting content.
-    2. To filter users who have delete task privileges, under **High Risk Tasks**. click **Delete**. 
-    3. To filter by the selection, click **Apply**. 
+    2. To filter users who have delete task privileges, under **High Risk Tasks**. select **Delete**. 
+    3. To filter by the selection, select **Apply**. 
 
 ### How to read Information Panel for access keys
 
-Once filters are set and Authorization System is selected, click the icon at the end of the row to view more information about the access key.
+Once filters are set and Authorization System is selected, select the icon at the end of the row to view additional information about the access key.
 
 - **Tasks** -  Displays unused and used tasks for each access key. The tasks are grouped by service and can be expanded to view the task, application, or service names.
 
@@ -655,7 +660,7 @@ To activate the **Access Keys** option, select **AWS** from the filter options d
 - **Domain/Account** - Displays the authorization system that lambda resides in
 - **Privilege Creep Index** - Captures the incurred risk of lambda function with access to high-risk privileges and is broken into the following columns:
     - **Index** - Calculates a risk score for the lambda function based on the high-risk privileges they have access to and if that privilege has been accessed.
-    - **Since** - Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level, that is **! High - 130 days**.
+    - **Since** - Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level. For example, **! High - 130 days**.
 
         You can hover over the information in this column for specific details on how long the user has had a high, medium, or low privilege creep index.
 
@@ -675,11 +680,11 @@ To activate the **Access Keys** option, select **AWS** from the filter options d
 
 The only filter option in the **Serverless Functions** screen is **Authorization System.** The only authorization system available is AWS, but it can be narrowed down by console. 
 
-1. To expand the **Authorization systems** menu, click the **Lock** icon on the left side of the page. Then select all applicable consoles. 
-2. To filter by the selection, click **Apply**. 
+1. To expand the **Authorization systems** menu, select the **Lock** icon on the left side of the page. Then select all applicable consoles. 
+2. To filter by the selection, select **Apply**. 
 
     The top of the screen displays a list of filters that were applied.
-3. To remove all filters, click **X**.
+3. To remove all filters, select **X**.
 
 
 ### Using predefined tags
@@ -694,7 +699,7 @@ You can apply the following set of predefined tags:
 
 ### How to read the Information Panel for serverless functions
 
-- Set your filters and select your Authorization System. Then click the icon at the end of the row to view more information about the serverless function.
+- Set your filters and select your Authorization System. Then select the icon at the end of the row to view additional information about the serverless function.
 
 - **Tasks** -  Displays unused and used tasks for each lambda function. The tasks are grouped by service and can be expanded to view the task, application, or service names.
 
@@ -709,21 +714,21 @@ You can apply the following set of predefined tags:
 
 ### How to view Role/Policy details
 
-1. In the **Execution Role** column, click **View json.**
+1. In the **Execution Role** column, select **View json.**
 
      The **Role Summary** screen opens and lists the **Role Name** and **Role Type**. The **Policies** tab is selected by default.
 
 2. Under **Policies**, a list will display showing all the policies directly attached to the serverless function. 
 
-     To expand and read the details of the policy, click the icon.
+     To expand and read the details of the policy, select the icon.
 
 3. Under **SCP** (Service Control Policy), three columns are displayed: **Policy Name**, **Source Name**, and **Source**. 
 
      The purpose of the SCP section is to provide permission boundaries on each policy. 
 
-     To expand and read the details of the policy, click the icon in the **Policy Name** column.
+     To expand and read the details of the policy, select the icon in the **Policy Name** column.
 
-4. To view details on who can assume the role being viewed, click the **Trusted Entities** tab.
+4. To view details on who can assume the role being viewed, select the **Trusted Entities** tab.
 
 ## How to use the CloudKnox explorers
 
@@ -731,7 +736,7 @@ The CloudKnox explorers provide more information about an identity, including en
 
 ### How to search and access the CloudKnox explorers
 
-1. To perform a general search and open the explorer, click **Search** at the upper right of the CloudKnox home screen.
+1. To perform a general search and open the explorer, select **Search** at the upper right of the CloudKnox home screen.
 
 2. Enter a user, role, resource, or task name and select the appropriate option.
 
@@ -741,8 +746,9 @@ The CloudKnox explorers provide more information about an identity, including en
 
 1. To access the **User Explorer**, select an authorization system from the left side panel, select **Groups**, and then select **User**. 
 For more information, see How to apply filters to users. 
+<!---Add link--->
 
-2. Under the **Username** column, click the username to expand details within the last 90 days. The default view is the **User Info** tab.
+2. Under the **Username** column, select the username to expand details within the last 90 days. The default view is the **User Info** tab.
 3. The **User Info** tab displays the high risk activities performed in the last 90 days with the following details:
     - **User Info** - This section displays the following details:
         - **User Groups** - Lists any groups the user is in.
@@ -770,33 +776,33 @@ For more information, see How to apply filters to users.
         - **Policies/Roles** -  Displays the policies that apply to a user.
             - **Policy Name** - Displays the name of the policy.
 
-              - To display the full details of the policy, next to the policy name, click **View**.
+              - To display the full details of the policy, next to the policy name, select **View**.
 
-            - **Source Name** - The name of the source, that is, admin.
+            - **Source Name** - The name of the source. For example, admin.
             - **Source** - Displays the ways in which an identity acquires access to a policy.
-        - **Permission Boundary** (AWS only) - A constraint that an admin can place on a user to restrict certain accesses to policies.
+        - **Permission Boundary** (AWS only) - This option is a constraint that an admin can place on a user to restrict certain accesses to policies.
 
-             - To display the full details of the policy, next to the policy name, click **View**.
+             - To display the full details of the policy, next to the policy name, select **View**.
 
         - **SCPs** (Service Control Policy) - Service Control Policies constraint the actions that a user can perform. Unlike Permission Boundaries, they apply to the whole account and are applied in a hierarchical manner to further restrict permissions starting with the **Root** source and moving to **Organizational Unit** and **Account**.
 
-             - To display the full details of the policy, next to the policy name, click **View**.
+             - To display the full details of the policy, next to the policy name, select **View**.
 
     - **Azure/GCP/VCENTER**
         - **Policies/Roles** -  Displays the roles that apply to a user.
             - **Name** - Displays the name of the role.
             - **Resource** - Displays the name of the resource.
-            - **Type** - Displays the type of resource, that is, subscriptions.
-            - **Source Name** - The name of the source, that is, admin.
-            - **Source Type** - Displays the role that applies to the user, that is source could be **Group**, meaning the user belongs to a group in which the role applies.
-4. To view which roles a user can assume with the following details, click the **Access Info (AWS Only)** tab. This applies to AWS users only.
+            - **Type** - Displays the type of resource, i.e., subscriptions.
+            - **Source Name** - The name of the source, i.e., admin.
+            - **Source Type** - Displays the role that applies to the user, i.e. source could be **Group**, meaning the user belongs to a group in which the role applies.
+4. To view which roles a user can assume with the following details, select the **Access Info (AWS Only)** tab. This option applies to AWS users only.
 
     - **Roles Available** - Lists all the roles available to the user to assume.
     - **Roles Accessed** - Lists the roles the user has assumed.
 
-      - To search for a specific role available to the user or the user has accessed, click **Search**.
+      - To search for a specific role available to the user or the user has accessed, select **Search**.
 
-5. To view the activity performed by the user with the following details, click the **Activity** tab:
+5. To view the activity performed by the user with the following details, select the **Activity** tab:
     - **High Risk Activity** - Displays the high risk activities performed in the last 90 days.
         - **Username** – Displays the name of the user who performed the task.
         - **Resource Name** – Displays the name of the resource in which the task was executed.
@@ -804,7 +810,7 @@ For more information, see How to apply filters to users.
         - **Start Date** – Displays when the task was executed.
         - **IP Address** – Displays the IP address of the user, if applicable.
 
-6. To view all login activity performed by the user with the following details, click the **Login Details** tab:
+6. To view all login activity performed by the user with the following details, select the **Login Details** tab:
     - **Date Occurred On** - The date on which the user logged in.
     - **IP Address** - The IP address from which the user logged in.
     - **Access Agent** - The browser or browser agent from which the user accessed their account.
@@ -821,7 +827,7 @@ For more information, see How to apply filters to users.
         - **Table View - Access Agents**
             - **Access Agent** - Displays the name of the access agent.
             - **No. of Times Logged In** - Displays how many times the user logged in to the access agent.
-7. To view the resources the user has accessed with the following details, click the **Resources** tab:
+7. To view the resources the user has accessed with the following details, select the **Resources** tab:
     - **Resource Name** – Displays the name of the resource affected by the task.
     - **Resource Type** – Displays the type of resource being touched, for example, iam:role.
     - **No. of Times Accessed** – Displays how many times the resource was accessed.
@@ -836,7 +842,7 @@ For more information, see How to apply filters to users.
         - **Graph View**
             - Displays a graph view of how many resources have access, and how many resources were accessed in the last 90 days.
 
-8. To view the tasks the user has executed with the following details, click the **Tasks** tab:
+8. To view the tasks the user has executed with the following details, select the **Tasks** tab:
     - **Task Name** – Displays the name of the task.
     - **Last Executed On** – Displays the date the task was last executed by the user.
     - **No. of Resources used** – Displays the number of resources that were affected when this task was executed.
@@ -854,13 +860,13 @@ For more information, see How to apply filters to users.
         - **Table View - Alarms**
             -  Displays a detailed view of tasks that are considered alarm tasks.
 
-9. To view all the policies the user has access to across all accounts with the following details, click the **All Permissions** tab:
+9. To view all the policies the user has access to across all accounts with the following details, select the **All Permissions** tab:
 
     - **AWS**
         - **Account** - Displays the name of the account.
         - **Policy Name** - Displays the name of the policy.
 
-            - To display the full details of the policy, next to the policy name,click **View**.
+            - To display the full details of the policy, next to the policy name,select **View**.
         - **Source Name** - The name of the source, for example, *admin*.
         - **Source** - Displays the type of policy that applies to the user, for example, the source could be **Group**, meaning the user belongs to a group to which the policy applies.
     - **Azure/GCP/VCENTER**
@@ -878,8 +884,8 @@ For more information, see How to apply filters to users.
 1. To access the **Role Explorer**, choose an authorization system. 
 
 2. Select **Groups**, and then select **Role / App / Service a/c**. For more information, see How to apply filters to users. 
-
-3. To expand details within the last 90 days, under the **Username** column, click the username. The default view is the **Role Info** tab.
+<!---Add link--->
+3. To expand details within the last 90 days, under the **Username** column, select the username. The default view is the **Role Info** tab.
      
 4. The **Role Info** tab displays the following details:
     - **Tasks** -  Displays unused and used tasks for the individual user, application, or service account. The tasks are grouped by service and can be expanded to view the task, application, or service names.
@@ -891,26 +897,26 @@ For more information, see How to apply filters to users.
         - **Search** - In the **Search** box, system administrators can type a specific task name and find how many of those tasks have been unused or used.
         - **All** - The **Tasks** drop-down can be filtered by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
     - **Policies** -  Displays the policies attached to the role.
-    - **Permission Boundary** - This is a constraint that an admin can place on a role to restrict certain accesses to policies.
+    - **Permission Boundary** - This option is a constraint that an admin can place on a role to restrict certain accesses to policies.
 
-         - To display the full details of the policy, click **View** next to the policy name.
+         - To display the full details of the policy, select **View** next to the policy name.
 
     - **SCPs** (Service Control Policy) - Service Control Policies constrains the actions that a role can perform. Unlike Permission Boundaries, they apply to the whole account and are applied in a hierarchical manner to further restrict permissions starting with the **Root** source and moving to **Organizational Unit** and **Account**,
         - **Policy Name** - Displays the name of the policy,
 
-             - To display the full details of the policy, click **View** next to the policy name.
+             - To display the full details of the policy, select **View** next to the policy name.
 
         - **Source Name** - The name of the source, for example, admin.
         - **Source** - Displays the ways in which an identity acquires access to a policy.
     - **Trusted Entities** -  Displays trusted entities attached to the role.
 
-5. To view which roles a user can assume with the following details, click the **Access Info** tab:
+5. To view which roles a user can assume with the following details, select the **Access Info** tab:
     - **Roles Available** - Lists all the roles available to the user to assume.
     - **Roles Accessed** - Lists the roles the user has assumed.
 
-      - To search for a specific role the user has available or has accessed, click **Search**.
+      - To search for a specific role the user has available or has accessed, select **Search**.
 
-6. To view the activity performed by the role with the following details, click the **Activity** tab:
+6. To view the activity performed by the role with the following details, select the **Activity** tab:
     - **High Risk Activity** - Displays the high risk activities performed in the last 90 days.
         - **Role** – Displays the name of the role who performed the task.
         - **Resource Name** – Displays the name of the resource on which the task was executed on.
@@ -918,19 +924,19 @@ For more information, see How to apply filters to users.
         - **Start Date** – Displays when the task was executed.
         - **IP Address** – Displays the IP address of the user, if applicable.
 
-7. To view the resources the role has accessed with the following details, click the **Resource** tab:
+7. To view the resources the role has accessed with the following details, select the **Resource** tab:
     - **Resource Name** – Displays the name of the resource affected by the task performed by the role.
     - **Resource Type** – Displays the type of resource being touched, for example, iam:policy.
     - **No. of Times Accessed** – Displays how many times the resource was accessed.
     - **All Tasks** – Displays the number of tasks available to the role total.
     - **High Risk Tasks** – Displays the number of high risk tasks the role has access to total.
 
-      -  To view the names of the tasks and high risk tasks used on the specific resource listed, click the icon to expand details.
+      -  To view the names of the tasks and high risk tasks used on the specific resource listed, select the icon to expand details.
 
-8. To view the tasks the role has executed with the following details, click the **Tasks** tab:
+8. To view the tasks the role has executed with the following details, select the **Tasks** tab:
     - **Task Name** – Displays the name of the task.
-       - To expand details on the task and view resources associated with the task, click the icon. 
-        - To expand details about the resource, click the icon next to **Resources**.
+       - To expand details on the task and view resources associated with the task, select the icon. 
+        - To expand details about the resource, select the icon next to **Resources**.
 
     - **Last Executed On** – Displays the date the task was last executed by the user.
     - **No. of Resources used** – Displays the number of resources that were affected when this task was executed.
@@ -939,18 +945,18 @@ For more information, see How to apply filters to users.
 ### How to use the Resource Explorer
 
 1. To access the **Resource Explorer**, select **Active Resources** from the  drop-down list, then select an authorization system. **Resource**. For more information, see How to apply filters to users. 
-
-2. To expand details within the last 90 days, under the **Resource Name** column, click the resource. 
+<!---Add link--->
+2. To expand details within the last 90 days, under the **Resource Name** column, select the resource. 
 
 3. The default view is the **Access Graph** tab. It displays the following details:
     - **Identities** – Displays the name of the identity that has access to the resource.
     - **Policies/Roles** – Displays the name of the policy  or the role that gave the identity access to the resource.
 
-         - To view the full details of the policy or role, click **View**.
+         - To view the full details of the policy or role, select **View**.
 
     - **Sources** (AWS Only) – Displays the ways in which an identity acquires access to a policy. The three ways in which the policy is accessed is defined below:
         - **Direct** –  Displays that a policy was directly attached to a particular identity.
-           - To view the full details of the policy or role, click **View**.
+           - To view the full details of the policy or role, select **View**.
         - **Roles** –  Displays that the user acquired access through a role that the identity can assume.
 
         - **Group** –  Displays that the identity is part of a group to which the policy is attached.
@@ -958,17 +964,17 @@ For more information, see How to apply filters to users.
 
         Each column in the **Access Graph** view has a **Search** bar and a **Filter** button with various options available from the  drop-down list.
 
-         For each column listed in the **Access Graph** tab, more details can be viewed by clicking the name in the **Name** column. This view  displays a detailed diagram on how the user acquired access to the resource.
+         For each column listed in the **Access Graph** tab, additional details can be viewed by selecting the name in the **Name** column. This view  displays a detailed diagram on how the user acquired access to the resource.
 
-4. (AWS only) To view tags assigned to the resource, click the **Info** tab.
-5. To display all high risk resources used within the last 90 days with the following details, click the **Activity** tab:
+4. (AWS only) To view tags assigned to the resource, select the **Info** tab.
+5. To display all high risk resources used within the last 90 days with the following details, select the **Activity** tab:
     - **Username** – Displays the name of the user who accessed the resource.
     - **Resource Name** – Displays the name of the resource in which the task was executed on.
     - **Resource Type** – Displays the type of resource being touched, for example, AWS.
     - **Start Date** – Displays when the task was executed.
     - **IP Address** – Displays the IP address of the user, if applicable.
 
-6. To display details about the users, including the following details, click the **Users** tab:
+6. To display details about the users, including the following details, select the **Users** tab:
     - **Username** – Displays the name of the user who accessed the resource.
     - **No.** **of Times Executed** – Displays how many times the user accessed the resource.
     - **No.** **of Resources Executed** – Displays how many resources were affected by the task.
@@ -979,21 +985,21 @@ For more information, see How to apply filters to users.
     - To select from the following options, select the  drop-down list:
         - **Graph View** - Displays a graph view of how many users have access to the resource, how many resources haven't been accessed, and how many have been accessed.
 
-7. (Azure/GCP/VCENTER only) To display details about tasks, including the following details, click the **Tasks** tab:
+7. (Azure/GCP/VCENTER only) To display details about tasks, including the following details, select the **Tasks** tab:
     - **Task Name** - Displays the name of the task
     - **No. of Times Executed** - Displays how many times the task was executed
     - **No. of Users** - Displays the number of users with access to the task.
     - **Last Executed On** - Displays the last date in which the task was accessed.
 
-      - To change the view, click the drop-down list next to **Users**. The default is view is **Tasks  – Table**.
+      - To change the view, select the drop-down list next to **Users**. The default is view is **Tasks  – Table**.
 
-    -  To select from the following options, click the  drop-down list:
+    -  To select from the following options, select the  drop-down list:
         - **Graph View**
             - Displays a graph view of how many tasks have been executed and how many tasks are scheduled
         - **Table View - Scheduled Tasks**
             -  Displays a detailed view of tasks that have been scheduled
 
-8. (AWS only) To display security details about the resources, including the following details, click the **Security Info** tab:
+8. (AWS only) To display security details about the resources, including the following details, select the **Security Info** tab:
 
      The **Security Info** tab is specific to bucket resources. The resource type can be found at the top of the screen, for example, **Resource Type: s3 bucket**.
 
@@ -1001,21 +1007,22 @@ For more information, see How to apply filters to users.
     - **Access Control List** – Lists all identities that can access to the bucket.
     - **Bucket Policy** – Displays which users can access the bucket via a policy.
 
-9. To view a different authorization system account, click the drop-down from the right side of the screen.
-10. To export the results in comma-separated values (CSV) file format, click **Export**.
+9. To view a different authorization system account, select the drop-down from the right side of the screen.
+10. To export the results in comma-separated values (CSV) file format, select **Export**.
 
 ### How to use the Task Explorer
 
 1. To access the **Task Explorer**, select **Active Tasks** from the  drop-down list, and select an authorization system. For more information, see How to apply filters to users.
+    <!---Add link--->
 
-    - To expand details within the last 90 days, in the **Task Name** column, click the task. 
+    - To expand details within the last 90 days, in the **Task Name** column, select the task. 
 2. The default view is the **Activity** tab.The **Activity** tab displays the high risk activities performed in the last 90 days with the following details:
     - **Username** – Displays the name of the user who performed the task.
     - **Resource Name** – Displays the name of the resource in which the task was executed.
     - **Resource Type** – Displays the type of resource being touched, for example, iam:policy.
     - **Start Date** – Displays when the task was executed.
     - **IP Address** – Displays the IP address of the user, if applicable.
-3. To display details about the users, including the following details, click the **Users** tab:
+3. To display details about the users, including the following details, select the **Users** tab:
     - **Username** – Displays the name of the user who performed the task.
     - **No.** **of Times Executed** – Displays how many times the user executed the task.
     - **No.** **of Resources Accessed** – Displays how many resources were acted upon by the task.
@@ -1023,56 +1030,58 @@ For more information, see How to apply filters to users.
 
       - In the  drop-down list next to **Users**, the default view is **Tasks – Table**.  
       - To see a graphical view of the number of times a user executed a task, select **Executed – Graph**.
-4. To display details about the resources, including the following details, click the **Resources** tab:
+4. To display details about the resources, including the following details, select the **Resources** tab:
     - **Resource Name** – Displays the name of the resource affected by the task.
     - **Resource Type** – Displays the type of resource being touched, for example, **AWS**.
     - **No. of Times Accessed** – Displays how many times the resource was accessed.
     - **No**. **of Users** – Displays the number of users that performed the task.
     - **Last Executed On** – Displays the last date on which the user executed the task.
 5. On the down menu next to **Resources**, the default view is **Tasks – Table**. To see a graph view of how many resources have been accessed, select **Accessed – Graph** .
-6. To change to another authorization system account, click the drop-down on the right side of the screen.
+6. To change to another authorization system account, select the drop-down on the right side of the screen.
 
 ### How to use the Account Explorer
 
 The **Account Explorer** displays all the identities - users, roles, EC2 instances, and Lambda Functions - that can access the selected account from an external account.
 
 1. To access the **Account Explorer**:
-    - To choose an authorization system from the left-side panel, click the **Lock** icon. Select an AWS account. For more information, see How to apply filters to users. 
-      - Under the **Domain/Account** column, click the domain or account name to access **Account Explorer**. The default view is the **Cross Account** **Users** tab.
-       - Or, click the **Data Collectors** icon on the top menu. Choose the **Authorization Systems** tab and click the **Name** of any AWS accounts.
+    - To choose an authorization system from the left-side panel, select the **Lock** icon. Select an AWS account. For more information, see How to apply filters to users. 
+    <!---Add link--->
+
+      - Under the **Domain/Account** column, select the domain or account name to access **Account Explorer**. The default view is the **Cross Account** **Users** tab.
+       - Or, select the **Data Collectors** icon on the top menu. Choose the **Authorization Systems** tab and select the **Name** of any AWS accounts.
 2. The **Cross Account** **Users** tab displays which identities can access the specified account, with the following details:
 
      The **Account Explorer** displays identities that aren't part of the  specified AWS account, but have permission to access the account through various roles.
 
-      - To export the data in comma-separated values (CSV) file format, click the **Export** button.
+      - To export the data in comma-separated values (CSV) file format, select the **Export** button.
 
-      - To view **Account Explorer** for other accounts, click the authorization system drop-down on the right side and choose one of the available accounts.
+      - To view **Account Explorer** for other account select the authorization system drop-down on the right side and choose one of the available accounts.
 
     - **Roles that Provide Access** - Lists the roles that provide access to other accounts through the Trusted Entities policy statement.
-      - To view the**Role Summary** which provides the following details, to the right of the role name, click **View**:
+      - To view the**Role Summary** which provides the following details, to the right of the role name, select **View**:
             - **Policies** - Lists all the policies attached to the role.
             - **Trusted Entities** - Displays the identities from external accounts that can assume this role.
-        -  To view all the identities from various accounts that can assume this role, click the icon to the left of the role name.
-        - To view the role definition, to the right of the role name, click **View**.
-        - To view a diagram of all the identities that can access the specified account and through which role(s), click on the role name.
+        -  To view all the identities from various accounts that can assume this role, select the icon to the left of the role name.
+        - To view the role definition, to the right of the role name, select **View**.
+        - To view a diagram of all the identities that can access the specified account and through which role(s), select on the role name.
 
          If CloudKnox is monitoring the external account, specific identities from that account that can assume this role will be listed. Otherwise, the identities declared in the **Trusted Entity** section will be listed.
 
     - **Connecting Roles** tab lists per account the following roles:
         - Direct roles that are trusted by the account role.
-        - Intermediary roles that aren't directly trusted by the account role but are assumable by identities through role-chaining.
-        - To view all the roles from that account that are used to access the specified account, click the icon to the left of the account name.
-            - To view the trusted identities declared by the role, click the icon to the left of the role name.
+        - Intermediary roles that are not directly trusted by the account role but are assumable by identities through role-chaining.
+        - To view all the roles from that account that are used to access the specified account, select the icon to the left of the account name.
+            - To view the trusted identities declared by the role, select the icon to the left of the role name.
 
-                The trusted identities for the role will be listed only if the account is being monitored by CloudKnox.
+            The trusted identities for the role will be listed only if the account is being monitored by CloudKnox.
 
-            - To view the role definition, to the right of the role name, click **View**.
+            - To view the role definition, to the right of the role name, select **View**.
 
-                 When the icon is clicked to expand details, a search bar is available. You can use it to search for specific roles.
+                 When the icon is selected to expand details, a search bar is available. You can use it to search for specific roles.
 
     - **Identities with Access** - Lists the identities that come from external accounts.
-        - To view all the identities from that account can access the specified account, click the icon to the left of the account name.
-        - For EC2 instances and Lambda Functions, to view **Role Summary**, which displays the details noted above, click **View** to the right of the identity name.
-        - To view a diagram of the ways in which the identity is able to access the specified account and through which role(s), click the identity name.
+        - To view all the identities from that account can access the specified account, select the icon to the left of the account name.
+        - For EC2 instances and Lambda Functions, to view **Role Summary**, which displays the details noted above, select **View** to the right of the identity name.
+        - To view a diagram of the ways in which the identity is able to access the specified account and through which role(s), select the identity name.
 
 <!---## Next steps--->
