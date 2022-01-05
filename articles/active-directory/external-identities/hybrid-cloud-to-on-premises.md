@@ -47,7 +47,7 @@ To provide B2B users access to on-premises applications that are secured with in
    For the B2B user scenario, there are two methods you can use to create the guest user objects that are required for authorization in the on-premises directory:
 
    - Microsoft Identity Manager (MIM) and the MIM management agent for Microsoft Graph.
-   - A PowerShell script, which is a more lightweight solution that does not require MIM.
+   - A PowerShell script, which is a more lightweight solution that does not require MIM. Sample script can be found [here](https://github.com/JeffBley/B2B-AAD-to-AD-Sync).
 
 The following diagram provides a high-level overview of how Azure AD Application Proxy and the generation of the B2B user object in the on-premises directory work together to grant B2B users access to your on-premises IWA and KCD apps. The numbered steps are described in detail below the diagram.
 
