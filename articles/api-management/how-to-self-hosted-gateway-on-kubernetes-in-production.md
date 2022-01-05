@@ -56,6 +56,8 @@ You can [download a full list of available tags](https://mcr.microsoft.com/v2/az
 
 > [!TIP]
 > When installing with Helm, image tagging is optimized for you. The Helm chart's application version pins the gateway to a given version and does not rely on `latest`.
+> 
+> Learn more on how to [install an API Management self-hosted gateway on Kubernetes with Helm](how-to-deploy-self-hosted-gateway-kubernetes-helm.md).
 
 ## DNS policy
 DNS name resolution plays a critical role in a self-hosted gateway's ability to connect to dependencies in Azure and dispatch API calls to backend services.
@@ -93,6 +95,8 @@ Consider protecting the self-hosted gateway against [disruption](https://kuberne
 
 > [!TIP]
 > When installing with Helm, easily enable high available scheduling by enabling the `highAvailability.enabled` configuration option.
+> 
+> Learn more on how to [install an API Management self-hosted gateway on Kubernetes with Helm](how-to-deploy-self-hosted-gateway-kubernetes-helm.md).
 
 ### Preventing against node failures
 To prevent being affected due to data center or node failures, consider using a Kubernetes cluster that uses availability zones to achieve high availability on the node-level.
