@@ -11,16 +11,16 @@ ms.custom: devx-track-azurepowershell
 ---
 # Configure local RBAC for FHIR
 
-This article explains how to configure the Azure API for FHIR to use a secondary Azure Active Directory tenant for data access. Use this mode only if it is not possible for you to use the Azure Active Directory tenant associated with your subscription.
+This article explains how to configure the Azure API for FHIR to use a secondary Azure Active Directory (Azure AD) tenant for data access. Use this mode only if it is not possible for you to use the Azure Active Directory tenant associated with your subscription.
 
 > [!NOTE]
 > If your FHIR service is configured to use your primary Azure Active Directory tenant associated with your subscription, [use Azure RBAC to assign data plane roles](configure-azure-rbac.md).
 
 ## Add a new service principal or use an existing one
 
-Local RBAC allows you to use a service principal in the secondary Azure Active Directory tenant with your FHIR server. You can  create a new service principal through the Azure portal, PowerShell or CLI commands, or use an existing service principal. The process is also known as [application registration](../register-application.md). You can review and modify the service principals through Azure Active Directory from the portal or using scripts.
+Local RBAC allows you to use a service principal in the secondary Azure AD tenant with your FHIR server. You can  create a new service principal through the Azure portal, PowerShell or CLI commands, or use an existing service principal. The process is also known as [application registration](../register-application.md). You can review and modify the service principals through Azure AD from the portal or using scripts.
 
-The PowerShell and CLI scripts below, which are tested and validated in Visual Studio Code, create a new service principal (or client application), and add a client secret. The service principal id is used for local RBAC and the application id and client secret will be used to access the FHIR service later.
+The PowerShell and CLI scripts below, which are tested and validated in Visual Studio Code, create a new service principal (or client application), and add a client secret. The service principal ID is used for local RBAC and the application id and client secret will be used to access the FHIR service later.
 
 You can use the `Az` PowerShell module:
 
@@ -51,7 +51,7 @@ You can configure the Azure API for FHIR to use a secondary Azure Active Directo
 
 ![Local RBAC assignments](media/rbac/local-rbac-guids.png).
 
-In the authority box, enter a valid Azure Active Directory tenant. Once the tenant has been validated, the **Allowed object IDs** box should be activated and you can enter one or a list of Azure AD service principal object IDs. These IDs can be the identity object IDs of:
+In the authority box, enter a valid secondary Azure Active Directory tenant. Once the tenant has been validated, the **Allowed object IDs** box should be activated and you can enter one or a list of Azure AD service principal object IDs. These IDs can be the identity object IDs of:
 
 * An Azure Active Directory user.
 * An Azure Active Directory service principal.
