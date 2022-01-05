@@ -31,7 +31,7 @@ You will perform the following tasks during this lab:
 
 1. A configured Azure DevOps instance, follow the steps here [Configure Azure DevOps Services for SAP Deployment Automation](automation-configure-devops.md)
 
-1. A configured self hosted agent, see [Configure a self-hosted agent for SAP Deployment Automation](automation-configure-devops.md#register-the-deployer-as-an-self-hosted-agent-for-Azure-DevOps)
+1. A configured self hosted agent, see [Configure a self-hosted agent for SAP Deployment Automation](automation-configure-devops.md#register-the-deployer-as-an-self-hosted-agent-for-azure-devops)
 
 1. SAP software, see [download of the SAP software](automation-software.md) in your Azure environment.
 
