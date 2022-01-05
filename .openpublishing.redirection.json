@@ -1,6 +1,301 @@
 {
   "redirections": [
     {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-how-to-start-security-review.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-perform-access-review.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-how-to-perform-security-review.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/index.yml",
+      "redirect_url": "https://support.microsoft.com/en-us/account-billing/work-or-school-account-help-718b3d92-a8a7-4656-8a05-c0228d346b7d",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/active-directory-passwords-reset-register.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/register-the-password-reset-verification-method-for-a-work-or-school-account-47a55d4a-05b0-4f67-9a63-f39a43dbe20a",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/active-directory-passwords-update-your-own-password.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/auth-app-android-china.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/authenticator-for-android-in-the-public-cloud-in-china-ebbef05c-a429-4236-8570-1bb1900fec35",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/cross-tenant-switcher.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/switch-organizations-in-your-work-or-school-account-portals-c54c32c9-2f62-4fad-8c23-2825ed49d146",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-change-sms-phone.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/common-problems-with-two-step-verification-for-a-work-or-school-account-63acbb9b-16a1-47b9-8619-6a865e8071a5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-end-user-app-passwords.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/manage-app-passwords-for-two-step-verification-d6dc8c6d-4bf7-4851-ad95-6d07799387e9",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-end-user-first-time.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-end-user-manage-settings.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/change-your-two-step-verification-method-and-settings-c801d5ad-e0fc-4711-94d5-33ad5d4630f7",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-end-user-signin.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method-c7293464-ef5e-4705-a24b-c4a3ec0d6cf9",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-end-user-troubleshoot.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/common-problems-with-two-step-verification-for-a-work-or-school-account-63acbb9b-16a1-47b9-8619-6a865e8071a5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-setup-auth-app.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-an-authenticator-app-as-a-two-factor-verification-method-2db39828-15e1-4614-b825-6e2b524e7c95",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-setup-office-phone.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-an-office-phone-as-your-two-factor-verification-method-12751dfe-0d0d-420f-a521-b8cc7524647b",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-setup-phone-number.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-a-mobile-device-as-a-two-factor-verification-method-772f64a1-bf7e-483d-8b5c-1d3945494e83",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-account-change-password-page.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/change-your-work-or-school-account-password-from-the-change-password-page-97fced88-e0e7-4d7b-a9d3-936a3dcbd569",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-account-portal-devices-page.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/manage-your-work-or-school-account-connected-devices-from-the-devices-page-6b5a735d-0a7f-4e94-8cfd-f5da6bc13d4e",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-account-portal-organizations-page.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/manage-organizations-for-a-work-or-school-account-in-the-my-account-portal-a9b65a70-fec5-4a1a-8e00-09f99ebdea17",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-account-portal-overview.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/my-account-portal-for-work-or-school-accounts-eab41bfe-3b9e-441e-82be-1f6e568d65fd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-account-portal-privacy-page.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/view-how-your-organization-uses-your-privacy-related-data-32056182-6eb7-423b-af35-4cc8a192bde8",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-account-portal-settings.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/change-work-or-school-account-settings-in-the-my-account-portal-e50bfccb-58e9-4d42-939c-a60cb6d56ced",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-account-portal-sign-ins-page.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/view-and-search-your-work-or-school-account-sign-in-activity-from-my-sign-ins-9e7d108c-8e3f-42aa-ac3a-bca892898972",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-applications-portal-permissions-saved-accounts.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/edit-or-revoke-application-permissions-in-the-my-apps-portal-169be2b4-ee26-4338-aea8-d19bb2f329ee",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-applications-portal-workspaces.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/organize-apps-using-collections-in-the-my-apps-portal-2dae6b8a-d8b0-4a16-9a5d-71ed4d6a6c1d",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-apps-portal-end-user-access.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-apps-portal-end-user-access-reviews.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-apps-portal-end-user-groups.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/update-your-groups-info-in-the-my-apps-portal-bc0ca998-6d3a-42ac-acb8-e900fb1174a4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-apps-portal-end-user-troubleshoot.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/troubleshoot-problems-with-the-my-apps-portal-d228da80-fcb7-479c-b960-a1e2535cbdff",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-apps-portal-user-collections.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/organize-apps-using-collections-in-the-my-apps-portal-2dae6b8a-d8b0-4a16-9a5d-71ed4d6a6c1d",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/my-staff-team-manager.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/manage-front-line-users-with-my-staff-c65b9673-7e1c-4ad6-812b-1a31ce4460bd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/security-info-app-passwords.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/create-app-passwords-from-the-security-info-preview-page-d8bc744a-ce3f-4d4d-89c9-eb38ab9d4137",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/security-info-setup-auth-app.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-the-microsoft-authenticator-app-as-your-verification-method-33452159-6af9-438f-8f82-63ce94cf3d29",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/security-info-setup-email.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-an-email-address-as-your-verification-method-250b91e4-7627-4b60-b861-f2276a9c0e39",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/security-info-setup-phone-number.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-a-phone-call-as-your-verification-method-e54d955d-ac82-4741-91e3-dae6c8bb9d98",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/security-info-setup-questions.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-security-questions-as-your-verification-method-3d74aedd-88a5-4932-a211-9f0bfbab5de8",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/security-info-setup-security-key.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-a-security-key-as-your-verification-method-2911cacd-efa5-4593-ae22-e09ae14c6698",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/security-info-setup-signin.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/security-info-setup-text-msg.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-text-messaging-as-your-verification-method-a61dcc0c-a003-424f-8a64-d92534ba0dad",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/sms-sign-in-explainer.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/set-up-sms-sign-in-as-a-phone-verification-method-0aa5b3b3-a716-4ff2-b0d6-31d2bcfbac42",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-auth-app-add-account-manual.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/manually-add-an-account-to-the-authenticator-app-3bcc3672-6241-48ab-926c-6a6139e5f670",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-auth-app-add-non-ms-account.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/add-non-microsoft-accounts-to-the-microsoft-authenticator-app-7a92b5d4-d6e5-4474-9ac6-be0b6773f574",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-auth-app-add-personal-ms-account.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/add-personal-microsoft-accounts-to-the-microsoft-authenticator-app-92544b53-7706-4581-a142-30344a2a2a57",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-auth-app-add-work-school-account.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-auth-app-backup-recovery.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/back-up-and-recover-account-credentials-in-the-authenticator-app-bb939936-7a8d-4e88-bc43-49bc1a700a40",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-auth-app-download-install.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-auth-app-faq.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/common-problems-with-the-microsoft-authenticator-app-12d283d1-bcef-4875-9ae5-ac360e2945dd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-auth-app-overview.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-auth-app-sign-in.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/sign-in-to-your-accounts-using-the-microsoft-authenticator-app-582bdc07-4566-4c97-a7aa-56058122714c",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-authenticator-app-import-passwords.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/import-passwords-into-the-authenticator-app-a167573a-fb3b-4248-91ea-ca9a814f4853",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-device-remediation.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/troubleshooting-the-you-can-t-get-there-from-here-error-message-479a9c42-d9d1-4e44-9e90-24bbad96c251",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-join-device-on-network.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-register-device-on-network.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/register-your-personal-device-on-your-work-or-school-network-8803dd61-a613-45e3-ae6c-bd1ab25bf8a8",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/user-help-sign-in.md",
+      "redirect_url": "https://support.microsoft.com/account-billing/sign-in-using-two-step-verification-or-security-info-1d8fd1e8-56a6-4e88-a06f-61a15824b604",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-how-to-complete-review.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-complete-access-review.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/authentication/howto-mfaserver-adfs-2012.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-mfaserver-adfs-windows-server",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/blobs/storage-c-plus-plus-how-to-use-blobs.md",
       "redirect_url": "/azure/storage/blobs/quickstart-blobs-c-plus-plus",
       "redirect_document_id": false
@@ -23,6 +318,11 @@
     {
       "source_path": "articles/static-web-apps/routes.md",
       "redirect_url": "/azure/static-web-apps/configuration",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/static-web-apps/github-actions-workflow.md",
+      "redirect_url": "/azure/static-web-apps/build-configuration",
       "redirect_document_id": true
     },
     {
@@ -2264,6 +2564,36 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/machine-learning/classic/migrate-overview.md",
+      "redirect_url": "/azure/machine-learning/migrate-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/classic/migrate-register-dataset.md",
+      "redirect_url": "/azure/machine-learning/migrate-register-dataset",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/classic/migrate-rebuild-experiment.md",
+      "redirect_url": "/azure/machine-learning/migrate-rebuild-experiment",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/classic/migrate-rebuild-web-service.md",
+      "redirect_url": "/azure/machine-learning/migrate-rebuild-web-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/classic/migrate-rebuild-integrate-with-client-app.md",
+      "redirect_url": "/azure/machine-learning/migrate-rebuild-integrate-with-client-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/classic/migrate-execute-r-script.md",
+      "redirect_url": "/azure/machine-learning/migrate-execute-r-script",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/machine-learning/resource-known-issues.md",
       "redirect_url": "/azure/machine-learning/how-to-configure-auto-train#troubleshooting",
       "redirect_document_id": false
@@ -2723,7 +3053,6 @@
       "redirect_url": "/azure/app-service/",
       "redirect_document_id": false
     },
-
     {
       "source_path_from_root": "/articles/app-service-web/app-service-best-practices.md",
       "redirect_url": "/azure/app-service/app-service-best-practices",
@@ -4345,6 +4674,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/view-resources.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/export-template-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/management/azure-resource-manager-security-controls.md",
       "redirect_url": "/azure/azure-resource-manager/management/security-baseline",
       "redirect_document_id": false
@@ -5340,6 +5674,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/automation/automation-quickstart-create-account.md",
+      "redirect_url": "/azure/automation/quickstarts/create-account-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/automation-quickstart-create-runbook.md",
+      "redirect_url": "/azure/automation/quickstarts/create-powershell-runbook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/automation-quickstart-dsc-configuration.md",
+      "redirect_url": "/azure/automation/quickstarts/dsc-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/learn/automation-tutorial-runbook-graphical.md",
+      "redirect_url": "/azure/automation/learn/powershell-runbook-managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/learn/automation-tutorial-runbook-textual-powershell.md",
+      "redirect_url": "/azure/automation/learn/powershell-runbook-managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/learn/automation-tutorial-runbook-textual-python2.md",
+      "redirect_url": "/azure/automation/learn/automation-tutorial-runbook-textual-python-3",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/quickstarts/create-powershell-runbook.md",
+      "redirect_url": "/azure/automation/learn/powershell-runbook-managed-identity",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/automation/automation-change-tracking.md",
       "redirect_url": "/azure/automation/change-tracking",
       "redirect_document_id": false
@@ -5950,6 +6319,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-supported-blob-storage-features.md",
+      "redirect_url": "/azure/storage/blobs/storage-feature-support-in-storage-accounts",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service/app-service-export-api-to-powerapps-and-flow.md",
       "redirect_url": "/azure/azure-functions/app-service-export-api-to-powerapps-and-flow",
       "redirect_document_id": false
@@ -6347,6 +6721,11 @@
     {
       "source_path_from_root": "/articles/azure-functions/functions-api-definition-getting-started.md",
       "redirect_url": "/azure/azure-functions/functions-openapi-definition",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/dotnet-isolated-process-developer-howtos.md",
+      "redirect_url": "/azure/azure-functions/dotnet-isolated-process-guide",
       "redirect_document_id": false
     },
     {
@@ -10086,7 +10465,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/template-functions-any.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/template-functions-any",
+      "redirect_url": "/azure/azure-resource-manager/bicep/bicep-functions-any",
       "redirect_document_id": false
     },
     {
@@ -10376,17 +10755,22 @@
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/resource-group-audit.md",
-      "redirect_url": "/azure/azure-resource-manager/management/view-activity-logs",
+      "redirect_url": "/azure/azure-monitor/essentials/activity-log",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/monitoring-and-diagnostics/insights-debugging-with-events.md",
-      "redirect_url": "/azure/azure-resource-manager/management/view-activity-logs",
+      "redirect_url": "/azure/azure-monitor/essentials/activity-log",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/resource-group-audit.md",
-      "redirect_url": "/azure/azure-resource-manager/management/view-activity-logs",
+      "redirect_url": "/azure/azure-monitor/essentials/activity-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/view-activity-logs.md",
+      "redirect_url": "/azure/azure-monitor/essentials/activity-log",
       "redirect_document_id": false
     },
     {
@@ -12489,7 +12873,6 @@
       "redirect_url": "/azure/applied-ai-services/form-recognizer",
       "redirect_document_id": false
     },
-
     {
       "source_path_from_root": "/articles/sql-database/sql-database-security-controls.md",
       "redirect_url": "/azure/azure-sql/database/security-controls",
@@ -13699,7 +14082,7 @@
       "source_path_from_root": "/articles/azure-vmware/concepts-monitor-protection.md",
       "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
       "redirect_document_id": false
-    },   
+    },
     {
       "source_path_from_root": "/articles/azure-vmware/tutorial-deploy-vmware-hcx.md",
       "redirect_url": "/azure/azure-vmware/configure-vmware-hcx",
@@ -14112,152 +14495,177 @@
     },
     {
       "source_path_from_root": "/articles/blockchain/tokens/account-management.md",
-      "redirect_url": "/azure/blockchain",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/blockchain/tokens/composability.md",
-      "redirect_url": "/azure/blockchain",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/blockchain/index.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/blockchain/tokens/index.md",
-      "redirect_url": "/azure/blockchain",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/blockchain/tokens/overview.md",
-      "redirect_url": "/azure/blockchain",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/blockchain/tokens/templates.md",
-      "redirect_url": "/azure/blockchain",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain/service/connect-truffle.md",
-      "redirect_url": "/azure/blockchain/service/connect-vscode",
+      "source_path_from_root": "/articles/blockchain/service/index.yml",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain/templates/ethereum-deployment.md",
-      "redirect_url": "/azure/blockchain/templates/ethereum-poa-deployment",
+      "source_path_from_root": "/articles/blockchain/templates/hyperledger-fabric-consortium-azure-kubernetes-service.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/ethereum-deployment-guide.md",
-      "redirect_url": "/azure/blockchain/templates/ethereum-poa-deployment",
+      "source_path_from_root": "/articles/blockchain/templates/ethereum-poa-deployment.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/ethereum-poa-deployment.md",
-      "redirect_url": "/azure/blockchain/templates/ethereum-poa-deployment",
+      "source_path_from_root": "/articles/blockchain/service/configure-aad.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain/templates/hyperledger-fabric-consortium-blockchain.md",
-      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-azure-kubernetes-service",
+      "source_path_from_root": "/articles/blockchain/service/configure-transaction-nodes.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain/templates/hyperledger-fabric-single-member-blockchain.md",
-      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-azure-kubernetes-service",
+      "source_path_from_root": "/articles/blockchain/service/connect-geth.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/hyperledger-fabric-single-member-blockchain.md",
-      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-azure-kubernetes-service",
+      "source_path_from_root": "/articles/blockchain/service/connect-metamask.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/index.md",
-      "redirect_url": "/azure/blockchain/workbench",
+      "source_path_from_root": "/articles/blockchain/service/connect-vscode.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-architecture.md",
-      "redirect_url": "/azure/blockchain/workbench/architecture",
+      "source_path_from_root": "/articles/blockchain/service/consortium.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-configuration-overview.md",
-      "redirect_url": "/azure/blockchain/workbench/configuration",
+      "source_path_from_root": "/articles/blockchain/service/create-member-cli.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-create-app.md",
-      "redirect_url": "/azure/blockchain/workbench/create-app",
+      "source_path_from_root": "/articles/blockchain/service/create-member-powershell.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-database-firewall.md",
-      "redirect_url": "/azure/blockchain/workbench/database-firewall",
+      "source_path_from_root": "/articles/blockchain/service/create-member-template.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-database-views.md",
-      "redirect_url": "/azure/blockchain/workbench/database-views",
+      "source_path_from_root": "/articles/blockchain/service/create-member.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-data-excel.md",
-      "redirect_url": "/azure/blockchain/workbench/data-excel",
+      "source_path_from_root": "/articles/blockchain/service/data-manager-cli.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-data-powerbi.md",
-      "redirect_url": "/azure/blockchain/workbench/data-powerbi",
+      "source_path_from_root": "/articles/blockchain/service/data-manager-cosmosdb.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-data-sql-management-studio.md",
-      "redirect_url": "/azure/blockchain/workbench/data-sql-management-studio",
+      "source_path_from_root": "/articles/blockchain/service/data-manager-portal.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-deploy.md",
-      "redirect_url": "/azure/blockchain/workbench/deploy",
+      "source_path_from_root": "/articles/blockchain/service/data-manager.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-getdb-details.md",
-      "redirect_url": "/azure/blockchain/workbench/getdb-details",
+      "source_path_from_root": "/articles/blockchain/service/data-security.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-integration-patterns.md",
-      "redirect_url": "/azure/blockchain/workbench/integration-patterns",
+      "source_path_from_root": "/articles/blockchain/service/develop.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-manage-users.md",
-      "redirect_url": "/azure/blockchain/workbench/manage-users",
+      "source_path_from_root": "/articles/blockchain/service/ethereum-logic-app.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-messages-overview.md",
-      "redirect_url": "/azure/blockchain/workbench/messages-overview",
+      "source_path_from_root": "/articles/blockchain/service/ledger-versions.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-overview.md",
-      "redirect_url": "/azure/blockchain/workbench/overview",
+      "source_path_from_root": "/articles/blockchain/service/limits.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-troubleshooting.md",
-      "redirect_url": "/azure/blockchain/workbench/troubleshooting",
+      "source_path_from_root": "/articles/blockchain/service/manage-cli.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-use.md",
-      "redirect_url": "/azure/blockchain/workbench/use",
+      "source_path_from_root": "/articles/blockchain/service/manage-consortium-powershell.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain-workbench/blockchain-workbench-use-api.md",
-      "redirect_url": "/azure/blockchain/workbench/use-api",
+      "source_path_from_root": "/articles/blockchain/service/migration-guide.md",
+      "redirect_url": "https://github.com/Azure-Samples/blockchain/blob/master/abs/migration-guide.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/blockchain/service/monitor-azure-blockchain-service.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/blockchain/service/overview.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/blockchain/service/send-transaction.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/blockchain/service/whats-new.md",
+      "redirect_url": "https://azure.microsoft.com/solutions/blockchain",
       "redirect_document_id": false
     },
     {
@@ -15396,6 +15804,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-data-guidelines.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-document-type-url.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-question-answer-set.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-role-based-access-control.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/log-query/log-search-transition.md",
       "redirect_url": "/azure/data-explorer/kusto/query/",
       "redirect_document_id": false
@@ -16251,6 +16679,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-forescout.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-forescout",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-fortinet.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-fortinet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-palo-alto.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-palo-alto",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-qradar.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-qradar",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/ansible/index.yml",
       "redirect_url": "/azure/developer/ansible/",
       "redirect_document_id": false
@@ -16428,6 +16876,11 @@
     {
       "source_path_from_root": "/articles/chef/chef-automation.md",
       "redirect_url": "/azure/developer/chef/windows-vm-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-cisco-ise-pxgrid.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/integration-forescout",
       "redirect_document_id": false
     },
     {
@@ -22306,21 +22759,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/media-services/previous/media-services-fmp4-live-ingest-overview.md",
-      "redirect_url": "/azure/media-services/media-services-fmp4-live-ingest-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-specifications-live-timed-metadata.md",
-      "redirect_url": "/azure/media-services/media-services-specifications-live-timed-metadata",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-specifications-ms-sstr-amendment-hevc.md",
-      "redirect_url": "/azure/media-services/media-services-specifications-ms-sstr-amendment-hevc",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/media-services/media-services-dotnet-connect-programmatically.md",
       "redirect_url": "/azure/media-services/media-services-use-aad-auth-to-access-ams-api",
       "redirect_document_id": false
@@ -23998,6 +24436,11 @@
     {
       "source_path_from_root": "/articles/postgresql/howto-hyperscale-scaling.md",
       "redirect_url": "/azure/postgresql/howto-hyperscale-scale-grow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/hyperscale-preview-features.md",
+      "redirect_url": "/azure/postgresql/hyperscale-product-updates",
       "redirect_document_id": false
     },
     {
@@ -25841,8 +26284,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sentinel/connect-cef-verify.md",
+      "redirect_url": "/azure/sentinel/troubleshooting-cef-syslog",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/sentinel/connect-fusion.md",
       "redirect_url": "/azure/sentinel/fusion",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/partner-data-connectors.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference",
       "redirect_document_id": false
     },
     {
@@ -25868,6 +26321,401 @@
     {
       "source_path_from_root": "/articles/sentinel/connect-threat-intelligence.md",
       "redirect_url": "/azure/sentinel/connect-threat-intelligence-tip",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-cef-agent.md",
+      "redirect_url": "/azure/sentinel/connect-log-forwarder",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-cef-solution-config.md",
+      "redirect_url": "/azure/sentinel/connect-common-event-format",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-agari-phishing-defense.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#agari-phishing-defense-and-brand-protection-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-ai-vectra-detect.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#ai-vectra-detect-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-akamai-security-events.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#akamai-security-events-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-alcide-kaudit.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#alcide-kaudit",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-alsid-active-directory.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#alsid-for-active-directory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-apache-http-server.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#apache-http-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-aruba-clearpass.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#aruba-clearpass-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-asc-iot.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#azure-defender-for-iot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-azure-activity.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#azure-activity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-azure-ad-identity-protection.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#azure-active-directory-identity-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-azure-atp.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#microsoft-defender-for-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-azure-ddos-protection.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#azure-ddos-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-azure-firewall.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#azure-firewall",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-azure-information-protection.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#azure-information-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-azure-key-vault.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#azure-key-vault",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-azure-kubernetes-service.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#azure-kubernetes-service-aks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-azure-sql-logs.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#azure-sql-databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-azure-storage-account.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#azure-storage-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-azure-waf.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#azure-web-application-firewall-waf",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-barracuda-cloudgen-firewall.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#barracuda-cloudgen-firewall",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-barracuda.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#barracuda-waf",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-besecure.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#beyond-security-besecure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-better-mtd.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#better-mobile-threat-defense-mtd-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-broadcom-symantec-dlp.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#broadcom-symantec-data-loss-prevention-dlp-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-checkpoint.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#check-point",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-cisco-meraki.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#cisco-meraki-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-cisco-ucs.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#cisco-unified-computing-system-ucs-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-cisco-umbrella.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#cisco-umbrella-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-cisco.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#cisco-asa",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-citrix-analytics.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#citrix-analytics-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-citrix-waf.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#citrix-web-app-firewall-waf-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-cloud-app-security.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#microsoft-cloud-app-security-mcas",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-cyberark.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#cyberark-enterprise-password-vault-epv-events-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-dns.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#domain-name-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-dynamics-365.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#dynamics-365",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-extrahop.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#extrahop-revealx",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-f5-big-ip.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#f5-big-ip",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-f5.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#f5-networks-asm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-forcepoint-casb-ngfw.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#forcepoint-cloud-access-security-broker-casb-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-forcepoint-dlp.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#forcepoint-data-loss-prevention-dlp-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-fortinet.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#fortinet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-google-workspace.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#google-workspace-g-suite-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-illusive-attack-management-system.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#illusive-attack-management-system-ams-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-imperva-waf-gateway.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#imperva-waf-gateway-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-infoblox.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#infoblox-network-identity-operating-system-nios-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-juniper-srx.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#juniper-srx-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-microsoft-defender-advanced-threat-protection.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#microsoft-defender-for-endpoint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-nxlog-dns.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#nxlog-dns-logs-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-nxlog-linuxaudit.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#nxlog-linuxaudit-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-office-365-advanced-threat-protection.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#microsoft-defender-for-office-365",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-office-365.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#microsoft-office-365",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-okta-single-sign-on.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#okta-single-sign-on-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-one-identity.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#one-identity-safeguard-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-orca-security-alerts.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#orca-security-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-paloalto.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#palo-alto-networks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-perimeter-81-logs.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#perimeter-81-activity-logs-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-proofpoint-pod.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#proofpoint-on-demand-pod-email-security-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-proofpoint-tap.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#proofpoint-targeted-attack-protection-tap-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-pulse-connect-secure.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#pulse-connect-secure-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-qualys-vm.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#qualys-vulnerability-management-vm-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-salesforce-service-cloud.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#salesforce-service-cloud-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-sophos-cloud-optix.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#sophos-cloud-optix-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-sophos-xg-firewall.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#sophos-xg-firewall-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-squadra-secrmm.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#squadra-technologies-secrmm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-squid-proxy.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#squid-proxy-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-symantec-proxy-sg.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#symantec-proxysg-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-symantec-vip.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#symantec-vip-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-symantec.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#symantec-integrated-cyber-defense-exchange-icdx",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-thycotic-secret-server.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#thycotic-secret-server-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-trend-micro-tippingpoint.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#trend-micro-tippingpoint-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-trend-micro.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#trend-micro-deep-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-vmware-carbon-black.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#vmware-carbon-black-endpoint-standard-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-vmware-esxi.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#vmware-esxi-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-windows-firewall.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#windows-firewall",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-wirex-systems.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#wirex-network-forensics-platform-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-zimperium-mtd.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#zimperium-mobile-thread-defense-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-zscaler.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#zscaler",
       "redirect_document_id": false
     },
     {
@@ -28196,6 +29044,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-storage-explorer.md",
+      "redirect_url": "/azure/storage/blobs/quickstart-storage-explorer",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/storage/blobs/storage-how-to-use-blobs-cli.md",
       "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-cli",
       "redirect_document_id": false
@@ -28403,6 +29256,21 @@
     {
       "source_path_from_root": "/articles/storage/files/storage-how-to-recover-deleted-account.md",
       "redirect_url": "/azure/storage/common/storage-account-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-storage-explorer.md",
+      "redirect_url": "/azure/vs-azure-tools-storage-explorer-files",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-powershell.md",
+      "redirect_url": "/azure/storage/files/storage-how-to-use-files-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-cli.md",
+      "redirect_url": "/azure/storage/files/storage-how-to-use-files-portal",
       "redirect_document_id": false
     },
     {
@@ -38866,6 +39734,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/workloads/sap/azure-monitor-overview.md",
+      "redirect_url": "/azure/virtual-machines/workloads/sap/monitor-sap-on-azure",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/migrate/how-to-scale-assessment.md",
       "redirect_url": "scale-hyper-v-assessment",
       "redirect_document_id": false
@@ -44546,6 +45419,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-angular.md",
+      "redirect_url": "/azure/active-directory/develop/quickstart-v2-javascript-auth-code-angular",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-angular.md",
+      "redirect_url": "/azure/active-directory/develop/tutorial-v2-angular-auth-code",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-applications-guiding-developers-for-lob-applications.md",
       "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
@@ -44555,6 +45438,7 @@
       "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
     },
+    
     {
       "source_path_from_root": "/articles/active-directory/active-directory-coreapps-disable-app-azure-portal.md",
       "redirect_url": "/azure/active-directory/manage-apps/disable-user-sign-in-portal",
@@ -48522,8 +49406,8 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-passwords-reset-register.md",
-      "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-reset-register",
-      "redirect_document_id": true
+      "redirect_url": "https://support.microsoft.com/account-billing/register-the-password-reset-verification-method-for-a-work-or-school-account-47a55d4a-05b0-4f67-9a63-f39a43dbe20a",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/user-help/user-help-password-reset-overview.md",
@@ -54091,6 +54975,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Face/face-how-to-install-containers.md",
+      "redirect_url": "/azure/cognitive-services/Face/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/face-resource-container-config.md",
+      "redirect_url": "/azure/cognitive-services/Face/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/LUIS/luis-encryption-of-data-at-rest.md",
       "redirect_url": "/azure/cognitive-services/LUIS/encrypt-data-at-rest",
       "redirect_document_id": false
@@ -54478,6 +55372,11 @@
     {
       "source_path_from_root": "/articles/azure-monitor/containers/container-insights-log-search.md",
       "redirect_url": "/azure/azure-monitor/containers/container-insights-log-query",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/logs/quick-create-workspace-cli.md",
+      "redirect_url": "/azure/azure-monitor/logs/resource-manager-workspace",
       "redirect_document_id": false
     },
     {
@@ -55197,7 +56096,7 @@
     },
     {
       "source_path": "articles/virtual-desktop/partners.md",
-      "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?search=Windows%20virtual%20desktop&page=1",
+      "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=azure%20virtual%20desktop",
       "redirect_document_id": false
     },
     {
@@ -55578,6 +56477,11 @@
     {
       "source_path_from_root": "/articles/communication-services/quickstarts/managed-identity-from-cli.md",
       "redirect_url": "/azure/communication-services/quickstarts/identity/service-principal-from-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/calling-client-samples.md",
+      "redirect_url": "/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling",
       "redirect_document_id": false
     },
     {
@@ -56201,11 +57105,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/load-balancer/egress-only.md",
-      "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/sip-interface-infrastructure.md",
       "redirect_url": "/azure/communication-services/concepts/telephony-sms/direct-routing-infrastructure",
       "redirect_document_id": false
@@ -56214,11 +57113,115 @@
       "source_path_from_root": "/articles/cognitive-services/translator/translator-info-overview.md",
       "redirect_url": "/azure/cognitive-services/translator/translator-overview",
       "redirect_document_id": false
-   },
-   {
-    "source_path_from_root": "/articles/virtual-machines/network-overview.md",
-    "redirect_url": "/azure/virtual-network/network-overview",
-    "redirect_document_id": false
-   }
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/network-overview.md",
+      "redirect_url": "/azure/virtual-network/network-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/policy/how-to/guestconfiguration-create-linux.md",
+      "redirect_url": "/azure/governance/policy/how-to/guest-configuration-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-files-enable-smb-multichannel.md",
+      "redirect_url": "/azure/storage/files/files-smb-protocol#smb-multichannel",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-cache-for-redis/cache-best-practices.md",
+      "redirect_url": "/azure/azure-cache-for-redis/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/normalization-schema.md",
+      "redirect_url": "/azure/sentinel/network-normalization-schema",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/azure-security-benchmark.md",
+      "redirect_url": "/azure/governance/policy/samples/azure-security-benchmark",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-4/index.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-4/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-4/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-5/index.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-5/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-5/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-m/index.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-moderate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-m/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-moderate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-m/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-moderate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-h/index.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-high",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-h/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-high",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-h/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-high",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/nist-sp-800-53-r4.md",
+      "redirect_url": "/azure/governance/policy/samples/nist-sp-800-53-r4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/export-stream-analytics.md",
+      "redirect_url": "/azure/stream-analytics/app-insights-export-stream-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/code-sample-export-sql-stream-analytics.md",
+      "redirect_url": "/azure/stream-analytics/app-insights-export-sql-stream-analytics",
+      "redirect_document_id": false
+    }
   ]
 }
+
+
+
+ 

@@ -35,7 +35,7 @@ landingContent:
           - text: Upload, download, and list blobs - portal
             url: storage-quickstart-blobs-portal.md
           - text: Use Storage Explorer to manage blobs
-            url: storage-quickstart-blobs-storage-explorer.md
+            url: quickstart-storage-explorer.md
       - linkListType: concept
         links:
           - text: Storage account overview

@@ -6,7 +6,7 @@ author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 11/24/2020
-ms.author: apimpm
+ms.author: danlep
 ---
 # Get API analytics in Azure API Management
 

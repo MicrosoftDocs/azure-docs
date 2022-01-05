@@ -46,7 +46,7 @@ See [Introduction to Azure Data Factory](data-factory-introduction.md) article f
 
 Here is the **diagram view** of the sample data factory you build in this tutorial. **MyFirstPipeline** has one activity of type Hive that consumes **AzureBlobInput** dataset as an input and produces **AzureBlobOutput** dataset as an output.
 
-![Diagram view in Data Factory tutorial](media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
+:::image type="content" source="media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png" alt-text="Diagram view in Data Factory tutorial":::
 
 
 In this tutorial, **inputdata** folder of the **adfgetstarted** Azure blob container contains one file named input.log. This log file has entries from three months: January, February, and March of 2016. Here are the sample rows for each month in the input file.

@@ -6,7 +6,7 @@ metadata:
   author: vhorne
   ms.service: firewall
   ms.topic: conceptual
-  ms.date: 08/13/2021
+  ms.date: 09/01/2021
   ms.author: victorh
     
 title: Azure Firewall FAQ
@@ -152,9 +152,9 @@ sections:
         answer: |
           No. NAT rules implicitly add a corresponding network rule to allow the translated traffic. You can override this behavior by explicitly adding a network rule collection with deny rules that match the translated traffic. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
           
-      - question: How do wildcards work in target URLs (preview) and target FQDNs?
+      - question: How do wildcards work in target URLs and target FQDNs in application rules?
         answer: |
-         - **URL** (preview) - Asterisks work when placed on the right-most or left-most side. If it is on the left, it can't be part of the FQDN.
+         - **URL** - Asterisks work when placed on the right-most or left-most side. If it is on the left, it can't be part of the FQDN.
          - **FQDN** - Asterisks work when placed on the left-most side.
 
          Examples:

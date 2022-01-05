@@ -1,17 +1,12 @@
 ---
 title: Configure managed identities on Azure VM using Azure CLI - Azure AD
 description: Step-by-step instructions for configuring system and user-assigned managed identities on an Azure VM using Azure CLI.
-services: active-directory
-documentationcenter: 
 author: barclayn
 manager: daveba
-editor: 
-
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
@@ -96,7 +91,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ## User-assigned managed identity
 
 In this section, you will learn how to add and remove a user-assigned managed identity from an Azure VM using Azure CLI. If you create your user-assigned managed identity in a different RG than your VM. You'll have to use the URL of your managed identity to assign it to your VM.
-    i.e. --identities "/subscriptions/<SUBID>/resourcegroups/<RESROURCEGROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_ASSIGNED_ID_NAME>"
+    For example `--identities "/subscriptions/<SUBID>/resourcegroups/<RESROURCEGROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_ASSIGNED_ID_NAME>"`
 
 ### Assign a user-assigned managed identity during the creation of an Azure VM
 

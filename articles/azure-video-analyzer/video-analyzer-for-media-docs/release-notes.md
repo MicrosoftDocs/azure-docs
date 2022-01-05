@@ -1,14 +1,7 @@
 ---
 title: Azure Video Analyzer for Media (formerly Video Indexer) release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Analyzer for Media (formerly Video Indexer).
-services: azure-video-analyzer
-documentationcenter: ''
-author: Juliako
-manager: femila
-editor: ''
-ms.workload: na
 ms.topic: article
-ms.subservice: azure-video-analyzer-media
 ms.custom: references_regions
 ms.date: 08/01/2021
 ms.author: juliako
@@ -24,6 +17,19 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## August 2021
+
+### Re-index video or audio files
+
+There is now an option to re-index video or audio files that have failed during the indexing process.
+
+### Improve accessibility support
+
+Fixed bugs related to CSS, theming and accessibility:
+
+* high contrast
+* account settings and insights views in the [portal](https://www.videoindexer.ai).  
 
 ## July 2021
 
@@ -102,7 +108,7 @@ The newly added bundle is available when indexing or re-indexing your file by ch
 
 ### New developer portal 
 
-Video Analyzer for Media has a new [Developer Portal](https://api-portal.videoindexer.ai/), try out the new Video Analyzer for Media APIs and find all the relevant resources in one place: [GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer), [Stack overflow](https://stackoverflow.com/questions/tagged/video-indexer), [Video Analyzer for Media tech community](https://techcommunity.microsoft.com/t5/azure-media-services/bg-p/AzureMediaServices/label-name/Video%20Indexer) with relevant blog posts, [Video Analyzer for Media FAQs](faq.md), [User Voice](https://feedback.azure.com/forums/932041-cognitive-services?category_id=399016) to provide your feedback and suggest features, and  ['CodePen' link](https://codepen.io/videoindexer) with widgets code samples. 
+Video Analyzer for Media has a new [Developer Portal](https://api-portal.videoindexer.ai/), try out the new Video Analyzer for Media APIs and find all the relevant resources in one place: [GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer), [Stack overflow](https://stackoverflow.com/questions/tagged/video-indexer), [Video Analyzer for Media tech community](https://techcommunity.microsoft.com/t5/azure-media-services/bg-p/AzureMediaServices/label-name/Video%20Indexer) with relevant blog posts, [Video Analyzer for Media FAQs](faq.yml), [User Voice](https://feedback.azure.com/forums/932041-cognitive-services?category_id=399016) to provide your feedback and suggest features, and  ['CodePen' link](https://codepen.io/videoindexer) with widgets code samples. 
  
 ### Advanced customization capabilities for insight widget 
 

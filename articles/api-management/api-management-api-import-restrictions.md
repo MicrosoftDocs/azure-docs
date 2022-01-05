@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Details of known issues and restrictions on Open API, WSDL, and WADL formats support in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: vlvinogr
 editor: ''
 
@@ -14,7 +14,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/02/2020
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # API import restrictions and known issues
@@ -30,6 +30,7 @@ If you're receiving errors importing your OpenAPI document, make sure you've val
 ### <a name="open-api-general"> </a>General
 
 -   Required parameters across both path and query must have unique names. (In OpenAPI a parameter name only needs to be unique within a location, for example path, query, header. However, in API Management we allow operations to be discriminated by both path and query parameters (which OpenAPI doesn't support). That's why we require parameter names to be unique within the entire URL template.)
+- When imported inline to API Management, an OpenAPI specification can be up to 4 MB in size. The size limit doesn't apply when an OpenAPI document is provided via a URL to a location accessible from your API Management service.
 -   `\$ref` pointers can't reference external files.
 -   `x-ms-paths` and `x-servers` are the only supported extensions.
 -   Custom extensions are ignored on import and aren't saved or preserved for export.

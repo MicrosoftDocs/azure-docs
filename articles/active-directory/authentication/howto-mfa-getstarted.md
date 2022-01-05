@@ -185,7 +185,7 @@ If the user does not have a backup method available, you can:
 User communications
 
 It’s critical to inform users about upcoming changes, Azure AD MFA registration requirements, and any necessary user actions. 
-We provide [communication templates](https://aka.ms/mfatemplates) and [end-user documentation](../user-help/security-info-setup-signin.md) to help draft your communications. Send users to [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) to register by selecting the **Security Info** link on that page.
+We provide [communication templates](https://aka.ms/mfatemplates) and [end-user documentation](https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8) to help draft your communications. Send users to [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) to register by selecting the **Security Info** link on that page.
 
 ## Plan integration with on-premises systems
 

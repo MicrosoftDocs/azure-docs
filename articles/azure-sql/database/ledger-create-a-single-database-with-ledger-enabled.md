@@ -8,8 +8,7 @@ ms.topic: quickstart
 author: JasonMAnderson
 ms.author: janders
 ms.reviewer: vanto
-ms.date: "07/23/2021"
-ms.custom: references_regions
+ms.date: "09/09/2021"
 ---
 
 # Quickstart: Create a database in Azure SQL Database with ledger enabled
@@ -17,7 +16,7 @@ ms.custom: references_regions
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database ledger is currently in public preview and available in West Europe, Brazil South, and West Central US.
+> Azure SQL Database ledger is currently in public preview.
 
 In this quickstart, you create a [ledger database](ledger-overview.md#ledger-database) in Azure SQL Database and configure [automatic digest storage with Azure Blob Storage](ledger-digest-management-and-database-verification.md#automatic-generation-and-storage-of-database-digests) by using the Azure portal. For more information about ledger, see [Azure SQL Database ledger](ledger-overview.md).
 

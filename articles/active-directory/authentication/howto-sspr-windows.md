@@ -183,7 +183,7 @@ With SSPR configured for your Windows devices, what changes for the user? How do
 
 When users attempt to sign in, they see a **Reset password** or **Forgot password** link that opens the self-service password reset experience at the login screen. This functionality allows users to reset their password without having to use another device to access a web browser.
 
-More information for users on using this feature can be found in [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md)
+More information for users on using this feature can be found in [Reset your work or school password](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e)
 
 ## Next steps
 

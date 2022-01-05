@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: reference
 ms.workload: identity
-ms.date: 07/29/2021
+ms.date: 09/01/2021
 ms.author: curtand
 ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta

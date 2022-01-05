@@ -21,6 +21,10 @@ Microsoft Graph allows you to manage resources in your Azure AD B2C directory. T
 > [!NOTE]
 > You can also programmatically create an Azure AD B2C directory itself, along with the corresponding Azure resource linked to an Azure subscription. This functionality isn't exposed through the Microsoft Graph API, but through the Azure REST API. For more information, see [B2C Tenants - Create](/rest/api/activedirectory/b2ctenants/create).
 
+Watch this video to learn about Azure AD B2C user migration using Microsoft Graph API.
+
+>[!Video https://www.youtube.com/embed/9BRXBtkBzL4]
+
 ## Prerequisites
 
 To use MS Graph API, and interact with resources in your Azure AD B2C tenant, you need an application registration that grants the permissions to do so. Follow the steps in the [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-get-started.md) article to create an application registration that your management application can use. 

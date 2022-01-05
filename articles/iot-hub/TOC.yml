@@ -310,6 +310,8 @@
           href: iot-hub-ip-filtering.md
         - name: Manage public network access
           href: iot-hub-public-network-access.md
+        - name: Restrict outbound network access
+          href: iot-hub-restrict-outbound-network-access.md
         - name: Automatic device management at scale
           items:
             - name: Use Azure portal

@@ -77,7 +77,7 @@ The following tables list the Private Link services and the regions where they'r
 
 | Supported services | Available regions | Other considerations | Status  |
 | ------------ | ----------------| ------------| ----------------|
-| Azure Automation  | All public regions<br/> All Government regions |  | Preview </br> [Learn how to create a private endpoint for Azure Automation.](../automation/how-to/private-link-security.md)|
+| Azure Automation  | All public regions<br/> All Government regions |  | GA </br> [Learn how to create a private endpoint for Azure Automation.](../automation/how-to/private-link-security.md)|
 |Azure Backup | All public regions<br/> All Government regions   |  | GA <br/> [Learn how to create a private endpoint for Azure Backup.](../backup/private-endpoints.md)   |
 
 ### Security

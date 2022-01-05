@@ -116,7 +116,7 @@ List clusters by subscription ID by using the [az managed-cassandra cluster list
 
 ```azurecli-interactive
 # set your subscription id
-az account set -s <subscription id>
+az account set -s <subscriptionID>
 
 az managed-cassandra cluster list
 ```
@@ -132,7 +132,6 @@ The following sections demonstrate how to manage Azure Managed Instance for Apac
 * [Update or scale a datacenter](#update-datacenter)
 * [Update Cassandra configuration](#update-yaml)
 
-
 ### <a id="create-datacenter"></a>Create a datacenter
 
 Create a datacenter by using the [az managed-cassandra datacenter create](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_create) command:
@@ -142,7 +141,7 @@ resourceGroupName='MyResourceGroup'
 clusterName='cassandra-hybrid-cluster'
 dataCenterName='dc1'
 dataCenterLocation='eastus2'
-delegatedSubnetId='/subscriptions/<Subscription_ID>/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/dc1-subnet'
+delegatedSubnetId='/subscriptions/<SubscriptionID>/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/dc1-subnet'
 
 az managed-cassandra datacenter create \
     --resource-group $resourceGroupName \

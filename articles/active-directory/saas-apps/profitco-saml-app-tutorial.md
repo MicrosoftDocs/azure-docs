@@ -120,7 +120,7 @@ In this section, you create a user called B.Simon in Profit.co. Work with the [P
 
 In this section, you test your Azure AD single sign-on configuration by using Access Panel.
 
-When you select the Profit.co tile in Access Panel, you should be automatically signed in to the Profit.co for which you set up SSO. For more information, see [Introduction to Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you select the Profit.co tile in Access Panel, you should be automatically signed in to the Profit.co for which you set up SSO. For more information, see [Introduction to Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 

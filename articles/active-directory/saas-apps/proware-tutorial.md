@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 08/31/2021
 ms.author: jeedes
 
 ---
@@ -33,7 +33,9 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Proware supports **SP and IDP** initiated SSO
+* Proware supports **SP and IDP** initiated SSO.
+
+* Proware supports [Automated user provisioning](proware-provisioning-tutorial.md).
 
 ## Adding Proware from the gallery
 
@@ -45,7 +47,6 @@ To configure the integration of Proware into Azure AD, you need to add Proware f
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Proware** in the search box.
 1. Select **Proware** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for Proware
 
@@ -66,7 +67,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Proware** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -93,6 +94,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Proware** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -125,6 +127,8 @@ To configure single sign-on on **Proware** side, you need to send the downloaded
 
 In this section, you create a user called Britta Simon in Proware. Work with [Proware support team](mailto:helpdesk@metaware.nl) to add the users in the Proware platform. Users must be created and activated before you use single sign-on.
 
+Proware also supports automatic user provisioning, you can find more details [here](./proware-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -137,9 +141,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### IDP initiated
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Proware for which you set up the SSO 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Proware for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Proware tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Proware for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Proware tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Proware for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## Next steps

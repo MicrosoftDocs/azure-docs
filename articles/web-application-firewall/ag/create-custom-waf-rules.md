@@ -126,7 +126,7 @@ And the corresponding JSON:
 
 ## Example 2
 
-You want to allow traffic from the US using the GeoMatch operator:
+You want to allow traffic only from the US using the GeoMatch operator and still have the managed rules apply:
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
@@ -137,14 +137,14 @@ $condition = New-AzApplicationGatewayFirewallCondition `
    -Operator GeoMatch `
    -MatchValue "US" `
    -Transform Lowercase `
-   -NegationCondition $False
+   -NegationCondition $True
 
 $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Name "allowUS" `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Allow
+   -Action Block
 ```
 
 And the corresponding JSON:
@@ -156,11 +156,12 @@ And the corresponding JSON:
         "name": "allowUS",
         "ruleType": "MatchRule",
         "priority": 2,
-        "action": "Allow",
+        "action": "Block",
         "matchConditions": [
           {
             "matchVariable": "RemoteAddr",
             "operator": "GeoMatch",
+            "NegationConditon": false,
             "matchValues": [
               "US"
             ]

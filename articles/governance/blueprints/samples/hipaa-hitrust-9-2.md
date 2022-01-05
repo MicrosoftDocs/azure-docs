@@ -1,7 +1,7 @@
 ---
 title: HIPAA HITRUST 9.2 blueprint sample overview
 description: Overview of the HIPAA HITRUST 9.2 blueprint sample. This blueprint sample helps customers assess specific HIPAA HITRUST 9.2 controls.
-ms.date: 04/02/2021
+ms.date: 09/08/2021
 ms.topic: sample
 ---
 # HIPAA HITRUST 9.2 blueprint sample

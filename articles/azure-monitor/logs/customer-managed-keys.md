@@ -179,7 +179,7 @@ Content-type: application/json
   "properties": {
     "keyVaultProperties": {
       "keyVaultUri": "https://key-vault-name.vault.azure.net",
-      "kyName": "key-name",
+      "keyName": "key-name",
       "keyVersion": "current-version"
   },
   "sku": {
@@ -211,7 +211,7 @@ A response to GET request should look like this when the key update is complete:
   "properties": {
     "keyVaultProperties": {
       "keyVaultUri": "https://key-vault-name.vault.azure.net",
-      "kyName": "key-name",
+      "keyName": "key-name",
       "keyVersion": "current-version"
       },
     "provisioningState": "Succeeded",

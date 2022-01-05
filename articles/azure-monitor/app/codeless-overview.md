@@ -4,30 +4,29 @@ description: Overview of auto-instrumentation for Azure Monitor Application Insi
 ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
-ms.date: 05/17/2021
+ms.date: 08/31/2021
 
-ms.reviewer: mbullwin
 ---
 
-# What is auto-instrumentation or codeless attach - Azure Monitor Application Insights?
+# What is auto-instrumentation for Azure Monitor application insights?
 
-Auto-instrumentation, or codeless attach, allows you to enable application monitoring with Application Insights without changing your code.  
+Auto-instrumentation allows you to enable application monitoring with Application Insights without changing your code.  
 
-Application Insights is integrated with various resource providers and works on different environments. In essence, all you have to do is enable and - in some cases - configure the agent, which will collect the telemetry automatically box. In no time, you'll see the metrics, data, and dependencies in your Application Insights resource, which will allow you to spot the source of potential problems before they occur, and analyze the root cause with end-to-end transaction view.
+Application Insights is integrated with various resource providers and works on different environments. In essence, all you have to do is enable and - in some cases - configure the agent, which will collect the telemetry automatically. In no time, you'll see the metrics, requests, and dependencies in your Application Insights resource, which will allow you to spot the source of potential problems before they occur, and analyze the root cause with end-to-end transaction view.
 
 ## Supported environments, languages, and resource providers
 
-As we're adding additional integrations, the auto-instrumentation capability matrix becomes complex. The table below shows you the current state of the matter as far as support for various resource providers, languages, and environments go.
+As we're adding new integrations, the auto-instrumentation capability matrix becomes complex. The table below shows you the current state of the matter as far as support for various resource providers, languages, and environments go.
 
 |Environment/Resource Provider          | .NET            | .NET Core       | Java            | Node.js         | Python          |
 |---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
 |Azure App Service on Windows           | GA, OnBD*       | GA, opt-in      | Public Preview  | Public Preview  | Not supported   |
-|Azure App Service on Linux             | N/A             | Not supported   | Public Preview  | Public Preview  | Not supported   |
+|Azure App Service on Linux             | N/A             | Not supported   | GA              | GA              | Not supported   |
 |Azure Functions - basic                | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       |
-|Azure Functions Windows - dependencies | Not supported   | Not supported   | Public Preview  | Not supported   | Not supported   |
+|Azure Functions - dependencies         | Not supported   | Not supported   | Public Preview  | Not supported   | Through [extension](monitor-functions.md#distributed-tracing-for-python-function-apps)   |
 |Azure Spring Cloud                     | Not supported   | Not supported   | Public Preview  | Not supported   | Not supported   |
-|Azure Kubernetes Service               | N/A             | In design       | Through agent   | In design       | Not supported   |
-|Azure VMs Windows                      | Public Preview  | Not supported   | Through agent | Not supported   | Not supported   |
+|Azure Kubernetes Service               | N/A             | Not supported   | Through agent   | Not supported   | Not supported   |
+|Azure VMs Windows                      | Public Preview  | Not supported   | Through agent   | Not supported   | Not supported   |
 |On-Premises VMs Windows                | GA, opt-in      | Not supported   | Through agent   | Not supported   | Not supported   |
 |Standalone agent - any env.            | Not supported   | Not supported   | GA              | Not supported   | Not supported   |
 
@@ -37,15 +36,15 @@ As we're adding additional integrations, the auto-instrumentation capability mat
 
 ### Windows
 
-Application monitoring on Azure App Service on Windows is available for **[.NET](./azure-web-apps.md?tabs=net)** (enabled by default), **[.NET Core](./azure-web-apps.md?tabs=netcore)**, **[Java](./azure-web-apps.md?tabs=java)** (in public preview), and **[Node.js](./azure-web-apps.md?tabs=nodejs)** applications. To monitor a Python app, add the [SDK](./opencensus-python.md) to your code.
+Application monitoring on Azure App Service on Windows is available for **[ASP.NET](./azure-web-apps-net.md)** (enabled by default), **[ASP.NET Core](./azure-web-apps-net-core.md)**, **[Java](./azure-web-apps-java.md)** (in public preview), and **[Node.js](./azure-web-apps-nodejs.md)** applications. To monitor a Python app, add the [SDK](./opencensus-python.md) to your code.
 
 > [!NOTE]
-> Application monitoring is currently available for Windows code-based applications on App Service. Monitoring for apps on Windows Containers on App Service is not yet supported through the integration with Application Insights.
+> For Windows, application monitoring is currently available for code-based/managed services on App Service. Monitoring for apps on Windows Containers on App Service is not yet supported through the integration with Application Insights.
 
 ### Linux
-You can enable monitoring for **[Java](./azure-web-apps.md?tabs=java)** and **[Node.js](./azure-web-apps.md?tabs=nodejs)** apps running on Linux in App Service through the portal - the experience for both languages is in public preview and available in all regions. 
+You can enable monitoring for **[Java](./azure-web-apps-java.md?)**, **[Node.js](./azure-web-apps-nodejs.md?tabs=linux)**, and **[ASP.NET Core](./azure-web-apps-net-core.md?tabs=linux)(Preview)** apps running on Linux in App Service through the portal. 
 
-For other languages - [.NET Core](./asp-net-core.md) and [Python](./opencensus-python.md), use the SDK.
+For [Python](./opencensus-python.md), use the SDK.
 
 ## Azure Functions
 
@@ -62,7 +61,7 @@ Codeless instrumentation of Azure Kubernetes Service is currently available for 
 
 ## Azure Windows VMs and virtual machine scale set
 
-Auto-instrumentation for Azure VMs and virtual machine scale set is available for [.NET](./azure-vm-vmss-apps.md) and [Java](./java-in-process-agent.md).  
+Auto-instrumentation for Azure VMs and virtual machine scale set is available for [.NET](./azure-vm-vmss-apps.md) and [Java](./java-in-process-agent.md) - this experience is not integrated into the portal. The monitoring is enabled through a few steps with a stand-alone solution and does not require any code changes.  
 
 ## On-premises servers
 You can easily enable monitoring for your [on-premises Windows servers for .NET applications](./status-monitor-v2-overview.md) and for [Java apps](./java-in-process-agent.md).

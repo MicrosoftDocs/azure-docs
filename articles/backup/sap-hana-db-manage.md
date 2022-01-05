@@ -81,6 +81,10 @@ These on-demand backups will also show up in the list of restore points for rest
 
 Restores triggered from HANA native clients (using **Backint**) to restore to the same machine can be [monitored](#monitor-manual-backup-jobs-in-the-portal) from the **Backup jobs** page.
 
+#### Delete
+
+Delete operation from HANA native is **NOT** supported by Azure Backup since the backup policy determines the lifecycle of backups in Azure Recovery services vault.
+
 ### Run SAP HANA native client backup to local disk on a database with Azure Backup enabled
 
 If you want to take a local backup (using HANA Studio / Cockpit) of a database that's being backed up with Azure Backup, do the following:

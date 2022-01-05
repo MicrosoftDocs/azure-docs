@@ -1,7 +1,7 @@
 ---
-title: Add owners and users in Azure DevTest Labs| Microsoft Docs
+title: Add owners and users
 description: Add owners and users in Azure DevTest Labs using either the Azure portal or PowerShell
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020 
 ms.custom: devx-track-azurepowershell
 ---

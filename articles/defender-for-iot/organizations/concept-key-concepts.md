@@ -1,11 +1,11 @@
 ---
 title: Key advantages
 description: Learn about basic Defender for IoT concepts.
-ms.date: 12/13/2020
+ms.date: 09/09/2021
 ms.topic: article
 ---
 
-# Basic concepts 
+# Basic concepts
 
 This article describes key advantages of Azure Defender for IoT.
 
@@ -58,9 +58,9 @@ For **locally connected sensors**, information that the sensor detects is displa
 
 ## Air-gapped networks
 
-If you're working in an air-gapped environment, the on-premises management console in Defender for IoT delivers a real-time view of key IoT and OT risk indicators and alerts across all of your facilities. Tightly integrated with your SOC workflows and runbooks, it enables easy prioritization of mitigation activities and cross-site correlation of threats.  
+If you're working in an air-gapped environment, the on-premises management console in Defender for IoT delivers a real-time view of key IoT and OT risk indicators and alerts across all of your facilities. Tightly integrated with your SOC workflows and runbooks, it enables easy prioritization of mitigation activities and cross-site correlation of threats.
 
-Defender for IoT provides a consolidated view of all your devices. It also provides critical information about the devices, such as type (PLC, RTU, DCS, and more), manufacturer, model, and firmware revision level, as well as alert information.  
+Defender for IoT provides a consolidated view of all your devices. It also provides critical information about the devices, such as type (PLC, RTU, DCS, and more), manufacturer, model, and firmware revision level, as well as alert information.
 
 Defender for IoT enables the effective management of multiple deployments and a comprehensive unified view of the network. Defender for IoT optimizes alert handling and control of operational network security.
 
@@ -108,6 +108,7 @@ In addition, working with Horizon custom alerts lets you write your own alert ti
 
 Using custom, condition-based alert triggering and messaging helps pinpoint specific network activity and effectively update your security, IT, and operational teams.
 
+For a complete list of supported protocols see, [Supported Protocols](concept-supported-protocols.md#supported-protocols).
 
 ## High availability
 

@@ -16,7 +16,7 @@ ms.date: 02/15/2021
 
 Data flow script (DFS) is the underlying metadata, similar to a coding language, that is used to execute the transformations that are included in a mapping data flow. Every transformation is represented by a series of properties that provide the necessary information to run the job properly. The script is visible and editable from ADF by clicking on the "script" button on the top ribbon of the browser UI.
 
-![Script button](media/data-flow/scriptbutton.png "Script button")
+:::image type="content" source="media/data-flow/scriptbutton.png" alt-text="Script button":::
 
 For instance, `allowSchemaDrift: true,` in a source transformation tells the service to include all columns from the source dataset in the data flow even if they are not included in the schema projection.
 
@@ -30,7 +30,7 @@ Here are a few example use cases:
 
 When you build a data flow script to use with PowerShell or an API, you must collapse the formatted text into a single line. You can keep tabs and newlines as escape characters. But the text must be formatted to fit inside a JSON property. There is a button on the script editor UI at the bottom that will format the script as a single line for you.
 
-![Copy button](media/data-flow/copybutton.png "Copy button")
+:::image type="content" source="media/data-flow/copybutton.png" alt-text="Copy button":::
 
 ## How to add transforms
 Adding transformations requires three basic steps: adding the core transformation data, rerouting the input stream, and then rerouting the output stream. This can be seen easiest in an example.

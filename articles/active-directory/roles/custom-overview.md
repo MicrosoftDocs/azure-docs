@@ -8,9 +8,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 11/20/2020
+ms.date: 09/13/2021
 ms.author: rolyon
-ms.reviewer: vincesm
+ms.reviewer: abhijeetsinha
 ms.custom: it-pro
 
 ms.collection: M365-identity-device-management
@@ -48,23 +48,23 @@ The following are the high-level steps that Azure AD uses to determine if you ha
 
 ## Role assignment
 
-A role assignment is an Azure AD resource that attaches a *role definition* to a *user* at a particular *scope* to grant access to Azure AD resources. Access is granted by creating a role assignment, and access is revoked by removing a role assignment. At its core, a role assignment consists of three elements:
+A role assignment is an Azure AD resource that attaches a *role definition* to a *security principal* at a particular *scope* to grant access to Azure AD resources. Access is granted by creating a role assignment, and access is revoked by removing a role assignment. At its core, a role assignment consists of three elements:
 
-- Azure AD user
-- Role definition
-- Resource scope
+- Security principal - An identity that gets the permissions. It could be a user, group, or a service principal. 
+- Role definition - A collection of permissions. 
+- Scope - A way to constrain where those permissions are applicable.
 
-You can [create role assignments](custom-create.md) using the Azure portal, Azure AD PowerShell, or Graph API. You can also [list the role assignments](view-assignments.md).
+You can [create role assignments](manage-roles-portal.md) using the Azure portal, Azure AD PowerShell, or Graph API. You can also [list the role assignments](view-assignments.md).
 
-The following diagram shows an example of a role assignment. In this example, Chris Green has been assigned the App registration administrator custom role at the scope of the Contoso Widget Builder app registration. The assignment grants Chris the permissions of the App registration administrator role for only this specific app registration.
+The following diagram shows an example of a role assignment. In this example, Chris has been assigned the App Registration Administrator custom role at the scope of the Contoso Widget Builder app registration. The assignment grants Chris the permissions of the App Registration Administrator role for only this specific app registration.
 
-![Role assignment is how permissions are enforced and has three parts](./media/custom-overview/rbac-overview.png)
+![Role assignment is how permissions are enforced and has three parts.](./media/custom-overview/rbac-overview.png)
 
 ### Security principal
 
-A security principal represents the user that is to be assigned access to Azure AD resources. A user is an individual who has a user profile in Azure Active Directory.
+A security principal represents a user, group, or service principal that is assigned access to Azure AD resources. A user is an individual who has a user profile in Azure Active Directory. A group is a new Microsoft 365 or security group with the isAssignableToRole property set to true (currently in preview). A service principal is an identity created for use with applications, hosted services, and automated tools to access Azure AD resources.
 
-### Role
+### Role definition
 
 A role definition, or role, is a collection of permissions. A role definition lists the operations that can be performed on Azure AD resources, such as create, read, update, and delete. There are two types of roles in Azure AD:
 
@@ -73,7 +73,21 @@ A role definition, or role, is a collection of permissions. A role definition li
 
 ### Scope
 
-A scope is the restriction of permitted actions to a particular Azure AD resource as part of a role assignment. When you assign a role, you can specify a scope that limits the administrator's access to a specific resource. For example, if you want to grant a developer a custom role, but only to manage a specific application registration, you can include the specific application registration as a scope in the role assignment.
+A scope is a way to limit the permitted actions to a particular set of resources as part of a role assignment. For example, if you want to assign a custom role to a developer, but only to manage a specific application registration, you can include the specific application registration as a scope in the role assignment.
+
+When you assign a role, you specify one of the following types of scope:
+
+- Tenant
+- [Administrative unit](administrative-units.md)
+- Azure AD resource
+
+If you specify an Azure AD resource as a scope, it can be one of the following:
+
+- Azure AD groups
+- Enterprise applications
+- Application registrations
+
+For more information, see [Assign Azure AD roles at different scopes](assign-roles-different-scopes.md).
 
 ## License requirements
 
@@ -82,5 +96,5 @@ Using built-in roles in Azure AD is free, while custom roles requires an Azure A
 ## Next steps
 
 - [Understand Azure AD roles](concept-understand-roles.md)
-- Create custom role assignments using [the Azure portal, Azure AD PowerShell, and Graph API](custom-create.md)
-- [List role assignments](view-assignments.md)
+- [Assign Azure AD roles to users](manage-roles-portal.md)
+- [Create and assign a custom role](custom-create.md)

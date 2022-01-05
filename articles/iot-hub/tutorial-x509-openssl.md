@@ -232,20 +232,27 @@ You now have both a root CA certificate and a subordinate CA certificate. You ca
 
 1. In the Azure portal, navigate to your IoTHub and select **Settings > Certificates**.
 
-1. Select **Add** to add your new subordinate CA certificate.
+2. Select **Add** to add your new subordinate CA certificate.
 
-1. Enter a display name in the **Certificate Name** field, and select the PEM  certificate file you created previously.
+3. Enter a display name in the **Certificate Name** field, and select the PEM  certificate file you created previously.
 
-1. Select **Save**. Your certificate is shown in the certificate list with a status of **Unverified**. The verification process will prove that you own the certificate.
+> [!NOTE]
+> The .crt certificates created above are the same as .pem certificates. You can simply change the extension when uploading a certificate to prove possession, or you can use the following OpenSSL command:
+
+```bash
+openssl x509 -in mycert.crt -out mycert.pem -outform PEM
+```
+
+4. Select **Save**. Your certificate is shown in the certificate list with a status of **Unverified**. The verification process will prove that you own the certificate.
 
    
-1. Select the certificate to view the **Certificate Details** dialog.
+5. Select the certificate to view the **Certificate Details** dialog.
 
-1. Select **Generate Verification Code**. For more information, see [Prove Possession of a CA certificate](tutorial-x509-prove-possession.md).
+6. Select **Generate Verification Code**. For more information, see [Prove Possession of a CA certificate](tutorial-x509-prove-possession.md).
 
-1. Copy the verification code to the clipboard. You must set the verification code as the certificate subject. For example, if the verification code is BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A, add that as the subject of your certificate as shown in step 9.
+7. Copy the verification code to the clipboard. You must set the verification code as the certificate subject. For example, if the verification code is BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A, add that as the subject of your certificate as shown in step 9.
 
-1. Generate a private key.
+8. Generate a private key.
 
   ```bash
     $ openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048

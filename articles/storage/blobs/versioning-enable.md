@@ -19,8 +19,6 @@ You can enable Blob storage versioning to automatically maintain previous versio
 
 This article shows how to enable or disable blob versioning for the storage account by using the Azure portal or an Azure Resource Manager template. To learn more about blob versioning, see [Blob versioning](versioning-overview.md).
 
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
-
 ## Enable blob versioning
 
 # [Azure portal](#tab/portal)

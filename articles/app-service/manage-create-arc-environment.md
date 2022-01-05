@@ -181,14 +181,13 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         --workspace-name $workspaceName \
         --query customerId \
         --output tsv)
-    logAnalyticsWorkspaceIdEnc=$(printf %s $logAnalyticsWorkspaceId | base64) # Needed for the next step
+    logAnalyticsWorkspaceIdEnc=$(printf %s $logAnalyticsWorkspaceId | base64 -w0) # Needed for the next step
     logAnalyticsKey=$(az monitor log-analytics workspace get-shared-keys \
         --resource-group $groupName \
         --workspace-name $workspaceName \
         --query primarySharedKey \
         --output tsv)
-    logAnalyticsKeyEncWithSpace=$(printf %s $logAnalyticsKey | base64)
-    logAnalyticsKeyEnc=$(echo -n "${logAnalyticsKeyEncWithSpace//[[:space:]]/}") # Needed for the next step
+    logAnalyticsKeyEnc=$(printf %s $logAnalyticsKey | base64 -w0) # Needed for the next step
     ```
 
     # [PowerShell](#tab/powershell)

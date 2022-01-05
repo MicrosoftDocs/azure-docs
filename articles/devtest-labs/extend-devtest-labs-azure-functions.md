@@ -1,7 +1,7 @@
 ---
-title: Extend Azure DevTest Labs using Azure Functions | Microsoft Docs
+title: Extend Azure DevTest Labs using Azure Functions
 description: Learn how to extend Azure DevTest Labs using Azure Functions. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
@@ -103,11 +103,3 @@ Azure Functions can help extend the functionality of DevTest Labs beyond what’
 - [Frequently Asked Questions](devtest-lab-faq.yml)
 - [Scaling up DevTest Labs](devtest-lab-guidance-scale.md)
 - [Automating DevTest Labs with PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library/Tests)
-
-
-
-
-
-
-
-

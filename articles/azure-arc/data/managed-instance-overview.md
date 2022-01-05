@@ -22,11 +22,11 @@ Azure Arc-enabled SQL Managed Instance has near 100% compatibility with the late
 
 To learn more about these capabilities, watch these introductory videos.
 
-### Azure Arc enabled SQL Managed Instance - indirect connected mode
+### Azure Arc-enabled SQL Managed Instance - indirect connected mode
 
 > [!VIDEO https://channel9.msdn.com/Shows/Inside-Azure-for-IT/Azure-Arcenabled-data-services-in-disconnected-mode/player?format=ny]
 
-### Azure Arc enabled SQL Managed Instance - direct connected mode
+### Azure Arc-enabled SQL Managed Instance - direct connected mode
 
 > [!VIDEO https://channel9.msdn.com/Shows/Inside-Azure-for-IT/Azure-Arcenabled-data-services-in-connected-mode/player?format=ny]
 

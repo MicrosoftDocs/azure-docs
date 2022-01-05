@@ -1,7 +1,7 @@
 ---
-title: Specify mandatory artifacts for your Azure DevTest Labs | Microsoft Docs
+title: Specify mandatory artifacts
 description: Learn how to specify mandatory artifacts that need to installed prior to installing any user-selected artifacts on virtual machines (VMs) in the lab. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
@@ -71,4 +71,3 @@ Now, as a lab user you can view the list of mandatory artifacts while creating a
 
 ## Next steps
 * Learn how to [add a Git artifact repository to a lab](devtest-lab-add-artifact-repo.md).
-

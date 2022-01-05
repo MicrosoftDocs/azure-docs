@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/23/2021
+ms.date: 08/21/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 ---
@@ -42,10 +42,9 @@ To add an application to your Azure AD tenant:
 1. In the [Azure portal](https://portal.azure.com), in the **Azure services** pane select **Enterprise applications**. The **All applications** pane opens and displays a random sample of the applications in your Azure AD tenant.
 2. In the **Enterprise applications** pane, select **New application**.
 3. The **Browse Azure AD Gallery** pane opens and displays tiles for cloud platforms, on-premises applications, and featured applications. Applications listed in the **Featured applications** section have icons indicating whether they support federated single sign-on (SSO) and provisioning.
-4. Switch back to the legacy app galley experience: In the banner at the top of the **Add an application page**, select the link that says **You're in the new and improved app gallery experience. Click here to switch back to the legacy app gallery experience**.
     ![Search for an app by name or category](media/add-application-portal/browse-gallery.png)
-5. You can browse the gallery for the application you want to add, or search for the application by entering its name in the search box. Then select the application from the results.
-6. The next step depends on the way the developer of the application implemented single sign-on (SSO). Single sign-on can be implemented by app developers in four ways. The four ways are SAML, OpenID Connect, Password, and Linked. When you add an app, you can choose to filter and see only apps using a particular SSO implementation as shown in the screenshot. For example, a popular standard to implement SSO is called Security Assertion Markup Language (SAML). Another standard that is popular is called OpenId Connect (OIDC). The way you configure SSO with these standards is different so take note of the type of SSO that is implemented by the app that you are adding.
+4. You can browse the gallery for the application you want to add, or search for the application by entering its name in the search box. Then select the application from the results.
+5. The next step depends on the way the developer of the application implemented single sign-on (SSO). Single sign-on can be implemented by app developers in four ways. The four ways are SAML, OpenID Connect, Password, and Linked. When you add an app, you can choose to filter and see only apps using a particular SSO implementation as shown in the screenshot. For example, a popular standard to implement SSO is called Security Assertion Markup Language (SAML). Another standard that is popular is called OpenId Connect (OIDC). The way you configure SSO with these standards is different so take note of the type of SSO that is implemented by the app that you are adding.
 
     - If the developer of the app used the **OIDC standard** for SSO then select **Sign Up**. A setup page appears. Next, go to the quickstart on setting up OIDC-based single sign-on.
     :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Screenshot shows adding an OIDC-based SSO app.":::

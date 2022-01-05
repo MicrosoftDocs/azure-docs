@@ -3,7 +3,7 @@ title: Azure Virtual Desktop host pool service updates - Azure
 description: How to create a validation host pool to monitor service updates before rolling out updates to production.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 12/15/2020
+ms.date: 07/23/2021
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 manager: femila
@@ -25,17 +25,29 @@ You can debug issues in the validation host pool with either [the diagnostics fe
 >[!IMPORTANT]
 >Azure Virtual Desktop with Azure Resource Management integration currently has trouble enabling and disabling validation environments. We'll update this article when we've resolved the issue.
 
-## Prerequisites
-
-Before you begin, follow the instructions in [Set up the Azure Virtual Desktop PowerShell module](powershell-module.md) to set up your PowerShell module and sign in to Azure.
-
 ## Create your host pool
 
 You can create a host pool by following the instructions in any of these articles:
-- [Tutorial: Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md)
-- [Create a host pool with PowerShell](create-host-pools-powershell.md)
+- [Tutorial: Create a host pool with Azure Marketplace or the Azure CLI](create-host-pools-azure-marketplace.md)
+- [Create a host pool with PowerShell or the Azure CLI](create-host-pools-powershell.md)
 
 ## Define your host pool as a validation host pool
+
+### [Portal](#tab/azure-portal)
+
+To use the Azure portal to configure your validation host pool:
+
+1. Sign in to the Azure portal at <https://portal.azure.com>.
+2. Search for and select **Azure Virtual Desktop**.
+3. In the Azure Virtual Desktop page, select **Host pools**.
+4. Select the name of the host pool you want to edit.
+5. Select **Properties**.
+6. In the validation environment field, select **Yes** to enable the validation environment.
+7. Select **Save**. This will apply the new settings.
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+If you haven't already done so, follow the instructions in [Set up the Azure Virtual Desktop PowerShell module](powershell-module.md) to set up your PowerShell module and sign in to Azure.
 
 Run the following PowerShell cmdlets to define the new host pool as a validation host pool. Replace the values in brackets with the values relevant to your session:
 
@@ -62,19 +74,27 @@ The results from the cmdlet should look similar to this output:
     ValidationEnvironment : True
 ```
 
-## Enable your validation environment with the Azure portal
+### [Azure CLI](#tab/azure-cli)
 
-You can also use the Azure portal to enable your validation environment.
+If you haven't already done so, prepare your environment for the Azure CLI and sign in.
 
-To use the Azure portal to configure your validation host pool:
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-1. Sign in to the Azure portal at <https://portal.azure.com>.
-2. Search for and select **Azure Virtual Desktop**.
-3. In the Azure Virtual Desktop page, select **Host pools**.
-4. Select the name of the host pool you want to edit.
-5. Select **Properties**.
-6. In the validation environment field, select **Yes** to enable the validation environment.
-7. Select **Save**. This will apply the new settings.
+To define the new host pool as a validation host pool, use the [az desktopvirtualization hostpool update](/cli/azure/desktopvirtualization#az_desktopvirtualization_hostpool_update) command:
+
+```azurecli
+az desktopvirtualization hostpool update --name "MyHostPool" \
+    --resource-group "MyResourceGroup" \
+    --validation-environment true
+```
+
+Use the following command to confirm that the validation property has been set.
+
+```azurecli
+az desktopvirtualization hostpool show --name "MyHostPool" \
+    --resource-group "MyResourceGroup" 
+```
+---
 
 ## Update schedule
 

@@ -229,13 +229,13 @@ Upgrade the Linux kernel to the following versions that have a fix for this prob
 ## Cannot create symbolic links - ln: failed to create symbolic link 't': Operation not supported
 
 ### Cause
-By default, mounting Azure file shares on Linux by using CIFS doesn’t enable support for symbolic links (symlinks). You see an error like this:
+By default, mounting Azure file shares on Linux by using CIFS doesn't enable support for symbolic links (symlinks). You see an error like this:
 ```
 ln -s linked -n t
 ln: failed to create symbolic link 't': Operation not supported
 ```
 ### Solution
-The Linux CIFS client doesn’t support creation of Windows-style symbolic links over the SMB 2 or 3 protocol. Currently, the Linux client supports another style of symbolic links called [Minshall+French symlinks](https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) for both create and follow operations. Customers who need symbolic links can use the "mfsymlinks" mount option. We recommend "mfsymlinks" because it's also the format that Macs use.
+The Linux CIFS client doesn't support creation of Windows-style symbolic links over the SMB 2 or 3 protocol. Currently, the Linux client supports another style of symbolic links called [Minshall+French symlinks](https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) for both create and follow operations. Customers who need symbolic links can use the "mfsymlinks" mount option. We recommend "mfsymlinks" because it's also the format that Macs use.
 
 To use symlinks, add the following to the end of your CIFS mount command:
 

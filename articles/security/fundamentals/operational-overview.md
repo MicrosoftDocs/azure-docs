@@ -64,7 +64,7 @@ Azure AD also includes a full suite of [identity management capabilities](./iden
 
 - [Multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 - [Self-service password management](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
-- [Self-service group management](../../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
+- [Self-service group management](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e)
 - [Privileged account management](../../active-directory/privileged-identity-management/pim-configure.md)
 - [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md)
 - [Application usage monitoring](../../active-directory/hybrid/whatis-hybrid-identity.md)

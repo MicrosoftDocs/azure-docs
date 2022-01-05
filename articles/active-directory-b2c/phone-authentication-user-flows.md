@@ -173,6 +173,25 @@ To enable consent information
 
 13. Select **Phone signUp page**, and then repeat steps 10 through 12. 
 
+
+## Get a user's phone number in your directory
+
+1. Run the following request in Graph Explorer:
+
+   `GET https://graph.microsoft.com/v1.0/users/{object_id}?$select=identities`
+
+1. Find the `issuerAssignedId` property in the response returned:
+
+   ```json
+       "identities": [
+           {
+               "signInType": "phoneNumber",
+               "issuer": "contoso.onmicrosoft.com",
+               "issuerAssignedId": "+11231231234"
+           }
+       ]
+   ```
+
 ## Next steps
 
 - [Add external identity providers](add-identity-provider.md)

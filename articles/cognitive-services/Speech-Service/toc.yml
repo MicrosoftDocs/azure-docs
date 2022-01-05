@@ -330,6 +330,8 @@
       href: keyword-recognition-guidelines.md
     - name: Region support
       href: keyword-recognition-region-support.md
+- name: Language identification
+  href: language-identification.md
 - name: Scenario deep-dives
   items:
     - name: Conversation scenarios
@@ -531,6 +533,8 @@
         href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/speech-service/context/context
       - name: Use customer-managed keys
         href: speech-encryption-of-data-at-rest.md
+      - name: How to backup and recover speech customization resources
+        href: resiliency-and-recovery-plan.md
 - name: Devices
   items:
     - name: Speech devices documentation
@@ -614,6 +618,8 @@
       items:
         - name: Speech Studio overview
           href: speech-studio-overview.md
+        - name: Role-based access control in Speech Studio
+          href: speech-studio-role-based-access-control.md
     - name: Enterprise readiness
       items:
       - name: Region support

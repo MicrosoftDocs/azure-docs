@@ -152,7 +152,7 @@ For either AKS deployment with custom certificate or ACI deployment, you must up
 > When you use a certificate from Microsoft for AKS deployment, you don't need to manually update the DNS value for the cluster. The value should be set automatically.
 
 You can follow following steps to update DNS record for your custom domain name:
-1. Get scoring endpoint IP address from scoring endpoint URI, which is usually in the format of *http://104.214.29.152:80/api/v1/service/<service-name>/score*. In this example, the IP address is 104.214.29.152.
+1. Get scoring endpoint IP address from scoring endpoint URI, which is usually in the format of `http://104.214.29.152:80/api/v1/service/<service-name>/score`. In this example, the IP address is 104.214.29.152.
 1. Use the tools from your domain name registrar to update the DNS record for your domain name. The record maps the FQDN (for example, www\.contoso.com) to the IP address. The record must point to the IP address of scoring endpoint.
 
     > [!TIP]

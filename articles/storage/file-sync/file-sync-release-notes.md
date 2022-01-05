@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 8/10/2021
+ms.date: 9/13/2021
 ms.author: wgries
 ms.subservice: files
 ---
@@ -62,8 +62,8 @@ The following release notes are for version 13.0.0.0 of the Azure File Sync agen
 - Support for server rename  
 	- If a registered server is renamed, Azure File Sync will now show the new server name in the portal. If the server was renamed prior to the v13 release, the server name in the portal will now be updated to show the correct server name.
 
-- Support for Windows Server 2022 Preview  
-	- The Azure File Sync agent is now supported on Windows Server 2022 Preview build 20348 or later.
+- Support for Windows Server 2022  
+	- The Azure File Sync agent is now supported on Windows Server 2022.
 
 	> [!Note]  
 	> Windows Server 2022 adds support for TLS 1.3 which is not currently supported by Azure File Sync.  If the [TLS settings](/windows-server/security/tls/tls-ssl-schannel-ssp-overview) are managed via group policy, the server must be configured to support TLS 1.2. 
@@ -85,7 +85,7 @@ For more information on how to install and configure the Azure File Sync agent w
 - A restart is required for servers that have an existing Azure File Sync agent installation if the agent version is less than version 12.0.
 - The agent installation package must be installed with elevated (admin) permissions.
 - The agent is not supported on Nano Server deployment option.
-- The agent is supported only on Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, and Windows Server 2022 Preview.
+- The agent is supported only on Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, and Windows Server 2022.
 - The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory. See [Recommended system resources](file-sync-planning.md#recommended-system-resources) for more information.
 - The Storage Sync Agent (FileSyncSvc) service does not support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
 
@@ -116,7 +116,6 @@ The following items don't sync, but the rest of the system continues to operate 
 - Failover Clustering is supported only with clustered disks, but not with Cluster Shared Volumes (CSVs).
 - A server endpoint can't be nested. It can coexist on the same volume in parallel with another endpoint.
 - Do not store an OS or application paging file within a server endpoint location.
-- The server name in the portal is not updated if the server is renamed.
 
 ### Cloud endpoint
 - Azure File Sync supports making changes to the Azure file share directly. However, any changes made on the Azure file share first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint once every 24 hours. To immediately sync files that are changed in the Azure file share, the [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) PowerShell cmdlet can be used to manually initiate the detection of changes in the Azure file share. In addition, changes made to an Azure file share over the REST protocol will not update the SMB last modified time and will not be seen as a change by sync.
@@ -236,7 +235,7 @@ The following release notes are for version 11.2.0.0 of the Azure File Sync agen
 - New PowerShell cmdlet (Add-StorageSyncAllowedServerEndpointPath) to configure allowed server endpoints paths on a server. This cmdlet is useful for scenarios in which the Azure File Sync deployment is managed by a Cloud Solution Provider (CSP) or Service Provider and the customer wants to configure allowed server endpoints paths on a server. When creating a server endpoint, if the path specified is not in the allowlist, the server endpoint creation will fail. Note, this is an optional feature and all supported paths are allowed by default when creating a server endpoint.  
 
 	
-	- To add a server endpoint path that’s allowed, run the following PowerShell commands on the server:
+	- To add a server endpoint path that's allowed, run the following PowerShell commands on the server:
 
 	```powershell
 	Import-Module 'C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll' -verbose

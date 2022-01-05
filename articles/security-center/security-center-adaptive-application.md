@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 09/09/2021
 ms.author: memildin
 
 ---
@@ -25,12 +25,12 @@ When you've enabled and configured adaptive application controls, you'll get sec
 
 ## What are the benefits of adaptive application controls?
 
-By defining lists of known-safe applications, and generating alerts when anything else is executed, you can achieve multiple hardening goals:
+By defining lists of known-safe applications, and generating alerts when anything else is executed, you can achieve multiple oversight and compliance goals:
 
 - Identify potential malware, even any that might be missed by antimalware solutions
 - Improve compliance with local security policies that dictate the use of only licensed software
-- Avoid running old or unsupported applications
-- Prevent specific software that's banned by your organization
+- Identify outdated or unsupported versions of applications 
+- Identify software that's banned by your organization but is nevertheless running on your machines
 - Increase oversight of apps that access sensitive data
 
 No enforcement options are currently available. Adaptive application controls are intended to provide security alerts if any application runs other than the ones you've defined as safe.

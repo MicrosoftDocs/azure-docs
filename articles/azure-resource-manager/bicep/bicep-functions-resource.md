@@ -4,21 +4,12 @@ description: Describes the functions to use in a Bicep file to retrieve values a
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/16/2021
+ms.date: 09/10/2021
 ---
 
 # Resource functions for Bicep
 
-Resource Manager provides the following functions for getting resource values in your Bicep file:
-
-* [extensionResourceId](#extensionresourceid)
-* [getSecret](#getsecret)
-* [list*](#list)
-* [pickZones](#pickzones)
-* [reference](#reference)
-* [resourceId](#resourceid)
-* [subscriptionResourceId](#subscriptionresourceid)
-* [tenantResourceId](#tenantresourceid)
+This article describes the Bicep functions for getting resource values.
 
 To get values from the current deployment, see [Deployment value functions](./bicep-functions-deployment.md).
 
@@ -472,6 +463,10 @@ The output from the preceding examples returns three arrays.
 
 You can use the response from pickZones to determine whether to provide null for zones or assign virtual machines to different zones.
 
+## providers
+
+**The providers function has been deprecated.** We no longer recommend using it. If you used this function to get an API version for the resource provider, we recommend that you provide a specific API version in your template. Using a dynamically returned API version can break your template if the properties change between versions.
+
 ## reference
 
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
@@ -656,6 +651,5 @@ resource myPolicyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-0
 
 ## Next steps
 
-* For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
+* To get values from the current deployment, see [Deployment value functions](./bicep-functions-deployment.md).
 * To iterate a specified number of times when creating a type of resource, see [Deploy multiple instances of resources in Bicep](./loop-resources.md).
-* To see how to deploy the Bicep file you've created, see [Deploy resources with Bicep and Azure PowerShell](./deploy-powershell.md).

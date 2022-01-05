@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 09/14/2019
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -280,7 +280,7 @@ If you did not use the Split Copy tool to copy data, you will need to validate y
 
     > [!TIP]
     > - Reset the tool between two runs.
-    > - Use option 1 if dealing with large data set containing small files (~ KBs). This option only validates the files, as checksum generation may take a very long time and the performance could be very slow.
+    > - The checksum process may take more time if you have a large data set containing small files (~KBs).  If you use option 1 and skip checksum creation, then you need to independently verify the data integrity of the uploaded data in Azure preferably via checksums before you delete any copies of the data in your possession.
 
 3. If using multiple disks, run the command for each disk.
 

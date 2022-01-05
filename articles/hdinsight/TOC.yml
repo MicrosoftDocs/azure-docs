@@ -1020,6 +1020,8 @@
       href: ./domain-joined/ldap-sync.md
     - name: Double encryption in transit 
       href: ./domain-joined/encryption-in-transit.md
+    - name: Use availability zones 
+      href: ./hdinsight-use-availability-zones.md
   - name: How-to guides
     items:
     - name: Use ID Broker for credential management
@@ -1054,3 +1056,7 @@
         href: ./domain-joined/domain-joined-authentication-issues.md
       - name: Cluster creation fails with DomainNotFound
         href: ./domain-joined/troubleshoot-domainnotfound.md
+- name: Azure Synapse integration
+  items:
+  - name: Share Hive metastore with Synapse Spark
+    href: share-hive-metastore-with-synapse.md

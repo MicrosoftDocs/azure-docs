@@ -16,6 +16,23 @@ In this article, learn about Azure Data Science Virtual Machine releases. For a 
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
+
+## 2021-08-11
+
+New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
+
+Version: 21.08.11
+
+Main changes:
+
+- Windows Security update
+- Update of Nvidia CuDNN to 8.1.0
+- Update of Jupyter Lab -to 3.0.16
+- Added MLFLow for experiment tracking
+- Improvement of stability and minor bug fixes 
+
+
+
 ## 2021-07-12
 
 New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
@@ -24,7 +41,7 @@ Main changes:
 
 - Updated to PyTorch 1.9.0
 - Updated Azure CLI to 2.26.1
-- Updated Azure CLI Azure Machine Learnign extension to 1.29.0
+- Updated Azure CLI Azure Machine Learning extension to 1.29.0
 - Update VS Code version 1.58.1
 - Improvement of stability and minor bug fixes 
 

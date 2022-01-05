@@ -140,7 +140,7 @@ sections:
           
           If the steps above don't work, check if users are configured for more than one verification method. Try signing in again, but select a different verification method on the sign-in page.
           
-          For more information, see the [end-user troubleshooting guide](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
+          For more information, see the [end-user troubleshooting guide](https://support.microsoft.com/account-billing/common-problems-with-two-step-verification-for-a-work-or-school-account-63acbb9b-16a1-47b9-8619-6a865e8071a5).
           
       - question: |
           What should I do if one of my users can't get in to their account?
@@ -155,7 +155,7 @@ sections:
       - question: |
           What if a user can't sign in to non-browser apps?
         answer: |
-          If your organization still uses legacy clients, and you [allowed the use of app passwords](howto-mfa-app-passwords.md), then your users can't sign in to these legacy clients with their username and password. Instead, they need to [set up app passwords](../user-help/multi-factor-authentication-end-user-app-passwords.md). Your users must clear (delete) their sign-in information, restart the app, and then sign in with their username and *app password* instead of their regular password.
+          If your organization still uses legacy clients, and you [allowed the use of app passwords](howto-mfa-app-passwords.md), then your users can't sign in to these legacy clients with their username and password. Instead, they need to [set up app passwords](https://support.microsoft.com/account-billing/manage-app-passwords-for-two-step-verification-d6dc8c6d-4bf7-4851-ad95-6d07799387e9). Your users must clear (delete) their sign-in information, restart the app, and then sign in with their username and *app password* instead of their regular password.
           
           If your organization doesn't have legacy clients, you shouldn't allow your users to create app passwords.
           

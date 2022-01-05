@@ -16,9 +16,9 @@ ms.reviewer: pimorano
 
 Continuous Integration (CI) is the process of automating the build and testing of code every time a team member commits changes to version control. Continuous Deployment (CD) is the process to build, test, configure, and deploy from multiple testing or staging environments to a production environment.
 
-In an Azure Synapse Analytics workspace, continuous integration and delivery (CI/CD) moves all entities from one environment (development, test, production) to another. To promote your workspace to another workspace, there are two parts. First, use an [Azure Resource Manager template (ARM template)](../../azure-resource-manager/templates/overview.md) to create or update workspace resources (pools and workspace). Then, migrate artifacts (SQL scripts, notebook, Spark job definition, pipelines, datasets, data flows, and so on) with Azure Synapse Analytics CI/CD tools in Azure DevOps. 
+In an Azure Synapse Analytics workspace, continuous integration and delivery (CI/CD) moves all entities from one environment (development, test, production) to another. To promote your workspace to another workspace, there are two parts. First, use an [Azure Resource Manager template (ARM template)](../../azure-resource-manager/templates/overview.md) to create or update workspace resources (pools and workspace). Then, migrate artifacts (SQL scripts, notebook, Spark job definition, pipelines, datasets, data flows, and so on) with Azure Synapse Analytics CI/CD tools in Azure DevOps or GitHub. 
 
-This article outlines how to use an Azure DevOps release pipeline to automate the deployment of an Azure Synapse workspace to multiple environments.
+This article outlines how to use an Azure DevOps release pipeline and GitHub action to automate the deployment of an Azure Synapse workspace to multiple environments.
 
 ## Prerequisites
 
@@ -34,9 +34,15 @@ These prerequisites and configurations must be in place to automate the deployme
 - An Azure Active Directory (Azure AD) administrator must [install the Azure DevOps Synapse Workspace Deployment Agent extension in the Azure DevOps organization](/azure/devops/marketplace/install-extension).
 - Create or nominate an existing service account for the pipeline to run as. You can use a personal access token instead of a service account, but your pipelines won't work after the user account is deleted.
 
+### GitHub
+
+- A GitHub repository with the synapse workspace artifacts and the workspace template 
+- Make sure you have created a self-hosted runner or use a GitHub-hosted runner.
+
 ### Azure Active Directory
 
-- In Azure AD, create a service principal to use for deployment. The Synapse Workspace Deployment task doesn't support using a managed identity in verion 1* and earlier.
+- In Azure AD, create a service principal to use for deployment if you are using a service principal. 
+- For using a managed identity, you need to  enable the system assigned managed identity in your VM in Azure as the agent or runner,  and add it to your Synapse studio as Synapse Admin .
 - Azure AD Admin rights are required for this action.
 
 ### Azure Synapse Analytics
@@ -50,27 +56,26 @@ These prerequisites and configurations must be in place to automate the deployme
 
   1. Create a new Azure Synapse Analytics workspace.
   1. Grant the VM agent and the service principal contributor rights to the resource group in which the new workspace is hosted.
-  1. In the new  workspace, don't configure the Git repo connection.
+  1. In the target workspace, don't configure the Git repo connection.
   1. In the Azure portal, find the new Azure Synapse Analytics workspace, and grant yourself and whoever will run the Azure DevOps pipeline Azure Synapse Analytics workspace owner rights. 
   1. Add the Azure DevOps VM agent and the service principal to the Contributor role for the workspace (this should have inherited, but verify that it is).
-  1. In the Azure Synapse Analytics workspace, go to **Studio** > **Manage** > **IAM**. Add the Azure DevOps VM agent and the service principal to the workspace admins group.
+  1. In the Azure Synapse Analytics workspace, go to **Studio** > **Manage** > **Access Control**. Add the Azure DevOps VM agent and the service principal to the workspace admins group.
   1. Open the storage account that's used for the workspace. In IAM, add the VM agent and the service principal to the Select Storage Blob Data Contributor role.
   1. Create a key vault in the support subscription and ensure that both the existing workspace and the new workspace have at least GET and LIST permissions to the vault.
   1. For the automated deployment to work, ensure that any connection strings that are specified in your linked services are in the key vault.
 
 ### Additional prerequisites
  
- - Spark pools and self-hosted integration runtimes aren't created in a pipeline. If you have a linked service that uses a self-hosted integration runtime, manually create that in the new workspace.
- - If you're developing notebooks and have them connected to a Spark pool, re-create the Spark pool in the workspace.
- - Notebooks that are linked to a Spark pool that does not exist in an environment won't deploy.
- - The Spark pool names must be the same in both workspaces.
- - Name all databases, SQL pools, and other resources the same in both workspaces.
+ - Spark pools and self-hosted integration runtimes aren't created in workspace deployment task. If you have a linked service that uses a self-hosted integration runtime, manually create that in the new workspace.
+ - If the items in the development workspace are attached with the specific pools, make sure that you have the same name of the pools in the target workspace created or parameterized the pools in the parameter file.  
  - If your provisioned SQL pools are paused when you attempt to deploy, the deployment might fail.
 
 For more information, see [CI CD in Azure Synapse Analytics Part 4 - The Release Pipeline](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434). 
 
 
-## Set up a release pipeline
+## Set up a release pipeline in Azure DevOps
+
+In this part you will learn how to deploy a synapse in Azure DevOps. 
 
 1.  In [Azure DevOps](https://dev.azure.com/), open the project created for the release.
 
@@ -98,7 +103,7 @@ For more information, see [CI CD in Azure Synapse Analytics Part 4 - The Release
 
     ![Add an artifact](media/release-creation-publish-branch.png)
 
-## Set up a stage task for an ARM template to create and update resource 
+### Set up a stage task for an ARM template to create and update resource 
 
 If you have an ARM template to deploy a resource, like an Azure Synapse workspace, Spark and SQL pools, or a key vault, add an Azure Resource Manager Deployment task to create or update those resources:
 
@@ -129,7 +134,7 @@ If you have an ARM template to deploy a resource, like an Azure Synapse workspac
  > [!WARNING]
 > In Complete deployment mode, resources that exist in the resource group but aren't specified in the new Resource Manager template will be **deleted**. For more information, please refer to [Azure Resource Manager Deployment Modes](../../azure-resource-manager/templates/deployment-modes.md)
 
-## Set up a stage task for Synapse artifacts deployment 
+### Set up a stage task for Synapse artifacts deployment 
 
 Use [Synapse workspace deployment](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) extension to deploy other items in Synapse workspace, like dataset, SQL script, notebook, spark job definition, dataflow, pipeline,linked service, credentials and IR (Integration Runtime).  
 
@@ -153,18 +158,113 @@ Use [Synapse workspace deployment](https://marketplace.visualstudio.com/items?it
 
 1. Select the connection, resource group, and name of the target workspace. 
 
-1. Select **…** next to the **Override template parameters** box, and enter the desired parameter values for the target workspace including connection strings and account keys that are used in your linked services. [Click here for more info] (https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434)
+1. Select **…** next to the **Override template parameters** box, and enter the desired parameter values for the target workspace including connection strings and account keys that are used in your linked services. For more information, see [CI/CD in Azure Synapse Analytics](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434).
 
     ![Synapse workspace deploy](media/create-release-artifacts-deployment.png)
 
 > [!IMPORTANT]
 > In CI/CD scenarios, the integration runtime (IR) type in different environments must be the same. For example, if you have a self-hosted IR in the development environment, the same IR must also be of type self-hosted in other environments, such as test and production. Similarly, if you're sharing integration runtimes across multiple stages, you have to configure the integration runtimes as linked self-hosted in all environments, such as development, test, and production.
 
-## Create release for deployment 
+### Create release for deployment 
 
 After saving all changes, you can select **Create release** to manually create a release. To automate the creation of releases, see [Azure DevOps release triggers](/azure/devops/pipelines/release/triggers)
 
    ![Select Create release](media/release-creation-manually.png)
+
+## Set up a release with GitHub action 
+
+In this part, you will learn how to create GitHub workflows using GitHub Actions for synapse workspace deployment.
+You can use the [Deploy Azure Resource Manager Template Action](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) to automate deploying an Azure Resource Manager template (ARM template) to Azure for the workspace and compute pools.
+
+### Workflow file overview
+
+A GitHub Actions workflow is defined by a YAML (.yml) file in the /.github/workflows/ path in your repository. This definition contains the various steps and parameters that make up the workflow.
+
+The file has two sections:
+
+|Section  |Tasks  |
+|---------|---------|
+|**Authentication** | 1. Define a service principal. <br /> 2. Create a GitHub secret. |
+|**Deploy** | 1. Deploy the workspace artifacts. |
+
+### Configure the GitHub secrets
+
+The secrets are environment variables that are encrypted. Anyone with collaborator access to this repository can use these secrets for Actions.
+
+1. Navigate to the repo and select **Settings**, navigate to Secrets, and then click New secret.
+
+    ![Create new secret](media/create-secret-new.png)
+
+1. Add new secrets for client ID, client secret if you use the service principal for deployment.You can also choose to have the subscription ID, tenant ID saved as secrets. 
+
+### Add your workflow
+
+Go to **Actions** of your GitHub repository. 
+
+1. Select **Set up your workflow yourself**. 
+1. Delete everything after the `on:` section of your workflow file. For example, your remaining workflow may look like this. 
+
+    ```yaml
+    name: CI
+
+    on:
+    push:
+        branches: [ master ]
+    pull_request:
+        branches: [ master ]
+    ```
+
+1. Rename your workflow and search the Synapse workspace deployment action in the marketplace, then add the action. 
+
+     ![Search for the action](media/search-the-action.png)
+
+1. Specify the required values and the workspace template.
+
+    ```yaml
+    name: workspace deployment
+
+    on:
+        push:
+            branches: [ publish_branch ]
+    jobs:
+        release:
+            # You can also use the self-hosted runners
+            runs-on: windows-latest
+            steps:
+            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+            - uses: actions/checkout@v2
+            - uses: azure/synapse-workspace-deployment@release-1.0
+            with:
+              TargetWorkspaceName: 'target workspace name'
+              TemplateFile: './path of the TemplateForWorkspace.json'
+              ParametersFile: './path of the TemplateParametersForWorkspace.json'
+              OverrideArmParameters: './path of the parameters.yaml'
+              environment: 'Azure Public'
+              resourceGroup: 'target workspace resource group'
+              clientId: ${{secrets.CLIENTID}}
+              clientSecret:  ${{secrets.CLIENTSECRET}}
+              subscriptionId: 'subscriptionId of the target workspace'
+              tenantId: 'tenantId'
+              DeleteArtifactsNotInTemplate: 'true'
+              managedIdentity: 'False'
+    ``` 
+
+1. You are now ready to commit your changes. Select Start commit, type the title , and then add a description (optional). Next, click Commit new file.
+
+    ![Commit the workflow](media/commit-the-workflow.png)    
+
+
+1. The file will appear in the `.github/workflows` folder of your repository.
+
+> [!NOTE]
+> Managed Identity is only supported with self hosted VMs on Azure. Please set the runner as self-hosted. Enabled the system assigned managed identity for your VM and add it to your Synapse studio as Synapse Admin.
+
+### Review your deployment
+
+1. Go to Actions of your GitHub repository.
+1. Open the first result to see detailed logs of your workflow's run
+
+    ![Review the deployment](media/review-deploy-status.png)    
 
 ## Use custom parameters of the workspace template 
 

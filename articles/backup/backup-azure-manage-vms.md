@@ -2,7 +2,7 @@
 title: Manage and monitor Azure VM backups
 description: Learn how to manage and monitor Azure VM backups by using the Azure Backup service.
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 09/17/2021
 ---
 # Manage Azure VM backups with Azure Backup service
 
@@ -91,7 +91,7 @@ You can run an on-demand backup of a VM after you set up its protection. Keep th
 * The retention range for an on-demand backup is the retention value that you specify when you trigger the backup.
 
 > [!NOTE]
-> The Azure Backup service supports up to three on-demand backups per day, and one additional scheduled backup.
+> Azure Backup recommends four backups per day, for a VM - one scheduled backup as per the Backup policy, and three on-demand  backups. However, to allow user retries in case of failed attempts, hard limit for on-demand backups is set to nine attempts.
 
 To trigger an on-demand backup:
 

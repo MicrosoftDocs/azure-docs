@@ -262,12 +262,6 @@ conda_dep.add_pip_package("pillow")
 myenv.python.conda_dependencies=conda_dep
 ```
 
-You can also add environment variables to your environment. These then become available using os.environ.get in your training script.
-
-```python
-myenv.environment_variables = {"MESSAGE":"Hello from Azure Machine Learning"}
-```
-
 >[!IMPORTANT]
 > If you use the same environment definition for another run, the Azure Machine Learning service reuses the cached image of your environment. If you create an environment with an unpinned package dependency, for example ```numpy```, that environment will keep using the package version installed _at the time of environment creation_. Also, any future environment with matching definition will keep using the old version. For more information, see [Environment building, caching, and reuse](./concept-environments.md#environment-building-caching-and-reuse).
 

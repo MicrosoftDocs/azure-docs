@@ -11,6 +11,8 @@ ms.author: mimckitt
 
 # Constrained vCPU capable VM sizes
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 > [!TIP]
 > Try the **[Virtual Machine selector tool](https://aka.ms/vm-selector)** to find other sizes that best fit your workload.
 

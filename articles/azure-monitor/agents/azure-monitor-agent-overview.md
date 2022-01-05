@@ -30,9 +30,10 @@ When compared with the existing agents, this new agent doesn't yet have full par
 - **Comparison with Log Analytics agents (MMA/OMS):**
 	- Not all Log Analytics solutions are supported today. See [what's supported](#supported-services-and-features).
 	- No support for Azure Private Links.
-	- No support for collecting custom logs or IIS logs.
+	- No support for collecting file based logs or IIS logs.
 - **Comparison with Azure Diagnostics extensions (WAD/LAD):**
 	- No support for Event Hubs and Storage accounts as destinations.
+	- No support for collecting file based logs, IIS logs, ETW events, .NET events and crash dumps.
 
 ### Changes in data collection
 The methods for defining data collection for the existing agents are distinctly different from each other. Each method has challenges that are addressed with the Azure Monitor agent.
@@ -61,7 +62,11 @@ The Azure Monitor agent replaces the [legacy agents for Azure Monitor](agents-ov
 Azure virtual machines, virtual machine scale sets, and Azure Arc–enabled servers are currently supported. Azure Kubernetes Service and other compute resource types aren't currently supported.
 
 ## Supported regions
-The Azure Monitor agent is available in all public regions that support Log Analytics. Government regions and clouds aren't currently supported.
+Azure Monitor agent is available in all public regions that support Log Analytics, as well as the Azure government and China clouds. Air-gapped clouds are not yet supported.
+
+## Supported operating systems
+For a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent, see [Supported operating systems](agents-overview.md#supported-operating-systems).
+
 ## Supported services and features
 The following table shows the current support for the Azure Monitor agent with other Azure services.
 
@@ -108,9 +113,6 @@ The Azure Monitor agent sends data to Azure Monitor Metrics or a Log Analytics w
 
 <sup>1</sup> There's a limitation today on the Azure Monitor agent for Linux. Using Azure Monitor Metrics as the *only* destination isn't supported. Using it along with Azure Monitor Logs works. This limitation will be addressed in the next extension update.
 
-## Supported operating systems
-For a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent, see [Supported operating systems](agents-overview.md#supported-operating-systems).
-
 ## Security
 The Azure Monitor agent doesn't require any keys but instead requires a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). You must have a system-assigned managed identity enabled on each virtual machine before you deploy the agent.
 
@@ -127,7 +129,7 @@ The Azure Monitor agent extensions for Windows and Linux can communicate either 
    ![Flowchart to determine the values of setting and protectedSetting parameters when you enable the extension.](media/azure-monitor-agent-overview/proxy-flowchart.png)
 
 
-1. After the values for the *setting* and *protectedSetting* parameters are determined, provide these additional parameters when you deploy the Azure Monitor agent by using PowerShell commands. The following examples are for Azure virtual machines.
+2. After the values for the *setting* and *protectedSetting* parameters are determined, provide these additional parameters when you deploy the Azure Monitor agent by using PowerShell commands. The following examples are for Azure virtual machines.
 
 	| Parameter | Value |
 	|:---|:---|

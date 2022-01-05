@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/21/2020
+ms.date: 9/13/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -147,7 +147,7 @@ You can read more about the serialization helper classes like `BasicDigitalTwin`
 
 ## View all digital twins
 
-To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
+To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_query).
 
 Here is the body of the basic query that will return a list of all digital twins in the instance:
 
@@ -168,7 +168,10 @@ Here is an example of JSON Patch code. This document replaces the *mass* and *ra
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
-Update calls for twins and relationships use [JSON Patch](http://jsonpatch.com/) structure. You can create patches using the Azure .NET SDK's [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true). Here is an example.
+>[!NOTE]
+> This example shows the JSON Patch `replace` operation, which replaces the value of an existing property. For a full list of JSON Patch operations that can be used, including `add` and `remove`, see the [Operations for JSON Patch](http://jsonpatch.com/#operations). 
+
+When updating a twin from a code project using the .NET SDK, you can create JSON patches using the Azure .NET SDK's [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true). Here is an example.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 

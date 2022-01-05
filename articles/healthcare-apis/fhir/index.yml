@@ -43,7 +43,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Access using Postman
-            url: using-postman.md
+            url: ./../use-postman.md
       
 
   - title: FHIR Search Capabilities

@@ -7,7 +7,7 @@ author: aletheatoh
 mms.devlang: na
 ms.topic: how-to
 ms.date: 08/28/2020
-ms.author: kumud
+ms.author: yitoh
 ---
 # Partnering with Azure DDoS Protection Standard
 This article describes partnering opportunities enabled by the Azure DDoS Protection Standard. This article is designed to help product managers and business development roles understand the investment paths and provide insight into the partnering value propositions.

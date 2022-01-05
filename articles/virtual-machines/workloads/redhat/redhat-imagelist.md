@@ -12,6 +12,9 @@ ms.author: alsin
 ---
 
 # Red Hat Enterprise Linux (RHEL) images available in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 Azure offers a variety of RHEL images for different use cases.
 
 > [!NOTE]

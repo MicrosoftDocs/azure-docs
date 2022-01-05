@@ -104,7 +104,7 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 ## See also
 
 * [Error codes](/rest/api/media/jobs/get#joberrorcode)
-* [Filtering, ordering, paging of Media Services entities](filter-order-page-entitites-how-to.md)
+* [Filtering, ordering, paging of Media Services entities](filter-order-page-entities-how-to.md)
 
 ## Next steps
 

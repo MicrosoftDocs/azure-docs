@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 05/14/2021
+ms.date: 09/07/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -42,10 +42,10 @@ $roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Applicati
 
 # Get app registration and construct resource scope for assignment.
 $appRegistration = Get-AzureADApplication -Filter "displayName eq 'f/128 Filter Photos'"
-$resourceScope = '/' + $appRegistration.objectId
+$directoryScope = '/' + $appRegistration.objectId
 
 # Create a scoped role assignment
-$roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
+$roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $directoryScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
 To assign the role to a service principal instead of a user, use the [Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet.
@@ -116,10 +116,10 @@ $roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Applicati
 
 # Get app registration and construct resource scope for assignment.
 $appRegistration = Get-AzureADApplication -Filter "displayName eq 'f/128 Filter Photos'"
-$resourceScope = '/' + $appRegistration.objectId
+$directoryScope = '/' + $appRegistration.objectId
 
 # Create a scoped role assignment
-$roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
+$roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $directoryScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
 ### Read and list role assignments

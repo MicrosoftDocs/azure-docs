@@ -4,8 +4,8 @@ description: Test and submit an Azure virtual machine offer in Azure Marketplace
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: kriti-ms
-ms.author: krsh
+author: ebolton-cyber
+ms.author: edewebolton
 ms.date: 03/10/2021
 ---
 

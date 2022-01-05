@@ -5,24 +5,15 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 06/07/2021
+ms.date: 09/01/2021
 ms.author: duau
 ---
 
-# Azure Route Server (Preview) FAQ
-
-> [!IMPORTANT]
-> Azure Route Server (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Azure Route Server FAQ
 
 ## What is Azure Route Server?
 
 Azure Route Server is a fully managed service that allows you to easily manage routing between your network virtual appliance (NVA) and your virtual network.
-
-## Why does Azure Route Server require a public IP address?
-
-Azure Router Server needs to ensure connectivity to the backend service that manages the Route Server configuration, as such a public IP address is required. 
 
 ### Is Azure Route Server just a VM?
 
@@ -47,6 +38,14 @@ No. Azure Route Server only exchanges BGP routes with your NVA. The data traffic
 
 ### Does Azure Route Server store customer data?
 No. Azure Route Server only exchanges BGP routes with your NVA and then propagates them to your virtual network.
+
+### Why does Azure Route Server require a public IP address?
+
+Azure Router Server needs to ensure connectivity to the backend service that manages the Route Server configuration, as such a public IP address is required. 
+
+### Does Azure Route Server support IPv6?
+
+No. We'll add IPv6 support in the future. 
 
 ### If Azure Route Server receives the same route from more than one NVA, how does it handle them?
 
@@ -88,11 +87,14 @@ Azure Route Server has the following limits (per deployment).
 | Resource | Limit |
 |----------|-------|
 | Number of BGP peers supported | 8 |
-| Number of routes each BGP peer can advertise to Azure Route Server | 200 |
+| Number of routes each BGP peer can advertise to Azure Route Server | 1000 |
 | Number of routes that Azure Route Server can advertise to ExpressRoute or VPN gateway | 200 |
-| Number of VMs in the virtual network (including peered virtual networks) that Azure Route Server can support | 6000 |
+| Number of VMs in the virtual network (including peered virtual networks) that Azure Route Server can support | 2000 |
+
+The number of VMs that Azure Route Server can support is not a hard limit. This depends on how the Route Server infrastructure is deployed within an Azure Region.
 
 If your NVA advertises more routes than the limit, the BGP session will get dropped. In the event BGP session is dropped between the gateway and Azure Route Server, you'll lose connectivity from your on-premises network to Azure. For more information, see [Diagnose an Azure virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md).
+
 
 ## Next steps
 

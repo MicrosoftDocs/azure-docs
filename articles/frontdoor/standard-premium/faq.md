@@ -122,6 +122,8 @@ Alternative way to lock down your application to accept traffic only from your s
     </configuration>
     ```
 
+* Azure Front Door also supports additional service tags, *AzureFrontDoor.Frontend* and *AzureFrontDoor.FirstParty*, to integrate internally with other Azure services. See [available service tags](../../virtual-network/service-tags-overview.md#available-service-tags) for more details on Azure Front Door service tags use cases.
+
 ### Can the anycast IP change over the lifetime of my Front Door?
 
 The frontend anycast IP for your Front Door should typically not change and may remain static for the lifetime of the Front Door. However, there are **no guarantees** for the same. Kindly don't take any direct dependencies on the IP.

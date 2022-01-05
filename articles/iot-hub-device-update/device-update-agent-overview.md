@@ -12,8 +12,7 @@ ms.service: iot-hub-device-update
 
 The Device Update Agent consists of two conceptual layers:
 
-* The Interface Layer builds on top of [Azure IoT Plug and Play
-(PnP)](../iot-develop/overview-iot-plug-and-play.md)
+* The Interface Layer builds on top of [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md)
 allowing for messaging to flow between the Device Update Agent and Device Update Services.
 * The Platform Layer is responsible for the high-level update actions of Download, Install, and Apply that may be platform, or device specific.
 

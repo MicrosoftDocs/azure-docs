@@ -4,7 +4,7 @@ description: Learn about using the Elastic Cloud-Native Observability Platform i
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 05/19/2021
+ms.date: 09/02/2021
 ms.author: tomfitz
 ---
 
@@ -17,6 +17,9 @@ Elastic's Cloud-Native Observability Platform centralizes log, metric, and traci
 With the Elastic offering, you can manage the solution through the Azure portal. You implement Elastic as a monitoring solution for your cloud workloads through a streamlined workflow.
 
 You can now provision the Elastic resources through a resource provider named **Microsoft.Elastic**. You create, provision, and manage Elastic resources through the Azure portal. Elastic owns and runs the SaaS application including the Elastic accounts created.
+
+> [!IMPORTANT]
+> The Elastic service on Azure only stores and processes customer data in the region where the service was deployed. No data is stored outside of that region.
 
 ## Capabilities
 

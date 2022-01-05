@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt, troubleshoot
 ---
-# Troubleshooting prebuilt docker images for inference (Preview)
+# Troubleshooting prebuilt docker images for inference (preview)
 
 Learn how to troubleshoot problems you may see when using prebuilt docker images for inference [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) with Azure Machine Learning.
 

@@ -6,7 +6,7 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 08/05/2020
+ms.date: 09/15/2021
 ms.author: banders
 ---
 
@@ -31,7 +31,7 @@ Go to Azure portal > **Reservations**.
 
 ## If you don't renew
 
-Your services continue to run normally. You're charged pay-as-you-go rates for your usage after the reservation expires.
+Your services continue to run normally. You're charged pay-as-you-go rates for your usage after the reservation expires. If the reservation wasn't set for automatic renewal before expiration, you can't renew an expired reservation. To continue to receive savings, you can buy a new reservation.
 
 ## Required renewal permissions
 

@@ -32,9 +32,9 @@ The SDK for Embedded C repository contains [several samples](https://github.com/
 > [!NOTE]
 > These samples are shown running on Windows and Linux for educational and debugging purposes. In a production scenario, the samples are intended for constrained devices only.
 
-- [Thermostat example with SDK for Embedded C](https://github.com/Azure/azure-sdk-for-c/blob/master/sdk/samples/iot/paho_iot_hub_pnp_sample.c)
+- [Thermostat example with SDK for Embedded C](https://github.com/Azure/azure-sdk-for-c/blob/main/sdk/samples/iot/paho_iot_pnp_sample.c)
 
-- [Temperature Controller example with the SDK for Embedded C](https://github.com/Azure/azure-sdk-for-c/blob/master/sdk/samples/iot/paho_iot_hub_pnp_component_sample.c)
+- [Temperature Controller example with the SDK for Embedded C](https://github.com/Azure/azure-sdk-for-c/blob/main/sdk/samples/iot/paho_iot_pnp_component_sample.c)
 
 ## Using Azure RTOS
 

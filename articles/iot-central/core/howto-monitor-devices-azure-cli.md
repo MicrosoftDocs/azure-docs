@@ -3,7 +3,7 @@ title: Monitor device connectivity using the Azure IoT Central Explorer
 description: Monitor device messages and observe device twin changes through the IoT Central Explorer CLI.
 author: viv-liu
 ms.author: viviali
-ms.date: 03/27/2020
+ms.date: 08/30/2021
 ms.topic: how-to
 ms.service: iot-central 
 ms.custom: devx-track-azurecli, device-developer

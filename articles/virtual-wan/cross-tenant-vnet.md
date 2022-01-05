@@ -40,9 +40,9 @@ To use the steps in this article, you must have the following configuration alre
 
 ## <a name="rights"></a>Assign permissions
 
-In order for the parent subscription with the virtual hub to modify and access the virtual networks in the remote tenant, you need to assign **Contributor** permissions to your parent subscription from the remote tenant subscription.
+In order for the user administering the parent subscription with the virtual hub to be able to modify and access the virtual networks in the remote tenant, you need to assign **Contributor** permissions to this user. Assigning **Contributor** permissions to this user is done in the subscription of the VNET in the remote tenant.
 
-1. Add the **Contributor** role assignment to the parent account (the one with the virtual WAN hub). You can use either PowerShell, or the Azure portal to assign this role. See the following **Add or remove role assignments** articles for steps:
+1. Add the **Contributor** role assignment to the administrator (the one used to administer the virtual WAN hub). You can use either PowerShell, or the Azure portal to assign this role. See the following **Add or remove role assignments** articles for steps:
 
    * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
    * [Portal](../role-based-access-control/role-assignments-portal.md)

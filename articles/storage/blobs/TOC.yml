@@ -21,7 +21,7 @@ items:
       - name: Azure portal
         href: storage-quickstart-blobs-portal.md
       - name: Storage Explorer
-        href: storage-quickstart-blobs-storage-explorer.md
+        href: quickstart-storage-explorer.md
       - name: PowerShell
         href: storage-quickstart-blobs-powershell.md
       - name: CLI
@@ -291,6 +291,8 @@ items:
       href: storage-blob-pageblob-overview.md
     - name: Static websites
       href: storage-blob-static-website.md
+    - name: Blob Storage feature support
+      href: storage-feature-support-in-storage-accounts.md
   - name: How to
     items:
     - name: Create and manage storage accounts
@@ -474,8 +476,12 @@ items:
           href: archive-rehydrate-to-online-tier.md
         - name: Handle an event on blob rehydration
           href: archive-rehydrate-handle-event.md
-    - name: Configure object replication
-      href: object-replication-configure.md
+    - name: Manage object replication
+      items:
+      - name: Configure object replication policies
+        href: object-replication-configure.md
+      - name: Prevent object replication across tenants
+        href: object-replication-prevent-cross-tenant-policies.md  
     - name: Manage concurrency
       href: concurrency-manage.md
     - name: Use a storage emulator
@@ -634,6 +640,8 @@ items:
         href: ../common/storage-explorer-direct-link.md
       - name: Storage Explorer security
         href: ../common/storage-explorer-security.md
+      - name: Storage Explorer soft delete
+        href: ../common/storage-explorer-soft-delete.md
       - name: Storage Explorer blob versioning
         href: ../common/storage-explorer-blob-versioning.md
       - name: Storage Explorer manage Azure Blob storage
@@ -757,7 +765,7 @@ items:
       - name: Multi-protocol access
         href: data-lake-storage-multi-protocol-access.md
       - name: Supported Blob storage features
-        href: data-lake-storage-supported-blob-storage-features.md
+        href: storage-feature-support-in-storage-accounts.md
       - name: Supported Azure services
         href: data-lake-storage-supported-azure-services.md
       - name: Supported open source platforms

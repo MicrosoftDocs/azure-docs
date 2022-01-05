@@ -11,7 +11,11 @@ ms.author: sgilley
 ms.date: 03/22/2019
 ---
 # Ask a question you can answer with data
+
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
 ## Video 3: Data Science for Beginners series
+
 Learn how to formulate a data science problem into a question in Data Science for Beginners video 3. This video includes a comparison of questions for classification and regression algorithms.
 
 To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)

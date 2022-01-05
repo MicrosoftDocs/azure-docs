@@ -2,8 +2,11 @@
   href: ./index.yml  
 - name: Overview
   items:
-  - name: About Media Services
+  - name: About Media Services v3
     href: media-services-overview.md
+  - name: Media Services v2 documentation
+    href: ../previous/media-services-overview.md
+    displayName: media services v2, v2, version 2
   - name: Release notes
     href: release-notes.md
     displayName: Release Notes, notes, updates, announcements, deprecations
@@ -15,9 +18,6 @@
       - name: Frequently asked questions
         href: frequently-asked-questions.yml
         displayName: faq, questions, frequently asked questions
-      - name: Troubleshooting tips
-        href: questions-collection.md 
-        displayName: faq, troubleshooting, tips, common issues, errors.
 - name: Quickstarts
   items:
   - name: Set up your environment
@@ -164,7 +164,7 @@
       href: media-services-apis-overview.md
       displayName: accessing, long-running, sdk, invalid character, name, naming, file name, SDK, client, library, API, develop, developer
     - name: Page, filter, order entities
-      href: filter-order-page-entitites-how-to.md
+      href: filter-order-page-entities-how-to.md
       displayName: paging, filtering, sorting, order, ordering, REST, SDK, client
     - name: Error codes
       items:
@@ -465,7 +465,7 @@
     - name: Manage multiple storage accounts
       href: storage-managing-multiple-storage-accounts-how-to.md
       displayName: how to, how-to, tutorial, storage accounts, multiple storage accounts, 
-  - name: Create transforms
+  - name: Encode media
     items:
     - name: Create a transform
       href: transform-create-transform-how-to.md
@@ -514,7 +514,7 @@
       displayName: copy videos, copy, copy codec, copy video codec, copy audio codec, fast encoding, fast remux, remuxing, re-package, packaging, re-encoding
     - name: Use the content aware encoding preset
       href: encode-content-aware-how-to.md
-      displayName: encode, encoder, transcode, custom preset, content aware, transform 
+      displayName: encode, encoder, transcode, custom preset, content aware, transform, CAE, scene based, shot based, qvbr, quality defined
   - name: Create jobs
     items:
     - name: Create jobs with CLI

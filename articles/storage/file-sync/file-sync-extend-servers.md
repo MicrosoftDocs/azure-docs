@@ -57,7 +57,7 @@ After you deploy an Azure storage account, you create a file share.
 
     ![Select the add file share button](./media/storage-sync-files-extend-servers/create-file-share-portal2.png)
 
-1. Name the new file share _afsfileshare_. Enter "1" for the **Quota**, and then select **Create**. The quota can be a maximum of 5 TiB, but you only need 1 GB for this tutorial.
+1. Name the new file share _afsfileshare_. Enter "5120" for the **Quota**, and then select **Create**. The quota can be a maximum of 100 TiB, but you only need 5 TiB for this tutorial.
 
     ![Provide a name and quota for the new file share](./media/storage-sync-files-extend-servers/create-file-share-portal3.png)
 
@@ -93,7 +93,7 @@ At this point, you've created a storage account and a file share with one file i
    1. On the **Disks** tab, under **Disk options**, leave the defaults.
    1. Under **DATA DISKS**, select **Create and attach a new disk**.
 
-   1. Use the default settings except for **Size (GiB)**, which you can change to **1 GB** for this tutorial.
+   1. Use the default settings except for **Size (GiB)**, which you can change to **1 GiB** for this tutorial.
 
       ![Data disk details](./media/storage-sync-files-extend-servers/vm-create-new-disk-details.png)
 
@@ -152,7 +152,7 @@ Now you can add the data disk to the VM.
 
     ![Data disk](media/storage-sync-files-extend-servers/your-disk.png)
 
-1. Right-click the 1 GB disk named **Msft Virtual Disk** and select **New volume**.
+1. Right-click the 1 GiB disk named **Msft Virtual Disk** and select **New volume**.
 1. Complete the wizard. Use the default settings and make note of the assigned drive letter.
 1. Select **Create**.
 1. Select **Close**.

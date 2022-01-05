@@ -45,7 +45,7 @@ Automatic module configurations require the use of module twins to synchronize s
 
 ## Use tags to target twins
 
-Before you create a configuration, you must specify which devices or modules you want to affect. Azure IoT Hub identifies devices and using tags in the device twin, and identifies modules using tags in the module twin. Each device or modules can have multiple tags, and you can define them any way that makes sense for your solution. For example, if you manage devices in different locations, add the following tags to a device twin:
+Before you create a configuration, you must specify which devices or modules you want to affect. Azure IoT Hub identifies devices and using tags in the device twin, and identifies modules using tags in the module twin. Each device or module can have multiple tags, and you can define them any way that makes sense for your solution. For example, if you manage devices in different locations, add the following tags to a device twin:
 
 ```json
 "tags": {
@@ -58,7 +58,7 @@ Before you create a configuration, you must specify which devices or modules you
 
 ## Define the target content and metrics
 
-The target content and metric queries are specified as JSON documents that describe the device twin or module twin desired properties to set and reported properties to measure.  To create an automatic configuration using Azure CLI, save the target content and metrics locally as .txt files. You use the file paths in a later section when you run the command to apply the configuration to your device.
+The target content and metric queries are specified as JSON documents that describe the device twin or module twin desired properties to set and reported properties to measure. To create an automatic configuration using Azure CLI, save the target content and metrics locally as .txt files. You use the file paths in a later section when you run the command to apply the configuration to your device.
 
 Here's a basic target content sample for an automatic device configuration:
 

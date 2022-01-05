@@ -32,6 +32,8 @@ The `hbi_workspace` flag controls the amount of [data Microsoft collects for dia
 * Cleans up your local scratch disk between runs
 * Securely passes credentials for your storage account, container registry, and SSH account from the execution layer to your compute clusters using your key vault
 
+When this flag is set to True, one possible impact is increased difficulty troubleshooting issues. This could happen because some telemetry isn't sent to Microsoft and there is less visibility into success rates or problem types, and therefore may not be able to react as proactively when this flag is True.
+
 > [!TIP]
 > The `hbi_workspace` flag does not impact encryption in transit, only encryption at rest.
 

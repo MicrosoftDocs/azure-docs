@@ -1,8 +1,8 @@
 ---
 title: Show traffic data on Android maps | Microsoft Azure Maps
 description: In this article you'll learn, how to display traffic data on a map using the Microsoft Azure Maps Android SDK.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 2/26/2021
 ms.topic: how-to
 ms.service: azure-maps

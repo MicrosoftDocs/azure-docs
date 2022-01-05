@@ -13,7 +13,7 @@ ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
 ---
 
-# Extend a prebuilt Docker image (Preview)
+# Extend a prebuilt Docker image (preview)
 
 In some cases, the [prebuilt Docker images for model inference](concept-prebuilt-docker-images-inference.md) and [extensibility](./how-to-prebuilt-docker-images-inference-python-extensibility.md) solutions for Azure Machine Learning may not meet your inference service needs.
 

@@ -83,8 +83,6 @@ To learn how to configure long-term retention or restore a database from backup 
 
 To learn how to configure long-term retention or restore a database from backup for SQL Managed Instance using the Azure portal or PowerShell, see [Manage Azure SQL Managed Instance long-term backup retention](../managed-instance/long-term-backup-retention-configure.md).
 
-To restore a database from the LTR storage, you can select a specific backup based on its timestamp. The database can be restored to any existing server under the same subscription as the original database. To learn how to restore your database from an LTR backup, using the Azure portal, or PowerShell, see [Manage Azure SQL Database long-term backup retention](long-term-backup-retention-configure.md). 
-
 ## Next steps
 
 Because database backups protect data from accidental corruption or deletion, they're an essential part of any business continuity and disaster recovery strategy. 

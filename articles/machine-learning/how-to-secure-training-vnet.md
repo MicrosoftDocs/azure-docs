@@ -9,8 +9,8 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 08/04/2021
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
+ms.date: 09/03/2021
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
 
 ---
 
@@ -46,7 +46,7 @@ In this article you learn how to secure the following training compute resources
 
 + To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
 
-    - "Microsoft.Network/virtualNetworks/*/read" on the virtual network resource. This is not needed for ARM template deployments
+    - "Microsoft.Network/virtualNetworks/*/read" on the virtual network resource. This is not needed for Azure Resource Manager (ARM) template deployments
     - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
 
     For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking)
@@ -84,7 +84,10 @@ In this article you learn how to secure the following training compute resources
 
         :::image type="content" source="./media/how-to-secure-training-vnet/compute-instance-cluster-network-security-group.png" alt-text="Screenshot of NSG":::
 
-    * One public IP address. If you have Azure policy prohibiting Public IP creation then deployment of cluster/instances will fail
+
+    * For compute clusters and instances, one public IP address. If you have Azure Policy assignments prohibiting Public IP creation then deployment of the compute will fail.
+
+
     * One load balancer
 
     For compute clusters, these resources are deleted every time the cluster scales down to 0 nodes and created when scaling up.
@@ -92,7 +95,7 @@ In this article you learn how to secure the following training compute resources
     For a compute instance, these resources are kept until the instance is deleted. Stopping the instance does not remove the resources. 
 
     > [!IMPORTANT]
-    > These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If the virtual network resource group is locked then deletion of compute cluster/instance will fail. Load balancer cannot be deleted until the compute cluster/instance is deleted. Also please ensure there is no Azure policy which prohibits creation of network security groups.
+    > These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If the virtual network resource group is locked then deletion of compute cluster/instance will fail. Load balancer cannot be deleted until the compute cluster/instance is deleted. Also please ensure there is no Azure Policy assignment which prohibits creation of network security groups.
 
 * If the Azure Storage Accounts for the workspace are also in the virtual network, use the following guidance on subnet limitations:
 
@@ -113,10 +116,12 @@ In this article you learn how to secure the following training compute resources
 * __Compute clusters__ can be created in a different region than your workspace. This functionality is in __preview__, and is only available for __compute clusters__, not compute instances. When using a different region for the cluster, the following limitations apply:
 
     * If your workspace associated resources, such as storage, are in a different virtual network than the cluster, set up global virtual network peering between the networks. For more information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md).
-    * If you are using a private endpoint-enabled workspace, creating the cluster in a different region is __not supported__.
     * You may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it.
 
     Guidance such as using NSG rules, user-defined routes, and input/output requirements, apply as normal when using a different region than the workspace.
+
+    > [!WARNING]
+    > If you are using a __private endpoint-enabled workspace__, creating the cluster in a different region is __not supported__.
 
 ### Azure Databricks
 
@@ -135,7 +140,7 @@ For more information on using Azure Databricks in a virtual network, see [Deploy
 
 For information on using a firewall solution, see [Use a firewall with Azure Machine Learning](how-to-access-azureml-behind-firewall.md).
 
-## <a name="compute-instance"></a>Compute clusters & instances 
+## <a name="compute-cluster"></a>Compute clusters
 
 Use the tabs below to select how you plan to create a compute cluster:
 
@@ -154,10 +159,11 @@ Use the following steps to create a compute cluster in the Azure Machine Learnin
 
 1. From the __Configure Settings__ section, set the __Compute name__, __Virtual network__, and __Subnet__.
 
+    :::image type="content" source="media/how-to-enable-virtual-network/create-compute-cluster-config.png" alt-text="Screenshot shows setting compute name, virtual network, and subnet.":::
+
     > [!TIP]
     > If your workspace uses a private endpoint to connect to the virtual network, the __Virtual network__ selection field is greyed out.
-
-    :::image type="content" source="./media/how-to-enable-virtual-network/create-compute-cluster-config.png" alt-text="Screenshot of virtual network settings":::
+    > 
 
 1. Select __Create__ to create the compute cluster.
 
@@ -206,7 +212,11 @@ When the creation process finishes, you train your model by using the cluster in
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
-### Inbound traffic
+## Compute instance
+
+For steps on how to create a compute instance deployed in a virtual network, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
+
+## Inbound traffic
 
 [!INCLUDE [udr info for computes](../../includes/machine-learning-compute-user-defined-routes.md)]
 

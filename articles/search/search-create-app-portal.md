@@ -1,14 +1,14 @@
 ---
-title: Create a demo app in Azure portal
+title: "Quickstart: Create a demo app in Azure portal"
 titleSuffix: Azure Cognitive Search
-description: Run the Create demo app (preview) wizard to generate HTML pages and script for an operational web app. The page includes a search bar, results area, sidebar, and typeahead support.
+description: Run the Create demo app \wizard to generate HTML pages and script for an operational web app. The page includes a search bar, results area, sidebar, and typeahead support.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/23/2021
+ms.date: 08/24/2021
 ---
 
 # Quickstart: Create a demo app in the portal (Azure Cognitive Search)

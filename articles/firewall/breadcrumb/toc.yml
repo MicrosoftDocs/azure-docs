@@ -2,6 +2,10 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Firewall
+  - name: Networking
     tocHref: /azure/developer/terraform
-    topicHref: /azure/firewall/index
+    topicHref: /azure/networking/index
+    items:
+    - name: Firewall
+      tocHref: /azure/developer/terraform
+      topicHref: /azure/firewall/index

@@ -8,9 +8,9 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 03/16/2021
+ms.date: 09/15/2021
 ms.subservice: hybrid
-ms.author: billmath
+ms.author: rodejo
 ms.custom: has-adal-ref
 
 ms.collection: M365-identity-device-management
@@ -20,46 +20,81 @@ The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect wi
 
 This article is designed to help you keep track of the versions that have been released, and to understand what the changes are in the latest version.
 
-
-
 This table is a list of related topics:
 
 Topic |  Details
 --------- | --------- |
 Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](how-to-upgrade-previous-version.md) Azure AD Connect release.
 Required permissions | For permissions required to apply an update, see [accounts and permissions](reference-connect-accounts-permissions.md#upgrade).
-Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+
+
+>[!IMPORTANT]
+> **On 31 August 2022, all 1.x versions of Azure Active Directory (Azure AD) Connect will be retired because they include SQL Server 2012 components that will no longer be supported.** Either upgrade to the most recent version of Azure AD Connect (2.x version) by that date, or [evaluate and switch to Azure AD cloud sync](../cloud-sync/what-is-cloud-sync.md).
+> 
+> You need to make sure you are running a recent version of Azure AD Connect to receive an optimal support experience. 
+> 
+> If you run a retired version of Azure AD Connect it may unexpectedly stop working and you may not have the latest security fixes, performance improvements, troubleshooting and diagnostic tools and service enhancements. Moreover, if you require support we may not be able to provide you with the level of service your organization needs.
+> 
+> Go to this article to learn more about [Azure Active Directory Connect V2.0](whatis-azure-ad-connect-v2.md), what has changed in V2.0 and how this change impacts you.
+>
+> Please refer to [this article](./how-to-upgrade-previous-version.md) to learn more about how to upgrade Azure AD Connect to the latest version.
+>
+> For version history information on retired versions, see [Azure AD Connect version release history archive](reference-connect-version-history-archive.md)
 
 >[!NOTE]
 >Releasing a new version of Azure AD Connect is a process that requires several quality control step to ensure the operation functionality of the service, and while we go through this process the version number of a new release as well as the release status will be updated to reflect the most recent state.
-While we go through this process, the version number of the release will be shown with an "X" in the minor release number position, as in "1.3.X.0" - this indicates that the release notes in this document are valid for all versions beginning with "1.3.". As soon as we have finalized the release process the release version number will be updated to the most recently released version and the release status will be updated to "Released for download and auto upgrade".
 Not all releases of Azure AD Connect will be made available for auto upgrade. The release status will indicate whether a release is made available for auto upgrade or for download only. If auto upgrade was enabled on your Azure AD Connect server then that server will automatically upgrade to the latest version of Azure AD Connect that is released for auto upgrade. Note that not all Azure AD Connect configurations are eligible for auto upgrade. 
 
-To clarify the use of Auto Upgrade, it is meant to push all important updates and critical fixes to you. This is not necessarily the latest version because not all versions will require/include a fix to a critical security issue (just one example of many). An issue like that would be addressed with a new version provided via Auto Upgrade. If there are no such issues, there are no updates pushed out using Auto Upgrade, and in general if you are using the latest auto upgrade version you should be good.
+>To clarify the use of Auto Upgrade, it is meant to push all important updates and critical fixes to you. This is not necessarily the latest version because not all versions will require/include a fix to a critical security issue (just one example of many). Critical issues would usually be addressed with a new version provided via Auto Upgrade. If there are no such issues, there are no updates pushed out using Auto Upgrade, and in general if you are using the latest auto upgrade version you should be good.
 However, if you’d like all the latest features and updates, the best way to see if there are any is to check this page and install them as you see fit. 
 
-Please follow this link to read more about [auto upgrade](how-to-connect-install-automatic-upgrade.md)
+>Please follow this link to read more about [auto upgrade](how-to-connect-install-automatic-upgrade.md)
 
->[!IMPORTANT]
-> Starting on April 1st, 2024, we will retire versions of Azure AD Connect that were released before May 1st, 2018 - version 1.1.751.0 and older. 
->
-> You need to make sure you are running a recent version of Azure AD Connect to receive an optimal support experience. 
->
->If you run a retired version of Azure AD Connect you may not have the latest security fixes, performance improvements, troubleshooting and diagnostic tools and service enhancements, and if you require support we may not be able to provide you with the level of service your organization needs.
->
 
->
->Please refer to [this article](./how-to-upgrade-previous-version.md) to learn more about how to upgrade Azure AD Connect to the latest version.
->
->For version history information on retired versions, see [Azure AD Connect version release history archive](reference-connect-version-history-archive.md)
+## Download links
+ - If you are using Windows Server 2016 or newer you should use Azure AD Connect V2.0. You can download the latest version of Azure AD Connect 2.0 using [this link](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+ - If you are still using an older version of Windows Server you should use Azure AD Connect V1.6. You can download the latest version of Azure AD Connect V1 using [this link](https://www.microsoft.com/download/details.aspx?id=103336). 
+ - We are only applying critical changes to the V1 versions going forward, and you may not find some of the features and fixes for V2 in the V1 releases - so you should upgrade to the V2 version as soon as possible.
+
+## 2.0.25.1
+
+>[!NOTE] 
+> This is a hotfix update release of Azure AD Connect. This release requires Windows Server 2016 or newer and fixes a security issue that is present in version 2.0 of Azure AD Connect, as well as some other bug fixes.
+
+### Release status
+9/14/2021: Released for download only, not available for auto upgrade.
+
+### Bug fixes
+
+ - We fixed a security issue where an unquoted path was used to point to the Azure AD Connect service. This path is now a quoted path.
+ - Fixing an import config issue with writeback enabled when using the existing AD connector account.
+ - We fixed an issue in Set-ADSyncExchangeHybridPermissions and other related cmdlets, which were broken from 1.6 due to an invalid inheritance type.
+ - The cmdlet we published in a previous release to set the TLS version had an issue where it overwrites the keys, destroying any values that were in them. We fixed this by only creating a new key if one does not already exist. A warning is also added to let users know the TLS registry changes are not exclusive to Azure AD Connect and may impact other applications on the same server as well.
+ - We added a check to enforce auto upgrade for V2.0 to require Windows Server 2016 or newer.
+ - We added 'Replicating Directory Changes' permission in the Set-ADSyncBasicReadPermissions cmdlet.
+ - We made a change to prevent UseExistingDatabase and import configuration from being used together since these could contain conflicting configuration settings.
+ - We made a change to allow a user with the Application Admin role to change the App Proxy service configuration.
+ - We removed the '(Preview)' label from the labels of Import/Export settings - this functionality has been in General Availability for some time now.
+ - We change some labels that still refered to "Company Administrator" - we now use the role name "Global Administrator".
+ - We created new AAD Kerberos PowerShell cmdlets "\*-AADKerberosServer" to add a Claims Transform rule to the AAD Service Principal.
+
+### Functional changes
+ - We added the latest versions of MIM Connectors (1.1.1610.0). More information can be found at [the release history page of the MiM connectors](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021)
+ - We have added a configuration option to disable the Soft Matching feature in Azure AD Connect. We advise customers to disable soft matching unless they need it to take over cloud only accounts. This [article](https://docs.microsoft.com/powershell/module/msonline/set-msoldirsyncfeature?view=azureadps-1.0#example-2--block-soft-matching-for-the-tenant) shows how to disable Soft Matching.
 
 ## 2.0.10.0
+
+### Release status
+8/19/2021: Released for download only, not available for auto upgrade.
 
 >[!NOTE] 
 >This is a hotfix update release of Azure AD Connect. This release requires Windows Server 2016 or newer. This hotfix addresses an issue that is present in version 2.0 as well as in Azure AD Connect version 1.6. If you are running Azure AD Connect on an older Windows Server you should install the [1.6.13.0](#16130) build instead.
 
 ### Release status
 8/19/2021: Released for download only, not available for auto upgrade.
+
+### Known issues
+ - Under certain circumstances the installer for this version will display an error mentioning that TLS 1.2 is not enabled and will stop the installation. This is due to an error in the code that verifies the registry setting for TLS 1.2. We will correct this in a future release. Customers who see this issue should follow the instructions for enabling TLS 1.2 that can be found in the article "[TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md)".
 
 ### Bug fixes
 
@@ -93,7 +128,7 @@ There are no functional changes in this release
 >[!NOTE] 
 >This is a security update release of Azure AD Connect. This release requires Windows Server 2016 or newer. If you are using an older version of Windows Server, please use [version 1.6.11.3](#16113).
 >This release addresses a vulnerability as documented in [this CVE](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36949). For more information about this vulnerability please refer to the CVE.
->You can download this release using [this link](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+>You can download the latest version of Azure AD Connect 2.0 using [this link](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
 
 ### Release status
 8/10/2021: Released for download only, not available for auto upgrade. 
@@ -105,7 +140,7 @@ There are no functional changes in this release
 >[!NOTE] 
 >This is security update release of Azure AD Connect. This version is intended to be used by customers are running an older version of Windows Server and cannot upgrade their server to Windows Server 2016 or newer as this time. You cannot use this version to update an Azure AD Connect V2.0 server.
 >This release addresses a vulnerability as documented in [this CVE](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36949). For more information about this vulnerability please refer to the CVE.
->You can download this release using [this link](https://www.microsoft.com/download/details.aspx?id=103336)
+>You can download the latest version of Azure AD Connect 1.6 using [this link](https://www.microsoft.com/download/details.aspx?id=103336)
 
 ### Release status
 8/10/2021: Released for download only, not available for auto upgrade.

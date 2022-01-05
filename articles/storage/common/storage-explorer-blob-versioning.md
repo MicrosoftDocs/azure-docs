@@ -2,7 +2,7 @@
 title: Azure Storage Explorer blob versioning guide | Microsoft Docs
 description: Blob versioning guidance for Azure Storage Explorer
 services: storage
-author: chuye
+author: JasonYeMSFT
 ms.service: storage
 ms.topic: conceptual
 ms.date: 08/19/2020
@@ -114,3 +114,4 @@ Each blob version has its own access tier. To change access tier of blob version
 
 * [Blob versioning](../blobs/versioning-overview.md)
 * [Soft delete for blobs](../blobs/soft-delete-blob-overview.md)
+* [Azure Storage Explorer soft delete guide](./storage-explorer-soft-delete.md)

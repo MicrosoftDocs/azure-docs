@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/15/2019
+ms.date: 08/31/2021
 ms.author: jeedes
 ---
 
@@ -20,8 +20,6 @@ In this tutorial, you'll learn how to integrate Screencast-O-Matic with Azure Ac
 * Control in Azure AD who has access to Screencast-O-Matic.
 * Enable your users to be automatically signed-in to Screencast-O-Matic with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -34,44 +32,47 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Screencast-O-Matic supports **SP** initiated SSO
-* Screencast-O-Matic supports **Just In Time** user provisioning
+* Screencast-O-Matic supports **SP** initiated SSO.
+* Screencast-O-Matic supports **Just In Time** user provisioning.
 
-## Adding Screencast-O-Matic from the gallery
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
+## Add Screencast-O-Matic from the gallery
 
 To configure the integration of Screencast-O-Matic into Azure AD, you need to add Screencast-O-Matic from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Screencast-O-Matic** in the search box.
 1. Select **Screencast-O-Matic** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for Screencast-O-Matic
+## Configure and test Azure AD SSO for Screencast-O-Matic
 
 Configure and test Azure AD SSO with Screencast-O-Matic using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Screencast-O-Matic.
 
-To configure and test Azure AD SSO with Screencast-O-Matic, complete the following building blocks:
+To configure and test Azure AD SSO with Screencast-O-Matic, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Screencast-O-Matic SSO](#configure-screencast-o-matic-sso)** - to configure the single sign-on settings on application side.
-    * **[Create Screencast-O-Matic test user](#create-screencast-o-matic-test-user)** - to have a counterpart of B.Simon in Screencast-O-Matic that is linked to the Azure AD representation of user.
+    1. **[Create Screencast-O-Matic test user](#create-screencast-o-matic-test-user)** - to have a counterpart of B.Simon in Screencast-O-Matic that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Screencast-O-Matic** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **Screencast-O-Matic** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following step:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://screencast-o-matic.com/<InstanceName>`
@@ -106,13 +107,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Screencast-O-Matic**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
@@ -123,7 +118,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![My apps extension](common/install-myappssecure-extension.png)
 
-1. After adding extension to the browser, click on **Set up Screencast-O-Matic** will direct you to the Screencast-O-Matic application. From there, provide the admin credentials to sign into Screencast-O-Matic. The browser extension will automatically configure the application for you and automate steps 3-11.
+1. After adding extension to the browser, click on **Set up Screencast-O-Matic** will direct you to the Screencast-O-Matic application. From there, provide the admin credentials to sign into Screencast-O-Matic. The browser extension will automatically configure the application for you and automate steps 3-10.
 
 	![Setup configuration](common/setup-sso.png)
 
@@ -131,17 +126,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Subscription**.
 
-	![The Subscription](./media/screencast-tutorial/tutorial_screencast_sub.png)
+	![Screenshot that shows the Subscription.](./media/screencast-tutorial/subscribe.png)
 
 1. Under the **Access page** section, click **Setup**.
 
-	![Screenshot that shows the "Access Page" section with the "Setup" button selected.](./media/screencast-tutorial/tutorial_screencast_setup.png)
+	![Screenshot that shows the "Access Page" section with the "Setup" button selected.](./media/screencast-tutorial/setup.png)
 
 1. On the **Setup Access Page**, perform the following steps.
 
 1. Under the **Access URL** section, type your instancename in the specified textbox.
 
-    ![Screenshot that shows the "Access U R L" section with the instance name textbox highlighted.](./media/screencast-tutorial/tutorial_screencast_access.png)
+    ![Screenshot that shows the "Access U R L" section with the instance name textbox highlighted.](./media/screencast-tutorial/access-page.png)
 
 1. Select **Require Domain User** under **SAML User Restriction (optional)** section.
 
@@ -149,7 +144,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click **OK**.
 
-    ![The Access](./media/screencast-tutorial/tutorial_screencast_save.png)
+    ![Screenshot that shows the Access.](./media/screencast-tutorial/metadata.png)
 
 ### Create Screencast-O-Matic test user
 
@@ -157,16 +152,14 @@ In this section, a user called Britta Simon is created in Screencast-O-Matic. Sc
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you click the Screencast-O-Matic tile in the Access Panel, you should be automatically signed in to the Screencast-O-Matic for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* Click on **Test this application** in Azure portal. This will redirect to Screencast-O-Matic Sign-on URL where you can initiate the login flow. 
 
-## Additional resources
+* Go to Screencast-O-Matic Sign-on URL directly and initiate the login flow from there.
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+* You can use Microsoft My Apps. When you click the Screencast-O-Matic tile in the My Apps, this will redirect to Screencast-O-Matic Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+## Next steps
 
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try Screencast-O-Matic with Azure AD](https://aad.portal.azure.com/)
+Once you configure Screencast-O-Matic you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

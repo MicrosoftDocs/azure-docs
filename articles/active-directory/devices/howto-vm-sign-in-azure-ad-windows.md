@@ -10,7 +10,7 @@ ms.date: 08/19/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
 ms.collection: M365-identity-device-management
@@ -237,7 +237,7 @@ You are now signed in to the Windows Server 2019 Azure virtual machine with the 
 
 ## Using Azure Policy to ensure standards and assess compliance
 
-Use Azure policy to ensure Azure AD login is enabled for your new and existing Windows virtual machines and assess compliance of your environment at scale on your Azure policy compliance dashboard. With this capability, you can use many levels of enforcement: you can flag new and existing Windows VMs within your environment that do not have Azure AD login enabled. You can also use Azure policy to deploy the Azure AD extension on new Windows VMs that do not have Azure AD login enabled, as well as remediate existing Windows VMs to the same standard. In addition to these capabilities, you can also use policy to detect and flag Windows VMs that have non-approved local accounts created on their machines. To learn more, review [Azure policy](https://www.aka.ms/AzurePolicy).
+Use Azure Policy to ensure Azure AD login is enabled for your new and existing Windows virtual machines and assess compliance of your environment at scale on your Azure Policy compliance dashboard. With this capability, you can use many levels of enforcement: you can flag new and existing Windows VMs within your environment that do not have Azure AD login enabled. You can also use Azure Policy to deploy the Azure AD extension on new Windows VMs that do not have Azure AD login enabled, as well as remediate existing Windows VMs to the same standard. In addition to these capabilities, you can also use Azure Policy to detect and flag Windows VMs that have non-approved local accounts created on their machines. To learn more, review [Azure Policy](../../governance/policy/overview.md).
 
 ## Troubleshoot
 

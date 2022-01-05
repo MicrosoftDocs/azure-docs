@@ -1,8 +1,8 @@
 ---
 title: Azure Percept Vision datasheet
 description: Check out the Azure Percept Vision datasheet for detailed device specifications
-author: mimcco
-ms.author: mimcco
+author: MrHamlet
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021

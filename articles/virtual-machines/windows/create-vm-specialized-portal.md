@@ -13,6 +13,8 @@ ms.author: cynthn
 ---
 # Create a VM from a VHD by using the Azure portal
 
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 There are several ways to create a virtual machine (VM) in Azure: 
 
 - If you already have a virtual hard disk (VHD) to use or you want to copy the VHD from an existing VM to use, you can create a new VM by *attaching* the VHD to the new VM as an OS disk. 

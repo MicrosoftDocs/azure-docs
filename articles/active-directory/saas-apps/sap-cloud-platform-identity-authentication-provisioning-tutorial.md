@@ -27,7 +27,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in SA
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant
-* [A SAP Cloud Platform Identity Authentication tenant](https://cloudplatform.sap.com/pricing.html)
+* [A SAP Cloud Platform Identity Authentication tenant](https://www.sap.com/products/cloud-platform.html)
 * A user account in SAP Cloud Platform Identity Authentication with Admin permissions.
 
 ## Assigning users to SAP Cloud Platform Identity Authentication

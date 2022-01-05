@@ -218,7 +218,6 @@ For details, see [long-running operations](media-services-apis-overview.md#long-
 Once you have the stream flowing into the live event, you can begin the streaming event by creating an [Asset](/rest/api/media/assets), [live output](/rest/api/media/liveoutputs), and [Streaming Locator](/rest/api/media/streaminglocators). live output will archive the stream and make it available to viewers through the [Streaming Endpoint](/rest/api/media/streamingendpoints).  
 
 For detailed information about live outputs, see [Using a cloud DVR](live-event-cloud-dvr-time-how-to.md).
-
 ## Live event output questions
 
-See the [live event output questions](questions-collection.md#live-streaming) article.
+See the [live event questions in the FAQ](frequently-asked-questions.yml).

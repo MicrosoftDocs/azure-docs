@@ -212,6 +212,8 @@ items:
       - name: Data flow performance
         href: concepts-data-flow-performance.md
         displayName: merge, timeout
+      - name: Integration Runtime performance
+        href: concepts-integration-runtime-performance.md
       - name: Manage data flow canvas
         href: concepts-data-flow-manage-graph.md
       - name: Expression builder
@@ -254,6 +256,8 @@ items:
       href: connector-overview.md
     - name: Amazon Marketplace Web Service
       href: connector-amazon-marketplace-web-service.md
+    - name: Amazon RDS for Oracle
+      href: connector-amazon-rds-for-oracle.md     
     - name: Amazon Redshift
       href: connector-amazon-redshift.md
     - name: Amazon S3
@@ -686,9 +690,21 @@ items:
     - name: Monitor visually
       href: monitor-visually.md
     - name: Monitor with Azure Monitor
-      href: monitor-using-azure-monitor.md
-    - name: Monitor SSIS with Azure Monitor
-      href: monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor
+      items:
+      - name: Overview
+        href: monitor-using-azure-monitor.md
+      - name: Azure Data Factory metrics and alerts
+        href: monitor-metrics-alerts.md
+      - name: Configure diagnostics settings and workspace
+        href: monitor-configure-diagnostics.md
+      - name: Setup diagnostics logs via the Azure Monitor REST API
+        href: monitor-logs-rest.md
+      - name: Monitor SSIS operations with Azure Monitor
+        href: monitor-ssis.md
+      - name: Schema of logs and events
+        href: monitor-schema-logs-events.md
+      - name: Install Azure Data Factory Analytics solution from Azure Marketplace
+        href: monitor-install-analytics.md
     - name: Monitor with SDKs
       href: monitor-programmatically.md
     - name: Monitor integration runtime
@@ -792,6 +808,8 @@ items:
     items:
     - name: Connect a Data Factory to Azure Purview
       href: connect-data-factory-to-azure-purview.md
+    - name: Access a secured Azure Purview account
+      href: ./how-to-access-secured-purview-account.md
     - name: Discover and explore data in ADF using Purview
       href: how-to-discover-explore-purview-data.md
   - name: Scenarios
@@ -932,7 +950,7 @@ items:
   - name: Ask a question - Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-factory
   - name: Request a feature
-    href: https://feedback.azure.com/forums/270578-azure-data-factory
+    href: /answers/topics/azure-data-factory.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-factory/
   - name: Availability by region

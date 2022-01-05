@@ -102,7 +102,7 @@ To create a new WebJobs-enabled project, use the console app project template an
 > 
 
 #### <a id="createnolink"></a> Use the WebJobs new-project template for an independent WebJob
-1. Select **File** > **New** > **Project**. In the **Crete a new project** dialog box, search for and select **Azure WebJob (.NET Framework)** for C#.
+1. Select **File** > **New** > **Project**. In the **Create a new project** dialog box, search for and select **Azure WebJob (.NET Framework)** for C#.
    
 2. Follow the previous directions to [make the console app project an independent WebJobs project](#convertnolink).
 

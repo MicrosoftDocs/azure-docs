@@ -192,7 +192,7 @@ In this article, we discussed different overloads for listing APIs for various o
 
 For more information about Azure Storage and Client Library for C++, see the following resources.
 
-* [How to use Blob Storage from C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [How to use Blob Storage from C++](../blobs/quickstart-blobs-c-plus-plus.md)
 * [How to use Table Storage from C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [How to use Queue Storage from C++](../queues/storage-c-plus-plus-how-to-use-queues.md)
 * [Azure Storage Client Library for C++ API documentation.](https://azure.github.io/azure-storage-cpp/)

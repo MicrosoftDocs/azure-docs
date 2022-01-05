@@ -88,7 +88,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
     1. Make sure that you have no [resource lock](../azure-resource-manager/management/lock-resources.md) on the resource group/subscription to which the virtual network belongs. If you configure a read-only/delete lock, starting and stopping your Azure-SSIS IR will fail, or it will stop responding.
 
-    1. Make sure that you don't have an Azure policy that prevents the following resources from being created under the resource group/subscription to which the virtual network belongs:
+    1. Make sure that you don't have an Azure Policy definition that prevents the following resources from being created under the resource group/subscription to which the virtual network belongs:
         - Microsoft.Network/LoadBalancers
         - Microsoft.Network/NetworkSecurityGroups
 
@@ -131,11 +131,11 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
     Public endpoint host name comes in the format <mi_name>.public.<dns_zone>.database.windows.net and that the port used for the connection is 3342.  
 
-    ![Screenshot shows Integration runtime setup with Create S S I S catalog selected and Catalog database server endpoint entered.](./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png)
+    :::image type="content" source="./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png" alt-text="Screenshot shows Integration runtime setup with Create S S I S catalog selected and Catalog database server endpoint entered.":::
 
 1. Select Azure AD authentication when applies.
 
-    ![catalog-public-endpoint](./media/how-to-use-sql-managed-instance-with-ir/catalog-aad.png)
+    :::image type="content" source="./media/how-to-use-sql-managed-instance-with-ir/catalog-aad.png" alt-text="catalog-public-endpoint":::
 
     For more info about how to enable Azure AD authentication, see [Enable Azure AD on Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance).
 
@@ -147,7 +147,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
     For more information about how to join Azure-SSIS IR into a virtual network, see [Join an Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md).
 
-    ![Screenshot shows the Integration runtime setup Advanced settings, where you can select a virtual network for your runtime to join.](./media/how-to-use-sql-managed-instance-with-ir/join-virtual-network.png)
+    :::image type="content" source="./media/how-to-use-sql-managed-instance-with-ir/join-virtual-network.png" alt-text="Screenshot shows the Integration runtime setup Advanced settings, where you can select a virtual network for your runtime to join.":::
 
 For more info about how to create an Azure-SSIS IR, see [Create an Azure-SSIS integration runtime in Azure Data Factory](create-azure-ssis-integration-runtime.md#provision-an-azure-ssis-integration-runtime).
 

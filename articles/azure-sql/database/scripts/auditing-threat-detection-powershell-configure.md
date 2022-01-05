@@ -45,8 +45,8 @@ This script uses the following commands. Each command in the table links to comm
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a server. |
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a database or elastic pool. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Creates a storage account. |
-| [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing) | Sets the auditing policy for a database. |
-| [Set-AzSqlDatabaseThreatDetectionPolicy](/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | Sets an Advanced Threat Protection policy on a database. |
+| [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseaudit) | Sets the auditing policy for a database. |
+| Set-AzSqlDatabaseThreatDetectionPolicy | Sets an Advanced Threat Protection policy on a database. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 

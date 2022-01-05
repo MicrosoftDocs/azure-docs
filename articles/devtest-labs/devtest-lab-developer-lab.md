@@ -1,7 +1,7 @@
 ---
-title: Use Azure DevTest Labs for developers | Microsoft Docs
+title: Use Azure DevTest Labs for developers
 description: Learn about Azure DevTest Labs features that can be used to meet developer requirements and the detailed steps that you can follow to set up a lab.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2020
 ---
 

@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Configure front-end frameworks and libraries with Azure Static Web Apps
 
-The Azure Static Web Apps requires that you have the appropriate configuration values in the [build configuration file](github-actions-workflow.md) for your front-end framework or library.
+The Azure Static Web Apps requires that you have the appropriate configuration values in the [build configuration file](build-configuration.md) for your front-end framework or library.
 
 ## Configuration
 
@@ -19,9 +19,9 @@ The following table lists the settings for a series of frameworks and libraries<
 
 The intent of the table columns is explained by the following items:
 
-- **Output location**: Lists the value for `output_location`, which is the [folder for built versions of application files](github-actions-workflow.md#build-and-deploy).
+- **Output location**: Lists the value for `output_location`, which is the [folder for built versions of application files](build-configuration.md).
 
-- **Custom build command**: When the framework requires  a command different from `npm run build` or `npm run azure:build`, you can define a [custom build command](github-actions-workflow.md#custom-build-commands).
+- **Custom build command**: When the framework requires  a command different from `npm run build` or `npm run azure:build`, you can define a [custom build command](build-configuration.md#custom-build-commands).
 
 | Framework | App artifact location | Custom build command |
 |--|--|--|
@@ -60,4 +60,4 @@ The intent of the table columns is explained by the following items:
 
 ## Next steps
 
-- [Build and workflow configuration](github-actions-workflow.md)
+- [Build and workflow configuration](build-configuration.md)

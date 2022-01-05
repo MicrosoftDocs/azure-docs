@@ -136,6 +136,9 @@ If you run the script on a computer with restricted access, ensure there's acces
 - Public DNS resolution on port 53 (outbound)
 
 > [!NOTE]
+> Proxies may not support iSCSI protocol or give access to port 3260. Hence it is strongly recommended to run this script on machines which have direct access as required above and not on the machines which will redirect to proxy.
+
+> [!NOTE]
 >
 > In case, the backed up VM is Windows, then the geo-name will be mentioned in the password generated.<br><br>
 > For eg, if the generated password is *ContosoVM_wcus_GUID*, then then geo-name is wcus and the URL would be: <https://pod01-rec2.wcus.backup.windowsazure.com><br><br>
@@ -181,10 +184,10 @@ If the file recovery process hangs after you run the file-restore script (for ex
     ![Registry key changes](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
 
 ```registry
-- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
-- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200 secs.
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 1200 secs.
 - HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\EnableNOPOut – change this from 0 to 1
-- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 1200 secs.
 ```
 
 ### For Linux

@@ -268,6 +268,17 @@ groups:
     title: JavaScript
   - id: programming-language-curl
     title: REST
+- id: programming-languages-cs-cpp-py
+# Owner: lajanuar
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-python
+    title: Python
 # To be enabled later.
 #  - id: programmer-tool-spx
 #    title: CLI
@@ -1329,3 +1340,12 @@ groups:
     title: Azure CLI
   - id: identity-mi-methods-sub-powershell
     title: PowerShell
+# Owner: alkohli
+- id: azure-stack-edge-device-deployment
+  title: Azure Stack Edge device deployment
+  prompt: Choose deployment type
+  pivots:
+  - id: single-node
+    title: Single node device
+  - id: two-node
+    title: Two node cluster

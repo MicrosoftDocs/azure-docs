@@ -23,7 +23,7 @@ For specific resource limits per pricing tier (also known as service objective) 
 > [!TIP]
 > For Azure SQL Managed Instance limits, see [resource limits for managed instances](../managed-instance/resource-limits.md).
 >
-> For Azure Synapse Analytics dedicated SQL pool limits, see [capacity limits](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits) and [memory and concurrency limits](/azure/synapse-analytics/sql-data-warehouse/memory-concurrency-limits).
+> For Azure Synapse Analytics dedicated SQL pool limits, see [capacity limits](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md) and [memory and concurrency limits](../../synapse-analytics/sql-data-warehouse/memory-concurrency-limits.md).
 
 ## Logical server limits
 

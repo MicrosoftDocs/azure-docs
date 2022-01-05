@@ -97,7 +97,7 @@ For account management audit trails, view and choose the columns that you want t
 
 ![Activity log](./media/data-lake-store-security-overview/activity-logs.png "Activity log")
 
-For more information on working with activity logs, see [View activity logs to audit actions on resources](../azure-resource-manager/management/view-activity-logs.md).
+For more information on working with activity logs, see [View activity logs to audit actions on resources](../azure-monitor/essentials/activity-log.md).
 
 ### Diagnostics logs
 

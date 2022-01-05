@@ -125,7 +125,7 @@ Availability Zones can be enabled via:
 
 * [Azure PowerShell](manage-with-powershell.md#create-account)
 
-* [Azure CLI](manage-with-cli.md#add-or-remove-regions)
+* [Azure CLI](sql/manage-with-cli.md#add-or-remove-regions)
 
 * [Azure Resource Manager templates](./manage-with-templates.md)
 

@@ -94,7 +94,7 @@ Occlum supports AKS deployments. Follow the deployment instructions with various
 
 In a nutshell, Marblerun extends the confidentiality, integrity, and verifiability properties of a single enclave to a Kubernetes cluster. 
 
-Marblerun supports confidential containers created with Graphene, Occlum, and EGo. Examples for each SDK are given [here](https://www.marblerun.sh/docs/examples/). Marblerun is built to run on Kubernetes and alongside your existing cloud-native tooling. It comes with an easy-to-use CLI and helm charts. It has first-class support for confidential computing nodes on AKS. Information on how to deploy Marblerun on AKS can be found [here](https://www.marblerun.sh/docs/deployment/cloud/).
+Marblerun supports confidential containers created with Graphene, Occlum, and EGo. Examples for each SDK are given [here](https://docs.edgeless.systems/marblerun/#/examples?id=examples). Marblerun is built to run on Kubernetes and alongside your existing cloud-native tooling. It comes with an easy-to-use CLI and helm charts. It has first-class support for confidential computing nodes on AKS. Information on how to deploy Marblerun on AKS can be found [here](https://docs.edgeless.systems/marblerun/#/deployment/cloud?id=cloud-deployment).
 
 ## Confidential Containers Demo
 View the confidential healthcare demo with confidential containers. Sample is available [here](/azure/architecture/example-scenario/confidential/healthcare-inference). 

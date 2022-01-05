@@ -87,7 +87,7 @@ Microsoft has many products and services that enable you to customize your IT en
 
    * [Investigate risk with Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-investigate-risk.md) 
 
-   * [Connect Azure AD Identity Protection data to Azure Sentinel](../../sentinel/connect-azure-ad-identity-protection.md)
+   * [Connect Azure AD Identity Protection data to Azure Sentinel](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection)
 
 * Active Directory Domain Services (AD DS)
 
@@ -105,7 +105,7 @@ The log files you use for investigation and monitoring are:
 
 * [Sign-in logs](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide)
+* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview)
 
 * [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)
 

@@ -10,8 +10,7 @@ ms.author: jroth
 
 | Resource | Limit | 
 | --- | --- | 
-| Azure Media Services accounts in a single subscription | 25 (fixed) |
-| Media reserved units per Media Services account |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
+| Azure Media Services accounts in a single subscription | 25 (fixed) | 
 | Jobs per Media Services account | 50,000<sup>2</sup> |
 | Chained tasks per job | 30 (fixed) |
 | Assets per Media Services account | 1,000,000|

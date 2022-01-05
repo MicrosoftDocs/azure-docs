@@ -137,7 +137,7 @@ Keep and Remove Top, Keep Range (corresponding M functions,
 
 This option is accessible from the Extract option in the ribbon
 
-![Power Query Add Column](media/wrangling-data-flow/pq-split.png)
+:::image type="content" source="media/wrangling-data-flow/pq-split.png" alt-text="Power Query Add Column":::
 
 ### For ```Table.CombineColumns```
 

@@ -19,7 +19,7 @@ This feature can help keep your workloads secure and stabilize your secure score
 Enforcing a secure configuration, based on a specific recommendation, is offered in two modes:
 
 - Using the **Deny** effect of Azure Policy, you can stop unhealthy resources from being created
-- Using the **Enforce** option, you can take advantage of Azure policy's **DeployIfNotExist** effect and automatically remediate non-compliant resources upon creation
+- Using the **Enforce** option, you can take advantage of Azure Policy's **DeployIfNotExist** effect and automatically remediate non-compliant resources upon creation
 
 This can be found at the top of the resource details page for selected security recommendations (see [Recommendations with deny/enforce options](#recommendations-with-denyenforce-options)).
 

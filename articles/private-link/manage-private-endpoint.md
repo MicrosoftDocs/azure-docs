@@ -32,7 +32,8 @@ The below table shows the various service provider actions and the resulting con
 |   |         |         |
    
 ## Manage Private Endpoint Connections on Azure PaaS resources
-Portal is the preferred method for managing private endpoint connections on Azure PaaS resources. Currently, we don’t have PowerShell/CLI support for managing connections on Azure PaaS resources.
+Portal is the preferred method for managing private endpoint connections on Azure PaaS resources. 
+
 1. Sign in to the Azure portal at https://portal.azure.com.
 2. Navigate to Private Link Center.
 3. Under **Resources**, select the resource type you want to manage the private endpoint connections.
@@ -42,7 +43,7 @@ Portal is the preferred method for managing private endpoint connections on Azur
 
 ## Manage Private Endpoint connections on a customer/partner owned Private Link service
 
-Azure PowerShell and Azure CLI are the preferred methods for managing Private Endpoint connections on Microsoft Partner Services or customer owned services. Currently, we don’t have any portal support for managing connections on a Private Link service.  
+Azure PowerShell and Azure CLI are the preferred methods for managing Private Endpoint connections on Microsoft Partner Services or customer owned services. 
  
 ### PowerShell 
   

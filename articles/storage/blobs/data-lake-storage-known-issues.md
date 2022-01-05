@@ -5,17 +5,20 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 09/08/2021
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
 # Known issues with Azure Data Lake Storage Gen2
 
-This article describes limitations and known issues of Azure Data Lake Storage Gen2.
+This article describes limitations and known issues for accounts that have the hierarchical namespace feature enabled. 
+
+> [!NOTE]
+> Some of the features described in this article might not be supported in accounts that have Network File System (NFS) 3.0 support enabled. To view a table that shows the impact of feature support when various capabilities are enabled, see [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md). 
 
 ## Supported Blob storage features
 
-An increasing number of Blob storage features now work with accounts that have a hierarchical namespace. For a complete list, see [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
+An increasing number of Blob storage features now work with accounts that have a hierarchical namespace. For a complete list, see [Blob Storage features available in Azure Data Lake Storage Gen2](./storage-feature-support-in-storage-accounts.md).
 
 ## Supported Azure service integrations
 
@@ -31,11 +34,11 @@ See [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-
 
 ## Blob storage APIs
 
-Blob APIs and Data Lake Storage Gen2 APIs can operate on the same data.
+Data Lake Storage Gen2 APIs, NFS 3.0, and Blob APIs can operate on the same data.
 
-This section describes issues and limitations with using blob APIs and Data Lake Storage Gen2 APIs to operate on the same data.
+This section describes issues and limitations with using blob APIs, NFS 3.0, and Data Lake Storage Gen2 APIs to operate on the same data.
 
-* You cannot use blob API and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 APIs, then that file's blocks won't be visible to calls to the [Get Block List](/rest/api/storageservices/get-block-list) blob API. The only exception is when using you are overwriting. You can overwrite a file/blob using either API.
+* You cannot use blob APIs, NFS 3.0, and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 or APIs or NFS 3.0, then that file's blocks won't be visible to calls to the [Get Block List](/rest/api/storageservices/get-block-list) blob API. The only exception is when using you are overwriting. You can overwrite a file/blob using either API or with NFS 3.0 by using the zero-truncate option.
 
 * When you use the [List Blobs](/rest/api/storageservices/list-blobs) operation without specifying a delimiter, the results will include both directories and blobs. If you choose to use a delimiter, use only a forward slash (`/`). This is the only supported delimiter.
 
@@ -57,6 +60,10 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 ## Support for setting access control lists (ACLs) recursively
 
 The ability to apply ACL changes recursively from parent directory to child items is generally available. In the current release of this capability, you can apply ACL changes by using Azure Storage Explorer, PowerShell, Azure CLI, and the .NET, Java, and Python SDK. Support is not yet available for the Azure portal.
+
+## Access control lists (ACL) and anonymous read access
+
+If [anonymous read access](./anonymous-read-access-configure.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.
 
 <a id="known-issues-tools"></a>
 
@@ -83,11 +90,7 @@ ACLs are not yet supported.
 Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2.
 Applications that call Blob APIs will likely work.
 
-## Access control lists (ACL) and anonymous read access
-
-If [anonymous read access](./anonymous-read-access-configure.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.
-
-## Diagnostic logs
+## Storage Analytics logs (classic)
 
 The setting for retention days is not yet supported, but you can delete logs manually by using any supported tool such as Azure Storage Explorer, REST or an SDK.
 
@@ -103,4 +106,11 @@ For the time being (and most likely the foreseeable future), we won't support cu
 
 ## Soft delete for blobs capability (currently in preview)
 
-If parent directories for soft-deleted files or directories are renamed, the soft-deleted items may not be displayed correctly in the Azure Portal. In such cases you can use [PowerShell](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-powershell) or [Azure CLI](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-azure-cli) to list and restore the soft-deleted items. 
+If parent directories for soft-deleted files or directories are renamed, the soft-deleted items may not be displayed correctly in the Azure portal. In such cases you can use [PowerShell](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-powershell) or [Azure CLI](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-azure-cli) to list and restore the soft-deleted items. 
+
+## Events
+
+If your account has an event subscription, read operations on the secondary endpoint will result in an error. To resolve this issue, remove event subscriptions. 
+
+> [!TIP]
+> Read access to the secondary endpoint is available only when you enable read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). 

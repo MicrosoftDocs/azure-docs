@@ -45,9 +45,15 @@ Because you're using a Queue storage output binding, you need the Storage bindin
 
 1. In the console, run the following [Install-Package](/nuget/tools/ps-ref-install-package) command to install the Storage extensions:
 
-    ```Command
-    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.6
-    ````
+    # [In-process](#tab/in-process) 
+    ```bash
+    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage 
+    ```
+    # [Isolated process](#tab/isolated-process)
+    ```bash
+    Install-Package Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues -IncludePrerelease
+    ```
+    ---
 
 Now, you can add the storage output binding to your project.
 

@@ -28,6 +28,9 @@ There are two options for functional validation:
 
 The Microsoft certification team reviews the video and files, then either approves the solution or emails you about next steps.
 
+> [!NOTE]
+> If the solution/offer you are creating is a connector only, demo the connector working during the call or use one of the video upload options listed below.  
+
 ### Option 1: 30-minute conference call
 
 To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:appsourceCRM@microsoft.com) with the name of your offer and some potential time slots between 8 AM and 5 PM Pacific Time.
@@ -43,7 +46,7 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
     > [!NOTE]
     > It is acceptable to use an existing marketing video if it meets the guidelines.
 
-2. Take the following screenshots of the [LCS](https://lcs.dynamics.com/) environment that match the offer or solution you want to publish. They must be clear enough for the certification team to read the text. Save the screenshots as JPG files. You may provide [appSourceCRM@microsoft.com](mailto:appSourceCRM@microsoft.com) permission to your LCS environment so we can verify the setup in lieu of providing screenshots.
+2. Take the following screenshots of the [LCS](https://lcs.dynamics.com/) environment that match the offer or solution you want to publish. They must be clear enough for the certification team to read the text. Save the screenshots as JPG files.
 
     1. Go to **LCS** > **Business Process Modeler** > **Project library**. Take screenshots of all the Process steps. Include the **Diagrams** and **Reviewed** columns, as shown here:
 

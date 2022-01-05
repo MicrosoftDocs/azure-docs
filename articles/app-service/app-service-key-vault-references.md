@@ -40,6 +40,9 @@ If your vault is configured with [network restrictions](../key-vault/general/ove
 
 2. Make sure that the vault's configuration accounts for the network or subnet through which your app will access it.
 
+> [!NOTE]
+> Windows container currently does not support Key Vault references over VNet Integration.
+
 ### Access vaults with a user-assigned identity
 
 Some apps need to reference secrets at creation time, when a system-assigned identity would not yet be available. In these cases, a user-assigned identity can be created and given access to the vault in advance.

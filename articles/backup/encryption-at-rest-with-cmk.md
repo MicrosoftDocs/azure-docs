@@ -2,7 +2,7 @@
 title: Encryption of backup data using customer-managed keys
 description: Learn how Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK).
 ms.topic: conceptual
-ms.date: 08/19/2021 
+ms.date: 08/24/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -108,7 +108,11 @@ TenantId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Type        : SystemAssigned
 ```
 
-### Assign user-assigned managed identity to the vault
+### Assign user-assigned managed identity to the vault (in preview)
+
+>[!Note]
+>- Vaults using user-assigned managed identities for CMK encryption don't support the use of private endpoints for Backup.
+>- Azure Key Vaults limiting access to specific networks aren't yet supported for use along with user-assigned managed identities for CMK encryption.
 
 To assign the user-assigned managed identity for your Recovery Services vault, perform the following steps:
 

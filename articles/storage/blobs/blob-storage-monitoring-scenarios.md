@@ -150,7 +150,7 @@ Shared Key and SAS authentication provide no means of auditing individual identi
 
 ## Optimize cost for infrequent queries
 
-If you maintain large amounts of log data but plan to query them only occasionally (For example, to meet compliance and security obligations), consider archiving your logs to a storage account instead of using Log Analytics. For a massive number of transactions, [the cost of using Log Analytics](https://azure.microsoft.com/pricing/details/monitor/) might be high relative to just archiving to storage and using other query techniques. Log Analytics makes sense in cases where you want to use the rich capabilities of Log Analytics. You can reduce the cost of querying data by archiving logs to a storage account, and then querying those logs using a serverless query solution on top of log data, for example, Azure Synapse.
+You can export logs to Log Analytics for rich native query capabilities. When you have massive transactions on your storage account, the cost of using logs with Log Analytics might be high. See [Azure Log Analytics Pricing](https://azure.microsoft.com/pricing/details/monitor/). If you only plan to query logs occasionally (for example, query logs for compliance auditing), you can consider reducing the total cost by exporting logs to storage account, and then using a serverless query solution on top of log data, for example, Azure Synapse.
 
 With Azure Synapse, you can create server-less SQL pool to query log data when you need. This could save costs significantly. 
 
@@ -183,6 +183,7 @@ With Azure Synapse, you can create server-less SQL pool to query log data when y
 ## See also
 
 - [Monitoring Azure Blob Storage](monitor-blob-storage.md).
+- [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md)
 - [Tutorial: Use Kusto queries in Azure Data Explorer and Azure Monitor](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 - [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
 

@@ -87,7 +87,7 @@ To grant this required permission, run the following script.
 > [!NOTE] 
 > This script must be executed by an Azure AD `Global Administrator` or a `Privileged Roles Administrator`.
 >
-> In **public preview**, you can assign the `Directory Readers` role to a group in Azure AD. The group owners can then add the managed identity as a member of this group, which would bypass the need for a `Global Administrator` or `Privileged Roles Administrator` to grant the `Directory Readers` role. For more information on this feature, see [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
+> You can assign the `Directory Readers` role to a group in Azure AD. The group owners can then add the managed identity as a member of this group, which would bypass the need for a `Global Administrator` or `Privileged Roles Administrator` to grant the `Directory Readers` role. For more information on this feature, see [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
 
 - Replace `<TenantId>` with your `TenantId` gathered earlier.
 - Replace `<server name>` with your SQL logical server name. If your server name is `myserver.database.windows.net`, replace `<server name>` with `myserver`.

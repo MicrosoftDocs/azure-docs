@@ -85,7 +85,7 @@ There are two types of errors you can receive:
 
 Validation errors arise from scenarios that can be determined before deployment. They include syntax errors in your template, or trying to deploy resources that would exceed your subscription quotas. Deployment errors arise from conditions that occur during the deployment process. They include trying to access a resource that is being deployed in parallel.
 
-Both types of errors return an error code that you use to troubleshoot the deployment. Both types of errors appear in the [activity log](../management/view-activity-logs.md). However, validation errors don't appear in your deployment history because the deployment never started.
+Both types of errors return an error code that you use to troubleshoot the deployment. Both types of errors appear in the [activity log](../../azure-monitor/essentials/activity-log.md). However, validation errors don't appear in your deployment history because the deployment never started.
 
 ### Validation errors
 
@@ -245,5 +245,4 @@ Or, suppose you're getting deployment errors that you believe are related to inc
 ## Next steps
 
 * To go through a troubleshooting tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](template-tutorial-troubleshoot.md)
-* To learn about auditing actions, see [Audit operations with Resource Manager](../management/view-activity-logs.md).
 * To learn about actions to determine the errors during deployment, see [View deployment operations](deployment-history.md).

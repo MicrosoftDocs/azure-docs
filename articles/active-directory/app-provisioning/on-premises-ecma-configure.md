@@ -163,7 +163,7 @@ After waiting, check your data source to see if new users are being provisioned.
 
 1. Use the provisioning logs to determine which users were provisioned successfully or unsuccessfully.
 1. Build custom alerts, dashboards, and queries by using the Azure Monitor integration.
-1. If the provisioning configuration seems to be in an unhealthy state, the application goes into quarantine. Learn more about [quarantine states](https://github.com/MicrosoftDocs/azure-docs-pr/compare/application-provisioning-quarantine-status.md?expand=1).
+1. If the provisioning configuration seems to be in an unhealthy state, the application goes into quarantine. Learn more about [quarantine states](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/active-directory/app-provisioning/application-provisioning-quarantine-status.md).
 
 ## Next steps
 

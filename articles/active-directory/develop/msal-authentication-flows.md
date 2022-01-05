@@ -24,11 +24,11 @@ The Microsoft Authentication Library (MSAL) supports several authentication flow
 |--|--|--|
 | [Authorization code](#authorization-code) | Used in apps that are installed on a device to gain access to protected resources, such as web APIs. Enables you to add sign-in and API access to your mobile and desktop apps. | [Desktop apps](scenario-desktop-overview.md), [mobile apps](scenario-mobile-overview.md), [web apps](scenario-web-app-call-api-overview.md) |
 | [Client credentials](#client-credentials) | Allows you to access web-hosted resources by using the identity of an application. Commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. | [Daemon apps](scenario-daemon-overview.md) |
-| [Device code](#device-code) | Allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer. | [Desktop/mobile apps](scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser) |
+| [Device code](#device-code) | Allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer. | [Desktop/mobile apps](scenario-desktop-acquire-token-device-code-flow.md) |
 | [Implicit grant](#implicit-grant) | Allows the app to get tokens without performing a back-end server credential exchange. Enables the app to sign in the user, maintain session, and get tokens to other web APIs, all within the client JavaScript code. | [Single-page applications (SPA)](scenario-spa-overview.md) |
 | [On-behalf-of](#on-behalf-of) | An application invokes a service or web API, which in turn needs to call another service or web API. The idea is to propagate the delegated user identity and permissions through the request chain. | [Web APIs](scenario-web-api-call-api-overview.md) |
-| [Username/password](#usernamepassword) | Allows an application to sign in the user by directly handling their password. This flow isn't recommended. | [Desktop/mobile apps](scenario-desktop-acquire-token.md#username-and-password) |
-| [Integrated Windows Authentication](#integrated-windows-authentication) | Allows applications on domain or Azure Active Directory (Azure AD) joined computers to acquire a token silently (without any UI interaction from the user). | [Desktop/mobile apps](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
+| [Username/password](#usernamepassword) | Allows an application to sign in the user by directly handling their password. This flow isn't recommended. | [Desktop/mobile apps](scenario-desktop-acquire-token-username-password.md) |
+| [Integrated Windows Authentication](#integrated-windows-authentication) | Allows applications on domain or Azure Active Directory (Azure AD) joined computers to acquire a token silently (without any UI interaction from the user). | [Desktop/mobile apps](scenario-desktop-acquire-token-integrated-windows-authentication.md) |
 
 ## How each flow emits tokens and codes
 

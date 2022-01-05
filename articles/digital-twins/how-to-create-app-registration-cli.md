@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to create an Azure AD app registration, as an authentication option for client apps, using the CLI.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 5/13/2021
+ms.date: 9/8/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -19,9 +19,9 @@ ms.service: digital-twins
 
 [!INCLUDE [digital-twins-create-app-registration-selector.md](../../includes/digital-twins-create-app-registration-selector.md)]
 
-When working with an Azure Digital Twins instance, it is common to interact with that instance through client applications, such as a custom client app or a sample like [Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md). Those applications need to authenticate with Azure Digital Twins in order to interact with it, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration**.
+When working with an Azure Digital Twins instance, it's common to interact with that instance through client applications, such as a custom client app or a sample like [Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md). Those applications need to authenticate with Azure Digital Twins to interact with it, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration**.
 
-This is not required for all authentication scenarios. However, if you are using an authentication strategy or code sample that does require an app registration, this article shows you how to set one up using the [Azure CLI](/cli/azure/what-is-azure-cli). It also covers how to [collect important values](#collect-important-values) that you'll need in order to use the app registration to authenticate.
+The app registration isn't required for all authentication scenarios. However, if you're using an authentication strategy or code sample that does require an app registration, this article shows you how to set one up using the [Azure CLI](/cli/azure/what-is-azure-cli). It also covers how to [collect important values](#collect-important-values) that you'll need to use the app registration to authenticate.
 
 ## Azure AD app registrations
 
@@ -60,13 +60,13 @@ Save the finished file.
 
 ### Upload to Cloud Shell
 
-Next, upload the manifest file you just created to the Cloud Shell, so that you can access it in Cloud Shell commands when configuring the app registration.
+Next, upload the manifest file you created to the Cloud Shell, so that you can access it in Cloud Shell commands when configuring the app registration.
 
 To upload the file, go to the Cloud Shell window in your browser. Select the "Upload/Download files" icon and choose "Upload".
 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Screenshot of Azure Cloud Shell. The Upload icon is highlighted.":::
 
-Navigate to the **manifest.json** file on your machine and select "Open." This will upload the file to the root of your Cloud Shell storage.
+Navigate to the **manifest.json** file on your machine and select "Open." Doing so will upload the file to the root of your Cloud Shell storage.
 
 ## Create the registration
 
@@ -82,7 +82,7 @@ Run the following command to create the registration:
 az ad app create --display-name <app-registration-name> --available-to-other-tenants false --reply-urls http://localhost --native-app --required-resource-accesses "@manifest.json"
 ```
 
-The output of the command is information about the app registration you have created. 
+The output of the command is information about the app registration you've created. 
 
 ## Verify success
 
@@ -94,7 +94,7 @@ You can also verify the app registration was successfully created by using the A
 
 ## Collect important values
 
-Next, collect some important values about the app registration that you'll need in order to use the app registration to authenticate a client application. These values include:
+Next, collect some important values about the app registration that you'll need to use the app registration to authenticate a client application. These values include:
 * **resource name**
 * **client ID**
 * **tenant ID**
@@ -126,7 +126,7 @@ To create a **client secret** for your app registration, you'll need your app re
 az ad app credential reset --id <client-ID> --append
 ```
 
-You can also add optional parameters to this command to specify a credential description, end date, and other details. For more information about the command and its additional parameters, see [az ad app credential reset documentation](/cli/azure/ad/app/credential?view=azure-cli-latest&preserve-view=true#az_ad_app_credential_reset).
+You can also add optional parameters to this command to specify a credential description, end date, and other details. For more information about the command and its parameters, see [az ad app credential reset documentation](/cli/azure/ad/app/credential?view=azure-cli-latest&preserve-view=true#az_ad_app_credential_reset).
 
 The output of this command is information about the client secret that you've created. Copy the value for `password` to use when you need the client secret for authentication.
 
@@ -137,9 +137,9 @@ The output of this command is information about the client secret that you've cr
 
 ## Other possible steps for your organization
 
-It's possible that your organization requires additional actions from subscription Owners/administrators to successfully set up an app registration. The steps required may vary depending on your organization's specific settings.
+It's possible that your organization requires more actions from subscription Owners/administrators to successfully set up an app registration. The steps required may vary depending on your organization's specific settings.
 
-Here are some common potential activities that an Owner or administrator on the subscription may need to perform.
+Here are some common potential activities that an Owner or administrator on the subscription may need to do.
 * Grant admin consent for the app registration. Your organization may have **Admin Consent Required** globally turned on in Azure AD for all app registrations within your subscription. If so, the Owner/administrator may need to grant additional delegated or application permissions.
 * Activate public client access by appending `--set publicClient=true` to a create or update command for the registration.
 * Set specific reply URLs for web and desktop access using the `--reply-urls` parameter. For more information on using this parameter with `az ad` commands, see the [az ad app documentation](/cli/azure/ad/app?view=azure-cli-latest&preserve-view=true).

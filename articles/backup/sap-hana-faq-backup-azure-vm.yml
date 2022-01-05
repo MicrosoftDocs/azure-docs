@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: article
   ms.service: backup
-  ms.date: 06/23/2021
+  ms.date: 09/01/2021
     
 title: Frequently asked questions – Back up SAP HANA databases on Azure VMs
 summary: This article answers common questions about backing up SAP HANA databases using the Azure Backup service.
@@ -125,7 +125,10 @@ sections:
           1. Then [Resume backup](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) on Node 1 with the required policy (as the backups were stopped earlier on Node 1).
           
           Then full backup will again be triggered on Node 1 and after that completes, log backups start.
-          
+
+          >[!Note]
+          >[Running the pre-registration script](./tutorial-backup-sap-hana-db.md#prerequisites) with custom backup user as input could help you manage your HSR backups better. This is because it ensures that both the nodes of the HSR set up have the same backup key, thereby reduces the backup sync and failure issues.
+
   - name: Restore
     questions:
       - question: |

@@ -13,7 +13,7 @@ ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
 ---
 
-# Python package extensibility for prebuilt Docker images (Preview)
+# Python package extensibility for prebuilt Docker images (preview)
 
 The [prebuilt Docker images for model inference](concept-prebuilt-docker-images-inference.md) contain packages for popular machine learning frameworks. There are two methods that can be used to add Python packages __without rebuilding the Docker image__:
 

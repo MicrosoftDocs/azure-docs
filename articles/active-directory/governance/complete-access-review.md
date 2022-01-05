@@ -106,4 +106,4 @@ To retrieve all the results of an access review, click the **Download** button. 
 - [Manage user access with Azure AD access reviews](manage-user-access-with-access-reviews.md)
 - [Manage guest access with Azure AD access reviews](manage-guest-access-with-access-reviews.md)
 - [Create an access review of groups or applications](create-access-review.md)
-- [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-how-to-start-security-review.md)
+- [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md)

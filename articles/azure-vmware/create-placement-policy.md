@@ -204,20 +204,20 @@ Additionally, you can monitor various DRS rule operations, such as recommendatio
 ## FAQs
 
 ### Are these the same as DRS affinity rules?
-Yes, and no. While vSphere DRS implements the current set of policies, we have simplified the experience. Tweaking VM groups and Host groups are a cumbersome operation, especially as hosts are ephemeral in nature and could be replaced in a cloud environment. As hosts are replaced in the vSphere inventory in an on-premises environment, the vSphere admin must modify the host group to ensure that the desired VM-Host placement constraints continue to stay in effect. Placement policies in Azure VMware Solution update the Host groups when a host is rotated or changed. Similarly, if you scale in a cluster, the Host Group is automatically updated, as applicable. This eliminates the overhead of managing the Host Groups for the customer.
+Yes, and no. While vSphere DRS implements the current set of policies, we have simplified the experience. Modifying VM groups and Host groups are a cumbersome operation, especially as hosts are ephemeral in nature and could be replaced in a cloud environment. As hosts are replaced in the vSphere inventory in an on-premises environment, the vSphere admin must modify the host group to ensure that the desired VM-Host placement constraints remain in effect. Placement policies in Azure VMware Solution update the Host groups when a host is rotated or changed. Similarly, if you scale in a cluster, the Host Group is automatically updated, as applicable. This eliminates the overhead of managing the Host Groups for the customer.
 
 
 ### As this is an existing functionality available in vCenter, why can't I use it directly? 
 
 Azure VMware Solution provides a VMware private cloud in Azure. In this managed VMware infrastructure, Microsoft manages the clusters, hosts, datastores, and distributed virtual switches in the private cloud. At the same time, the tenant is responsible for managing the workloads deployed on the private cloud. As a result, the tenant administering the private cloud [does not have the same set of privileges](concepts-identity.md) as available to the VMware administrator in an on-premises deployment. 
 
-Further, the lack of the desired granularity in the vSphere privileges presents some challenges when managing the placement of the workloads on the private cloud. For example, vSphere DRS rules commonly used on-premises to define affinity and anti-affinity rules cannot be used as-is in a VMware Cloud environment, as some of those rules can block day-to-day operation the private cloud. Placement Policies offers you a way to define those rules via the AVS portal, thereby circumventing the need to use DRS rules. Coupled with a simplified experience, they also ensure that the rules do not impact the day-to-day infrastructure maintenance and operation activities. 
+Further, the lack of the desired granularity in the vSphere privileges presents some challenges when managing the placement of the workloads on the private cloud. For example, vSphere DRS rules commonly used on-premises to define affinity and anti-affinity rules can't be used as-is in a VMware Cloud environment, as some of those rules can block day-to-day operation the private cloud. Placement Policies provides a way to define those rules using the Azure VMware Solution portal, thereby circumventing the need to use DRS rules. Coupled with a simplified experience, they also ensure that the rules don't impact the day-to-day infrastructure maintenance and operation activities. 
 
 
-###  What caveats should I be aware of?
+###  What caveats should I know about?
 
-The VM-Host MUST rules block maintenance operations and are not supported by Placement Policies. 
+The VM-Host **MUST** rules aren't supported because they block maintenance operations. 
 
-VM-Host SHOULD rules are preferential rules, where vSphere DRS tries to accommodate the rules to the extent possible. vSphere DRS may vMotion virtual machines subjected to the VM-Host SHOULD rules occasionally to ensure that the workloads get the resources they need. This is a standard vSphere DRS behavior, and the Placement Policies feature does not change the underlying vSphere DRS behavior.
+VM-Host **SHOULD** rules are preferential rules, where vSphere DRS tries to accommodate the rules to the extent possible. Occasionally, vSphere DRS may vMotion VMs subjected to the VM-Host **SHOULD** rules to ensure that the workloads get the resources they need. It's a standard vSphere DRS behavior, and the Placement policies feature does not change the underlying vSphere DRS behavior.
 
-If you create conflicting rules, those conflicts may show up on the vCenter, and the newly defined rules may not take effect. This is a standard vSphere DRS behavior, the logs for which can be observed in the vCenter.
+If you create conflicting rules, those conflicts may show up on the vCenter, and the newly defined rules may not take effect. It's a standard vSphere DRS behavior, the logs for which can be observed in the vCenter.

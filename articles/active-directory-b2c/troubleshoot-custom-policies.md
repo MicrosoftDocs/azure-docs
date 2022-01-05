@@ -358,7 +358,7 @@ For example, a technical profile with the *schoolId* output claim. But the outpu
 </OutputClaims>
 ```
 
-To fix this type of error, check whether the `ClaimTypeReferenceId` value is misspelled, or does not exist in the schema. If the claim is defined in the extensions policy, but it's also being used in the base policy. Make sure the claim is defined in the policy it's in used, or in an upper level policy.
+To fix this type of error, check whether the `ClaimTypeReferenceId` value is misspelled, or does not exist in the schema. If the claim is defined in the extensions policy, but it's also being used in the base policy. Make sure the claim is defined in the policy it's used in, or in an upper level policy.
 
 Adding the claim to the claims schema solves this type of error.
 

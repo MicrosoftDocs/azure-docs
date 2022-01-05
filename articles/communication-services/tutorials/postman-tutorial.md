@@ -4,9 +4,10 @@ titleSuffix: An Azure Communication Services tutorial
 description: Learn how to sign and makes requests for ACS with Postman to send an SMS Message.
 author: ProbablePrime
 services: azure-communication-services
+
 ms.author: rifox
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: tutorial
 ms.service: azure-communication-services
 ---
 # Tutorial: Sign and make requests with Postman

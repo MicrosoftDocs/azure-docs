@@ -38,7 +38,7 @@ The Single Object Sync tool performs the following steps:
  9. Sync Object from Active Directory Connector Space. 
  10. Export Object from Azure Active Directory Connector Space to Azure Active Directory. 
 
-In addition to the JSON output, the tool generates an HTML report that has all the details of the synchronization operation. The HTML report is located in **C:\ProgramData\AADConnect\ADSyncObjectDiagnostics\ ADSyncSingleObjectSyncResult-<date>.htm**. This HTML report can be shared with the support team to do further troubleshooting, if needed. 
+In addition to the JSON output, the tool generates an HTML report that has all the details of the synchronization operation. The HTML report is located in **C:\ProgramData\AADConnect\ADSyncObjectDiagnostics\ ADSyncSingleObjectSyncResult-\<date\>.htm**. This HTML report can be shared with the support team to do further troubleshooting, if needed. 
 
 The HTML report has the following: 
 
@@ -53,7 +53,7 @@ The HTML report has the following:
 
 In order to use the Single Object Sync tool, you will need to use the following:  
  - 2021 March release ([1.6.4.0](reference-connect-version-history.md#1640)) of Azure AD Connect or later.
- -  [PowerShell 5.0](/powershell/scripting/windows-powershell/whats-new/what-s-new-in-windows-powershell-50?view=powershell-7.1)
+ -  [PowerShell 5.0](/powershell/scripting/windows-powershell/whats-new/what-s-new-in-windows-powershell-50)
 
 ### Run the Single Object Sync tool 
 

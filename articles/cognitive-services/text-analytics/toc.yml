@@ -147,7 +147,7 @@ items:
         href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1
   - name: SDKs
     items:
-    - name: v3.1
+    - name: v3.2-preview.1
       items:
         - name: .NET
           href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
@@ -157,16 +157,26 @@ items:
           href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
         - name: Node.js
           href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+    - name: v3.1
+      items:
+        - name: .NET
+          href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet&preserve-view=true
+        - name: Python
+          href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true
+        - name: Java
+          href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
+        - name: Node.js
+          href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
     - name: v3.0
       items:
         - name: .NET
-          href: /dotnet/api/azure.ai.textanalytics
+          href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-legacy&preserve-view=true
         - name: Python
-          href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics
+          href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-previous&preserve-view=true
         - name: Java
-          href: /java/api/overview/azure/ai-textanalytics-readme
+          href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-legacy&preserve-view=true
         - name: Node.js
-          href: /javascript/api/overview/azure/ai-text-analytics-readme
+          href: /javascript/api/overview/azure/ai-text-analytics-readme?view=view=azure-node-legacy&preserve-view=true
     - name: v2 (Retiring)
       items:
         - name: .NET

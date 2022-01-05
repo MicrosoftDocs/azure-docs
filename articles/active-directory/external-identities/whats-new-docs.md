@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory external identities"
 description: "New and updated documentation for the Azure Active Directory external identities."
-ms.date: 08/03/2021
+ms.date: 09/08/2021
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -14,6 +14,19 @@ manager: CelesteDG
 # Azure Active Directory external identities: What's new
 
 Welcome to what's new in Azure Active Directory external identities documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the external identities service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## August 2021
+
+### Updated articles
+
+- [Identity Providers for External Identities](identity-providers.md)
+- [Enable B2B external collaboration and manage who can invite guests](delegate-invitations.md)
+- [Properties of an Azure Active Directory B2B collaboration user](user-properties.md)
+- [Add Google as an identity provider for B2B guest users](google-federation.md)
+- [Azure Active Directory (Azure AD) identity provider for External Identities](azure-ad-account.md)
+- [Microsoft account (MSA) identity provider for External Identities](microsoft-account.md)
+- [Add an API connector to a user flow](self-service-sign-up-add-api-connector.md)
+
 
 ## July 2021
 

@@ -75,7 +75,7 @@ ACL inheritance is already available for new child items that are created under 
 
 ## Get ACLs
 
-Get the ACL of a **directory** by using the `az storage fs access show` command.
+Get the ACL of a **directory** by using the [az storage fs access show](/cli/azure/storage/fs#az_storage_fs_show) command.
 
 This example gets the ACL of a directory, and then prints the ACL to the console.
 
@@ -83,7 +83,7 @@ This example gets the ACL of a directory, and then prints the ACL to the console
 az storage fs access show -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-Get the access permissions of a **file** by using the `az storage fs access show` command. 
+Get the access permissions of a **file** by using the [az storage fs access show](/cli/azure/storage/fs#az_storage_fs_show) command. 
 
 This example gets the ACL of a file and then prints the ACL to the console.
 
@@ -110,7 +110,7 @@ This section shows you how to:
 
 ### Set an ACL
 
-Use the `az storage fs access set` command to set the ACL of a **directory**. 
+Use the [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) command to set the ACL of a **directory**. 
 
 This example sets the ACL on a directory for the owning user, owning group, or other users, and then prints the ACL to the console.
 
@@ -124,7 +124,7 @@ This example sets the *default* ACL on a directory for the owning user, owning g
 az storage fs access set --acl "default:user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-Use the `az storage fs access set` command to set the acl of a **file**. 
+Use the [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) command to set the acl of a **file**. 
 
 This example sets the ACL on a file for the owning user, owning group, or other users, and then prints the ACL to the console.
 
@@ -167,7 +167,7 @@ This section shows you how to:
 
 ### Update an ACL
 
-Another way to set this permission is to use the `az storage fs access set` command. 
+Another way to set this permission is to use the [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) command. 
 
 Update the ACL of a directory or file by setting the `-permissions` parameter to the short form of an ACL.
 

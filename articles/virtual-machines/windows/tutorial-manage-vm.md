@@ -13,6 +13,7 @@ ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Tutorial: Create and Manage Windows VMs with Azure PowerShell
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine (VM) deployment tasks like selecting a VM size, selecting a VM image, and deploying a VM. You learn how to:
 

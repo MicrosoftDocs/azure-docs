@@ -3,7 +3,7 @@ title: 'Quickstart: Delete an application from your tenant'
 titleSuffix: Azure AD
 description: This quickstart uses the Azure portal to delete an application from your Azure Active Directory (Azure AD) tenant.
 services: active-directory
-author: davidmu
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt

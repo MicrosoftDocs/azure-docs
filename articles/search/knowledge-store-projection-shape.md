@@ -65,7 +65,7 @@ Shaper skills are usually placed at the end of a skillset, creating a view of th
             "sourceContext": "/document/reviews_text/pages/*",
             "inputs": [
                 {
-                    "name": "SentimentScore",
+                    "name": "Sentiment",
                     "source": "/document/reviews_text/pages/*/Sentiment",
                     "sourceContext": null,
                     "inputs": []
@@ -185,7 +185,7 @@ To project the same data as the previous example, the inline projection option w
                 "sourceContext": "/document/reviews_text/pages/*",
                 "inputs": [
                         {
-                    "name": "SentimentScore",
+                    "name": "Sentiment",
                     "source": "/document/reviews_text/pages/*/Sentiment"
                     },
                     {

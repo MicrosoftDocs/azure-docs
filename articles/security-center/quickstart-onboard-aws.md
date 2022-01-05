@@ -80,11 +80,11 @@ There are two ways to allow Security Center to authenticate to AWS:
     - **External ID** - enter the subscription ID as shown in the AWS connector page in Security Center 
 
 1. Select **Next**.
-1. In the **Attach permission policies** section, select the following policies:
+1. In the **Attach permission policies** section, select the following [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html):
 
-    - SecurityAudit
-    - AmazonSSMAutomationRole
-    - AWSSecurityHubReadOnlyAccess
+    - SecurityAudit (`arn:aws:iam::aws:policy/SecurityAudit`)
+    - AmazonSSMAutomationRole (`arn:aws:iam::aws:policy/service-role/AmazonSSMAutomationRole`)
+    - AWSSecurityHubReadOnlyAccess (`arn:aws:iam::aws:policy/AWSSecurityHubReadOnlyAccess`)
 
 1. Optionally add tags. Adding Tags to the user doesn't affect the connection.
 1. Select **Next**.

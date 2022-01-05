@@ -46,5 +46,6 @@ Azure Front Door private endpoints get managed by the platform and under the sub
 
 ## Next steps
 
-* To connect Azure Front Door Premium to your Web App via Private Link service, see [Connect to a web app using a Private endpoint](../../private-link/tutorial-private-endpoint-webapp-portal.md).
-* To connect Azure Front Door Premium to your Storage Account via private link service, see [Connect to a storage account using Private endpoint](../../private-link/tutorial-private-endpoint-storage-portal.md).
+* To connect Azure Front Door Premium to your Web App via Private Link service, see [Connect Azure Front Door Premium to a Web App origin with Private Link](../../frontdoor/standard-premium/how-to-enable-private-link-web-app.md).
+* To connect Azure Front Door Premium to your Storage Account via private link service, see [Connect Azure Front Door Premium to a storage account origin with Private Link](../../frontdoor/standard-premium/how-to-enable-private-link-storage-account.md).
+* To connect Azure Front Door Premium to an internal load balancer origin with Private Link service, see [Connect Azure Front Door Premium to an internal load balancer origin with Private Link](../../frontdoor/standard-premium/how-to-enable-private-link-internal-load-balancer.md).

@@ -43,7 +43,7 @@ FROM sys.tables  t
 JOIN sys.columns c on t.[object_id]    = c.[object_id]
 JOIN sys.types   y on c.[user_type_id] = y.[user_type_id]
 WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','xml')
- AND  y.[is_user_defined] = 1;
+ OR  y.[is_user_defined] = 1;
 ```
 
 ## <a name="unsupported-data-types"></a>Workarounds for unsupported data types

@@ -8,9 +8,9 @@ ms.date: 06/01/2021
 ---
 # Manage recording policy with Video Analyzer
 
-You can use Azure Video Analyzer for [recording](video-recording.md) live video into the cloud over a period of weeks, months, or years. This recording can either be [continuous](continuous-video-recording.md), or it can be sparse or [event-based](event-based-video-recording-concept.md). In either case, the recordings can span years. You can manage the length (in days) of that cloud archive by using the [Lifecycle Management tools](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal) built into Azure storage.  
+You can use Azure Video Analyzer for [recording](video-recording.md) live video into the cloud over a period of weeks, months, or years. This recording can either be [continuous](continuous-video-recording.md), or it can be sparse or [event-based](event-based-video-recording-concept.md). In either case, the recordings can span years. You can manage the length (in days) of that cloud archive by using the [Lifecycle Management tools](../../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal) built into Azure storage.  
 
-Your Video Analyzer account is linked to an Azure Storage account, and when you record to a video resource, the media data is written to a container in the storage account. Lifecycle management allows you to define a [policy](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#policy) for a Storage account, wherein you can specify a [rule](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#rules) such as the following.
+Your Video Analyzer account is linked to an Azure Storage account, and when you record to a video resource, the media data is written to a container in the storage account. Lifecycle management allows you to define a [policy](../../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal) for a Storage account, wherein you can specify a [rule](../../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal#lifecycle-management-rule-definition) such as the following.
 
 ```
 {
@@ -48,7 +48,7 @@ When you use Video Analyzer to record to a video resource, you specify a `segmen
 Following are some known limitations with lifecycle management:
 
 * You can have at most 100 rules within the policy, and each rule can specify up to 10 containers. So if you needed to have different recording policies (for example, 3-day archive for the camera facing the parking lot, 30 days for the camera in the loading dock, and 180 days for the camera behind the checkout counter), then with one storage account you can customize the rules for at most 1000 cameras.
-* Lifecycle management policy updates are not immediate. See [this FAQ section](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#faq) for more details.
+* Lifecycle management policy updates are not immediate. See [this FAQ section](../../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal#faq) for more details.
 * If you choose to apply a policy where blobs get moved to the cool tier, then playback of that portion of the archive may be affected. You may see additional latencies or sporadic errors. Video Analyzer does not support playback of content in the archive tier.
 
 ## Next steps

@@ -12,8 +12,7 @@ ms.subservice: application-insights
 
 # Store and view diagnostic data in Azure Storage
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 Diagnostic data is not permanently stored unless you transfer it to the Microsoft Azure Storage Emulator or to Azure Storage. Once in storage, it can be viewed with one of several available tools.
 

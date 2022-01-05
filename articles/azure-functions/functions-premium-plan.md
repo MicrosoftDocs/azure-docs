@@ -13,7 +13,10 @@ ms.custom:
 
 # Azure Functions Premium plan
 
-The Azure Functions Premium plan (sometimes referred to as Elastic Premium plan) is a hosting option for function apps. For other hosting plan options, see the [hosting plan article](functions-scale.md).
+The Azure Functions Elastic Premium plan is a dynamic scale hosting option for function apps. For other hosting plan options, see the [hosting plan article](functions-scale.md).
+
+>[!IMPORTANT]
+>Azure Functions runs on the Azure App Service platform. In the App Service platform, plans that host Premium plan function apps are referred to as *Elastic* Premium plans, with SKU names like `EP1`. If you choose to run your function app on a Premium plan, make sure to create a plan with an SKU name that starts with "E", such as `EP1`. App Service plan SKU names that start with "P", such as `P1V2` (Premium V2 Small plan), are actually [Dedicated hosting plans](dedicated-plan.md). Because they are Dedicated and not Elastic Premium, plans with SKU names starting with "P" won't scale dynamically and may increase your costs. 
 
 Premium plan hosting provides the following benefits to your functions:
 
@@ -153,7 +156,7 @@ And for plans with more than 4GB memory, ensure the Bitness Platform Setting is 
 
 ## Region Max Scale Out
 
-Below are the currently supported maximum scale-out values for a single plan in each region and OS configuration. To request an increase, you can open a support ticket.
+Below are the currently supported maximum scale-out values for a single plan in each region and OS configuration.
 
 See the complete regional availability of Functions on the [Azure web site](https://azure.microsoft.com/global-infrastructure/services/?products=functions).
 

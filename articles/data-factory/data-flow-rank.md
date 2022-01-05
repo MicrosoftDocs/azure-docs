@@ -1,7 +1,7 @@
 ---
 title: Rank transformation in mapping data flow 
+description: Learn how to use a mapping data flow rank transformation to generate a ranking column in Azure Data Factory or Synapse Analytics pipelines.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: How to use Azure Data Factory's mapping data flow rank transformation generate a ranking column
 author: kromerm
 ms.author: makromer
 ms.reviewer: makromer
@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/05/2020
+ms.date: 09/09/2021
 ---
 
 # Rank transformation in mapping data flow 
@@ -22,7 +22,7 @@ Use the rank transformation to generate an ordered ranking based upon sort condi
 
 ## Configuration
 
-![Rank settings](media/data-flow/rank-configuration.png "Rank settings")
+:::image type="content" source="media/data-flow/rank-configuration.png" alt-text="Rank settings":::
 
 **Case insensitive:** If a sort column is of type string, case will be factored into the ranking. 
 
@@ -52,7 +52,7 @@ The above configuration takes incoming basketball data and creates a rank column
 
 ### Example
 
-![Rank settings](media/data-flow/rank-configuration.png "Rank settings")
+:::image type="content" source="media/data-flow/rank-configuration.png" alt-text="Rank settings":::
 
 The data flow script for the above rank configuration is in the following code snippet.
 

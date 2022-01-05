@@ -4,11 +4,11 @@ titleSuffix: Azure API Management
 description: Set up and configure Azure API Management in an internal virtual network with Application Gateway (Web Application Firewall) as a front end
 services: api-management
 documentationcenter: ''
-author: solankisamir
+author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.author: sasolank
+ms.author: danlep
 ms.date: 06/10/2021
 ms.custom: devx-track-azurepowershell,contperf-fy21q4
 
@@ -201,7 +201,7 @@ $apimAdminEmail = "admin@contoso.com" # administrator's email address
 $apimService = New-AzApiManagement -ResourceGroupName $resGroupName -Location $location -Name $apimServiceName -Organization $apimOrganization -AdminEmail $apimAdminEmail -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer"
 ```
 
-It can take between 30 and 40 minutes to create and activate an API Management service in this tier. After the previous command succeeds, refer to [DNS Configuration required to access internal virtual network API Management service](api-management-using-with-internal-vnet.md#apim-dns-configuration) to confirm access it. 
+It can take between 30 and 40 minutes to create and activate an API Management service in this tier. After the previous command succeeds, refer to [DNS Configuration required to access internal virtual network API Management service](api-management-using-with-internal-vnet.md#dns-configuration) to confirm access to it. 
 
 ## Set up custom domain names in API Management
 

@@ -53,6 +53,9 @@ Complete these steps to make changes to a plan for an offer that you've already 
 1. Select **Review and publish** when you're ready to publish your updates. The **[Review and publish](review-publish-offer.md)** page opens and provides a completion status for your updates.
 1. Select **Publish** to submit the updated plan for publishing. We'll email you when a preview version of the updated offer is available for you to review and approve.
 
+> [!NOTE]
+> If you publish a private plan, you can change its visibility to public later. However, once you publish a public plan, you cannot change its visibility to private.
+
 ## Update image versions for an existing VM offer
 
 Complete these steps to update available images in a plan for an offer that you've already published.

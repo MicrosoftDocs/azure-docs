@@ -5,8 +5,6 @@ description: Learn to profile your model before deployment. Profiling determines
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: gopalv
-author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: how-to
 zone_pivot_groups: aml-control-methods

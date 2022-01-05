@@ -83,7 +83,7 @@ A knowledge base is directly tied its QnA Maker resource. It holds the question 
 
 The first knowledge base created on your QnA Maker resource sets the language for the resource. You can only have one language for a QnA Maker resource.
 
-You can structure your QnA Maker resources by language or you can use [Translator](../../translator/translator-info-overview.md) to change a query from another language into the knowledge base's language before sending the query to the query prediction endpoint.
+You can structure your QnA Maker resources by language or you can use [Translator](../../translator/translator-overview.md) to change a query from another language into the knowledge base's language before sending the query to the query prediction endpoint.
 
 # [Custom question answering (preview release)](#tab/v2)
 

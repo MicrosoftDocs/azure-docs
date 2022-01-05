@@ -23,6 +23,14 @@ Here are related topics:
 - [User sign-in with Azure AD Pass-through Authentication](how-to-connect-pta.md) 
 - [Azure AD Pass-through Authentication agent installation](how-to-connect-pta-quick-start.md) 
 
+## 1.5.2482.0
+### Release Status: 
+07/07/2021: Released for download
+
+### New features and improvements
+
+- Upgraded the packages/libraries to newer versions signed using SHA-256RSA.
+
 ## 1.5.1742.0
 ### Release Status: 
 04/09/2020: Released for download

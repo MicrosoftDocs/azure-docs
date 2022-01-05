@@ -12,6 +12,9 @@ ms.custom: seodec18
 ms.date: 03/22/2019
 ---
 # Is your data ready for data science?
+
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
 ## Video 2: Data Science for Beginners series
 Learn how to evaluate your data to make sure it meets basic criteria to be ready for data science.
 

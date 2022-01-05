@@ -2,7 +2,7 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: conceptual
-ms.date: 07/05/2021
+ms.date: 09/14/2021
 ms.custom: references_regions 
 ---
 
@@ -34,7 +34,7 @@ The following table describes the features of Recovery Services vaults:
 **Move vaults** | You can [move vaults](./backup-azure-move-recovery-services-vault.md) across subscriptions or between resource groups in the same subscription. However, moving vaults across regions isn't supported.
 **Move data between vaults** | Moving backed-up data between vaults isn't supported.
 **Modify vault storage type** | You can modify the storage replication type (either geo-redundant storage or locally redundant storage) for a vault before backups are stored. After backups begin in the vault, the replication type can't be modified.
-**Zone-redundant storage (ZRS)** | Supported in preview in UK South, South East Asia, Australia East, North Europe, Central US and Japan East.
+**Zone-redundant storage (ZRS)** | Supported in preview in UK South, South East Asia, Australia East, North Europe, Central US, East US 2, Brazil South and Japan East.
 **Private Endpoints** | See [this section](./private-endpoints.md#before-you-start) for requirements to create private endpoints for a recovery service vault.  
 
 ## On-premises backup support
@@ -158,7 +158,7 @@ The resource health check functions in following conditions:
 |     |     |
 | --- | --- |
 | **Supported Resources** | Recovery Services vault |
-| **Supported Regions** | East US 2, East Asia, and France Central. |
+| **Supported Regions** | East US, East US 2, Central US, South Central US, North Central US, West Central US, North Europe, West Europe, France Central, East Asia, South East Asia, Japan East, Japan West, Australia East, Australia Central, Australia Central 2, South Africa North, UAE Central, Brazil South, Switzerland North, Norway East, Germany West Central, West India. |
 | **For unsupported regions** | The resource health status is shown as "Unknown". |
 
 

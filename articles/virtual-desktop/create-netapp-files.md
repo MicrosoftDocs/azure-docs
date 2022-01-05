@@ -28,12 +28,11 @@ To set up Azure NetApp Files, you'll need the following things:
 
 To start using Azure NetApp Files:
 
-1. Follow the instructions in [Register for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-register.md) to submit a waitlist request and register your NetApp provider.
-2. Set up your Azure NetApp Files account by following the instructions in [Set up your Azure NetApp Files account](create-fslogix-profile-container.md#set-up-your-azure-netapp-files-account).
-3. Create a capacity pool by following the instructions in [Set up a capacity pool](../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
-4. Join an Azure Active Directory (Azure AD) connection by following the instructions in [Join an Active Directory connection](create-fslogix-profile-container.md#join-an-active-directory-connection).
-5. Create a new volume by following the instructions in [Create a new volume](create-fslogix-profile-container.md#create-a-new-volume) and [Configure volume access parameters](create-fslogix-profile-container.md#configure-volume-access-parameters).
-6. Make sure your connection to the Azure NetApp Files share works by following the instructions in [Make sure users can access the Azure NetApp Files share](create-fslogix-profile-container.md#make-sure-users-can-access-the-azure-netapp-file-share).
+1. Set up your Azure NetApp Files account by following the instructions in [Set up your Azure NetApp Files account](create-fslogix-profile-container.md#set-up-your-azure-netapp-files-account).
+2. Create a capacity pool by following the instructions in [Set up a capacity pool](../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
+3. Join an Azure Active Directory (Azure AD) connection by following the instructions in [Join an Active Directory connection](create-fslogix-profile-container.md#join-an-active-directory-connection).
+4. Create a new volume by following the instructions in [Create a new volume](create-fslogix-profile-container.md#create-a-new-volume) and [Configure volume access parameters](create-fslogix-profile-container.md#configure-volume-access-parameters).
+5. Make sure your connection to the Azure NetApp Files share works by following the instructions in [Make sure users can access the Azure NetApp Files share](create-fslogix-profile-container.md#make-sure-users-can-access-the-azure-netapp-file-share).
 
 ## Upload an MSIX image to the Azure NetApp file share
 

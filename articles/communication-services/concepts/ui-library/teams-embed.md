@@ -3,11 +3,11 @@ title: Teams Embed SDK
 titleSuffix: An Azure Communication Services - Teams Embed SDK description
 description: In this document, review about the Teams Embed Capabilities and how is going to work in your applications
 author: tophpalmer
+
 ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-
 ---
 
 # Teams Embed

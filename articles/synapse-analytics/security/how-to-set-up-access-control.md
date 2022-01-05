@@ -134,7 +134,7 @@ To run pipelines and perform system tasks, Azure Synapse requires that the works
     
     | Setting | Value |
     | --- | --- |
-    | Role | Storage Blob Contributor |
+    | Role | Storage Blob Data Contributor |
     | Assign access to | MANAGEDIDENTITY |
     | Members | managed identity name  |
 

@@ -47,8 +47,6 @@
       href: tutorial-deploy-function.md
     - name: Find averages with Azure Stream Analytics
       href: tutorial-deploy-stream-analytics.md
-    - name: Score data with Azure Machine Learning
-      href: tutorial-deploy-machine-learning.md
     - name: Classify images with Custom Vision
       href: tutorial-deploy-custom-vision.md
     - name: Store data locally with SQL
@@ -156,7 +154,13 @@
       - name: Windows
         href: how-to-auto-provision-simulated-device-windows.md
     - name: X.509 certificate attestation
-      href: how-to-auto-provision-x509-certs.md
+      items:
+      - name: Linux
+        href: how-to-provision-devices-at-scale-linux-x509.md
+      - name: Linux containers on Windows
+        href: how-to-provision-devices-at-scale-linux-on-windows-x509.md
+      - name: Windows
+        href: how-to-provision-devices-at-scale-windows-x509.md
     - name: Symmetric key attestation
       href: how-to-auto-provision-symmetric-keys.md
   - name: Develop custom modules
@@ -267,6 +271,8 @@
       href: troubleshoot-common-errors.md
 - name: Reference
   items:
+  - name: Runtime modules environment variables
+    href: https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md
   - name: PowerShell functions
     items:
     - name: IoT Edge for Linux on Windows

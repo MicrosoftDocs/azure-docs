@@ -59,6 +59,8 @@ Azure Front Door uses the same three-step process below across all algorithms to
 
 3. For the sets of healthy backends in the backend pool, Front Door additionally measures and maintains the latency (round-trip time) for each backend.
 
+> [!NOTE]
+> If a single endpoint is a member of multiple backend pools, Azure Front Door optimizes the number of health probes sent to the backend to reduce the load on the backend. Health probe requests will be sent based on the lowest configured sample interval. The health of the endpoint in all pools will be determined by the responses from same health probes.
 
 ## Complete health probe failure
 

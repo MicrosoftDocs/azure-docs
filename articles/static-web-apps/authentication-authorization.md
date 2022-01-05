@@ -191,7 +191,7 @@ To block a provider, you can create [route rules](configuration.md#routes) to re
 ```json
 {
   "route": "/.auth/login/twitter",
-  "statusCode": "404"
+  "statusCode": 404
 }
 ```
 

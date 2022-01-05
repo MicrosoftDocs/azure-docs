@@ -87,7 +87,7 @@ For custom tables, you can move to [Parsing the data](./parse-text.md) in querie
 #### Operation: Field content validation
 "The following fields' values \<**field name**\> of type \<**table name**\> have been trimmed to the max allowed size, \<**field size limit**\> bytes. Please adjust your input accordingly." 
 
-Field larger then the limit size was proccessed by Azure logs, the field was trimed to the allowed field limit. We don’t recommend sending fields larger than the allowed limit as this will resualt in data loss. 
+Field larger than the limit size was proccessed by Azure logs, the field was trimmed to the allowed field limit. We don’t recommend sending fields larger than the allowed limit as this will result in data loss. 
 
 Recommended Actions:
 Check the source of the affected data type:

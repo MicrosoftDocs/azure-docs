@@ -4,7 +4,7 @@ description: Learn how to integrate with Azure Firewall to secure outbound traff
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 07/07/2021
+ms.date: 09/16/2021
 ms.author: ccompy
 ms.custom: seodec18, references_regions
 
@@ -241,6 +241,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 | \*.ctldl.windowsupdate.com:80 |
 | \*.ctldl.windowsupdate.com:443 |
 | \*.prod.microsoftmetrics.com:443 |
+| \*.dsms.core.windows.net:443 |
 
 #### Linux dependencies 
 

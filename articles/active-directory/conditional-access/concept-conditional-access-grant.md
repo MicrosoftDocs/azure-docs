@@ -10,7 +10,7 @@ ms.date: 06/25/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
@@ -89,7 +89,7 @@ The following client apps have been confirmed to support this setting:
 - Microsoft OneNote
 - Microsoft Outlook
 - Microsoft Planner
-- Microsoft PowerApps
+- Microsoft Power Apps
 - Microsoft Power BI
 - Microsoft PowerPoint
 - Microsoft SharePoint
@@ -137,6 +137,7 @@ The following client apps have been confirmed to support this setting:
 - Microsoft Power BI
 - Microsoft PowerPoint
 - Microsoft SharePoint
+- Microsoft Teams
 - Microsoft Word
 - MultiLine for Intune
 - Nine Mail - Email & Calendar

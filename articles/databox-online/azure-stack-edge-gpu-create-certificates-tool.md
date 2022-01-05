@@ -1,9 +1,7 @@
 ---
 title: Create certificates for Azure Stack Edge Pro GPU via Azure Stack Hub Readiness Checker tool
 description: Describes how to create certificate requests and then get and install certificates on your Azure Stack Edge Pro GPU device using the Azure Stack Hub Readiness Checker tool.
-services: Azure Stack Edge Pro
 author: alkohli
-
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
@@ -114,7 +112,7 @@ Use these steps to prepare the Azure Stack Edge Pro device certificates:
     |Starting with `wildcard`     |Blob storage certificate request. It contains a wildcard because it covers all the storage accounts that you may create on the device.          |
     |Starting with `AzureStackEdgeVPNCertificate`     |VPN client certificate request.         |
 
-    You'll also see an INF folder. This contains a management.<edge-devicename> information file in clear text explaining the certificate details.  
+    You'll also see an INF folder. This contains a management.\<edge-devicename\> information file in clear text explaining the certificate details.  
 
 
 6. Submit these files to your certificate authority (either internal or public). Be sure that your CA generates certificates, using your generated request, that meet the Azure Stack Edge Pro certificate requirements for [node certificates](azure-stack-edge-gpu-certificates-overview.md#node-certificates), [endpoint certificates](azure-stack-edge-gpu-certificates-overview.md#endpoint-certificates), and [local UI certificates](azure-stack-edge-gpu-certificates-overview.md#local-ui-certificates).

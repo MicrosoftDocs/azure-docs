@@ -46,7 +46,7 @@ You'll see a dialog asking for confirmation to upgrade your project. Select the 
 
 Once the upgrade process completes, **Unity Editor** will open up.
 
-Follow the <a a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality Feature Tool</a> documentation to set up the tool and learn how to use it.
+Follow the <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality Feature Tool</a> documentation to set up the tool and learn how to use it.
 
 Under the **Platform Support** section, install the **Mixed Reality OpenXR Plugin** feature package, version 1.0.0 or newer, into the Unity project folder. If you're working with the `quickstarts/apps/unity/mrtk` project, also open the **Mixed Reality Toolkit** section, locate the **Mixed Reality Toolkit Foundation** and **Mixed Reality Toolkit Tools** feature packages, and upgrade them to version 2.7.0 or newer.
 

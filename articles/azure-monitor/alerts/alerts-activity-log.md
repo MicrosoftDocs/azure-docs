@@ -47,7 +47,7 @@ The following procedure describes how to create a metric alert rule in Azure por
 3. Click **Select target**, in the context pane that loads, select a target resource that you want to alert on. Use **Subscription** and **Resource type** drop-downs to find the resource you want to monitor. You can also use the search bar to find your resource.
     
     > [!NOTE]
-    > As a target, you can select an entire subscription, a resource group, or a specific resource. If you chose a subscription or a resource group as a target, and also selected a resource type, the rule will apply to all resources of that type within the selected subscription or a reosurce group. If you chose a specific target resource, the rule will apply only to that resource. You can't explicitly select multiple subscriptions, resource groups, or resources using the target selector. 
+    > As a target, you can select an entire subscription, a resource group, or a specific resource. If you chose a subscription or a resource group as a target, and also selected a resource type, the rule will apply to all resources of that type within the selected subscription or a resource group. If you chose a specific target resource, the rule will apply only to that resource. You can't explicitly select multiple subscriptions, resource groups, or resources using the target selector. 
 
 4. If the selected resource has activity log operations you can create alerts on, **Available signals** on the bottom right will include Activity Log. You can view the full list of resource types supported for activity log alerts in this [article](../../role-based-access-control/resource-provider-operations.md).
 
@@ -266,6 +266,5 @@ Activity log alert rule resources can be removed by using the Azure CLI command 
 
 - Learn about [webhook schema for activity logs](./activity-log-alerts-webhook.md).
 - Read an [overview of activity logs](./activity-log-alerts.md).
-- Learn more about [action groups](../platform/action-groups.md).  
+- Learn more about [action groups](./action-groups.md).  
 - Learn about [service health notifications](../../service-health/service-notifications.md).
-

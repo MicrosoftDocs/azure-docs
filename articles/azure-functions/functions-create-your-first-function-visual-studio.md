@@ -22,9 +22,14 @@ In this article, you learn how to:
 > * Run your code locally to verify function behavior.
 > * Deploy your code project to Azure Functions. 
  
+This article supports creating both types of compiled C# functions: 
+
++ [In-process](functions-create-your-first-function-visual-studio.md?tabs=in-process) - runs in the same process as the Functions host process. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
++ [Isolated process](functions-create-your-first-function-visual-studio.md?tabs=isolated-process) - runs in a separate .NET worker process. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
+
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
- 
-The project you create runs on .NET Core 3.1. If you instead want to create a project that runs on .NET 5.0, see [Develop and publish .NET 5 functions using Azure Functions](dotnet-isolated-process-developer-howtos.md).
+
+There is also a [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
 
 ## Prerequisites
 
@@ -50,8 +55,16 @@ The `FunctionName` method attribute sets the name of the function, which by defa
 
 Your function definition should now look like the following code:
 
-:::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs" range="13-18"::: 
- 
+# [In-process](#tab/in-process) 
+
+:::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs" range="15-18"::: 
+
+# [Isolated process](#tab/isolated-process)
+
+:::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs" range="11-13"::: 
+
+---
+
 Now that you've renamed the function, you can test it on your local computer.
 
 ## Run the function locally
