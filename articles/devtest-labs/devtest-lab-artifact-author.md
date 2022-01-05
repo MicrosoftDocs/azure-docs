@@ -143,7 +143,7 @@ To create a custom artifact:
   - Store each *artifactfile.json* artifact definition file in a separate directory named the same as the artifact name.
   - Store the scripts that the install command references in the same directory as the artifact definition file.
       
-  The following screenshot shows an an example artifact folder:
+  The following screenshot shows an example artifact folder:
 
   ![Screenshot that shows an example artifact folder.](./media/devtest-lab-artifact-author/git-repo.png)
 

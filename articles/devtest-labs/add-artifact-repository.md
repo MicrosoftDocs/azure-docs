@@ -8,7 +8,7 @@ ms.custom: devx-track-azurepowershell
 
 # Add an artifact repository to your lab in DevTest Labs
 
-You can add *artifacts* to Azure DevTest Labs virtual machines (VMs). Artifact are tools or applications you want to install on the VM. You define artifacts in a JSON file that you load from a GitHub or Azure Repos Git repository.
+You can add *artifacts* to Azure DevTest Labs virtual machines (VMs). Artifacts are tools or applications to install on the VM. You define artifacts in a JSON file that you load from a GitHub or Azure Repos Git repository.
 
 The public [DevTest Labs GitHub artifact repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) provides many common artifacts for Windows and Linux. The artifacts in this repository are available by default in DevTest Labs. You can also create custom artifacts that aren't available in the public artifact repository. To learn about creating custom artifacts, see [Create custom artifacts](devtest-lab-artifact-author.md).
 
@@ -23,7 +23,7 @@ To add a repository to your lab, you need the Git HTTPS clone URL and the person
 
 1. On the home page of the GitHub repository that has your artifacts, select **Code**, and under **Clone**, copy the HTTPS URL.
 1. Select your profile image in the upper-right corner of GitHub, and then select **Settings**.
-1. On your profile page, in the left menu, select select **Developer Settings**, and then select **Personal access tokens**.
+1. On your profile page, in the left menu, select **Developer Settings**, and then select **Personal access tokens**.
 1. Select **Generate new token**.
 1. On the **New personal access token** page, under **Note**, enter a description. Accept all the defaults, and then select **Generate token**.
 1. Save the generated token.
@@ -346,7 +346,7 @@ The script uses the following PowerShell commands:
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Gets details about the lab, such as its location. You create the artifact repository source in the same location and under the same resource group as the lab.|
 | [New-AzResource](/powershell/module/az.resources/new-azresource) | Adds the Azure resource. There's no specific command for adding artifact repositories. This cmdlet needs either the `ResourceId` or the `ResourceName` and `ResourceType` pair to know the type of resource to create. The current script uses the `ResourceName` and `ResourceType` pair. |
 
-A good way to discover resource name and resource type information is to use the [Test Drive Azure REST APIs](https://azure.github.io/projects/apis/) website. The [DevTest Labs – 2016-05-15 provider](https://aka.ms/dtlrestapis) shows the available REST APIs for the DevTest Labs provider. This script users the following resource ID:
+A good way to discover resource name and resource type information is to use the [Test Drive Azure REST APIs](https://azure.github.io/projects/apis/) website. The [DevTest Labs – 2016-05-15 provider](https://aka.ms/dtlrestapis) shows the available REST APIs for the DevTest Labs provider. This script uses the following resource ID:
 
 ```powershell
 "/subscriptions/$SubscriptionId/resourceGroups/$($LabResource.ResourceGroupName)/providers/Microsoft.DevTestLab/labs/$LabName/artifactSources/$ArtifactRepositoryName"
