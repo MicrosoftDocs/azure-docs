@@ -10,7 +10,7 @@ ms.date: 11/12/2021
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: librown
 
 ms.collection: M365-identity-device-management
@@ -97,7 +97,7 @@ The user is then presented with a number. The app prompts the user to authentica
 
 After the user has utilized passwordless phone sign-in, the app continues to guide the user through this method. However, the user will see the option to choose another method.
 
-:::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/web-sign-in-microsoft-authenticator-app.png" alt-text="Example of a browser sign-in using the Microsoft Authenticator app.":::
+:::image type="content" border="true" source="./media/howto-authentication-passwordless-phone/web-sign-in-microsoft-authenticator-app.png" alt-text="Example of a browser sign-in using the Microsoft Authenticator app.":::
 
 ## Known Issues
 

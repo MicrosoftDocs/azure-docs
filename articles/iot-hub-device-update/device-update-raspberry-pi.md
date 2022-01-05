@@ -25,7 +25,6 @@ In this tutorial you will learn how to:
 > * Create a device group
 > * Deploy an image update
 > * Monitor the update deployment
-
 Note: Image updates in this tutorial have been validated on the Raspberry Pi B3 board.
 
 ## Prerequisites
@@ -108,11 +107,14 @@ IoT Hub, a connection string will be generated for the device.
    ssh raspberrypi3 -l root
       ```
 4. Enter login as 'root', and password should be left as empty.
-5. After you successfully ssh into the device, run 
+5. After you successfully ssh into the device, run the below commands
+ 
+Replace `<device connection string>` with your connection string
  ```markdown
-	/etc/adu/du-config.json
+	echo "connection_string=<device connection string>" > /adu/adu-conf.txt  
+	echo "aduc_manufacturer=ADUTeam" >> /adu/adu-conf.txt
+	echo "aduc_model=RefDevice" >> /adu/adu-conf.txt
    ```
-   and add your connection string within the double quotes.
 
 ## Connect the device in Device Update IoT Hub
 
@@ -156,12 +158,12 @@ Use that version number in the Import Update step below.
 3. Select the Updates tab.
 4. Select "+ Import New Update".
 5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the _sample import manifest_ you downloaded in step 1 above.  Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the _sample update file_ that you downloaded in step 1 above.
-
+   
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot showing update file selection." lightbox="media/import-update/select-update-files.png":::
 
 6. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account.
 
-7. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
+7. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.) Select the container you wish to use and click "Select".
   
    :::image type="content" source="media/import-update/container.png" alt-text="Screenshot showing container selection." lightbox="media/import-update/container.png":::
 

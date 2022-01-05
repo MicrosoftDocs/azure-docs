@@ -4,7 +4,7 @@ description: Demonstrates how to turn on password hash sync as a backup and for 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial

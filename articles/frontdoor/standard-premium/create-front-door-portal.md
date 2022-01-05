@@ -5,7 +5,6 @@ services: frontdoor
 author: duongau
 manager: KumudD
 ms.service: frontdoor
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
