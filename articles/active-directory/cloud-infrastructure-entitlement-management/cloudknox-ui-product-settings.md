@@ -44,7 +44,7 @@ You can also:
 - **Search** - Enter an ID or IP address to display specific authorization systems.
 - **Filters** - Select the uploaded and transformed systems you want to display: **All** or **Online** . 
 - **||| Columns** - Select the columns you want to display: **Recently Uploaded On** and **Recently Transformed On**.
-   - To return to the system default settings, select **Reset to default**.
+          - To return to the system default settings, select **Reset to default**.
 - **Deploy** - Deploy the Sentry Appliance. For more information, see Deploy the Sentry Appliance.
     <!---Add link--->
 
