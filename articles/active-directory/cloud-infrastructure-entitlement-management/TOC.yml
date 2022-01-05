@@ -106,18 +106,10 @@
       href: cloudknox-product-account-explorer.md
     - name: CloudKnox product account settings
       href: cloudknox-product-account-settings.md
-<<<<<<< HEAD
     - name: Create and save product alerts
-      href: cloudknox-product-alerts.md
+      href: cloudknox-product-alerts.md 
     - name: Filter and query user activity
       href: cloudknox-product-audit-trail.md
-=======
-  - name: Training material
-    expanded: true
-    items:
-    - name: Training videos
-      href: cloudknox-training-videos.md
->>>>>>> 91edff88217d937c6ece29ce1cc8b94a5b3e2554
   - name: Data management
     expanded: true
     items:

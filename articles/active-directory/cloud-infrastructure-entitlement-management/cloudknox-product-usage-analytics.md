@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/04/2022
+ms.date: 01/05/2022
 ms.author: v-ydequadros
 ---
 
@@ -42,15 +42,11 @@ On the **Usage Analytics** tab:
 - The **Users** table  displays the privileges assigned,  privileges used, and resources accessed by users
     - **Username** - Provides the name of the user.
 
-<<<<<<< HEAD
          - To view additional details about the user, select the username. 
-=======
-         - To view more details about the user, click the username. 
->>>>>>> 91edff88217d937c6ece29ce1cc8b94a5b3e2554
 
            Users are denoted with an icon for Security Assertion Markup Language (SAML) users, an icon for Enterprise Directory (ED) user, an icon for local users, and an icon for cross-account users (users from another account). AWS roles, AWS EC2 instances, Azure applications, and Google service accounts are shown with their respective icons. 
            For more information, see How to use identity explorer for users. 
-<!---Add link--->
+    <!---Add link--->
 
     - **Domain/Account** - This column displays a domain name for SAML or ED users and displays an account name for local users, AWS roles, AWS  EC2 instances, Azure applications, and Google service accounts.
     - **Privilege Creep Index** (PCI) - Captures the incurred risk of users with access to high-risk privileges. Information is displayed in the following columns:
@@ -142,11 +138,7 @@ There are many filter options on the **Users** screen, including filters by **Au
 
 ### How to read the Information Panel for user information
 
-<<<<<<< HEAD
 - To view additional information about a user, select the icon at the end of the row, and then select **Domain/Account** to expand the user's details. 
-=======
-- To view more information about a user, click the icon at the end of the row, and then click **Domain/Account** to expand the user's details. 
->>>>>>> 91edff88217d937c6ece29ce1cc8b94a5b3e2554
 
   - **Tasks** -  Displays unused and used tasks for the individual user, application, or service account. The tasks are grouped by service and can be expanded to view the individual tasks under each service. Task names are specific to the authorization system.
 
@@ -170,13 +162,8 @@ There are many filter options on the **Users** screen, including filters by **Au
   - When you select **User** from the **Users** filter section, the following side panels display:
 
       - **User Groups** (Local Users Only) (All Authorization Systems) -  Displays the specific groups the user belongs to, if applicable.
-<<<<<<< HEAD
       - **Roles Available** (AWS Only) - Lists all the roles the user can assume within the authorization system, including **Type**, **Name** and **Domain**.
         1. In the **Name** column, select **View json.** 
-=======
-      - **Roles Available** (AWS Only) - Lists all the roles the user can assume within the authorization system, including **Type**, **Name**, and **Domain**.
-        1. In the **Name** column, click **View json.** 
->>>>>>> 91edff88217d937c6ece29ce1cc8b94a5b3e2554
 
              **Result:** The **Role Summary** screen opens and lists the **Role Name** and **Role Type** at the top.
 
@@ -184,13 +171,8 @@ There are many filter options on the **Users** screen, including filters by **Au
 
         2. Under **Policies**, a list will display showing all the policies directly attached to a user.  
 
-<<<<<<< HEAD
             - To expand and read the details of the policy, select the icon.
         3. The purpose of the SCP section is to provide permission boundaries on each policy. Under **SCP** (Service Control Policy), three columns are displayed called **Policy Name**, **Source Name** and **Source**. 
-=======
-            - To expand and read the details of the policy, click the icon.
-        3. The purpose of the SCP section is to provide permission boundaries on each policy. Under **SCP** (Service Control Policy), three columns are displayed called **Policy Name**, **Source Name**, and **Source**. 
->>>>>>> 91edff88217d937c6ece29ce1cc8b94a5b3e2554
 
             -  To expand and read the details of the policy, select the icon in the **Policy Name** column.
 
@@ -296,7 +278,7 @@ The **Groups** table  displays the privileges assigned,  privileges used, and re
 - **Domain/Account** - This column displays a domain name for SAML or Enterprise Directory (ED) groups and displays an account name for local groups.
 - **Privilege Creep Index** - Captures the incurred risk of groups with access to high-risk privileges and is displayed in the following columns:
     - **Index** - Calculates a risk score for the group based on the high-risk privileges they have access to and if that privilege has been accessed.
-    - **Since** - Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level, that is **! High - 130 days**.
+    - **Since** - Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level. For example, **! High - 130 days**.
 
          You can hover over the information in this column for specific details on how long the user has had a high, medium, or low privilege creep index.
 
@@ -344,12 +326,7 @@ There are many filter options within the **Groups** screen, including filters by
 
 ### How to read the Information Pane for groups
 
-<<<<<<< HEAD
 - To view additional information about the group after you have applied the filters and selected the authorization system, select the icon at the end of the row.
-=======
-
-- To view additional information about the group after you have applied the filters and selected the authorization system, click the icon at the end of the row.
->>>>>>> 91edff88217d937c6ece29ce1cc8b94a5b3e2554
 
 1. To view more information about the group after you have applied the filters and selected the authorization system, click the icon at the end of the row.
 
@@ -425,17 +402,13 @@ The **Active Resources** dashboard provides a high level overview of resource de
 
 - **Resource Name** - Provides the name of the resource.
 
-<<<<<<< HEAD
      - To view additional details about the resource, select the resource name. For more information, see How to use identity explorer for Active Resources.
      - <!---Add link--->
-=======
-     - To view more details about the resource, click the resource name. For more information, see How to use identity explorer for Active Resources.
->>>>>>> 91edff88217d937c6ece29ce1cc8b94a5b3e2554
 
        Hovering over the resource name displays the resource ID. Two resources may potentially have the same name, but different IDs.
 
 - **Account** - Displays the account name the resource belongs to.
-- **Resource Type** - Displays the type of resource, that is, Key (encryption key) or bucket (storage).
+- **Resource Type** - Displays the type of resource. For example, Key (encryption key) or bucket (storage).
 - **No. of Times Users Accessed** - Provides the number of times a user has accessed a particular resource.
 - **Tasks** - Displays how many tasks are assigned to a particular user, and is broken into the following columns:
     - **Granted** - Captures the number of tasks that have been granted to the user directly, granted to the user if part of a group, or granted based on the role type the user can assume.
@@ -497,11 +470,7 @@ You can apply the following predefined tags in CloudKnox:
 
 ### How to read Information Panel for active resources
 
-<<<<<<< HEAD
 1. Set the filters and select your Authorization System. Then select the icon at the end of the row to view additional information about the active resource.
-=======
-1. Set the filters and select your Authorization System. Then click the icon at the end of the row to view more information about the active resource.
->>>>>>> 91edff88217d937c6ece29ce1cc8b94a5b3e2554
 
 - The **Tasks** - **Used** section  displays tasks that were performed on the resource.
 
@@ -537,15 +506,10 @@ The dashboard only lists tasks that have been used in the last 90 days. The foll
 The following components make up the **Active Tasks** table:
 
 - **Task Name** - Provides the name of the task. 
-<<<<<<< HEAD
     - To view additional details about the task, select the task name. For more information, see How to use identity explorer for Active Tasks. 
-    <!---Add link--->
-=======
-    - To view more details about the task, click the task name. For more information, see How to use identity explorer for Active Tasks. 
->>>>>>> 91edff88217d937c6ece29ce1cc8b94a5b3e2554
+        <!---Add link--->
 
         -  A **Deleted** icon next to the task name means the task is a delete task. 
-
         - A **High risk task** icon next to the task name means the task is high-risk. 
         - A **Task** icon next to the task name means the task is a normal task.
 
@@ -590,11 +554,7 @@ There are many filter options within the **Active Tasks** screen, including filt
 
 ### How to read the Information Panel for active tasks
 
-<<<<<<< HEAD
 - Set the filters and select your Authorization System. Then select the icon at the end of the row to view additional information about the active task.
-=======
-- Set the filters and select your Authorization System. Then click the icon at the end of the row to view more information about the active task.
->>>>>>> 91edff88217d937c6ece29ce1cc8b94a5b3e2554
 
 - **Users with Privileges** -  Displays the total number of users who have access to the task, broken into the following categories:
      - **Unexecuted** - The names of users who have access to the task but haven't used the task.
@@ -617,7 +577,7 @@ The following components make up the **Access Keys** table:
 - **Account** - Displays the account name that the owner and access key reside in.
 - **Privilege Creep Index** - Captures the incurred risk of owners with access to high-risk privileges and is broken into the following columns:
     - **Index** - Calculates a risk score for the owner of the access key based on the high-risk privileges they have access to and if that privilege has been accessed.
-    - **Since** - Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level, that is **! High - 130 days**.
+    - **Since** - Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level. For example, **! High - 130 days**.
 
          Hover over the information in this column for specific details on how long the user has had a high, medium, or low privilege creep index. 
 
@@ -674,11 +634,7 @@ There are many filter options within the **Access Keys** screen, including filte
 
 ### How to read Information Panel for access keys
 
-<<<<<<< HEAD
 Once filters are set and Authorization System is selected, select the icon at the end of the row to view additional information about the access key.
-=======
-Once filters are set and Authorization System is selected, click the icon at the end of the row to view more information about the access key.
->>>>>>> 91edff88217d937c6ece29ce1cc8b94a5b3e2554
 
 - **Tasks** -  Displays unused and used tasks for each access key. The tasks are grouped by service and can be expanded to view the task, application, or service names.
 
@@ -704,7 +660,7 @@ To activate the **Access Keys** option, select **AWS** from the filter options d
 - **Domain/Account** - Displays the authorization system that lambda resides in
 - **Privilege Creep Index** - Captures the incurred risk of lambda function with access to high-risk privileges and is broken into the following columns:
     - **Index** - Calculates a risk score for the lambda function based on the high-risk privileges they have access to and if that privilege has been accessed.
-    - **Since** - Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level, that is **! High - 130 days**.
+    - **Since** - Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level. For example, **! High - 130 days**.
 
         You can hover over the information in this column for specific details on how long the user has had a high, medium, or low privilege creep index.
 
@@ -743,11 +699,7 @@ You can apply the following set of predefined tags:
 
 ### How to read the Information Panel for serverless functions
 
-<<<<<<< HEAD
 - Set your filters and select your Authorization System. Then select the icon at the end of the row to view additional information about the serverless function.
-=======
-- Set your filters and select your Authorization System. Then click the icon at the end of the row to view more information about the serverless function.
->>>>>>> 91edff88217d937c6ece29ce1cc8b94a5b3e2554
 
 - **Tasks** -  Displays unused and used tasks for each lambda function. The tasks are grouped by service and can be expanded to view the task, application, or service names.
 
@@ -826,13 +778,9 @@ For more information, see How to apply filters to users.
 
               - To display the full details of the policy, next to the policy name, select **View**.
 
-            - **Source Name** - The name of the source, that is, admin.
+            - **Source Name** - The name of the source. For example, admin.
             - **Source** - Displays the ways in which an identity acquires access to a policy.
-<<<<<<< HEAD
         - **Permission Boundary** (AWS only) - This option is a constraint that an admin can place on a user to restrict certain accesses to policies.
-=======
-        - **Permission Boundary** (AWS only) - A constraint that an admin can place on a user to restrict certain accesses to policies.
->>>>>>> 91edff88217d937c6ece29ce1cc8b94a5b3e2554
 
              - To display the full details of the policy, next to the policy name, select **View**.
 
@@ -844,17 +792,10 @@ For more information, see How to apply filters to users.
         - **Policies/Roles** -  Displays the roles that apply to a user.
             - **Name** - Displays the name of the role.
             - **Resource** - Displays the name of the resource.
-<<<<<<< HEAD
             - **Type** - Displays the type of resource, i.e., subscriptions.
             - **Source Name** - The name of the source, i.e., admin.
             - **Source Type** - Displays the role that applies to the user, i.e. source could be **Group**, meaning the user belongs to a group in which the role applies.
 4. To view which roles a user can assume with the following details, select the **Access Info (AWS Only)** tab. This option applies to AWS users only.
-=======
-            - **Type** - Displays the type of resource, that is, subscriptions.
-            - **Source Name** - The name of the source, that is, admin.
-            - **Source Type** - Displays the role that applies to the user, that is source could be **Group**, meaning the user belongs to a group in which the role applies.
-4. To view which roles a user can assume with the following details, click the **Access Info (AWS Only)** tab. This applies to AWS users only.
->>>>>>> 91edff88217d937c6ece29ce1cc8b94a5b3e2554
 
     - **Roles Available** - Lists all the roles available to the user to assume.
     - **Roles Accessed** - Lists the roles the user has assumed.
@@ -1023,11 +964,7 @@ For more information, see How to apply filters to users.
 
         Each column in the **Access Graph** view has a **Search** bar and a **Filter** button with various options available from the  drop-down list.
 
-<<<<<<< HEAD
          For each column listed in the **Access Graph** tab, additional details can be viewed by selecting the name in the **Name** column. This view  displays a detailed diagram on how the user acquired access to the resource.
-=======
-         For each column listed in the **Access Graph** tab, more details can be viewed by clicking the name in the **Name** column. This view  displays a detailed diagram on how the user acquired access to the resource.
->>>>>>> 91edff88217d937c6ece29ce1cc8b94a5b3e2554
 
 4. (AWS only) To view tags assigned to the resource, select the **Info** tab.
 5. To display all high risk resources used within the last 90 days with the following details, select the **Activity** tab:
@@ -1076,7 +1013,7 @@ For more information, see How to apply filters to users.
 ### How to use the Task Explorer
 
 1. To access the **Task Explorer**, select **Active Tasks** from the  drop-down list, and select an authorization system. For more information, see How to apply filters to users.
-<!---Add link--->
+    <!---Add link--->
 
     - To expand details within the last 90 days, in the **Task Name** column, select the task. 
 2. The default view is the **Activity** tab.The **Activity** tab displays the high risk activities performed in the last 90 days with the following details:
@@ -1108,7 +1045,7 @@ The **Account Explorer** displays all the identities - users, roles, EC2 instanc
 
 1. To access the **Account Explorer**:
     - To choose an authorization system from the left-side panel, select the **Lock** icon. Select an AWS account. For more information, see How to apply filters to users. 
-<!---Add link--->
+    <!---Add link--->
 
       - Under the **Domain/Account** column, select the domain or account name to access **Account Explorer**. The default view is the **Cross Account** **Users** tab.
        - Or, select the **Data Collectors** icon on the top menu. Choose the **Authorization Systems** tab and select the **Name** of any AWS accounts.
@@ -1118,11 +1055,7 @@ The **Account Explorer** displays all the identities - users, roles, EC2 instanc
 
       - To export the data in comma-separated values (CSV) file format, select the **Export** button.
 
-<<<<<<< HEAD
       - To view **Account Explorer** for other account select the authorization system drop-down on the right side and choose one of the available accounts.
-=======
-      - To view **Account Explorer** for other accounts, click the authorization system drop-down on the right side and choose one of the available accounts.
->>>>>>> 91edff88217d937c6ece29ce1cc8b94a5b3e2554
 
     - **Roles that Provide Access** - Lists the roles that provide access to other accounts through the Trusted Entities policy statement.
       - To view the**Role Summary** which provides the following details, to the right of the role name, select **View**:
@@ -1136,17 +1069,11 @@ The **Account Explorer** displays all the identities - users, roles, EC2 instanc
 
     - **Connecting Roles** tab lists per account the following roles:
         - Direct roles that are trusted by the account role.
-<<<<<<< HEAD
         - Intermediary roles that are not directly trusted by the account role but are assumable by identities through role-chaining.
         - To view all the roles from that account that are used to access the specified account, select the icon to the left of the account name.
             - To view the trusted identities declared by the role, select the icon to the left of the role name.
-=======
-        - Intermediary roles that aren't directly trusted by the account role but are assumable by identities through role-chaining.
-        - To view all the roles from that account that are used to access the specified account, click the icon to the left of the account name.
-            - To view the trusted identities declared by the role, click the icon to the left of the role name.
->>>>>>> 91edff88217d937c6ece29ce1cc8b94a5b3e2554
 
-                The trusted identities for the role will be listed only if the account is being monitored by CloudKnox.
+            The trusted identities for the role will be listed only if the account is being monitored by CloudKnox.
 
             - To view the role definition, to the right of the role name, select **View**.
 
