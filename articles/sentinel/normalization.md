@@ -29,7 +29,7 @@ This article provides an overview of the Advanced Security Information and Event
 
 ## About normalization
 
-ASIM address the challenge of handling multiple representations of data by converting security data collected from different sources to a uniform representation. The convertion process includes parsing and mapping the data into consistent field names and field values. This process is commonly referred to as normalization.
+ASIM addresses the challenge of handling multiple representations of data by converting security data collected from different sources to a uniform representation. The conversion process includes parsing and mapping the data into consistent field names and field values. This process is commonly referred to as normalization.
 
 ## Common ASIM usage
 
@@ -53,7 +53,7 @@ For more information, see the [OSSEM reference documentation](https://ossemproje
 
 ## ASIM components
 
-The following image shows how non-normalized data can be translated into normalized content and used in Microsoft Sentinel. For example, you can start with a custom, product-specific, non-normalized table, and use a parser and a normalization schema to convert that table to normalized data. Use your normalized data in both Microsoft and custom analytics, rules, workbooks, queries, and more.
+The following image shows how non-normalized data can be translated into normalized content and used at Microsoft Sentinel. For example, you can start with a custom, product-specific, non-normalized table, and use a parser and a normalization schema to convert that table to normalized data. Use your normalized data in both Microsoft and custom analytics, rules, workbooks, queries, and more.
 
  :::image type="content" source="media/normalization/ASIM_architecture.png" alt-text="Non-normalized to normalized data conversion flow and usage in Microsoft Sentinel":::
 
@@ -62,7 +62,7 @@ The Advanced SIEM Information Model includes the following components:
 |Component  |Description  |
 |---------|---------|
 |**Normalized schemas**     |   Cover standard sets of predictable event types that you can use when building unified capabilities. <br><br>Each schema defines the fields that represent an event, a normalized column naming convention, and a standard format for the field values. <br><br> ASIM currently defines the following schemas:<br> - [Authentication Event](authentication-normalization-schema.md)<br> - [DHCP Activity](dhcp-normalization-schema.md)<br> - [DNS Activity](dns-normalization-schema.md)<br> - [File Activity](file-event-normalization-schema.md)  <br> - [Network Session](./network-normalization-schema.md)<br> - [Process Event](process-events-normalization-schema.md)<br> - [Registry Event](registry-event-normalization-schema.md)<br>- [Web Session](web-normalization-schema.md)<br><br>For more information, see [Advanced SIEM Information Model schemas](normalization-about-schemas.md).  |
-|**Parsers**     |  Map existing data to the normalized schemas using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions). <br><br>Many ASIM parsers are available out of the box in Microsoft Sentinel. Additional parsers, as well as versions of the built-in parsers that can be modified can be deployed from The [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelASim). <br><br>For more information, see [Advanced SIEM Information Model parsers](normalization-about-parsers.md).     |
+|**Parsers**     |  Map existing data to the normalized schemas using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions). <br><br>Many ASIM parsers are available out of the box with Microsoft Sentinel. More parsers, amd versions of the built-in parsers that can be modified can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelASim). <br><br>For more information, see [Advanced SIEM Information Model parsers](normalization-about-parsers.md).     |
 |**Content for each normalized schema**     |    Includes analytics rules, workbooks, hunting queries, and more. Content for each normalized schema works on any normalized data without the need to create source-specific content. <br><br>For more information, see [Advanced SIEM Information Model content](normalization-content.md).   |
 | | |
 
@@ -93,7 +93,7 @@ To start using ASIM:
 
 ## <a name="next-steps"></a>Next steps
 
-This article provides an overview of normalization in Microsoft Sentinel and the Advanced SIEM Information Model.
+This article provides an overview of Microsoft Sentinel's normalization and the Advanced SIEM Information Model.
 
 For more information, see:
 
