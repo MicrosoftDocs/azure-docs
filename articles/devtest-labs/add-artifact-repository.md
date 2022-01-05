@@ -12,7 +12,7 @@ You can add *artifacts* to Azure DevTest Labs virtual machines (VMs). Artifacts 
 
 The public [DevTest Labs GitHub artifact repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) provides many common artifacts for Windows and Linux. The artifacts in this repository are available by default in DevTest Labs. You can also create custom artifacts that aren't available in the public artifact repository. To learn about creating custom artifacts, see [Create custom artifacts](devtest-lab-artifact-author.md).
 
-You can add your custom artifacts to your own artifact repository, and add the repository to your lab so all lab users can access the artifacts. This article tells you how to add an artifact repository to your lab by using the Azure portal, an Azure Resource Management (ARM) template, or Azure PowerShell. You can also use Azure PowerShell or Azure CLI scripts to automate adding an artifact repository to a lab.
+You can add your custom artifacts to your own artifact repository, and add the repository to your lab so all lab users can access the artifacts. This article tells you how to add an artifact repository to your lab by using the Azure portal, an Azure Resource Management (ARM) template, or Azure PowerShell. You can also use an Azure PowerShell or Azure CLI script to automate adding an artifact repository to a lab.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -58,7 +58,7 @@ To add an artifact repository to a lab, you need to know the Git HTTPS clone URL
 
 1. Select **Save**.
 
-   ![Screenshot that shows adding a new artifact repository to a lab.](./media/devtest-lab-create-environment-from-arm/repo-values.png)
+   ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 
 The repository now appears in the **Repositories** list for the lab.
 
@@ -322,7 +322,7 @@ The PowerShell script takes the following parameters:
 | `RepositoryUri` | URI of the artifact repository, which you copied earlier.
 | `RepositoryBranch` | Repository branch that contains the artifacts. The default value is `main`.|
 | `FolderPath` | Folder that contains the artifacts. The default value is: `/Artifacts`.|
-| `PersonalAccessToken` | Security token for accessing repository, which you copied earlier.|
+| `PersonalAccessToken` | Security token for accessing the repository, which you copied earlier.|
 | `SourceType` | Whether the artifact repository is a VSOGit (Azure Repos) or GitHub repository.|
 
 

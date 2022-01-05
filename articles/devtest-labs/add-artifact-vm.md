@@ -20,7 +20,7 @@ This article describes how to add available artifacts to VMs by using the Azure 
 1. On the lab **Overview** page, under **My virtual machines**, select the VM you want to add artifacts to.
 1. On the VM page, select **Artifacts** in the top menu bar or left navigation.
 1. On the **Artifacts** page, select **Apply artifacts**.
-1. On the **Add artifacts** page, select the arrow next to each artifact you want to add to the VM.
+1. On the **Add artifacts** page, select the arrow next to each artifact you want to add to the VM. Artifact actions execute in the order you add them to the VM.
 1. On each **Add artifact** pane, enter any required and optional parameter values, and then select **OK**.
 1. When you're done adding artifacts, select **Install**.
 
