@@ -35,7 +35,7 @@ The errors in Data Box and Data Box Heavy are summarized as follows:
 | General error* | Internal exceptions or error paths in the code caused a critical error. | Reboot the device and rerun the **Prepare to Ship** operation. If the error doesn't go away, [contact Microsoft Support](data-box-disk-contact-microsoft-support.md). [Learn more](#general-errors). |
 | Non-critical blob or file errors  | The blob or file names do not follow the Azure naming rules or the file type is not supported. | These blob or files may not be copied or the names may be changed. [Learn how to fix these errors](#non-critical-blob-or-file-errors). |
 
-\* Errors in this category are critical errors that must be fixed before you can proceed to **Prepare to ship**.
+\* Errors in this category are critical errors that must be fixed before you can proceed to **Prepare to Ship**.
 
 
 ## Container or share name errors
@@ -184,6 +184,16 @@ For more information, see [Copy to managed disks](data-box-deploy-copy-data-from
 
 **Suggested resolution:** If this is a file, remove the file and copy it again. If this is a folder, modify the folder. Either rename the folder or add or delete a file from the folder. The error should clear on its own in 30 minutes. Contact Microsoft Support, if the error persists.
 
+## General errors
+
+General errors are caused by internal exceptions or error paths in the code.
+
+### ERROR_GENERAL
+
+**Error description** This general error is caused by internal exceptions or error paths in the code.
+
+**Suggested resolution:** Reboot the device and rerun the **Prepare to Ship** operation. If the error doesn't go away, [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
+
 ## Non-critical blob or file errors
 
 All the non-critical errors related to names of blobs, files, or containers that are seen during data copy are summarized in the following section. If these errors are present, then the names will be modified to conform to the Azure naming conventions. The corresponding order status for data upload will be **Completed with warnings**.  
@@ -265,16 +275,6 @@ For more information, see the Azure naming conventions for blob names and file n
 - Remove files or folders created outside of the performance tiers.
 
 For more information, see [Copy to managed disks](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).
-
-## General errors
-
-General errors are caused by internal exceptions or error paths in the code.
-
-### ERROR_GENERAL
-
-**Error description** This generic error is caused by internal exceptions or error paths in the code.
-
-**Suggested resolution:** Reboot the device and rerun the **Prepare to Ship** operation. If the error doesn't go away, [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
 
 ## Next steps
