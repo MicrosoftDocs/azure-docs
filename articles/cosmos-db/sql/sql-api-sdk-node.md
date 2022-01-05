@@ -35,14 +35,14 @@ ms.custom: devx-track-js
 
 |Resource  |Link  |
 |---------|---------|
-|Download SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
+|Download SDK  |   [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos) 
 |API Documentation  |  [JavaScript SDK reference documentation](/javascript/api/%40azure/cosmos/)
-|SDK installation instructions  |  [Installation instructions](https://github.com/Azure/azure-sdk-for-js)
-|Contribute to SDK | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main)
+|SDK installation instructions  |  `npm install @azure/cosmos`
+|Contribute to SDK | [Contributing guide for azure-sdk-for-js repo](https://github.com/Azure/azure-sdk-for-js/blob/main/CONTRIBUTING.md)
 | Samples | [Node.js code samples](sql-api-nodejs-samples.md)
 | Getting started tutorial | [Get started with the JavaScript SDK](sql-api-nodejs-get-started.md)
 | Web app tutorial | [Build a Node.js web application using Azure Cosmos DB](sql-api-nodejs-application.md)
-| Current supported platform | [Node.js v12.x](https://nodejs.org/en/blog/release/v12.7.0/) - SDK Version 3.x.x<br/>[Node.js v10.x](https://nodejs.org/en/blog/release/v10.6.0/) - SDK Version 3.x.x<br/>[Node.js v8.x](https://nodejs.org/en/blog/release/v8.16.0/) - SDK Version 3.x.x<br/>[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - SDK Version 2.x.x<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)- SDK Version 1.x.x<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)- SDK Version 1.x.x<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)- SDK Version 1.x.x
+| Current supported Node.js platforms | [LTS versions of Node.js](https://nodejs.org/about/releases/)
 
 ## Release notes
 
