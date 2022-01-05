@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 By bringing your devices to Azure AD, you maximize your users' productivity through single sign-on (SSO) across your cloud and on-premises resources. At the same time, you can secure access to your resources with [Conditional Access](../conditional-access/overview.md).
 
-If you have an on-premises Active Directory (AD) environment and you want to join your AD domain-joined computers to Azure AD, you can accomplish this task by doing hybrid Azure AD join.
+If you have an on-premises Active Directory Domain Services (AD DS) environment and you want to join your AD DS domain-joined computers to Azure AD, you can accomplish this task by doing hybrid Azure AD join.
 
 > [!TIP]
 > SSO access to on-premises resources is also available to devices that are Azure AD joined. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
