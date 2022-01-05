@@ -22,7 +22,7 @@ You will need a direct mode data controller with the imageTag v1.0.0_2021-07-30 
 To check the version, run:
 
 ```console
-kubectl get datacontrollers -n -o custom-columns=BUILD:.spec.docker.imageTag
+kubectl get datacontrollers -n <namespace> -o custom-columns=BUILD:.spec.docker.imageTag
 ```
 
 ## Install tools
