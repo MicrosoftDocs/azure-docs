@@ -117,7 +117,7 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
     2. Select the days on which you want the schedule to take effect. In the following example, Monday-Friday is selected.
     3. Select an **end date** for the schedule.
     4. Select **Save**.
-        :::image type="content" source="./media/how-to-create-schedules/select-current-schedule.png" alt-text="Screenshot of the Repeat windows for scheduled events. Event repeats every week, Monday through Friday.":::
+        :::image type="content" source="./media/how-to-create-schedules/set-repeat-schedule.png" alt-text="Screenshot of the Repeat windows for scheduled events. Event repeats every week, Monday through Friday.":::
 1. On the **Add scheduled event** page, for **Notes (optional)**, enter any description or notes for the schedule.
 1. On the **Add scheduled event** page, select **Save**.
     :::image type="content" source="./media/how-to-create-schedules/add-schedule-page-weekly.png" alt-text="Screenshot of the Add scheduled event window.":::
