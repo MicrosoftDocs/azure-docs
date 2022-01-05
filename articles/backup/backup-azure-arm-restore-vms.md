@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 11/16/2021
+ms.date: 12/24/2021
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -111,8 +111,12 @@ As one of the [restore options](#restore-options), you can create a disk from a 
 
 1. Select **Restore** to trigger the restore operation.
 
-When your virtual machine uses managed disks and you select the **Create virtual machine** option, Azure Backup doesn't use the specified storage account. In the case of **Restore disks** and **Instant Restore**, the storage account is used only for storing the template. Managed disks are created in the specified resource group.
-When your virtual machine uses unmanaged disks, they're restored as blobs to the storage account.
+When your virtual machine uses managed disks and you select the **Create virtual machine** option, Azure Backup doesn't use the specified storage account. In the case of **Restore disks** and **Instant Restore**, the storage account is used only for storing the template. Managed disks are created in the specified resource group. When your virtual machine uses unmanaged disks, they're restored as blobs to the storage account.
+
+While you restore disks for a Managed VM from a Vault-Standard recovery point, it restores the Managed disk and Azure Resource Manager (ARM) templates, along with the VHD files of the disks in staging location. If you restore disks from an Instant recovery point, it restores the Managed disks and ARM templates only.
+
+>[!Note]
+>For restoring disk from a Vault-Standard recovery point that is/was greater than 4 TB, Azure Backup doesn't restore the VHD files.
 
 ### Use templates to customize a restored VM
 
@@ -188,6 +192,7 @@ Currently, secondary region [RPO](azure-backup-glossary.md#rpo-recovery-point-ob
 >- The Cross Region Restore feature restores CMK (customer-managed keys) enabled Azure VMs, which aren't backed-up in a CMK enabled Recovery Services vault, as non-CMK enabled VMs in the secondary region.
 >- The Azure roles needed to restore in the secondary region are the same as those in the primary region.
 >- While restoring an Azure VM, Azure Backup configures the virtual network settings in the secondary region automatically. If you are [restoring disks](#restore-disks) while deploying the template, ensure to provide the virtual network settings, corresponding to the secondary region.
+>- If VNet/Subnet is not available in the primary region or is not configured in the secondary region, Azure portal doesn't auto-populate any default values during restore operation.
 
 [Azure zone pinned VMs](../virtual-machines/windows/create-portal-availability-zone.md) can be restored in any [availability zones](../availability-zones/az-overview.md) of the same region.
 
@@ -212,7 +217,7 @@ In summary, the **Availability Zone** will only appear when
 
 ## Restoring unmanaged VMs and disks as managed
 
-You're provided with an option to restore [unmanaged disks](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks) as [managed disks](../virtual-machines/managed-disks-overview.md) during restore. By default, the unmanaged VMs / disks are restored as unmanaged VMs / disks. However, if you choose to restore as managed VMs / disks, it's now possible to do so. These restores aren't triggered from the snapshot phase but only from the vault phase. This feature isn't available for unmanaged encrypted VMs.
+You're provided with an option to restore [unmanaged disks](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks) as [managed disks](../virtual-machines/managed-disks-overview.md) during restore. By default, the unmanaged VMs / disks are restored as unmanaged VMs / disks. However, if you choose to restore as managed VMs / disks, it's now possible to do so. These restore aren't triggered from the snapshot phase but only from the vault phase. This feature isn't available for unmanaged encrypted VMs.
 
 ![Restore as managed disks](./media/backup-azure-arm-restore-vms/restore-as-managed-disks.png)
 
@@ -246,9 +251,9 @@ For more information, see [Back up and restore Active Directory domain controlle
 
 Managed identities eliminate the need for the user to maintain the credentials. Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication.  
 
-Azure Backup offers the flexibility to restore the managed Azure VM with [managed identities](../active-directory/managed-identities-azure-resources/overview.md). You can choose to select [system-managed identities](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) or user-managed identities as shown in the figure below. This is introduced as one of the input parameters in the [**Restore configuration** blade](#create-a-vm) of Azure VM. Managed identities used as one of the input parameter is only used for accessing the storage accounts, which is used as staging location during restore and not for any other Azure resource controlling. These managed identities have to be associated to the vault.
+Azure Backup offers the flexibility to restore the managed Azure VM with [managed identities](../active-directory/managed-identities-azure-resources/overview.md). You can choose to select [system-managed identities](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) or user-managed identities as shown in the figure below. This is introduced as one of the input parameters in the [**Restore configuration** blade](#create-a-vm) of Azure VM. Managed identities used as one of the input parameters is only used for accessing the storage accounts, which are used as staging location during restore and not for any other Azure resource controlling. These managed identities have to be associated to the vault.
 
-:::image type="content" source="./media/backup-azure-arm-restore-vms/select-system-managed-identities-or-user-managed-identities.png" alt-text="Screenshot for choice to select  system managed identities or user managed identities.":::
+:::image type="content" source="./media/backup-azure-arm-restore-vms/select-system-managed-identities-or-user-managed-identities.png" alt-text="Screenshot for choice to select system-managed identities or user-managed identities.":::
 
 If you choose to select system-assigned or user-assigned managed identities, check for the below actions for managed identity on the target staging Storage Account.
 

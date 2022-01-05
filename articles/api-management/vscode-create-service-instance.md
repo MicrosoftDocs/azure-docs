@@ -7,7 +7,7 @@ author: dlepow
 ms.author: danlep
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Quickstart: Create a new Azure API Management service instance using Visual Studio Code

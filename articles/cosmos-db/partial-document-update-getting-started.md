@@ -5,7 +5,7 @@ author: abhirockzz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 12/09/2021
 ms.author: abhishgu
 ms.custom: ignite-fall-2021
 ---

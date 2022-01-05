@@ -158,20 +158,24 @@
         href: datawiza-with-azure-ad.md 
       - name: F5
         items:
-        - name: F5 BIG-IP and Azure AD integration
+        - name: Integrate F5 BIG-IP with Azure Active Directory
           href: f5-aad-integration.md
-        - name: F5 BIG-IP VE deployment in Azure IaaS
+        - name: Deploy F5 BIG-IP Virtual Edition VM in Azure
           href: f5-bigip-deployment-guide.md
-        - name: F5 BIG-IP with Azure AD for passwordless VPN
+        - name: Configure F5 BIG-IP SSL-VPN solution in Azure AD
           href: f5-aad-password-less-vpn.md
-        - name: F5 BIG-IP with Azure AD for forms-based authentication SSO
+        - name: Configure F5 BIG-IP Access Policy Manager for form-based SSO
           href: f5-big-ip-forms-advanced.md
-        - name: F5 BIG-IP with Azure AD SSO for header based authentication
+        - name: Configure F5 BIG-IP Access Policy Manager for header-based SSO
           href: f5-big-ip-header-advanced.md
-        - name: Protect on-premises applications with F5 BIG-IP and Azure AD B2C
+        - name: Extend Azure Active Directory B2C to protect on-premises applications using F5 BIG-IPC
           href: https://docs.microsoft.com/azure/active-directory-b2c/partner-f5
-        - name: F5 BIG-IP for SSO to header-based and LDAP applications          
+        - name: Configure F5 BIG-IP Easy Button for Header-based and LDAP SSO        
           href: f5-big-ip-ldap-header-easybutton.md
+        - name: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication    
+          href: f5-big-ip-kerberos-advanced.md
+        - name: Configure F5 BIG-IP Access Easy Button for Kerberos SSO    
+          href: f5-big-ip-kerberos-easy-button.md
       - name: Silverfort
         href: silverfort-azure-ad-integration.md
     - name: Single sign-on
@@ -206,8 +210,8 @@
       href: admin-consent-workflow-faq.md
     - name: App Management certificates FAQ
       href: application-management-certs-faq.md
-    - name: Reasons apps appear in Enterprise Applications
-      href: application-types.md
+    - name: Application list
+      href: application-list.md
     - name: Reasons users are assigned to an app
       href: ways-users-get-assigned-to-applications.md
     - name: Methods of removing user access to an app

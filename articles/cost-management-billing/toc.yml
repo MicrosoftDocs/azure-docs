@@ -76,8 +76,10 @@
         href: reservations/understand-reservation-charges-mariadb.md?toc=/azure/cost-management-billing/toc.json
       - name: Database for MySQL
         href: reservations/understand-reservation-charges-mysql.md?toc=/azure/cost-management-billing/toc.json
-      - name: Database for PostgreSQL
+      - name: Database for PostgreSQL - Single Server
         href: reservations/understand-reservation-charges-postgresql.md?toc=/azure/cost-management-billing/toc.json
+      - name: Database for PostgreSQL - Hyperscale (Citus)
+        href: ../postgresql/concepts-hyperscale-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
       - name: Databricks
         href: reservations/reservation-discount-databricks.md
       - name: Data Explorer
@@ -280,6 +282,8 @@
       href: costs/cost-analysis-common-uses.md
     - name: Automate actions with budgets
       href: manage/cost-management-budget-scenario.md
+    - name: Save and share customized views
+      href: costs/save-share-views.md
     - name: Use cost alerts
       href: costs/cost-mgt-alerts-monitor-usage-spending.md
     - name: Export cost data with a Storage SAS key
@@ -368,7 +372,7 @@
         href: reservations/reservation-renew.md?toc=/azure/cost-management-billing/toc.json
   - name: Manage payment methods
     items:
-    - name: Pay Microsoft Customer Agreement bill
+    - name: Pay your Azure bill
       href: understand/pay-bill.md
     - name: Set up pay by check or wire transfer
       href: manage/pay-by-invoice.md

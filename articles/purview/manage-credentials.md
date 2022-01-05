@@ -46,24 +46,6 @@ If you are using the Purview system-assigned managed identity (SAMI) to set up s
 - [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md#authentication-for-registration)
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#authentication-for-registration)
 
-## Create Azure Key Vaults connections in your Azure Purview account
-
-Before you can create a Credential, first associate one or more of your existing Azure Key Vault instances with your Azure Purview account.
-
-1. From the [Azure portal](https://portal.azure.com), select your Azure Purview account and open the [Purview Studio](https://web.purview.azure.com/resource/). Navigate to the **Management Center** in the studio and then navigate to **credentials**.
-
-2. From the **Credentials** page, select **Manage Key Vault connections**.
-
-   :::image type="content" source="media/manage-credentials/manage-kv-connections.png" alt-text="Manage Azure Key Vault connections":::
-
-3. Select **+ New** from the Manage Key Vault connections page.
-
-4. Provide the required information, then select **Create**.
-
-5. Confirm that your Key Vault has been successfully associated with your Azure Purview account as shown in this example:
-
-   :::image type="content" source="media/manage-credentials/view-kv-connections.png" alt-text="View Azure Key Vault connections to confirm.":::
-
 ## Grant Azure Purview access to your Azure Key Vault
 
 Currently Azure Key Vault supports two permission models:
@@ -113,6 +95,23 @@ Follow these steps only if permission model in your Azure Key Vault resource is 
 
    :::image type="content" source="media/manage-credentials/akv-add-rbac.png" alt-text="Azure Key Vault RBAC":::
 
+## Create Azure Key Vaults connections in your Azure Purview account
+
+Before you can create a Credential, first associate one or more of your existing Azure Key Vault instances with your Azure Purview account.
+
+1. From the [Azure portal](https://portal.azure.com), select your Azure Purview account and open the [Purview Studio](https://web.purview.azure.com/resource/). Navigate to the **Management Center** in the studio and then navigate to **credentials**.
+
+2. From the **Credentials** page, select **Manage Key Vault connections**.
+
+   :::image type="content" source="media/manage-credentials/manage-kv-connections.png" alt-text="Manage Azure Key Vault connections":::
+
+3. Select **+ New** from the Manage Key Vault connections page.
+
+4. Provide the required information, then select **Create**.
+
+5. Confirm that your Key Vault has been successfully associated with your Azure Purview account as shown in this example:
+
+   :::image type="content" source="media/manage-credentials/view-kv-connections.png" alt-text="View Azure Key Vault connections to confirm.":::
 
 ## Create a new credential
 

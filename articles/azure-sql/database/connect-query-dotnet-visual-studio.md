@@ -5,12 +5,12 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: connect
-ms.custom: devx-track-csharp, sqldbrb=2, mode-other
-ms.devlang: dotnet
+ms.custom: devx-track-csharp, sqldbrb=2, mode-ui
+ms.devlang: csharp
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 08/10/2020
 ---
 # Quickstart: Use .NET and C# in Visual Studio to connect to and query a database

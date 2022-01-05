@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 11/17/2021
 ms.author: phsignor
-ms.custom: contperf-fy21q2
+ms.custom: contperf-fy21q2, contperf-fy22q2
 
 #customer intent: As an admin, I want to configure how end-users consent to applications.
 ---

@@ -54,7 +54,7 @@ All events have the following top-level data:
 | subject | string | Yes | Publisher-defined path to the event subject. |
 | eventType | string | Yes | Event type for this event source, for example, BlobCreated. |
 | eventTime | string | Yes | The time the event is generated based on the provider's UTC time. |
-| ID | string | No | Unique identifier for the event. |
+| id | string | No | Unique identifier for the event. |
 | data | object | No | Used to capture event data that's specific to the publishing entity. |
 | dataVersion | string | Yes | The schema version of the data object. The publisher defines the schema version. |
 | metadataVersion | string | No | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |

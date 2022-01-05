@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Design decisions and coding techniques for Synapse SQL features in Azure Synapse Analytics

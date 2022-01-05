@@ -9,7 +9,7 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: WilliamDAssafMSFT 
 ms.author: wiassaf
-ms.reviewer:
+ms.reviewer: kendralittle, mathoma
 ms.date: 03/12/2019
 ---
 # Use PowerShell to create a single database and configure a server-level firewall rule
