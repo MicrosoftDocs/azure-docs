@@ -65,8 +65,6 @@ Each data connector page in Microsoft Sentinel has the following areas, configur
 |**Next steps tab**     |   Includes useful information for understanding how to find data in the event logs, such as sample queries.     |
 |     |         |
 
-<!--For example, see: TBD-->
-
 The `connectorUiConfig` section of the configuration file includes the following properties:
 
 
@@ -401,8 +399,6 @@ The `auth` section of the `[pollingConfig](#configure-your-connectors-polling-se
 ### request configuration
 
 The `request` section of the `[pollingConfig](#configure-your-connectors-polling-settings)` configuration includes the following parameters:
-
-<!--where do the asterisks go to?-->
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
