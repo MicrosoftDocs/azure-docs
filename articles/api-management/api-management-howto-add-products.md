@@ -5,7 +5,7 @@ description: In this tutorial, you create and publish a product in Azure API Man
 author: dlepow
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 01/04/2022
+ms.date: 01/05/2022
 ms.author: danlep
 
 ---
@@ -160,7 +160,7 @@ az apim product api delete --resource-group apim-hello-word-resource-group \
 
 * **Protected product** - Developers must first subscribe to a product to get access to the product's API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the API Management instance, you are an administrator already, so you are subscribed to every product by default. For more information, see [Subscriptions in Azure API Management](api-management-subscriptions.md).
 
-    When a client makes an API request with a valid product subscription key, API Management processes the request and permits access in the context of the product    . Policies and access control rules configured for the product are applied to the request.
+    When a client makes an API request with a valid product subscription key, API Management processes the request and permits access in the context of the product. Policies and access control rules configured for the product are applied to the request.
 
     > [!TIP]
     > You can create or update a user's subscription to a product with custom subscription keys through a [REST API](/rest/api/apimanagement/current-ga/subscription/create-or-update) or PowerShell command.

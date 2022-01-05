@@ -7,7 +7,7 @@ author: dlepow
  
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 01/04/2022
+ms.date: 01/05/2022
 ms.author: danlep
 ---
 # Subscriptions in Azure API Management
@@ -54,7 +54,7 @@ Currently, the developer portal only shows the product scope subscriptions under
 ### Subscriptions for all APIs or an individual API
 
 With the addition of the [Consumption](https://aka.ms/apimconsumptionblog) tier of API Management, subscription key management is more streamlined. You can create keys that grant access to either:
-* a single API, or 
+* A single API, or 
 * All APIs within an API Management instance. 
 
 You don't need to create a product and add APIs to it first. 
@@ -82,12 +82,18 @@ API publishers can [create subscriptions](api-management-howto-create-subscripti
 
 ## Products or APIs that don't require subscriptions
 
-Under certain scenarios, API publishers might want to publish a product or a particular API to the public without the requirement of subscriptions. To configure these options in the portal:
+Under certain scenarios, API publishers might want to publish a product or a particular API to the public without the requirement of subscriptions. 
 
-* Product: Disable the **Requires subscription** option on the **Settings** page of the product. As a result, all APIs under the product can be accessed without a key. 
-* API: Disable the **Subscription required** option on the **Settings** page of the API. As a result, the API can be accessed without a key. 
+To configure one of these options in the portal:
 
+* **Product** - Disable **Requires subscription**  on the **Settings** page of the product. As a result, all APIs under the product can be accessed without a key.  
+* **API** - Disable **Subscription required** on the **Settings** page of the API. As a result, the API can be accessed without a key. 
 
+When API Management receives an API request from a client without a subscription key, it handles the request and applies [policies](api-management-howto-policies.md) at the appropriate scope (global, product, or API) according to these rules. 
+
+* It checks first for the existence of a product that includes the API but doesn't require a subscription (an open product), and handles the request in the context of that product. For more information, see [Access to product APIs](api-management-howto-add-products.md#access-to-product-apis).
+* If an open product including the API isn't found, it checks if the API doesn't require a subscription. If so, it handles the request in the context of that API.
+* If no configured product or API is found, API Management denies access.
 
 ## Next steps
 Get more information on API Management:
