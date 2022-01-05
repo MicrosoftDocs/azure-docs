@@ -4,7 +4,7 @@ description: How to configure an IoT Edge device to connect to Azure IoT Edge ga
 author: kgremban
 
 ms.author: kgremban
-ms.date: 01/04/2022
+ms.date: 01/05/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -544,17 +544,13 @@ Leaf devices can be used to integrate the Microsoft Defender for IoT's micro age
 
 1. Select your device.
 
-1. Select the module ID.
-
-1. Select the :::image type="icon" source="media/how-to-connect-downstream-iot-edge-device/view-icon.png" border="false"::: button to see your Connection string (primary key).
+1. Select the `DefenderIotMicroAgent` module twin that you created from [these instruction](../defender-for-iot/device-builders/quickstart-create-micro-agent-module-twin.md#create-defenderiotmicroagent-module-twin).
 
 1. Select the :::image type="icon" source="media/how-to-connect-downstream-iot-edge-device/copy-icon.png" border="false"::: button to copy your Connection string (primary key).
 
 1. Paste the Connection string into a word editor such as Notepad, and add the GatewayHostName to the string. For example, `HostName=nested11.azure-devices.net;DeviceId=leaf1;ModuleId=module1;SharedAccessKey=xxx;GatewayHostName=10.16.7.4`.
 
-1. Save the file as `connection_string.txt`.
-
-1. Place a the named `connection_string.txt` containing the connection string encoded in utf-8 in the Defender for Cloud agent directory `/var/defender_iot_micro_agent` path by entering the following command:
+1. Place the `connection_string.txt` file containing the connection string encoded in utf-8 in the Defender for Cloud agent directory `/var/defender_iot_micro_agent` path by entering the following command:
 
     ```bash
     sudo bash -c 'echo "<connection string>" > /var/defender_iot_micro_agent/connection_string.txt'
@@ -568,11 +564,15 @@ Leaf devices can be used to integrate the Microsoft Defender for IoT's micro age
     sudo systemctl restart defender-iot-micro-agent.service 
     ```
 
-1. Enable the connection to the IoT Hub and the edge gateway as the parent device.
+1. Navigate back to the device.
 
-    :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/leaf-device-proxying.png" alt-text="Screenshot of the leaf device proxying connection.":::
+1. Enable the connection to the IoT Hub, and select the gear icon.
 
-1. Open port 8883 (MQTT) between the leaf device, and the edge device.
+    :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/gear-icon.png" alt-text="Screenshot showing what to select to set a parent device.":::
+
+1. Select the parent device from the displayed list.
+
+1. Ensure that port 8883 (MQTT) between the leaf device, and the edge device is open.
 
 ## Next steps
 
