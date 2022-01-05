@@ -377,10 +377,6 @@ IoT Hub does not preserve desired properties update notifications for disconnect
 
 The device app can ignore all notifications with `$version` less or equal than the version of the full retrieved document. This approach is possible because IoT Hub guarantees that versions always increment.
 
-> [!NOTE]
-> This logic is already implemented in the [Azure IoT device SDKs](iot-hub-devguide-sdks.md). This description is useful only if the device app cannot use any of Azure IoT device SDKs and must program the MQTT interface directly.
-> 
-
 ## Additional reference material
 
 Other reference topics in the IoT Hub developer guide include:
