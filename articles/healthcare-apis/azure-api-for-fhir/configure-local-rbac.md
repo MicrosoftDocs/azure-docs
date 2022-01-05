@@ -64,7 +64,7 @@ After entering the required Azure AD object IDs, click **Save** and wait for cha
 The local RBAC setting is only visible from the authentication blade; it is not visible from the Access Control (IAM) blade.
 
 > [!NOTE]
-> Only a single tenant is supported for RBAC or local RBAC. You can change the tenant back to the primary tenant in the authority box, but you must remove all Azure AD object IDs in the "Allowed object IDs" box. 
+> Only a single tenant is supported for RBAC or local RBAC. To disable the local RBAC function, you can change it back to the valid tenant (or primary tenant) associated with your subscription, and remove all Azure AD object IDs in the "Allowed object IDs" box.
 
 ## Caching behavior
 
