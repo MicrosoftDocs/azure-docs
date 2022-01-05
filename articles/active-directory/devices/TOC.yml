@@ -48,8 +48,6 @@
     href: azureadjoin-plan.md
   - name: Assign local admins to Azure AD joined devices
     href: assign-local-admin.md
-  - name: Plan your hybrid Azure AD join implementation
-    href: hybrid-azuread-join-plan.md
   - name: Manage device identities
     href: device-management-azure-portal.md
   - name: Manage stale devices
