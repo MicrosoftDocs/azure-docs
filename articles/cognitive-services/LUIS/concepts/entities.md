@@ -14,7 +14,7 @@ ms.date: 12/07/2021
 
 ---
 
-# Entities
+# Entity types
 
 An entity is an item or an element that is relevant to the user's intent. Entities define data that can be extracted from the utterance and is essential to complete a user's required action. For example:
 
@@ -144,7 +144,7 @@ See the [GeographyV2 entities reference article](../luis-reference-prebuilt-geog
 
 You can also use entities as required features for other entities. This helps in the resolution of extracted entities. For example, if you are creating a pizza ordering application and you have a Size ML entity, you can create SizeList list entity and use it as a required feature for the Size entity. Your application will return the normalized value as the extracted entity from the utterance.
 
-See [features](../concepts/patterns-features.md) for more information, and [prebuilt entities](../luis-reference-prebuilt-entities.md) to learn more about prebuilt entities resolution available in your culture.
+<!--See [features](../concepts/patterns-features.md) for more information, and [prebuilt entities](../luis-reference-prebuilt-entities.md) to learn more about prebuilt entities resolution available in your culture. -->
 
 ## Data from entities
 
@@ -171,4 +171,4 @@ Entities are built for data extraction and prediction. It is important that each
 ## Next steps
 
 [How to use entities in your LUIS app](../how-to/entities.md)
-[Utterances concepts](utterances.md)
+<!--[Utterances concepts](utterances.md)-->

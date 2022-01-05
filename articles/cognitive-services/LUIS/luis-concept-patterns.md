@@ -71,7 +71,7 @@ Learn pattern syntax from the [pattern syntax reference](reference-pattern-synta
 Learn more about patterns:
 
 * [How to add patterns](luis-how-to-model-intent-pattern.md)
-* [How to add pattern.any entity](how-to/entities.md#add-a-patternany-entity)
+* [How to add pattern.any entity](how-to/entities.md#create-a-patternany-entity)
 * [Patterns Syntax](reference-pattern-syntax.md)
 
 > [!div class="nextstepaction"]
