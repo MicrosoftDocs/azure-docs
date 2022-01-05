@@ -47,7 +47,6 @@ Azure Cache for Redis removes a key automatically if the key is assigned a time-
 
 To get stats on how many keys have expired, use the [INFO](https://redis.io/commands/info) command. The `Stats` section shows the total number of expired keys. The `Keyspace` section provides more information about the number of keys with time-outs and the average time-out value.
 
-<!-- what language or console is this. azurecli is just a guess  - look at benchmarking -->
 ```azurecli-interactive
 
 # Stats

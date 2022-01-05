@@ -57,7 +57,7 @@ sections:
       - question: |
           Why is my cache in "Failed" state?
         answer: |
-          Azure Cache For Redis can end up in a *Failed* state if a management operation fails. Despite this state, you can expect your Azure Cache For Redis to be fully functional for client operations. <!-- Where is failed indicated? Shruti said it is visible on the portal screenshot? -->
+          Azure Cache For Redis can end up in a *Failed* state if a management operation fails. Despite this state, you can expect your Azure Cache For Redis to be fully functional for client operations.
           
           
 additionalContent: |
