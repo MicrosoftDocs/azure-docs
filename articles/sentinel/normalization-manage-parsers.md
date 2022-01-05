@@ -1,6 +1,6 @@
 ---
 title: Manage ASIM parsers | Microsoft Docs
-description: This article explains how to use KQL functions as query-time parsers to implement the Advanced SIEM Information Model (ASIM)
+description: This article explains how to manage ASIM parsers, add a customer parser, and replace a built-in parser.
 author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021

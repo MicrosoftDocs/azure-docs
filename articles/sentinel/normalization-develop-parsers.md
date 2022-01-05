@@ -1,6 +1,6 @@
 ---
 title: Develop ASIM parsers | Microsoft Docs
-description: This article explains how to use KQL functions as query-time parsers to implement the Advanced SIEM Information Model (ASIM)
+description: This article explains how develop, test and deploy ASIM parsers
 author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
@@ -193,9 +193,9 @@ Deploy parsers manually by copying them to the Azure Monitor Log page and saving
 To deploy a large number of parsers, we recommend using parser ARM templates:
 - Create a YAML file based on the relevant template for each schema and include your query in it. Start with the [YAML template](https://aka.ms/ASimYamlTemplates) relevant for your schema and parser type. (filtering or parameter-less).
 - Use the [ASIM Yaml to ARM template converter](https://aka.ms/ASimYaml2ARM) to convert it to an ARM template. 
-- Deploy your template using the [Azure pPortal](https://docs.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) or using [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)
+- Deploy your template using the [Azure pPortal](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) or using [PowerShell](/azure/azure-resource-manager/templates/deploy-powershell)
 
-You can also combine multiple templates to a single deploy process using [linked templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell#linked-template)
+You can also combine multiple templates to a single deploy process using [linked templates](/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell#linked-template)
 
 > [!TIP]
 > ARM templates can combine different resources, so parsers can be deployed alongside connectors, analytic rules, or watchlists, to name a few useful options. For example, your parser can reference a watchlist deployed alongside it.
@@ -249,7 +249,7 @@ Handle the results as follows:
 | Message | Action |
 | ------- | ------ |
 | (0) Error: Missing mandatory field [\<Field\>] | Add this field to your parser. In many cases, this would be a derived value or a constant value and not a field already available from the source. |
-| (0) Error: type mismatch for field [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>] | Make sure that the type of normalized field is correct, usually by using a [conversion function](https://docs.microsoft.com/azure/data-explorer/kusto/query/scalarfunctions#conversion-functions) such as tostring. |
+| (0) Error: type mismatch for field [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>] | Make sure that the type of normalized field is correct, usually by using a [conversion function](/azure/data-explorer/kusto/query/scalarfunctions#conversion-functions) such as tostring. |
 | (1) Warning: Missing recommended field [\<Field\>] | Consider adding this field to your parser. |
 | (1) Warning: Missing alias [\<Field\>] | Check if the field the alias refers to exists and if so, add the alias. |
 | (2) Info: Missing optional field [\<Field\>] | While optional fields are often missing, it is worth reviewing the list to determine if any of the optional fields can be mapped from the source. |
