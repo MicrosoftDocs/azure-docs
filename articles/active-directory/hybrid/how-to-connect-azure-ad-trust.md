@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 07/28/2018
+ms.date: 01/05/2022
 ms.author: billmath
 author: billmath
 ms.custom: 

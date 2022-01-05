@@ -56,6 +56,7 @@ The Azure Image Builder Service is available in the following regions: regions.
 - West Central US
 - West US
 - West US 2
+- West US 3
 - South Central US
 - North Europe
 - West Europe
