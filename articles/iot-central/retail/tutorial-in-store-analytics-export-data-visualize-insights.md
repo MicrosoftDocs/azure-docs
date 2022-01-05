@@ -160,6 +160,7 @@ The following steps show you how to create the logic app in the Azure portal:
     * Enter a unique name for your logic app such as _yourname-retail-store-analysis_.
     * Select the same **Subscription** you used to create your IoT Central application.
     * Select the **retail-store-analysis** resource group.
+    * Select the **Type** as **Consumption**. 
     * Select the same location you used for your IoT Central application.
     * Select **Create**. You may have to wait a few minutes for the system to provision the resources.
 1. In the Azure portal, navigate to your new logic app.

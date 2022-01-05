@@ -375,7 +375,6 @@ When starting a runbook using PowerShell, use the `RunOn` parameter with the [St
 ```azurepowershell-interactive
 Start-AzAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
-
 ## Logging
 
 To help troubleshoot issues with your runbooks running on a hybrid runbook worker, logs are stored locally in the following location:

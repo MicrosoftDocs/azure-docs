@@ -45,7 +45,7 @@ Key rotation policy settings:
 -   Rotation types:
     -   Automatically renew at a given time after creation (default)
     -   Automatically renew at a given time before expiry. It requires 'Expiry Time' set on rotation policy and 'Expiration Date' set on the key.
--   Rotation time: key rotation interval, he minimum value is 7 days from creation and 7 days from expiration time
+-   Rotation time: key rotation interval, the minimum value is 7 days from creation and 7 days from expiration time
 -   Notification time: key near expiry event interval for event grid notification. It requires 'Expiry Time' set on rotation policy and 'Expiration Date' set on the key. 
 
 :::image type="content" source="../media/keys/key-rotation/key-rotation-1.png" alt-text="Rotation policy configuration":::
@@ -143,7 +143,7 @@ Key rotation policy can also be configured using ARM templates.
                 "description": "The name of the key to be created."
             }
         },
-        "rotateTimeAfterCreation": {
+        "rotatationTimeAfterCreate": {
             "defaultValue": "P18M",
             "type": "String",
             "metadata": {
@@ -179,7 +179,7 @@ Key rotation policy can also be configured using ARM templates.
                     "lifetimeActions": [
                         {
                             "trigger": {
-                                "timeAfterCreate": "[parameters('rotateTimeAfterCreation')]",
+                                "timeAfterCreate": "[parameters('rotatationTimeAfterCreate')]",
                                 "timeBeforeExpiry": ""
                             },
                             "action": {

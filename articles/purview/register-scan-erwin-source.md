@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/28/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -23,14 +23,32 @@ This article outlines how to register erwin Mart servers, and how to authenticat
 |---|---|---|---|---|---|---|
 | [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-erwin.md)|
 
-The erwin source supports full scan to extract metadata from an erwin Mart server. The metadata includes:
+The supported erwin Mart versions are 9.x to 2021.
 
-1. Logical only models with Entities, Attributes, and Domains OR
-1. Physical only models with Tables, Columns, Data types OR
-1. Logical/Physical models
+When scanning erwin Mart source, Purview supports:
 
-> [!Important]
-> Supported erwin Mart versions are 9.x to 2021.
+- Extracting technical metadata including:
+
+    - Mart
+    - Libraries
+    - Models
+    - Entities including the attributes, foreign keys, indexes, index members, candidate keys, and triggers
+    - Default values
+    - Synonyms
+    - Sequences
+    - Domains
+    - Subject areas
+    - Relationships
+    - Validation rules including the valid values
+    - ER diagrams
+    - Views including the attributes
+    - Stored procedures including the parameters
+    - Schemas
+    - Subtype relationships
+    - View relationship
+    - User defined properties
+
+- Fetching static lineage on assets relationships among entities, views and stored procedures.
 
 ## Prerequisites
 
