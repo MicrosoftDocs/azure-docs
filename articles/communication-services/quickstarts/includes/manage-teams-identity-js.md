@@ -56,12 +56,12 @@ From the project directory:
 1. Create the structure for the program, including basic exception handling
 
     ```javascript
-    const { CommunicationIdentityClient } = require('@azure/communication-identity');
+    const { CommunicationIdentityClient } = require('@azure/communication-identity');    
+    const { PublicClientApplication, CryptoProvider } = require('@azure/msal-node');
     const express = require("express");
-    const msal = require('@azure/msal-node');
     
     const SERVER_PORT = process.env.PORT || 80;
-    const REDIRECT_URI = "http://localhost"; 
+    const REDIRECT_URI = `http://localhost:${SERVER_PORT}/redirect`;
     
     // Quickstart code goes here
     
@@ -83,8 +83,8 @@ const msalConfig = {
     }
 };
 
-const pca = new msal.PublicClientApplication(msalConfig);
-const provider = new msal.CryptoProvider();
+const pca = new PublicClientApplication(msalConfig);
+const provider = new CryptoProvider();
 
 const app = express();
 
@@ -145,6 +145,7 @@ const identityClient = new CommunicationIdentityClient(connectionString);
 Use the `getTokenForTeamsUser` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 
 ```javascript
+let teamsToken = response.accessToken;
 let accessToken = await identityClient.getTokenForTeamsUser(teamsToken);
 console.log(`Token: ${accessToken}`);
 ```
