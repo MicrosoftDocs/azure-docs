@@ -1128,7 +1128,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | [**Syslog**](connect-syslog.md), with, [ASIM parsers](normalization-about-parsers.md) based on Kusto functons |
-| **Log Analytics table(s)** | Sysmon data |
+| **Log Analytics table(s)** | Syslog |
 | **Supported by** | Microsoft |
 | | |
 
