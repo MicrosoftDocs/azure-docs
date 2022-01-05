@@ -34,7 +34,7 @@ This quickstart demonstrates a solution for a Windows-based workstation. However
 
 ::: zone pivot="programming-language-csharp"
 
-* Install [.NET 6.0 SDK](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
+* Install [.NET 6.0 SDK](https://dotnet.microsoft.com/download) on your Windows-based machine. You can use the following command to check your version.
 
     ```cmd
     dotnet --info

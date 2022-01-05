@@ -44,7 +44,7 @@ The following prerequisites are for a Windows development environment. For Linux
 
 * A TPM 2.0 hardware security module on your Windows-based machine.
 
-* Install [.NET 6.0 SDK](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
+* Install [.NET 6.0 SDK](https://dotnet.microsoft.com/download) on your Windows-based machine. You can use the following command to check your version.
 
     ```bash
     dotnet --info
