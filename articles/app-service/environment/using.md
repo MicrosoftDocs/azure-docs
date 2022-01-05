@@ -159,7 +159,7 @@ You can't see the internal components or the communication within the App Servic
 
 This option encrypts internal network traffic, and also encrypts the pagefile and the worker disks. Be aware that this option can affect your system performance. Your App Service Environment will be in an unstable state until the change is fully propagated. Complete propagation of the change can take a few hours to complete, depending on how many instances you have.
 
-Avoid enabling this option while you're using App Service Environment. If you must do so, it's a good idea to divert traffic to a backup until the operation completes.
+Avoid enabling this option while you're using App Service Environment. If you must do so, it's a good idea to divert traffic to a backup until the operation finishes.
 
 ## Upgrade preference
 
