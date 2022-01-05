@@ -389,7 +389,7 @@ The guest management must be enabled on the VMware virtual machine (VM) before y
     1. Log in to Linux VM.
     1. Open terminal and run the following command: `sudo visudo`.
     1. Add the line below at the end of the file. Replace `username` with the appropriate user-name.
-    `username` `ALL=(ALL) NOPASSWD:ALL` 
+        `username` `ALL=(ALL) NOPASSWD:ALL` 
 
 If your VM template already has these changes incorporated, you won't need to perform the steps for the VM created from that template.
 
