@@ -9,7 +9,7 @@ ms.author: madsd
 
 # Create an App Service Environment
 
-[App Service Environment][Intro] is a single-tenant deployment of Azure App Service. You use it with Azure Virtual Network. You need one subnet for a deployment of App Service Environment, and this subnet can't be used for anything else. 
+[App Service Environment][Intro] is a single-tenant deployment of Azure App Service. You use it with an Azure virtual network. You need one subnet for a deployment of App Service Environment, and this subnet can't be used for anything else. 
 
 > [!NOTE]
 > This article is about App Service Environment v3, which is used with isolated v2 App Service plans.
@@ -21,8 +21,8 @@ Be aware that after you create your App Service Environment, you can't change an
 - Location
 - Subscription
 - Resource group
-- Azure Virtual Network used
-- Subnets used
+- Azure virtual network
+- Subnets
 - Subnet size
 - Name of your App Service Environment
 
