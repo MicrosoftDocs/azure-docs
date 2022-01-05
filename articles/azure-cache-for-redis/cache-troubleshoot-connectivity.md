@@ -32,11 +32,11 @@ Sometimes, your cache undergoes a planned or an unplanned server maintenance. Yo
 
 ## Number of connected clients
 
-Check if the Max aggregate for `Connected Clients` metric is close or higher than the maximum number of allowed connections for a particular cache size. For more information on sizing per client connections, see [Azure Cache for Redis performance] <!-- is this the table https://azure.microsoft.com/en-us/pricing/details/cache/ -->
+Check if the Max aggregate for `Connected Clients` metric is close or higher than the maximum number of allowed connections for a particular cache size. For more information on sizing per client connections, see [Azure Cache for Redis performance](https://azure.microsoft.com/pricing/details/cache/).
 
 ## Kubernetes hosted applications
 
-1. If your client application is hosted on Kubernetes, check that the pod running the client application or the cluster nodes are under memory/CPU/Network pressure. A pod running the client application can be affected by other pods running on the same node and throttle Redis connections or IO operations.
+1. If your client application is hosted on Kubernetes, check that the pod running the client application or the cluster nodes are not under memory/CPU/Network pressure. A pod running the client application can be affected by other pods running on the same node and throttle Redis connections or IO operations.
 1. If you're using *Istio* or any other service mesh, check that your service mesh proxy reserves port 13000-13019 or 15000-15019. These ports are used by clients to communicate with a clustered Azure Cache For Redis nodes and could cause connectivity issues on those ports.
 
 ## Linux-based client application
@@ -49,7 +49,7 @@ Test connectivity using Azure Cache for Redis CLI. For more information on CLI,[
 
 ## PSPING
 
-If Azure Cache for Redis CLI is unable to connect, you can test connectivity using `PSPING`.
+If Azure Cache for Redis CLI is unable to connect, you can test connectivity using `PSPING` in PowerShell.
 
 ```azurepowershell-interactive
 psping -q <cache DNS endpoint>:<Port Number>
