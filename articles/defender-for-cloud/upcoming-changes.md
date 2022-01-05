@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 01/04/2022
+ms.date: 01/05/2022
 ---
 # Important upcoming changes to Microsoft Defender for Cloud
 
@@ -102,7 +102,7 @@ Defender for Cloud includes multiple recommendations for improving the managemen
 
 **Estimated date for change:** February 2022
 
-As organizations are moving away from using management certificates to manage their subscriptions, and [our recent announcement of the deprecation of RDFE (RedDog Front End)](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/), we'll be deprecating the following Defender for Cloud recommendation and its related policy:
+As organizations are moving away from using management certificates to manage their subscriptions, and [our recent announcement that we're retiring the Cloud Services (classic) deployment model](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/), we'll be deprecating the following Defender for Cloud recommendation and its related policy:
 
 |Recommendation |Description |Severity |
 |---|---|---|
