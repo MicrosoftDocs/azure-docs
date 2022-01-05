@@ -18,35 +18,35 @@ Azure Maps supports various languages and views based on country/region. This ar
 
 Azure Maps have been localized in variety languages across its services. The following table provides the supported language codes for each service.
   
-| ID         | Name                                     | Maps | Search | Routing | Traffic | Weather |
+| Code       | Name                                     | Maps | Search | Routing | Traffic | Weather |
 |------------|------------------------------------------|:----:|:------:|:-------:|:-------:|:-------:|
-| af-ZA      | Afrikaans                                |      |    ✓   |    ✓    |         |         |
-| ar         | Arabic                                   | ✓    |    ✓   |    ✓    |    ✓    |    ✓    |
-| bg-BG      | Bulgarian                                | ✓    |    ✓   |    ✓    |         |    ✓    |
-| bn-BD      | Bangla (Bangladesh)                      |      |        |          |         |    ✓    |
-| bn-IN      | Bangla (India)                           |      |        |          |         |    ✓    |
-| bs-BA      | Bosnian                                  |      |        |          |         |    ✓    |
-| ca-ES      | Catalan                                  |      |    ✓   |          |         |    ✓    |
-| cs-CZ      | Czech                                    | ✓    |    ✓   |    ✓    |    ✓    |    ✓    |
-| da-DK      | Danish                                   | ✓    |    ✓   |    ✓    |    ✓    |    ✓    |
-| de-DE      | German                                   | ✓    |    ✓   |    ✓    |    ✓    |    ✓    |
-| el-GR      | Greek                                    | ✓    |    ✓   |    ✓    |    ✓    |    ✓    |
+| af-ZA      | Afrikaans                                |      |    ✓   |    ✓    |         |        |
+| ar         | Arabic                                   | ✓    |    ✓   |    ✓    |    ✓    |    ✓  |
+| bg-BG      | Bulgarian                                | ✓    |    ✓   |    ✓    |         |    ✓   |
+| bn-BD      | Bangla (Bangladesh)                      |      |        |          |         |    ✓   |
+| bn-IN      | Bangla (India)                           |      |        |          |         |    ✓   |
+| bs-BA      | Bosnian                                  |      |        |          |         |    ✓   |
+| ca-ES      | Catalan                                  |      |    ✓   |          |         |    ✓   |
+| cs-CZ      | Czech                                    | ✓    |    ✓   |    ✓    |    ✓    |    ✓   |
+| da-DK      | Danish                                   | ✓    |    ✓   |    ✓    |    ✓    |    ✓   |
+| de-DE      | German                                   | ✓    |    ✓   |    ✓    |    ✓    |    ✓   |
+| el-GR      | Greek                                    | ✓    |    ✓   |    ✓    |    ✓    |    ✓   |
 | en-AU      | English (Australia)                      | ✓    |    ✓   |         |         |    ✓    |
-| en-GB      | English (Great Britain)                  | ✓    |    ✓   |    ✓    |    ✓    |    ✓    |
+| en-GB      | English (Great Britain)                  | ✓    |    ✓   |    ✓    |    ✓    |    ✓   |
 | en-NZ      | English (New Zealand)                    | ✓    |    ✓   |         |    ✓    |    ✓    |
 | en-US      | English (USA)                            | ✓    |    ✓   |    ✓    |    ✓    |    ✓    |
-| es-419     | Spanish (Latin America)                  |      |    ✓   |         |         |    ✓    |
+| es-419     | Spanish (Latin America)                  |      |    ✓   |         |          |    ✓    |
 | es-ES      | Spanish (Spain)                          | ✓    |    ✓   |    ✓    |    ✓    |    ✓    |
 | es-MX      | Spanish (Mexico)                         | ✓    |        |    ✓    |         |    ✓    |
 | et-EE      | Estonian                                 |      |    ✓   |         |    ✓    |    ✓    |
-| eu-ES      | Basque                                   |      |    ✓   |         |         |         |
+| eu-ES      | Basque                                   |      |    ✓   |         |         |          |
 | fi-FI      | Finnish                                  | ✓    |    ✓   |    ✓    |    ✓    |    ✓    |
 | fil-PH     | Filipino                                 |      |        |          |         |    ✓    |
 | fr-CA      | French (Canada)                          |      |    ✓   |          |         |    ✓    |
 | fr-FR      | French (France)                          | ✓    |    ✓   |    ✓    |    ✓    |    ✓    |
 | gl-ES      | Galician                                 |      |    ✓   |          |         |         |
 | gu-IN      | Gujarati                                 |      |        |          |         |    ✓    |
-| he-IL      | Hebrew                                   |      |    ✓   |          |    ✓    |    ✓    |
+| he-IL      | Hebrew                                   |      |    ✓   |          |    ✓   |    ✓    |
 | hi-IN      | Hindi                                    |      |        |          |         |    ✓    |
 | hr-HR      | Croatian                                 |      |    ✓   |          |         |    ✓    |
 | hu-HU      | Hungarian                                | ✓    |    ✓   |    ✓    |    ✓    |    ✓    |
@@ -54,7 +54,7 @@ Azure Maps have been localized in variety languages across its services. The fol
 | is-IS      | Icelandic                                |      |        |          |         |    ✓    |
 | it-IT      | Italian                                  | ✓    |    ✓   |    ✓    |    ✓    |    ✓    |
 | ja-JP      | Japanese                                 |      |        |          |         |    ✓    |
-| kk-KZ      | Kazakh                                   |      |    ✓   |         |         |    ✓    |
+| kk-KZ      | Kazakh                                   |      |    ✓   |          |         |    ✓    |
 | kn-IN      | Kannada                                  |      |        |          |         |    ✓    |
 | ko-KR      | Korean                                   | ✓    |        |    ✓    |         |    ✓    |
 | lt-LT      | Lithuanian                               | ✓    |    ✓   |    ✓    |    ✓    |    ✓    |
@@ -62,7 +62,7 @@ Azure Maps have been localized in variety languages across its services. The fol
 | mk-MK      | Macedonian                               |      |        |          |         |    ✓    |
 | mr-IN      | Marathi                                  |      |        |          |         |    ✓    |
 | ms-MY      | Malay                                    | ✓    |    ✓   |    ✓    |         |    ✓    |
-| nb-NO      | Norwegian Bokmål                         | ✓    |    ✓   |    ✓    |    ✓    |    ✓    |
+| nb-NO      | Norwegian Bokmål                         | ✓    |    ✓   |    ✓    |    ✓    |    ✓   |
 | NGT        | Neutral Ground Truth (Local)<sup>1</sup> | ✓    |    ✓   |         |         |         |
 | NGT-Latn   | Neutral Ground Truth (Latin)<sup>2</sup> | ✓    |    ✓   |         |         |         |
 | nl-BE      | Dutch (Belgium)                          |      |    ✓   |         |         |    ✓    |
@@ -158,5 +158,5 @@ The following table provides supported views.
 | SA      | Saudi Arabia (Arabic View)                                  |   ✓  |        |
 | SY      | Syria (Arabic View)                                         |   ✓  |        |
 | YE      | Yemen (Arabic View)                                         |   ✓  |        |
-| Auto    | Return the map data based on the location of the request    |   ✓  |    ✓   |
+| Auto    | Automatically detect based on request                       |   ✓  |    ✓   |
 | Unified | Unified View (Others)                                       |   ✓  |    ✓   |
