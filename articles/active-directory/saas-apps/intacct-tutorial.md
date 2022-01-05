@@ -151,7 +151,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click the **Security** tab, and then click **Edit**.
 
-    ![Security](./media/intacct-tutorial/security.png "Security")
+    ![screenshot for Security](./media/intacct-tutorial/security.png "Security")
 
 1. In the **Single sign on (SSO)** section, perform the following steps:
 
