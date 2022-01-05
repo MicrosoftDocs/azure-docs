@@ -40,7 +40,7 @@ The errors in Data Box and Data Box Heavy are summarized as follows:
 
 ## Container or share name errors
 
-These are errors related to container and share names.
+These errors are related to container and share names.
 
 ### ERROR_CONTAINER_OR_SHARE_NAME_LENGTH
 
@@ -110,7 +110,7 @@ For more information, see the Azure naming conventions for [directories](/rest/
 
 ## Container or share size limit errors
 
-These are errors related to data exceeding the size of data allowed in a container or a share.
+These errors are related to data exceeding the size of data allowed in a container or a share.
 
 ### ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
 
@@ -119,7 +119,7 @@ These are errors related to data exceeding the size of data allowed in a contain
 **Suggested resolution:** On the **Connect and copy** page of the local web UI, download, and review the error files.
 
 - Identify the folders that have this issue from the error logs and make sure that the files in that folder are under 5 TiB.
-- The 5 TiB limit does not apply to a storage account that allows large file shares. However, you must have large file shares configured when you place your order. 
+- The 5-TiB limit does not apply to a storage account that allows large file shares. However, you must have large file shares configured when you place your order. 
   - Contact [Microsoft Support](data-box-disk-contact-microsoft-support.md) and request a new shipping label.
   - [Enable large file shares on the storage account](../storage/files/storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account)
   - [Expand the file shares in the storage account](../storage/files/storage-how-to-create-file-share.md#expand-existing-file-shares) and set the quota to 100 TiB.
@@ -127,7 +127,7 @@ These are errors related to data exceeding the size of data allowed in a contain
   
 ## Object or file size limit errors
 
-These are errors related to data exceeding the maximum size of object or the file that is allowed in Azure. 
+These errors are related to data exceeding the maximum size of object or the file that is allowed in Azure. 
 
 ### ERROR_BLOB_OR_FILE_SIZE_LIMIT
 
@@ -140,7 +140,7 @@ These are errors related to data exceeding the maximum size of object or the fil
 
 ## Data or file type errors
 
-These are errors related to unsupported file type or data type found in the container or share. 
+These errors are related to unsupported file type or data type found in the container or share. 
 
 ### ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT
 
