@@ -65,6 +65,7 @@ The location is the region where the custom image will be created. The following
 - West Central US
 - West US
 - West US 2
+- West US 3
 - South Central US
 - North Europe
 - West Europe
