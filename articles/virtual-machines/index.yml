@@ -24,9 +24,9 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: Flexible Virtual Machine Scale Sets Orchestration
-            url: flexible-virtual-machine-scale-sets
+            url: flexible-virtual-machine-scale-sets.md
           - text: Trusted Launch
-            url: trusted-launch
+            url: trusted-launch.md
           - test: VM applications in Azure Compute Gallery 
             url: vm-applications.md
 
