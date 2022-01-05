@@ -11,7 +11,7 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.custom:"b2c-support"
+ms.custom: "b2c-support"
 ---
 
 # ClaimsSchema
