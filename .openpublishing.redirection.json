@@ -40554,11 +40554,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-monitor/platform/data-collection-rule-overview.md",
-      "redirect_url": "/azure/azure-monitor/agents/data-collection-rule-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-monitor/platform/data-sources.md",
       "redirect_url": "/azure/azure-monitor/agents/data-sources",
       "redirect_document_id": false

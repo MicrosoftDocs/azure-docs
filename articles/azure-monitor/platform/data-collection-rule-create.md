@@ -1,5 +1,5 @@
 ---
-title: Data Collection Rules in Azure Monitor
+title: Create a data collection rule in Azure Monitor
 description: Overview of data collection rules (DCRs) in Azure Monitor including their contents and structure and how you can create and work with them.
 ms.topic: conceptual
 author: bwren
@@ -9,7 +9,7 @@ ms.custom: references_region
 
 ---
 
-# Create a data collection rules in Azure Monitor
+# Create a data collection rule in Azure Monitor
 You can currently use any of the following methods to create a DCR:
 
 - Directly edit the data collection rule in JSON and [submit using the REST API](/rest/api/monitor/datacollectionrules).

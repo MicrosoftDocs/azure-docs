@@ -169,7 +169,7 @@ See below how to create data collection rules.
 
 1. On the **Collect** tab, choose the events you would like to collect: select **All events** or **Custom** to specify other logs or to filter events using [XPath queries](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) (see note below). Enter expressions in the box that evaluate to specific XML criteria for events to collect, then select **Add**. You can enter up to 20 expressions in a single box, and up to 100 boxes in a rule.
 
-    Learn more about [data collection rules](../azure-monitor/agents/data-collection-rule-overview.md#create-a-dcr) from the Azure Monitor documentation.
+    Learn more about [data collection rules](../azure-monitor/platform/data-collection-rule-overview.md#create-a-dcr) from the Azure Monitor documentation.
 
     > [!NOTE]
     >
