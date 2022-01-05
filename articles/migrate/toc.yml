@@ -151,6 +151,10 @@
     href: create-manage-projects.md
   - name: Use Azure Migrate with private endpoints
     href: how-to-use-azure-migrate-with-private-endpoints.md
+  - name: Discover and assess using Azure Private Link
+    href: discover-and-assess-using-private-endpoints.md
+  - name: Migrate servers to Azure by using Private Link
+    href: migrate-servers-to-azure-using-private-link.md
     items:
       - name: Troubleshoot network connectivity
         href: troubleshoot-network-connectivity.md
