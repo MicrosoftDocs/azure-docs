@@ -642,6 +642,8 @@
         href: database/database-advisor-implement-performance-recommendations.md
       - name: Stream data with Stream Analytics
         href: database/stream-data-stream-analytics-integration.md
+      - name: Diagnose and troubleshoot high CPU
+        href: database/high-cpu-diagnose-troubleshoot.md
 
 
     - name: Load and move data 
