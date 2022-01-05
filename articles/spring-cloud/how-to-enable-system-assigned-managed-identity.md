@@ -25,11 +25,11 @@ If you're unfamiliar with managed identities for Azure resources, see the [Manag
 
 - An already provisioned Azure Spring Cloud Enterprise tier instance. For more information, see [Get started with Enterprise Tier](./get-started-enterprise.md).
 - [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
-- The preview version (available from 2.7.0a2) of the Azure Spring Cloud extension for Enterprise tier. Use the following command to install:
+- The preview version (3.0.0 or later) of the Azure Spring Cloud extension for Enterprise tier. Use the following command to install:
    ```azurecli
    az extension remove --name spring-cloud
    az extension add \
-       --source https://ascprivatecli.blob.core.windows.net/enterprise/spring_cloud-2.12.1a1-py3-none-any.whl \
+       --source https://ascprivatecli.blob.core.windows.net/enterprise/spring_cloud-3.0.0-py3-none-any.whl \
        --yes
    ```
 ::: zone-end

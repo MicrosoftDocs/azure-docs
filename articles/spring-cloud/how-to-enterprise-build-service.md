@@ -20,6 +20,15 @@ Build Service in the Enterprise tier is the entry point to containerize user app
 
 ![Where to allocate resources to Build Service](./media/enterprise/build-service/agent-pool.png)
 
+The Build Agent Pool scale set sizes available are:
+  | Scale Set | CPU/Gi |
+   | - | - |
+   | S1 | 2 vCPU, 4 Gi |
+   | S2 | 3 vCPU, 6 Gi |
+   | S3 | 4 vCPU, 8 Gi |
+   | S4 | 5 vCPU, 10 Gi |
+   | S5 | 6 vCPU, 12 Gi |
+ 
 The image below shows the resources allocated to the Build Service Agent Pool after the service instance is provisioned successfully.
 
 ![Finding resources allocated to Build Service](./media/enterprise/build-service/agent-pool-size.png)
@@ -99,13 +108,6 @@ Currently, Buildpack Binding only supports binding the buildpacks listed below. 
 
     - [ElasticAPM Partner Buildpack](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html#elastic-apm).
     - [Elastic Configuration](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html).
-
-1. ApacheSkyWalking
-
-    - [Apache Skywalking Partner Buildpack](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html#apache-skywalking).
-    - [Setup Java Agent](https://skywalking.apache.org/docs/skywalking-java/latest/en/setup/service-agent/java-agent/readme/).
-    - [Setting Override](https://skywalking.apache.org/docs/skywalking-java/latest/en/setup/service-agent/java-agent/setting-override/).
-    - [Agent Config](https://github.com/apache/skywalking-java/blob/main/apm-sniffer/config/agent.config).
 
 ## Manage Buildpack Bindings
 
