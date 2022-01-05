@@ -86,8 +86,8 @@ This account is intended to be used with scenarios where the sync engine and SQL
 ## User Account 
 
 A local service account is created by the installation wizard (unless you specify the account to use in custom settings). The account is prefixed AAD_ and used for the actual sync service to run as. If you install Azure AD Connect on a Domain Controller, the account is created in the domain. The AAD_ service account must be located in the domain if: 
-- you use a remote server running SQL Server 
-- you use a proxy that requires authentication 
+- You use a remote server running SQL Server 
+- You use a proxy that requires authentication 
 
  ![user account](media/concept-adsync-service-account/account-3.png)
 
