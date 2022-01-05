@@ -161,8 +161,9 @@
       - name: Deploy F5 BIG-IP on Azure
         href: f5-bigip-deployment-guide.md
       - name: F5 BIG-IP and Azure AD integration
-        href: f5-aad-integration.md
         items:
+        - name: How to integrate F5 BIG-IP with Azure AD
+          href: f5-aad-integration.md
         - name: Easy Button guided configuration
           items:
           - name: Kerbesos
