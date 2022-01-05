@@ -1,67 +1,82 @@
 ---
 title: How to access a lab in Azure Lab Services | Microsoft Docs
-description: Learn how to register to a lab, view all the labs that you can access, start/stop a VM in the lab, and connect to the VM. 
+description: Learn how to register to a lab.  Also learn how to view, start, stop, and connect to all the lab VMs assigned to you. 
 ms.topic: how-to
-ms.date: 11/24/2021
+ms.date: 01/04/2022
 ---
 
 # How to access a lab in Azure Lab Services
 
-This article describes how to register to a lab, view all the labs that you can access, start/stop a VM in the lab, and connect to the VM.
+Learn how to register to a lab.  Also learn how to view, start, stop, and connect to all the lab VMs assigned to you.
 
 ## Register to the lab
 
-1. Navigate to the **registration URL** that you received from the educator. You don't need to use the registration URL after you complete the registration. Instead, use the URL: [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 isn't supported yet.
+1. Navigate to the **registration URL** that you received from the educator. You don't need to use the registration URL after you complete the registration. Instead, use the URL: [https://labs.azure.com](https://labs.azure.com).
 
     ![Register to the lab](./media/tutorial-connect-vm-in-classroom-lab/register-lab.png)
 1. Sign in to the service using your school account to complete the registration.
 
     > [!NOTE]
-    > A Microsoft account is required for using Azure Lab Services. If you are trying to use your non-Microsoft account such as Yahoo or Google accounts to sign in to the portal, follow instructions to create a Microsoft account that will be linked to your non-Microsoft account. Then, follow the steps to complete the registration process.
+    > A Microsoft account is required for using Azure Lab Services unless using Canvas. If you are trying to use your non-Microsoft account such as Yahoo or Google accounts to sign in to the portal, follow instructions to create a Microsoft account that will be linked to your non-Microsoft account. Then, follow the steps to complete the registration process.
 1. Once registered, confirm that you see the virtual machine for the lab you have access to.
-
-    ![Accessible VMs](./media/tutorial-connect-vm-in-classroom-lab/accessible-vms.png)
+    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/accessible-vms.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services.":::
 1. Wait until the virtual machine is ready. On the VM tile, notice the following fields:
     1. At the top of the tile, you see the **name of the lab**.
     1. To its right, you see the icon representing the **operating system (OS)** of the VM. In this example, it's Windows OS.
     1. You see icons/buttons at the bottom of the tile to start/stop the VM, and connect to the VM.
     1. To the right of the buttons, you see the status of the VM. Confirm that you see the status of the VM is **Stopped**.
-
-        ![VM in stopped state](./media/tutorial-connect-vm-in-classroom-lab/vm-in-stopped-state.png)
+        :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/vm-in-stopped-state.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services. The status toggle and Stopped label are highlighted.":::
 
 ## Start or stop the VM
 
 1. **Start** the VM by selecting the first button as shown in the following image. This process takes some time.  
-
-    ![Start the VM](./media/tutorial-connect-vm-in-classroom-lab/start-vm.png)
+    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/start-vm.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services. The status toggle and Starting label on the VM tile are highlighted.":::
 1. Confirm that the status of the VM is set to **Running**.
+    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/vm-running.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services. The Running label on the VM tile is highlighted.":::
 
-    ![VM in running state](./media/tutorial-connect-vm-in-classroom-lab/vm-running.png)
-
-    Notice that the icon of the first button changed to represent a **stop** operation. You can select this button to stop the VM.
+    Notice that the status toggle is in the on position.  Select the status toggle again to **stop** the VM.
 
 ## Connect to the VM
 
 Select the second button as shown in the following image to **connect** to the lab's VM.
 
-![Connect to VM](./media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
+:::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/connect-vm.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services.  The connect icon button on the VM tile is highlighted.":::
 
-If connecting *to a Windows VM*, do one of the following steps:
-    1. If using Windows, save the **RDP** file. Then open the RDP file to connect to the virtual machine. Use the **user name** and **password** you get from your educator to sign in to the machine.
-    1. If using a Mac, see [Connect to a VM using RDP on a Mac](connect-virtual-machine-mac-remote-desktop.md).  
-    1. If using a Chromebook, see [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-remote-desktop.md).
+### Connect to a Windows lab VM
 
-Linux VMs can have RDP enabled and a graphical desktop installed.  For more information, see [Enable remote desktop connection for RDP](how-to-enable-remote-desktop-linux.md#enable-remote-desktop-connection-for-rdp). If connecting *to a Linux VM using RDP*, do one of the following steps:
-    1. If using Windows, save the **RDP** file. Then open the RDP file to connect to the virtual machine. Use the **user name** and **password** you get from your educator to sign in to the machine.
-    1. If using a Mac, see [Connect to a VM using RDP on a Mac](connect-virtual-machine-mac-remote-desktop.md).  
-    1. If using a Chromebook, see [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-remote-desktop.md).
+If connecting *to a Windows VM*, follow the instructions below based on the type of OS you're using.
 
-Linux VMs can have X2Go enabled and a graphical desktop installed.  For more information, see [X2Go Setup](how-to-enable-remote-desktop-linux.md#x2go-setup) and [Using GNOME or MATE graphical desktops](how-to-enable-remote-desktop-linux.md#using-gnome-or-mate-graphical-desktops).  If connecting *to a Linux VM using X2Go*, see [Connect to a VM using X2Go](how-to-use-remote-desktop-linux-student.md#connect-to-the-student-vm-using-x2go).
+| Client OS | Instructions |
+| --------- | ------------ |
+| Windows | Save the **RDP** file. Then open the RDP file to connect to the virtual machine. Use the **user name** and **password** you get from your educator to sign in to the machine. |
+| Mac | [Connect to a VM using RDP on a Mac](connect-virtual-machine-mac-remote-desktop.md). |
+| Chromebook | [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-remote-desktop.md). |
 
-By default Linux VMs have SSH installed.  If using Windows client to connect to a Linux VM, first install an ssh client like [PuTTY](https://www.putty.org/) or enable [OpenSSH in Windows](/windows-server/administration/openssh/openssh_install_firstuse). If connecting *to a Linux VM using SSH*, do the following:
+### Connect to a Linux lab VM Using RDP
 
+Linux VMs can have RDP enabled and a graphical desktop installed.  For more information, see [Enable remote desktop connection for Linux VMs](how-to-enable-remote-desktop-linux.md#enable-remote-desktop-connection-for-rdp).
+
+To connect *to a Linux VM using RDP*, follow the instructions below based on the type of OS you're using.
+
+| Client OS | Instructions |
+| --------- | ------------ |
+| Windows | Save the **RDP** file. Then open the RDP file to connect to the virtual machine. Use the **user name** and **password** you get from your educator to sign in to the machine. |
+| Mac | [Connect to a VM using RDP on a Mac](connect-virtual-machine-mac-remote-desktop.md). |
+| Chromebook | [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-remote-desktop.md). |
+
+### Connect to a Linux lab VM Using X2Go
+
+Linux VMs can have X2Go enabled and a graphical desktop installed.  For more information, see [X2Go Setup](how-to-enable-remote-desktop-linux.md#x2go-setup) and [Using GNOME or MATE graphical desktops](how-to-enable-remote-desktop-linux.md#using-gnome-or-mate-graphical-desktops).  
+
+For more information about connecting *to a Linux VM using X2Go*, see [Connect to a VM using X2Go](how-to-use-remote-desktop-linux-student.md#connect-to-the-student-vm-using-x2go).
+
+### Connect to a Linux lab VM Using SSH
+
+By default Linux VMs have SSH installed. If connecting *to a Linux VM using SSH*, do the following actions:
+
+1. If using Windows client to connect to a Linux VM, first install an ssh client like [PuTTY](https://www.putty.org/) or enable [OpenSSH in Windows](/windows-server/administration/openssh/openssh_install_firstuse).
 1. [Start the VM](how-to-use-classroom-lab.md#start-or-stop-the-vm).
-1. Once the VM is running, click **Connect**, which will pop up a dialog box that provides the SSH command string, which will look like the following sample:
+1. Once the VM is running, select **Connect**, which will pop up a dialog box that provides the SSH command string, which will look like the following sample:
 
     ```bash
     ssh -p 12345 student@ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com
@@ -72,30 +87,16 @@ By default Linux VMs have SSH installed.  If using Windows client to connect to 
 
 ## Progress bar
 
-The progress bar on the tile shows the number of hours used against the number of [quota hours](how-to-configure-student-usage.md#set-quotas-for-users) assigned to you. This time is the additional time allotted to you in addition to the scheduled time for the lab. The color of the progress bar and the text under the progress bar varies as per the following scenarios:
+The progress bar on the tile shows the number of hours used against the number of [quota hours](how-to-configure-student-usage.md#set-quotas-for-users) assigned to you. This time is the extra time allotted to you in outside of the scheduled time for the lab. The color of the progress bar and the text under the progress bar varies.  Let's cover the scenarios you might see.
 
 - If a class is in progress (within the schedule of the class), progress bar is grayed out to represent quota hours aren't being used.
-
-    ![Progress bar in gray color](./media/tutorial-connect-vm-in-classroom-lab/progress-bar-class-in-progress.png)
+    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-class-in-progress.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when VM has been started by a schedule.":::
 - If a quota isn't assigned (zero hours), the text **Available during classes only** is shown in place of the progress bar.
-
-    ![Status when no quota is set](./media/tutorial-connect-vm-in-classroom-lab/available-during-class.png)
+    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/available-during-class.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when no quota has been assigned.":::
 - If you ran **out of quota**, the color of the progress bar is **red**.
-
-    ![Progress bar in red color](./media/tutorial-connect-vm-in-classroom-lab/progress-bar-red-color.png)
+    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-red-color.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when quota has been used.":::
 - The color of the progress bar is **blue** when it's outside the scheduled time for the lab and some of the quota time has been used.
-
-    ![Progress bar in blue color](./media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png)
-
-## View all the labs
-
-After you register to the labs, you can view all the labs by taking the following steps:
-
-1. Navigate to [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 isn't supported yet.
-2. Sign in to the service by using the user account that you used to register to the lab.
-3. Confirm that you see all the labs you have access to.
-
-    ![View all labs](./media/how-to-manage-classroom-labs/all-labs.png)
+    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when quota has been partially used.":::
 
 ## Next steps
 
