@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 In Azure Active Directory (Azure AD), if another administrator or non-administrator needs to manage Azure AD resources, you assign them an Azure AD role that provides the permissions they need. For example, you can assign roles to allow adding or changing users, resetting user passwords, managing user licenses, or managing domain names.
 
-This article lists the Azure AD built-in roles you can assign to allow management of Azure AD resources. For information about how to assign roles, see [Assign Azure AD roles to users](manage-roles-portal.md).
+This article lists the Azure AD built-in roles you can assign to allow management of Azure AD resources. For information about how to assign roles, see [Assign Azure AD roles to users](manage-roles-portal.md). If you are looking for roles to manage Azure resources, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 ## All roles
 

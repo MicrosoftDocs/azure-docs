@@ -5,7 +5,7 @@ ms.service: data-share
 author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 01/03/2022
 ---
 # Azure Data Share Concepts 
 
