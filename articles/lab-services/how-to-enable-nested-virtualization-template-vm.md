@@ -32,7 +32,7 @@ Before setting up a lab with nested virtualization, here are a few things to tak
 
 ## Enable nested virtualization on a template VM
 
-This article assumes that you'vee created a lab account/lab plan and lab.  For more information about creating a new lab plan, see [Tutorial: Set up a lab plan](tutorial-setup-lab-plan.md). For more information how to create lab, see [Tutorial: Set up a lab](tutorial-setup-classroom-lab.md).
+This article assumes that you've created a lab account/lab plan and lab.  For more information about creating a new lab plan, see [Tutorial: Set up a lab plan](tutorial-setup-lab-plan.md). For more information how to create lab, see [Tutorial: Set up a lab](tutorial-setup-classroom-lab.md).
 
 >[!IMPORTANT]
 >Select **Large (nested virtualization)** or **Medium (nested virtualization)** for the virtual machine size when creating the lab.  Nested virtualization will not work otherwise.  
