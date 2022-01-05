@@ -10,7 +10,7 @@ ms.subservice: service-overview
 ms.custom: references_regions, ignite-fall-2021
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 01/05/2022
 ---
 # What's new in Azure SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -132,7 +132,7 @@ The following changes were added to SQL Managed Instance and the documentation i
 | **TDE-encrypted backup performance improvements** | It's now possible to set the point-in-time restore (PITR) backup retention period, and automated compression of backups encrypted with transparent data encryption (TDE) are now 30 percent more efficient in consuming backup storage space, saving costs for the end user. See [Change PITR](../database/automated-backups-overview.md?tabs=managed-instance#change-the-short-term-retention-policy) to learn more. |
 | **Azure AD authentication improvements** | Automate user creation using Azure AD applications and create individual Azure AD guest users (preview). To learn more, see [Directory readers in Azure AD](../database/authentication-aad-directory-readers-role.md)|
 | **Global VNet peering support** | Global virtual network peering support has been added to SQL Managed Instance, improving the geo-replication experience. See [geo-replication between managed instances](../database/auto-failover-group-overview.md?tabs=azure-powershell#enabling-geo-replication-between-managed-instances-and-their-vnets). |
-| **Hosting SSRS catalog databases** | SQL Managed Instance can now host catalog databases for all supported versions of SQL Server Reporting Services (SSRS). | 
+| **Hosting SSRS catalog databases** | SQL Managed Instance can now host catalog databases of SQL Server Reporting Services (SSRS) for versions 2017 and newer. | 
 | **Major performance improvements** | Introducing improvements to SQL Managed Instance performance, including improved transaction log write throughput, improved data and log IOPS for business critical instances, and improved TempDB performance. See the [improved performance](https://techcommunity.microsoft.com/t5/azure-sql/announcing-major-performance-improvements-for-azure-sql-database/ba-p/1701256) tech community blog to learn more. 
 | **Enhanced management experience** | Using the new [OPERATIONS API](/rest/api/sql/2021-02-01-preview/managed-instance-operations), it's now possible to check the progress of long-running instance operations. To learn more, see [Management operations](management-operations-overview.md?tabs=azure-portal).
 | **Machine learning support** | Machine Learning Services with support for R and Python languages now include preview support on Azure SQL Managed Instance (Preview). To learn more, see [Machine learning with SQL Managed Instance](machine-learning-services-overview.md). | 
