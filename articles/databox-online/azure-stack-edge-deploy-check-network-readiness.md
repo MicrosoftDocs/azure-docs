@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 01/04/2022
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I want to save time and avoid Support calls during deployment of Azure Stack Edge devices by verifying network settings in advance.
@@ -68,15 +68,15 @@ Before you begin, complete the following tasks:
 
 ## Install Network Readiness Checker
 
-To install the Azure Stack Network Readiness Checker (NRC) on the client computer, do these steps: 
+To install the Azure Stack Network Readiness Checker (NRC) on the client computer, do these steps:
 
-1. Open PowerShell on the client computer.
+1. Open PowerShell on the client computer. If you need to install PowerShell, see [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2).
 
-1. In a browser, go to [Microsoft.AzureStack.ReadinessChecker](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.2100.1396.426) in the PowerShell Gallery. Version 1.2100.1396.426 of the Microsoft.AzureStack.ReadinessChecker module is displayed.
+1. In a browser, go to [Microsoft.AzureStack.ReadinessChecker](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.2100.1780.756) in the PowerShell Gallery. Version 1.2100.1780.756 of the Microsoft.AzureStack.ReadinessChecker module is displayed.
 
 1. On the **Install Module** tab, select the Copy icon to copy the Install-Module command that installs version 1.2100.1396.426 of the Microsoft.AzureStack.ReadinessChecker.
 
-    ![Click the Copy icon to copy the Install-Module command.](./media/azure-stack-edge-deploy-check-network-readiness/network-readiness-checker-install-tool.png)
+    ![Screenshot showing the download page for the Azure Stack Edge Network Readiness Checker tool. The Install Module tab and the Copy icon are highlighted.](./media/azure-stack-edge-deploy-check-network-readiness/network-readiness-checker-install-tool.png)
 
 1. Paste in the command at the PowerShell command prompt, and press Enter.
 
