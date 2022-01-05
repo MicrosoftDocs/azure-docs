@@ -156,31 +156,31 @@
         href: secure-hybrid-access-integrations.md
       - name: Datawiza
         href: datawiza-with-azure-ad.md 
-      - name: F5
+    - name: F5
+      items:
+      - name: Deploy F5 BIG-IP on Azure
+        href: f5-bigip-deployment-guide.md
+      - name: F5 BIG-IP and Azure AD integration
+        href: f5-aad-integration.md
         items:
-        - name: Deploy F5 BIG-IP on Azure
-          href: f5-bigip-deployment-guide.md
-        - name: F5 BIG-IP and Azure AD integration
-          href: f5-aad-integration.md
+        - name: Easy Button guided configuration
           items:
-           - name: Easy Button guided configuration
-             items:
-                - name: Kerbesos
-                  href: f5-big-ip-kerberos-easy-button.md
-                - name: Headers and LDAP
-                  href: f5-big-ip-ldap-header-easybutton.md
-             - name: Advanced configuration
-             items:
-                - name: Header
-                  href: f5-big-ip-header-advanced.md
-                - name: Kerberos
-                  href: f5-big-ip-kerberos-advanced.md
-                - name: Form-based
-                  href: f5-big-ip-forms-advanced.md 
-                - name: SSL-VPN
-                  href: f5-aad-password-less-vpn.md  
-                - name: B2C
-                  href: https://docs.microsoft.com/azure/active-directory-b2c/partner-f5
+          - name: Kerbesos
+            href: f5-big-ip-kerberos-easy-button.md
+          - name: Headers and LDAP
+            href: f5-big-ip-ldap-header-easybutton.md
+        - name: Advanced configuration
+          items:
+            - name: Header
+              href: f5-big-ip-header-advanced.md
+            - name: Kerberos
+              href: f5-big-ip-kerberos-advanced.md
+            - name: Form-based
+              href: f5-big-ip-forms-advanced.md 
+            - name: SSL-VPN
+              href: f5-aad-password-less-vpn.md  
+            - name: B2C
+              href: https://docs.microsoft.com/azure/active-directory-b2c/partner-f5
       - name: Silverfort
         href: silverfort-azure-ad-integration.md
     - name: Single sign-on
