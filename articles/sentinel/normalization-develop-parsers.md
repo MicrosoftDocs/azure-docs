@@ -214,7 +214,11 @@ The ASIM parser testing tool tests for mandatory fields and correct field types.
 
 ### Optional tests
 
-Check that fields are populated. A field that is rarely or never populated may indicate incorrect parsing. You can use the following query to test how sparsely populated each field is. 
+Check that fields are populated:
+- A field that is rarely or never populated may indicate incorrect parsing. 
+- A field that is usually populated but not always may indicate less common variants of the event are not parsed correctly.
+
+You can use the following query to test how sparsely populated each field is. 
 
 ```KQL
 <parser name>

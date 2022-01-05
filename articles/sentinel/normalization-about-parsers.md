@@ -81,7 +81,7 @@ Each schema has a standard set of filtering parameters documented in the schema 
 
 ## <a name="next-steps"></a>Next steps
 
-This article discusses the Advanced SIEM Information Model (ASIM) parsers. To learn how to develop your own parsers, refer to the article [Develop ASIM parsers](normalization-write-parsers.md)
+This article discusses the Advanced SIEM Information Model (ASIM) parsers. To learn how to develop your own parsers, refer to the article [Develop ASIM parsers](normalization-develop-parsers.md)
 
 For more information, see:
 

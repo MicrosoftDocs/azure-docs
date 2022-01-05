@@ -1,6 +1,6 @@
 ---
-title: Use ASIM parsers | Microsoft Docs
-description: This article explains how to use KQL functions as query-time parsers to implement the Advanced SIEM Information Model (ASIM)
+title: ASIM parsers overview | Microsoft Docs
+description: This article provides an overview of ASIM parsers and a link to more detailed ASIM parsers documents.
 author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
@@ -23,7 +23,7 @@ Users [use ASIM parsers](normalization-about-parsers.md) instead of table names 
 
 ## Built-in ASIM parsers and workspace deployed parsers
 
-Many ASIM parsers are built-in and available out of the box in every Microsoft Sentinel workspace. ASIM also supports deploying parsers to specific workspaces [from GitHub](https://aka.ms/DeployASIM), using an ARM template or manually. The two types are functionally equivalent but have slightly different naming conventions, allowing both parser sets to coexist.
+Many ASIM parsers are built in and available out of the box in every Microsoft Sentinel workspace. ASIM also supports deploying parsers to specific workspaces [from GitHub](https://aka.ms/DeployASIM), using an ARM template or manually. The two types are functionally equivalent but have slightly different naming conventions, allowing both parser sets to coexist.
 
 Each method has advantages over the other: 
 
