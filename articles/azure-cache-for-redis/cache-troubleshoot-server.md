@@ -12,6 +12,7 @@ ms.date: 12/30/2021
 # Troubleshoot Azure Cache for Redis server issues
 
 This section discusses troubleshooting issues caused by conditions on an Azure Cache for Redis server or any of the virtual machines hosting it.
+
 - [High server load](#high-server-load)
 - [High memory usage](#high-memory-usage)
 
@@ -35,7 +36,7 @@ This section was moved. For more information, see [Long running commands](cache-
 
 ### Scaling
 
-Scaling operations are CPU and memory intensive as it could involve moving data around nodes and changing cluster topology. See <!--scaling best practices -->
+Scaling operations are CPU and memory intensive as it could involve moving data around nodes and changing cluster topology. For more information, see [Scaling](cache-best-practices-scale.md).
 
 ### Server maintenance
 
