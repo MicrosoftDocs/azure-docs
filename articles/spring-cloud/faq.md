@@ -311,7 +311,6 @@ Azure Spring Cloud Enterprise tier needs customers to pay for a license to Tanzu
 
 You can view the billing account for your subscription if you have admin access. See [view billing accounts](../cost-management-billing/manage/view-all-accounts.md#check-the-type-of-your-account).
 
-Azure Spring Cloud Enterprise tier is free for private preview.
 
 ## How can I get VMware Spring Runtime Support (Enterprise Tier only)?
 
