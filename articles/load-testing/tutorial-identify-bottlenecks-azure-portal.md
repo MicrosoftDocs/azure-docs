@@ -97,9 +97,7 @@ The sample application's source repo includes an Apache JMeter script named *Sam
 * `lasttimestamp`: Updates the time stamp since the last user went to the website.
 
 > [!NOTE]
-> When you open the sample script on your local Apache JMeter instance, you might encounter an error. The sample Apache JMeter script requires two plugins: Custom Thread Groups and Throughput Shaping Timer.
->
-> To successfully open the script locally, you need to install both plugins. You can use the [Apache JMeter Plugins Manager](https://jmeter-plugins.org/install/Install/) to do this.
+> The sample Apache JMeter script requires two plugins: ```Custom Thread Groups``` and ```Throughput Shaping Timer```. To open the script on your local Apache JMeter instance, you need to install both plugins. You can use the [Apache JMeter Plugins Manager](https://jmeter-plugins.org/install/Install/) to do this.
 
 To load test the sample web app that you deployed previously, you need to update the API URLs in the Apache JMeter script.
 
