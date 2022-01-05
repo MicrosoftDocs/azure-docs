@@ -57,7 +57,7 @@ A pizza order might include many details, like quantity and type. To add these d
 4. Select  **Create**  to finish the creation process.
 
 ## Add a feature to a machine learned entity
-Some entities include many details. Imagine a "PizzaOrder" entity, it may include "_ToppingModifiers_" or "_FullPizzaWithModifiers_". These could be added as [features](../how-to/entities.md#entities-as-feature-for-entities) to a machine learned entity.
+Some entities include many details. Imagine a "PizzaOrder" entity, it may include "_ToppingModifiers_" or "_FullPizzaWithModifiers_". These could be added as features to a machine learned entity.
 
 1. Select **Build** from the top navigation bar, then select **Entities** from the left panel.
 2. Add a feature by selecting  **+ Add feature**  on the entity or subentity row.
