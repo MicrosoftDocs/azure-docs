@@ -4,8 +4,9 @@ description: Get the available state and province codes when providing contact i
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: palanis-MSFT
-ms.author: palanis
+author: vikramb
+ms.author: vikrambmsft
+ms.reviewer: palanis
 ms.date: 04/27/2021
 ---
 
