@@ -34,7 +34,7 @@ Two labeling techniques are supported on the Intent detail page.
 
 ### Label with the Entity Palette visible
 
-After you've [planned your schema with entities](../concepts/application-design.md), keep the  **Entity palette**  visible while labeling. The  **Entity palette**  is a reminder of what entities you planned to extract.
+<!--After you've [planned your schema with entities](../concepts/application-design.md), keep the  **Entity palette**  visible while labeling. The  **Entity palette**  is a reminder of what entities you planned to extract.-->
 
 To access the  **Entity Palette** , select the  **@**  symbol in the contextual toolbar above the example utterance list.
 
@@ -132,4 +132,4 @@ Entity prediction errors indicate the predicted entity doesn't match the labeled
 
 ## Next steps:
 
-[Train and Test your application](train-test.md)
+[Train and Test your application](../luis-how-to-train.md)

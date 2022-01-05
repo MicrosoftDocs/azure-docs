@@ -125,7 +125,7 @@ Your access to the prediction endpoint is authorized with the LUIS prediction ke
 
 ## Entity
 
-[Entities](luis-concept-entity-types.md) are words in utterances that describe information used to fulfill or identify an intent. If your entity is complex and you would like your model to identify specific parts, you can break your model into subentities. For example, you might want you model to predict an address, but also the subentities of street, city, state, and zipcode. Entities can also be used as features to models. Your response from the LUIS app will include both the predicted intents and all the entities.
+[Entities](concepts/entities.md) are words in utterances that describe information used to fulfill or identify an intent. If your entity is complex and you would like your model to identify specific parts, you can break your model into subentities. For example, you might want you model to predict an address, but also the subentities of street, city, state, and zipcode. Entities can also be used as features to models. Your response from the LUIS app will include both the predicted intents and all the entities.
 
 ### Entity extractor
 

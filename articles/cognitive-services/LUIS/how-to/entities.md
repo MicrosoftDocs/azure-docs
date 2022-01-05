@@ -7,7 +7,7 @@ author: aahill
 ms.manager: nitinme
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/14/2021
+ms.date: 01/05/2022
 ---
 
 # Add entities to extract data
@@ -20,7 +20,9 @@ The entity represents a word or phrase inside the utterance that you want extrac
 
 Machine-learning entities can be created from example utterances, or the  **Entities**  page.
 
-In general, you should spend time planning the entities before creating a machine-learning entity in the portal. Then create the machine-learning entity from example utterances with as much detail in the sub-entities and features you know at the time. The [decomposable entity tutorial](../tutorial/build-decomposable-application.md) demonstrates how to use this method.
+In general, you should spend time planning the entities before creating a machine-learning entity in the portal. Then create the machine-learning entity from example utterances with as much detail in the sub-entities and features you know at the time. 
+
+<!--The [decomposable entity tutorial](../tutorial/build-decomposable-application.md) demonstrates how to use this method.-->
 
 As part of planning the entities, you may know you need text-matching entities (such as prebuilt entities, regular expression entities, or list entities). You can create these from the  **Entities**  page before they are labeled in example utterances.
 
@@ -31,7 +33,7 @@ When labeling, you can either label individual entities before creating a parent
 
 ## How to create a new entity
 
-The following process works for [machine learned entities](/azure/cognitive-services/luis/concepts/entities?branch=pr-en-us-181263#machine-learned-ml-entity), [list entities](/azure/cognitive-services/luis/concepts/entities?branch=pr-en-us-181263#list-entity), and [regular expression entities](/azure/cognitive-services/luis/concepts/entities?branch=pr-en-us-181263#regex-entity).
+The following process works for [machine learned entities](../concepts/entities.md#machine-learned-ml-entity), [list entities](../concepts/entities.md#list-entity), and [regular expression entities](../concepts/entities.md#regex-entity).
 
 1. Sign in to the [LUIS portal](https://www.luis.ai/), and select your  **Subscription**  and  **Authoring resource**  to see the apps assigned to that authoring resource.
 2. Open your app by selecting its name on  **My Apps**  page.
@@ -39,14 +41,14 @@ The following process works for [machine learned entities](/azure/cognitive-serv
 4. Continue configuring the entity. Select  **Create**  when you are done.
 
 ## Create a machine learned entity
-Following the pizza example, we would need to create a "PizzaOrder" entity to extract pizza orderes from utterances.
+Following the pizza example, we would need to create a "PizzaOrder" entity to extract pizza orders from utterances.
 
 1. Select **Build** from the top navigation menu, then select **Entities** from the left panel
-2. In the  **Create an entity type**  dialog box, enter the name of the entity and select  [**Machine learned**](/azure/cognitive-services/luis/concepts/entities?branch=pr-en-us-181263#machine-learned-ml-entity) , select. To add sub-entities, select  **Add structure**. Then select  **Create**.
+2. In the  **Create an entity type**  dialog box, enter the name of the entity and select  [**Machine learned**](../concepts/entities.md#machine-learned-ml-entity) , select. To add sub-entities, select  **Add structure**. Then select  **Create**.
 
     :::image type="content" source="../media/add-entities/machine-learned-entity-with-structure.png" alt-text="A screenshot creating a machine learned entity." lightbox="../media/add-entities/machine-learned-entity-with-structure.png":::
 
-A pizza order would include alot of details, like quantity and type. To add these details, we would create a subentity.
+A pizza order might include many details, like quantity and type. To add these details, we would create a subentity.
 
 3. In  **Add subentities** , add a subentity by selecting the  **+**  on the parent entity row.
 
@@ -55,7 +57,7 @@ A pizza order would include alot of details, like quantity and type. To add thes
 4. Select  **Create**  to finish the creation process.
 
 ## Add a feature to a machine learned entity
-Some entities include a lot of details. Imagine a "PizzaOrder" entity, it may include "_ToppingModifiers_" or "_FullPizzaWithModifiers_". These could be added as [features](/azure/cognitive-services/luis/concepts/entities?branch=pr-en-us-181263#entities-as-feature-for-entities) to a machine learned entity.
+Some entities include many details. Imagine a "PizzaOrder" entity, it may include "_ToppingModifiers_" or "_FullPizzaWithModifiers_". These could be added as [features](../entities.md#entities-as-feature-for-entities) to a machine learned entity.
 
 1. Select **Build** from the top navigation bar, then select **Entities** from the left panel.
 2. Add a feature by selecting  **+ Add feature**  on the entity or subentity row.
@@ -65,7 +67,7 @@ Some entities include a lot of details. Imagine a "PizzaOrder" entity, it may in
     :::image type="content" source="../media/add-entities/machine-learned-entity-schema-with-features.png" alt-text="A screenshot of adding feature to entity." lightbox="../media/add-entities/machine-learned-entity-schema-with-features.png":::
 
 ## Create a regular expression entity
-For extracting structured text or a predefined sequence of alphanumeric values, use regualr experission entity. Things like _OrderNumber_ could be predefined to be exactly 5 chracters with type numbers ranging between 0 and 9.
+For extracting structured text or a predefined sequence of alphanumeric values, use regular expression entities. For example, _OrderNumber_ could be predefined to be exactly 5 characters with type numbers ranging between 0 and 9.
 
 1. Select **Build** from the top navigation bar, then select **Intents** from the left panel
 2. Select  **+ Create**.
@@ -120,19 +122,19 @@ The role is added to the prebuilt entity but isn't added to any utterances using
 4. Select  **Done**. After the entity is added, you do not need to train the app.
 
 ## Add a prebuilt entity
-To recognize common types of information, add a [prebuilt entity](/azure/cognitive-services/luis/concepts/entities?branch=pr-en-us-181263#prebuilt-entities)
+To recognize common types of information, add a [prebuilt entity](../concepts/entities.md#prebuilt-entities)
 1. Select  **Entities**  in the left side.
 2. On the  **Entities**  page, select  **Add prebuilt entity**.
 3. In  **Add prebuilt entities**  dialog box, select the prebuilt entity.
 
-  :::image type="content" source="../media/luis-prebuilt-domains/add-prebuilt-entity.png" alt-text="A screenshot showing the dialog box for a prebuilt entity."lightbox="../media/luis-prebuilt-domains/add-prebuilt-entity.png":::
+  :::image type="content" source="../media/luis-prebuilt-domains/add-prebuilt-entity.png" alt-text="A screenshot showing the dialog box for a prebuilt entity." lightbox="../media/luis-prebuilt-domains/add-prebuilt-entity.png":::
 
 4. Select  **Done**. After the entity is added, you do not need to train the app.
 
 ## Create a pattern.any entity
 
-The  [**Pattern.any**](/azure/cognitive-services/luis/concepts/entities?branch=pr-en-us-181263#patternany-entity) entity is only available with [Patterns](../concepts/patterns-features.md). 
+The  [**Pattern.any**](../concepts/entities.md#patternany-entity) entity is only available with patterns. <!-- See the [patterns article](../concepts/patterns-features.md) for more information. --> 
 
 ## Next steps:
 
-[Label you example utterances](labelling.md)
+[Label you example utterances](label-utterances.md)

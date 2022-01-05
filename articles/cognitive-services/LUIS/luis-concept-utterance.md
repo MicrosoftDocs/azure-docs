@@ -4,7 +4,7 @@ description: Utterances are input from the user that your app needs to interpret
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 01/05/2022
 ---
 # Understand what good utterances are for your LUIS app
 
@@ -23,7 +23,7 @@ Collect utterances that you think users will enter. Include utterances, which me
 
 ## How to choose varied utterances
 
-When you first get started by [adding example utterances](./luis-how-to-add-entities.md) to your LUIS model, here are some principles to keep in mind.
+When you first get started by [adding example utterances](how-to/entities.md) to your LUIS model, here are some principles to keep in mind.
 
 ### Utterances aren't always well formed
 
@@ -141,4 +141,4 @@ If you wanted an event entity to find all event data, label the word `fair` in t
 
 
 ## Next steps
-See [Add example utterances](./luis-how-to-add-entities.md) for information on training a LUIS app to understand user utterances.
+See [Add example utterances](how-to/entities.md) for information on training a LUIS app to understand user utterances.

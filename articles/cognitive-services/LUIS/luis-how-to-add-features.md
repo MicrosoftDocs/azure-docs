@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/17/2020
+ms.date: 01/05/2022
 
 ---
 
@@ -60,7 +60,7 @@ An entity can be a [feature to an intent or entity](luis-concept-feature.md).
 
 To add an entity as a feature to an intent, select the intent from the Intents page, then select **+ Add feature** above the contextual toolbar. The list will include all phrase lists and entities that can be applied as features.
 
-To add an entity as a feature to another entity, you can add the feature either on the Intent detail page using the [Entity Palette](label-entity-example-utterance.md#adding-entity-as-a-feature-from-the-entity-palette) or you can [add the feature](luis-how-to-add-entities.md#add-a-feature-to-a-machine-learned-entity) on the Entity detail page.
+To add an entity as a feature to another entity, you can add the feature either on the **Intent detail** page using the [entity palette](label-entity-example-utterance.md#adding-entity-as-a-feature-from-the-entity-palette) or you can [add the feature](how-to/entities.md#add-a-feature-to-a-machine-learned-entity) on the **Entity detail**  page.
 
 ## Next steps
 

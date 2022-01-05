@@ -217,7 +217,7 @@ App version ID
 
 Submit a batch file of utterances, known as a *data set*, for batch testing. The data set is a JSON-formatted file containing a maximum of 1,000 labeled utterances. You can test up to 10 data sets in an app. If you need to test more, delete a data set and then add a new one. All custom entities in the model appear in the batch test entities filter even if there are no corresponding entities in the batch file data.
 
-The batch file consists of utterances. Each utterance must have an expected intent prediction along with any [machine-learning entities](luis-concept-entity-types.md#machine-learned-ml-entity) you expect to be detected.
+The batch file consists of utterances. Each utterance must have an expected intent prediction along with any [machine-learning entities](concepts/entities.md#machine-learned-ml-entity) you expect to be detected.
 
 ### Batch syntax template for intents with entities
 

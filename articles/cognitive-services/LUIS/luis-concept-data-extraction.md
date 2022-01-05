@@ -11,7 +11,7 @@ ms.date: 10/28/2021
 # Extract data from utterance text with intents and entities
 LUIS gives you the ability to get information from a user's natural language utterances. The information is extracted in a way that it can be used by a program, application, or chat bot to take action. In the following sections, learn what data is returned from intents and entities with examples of JSON.
 
-The hardest data to extract is the machine-learning data because it isn't an exact text match. Data extraction of the machine-learning [entities](luis-concept-entity-types.md) needs to be part of the [authoring cycle](luis-concept-app-iteration.md) until you're confident you receive the data you expect.
+The hardest data to extract is the machine-learning data because it isn't an exact text match. Data extraction of the machine-learning [entities](concepts/entities.md) needs to be part of the [authoring cycle](luis-concept-app-iteration.md) until you're confident you receive the data you expect.
 
 ## Data location and key usage
 LUIS extracts data from the user's utterance at the published [endpoint](luis-glossary.md#endpoint). The **HTTPS request** (POST or GET) contains the utterance as well as some optional configurations such as staging or production environments.
@@ -209,7 +209,7 @@ Review the [token support](luis-language-support.md#tokenization) in LUIS.
 
 
 ## Prebuilt entity data
-[Prebuilt](luis-concept-entity-types.md) entities are discovered based on a regular expression match using the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. Prebuilt entities are returned in the entities array and use the type name prefixed with `builtin::`.
+[Prebuilt](concepts/entities.md) entities are discovered based on a regular expression match using the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. Prebuilt entities are returned in the entities array and use the type name prefixed with `builtin::`.
 
 ## List entity data
 
@@ -228,7 +228,7 @@ Getting names from an utterance is difficult because a name can be almost any co
 
 ### Names of people
 
-People's name can have some slight format depending on language and culture. Use either a prebuilt **[personName](luis-reference-prebuilt-person.md)** entity or a **[simple entity](luis-concept-entity-types.md)** with roles of first and last name.
+People's name can have some slight format depending on language and culture. Use either a prebuilt **[personName](luis-reference-prebuilt-person.md)** entity or a **[simple entity](concepts/entities.md)** with roles of first and last name.
 
 If you use the simple entity, make sure to give examples that use the first and last name in different parts of the utterance, in utterances of different lengths, and utterances across all intents including the None intent. [Review](./luis-how-to-review-endpoint-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
 
@@ -238,7 +238,7 @@ Location names are set and known such as cities, counties, states, provinces, an
 
 ### New and emerging names
 
-Some apps need to be able to find new and emerging names such as products or companies. These types of names are the most difficult type of data extraction. Begin with a **[simple entity](luis-concept-entity-types.md)** and add a [phrase list](luis-concept-feature.md). [Review](./luis-how-to-review-endpoint-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
+Some apps need to be able to find new and emerging names such as products or companies. These types of names are the most difficult type of data extraction. Begin with a **[simple entity](concepts/entities.md)** and add a [phrase list](luis-concept-feature.md). [Review](./luis-how-to-review-endpoint-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
 
 ## Pattern.any entity data
 
@@ -262,4 +262,4 @@ For the query `when is the best time to go to red rock?`, and the app has the wo
 
 ## Next steps
 
-See [Add entities](luis-how-to-add-entities.md) to learn more about how to add entities to your LUIS app.
+See [Add entities](how-to/entities.md) to learn more about how to add entities to your LUIS app.

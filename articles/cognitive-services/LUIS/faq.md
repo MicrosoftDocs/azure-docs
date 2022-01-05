@@ -7,13 +7,13 @@ author: aahill
 ms.manager: nitinme
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/13/2021
+ms.date: 01/05/2022
 ---
 
 # Language Understanding Frequently Asked Questions (FAQ)
 
 
-## What are the maximum limits for LUIS application (intents, entities, utterances, etc..)?
+## What are the maximum limits for LUIS application?
 
 LUIS has several limit areas. The first is the model limit, which controls intents, entities, and features in LUIS. The second area is quota limits based on key type. A third area of limits is the keyboard combination for controlling the LUIS website. A fourth area is the world region mapping between the LUIS authoring website and the LUIS endpoint APIs.See [LUIS limits](luis-limits.md) for more details.
 
@@ -27,15 +27,15 @@ Conversion of speech to text in LUIS allows you to send spoken utterances to an 
 
 ## Do LUIS Supports speech to text?
 
-Yes, [Speech](../speech-service/how-to-recognize-intents-from-speech-csharp?branch=pr-en-us-181263#luis-and-speech) to text is provided as an integration with LUIS.
+Yes, [Speech](../speech-service/how-to-recognize-intents-from-speech-csharp.md#luis-and-speech) to text is provided as an integration with LUIS.
 
 ## What are Synonyms and word variations?
 
 LUIS has little or no knowledge of the broader _NLP_ aspects, such as semantic similarity, without explicit identification in examples. For example, the following tokens (words) are three different things until they are used in similar contexts in the examples provided:
 
-* buy
-* buying
-* bought
+* Buy
+* Buying
+* Bought
 
 For semantic similarity Natural Language Understanding (NLU), you can use [Conversation Language Understanding](../language-service/conversational-language-understanding/overview.md)
 
@@ -49,9 +49,9 @@ See [region support](https://azure.microsoft.com/global-infrastructure/services/
 ## How do LUIS store the data?
 LUIS stores data encrypted in an Azure data store corresponding to the region specified by the key. Data used to train the model such as entities, intents, and utterances will be saved in LUIS for the lifetime of the application. If an owner or contributor deletes the app, this data will be deleted with it. If an application hasn't been used in 90 days, it will be deleted.See [Data retention](luis-concept-data-storage.md) to know more details about data storage
 
-## Do LUIS support Customer Managed Key (CMK)?
+## Does LUIS support Customer-Managed Keys (CMK)?
 
-The Language Understanding service automatically encrypts your data when it is persisted to the cloud. The Language Understanding service encryption protects your data and helps you meet your organizational security and compliance commitments. See [the CMK article](encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault) for more details about customer managed keys.
+The Language Understanding service automatically encrypts your data when it is persisted to the cloud. The Language Understanding service encryption protects your data and helps you meet your organizational security and compliance commitments. See [the CMK article](encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault) for more details about customer-managed keys.
 
 ## Is it important to train the None intent?
 
@@ -67,11 +67,11 @@ Use one of the following solutions:
 
 * Ignore [punctuation](luis-reference-application-settings.md#punctuation-normalization)
 * Add the different variations as example utterances to the intent
-* Add the pattern of the example utterance with the [syntax to ignore](concepts/utterances.md#utterance-normalization) the punctuation.
+<!--* Add the pattern of the example utterance with the [syntax to ignore](concepts/utterances.md#utterance-normalization) the punctuation.-->
 
-## App is getting different scores every time I train?
+## Why is my app is getting different scores every time I train?
 
-Enable or disable the use non-deterministic training option. When disabled, training will use all available data. When enabled (by default), training will use a random sample each time the app is trained, to be used as a negative for the intent. To make sure that you are getting same scores everytime, When training make sure to [train with all data](how-to/train-test.md#using-the-luis-portal).
+Enable or disable the use non-deterministic training option. When disabled, training will use all available data. When enabled (by default), training will use a random sample each time the app is trained, to be used as a negative for the intent. To make sure that you are getting same scores every time, make sure you train your LUIS app with all your data. <!--See the [training article](how-to/train-test.md#using-the-luis-portal) for more information. --> 
 
 ## I received an HTTP 403 error status code. How do I fix it? Can I handle more requests per second?
 
@@ -86,7 +86,7 @@ Solutions for this error include:
 * In the [Azure portal](https://portal.azure.com/), navigate to your Language Understanding resource, and select **Resource Management ,** then select **Pricing tier** , and change your pricing tier. You don't need to change anything in the Language Understanding portal if your resource is already assigned to your Language Understanding app.
 * If your usage exceeds the highest pricing tier, add more Language Understanding resources with a load balancer in front of them. The [Language Understanding container](luis-container-howto.md) with Kubernetes or Docker Compose can help with this.
 
-A HTTP 429 error code is returned when your transactions per second exceed your pricing tier.
+An HTTP 429 error code is returned when your transactions per second exceed your pricing tier.
 
 Solutions include:
 
@@ -100,7 +100,7 @@ LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](lu
 
 ## What do I do when I expect LUIS requests to go beyond the quota?
 
-LUIS has a monthly quota as well as a per second quota, based on the pricing tier of the Azure resource.
+LUIS has a monthly quota and a per-second quota, based on the pricing tier of the Azure resource.
 
 If your LUIS app request rate exceeds the allowed [quota rate](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/), you can:
 
@@ -135,7 +135,7 @@ If you are using your log for prediction analysis, do not capture test utterance
 
 ## What are the supported languages?
 
-See [supported languages](luis-language-support.md), for multilingual NLU, please use the new [Conversation Language Understanding (CLU)](../language-service/conversational-language-understanding/overview.md)
+See [supported languages](luis-language-support.md), for multilingual NLU, consider using the new [Conversation Language Understanding (CLU)](../language-service/conversational-language-understanding/overview.md) feature of the Language Service. 
 
 ## Is Language Understanding (LUIS) available on-premises or in a private cloud?
 

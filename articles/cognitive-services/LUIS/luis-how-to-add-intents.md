@@ -3,12 +3,13 @@ title: Add intents - LUIS
 titleSuffix: Azure Cognitive Services
 description: Add intents to your LUIS app to identify groups of questions or commands that have the same intentions.
 services: cognitive-services
-
+ms.author: aahi
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/17/2020
+ms.date: 01/05/2022
 
 ms.service: cognitive-services
 ---
@@ -78,4 +79,4 @@ After you add, edit, or remove intents, [train](luis-how-to-train.md) and [publi
 
 ## Next steps
 
-Learn more about adding [example utterances](./luis-how-to-add-entities.md) with entities.
+Learn more about adding [example utterances](./how-to/entities.md) with entities.

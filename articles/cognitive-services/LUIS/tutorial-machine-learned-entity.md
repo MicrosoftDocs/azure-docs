@@ -295,7 +295,7 @@ In order to receive a LUIS prediction in a chat bot or other client application,
 ## Related information
 
 * [Tutorial - intents](./tutorial-intents-only.md)
-* [Concept - entities](luis-concept-entity-types.md) conceptual information
+* [Concept - entities](concepts/entities.md) conceptual information
 * [Concept - features](luis-concept-feature.md) conceptual information
 * [How to train](luis-how-to-train.md)
 * [How to publish](luis-how-to-publish-app.md)

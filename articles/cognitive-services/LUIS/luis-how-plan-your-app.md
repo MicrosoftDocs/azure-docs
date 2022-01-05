@@ -39,9 +39,9 @@ For more information, see [understanding good utterances for LUIS apps](luis-con
 
 ## Identify your entities
 
-In the example utterances, identify the entities you want extracted. To book a flight, you need information like the destination, date, airline, ticket category, and travel class. Create entities for these data types and then mark the [entities](luis-concept-entity-types.md) in the example utterances. Entities are important for accomplishing an intent.
+In the example utterances, identify the entities you want extracted. To book a flight, you need information like the destination, date, airline, ticket category, and travel class. Create entities for these data types and then mark the [entities](concepts/entities.md) in the example utterances. Entities are important for accomplishing an intent.
 
-When determining which entities to use in your app, keep in mind that there are different types of entities for capturing relationships between object types. [Entities in LUIS](luis-concept-entity-types.md) provides more detail about the different types.
+When determining which entities to use in your app, keep in mind that there are different types of entities for capturing relationships between object types. [Entities in LUIS](concepts/entities.md) provides more detail about the different types.
 
 > [!TIP]
 > LUIS offers [prebuilt entities](./howto-add-prebuilt-models.md) for common, conversational user scenarios. Consider using prebuilt entities as a starting point for your application development.
