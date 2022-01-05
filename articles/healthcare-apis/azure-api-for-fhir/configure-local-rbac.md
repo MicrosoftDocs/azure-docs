@@ -5,7 +5,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 01/04/2022
+ms.date: 01/05/2022
 ms.author: zxue
 ms.custom: devx-track-azurepowershell
 ---
@@ -18,7 +18,7 @@ This article explains how to configure the Azure API for FHIR to use a secondary
 
 ## Add a new service principal or use an existing one
 
-Local RBAC allows you to use a service principal in the secondary Azure Active Directory tenant with your FHIR server. You can  create a new service principal through the Azure portal, PowerShell or CLI commands, or use an existing service principal. The process is also known as [application registation](../register-application.md). You can review and modify the service principals through Azure Active Directory from the portal or using scripts.
+Local RBAC allows you to use a service principal in the secondary Azure Active Directory tenant with your FHIR server. You can  create a new service principal through the Azure portal, PowerShell or CLI commands, or use an existing service principal. The process is also known as [application registration](../register-application.md). You can review and modify the service principals through Azure Active Directory from the portal or using scripts.
 
 The PowerShell and CLI scripts below, which are tested and validated in Visual Studio Code, create a new service principal (or client application), and add a client secret. The service principal id is used for local RBAC and the application id and client secret will be used to access the FHIR service later.
 
