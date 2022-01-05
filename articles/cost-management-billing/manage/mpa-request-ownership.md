@@ -6,7 +6,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/05/20212
+ms.date: 01/05/2022
 ms.author: banders
 ---
 
