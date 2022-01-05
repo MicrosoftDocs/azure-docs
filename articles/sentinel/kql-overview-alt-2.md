@@ -209,6 +209,13 @@ SigninLogs
 
 Now, if *TimeGenerated* is the same between multiple records, it will then try to sort by the value in the *Identity* column.
 
+> [!NOTE]
+> **When to use `sort` and `take`, and when to use `top`**
+>
+> - If you're only sorting on one field, use `top`, as it's more performant than the combination of `sort` and `take`.
+>
+> - If you need to sort on more than one field (like in the last example above), `top` can't do that, so you must use `sort` and `take`.
+
 ### Filtering data: *where*
 
 The `where` operator is arguably the most important operator, because it's the key to making sure you are only working with the subset of data that is relevant to your scenario. You should do your best to filter your data as early in the query as possible because doing so will improve query performance by reducing the amount of data that needs to be processed in subsequent steps; it also ensures that you are only performing calculations on the desired data. See this example:
@@ -379,6 +386,8 @@ Perf
 | project ObjectName, CounterValue, CounterName
 ```
 
+:::image type="content" source="media/kql-overview-alt/table-project.png" alt-text="Screenshot of results of project operator.":::
+
 As you can imagine, when you are working with very wide datasets, you may have lots of columns you want to keep, and specifying them all by name would require a lot of typing. For those cases, you have [*project-away*](/azure/data-explorer/kusto/query/projectawayoperator), which lets you specify which columns to remove, rather than which ones to keep, like so:
 
 ```kusto
@@ -400,7 +409,11 @@ Usage
 | project ResourceUri, MBytes=Quantity, KBytes
 ```
 
-On the final line in our `project` statement, we renamed the *Quantity* column to *Mbytes*, so we can easily tell which unit of measure is relevant to each column. It is worth noting that `extend` also works with already calculated columns. For example, we can add one more column called *Bytes* that is calculated from *Kbytes*:
+On the final line in our `project` statement, we renamed the *Quantity* column to *Mbytes*, so we can easily tell which unit of measure is relevant to each column. 
+
+:::image type="content" source="media/kql-overview-alt/table-extend.png" alt-text="Screenshot of results of extend operator.":::
+
+It's worth noting that `extend` also works with already calculated columns. For example, we can add one more column called *Bytes* that is calculated from *Kbytes*:
 
 ```kusto
 Usage
@@ -409,6 +422,8 @@ Usage
 | extend Bytes = KBytes * 1024
 | project ResourceUri, MBytes=Quantity, KBytes, Bytes
 ```
+
+:::image type="content" source="media/kql-overview-alt/table-extend-twice.png" alt-text="Screenshot of results of two extend operators.":::
 
 ## Joining tables
 
@@ -468,12 +483,15 @@ For your reference, the following table shows a list of available types of joins
 
 | Join Type | Description |
 | - | - |
-| `inner` | One row returned for each combination of matching rows. |
-| `innerunique` | Inner join with left side deduplication. (Default) |
-| `leftouter`/`rightouter` | For a leftouter join, this would return matched records from left table and all records from right, matching or not. Unmatched values will be null. |
-| `fullouter` | Returns all records from both left and right tables, matching or not. Unmatched values will be null. |
-| `leftanti`/`rightanti` | For a leftanti join, this would return records that did not have a match in the right table. Only columns from the left table will be returned. |
-| `leftsemi`/`rightsemi` | For a leftanti join, this would return records that had a match in the right table. Only columns from the left table will be returned. |
+| `inner`                     | Returns a single for each combination of matching rows from both tables. |
+| `innerunique`               | Returns rows from the left table with distinct values in linked field that have a match in the right table. <br>This is the default unspecified join type. |
+| `leftsemi`                  | Returns all records from the left table that have a match in the right table. <br>Only columns from the left table will be returned. |
+| `rightsemi`                 | Returns all records from the right table that have a match in the left table. <br>Only columns from the right table will be returned. |
+| `leftanti`/<br>`leftantisemi`   | Returns all records from the left table that don't have a match in the right table. <br>Only columns from the left table will be returned. |
+| `rightanti`/<br>`rightantisemi` | Returns all records from the right table that don't have a match in the left table. <br>Only columns from the right table will be returned. |
+| `leftouter` | Returns all records from the left table. For records that have no match in the right table, cell values will be null. |
+| `rightouter` | Returns all records from the right table. For records that have no match in the left table, cell values will be null. |
+| `fullouter`                 | Returns all records from both left and right tables, matching or not. <br>Unmatched values will be null. |
 | 
 
 > [!TIP]
@@ -546,13 +564,21 @@ getSignins
 
 In this case, we created a second *let* statement, where we wrapped our whole query into a new variable called *getSignins*. Just like before, we terminate the second *let* statement with a semicolon. Then we call the variable on the final line, which will run the query. Notice that we were able to use *aWeekAgo* in the second *let* statement. This is because we specified it on the previous line; if we were to swap the *let* statements so that *getSignins* came first, we would get an error.
 
-*Let* statements are very easy to use, and they make it much easier to organize your queries. They truly come in handy when you are organizing more complex queries that may be doing multiple joins.
+*Let* statements are very easy to use, and they make it much easier to organize your queries. *Let* can define scalar and tabular values as well as create user-defined functions. They truly come in handy when you are organizing more complex queries that may be doing multiple joins.
 
 ## Next steps
 
-In this article, you learned - in keeping with the "80/20 rule" - the "20%" of Kusto Query Language that you'll be using "80%" of the time. Accordingly, we've barely scratched the surface on KQL, but hopefully you've now got the foundation necessary to really get to work in Microsoft Sentinel. In order to keep building your expertise around KQL, we recommend taking an online course and reading through the formal documentation.
+In this article, you learned - in keeping with the "80/20 rule" - the "20%" of Kusto Query Language that you'll be using "80%" of the time. Accordingly, we've barely scratched the surface on KQL, but hopefully you've now got the foundation necessary to really get to work in Microsoft Sentinel.
 
-Here's a starter list of resources to help you broaden and deepen your knowledge of and expertise with KQL:
+You can also take advantage of a new workbook right in Microsoft Sentinel itself - the **Advanced KQL for Microsoft Sentinel** workbook. It gives you step-by-step help and examples for many of the situations you're likely to encounter during your day-to-day security operations, and also points you to lots of ready-made, out-of-the-box examples of analytics rules, workbooks, hunting rules, and more elements that use Kusto queries. Just launch this workbook from the **Workbooks** blade in Microsoft Sentinel.
+
+### KQL workbook
+
+[Advanced KQL Framework Workbook - Empowering you to become KQL-savvy](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/advanced-kql-framework-workbook-empowering-you-to-become-kql/ba-p/3033766) is an excellent blog post that shows you how to use this workbook.
+
+### More resources
+
+Here's a list of some more resources to help you broaden and deepen your knowledge of and expertise with KQL:
 
 - [Official Documentation for KQL](https://aka.ms/KQLDocs)
 
