@@ -17,11 +17,11 @@ ms.date: 12/23/2021
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqlmi.md)]
 
-This Azure CLI script example restores an Azure SQL Managed Instance database from a remote geo-region (geo-restore) to a point in time. 
+This Azure CLI script example restores an Azure SQL Managed Instance database from a remote geo-region (geo-restore) to a point in time.
 
-This samples requires an existing pair of managed instances, see [Use Azure CLI to create an Azure SQL Managed Instance](create-configure-managed-instance-cli.md) to create a pair of managed instances in different regions.
+This sample requires an existing pair of managed instances, see [Use Azure CLI to create an Azure SQL Managed Instance](create-configure-managed-instance-cli.md) to create a pair of managed instances in different regions.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
@@ -43,7 +43,7 @@ For more information, see [set active subscription](/cli/azure/account#az_accoun
 
 ### Clean up resources
 
-Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command- unless you have additional needs for these resources. Some of these resources may take a while to create, as well as to delete.
+Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command - unless you have an ongoing need for these resources. Some of these resources may take a while to create, as well as to delete.
 
 ```azurecli
 az group delete --name $resourceGroup

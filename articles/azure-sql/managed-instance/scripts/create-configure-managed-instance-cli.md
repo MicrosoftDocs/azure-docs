@@ -22,7 +22,7 @@ This Azure CLI script example creates an Azure SQL Managed Instance in a dedicat
 > [!IMPORTANT]
 > For limitations, see [supported regions](../../../azure-sql/managed-instance/resource-limits.md#supported-regions) and [supported subscription types](../../../azure-sql/managed-instance/resource-limits.md#supported-subscription-types).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
@@ -44,7 +44,7 @@ For more information, see [set active subscription](/cli/azure/account#az_accoun
 
 ### Clean up resources
 
-Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command- unless you have additional needs for these resources. Some of these resources may take a while to create, as well as to delete.
+Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command - unless you have an ongoing need for these resources. Some of these resources may take a while to create, as well as to delete.
 
 ```azurecli
 az group delete --name $resourceGroup
