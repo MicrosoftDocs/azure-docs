@@ -60,7 +60,7 @@ In this tutorial, you learn how to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-1. From the main Azure menu, select **Create a resource** > **Integration** > **Logic App**.
+1. From the Azure home page, select **Create a resource** > **Integration** > **Logic App**.
 
    ![Screenshot of Azure portal, showing button to create a logic app resource.](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 
