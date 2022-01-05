@@ -123,9 +123,11 @@ An indexer will automate some tasks related to data ingestion, but creating an i
 
 By default, the first indexer execution occurs when you [create an indexer](/rest/api/searchservice/Create-Indexer) on the search service. You can set the "disabled" property in an indexer to create it without running it.
 
-Indexer execution is the where you'll find out if the data source is accessible or the skillset is valid. Until indexer execution starts, dependent objects such as data sources and skillsets are inactive on the search service. After the first indexer run, you can re-run it on demand using [Run Indexer](/rest/api/searchservice/run-indexer), or you can [define a recurring schedule](search-howto-schedule-indexers.md). 
+During indexer execution is when you'll find out if the data source is accessible or the skillset is valid. Until indexer execution starts, dependent objects such as data sources and skillsets are inactive on the search service. 
 
-You can monitor the [indexer status in the portal](search-howto-monitor-indexers.md) or through [Get Indexer Status API](/rest/api/searchservice/get-indexer-status). You should also [run queries on the index](search-query-create.md) to verify the result is what you expected.
+After the first indexer run, you can re-run it on demand using [Run Indexer](/rest/api/searchservice/run-indexer), or you can [define a recurring schedule](search-howto-schedule-indexers.md). 
+
+You can monitor [indexer status in the portal](search-howto-monitor-indexers.md) or through [Get Indexer Status API](/rest/api/searchservice/get-indexer-status). You should also [run queries on the index](search-query-create.md) to verify the result is what you expected.
 
 ## Next steps
 
