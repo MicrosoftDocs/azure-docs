@@ -10,7 +10,7 @@ ms.topic: sample
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 12/23/2021
+ms.date: 01/05/2022
 ---
 
 # Use CLI to configure SQL Database auditing and Advanced Threat Protection
@@ -31,7 +31,9 @@ This Azure CLI script example configures SQL Database auditing and Advanced Thre
 
 ### Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md
+
+)]
 
 ```azurecli
 az group delete --name $resourceGroup

@@ -10,7 +10,7 @@ ms.topic: sample
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: mathoma
-ms.date: 12/23/2021
+ms.date: 01/05/2022
 ---
 
 # Use CLI to backup an Azure SQL single database to an Azure storage container
@@ -31,7 +31,9 @@ This Azure CLI example backs up a database in SQL Database to an Azure storage c
 
 ### Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md
+
+)]
 
 ```azurecli
 az group delete --name $resourceGroup

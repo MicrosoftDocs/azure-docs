@@ -10,7 +10,7 @@ ms.topic: sample
 author: urosmil 
 ms.author: urmilano
 ms.reviewer:  mathoma
-ms.date: 12/23/2021
+ms.date: 01/05/2022
 ---
 
 # Use CLI to create an Azure SQL Managed Instance
@@ -34,7 +34,7 @@ This Azure CLI script example creates an Azure SQL Managed Instance in a dedicat
 
 ### Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

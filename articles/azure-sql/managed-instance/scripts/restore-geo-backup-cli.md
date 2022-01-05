@@ -10,7 +10,7 @@ ms.topic: sample
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: mathoma
-ms.date: 12/23/2021
+ms.date: 01/05/2022
 ---
 
 # Use CLI to restore a Managed Instance database to another geo-region
@@ -33,7 +33,9 @@ This sample requires an existing pair of managed instances, see [Use Azure CLI t
 
 ### Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md
+
+)]
 
 ```azurecli
 az group delete --name $resourceGroup

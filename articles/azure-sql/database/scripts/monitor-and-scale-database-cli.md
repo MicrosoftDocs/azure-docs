@@ -10,7 +10,7 @@ ms.topic: sample
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: kendralittle, mathoma
-ms.date: 12/23/2021
+ms.date: 01/05/2022
 ---
 
 # Use the Azure CLI to monitor and scale a single database in Azure SQL Database
@@ -34,7 +34,9 @@ This Azure CLI script example scales a single database in Azure SQL Database to 
 
 ### Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md
+
+)]
 
 ```azurecli
 az group delete --name $resourceGroup

@@ -10,7 +10,7 @@ ms.topic: sample
 author: arvindshmicrosoft 
 ms.author: arvindsh
 ms.reviewer: kendralittle, mathoma
-ms.date: 12/23/2021
+ms.date: 01/05/2022
 ---
 
 # Use Azure CLI to move a database in SQL Database in a SQL elastic pool
@@ -31,7 +31,9 @@ This Azure CLI script example creates two elastic pools, moves a pooled database
 
 ### Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md
+
+)]
 
 ```azurecli
 az group delete --name $resourceGroup

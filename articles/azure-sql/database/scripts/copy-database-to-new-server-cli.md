@@ -10,7 +10,7 @@ ms.topic: sample
 author: rothja
 ms.author: jroth
 ms.reviewer: mathoma
-ms.date: 12/23/2021
+ms.date: 01/05/2022
 ---
 
 # Use CLI to copy a database in Azure SQL Database to a new server
@@ -31,7 +31,9 @@ This Azure CLI script example creates a copy of an existing database in a new se
 
 ### Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md
+
+)]
 
 ```azurecli
 az group delete --name $targetResourceGroup

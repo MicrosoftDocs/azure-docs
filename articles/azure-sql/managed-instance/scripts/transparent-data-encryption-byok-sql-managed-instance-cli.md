@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto 
-ms.date: 12/23/2021
+ms.date: 01/05/2022
 ---
 
 # Manage Transparent Data Encryption in a Managed Instance using your own key from Azure Key Vault
@@ -33,7 +33,9 @@ This sample requires an existing Managed Instance, see [Use Azure CLI to create 
 
 ### Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md
+
+)]
 
 ```azurecli
 az group delete --name $resourceGroup

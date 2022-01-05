@@ -10,7 +10,7 @@ ms.topic: tutorial
 author: emlisa
 ms.author: emlisa
 ms.reviewer: kendralittle, mathoma
-ms.date: 12/10/2021
+ms.date: 01/05/2022
 ---
 # Tutorial: Add an Azure SQL Database to an autofailover group
 
@@ -360,7 +360,9 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command - unless you have an ongoing need for these resources. Some of these resources may take a while to create, as well as to delete.
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md
+
+)]
 
    ```azurecli
    echo "Cleaning up resources by removing the resource group..."
