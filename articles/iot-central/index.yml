@@ -36,16 +36,16 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Why should I start with IoT Central?
-            url: core/overview-iot-central.md
+#          - text: Why should I start with IoT Central?
+#            url: core/overview-iot-central.md
           - text: What does it mean for IoT Central to have high availability, disaster recovery, and elastic scale?
-            url: core/overview-iot-central.md
-          - text: How do I move between aPaaS and PaaS solution approaches?
-            url: core/overview-iot-central.md
+            url: core/concepts-scalability-availability.md
+#          - text: How do I move between aPaaS and PaaS solution approaches?
+#            url: core/overview-iot-central.md
           - text: How do I extend IoT Central if it's missing something I need?
-            url: core/overview-iot-central.md
+            url: core/concepts-faq-extend.md
           - text: What are IoT Central's scale limits?
-            url: core/overview-iot-central.md 
+            url: core/concepts-quotas-limits.md 
       - linkListType: learn
         links:
           - text: How can I try out a detailed end-to-end scenario?

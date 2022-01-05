@@ -215,6 +215,8 @@
         href: core/troubleshoot-data-export.md
     - name: FAQ
       href: core/howto-faq.yml
+    - name: How do I extend IoT Central FAQ
+      href: core/concepts-faq-extend.md
     - name: Manage your personal preferences
       href: core/howto-manage-preferences.md
 
