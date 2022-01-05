@@ -259,7 +259,7 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > If you're using the Azure Government cloud, then use the value `ff281ffe-705c-4f53-9f37-a40e6f2c68f3` for the parameter **ServicePrincipalName** in [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet.
 >
 
-If you want to selectively backup few disks and exclude others as mentioned in [these scenarios](selective-disk-backup-restore.md#scenarios), you can configure protection and backup only the relevant disks as documented [here](selective-disk-backup-restore.md#enable-backup-with-powershell).
+If you want to selectively back up a few disks and exclude others as mentioned in [these scenarios](selective-disk-backup-restore.md#scenarios), you can configure protection and backup only the relevant disks as documented [here](selective-disk-backup-restore.md#enable-backup-with-powershell).
 
 ## Monitoring a backup job
 
@@ -343,7 +343,7 @@ Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 
 ### Exclude disks for a protected VM
 
-Azure VM backup provides a capability to selectively exclude or include disks which is helpful in [these scenarios](selective-disk-backup-restore.md#scenarios). If the virtual machine is already protected by Azure VM backup and if all disks are backed up, then you can modify the protection to selectively include or exclude disks as mentioned [here](selective-disk-backup-restore.md#modify-protection-for-already-backed-up-vms-with-powershell).
+Azure VM backup provides a capability to selectively exclude or include disks which are helpful in [these scenarios](selective-disk-backup-restore.md#scenarios). If the virtual machine is already protected by Azure VM backup and if all disks are backed up, then you can modify the protection to selectively include or exclude disks as mentioned [here](selective-disk-backup-restore.md#modify-protection-for-already-backed-up-vms-with-powershell).
 
 ### Trigger a backup
 
@@ -669,7 +669,7 @@ The template isn't directly accessible since it's under a customer's storage acc
 
 ### Create a VM using the config file
 
-The following section lists steps necessary to create a VM using "VMConfig" file.
+The following section lists steps necessary to create a VM using _VMConfig_ file.
 
 > [!NOTE]
 > It's highly recommended to use the deployment template detailed above to create a VM. This section (Points 1-6) will be deprecated soon.
