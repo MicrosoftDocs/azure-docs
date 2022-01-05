@@ -196,7 +196,7 @@ az spring-cloud create -n <service instance name> -g <resource group name>
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/xxx/piggymetrics --label config
 ```
 
-## End-to-End Sample Workflows
+## End-to-end sample workflows
 
 The following examples demonstrate common usage scenarios.
 
