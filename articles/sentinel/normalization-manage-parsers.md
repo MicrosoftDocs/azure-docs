@@ -42,7 +42,7 @@ The user cannot edit built-in source-agnostic parsers. The following mechanisms 
 
 ### Adding a custom parser to a built-in source agnostic parser
 
-To add a custom parser add a line to the custom source-agnostic parser referencing the new custom parser. Make sure to add both a filtering custom parser and a parameter-less custom parser. The syntax of the line to add is different for each schema:
+To add a custom parser, insert a line to the custom source-agnostic parser referencing the new custom parser. Make sure to add both a filtering custom parser and a parameter-less custom parser. The syntax of the line to add is different for each schema:
 
 | Schema | Custom&nbsp;source&#8209;agnostic filtering  parser | Format of line to add | Custom&nbsp;source&#8209;agnostic Parameter-less parser |  Format of line to add |
 | ------ | ---------------------------------------- | --------------------- | ---------------- | --------------------- | 
@@ -77,7 +77,7 @@ To modify an existing built-in source-specific parser
 
 To fix the version used for a built-in source-specific parser:
 - Add the built-in parser version you want to use to the custom source-agnostic parser as outlined above for custom parsers, for example, `_Im_Dns_AzureFirewallV02`.
-- Add an exception for the built-in parser as outlined above. When excluding a large number of built-in parsers, for example, to opt-out entirely from automatic updates, you can add:
+- Add an exception for the built-in parser as outlined above. When excluding a large number of built-in parsers, for example, to opt out entirely from automatic updates, you can add:
   - A record with `Any` as the SourceSpecificParser field to exclude all parsers for the CallerContext.
   - A record for  `Any` in the CallerContext and the SourceSpecificParser fields to exclude all built-in parsers.
  
@@ -86,7 +86,7 @@ To fix the version used for a built-in source-specific parser:
 
 ### Adding a custom parser to a workspace-deployed source-agnostic parser
 
-To add a custom parser add a line to the union statement in the workspace-deployed source-agnostic parser referencing the new custom parser. Make sure to add both a filtering custom parser and a parameter-less custom parser. The syntax of the line to add is different for each schema:
+To add a custom parser, insert a line to the union statement in the workspace-deployed source-agnostic parser referencing the new custom parser. Make sure to add both a filtering custom parser and a parameter-less custom parser. The syntax of the line to add is different for each schema:
 
 | Schema |  Filtering  parser | Format of line to add | Parameter-less parser |  Format of line to add |
 | ------ | ---------------------------------------- | --------------------- | ---------------- | --------------------- | 
@@ -121,7 +121,7 @@ For example, the DNS filtering source-agnostic parser after adding `added_parser
 
 ### Use a modified version of a workspace-deployed parser
 
-Since workspace-deployed parsers can be edited, you can directly modify the parser. Alternatively, you can create a parser based on the original, comment out the original and add your modified version to the workspace-deployed source-agnostic parser.
+Since workspace-deployed parsers can be edited, you can directly modify the parser. Alternatively, you can create a parser based on the original, comment out the original, and add your modified version to the workspace-deployed source-agnostic parser.
 
 For example, the DNS filtering source-agnostic parser after adding replacing the vimDnsAzureFirewall with a modified version:
 
