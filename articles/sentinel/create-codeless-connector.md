@@ -4,7 +4,7 @@ description: Learn how to create a codeless connector in Microsoft Sentinel usin
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 12/29/2021
+ms.date: 01/05/2022
 ---
 # Create a codeless connector for Microsoft Sentinel (Public preview)
 
@@ -362,7 +362,7 @@ The `pollingConfig` section includes the following properties:
 |---------|---------|---------|
 |**id**     |  String | Mandatory. Defines a unique identifier for a rule or configuration entry, using one of the following values: <br><br>- A GUID (recommended) <br>- A document ID, if the data source resides in a Cosmos DB       |
 |**auth**     | String | Describes the authentication properties for polling the data.  For more information, see  [auth configuration](#auth-configuration).   |
-|<a name="authtype"></a>**auth.authType**     |   String | Mandatory. Defines the type of authentication, nested inside the `auth` object, as  one of the following values: `Basic`, `APIKey`, `OAuth2`, `Session`        |
+|<a name="authtype"></a>**auth.authType**     |   String | Mandatory. Defines the type of authentication, nested inside the `auth` object, as  one of the following values: `Basic`, `APIKey`, `Session`        |
 |**request**     |  Nested JSON | Mandatory. Describes the request payload for polling the data, such as the API endpoint.     For more information, see [request configuration](#request-configuration).         |
 |**response**     | Nested JSON |  Mandatory. Describes the response object and nested message returned from the API when polling the data. For more information, see [response configuration](#response-configuration).     |
 |**paging**     | Nested JSON. |  Optional. Describes the pagination payload when polling the data.  For more information, see [paging configuration](#paging-configuration).         |
@@ -396,29 +396,6 @@ The `auth` section of the `[pollingConfig](#configure-your-connectors-polling-se
 | | | |
 
 
-#### OAuth2 authType parameters
-
-|Name  |Type  |Description  |
-|---------|---------|---------|
-|**AccessToken** |String | Optional. Defines an OAuth2 access token, relevant when the access token doesn't expire. |
-|**RefreshToken** |String | Mandatory for OAuth2 auth types. Defines the OAuth2 refresh token. |
-|**TokenEndpoint** |String | Mandatory for OAuth2 auth types. Defines the OAuth2 token service endpoint. |
-|**AuthorizationEndpoint** |String | Optional. Defines the OAuth2 authorization service endpoint. Used only during onboarding or when renewing a refresh token. |
-|**RedirectionEndpoint** |String | Optional. Defines a redirection endpoint during onboarding. |
-| **AccessTokenExpirationDateTimeInUtc**|String | Optional. Defines an access token expiration datetime, in UTC format. Relevant for when the access token doesn't expire, and therefore has a large datetime in UTC, or when the access token has a large expiration datetime. |
-| **RefreshTokenExpirationDateTimeInUtc**|String | Mandatory for OAuth2 auth types. Defines the refresh token expiration datetime in UTC format.|
-|**TokenEndpointHeaders** | String. | Optional. Defines the headers when calling an OAuth2 token service endpoint. <br><br> Define a string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`  |
-|**AuthorizationEndpointHeaders** |String | Optional. Defines the headers when calling an OAuth2 authorization service endpoint. Used only during onboarding or when renewing a refresh token. |
-|**AuthorizationEndpointQueryParameters** | String | Optional. Defines query parameters when calling an OAuth2 authorization service endpoint. Used only during onboarding or when renewing a refresh token. <br><br> Define a string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`  |
-|**TokenEndpointQueryParameters** | String. | Optional. Define query parameters when calling OAuth2 token service endpoint. <br><br> Define a string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`  |
-|**IsTokenEndpointPostPayloadJson** | Boolean. | Optional, default is false. Determines whether query parameters are in JSON format and set in the request POST payload. |
-| **IsClientSecretInHeader**| Boolean | Optional, default is false. Determines whether the **client_id** and **client_secret** values are defined in the header, as is done in the Basic authentication schema, instead of in the POST payload. |
-|**RefreshTokenLifetimeinSecAttributeName** |String. | Optional. Defines the attribute name from the token endpoint response, specifying the lifetime of the refresh token, in seconds. |
-|**IsJwtBearFlow** | Boolean | Optional, default is false. Determines whether you are using JWT. |
-|**JwtHeaderInJson** |String | Optional. Define the JWT headers in JSON format. <br><br>Define a string in the serialized `dictionary<string, object>` format: `{'<attr_name>': <val>, '<attr_name>': <val>...}` |
-|**JwtClaimsInJson** |String | Optional. Defines JWT claims in JSON format. <br><br>Define a string in the serialized `dictionary<string, object>` format: `{'<attr_name>': <val>, '<attr_name>': <val>}...}` |
-|**JwtPem** |String | Optional. Defines a secret key, in PEM Pkcs8 format: `'-----BEGIN RSA PRIVATE KEY-----\r\n{privatekey}\r\n-----END RSA PRIVATE KEY-----\r\n'` <br><br>**Note**: Make sure to keep the `'\r\n'` code in place. |
-| | | |
 
 
 ### request configuration
@@ -621,7 +598,6 @@ After creating your [JSON configuration file](#connector-json-configuration-synt
     |---------|---------|
     |**Basic**     |  Define: <br>- `kind` as `Basic` <br>- `userName` as your username, in quotes <br>- `password` as your password, in quotes     |
     |**APIKey**     |Define: <br>- `kind` as `APIKey` <br>- `APIKey` as your full API key string, in quotes|
-    |**OAuth2**     |   Define: <br>- `kind` as `OAuth2`<br>- `authorizationCode` as your full authorization code, in quotes <br>- `clientSecret` and `clientId` as your client secret and ID values, each in quotes      |
     |     |         |
 
     If you're using a [template configuration file with placeholder data](#create-a-connector-configuration-template-with-placeholders), send the data together with the `placeHolderValue` attributes that hold the user data. For example:
@@ -698,11 +674,6 @@ Connect using one of the following authentication methods:
 - **Basic authentication**. Passes a username and password to authenticate to the REST API.
 
 - **API key**. Provides an API key to the API.
-
-- **OAuth2**. Uses an open standard for access delegation intended to grant access from applications to an API without supporting the actual authentication data.
-
-    Using OAuth2 requires app registration, authentication, and then getting a token and access by the application using the registration and authentication data. When connecting a codeless data connector, register Microsoft Sentinel as your application, and then interact directly with your data source's API authentication process for the required keys. Provide the keys to the connector when you need to connect.
-
 
 **Method**: POST
 
