@@ -49,7 +49,7 @@ To avoid performance degradation due to resource contention, customers using den
 
 Azure SQL Database provides several metrics that are relevant for this type of monitoring. Exceeding the recommended average value for each metric indicates resource contention in the pool, and should be addressed using one of the actions mentioned earlier.
 
-To send an alert when pool resource utilization (CPU, data IO, log IO, workers, etc.) exceeds a threshold, consider creating alerts via the [Azure portal](alerts-insights-configure-portal.md) or the [Add-AzMetricAlertRulev2](/powershell/module/az.monitor/add-azmetricalertrulev2) PowerShell cmdlet. When monitoring elastic pools, you should still configure alerting on individual database which would be more explanatory to a pooled resource constraint. For a sample scenario of monitoring elastic pools, see [Monitor and manage performance of Azure SQL Database in a multi-tenant SaaS app](saas-dbpertenant-performance-monitoring.md).
+To send an alert when pool resource utilization (CPU, data IO, log IO, workers, etc.) exceeds a threshold, consider creating alerts via the [Azure portal](alerts-insights-configure-portal.md) or the [Add-AzMetricAlertRulev2](/powershell/module/az.monitor/add-azmetricalertrulev2) PowerShell cmdlet. When monitoring elastic pools, consider also creating alerts for individual databases in the pool if needed in your scenario. For a sample scenario of monitoring elastic pools, see [Monitor and manage performance of Azure SQL Database in a multi-tenant SaaS app](saas-dbpertenant-performance-monitoring.md).
 
 |Metric name|Description|Recommended average value|
 |----------|--------------------------------|------------|
