@@ -10,7 +10,7 @@ author: yanancai
 ms.date: 09/08/2021
 ---
 
-# Use external Hive Metastore for Synapse Spark Pool (Preview)
+# Use external Hive Metastore for Synapse Spark Pool
 
 Azure Synapse Analytics allows Apache Spark pools in the same workspace to share a managed HMS (Hive Metastore) compatible metastore as their catalog. When customers want to persist the Hive catalog metadata outside of the workspace, and share catalog objects with other computational engines outside of the workspace, such as HDInsight and Azure Databricks, they can connect to an external Hive Metastore. In this article, you can learn how to connect Synapse Spark to an external Apache Hive Metastore. 
 
