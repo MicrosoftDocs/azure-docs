@@ -35,7 +35,7 @@ items:
   items:
   - name: Move across regions
     items:
-    - name: Configure NAT gateway after region move
+    - name: Create and configure NAT gateway after region move
       href: region-move-nat-gateway.md
   - name: Troubleshoot
     items:

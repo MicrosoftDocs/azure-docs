@@ -1,5 +1,5 @@
 ---
-title: Configure NAT gateway after moving resources to another region
+title: Create and configure NAT gateway after moving resources to another region
 description: Learn how to configure a new NAT gateway for resources moved to another region.
 author: asudbring
 ms.author: allensu
@@ -10,7 +10,7 @@ ms.date: 01/04/2022
 ms.custom: template-how-to
 ---
 
-# Configure NAT gateway after moving resources to another region
+# Create and configure NAT gateway after moving resources to another region
 
 In this article, learn how to configure a NAT gateway after moving resources to a different region. You might want to move resources to take advantage of a new Azure region that is better suited to your customers' geographical presence, other needs, or to meet internal policy and governance requirements, or to take advantage of your organization’s infrastructure.  
 
