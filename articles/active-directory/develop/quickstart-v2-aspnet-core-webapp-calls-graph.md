@@ -123,11 +123,12 @@ This section gives an overview of the code required to sign in users and call th
 The *Microsoft.AspNetCore.Authentication* middleware uses a `Startup` class that's executed when the hosting process initializes:
 
 ```csharp
-  // Get the scopes from the configuration (appsettings.json)
-  var initialScopes = Configuration.GetValue<string>("DownstreamApi:Scopes")?.Split(' ');
 
   public void ConfigureServices(IServiceCollection services)
-  {
+  {  
+    // Get the scopes from the configuration (appsettings.json)
+    var initialScopes = Configuration.GetValue<string>("DownstreamApi:Scopes")?.Split(' ');
+  
       // Add sign-in with Microsoft
       services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
         .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"))
