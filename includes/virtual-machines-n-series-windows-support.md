@@ -14,7 +14,7 @@
 
 ### NVIDIA Tesla (CUDA) drivers
 
-NVIDIA Tesla (CUDA) drivers for NC, NCv2, NCv3, NCasT4_v3, ND, and NDv2-series VMs (optional for NV-series) are tested on the operating systems listed in the following table. CUDA driver is generic and not azure specific. For the latest drivers, visit the [NVIDIA](https://www.nvidia.com/) website.
+NVIDIA Tesla (CUDA) drivers for NC, NCv2, NCv3, NCasT4_v3, ND, and NDv2-series VMs (optional for NV-series) are tested on the operating systems listed in the following table. CUDA driver is generic and not Azure specific. For the latest drivers, visit the [NVIDIA](https://www.nvidia.com/) website.
 
 > [!TIP]
 > As an alternative to manual CUDA driver installation on a Windows Server VM, you can deploy an Azure [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md) image. The DSVM editions for Windows Server 2016 pre-install NVIDIA CUDA drivers, the CUDA Deep Neural Network Library, and other tools.
@@ -33,7 +33,7 @@ The GRID drivers redistributed by Azure do not work on non-NV series VMs like NC
 
 The NC-Series with Nvidia K80 GPUs do not support GRID/graphics applications.  
 
-Please note that the Nvidia extension will always install the latest driver. We provide links to the previous version here for customers, who have dependency on an older version.
+Note that the Nvidia extension will always install the latest driver. We provide links to the previous version here for customers, who have dependency on an older version.
 
 For Windows Server 2019, Windows Server 2016 1607, 1709, and Windows 10 and Windows 11:
 - [GRID 13.1 (472.39)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
@@ -44,4 +44,4 @@ For Windows Server 2012 R2:
 - [GRID 13 (471.68)](https://download.microsoft.com/download/9/b/4/9b4d4f8d-7962-4a67-839b-37cc95756759/471.68_grid_winserver2012R2_64bit_azure_swl.exe) (.exe)
 
 
-For the complete list of all previous Nvidia GRID driver links please visit [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json)
+For the complete list of all previous Nvidia GRID driver links visit [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json)
