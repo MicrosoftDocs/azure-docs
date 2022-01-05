@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 12/21/2021
+ms.date: 1/5/2022
 ---
 
 # Resource management in dense elastic pools
@@ -49,7 +49,7 @@ To avoid performance degradation due to resource contention, customers using den
 
 Azure SQL Database provides several metrics that are relevant for this type of monitoring. Exceeding the recommended average value for each metric indicates resource contention in the pool, and should be addressed using one of the actions mentioned earlier.
 
-To configure Alerting on eDTU resource consumption, consider creating alerts via the [Azure portal](alerts-insights-configure-portal.md) or the [Add-AzMetricAlertRulev2](/powershell/module/az.monitor/add-azmetricalertrulev2) PowerShell cmdlet. For a sample scenario, see [Monitor and manage performance of Azure SQL Database in a multi-tenant SaaS app](saas-dbpertenant-performance-monitoring.md).
+To send an alert when pool resource utilization (CPU, data IO, log IO, workers, etc.) exceeds a threshold, consider creating alerts via the [Azure portal](alerts-insights-configure-portal.md) or the [Add-AzMetricAlertRulev2](/powershell/module/az.monitor/add-azmetricalertrulev2) PowerShell cmdlet. When monitoring elastic pools, you should still configure alerting on individual database which would be more explanatory to a pooled resource constraint. For a sample scenario of monitoring elastic pools, see [Monitor and manage performance of Azure SQL Database in a multi-tenant SaaS app](saas-dbpertenant-performance-monitoring.md).
 
 |Metric name|Description|Recommended average value|
 |----------|--------------------------------|------------|
@@ -70,8 +70,8 @@ In addition to these metrics, Azure SQL Database provides a view that returns ac
 |[sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database)|Returns actual configuration and capacity settings used by resource governance mechanisms in the current database or elastic pool.|
 |[sys.dm_resource_governor_resource_pools](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-transact-sql)|Returns information about the current resource pool state, the current configuration of resource pools, and cumulative resource pool statistics.|
 |[sys.dm_resource_governor_workload_groups](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-transact-sql)|Returns cumulative workload group statistics and the current configuration of the workload group. This view can be joined with sys.dm_resource_governor_resource_pools on the `pool_id` column to get resource pool information.|
-|[sys.dm_resource_governor_resource_pools_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database)|Returns resource pool utilization statistics for recent history, based on the number of snapshots available. Each row represents a 20-second interval. The `delta_` columns return the change in each statistic during the interval.|
-|[sys.dm_resource_governor_workload_groups_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database)|Returns workload group utilization statistics for recent history, based on the number of snapshots available. Each row represents a 20-second interval. The `delta_` columns return the change in each statistic during the interval.|
+|[sys.dm_resource_governor_resource_pools_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database)|Returns resource pool utilization statistics for recent history, based on the number of snapshots available. Each row represents a time interval. The duration of the interval is provided in the `duration_ms` column. The `delta_` columns return the change in each statistic during the interval.|
+|[sys.dm_resource_governor_workload_groups_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database)|Returns workload group utilization statistics for recent history, based on the number of snapshots available. Each row represents a time interval. The duration of the interval is provided in the `duration_ms` column. The `delta_` columns return the change in each statistic during the interval.|
 |||
 
 > [!TIP]
@@ -90,7 +90,7 @@ Customers using dense pools should closely monitor resource utilization trends a
 Resource utilization depends on multiple factors that change over time for each database and each elastic pool. Achieving optimal price/performance ratio in dense pools requires continuous monitoring and rebalancing, that is moving databases from more utilized pools to less utilized pools, and creating new pools as necessary to accommodate increased workload.
 
 > [!NOTE]
-> Resource consumption for elastic pool eDTUs is not a MAX or a SUM of individual database utilization, it is an average utilization of various metrics. It is possible that an individual database can reach a specific resource limit (CPU, log write, etc.), even when the eDTU reporting for the pool indicates no limit been reached. For the same number of DTUs, resources provided to an elastic pool may exceed the resources provided to a single database outside of an elastic pool. This means it is possible for the eDTU utilization of an elastic pool to be less than the summation of DTU utilization across databases within the pool, depending on workload patterns.
+> For DTU elastic pools, the eDTU metric at the pool level is not a MAX or a SUM of individual database utilization. It is derived from the utilization of various pool level metrics. Pool level resource limits may be higher than individual database level limits, so it is possible that an individual database can reach a specific resource limit (CPU, data IO, log IO, etc.), even when the eDTU reporting for the pool indicates no limit been reached. 
 
 **Do not move "hot" databases**. If resource contention at the pool level is primarily caused by a small number of highly utilized databases, it may be tempting to move these databases to a less utilized pool, or make them standalone databases. However, doing this while a database remains highly utilized is not recommended, because the move operation will further degrade performance, both for the database being moved, and for the entire pool. Instead, either wait until high utilization subsides, or move less utilized databases instead to relieve resource pressure at the pool level. But moving databases with very low utilization does not provide any benefit in this case, because it does not materially reduce resource utilization at the pool level.
 
@@ -117,7 +117,7 @@ Limit the number of databases per server to a lower number than the maximum supp
 
 Use the `sys.dm_user_db_resource_governance` dynamic management view to view the actual configuration and capacity settings used by resource governance in the current database or elastic pool. For more information, see [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database). 
 
-Execute this query in any database in an elastic pool. All databases in the pool have the same resource governance settings. 
+Run this query in any database in an elastic pool. All databases in the pool have the same resource governance settings. 
 
 ```sql
 SELECT * FROM sys.dm_user_db_resource_governance AS rg
@@ -128,7 +128,7 @@ WHERE database_id = DB_ID();
 
 Use the `sys.elastic_pool_resource_stats` system catalog view to monitor the resource consumption of the entire pool. For more information, see [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database).
 
-This sample query to view the last 10 minutes should be executed in the `master` database of the logical Azure SQL server containing the desired elastic pool. 
+This sample query to view the last 10 minutes should be run in the `master` database of the logical Azure SQL server containing the desired elastic pool. 
 
 ```sql
 SELECT * FROM sys.elastic_pool_resource_stats AS rs
@@ -138,18 +138,26 @@ AND rs.elastic_pool_name = '<elastic pool name>';
 
 ### Monitoring individual database resource consumption
 
-Use the `sys.dm_db_resource_stats` system catalog view to monitor the resource consumption of individual databases. For more information, see [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database). One row exists for every 15 seconds, even if there is no activity. Historical data is maintained for approximately one hour.
+Use the `sys.dm_db_resource_stats` dynamic management view to monitor the resource consumption of individual databases. For more information, see [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database). One row exists for every 15 seconds, even if there is no activity. Historical data is maintained for approximately one hour.
 
-This sample query to view the last 10 minutes of data should be executed in the desired database. 
+This sample query to view the last 10 minutes of data should be run in the desired database. 
 
 ```sql
 SELECT * FROM sys.dm_db_resource_stats AS rs
 WHERE rs.end_time > DATEADD(mi, -10, SYSUTCDATETIME());
 ```
 
+For longer retention time with less frequency, consider the following query on `sys.resource_stats`, run in the `master` database of the Azure SQL logical server. For more information, see [sys.resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database). One row exists every five minutes, and historical data is maintained for two weeks.
+
+```sql
+SELECT * FROM sys.resource_stats
+WHERE [database_name] = 'sample'
+ORDER BY [start_time] desc;
+```
+
 ### Monitoring memory utilization
 
-This query calculates the `oom_per_second` metric for each resource pool for recent history, based on the number of snapshots available. This sample query helps identify the recent average number of failed memory allocations in the pool. This query can be executed in any database in an elastic pool.
+This query calculates the `oom_per_second` metric for each resource pool for recent history, based on the number of snapshots available. This sample query helps identify the recent average number of failed memory allocations in the pool. This query can be run in any database in an elastic pool.
 
 ```sql
 SELECT pool_id,
@@ -163,7 +171,7 @@ ORDER BY pool_id;
 
 ### Monitoring `tempdb` log space utilization
 
-This query returns the current value of the `tempdb_log_used_percent` metric, showing the relative utilization of the `tempdb` transaction log relative to its maximum allowed size. This query can be executed in any database in an elastic pool.
+This query returns the current value of the `tempdb_log_used_percent` metric, showing the relative utilization of the `tempdb` transaction log relative to its maximum allowed size. This query can be run in any database in an elastic pool.
 
 ```sql
 SELECT (lsu.used_log_space_in_bytes / df.log_max_size_bytes) * 100 AS tempdb_log_space_used_percent
