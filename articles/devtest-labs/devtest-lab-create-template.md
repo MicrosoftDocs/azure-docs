@@ -36,8 +36,8 @@ To create a custom image from a VHD file in DevTest Labs in the Azure portal, fo
    - Enter a name for the custom image to display in the list of base images for creating a VM.
    - Enter an optional description to display in the base image list.
    - Under **OS type**, select whether the OS for the VHD and custom image is **Windows** or **Linux**.
-     - If you select **Windows**, select the checkbox if you ran *sysprep* on the machine before you created the VHD file.
-     - If you select **Linux**, select the checkbox if you ran *deprovision* on the machine before you created the VHD file.
+     - If you choose **Windows**, select the checkbox if you ran *sysprep* on the machine before creating the VHD file.
+     - If you choose **Linux**, select the checkbox if you ran *deprovision* on the machine before creating the VHD file.
 
 1. Under **VHD**, select the uploaded VHD file for the custom image from the drop-down menu.
 
@@ -51,7 +51,7 @@ To create a custom image from a VHD file in DevTest Labs in the Azure portal, fo
 
    ![Screenshot that shows the Add custom image page.](media/devtest-lab-create-template/create-custom-image.png)
 
-After creation, the custom image is stored in the lab's storage account. The custom image appears in the list of VM base images. Lab users can create new VMs based on the custom image.
+After creation, the custom image is stored in the lab's storage account. The custom image appears in the list of VM base images for the lab. Lab users can create new VMs based on the custom image.
 
 ![Screenshot that shows the Custom images available in the list of base images.](media/devtest-lab-create-template/custom-image-available-as-base.png)
 

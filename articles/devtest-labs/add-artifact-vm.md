@@ -8,9 +8,9 @@ ms.custom: devx-track-azurepowershell
 
 # Add artifacts to DevTest Labs VMs
 
-You can add *artifacts* to Azure DevTest Labs virtual machines (VMs). DevTest Labs artifacts specify actions to perform when provisioning a VM, such as running Windows PowerShell scripts, running Bash commands, or installing software. You can use parameters to customize artifacts for your scenarios.
+You can add *artifacts* to Azure DevTest Labs virtual machines (VMs). DevTest Labs artifacts specify actions to take to provision a VM, such as running Windows PowerShell scripts, running Bash commands, or installing software. You can use parameters to customize the artifacts for your own needs.
 
-DevTest Labs artifacts can come from the [public DevTest Labs Git repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) or from private Git repositories. To create your own custom artifacts and store them in a repository, see [Create custom artifacts](devtest-lab-artifact-author.md). To add your artifact repository to a lab so lab users can access the custom artifacts, see [Add an artifact repository to your lab in DevTest Labs](add-artifact-repository.md).
+DevTest Labs artifacts can come from the [public DevTest Labs Git repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) or from private Git repositories. To create your own custom artifacts and store them in a repository, see [Create custom artifacts](devtest-lab-artifact-author.md). To add your artifact repository to a lab so lab users can access the custom artifacts, see [Add an artifact repository to your lab](add-artifact-repository.md).
 
 This article describes how to add available artifacts to VMs by using the Azure portal or Azure PowerShell.
 
