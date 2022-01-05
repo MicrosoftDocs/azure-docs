@@ -225,6 +225,12 @@ items:
         href: essentials/metrics-troubleshoot.md
       - name: Understanding metrics aggregation 
         href: essentials/metrics-aggregation-explained.md
+    - name: Custom metrics
+      items:
+      - name: Custom metrics
+        href: essentials/metrics-custom-overview.md
+      - name: Metrics REST API
+        href: essentials/metrics-store-custom-rest-api.md
   - name: Azure Monitor Logs
     items:
     - name: Overview
@@ -259,6 +265,9 @@ items:
         href: logs/logs-dedicated-clusters.md
       - name: Availability zones
         href: logs/availability-zones.md
+      - name: Log data ingestion time
+        displayName: latency
+        href: logs/data-ingestion-time.md
     - name: Log Analytics
       items:
       - name: Overview
@@ -346,65 +355,16 @@ items:
               href: logs/api/prefer-options.md
           - name: Errors
             href: logs/api/errors.md
-      - name: Data export
-        items:
-        - name: Workspace data export
-          href: logs/logs-data-export.md
-        - name: Export with Logic Apps
-          href: logs/logs-export-logic-app.md
-        - name: Query data with Azure Data Explorer
-          href: logs/azure-data-explorer-query-storage.md
-        - name: Send to Excel
-          href: logs/log-excel.md
-  - name: Platform logs
-    items:
-    - name: Overview
-      displayName: Platform logs, Resource logs, Activity log
-      href: essentials/platform-logs-overview.md
-    - name: Activity log
-      href: essentials/activity-log.md
-    - name: Resource logs
-      href: essentials/resource-logs.md
-    - name: Diagnostic settings
-      displayName: Platform logs, Resource logs, Activity log
-      href: essentials/diagnostic-settings.md
-  - name: Data collection
-    items:
-    - name: Data collection rules
-      href: platform/data-collection-rule-overview.md
-    - name: Log data ingestion time
-      displayName: latency
-      href: logs/data-ingestion-time.md
-    - name: Agent data sources
+    - name: Data export
       items:
-      - name: Overview
-        href: agents/agent-data-sources.md
-      - name: Windows events
-        href: agents/data-sources-windows-events.md
-      - name: Custom JSON data
-        href: agents/data-sources-json.md
-      - name: CollectD performance data
-        href: agents/data-sources-collectd.md
-      - name: Syslog
-        href: agents/data-sources-syslog.md
-      - name: Performance counters
-        href: agents/data-sources-performance-counters.md
-      - name: Linux application performance
-        href: agents/data-sources-linux-applications.md
-      - name: IIS logs
-        href: agents/data-sources-iis-logs.md
-      - name: Event Tracing for Windows data
-        href: agents/data-sources-event-tracing-windows.md
-      - name: Custom logs
-        href: agents/data-sources-custom-logs.md
-      - name: Custom fields
-        href: logs/custom-fields.md
-    - name: Custom metrics
-      items:
-      - name: Custom metrics
-        href: essentials/metrics-custom-overview.md
-      - name: Metrics REST API
-        href: essentials/metrics-store-custom-rest-api.md
+      - name: Workspace data export
+        href: logs/logs-data-export.md
+      - name: Export with Logic Apps
+        href: logs/logs-export-logic-app.md
+      - name: Query data with Azure Data Explorer
+        href: logs/azure-data-explorer-query-storage.md
+      - name: Send to Excel
+        href: logs/log-excel.md
     - name: Custom logs
       items: 
       - name: Log Analytics Data collector API 
@@ -417,6 +377,25 @@ items:
         href: logs/logicapp-flow-connector.md
       - name: Application Insights connector
         href: app/automate-with-logic-apps.md
+  - name: Platform logs
+    items:
+    - name: Overview
+      displayName: Platform logs, Resource logs, Activity log
+      href: essentials/platform-logs-overview.md
+    - name: Activity log
+      href: essentials/activity-log.md
+    - name: Resource logs
+      href: essentials/resource-logs.md
+    - name: Diagnostic settings
+      displayName: Platform logs, Resource logs, Activity log
+      href: essentials/diagnostic-settings.md
+  - name: Data collection rules
+    items:
+    - name: Overview
+      displayName: Data collection rules
+      href: platform/data-collection-rule-overview.md
+    - name: Transformations
+      href: platform/data-collection-rule-transformations.md
   - name: Agents
     items:
     - name: Overview
@@ -458,6 +437,30 @@ items:
         href: agents/agent-manage.md
       - name: Agent Health
         href: insights/solution-agenthealth.md
+      - name: Agent data sources
+        items:
+        - name: Overview
+          href: agents/agent-data-sources.md
+        - name: Windows events
+          href: agents/data-sources-windows-events.md
+        - name: Custom JSON data
+          href: agents/data-sources-json.md
+        - name: CollectD performance data
+          href: agents/data-sources-collectd.md
+        - name: Syslog
+          href: agents/data-sources-syslog.md
+        - name: Performance counters
+          href: agents/data-sources-performance-counters.md
+        - name: Linux application performance
+          href: agents/data-sources-linux-applications.md
+        - name: IIS logs
+          href: agents/data-sources-iis-logs.md
+        - name: Event Tracing for Windows data
+          href: agents/data-sources-event-tracing-windows.md
+        - name: Custom logs
+          href: agents/data-sources-custom-logs.md
+        - name: Custom fields
+          href: logs/custom-fields.md
     - name: Azure Diagnostics extension
       items:
       - name: Overview

@@ -24,16 +24,24 @@ Data collection rules can include one or more of the following:
 
 
 ## Types of data collection rules
-There are currently three types of data collection rules that each support different workflows:
+There are currently three types of data collection rules that each support different workflows.
 
-| Type | Description |
-|:---|:---|
-| Agent | Used by [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) to collect telemetry from virtual machines. THe DCR defines the logs and performance data that should be collected and where the collected data should be sent. |
-| Custom logs API | Used by the custom logs REST API when data is sent from a custom application. The API connects to an endpoint specific to a particular DCR. The DCR potentially filters or transforms the data and specifies the Log Analytics workspace it should be sent to. | 
-  | Default DCR | Each workspace cam have one default DCR that performs filtering and data transformation for workflows that don't currently use data collection rules. |
+### Agent
+Used by [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) to collect telemetry from virtual machines. THe DCR defines the logs and performance data that should be collected and where the collected data should be sent.
 
+:::image type="content" source="media/dcr-agent.png" alt-text="Diagram of agent data collection rule" lightbox="media/dcr-agent.png":::
 
 
+### Custom logs API
+ Used by the custom logs REST API when data is sent from a custom application. The API connects to an endpoint specific to a particular DCR. The DCR potentially filters or transforms the data and specifies the Log Analytics workspace it should be sent to.
+
+:::image type="content" source="media/dcr-custom-log.png" alt-text="Diagram of custom logs data collection rule" lightbox="media/dcr-custom-log.png":::
+
+
+### Default DCR
+Each workspace cam have one default DCR that performs filtering and data transformation for workflows that don't currently use data collection rules.
+
+:::image type="content" source="media/dcr-default.png" alt-text="Diagram of custom logs data collection rule" lightbox="media/dcr-default.png":::
 
 ## Components of a data collection rule
 Data collection rules include the following components.
@@ -47,11 +55,7 @@ Data collection rules include the following components.
 | Endpoint | Custom Logs | HTTPS endpoint for the DCR. The DCR is applied to any data sent to that endpoint. |
 | 
 
-Data collection rules are stored regionally, and are available in all public regions where Log Analytics is supported. Government regions and clouds are not currently supported.
 
-The following diagram shows the components of a data collection rule and their relationship
-
-[![Diagram of DCR](media/data-collection-rule-overview/data-collection-rule-components.png)](media/data-collection-rule-overview/data-collection-rule-components.png#lightbox)
 
 ### Data source types
 Each data source has a data source type. Each type defines a unique set of properties that must be specified for each data source. The data source types currently available are shown in the following table.
@@ -68,156 +72,13 @@ Each data source has a data source type. Each type defines a unique set of prope
 For limits that apply to each data collection rule, see [Azure Monitor service limits](../service-limits.md#data-collection-rules).
 
 ## Data resiliency and high availability
-Data Collection Rules as a service is deployed regionally. A rule gets created and stored in the region you specify, and is backed up to the [paired-region](../../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) within the same Geo.  
+Data collection rules are stored regionally, and are available in all public regions where Log Analytics is supported. Government regions and clouds are not currently supported. A rule gets created and stored in the region you specify, and is backed up to the [paired-region](../../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) within the same Geo.  
+
 Additionally, the service is deployed to all 3 [availability zones](../../availability-zones/az-overview.md#availability-zones) within the region, making it a **zone-redundant service** which further adds to high availability.
 
 
-**Single region data residency**: The previewed feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. Single region residency is enabled by default in these regions.
-
-## Create a DCR
-You can currently use any of the following methods to create a DCR:
-
-- [Use the Azure portal](../agents/data-collection-rule-azure-monitor-agent.md) to create a data collection rule and have it associated with one or more virtual machines.
-- Directly edit the data collection rule in JSON and [submit using the REST API](/rest/api/monitor/datacollectionrules).
-- Create DCR and associations with [Azure CLI](https://github.com/Azure/azure-cli-extensions/blob/master/src/monitor-control-service/README.md).
-- Create DCR and associations with Azure PowerShell.
-  - [Get-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Get-AzDataCollectionRule.md)
-  - [New-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/New-AzDataCollectionRule.md)
-  - [Set-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Set-AzDataCollectionRule.md)
-  - [Update-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Update-AzDataCollectionRule.md)
-  - [Remove-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Remove-AzDataCollectionRule.md)
-  - [Get-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Get-AzDataCollectionRuleAssociation.md)
-  - [New-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/New-AzDataCollectionRuleAssociation.md)
-  - [Remove-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Remove-AzDataCollectionRuleAssociation.md)
-
-## Sample data collection rule
-The sample data collection rule below is for virtual machines with Azure Monitor agent and has the following details:
-
-- Performance data
-  - Collects specific Processor, Memory, Logical Disk, and Physical Disk counters every 15 seconds and uploads every minute.
-  - Collects specific Process counters every 30 seconds and uploads every 5 minutes.
-- Windows events
-  - Collects Windows security events and uploads every minute.
-  - Collects Windows application and system events and uploads every 5 minutes.
-- Syslog
-  - Collects Debug, Critical, and Emergency events from cron facility.
-  - Collects Alert, Critical, and Emergency events from syslog facility.
-- Destinations
-  - Sends all data to a Log Analytics workspace named centralWorkspace.
-
-> [!NOTE]
-> For an explanation of XPaths that are used to specify event collection in data collection rules, see [Limit data collection with custom XPath queries](data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries)
-
-
-```json
-{
-    "location": "eastus",
-    "properties": {
-      "dataSources": {
-        "performanceCounters": [
-          {
-            "name": "cloudTeamCoreCounters",
-            "streams": [
-              "Microsoft-Perf"
-            ],
-            "scheduledTransferPeriod": "PT1M",
-            "samplingFrequencyInSeconds": 15,
-            "counterSpecifiers": [
-              "\\Processor(_Total)\\% Processor Time",
-              "\\Memory\\Committed Bytes",
-              "\\LogicalDisk(_Total)\\Free Megabytes",
-              "\\PhysicalDisk(_Total)\\Avg. Disk Queue Length"
-            ]
-          },
-          {
-            "name": "appTeamExtraCounters",
-            "streams": [
-              "Microsoft-Perf"
-            ],
-            "scheduledTransferPeriod": "PT5M",
-            "samplingFrequencyInSeconds": 30,
-            "counterSpecifiers": [
-              "\\Process(_Total)\\Thread Count"
-            ]
-          }
-        ],
-        "windowsEventLogs": [
-          {
-            "name": "cloudSecurityTeamEvents",
-            "streams": [
-              "Microsoft-Event"
-            ],
-            "scheduledTransferPeriod": "PT1M",
-            "xPathQueries": [
-              "Security!*"
-            ]
-          },
-          {
-            "name": "appTeam1AppEvents",
-            "streams": [
-              "Microsoft-Event"
-            ],
-            "scheduledTransferPeriod": "PT5M",
-            "xPathQueries": [
-              "System!*[System[(Level = 1 or Level = 2 or Level = 3)]]",
-              "Application!*[System[(Level = 1 or Level = 2 or Level = 3)]]"
-            ]
-          }
-        ],
-        "syslog": [
-          {
-            "name": "cronSyslog",
-            "streams": [
-              "Microsoft-Syslog"
-            ],
-            "facilityNames": [
-              "cron"
-            ],
-            "logLevels": [
-              "Debug",
-              "Critical",
-              "Emergency"
-            ]
-          },
-          {
-            "name": "syslogBase",
-            "streams": [
-              "Microsoft-Syslog"
-            ],
-            "facilityNames": [
-              "syslog"
-            ],
-            "logLevels": [
-              "Alert",
-              "Critical",
-              "Emergency"
-            ]
-          }
-        ]
-      },
-      "destinations": {
-        "logAnalytics": [
-          {
-            "workspaceResourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace",
-            "name": "centralWorkspace"
-          }
-        ]
-      },
-      "dataFlows": [
-        {
-          "streams": [
-            "Microsoft-Perf",
-            "Microsoft-Syslog",
-            "Microsoft-Event"
-          ],
-          "destinations": [
-            "centralWorkspace"
-          ]
-        }
-      ]
-    }
-  }
-```
+### Single region data residency
+This is a preview feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. Single region residency is enabled by default in these regions.
 
 
 ## Next steps
