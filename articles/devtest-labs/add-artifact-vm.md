@@ -12,7 +12,7 @@ You can add *artifacts* to Azure DevTest Labs virtual machines (VMs). DevTest La
 
 DevTest Labs artifacts can come from the [public DevTest Labs Git repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) or from private Git repositories. To create your own custom artifacts and store them in a repository, see [Create custom artifacts](devtest-lab-artifact-author.md). To add your artifact repository to a lab so lab users can access the custom artifacts, see [Add an artifact repository to your lab in DevTest Labs](add-artifact-repository.md).
 
-This article describes how to add available artifacts to VMs in the Azure portal or by using Azure PowerShell.
+This article describes how to add available artifacts to VMs by using the Azure portal or Azure PowerShell.
 
 ## Add artifacts to VMs from the Azure portal
 
