@@ -25,21 +25,19 @@ Active geo-replication groups up to five Enterprise Azure Cache for Redis instan
 
 1. In the **Advanced** tab of **New Redis Cache** creation UI, select **Enterprise** for **Clustering Policy**.
 
-    ![Configure active geo-replication](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-not-configured.png)
-    
-    The OSS Cluster mode allows clients to communicate with Redis using the same Redis Cluster API as open-source Redis. This mode provides optimal latency and near-linear scalability improvements when scaling the cluster. Your client library must support clustering to use the OSS Cluster mode.
+    For more information on choosing **Clustering policy**, see [Clustering Policy](#clustering-policy).
 
-    The Enterprise Cluster mode is a simpler configuration that exposes a single endpoint for client connections. This mode allows an application designed to use a standalone, or non-clustered, Redis server to seamlessly operate with a scalable, multi-node, Redis implementation. Enterprise Cluster mode abstracts the Redis Cluster implementation from the client by internally routing requests to the correct node in the cluster. Clients are not required to support OSS Cluster mode.
+    :::image type="content" source="media/cache-how-to-active-geo-replication/cache-active-geo-replication-not-configured.png" alt-text="Configure active geo-replication":::
 
 1. Select **Configure** to set up **Active geo-replication**.
 
 1. Create a new replication group, for a first cache instance, or select an existing one from the list.
 
-    ![Link caches](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-new-group.png)
+    :::image type="content" source="media/cache-how-to-active-geo-replication/cache-active-geo-replication-new-group.png" alt-text="Link caches":::
 
 1. Select **Configure** to finish.
 
-    ![Active geo-replication configured](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-configured.png)
+    :::image type="content" source="media/cache-how-to-active-geo-replication/cache-active-geo-replication-configured.png" alt-text="Active geo-replication configured":::
 
 1. Wait for the first cache to be created successfully. Repeat the above steps for each additional cache instance in the geo-replication group.
 
