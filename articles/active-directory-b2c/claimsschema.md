@@ -1,5 +1,5 @@
 ---
-title: ClaimsSchema  - Azure Active Directory B2C  
+title: "ClaimsSchema: Azure Active Directory B2C"
 description: Specify the ClaimsSchema element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: kengaderdus
@@ -11,7 +11,7 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.custom:"b2c-support"
+ms.custom: "b2c-support"
 ---
 
 # ClaimsSchema
