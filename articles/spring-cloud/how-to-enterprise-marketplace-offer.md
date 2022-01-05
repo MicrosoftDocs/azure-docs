@@ -36,7 +36,7 @@ To see the supported plans in your market, select **Plans + Pricing**.
 ![VMWare Offer Plan](./media/enterprise/marketplace/plan.png)
 
 > [!NOTE]
-> If you see "No plans are available for market '\<Location>'", that means none of your Azure subscriptions can purchase the SaaS offer. For more information, see [No plans are available for market '\<Location>'](./faq.md#no-plans-are-available-for-market-location) in the [FAQ](./faq.md).
+> If you see "No plans are available for market '\<Location>'", that means none of your Azure subscriptions can purchase the SaaS offer. For more information, see [No plans are available for market '\<Location>'](./troubleshoot.md#no-plans-are-available-for-market-location) in [Troubleshooting](./troubleshoot.md).
 
 To see the Enterprise Tier creation page, select **Set up + subscribe**
 
