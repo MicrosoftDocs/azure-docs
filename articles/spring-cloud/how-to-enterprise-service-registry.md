@@ -18,8 +18,6 @@ ms.custom: devx-track-java
 
 - An already provisioned Azure Spring Cloud Enterprise tier service instance with Service Registry enabled. For more information, see [Get started](./get-started-enterprise.md).
 
-   ![sr-overview](./media/enterprise/service-registry/overview.png)
-
 ## Use Service Registry with apps
 
 Before your application can manage service registration and discovery using Service Registry, you must include the following dependency in your application's *pom.xml* file:
