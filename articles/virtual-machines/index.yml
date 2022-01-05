@@ -27,7 +27,7 @@ landingContent:
             url: flexible-virtual-machine-scale-sets.md
           - text: Trusted Launch
             url: trusted-launch.md
-          - test: VM applications in Azure Compute Gallery 
+          - text: VM applications in Azure Compute Gallery 
             url: vm-applications.md
 
   # Card (optional)
