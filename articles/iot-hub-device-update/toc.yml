@@ -76,6 +76,8 @@ items:
       href: troubleshoot-device-update.md
     - name: Device update client error codes
       href: device-update-error-codes.md
+    - name: Device update proxy update troubleshooting
+      href: device-update-proxy-update-troubleshooting.md
 - name: Reference
   items:
   - name: REST API
