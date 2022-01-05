@@ -1,17 +1,13 @@
 ---
 title: Subscriptions in Azure API Management | Microsoft Docs
-description: Learn about the concept of subscriptions in Azure API Management. Consumers get access to APIs by using subscriptions in Azure API Management.
+description: Learn about the concept of subscriptions in Azure API Management. Consumers commonly get access to APIs by using subscriptions in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: dlepow
-manager: cfowler
-editor: ''
  
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 11/22/2021
+ms.topic: conceptual
+ms.date: 01/04/2022
 ms.author: danlep
 ---
 # Subscriptions in Azure API Management
@@ -20,13 +16,14 @@ In Azure API Management, *subscriptions* are the most common way for API consume
 
 ## What are subscriptions?
 
-By publishing APIs through API Management, you can easily secure API access using subscription keys. Consume the published APIs by including a valid subscription key in the HTTP requests when calling to those APIs. Without a valid subscription key, the calls will:
-* Be rejected immediately by the API Management gateway. 
-* Not be forwarded to the back-end services.
+By publishing APIs through API Management, you can easily secure API access using subscription keys. Developers who need to consume the published APIs must include a valid subscription key in HTTP requests when calling those APIs. If an invalid subscription key is provided, the calls are:
+* Rejected immediately by the API Management gateway. 
+* Not forwarded to the back-end services.
 
-To access APIs, you'll need a subscription and a subscription key. A *subscription* is a named container for a pair of subscription keys. 
+To access APIs, you'll need a subscription configured in API Management and a subscription key. A *subscription* is a named container for a pair of subscription keys. 
 
-Regularly regenerating keys is a common security precaution, so most Azure products requiring a subscription key will generate keys in pairs. Each application using the service can switch from *key A* to *key B* and regenerate key A with minimal disruption, and vice versa. 
+> [!NOTE]
+> Regularly regenerating keys is a common security precaution. Like most Azure products requiring a subscription key, API Management  generates keys in pairs. Each application using the service can switch from *key A* to *key B* and regenerate key A with minimal disruption, and vice versa. 
 
 In addition,
 
@@ -49,45 +46,48 @@ Traditionally, subscriptions in API Management were associated with a single [AP
 * Found the list of products on the developer portal. 
 * Submitted subscription requests for the products they wanted to use. 
 * Use the keys in those subscriptions (approved either automatically or by API publishers) to access all APIs in the product. 
-    * You can access APIs with or without the subscription key regardless of subscription scope (product, global, or API).
 
 Currently, the developer portal only shows the product scope subscriptions under the **User Profile** section. 
 
 ![Product subscriptions](./media/api-management-subscriptions/product-subscription.png)
 
-> [!TIP]
-> Under certain scenarios, API publishers might want to publish an API product to the public without the requirement of subscriptions. They can deselect the **Require subscription** option on the **Settings** page of the product in the Azure portal. As a result, all APIs under the product can be accessed without an API key.
-
 ### Subscriptions for all APIs or an individual API
 
-With the addition of the [Consumption](https://aka.ms/apimconsumptionblog) tier of API Management, subscription key management is more streamlined. 
-
-#### Two more subscription scopes
-
-Subscription scopes aren't limited to an API product. You can create keys that grant access to either:
+With the addition of the [Consumption](https://aka.ms/apimconsumptionblog) tier of API Management, subscription key management is more streamlined. You can create keys that grant access to either:
 * a single API, or 
 * All APIs within an API Management instance. 
 
-You don't need to create a product before adding APIs to it. 
+You don't need to create a product and add APIs to it first. 
 
-Each API Management instance comes with an immutable, all-APIs subscription (also called an *all-access* subscription). This built-in subscription makes it straightforward to test and debug APIs within the test console.
+### All-access subscription
+
+Each API Management also instance comes with an immutable, all-APIs subscription (also called an *all-access* subscription). This built-in subscription makes it straightforward to test and debug APIs within the test console.
 
 > [!NOTE]
 > If you're using an API-scoped subscription or the all-access subscription, any [policies](api-management-howto-policies.md) configured at the product scope aren't applied to that subscription.
 
-#### Standalone subscriptions
+### Standalone subscriptions
 
-API Management now allows *standalone* subscriptions. You no longer need to associate subscriptions with a developer account. This feature proves useful in scenarios similar to several developers or teams sharing a subscription.
+API Management also allows *standalone* subscriptions, which are not associated with a specific developer account. This feature proves useful in scenarios similar to several developers or teams sharing a subscription.
 
 Creating a subscription without assigning an owner makes it a standalone subscription. To grant developers and the rest of your team access to the standalone subscription key, either:
 * Manually share the subscription key.
 * Use a custom system to make the subscription key available to your team.
 
-#### Creating subscriptions in Azure portal
+## Create subscriptions in Azure portal
 
 API publishers can [create subscriptions](api-management-howto-create-subscriptions.md) directly in the Azure portal:
 
 ![Flexible subscriptions](./media/api-management-subscriptions/flexible-subscription.png)
+
+## Products or APIs that don't require subscriptions
+
+Under certain scenarios, API publishers might want to publish a product or a particular API to the public without the requirement of subscriptions. To configure these options in the portal:
+
+* Product: Disable the **Requires subscription** option on the **Settings** page of the product. As a result, all APIs under the product can be accessed without a key. 
+* API: Disable the **Subscription required** option on the **Settings** page of the API. As a result, the API can be accessed without a key. 
+
+
 
 ## Next steps
 Get more information on API Management:
