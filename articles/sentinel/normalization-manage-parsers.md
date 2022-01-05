@@ -44,7 +44,7 @@ The user cannot edit built-in source-agnostic parsers. The following mechanisms 
 
 To add a custom parser add a line to the custom source-agnostic parser referencing the new custom parser. Make sure to add both a filtering custom parser and a parameter-less custom parser. The syntax of the line to add is different for each schema:
 
-| Schema | Custom&nbsp;source&#8209;agnostic filtering  parser | Format of line to add | Customm&nbsp;source&#8209;agnostic Parameter-less parser |  Format of line to add |
+| Schema | Custom&nbsp;source&#8209;agnostic filtering  parser | Format of line to add | Custom&nbsp;source&#8209;agnostic Parameter-less parser |  Format of line to add |
 | ------ | ---------------------------------------- | --------------------- | ---------------- | --------------------- | 
 | DNS    | Im_DnsCustom | _parser_name_ (starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype) | ASim_DnsCustom | _parser_name_ |
 | | | | |  
