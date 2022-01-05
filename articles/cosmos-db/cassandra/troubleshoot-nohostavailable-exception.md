@@ -26,13 +26,13 @@ One of the most common causes of a NoHostAvailableException is the default drive
 - The read request timeout should be set at greater than 1 minute. We recommend 90 seconds.
 
 ## Exception messages
-If the exception persists after you've made the recommended changes, review the exception messages in the next three sections. If your error log contains any of these messages, follow the recommendations.
+If the exception persists after you've made the recommended changes, review the exception messages in the next three sections. If your error log contains any of these exception messages, follow the recommendation for that exception.
 
 ### BusyPoolException
 This client-side error indicates that the maximum number of request connections for a host has been reached. If you're unable to remove the request from the queue, you might see this error. If the connection per host has been set to minimum of 10, the exception could be caused by high server-side latency.
 
 ```
-Java driver v3  exception:
+Java driver v3 exception:
 All host(s) tried for query failed (tried: :10350 (com.datastax.driver.core.exceptions.BusyPoolException: [:10350] Pool is busy (no available connection and the queue has reached its max size 256)))
 All host(s) tried for query failed (tried: :10350 (com.datastax.driver.core.exceptions.BusyPoolException: [:10350] Pool is busy (no available connection and timed out after 5000 MILLISECONDS)))
 ```
@@ -49,19 +49,19 @@ OverloadException is thrown when the request rate is too great, which might happ
 Apply one of the following options:
 - If throttling is persistent, increase the provisioned RU.
 - If throttling is intermittent, use the Azure CosmosDB retry policy.
-- If the extension library can't be referenced, [enable server side retry](prevent-rate-limiting-errors.md).
+- If the extension library can't be referenced, [enable server-side retry](prevent-rate-limiting-errors.md).
 
 ### All hosts tried for query failed
-When the client is set to connect to a region other than the primary contact point region, you'll get the exception during the initial few seconds at startup:
+When the client is set to connect to a region other than the primary contact point region, during the initial few seconds at startup, you'll get one of the following exception messages:
  
-Exception message with Java driver 3: `Exception in thread "main" com.datastax.driver.core.exceptions.NoHostAvailableException: All host(s) tried for query failed (no host was tried)at cassandra.driver.core@3.10.2/com.datastax.driver.core.exceptions.NoHostAvailableException.copy(NoHostAvailableException.java:83)`
+- For Java driver 3: `Exception in thread "main" com.datastax.driver.core.exceptions.NoHostAvailableException: All host(s) tried for query failed (no host was tried)at cassandra.driver.core@3.10.2/com.datastax.driver.core.exceptions.NoHostAvailableException.copy(NoHostAvailableException.java:83)`
 
-Exception message with Java driver 4: `No node was available to execute the query`
+- For Java driver 4: `No node was available to execute the query`
 
-Exception message with C# driver 3: `System.ArgumentException: Datacenter West US does not match any of the nodes, available datacenters: West US 2`
+- For C# driver 3: `System.ArgumentException: Datacenter West US does not match any of the nodes, available datacenters: West US 2`
 
 #### Recommendation
-Use the CosmosLoadBalancingPolicy in [Java driver 3](https://github.com/Azure/azure-cosmos-cassandra-extensions) and [Java driver 4](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.1). This policy falls back to the ContactPoint of the primary write region where the specified local data is unavailable.
+Use the CosmosLoadBalancingPolicy in [Java driver 3](https://github.com/Azure/azure-cosmos-cassandra-extensions) and [Java driver 4](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.1). This policy falls back to the contact point of the primary write region where the specified local data is unavailable.
 
 > [!NOTE]
 > If the preceding recommendations don't help resolve your issue, contact Azure Cosmos DB support. Be sure to provide the following details: exception message, exception stacktrace, datastax driver log, universal time of failure, consistent or intermittent failures, failing keyspace and table, request type that failed, and SDK version.
@@ -173,8 +173,8 @@ Use the CosmosLoadBalancingPolicy in [Java driver 3](https://github.com/Azure/az
 ```
 
 ## Next steps
-* To understand the various error codes and their meaning, see[Server-side diagnostics](error-codes-solution.md).
-* See [Diagnose and troubleshoot issues with Azure Cosmos DB .NET SDK](../sql/troubleshoot-dot-net-sdk.md).
+* To understand the various error codes and their meaning, see [Server-side diagnostics](error-codes-solution.md).
+* See [Diagnose and troubleshoot issues with the Azure Cosmos DB .NET SDK](../sql/troubleshoot-dot-net-sdk.md).
 * Learn about performance guidelines for [.NET v3](../sql/performance-tips-dotnet-sdk-v3-sql.md) and [.NET v2](../sql/performance-tips.md).
-* See [Troubleshoot issues with Azure Cosmos DB Java SDK v4 with SQL API accounts](../sql/troubleshoot-java-sdk-v4-sql.md).
-* See [Performance tips for Azure Cosmos DB Java SDK v4](../sql/performance-tips-java-sdk-v4-sql.md).
+* See [Troubleshoot issues with the Azure Cosmos DB Java SDK v4 with SQL API accounts](../sql/troubleshoot-java-sdk-v4-sql.md).
+* See [Performance tips for the Azure Cosmos DB Java SDK v4](../sql/performance-tips-java-sdk-v4-sql.md).
