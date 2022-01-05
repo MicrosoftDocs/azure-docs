@@ -9,7 +9,6 @@ editor: v-dabosl
 ms.assetid: f1ffde66-98f0-4c3e-ad94-fee1f97cae03
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na

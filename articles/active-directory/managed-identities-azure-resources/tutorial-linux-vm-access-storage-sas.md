@@ -9,7 +9,6 @@ editor: daveba
 ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity

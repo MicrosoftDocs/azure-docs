@@ -143,7 +143,7 @@ landingContent:
           - text: Python SDK
             url: "quickstarts/try-v3-python-sdk.md#general-document-model"
           - text: Java SDK
-            url: "quickstarts/try-v3-java-sdk.md#try-it-general-document-model"
+            url: "quickstarts/try-v3-java-sdk.md#general-document-model"
           - text: JavaScript SDK
             url: "quickstarts/try-v3-javascript-sdk.md#general-document-model"
           - text: REST API (cURL)

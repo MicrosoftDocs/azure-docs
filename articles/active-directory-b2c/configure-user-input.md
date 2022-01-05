@@ -432,3 +432,11 @@ After you add the localization element, [edit the content definition with the lo
 - Learn how to [use custom attributes in Azure AD B2C](user-flow-custom-attributes.md).
 
 ::: zone-end
+
+::: zone pivot="b2c-user-flow"
+## Next steps
+- [Customize user interface in Azure Active Directory B2C](customize-ui.md).
+- [Customize the user interface with HTML templates in Azure Active Directory B2C](customize-ui-with-html.md).
+- [Enable JavaScript](javascript-and-page-layout.md).
+
+::: zone-end

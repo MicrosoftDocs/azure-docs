@@ -130,6 +130,10 @@ items:
         href: concepts/teams-interop.md
       - name: Join a Teams meeting
         href: concepts/join-teams-meeting.md
+      - name: Custom Teams Endpoint
+        items:
+          - name: Custom Teams endpoint overview
+            href: concepts/teams-endpoint.md
   - name: Telephony
     items:
       - name: Telephony Concepts
