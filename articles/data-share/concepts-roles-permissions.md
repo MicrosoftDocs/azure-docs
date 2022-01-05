@@ -88,7 +88,7 @@ Follow these steps to register the Microsoft.DataShare resource provider into yo
 To learn more about resource provider, refer to [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## Custom roles for Data Share
-This section describes custom roles, and permissions required within the custom roles for sharing and receiving data, specific to a Storage account. There are also pre-requisites that are independent of custom role or Azure Data Share role. 
+This section describes custom roles and permissions required within the custom roles for sharing and receiving data, specific to a Storage account. There are also pre-requisites that are independent of custom role or Azure Data Share role. 
 
 ### Pre-requisites for Data Share, in addition to custom role
 * For storage and data lake snapshot-based sharing, to add a dataset in Azure Data Share, the provider data share resource's managed identity needs to be granted access to the source Azure data store.  For example, in the case of a storage account, the data share resource's managed identity is granted the Storage Blob Data Reader role.  
