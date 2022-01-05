@@ -1433,7 +1433,7 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections) (Legacy)** |
 | **Log Analytics table(s)** | SecurityEvents |
 | **Supported by** | Microsoft |
 | | |
@@ -1675,10 +1675,21 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections) (Legacy)** |
 | **Log Analytics table(s)** | DnsEvents<br>DnsInventory |
 | **Supported by** | Microsoft |
 | | |
+
+### Troubleshooting your Windows DNS Server data connector
+
+If your DNS events don't show up in Microsoft Sentinel:
+
+1. Make sure that DNS analytics logs on your servers are [enabled](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn800669(v=ws.11)#to-enable-dns-diagnostic-logging).
+1. Go to Azure DNS Analytics.
+1. In the **Configuration** area, change any of the settings and save your changes. Change your settings back if you need to, and then save your changes again.
+1. Check your Azure DNS Analytics to make sure that your events and queries display properly.
+
+For more information, see [Gather insights about your DNS infrastructure with the DNS Analytics Preview solution](/azure/azure-monitor/insights/dns-analytics).
 
 ## Windows Forwarded Events (Preview)
 
@@ -1699,7 +1710,7 @@ We recommend installing the [Advanced SIEM Information Model (ASIM)](normalizati
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections) (Legacy)** |
 | **Log Analytics table(s)** | WindowsFirewall |
 | **Supported by** | Microsoft |
 | | |
