@@ -92,7 +92,7 @@ This section describes custom roles, and permissions required within the custom 
 
 ### Pre-requisites for Data Share, in addition to custom role
 * For storage and data lake snapshot-based sharing, to add a dataset in Azure Data Share, the provider data share resource's managed identity needs to be granted access to the source Azure data store.  For example, in the case of a storage account, the data share resource's managed identity is granted the Storage Blob Data Reader role.  
-* To receive data into storage account, consumer data share resource's managed identity needs to be granted access to the target storage account. The data share resource's managed identity needs to be granted the Storage Blob Data Contributor role.  
+* To receive data into a storage account, the consumer data share resource's managed identity needs to be granted access to the target storage account. The data share resource's managed identity needs to be granted the Storage Blob Data Contributor role.  
 * See the [Data Provider](#data-provider) and [Data Consumer](#data-consumer) sections of this article for more specific steps. 
 * You may also need to manually register the Microsoft.DataShare resource provider into your Azure subscription for some scenarios. See in [Resource provider registration](#resource-provider-registration) section of this article for specific details. 
 
