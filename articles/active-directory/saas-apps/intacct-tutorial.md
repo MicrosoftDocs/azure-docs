@@ -181,7 +181,7 @@ When SSO is enabled for your company, you can individually require users to use 
 
 1. Go to **Company**, click the **Admin** tab, then click **Users**.
 
-    ![Users](./media/intacct-tutorial/users.png "Users")
+    ![Screenshot for Users](./media/intacct-tutorial/users.png "Users")
 
 1. Locate the desired user and click **Edit** next to it.
 
