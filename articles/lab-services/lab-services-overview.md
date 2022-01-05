@@ -2,7 +2,7 @@
 title: About Azure Lab Services | Microsoft Docs
 description: Learn how Lab Services can make it easy to create, manage, and secure labs with virtual machines that can be used by educators and students. 
 ms.topic: overview
-ms.date: 11/19/2021
+ms.date: 01/04/2022
 ---
 
 # An introduction to Azure Lab Services
