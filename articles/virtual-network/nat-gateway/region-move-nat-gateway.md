@@ -4,7 +4,7 @@ description: Learn how to configure a new NAT gateway for resources moved to ano
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
-ms.subservice: nat-gateway
+ms.subservice: nat
 ms.topic: how-to
 ms.date: 01/04/2022
 ms.custom: template-how-to
