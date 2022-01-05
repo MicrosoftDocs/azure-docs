@@ -63,7 +63,7 @@ The application claims are values that are returned to the application. Update y
 1. Select **Ok**. Optional: Use the "Move up/down" buttons to reorder user attributes in the sign-up page.
 1. Select **Save**. 
 
-    :::image type="content" source="./media/configure-user-input/configure-user attributes-input-type.png" alt-text="Web page call green API.":::
+    :::image type="content" source="./media/configure-user-input/configure-user-attributes-input-type.png" alt-text="Web page call green API.":::
 
 ### Provide a list of values by using localized collections
 
