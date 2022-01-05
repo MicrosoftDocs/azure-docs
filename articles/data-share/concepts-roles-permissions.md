@@ -96,7 +96,7 @@ This section describes custom roles and permissions required within the custom r
 * See the [Data Provider](#data-provider) and [Data Consumer](#data-consumer) sections of this article for more specific steps. 
 * You may also need to manually register the Microsoft.DataShare resource provider into your Azure subscription for some scenarios. See in [Resource provider registration](#resource-provider-registration) section of this article for specific details. 
 
-### Creating custom role and required permissions 
+### Create custom roles and required permissions 
 Custom roles can be created in a subscription or resource group for sharing and receiving data. Users and groups can then be assigned the custom role. 
 
 * For creating a custom role, there are actions required for Storage, Data Share, Resources group, and Authorization. Please see the [Azure resource provider operations document](../role-based-access-control/resource-provider-operations.md#microsoftdatashare) for Data Share to understand the different levels of permissions and choose the ones relevant for your custom role. 
