@@ -1,13 +1,13 @@
 ---
- title: include file
- description: include file
+ title: include
+ description: include
  services: virtual-machines-windows
  author: cynthn
  ms.service: virtual-machines-windows
  ms.topic: include
  ms.date: 02/11/2019
  ms.author: cynthn
- ms.custom: include file
+ ms.custom: include
 ---
 
 ## Supported operating systems and drivers
@@ -33,7 +33,7 @@ The GRID drivers redistributed by Azure do not work on non-NV series VMs like NC
 
 The NC-Series with Nvidia K80 GPUs do not support GRID/graphics applications.  
 
-Note that the Nvidia extension will always install the latest driver. We provide links to the previous version here for customers, who have dependency on an older version.
+The Nvidia extension always installs the latest driver. The following links to previous versions are provided to support dependencies on older driver versions.
 
 For Windows Server 2019, Windows Server 2016 1607, 1709, and Windows 10 and Windows 11:
 - [GRID 13.1 (472.39)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
@@ -44,4 +44,5 @@ For Windows Server 2012 R2:
 - [GRID 13 (471.68)](https://download.microsoft.com/download/9/b/4/9b4d4f8d-7962-4a67-839b-37cc95756759/471.68_grid_winserver2012R2_64bit_azure_swl.exe) (.exe)
 
 
-For the complete list of all previous Nvidia GRID driver links visit [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json)
+For links to all previous Nvidia GRID driver versions, visit [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json).
+
