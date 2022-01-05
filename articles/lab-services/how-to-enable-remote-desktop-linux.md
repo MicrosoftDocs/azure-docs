@@ -52,7 +52,7 @@ This step is only needed to connect using RDP.  If instead you plan to use X2Go,
   
     ![Screenshot that shows the "New lab" window with the "Enable Remote Desktop Connection" option.](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
-2. On the **Enabling Remote Desktop Connection** message box, select **Continue with Remote Desktop**. 
+2. On the **Enabling Remote Desktop Connection** message box, select **Continue with Remote Desktop**.
 
     ![Enable remote desktop connection for a Linux image](./media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png)
 
@@ -70,11 +70,11 @@ Follow the below steps to set up the template VM:
 1. If you see **Customize template** on the toolbar, select it. Then, select **Continue** on the **Customize template** dialog box. This action starts the template VM.  
 
     ![Customize template](./media/how-to-enable-remote-desktop-linux/customize-template.png)
-1. After the template VM is started, you can select **Connect template** and then **Connect via SSH** on the toolbar. 
+1. After the template VM is started, you can select **Connect template** and then **Connect via SSH** on the toolbar.
 
-    ![Connect to template via RDP after the lab is created](./media/how-to-enable-remote-desktop-linux/rdp-after-lab-creation.png) 
+    ![Connect to template via RDP after the lab is created](./media/how-to-enable-remote-desktop-linux/rdp-after-lab-creation.png)
 1. You see the following **Connect to your virtual machine** dialog box. Select the **Copy** button next to the text box to copy it to the clipboard. Save the SSH connection information. Use this connection information from an SSH terminal (like [Putty](https://www.putty.org/)) to connect to the virtual machine.
- 
+
     ![SSH connection string](./media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
 1. Finally, install either RDP or X2Go along with the graphical desktop environment of your choice.
