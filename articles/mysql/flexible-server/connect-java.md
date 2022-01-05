@@ -4,13 +4,13 @@ description: Learn how to use Java and JDBC with an Azure Database for MySQL Fle
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
-ms.custom: mvc, devcenter, devx-track-azurecli
+ms.custom: mvc, devcenter, devx-track-azurecli, mode-api
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 01/16/2021
 ---
 
-# Quickstart: Use Java and JDBC with Azure Database for MySQL Flexible Server
+# Use Java and JDBC with Azure Database for MySQL Flexible Server
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -82,7 +82,7 @@ az mysql flexible-server create \
     | jq
 ```
 
-Make sure your enter <YOUR-IP-ADDRESS> in order to access the server from your local machine. This command creates a Burstable Tier MySQL flexible server suitable for development.
+Make sure your enter \<YOUR-IP-ADDRESS\> in order to access the server from your local machine. This command creates a Burstable Tier MySQL flexible server suitable for development.
 
 The MySQL server that you created has a empty database called **flexibleserverdb**. We will use this database for this article.
 

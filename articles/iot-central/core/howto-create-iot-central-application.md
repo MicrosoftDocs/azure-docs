@@ -5,7 +5,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/11/2021
+ms.date: 12/22/2021
 ms.topic: how-to
 ---
 
@@ -63,7 +63,7 @@ If you choose one of the standard plans, you need to provide billing information
 
 - The Azure subscription you're using.
 - The directory that contains the subscription you're using.
-- The location to host your application. IoT Central uses Azure geographies as locations: United States, Europe, Asia Pacific, Australia, United Kingdom, or Japan.
+- The location to host your application. IoT Central uses Azure regions as locations: Australia East, Central US, East US, East US 2, Japan East, North Europe, Southeast Asia, UK South, West Europe, West US.
 
 ## Azure IoT Central site
 

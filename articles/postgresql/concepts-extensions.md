@@ -56,7 +56,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
-> |[timescaledb](https://docs.timescale.com/latest)                    |1.7.4             | Enables scalable inserts and complex queries for time-series data|
+> |[timescaledb](https://docs.timescale.com/timescaledb/latest/)                    |1.7.4             | Enables scalable inserts and complex queries for time-series data|
 > |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | text search dictionary that removes accents|
 > |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | generate universally unique identifiers (UUIDs)|
 
@@ -102,7 +102,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.4.3           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/10/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[tablefunc](https://www.postgresql.org/docs/10/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.7.4             | Enables scalable inserts and complex queries for time-series data|
+> |[timescaledb](https://docs.timescale.com/timescaledb/latest/)                    | 1.7.4             | Enables scalable inserts and complex queries for time-series data|
 > |[unaccent](https://www.postgresql.org/docs/10/unaccent.html)                     | 1.1             | text search dictionary that removes accents|
 > |[uuid-ossp](https://www.postgresql.org/docs/10/uuid-ossp.html)                    | 1.1             | generate universally unique identifiers (UUIDs)|
 
@@ -148,7 +148,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.3.2           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/9.6/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[tablefunc](https://www.postgresql.org/docs/9.6/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.7.4             | Enables scalable inserts and complex queries for time-series data|
+> |[timescaledb](https://docs.timescale.com/timescaledb/latest/)                    | 1.7.4             | Enables scalable inserts and complex queries for time-series data|
 > |[unaccent](https://www.postgresql.org/docs/9.6/unaccent.html)                     | 1.1             | text search dictionary that removes accents|
 > |[uuid-ossp](https://www.postgresql.org/docs/9.6/uuid-ossp.html)                    | 1.1             | generate universally unique identifiers (UUIDs)|
 
@@ -225,7 +225,7 @@ In Postgres 11 and above, you can configure prewarming to happen [automatically]
 ## TimescaleDB
 TimescaleDB is a time-series database that is packaged as an extension for PostgreSQL. TimescaleDB provides time-oriented analytical functions, optimizations, and scales Postgres for time-series workloads.
 
-[Learn more about TimescaleDB](https://docs.timescale.com/latest), a registered trademark of [Timescale, Inc.](https://www.timescale.com/). Azure Database for PostgreSQL provides the TimescaleDB [Apache-2 edition](https://www.timescale.com/legal/licenses).
+[Learn more about TimescaleDB](https://docs.timescale.com/timescaledb/latest/), a registered trademark of [Timescale, Inc.](https://www.timescale.com/). Azure Database for PostgreSQL provides the TimescaleDB [Apache-2 edition](https://www.timescale.com/legal/licenses).
 
 ### Installing TimescaleDB
 To install TimescaleDB, you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a **server restart** to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).
@@ -254,7 +254,7 @@ CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 
 You can now create a TimescaleDB hypertable [from scratch](https://docs.timescale.com/getting-started/creating-hypertables) or migrate [existing time-series data in PostgreSQL](https://docs.timescale.com/getting-started/migrating-data).
 
-### Restoring a Timescale database
+### Restoring a Timescale database using pg_dump and pg_restore
 To restore a Timescale database using pg_dump and pg_restore, you need to run two helper procedures in the destination database: `timescaledb_pre_restore()` and `timescaledb_post restore()`.
 
 First prepare the destination database:
@@ -273,7 +273,23 @@ Now you can run pg_dump on the original database and then do pg_restore. After t
 ```SQL
 SELECT timescaledb_post_restore();
 ```
+For more details on restore method wiith Timescale enabled database see [Timescale documentation](https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/pg-dump-and-restore/#restore-your-entire-database-from-backup)
 
+
+### Restoring a Timescale database using timescaledb-backup
+
+ While running `SELECT timescaledb_post_restore()` procedure listed above you may get permissions denied error updating timescaledb.restoring flag. This is due to limited ALTER DATABASE permission in Cloud PaaS database services. In this case you can perform alternative method using `timescaledb-backup` tool to backup and restore Timescale database. Timescaledb-backup is a program for making dumping and restoring a TimescaleDB database simpler, less error-prone, and more performant. 
+ To do so you should do following
+   1. Install  tools as detailed [here](https://github.com/timescale/timescaledb-backup#installing-timescaledb-backup)
+   2. Create target Azure Database for PostgreSQL server and database
+   3. Enable Timescale extension as shown above
+   4. Grant azure_pg_admin [role](https://www.postgresql.org/docs/11/database-roles.html) to user that will be used by [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore)
+   5. Run [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore) to restore database
+
+ More details on these utilities can be found [here](https://github.com/timescale/timescaledb-backup). 
+> [!NOTE]
+> When using `timescale-backup` utilities to restore to Azure is that since database user names for non-flexible Azure Database for PostgresQL  must use the `<user@db-name>` format, you need to replace `@` with `%40` character encoding. 
 
 ## Next steps
-If you don't see an extension that you'd like to use, let us know. Vote for existing requests or create new feedback requests in our [feedback forum](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
+If you don't see an extension that you'd like to use, let us know. Vote for existing requests or create new feedback requests in our [feedback forum](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0).
+

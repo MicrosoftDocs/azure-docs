@@ -7,7 +7,7 @@ ms.topic: how-to
 author: sharath-satish-msft
 ms.author: shsatish
 ms.reviewer: stmummer
-ms.date: 09/03/2021
+ms.date: 1/04/2021
 ---
 
 # Configure co-sell for a commercial marketplace offer
@@ -20,15 +20,39 @@ The Co-sell option is available for the following offer types.
 - Azure Container
 - Azure Virtual Machine
 - Consulting service
-- Dynamics 365 for Customer Engagement & Power Apps
-- Dynamics 365 for operations
-- Dynamics 365 business central
+- Dynamics 365 apps on Dataverse and Power Apps
+- Dynamics 365 Operations Apps
+- Dynamics 365 Business Central
 - IoT Edge Module
 - Managed Service
 - Power BI App
 - Software as a service (SaaS)
 
 ## Go to the Co-sell with Microsoft tab
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### [Workspaces view](#tab/workspaces-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+
+1. On the Home page, select the **Marketplace offers** tile.
+
+     [ ![Illustrates the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+    > [!TIP]
+    > If you don’t see the **Marketplace offers** tile, [create a commercial marketplace account in Partner Center](create-account.md) and make sure your account is enrolled in the commercial marketplace program.
+
+1. On the Marketplace offers page, select the offer you want to co-sell.
+
+    > [!NOTE]
+    > You can configure co-sell for a new offer that’s not yet published or with an offer that’s already published.
+
+1. In the menu on the left, select **Co-sell with Microsoft**.
+
+    [ ![Illustrates the Co-sell with Microsoft page.](./media/co-sell/co-sell-with-microsoft-tab-workspaces.png) ](./media/co-sell/co-sell-with-microsoft-tab-workspaces.png#lightbox)
+
+#### [Current view](#tab/current-view)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
@@ -41,6 +65,8 @@ The Co-sell option is available for the following offer types.
 1. In the menu on the left, select **Co-sell with Microsoft**.
 
     [![Illustrates the Co-sell with Microsoft link in the left navigation.](./media/co-sell/co-sell-with-microsoft-tab.png)](./media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
+
+---
 
 ## Co-sell listings
 
@@ -94,9 +120,9 @@ The supported file types are .pdf, .ppt, .pptx, .doc, .docx, .xls, .xlsx, .jpg, 
 
 | **Documents**    | **Description**  |
 | :------------------- | :-------------------|
-| *Solution/offer one-pager (Required)* | Drive awareness among potential customers with a professionally designed one-pager that showcases the value proposition of your solution.<br><br>You can use one of the relevant templates to provide a customer-ready description of your offering:<br><ul><li> [Microsoft Azure one-pager template](https://aka.ms/Customer-One-Pager_MicrosoftAzure)</li><li>[Microsoft Dynamics 365 one-pager template](https://aka.ms/Customer-One-Pager_MicrosoftDynamics365)</li> <li>[Microsoft 365 one-pager template](https://aka.ms/Customer-One-Pager_MicrosoftOffice365) </li><li>[Windows 10 one-pager template](https://aka.ms/Customer-One-Pager_Windows)</li></ul> <br> Microsoft sales teams may share this information with customers to help determine if your offering may be a good fit, and to ensure that it is customer ready. |
-| *Solution/offer pitch deck (Required)* | You can use the [Customer presentation template](https://aka.ms/GTMServices_CustomerPresentation) to create your pitch deck. This deck should reference the [Reference architecture diagram](reference-architecture-diagram.md). The purpose of this slide deck is to pitch your offer and its value proposition. After ensuring that your offer is customer ready, Microsoft sales teams may share this presentation with customers to articulate the value that your company and Microsoft bring when deploying a joint solution. The presentation should cover what your offer does, how it can help customers, what industries the offer is relevant for, and how it compares with competing solutions. |
-| *Customer case study* (Optional)| Use the [Case study template](https://aka.ms/GTM_Case_Study_Template) to create your customer case study. This information shows a potential customer how you and Microsoft have successfully deployed your offer in prior cases. |
+| *Solution/offer one-pager (Required)* | Drive awareness among potential customers with a professionally designed one-pager that showcases the value proposition of your solution.<br><br>You can use one of the relevant templates to provide a customer-ready description of your offering:<br><ul><li> [Microsoft Azure one-pager template](https://go.microsoft.com/fwlink/?linkid=2171711)</li><li>[Microsoft Dynamics 365 one-pager template](https://go.microsoft.com/fwlink/?linkid=2171609)</li> <li>[Microsoft 365 one-pager template](https://go.microsoft.com/fwlink/?linkid=2171408) </li><li>[Windows 10 one-pager template](https://go.microsoft.com/fwlink/?linkid=2171550)</li></ul><br>Microsoft sales teams may share this information with customers to help determine if your offering may be a good fit, and to ensure that it is customer ready. |
+| *Solution/offer pitch deck (Required)* | You can use the [Customer presentation template](https://go.microsoft.com/fwlink/?linkid=2171712) to create your pitch deck. This deck should reference the [Reference architecture diagram](reference-architecture-diagram.md). The purpose of this slide deck is to pitch your offer and its value proposition. After ensuring that your offer is customer ready, Microsoft sales teams may share this presentation with customers to articulate the value that your company and Microsoft bring when deploying a joint solution. The presentation should cover what your offer does, how it can help customers, what industries the offer is relevant for, and how it compares with competing solutions. |
+| *Customer case study* (Optional)| Use the [Case study template](https://go.microsoft.com/fwlink/?linkid=2171611) to create your customer case study. This information shows a potential customer how you and Microsoft have successfully deployed your offer in prior cases. |
 | *Verifiable customer wins* (Optional) | Provide specific examples of customer successes after your offer has been deployed. |
 | *Channel pitch deck* (Optional) | A slide deck with information that helps channel resellers learn more about your offer and get their sales teams ready to sell it. This deck typically includes an elevator pitch, information about target customers, questions to ask customers, talking points, and links to videos, documentation, and support information. |
 | *Reference architecture diagram* (Required for Azure IP co-sell incentive status) | A diagram that represents your offer and its relationship with Microsoft cloud services. It may also demonstrate how your offer meets the technical requirements for Azure IP Co-sell incentive status. [Learn more about the reference architecture diagram.](reference-architecture-diagram.md) |

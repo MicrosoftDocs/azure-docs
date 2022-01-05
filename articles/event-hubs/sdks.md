@@ -2,7 +2,7 @@
 title: Azure Event Hubs - Client SDKs | Microsoft Docs
 description: This article provides information about client SDKs for Azure Event Hubs. 
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 12/01/2021
 ---
 
 # Azure Event Hubs - Client SDKs
@@ -28,21 +28,34 @@ The following table describes all the latest available Azure Event Hubs runtime 
 | Go | [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go) | <ul><li>[GitHub location](https://github.com/Azure/azure-event-hubs-go)</li><li>[Tutorial](event-hubs-go-get-started-send.md)</li></ul> |
 | C | [azure-event-hubs-c](https://github.com/Azure/azure-event-hubs-c) | <ul><li>[GitHub location](https://github.com/Azure/azure-event-hubs-c)</li><li>[Tutorial](event-hubs-c-getstarted-send.md)</li></ul> |
 
-The below table lists older Azure Event Hubs runtime clients. Please note that while these may receive critical bug fixes, they are not in active development. We recommend using the latest SDKs listed in the above table instead.
+The below table lists older Azure Event Hubs runtime clients. While these packages may receive critical bug fixes, they aren't in active development. We recommend using the latest SDKs listed in the above table instead.
 
 | Language | Package | Reference | 
 | -------- | ------- | --------------- | 
 | . NET Standard  | [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) (**legacy**) | <ul><li>[GitHub location](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.EventHubs)</li><li>[Tutorial](event-hubs-dotnet-standard-getstarted-send.md)</li></ul> | 
 |       | [Microsoft.Azure.EventHubs.Processor](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor) (**legacy**) | <ul><li>[GitHub location](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.EventHubs.Processor)</li><li>[Tutorial](event-hubs-dotnet-standard-getstarted-send.md)</li></ul> |
-| . NET Framework | [WindowsAzure.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) (**legacy**) |<ul><li>[Tutorial](event-hubs-dotnet-framework-getstarted-send.md)</li></ul> |
+| . NET Framework | [WindowsAzure.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) (**legacy**) | |
 |   Java   | [azure-eventhubs](https://search.maven.org/search?q=a:azure-eventhubs) **(legacy)** | <ul><li>[GitHub location](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/microsoft-azure-eventhubs)</li><li>[Tutorial](event-hubs-java-get-started-send.md)</li></ul> |
 
 ## Management SDKs
-The following table lists all currently available management-specific libraries. None of these libraries contain runtime operations, and are for the sole purpose of **managing Event Hubs entities**.
+Here's a list of currently available management-specific libraries. None of these libraries contain runtime operations, and are for the sole purpose of **managing Event Hubs entities**.
 
-| Language | Package | Reference | 
-| -------- | ------- | --------------- | 
-| .NET Standard | [Microsoft.Azure.Management.EventHub](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) |<ul><li>[GitHub location](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.Management.EventHub)</li><li>[Tutorial](event-hubs-dotnet-standard-getstarted-send.md)</li></ul> |
+- [.NET Standard](/dotnet/api/microsoft.azure.management.eventhub)
+- [Java](/java/api/com.microsoft.azure.management.eventhub)
+- [Python](/python/api/azure-mgmt-eventhub)
+- [JavaScript](/javascript/api/@azure/arm-eventhub/)
+
+## .NET packages
+
+### Client libraries
+
+- **Azure.Messaging.EventHubs**: It's the current version of the library, conforming to the unified Azure SDK design guidelines and under active development for new features. It supports the NetStandard platform, allowing it to be used by both the full .NET Framework and .NET Core.  There's feature parity at a high level with Microsoft.Azure.EventHubs, with details and the client hierarchy taking a different form. This library is the one that we recommend you to use. 
+- **Microsoft.Azure.EventHubs**: It was the initial library to break out Event Hubs into a dedicated client that isn’t bundled with Service Bus. It supports the NetStandard platform, allowing it to be used by both the full .NET Framework and .NET Core. It's still the dominant version of the library with respect to usage and third-party blog entries, extensions, and such. The baseline functionality is the same as the current library, though there are some minor bits that one offers and the other doesn’t. It's currently receiving bug fixes and critical updates but is no longer receiving new features.
+- **Windows.Azure.ServiceBus**: It was the original library, back when Event Hubs was still more entangled with Service Bus. It supports only the full .NET Framework, because it predates .NET Core. This library offers some corollary functionality that isn’t supported by the newer libraries.   
+
+### Management libraries
+
+- **Microsoft.Azure.Management.EventHub**:  It's the current GA version of the management library for Event Hubs. It supports the NetStandard platform, allowing it to be used by both the full .NET Framework and .NET Core.  
 
 
 ## Next steps
@@ -50,5 +63,5 @@ The following table lists all currently available management-specific libraries.
 You can learn more about Event Hubs by visiting the following links:
 
 * [Event Hubs overview](./event-hubs-about.md)
-* [Create an Event Hub](event-hubs-create.md)
+* [Create an event hub](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.yml)

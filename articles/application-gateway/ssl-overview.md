@@ -22,7 +22,7 @@ Application Gateway supports TLS termination at the gateway, after which traffic
 - **Intelligent routing** – By decrypting the traffic, the application gateway has access to the request content, such as headers, URI, and so on, and can use this data to route requests.
 - **Certificate management** – Certificates only need to be purchased and installed on the application gateway and not all backend servers. This saves both time and money.
 
-To configure TLS termination, a TLS/SSL certificate is required to be added to the listener to enable the Application Gateway to derive a symmetric key as per TLS/SSL protocol specification. The symmetric key is then used to encrypt and decrypt the traffic sent to the gateway. The TLS/SSL certificate needs to be in Personal Information Exchange (PFX) format. This file format allows you to export the private key that is required by the application gateway to perform the encryption and decryption of traffic.
+To configure TLS termination, a TLS/SSL certificate must be added to the listener. This allows the Application Gateway to decrypt incoming traffic and encrypt response traffic to the client. The certificate provided to the Application Gateway must be in Personal Information Exchange (PFX) format, which contains both the private and public keys.
 
 > [!IMPORTANT] 
 > The certificate on the listener requires the entire certificate chain to be uploaded (the root certificate from the CA, the intermediates and the leaf certificate) to establish the chain of trust. 
@@ -145,6 +145,7 @@ Scenario | v1 | v2 |
 | --- | --- | --- |
 | SNI (server_name) header during the TLS handshake as FQDN | Set as FQDN from the backend pool. As per [RFC 6066](https://tools.ietf.org/html/rfc6066), literal IPv4 and IPv6 addresses are not permitted in SNI hostname. <br> **Note:** FQDN in the backend pool should DNS resolve to backend server’s IP address (public or private) | SNI header (server_name) is set as the hostname from the HTTP settings, otherwise, if *PickHostnameFromBackendAddress* option is chosen or if no hostname is mentioned, then it'll be set as the FQDN in the backend pool configuration
 | If the backend pool address is an IP address or hostname is not set in HTTP settings | SNI won't be set as per [RFC 6066](https://tools.ietf.org/html/rfc6066) if the backend pool entry is not an FQDN | SNI will be set as the hostname from the input FQDN from the client and the backend certificate's CN has to match with this hostname.
+| Hostname is not provided in HTTP Settings, but a FQDN is specified as the Target for a backend pool member | SNI will be set as the hostname from the input FQDN from the client and the backend certificate's CN has to match with this hostname. | SNI will be set as the hostname from the input FQDN from the client and the backend certificate's CN has to match with this hostname.
 
 ## Next steps
 

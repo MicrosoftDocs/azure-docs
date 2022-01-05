@@ -4,7 +4,7 @@ description: Log Analytics workspaces in Azure Monitor store data from servers i
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/26/2020 
+ms.date: 10/20/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -87,7 +87,7 @@ $ExportedSearches = @"
     {
         "Category":  "My Saved Searches",
         "DisplayName":  "Current Disk Queue Length",
-        "Query":  "Perf | where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and InstanceName == "C:"",
+        "Query":  'Perf | where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and InstanceName == "C:"',
         "Version":  1
     }
 ]
@@ -137,9 +137,6 @@ try {
 } catch {
     New-AzResourceGroup -Name $ResourceGroup -Location $Location
 }
-
-# Create the workspace
-New-AzOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Sku Standard -ResourceGroupName $ResourceGroup
 
 # List all solutions and their installation status
 Get-AzOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName

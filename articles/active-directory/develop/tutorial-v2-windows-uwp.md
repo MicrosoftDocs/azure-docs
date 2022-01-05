@@ -365,7 +365,7 @@ Configure API permissions for your application:
 
 ## Enable integrated authentication on federated domains (optional)
 
-To enable Integrated Windows authentication when it's used with a federated Azure AD domain, the application manifest must enable additional capabilities. Go back to your application in Visual Studio.
+To enable integrated Windows authentication when it's used with a federated Azure AD domain, the application manifest must enable additional capabilities. Go back to your application in Visual Studio.
 
 1. Open *Package.appxmanifest*.
 1. Select **Capabilities**, and enable the following settings:
@@ -375,7 +375,7 @@ To enable Integrated Windows authentication when it's used with a federated Azur
    * **Shared User Certificates**
 
 > [!IMPORTANT]
-> [Integrated Windows authentication](https://aka.ms/msal-net-iwa) isn't configured by default for this sample. Applications that request `Enterprise Authentication` or `Shared User Certificates` capabilities require a higher level of verification by the Windows Store. Also, not all developers want to perform the higher level of verification. Enable this setting only if you need Integrated Windows authentication with a federated Azure AD domain.
+> [Integrated Windows authentication](https://aka.ms/msal-net-iwa) isn't configured by default for this sample. Applications that request `Enterprise Authentication` or `Shared User Certificates` capabilities require a higher level of verification by the Windows Store. Also, not all developers want to perform the higher level of verification. Enable this setting only if you need integrated Windows authentication with a federated Azure AD domain.
 
 ## Alternate approach to using WithDefaultRedirectURI()
 

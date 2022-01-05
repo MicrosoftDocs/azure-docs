@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 12/31/2021
 ---
 # Copy data from and to Dynamics 365 (Microsoft Dataverse) or Dynamics CRM
 
@@ -83,11 +83,11 @@ Use the following steps to create a linked service to Dynamics 365 in the Azure 
 
 2. Search for Dynamics and select the Dynamics 365 connector.
 
-    :::image type="content" source="media/connector-azure-blob-storage/azure-blob-storage-connector.png" alt-text="Screenshot of the Dynamics 365 connector.":::    
+    :::image type="content" source="media/connector-dynamics-crm-office-365/dynamics-crm-office-365-connector.png" alt-text="Screenshot of the Dynamics 365 connector.":::    
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-    :::image type="content" source="media/connector-azure-blob-storage/configure-azure-blob-storage-linked-service.png" alt-text="Screenshot of linked service configuration for Dynamics 365.":::
+    :::image type="content" source="media/connector-dynamics-crm-office-365/configure-dynamics-crm-office-365-linked-service.png" alt-text="Screenshot of linked service configuration for Dynamics 365.":::
 
 ## Connector configuration details
 
@@ -104,12 +104,13 @@ The following properties are supported for the Dynamics linked service.
 | type | The type property must be set to "Dynamics", "DynamicsCrm", or "CommonDataServiceForApps". | Yes |
 | deploymentType | The deployment type of the Dynamics instance. The value must be "Online" for Dynamics online. | Yes |
 | serviceUri | The service URL of your Dynamics instance, the same one you access from browser. An example is "https://\<organization-name>.crm[x].dynamics.com". | Yes |
-| authenticationType | The authentication type to connect to a Dynamics server. Valid values are "AADServicePrincipal" and "Office365". | Yes |
+| authenticationType | The authentication type to connect to a Dynamics server. Valid values are "AADServicePrincipal", "Office365" and "ManagedIdentity". | Yes |
 | servicePrincipalId | The client ID of the Azure AD application. | Yes when authentication is "AADServicePrincipal" |
 | servicePrincipalCredentialType | The credential type to use for service-principal authentication. Valid values are "ServicePrincipalKey" and "ServicePrincipalCert". | Yes when authentication is "AADServicePrincipal" |
 | servicePrincipalCredential | The service-principal credential. <br/><br/>When you use "ServicePrincipalKey" as the credential type, `servicePrincipalCredential` can be a string that the service encrypts upon linked service deployment. Or it can be a reference to a secret in Azure Key Vault. <br/><br/>When you use "ServicePrincipalCert" as the credential, `servicePrincipalCredential` must be a reference to a certificate in Azure Key Vault. | Yes when authentication is "AADServicePrincipal" |
 | username | The username to connect to Dynamics. | Yes when authentication is "Office365" |
 | password | The password for the user account you specified as the username. Mark this field with "SecureString" to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes when authentication is "Office365" |
+| credentials | Specify the user-assigned managed identity as the credential object. <br/><br/> [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), assign them to your data factory and [create credentials](credentials.md) for each user-assigned managed identity.| Yes when authentication is "ManagedIdentity" |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. | No |
 
 >[!NOTE]
@@ -191,7 +192,29 @@ The following properties are supported for the Dynamics linked service.
     }
 }
 ```
+#### Example: Dynamics online using user-assigned managed identity authentication
 
+```json
+{
+    "name": "DynamicsLinkedService",
+    "properties": {
+        "type": "Dynamics",
+        "typeProperties": {
+            "deploymentType": "Online",
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com",
+            "authenticationType": "ManagedIdentity",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 ### Dynamics 365 and Dynamics CRM on-premises with IFD
 
 Additional properties that compare to Dynamics online are **hostName** and **port**.

@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.author: peterlu
-author: peterclu
+ms.author: lagayhar
+author: lgayhardt
 ms.date: 01/09/2020
 ms.custom: designer
 ---
@@ -20,40 +20,40 @@ This workflow has been tested with [Narrator](https://support.microsoft.com/help
 
 ## Navigate the pipeline graph
 
-The pipeline graph is organized as a nested list. The outer list is a module list, which describes all the modules in the pipeline graph. The inner list is a connection list, which describes all the connections of a specific module.  
+The pipeline graph is organized as a nested list. The outer list is a component list, which describes all the components in the pipeline graph. The inner list is a connection list, which describes all the connections of a specific component.  
 
-1. In the module list, use the arrow key to switch modules.
-1. Use tab to open the connection list for the target module.
-1. Use arrow key to switch between the connection ports for the module.
-1. Use “G” to go to the target module.
+1. In the component list, use the arrow key to switch components.
+1. Use tab to open the connection list for the target component.
+1. Use arrow key to switch between the connection ports for the component.
+1. Use “G” to go to the target component.
 
 ## Edit the pipeline graph
 
-### Add a module to the graph
+### Add a component to the graph
 
-1. Use Ctrl+F6 to switch focus from the canvas to the module tree.
-1. Find the desired module in the module tree using standard treeview control.
+1. Use Ctrl+F6 to switch focus from the canvas to the component tree.
+1. Find the desired component in the component tree using standard treeview control.
 
-### Edit a module
+### Edit a component
 
-To connect a module to another module:
+To connect a component to another component:
 
-1. Use Ctrl + Shift + H when targeting a module in the module list to open the connection helper.
-1. Edit the connection ports for the module.
+1. Use Ctrl + Shift + H when targeting a component in the component list to open the connection helper.
+1. Edit the connection ports for the component.
 
-To adjust module properties:
+To adjust component properties:
 
-1. Use Ctrl + Shift + E when targeting a module to open the module properties.
-1. Edit the module properties.
+1. Use Ctrl + Shift + E when targeting a component to open the component properties.
+1. Edit the component properties.
 
 ## Navigation shortcuts
 
 | Keystroke | Description |
 |-|-|
-| Ctrl + F6 | Toggle focus between canvas and module tree |
-| Ctrl + F1   | Open the information card when focusing on a node in module tree |
+| Ctrl + F6 | Toggle focus between canvas and component tree |
+| Ctrl + F1   | Open the information card when focusing on a node in component tree |
 | Ctrl + Shift + H | Open the connection helper when focus is on a node |
-| Ctrl + Shift + E | Open module properties when focus is on a node |
+| Ctrl + Shift + E | Open component properties when focus is on a node |
 | Ctrl + G | Move focus to first failed node if the pipeline run failed |
 
 ## Action shortcuts

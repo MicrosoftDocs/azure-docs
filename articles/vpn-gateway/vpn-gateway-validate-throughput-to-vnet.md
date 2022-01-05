@@ -2,16 +2,13 @@
 title: 'Validate VPN throughput to a virtual network'
 description: Learn how to validate the network throughput from your on-premises resources to an Azure virtual machine.
 titleSuffix: Azure VPN Gateway
-services: vpn-gateway
 author: cherylmc
 manager: dcscontentpm
-
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-
 ---
 
 # How to validate VPN throughput to a virtual network
@@ -122,7 +119,7 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). For
 
 ### Load Latte.exe onto the VMs
 
-Download the latest version of [Latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+Download the latest version of [Latte.exe](https://github.com/microsoft/latte/releases/download/v0/latte.exe)
 
 Consider putting Latte.exe in separate folder, such as `c:\tools`
 
@@ -214,7 +211,7 @@ Make install is fast
 
 > [!Note]
 > Make sure there are no intermediate hops (e.g. Virtual Appliance) during the throughput testing in between the VM and Gateway.
-> If there are poor results (in terms of overall throughput) coming from the iPERF/NTTTCP tests above, please refer to the following article to understand the key factors behind the possible root causes of the problem: https://docs.microsoft.com/azure/virtual-network/virtual-network-tcpip-performance-tuning
+> If there are poor results (in terms of overall throughput) coming from the iPERF/NTTTCP tests above, please refer to [this article](../virtual-network/virtual-network-tcpip-performance-tuning.md) to understand the key factors behind the possible root causes of the problem: 
 
 In particular, analysis of packet capture traces (Wireshark/Network Monitor) collected in parallel from client and server during those tests will help in the assessments of bad performance. These traces can include packet loss, high latency, MTU size. fragmentation, TCP 0 Window, Out of Order fragments, and so on.
 

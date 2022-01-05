@@ -1,12 +1,12 @@
 ---
 title: Configure your Azure Percept voice assistant application
 description: Configure your voice assistant application using Azure IoT Hub
-author: NabilaBabar
-ms.author: amiyouss
+author: nkhuyent
+ms.author: nbabar
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
 # Configure your Azure Percept voice assistant application
@@ -99,4 +99,3 @@ To locate your **appID**, **key**, and **region**, go to [Speech Studio](https:/
 ## Next steps
 
 After updating your voice assistant configuration, return to the demo in Azure Percept Studio to interact with the application.
-

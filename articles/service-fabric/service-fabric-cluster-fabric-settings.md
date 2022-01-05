@@ -562,7 +562,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |MoveExistingReplicaForPlacement | Bool, default is true |Dynamic|Setting which determines if to move existing replica during placement. |
 |MovementPerPartitionThrottleCountingInterval | Time in seconds, default is 600 |Static| Specify timespan in seconds. Indicate the length of the past interval for which to track replica movements for each partition (used along with MovementPerPartitionThrottleThreshold). |
 |MovementPerPartitionThrottleThreshold | Uint, default is 50 |Dynamic| No balancing-related movement will occur for a partition if the number of balancing related movements for replicas of that partition has reached or exceeded MovementPerFailoverUnitThrottleThreshold in the past interval indicated by MovementPerPartitionThrottleCountingInterval. |
-|MoveParentToFixAffinityViolation | Bool, default is false |Dynamic| Setting which determines if parent replicas can be moved to fix affinity constraints.|
+|MoveParentToFixAffinityViolation | Bool, default is true |Dynamic| Setting which determines if parent replicas can be moved to fix affinity constraints.|
 |NodeTaggingEnabled | Bool, default is false |Dynamic| If true; NodeTagging feature will be enabled. |
 |NodeTaggingConstraintPriority | Int, default is 0 |Dynamic| Configurable priority of node tagging. |
 |PartiallyPlaceServices | Bool, default is true |Dynamic| Determines if all service replicas in cluster will be placed "all or nothing" given limited suitable nodes for them.|
@@ -857,8 +857,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 | --- | --- | --- | --- |
 |ContainerNetworkName|string, default is ""| Static |The network name to use when setting up a container network.|
 |ContainerNetworkSetup|bool, default is FALSE (Linux) and default is TRUE (Windows)| Static |Whether to set up a container network.|
-|FabricDataRoot |String | Not Allowed |Service Fabric data root directory. Default for Azure is d:\svcfab |
-|FabricLogRoot |String | Not Allowed |Service fabric log root directory. This is where SF logs and traces are placed. |
+|FabricDataRoot |String | Not Allowed |Service Fabric data root directory. Default for Azure is d:\svcfab (Only for Standalone Deployments)|
+|FabricLogRoot |String | Not Allowed |Service fabric log root directory. This is where SF logs and traces are placed. (Only for Standalone Deployments)|
 |NodesToBeRemoved|string, default is ""| Dynamic |The nodes which should be removed as part of configuration upgrade. (Only for Standalone Deployments)|
 |ServiceRunAsAccountName |String | Not Allowed |The account name under which to run fabric host service. |
 |SkipContainerNetworkResetOnReboot|bool, default is FALSE|NotAllowed|Whether to skip resetting container network on reboot.|

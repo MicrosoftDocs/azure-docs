@@ -1,16 +1,16 @@
 ---
-title: Data Collection Endpoints in Azure Monitor (preview)
+title: Data Collection Endpoints in Azure Monitor 
 description: Overview of data collection endpoints (DCEs) in Azure Monitor including their contents and structure and how you can create and work with them.
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 07/09/2021
+ms.date: 1/5/2022
 ms.custom: references_region
 
 ---
 
-# Data collection endpoints in Azure Monitor (preview)
-Data Collection Endpoints (DCE) allow you to uniquely configure ingestion settings for your machines, giving you greater control over your networking requirements. This article provides an overview of data collection endpoints including their contents and structure and how you can create and work with them.
+# Data collection endpoints in Azure Monitor 
+Data Collection Endpoints (DCEs) allow you to uniquely configure ingestion settings for your machines, giving you greater control over your networking requirements. This article provides an overview of data collection endpoints including their contents and structure and how you can create and work with them.
 
 ## Components of a data collection endpoint
 A data collection endpoint includes the following components.
@@ -25,8 +25,8 @@ A data collection endpoint includes the following components.
 ## Regionality
 Data collection endpoints are ARM resources created within specific regions. An endpoint in a given region can only be **associated with machines in the same region**, although you can have more than one endpoint within the same region as per your needs.
 
-## Limits
-Data collection endpoints only support Log Analytics as a destination for collected data. 
+## Limitations
+Data collection endpoints only support Log Analytics as a destination for collected data. [Custom Metrics (preview)](../essentials/metrics-custom-overview.md) collected and uploaded via the Azure Monitor Agent are not controlled by Data Collection endpoints nor can they be configured over private links.
 
 ## Create endpoint and association in Azure portal
 You can use the Azure portal to create a data collection endpoint and associate virtual machines in your subscription to that rule. 

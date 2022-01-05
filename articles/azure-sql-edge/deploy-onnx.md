@@ -9,6 +9,7 @@ ms.topic: quickstart
 author: dphansen
 ms.author: davidph
 ms.date: 05/06/2021
+ms.custom: mode-other
 ---
 
 # Deploy and make predictions with an ONNX model and SQL machine learning

@@ -3,15 +3,15 @@ title: Set up a sign-in flow
 titleSuffix: Azure Active Directory B2C
 description: Learn how to set up a sign-in flow in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/24/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -22,10 +22,10 @@ zone_pivot_groups: b2c-policy-type
 
 ## Sign-in flow overview
 
-The sign-in policy lets users: 
+The sign-in policy lets users:
 
-* Users can sign in with an Azure AD B2C Local Account
-* Sign-up or sign-in with a social account
+* Sign in with an Azure AD B2C Local Account
+* Users can sign-in with a social account
 * Password reset
 * Users cannot sign up for an Azure AD B2C Local Account. To create an account, an administrator can use [Azure portal](manage-users-portal.md#create-a-consumer-user), or [MS Graph API](microsoft-graph-operations.md).
 
@@ -33,7 +33,8 @@ The sign-in policy lets users:
 
 ## Prerequisites
 
-If you haven't already done so, [register a web application in Azure Active Directory B2C](tutorial-register-applications.md).
+- If you haven't already done so, [register a web application in Azure Active Directory B2C](tutorial-register-applications.md).
+- Complete the steps in [Create user flows and custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md).
 
 ::: zone pivot="b2c-user-flow"
 
@@ -73,7 +74,7 @@ To add sign-in policy:
 
 ## Remove the sign-up link
 
-The **SelfAsserted-LocalAccountSignin-Email** technical profile is a [self-asserted](self-asserted-technical-profile.md), which is invoked during the sign-up or sign-in flow. To remove the sign-up link, set the `setting.showSignupLink` metadata to `false`. Override the SelfAsserted-LocalAccountSignin-Email technical profiles in the extension file. 
+The **SelfAsserted-LocalAccountSignin-Email** technical profile is a [self-asserted](self-asserted-technical-profile.md), which is invoked during the sign-up or sign-in flow. To remove the sign-up link, set the `setting.showSignupLink` metadata to `false`. Override the SelfAsserted-LocalAccountSignin-Email technical profiles in the extension file.
 
 1. Open the extensions file of your policy. For example, _`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**_.
 1. Find the `ClaimsProviders` element. If the element doesn't exist, add it.
@@ -98,7 +99,7 @@ The **SelfAsserted-LocalAccountSignin-Email** technical profile is a [self-asser
 
 1. Within `<BuildingBlocks>` element, add the following [ContentDefinition](contentdefinitions.md) to reference the version 1.2.0, or newer data URI:
 
-    ```XML
+    ```xml
     <!-- 
     <BuildingBlocks> 
       <ContentDefinitions>-->

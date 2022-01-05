@@ -11,7 +11,6 @@ editor: ''
 ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -35,7 +34,7 @@ Restricting access is imperative for organizations that want to enforce security
 It doesn't matter how good your security is if you lose your subscription keys. Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. With Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs. You can also use Key Vault to manage your TLS certificates with auto-renewal. See [What is Azure Key Vault](../../key-vault/general/overview.md) to learn more.
 
 ## Restrict incoming source IP addresses
-[App Service Environments](../../app-service/environment/intro.md) has a virtual network integration feature that helps you restrict incoming source IP addresses through network security groups (NSGs). If you are unfamiliar with Azure Virtual Networks (VNETs), this is a capability that allows you to place many of your Azure resources in a non-internet, routable network that you control access to. To learn more, see [Integrate your app with an Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md).
+[App Service Environments](../../app-service/environment/intro.md) has a virtual network integration feature that helps you restrict incoming source IP addresses through network security groups (NSGs). If you are unfamiliar with Azure Virtual Networks (VNETs), this is a capability that allows you to place many of your Azure resources in a non-internet, routable network that you control access to. To learn more, see [Integrate your app with an Azure Virtual Network](../../app-service/overview-vnet-integration.md).
 
 For App Service on Windows, you can also restrict IP addresses dynamically by configuring the web.config. For more information, see [Dynamic IP Security](/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 

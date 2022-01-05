@@ -1,7 +1,7 @@
 ---
 title: Generate trends and statistics reports
 description: Gain insight into network activity, statistics, and trends by using Defender for IoT Trends and Statistics widgets.
-ms.date: 2/21/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

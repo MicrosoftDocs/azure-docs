@@ -5,8 +5,7 @@ description: Learn about the Content Moderator Review tool, a website that coord
 services: cognitive-services
 author: PatrickFarley
 manager: mikemcca
-
-ms.date: 03/15/2019
+ms.date: 10/28/2021
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
@@ -28,7 +27,7 @@ The [Review tool](https://contentmoderator.cognitive.microsoft.com), when used i
 - Automate the creation of human [reviews](../review-api.md#reviews) when moderation API results come in.
 - Assign or escalate content reviews to multiple review teams, organized by content category or experience level.
 - Use default or custom logic filters ([workflows](../review-api.md#workflows)) to sort and track content, without writing any code.
-- Use [connectors](./configure.md#connectors) to process content with Microsoft PhotoDNA, Text Analytics, and Face services in addition to the Content Moderator APIs.
+- Use [connectors](./configure.md#connectors) to process content with Microsoft PhotoDNA, Language, and Face services in addition to the Content Moderator APIs.
 - Get key performance metrics on your content moderation processes.
 
 ## Review tool dashboard

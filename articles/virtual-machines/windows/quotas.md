@@ -3,7 +3,7 @@ title: vCPU quotas for Azure
 description: Learn about vCPU quotas for Azure virtual machines.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: quota
+ms.subservice: sizes
 ms.topic: how-to
 ms.date: 05/31/2018
 ms.author: cynthn

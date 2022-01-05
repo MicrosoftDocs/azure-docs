@@ -3,14 +3,14 @@ title: Configure a force password reset flow in Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn how to set up a forced password reset flow in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/16/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -18,6 +18,8 @@ zone_pivot_groups: b2c-policy-type
 # Set up a force password reset flow in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+::: zone pivot="b2c-user-flow"
 
 ## Overview
 
@@ -29,11 +31,19 @@ When an administrator resets a user's password via the Azure portal, the value o
 
 The password reset flow is applicable to local accounts in Azure AD B2C that use an [email address](sign-in-options.md#email-sign-in) or [username](sign-in-options.md#username-sign-in) with a password for sign-in.
 
-::: zone pivot="b2c-user-flow"
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+This feature is currently only available for User Flows. For setup steps, choose **User Flow** above. For custom policies, use the force password reset first logon [GitHub sample](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset-first-logon) with prerequisites below.
+
+::: zone-end
 
 ## Prerequisites
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+
+::: zone pivot="b2c-user-flow"
 
 ## Configure your user flow
 
@@ -112,12 +122,6 @@ Once a password expiration policy has been set, you must also configure force pa
 ### Password expiry duration
 
 The password expiry duration default value is **90** days. The value is configurable by using the [Set-MsolPasswordPolicy](/powershell/module/msonline/set-msolpasswordpolicy) cmdlet from the Azure Active Directory Module for Windows PowerShell. This command updates the tenant, so that all users' passwords expire after number of days you configure.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-This feature is currently only available for User Flows. For setup steps, choose **User Flow** above. For custom policies, use the force password reset first logon [GitHub sample](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset-first-logon).
 
 ::: zone-end
 

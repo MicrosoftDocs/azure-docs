@@ -22,6 +22,10 @@ This article shows the Azure Cosmos DB Emulator release notes with a list of fea
 
 ## Release notes
 
+### 2.14.4 (25 October 2021)
+
+ - This release updates the Cosmos Emulator background services to match the latest online functionality of the Azure Cosmos DB services.
+
 ### 2.14.3 (8 September 2021)
 
  - This release updates the Cosmos Emulator background services to match the latest online functionality of the Azure Cosmos DB, fixes couple issues with telemetry data that is collected and resets the base image for the Linux Cosmos emulator Docker image.

@@ -15,6 +15,8 @@ ms.date: 09/09/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
 Use Unpivot in a mapping data flow as a way to turn an unnormalized dataset into a more normalized version by expanding values from multiple columns in a single record into multiple records with the same values in a single column.
 
 :::image type="content" source="media/data-flow/unpivot1.png" alt-text="Screenshot shows Unpivot selected from the menu.":::

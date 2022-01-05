@@ -3,10 +3,10 @@ title: Overview of Maintenance control for Azure virtual machines using the Azur
 description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance Control.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: maintenance-control
+ms.subservice: maintenance
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/19/2020
+ms.date: 10/06/2021
 ms.author: cynthn
 #pmcontact: shants
 ---
@@ -28,8 +28,9 @@ With maintenance control, you can:
 ## Limitations
 
 - VMs must be on a [dedicated host](./dedicated-hosts.md), or be created using an [isolated VM size](isolation.md).
-- The maintenance window duration must be 2 hours or more. Maintenance window duration is the time from when the customer initiates the update to the time it completes. 
+- Maintenance window duration can vary month over month and sometimes it can take upto 2 hours to apply the pending updates once it is initiated by the user.  
 - After 35 days, an update will automatically be applied.
+- Rack level maintenance cannot be controlled through maintenance control.
 - User must have **Resource Contributor** access.
 
 ## Management options

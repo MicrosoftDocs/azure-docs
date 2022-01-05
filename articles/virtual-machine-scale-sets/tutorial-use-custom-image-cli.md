@@ -17,7 +17,7 @@ ms.reviewer: mimckitt
 When you create a scale set, you specify an image to be used when the VM instances are deployed. To reduce the number of tasks after VM instances are deployed, you can use a custom VM image. This custom VM image includes any required application installs or configurations. Any VM instances created in the scale set use the custom VM image and are ready to serve your application traffic. In this tutorial you learn how to:
 
 > [!div class="checklist"]
-> * Create a Shared Image Gallery
+> * Create an Azure Compute Gallery
 > * Create a specialized image definition
 > * Create an image version
 > * Create a scale set from a specialized image
@@ -32,9 +32,9 @@ When you create a scale set, you specify an image to be used when the VM instanc
 
 ## Overview
 
-A [Shared Image Gallery](../virtual-machines/shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
+A [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
 
-The Shared Image Gallery lets you share your custom VM images with others. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. 
+The Azure Compute Gallery lets you share your custom VM images with others. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. 
 
 ## Create and configure a source VM
 
@@ -229,7 +229,7 @@ az group delete --name myResourceGroup --no-wait --yes
 In this tutorial, you learned how to create and use a custom VM image for your scale sets with the Azure CLI:
 
 > [!div class="checklist"]
-> * Create a Shared Image Gallery
+> * Create an Azure Compute Gallery
 > * Create a specialized image definition
 > * Create an image version
 > * Create a scale set from a specialized image

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Perforce Helix Core - Helix Authentication Service | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Perforce Helix Core - Helix Authentication Service'
 description: Learn how to configure single sign-on between Azure Active Directory and Perforce Helix Core - Helix Authentication Service.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 09/24/2021
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Perforce Helix Core - Helix Authentication Service
+# Tutorial: Azure AD SSO integration with Perforce Helix Core - Helix Authentication Service
 
 In this tutorial, you'll learn how to integrate Perforce Helix Core - Helix Authentication Service with Azure Active Directory (Azure AD). When you integrate Perforce Helix Core - Helix Authentication Service with Azure AD, you can:
 
@@ -27,6 +27,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Perforce Helix Core - Helix Authentication Service single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -68,19 +71,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/`
-
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/saml`
 
-    c. In the **Reply URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/saml/sso`
 
+    c. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/`
+
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [Perforce Helix Core - Helix Authentication Service Client support team](mailto:support@perforce.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Perforce Helix Core - Helix Authentication Service Client support team](mailto:support@perforce.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -130,4 +133,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Perforce Helix Core - Helix Authentication Service you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Perforce Helix Core - Helix Authentication Service you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

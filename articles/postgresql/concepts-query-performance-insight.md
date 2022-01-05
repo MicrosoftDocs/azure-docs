@@ -14,16 +14,13 @@ ms.date: 08/21/2019
 
 Query Performance Insight helps you to quickly identify what your longest running queries are, how they change over time, and what waits are affecting them.
 
-## Permissions
-**Owner** or **Contributor** permissions required to view the text of the queries in Query Performance Insight. **Reader** can view charts and tables but not query text.
-
 ## Prerequisites
 For Query Performance Insight to function, data must exist in the [Query Store](concepts-query-store.md).
 
 ## Viewing performance insights
 The [Query Performance Insight](concepts-query-performance-insight.md) view in the Azure portal will surface visualizations on key information from Query Store. 
 
-In the portal page of your Azure Database for PostgreSQL server, select **Query performance Insight** under the **Intelligent Performance** section of the menu bar.
+In the portal page of your Azure Database for PostgreSQL server, select **Query performance Insight** under the **Intelligent Performance** section of the menu bar. Displaying the **Query Text is no longer supported** and will show as empty until it’s taken out of Performance Insights. However, the query text can still be viewed by connecting to azure_sys and querying 'query_store.query_texts_view'.
 
 :::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-landing-page.png" alt-text="Query Performance Insight long running queries":::
 

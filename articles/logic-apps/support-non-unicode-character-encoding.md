@@ -1,9 +1,9 @@
 ---
-title: Support non-Unicode character encoding in Logic Apps
-description: Work with non-Unicode text in Logic Apps. Convert text payloads to UTF-8 using base64 encoding and Azure Functions.
-ms.date: 04/29/2021
-ms.topic: conceptual
-ms.reviewer: logicappspm
+title: Convert non-Unicode encoded text for compatibility
+description: Handle non-Unicode characters in Azure Logic Apps by converting text payloads to UTF-8 with base64 encoding and Azure Functions.
+ms.date: 10/05/2021
+ms.topic: how-to
+ms.reviewer: estfan, azla
 ms.service: logic-apps
 ---
 # Support non-Unicode character encoding in Logic Apps
@@ -18,9 +18,17 @@ This solution works with both *multi-tenant* and *single-tenant* workflows. You 
 
 First, check that your trigger can correctly identify the content type. This step ensures that Logic Apps no longer assumes the text is UTF-8. 
 
-For triggers with the setting **Infer Content Type**, choose **No**. If your trigger doesn't have this option, the content type is set by the incoming message. 
+In triggers and actions that have the property **Infer Content Type**, select **No**.  You can usually find this property in the operation's **Add parameters** list. However, if the operation doesn't include this property, the content type is set by the inbound message.
 
-If you're using the HTTP request trigger for `text/plain` content, you must set the `charset` parameter in the `Content-Type` header of the call. Characters might become corrupted if you don't set the `charset` parameter, or the parameter doesn't match the payload's encoding format. For more information, see [how to handle the `text/plain` content type](logic-apps-content-type.md#text-plain).
+The following list shows some of the connectors where you can disable automatically inferring the content type:
+* [OneDrive](/connectors/onedrive/)
+* [Azure Blob Storage](/connectors/azureblob/)
+* [Azure File Storage](/connectors/azurefile/)
+* [File System](/connectors/filesystem/)
+* [Google Drive](/connectors/googledrive/)
+* [SFTP - SSH](/connectors/sftpwithssh/)
+ 
+If you're using the Request trigger for `text/plain` content, you must set the `charset` parameter that is in the call's `Content-Type` header. Otherwise, characters might become corrupted, or the parameter doesn't match the payload's encoding format. For more information, review [how to handle the `text/plain` content type](logic-apps-content-type.md#text-plain).
 
 For example, the HTTP trigger converts the incoming content to UTF-8 when the `Content-Type` header is set with the correct `charset` parameter:
 

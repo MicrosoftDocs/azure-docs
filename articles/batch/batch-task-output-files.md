@@ -3,6 +3,7 @@ title: Persist output data to Azure Storage with Batch service API
 description: Learn how to use the Batch service API to persist Batch task and job output data to Azure Storage.
 ms.topic: how-to
 ms.date: 08/18/2021
+ms.devlang: csharp
 ms.custom: "seodec18, devx-track-csharp"
 
 ---
@@ -162,7 +163,7 @@ https://myaccount.blob.core.windows.net/mycontainer/task1/output.txt
 https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 ```
 
-For more information about virtual directories in Azure Storage, see [List the blobs in a container](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container).
+For more information about virtual directories in Azure Storage, see [List the blobs in a container](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-blobs-in-a-container).
 
 ## Diagnose file upload errors
 

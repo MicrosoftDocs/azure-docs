@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/24/2021
 ---
 # Reference annotations in an Azure Cognitive Search skillset
 

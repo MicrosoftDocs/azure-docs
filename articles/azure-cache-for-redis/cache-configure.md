@@ -1,12 +1,12 @@
 ---
 title: How to configure Azure Cache for Redis
 description: Understand the default Redis configuration for Azure Cache for Redis and learn how to configure your Azure Cache for Redis instances
-author: yegu-ms
+author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
-ms.author: yegu 
+ms.author: franlanglois 
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -21,7 +21,7 @@ This article describes the configurations available for your Azure Cache for Red
 
 ## Configure Azure Cache for Redis settings
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-browse.md)]
 
 Azure Cache for Redis settings are viewed and configured on the **Azure Cache for Redis** on the left using the **Resource Menu**.
 
@@ -461,6 +461,8 @@ For more information about databases, see [What are Redis databases?](cache-deve
 > * SAVE
 > * SHUTDOWN
 > * SLAVEOF
+> * REPLICAOF
+> * ACL
 > * CLUSTER - Cluster write commands are disabled, but read-only Cluster commands are permitted.
 >
 >

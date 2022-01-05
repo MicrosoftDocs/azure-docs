@@ -3,8 +3,10 @@ title: Index data from Azure MySQL (preview)
 titleSuffix: Azure Cognitive Search
 description: Set up a search indexer to index data stored in Azure MySQL for full text search in Azure Cognitive Search.
 
-author: markheff
-ms.author: maheff
+author: gmndrg
+ms.author: gimondra
+manager: nitinme
+
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual

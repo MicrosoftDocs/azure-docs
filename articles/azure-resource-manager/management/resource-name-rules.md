@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 12/27/2021
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -23,7 +23,7 @@ In the following tables, the term alphanumeric refers to:
 * **0** through **9** (numbers)
 
 > [!NOTE]
-> All resources with a public endpoint can't include reserved words or trademarks in the name. For a list of the blocked words, see [Resolve reserved resource name errors](resource-name-rules.md).
+> All resources with a public endpoint can't include reserved words or trademarks in the name. For a list of the blocked words, see [Resolve reserved resource name errors](../templates/error-reserved-resource-name.md).
 
 ## Microsoft.AnalysisServices
 
@@ -87,6 +87,8 @@ In the following tables, the term alphanumeric refers to:
 > | policyAssignments | scope of assignment | 1-128 display name<br><br>1-64 resource name<br><br>1-24 resource name at management group scope | Display name can contain any characters.<br><br>Resource name can't use:<br>`<>*%&:\?.+/` or control characters. <br><br>Can't end with period or space. |
 > | policyDefinitions | scope of definition | 1-128 display name<br><br>1-64 resource name | Display name can contain any characters.<br><br>Resource name can't use:<br>`<>*%&:\?.+/` or control characters. <br><br>Can't end with period or space. |
 > | policySetDefinitions | scope of definition | 1-128 display name<br><br>1-64 resource name<br><br>1-24 resource name at management group scope | Display name can contain any characters.<br><br>Resource name can't use:<br>`<>*%&:\?.+/` or control characters. <br><br>Can't end with period or space. |
+> | roleAssignments | tenant | 36 | Must be a globally unique identifier (GUID). |
+> | roleDefinitions | tenant | 36 | Must be a globally unique identifier (GUID). |
 
 ## Microsoft.Automation
 
@@ -170,7 +172,7 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | availabilitySets | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | cloudservices | resource group | 1-15 <br><br>See note below. | Can't use spaces, control characters, or these characters:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Can't start with underscore. Can't end with period or hyphen. |
-> | diskEncryptionSets | resource group | 1-80 | Alphanumerics and underscores. |
+> | diskEncryptionSets | resource group | 1-80 | Alphanumerics, underscores, and hyphens. |
 > | disks | resource group | 1-80 | Alphanumerics, underscores, and hyphens. |
 > | galleries | resource group | 1-80 | Alphanumerics and periods.<br><br>Start and end with alphanumeric. |
 > | galleries / applications | gallery | 1-80 | Alphanumerics, hyphens, and periods.<br><br>Start and end with alphanumeric. |
@@ -190,7 +192,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | communicationServices | global | 1-63 | Alphanumerics, hyphens, and underscores. |
+> | communicationServices | global | 1-63 | Alphanumerics and hyphens.<br><br>Can't use underscores. |
 
 ## Microsoft.Consumption
 
@@ -387,7 +389,7 @@ In the following tables, the term alphanumeric refers to:
 > | clusters | resource group | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter. End with letter or number. |
 > | namespaces | global | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter. End with letter or number. |
 > | namespaces / AuthorizationRules | namespace | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
-> | namespaces / disasterRecoveryConfigs | namespace | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
+> | namespaces / disasterRecoveryConfigs | global | 6-50 | Alphanumerics and hyphens.<br><br>Start with letter. End with alphanumeric. |
 > | namespaces / eventhubs | namespace | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
 > | namespaces / eventhubs / authorizationRules | event hub | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
 > | namespaces / eventhubs / consumergroups | event hub | 1-50 | Alphanumerics, periods, hyphens and underscores.<br><br>Start and end with letter or number. |
@@ -687,6 +689,7 @@ In the following tables, the term alphanumeric refers to:
 > | servers / elasticPools | server | 1-128 | Can't use:<br>`<>*%&:\/?` or control characters<br><br>Can't end with period or space. |
 > | servers / failoverGroups | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. |
 > | servers / firewallRules | server | 1-128 | Can't use:<br>`<>*%&:;\/?` or control characters<br><br>Can't end with period. |
+> | servers / keys | server |  | Must be in format:<br>`VaultName_KeyName_KeyVersion`. |
 
 ## Microsoft.Storage
 
@@ -752,10 +755,10 @@ In the following tables, the term alphanumeric refers to:
 > [!NOTE]
 > A web site must have a globally unique URL. When you create a web site that uses a hosting plan, the URL is `http://<app-name>.azurewebsites.net`. The app name must be globally unique. When you create a web site that uses an App Service Environment, the app name must be unique within the [domain for the App Service Environment](../../app-service/environment/using-an-ase.md#app-access). For both cases, the URL of the site is globally unique.
 >
-> Azure Functions has the same naming rules and restrictions as Microsoft.Web/sites.
+> Azure Functions has the same naming rules and restrictions as Microsoft.Web/sites. However, prior to version 4.x of Azure Functions Core Tools, the function name was truncated to 32 characters when generating the host ID. For version 4.x, this limit no longer applies. For earlier versions, limit the function name to 32 characters to avoid naming collisions.
 
 ## Next steps
 
 * For recommendations about how to name resources, see [Ready: Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
-* All resources with a public endpoint can't include reserved words or trademarks in the name. For a list of the blocked words, see [Resolve reserved resource name errors](resource-name-rules.md).
+* All resources with a public endpoint can't include reserved words or trademarks in the name. For a list of the blocked words, see [Resolve reserved resource name errors](../templates/error-reserved-resource-name.md).

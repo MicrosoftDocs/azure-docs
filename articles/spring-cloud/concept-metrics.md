@@ -173,6 +173,20 @@ For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-coun
 >| tomcat.sessions.rejected | tomcat.sessions.rejected | Count | Number of sessions that were not created because the maximum number of active sessions reached. |
 >| tomcat.sessions.active.current | tomcat.sessions.active.current | Count | Tomcat Session Active Count |
 
+### Ingress
+
+>[!div class="mx-tdCol2BreakAll"]
+>| Display Name             | Azure Metric Name        | Unit           | Details                                                                                                                                                                          |
+>|--------------------------|--------------------------|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+>| Bytes Received           | IngressBytesReceived     | Bytes          | Count of bytes received by Azure Spring Cloud from the clients                                                                                                                   |
+>| Bytes Sent               | IngressBytesSent         | Bytes          | Count of bytes sent by Azure Spring Cloud to the clients                                                                                                                         |
+>| Requests                 | IngressRequests          | Count          | Count of requests by Azure Spring Cloud from the clients                                                                                                                         |
+>| Failed Requests          | IngressFailedRequests    | Count          | Count of failed requests by Azure Spring Cloud from the clients                                                                                                                  |
+>| Response Status          | IngressResponseStatus    | Count          | HTTP response status returned by Azure Spring Cloud. The response status   code distribution can be further categorized to show responses in 2xx, 3xx,   4xx, and 5xx categories |
+>| Response Time            | IngressResponseTime      | Seconds        | Http response time return by Azure Spring Cloud                                                                                                                                  |
+>| Throughput In (bytes/s)  | IngressBytesReceivedRate | BytesPerSecond | Bytes received per second by Azure Spring Cloud from the clients                                                                                                                 |
+>| Throughput Out (bytes/s) | IngressBytesSentRate     | BytesPerSecond | Bytes sent per second by Azure Spring Cloud to the clients                                                                                                                       |
+
 ## Next steps
 
 * [Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)

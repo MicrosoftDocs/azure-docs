@@ -68,6 +68,9 @@ These system variables can be referenced anywhere in the trigger JSON for trigge
 | @triggerBody().folderPath  |Path to the folder that contains the file specified by `@triggerBody().fileName`. The first segment of the folder path is the name of the Azure Blob Storage container.  |
 | @trigger().startTime |Time at which the trigger fired to invoke the pipeline run. |
 
+   > [!NOTE]
+   > If you are creating your pipeline and trigger in [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md), you must use `@trigger().outputs.body.fileName` and `@trigger().outputs.body.folderPath` as parameters. Those two properties capture blob information. Use those properties instead of using `@triggerBody().fileName` and `@triggerBody().folderPath`.
+
 ## Custom event trigger scope
 
 These system variables can be referenced anywhere in the trigger JSON for triggers of type [CustomEventsTrigger](concepts-pipeline-execution-triggers.md#event-based-trigger).

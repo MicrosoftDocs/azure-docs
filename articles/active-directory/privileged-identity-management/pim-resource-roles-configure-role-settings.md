@@ -4,15 +4,15 @@ description: Learn how to configure Azure resource role settings in Azure AD Pri
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/14/2021
+ms.date: 12/06/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -92,13 +92,13 @@ And, you can choose one of these **active** assignment duration options:
 
 Privileged Identity Management provides optional enforcement of Azure AD Multi-Factor Authentication for two distinct scenarios.
 
-### Require multifactor authentication on active assignment
+### On active assignment
 
-This option requires admins must complete a multifactor authentication before creating an active (as opposed to eligible) role assignment. Privileged Identity Management can't enforce multifactor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
+This option requires admins must complete a multifactor authentication before creating an active (as opposed to eligible) role assignment. Privileged Identity Management can't enforce multifactor authentication when the user activates their role assignment because the user is already active in the role from the time that it is assigned.
 
 To require multifactor authentication when creating an active role assignment, you can enforce multifactor authentication on active assignment by checking the **Require Multi-Factor Authentication on active assignment** box.
 
-### Require multifactor authentication on activation
+### On activation
 
 You can require users who are eligible for a role to prove who they are using Azure AD Multi-Factor Authentication before they can activate. Multifactor authentication ensures that the user is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.
 
@@ -108,7 +108,7 @@ For more information, see [Multifactor authentication and Privileged Identity Ma
 
 ## Activation maximum duration
 
-Use the **Activation maximum duration** slider to set the maximum time, in hours, that a role stays active before it expires. This value can be from one to 24 hours.
+Use the **Activation maximum duration** slider to set the maximum time, in hours, that an activation request for a role assignment remains active before it expires. This value can be from one to 24 hours.
 
 ## Require justification
 

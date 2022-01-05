@@ -65,7 +65,7 @@ If you're a ML Studio (classic) user, [learn about Studio (classic) deprecation 
 
 ## Enterprise-readiness and security
 
-Azure Machine Learning integrates with te Azure cloud platform to add security to ML projects. 
+Azure Machine Learning integrates with the Azure cloud platform to add security to ML projects. 
 
 Security integrations include:
 
@@ -83,6 +83,10 @@ Other integrations with Azure services support a machine learning project from e
 - Azure Arc, where you can run Azure services in a Kubernetes environment
 - Storage and database options, such as Azure SQL Database, Azure Storage Blobs, and so on
 - Azure App Service allowing you to deploy and manage ML-powered apps
+
+> [!Important]
+> Azure Machine Learning doesn't store or process your data outside of the region where you deploy.
+>
 
 
 ## Machine learning project workflow

@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: 'Use a private endpoint to securely access your Azure Machine Learning workspace from a virtual network.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 09/07/2021
+ms.date: 01/05/2022
 ---
 
 # Configure a private endpoint for an Azure Machine Learning workspace
 
-In this document, you learn how to configure a private endpoint for your Azure Machine Learning workspace. For information on creating a virtual network for Azure Machine Learning, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
+In this document, you learn how to configure a private endpoint for your Azure Machine Learning workspace. For information on creating a virtual network for Azure Machine Learning, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
 
 Azure Private Link enables you to connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. A private endpoint helps reduce the risk of data exfiltration. To learn more about private endpoints, see the [Azure Private Link](../private-link/private-link-overview.md) article.
 
@@ -39,7 +39,7 @@ Azure Private Link enables you to connect to your workspace using a private endp
 
 ## Limitations
 
-* If you enable public access for a workspace secured with private private endpoint and use Azure Machine Learning studio over the public internet, some features such as the designer may fail to access your data. This problem happens when the data is stored on a service that is secured behind the VNet. For example, an Azure Storage Account.
+* If you enable public access for a workspace secured with private endpoint and use Azure Machine Learning studio over the public internet, some features such as the designer may fail to access your data. This problem happens when the data is stored on a service that is secured behind the VNet. For example, an Azure Storage Account.
 * You may encounter problems trying to access the private endpoint for your workspace if you are using Mozilla Firefox. This problem may be related to DNS over HTTPS in Mozilla. We recommend using Microsoft Edge or Google Chrome as a workaround.
 * Using a private endpoint does not effect Azure control plane (management operations) such as deleting the workspace or managing compute resources. For example, creating, updating, or deleting a compute target. These operations are performed over the public Internet as normal. Data plane operations, such as using Azure Machine Learning studio, APIs (including published pipelines), or the SDK use the private endpoint.
 * When creating a compute instance or compute cluster in a workspace with a private endpoint, the compute instance and compute cluster must be in the same Azure region as the workspace.
@@ -149,11 +149,16 @@ Finally, select __Create__ to create the private endpoint.
 
 ## Remove a private endpoint
 
-Use one of the following methods to remove a private endpoint from a workspace:
+You can remove one or all private endpoints for a workspace. Removing a private endpoint removes the workspace from the VNet that the endpoint was associated with. This may prevent the workspace from accessing resources in that VNet, or resources in the VNet from accessing the workspace. For example, if the VNet does not allow access to or from the public internet.
+
+> [!WARNING]
+> Removing the private endpoints for a workspace __doesn't make it publicly accessible__. To make the workspace publicly accessible, use the steps in the [Enable public access](#enable-public-access) section.
+
+To remove a private endpoint, use the following information:
 
 # [Python](#tab/python)
 
-Use [Workspace.delete_private_endpoint_connection](/python/api/azureml-core/azureml.core.workspace(class)#delete-private-endpoint-connection-private-endpoint-connection-name-) to remove a private endpoint.
+To remove a private endpoint, use [Workspace.delete_private_endpoint_connection](/python/api/azureml-core/azureml.core.workspace(class)#delete-private-endpoint-connection-private-endpoint-connection-name-). The following example demonstrates how to remove a private endpoint:
 
 ```python
 from azureml.core import Workspace
@@ -170,7 +175,50 @@ The Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learn
 
 # [Portal](#tab/azure-portal)
 
-From the Azure Machine Learning workspace in the portal, select __Private endpoint connections__, and then select the endpoint you want to remove. Finally, select __Remove__.
+1. From the [Azure portal](https://portal.azure.com), select your Azure Machine Learning workspace.
+1. From the left side of the page, select __Networking__ and then select the __Private endpoint connections__ tab.
+1. Select the endpoint to remove and then select __Remove__.
+
+:::image type="content" source="./media/how-to-configure-private-link/remove-private-endpoint.png" alt-text="Screenshot of the UI to remove a private endpoint.":::
+
+---
+
+## Enable public access
+
+In some situations, you may want to allow someone to connect to your secured workspace over a public endpoint, instead of through the VNet. Or you may want to remove the workspace from the VNet and re-enable public access.
+
+> [!IMPORTANT]
+> Enabling public access doesn't remove any private endpoints that exist. All communications between components behind the VNet that the private endpoint(s) connect to is still secured. It enables public access only to the workspace, in addition to the private access through any private endpoints.
+
+> [!WARNING]
+> When connecting over the public endpoint while the workspace uses a private endpoint to communicate with other resources:
+> * __Some features of studio will fail to access your data__. This problem happens when the _data is stored on a service that is secured behind the VNet_. For example, an Azure Storage Account. 
+> * Using Jupyter, JupyterLab, and RStudio on a compute instance, including running notebooks, __is not supported__.
+
+To enable public access, use the following steps:
+
+# [Python](#tab/python)
+
+To enable public access, use [Workspace.update](/python/api/azureml-core/azureml.core.workspace(class)#update-friendly-name-none--description-none--tags-none--image-build-compute-none--service-managed-resources-settings-none--primary-user-assigned-identity-none--allow-public-access-when-behind-vnet-none-) and set `allow_public_access_when_behind_vnet=True`.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+ws.update(allow_public_access_when_behind_vnet=True)
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+The Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ml/workspace#az_ml_workspace_update) command. To enable public access to the workspace, add the parameter `--allow-public-access true`.
+
+# [Portal](#tab/azure-portal)
+
+1. From the [Azure portal](https://portal.azure.com), select your Azure Machine Learning workspace.
+1. From the left side of the page, select __Networking__ and then select the __Public access__ tab.
+1. Select __All networks__, and then select __Save__.
+
+:::image type="content" source="./media/how-to-configure-private-link/workspace-public-access.png" alt-text="Screenshot of the UI to enable public endpoint.":::
 
 ---
 
@@ -186,11 +234,11 @@ As a preview feature, Azure Machine Learning supports multiple private endpoints
 * An Azure Kubernetes Service (AKS) cluster in a separate VNet.
 * Other Azure services in a separate VNet. For example, Azure Synapse and Azure Data Factory can use a Microsoft managed virtual network. In either case, a private endpoint for the workspace can be added to the managed VNet used by those services. For more information on using a managed virtual network with these services, see the following articles:
 
-    * [Synapse managed private endpoints](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints)
-    * [Azure Data Factory managed virtual network](/azure/data-factory/managed-virtual-network-private-endpoint).
+    * [Synapse managed private endpoints](../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md)
+    * [Azure Data Factory managed virtual network](../data-factory/managed-virtual-network-private-endpoint.md).
 
     > [!IMPORTANT]
-    > [Synapse's data exfiltration protection](/azure/synapse-analytics/security/workspace-data-exfiltration-protection) is not supported with Azure Machine Learning.
+    > [Synapse's data exfiltration protection](../synapse-analytics/security/workspace-data-exfiltration-protection.md) is not supported with Azure Machine Learning.
 
 > [!IMPORTANT]
 > Each VNet that contains a private endpoint for the workspace must also be able to access the Azure Storage Account, Azure Key Vault, and Azure Container Registry used by the workspace. For example, you might create a private endpoint for the services in each VNet.
@@ -228,38 +276,6 @@ If you want to create an isolated Azure Kubernetes Service used by the workspace
 1. Attach the AKS cluster to the Azure Machine Learning workspace. For more information, see [Create and attach an Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md#attach-an-existing-aks-cluster).
 
 :::image type="content" source="./media/how-to-configure-private-link/multiple-private-endpoint-workspace-aks.png" alt-text="Diagram of isolated AKS VNet":::
-
-## Enable public access
-
-In some situations, you may want to allow someone to connect to your secured workspace over a public endpoint, instead of through the VNet. After configuring a workspace with a private endpoint, you can optionally enable public access to the workspace. Doing so does not remove the private endpoint. All communications between components behind the VNet is still secured. It enables public access only to the workspace, in addition to the private access through the VNet.
-
-> [!WARNING]
-> When connecting over the public endpoint:
-> * __Some features of studio will fail to access your data__. This problem happens when the _data is stored on a service that is secured behind the VNet_. For example, an Azure Storage Account. 
-> * Using Jupyter, JupyterLab, and RStudio on a compute instance, including running notebooks, __is not supported__.
-
-To enable public access to a private endpoint-enabled workspace, use the following steps:
-
-# [Python](#tab/python)
-
-Use [Workspace.delete_private_endpoint_connection](/python/api/azureml-core/azureml.core.workspace(class)#delete-private-endpoint-connection-private-endpoint-connection-name-) to remove a private endpoint.
-
-```python
-from azureml.core import Workspace
-
-ws = Workspace.from_config()
-ws.update(allow_public_access_when_behind_vnet=True)
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-The Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ml/workspace#az_ml_workspace_update) command. To enable public access to the workspace, add the parameter `--allow-public-access true`.
-
-# [Portal](#tab/azure-portal)
-
-Currently there is no way to enable this functionality using the portal.
-
----
 
 ## Next steps
 

@@ -23,7 +23,7 @@ Azure Monitor ensures that all data and saved queries are encrypted at rest usin
 
 Customer-managed key is delivered on [dedicated clusters](./logs-dedicated-clusters.md) providing higher protection level and control. Data ingested to dedicated clusters is being encrypted twice — once at the service level using Microsoft-managed keys or customer-managed keys, and once at the infrastructure level using two different encryption algorithms and two different keys. [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data. Dedicated cluster also allows you to protect your data with [Lockbox](#customer-lockbox-preview) control.
 
-Data ingested in the last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless customer-managed key configuration, but your control over SSD data adheres to [key revocation](#key-revocation). We are working to have SSD data encrypted with Customer-managed key in the second half of 2021.
+Data ingested in the last 14 days and data recently used in queries is also kept in hot-cache (SSD-backed) for query efficiency and encrypted with Microsoft keys regardless customer-managed key configuration. Your control SSD data access applies and adheres to [key revocation](#key-revocation)
 
 Log Analytics Dedicated Clusters [pricing model](./logs-dedicated-clusters.md#cluster-pricing-model) requires commitment Tier starting at 500 GB/day and can have values of 500, 1000, 2000 or 5000 GB/day.
 
@@ -69,37 +69,6 @@ The following rules apply:
 
 Customer-managed key configuration isn't supported in Azure portal currently and provisioning can be performed via [PowerShell](/powershell/module/az.operationalinsights/), [CLI](/cli/azure/monitor/log-analytics) or [REST](/rest/api/loganalytics/) requests.
 
-### Asynchronous operations and status check
-
-Some of the configuration steps run asynchronously because they can't be completed quickly. The `status` in response can be one of the followings: 'InProgress', 'Updating', 'Deleting', 'Succeeded or 'Failed' with error code.
-
-# [Azure portal](#tab/portal)
-
-N/A
-
-# [Azure CLI](#tab/azure-cli)
-
-N/A
-
-# [PowerShell](#tab/powershell)
-
-N/A
-
-# [REST](#tab/rest)
-
-When using REST, the response initially returns an HTTP status code 202 (Accepted) and header with *Azure-AsyncOperation* property:
-```json
-"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2021-06-01"
-```
-
-You can check the status of the asynchronous operation by sending a GET request to the endpoint in *Azure-AsyncOperation* header:
-```rst
-GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2021-06-01
-Authorization: Bearer <token>
-```
-
----
-
 ## Storing encryption key (KEK)
 
 Create or use existing Azure Key Vault in the region that the cluster is planed, then generate or import a key to be used for logs encryption. The Azure Key Vault must be configured as recoverable to protect your key and the access to your data in Azure Monitor. You can verify this configuration under properties in your Key Vault, both *Soft delete* and *Purge protection* should be enabled.
@@ -113,7 +82,7 @@ These settings can be updated in Key Vault via CLI and PowerShell:
 
 ## Create cluster
 
-Clusters support System-assigned managed identity and identity `type` property should be set to `SystemAssigned`. The identity is being generated automatically with the cluster creation and can be used later to grant storage access to your Key Vault for wrap and unwrap operations. 
+Clusters uses managed identity for data encryption with your Key Vault. Configure identity `type` property to `SystemAssigned` when creating your cluster to allow access to your Key Vault for wrap and unwrap operations. 
   
   Identity settings in cluster for System-assigned managed identity
   ```json
@@ -160,12 +129,24 @@ N/A
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --key-name "key-name" --key-vault-uri "key-uri" --key-version "key-version"
+az account set --subscription "cluster-subscription-id"
+
+az monitor log-analytics cluster update --no-wait --name "cluster-name" --resource-group "resource-group-name" --key-name "key-name" --key-vault-uri "key-uri" --key-version "key-version"
+
+# Wait for job completion when `--no-wait` was used
+$clusterResourceId = az monitor log-analytics cluster list --resource-group "resource-group-name" --query "[?contains(name, "cluster-name")].[id]" --output tsv
+az resource wait --created --ids $clusterResourceId --include-response-body true
+
 ```
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
+Select-AzSubscription "cluster-subscription-id"
+
+Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version" -AsJob
+
+# Check when the job is done when `-AsJob` was used
+Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 ```
 
 # [REST](#tab/rest)
@@ -191,9 +172,7 @@ Content-type: application/json
 
 **Response**
 
-It takes the propagation of the key a while to complete. You can check the update state in two ways:
-1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
-2. Send a GET request on the cluster and look at the *KeyVaultProperties* properties. Your recently updated key should return in the response.
+It takes the propagation of the key a while to complete. You can check the update state by sending GET request on the cluster and look at the *KeyVaultProperties* properties. Your recently updated key should return in the response.
 
 A response to GET request should look like this when the key update is complete:
 202 (Accepted) and header
@@ -250,9 +229,7 @@ Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicate
 > - The recommended way to revoke access to your data is by disabling your key, or deleting access policy in your Key Vault.
 > - Setting the cluster's `identity` `type` to `None` also revokes access to your data, but this approach isn't recommended since you can't revert it without contacting support.
 
-The cluster storage will always respect changes in key permissions within an hour or sooner and storage will become unavailable. Any new data ingested to workspaces linked with your cluster gets dropped and won't be recoverable, data becomes inaccessible and queries on these workspaces fail. Previously ingested data remains in storage as long as your cluster and your workspaces aren't deleted. Inaccessible data is governed by the data-retention policy and will be purged when retention is reached. Ingested data in last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This gets deleted on key revocation operation and becomes inaccessible.
-
-The cluster's storage periodically checks your Key Vault to attempt to unwrap the encryption key and once accessed, data ingestion and query are resumed within 30 minutes.
+The cluster storage will always respect changes in key permissions within an hour or sooner and storage will become unavailable. Any new data ingested to workspaces linked with your cluster gets dropped and won't be recoverable, data becomes inaccessible on these workspaces and queries fail. Previously ingested data remains in storage as long as your cluster and your workspaces aren't deleted. Inaccessible data is governed by the data-retention policy and will be purged when retention is reached. Data ingested in the last 14 days and data recently used in queries is also kept in hot-cache (SSD-backed) for query efficiency. The data on SSD gets deleted on key revocation operation and becomes inaccessible. The cluster's storage attempts to unwrap encryption periodically with your Key Vault and once you have reverted revocation, the unwrap succeeds, SSD data is reloaded from storage, data ingestion and query are resumed within 30 minutes.
 
 ## Key rotation
 
@@ -293,6 +270,9 @@ N/A
 
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+
+az account set --subscription "workspace-subscription-id"
+
 az monitor log-analytics workspace linked-storage create --type Query --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
 
@@ -300,6 +280,9 @@ az monitor log-analytics workspace linked-storage create --type Query --resource
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
+
+Select-AzSubscription "workspace-subscription-id"
+
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
 ```
 
@@ -337,6 +320,9 @@ N/A
 
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+
+az account set --subscription "workspace-subscription-id"
+
 az monitor log-analytics workspace linked-storage create --type ALerts --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
 
@@ -344,6 +330,9 @@ az monitor log-analytics workspace linked-storage create --type ALerts --resourc
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
+
+Select-AzSubscription "workspace-subscription-id"
+
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccount.Id
 ```
 
@@ -442,9 +431,7 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 
 - If you update your key version in Key Vault and don't update the new key identifier details in the cluster, the Log Analytics cluster will keep using your previous key and your data will become inaccessible. Update new key identifier details in the cluster to resume data ingestion and ability to query data.
 
-- Some operations are long and can take a while to complete -- these are cluster create, cluster key update and cluster delete. You can check the operation status in two ways:
-  1. when using REST, copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
-  2. Send GET request to cluster or workspace and observe the response. For example, unlinked workspace won't have the *clusterResourceId* under *features*.
+- Some operations are long and can take a while to complete -- these are cluster create, cluster key update and cluster delete. You can check the operation status by sending GET request to cluster or workspace and observe the response. For example, unlinked workspace won't have the *clusterResourceId* under *features*.
 
 - Error messages
   

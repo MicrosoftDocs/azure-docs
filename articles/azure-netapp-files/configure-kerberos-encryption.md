@@ -3,7 +3,7 @@ title: Configure NFSv4.1 Kerberos encryption for Azure NetApp Files | Microsoft 
 description: Describes how to configure NFSv4.1 Kerberos encryption for Azure NetApp Files and the performance impact.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 07/15/2021
-ms.author: b-juche
+ms.author: anfdocs
 ---
 # Configure NFSv4.1 Kerberos encryption for Azure NetApp Files
 
@@ -113,8 +112,9 @@ You should understand the security options available for NFSv4.1 volumes, the te
 ## Next steps  
 
 * [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md)
-* [Troubleshoot NFSv4.1 Kerberos volume issues](troubleshoot-nfsv41-kerberos-volumes.md)
-* [FAQs About Azure NetApp Files](azure-netapp-files-faqs.md)
+* [Troubleshoot volume errors for Azure NetApp Files](troubleshoot-volumes.md)
+* [NFS FAQs](faq-nfs.md)
+* [Performance FAQs](faq-performance.md)
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Create an Active Directory connection](create-active-directory-connections.md)
 * [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md) 

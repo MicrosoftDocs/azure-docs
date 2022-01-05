@@ -4,13 +4,14 @@ description: Learn best practices for designing, deploying, and maintaining effi
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/30/2021
+ms.devlang: csharp, java, javascript, powershell, python
 # Customer intent: As a developer, I want to understand how to correctly design, deploy, and maintain my functions so I can run them in the most safe and efficient way possible.
 ---
 # Best practices for reliable Azure Functions
 
-Azure Functions is an event driven, compute-on-demand experience that extends the existing Azure App Service application platform with capabilities to implement code triggered by events occurring in Azure or third-party service and on-premises systems. Azure Functions allows developers to build solutions by connecting to data sources or messaging solutions thus making it easy to process and react to events. Azure Functions runs on the Azure data centers. Modern-day data centers are complex and have many moving parts. VMs can restart or move, systems are upgraded. These events are to be expected in a cloud environment. In addition, your Azure Functions app may depend on external APIs, Azure Services, and other databases. 
+Azure Functions is an event-driven, compute-on-demand experience that extends the existing Azure App Service application platform with capabilities to implement code triggered by events occurring in Azure, in third-party service, and in on-premises systems. Functions lets you build solutions by connecting to data sources or messaging solutions, which makes it easier to process and react to events. Functions runs on Azure data centers, which are complex with many integrated components. In a hosted cloud environment, it's expected that VMs can occasionally restart or move, and systems upgrades will occur. Your functions apps also likely depend on external APIs, Azure Services, and other databases, which are also prone to periodic unreliability. 
 
-This document provides recommendations to help you design and deploy efficient function apps that remain healthy and perform well, even in a cloud-based environment.
+This article details some best practices for designing and deploying efficient function apps that remain healthy and perform well in a cloud-based environment.
 
 ## Choose the correct hosting plan 
 
@@ -18,7 +19,7 @@ When you create a function app in Azure, you must choose a hosting plan for your
 
 + [Consumption plan](consumption-plan.md)
 + [Premium plan](functions-premium-plan.md)
-+ [Dedicated (App Service) plan](dedicated-plan.md).
++ [Dedicated (App Service) plan](dedicated-plan.md)
 
 All hosting plans are generally available (GA) when running either Linux or Windows.
 
@@ -74,7 +75,7 @@ Keep in mind the following considerations when creating this storage account:
 
 ### Handling large data sets
 
-When running on Linux, you can add extra storage by mounting a file share. Mounting a share is a convenient way to a function process a large existing data set. To learn more, see [Mount file shares](storage-considerations.md#mount-file-shares).
+When running on Linux, you can add extra storage by mounting a file share. Mounting a share is a convenient way for a function to process a large existing data set. To learn more, see [Mount file shares](storage-considerations.md#mount-file-shares).
 
 ## Organize your functions 
 
@@ -102,6 +103,8 @@ Consider these options for a successful deployment:
 + Consider using [continuous deployment](functions-continuous-deployment.md) to connect deployments to your source control solution. Continuous deployments also let you run from the deployment package.
 
 + For [Premium plan hosting](functions-premium-plan.md), consider adding a warmup trigger to reduce latency when new instances are added. To learn more, see [Azure Functions warm-up trigger](functions-bindings-warmup.md). 
+
++ To minimize deployment downtime and to be able to roll back deployments, consider using deployment slots. To learn more, see [Azure Functions deployment slots](functions-deployment-slots.md).
 
 ## Write robust functions
 

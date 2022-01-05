@@ -4,7 +4,6 @@ description: This article provides the list of supported browsers for Azure Purv
 author: nayenama
 ms.author: nayenama
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---

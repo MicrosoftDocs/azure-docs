@@ -5,14 +5,13 @@ description: In this quickstart, learn how a Universal Windows Platform (UWP) ap
 services: active-directory
 author: jmprieur
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
+ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:UWP", mode-api
 #Customer intent: As an application developer, I want to learn how my Universal Windows Platform (XAML) application can get an access token and call an API that's protected by the Microsoft identity platform.
 ---
 
@@ -153,7 +152,7 @@ MSAL has two methods for acquiring tokens in a UWP app: `AcquireTokenInteractive
 
 #### Get a user token interactively
 
-Some situations require forcing users to interact with the Microsoft identity platform through a popup window to either validate their credentials or to give consent. Some examples include:
+Some situations require forcing users to interact with the Microsoft identity platform through a pop-up window to either validate their credentials or to give consent. Some examples include:
 
 - The first-time users sign in to the application
 - When users may need to reenter their credentials because the password has expired

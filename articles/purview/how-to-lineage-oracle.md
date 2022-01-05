@@ -1,8 +1,8 @@
 ---
 title: Metadata and Lineage from Oracle
 description: This article describes the data lineage extraction from Oracle source.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to

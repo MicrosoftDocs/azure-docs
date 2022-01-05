@@ -19,6 +19,10 @@ Use one of the following links to get started with your chosen local development
 | --- | --- | --- |
 |  &bull;&nbsp;[Get started with C#](./create-first-function-vs-code-csharp.md)<br/>&bull;&nbsp;[Get started with Java](./create-first-function-vs-code-java.md)<br/>&bull;&nbsp;[Get started with JavaScript](./create-first-function-vs-code-node.md)<br/>&bull;&nbsp;[Get started with PowerShell](./create-first-function-vs-code-powershell.md)<br/>&bull;&nbsp;[Get started with Python](./create-first-function-vs-code-python.md) |&bull;&nbsp;[Get started with C#](./create-first-function-cli-csharp.md)<br/>&bull;&nbsp;[Get started with Java](./create-first-function-cli-java.md)<br/>&bull;&nbsp;[Get started with JavaScript](./create-first-function-cli-node.md)<br/>&bull;&nbsp;[Get started with PowerShell](./create-first-function-cli-powershell.md)<br/>&bull;&nbsp;[Get started with Python](./create-first-function-cli-python.md) | [Get started with C#](functions-create-your-first-function-visual-studio.md) |
 
+[!INCLUDE [functions-portal-language-support](../../includes/functions-portal-language-support.md)]
+
+## Prerequisites 
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Sign in to Azure

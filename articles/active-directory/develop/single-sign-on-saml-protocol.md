@@ -26,7 +26,7 @@ The protocol diagram below describes the single sign-on sequence. The cloud serv
 ![Single Sign-On (SSO) Workflow](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
 
 > [!NOTE]
-> This article discusses using SAML for single sign-on. For more information on other ways to handle single sign-on (for example, by using OpenID Connect or Integrated Windows Authentication), see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+> This article discusses using SAML for single sign-on. For more information on other ways to handle single sign-on (for example, by using OpenID Connect or integrated Windows authentication), see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## AuthnRequest
 

@@ -3,11 +3,11 @@ title: Enable Ultra Disk support on Azure Kubernetes Service (AKS)
 description: Learn how to enable and configure Ultra Disks in an Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 10/12/2021
 
 ---
 
-# Use Azure ultra disks on Azure Kubernetes Service (preview)
+# Use Azure ultra disks on Azure Kubernetes Service
 
 [Azure ultra disks](../virtual-machines/disks-enable-ultra-ssd.md) offer high throughput, high IOPS, and consistent low latency disk storage for your stateful applications. One major benefit of ultra disks is the ability to dynamically change the performance of the SSD along with your workloads without the need to restart your agent nodes. Ultra disks are suited for data-intensive workloads.
 
@@ -17,18 +17,6 @@ This feature can only be set at cluster creation or node pool creation time.
 
 > [!IMPORTANT]
 > Azure ultra disks require nodepools deployed in availability zones and regions that support these disks as well as only specific VM series. See the [**Ultra disks GA scope and limitations**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
-
-### Install aks-preview CLI extension
-
-To create an AKS cluster or a node pool that can use Ultra Disks, you need the latest *aks-preview* CLI extension. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, or install any available updates using the [az extension update][az-extension-update] command:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-``` 
 
 ### Limitations
 - See the [**Ultra disks GA scope and limitations**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations)

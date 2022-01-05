@@ -1,10 +1,10 @@
 ---
-title: Data Collection Rules in Azure Monitor 
+title: Data Collection Rules in Azure Monitor
 description: Overview of data collection rules (DCRs) in Azure Monitor including their contents and structure and how you can create and work with them.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/19/2021
+ms.date: 01/5/2022
 ms.custom: references_region
 
 ---
@@ -50,7 +50,7 @@ Each data source has a data source type. Each type defines a unique set of prope
 For limits that apply to each data collection rule, see [Azure Monitor service limits](../service-limits.md#data-collection-rules).
 
 ## Data resiliency and high availability
-Data Collection Rules as a service is deployed regionally. A rule gets created and stored in the region you specify, and is backed up to the [paired-region](../../best-practices-availability-paired-regions.md#azure-regional-pairs) within the same Geo.  
+Data Collection Rules as a service is deployed regionally. A rule gets created and stored in the region you specify, and is backed up to the [paired-region](../../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) within the same Geo.  
 Additionally, the service is deployed to all 3 [availability zones](../../availability-zones/az-overview.md#availability-zones) within the region, making it a **zone-redundant service** which further adds to high availability.
 
 

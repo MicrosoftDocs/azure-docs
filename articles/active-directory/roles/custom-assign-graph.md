@@ -3,7 +3,7 @@ title: Assign Azure AD admin roles with Microsoft Graph API | Microsoft Docs
 description: Assign and remove Azure AD administrator roles with Graph API in Azure Active Directory
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
@@ -302,7 +302,7 @@ We prevent users from deleting their own Global Administrator role to avoid a sc
 
 ## Next steps
 
-* Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
+* Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
 * For more about role permissions, see [Azure AD built-in roles](permissions-reference.md)
 * For default user permissions, see a [comparison of default guest and member user permissions](../fundamentals/users-default-permissions.md)
 

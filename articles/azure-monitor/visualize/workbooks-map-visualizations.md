@@ -2,13 +2,10 @@
 title: Azure Monitor workbook map visualizations
 description: Learn about Azure Monitor workbook map visualizations.
 services: azure-monitor
-author: lgayhardt
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/25/2020
-ms.author: lagayhar
 ---
 
 # Map visualization

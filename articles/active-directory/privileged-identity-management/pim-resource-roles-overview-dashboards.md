@@ -4,16 +4,16 @@ description: Describes how to use a resource dashboard to perform an access revi
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---

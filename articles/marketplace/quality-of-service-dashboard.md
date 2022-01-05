@@ -6,12 +6,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: emuench
 ms.author: smannepalle
-ms.date: 08/28/2021
+ms.date: 11/22/2021
 ---
 
 # Quality of service (QoS) dashboard
 
-This dashboard displays the quality of deployments for all your offers. A higher offer deployment success signifies higher quality of service offered to your customers. 
+This dashboard displays the quality of deployments for all your offers. A higher offer deployment success signifies higher quality of service offered to your customers.
 
 View graphical representations of the following items:
 
@@ -28,15 +28,31 @@ Additionally, view [offer deployment details](#offer-deployment-details) in tabu
 > [!IMPORTANT]
 > This dashboard is currently only available for **Azure application** offers available to all (not private offers).
 
-The following sections describe how to use the Quality-of-Service (QoS) dashboard and how to read the data.
-
-To access the Quality-of-Service dashboard in the Partner Center, select **Commercial Marketplace** > [**Analyze**](https://partner.microsoft.com/dashboard/commercial-marketplace/quality-of-service/summary) > **Quality of Service**.
-
 This feature is currently applicable to all partners performing deployment of Azure application offers using Azure Resource Manager (ARM) templates (but not for private offers). This report will not show data for other marketplace offers.
 
-**Month range**: There is a month range selection at the top-right corner of each page. Customize the output of the **Quality-of-Service** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (selection period) is six months.
+## Access the Quality of service dashboard
 
-## Quality by offers
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home)
+
+1. On the Home page, select the **Insights** tile.
+
+    [ ![Illustrates the Insights tile in Partner Center.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. In the left menu, select **Quality of Service**.
+
+    [ ![Illustrates the left-nav on the Insights dashboard.](./media/quality-of-service/insights-overview-workspaces.png) ](./media/quality-of-service/insights-overview-workspaces.png#lightbox)
+
+## Elements of the Quality of service dashboard
+
+The following sections describe how to use the Quality-of-Service (QoS) dashboard and how to read the data.
+
+### Month range
+
+There is a month range selection at the top-right corner of each page. Customize the output of the **Quality-of-Service** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (selection period) is six months.
+
+[ ![Illustrates the filters on the Quality of Service dashboard.](./media/quality-of-service/qos-filters-workspaces.png) ](./media/quality-of-service/qos-filters-workspaces.png#lightbox)
+
+### Quality by offers
 
 This graph shows quality-of-service by offers and their corresponding SKUs. It provides metrics and trends for **Total**, **Successful**, and **Failed** offer deployments on a monthly basis. The bar chart represents the count of deployments.
 
@@ -65,7 +81,7 @@ About this graph:
 - When viewing a month-over-month trend for an offer, select a maximum of three SKUs of that offer.
 - The line chart represents the same percentage changes as noted for the prior graph.
 
-## Quality by deployment duration
+### Quality by deployment duration
 
 This graph shows the metric and trend for the average time duration for a successful and failed deployment. View the metrics by selecting an offer in the drop-down menu. Select a SKU in the tabular view or enter it in the search bar. Following are different mean deployments durations (in minutes):
 
@@ -81,7 +97,7 @@ About this graph:
 - The line graph presents the Mean duration of deployments marked as successful, failed, and successful deployments with failed prior attempts.
 - Mean time for first deployment factors the time spent on failure attempts before the deployment is marked as successful.
 
-## Deployment count
+### Deployment count
 
 This graph shows the total deployment of offers. Metrics and growth trends are represented by a line chart. View value for each month by hovering over the line chart.
 
@@ -95,7 +111,7 @@ About this graph:
 - Change in percentage of offer deployments during the selected date range.
 - Month over month trend of total count for offer deployments.
 
-## Deployment count by status
+### Deployment count by status
 
 This graph shows the metric and trend of successful and failed offer deployments by customers for the selected month range. Offer deployments can have two statuses: **Successful** or **Failed**.
 
@@ -107,11 +123,11 @@ About this graph:
 - Change in percentage of successful and failed offer deployments for the selected date range.
 - Month over month trend of successful and failed offer deployment counts.
 
-## Deployment errors codes and resources
+### Deployment errors codes and resources
 
 This graph shows metrics and trends of the offer deployments basis error codes and resources. The tabular section can be pivoted on error codes and resources. The first subtab provides analytics basis error codes, description, and error counts. The second provides analytics basis for the deployment resources. The line chart provides the total error count basis error codes and resources.
 
-For more information about error codes, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](/azure/azure-resource-manager/templates/common-deployment-errors) and [Resource providers for Azure services](/azure/azure-resource-manager/management/azure-services-resource-providers).
+For more information about error codes, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md) and [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md).
 
 :::image type="content" source="media/quality-of-service/deployment-error-codes-1.png" alt-text="Shows a deployment error codes graph, sample 1.":::
 :::image type="content" source="media/quality-of-service/deployment-error-codes-2.png" alt-text="Shows a deployment error codes graph, sample 2.":::
@@ -123,7 +139,7 @@ About these graphs:
 - When viewing a month-over-month trend by error codes or resources, select a maximum of three items in the table.
 - Sort error codes and resources for deployment failures by basis error count in the table.
 
-## Deployment errors by offer plan
+### Deployment errors by offer plan
 
 On this graph, the Y-axis represents deployment error count and the X-axis represents the percentile of top offer plans (by error count).
 
@@ -134,7 +150,7 @@ About this graph:
 - The bar charts represent the deployment error counts for the selected month range.
 - The values on the line chart represent the cumulative error percentages by offer plan.
 
-## Deployment reliability by location
+### Deployment reliability by location
 
 This graph shows the heat map for successful and failed deployment counts for the selected month range. It also shows failure percentage against each region. The Green to Red color scale represents low to high value of failure rates. Select a record in the table to zoom in on a deployment region.
 
@@ -191,13 +207,13 @@ About this table:
 
 ## Next steps
 
-- For information about deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](/azure/azure-resource-manager/templates/common-deployment-errors).
-- For information about resource providers, see [Resource providers for Azure services](/azure/azure-resource-manager/management/azure-services-resource-providers).
-- For graphs, trends, and values of aggregate data that summarize marketplace activity for your offer, see [Summary dashboard in commercial marketplace analytics](/azure/marketplace/summary-dashboard).
-- For information about your orders in a graphical and downloadable format, see [Orders dashboard in commercial marketplace analytics](/azure/marketplace/orders-dashboard).
-- For virtual machine (VM) offers usage and metered billing metrics, see [Usage dashboard in commercial marketplace analytics](/azure/marketplace/usage-dashboard).
-- For detailed information about your customers, including growth trends, see [Customers dashboard in commercial marketplace analytics](/azure/marketplace/customer-dashboard).
-- For information about your licenses, see [License dashboard in commercial marketplace analytics](/azure/marketplace/license-dashboard).
-- For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](/azure/marketplace/downloads-dashboard).
-- To see a consolidated view of customer feedback for offers on Microsoft AppSource and Azure Marketplace, see [Ratings and Reviews dashboard in commercial marketplace analytics](/azure/marketplace/ratings-reviews).
-- For FAQs about commercial marketplace analytics and a comprehensive dictionary of data terms, see [Commercial marketplace analytics common questions](/azure/marketplace/analytics-faq).
+- For information about deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md).
+- For information about resource providers, see [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md).
+- For graphs, trends, and values of aggregate data that summarize marketplace activity for your offer, see [Summary dashboard in commercial marketplace analytics](./summary-dashboard.md).
+- For information about your orders in a graphical and downloadable format, see [Orders dashboard in commercial marketplace analytics](./orders-dashboard.md).
+- For virtual machine (VM) offers usage and metered billing metrics, see [Usage dashboard in commercial marketplace analytics](./usage-dashboard.md).
+- For detailed information about your customers, including growth trends, see [Customers dashboard in commercial marketplace analytics](./customer-dashboard.md).
+- For information about your licenses, see [License dashboard in commercial marketplace analytics](./license-dashboard.md).
+- For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](./downloads-dashboard.md).
+- To see a consolidated view of customer feedback for offers on Microsoft AppSource and Azure Marketplace, see [Ratings and Reviews dashboard in commercial marketplace analytics](./ratings-reviews.md).
+- For FAQs about commercial marketplace analytics and a comprehensive dictionary of data terms, see [Commercial marketplace analytics common questions](./analytics-faq.yml).

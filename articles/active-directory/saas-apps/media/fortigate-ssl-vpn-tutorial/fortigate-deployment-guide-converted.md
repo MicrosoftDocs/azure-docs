@@ -1,7 +1,6 @@
 ---
-title: FortiGate deployment guide | Microsoft Docs
+title: FortiGate deployment guide
 description: Set up and work with the Fortinet FortiGate next-generation firewall product.
-services: active-directory
 author: jeevansd
 manager: CelesteDG
 ms.reviewer: celested
@@ -21,7 +20,7 @@ Using this deployment guide, you will learn how to set up and work with the Fort
 
 The Fortinet FortiGate next-generation firewall product is available as a virtual machine in Azure infrastructure as a service (IaaS). There are two licensing modes for this virtual machine: pay-as-you-go and bring-your-own-license (BYOL).
 
-If you have purchased a FortiGate license from Fortinet to use with the BYOL virtual machine deployment option, redeem it from Fortinet’s product activation page – https://support.fortinet.com. The resulting license file will have a .lic file extension.
+If you have purchased a FortiGate license from Fortinet to use with the BYOL virtual machine deployment option, redeem it from Fortinet's product activation page – https://support.fortinet.com. The resulting license file will have a .lic file extension.
 
 ## Download Firmware
 
@@ -216,4 +215,4 @@ Multi-homed Azure VMs have all network interfaces on the same virtual network (b
 
 ## Configure FortiGate SSL VPN
 
-Follow the steps outlined in https://docs.microsoft.com/azure/active-directory/saas-apps/fortigate-ssl-vpn-tutorial
+Follow the steps outlined in [Tutorial: Azure Active Directory single sign-on (SSO) integration with FortiGate SSL VPN](../../fortigate-ssl-vpn-tutorial.md)

@@ -1,7 +1,6 @@
 ---
 title: Supported Kubernetes versions in Azure Kubernetes Service
 description: Understand the Kubernetes version support policy and lifecycle of clusters in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
 ms.date: 08/09/2021
 author: palma21
@@ -34,6 +33,37 @@ Each number in the version indicates general compatibility with the previous ver
 * **Patch versions** change when backwards-compatible bug fixes are made.
 
 Aim to run the latest patch release of the minor version you're running. For example, your production cluster is on **`1.17.7`**. **`1.17.8`** is the latest available patch version available for the *1.17* series. You should upgrade to **`1.17.8`** as soon as possible to ensure your cluster is fully patched and supported.
+
+## Kubernetes Alias Minor Version (Preview)
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+> [!NOTE]
+> Alias Minor Version requires Azure CLI version 2.31.0 or above with the aks-preview extension installed. Please use `az upgrade` to install the latest version of the CLI.
+
+You will need the *aks-preview* Azure CLI extension version 0.5.49 or greater. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+Azure Kubernetes Service allows for you to create a cluster without specifiying the exact patch version. When creating a cluster without specifying a patch, the cluster will run the minor version's latest patch. For example, if you create a cluster with **`1.21`**, your cluster will be running **`1.21.7`**, which is the latest patch version of *1.21*.
+
+To see what patch you are on, run the `az aks show --resource-group myResourceGroup --name myAKSCluster` command. The property `currentKubernetesVersion` shows the whole Kubernetes version.
+
+```
+{
+ "apiServerAccessProfile": null,
+  "autoScalerProfile": null,
+  "autoUpgradeProfile": null,
+  "azurePortalFqdn": "myaksclust-myresourcegroup.portal.hcp.eastus.azmk8s.io",
+  "currentKubernetesVersion": "1.21.7",
+}
+```
 
 ## Kubernetes version support policy
 
@@ -167,11 +197,18 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 
 |  K8s version | Upstream release  | AKS preview  | AKS GA  | End of life |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.19  | Aug-04-20  | Sep 2020   | Nov 2020  | 1.22 GA |
+| 1.19*  | Aug-04-20  | Sep 2020   | Nov 2020  | 1.22 GA |
 | 1.20  | Dec-08-20  | Jan 2021   | Mar 2021  | 1.23 GA |
 | 1.21  | Apr-08-21 | May 2021   | Jul 2021  | 1.24 GA |
-| 1.22  | Aug-04-21 | Sept 2021   | Oct 2021  | 1.25 GA |
+| 1.22  | Aug-04-21 | Sept 2021   | Dec 2021  | 1.25 GA |
 | 1.23  | Dec 2021 | Jan 2022   | Feb 2022  | 1.26 GA |
+
+> [!NOTE]
+>  AKS and the Holiday Season: To ease the burden of upgrade and change during the holiday season, AKS is extending a limited scope of support for all clusters and node pools on 1.19 as a courtesy. Customers with clusters and node pools on 1.19 after the [announced deprecation date of 2021-11-30](/azure/aks/supported-kubernetes-versions#aks-kubernetes-release-calendar) will be granted an extension of capabilities outside the [usual scope of support for deprecated versions](/azure/aks/supported-kubernetes-versions#kubernetes-version-support-policy).
+ The scope of this limited extension is effective from '2021-12-01 to 2022-01-31' and is limited to the following:
+>  * Creation of new clusters and node pools on 1.19.
+>  * CRUD operations on 1.19 clusters.
+>  * Azure Support of non-Kubernetes related, platform issues. Platform issues include trouble with networking, storage, or compute running on Azure. Any support requests for K8s patching and troubleshooting will be requested to upgrade into a supported version.
 
 ## FAQ
 
@@ -214,7 +251,8 @@ The control plane must be within a window of versions from all node pools. For d
 
 **Can I skip multiple AKS versions during cluster upgrade?**
 
-When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. For example, upgrades between:
+When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. Kubernetes control planes [version skew policy](https://kubernetes.io/releases/version-skew-policy/) does not support minor version skipping. For example, upgrades between:
+
   * *1.12.x* -> *1.13.x*: allowed.
   * *1.13.x* -> *1.14.x*: allowed.
   * *1.12.x* -> *1.14.x*: not allowed.
@@ -223,7 +261,7 @@ To upgrade from *1.12.x* -> *1.14.x*:
 1. Upgrade from *1.12.x* -> *1.13.x*.
 1. Upgrade from *1.13.x* -> *1.14.x*.
 
-Skipping multiple versions can only be done when upgrading from an unsupported version back into a supported version. For example, you can upgrade from an unsupported *1.10.x* to a supported *1.15.x*.
+Skipping multiple versions can only be done when upgrading from an unsupported version back into the minimum supported version. For example, you can upgrade from an unsupported *1.10.x* to a supported *1.15.x* if *1.15* is the minimum supported minor version.
 
 **Can I create a new 1.xx.x cluster during its 30 day support window?**
 
@@ -243,6 +281,8 @@ For information on how to upgrade your cluster, see [Upgrade an Azure Kubernetes
 
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-get-versions]: /cli/azure/aks#az_aks_get_versions
 [preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [get-azaksversion]: /powershell/module/az.aks/get-azaksversion
