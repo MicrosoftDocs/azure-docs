@@ -1,7 +1,7 @@
 ---
-title: Understand business glossary features in Azure Purview
+title: Understand data classification feature in Azure Purview
 description: This article explains the concept of data classification in Azure Purview.
-author: ankitgup
+author: ankitscribbles
 ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 01/04/2022
 ---
 
-# Classification
+# Data Classification in Azure Purview
 
 Data classification, in the context of Azure Purview, is a way of categorizing data assets by assigning unique logical tags or classes to the data assets. Classification is based on the business context of the data. For example, you might classify assets by *Passport Number*, *Driver's License Number*, *Credit Card Number*, *SWIFT Code*, *Person’s Name*, and so on.
 
@@ -25,7 +25,7 @@ Classification is the process of organizing data into *logical categories* that 
 * Organize and understand the variety of data classes that are important in your organization and where they're stored.
 * Understand the risks associated with your most important data assets and then take appropriate measures to mitigate them.
 
-As shown in the following image, it's possible to apply classifications at both the asset level and the schema level for the *Customers* table in Azure SQL Database. 
+As shown in the following image, it's possible to apply classifications at both the asset level and the schema level for the *Customers* table in Azure SQL Database.
 
 :::image type="content" source="./media/concept-classification/classification-customers-example-1.png" alt-text="Screenshot that shows the classification of the 'Customers' table in Azure SQL Database." lightbox="./media/concept-best-practices/classification-customers-example-1.png":::
 
