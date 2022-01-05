@@ -33,7 +33,7 @@ This article uses the Data Science virtual machine images available on the Azure
 
 ### Lab settings
 
-Enable your lab settings as described in the following table. For more information about how to enable Azure Marketplace images, see [Specify the Azure Marketplace images available to lab creators](./specify-marketplace-images.md).
+[!INCLUDE [create lab](./includes/lab-services-class-type-lab.md)]  Enable your lab settings as described in the following table. For more information about how to enable Azure Marketplace images, see [Specify the Azure Marketplace images available to lab creators](./specify-marketplace-images.md).
 
 | Lab settings | Value |
 | ------------ | ------------------ |

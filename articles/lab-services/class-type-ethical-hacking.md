@@ -2,7 +2,7 @@
 title: Set up an Ethical Hacking lab with Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab using Azure Lab Services to teach ethical hacking. 
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 01/04/2022
 ---
 
 # Set up a lab to teach ethical hacking class
@@ -17,13 +17,13 @@ This article has two main sections. The first section covers how to create the l
 
 ## Lab configuration
 
-To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+[!INCLUDE [must have subscription](./includes/lab-services-class-type-subscription.md)]
 
-Once you get have Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md). You can also use an existing lab plan.
+[!INCLUDE [must have lab plan](./includes/lab-services-class-type-lab-plan.md)]
 
 ### Lab settings
 
-For instructions on how to create a lab, see [Tutorial: Set up a lab](tutorial-setup-classroom-lab.md).  Use the following settings when creating the lab.
+[!INCLUDE [create lab](./includes/lab-services-class-type-lab.md)]  Use the following settings when creating the lab.
 
 | Lab settings | Value |
 | ------------ | ------------------ |
@@ -32,7 +32,9 @@ For instructions on how to create a lab, see [Tutorial: Set up a lab](tutorial-s
 
 ## Template machine configuration
 
-After the template machine is created, start the machine and connect to it to complete the following three major tasks.
+[!INCLUDE [configure template vm](./includes/lab-services-class-type-template-vm.md)]
+
+To configure the template VM, we'll complete the following three major tasks.
 
 1. Set up the machine for nested virtualization. It enables all the appropriate windows features, like Hyper-V, and sets up the networking for the Hyper-V images to be able to communicate with each other and the internet.
 2. Set up the [Kali](https://www.kali.org/) Linux image. Kali is a Linux distribution that includes tools for penetration testing and security auditing.
@@ -101,29 +103,24 @@ The Rapid7 Metasploitable image is an image purposely configured with security v
     1. Choose **Action** -> **New** -> **Virtual Machine**.
     1. On the **Before You Begin** page of the **New Virtual Machine Wizard**, select **Next**.
     1. On the **Specify Name and Location** page, enter **Metasploitable** for the **name**, and select **Next**.
-
-        ![New VM image wizard](./media/class-type-ethical-hacking/new-vm-wizard-1.png)
+        :::image type="content" source="./media/class-type-ethical-hacking/new-vm-wizard-1.png" alt-text="Screenshot of New Virtual Machine Wizard in Hyper V.":::
     1. On the **Specify Generation** page, accept the defaults, and select **Next**.
     1. On the **Assign Memory** page, enter **512 MB** for the **startup memory**, and select **Next**.
-
-        ![Assign memory page](./media/class-type-ethical-hacking/assign-memory-page.png)
+        :::image type="content" source="./media/class-type-ethical-hacking/assign-memory-page.png" alt-text="Screenshot of Assign Memory page of New Virtual Machine Wizard in Hyper V.":::
     1. On the **Configure Networking** page, leave the connection as **Not Connected**. You'll set up the network adapter later.
     1. On the **Connect Virtual Hard Disk** page, select **Use an existing virtual hard disk**. Browse to the location for the **metasploitable.vhdx** file created in the previous step, and select **Next**.
-
-        ![Connect virtual network disk page](./media/class-type-ethical-hacking/connect-virtual-network-disk.png)
+        :::image type="content" source="./media/class-type-ethical-hacking/connect-virtual-network-disk.png" alt-text="Screenshot of Connect Virtual Hard Disk  page of New Virtual Machine Wizard in Hyper V.":::
     1. On the **Completing the New Virtual Machine Wizard** page, and select **Finish**.
     1. Once the virtual machine is created, select it in the Hyper-V Manager. Don't turn on the machine yet.  
     1. Choose **Action** -> **Settings**.
     1. On the **Settings for Metasploitable** dialog for, select **Add Hardware**.
     1. Select **Legacy Network Adapter**, and select **Add**.
-
-        ![Network adapter page](./media/class-type-ethical-hacking/network-adapter-page.png)
+        :::image type="content" source="./media/class-type-ethical-hacking/network-adapter-page.png" alt-text="Screenshot of settings dialog for Hyper V VM.":::
     1. On the **Legacy Network Adapter** page, select **LabServicesSwitch** for the **Virtual Switch** setting, and select **OK**. LabServicesSwitch was created when preparing the template machine for Hyper-V in the **Prepare Template for Nested Virtualization** section.
-
-        ![Legacy Network adapter page](./media/class-type-ethical-hacking/legacy-network-adapter-page.png)
+        :::image type="content" source="./media/class-type-ethical-hacking/legacy-network-adapter-page.png" alt-text="Screenshot of Legacy Network adapter settings page for Hyper V VM.":::
     1. The Metasploitable image is now ready for use. From **Hyper-V Manager**, choose **Action** -> **Start**, then choose **Action** -> **Connect** to connect to the virtual machine.  The default username is **msfadmin** and the password is **msfadmin**.
 
-The template is now updated and has images needed for an ethical hacking penetration testing class, an image with tools to do the penetration testing and another image with security vulnerabilities to discover. The template image can now be published to the class. Select the **Publish** button on template page to publish the template to the lab.
+The template is now updated and has images needed for an ethical hacking penetration testing class, an image with tools to do the penetration testing and another image with security vulnerabilities to discover. The template image can now be [published](how-to-create-manage-template.md#publish-the-template-vm) to the class.
 
 ## Cost  
 
@@ -142,11 +139,4 @@ This article walked you through the steps to create a lab for ethical hacking cl
 
 ## Next steps
 
-The template image can now be published to the lab. See [publish the template VM](how-to-create-manage-template.md#publish-the-template-vm) for further instructions.
-
-As you set up your lab, see the following articles:
-
-- [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)
+[!INCLUDE [next steps for class types](./includes/lab-services-class-type-next-steps.md)]
