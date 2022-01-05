@@ -17,22 +17,22 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated. As critical issues that require a workaround are discovered, they are added. Before you deploy your Azure Data Box Gateway, carefully review the information in the release notes.  
 
-This release corresponds to the software versions:
+This release corresponds to the software version:
 
-- **Data Box Gateway 2105 (1.6.1588.3220-42623-42265845)** - KB 4603462 <VERIFY KB #>
+- **Data Box Gateway 2105 (1.6.1588.3220-42623-42265845)** - KB *PLEASE PROVIDE KB.*
 
 > [!NOTE]
-> Update 2105 can be applied only to Data Box Gateway devices that are running general availability (GA) versions of the software or later. <!--REPLACES: Update 2101 can be applied only to all devices that are running general availability (GA) versions of the software or later.-->
+> Update 2105 can be applied only to Data Box Gateway devices that are running general availability (GA) versions of the software or later. *Is this note needed for 2105?*
 
 ## What's new
 
 This release contains the following bug fix:
 
-- **Description TBD** - IcM Incident 237917515 -Bug 9809509: Dvfilter/64kB ReFS bugcheck on unghost - MDL buffer read overrun. *BLOCKING ISSUE: No access to incident, bug.*
+- **Description TBD** - IcM Incident 237917515 -Bug 9809509: Dvfilter/64kB ReFS bugcheck on unghost - MDL buffer read overrun. *NEEDED: Info to describe the bug fix. I don't have access to the incident & bug. Thanks! v-dalc*
 
 This release also contains the following updates:
 
-- All cumulative updates and .NET framework updates through April 2021. <!--KB link needed.-->
+- All cumulative updates and .NET framework updates through April 2021.
 
 ## Known issues in this release
 
