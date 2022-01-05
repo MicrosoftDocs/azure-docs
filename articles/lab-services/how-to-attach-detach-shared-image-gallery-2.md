@@ -24,10 +24,13 @@ Here are the couple of scenarios supported by this feature:
 > [!NOTE]
 > Lab plan administrators must manually [replicate images](/azure/virtual-machines/shared-image-galleries) to other regions in the shared images gallery.
 
-Saving images to a shared image gallery and replicating those images incurs additional cost. This cost is separate from the Azure Lab Services usage cost. For more information about Shared Image Gallery pricing, see [Shared Image Gallery – Billing](../virtual-machines/shared-image-galleries.md#billing).
+Saving images to a shared image gallery and replicating those images incurs additional cost. This cost is separate from the Azure Lab Services usage cost. For more information about Azure Compute Gallery pricing, see [Shared Image Gallery – Billing](../virtual-machines/shared-image-galleries.md#billing).
 
 > [!IMPORTANT]
-> While using a Shared Image Gallery, Azure Lab Services supports only images with less than 128 GB of OS Disk Space. Images with more than 128 GB of disk space or multiple disks will not be shown in the list of virtual machine images during lab creation.
+> While using a Azure Compute Gallery, Azure Lab Services supports only images with less than 128 GB of OS Disk Space. Images with more than 128 GB of disk space or multiple disks will not be shown in the list of virtual machine images during lab creation.
+
+> [!IMPORTANT]
+> Azure Compute Gallery image must be replicated to the same region as the lab plan to be shown in the list of virtual machine images during lab creation.
 
 ## Create and attach a shared image gallery
 
@@ -49,8 +52,6 @@ Saving images to a shared image gallery and replicating those images incurs addi
 
     In the bottom pane, you see images in the shared image gallery. There are no images in this new gallery. When you upload images to the gallery, you see them on this page.
 
-    All images in the attached shared image gallery are enabled by default. You can enable or disable selected images by selecting them in the list and using the **Enable selected images** or **Disable selected images** button.
-
 ## Attach an existing shared image gallery
 
 The following procedure shows you how to attach an existing shared image gallery to a lab plan.
@@ -71,7 +72,9 @@ The following procedure shows you how to attach an existing shared image gallery
 
     In this example, there are no images in the shared image gallery yet.
 
-    All images in the attached shared image gallery are enabled by default. You can enable or disable selected images by selecting them in the list and using the **Enable selected images** or **Disable selected images** button.
+## Enable and disable images
+
+All images in the attached shared image gallery are enabled by default. You can enable or disable selected images by selecting them in the list and using the **Enable selected images** or **Disable selected images** button.
 
 ## Detach a shared image gallery
 
