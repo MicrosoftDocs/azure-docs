@@ -48,7 +48,7 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 Data export is optimized for moving large data volume to your destinations and in certain retry conditions, can include a fraction of duplicated records. The export operation to your destination could fail when ingress limits are reached, see details under [Create or update data export rule](#create-or-update-data-export-rule). Export continues to retry for up to 30 minutes and if destination is unavailable to accept data, data will be discarded until the destination becomes available.
 
 ## Cost
-Currently, there are no other charges for the data export feature. Pricing for data export will be announced in the future and a notice period provided prior to the start of billing. If you choose to continue using data export after the notice period, you will be billed at the applicable rate.
+Billing for the Log Analytics Data Export feature is not enabled yet. View more details in [pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Export destinations
 
@@ -509,15 +509,15 @@ Export rules can be disabled to let you stop the export for a certain period suc
 
 # [PowerShell](#tab/powershell)
 
-Export rules can be disabled to let you stop the export for a certain period such as when testing is being held. Use the following command to disable a data export rule using PowerShell.
+Export rules can be disabled to let you stop the export for a certain period such as when testing is being held. Use the following command to disable or update rule parameters using PowerShell.
 
 ```powershell
-Update-AzOperationalInsightsDataExport -ResourceGroupName resourceGroupName -WorkspaceName workspaceName -DataExportName 'ruleName' -Enable: $false
+Update-AzOperationalInsightsDataExport -ResourceGroupName resourceGroupName -WorkspaceName workspaceName -DataExportName 'ruleName' -TableName 'SecurityEvent, Heartbeat' -Enable: $false
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
-Export rules can be disabled to let you stop the export for a certain period such as when testing is being held. Use the following command to disable a data export rule using CLI.
+Export rules can be disabled to let you stop the export for a certain period such as when testing is being held. Use the following command to disable or update rule parameters using CLI.
 
 ```azurecli
 az monitor log-analytics workspace data-export update --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --enable false
@@ -525,7 +525,7 @@ az monitor log-analytics workspace data-export update --resource-group resourceG
 
 # [REST](#tab/rest)
 
-Export rules can be disabled to let you stop the export when you don’t need to retain data for a certain period such as when testing is being performed. Use the following request to disable a data export rule using the REST API. The request should use bearer token authorization.
+Export rules can be disabled to let you stop the export for a certain period such as when testing is being held. Use the following command to disable or update rule parameters using REST API. The request should use bearer token authorization.
 
 ```rest
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
