@@ -11,7 +11,7 @@ ms.custom: "include file","fasttrack-edit","iot","event-hubs"
 
 ---
 
-The following table shows limits that may be different for basic, standard, and dedicated tiers. 
+The following table shows limits that may be different for basic, standard, premium, and dedicated tiers. 
 
 > [!NOTE]
 > - In the table, CU is [capacity unit](../event-hubs-dedicated-overview.md), PU is [processing unit](../event-hubs-scalability.md#processing-units), and TU is [throughput unit](../event-hubs-scalability.md#throughput-units). 
