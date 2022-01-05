@@ -46,11 +46,11 @@ To start, deploy the following resources if you have not created them already. O
 > The network security group (NSG) can simply be deployed, we do not need to modify any NSG rules for cluster deployment.
 
 
-## <a name="DisableNetworkPolicy"><a/>Step 2: Configure HDInsight Subnet
+## <a name="DisableNetworkPolicy"></a>Step 2: Configure HDInsight Subnet
 
 In order to choose a source IP address for your Private Link service, an explicit disable setting ```privateLinkServiceNetworkPolicies``` is required on the subnet. Follow the instructions here to [disable network policies for Private Link services](../private-link/disable-private-link-service-network-policy.md).
 
-## <a name="NATorFirewall"><a/>Step 3: Deploy NAT Gateway *OR* Firewall
+## <a name="NATorFirewall"></a>Step 3: Deploy NAT Gateway *OR* Firewall
 
 Standard load balancers don't automatically provide [public outbound NAT](../load-balancer/load-balancer-outbound-connections.md) as basic load balancers do. Since Private Link clusters use standard load balancers, you must provide your own NAT solution, such as a NAT gateway or a NAT provided by your [firewall](./hdinsight-restrict-outbound-traffic.md), to connect to outbound, public HDInsight dependencies.  
 
