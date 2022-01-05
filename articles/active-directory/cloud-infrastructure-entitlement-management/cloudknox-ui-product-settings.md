@@ -44,7 +44,7 @@ You can also:
 - **Search** - Enter an ID or IP address to display specific authorization systems.
 - **Filters** - Select the uploaded and transformed systems you want to display: **All** or **Online** . 
 - **||| Columns** - Select the columns you want to display: **Recently Uploaded On** and **Recently Transformed On**.
-    - To return to the system default settings, Select **Reset to default**.
+     - To return to the system default settings, select **Reset to default**.
 - **Deploy** - Deploy the Sentry Appliance. For more information, see Deploy the Sentry Appliance.
     <!---Add link--->
 
@@ -87,7 +87,7 @@ The **Folders** subtab displays the names of all the authorizations you have acc
 - **Last Modified By** - The name of the person who last modified the folder.
 - The ellipses **(...)** menu - From the menu, select **Copy Folder Id**, **Edit**, or **Delete**.
 - **Search** - Enter a folder name.
-- **||| Columns** - Select the columns you want to display: ****Created On**, **Created By**, **Last Modified On**, and **Last Modified By**.
+- **||| Columns** - Select the columns you want to display: **Created On**, **Created By**, **Last Modified On**, and **Last Modified By**.
     - To return to the system default settings, Select **Reset to default**.
 - **Create Folder** - Create a new folder. For more information, see Create a Folder.
     <!---Add link--->
