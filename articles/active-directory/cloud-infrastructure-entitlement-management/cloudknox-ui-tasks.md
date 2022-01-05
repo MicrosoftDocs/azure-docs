@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Microsoft CloudKnox Permissions Management - Tasks pane
 
-This topic describes how use the **Tasks** pane to view task information in Microsoft CloudKnox Permissions Management.
+This topic describes how to use the **Tasks** pane to view task information in Microsoft CloudKnox Permissions Management.
 
 - To display the **Tasks** pane, select **Tasks** (the timer icon) in the upper right of the screen.
 

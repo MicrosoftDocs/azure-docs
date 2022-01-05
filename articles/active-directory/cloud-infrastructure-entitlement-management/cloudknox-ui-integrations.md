@@ -18,7 +18,7 @@ The **Integrations** dashboard displays the systems the authorization systems av
 
 1. To display the **Integrations** dashboard, select **User** (your initials) in the upper right of the screen, and then select **Integrations.**
 
-    The **Integrations** dashboard displays a tile for each available authorization systems.
+    The **Integrations** dashboard displays a tile for each available authorization system.
 
 1. Select an authorization system tile to view its integration information.
 

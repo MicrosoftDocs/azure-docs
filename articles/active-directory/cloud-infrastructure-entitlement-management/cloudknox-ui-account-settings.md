@@ -38,7 +38,7 @@ This topic describes how to use the **Account Settings** dashboard in Microsoft 
 
         - The organization **Name**
         - Your **Title.**
-            - To enter or change your title, select Edit (the pencil icon), enter your title, and then select the check mark.
+            - To enter or change your title, select **Edit** (the pencil icon), and enter your title. Then select the check mark.
 
     - **Organization Preferences**
 

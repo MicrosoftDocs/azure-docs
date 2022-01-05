@@ -78,7 +78,7 @@ The authorization systems table displays the following information about the aut
 
 ### The **Folders** subtab
 
-The **Folders** subtab displays the names of all the authorizations you have access to. Select an authorization system to displays the following information:
+The **Folders** subtab displays the names of all the authorizations you have access to. Select an authorization system to display the following information:
 
 - **Folder Name** - The name of the folder.
 - **Created On** - The date the folder was created.

@@ -42,7 +42,7 @@ The **Alerts** subtab displays the following information:
 - **Create Alert Trigger** - Select this option to create a new alert trigger. For more information, see Create a new alert trigger.
     <!---Add link--->
 
-The **Rule-Based Anomaly** tab and the **Statistical Anomaly** tab both have one additional option:
+The **Rule-Based Anomaly** tab and the **Statistical Anomaly** tab both have one more option:
 
 - **||| Columns** - Select the columns you want to display: **Task**, **Resource**, and **Identity**.
     - To return to the system default settings, select **Reset to default**.
@@ -64,7 +64,7 @@ The **Alert Triggers** subtab displays the following information:
     - **Modified By** - The name of the person who modified the alert.
 
 
-The **Rule-Based Anomaly** tab and the **Statistical Anomaly** tab both have one additional option:
+The **Rule-Based Anomaly** tab and the **Statistical Anomaly** tab both have one more option:
 
 - **||| Columns** - Select the columns you want to display: **Task**, **Resource**, and **Identity**.
     - To return to the system default settings, select **Reset to default**.

@@ -88,11 +88,6 @@
       href: cloudknox-product-alerts.md
     - name: Filter and query user activity
       href: cloudknox-product-audit-trail.md
-  - name: Training material
-    expanded: true
-    items:
-    - name: Training videos
-      href: cloudknox-training-videos.md
   - name: Data management
     expanded: true
     items:
@@ -129,6 +124,11 @@
     #items:
     #- name: Compliance with established guidelines
       #href: cloudknox-product-compliance.md
+  - name: Training material
+    expanded: true
+    items:
+    - name: Training videos
+      href: cloudknox-training-videos.md
   - name: Reference
     expanded: true
     items:
