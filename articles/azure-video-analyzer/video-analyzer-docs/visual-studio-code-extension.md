@@ -45,7 +45,7 @@ To view the underlying JSON behind an existing live pipeline, on the left panel 
 
 To create a [remote device adapter](./cloud/connect-cameras-to-cloud.md#connect-via-a-remote-device-adapter), along the left panel under the Video Analzyer Edge module, right-click on `Remote device adapters` and select `Create remote device adapter`. Three additional dialog boxes appear, prompting for additional information:
 1. Enter a unique name for the remote device adapter. (There should be no other remote device adapters with this name.)
-2. Select a IoT Device. (Select the device that hosts Video Analyzer Edge module.)
+2. Select a IoT Device. (For instance, select the IoT device that represents the network camera that will be connected.)
 3. Enter a hostname or IP address of the remote device adapter. (For instance, enter the IP address of the network camera that will be connected.)
 
 After entering all the necessary information, the remote device adapter will be saved and listed under the `Remote device adapters` section.
