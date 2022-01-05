@@ -82,7 +82,4 @@ To learn more about Azure reservations, see the following articles:
 
 * [What are Azure reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
 * [Manage Azure reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
-* [Understand the Azure reservation discount](../cost-management-billing/reservations/understand-reservation-charges.md)
-* [Understand reservation usage for your pay-as-you-go subscription](../cost-management-billing/reservations/understand-reservation-charges-postgresql.md)
 * [Understand reservation usage for your Enterprise Agreement enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
-* [Azure reservations in the Partner Center Cloud Solution Provider program](/partner-center/azure-reservations)

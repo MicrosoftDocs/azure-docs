@@ -24,7 +24,6 @@ Run the code on either of these environments:
 
 * Azure Machine Learning compute instance (no downloads or installation necessary):
   * Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) tutorial to create a dedicated notebook server preloaded with the SDK and the sample repository.
-  * In the Azure Machine Learning [examples repository](https://github.com/Azure/azureml-examples), find a completed notebook by going to the **notebooks** > **fastai** > **train-pets-resnet34.ipynb** directory. 
 * Your own Jupyter Notebook server:
   * Create a [workspace configuration file](how-to-configure-environment.md#workspace).
   * Install the [Azure Machine Learning SDK](/python/api/overview/azure/ml/install). 

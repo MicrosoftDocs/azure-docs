@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Querying with Azure Data Explorer
 titleSuffix: Azure Digital Twins
-description: Understand the Azure Digital Twins query plugin for Azure Data Explorer
+description: Learn about the Azure Digital Twins query plugin for Azure Data Explorer
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 5/19/2021
+ms.date: 12/06/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,12 +17,14 @@ ms.service: digital-twins
 
 # Azure Digital Twins query plugin for Azure Data Explorer
 
+This article explains about the Azure Digital Twin query plugin for [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), how to use Azure Data Explorer IoT data with Azure Digital Twins, how to map data across Azure Data Explorer and Azure Digital Twins, and more.
+
 The Azure Digital Twins plugin for [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) lets you run Azure Data Explorer queries that access and combine data across the Azure Digital Twins graph and Azure Data Explorer time series databases. Use the plugin to contextualize disparate time series data by reasoning across digital twins and their relationships to gain insights into the behavior of modeled environments.
 
-For example, with this plugin, you can write a Kusto query that...
-1. selects digital twins of interest via the Azure Digital Twins query plugin,
-2. joins those twins against the respective times series in Azure Data Explorer, and then 
-3. performs advanced time series analytics on those twins.  
+For example, with this plugin, you can write a Kusto query that:
+1. Selects digital twins of interest via the Azure Digital Twins query plugin,
+2. Joins those twins against the respective times series in Azure Data Explorer, and then 
+3. Performs advanced time series analytics on those twins.  
 
 Combining data from a twin graph in Azure Digital Twins with time series data in Azure Data Explorer can help you understand the operational behavior of various parts of your solution. 
 
@@ -35,7 +37,7 @@ evaluate azure_digital_twins_query_request(<Azure-Digital-Twins-endpoint>, <Azur
 ```
 
 The plugin works by calling the [Azure Digital Twins query API](/rest/api/digital-twins/dataplane/query), and the [query language structure](concepts-query-language.md) is the same as when using the API, with two exceptions: 
-* The `*` wildcard in the `SELECT` clause is not supported. Instead, Azure Digital Twin queries that are executed using the plugin should use aliases in the `SELECT` clause.
+* The `*` wildcard in the `SELECT` clause isn't supported. Instead, Azure Digital Twin queries that are executed using the plugin should use aliases in the `SELECT` clause.
 
     For example, consider the below Azure Digital Twins query that is executed using the API:
     
@@ -72,8 +74,8 @@ To see example queries and complete a walkthrough with sample data, see [Azure D
 
 ## Using Azure Data Explorer IoT data with Azure Digital Twins
 
-There are various ways to ingest IoT data into Azure Data Explorer. Here are two that you might use when using Azure Data Explorer with Azure Digital Twins:
-* Historize digital twin property values to Azure Data Explorer with an Azure function that handles twin change events and writes the twin data to Azure Data Explorer, similar to the process used in [Integrate with Azure Time Series Insights](how-to-integrate-time-series-insights.md). This path will be suitable for customers who use telemetry data to bring their digital twins to life.
+There are various ways to ingest IoT data into Azure Data Explorer. Here are two of them that you might take advantage of when using Azure Data Explorer with Azure Digital Twins:
+* Create a history record of digital twin property values in Azure Data Explorer with an Azure function that handles twin change events and writes the twin data to Azure Data Explorer. This process is similar to the one used in [Integrate with Azure Time Series Insights](how-to-integrate-time-series-insights.md). This path will be suitable for customers who use telemetry data to bring their digital twins to life.
 * [Ingest IoT data directly into your Azure Data Explorer cluster from IoT Hub](/azure/data-explorer/ingest-data-iot-hub) or from other sources. Then, the Azure Digital Twins graph will be used to contextualize the time series data using joint Azure Digital Twins/Azure Data Explorer queries. This path may be suitable for direct-ingestion workloads. 
 
 ### Mapping data across Azure Data Explorer and Azure Digital Twins
@@ -102,7 +104,7 @@ Then, create a target table to hold the enriched time series data.
 .create-merge table timeseriesSilver (twinId:string, Timestamp:datetime, someId:string, otherMetadata:string, ValueNumeric:real, ValueString:string)  
 ```
 
-Next, create a function `Update_rawData` to enrich the raw data by joining it with the mapping table. This will add the twin ID to the resulting target table. 
+Next, create a function `Update_rawData` to enrich the raw data by joining it with the mapping table. Doing so will add the twin ID to the resulting target table. 
 
 ```kusto
 .create-or-alter function with (folder = "Update", skipvalidation = "true") Update_rawData() { 
@@ -124,7 +126,7 @@ Once the target table is created, you can use the Azure Digital Twins plugin to 
 
 ### Example schema
 
-Here is an example of a schema that might be used to represent shared data.
+Here's an example of a schema that might be used to represent shared data.
 
 | timestamp | twinId | modelId | name | value | relationshipTarget | relationshipID |
 | --- | --- | --- | --- | --- | --- | --- |

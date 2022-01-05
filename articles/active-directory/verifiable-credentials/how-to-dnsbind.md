@@ -3,7 +3,7 @@ title: Link your Domain to your Decentralized Identifier (DID) (preview) - Azure
 description: Learn how to DNS Bind?
 documentationCenter: ''
 author: barclayn
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials

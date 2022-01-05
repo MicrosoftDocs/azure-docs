@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 10/15/2021
+ms.date: 12/30/2021
 ---
 
 # Move operation support for resources
@@ -848,7 +848,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | flexibleServers | No | No | No |
+> | flexibleServers | Yes | Yes | No |
 > | servers | Yes | Yes | You can use a cross-region read replica to move an existing server. [Learn more](../../mysql/howto-move-regions-portal.md).
 
 ## Microsoft.DBforPostgreSQL
@@ -856,11 +856,10 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | flexibleServers | No | No | No |
+> | flexibleServers | Yes | Yes | No |
 > | servergroups | No | No | No |
 > | servers | Yes | Yes | You can use a cross-region read replica to move an existing server. [Learn more](../../postgresql/howto-move-regions-portal.md).
 > | serversv2 | Yes | Yes | No |
-> | singleservers | Yes | Yes | No |
 
 ## Microsoft.DeploymentManager
 
@@ -1672,6 +1671,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | applications | Yes | No | No |
+> | resources | Yes | Yes | No |
 > | saasresources | No | No | No |
 
 ## Microsoft.Search

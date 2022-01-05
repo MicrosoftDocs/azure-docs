@@ -3,7 +3,6 @@ title: Create an Azure Automation account using a Resource Manager template
 titleSuffix: Azure Automation
 description: This article shows how to create an Automation account by using the Azure Resource Manager template.
 services: automation
-ms.author: magoedte
 ms.date: 08/27/2021
 ms.topic: conceptual
 ms.workload: infrastructure-services

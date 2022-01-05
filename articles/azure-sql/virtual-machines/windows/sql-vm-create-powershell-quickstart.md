@@ -7,14 +7,13 @@ author: bluefooted
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: deployment
-
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: pamela
-ms.reviewer: mathoma 
-ms.custom: devx-track-azurepowershell
+ms.reviewer: mathoma
+ms.custom: devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Create SQL Server on a Windows virtual machine with Azure PowerShell

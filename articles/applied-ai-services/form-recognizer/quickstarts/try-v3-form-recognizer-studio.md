@@ -2,14 +2,14 @@
 title: "Quickstart: Form Recognizer Studio | Preview"
 titleSuffix: Azure Applied AI Services
 description: Form and document processing, data extraction, and analysis using Form Recognizer Studio (preview)
-author: sanjeev3
-manager: netahw
+author: laujan
+manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 09/14/2021
 ms.author: sajagtap
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-ui
 ---
 
 # Get started: Form Recognizer Studio | Preview
@@ -19,66 +19,25 @@ ms.custom: ignite-fall-2021
 
 [Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. Get started with exploring the pre-trained models with sample documents or your own. Create projects to build custom form models and reference the models in your applications using the [Python SDK preview](try-v3-python-sdk.md) and other quickstarts.
 
+:::image border="true" type="content" source="../media/quickstarts/form-recognizer-studio-demo.gif" alt-text="Form Recognizer Studio demo":::
+
 ## Migrating from the sample labeling tool
 
 If you are a previous user of the [sample labeling tool](try-sample-label-tool.md), skip the prerequisites to [**sign into the Studio preview**](try-v3-form-recognizer-studio.md#sign-into-the-form-recognizer-studio-preview) to use your existing Azure account and Form Recognizer or Cognitive Services resources with the Studio. 
 
-To migrate your existing custom projects to the Studio, jump ahead to the [**Custom model getting started**](try-v3-form-recognizer-studio.md#custom-model-basics) section to create a new project and point it to the same Azure Blob storage location assuming you have access to it in Azure. Once you configure a new project, the Studio will load all documents and interim files for labeling and training.
+To migrate your existing custom projects to the Studio, jump ahead to the [**Custom model getting started**](try-v3-form-recognizer-studio.md#custom-projects) section to create a new project and point it to the same Azure Blob storage location assuming you have access to it in Azure. Once you configure a new project, the Studio will load all documents and interim files for labeling and training.
 
-## Minimum prerequisites for new users
+## Prerequisites for new users
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 * A [**Form Recognizer**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [**Cognitive Services multi-service**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource.
 
-## Additional prerequisites for custom projects
-
-In addition to the Azure account and a Form Recognizer or Cognitive Services resource, you'll need:
-
-### Azure Blob Storage container
-
-A **standard performance** [**Azure Blob Storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your blob data within your storage account. If you don't know how to create an Azure storage account with a container, following these quickstarts:
-
-  * [**Create a storage account**](../../../storage/common/storage-account-create.md). When creating your storage account, make sure to select **Standard** performance in the **Instance details → Performance** field.
-  * [**Create a container**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). When creating your container, set the **Public access level** field to **Container** (anonymous read access for containers and blobs) in the **New Container** window.
-
-### Configure CORS
-
-[CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you will need access to the CORS blade of your storage account.
-
-:::image type="content" source="../media/quickstarts/cors-updated-image.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
-
-1. Select the CORS blade for the storage account.
-2. Start by creating a new CORS entry in the Blob service.
-3. Set the **Allowed origins** to **https://formrecognizer.appliedai.azure.com**.
-4. Select all the available 8 options for **Allowed methods**.
-5. Approve all **Allowed headers** and **Exposed headers** by entering an * in each field.
-6. Set the **Max Age** to 120 seconds or any acceptable value.
-7. Click the save button at the top of the page to save the changes.
-
-CORS should now be configured to use the storage account from Form Recognizer Studio.
-
-### Sample documents set
-
-1. Go to the [Azure portal](https://ms.portal.azure.com/#home) and navigate as follows:  **Your storage account** → **Data storage** → **Containers**
-
-   :::image border="true" type="content" source="../media/sas-tokens/data-storage-menu.png" alt-text="Screenshot: Data storage menu in the Azure portal.":::
-
-1. Select a **container** from the list.
-
-1. Select **Upload** from the menu at the top of the page.
-
-    :::image border="true" type="content" source="../media/sas-tokens/container-upload-button.png" alt-text="Screenshot: container upload button in the Azure portal.":::
-
-1. The **Upload blob** window will appear.
-
-1. Select your file(s) to upload.
-
-    :::image border="true" type="content" source="../media/sas-tokens/upload-blob-window.png" alt-text="Screenshot: upload blob window in the Azure portal.":::
+## Sign into the Form Recognizer Studio preview
 
 > [!NOTE]
-> By default, the Studio will use form documents that are located at the root of your container. However, you can use data organized in folders if specified in the Custom form project creation steps. *See* [**Organize your data in subfolders**](../build-training-data-set.md#organize-your-data-in-subfolders-optional)
-
-## Sign into the Form Recognizer Studio preview
+> **Virtual networks (VNETs)** 
+> 
+> If you are using the Studio with service endpoints and blob storage configured within a virtual network (VNET), ensure that your computer is in the same VNET as the endpoint and the storage container.
 
 After you have completed the prerequisites, navigate to the [Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com).
 
@@ -130,7 +89,55 @@ In the Prebuilt view:
 
 :::image border="true" type="content" source="../media/quickstarts/prebuilt-get-started-v2.gif" alt-text="Form Recognizer Prebuilt example":::
 
-## Custom model basics
+## Additional prerequisites for custom projects
+
+In addition to the Azure account and a Form Recognizer or Cognitive Services resource, you'll need:
+
+### Azure Blob Storage container
+
+A **standard performance** [**Azure Blob Storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your blob data within your storage account. If you don't know how to create an Azure storage account with a container, following these quickstarts:
+
+  * [**Create a storage account**](../../../storage/common/storage-account-create.md). When creating your storage account, make sure to select **Standard** performance in the **Instance details → Performance** field.
+  * [**Create a container**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). When creating your container, set the **Public access level** field to **Container** (anonymous read access for containers and blobs) in the **New Container** window.
+
+### Configure CORS
+
+[CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you will need access to the CORS blade of your storage account.
+
+:::image type="content" source="../media/quickstarts/cors-updated-image.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
+
+1. Select the CORS blade for the storage account.
+2. Start by creating a new CORS entry in the Blob service.
+3. Set the **Allowed origins** to **https://formrecognizer.appliedai.azure.com**.
+4. Select all the available 8 options for **Allowed methods**.
+5. Approve all **Allowed headers** and **Exposed headers** by entering an * in each field.
+6. Set the **Max Age** to 120 seconds or any acceptable value.
+7. Click the save button at the top of the page to save the changes.
+
+CORS should now be configured to use the storage account from Form Recognizer Studio.
+
+### Sample documents set
+
+1. Go to the [Azure portal](https://ms.portal.azure.com/#home) and navigate as follows:  **Your storage account** → **Data storage** → **Containers**
+
+   :::image border="true" type="content" source="../media/sas-tokens/data-storage-menu.png" alt-text="Screenshot: Data storage menu in the Azure portal.":::
+
+1. Select a **container** from the list.
+
+1. Select **Upload** from the menu at the top of the page.
+
+    :::image border="true" type="content" source="../media/sas-tokens/container-upload-button.png" alt-text="Screenshot: container upload button in the Azure portal.":::
+
+1. The **Upload blob** window will appear.
+
+1. Select your file(s) to upload.
+
+    :::image border="true" type="content" source="../media/sas-tokens/upload-blob-window.png" alt-text="Screenshot: upload blob window in the Azure portal.":::
+
+> [!NOTE]
+> By default, the Studio will use form documents that are located at the root of your container. However, you can use data organized in folders if specified in the Custom form project creation steps. *See* [**Organize your data in subfolders**](../build-training-data-set.md#organize-your-data-in-subfolders-optional)
+
+## Custom projects
 
 ### Getting started
 

@@ -84,6 +84,10 @@ Other integrations with Azure services support a machine learning project from e
 - Storage and database options, such as Azure SQL Database, Azure Storage Blobs, and so on
 - Azure App Service allowing you to deploy and manage ML-powered apps
 
+> [!Important]
+> Azure Machine Learning doesn't store or process your data outside of the region where you deploy.
+>
+
 
 ## Machine learning project workflow
 

@@ -190,7 +190,7 @@ Run the following as root:
     wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config
     ```
 
-1. Add EUS repos:
+1. Add non-EUS repos:
     ```bash
     yum --config=rhui-microsoft-azure-rhel8.config install rhui-azure-rhel8
     ```

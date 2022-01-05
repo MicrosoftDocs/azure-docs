@@ -88,11 +88,11 @@ Traditionally, applications were kept secure by allowing access only while conne
 
 You can use [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md) to enable Application Proxy and add an on-premises application to your Azure AD tenant.
 
-In addition, you can integrate application delivery controllers like F5 Big-IP APM or Zscaler Private Access. By integrating these with Azure AD, you get the modern authentication and identity management of Azure AD alongside the traffic management and security features of the partner product. We call this solution [Secure Hybrid Access](../manage-apps/secure-hybrid-access.md). If you use any of the following services today, we have tutorials that will step you through how to integrate them with Azure AD.
+In addition, you can integrate application delivery controllers like F5 BIG-IP APM or Zscaler Private Access. By integrating these with Azure AD, you get the modern authentication and identity management of Azure AD alongside the traffic management and security features of the partner product. We call this solution [Secure Hybrid Access](../manage-apps/secure-hybrid-access.md). If you use any of the following services today, we have tutorials that will step you through how to integrate them with Azure AD.
 
 - [Akamai Enterprise Application Access (EAA)](../saas-apps/akamai-tutorial.md)
 - [Citrix Application Deliver Controller (ADC)](../saas-apps/citrix-netscaler-tutorial.md) (Formerly known as Citrix Netscaler)
-- [F5 Big-IP APM](../saas-apps/headerf5-tutorial.md)
+- [F5 BIG-IP APM](../manage-apps/f5-aad-integration.md)
 - [Zscaler Private Access (ZPA)](../saas-apps/zscalerprivateaccess-tutorial.md)
 
 ## 5. Integrate apps your developers build

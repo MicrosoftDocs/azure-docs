@@ -31,7 +31,7 @@ Your options for configuring client token actions depend on whether the connecte
 
 ### Manage client tokens
 
-Update client tokens, passwords, or scope maps as needed by using [az acr token](/cli/az/acr#az_acr_token) and [az acr scope-map](/cli/az/acr#az_acr_scope-map) commands. Client token updates are propagated automatically to the connected registries that accept the token.
+Update client tokens, passwords, or scope maps as needed by using [az acr token](/cli/azure/acr#az_acr_token) and [az acr scope-map](/cli/azure/acr#az_acr_scope-map) commands. Client token updates are propagated automatically to the connected registries that accept the token.
 
 ## Sync token
 
@@ -44,7 +44,7 @@ Each connected registry uses a sync token to authenticate with its immediate par
 
 ### Manage sync token
 
-Update sync tokens, passwords, or scope maps as needed by using [az acr token](/cli/az/acr#az_acr_token) and [az acr scope-map](/cli/az/acr#az_acr_scope-map) commands. Sync token updates are propagated automatically to the connected registry. Follow the standard practices of rotating passwords when updating the sync token.
+Update sync tokens, passwords, or scope maps as needed by using [az acr token](/cli/azure/acr#az_acr_token) and [az acr scope-map](/cli/azure/acr#az_acr_scope-map) commands. Sync token updates are propagated automatically to the connected registry. Follow the standard practices of rotating passwords when updating the sync token.
 
 > [!NOTE]
 > The sync token cannot be deleted until the connected registry associated with the token is deleted. You can disable a connected registry by setting the status of the sync token to `disabled`. 

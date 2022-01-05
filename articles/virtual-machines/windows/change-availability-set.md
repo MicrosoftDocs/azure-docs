@@ -52,17 +52,17 @@ The following script provides an example of gathering the required information, 
        -PlatformUpdateDomainCount 2 `
        -Sku Aligned
     }
-    
-# Remove the original VM
-    Remove-AzVM -ResourceGroupName $resourceGroup -Name $vmName    
 
-# Create the basic configuration for the replacement VM. 
+# Remove the original VM
+    Remove-AzVM -ResourceGroupName $resourceGroup -Name $vmName
+
+# Create the basic configuration for the replacement VM.
     $newVM = New-AzVMConfig `
        -VMName $originalVM.Name `
        -VMSize $originalVM.HardwareProfile.VmSize `
        -AvailabilitySetId $availSet.Id
  
-# For a Linux VM, change the last parameter from -Windows to -Linux 
+# For a Linux VM, change the last parameter from -Windows to -Linux
     Set-AzVMOSDisk `
        -VM $newVM -CreateOption Attach `
        -ManagedDiskId $originalVM.StorageProfile.OsDisk.ManagedDisk.Id `
@@ -80,7 +80,7 @@ The following script provides an example of gathering the required information, 
        -CreateOption Attach
     }
     
-# Add NIC(s) and keep the same NIC as primary; keep the Private IP too, if it exists. 
+# Add NIC(s) and keep the same NIC as primary; keep the Private IP too, if it exists.
     foreach ($nic in $originalVM.NetworkProfile.NetworkInterfaces) {	
     if ($nic.Primary -eq "True")
     {

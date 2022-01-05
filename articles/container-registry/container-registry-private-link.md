@@ -16,7 +16,7 @@ This article shows how to configure a private endpoint for your registry using t
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 > [!NOTE]
-> Starting October 2021, new container registries allow a maximum of 200 private endpoints. Registries created earlier allow a maximum of 10 private endpoints. Use the [az acr show-usage](/cli/az/acr#az_acr_show_usage) command to see the limit for your registry.
+> Starting October 2021, new container registries allow a maximum of 200 private endpoints. Registries created earlier allow a maximum of 10 private endpoints. Use the [az acr show-usage](/cli/azure/acr#az_acr_show_usage) command to see the limit for your registry.
 
 ## Prerequisites
 

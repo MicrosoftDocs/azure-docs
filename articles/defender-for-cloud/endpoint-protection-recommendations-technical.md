@@ -1,15 +1,9 @@
 ---
 title: Endpoint protection recommendations in Microsoft Defender for Clouds
 description: How the endpoint protection solutions are discovered and identified as healthy.
-services: security-center 
-author: memildin 
-manager: rkarlin 
-ms.service: security-center
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.author: memildin
+ms.date: 12/14/2021
 ---
-
 # Endpoint protection assessment and recommendations in Microsoft Defender for Cloud
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
@@ -18,6 +12,9 @@ Microsoft Defender for Cloud provides health assessments of [supported](supporte
 
 - [Endpoint protection should be installed on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439)
 - [Endpoint protection health issues should be resolved on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000)
+
+> [!TIP]
+> At the end of 2021, we revised the recommendation that installs endpoint protection. One of the changes affects how the recommendation displays machines that are powered off. In the previous version, machines that were turned off appeared in the 'Not applicable' list. In the newer recommendation, they don't appear in any of the resources lists (healthy, unhealthy, or not applicable).
 
 ## Windows Defender
 

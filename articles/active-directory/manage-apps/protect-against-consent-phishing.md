@@ -17,7 +17,7 @@ ms.reviewer: tilarso
 #Customer intent: As a developer, I want to learn how to protect against app-based consent phishing attacks so I can protect my users from malicious threat actors.
 ---
 
-# Protecting against consent phishing in Azure Active Directory
+# Protecting against consent phishing
 
 Productivity is no longer confined to private networks, and work has shifted dramatically toward cloud services. While cloud applications enable employees to be productive remotely, attackers can also use application-based attacks to gain access to valuable organization data. You may be familiar with attacks focused on users, such as email phishing or credential compromise. ***Consent phishing*** is another threat vector to be aware of.
 This article explores what consent phishing is, what Microsoft does to protect you, and what steps organizations can take to stay safe.
@@ -36,7 +36,7 @@ Admins, users, or Microsoft security researchers may flag OAuth applications tha
 
 When Azure AD disables an OAuth application, a few things happen:
 - The malicious application and related service principals are placed into a fully disabled state. Any new token requests or requests for refresh tokens will be denied, but existing access tokens will still be valid until their expiration.
-- We surface the disabled state through an exposed property called *disabledByMicrosoftStatus* on the related [application](/graph/api/resources/application?view=graph-rest-1.0&preserve-view=true) and [service principal](/graph/api/resources/serviceprincipal?view=graph-rest-1.0&preserve-view=true) resource types in Microsoft Graph.
+- We surface the disabled state through an exposed property called *disabledByMicrosoftStatus* on the related [application](/graph/api/resources/application) and [service principal](/graph/api/resources/serviceprincipal) resource types in Microsoft Graph.
 - Global admins who may have had a user in their organization that consented to an application before disablement by Microsoft should receive an email reflecting the action taken and recommended steps they can take to investigate and improve their security posture.
 
 ## Recommended response and remediation

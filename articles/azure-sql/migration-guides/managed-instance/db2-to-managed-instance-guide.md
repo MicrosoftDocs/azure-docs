@@ -8,7 +8,7 @@ ms.devlang:
 ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
-ms.reviewer: cawrites
+ms.reviewer: mathoma
 ms.date: 05/14/2021
 ---
 # Migration guide: IBM Db2 to Azure SQL Managed Instance

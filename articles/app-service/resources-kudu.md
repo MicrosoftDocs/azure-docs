@@ -12,7 +12,8 @@ Kudu is the engine behind a number of features in [Azure App Service](overview.m
 Anytime you create an app, App Service creates a companion app for it that's secured by HTTPS. This Kudu app is accessible at:
 
 - App not in Isolated tier: `https://<app-name>.scm.azurewebsites.net`
-- App in Isolated tier (App Service Environment): `https://<app-name>.scm.<ase-name>.p.azurewebsites.net`
+- Internet-facing app in Isolated tier (App Service Environment): `https://<app-name>.scm.<ase-name>.p.azurewebsites.net`
+- Internal app in Isolated tier (ILB App Service Environment): `https://<app-name>.scm.<ase-name>.appserviceenvironment.net`
 
 For more information, see [Accessing the kudu service](https://github.com/projectkudu/kudu/wiki/Accessing-the-kudu-service).
 

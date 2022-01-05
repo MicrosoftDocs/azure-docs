@@ -260,7 +260,7 @@ You're now done with setting up your flat file decoding action. In a real world 
 
    > [!NOTE]
    > If no schema appears in the list, your Standard logic app resource doesn't contain any schema files to use for decoding. 
-   > Learn how to [upload the schemma that you want to use to your Standard logic app resource](logic-apps-enterprise-integration-schemas.md).
+   > Learn how to [upload the schema that you want to use to your Standard logic app resource](logic-apps-enterprise-integration-schemas.md).
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 

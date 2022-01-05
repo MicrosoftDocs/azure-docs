@@ -1,17 +1,8 @@
 ---
 title: Investigate incidents with Microsoft Sentinel| Microsoft Docs
 description: In this article, learn how to use Microsoft Sentinel to create advanced alert rules that generate incidents you can assign and investigate.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
@@ -165,10 +156,6 @@ Using advanced search options changes the search behavior as follows:
 |**Cross workspace support**     |    Advanced searches are not supported for cross-workspace views.     |
 | **Number of search results displayed** | When you're using advanced search parameters, only 50 results are shown at a time. |
 |     |         |
-
-> [!NOTE]
-> Advanced search is currently in public preview.
->
 
 > [!TIP]
 >  If you're unable to find the incident you're looking for, remove search parameters to expand your search. If your search results in too many items, add more filters to narrow down your results.

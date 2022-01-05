@@ -440,7 +440,7 @@ Before you can start creating apps on the custom location, you need an [App Serv
     az appservice kube create \
         --resource-group $groupName \
         --name $kubeEnvironmentName \
-        --custom-location $customLocationId \
+        --custom-location $customLocationId 
     ```
 
     # [PowerShell](#tab/powershell)
@@ -449,7 +449,7 @@ Before you can start creating apps on the custom location, you need an [App Serv
     az appservice kube create `
         --resource-group $groupName `
         --name $kubeEnvironmentName `
-        --custom-location $customLocationId `      
+        --custom-location $customLocationId       
     ```
 
     ---
