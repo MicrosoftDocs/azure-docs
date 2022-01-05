@@ -9,13 +9,13 @@ ms.assetid: C2862E98-8BCC-423B-9C4A-AC79A287BE38
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 01/05/2022
 ms.author: aahi
 ---
 
 # Customize and suggest image search queries
 
-[!INCLUDE [Bing move notice](includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../includes/bing-move-notice.md)]
 
 Use this article to learn how to customize queries and suggest search terms to send to the Bing Image Search API.
 

@@ -9,13 +9,13 @@ ms.assetid: AB1B9898-C94A-4B59-91A1-8623C94BA3D4
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 01/05/2022
 ms.author: aahi
 ---
 
 # Get images from the web with the Bing Image Search API
 
-[!INCLUDE [Bing move notice](includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../includes/bing-move-notice.md)]
 
 When you use the Bing Image Search REST API, you can get images from the web that are related to your search term by sending the following GET request:
 

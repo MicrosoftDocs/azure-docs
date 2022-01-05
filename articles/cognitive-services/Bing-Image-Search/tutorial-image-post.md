@@ -31,13 +31,9 @@ This tutorial explains how to:
 > * Upload the image data and send the `POST` request
 > * Print the JSON results to the console
 
-The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingGetSimilarImages.cs).
-
 ## Prerequisites
 
 * Any edition of [Visual studio 2017 or later](https://visualstudio.microsoft.com/downloads/).
-
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Construct an image details search request
 

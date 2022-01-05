@@ -28,14 +28,10 @@ The tutorial app illustrates how to:
 > * Display and page through search results
 > * Request and handle an API subscription key, and Bing client ID.
 
-The full source code for this tutorial is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search).
-
 ## Prerequisites
 
 * The latest version of [Node.js](https://nodejs.org/).
 * The [Express.js](https://expressjs.com/) framework for Node.js. Installation instructions for the source code are available in the GitHub sample readme file.
-
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Manage and store user subscription keys
 
