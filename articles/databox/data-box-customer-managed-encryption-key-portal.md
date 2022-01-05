@@ -104,13 +104,16 @@ To enable a customer-managed key for your existing Data Box order in the Azure p
 
     ![A selected user identity shown in Encryption type settings](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-15.png)
 
- 9. Select **Save** to save the updated **Encryption type** settings.
+ 8. Select **Save** to save the updated **Encryption type** settings.
 
      ![Save your customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
 
     The key URL is displayed under **Encryption type**.
 
     ![Customer-managed key URL](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-11.png)
+
+> [!IMPORTANT]
+> You must enable the `Get`, `UnwrapKey`, and `WrapKey` permissions on the key. To set the permissions in Azure CLI, see [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az_keyvault_set_policy).
 
 ## Change key
 
@@ -140,6 +143,9 @@ To change the key vault, key, and/or key version for the customer-managed key yo
 
     ![Save updated encryption settings - 1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17-a.png)
 
+> [!IMPORTANT]
+> You must enable the `Get`, `UnwrapKey`, and `WrapKey` permissions on the key. To set the permissions in Azure CLI, see [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az_keyvault_set_policy).
+
 ## Change identity
 
 To change the identity used to manage access to the customer-managed key for this order, follow these steps:
@@ -160,7 +166,6 @@ To change the identity used to manage access to the customer-managed key for thi
 
     ![Save updated encryption settings - 2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17-a.png)
 
-4. Enable the **Get**, **Unwrap Key**, and **Wrap Key** permissions on the key. These permissions are required during order creation and the Data Copy phase. For more info about key requirements, see [Troubleshoot errors](#troubleshoot-errors).
 
 ## Use Microsoft managed key
 
