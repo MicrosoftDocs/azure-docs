@@ -62,9 +62,35 @@
       - name: ASIM overview
         href: normalization.md
       - name: ASIM schemas
-        href: normalization-about-schemas.md
+        items:
+          - name: ASIM schemas overview
+            href: normalization-about-schemas.md
+          - name: Authentication normalization schema
+            href: authentication-normalization-schema.md
+          - name: DNS normalization schema
+            href: dns-normalization-schema.md
+          - name: DHCP normalization schema
+            href: dhcp-normalization-schema.md
+          - name: File event normalization schema
+            href: file-event-normalization-schema.md
+          - name: Network normalization schema
+            href: network-normalization-schema.md
+          - name: Process event normalization schema
+            href: process-events-normalization-schema.md
+          - name: Registry event normalization schema
+            href: registry-event-normalization-schema.md
+          - name: Legacy network normalization schema
+            href: normalization-schema-v1.md
       - name: ASIM parsers
-        href: normalization-about-parsers.md
+        items:
+          - name: ASIM parsers overview
+            href: normalization-parsers-overview.md
+          - name: Use ASIM parsers
+            href: normalization-about-parsers.md
+          - name: Develop ASIM parsers
+            href: normalization-develop-parsers.md
+          - name: Manage ASIM parsers
+            href: normalization-manage-parsers.md
       - name: ASIM content
         href: normalization-content.md
     - name: Classifying data with entities
@@ -304,24 +330,6 @@
       href: data-source-schema-reference.md
     - name: CEF log field mapping
       href: cef-name-mapping.md
-    - name: Normalization
-      items:
-      - name: Authentication normalization schema
-        href: authentication-normalization-schema.md
-      - name: DNS normalization schema
-        href: dns-normalization-schema.md
-      - name: DHCP normalization schema
-        href: dhcp-normalization-schema.md
-      - name: File event normalization schema
-        href: file-event-normalization-schema.md
-      - name: Network normalization schema
-        href: network-normalization-schema.md
-      - name: Process event normalization schema
-        href: process-events-normalization-schema.md
-      - name: Registry event normalization schema
-        href: registry-event-normalization-schema.md
-      - name: Legacy network normalization schema
-        href: normalization-schema-v1.md
     - name: Windows security event sets
       href: windows-security-event-id-reference.md
   - name: Detection and analysis references
