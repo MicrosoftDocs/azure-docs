@@ -142,13 +142,15 @@ By default, Azure Cognitive Search returns up to five highlights per field. You 
 
 ### Highlighted results
 
-When highlighting is added to the query, the response includes an "@search.highlights" for each result so that your application code can target that structure.
+When highlighting is added to the query, the response includes an "@search.highlights" for each result so that your application code can target that structure. The list of fields specified for "highlight" are included in the response.
+
+In a keyword search, each term is scanned for independently. A query for "divine secrets" will return matches on any document containing either term.
 
 :::image type="content" source="media/search-pagination-page-layout/highlighting-example.png" alt-text="Screenshot of highlighting over a phrase query." border="true":::
 
 ### Keyword search highlighting 
 
-Within a highlighted field, formatting is applied to whole terms. For example, on a match against "The Divine Secrets of the Ya-Ya Sisterhood", formatting is applied to each term separately, even though they are consecutive.
+Within a highlighted field, formatting is applied to whole terms. For example, on a match against "The Divine Secrets of the Ya-Ya Sisterhood", formatting is applied to each term separately, even though they are consecutive. 
 
 ```json
 "@odata.count": 39,
@@ -196,37 +198,38 @@ Within a highlighted field, formatting is applied to whole terms. For example, o
 
 ### Phrase search highlighting
 
-Whole-term formatting applies even on a phrase search, where multiple terms are enclosed in double quotation marks. The following example is the same query, except that "divine search is submitted as a phrase:
+Whole-term formatting applies even on a phrase search, where multiple terms are enclosed in double quotation marks. The following example is the same query, except that "divine search" is submitted as a quotation-enclosed  phrase (some clients, such as Postman, require that you escape the interior quotation marks with a backslash `\"`):
 
 ```http
 POST /indexes/good-books/docs/search?api-version=2020-06-30 
     {  
-      "search": ""divine secrets"",  
-      "highlight": "title, original_title",
+      "search": "\"divine secrets\"",,
+      "select": "title,original_title",
+      "highlight": "title",
       "highlightPreTag": "<b>",
-      "highlightPostTag": "</b>"
+      "highlightPostTag": "</b>",
+      "count": true
     }
 ```
 
 Because the criteria now specifies both terms, only one match is found in the search index. The response to the above query looks like this:
 
 ```json
-"@odata.count": 1,
-"value": [
-    {
-        "@search.score": 19.593246,
-        "@search.highlights": {
-            "original_title": [
-                "<em>Divine</em> <em>Secrets</em> of the Ya-Ya Sisterhood"
-            ],
-            "title": [
-                "<em>Divine</em> <em>Secrets</em> of the Ya-Ya Sisterhood"
-            ]
-        },
-        "original_title": "Divine Secrets of the Ya-Ya Sisterhood",
-        "title": "Divine Secrets of the Ya-Ya Sisterhood"
-    }
-]
+{
+    "@odata.count": 1,
+    "value": [
+        {
+            "@search.score": 19.593246,
+            "@search.highlights": {
+                "title": [
+                    "<b>Divine</b> <b>Secrets</b> of the Ya-Ya Sisterhood"
+                ]
+            },
+            "original_title": "Divine Secrets of the Ya-Ya Sisterhood",
+            "title": "Divine Secrets of the Ya-Ya Sisterhood"
+        }
+    ]
+}
 ```
 
 #### Phrase highlighting on older services
