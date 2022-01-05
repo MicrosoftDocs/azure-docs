@@ -358,7 +358,7 @@ You can use these cmdlets to retrieve the TLS 1.2 enablement status or set it as
 
 - The Azure AD Connect wizard shows the **Import Synchronization Settings** option as **Preview**, although this feature is generally available.
 - Some Active Directory connectors might be installed in a different order when you use the output of the migrate settings script to install the product.
-- The **User Sign In** options page in the Azure AD Connect wizard mentions Company Administrator. This term is no longer used and needs to be replace by Global Administrator.
+- The **User Sign In** options page in the Azure AD Connect wizard mentions Company Administrator. This term is no longer used and needs to be replaced by Global Administrator.
 - The **Export settings** option is broken when the **Sign In** option has been configured to use PingFederate.
 - While Azure AD Connect can now be deployed by using the Hybrid Identity Administrator role, configuring Self-Service Password Reset, Passthru Authentication, or single sign-on still requires a user with the Global Administrator role.
 - When you import the Azure AD Connect configuration while you deploy to connect with a different tenant than the original Azure AD Connect configuration, directory extension attributes aren't configured correctly.
