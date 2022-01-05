@@ -15,9 +15,7 @@ recommendations: false
 
 # Tutorial: Form Recognizer with Logic Apps
 
-In this tutorial, you'll learn to make an Azure Logic Apps connector flow that detects when an invoice is added to a OneDrive folder, processes the invoice, and sends information contained in the invoice to a pre-specified email.
-
-Azure Logic Apps is a cloud-based platform that can be used to automate workflows without writing a single line of code. Logic Apps enable you to easily integrate Microsoft and third-party applications with your apps, data, services, and systems. Here are a few examples of what you can do with the Logic Apps platform:
+Azure Logic Apps is a cloud-based platform that can be used to automate workflows without writing a single line of code. Logic Apps enable you to easily integrate Microsoft and third-party applications with your apps, data, services, and systems. Here are a few examples of what you can do with the logic apps:
 
 * Create business processes and workflows visually.
 * Integrate workflows with software as a service (SaaS) and enterprise applications.
@@ -25,42 +23,50 @@ Azure Logic Apps is a cloud-based platform that can be used to automate workflow
 
 For more information, *see* [Logic Apps Overview](/azure/logic-apps/logic-apps-overview).
 
+ In this tutorial, you'll learn how to build a logic app connector flow to automate the following tasks:
+
+> [!div class="checklist"]
+>
+> * Detect when an invoice as been added to a OneDrive folder.
+> * Process the invoice using the Form Recognizer prebuilt-invoice model.
+> * Send the extracted information from the invoice to a pre-specified email address.
+
 ## Prerequisites
 
 To complete this tutorial, you'll need the following:
 
-* **An Azure subscription**: [create a free Azure subscription](https://azure.microsoft.com/free/cognitive-services/)
+* **An Azure subscription**. You can [create a free Azure subscription](https://azure.microsoft.com/free/cognitive-services/)
 
-* **A Form Recognizer resource**: * Once you have your Azure subscription, [create a Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. If you have an existing Document Translation resource, navigate directly to your resource page.
+* **A Form Recognizer resource**.  Once you have your Azure subscription, [create a Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. If you have an existing Form Recognizer resource, navigate directly to your resource page.
+
   * You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
+
   * After the resource deploys, select **Go to resource**.
+
   * Copy the key and endpoint values from the resource you created and paste them in a convenient location, such as *Microsoft Notepad*. You'll need the key and endpoint values to connect your application to the Form Recognizer API.
-  * If you need further guidance creating a Form Recognizer resource, see our [**create a form recognizer resource**](create-a-form-recognizer-resource.md) page.
 
+    > [!TIP]
+    > If you need further guidance. *see* [**create a form recognizer resource**](create-a-form-recognizer-resource.md).
 
-* **A OneDrive personal cloud storage account**: [create a free OneDrive account](https://onedrive.live.com/signup)
-* **An Outlook online email account**: [create a free Outlook online email account](https://signup.live.com/signup.aspx?lic=1&mkt=en-ca)
-* **A sample invoice to test your logic app** - You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/invoice-logic-apps-tutorial.pdf) for this tutorial.
+* **A OneDrive personal cloud storage account**.You can [create a free OneDrive account](https://onedrive.live.com/signup)
+* **An Outlook online email account**. You can [create a free Outlook online email account](https://signup.live.com/signup.aspx?lic=1&mkt=en-ca)
+* **A sample invoice to test your logic app**. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/invoice-logic-apps-tutorial.pdf) for this tutorial.
 
-## Setting up One-Drive
+## Create a One-Drive folder
 
-Before we jump into creating the Logic app, we to have to set up a OneDrive folder.
+Before we jump into creating the logic app, we to have to set up a OneDrive folder.
 
-1. Go to your OneDrive home page - [OneDrive home page](https://onedrive.live.com/)
+1. Go to your OneDrive home page: [OneDrive home page](https://onedrive.live.com/)
 
-1. Select "+New" in the upper left corner and select Folder.
+1. Select the **➕ New** drop-down menu in the upper-left corner and select **Folder**.
 
-1. Enter a name for your new folder and select create.
+1. Enter a name for your new folder and select **Create**.
 
-4.You should see the new folder in your files. For now, we're done with OneDrive. Open a new tab you'll need to access this folder later.
+1. You should see the new folder in your files. For now, we're done with OneDrive, but you'll need to access this folder later.
 
 :::image border="true" type="content" source="media/logic-apps-tutorial/onedrive-setup.gif" alt-text="Gif showing how steps to create a folder in OneDrive":::
 
-### Create a Form Recognizer resource
-
-
-
-### Creating a Logic App resource
+### Create a Logic App resource
 
 Now that you have the Form Recognizer resource set up it is time to create an Azure Logic App resource.
 

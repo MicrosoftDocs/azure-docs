@@ -166,9 +166,9 @@ items:
     href: concept-custom.md
 - name: Tutorials
   items:
-  - name: Use Azure Form Recognizer with Azure Logic Apps
-    href: logic-apps-tutorial.md
-  - name: "Azure Form Recognizer and AI Builder workflows"
+  - name: Use Form Recognizer with Azure Logic Apps
+    href: tutorial-logic-apps.md
+  - name: "Create Form Recognizer and AI Builder workflows"
     expanded: true
     items:
     - name:  Custom

@@ -23,7 +23,7 @@ Let's get started:
 
 1. Select **Create a resource** from the Azure home page.
 
-1. Search for _Form Recognizer_ in the search bar and choose **Form recognizers**.
+1. Search for and choose **Form Recognizer** from the search bar.
 
 1. Select the **Create** button.
 
@@ -31,11 +31,11 @@ Let's get started:
 
 1. Next, you're going to fill out the **Create Form Recognizer** fields with the following values:
 
-* **Subscription**. Select your current subscription.
-* **Resource group**. This is the [Azure resource group](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that will contain your resource. You can create a new group or add it to a pre-existing group.
-* **Region**. Select your local region.
-* **Name**. A name for your resource. We recommend using a descriptive name, for example *YourNameFormRecognizer*.
-* **Pricing tier**. The cost of your resource depends on the pricing tier you choose and your usage. For more information, see [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
+   * **Subscription**. Select your current subscription.
+   * **Resource group**. This is the [Azure resource group](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that will contain your resource. You can create a new group or add it to a pre-existing group.
+   * **Region**. Select your local region.
+   * **Name**. Enter a name for your resource. We recommend using a descriptive name, for example *YourNameFormRecognizer*.
+   * **Pricing tier**. The cost of your resource depends on the pricing tier you choose and your usage. For more information, see [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
 1. Once you've completed the fields, you should see something similar to the screenshot below (your subscription, resource group, region, and name may be different).
 
