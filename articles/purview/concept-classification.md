@@ -27,7 +27,7 @@ Classification is the process of organizing data into *logical categories* that 
 
 As shown in the following image, it's possible to apply classifications at both the asset level and the schema level for the *Customers* table in Azure SQL Database.
 
-:::image type="content" source="./media/concept-classification/classification-customers-example-1.png" alt-text="Screenshot that shows the classification of the 'Customers' table in Azure SQL Database." lightbox="./media/concept-best-practices/classification-customers-example-1.png":::
+:::image type="content" source="./media/concept-classification/classification-customers-example-1.png" alt-text="Screenshot that shows the classification of the 'Customers' table in Azure SQL Database." lightbox="./media/concept-classification/classification-customers-example-1.png":::
 
 ## Types of classification
 
