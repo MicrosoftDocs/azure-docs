@@ -23,7 +23,7 @@ To cancel a scheduled contact, the contact entry must be deleted on the **Contac
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
 ## Delete a scheduled contact entry
 
