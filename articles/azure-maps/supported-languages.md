@@ -103,7 +103,7 @@ Azure Maps have been localized in variety languages across its services. The fol
 > * Morocco
 > * Pakistan
 >
-> After August 1, 2019, the **View** parameter will define the returned map content for the new regions/countries listed above. Azure Maps **View** parameter (also referred to as "user region parameter") is a two letter ISO-3166 Country Code that will show the correct maps for that country/region specifying which set of geopolitically disputed content is returned via Azure Maps services, including borders and labels displayed on the map. 
+> After August 1, 2019, the **View** parameter will define the returned map content for the new regions/countries listed above. Azure Maps **View** parameter (also referred to as "user region parameter") is a two letter ISO-3166 Country Code that will show the correct maps for that country/region specifying which set of geopolitically disputed content is returned via Azure Maps services, including borders and labels displayed on the map.
 
 Make sure you set up the **View** parameter as required for the REST APIs and the SDKs, which your services are using.
   
@@ -158,5 +158,5 @@ The following table provides supported views.
 | SA      | Saudi Arabia (Arabic View)                                  |   ✓  |        |
 | SY      | Syria (Arabic View)                                         |   ✓  |        |
 | YE      | Yemen (Arabic View)                                         |   ✓  |        |
-| Auto    | Return the map data based on the IP address of the request. |   ✓  |    ✓   |
+| Auto    | Return the map data Based on the location of the request    |   ✓  |    ✓   |
 | Unified | Unified View (Others)                                       |   ✓  |    ✓   |
