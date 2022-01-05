@@ -74,7 +74,7 @@ To create a single database in the Azure portal, this quickstart starts at the A
 
 # [Azure CLI](#tab/azure-cli)
 
-You can create an Azure resource group, server, and single database using the Azure command-line interface (Azure CLI). If you don't want to use the Azure Cloud Shell, [install Azure CLI](/cli/azure/install-azure-cli) on your computer.
+You can create an Azure resource group, server, and single database using the Azure command-line interface (Azure CLI).
 
 [!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
