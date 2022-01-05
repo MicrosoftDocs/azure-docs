@@ -639,7 +639,7 @@ The `ce-type` of `message` event is always `azure.webpubsub.user.message`, detai
         // abuse protection
         endpoints.Map("/eventhandler/{*path}", async context =>
         {
-            var serviceClient = context.RequestServices.GetRequiredService<WebPubSubServiceClient>();
+            var serviceClient = context.RequestServices.GetRequiredService<Azure.Messaging.WebPubSub.WebPubSubServiceClient>();
             if (context.Request.Method == "OPTIONS")
             {
                 if (context.Request.Headers["WebHook-Request-Origin"].Count > 0)
@@ -718,6 +718,7 @@ The `ce-type` of `message` event is always `azure.webpubsub.user.message`, detai
     ```csharp
     app.UseEndpoints(endpoints =>
     {
+        var serviceClient = context.RequestServices.GetRequiredService<Azure.Messaging.WebPubSub.WebPubSubServiceClient>();
         // abuse protection
         endpoints.Map("/eventhandler/{*path}", async context =>
         {
