@@ -61,7 +61,7 @@ Follow the steps to configure the secrets:
 
 1. In [GitHub](https://github.com/), browse to your repository, select **Settings > Secrets > New repository secret**.
 
-    ![Screenshot shows the Add a new secret link for a repository.](media/kubernetes-action/secrets.png)
+    :::image type="content" source="media/kubernetes-action/secrets.png" alt-text="Screenshot shows the Add a new secret link for a repository.":::
 
 2. Paste the contents of the above `az cli` command as the value of secret variable. For example, `AZURE_CREDENTIALS`.
 
@@ -72,11 +72,12 @@ Follow the steps to configure the secrets:
 
 4. You will see the secrets as shown below once defined.
 
-    ![Screenshot shows existing secrets for a repository.](media/kubernetes-action/kubernetes-secrets.png)
+    :::image type="content" source="media/kubernetes-action/kubernetes-secrets.png" alt-text="Screenshot shows existing secrets for a repository.":::
+
 
 ##  Build a container image and deploy to Azure Kubernetes Service cluster
 
-The build and push of the container images is done using `Azure/docker-login@v1` action. 
+The build and push of the container images is done using `azure/docker-login@v1` action. 
 
 
 ```yml
@@ -110,7 +111,7 @@ jobs:
 
 ### Deploy to Azure Kubernetes Service cluster
 
-To deploy a container image to AKS, you will need to use the `Azure/k8s-deploy@v1` action. This action has five parameters:
+To deploy a container image to AKS, you will need to use the `azure/k8s-deploy@v1` action. This action has five parameters:
 
 | **Parameter**  | **Explanation**  |
 |---------|---------|
@@ -142,7 +143,7 @@ Before you can deploy to AKS, you'll need to set target Kubernetes namespace and
 ```
 
 
-Complete your deployment with the `k8s-deploy` action. Replace the environment variables with values for your application. 
+Complete your deployment with the `azure/k8s-deploy` action. Replace the environment variables with values for your application. 
 
 ```yaml
 
