@@ -65,6 +65,8 @@ Now that Azure Lab Services app is enabled in Canvas, we need to link the lab pl
 
 When you create a lab inside a Course in Canvas, the lab will automatically pull the list of students from Canvas’s course roster and add them as users in the lab’s user list. Virtual machines will be added and deleted automatically based on changes to the course roster. You can create multiple labs for a course.
 
+Instructors can access their labs through Canvas or the [Azure Lab Services portal](https://labs.azure.com).  Students must access their VM through Canvas.
+
 > [!NOTE]
 > A lab virtual machine will also be created for the course instructor.  VM can be found in the virtual machine pool or by selecting the **My virtual machines** icon in the upper right of the Azure Lab Services portal.
 

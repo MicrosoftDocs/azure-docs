@@ -7,14 +7,13 @@ ms.date: 11/08/2021
 
 # Manage Lab Services user lists from Canvas
 
-When a lab is created within Canvas (see [Get started and create a Lab Services lab from Canvas](how-to-get-started-create-lab-within-canvas.md)), the lab user list is automatically populated and synced with the course membership. An automatic sync is triggered every 24 hours.  Educators can also manually sync users when needed.
+When a [lab is created within Canvas](how-to-get-started-create-lab-within-canvas.md), the lab user list is automatically populated and synced with the course membership. An automatic sync is triggered every 24 hours.  Educators can also manually sync the user list when needed.
 
 ## Sync users
 
 Educators can use the **Sync** button to trigger a manual sync once the course membership is updated.
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/how-to-manage-users-with-teams/sync-users.png" alt-text="Sync users":::
+:::image type="content" source="./media/how-to-manage-users-with-teams/sync-users.png" alt-text="Sync users":::
 
 Once the automatic or manual sync is complete the following is true depending on whether the lab has been [published](tutorial-setup-classroom-lab.md#publish-the-lab).
 
@@ -24,8 +23,8 @@ If the lab has *not* been published at least once:
 
 If the lab has been published at least once:
 
-- If there are any new additions to the team, new VMs will be created.
-- If any user has been deleted from the team, the associated VM will be deleted as well.
+- New VMs will be created if there are any new additions to the course.
+- VM will be deleted if  any student has been deleted from the course
 - Lab capacity will be automatically updated as need.
 
 ## Next steps
@@ -42,4 +41,3 @@ See the following articles:
 - [Get started and create a Lab Services lab from Canvas](how-to-get-started-create-lab-within-canvas.md)
 - [Create Lab Services schedules from Canvas](how-to-create-schedules-within-canvas.md)
 - [Access a VM (student view) in Lab Services from Canvas](how-to-access-vm-for-students-within-canvas.md)
-

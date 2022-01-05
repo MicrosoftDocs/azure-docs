@@ -11,14 +11,16 @@ Schedules allow you to configure a lab such that VMs in the lab automatically st
 
 Here's how schedules affect lab virtual machines:
 
-- Template virtual machine is not included in schedules.
-- Only assigned virtual machines are started. This means, if a machine is not claimed by an end user (student), the machine will not start on the scheduled hours.
+- Template virtual machine isn't included in schedules.
+- Only assigned virtual machines are started. If a machine is not claimed by an end user (student), the machine won't start on the scheduled hours.
 - All virtual machines (whether claimed by a user or not) are stopped based on the lab schedule.
 
-> [!IMPORTANT]
-> The scheduled running time of VMs does not count against the [quota](classroom-labs-concepts.md#quota) allotted to a user. The quota is for the time outside of schedule hours that a student spends on VMs.
+The scheduled running time of VMs doesn't count against the [quota](classroom-labs-concepts.md#quota) allotted to a user. The quota is for the time outside of schedule hours that a student spends on VMs.
 
-Users can create, edit, and delete lab schedules within Canvas just as in the [labs website](https://labs.azure.com). Refer to the article on [creating and managing schedules](how-to-create-schedules-within-canvas.md) for further details.
+Instructors can create, edit, and delete lab schedules within Canvas as in the [Azure Lab Services portal](https://labs.azure.com). For more information on scheduling, see [Creating and managing schedules](how-to-create-schedules-within-canvas.md).
+
+> [!IMPORTANT]
+> Schedules will apply at the course level.  If you have many sections of a course meeting at the same time, consider using [automatic shutdown policies](how-to-configure-auto-shutdown-lab-plans.md) and/or [quota hours](get-started-manage-labs.md#quota-hours).
 
 ## Next steps
 
