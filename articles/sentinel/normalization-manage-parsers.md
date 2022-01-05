@@ -12,9 +12,9 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-ASIM users use source-agnostic parsers instead of table names in their queries to view data in a normalized format and to include all data relevant to the schema in the query. Each source-agnostic parser uses multiple source-specific parsers that handle each source's specific details. 
+ASIM users use source-agnostic parsers instead of table names in their queries. Using source-agnostic parsers enables viewing data in a normalized format and getting all the data relevant to the schema in a single query. Each source-agnostic parser uses multiple source-specific parsers that handle each source's specific details. 
 
-You will need to manage the source-specific parsers used by each source-agnostic parser in order to:
+You may need to manage the source-specific parsers used by each source-agnostic parser to:
 
 - Add a custom source-specific parser to a source-agnostic parser.
 
@@ -23,7 +23,7 @@ You will need to manage the source-specific parsers used by each source-agnostic
   - Fix the version of the source-agnostic parser used by the source-agnostic parser to prevent automated updates.
   - Use a modified version of the built-in parser.
 
-This document will teach you how to perform these tasks, whether using built-in source-agnostic ASIM parsers or workspace deployed source-agnostic parsers. The procedures below assume that all source-specific parsers have already been deployed to the workspace as outlined in the document [Develop ASIM parsers](normalization-develop-parsers.md).
+This document will teach you how to do these tasks, whether using built-in source-agnostic ASIM parsers or workspace deployed source-agnostic parsers. The procedures below assume that all source-specific parsers have already been deployed to the workspace as outlined in the document [Develop ASIM parsers](normalization-develop-parsers.md).
 
 > [!IMPORTANT]
 > ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -121,7 +121,7 @@ For example, the DNS filtering source-agnostic parser after adding `added_parser
 
 ### Use a modified version of a workspace-deployed parser
 
-Since workspace-deployed parsers can be edited, you can directly modify the parser. Alternatively, you can create a parser based on the original, comment out the original, and add your modified version to the workspace-deployed source-agnostic parser.
+Since workspace-deployed parsers can be edited, you can directly modify the parser. Instead, you can create a parser based on the original, comment out the original, and add your modified version to the workspace-deployed source-agnostic parser.
 
 For example, the DNS filtering source-agnostic parser after adding replacing the vimDnsAzureFirewall with a modified version:
 
