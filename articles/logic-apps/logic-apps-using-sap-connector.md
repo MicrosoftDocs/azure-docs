@@ -199,11 +199,11 @@ The following list describes the prerequisites for the SAP client library that y
 
 * You must have the 64-bit version of the SAP client library installed, because the data gateway only runs on 64-bit systems. Installing the unsupported 32-bit version results in a "bad image" error.
 
-* Copy the assembly files from the default installation folder to another location, based on your scenario as follows.
+* From the default installation folder, copy the assembly (DLL) files to another location, based on your scenario as follows:
 
   * For a logic app workflow that runs in an ISE, follow the [ISE prerequisites](#ise-prerequisites) instead.
 
-  * For a logic app workflow that runs in multi-tenant Azure and uses your on-premises data gateway, copy the assembly files to the data gateway installation folder. 
+  * For a logic app workflow that runs in multi-tenant Azure and uses your on-premises data gateway, copy the DLL files to the on-premises data gateway installation folder, for example, "C:\Program Files\On-Premises Data Gateway".
 
     > [!NOTE]
     > If your SAP connection fails with the error message, **Please check your account info and/or permissions and try again**, 
