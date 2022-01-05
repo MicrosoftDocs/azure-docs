@@ -32,10 +32,6 @@ If you need more details about the differences, you can find them in the separat
 - [Azure SQL Database vs. SQL Server differences](transact-sql-tsql-differences-sql-server.md)
 - [Azure SQL Managed Instance vs. SQL Server differences](../managed-instance/transact-sql-tsql-differences-sql-server.md)
 
-> [!div class="nextstepaction"]
-> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
-
-
 ## Features of SQL Database and SQL Managed Instance
 
 The following table lists the major features of SQL Server and provides information about whether the feature is partially or fully supported in Azure SQL Database and Azure SQL Managed Instance, with a link to more information about the feature.

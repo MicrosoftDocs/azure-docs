@@ -25,7 +25,7 @@ This article outlines how to register Snowflake, and how to authenticate and int
 
 When scanning Snowflake source, Purview supports:
 
-- Extract technical metadata including:
+- Extracting technical metadata including:
 
     - Server
     - Databases
@@ -40,7 +40,7 @@ When scanning Snowflake source, Purview supports:
     - Tasks
     - Sequences
 
-- Fetch static lineage on assets relationships among tables, views, and streams.
+- Fetching static lineage on assets relationships among tables, views, and streams.
 
 ## Prerequisites
 

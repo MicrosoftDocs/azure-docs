@@ -9,7 +9,7 @@ ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 01/05/2022
 ms.author: billmath
 author: billmath
 ---
