@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/05/2021
+ms.date: 01/05/2022
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -140,7 +140,7 @@ Azure AD Entitlement Management also allows you to directly assign external user
 
 ## Directly assigning users programmatically
 ### Assign a user to an access package with Microsoft Graph
-You can also directly assign a user to an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application with that application permission, can call the API to [create an accessPackageAssignmentRequest](/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta&preserve-view=true). In this request, the value of the `requestType` property should be `AdminAdd`, and the `accessPackageAssignment` property is a structure that specifies the user being assigned. If the user is already present in your directory, then the `accessPackageAssignment` contains a `targetId` property with the ID of the user being assigned.  If the user is not already present in your directory, then the `accessPackageAssignment` contains a `target` structure, which contains an `email` property with the email address of the user being assigned.
+You can also directly assign a user to an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application with that application permission, can call the API to [create an accessPackageAssignmentRequest](/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta&preserve-view=true). In this request, the value of the `requestType` property should be `AdminAdd`, and the `accessPackageAssignment` property is a structure that specifies the user being assigned. If the target user is already present in your directory, then the `accessPackageAssignment` should contain a `targetId` property with the ID of that user.  If the user isn't yet present in your directory, then the `accessPackageAssignment` should contain a `target` structure, which contains an `email` property with the email address of the user.
 
 ### Assign a user to an access package with PowerShell
 
@@ -162,7 +162,7 @@ You can also assign multiple users that are in your directory to an access packa
 * the access package assignment policy ID, which is included in the response from the `Get-MgEntitlementManagementAccessPackageAssignmentPolicy`cmdlet,
 * the object IDs of the target users, either as an array of strings, or as a list of user members returned from the `Get-MgGroupMember` cmdlet.
 
-For example, if you want to ensure all the users who are currently members of a group also have assignments to an access package, you can use this cmdlet to create requests for those users who don't currently have assignments.  Note that this will cmdlet will only create assignments; it does not remove assignments.
+For example, if you want to ensure all the users who are currently members of a group also have assignments to an access package, you can use this cmdlet to create requests for those users who don't currently have assignments.  Note that this cmdlet will only create assignments; it does not remove assignments for users who are no longer members of a group.
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All,Directory.Read.All"
