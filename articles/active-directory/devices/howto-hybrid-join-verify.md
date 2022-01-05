@@ -15,9 +15,9 @@ ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
 ---
-# # Verify the registration
+# Verify hybrid Azure AD join
 
-Here are 3 ways to locate and verify the device state:
+Here are three ways to locate and verify the hybrid joined device state:
 
 ## Locally on the device
 
@@ -26,13 +26,13 @@ Here are 3 ways to locate and verify the device state:
 3. Verify that both **AzureAdJoined** and **DomainJoined** are set to **YES**.
 4. You can use the **DeviceId** and compare the status on the service using either the Azure portal or PowerShell.
 
-For downlevel devices see the article [Troubleshooting hybrid Azure Active Directory joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md#step-1-retrieve-the-registration-status)
+For downlevel devices, see the article [Troubleshooting hybrid Azure Active Directory joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md#step-1-retrieve-the-registration-status)
 
 ## Using the Azure portal
 
 1. Go to the devices page using a [direct link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
 2. Information on how to locate a device can be found in [How to manage device identities using the Azure portal](./device-management-azure-portal.md).
-3. If the **Registered** column says **Pending**, then Hybrid Azure AD Join has not completed. In federated environments, this can happen only if it failed to register and AAD connect is configured to sync the devices.
+3. If the **Registered** column says **Pending**, then Hybrid Azure AD Join hasn't completed. In federated environments, this state can happen only if it failed to register and Azure AD Connect is configured to sync the devices.
 4. If the **Registered** column contains a **date/time**, then Hybrid Azure AD Join has completed.
 
 ## Using PowerShell
@@ -74,7 +74,7 @@ Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -e
 
 ### List details of a single device:
 
-1. Enter `get-msoldevice -deviceId <deviceId>` (This is the **DeviceId** obtained locally on the device).
+1. Enter `get-msoldevice -deviceId <deviceId>` (This **DeviceId** is obtained locally on the device).
 2. Verify that **Enabled** is set to **True**.
 
 ## Next steps
