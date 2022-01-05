@@ -330,6 +330,26 @@
       href: data-source-schema-reference.md
     - name: CEF log field mapping
       href: cef-name-mapping.md
+    - name: Normalization
+      items:
+      - name: Authentication normalization schema
+        href: authentication-normalization-schema.md
+      - name: DNS normalization schema
+        href: dns-normalization-schema.md
+      - name: DHCP normalization schema
+        href: dhcp-normalization-schema.md
+      - name: File event normalization schema
+        href: file-event-normalization-schema.md
+      - name: Network normalization schema
+        href: network-normalization-schema.md
+      - name: Process event normalization schema
+        href: process-events-normalization-schema.md
+      - name: Registry event normalization schema
+        href: registry-event-normalization-schema.md
+      - name: Web normalization schema
+        href: web-normalization-schema.md
+      - name: Legacy network normalization schema
+        href: normalization-schema-v1.md      
     - name: Windows security event sets
       href: windows-security-event-id-reference.md
   - name: Detection and analysis references
