@@ -31,6 +31,8 @@ Event routes are used for both of these scenarios.
 
 An event route lets you send event data from digital twins in Azure Digital Twins to custom-defined endpoints in your subscriptions. Three Azure services are currently supported for endpoints: [Event Hubs](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). Each of these Azure services can be connected to other services and acts as the middleman, sending data along to final destinations such as TSI or Azure Maps for whatever processing you need.
 
+Azure Digital Twins implements **at least once** delivery for data emitted to egress services. 
+
 The following diagram illustrates the flow of event data through a larger IoT solution with an Azure Digital Twins aspect:
 
 :::image type="content" source="media/concepts-route-events/routing-workflow.png" alt-text="Diagram of Azure Digital Twins routing data through endpoints to several downstream services." border="false":::
