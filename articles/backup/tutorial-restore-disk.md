@@ -101,7 +101,7 @@ This will restore managed disks as unmanaged disks to the given storage account 
 
 ### Restore disks to secondary region
 
-If you enable cross-region restore on the vault with which you've protected your VMs, the backup data is replicated to the secondary region. You can use the backup data to perform a restore operation.
+The backup data replicates to the secondary region when you enable cross-region restore on the vault you've protected your VMs. You can use the backup data to perform a restore operation.
 
 To restore disks to the secondary region, use the `--use-secondary-region` flag in the [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks) command. Ensure that you specify a target storage account that's located in the secondary region.
 
@@ -138,10 +138,10 @@ az backup restore restore-disks \
 Cross-zonal restore is supported only in scenarios where:
 
 - The source VM is zone pinned and is NOT encrypted.
-- The recovery point is present in vault tier only (Snapshots only or snapshot and vault tier are not supported).
-- The recovery option is to create a new VM or to restore disks (replace disks option replaces source data and therefore, the availability zone option is not applicable).
-- Creating VM/disks in the same region when vault's storage redundancy is ZRS (doesn't work when vault's storage redundancy is GRS even though the source VM is zone pinned).
-- Creating VM/disks in the paired region when vault's storage redundancy is enabled for Cross-Region-Restore, and if the paired region supports zones.
+- The recovery point is present in vault tier only. Snapshots only or snapshot and vault tier are not supported.
+- The recovery option is to create a new VM or restore disks. Replace disks option replaces source data; therefore, the availability zone option is not applicable.
+- Creating VM/disks in the same region when vault's storage redundancy is ZRS. Note that it doesn't work if vault's storage redundancy is GRS, even though the source VM is zone pinned.
+- Creating VM/disks in the paired region when vault's storage redundancy is enabled for Cross-Region Restore and if the paired region supports zones.
 
 ### Unmanaged disks restore
 

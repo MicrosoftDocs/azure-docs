@@ -533,7 +533,7 @@ $details = Get-AzRecoveryServicesBackupJobDetail -Job $restorejob -VaultId $targ
 
 Azure Backup also allows you to use managed identity (MSI) during restore operation to access storage accounts where disks have to be restored to. This option is currently supported only for managed disk restore.
 
-If you wish to use the vault's system assigned managed identity to restore disks, pass an additional flag ***-UseSystemAssignedIdentity*** to the Restore-AzRecoveryServicesBackupItem command. If you wish to use a user-assigned managed identity, pass a parameter ***-UserAssignedIdentityId*** with the ARM id of the vault's managed identity as the value of the parameter. Refer to [this article](encryption-at-rest-with-cmk.md#enable-managed-identity-for-your-recovery-services-vault) to learn how to enable managed identity for your vaults. 
+If you wish to use the vault's system assigned managed identity to restore disks, pass an additional flag ***-UseSystemAssignedIdentity*** to the Restore-AzRecoveryServicesBackupItem command. If you wish to use a user-assigned managed identity, pass a parameter ***-UserAssignedIdentityId*** with the Azure Resource Manager ID of the vault's managed identity as the value of the parameter. Refer to [this article](encryption-at-rest-with-cmk.md#enable-managed-identity-for-your-recovery-services-vault) to learn how to enable managed identity for your vaults. 
 
 #### Restore selective disks
 
@@ -611,10 +611,10 @@ zonevmeus2       Restore              InProgress           1/3/2022 10:27:20 AM 
 Cross-zonal restore is supported only in scenarios where:
 
 - The source VM is zone pinned and is NOT encrypted.
-- The recovery point is present in vault tier only (Snapshots only or snapshot and vault tier are not supported).
-- The recovery option is to create a new VM or to restore disks (replace disks option replaces source data and hence the availability zone option is not applicable).
-- Creating VM/disks in the same region when vault's storage redundancy is ZRS (doesn't work when vault's storage redundancy is GRS even though the source VM is zone pinned).
-- Creating VM/disks in the paired region when vault's storage redundancy is enabled for Cross-Region-Restore and if the paired region supports zones.
+- The recovery point is present in vault tier only. Snapshots only or snapshot and vault tier are not supported.
+- The recovery option is to create a new VM or restore disks. Replace disks option replaces source data; therefore, the availability zone option is not applicable.
+- Creating VM/disks in the same region when vault's storage redundancy is ZRS. Note that it doesn't work if vault's storage redundancy is GRS, even though the source VM is zone pinned.
+- Creating VM/disks in the paired region when vault's storage redundancy is enabled for Cross-Region Restore and if the paired region supports zones.
 
 ## Replace disks in Azure VM
 
