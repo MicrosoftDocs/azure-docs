@@ -99,7 +99,7 @@ You're only required to specify one field between `titleField`, `prioritizedCont
 
 Similar to [scoring profiles](index-add-scoring-profiles.md), semantic configurations are a part of your [index definition](/rest/api/searchservice/preview-api/create-or-update-index) and can be updated at any time without rebuilding your index. When you issue a query, you'll add the `semanticConfiguration` that specifies which semantic configuration to use for the query.
 
-### [**Azure Portal**](#tab/rest)
+### [**Azure Portal**](#tab/portal)
 
 To create a semantic configuration in the Azure portal,
 
