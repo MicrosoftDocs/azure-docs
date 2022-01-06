@@ -20,7 +20,7 @@ The scheduled running time of VMs doesn't count against the [quota](classroom-la
 Instructors can create, edit, and delete lab schedules within Canvas as in the [Azure Lab Services portal](https://labs.azure.com). For more information on scheduling, see [Creating and managing schedules](how-to-create-schedules-within-canvas.md).
 
 > [!IMPORTANT]
-> Schedules will apply at the course level.  If you have many sections of a course meeting at the same time, consider using [automatic shutdown policies](how-to-configure-auto-shutdown-lab-plans.md) and/or [quota hours](get-started-manage-labs.md#quota-hours).
+> Schedules will apply at the course level.  If you have many sections of a course, consider using [automatic shutdown policies](how-to-configure-auto-shutdown-lab-plans.md) and/or [quota hours](get-started-manage-labs.md#quota-hours).
 
 ## Next steps
 

@@ -18188,7 +18188,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/lab-services/classroom-labs/tutorial-setup-lab.md",
+      "source_path_from_root": "/articles/lab-services/classroom-labs/tutorial-setup-classroom-lab.md",      
       "redirect_url": "/azure/lab-services/tutorial-setup-classroom-lab",
       "redirect_document_id": true
     },

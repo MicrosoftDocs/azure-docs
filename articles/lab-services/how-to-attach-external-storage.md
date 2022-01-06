@@ -30,7 +30,7 @@ Azure Files shares are accessed by using a public or private endpoint. Mount the
 
 If you're using a public endpoint to the Azure Files share, it's important to remember the following:
 
-- The virtual network for the storage account doesn't have to be the connect to the lab virtual network. You can create the file share anytime before the template VM is published.
+- The virtual network for the storage account doesn't have to be connected to the lab virtual network. You can create the file share anytime before the template VM is published.
 - The file share can be accessed from any machine if a user has the storage account key.  
 - Linux students can see the storage account key. Credentials for mounting an Azure Files share are stored in `{file-share-name}.cred` on Linux VMs, and are readable by sudo. Because students are given sudo access by default in Azure Lab Services VMs, they can read the storage account key. If the storage account endpoint is public, students can get access to the file share outside of their student VM. Consider rotating the storage account key after class has ended, and using private file shares.
 
@@ -140,7 +140,7 @@ Keep in mind the following important points:
 - You can set permissions on a directory or file level.
 - You can use current user credentials to authenticate to the file share.
 
-For a public endpoint, the virtual network for the storage account doesn't have to be connect to the lab virtual network. You can create the file share anytime before the template VM is published.
+For a public endpoint, the virtual network for the storage account doesn't have to be connected to the lab virtual network. You can create the file share anytime before the template VM is published.
 
 For a private endpoint:
 

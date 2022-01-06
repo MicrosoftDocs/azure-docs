@@ -52,7 +52,7 @@ Controlling access to the license server is key.  Once the VM is setup access wi
 To use a shared resource, the lab plan must be set up to use advanced networking.  For more information, see [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) In this case, we will be inject lab VM networking resources into the virtual network that holds the shared resource.  
 
 >[!WARNING]
->Advanced network must be enabled during lab plan creation.  It can't be added later.
+>Advanced networking must be enabled during lab plan creation.  It can't be added later.
 
 ## Lab Account (deprecated)
 
