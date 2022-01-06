@@ -410,13 +410,13 @@
               href: how-to-designer-import-data.md
         - name: Access data
           items:
-            - name: Connect to Azure storage (Python)
+            - name: Connect to Azure storage with datastores (Python)
               displayName: blob, get, fileshare, access, mount, download, data lake, datastore
               href: how-to-access-data.md
             - name: Identity-based data access to storage
               displayName: blob, access, data lake, datastore, managed identity
               href: how-to-identity-based-data-access.md
-            - name: Get data from a datastore (Python)
+            - name: Get data from storage with datasets (Python)
               displayName: data, data set, register, access data
               href: how-to-create-register-datasets.md
             - name: Connect to data (UI)
