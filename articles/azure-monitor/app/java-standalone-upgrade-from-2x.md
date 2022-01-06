@@ -31,10 +31,7 @@ or configuring [telemetry processors](./java-standalone-telemetry-processors.md)
 
 ## Multiple applications in a single JVM
 
-Currently, Application Insights Java 3.x only supports a single
-[connection string and role name](./java-standalone-config.md#connection-string-and-role-name)
-per running process. In particular, you can't have multiple tomcat web apps in the same tomcat deployment
-using different connection strings or different role names yet.
+This use case is supported in Application Insights Java 3.x using [Instrumentation keys overrides (preview)](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-standalone-config#instrumentation-keys-overrides-preview).
 
 ## Operation names
 
