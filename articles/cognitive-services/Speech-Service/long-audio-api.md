@@ -438,8 +438,10 @@ The Long audio API is available in multiple regions with unique endpoints.
 
 | Region | Endpoint |
 |--------|----------|
+| Australia East | `https://australiaeast.customvoice.api.speech.microsoft.com` |
 | East US | `https://eastus.customvoice.api.speech.microsoft.com` |
 | India Central | `https://centralindia.customvoice.api.speech.microsoft.com` |
+| South Central US | `https://southcentralus.customvoice.api.speech.microsoft.com` |
 | Southeast Asia | `https://southeastasia.customvoice.api.speech.microsoft.com` |
 | UK South | `https://uksouth.customvoice.api.speech.microsoft.com` |
 | West Europe | `https://westeurope.customvoice.api.speech.microsoft.com` |
