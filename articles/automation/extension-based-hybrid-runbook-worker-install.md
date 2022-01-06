@@ -69,7 +69,7 @@ If you use a proxy server for communication between Azure Automation and machine
  
 ```azurepowershell
 $settings = @{
-    "AutomationAccountURL"  = "https://f3492e73-7de8-4bff-bbba-848c45b57d03.jrds.eap.azure-automation.net/automationAccounts/f3492e73-7de8-4bff-bbba-848c45b57d03";    
+    "AutomationAccountURL"  = "https://<subscription-id>.jrds.eap.azure-automation.net/automationAccounts/<subscription-id>";    
     "ProxySettings" = @{
         "ProxyServer" = "<ipaddress>:<port>";
         "UserName"="test";
@@ -78,16 +78,15 @@ $settings = @{
 $protectedsettings = @{
 "ProxyPassword" = "password";
 };
-$settings = @{ "AutomationAccountURL" = "https://f3492e73-7de8-4bff-bbba-848c45b57d03.jrds.eap.azure-automation.net/automationAccounts/f3492e73-7de8-4bff-bbba-848c45b57d03"; "ProxySettings" = @{ "ProxyServer" = "<ipaddress>:<port>"; "UserName"="test";
 ```
 
 # [Linux](#tab/linux)
 ```
-# $protectedsettings = @{
-#     # "Proxy_URL"="http://username:password@10.0.0.5:808"
-# };
+$protectedsettings = @{
+      "Proxy_URL"="http://username:password@<IP Address>"
+};
 $settings = @{
-    "AutomationAccountURL"  = "https://f3492e73-7de8-4bff-bbba-848c45b57d03.jrds.eap.azure-automation.net/automationAccounts/f3492e73-7de8-4bff-bbba-848c45b57d03";    
+    "AutomationAccountURL"  = "https://<subscription-id>.jrds.eap.azure-automation.net/automationAccounts/<subscription-id>";    
 };
 ```
 ---
