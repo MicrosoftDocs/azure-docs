@@ -10,7 +10,7 @@ ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 02/04/2021
+ms.date: 01/06/2022
 ms.author: terrylan
 
 ---
@@ -267,6 +267,10 @@ The [Azure network infrastructure](/previous-versions/azure/virtual-machines/win
 ![Secure your network (protect)](./media/technical-capabilities/azure-security-technical-capabilities-fig6.png)
 
 If you need basic network level access control (based on IP address and the TCP or UDP protocols), then you can use [Network Security Groups](../../virtual-network/virtual-network-vnet-plan-design-arm.md). A Network Security Group (NSG) is a basic stateful packet filtering firewall and it enables you to control access based on a [5-tuple](https://www.techopedia.com/definition/28190/5-tuple).
+
+[Azure Firewall](../../firewall/overview.md) is a cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection.
+
+Azure Firewall is offered in two SKUs: Standard and Premium. [Azure Firewall Standard](../../firewall/features.md) provides L3-L7 filtering and threat intelligence feeds directly from Microsoft Cyber Security. [Azure Firewall Premium](../../firewall/premium-features.md) provides advanced capabilities include signature-based IDPS to allow rapid detection of attacks by looking for specific patterns.
 
 Azure networking supports the ability to customize the routing behavior for network traffic on your Azure Virtual Networks. You can do this by configuring [User-Defined Routes](../../virtual-network/virtual-networks-udr-overview.md) in Azure.
 

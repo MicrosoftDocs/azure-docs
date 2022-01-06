@@ -12,7 +12,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2021
+ms.date: 01/06/2022
 ms.author: TomSh
 
 ---
@@ -167,6 +167,12 @@ Network access control is the act of limiting connectivity to and from specific 
 #### Network Security Groups
 
 A [Network Security Group (NSG)](../../virtual-network/virtual-network-vnet-plan-design-arm.md#security) is a basic stateful packet filtering firewall and it enables you to control access based on a 5-tuple. NSGs do not provide application layer inspection or authenticated access controls. They can be used to control traffic moving between subnets within an Azure Virtual Network and traffic between an Azure Virtual Network and the Internet.
+
+#### Azure Firewall
+
+[Azure Firewall](../../firewall/overview.md) is a cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection.
+
+Azure Firewall is offered in two SKUs: Standard and Premium. [Azure Firewall Standard](../../firewall/features.md) provides L3-L7 filtering and threat intelligence feeds directly from Microsoft Cyber Security. [Azure Firewall Premium](../../firewall/premium-features.md) provides advanced capabilities include signature-based IDPS to allow rapid detection of attacks by looking for specific patterns.
 
 #### Route Control and Forced Tunneling
 
