@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/19/2021
+ms.date: 08/25/2021
 ms.author: danlep
 
 ---
