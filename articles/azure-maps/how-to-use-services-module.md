@@ -7,7 +7,6 @@ ms.date: 03/25/2019
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: cpendleton
 ms.custom: devx-track-js
 ---
 

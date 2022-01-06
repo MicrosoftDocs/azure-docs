@@ -391,25 +391,31 @@ If the stream contains objects, `Start-AzAutomationRunbook` doesn't handle the O
 Implement a polling logic, and use the [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) cmdlet to retrieve the output. A sample of this logic is defined here:
 
 ```powershell
-$automationAccountName = "ContosoAutomationAccount"
-$runbookName = "ChildRunbookExample"
-$resourceGroupName = "ContosoRG"
+$AutomationAccountName = "ContosoAutomationAccount"
+$RunbookName = "ChildRunbookExample"
+$ResourceGroupName = "ContosoRG"
 
-function IsJobTerminalState([string] $status) {
-    return $status -eq "Completed" -or $status -eq "Failed" -or $status -eq "Stopped" -or $status -eq "Suspended"
+function IsJobTerminalState([string]$Status) {
+  $TerminalStates = @("Completed", "Failed", "Stopped", "Suspended")
+  return $Status -in $TerminalStates
 }
 
-$job = Start-AzAutomationRunbook -AutomationAccountName $automationAccountName -Name $runbookName -ResourceGroupName $resourceGroupName
-$pollingSeconds = 5
-$maxTimeout = 10800
-$waitTime = 0
-while($false -eq (IsJobTerminalState $job.Status) -and $waitTime -lt $maxTimeout) {
-   Start-Sleep -Seconds $pollingSeconds
-   $waitTime += $pollingSeconds
-   $job = $job | Get-AzAutomationJob
+$StartAzAutomationRunbookParameters = @{
+  Name = $RunbookName
+  AutomationAccountName = $AutomationAccountName
+  ResourceGroupName = $ResourceGroupName
+}
+$Job = Start-AzAutomationRunbook @StartAzAutomationRunBookParameters
+$PollingSeconds = 5
+$MaxTimeout = New-TimeSpan -Hours 3 | Select-Object -ExpandProperty TotalSeconds
+$WaitTime = 0
+while((-NOT (IsJobTerminalState $Job.Status) -and $WaitTime -lt $MaxTimeout) {
+   Start-Sleep -Seconds $PollingSeconds
+   $WaitTime += $PollingSeconds
+   $Job = $Job | Get-AzAutomationJob
 }
 
-$job | Get-AzAutomationJobOutput | Get-AzAutomationJobOutputRecord | Select-Object -ExpandProperty Value
+$Job | Get-AzAutomationJobOutput | Get-AzAutomationJobOutputRecord | Select-Object -ExpandProperty Value
 ```
 
 ## <a name="fails-deserialized-object"></a>Scenario: Runbook fails because of deserialized object

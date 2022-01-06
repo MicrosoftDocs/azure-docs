@@ -207,7 +207,7 @@ Alert any time these changes are detected outside of approved change management 
 
 The following are links to useful resources:
 
-* Github Azure AD toolkit - [https://github.com/microsoft/AzureADToolkit](https://github.com/microsoft/AzureADToolkit)
+* GitHub Azure AD toolkit - [https://github.com/microsoft/AzureADToolkit](https://github.com/microsoft/AzureADToolkit)
 
 * Azure Key Vault security overview and security guidance - [Azure Key Vault security overview](../../key-vault/general/security-features.md)
 

@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 11/10/2021
+ms.date: 01/04/2022
 ms.author: victorh
 # Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -83,7 +83,6 @@ Azure Firewall has the following known issues:
 |NAT rules with ports between 64000 and 65535 are unsupported|Azure Firewall allows any port in the 1-65535 range in network and application rules, however NAT rules only support ports in the 1-63999 range.|This is a current limitation.
 |Configuration updates may take five minutes on average|An Azure Firewall configuration update can take three to five minutes on average, and parallel updates aren't supported.|A fix is being investigated.|
 |Azure Firewall uses SNI TLS headers to filter HTTPS and MSSQL traffic|If browser or server software doesn't support the Server Name Indicator (SNI) extension, you can't connect through Azure Firewall.|If browser or server software doesn't support SNI, then you may be able to control the connection using a network rule instead of an application rule. See [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication) for software that supports SNI.|
-|Custom DNS doesn't work with forced tunneling|If force tunneling is enabled, custom DNS doesn't work.|A fix is being investigated.|
 |Start/Stop doesn’t work with a firewall configured in forced-tunnel mode|Start/stop doesn’t work with Azure firewall configured in forced-tunnel mode. Attempting to start Azure Firewall with forced tunneling configured results in the following error:<br><br>*Set-AzFirewall: AzureFirewall FW-xx management IP configuration cannot be added to an existing firewall. Redeploy with a management IP configuration if you want to use forced tunneling support.<br>StatusCode: 400<br>ReasonPhrase: Bad Request*|Under investigation.<br><br>As a workaround, you can delete the existing firewall and create a new one with the same parameters.|
 |Can't add firewall policy tags using the portal or Azure Resource Manager (ARM) templates|Azure Firewall Policy has a patch support limitation that prevents you from adding a tag using the Azure portal or ARM templates. The following  error is generated: *Could not save the tags for the resource*.|A fix is being investigated. Or, you can use the Azure PowerShell cmdlet `Set-AzFirewallPolicy` to update tags.|
 |IPv6 not currently supported|If you add an IPv6 address to a rule, the firewall fails.|Use only IPv4 addresses. IPv6 support is under investigation.|
@@ -93,6 +92,8 @@ Azure Firewall has the following known issues:
 |Adding a DNAT rule to a secured virtual hub with a security provider is not supported.|This results in an asynchronous route for the returning DNAT traffic, which goes to the security provider.|Not supported.|
 | Error encountered when creating more than 2000 rule collections. | The maximal number of NAT/Application or Network rule collections is 2000 (Resource Manager limit). | This is a current limitation. |
 |Unable to see Network Rule Name in Azure Firewall Logs|Azure Firewall network rule log data does not show the Rule name for network traffic.|A feature is being investigated to support this.|
+|XFF header in HTTP/S|XFF headers are overwritten with the original source IP address as seen by the firewall. This is applicable for the following use cases:<br>- HTTP requests<br>- HTTPS requests with TLS termination|A fix is being investigated.|
+| Firewall logs (Resource specific tables - Preview) | Resource specific log queries are in preview mode and aren't currently supported. | A fix is being investigated. |
 
 ## Next steps
 

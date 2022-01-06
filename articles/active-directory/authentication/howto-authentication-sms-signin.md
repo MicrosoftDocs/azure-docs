@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 08/18/2021
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: anjusingh
 
 ms.collection: M365-identity-device-management
@@ -160,8 +160,8 @@ If you receive an error when you try to set a phone number for a user account in
 [concepts-passwordless]: concept-authentication-passwordless.md
 [tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
 [tutorial-sspr]: tutorial-enable-sspr.md
-[rest-enable]: /graph/api/phoneauthenticationmethod-enablesmssignin?tabs=http
-[rest-disable]: /graph/api/phoneauthenticationmethod-disablesmssignin?tabs=http
+[rest-enable]: /graph/api/phoneauthenticationmethod-enablesmssignin
+[rest-disable]: /graph/api/phoneauthenticationmethod-disablesmssignin
 
 <!-- EXTERNAL LINKS -->
 [azure-portal]: https://portal.azure.com

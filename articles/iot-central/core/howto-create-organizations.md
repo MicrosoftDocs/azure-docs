@@ -7,11 +7,14 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 08/20/2021
 ms.topic: how-to
+ms.custom: contperf-fy22q2
 ---
 
 # Manage IoT Central organizations
 
-Organizations let you define a hierarchy that you use to manage which users can see which devices in your IoT Central application. The user's role determines their permissions over the devices they see, and the experiences they can access.
+Organizations let you define a hierarchy that you use to manage which users can see which devices in your IoT Central application. The user's role determines their permissions over the devices they see, and the experiences they can access. Use organizations to implement a multi-tenanted application.
+
+Organizations is an optional feature that gives you more control over the [users and roles](howto-manage-users-roles.md) in your application.
 
 Organizations are hierarchical:
 

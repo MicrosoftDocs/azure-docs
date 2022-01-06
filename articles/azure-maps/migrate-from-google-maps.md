@@ -7,7 +7,6 @@ ms.date: 09/23/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
 ms.custom: 
 ---
 

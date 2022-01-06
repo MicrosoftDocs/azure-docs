@@ -5,7 +5,7 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q2
 ms.date: 8/20/2021
-#Customer intent: "What is Azure Stream Analytics and why should I care? As an IT Pro or developer, how do I use Stream Analytics to perform analytics on data streams?".
+#Customer intent: What is Azure Stream Analytics and why should I care? As an IT Pro or developer, how do I use Stream Analytics to perform analytics on data streams?
 ---
 
 # Welcome to Azure Stream Analytics

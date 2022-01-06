@@ -9,6 +9,7 @@ ms.date: 01/08/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
+ms.devlang: csharp, python
 ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
