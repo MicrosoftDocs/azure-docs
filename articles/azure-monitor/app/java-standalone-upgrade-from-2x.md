@@ -31,7 +31,7 @@ or configuring [telemetry processors](./java-standalone-telemetry-processors.md)
 
 ## Multiple applications in a single JVM
 
-This use case is supported in Application Insights Java 3.x using [Instrumentation keys overrides (preview)](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-standalone-config#instrumentation-keys-overrides-preview).
+This use case is supported in Application Insights Java 3.x using [Instrumentation keys overrides (preview)](./java-standalone-config#instrumentation-keys-overrides-preview).
 
 ## Operation names
 
