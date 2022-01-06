@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Configure F5 BIG-IP Easy Button for Kerberos SSO
 
-In this tutorial, you’ll implement Secure Hybrid Access (SHA) with Single Sign-on (SSO) to Kerberos applications using F5’s BIG-IP Easy Button guided configuration.
+In this tutorial, you'll learn to implement Secure Hybrid Access (SHA) with Single Sign-on (SSO) to Kerberos applications using F5’s BIG-IP Easy Button guided configuration.
 
 Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefits, including:
 
