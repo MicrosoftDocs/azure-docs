@@ -279,5 +279,13 @@ Microsoft Audio Stack requires the reference channel (also known as loopback cha
 * **Windows** - The reference channel is automatically gathered by the Speech SDK if the `SpeakerReferenceChannel::LastChannel` option is provided when creating `AudioProcessingOptions`.
 * **Linux** - ALSA (Advanced Linux Sound Architecture) will need to be configured to provide the reference audio stream as the last channel for the audio input device that will be used. This is in addition to providing the `SpeakerReferenceChannel::LastChannel` option when creating `AudioProcessingOptions`.
 
+## Language and platform support
+
+| Language   | Platform(s)    | Reference docs |
+|------------|----------------|----------------|
+| C++        | Windows, Linux | [C++ docs](/cpp/cognitive-services/speech/) |
+| C#         | Windows, Linux | [C# docs](/dotnet/api/microsoft.cognitiveservices.speech) |
+| Java       | Windows, Linux | [Java docs](/java/api/com.microsoft.cognitiveservices.speech) |
+
 ## Next steps
 [Setup development environment](quickstarts/setup-platform.md)
