@@ -4,7 +4,7 @@ description: How to configure an IoT Edge device to connect to Azure IoT Edge ga
 author: kgremban
 
 ms.author: kgremban
-ms.date: 01/05/2022
+ms.date: 01/06/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -536,7 +536,7 @@ The API proxy module was designed to be customized to handle most common gateway
 
 Leaf devices can be used to integrate the Microsoft Defender for IoT's micro agent with the IoT Edge gateway using leaf device proxying.
 
-**to integrate Microsoft Defender for IoT with IoT Edge using leaf device proxying**:
+**To integrate Microsoft Defender for IoT with IoT Edge using leaf device proxying**:
 
 1. Sign in to the Azure portal.
 
