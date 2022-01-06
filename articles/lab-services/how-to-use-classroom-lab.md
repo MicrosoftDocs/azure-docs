@@ -90,13 +90,13 @@ By default Linux VMs have SSH installed. If connecting *to a Linux VM using SSH*
 The progress bar on the tile shows the number of hours used against the number of [quota hours](how-to-configure-student-usage.md#set-quotas-for-users) assigned to you. This time is the extra time allotted to you in outside of the scheduled time for the lab. The color of the progress bar and the text under the progress bar varies.  Let's cover the scenarios you might see.
 
 - If a class is in progress (within the schedule of the class), progress bar is grayed out to represent quota hours aren't being used.
-    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-class-in-progress.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when VM has been started by a schedule.":::
+    <br/>:::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-class-in-progress.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when VM has been started by a schedule.":::
 - If a quota isn't assigned (zero hours), the text **Available during classes only** is shown in place of the progress bar.
-    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/available-during-class.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when no quota has been assigned.":::
+    <br/>:::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/available-during-class.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when no quota has been assigned.":::
 - If you ran **out of quota**, the color of the progress bar is **red**.
-    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-red-color.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when quota has been used.":::
+    <br/>:::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-red-color.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when quota has been used.":::
 - The color of the progress bar is **blue** when it's outside the scheduled time for the lab and some of the quota time has been used.
-    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when quota has been partially used.":::
+    <br/>:::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when quota has been partially used.":::
 
 ## Next steps
 

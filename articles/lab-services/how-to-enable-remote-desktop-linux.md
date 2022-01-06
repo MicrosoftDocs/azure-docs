@@ -54,8 +54,8 @@ To use RDP, the instructor must:
 This step is needed so Azure Lab Services opens port 3389 for RDP to the Linux VMs.  By default, Linux VMs only have the SSH port opened.
 
 1. During lab creation, the instructor can **Enable Remote Desktop Connection**.  The instructor must **enable** this option to open the port on the Linux VM that is needed for an RDP remote desktop session.  Otherwise, if this option is left **disabled**, only the port for SSH is opened.
-  :::image type="content" source="./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png" alt-text="Screenshot that shows the New lab window with the Enable Remote Desktop Connection option.":::
-2. On the **Enabling Remote Desktop Connection** message box, select **Continue with Remote Desktop**.
+  <br/>:::image type="content" source="./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png" alt-text="Screenshot that shows the New lab window with the Enable Remote Desktop Connection option.":::
+1. On the **Enabling Remote Desktop Connection** message box, select **Continue with Remote Desktop**.
   :::image type="content" source="./media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png" alt-text="Screenshot that shows the Enable Remote Desktop Connection confirmation window.":::
 
 ### Install RDP
