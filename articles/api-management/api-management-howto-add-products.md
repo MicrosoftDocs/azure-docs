@@ -18,6 +18,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create and publish a product
 > * Add an API to the product
+> * Access product APIs
 
 :::image type="content" source="media/api-management-howto-add-products/added-product.png" alt-text="API Management products in portal":::
 
@@ -177,6 +178,7 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Create and publish a product
 > * Add an API to the product
+> * Access product APIs
 
 Advance to the next tutorial:
 
