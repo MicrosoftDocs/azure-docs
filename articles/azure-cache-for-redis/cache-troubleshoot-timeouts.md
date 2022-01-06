@@ -16,7 +16,19 @@ A client operation that doesn't receive a timely response can result in a high l
 This section discusses troubleshooting for latency and timeout issues that occur when connecting to Azure Cache for Redis.
 
 - [Client-side troubleshooting](#client-side-troubleshooting)
+  - [Traffic burst and thread pool configuration](#troubleshoot-azure-cache-for-redis-latency-and-timeouts)
+  - [Large key value](#large-key-value)
+  - [High CPU on client hosts](#high-cpu-on-client-hosts)
+  - [Network bandwidth limitation on client hosts](#network-bandwidth-limitation-on-client-hosts)
+  - [TCP settings for Linux based client applications](#tcp-settings-for-linux-based-client-applications)
+  - [RedisSessionStateProvider retry timeout](#redissessionstateprovider-retry-timeout)
 - [Server-side troubleshooting](#server-side-troubleshooting)
+  - [Server maintenance](#server-maintenance)
+  - [High server load](#high-server-load)
+  - [High memory usage](#high-memory-usage)
+  - [Long running commands](#long-running-commands)
+  - [Network bandwidth limitation](#network-bandwidth-limitation)
+  - [StackExchange.Redis timeout exceptions](#stackexchangeredis-timeout-exceptions)
 
 > [!NOTE]
 > Several of the troubleshooting steps in this guide include instructions to run Redis commands and monitor various performance metrics. For more information and instructions, see the articles in the [Additional information](#additional-information) section.
@@ -118,7 +130,7 @@ To check whether your Azure Cache for Redis had a failover during when timeouts 
 
 For more information on failovers, see [Failover and patching for Azure Cache for Redis](cache-failover.md).
 
-### High Server load
+### High server load
 
 High server load means the Redis server is unable to keep up with the requests, leading to timeouts. The server might be slow to respond and unable to keep up with request rates.
 
@@ -129,7 +141,7 @@ There are several changes you can make to mitigate high server load:
 - Investigate what is causing high server load such as [long-running commands](#long-running-commands), noted below because of high memory pressure.
 - [Scale](cache-how-to-scale.md) out to more shards to distribute load across multiple Redis processes or scale up to a larger cache size with more CPU cores. For more information, see  [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
 
-### High Memory usage
+### High memory usage
 
 This section was moved. For more information, see [High memory usage](cache-troubleshoot-server.md#high-memory-usage).
 
