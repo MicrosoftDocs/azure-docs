@@ -3,7 +3,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: databox   
 ms.topic: include
-ms.date: 01/05/2022
+ms.date: 01/06/2022
 ms.author: alkohli
 ms.custom: contperf-fy22q1
 ---
@@ -19,7 +19,7 @@ Do the following steps in the Azure portal to order a device:
 
    ![Screenshot of Azure Data Box section with Create option called out](media/data-box-order-portal/data-box-import-02.png)
 
-4. Check whether Data Box service is available in your region. Enter or select the following information, and then select **Apply**.<!--CHANGES: Basics tab no longer contains "Data destination". New "Data destination" tab has Data destination, Destination Azure region, Storage account(s), plus Large file share. Adapted Basics tab wasn't shown during presentation.-->
+4. Check whether Data Box service is available in your region. Enter or select the following information, and then select **Apply**.
 
     |Setting  |Value  |
     |---------|---------|
@@ -29,20 +29,26 @@ Do the following steps in the Azure portal to order a device:
     |Source country/region    |    Select the country/region where your data currently resides.         |
     |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, see [region availability for Data Box](../articles/databox/data-box-overview.md#region-availability) or [region availability for Data Box Heavy](../articles/databox/data-box-heavy-overview.md#region-availability).  |
 
+    > [!NOTE]
+    > If the selected source and destination regions cross international country borders, then Data Box and Data Box Heavy won't be available.
+
     [ ![Starting an Azure Data Box import order](media/data-box-order-portal/data-box-import-03.png) ](media/data-box-order-portal/data-box-import-03.png#lightbox)
 
-5. Select the **Data Box** product to order, either Data Box, as shown below, or Data Box Heavy. 
+5. Select the **Data Box** product to order, either Data Box, as shown below, or Data Box Heavy.
+
+    You can't select Data Box or Data Box Heavy if:
+
+    - The source and destination regions that you selected cross international country boundaries.
+
+      To transfer your data across countr/region borders, you can import your data to a destination in the same country/region and then use Azure Import/Export to transfer the data in the Azure cloud.<!--Verify the method. Expenses associated?-->
+
+    - Your Azure subscription doesn't support the Data Box product. In some cases, your subscription might not support a Data Box model in a specific country.<!--Verify: This seems like a Data Box Heavy limitation.-->
 
     [ ![Screenshot showing the screen for selecting an Azure Data Box product. The Select button for Data Box is highlighted.](media/data-box-order-portal/data-box-import-04.png) ](media/data-box-order-portal/data-box-import-04.png#lightbox)
 
     For Data Box, the maximum usable capacity for a single order is 80 TB. For Data Box Heavy, the maximum usable capacity for a single order is 770 TB. You can create multiple orders for larger data sizes.
 
     If you select **Data Box Heavy**, the Data Box team checks device availability in your region. They'll notify you when you can continue with the order.
-
-    <!--PLACEHOLDER FOR UPDATES: If the Data Box product is not available based on your selections on the **Get started** screen, you'll see a message in red. These issues name make a SKU unavailable:
-
-    - Subscription not supported in the SKU (with possible country effect - India).
-    - Can't ship across international country boundaries. (Note work-around.)-->
 
 6. In **Order**, go to the **Basics** tab. Enter or select the following information. Then select **Next: Data destination>**.
 
@@ -56,17 +62,31 @@ Do the following steps in the Azure portal to order a device:
 
 7. On the **Data destination** screen, select the **Data destination** - either storage accounts or managed disks.
 
+    **Using storage accounts:**
+
     If using **storage account(s)** as the storage destination, you see the following screen:
 
-    ![Screenshot of the Data Destination screen for a Data Box order with a Storage Accounts destination. The Data Destination tab, Storage Accounts, and Next: Security button are highlighted.](media/data-box-order-portal/data-box-import-06.png)
+    ![Screenshot of the Data Destination screen for a Data Box order with a Storage Accounts destination. The Storage Accounts destination and the Enable button are highlighted.](media/data-box-order-portal/data-box-import-06.png)
 
-    Based on the specified Azure region, select one or more storage accounts from the filtered list of existing storage accounts. Data Box can be linked with up to 10 storage accounts. You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**.
+    1. Based on the specified Azure region, select one or more storage accounts from the filtered list of existing storage accounts. Data Box can be linked with up to 10 storage accounts. You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**.
 
-   > [!NOTE]
-   > - If you select Azure Premium FileStorage accounts, the provisioned quota on the storage account share will increase to the size of data being copied to the file shares. After the quota is increased, it isn't adjusted again, for example, if for some reason the Data Box can't copy your data.
-   > - This quota is used for billing. After your data is uploaded to the datacenter, you should adjust the quota to meet your needs. For more information, see [Understanding billing](../articles/storage/files/understanding-billing.md).
+    - If you select Azure Premium FileStorage accounts, the provisioned quota on the storage account share will increase to the size of data being copied to the file shares. After the quota is increased, it isn't adjusted again, for example, if for some reason the Data Box can't copy your data.
 
-    Storage accounts with virtual networks are supported. To allow Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings. For more information, see how to [Add Azure Data Box as a trusted service](../articles/storage/common/storage-network-security.md#exceptions).
+      This quota is used for billing. After your data is uploaded to the datacenter, you should adjust the quota to meet your needs. For more information, see [Understanding billing](../articles/storage/files/understanding-billing.md).
+
+    - If you're using a General Purpose v1 or General Purpose v2 storage account, you can enable large file shares to allow data copies of up to 100 TiB per share. If large file shares aren't enabled, a data copy at Azure will fail once the 5 TB standard share limit is reached. 
+    
+      To enable large file shares on your storage accounts, select **Enable**. Then, on the **Enable large file shares** screen:
+
+      - Select the **Enabled** button for each storage account that you want to enable large file shares enabled on.
+      - Select the checkbox indicating that you agree to enable large file shares on the selected storage accounts. The storage account upgrade can't be reversed after you place your order.
+      - Then select **Apply**.
+
+      ![Screenshot of the Enable Large File Shares screen for a Data Box order using storage accounts. The Enabled button, terms checkbox, and Apply button are highlighted.](media/data-box-order-portal/data-box-import-07.png)
+
+    Storage accounts with virtual networks are supported. To allow the Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings. For more information, see how to [Add Azure Data Box as a trusted service](../articles/storage/common/storage-network-security.md#exceptions).
+
+    **Using managed disks:**
 
     If using Data Box to create **Managed disk(s)** from the on-premises virtual hard disks (VHDs), you will also need to provide the following information:
 
@@ -74,12 +94,12 @@ Do the following steps in the Azure portal to order a device:
     |---------|---------|
     |Resource groups     | Create new resource groups if you intend to create managed disks from on-premises VHDs. You can use an existing resource group only if the resource group was created previously when creating a Data Box order for managed disks by the Data Box service. <br> Specify multiple resource groups separated by semi-colons. A maximum of 10 resource groups are supported.|
 
-    ![Screenshot of the Data Destination tab for a Data Box order with a Managed Disks destination. The Data Destination tab, Managed Disks, and Next: Security button are highlighted.](media/data-box-order-portal/data-box-import-07.png)
+    ![Screenshot of the Data Destination tab for a Data Box order with a Managed Disks destination. The Data Destination tab, Managed Disks, and Next: Security button are highlighted.](media/data-box-order-portal/data-box-import-08.png)
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](../articles/databox/data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 
-   > [!NOTE]
-   > If a page blob isn't successfully converted to a managed disk, it stays in the storage account and you're charged for storage.
+    > [!NOTE]
+    > If a page blob isn't successfully converted to a managed disk, it stays in the storage account and you're charged for storage.
 
 8. Select **Next: Security>** to continue.
 
@@ -87,7 +107,7 @@ Do the following steps in the Azure portal to order a device:
 
     All settings on the **Security** screen are optional. If you don't change any settings, the default settings will apply.
 
-    ![Screenshot of the Security tab for a Data Box import Order. The Security tab is highlighted.](media/data-box-order-portal/data-box-import-08.png)
+    ![Screenshot of the Security tab for a Data Box import Order. The Security tab is highlighted.](media/data-box-order-portal/data-box-import-09.png)
 
 9. If you want to use your own customer-managed key to protect the unlock passkey for your new resource, expand **Encryption type**.
 
@@ -230,4 +250,4 @@ Do the following steps in the Azure portal to order a device:
 
 22. Select **Order**. The order takes a few minutes to be created.
 
-    ![Screenshot of the Review Plus Order tab for a Data Box order. The Review Plus Order tab and the Order button are highlighted.](media/data-box-order-portal/data-box-import-09.png)
+    ![Screenshot of the Review Plus Order tab for a Data Box order. The Review Plus Order tab and the Order button are highlighted.](media/data-box-order-portal/data-box-import-10.png)
