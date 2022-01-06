@@ -6,8 +6,8 @@ ms.author: Jubairp
 ms.service: purview
 ms.topic: conceptual
 ms.date: 06/01/2022
-ms.topic: conceptual
 ---
+
 # Business processes for managing data effectively
 
 As data and content has a lifecycle that requires active management (for example, acquisition - processing - disposal) assets in the Purview data catalog need active management in a similar way. "Assets" in the catalog include the technical metadata that describes collection, lineage and scan information. Metadata describing the business structure of data such as glossary, classifications, ownership and usage also needs to be managed. 
@@ -41,7 +41,7 @@ An organization employing Purview should define processes and people structure t
 
 ## Data curator organizational personas
 
-The [Data Curator](https://docs.microsoft.com/azure/purview/catalog-permissions) role in Purview controls read/write permission to assets within a collection group. To support the processes below, the Data Curator role has been granted to separate data governance personas in the organization: 
+The [Data Curator](catalog-permissions.md) role in Purview controls read/write permission to assets within a collection group. To support the processes below, the Data Curator role has been granted to separate data governance personas in the organization: 
 
 Note: The 4 **personas** listed are suggested read/write users, and would all be assigned Data Curator role in Purview. 
 
@@ -67,14 +67,13 @@ This process describes the high-level steps and suggested roles to capture and m
 
 | Process Step | Guidance |
 | ------------ | -------- |
-| 1 | [Purview collections architecture and best practices](https://docs.microsoft.com/azure/purview/concept-best-practices-collections) |  
-| 2 | [How to create and manage collections](https://docs.microsoft.com/azure/purview/how-to-create-and-manage-collections)
-| 3 & 4 | [Understand Purview access and permissions](https://docs.microsoft.com/azure/purview/catalog-permissions)
-| 5 | [Purview connector overview](https://docs.microsoft.com/azure/purview/purview-connector-overview) <br> [Purview private endpoint networking](https://docs.microsoft.com/azure/purview/catalog-private-link) |
-| 6 | [How to manage multi-cloud data sources](https://docs.microsoft.com/azure/purview/manage-data-sources)
-| 7 | [Best practices for scanning data sources in Purview](https://docs.microsoft.com/azure/purview/concept-best-practices-scanning)
-| 8, 9 & 10 | [Use Purview Studio](https://docs.microsoft.com/azure/purview/how-to-search-catalog)  <br>   [Search and Browse the Data Catalog](https://docs.microsoft.com/azure/purview/how-to-search-catalog)
-
+| 1 | [Purview collections architecture and best practices](concept-best-practices-collections.md) |  
+| 2 | [How to create and manage collections](how-to-create-and-manage-collections.md)
+| 3 & 4 | [Understand Purview access and permissions](catalog-permissions.md)
+| 5 | [Purview connector overview](purview-connector-overview.md) <br> [Purview private endpoint networking](catalog-private-link.md) |
+| 6 | [How to manage multi-cloud data sources](manage-data-source.md)
+| 7 | [Best practices for scanning data sources in Purview](concept-best-practices-scanning.md)
+| 8, 9 & 10 | [Search the data catalog](how-to-search-catalog.md)  <br>   [Browse the data catalog](how-to-browse-catalog.md)
 
 ## 2. Glossary and classification maintenance
 
@@ -86,14 +85,14 @@ This process describes the high-level steps and roles to manage and define the b
 
 | Process Step | Guidance |
 | ------------ | -------- |
-| 1 & 2 | [Understand Purview access and permissions](https://docs.microsoft.com/azure/purview/catalog-permissions) |  
-| 3 | [Create custom classifications and classification rules](https://docs.microsoft.com/azure/purview/create-a-custom-classification-and-classification-rule)
-| 4 | [Create a scan rule set](https://docs.microsoft.com/azure/purview/create-a-scan-rule-set)
-| 5 & 6 | [Apply classifications to assets](https://docs.microsoft.com/azure/purview/apply-classifications) 
-| 7 & 8 | [Understand business glossary features](https://docs.microsoft.com/azure/purview/concept-business-glossary#glossary-vs-classification-vs-sensitivity-labels)
-| 9 & 10 | [Create, import and export glossary terms](https://docs.microsoft.com/azure/purview/how-to-create-import-export-glossary)
-| 11 | [Search the Data Catalog](https://docs.microsoft.com/azure/purview/how-to-search-catalog)   
-| 12 & 13 | [Browse the Data Catalog](https://docs.microsoft.com/azure/purview/how-to-browse-catalog)  
+| 1 & 2 | [Understand Purview access and permissions](catalog-permissions.md) |  
+| 3 | [Create custom classifications and classification rules](create-a-custom-classification-and-classification-rule.md)
+| 4 | [Create a scan rule set](create-a-scan-rule-set.md)
+| 5 & 6 | [Apply classifications to assets](apply-classifications.md) 
+| 7 & 8 | [Understand business glossary features](concept-business-glossary.md)
+| 9 & 10 | [Create, import and export glossary terms](how-to-create-import-export-glossary.md)
+| 11 | [Search the Data Catalog](how-to-search-catalog.md)   
+| 12 & 13 | [Browse the Data Catalog](how-to-browse-catalog.md)  
 
 > [!Note]
 > It is not currently possible to edit glossary term attributes (e.g. Status) in bulk using the Purview UI, but it is possible to export the glossary in bulk, edit in Excel and re-import with amendments. 
@@ -108,12 +107,12 @@ This process describes the high-level steps and roles to move assets between col
 
 | Process Step | Guidance |
 | ------------ | -------- |
-| 1 & 2 | [Purview collections architecture and best practice](https://docs.microsoft.com/azure/purview/concept-best-practices-collections) |  
-| 3 | [Quickstart: Create a collection](https://docs.microsoft.com/azure/purview/quickstart-create-collection)
-| 4 | [Understand access and permissions](https://docs.microsoft.com/azure/purview/catalog-permissions)
-| 5 | [How to manage collections](https://docs.microsoft.com/azure/purview/how-to-create-and-manage-collections#add-assets-to-collections) 
-| 6 | [Understand business glossary features](https://docs.microsoft.com/azure/purview/concept-business-glossary#glossary-vs-classification-vs-sensitivity-labels)
-| 7 | [Browse the Purview Catalog](https://docs.microsoft.com/azure/purview/how-to-browse-catalog) 
+| 1 & 2 | [Purview collections architecture and best practice](concept-best-practices-collections.md) |  
+| 3 | [Create a collection](quickstart-create-collection.md)
+| 4 | [Understand access and permissions](catalog-permissions.md)
+| 5 | [How to manage collections](how-to-create-and-manage-collections.md#add-assets-to-collections) 
+| 6 | [Check collection permissions](how-to-create-and-manage-collections.md#prerequisites)
+| 7 | [Browse the Purview Catalog](how-to-browse-catalog.md) 
 
 > [!Note]
 > It is not currently possible to bulk move assets from one collection to another using the Purview portal. 
@@ -130,7 +129,7 @@ Asset Metadata may need to be deleted manually for many reasons:
 
 
 > [!Note]
-> Before deleting assets, please refer to the how-to guide to review considerations: [How to delete assets](https://docs.microsoft.com/azure/purview/catalog-asset-details#prerequisites)
+> Before deleting assets, please refer to the how-to guide to review considerations: [How to delete assets](catalog-asset-details.md#deleting-assets)
 
 :::image type="content" source="media/concept-best-practices/assets-deleting-asset-metadata.png" alt-text="Business Process 2 - Maintaining glossary and classifications"lightbox="media/concept-best-practices/assets-deleting-asset-metadata.png" border="true":::
 
@@ -139,21 +138,16 @@ Asset Metadata may need to be deleted manually for many reasons:
 | Process Step | Guidance |
 | ------------ | -------- |
 | 1 & 2 | Manual steps |  
-| 3 | [Data catalog lineage user guide](https://docs.microsoft.com/azure/purview/catalog-lineage-user-guide)
+| 3 | [Data catalog lineage user guide](catalog-lineage-user-guide.md)
 | 4 | Manual step
-| 5 | [How to view, edit and delete assets](https://docs.microsoft.com/azure/purview/catalog-asset-details#deleting-assets) 
-| 6 | [Scanning best practices](https://docs.microsoft.com/azure/purview/concept-best-practices-scanning)
+| 5 | [How to view, edit and delete assets](catalog-asset-details.md#deleting-assets) 
+| 6 | [Scanning best practices](concept-best-practices-scanning.md)
 
 > [!Note]
 > <li>	Deleting a collection, registered source or scan from Purview does not delete all associated asset metadata. <li>  It is not possible to bulk delete asset metadata using the Purview Portal <li>	Deleting the asset metadata does not delete all associated lineage or other relationship data (for example, glossary or classification assignments) about the asset from the data map. The asset information and relationships will no longer be visible in the portal. 
 
 ## Next steps
-- [Azure Purview accounts architectures and best practices](https://docs.microsoft.com/azure/purview/concept-best-practices-accounts)
-- [Azure Purview collections architectures and best practices](https://docs.microsoft.com/azure/purview/concept-best-practices-collections)
-- [Azure Purview glossary best practices](https://docs.microsoft.com/azure/purview/concept-best-practices-glossary)
-- [Azure Purview classifications best practices](https://docs.microsoft.com/azure/purview/concept-best-practices-classification)
-
-
 - [Azure Purview accounts architectures and best practices](concept-best-practices-accounts.md)
-- [Azure Purview network architecture and best practices](concept-best-practices-network.md)
-- [Credentials for source authentication in Azure Purview](manage-credentials.md)
+- [Azure Purview collections architectures and best practices](concept-best-practices-collections.md)
+- [Azure Purview glossary best practices](concept-best-practices-glossary.md)
+- [Azure Purview classifications best practices](concept-best-practices-classification.md)
