@@ -30,10 +30,10 @@ This topic describes how to:
 
     The **Welcome to Cloud Infrastructure Entitlement Management** screen appears. 
 
-    On the right of the box is a list of steps for you to complete to enable CIEM on your tenant.
+    This screen provides information on how to enable CIEM on your tenant.
 
 3. To provide access to M-CIEM’s first party application, create a service principle that points to M-CIEM’s first party application.
-4. Copy the script on the **Welcome** screen, paste the script into your command line interface (CLI), and run it.
+4. Copy the script on the **Welcome** screen, paste the script into your command-line interface (CLI), and run it.
 5. When the script has run successfully, return to the **Welcome to CIEM** screen and select **Enable CIEM**.
 
     The tenant completes the onboarding process and opens the CIEM Settings dashboard.
@@ -48,7 +48,7 @@ This topic describes how to:
 
     - **Permission Level** – From the drop-down list, select the required Subscription Level.
     - **Controller Status** – From the drop-down list, select the required Controller Status:
-**Enabled for read and write permissions.** or **Disabled for read-only permissions.**
+**Enabled for read and write permissions** or **Disabled for read-only permissions**.
     - Enter your **Azure Subscription IDs**, then select **Next**.
 
 4. In the **M-CIEM Onboarding – Summary** dialog, review the information you’ve added, and then select **View Now & Save**.
@@ -63,7 +63,7 @@ This topic describes how to:
 1. Launch **M-CIEM**.
 2. On the **Data Collections** tab, select **GCP**, and then select **Create Configuration**.
 3. In the **M-CIEM Onboarding – Azure OIDC App Creation** dialog, enter the **OIDC Azure App Name**.
-4. To create the app registration, copy the script in the dialog and run it in your command line interface (CLI).
+4. To create the app registration, copy the script in the dialog and run it in your command-line interface (CLI).
 5. In the** M-CIEM Onboarding – Azure OIDC Account Details & IDP Access** dialog, enter the **GCP Project Name**.
 6. For the rest of the values, accept the default values or change them as required. Then select **Next**.
 7. In the **M-CIEM Onboarding – Summary** dialog, review the information you’ve added, and then select **View Now & Save**.

@@ -273,9 +273,9 @@ The **Groups** dashboard provides a high level overview of group details.
 
 - On the **Usage Analytics** page, select **Groups** from the  drop-down list across the top of the screen. The following components make up the **Groups** dashboard:
 
-    - **Groups** - This section  displays the total number of groups, inactive, and active groups based on the authorization system selected. For more information, see [How to apply filters for groups](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-groups).
-    - **Tasks** - This section  displays the number of tasks granted to groups, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see [How to apply filters to users](cloudknox-product-usage-analytics.md#apply-filters-for-users).
-    - **Resources** - This section  displays how many resources have been accessed by groups based on the authorization system selected. For more information, see [How to apply filters for groups](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-groups).
+    - **Groups** - This section  displays the total number of groups, inactive, and active groups based on the authorization system selected. For more information, see [Apply filters for groups](cloudknox-product-usage-analytics.md#apply-filters-for-groups).
+    - **Tasks** - This section  displays the number of tasks granted to groups, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see [Apply filters for groups](cloudknox-product-usage-analytics.md#apply-filters-for-groups).
+    - **Resources** - This section  displays how many resources have been accessed by groups based on the authorization system selected. For more information, see [Apply filters for active resources](cloudknox-product-usage-analytics.md#apply-filters-for-active-resources).
 
 
 The **Groups** table  displays the privileges assigned,  privileges used, and resources accessed by users.
@@ -542,7 +542,7 @@ The following components make up the **Active Tasks** table:
 
 
 - **No. of Times Task is Performed**: Captures the number of times the task has been performed by all users, groups, etc.
-- **Performed On (Resources)**: The number of resources the task was used on. For more information, see [View usage analytics about active resources](cloudknox-product-usage-analytics.md#iew-usage-analytics-about-active-resources).
+- **Performed On (Resources)**: The number of resources on which the task was used on. For more information, see [View usage analytics about active resources](cloudknox-product-usage-analytics.md#view-usage-analytics-about-active-resources).
 - **Number of Users**: Displays how many tasks are assigned to a particular user, and is broken into the following columns:
     - **Unexecuted**: Captures the number of users that have access to the task but haven't accessed it.
     - **Executed**: Displays how many of the granted tasks the user has accessed.
