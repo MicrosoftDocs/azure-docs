@@ -32,11 +32,9 @@ The vCore-based purchasing model lets you independently choose compute and stora
 
 - Compute resources (the service tier + the number of vCores and the amount of memory + the generation of hardware).
 - The type and amount of data and log storage.
-- Backup storage (RA-GRS).
 
 > [!IMPORTANT]
 > Compute resources, I/O, and data and log storage are charged per database or elastic pool. Backup storage is charged per each database.
-> **Region limitations:** For the current list of supported regions, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). 
 
 ## Service tiers
 
@@ -45,7 +43,7 @@ Two vCore service tiers are available in both Azure SQL Database and Azure SQL M
 - [General purpose](service-tier-general-purpose.md) is a budget-friendly tier designed for most workloads with common performance and availability requirements.
 - [Business critical](service-tier-business-critical.md) tier is designed for performance-sensitive workloads with strict availability requirements.
 
-The [Hyperscale service tier](service-tier-hyperscale.md) is also available for single databases in Azure SQL Database, which is designed for most business workloads, providing highly scalable storage, read scale-out, fast scaling, and fast database restore capabilities.
+The [hyperscale service tier](service-tier-hyperscale.md) is also available for single databases in Azure SQL Database. This service tier is designed for most business workloads, providing highly scalable storage, read scale-out, fast scaling, and fast database restore capabilities.
 
 ## Resource limits
 
@@ -58,14 +56,14 @@ For more information on resource limits, see:
 
 In the vCore-based purchasing model, the compute cost reflects the total compute capacity that is provisioned for the application. Choose the vCore and memory allocation that suits your business needs, and scale up and down as your workload requires. 
 
-Since three additional replicas are automatically allocated in the business critical service tier, the price is approximately 2.7 times higher than it is in the general purpose service tier. Likewise, the higher storage price per GB in the business critical service tier reflects the higher IO limits and lower latency of the SSD storage.
+Since three additional replicas are automatically allocated in the business critical service tier, the price is approximately 2.7 times higher than it is in the general purpose service tier. Likewise, the higher storage price per GB in the business critical service tier reflects the higher IO limits and lower latency of the local SSD storage.
 
 ## Data and log storage
 
 The following factors affect the amount of storage used for data and log files, and apply to general purpose and business critical tiers. 
 
-- Each compute size supports a maximum data size, with a default of 32 GB.
-- When you configure maximum data size, an additional 30 percent of storage is automatically added for log files.
+- Each compute size supports a configurable maximum data size, with a default of 32 GB.
+- When you configure maximum data size, an additional 30 percent of billable storage is automatically added for the log file.
 - You can select any maximum data size between 1 GB and the supported storage size maximum, in 1 GB increments.
 - In the general purpose service tier, `tempdb` uses local SSD storage, and this storage cost is included in the vCore price.
 - In the business critical service tier, `tempdb` shares local SSD storage with data and log files, and `tempdb` storage cost is included in the vCore price.
@@ -79,7 +77,7 @@ To monitor the current allocated and used data storage size in SQL Database, use
 > [!TIP]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md).
 
-## Backups and storage
+## Backup storage
 
 Storage for database backups is allocated to support the [point-in-time restore (PITR)](recovery-using-backups.md) and [long-term retention (LTR)](long-term-retention-overview.md) capabilities of SQL Database and SQL Managed Instance. This storage is separate from data and log file storage, and is billed separately.
 

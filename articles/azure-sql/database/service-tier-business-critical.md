@@ -18,7 +18,7 @@ ms.date: 12/15/2021
 
 Azure SQL Database and Azure SQL Managed Instance are both based on SQL Server database engine architecture that is adjusted for the cloud environment in order to ensure 99.99% availability even in the cases of infrastructure failures. 
 
-This article describes and compares the business critical service tier used by Azure SQL Database and Azure SQL Managed instance. The business critical service tier is best used for OLTP applications with high transaction rate and low IO latency. Offers highest resilience to failures and fast failovers using multiple synchronously updated replicas.
+This article describes and compares the business critical service tier used by Azure SQL Database and Azure SQL Managed instance. The business critical service tier is best used for applications requiring high transaction rate, low IO latency, and high IO throughput. Offers highest resilience to failures and fast failovers using multiple synchronously updated replicas.
 
 ## Overview
 
@@ -34,7 +34,7 @@ Compute and storage is integrated on the single node in the premium model. High 
 
 Both the SQL Server database engine process and underlying .mdf/.ldf files are placed on the same node with locally attached SSD storage providing low latency to your workload. High availability is implemented using technology similar to SQL Server [Always On availability groups](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Every database is a cluster of database nodes with one primary database that is accessible for customer workloads, and a three secondary processes containing copies of data. The primary node constantly pushes changes to the secondary nodes in order to ensure that the data is available on secondary replicas if the primary node fails for any reason. Failover is handled by the SQL Server database engine – one secondary replica becomes the primary node and a new secondary replica is created to ensure there are enough nodes in the cluster. The workload is automatically redirected to the new primary node.
 
-In addition, the business critical cluster has built-in [Read Scale-Out](read-scale-out.md) capability that provides free-of charge built-in read-only node that can be used to run read-only queries (for example reports) that should not affect performance of your primary workload.
+In addition, the business critical cluster has built-in [Read Scale-Out](read-scale-out.md) capability that provides free-of charge built-in read-only replica that can be used to run read-only queries (for example reports) that should not affect performance of your primary workload.
 
 ## When to choose this service tier
 
@@ -42,13 +42,10 @@ The business critical service tier is designed for applications that require low
 
 The key reasons why you should choose business critical service tier instead of general purpose tier are:
 -    **Low I/O latency requirements** – workloads that need a fast response from the storage layer (1-2 milliseconds in average) should use business critical tier. 
--    **Frequent communication between application and database**. Applications that cannot leverage application-layer caching or [request batching](../performance-improve-use-batching.md) and need to send many SQL queries that must be quickly processed are good candidates for the business critical tier.
--    **Large number of updates** – insert, update, and delete operations modify the data pages in memory (dirty page) that must be saved to data files with `CHECKPOINT` operation. Potential database engine process crash or a failover of the database with a large number of dirty pages might increase recovery time in general purpose tier. Use business critical tier if you have a workload that causes many in-memory changes. 
--    **Long running transactions that modify data**. Transactions that are opened for a longer time prevent log file truncation, which might increase log size and number of [Virtual log files (VLF)](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch). High number of VLFs can slow down recovery of database after failover.
 -    **Workload with reporting and analytic queries** that can be redirected to the free-of-charge secondary read-only replica.
 - **Higher resiliency and faster recovery from failures**. In a case of system failure, the database on primary instance will be disabled and one of the secondary replicas will be immediately became new read-write primary database that is ready to process queries. The database engine doesn't need to analyze and redo transactions from the log file and load all data in the memory buffer.
 - **Advanced data corruption protection**. The business critical tier leverages database replicas behind-the-scenes for business continuity purposes, and so the service also then leverages automatic page repair, which is the same technology used for SQL Server database [mirroring and availability groups](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring). In the event that a replica cannot read a page due to a data integrity issue, a fresh copy of the page will be retrieved from another replica, replacing the unreadable page without data loss or customer downtime. This functionality is applicable in general purpose tier if the database has geo-secondary replica.
-- **Higher availability** - The business critical tier in Multi-AZ configuration guarantees 99.995% availability, compared to 99.99% of general purpose tier.
+- **Higher availability** - The business critical tier in Multi-AZ configuration provides resiliency to zonal failures and a higher availability SLA.
 - **Fast geo-recovery** - The business critical tier configured with geo-replication has a guaranteed Recovery Point Objective (RPO) of 5 seconds and Recovery Time Objective (RTO) of 30 seconds for 100% of deployed hours.
  
 ## Compare products

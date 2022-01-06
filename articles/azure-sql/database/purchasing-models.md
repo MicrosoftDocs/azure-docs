@@ -18,7 +18,7 @@ ms.date: 12/15/2021
 
 Azure SQL Database lets you easily purchase a fully managed platform as a service (PaaS) database engine that fits your performance and cost needs. Depending on the deployment model you've chosen for Azure SQL Database, you can select the purchasing model that works for you:
 
-- [Virtual core (vCore)-based purchasing model](service-tiers-sql-database-vcore.md) (recommended). This purchasing model provides a choice between a provisioned compute tier and a serverless compute tier. With the provisioned compute tier, you choose the exact amount of compute resources that are always provisioned for your workload. With the serverless compute tier, you specify the autoscaling of the compute resources over a configurable compute range. With this compute tier, you can also automatically pause and resume the database based on workload activity. The vCore unit price per unit of time is lower in the provisioned compute tier than it is in the serverless compute tier. The [Hyperscale service tier](service-tier-hyperscale.md) is available for single databases that are using the [vCore-based purchasing model](service-tiers-vcore.md).
+- [Virtual core (vCore)-based purchasing model](service-tiers-sql-database-vcore.md) (recommended). This purchasing model provides a choice between a provisioned compute tier and a serverless compute tier. With the provisioned compute tier, you choose the exact amount of compute resources that are always provisioned for your workload. With the serverless compute tier, you specify the autoscaling of the compute resources over a configurable compute range. The serverless compute tier automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns. The vCore unit price per unit of time is lower in the provisioned compute tier than it is in the serverless compute tier. The [Hyperscale service tier](service-tier-hyperscale.md) is available for single databases that are using the [vCore-based purchasing model](service-tiers-vcore.md).
 - [Database transaction unit (DTU)-based purchasing model](service-tiers-dtu.md). This purchasing model provides bundled compute and storage packages balanced for common workloads.
 
 
@@ -49,7 +49,6 @@ The DTU-based purchasing model uses a database transaction unit (DTU) to calcula
 
 In the DTU-based purchasing model, you can choose between the basic, standard, and premium service tiers for Azure SQL Database. Review [DTU service tiers](service-tiers-dtu.md#compare-service-tiers) to learn more. 
 
-If your database consumes more than 300 DTUs, converting to the vCore-based purchasing model might reduce your costs. You can convert by using your API of choice or by using the Azure portal, with no downtime. However, conversion isn't required and isn't done automatically. If the DTU-based purchasing model meets your performance and business requirements, you should continue using it.
 
 To convert from the DTU-based purchasing model to the vCore-based purchasing model, see [Migrate from DTU to vCore](migrate-dtu-to-vcore.md).
 
@@ -78,7 +77,7 @@ In the DTU purchasing model, DTUs are offered in preconfigured bundles of comput
 
 ### vCore compute costs 
 
-In the vCore-based purchasing model, the compute cost reflects the total compute capacity that is provisioned for the application. Choose the vCore and memory allocation that suits your business needs, and scale up and down as your workload requires. 
+In the vCore-based purchasing model, the compute cost reflects the total compute capacity that is provisioned for the application. Choose the resource allocation that suits your application, and scale up and down as your workload requires. 
 
 Since three additional replicas are automatically allocated in the business critical service tier, the price is approximately 2.7 times higher than it is in the general purpose service tier. Likewise, the higher storage price per GB in the business critical service tier reflects the higher IO limits and lower latency of the SSD storage.
 
@@ -96,7 +95,7 @@ Since storage is included in the price of the DTU, the price of the DTU reflects
 
 Different types of storage are billed differently. For data storage, you're charged for the provisioned storage based upon the maximum database or pool size you select. The cost doesn't change unless you reduce or increase that maximum. Backup storage is associated with automated backups of your instance and is allocated dynamically. Increasing your backup-retention period increases the backup storage that's consumed by your instance.
 
-By default, seven days of automated backups of your databases are copied to a read-access geo-redundant storage (RA-GRS) standard Blob storage account. This storage is used by weekly full backups, daily differential backups, and transaction log backups, which are copied every five minutes. The size of the transaction logs depends on the rate of change of the database. A minimum storage amount equal to 100 percent of the database size is provided at no extra charge. Additional consumption of backup storage is charged in GB per month.
+By default, seven days of automated backups of your databases are copied to a storage account. This storage is used by full backups, differential backups, and transaction log backups. The size of differential and transaction log backups depends on the rate of change of the database. A minimum storage amount equal to 100 percent of the maximum data size for the database is provided at no extra charge. Additional consumption of backup storage is charged in GB per month.
 
 The cost of backup storage is the same for the business critical service tier and the general purpose service tier because both tiers use standard storage for backups.
 
