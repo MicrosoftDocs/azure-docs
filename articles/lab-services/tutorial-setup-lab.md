@@ -207,4 +207,4 @@ For more information about adding students to a class and managing their usage o
 In this tutorial, you created a lab for your class in Azure. To learn how a student can access a VM in the lab using the registration link, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Connect to a VM in the lab](tutorial-connect-virtual-machine-classroom-lab.md)
+> [Connect to a VM in the lab](tutorial-connect-lab-virtual-machine.md)

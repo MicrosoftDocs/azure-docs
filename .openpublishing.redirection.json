@@ -18184,7 +18184,7 @@
     },
     {
       "source_path_from_root": "/articles/lab-services/classroom-labs/tutorial-connect-virtual-machine-classroom-lab.md",
-      "redirect_url": "/azure/lab-services/tutorial-connect-virtual-machine-classroom-lab",
+      "redirect_url": "/azure/lab-services/tutorial-connect-lab-virtual-machine",
       "redirect_document_id": true
     },
     {
@@ -45531,6 +45531,12 @@
     {
       "source_path_from_root": "/articles/lab-services/tutorial-setup-classroom-lab.md",
       "redirect_url": "/azure/lab-services/tutorial-setup-lab",
+      "redirect_document_id": false
+    }
+    ,
+    {
+      "source_path_from_root": "/articles/lab-services/tutorial-connect-virtual-machine-lab.md",
+      "redirect_url": "/azure/lab-services/tutorial-connect-lab-virtual-machine",
       "redirect_document_id": false
     }
   ]

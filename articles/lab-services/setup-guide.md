@@ -146,4 +146,4 @@ After you understand the requirements for your class's lab, you're ready to set 
 As part of managing your labs, see the following articles:
 
 - [Track lab usage](tutorial-track-usage.md)  
-- [Access a lab](tutorial-connect-virtual-machine-classroom-lab.md)
+- [Access a lab](tutorial-connect-lab-virtual-machine.md)

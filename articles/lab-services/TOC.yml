@@ -17,7 +17,7 @@
   - name: Set up a lab
     href: tutorial-setup-lab.md 
   - name: Access a lab
-    href: tutorial-connect-virtual-machine-classroom-lab.md
+    href: tutorial-connect-lab-virtual-machine.md
   - name: Track usage of a lab
     href: tutorial-track-usage.md
   - name: Set up a lab account (deprecated)
