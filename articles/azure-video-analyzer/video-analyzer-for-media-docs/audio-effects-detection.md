@@ -12,9 +12,9 @@ ms.author: juliako
 
 Some scenarios where this feature is useful:
 
-1. Companies with a large set of video archives can easily improve accessibility. For example, to provide more context for people who are hard of hearing, enhance a video transcription with non-speech effects.
-1. In the Media & Entertainment domain, improve efficiency when creating raw data for content creators. For example, identify important moments in promos and trailers (such as laughter, crowd reactions, gunshot, or explosion) using **audio effects detection**.
-1. In the Public Safety & Justice domain, audio effects detection can detect and classify gunshot or explosion and glass shattering. Therefore, it can be implemented in a smart-city system or in other public environments that include cameras and microphones. Offering a fast and accurate detection of violence incidents. 
+- Companies with a large set of video archives can easily improve accessibility with audio effects detection. The feature provides more context for persons who are hard of hearing, and enhance video transcription with non-speech effects.
+- In the Media & Entertainment domain, the detection feature can improve efficiency when creating raw data for content creators. Important moments in promos and trailers (such as laughter, crowd reactions, gunshot, or explosion) can be identified by using **audio effects detection**.
+- In the Public Safety & Justice domain, the feature can detect and classify gunshots, explosions, and glass shattering. It can be implemented in a smart-city system or in other public environments that include cameras and microphones, which offer fast and accurate detection of violence incidents. 
 
 ## Supported audio categories  
 
