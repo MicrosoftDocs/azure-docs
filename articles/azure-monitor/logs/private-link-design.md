@@ -36,7 +36,7 @@ To avoid this conflict, create only a single AMPLS object per DNS.
 ### Hub-and-spoke networks
 Hub-and-spoke networks should use a single Private Link connection set on the hub (main) network, and not on each spoke VNet. 
 
-![Hub-and-spoke-single-PE](./media/private-link-security/hub-and-spoke-with-single-private-endpoint.png)
+![Hub-and-spoke-single-PE](./media/private-link-security/hub-and-spoke-with-single-private-endpoint-withdce.png)
 
 > [!NOTE]
 > You may intentionally prefer to create separate Private Links for your spoke VNets, for example to allow each VNet to access a limited set of monitoring resources. In such cases, you can create a dedicated Private Endpoint and AMPLS for each VNet, but **must also verify they don't share the same DNS zones in order to avoid DNS overrides**.
@@ -189,11 +189,11 @@ The latest versions of the Windows and Linux agents must be used to support secu
 
 **Azure Monitor Windows agents**
 
-Azure Monitor Windows agent version 1.1.1.0 or higher, along with [Data Collection endpoints](../agents/data-collection-endpoint-overview.md) to configure access over a private network
+Azure Monitor Windows agent version 1.1.1.0 or higher (using [Data Collection endpoints](../agents/data-collection-endpoint-overview.md))
 
 **Azure Monitor Linux agents**
 
-Azure Monitor Windows agent version 1.10.5.0 or higher, along with [Data Collection endpoints](../agents/data-collection-endpoint-overview.md) to configure access over a private network
+Azure Monitor Windows agent version 1.10.5.0 or higher (using [Data Collection endpoints](../agents/data-collection-endpoint-overview.md))
 
 **Log Analytics Windows agent (on deprecation path)**
 
