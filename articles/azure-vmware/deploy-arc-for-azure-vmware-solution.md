@@ -50,7 +50,7 @@ Alternately, users can sign into their Subscription, navigate to the **Resource 
 
 For feature registration, users will need to sign into their **Subscription**, navigate to the **Preview features** tab, and search for "Azure Arc for Azure VMware Solution". Once registered, no other permissions are required for users to access Arc.
 
-Use the following features to verify registration.
+Users need to ensure they've registered themselves to **Microsoft.AVS/earlyAccess**. After registering, use the following features to verify registration.
 
 ```azurecli
 az feature show --name ConnectedVMwarePreview --namespace Microsoft.ConnectedVMwarevSphere 
@@ -60,9 +60,9 @@ az feature show –-name AzureArcForAVS --namespace Microsoft.AVS
 
 ## How to deploy Azure Arc
 
-The steps below guide you through the process to onboard in Arc for Azure VMware Solution preview.
+Use the steps below to guide you through the process to onboard in Arc for Azure VMware Solution preview.
 
-1. Sign into the jumpbox VM and extract the contents from the compressed file from the following [location path](). The extracted file contains the scripts to install the preview software.
+1. Sign in to the jumpbox VM and extract the contents from the compressed file from the following [location path](). The extracted file contains the scripts to install the preview software.
 1. Open the 'config_avs.json' file and populate all the variables.
 
     **Config JSON**
@@ -161,11 +161,11 @@ Once you enable VMs to be managed from Azure, you can proceed to install guest m
 
  **Azure VMware Solution private cloud with Azure Arc**
 
-Once the script has run successfully, you can check the status to see if Azure Arc has been configured. To verify if your private cloud is Arc enabled, click on **Operations > Azure Arc**. Azure Arc state should show as **Configured**.
+When the script has run successfully, you can check the status to see if Azure Arc has been configured. To verify if your private cloud is Arc enabled, click on **Operations > Azure Arc**. Azure Arc state should show as **Configured**.
 
-### Manage access to VMware resources through Azure Role-Based Access Control (RBAC)
+### Manage access to VMware resources through Azure Role-Based Access Control
 
-Once your Azure VMware Solution vCenter resources have been enabled for access through Azure, there's one final step in setting up a self-service experience for your teams. You'll need to provide your teams with access to: compute, storage, networking, and other vCenter resources used to configure VMs.
+After your Azure VMware Solution vCenter resources have been enabled for access through Azure, there's one final step in setting up a self-service experience for your teams. You'll need to provide your teams with access to: compute, storage, networking, and other vCenter resources used to configure VMs.
 
 This section will demonstrate how to use custom roles to manage granular access to VMware resources through Azure.
 
@@ -319,6 +319,8 @@ Copy the JSON above into an empty file and save the file as `AzureArcAVSVMContri
 1. Search for **AAD user** or **group name** that you want to assign this role to.
 1. Select the **AAD user** or **group name**. Repeat this step for each user or group you want to give permission to.
 1. Repeat the above steps for each scope and role.
+
+:::image type="content" source="media/deploy-arc-for-avs/assign-custom-role-user-groups.png" alt-text="Image showing navigation to access control IAM and add role assignment" lightbox="media/media/deploy-arc-for-avs/assign-custom-role-user-groups.png":::
 
 ## Create Arc enabled Azure VMware Solution VM
 
@@ -488,14 +490,15 @@ Use the following tips as your self-help guide.
 **What happens if I face an error related to Azure CLI?**
 
 - In windows jumpbox, if you have 32 bit Azure CLI installed, verify that your current version of Azure CLI has been uninstalled (this can be done from the Control Panel).
-- You can ensure it's uninstalled by tryint 
+- You can ensure it's uninstalled by trying the Azure version to see if it's still installed. 
+- If you already installed Azure CLI using MSI, Azure installed by MSI and pip will will conflict on PATH. In this case, it's recommended that you uninstall the current Azure CLI version.
 
-**What happens if In-case my script stopped with the timed-out?**
+**My script stopped because it timed-out, what should I do?**
 
 - Retry the script for `create`. A prompt will ask you to select **Y** and re-run it.
 - It could be a cluster extension issue that would result in adding the extension in the pending state.
-- Check the helm for the script with the version.
-- Verify that the VMware pod is running correctly on the system in the running state.
+- Verify you have the correct script version.
+- Verify that the VMware pod is running correctly on the system in running state.
 
 **Basic trouble-shooting steps if the script run was unsuccessful.**
 
