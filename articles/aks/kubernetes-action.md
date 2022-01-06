@@ -143,7 +143,7 @@ Before you can deploy to AKS, you'll need to set target Kubernetes namespace and
 ```
 
 
-Complete your deployment with the `azure/k8s-deploy` action. Replace the environment variables with values for your application. 
+Complete your deployment with the `azure/k8s-deploy@v1` action. Replace the environment variables with values for your application. 
 
 ```yaml
 
