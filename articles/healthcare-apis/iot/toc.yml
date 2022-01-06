@@ -26,9 +26,7 @@ items:
       href: device-data-through-iot-hub.md 
 - name: How-to guides
   expanded: true
-  items:
-    - name: Receive device data through Azure IoT Hub
-      href: device-data-through-iot-hub.md 
+  items: 
     - name: Use Device mappings
       expanded: false
       items:

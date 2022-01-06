@@ -16,10 +16,10 @@ items:
       items:
         - name: Using Portal
           href: deploy-dicom-services-in-azure.md
-- name: Tutorials
+- name: How-to guides
   expanded: true
   items:
-  - name: DICOMWeb Standard APIs
+  - name: Access DICOM service
     expanded: true
     items:
     - name: Using DICOMweb Standard APIs with C#
@@ -27,10 +27,7 @@ items:
     - name: Using DICOMweb Standard APIs with cURL
       href: dicomweb-standard-apis-curl.md
     - name: Using DICOMweb Standard APIs with Python
-      href: dicomweb-standard-apis-python.md
-- name: How-to guides
-  expanded: true
-  items:
+      href: dicomweb-standard-apis-python.md   
   - name: Configure settings
     expanded: true
     items:
