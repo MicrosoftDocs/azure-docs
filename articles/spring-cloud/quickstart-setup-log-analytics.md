@@ -27,17 +27,17 @@ Use the following steps to set up your Log Analytics workspace.
 
 #### [Portal](#tab/Azure-Portal)
 
-### Create a Log Analytics Workspace
+## Create a Log Analytics Workspace
 
 To create a workspace, follow the steps in [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
-### Set up Log Analytics for a new service
+## Set up Log Analytics for a new service
 
 In the wizard for creating an Azure Spring Cloud service instance, you can configure the **Log Analytics workspace** field with an existing workspace or create one.
 
 [![Screenshot that shows where to configure diagnostic settings during provisioning.](media/spring-cloud-quickstart-setup-log-analytics/setup-diagnostics-setting.png)](media/spring-cloud-quickstart-setup-log-analytics/setup-diagnostics-setting.png#lightbox)
 
-### Set up Log Analytics for an existing service
+## Set up Log Analytics for an existing service
 
 1. In the Azure portal, go to the **Diagnostic settings** section under **Monitoring**.
 
@@ -57,7 +57,7 @@ In the wizard for creating an Azure Spring Cloud service instance, you can confi
 
 #### [CLI](#tab/Azure-CLI)
 
-### Create a Log Analytics workspace
+## Create a Log Analytics workspace
 
 Use the following commands to create a Log Analytics workspace and get the workspace ID:
 
@@ -78,7 +78,7 @@ az monitor log-analytics workspace show \
      --query id --output tsv
 ```
 
-### Set up Log Analytics for an existing service
+## Set up Log Analytics for an existing service
 
 1. Get the instance ID for the Azure Spring Cloud service:
 
