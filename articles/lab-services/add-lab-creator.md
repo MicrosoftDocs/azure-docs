@@ -48,7 +48,7 @@ For instructions to add someone as a guest account in Azure AD, see [Quickstart:
 Once the user has an Azure AD account, [add the Azure AD user account to Lab Creator role](#add-azure-ad-user-account-to-lab-creator-role).
 
 > [!IMPORTANT]
-> Only lab creators need an account in Azure AD connected to the subscription.  For account requirements for students see [Tutorial: Access a lab in Azure Lab Services](tutorial-connect-virtual-machine-classroom-lab.md).
+> Only lab creators need an account in Azure AD connected to the subscription.  For account requirements for students see [Tutorial: Access a lab in Azure Lab Services](tutorial-connect-lab-virtual-machine.md).
 
 ### Using a non-Microsoft email account
 
@@ -81,4 +81,4 @@ See the following articles:
 - [As a lab owner, create and manage labs](how-to-manage-labs.md)
 - [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
 - [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
-- [As a lab user, access labs](how-to-use-classroom-lab.md)
+- [As a lab user, access labs](how-to-use-lab.md)

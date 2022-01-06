@@ -45,19 +45,19 @@ In this step, you publish the template VM. When you publish the template VM, Azu
 
 1. On the **Template** page, select **Publish** on the toolbar.
 
-    ![Publish template button](./media/tutorial-setup-classroom-lab/template-page-publish-button.png)
+    ![Publish template button](./media/how-to-create-manage-template/template-page-publish-button.png)
 
     > [!WARNING]
     > Once you publish, you can't unpublish.
 2. On the **Publish template** page, enter the number of virtual machines you want to create in the lab, and then select **Publish**.
 
-    ![Publish template - number of VMs](./media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
+    ![Publish template - number of VMs](./media/how-to-create-manage-template/publish-template-number-vms.png)
 3. You see the **status of publishing** the template on page. This process can take up to an hour.
 
-    ![Publish template - progress](./media/tutorial-setup-classroom-lab/publish-template-progress.png)
+    ![Publish template - progress](./media/how-to-create-manage-template/publish-template-progress.png)
 4. Wait until the publishing is complete and then switch to the **Virtual machines pool** page by selecting **Virtual machines** on the left menu or by selecting **Virtual machines** tile. Confirm that you see virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs.
 
-    ![Virtual machines in stopped state](./media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
+    ![Virtual machines in stopped state](./media/how-to-create-manage-template/virtual-machines-stopped.png)
 
 ## Next steps
 
@@ -66,4 +66,4 @@ See the following articles:
 - [As an admin, create and manage lab plans](how-to-manage-lab-plans.md)
 - [As a lab owner, create and manage labs](how-to-manage-labs.md)
 - [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
-- [As a lab user, access labs](how-to-use-classroom-lab.md)
+- [As a lab user, access labs](how-to-use-lab.md)

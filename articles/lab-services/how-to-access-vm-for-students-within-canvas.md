@@ -11,6 +11,8 @@ When a lab is created within [Canvas](https://www.instructure.com/canvas), stude
 
 Students must access their VMs through Canvas.  Their Canvas credentials will be used to log into Azure Lab Services.  
 
+Azure Lab Services supports test users in Canvas and the ability for the instructor to act as another user.
+
 ## Lab unavailable
 
 If the lab hasn't been published or a synced in a while, students may see a message indicating the lab isn't available yet. Educators should [publish](how-to-manage-labs.md#publish-the-lab) and [sync users](how-to-manage-user-lists-within-canvas.md#sync-users) to solve the problem.

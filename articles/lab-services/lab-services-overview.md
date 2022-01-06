@@ -11,7 +11,7 @@ ms.date: 01/04/2022
 
 **Azure Lab Services** lets you create labs whose infrastructure is managed by Azure. The service itself handles all the infrastructure management, from spinning up VMs to handling errors and scaling the infrastructure. After an IT admin creates a lab plan in Azure Lab Services, an instructor can quickly set up a lab for the class.  Instructors specify the number and type of VMs that are needed for exercises in the class, configures the template VM, and add users to the class. Once a user registers to the class, the user can access the VM to do exercises for the class.
 
-To [create a lab](tutorial-setup-classroom-lab.md), you need to [create a lab plan](tutorial-setup-lab-plan.md) for your organization first. The lab plan serves as a collection of configurations and settings that apply to the labs created from it.
+To [create a lab](tutorial-setup-lab.md), you need to [create a lab plan](tutorial-setup-lab-plan.md) for your organization first. The lab plan serves as a collection of configurations and settings that apply to the labs created from it.
 
 The service creates and manages resources in internal Microsoft subscriptions. They aren't created in your own Azure subscription, except if using the [advanced networking](how-to-connect-vnet-injection.md) option. The service keeps track of usage of these resources in internal Microsoft subscriptions. This usage is [billed back to your Azure subscription](cost-management-guide.md) that contains the lab plan.
 
@@ -19,9 +19,9 @@ The service creates and manages resources in internal Microsoft subscriptions. T
 
 Azure Lab Services supports the following key capabilities/features:
 
-- **Fast and flexible setup of a lab**. Using Azure Lab Services, lab owners can quickly [set up a lab](tutorial-setup-classroom-lab.md) for their needs. The service takes care of all Azure infrastructure including built-in scaling and resiliency of infrastructure for labs.
+- **Fast and flexible setup of a lab**. Using Azure Lab Services, lab owners can quickly [set up a lab](tutorial-setup-lab.md) for their needs. The service takes care of all Azure infrastructure including built-in scaling and resiliency of infrastructure for labs.
 
-- **Simplified experience for lab users**. Users who are invited to your lab get immediate access to the resources you give them inside your labs. They just need to sign in to see the full list of virtual machines they have access to across multiple labs. They can select a single button to connect to the virtual machines and start working. Users don’t need Azure subscriptions to use the service.  [Lab users can register](how-to-use-classroom-lab.md) to a lab with a registration code and can access the lab anytime to use the lab’s resources.
+- **Simplified experience for lab users**. Users who are invited to your lab get immediate access to the resources you give them inside your labs. They just need to sign in to see the full list of virtual machines they have access to across multiple labs. They can select a single button to connect to the virtual machines and start working. Users don’t need Azure subscriptions to use the service.  [Lab users can register](how-to-use-lab.md) to a lab with a registration code and can access the lab anytime to use the lab’s resources.
 
 - **Cost optimization and analysis**. [Keep your budget in check](cost-management-guide.md) by controlling exactly how many hours your lab users can use the virtual machines. Set up [schedules](get-started-manage-labs.md#schedules) in the lab to allow users to use the virtual machines only during designated time slots. Set up [auto-shutdown policies](how-to-configure-auto-shutdown-lab-plans.md) to avoid unneeded VM usage. Keep track of [individual users’ usage](how-to-manage-classroom-labs.md) and [set limits](get-started-manage-labs.md#quota-hours).
 
@@ -43,4 +43,4 @@ You can set up labs for several types of classes with Azure Lab Services. See th
 See the following tutorials for step-by-step instructions to create a lab plan, and create a lab.
 
 - [Tutorial: setup a lab plan](tutorial-setup-lab-plan.md)
-- [Tutorial: create a lab](tutorial-setup-classroom-lab.md)
+- [Tutorial: create a lab](tutorial-setup-lab.md)

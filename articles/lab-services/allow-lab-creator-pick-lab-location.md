@@ -1,11 +1,11 @@
 ---
-title: Allow lab creator to pick location in Azure Lab Services
+title: Allow lab creator to pick location in Azure Lab Services (deprecated)
 description: This article describes how a lab account administrator can allow lab creators to pick locations for their labs. 
 ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
-# Allow lab creator to pick location for the lab in Azure Lab Services
+# Allow lab creator to pick location for the lab in Azure Lab Services (deprecated)
 
 In Azure Lab Services, a lab account owner can allow lab creators (educators) to pick a location for the lab they create. This location can be different from the location of the lab account. A location is a group of Azure regions. For example, United States location is a group of regions such as East US, West US, and so on.
 
@@ -66,7 +66,7 @@ Earlier, the pricing was based on the VM size that you choose for the lab. Now, 
 See the following articles:
 
 - [Connect your lab's network with a peer virtual network](how-to-connect-peer-virtual-network.md)
-- [Attach a shared image gallery to a lab](how-to-attach-detach-shared-image-gallery.md)
+- [Attach a shared image gallery to a lab](how-to-attach-detach-shared-image-gallery-1.md)
 - [Add a user as a lab owner](how-to-add-user-lab-owner.md)
 - [View firewall settings for a lab](how-to-configure-firewall-settings.md)
 - [Configure other settings for a lab](how-to-configure-lab-accounts.md)

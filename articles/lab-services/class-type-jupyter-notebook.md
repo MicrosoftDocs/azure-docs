@@ -121,11 +121,11 @@ Once you publish the template, each student will have access to a VM that comes 
 
 ### For Windows VMs
 
-If you’ve provided students with Windows VMs, they need to connect to their lab VMs to use Jupyter Notebooks.  To connect to a Windows VM, a student can use a remote desktop connection (RDP). For more information, see [Connect to the VM](how-to-use-classroom-lab.md#connect-to-the-vm).
+If you’ve provided students with Windows VMs, they need to connect to their lab VMs to use Jupyter Notebooks.  To connect to a Windows VM, a student can use a remote desktop connection (RDP). For more information, see [Connect to the VM](how-to-use-lab.md#connect-to-the-vm).
 
 ### For Linux VMs
 
-If you’ve provided students with Linux VMs, students can Access Jupyter Notebooks locally after connecting to the VM. For instructions to SSH or connect using X2Go, see [Connect to the VM](how-to-use-classroom-lab.md#connect-to-the-vm).
+If you’ve provided students with Linux VMs, students can Access Jupyter Notebooks locally after connecting to the VM. For instructions to SSH or connect using X2Go, see [Connect to the VM](how-to-use-lab.md#connect-to-the-vm).
 
 #### SSH tunnel to Jupyter server on the VM
 

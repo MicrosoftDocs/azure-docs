@@ -34,10 +34,10 @@ In this step, you create a lab for your class in Azure Lab Services portal.
 1. Navigate to [Azure Lab Services portal](https://labs.azure.com).
 2. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts.
 3. Select **New lab**.  
-    :::image type="content" source="./media/tutorial-setup-classroom-lab/new-lab-button.png" alt-text="Screenshot of Azure Lab Services portal.  New lab button is highlighted.":::
+    <br>:::image type="content" source="./media/tutorial-setup-lab/new-lab-button.png" alt-text="Screenshot of Azure Lab Services portal.  New lab button is highlighted.":::
 4. In the **New Lab** window, do the following actions:
     1. Specify a **name**, **virtual machine image**, **size**, and **region** for your lab, and select **Next**.  Possibly, you'll need to choose a **lab plan**.  If there's more than one lab plan in the resource group, you'll see a dropdown to choose a lab plan.  If there's only one lab plan in the resource group, this option will be hidden.
-        :::image type="content" source="./media/tutorial-setup-classroom-lab/new-lab-window.png" alt-text="Screenshot of the New lab window for Azure Lab Services.":::
+        :::image type="content" source="./media/tutorial-setup-lab/new-lab-window.png" alt-text="Screenshot of the New lab window for Azure Lab Services.":::
     1. On the **Virtual machine credentials** page, specify default administrator credentials for all VMs in the lab. Specify the **name** and the **password** for the administrator.  By default all the student VMs will have the same password as the one specified here.
 
         > [!IMPORTANT]
@@ -47,23 +47,23 @@ In this step, you create a lab for your class in Azure Lab Services portal.
         > Make a note of non-admin user name and password. They won't be shown again.
     1. If you would like students to set their own password the first time they sign into their VM, uncheck **Use same password for all virtual machines**.  Note, students will have to wait for the password set function to complete before logging in to their VM if **Use same password for all virtual machines** is unchecked. Select **Next**.
 
-        :::image type="content" source="./media/tutorial-setup-classroom-lab/virtual-machine-credentials.png" alt-text="Screenshot that shows the Virtual machine credentials window when creating a new Azure Lab Services lab.":::
+        :::image type="content" source="./media/tutorial-setup-lab/virtual-machine-credentials.png" alt-text="Screenshot that shows the Virtual machine credentials window when creating a new Azure Lab Services lab.":::
 
     1. On the **Lab policies** page, leave default selections and select **Next**.
 
-        :::image type="content" source="./media/tutorial-setup-classroom-lab/quota-for-each-user.png" alt-text="Screenshot of the Lab policy window when creating a new Azure Lab Services lab.":::
+        :::image type="content" source="./media/tutorial-setup-lab/quota-for-each-user.png" alt-text="Screenshot of the Lab policy window when creating a new Azure Lab Services lab.":::
 
     1. On the **Template virtual machine settings** window, leave the selection on **Create a template virtual machine** if you need to make modifications to the template used to create all the student VMs.  If you don't need to make any modifications to the image chosen earlier, choose **Use a virtual machine image without customization**.  Select **Finish**.
 
-        :::image type="content" source="./media/tutorial-setup-classroom-lab/template-virtual-machine-settings.png" alt-text="Screenshot of the Template virtual machine settings windows when creating a new Azure Lab Services lab.":::
+        :::image type="content" source="./media/tutorial-setup-lab/template-virtual-machine-settings.png" alt-text="Screenshot of the Template virtual machine settings windows when creating a new Azure Lab Services lab.":::
 
 5. You should see the following screen that shows the status of the template VM creation.
 
-    :::image type="content" source="./media/tutorial-setup-classroom-lab/create-template-vm-progress.png" alt-text="Screenshot of status of the template VM creation.":::
+    :::image type="content" source="./media/tutorial-setup-lab/create-template-vm-progress.png" alt-text="Screenshot of status of the template VM creation.":::
 6. If **Use a virtual machine image without customization** was selected on the **Template virtual machine settings** window when creating the lab, skip this step.  On the **Template** page, optionally do the following steps:
 
     1. Connect to the template VM by selecting **Start**. If it's a Linux template VM, you choose whether you want to connect using SSH or RDP (if RDP is enabled).
-        :::image type="content" source="./media/tutorial-setup-classroom-lab/start-template-vm.png" alt-text="Screenshot of the template page of an Azure Lab Services lab. Start template button is highlighted.":::
+        :::image type="content" source="./media/tutorial-setup-lab/start-template-vm.png" alt-text="Screenshot of the template page of an Azure Lab Services lab. Start template button is highlighted.":::
     2. Install and configure software required for your class on the template VM.
     3. **Stop** the template VM.
 
@@ -76,22 +76,22 @@ In this step, you publish the lab. When you publish the template VM, Azure Lab S
 
 1. On the **Template** page, select **Publish** on the toolbar.
 
-    :::image type="content" source="./media/tutorial-setup-classroom-lab/template-page-publish-button.png" alt-text="Screenshot of Azure Lab Services template page. The Publish template menu button is highlighted.":::
+    :::image type="content" source="./media/tutorial-setup-lab/template-page-publish-button.png" alt-text="Screenshot of Azure Lab Services template page. The Publish template menu button is highlighted.":::
 
     > [!WARNING]
     > Publishing is an irreversible action!  It can't be undone.
 2. On the **Publish template** page, select **Publish**. Select **OK** when warned that publishing is a permanent action.
 
-    :::image type="content" source="./media/tutorial-setup-classroom-lab/publish-template-number-vms.png" alt-text="Screenshot of confirmation window for publish action of Azure.":::
+    :::image type="content" source="./media/tutorial-setup-lab/publish-template-number-vms.png" alt-text="Screenshot of confirmation window for publish action of Azure.":::
 
 3. You see the **status of publishing** the template on page.
 
-    :::image type="content" source="./media/tutorial-setup-classroom-lab/publish-template-progress.png" alt-text="Screenshot of Azure Lab Services template page.  The publishing action is in progress message is highlighted.":::
+    :::image type="content" source="./media/tutorial-setup-lab/publish-template-progress.png" alt-text="Screenshot of Azure Lab Services template page.  The publishing action is in progress message is highlighted.":::
 
 4. Wait until the publishing is complete.
 5. Select **Virtual machine pool** on the left menu or select **Virtual machines** tile on the dashboard page to see the list of available machines. Confirm that you see virtual machines that are in **Unassigned** state. These VMs aren't assigned to students yet. They should be in **Stopped** state. For more information about managing the virtual machine pool, see [Managing Virtual Machines](get-started-manage-labs.md#managing-virtual-machines).
 
-    :::image type="content" source="./media/tutorial-setup-classroom-lab/virtual-machines-stopped.png" alt-text="Screenshot of virtual machines stopped.  The virtual machine pool menu item is highlighted.":::
+    :::image type="content" source="./media/tutorial-setup-lab/virtual-machines-stopped.png" alt-text="Screenshot of virtual machines stopped.  The virtual machine pool menu item is highlighted.":::
 
     > [!NOTE]
     > When an educator turns on a student VM, quota for the student isn't affected. Quota for a user specifies the number of lab hours available to a student outside of the scheduled class time. For more information on quotas, see [Set quotas for users](how-to-configure-student-usage.md?#set-quotas-for-users).
@@ -195,9 +195,9 @@ A CSV text file is used to store comma-separated (CSV) tabular data (numbers and
 ## Send invitation emails to users
 
 1. Switch to the **Users** view if you aren't on the page already, and select **Invite all** on the toolbar.
-    :::image type="content" source="./media/tutorial-setup-classroom-lab/invite-all-button.png" alt-text="Screenshot of User page in Azure Lab Services.  Invite all button highlighted.":::
+    :::image type="content" source="./media/tutorial-setup-lab/invite-all-button.png" alt-text="Screenshot of User page in Azure Lab Services.  Invite all button highlighted.":::
 1. On the **Send invitation by email** page, enter an optional message, and then select **Send**. The email automatically includes the registration link. You can get this registration link by selecting **... (ellipsis)** on the toolbar, and **Registration link**.
-    :::image type="content" source="./media/tutorial-setup-classroom-lab/send-email.png" alt-text="Screenshot of Send invitation by email windows for Azure Lab Services.":::
+    :::image type="content" source="./media/tutorial-setup-lab/send-email.png" alt-text="Screenshot of Send invitation by email windows for Azure Lab Services.":::
 1. You see the status of **invitation** in the **Users** list. The status should change to **Sending** and then to **Sent on &lt;date&gt;**.
 
 For more information about adding students to a class and managing their usage of the lab, see [How to configure student usage](how-to-configure-student-usage.md).
@@ -207,4 +207,4 @@ For more information about adding students to a class and managing their usage o
 In this tutorial, you created a lab for your class in Azure. To learn how a student can access a VM in the lab using the registration link, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Connect to a VM in the lab](tutorial-connect-virtual-machine-classroom-lab.md)
+> [Connect to a VM in the lab](tutorial-connect-lab-virtual-machine.md)

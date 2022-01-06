@@ -69,7 +69,7 @@ A lab owner (educator) can set/reset the password for VMs at the time of creatin
 
 A lab owner (educator) can set a password for VMs in the lab on the **Virtual machine credentials** page of the lab creation wizard.
 
-![New lab window](./media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
+:::image type="content" source="./media/how-to-set-virtual-machine-passwords/virtual-machine-credentials.png" alt-text="Screenshot of windows the enter credentials for template VM.":::
 
 By enabling/disabling the **Use same password for all virtual machines** option on this page, an educator can choose to use same password for all VMs in the lab or allow students to set passwords for their VMs. By default, this setting is enabled for all Windows and Linux operating system images except Ubuntu. When this setting is disabled, students will be prompted to set a password when they try to connect to the VM for the first time.
 

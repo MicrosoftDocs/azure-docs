@@ -18,7 +18,7 @@ The **disconnect idle virtual machines** has two settings.  Both settings use a 
 - **Detect idle based on user absence**.  Idle detection examines only mouse/keyboard input (user absence).
 - **Detect idle based on user absence and resource usage**. Idle detection examines both mouse/keyboard input (user absence) and disk/CPU usage (resource usage). By selecting resource usage, that is, disk/CPU usage, operations such as long-running queries are accounted for.
 
-With the [January 2022 Updates (preview)](lab-services-whats-new.md), the lab VM will be marked as stopped and billing will discontinue if Azure Lab Services detects that a student has shutdown their VM using the OS shutdown command. [Stopping the VM](how-to-use-classroom-lab.md#start-or-stop-the-vm) using the Azure Lab Services portal is the preferred method to stop a lab VM. There is a delay between detection of the VM being turned off and billing being stopped.
+With the [January 2022 Updates (preview)](lab-services-whats-new.md), the lab VM will be marked as stopped and billing will discontinue if Azure Lab Services detects that a student has shutdown their VM using the OS shutdown command. [Stopping the VM](how-to-use-lab.md#start-or-stop-the-vm) using the Azure Lab Services portal is the preferred method to stop a lab VM. There is a delay between detection of the VM being turned off and billing being stopped.
 
 Review more details about the auto-shutdown features in the [Maximize cost control with auto-shutdown settings](cost-management-guide.md#automatic-shutdown-settings-for-cost-control) section.
 

@@ -106,7 +106,7 @@ The shared image gallery service is an optional resource that you might not need
 
 - **You can upload your own custom images from other environments outside of labs**
 
-    You can [upload custom images other environments outside of the context of labs](how-to-attach-detach-shared-image-gallery-2.md).  For example, you can upload images from your own physical lab environment or from an Azure VM into shared image gallery.  Once an image is imported into the gallery, you can then use the images to create labs.
+    You can [upload custom images other environments outside of the context of labs](how-to-attach-detach-shared-image-gallery.md).  For example, you can upload images from your own physical lab environment or from an Azure VM into shared image gallery.  Once an image is imported into the gallery, you can then use the images to create labs.
 
 To logically group shared images, you can do either of the following methods:
 
@@ -158,7 +158,7 @@ When administrators or Lab Creators create a lab, they can choose from various V
 For information on VM sizes and their cost, see the [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
 
 > [!NOTE]
-> You may not see some of the expected VM sizes in the list when creating a lab. The list is populated based on the current capacity of the lab's location. If the lab plan creator [allows lab creators to pick a location for the lab](allow-lab-creator-pick-lab-location.md), you may try choosing a different location for the lab and see if the VM size is available.
+> You may not see some of the expected VM sizes in the list when creating a lab. The list is populated based on the current capacity of the lab's location.
 
 ## Manage identity
 
@@ -212,7 +212,7 @@ When you're assigning roles, it helps to follow these tips:
 
 - Ordinarily, only administrators should be members of a lab plan Owner or Contributor role. The lab plan might have more than one Owner or Contributor.
 - To give educators the ability to create new labs and manage the labs that they create, you need only assign them the Lab Creator role.
-- To give educators the ability to manage specific labs, but *not* the ability to create new labs, assign them either the Owner or Contributor role for each lab that they'll manage. For example, you might want to allow a professor and a teaching assistant to co-own a lab. For more information, see [Add Owners to a lab](./how-to-add-user-lab-owner.md).
+- To give educators the ability to manage specific labs, but *not* the ability to create new labs, assign them either the Owner or Contributor role for each lab that they'll manage. For example, you might want to allow a professor and a teaching assistant to co-own a lab. 
 
 ## Content filtering
 

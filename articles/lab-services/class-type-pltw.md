@@ -126,7 +126,7 @@ As you follow this recommendation, note the major tasks for setting up a lab:
 
 Students can connect to their lab VMs from Windows computers, Mac, and Chromebook. For instructions, see:
 
-- [Connect from Windows](./how-to-use-classroom-lab.md#connect-to-the-vm)
+- [Connect from Windows](./how-to-use-lab.md#connect-to-the-vm)
 - [Connect from Mac](./connect-virtual-machine-mac-remote-desktop.md)
 - [Connect from Chromebook](./connect-virtual-machine-chromebook-remote-desktop.md)
 
@@ -152,8 +152,8 @@ Let’s cover an example cost estimate for the PLTW classes.  This estimate does
 
 Next steps are common to setting up any lab.
 
-- [Publish the lab](tutorial-setup-classroom-lab.md#publish-the-lab)
+- [Publish the lab](tutorial-setup-lab.md#publish-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
+- [Set a schedule](tutorial-setup-lab.md#set-a-schedule-for-the-lab)
+- [Add users](tutorial-setup-lab.md#add-users-to-the-lab)
 - [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)

@@ -92,7 +92,7 @@ To help with resizing the VHD and converting to a VHDX, you can also use the fol
 
 ## Create a lab
 
-[Create the lab](tutorial-setup-classroom-lab.md) in Lab Services and select the custom image from the shared image gallery.
+[Create the lab](tutorial-setup-lab.md) in Lab Services and select the custom image from the shared image gallery.
 
 If you expanded the disk *after* the OS was installed on the original Hyper-V VM, you might also need to extend the partition in Linux's filesystem to use the unallocated disk space.  Log in to the lab's template VM and follow steps similar to what is shown in [Expand a disk partition and filesystem](../virtual-machines/linux/expand-disks.md#expand-a-disk-partition-and-filesystem).
 

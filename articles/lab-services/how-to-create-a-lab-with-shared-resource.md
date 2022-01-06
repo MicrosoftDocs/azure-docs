@@ -23,7 +23,7 @@ The virtual network for the shared resource must be created before the lab is cr
 
 The shared resource can be software running on a virtual machine or an Azure provided service. The shared resource should be available through private IP address.  By making the shared resource available through private IP only, you limit access to that shared resource.
 
-The diagram also shows a network security group (NSG) which can be used to restrict traffic coming from the student VM.  For example, you can write a security rule that states traffic from the student VM's IP addresses can only access one shared resource and nothing else.  For more information how to set security rules, see [manage network security group](../virtual-network/manage-network-security-group.md#work-with-security-rules). If you want to restrict access to a shared resource to a specific lab, get the IP address for the lab from the [lab settings from the lab account](manage-labs.md#view-labs) and set an inbound rule to allow access only from that IP address.  Don’t forget to allow ports 49152 to 65535 for that IP address.  Optionally you can find the private IP address of the student’s VMs by using the [virtual machine pool page](how-to-set-virtual-machine-passwords.md).
+The diagram also shows a network security group (NSG) which can be used to restrict traffic coming from the student VM.  For example, you can write a security rule that states traffic from the student VM's IP addresses can only access one shared resource and nothing else.  For more information how to set security rules, see [manage network security group](../virtual-network/manage-network-security-group.md#work-with-security-rules). If you want to restrict access to a shared resource to a specific lab, get the IP address for the lab from the [lab settings of the lab](manage-labs.md#view-labs) and set an inbound rule to allow access only from that IP address.  Don’t forget to allow ports 49152 to 65535 for that IP address.  Optionally you can find the private IP address of the student’s VMs by using the [virtual machine pool page](how-to-set-virtual-machine-passwords.md).
 
 If your shared resource is an Azure virtual machine running necessary software, you may have to modify the default firewall rules for the virtual machine.
 
@@ -47,7 +47,14 @@ Controlling access to the license server is key.  Once the VM is setup access wi
 - [Setting up a Network Security Group to restrict access.](../virtual-network/network-security-groups-overview.md)
 - [Setup Bastion to allow secure access to the license server.](https://azure.microsoft.com/services/azure-bastion/)
 
-## Lab Account
+## Lab Plan
+
+To use a shared resource, the lab plan must be set up to use advanced networking.  For more information, see [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) In this case, we will be inject lab VM networking resources into the virtual network that holds the shared resource.  
+
+>[!WARNING]
+>Advanced networking must be enabled during lab plan creation.  It can't be added later.
+
+## Lab Account (deprecated)
 
 To use a shared resource, the lab account must be set up to use a [peered virtual network](how-to-connect-peer-virtual-network.md).  In this case, we will be peering to the virtual network that holds the shared resource.
 
@@ -56,4 +63,4 @@ To use a shared resource, the lab account must be set up to use a [peered virtua
 
 ## Template machine
 
-Once your lab account is peered to the virtual network, the template machine should now have access to the shared resource.  You may have to update the firewall rules, depending on the shared resource being accessed.
+Once your lab plan/lab account is set to use advanced networking, the template machine should now have access to the shared resource.  You may have to update the firewall rules, depending on the shared resource being accessed.

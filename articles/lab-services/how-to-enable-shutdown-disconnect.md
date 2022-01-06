@@ -30,8 +30,7 @@ You can configure the auto-shutdown setting in the [Azure Lab Services](https://
 - When creating a lab (in **Lab policies**), or
 - After the lab is created (in **Settings**)
 
-> [!div class="mx-imgBorder"]
-> ![Configure at the time of lab creation](./media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+:::image type="content" source="./media/how-to-enable-shutdown-disconnect/quota-for-each-user.png" alt-text="Screenshot of Lab policies window for creating a new lab.":::
 
 Make sure to review details about the auto-shutdown in the [Maximize cost control with auto-shutdown settings](cost-management-guide.md#automatic-shutdown-settings-for-cost-control) section.
 

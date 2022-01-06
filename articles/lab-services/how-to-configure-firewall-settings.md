@@ -36,9 +36,6 @@ Now we know the public IP address for the lab.  Inbound and outbound rules can b
 ## Next steps
 See the following articles:
 
-- [Allow lab creator to pick lab location](allow-lab-creator-pick-lab-location.md)
-- [Connect your lab's network with a peer virtual network](how-to-connect-peer-virtual-network.md)
+- [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md)
 - [Attach a shared image gallery to a lab](how-to-attach-detach-shared-image-gallery.md)
-- [Add a user as a lab owner](how-to-add-user-lab-owner.md)
 - [View firewall settings for a lab](how-to-configure-firewall-settings.md)
-- [Configure other settings for a lab](how-to-configure-lab-accounts.md)

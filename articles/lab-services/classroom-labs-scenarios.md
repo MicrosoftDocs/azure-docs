@@ -46,7 +46,7 @@ A template in a lab is a base virtual machine image from which all users’ virt
 
 ## Use VMs in the lab
 
-A student or training attendee registers to the lab, and connects to the VM to do exercises for the course. For details, see [How to access a lab](how-to-use-classroom-lab.md).
+A student or training attendee registers to the lab, and connects to the VM to do exercises for the course. For details, see [How to access a lab](how-to-use-lab.md).
 
 ## Next steps
 

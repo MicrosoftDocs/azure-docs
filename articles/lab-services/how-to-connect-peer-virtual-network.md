@@ -1,11 +1,11 @@
 ---
-title: Connect to a peer network in Azure Lab Services | Microsoft Docs
+title: Connect to a peer network in Azure Lab Services(deprecated) | Microsoft Docs
 description: Learn how to connect your lab network with another network as a peer. For example, connect your on-premises organization/university network with Lab's virtual network in Azure.  
 ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
-# Connect your lab's network with a peer virtual network in Azure Lab Services
+# Connect your lab's network with a peer virtual network in Azure Lab Services (deprecated)
 
 This article provides information about peering your labs network with another network.
 
@@ -74,7 +74,7 @@ Here are some restrictions when specifying the address range that you should kee
 See the following articles:
 
 - [Allow lab creator to pick lab location](allow-lab-creator-pick-lab-location.md)
-- [Attach a shared image gallery to a lab](how-to-attach-detach-shared-image-gallery.md)
+- [Attach a shared image gallery to a lab](how-to-attach-detach-shared-image-gallery-1.md)
 - [Add a user as a lab owner](how-to-add-user-lab-owner.md)
 - [View firewall settings for a lab](how-to-configure-firewall-settings.md)
 - [Configure other settings for a lab](how-to-configure-lab-accounts.md)

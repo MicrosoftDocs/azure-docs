@@ -48,7 +48,7 @@ landingContent:
     - linkListType: tutorial
       links:
         - text: Set up a lab
-          url: tutorial-setup-classroom-lab.md
+          url: tutorial-setup-lab.md
     - linkListType: how-to-guide
       links:
         - text: Create and manage labs
@@ -66,7 +66,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Access a lab
-            url: tutorial-connect-virtual-machine-classroom-lab.md
+            url: tutorial-connect-lab-virtual-machine.md
       - linkListType: how-to-guide
         links:
           - text: Use remote desktop connection for Linux VMs

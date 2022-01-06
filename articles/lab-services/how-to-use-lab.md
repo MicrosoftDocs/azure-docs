@@ -75,7 +75,7 @@ For more information about connecting *to a Linux VM using X2Go*, see [Connect t
 By default Linux VMs have SSH installed. If connecting *to a Linux VM using SSH*, do the following actions:
 
 1. If using Windows client to connect to a Linux VM, first install an ssh client like [PuTTY](https://www.putty.org/) or enable [OpenSSH in Windows](/windows-server/administration/openssh/openssh_install_firstuse).
-1. [Start the VM](how-to-use-classroom-lab.md#start-or-stop-the-vm).
+1. [Start the VM](how-to-use-lab.md#start-or-stop-the-vm).
 1. Once the VM is running, select **Connect**, which will pop up a dialog box that provides the SSH command string, which will look like the following sample:
 
     ```bash
