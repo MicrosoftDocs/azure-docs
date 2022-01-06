@@ -7,7 +7,7 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/10/2021
 ms.custom: devx-track-csharp

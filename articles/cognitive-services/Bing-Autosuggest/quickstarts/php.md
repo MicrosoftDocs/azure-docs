@@ -10,6 +10,7 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
+ms.devlang: php
 ms.custom: mode-api
 ---
 

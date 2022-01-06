@@ -2394,6 +2394,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/aks/kubernetes-dashboard.md",
+      "redirect_url": "/azure/aks/kubernetes-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/egress.md",
+      "redirect_url": "/azure/aks/load-balancer-standard",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/analysis-services/analysis-services-create-model-portal.md",
       "redirect_url": "/azure/analysis-services/analysis-services-overview",
       "redirect_document_id": false
@@ -5911,6 +5921,11 @@
     {
       "source_path_from_root": "/articles/azure-app-configuration/quickstart-azure-function-csharp.md",
       "redirect_url": "/azure/azure-app-configuration/quickstart-azure-functions-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-arc/data/retrieve-the-username-password-for-data-controller.md",
+      "redirect_url": "/azure/azure-arc/data/update-service-principal-credentials",
       "redirect_document_id": false
     },
     {
@@ -17924,8 +17939,8 @@
     },
     {
       "source_path_from_root": "/articles/lab-services/classroom-labs/classroom-labs-overview.md",
-      "redirect_url": "/azure/lab-services/classroom-labs-overview",
-      "redirect_document_id": true
+      "redirect_url": "/azure/lab-services/get-started-manage-labs",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/lab-services/classroom-labs/classroom-labs-scenarios.md",
@@ -22709,6 +22724,286 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-app-type.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-app-type",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-audit.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-audit",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-backup.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-backup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-choose-distribution-column.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-choose-distribution-column",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-colocation.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-colocation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-columnar.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-columnar",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-configuration-options.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-configuration-options",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-connection-pool.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-connection-pool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-distributed-data.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-distributed-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-extensions.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-extensions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-firewall-rules.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-firewall-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-high-availability.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-high-availability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-limits.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-limits",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-maintenance.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-maintenance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-monitoring.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-monitoring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-nodes.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-nodes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-private-access.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-private-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-read-replicas.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-read-replicas",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-reserved-pricing.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-reserved-pricing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-security-overview.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-security-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-ssl-connection-security.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-ssl-connection-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-tiers.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-tiers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-versions.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-versions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-alert-on-metric.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-alert-on-metric",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-compute-quota.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-compute-quota",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-create-users.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-create-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-high-availability.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-high-availability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-logging.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-logging",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-maintenance.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-maintenance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-manage-firewall-using-portal.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-manage-firewall-using-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-modify-distributed-tables.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-modify-distributed-tables",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-monitoring.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-monitoring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-private-access.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-private-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-read-replicas-portal.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-read-replicas-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-restart.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-restart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-restore-portal.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-restore-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-scale-grow.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-scale-grow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-scale-initial.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-scale-initial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-scale-rebalance.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-scale-rebalance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-table-size.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-table-size",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-troubleshoot-common-connection-issues.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-troubleshoot-common-connection-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-troubleshoot-read-only.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-troubleshoot-read-only",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-upgrade.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-upgrade",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-useful-diagnostic-queries.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-useful-diagnostic-queries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/hyperscale-overview.md",
+      "redirect_url": "/azure/postgresql/hyperscale/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/hyperscale-product-updates.md",
+      "redirect_url": "/azure/postgresql/hyperscale/product-updates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/quickstart-create-hyperscale-basic-tier.md",
+      "redirect_url": "/azure/postgresql/hyperscale/quickstart-create-basic-tier",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/quickstart-create-hyperscale-portal.md",
+      "redirect_url": "/azure/postgresql/hyperscale/quickstart-create-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/reference-hyperscale-functions.md",
+      "redirect_url": "/azure/postgresql/hyperscale/reference-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/reference-hyperscale-metadata.md",
+      "redirect_url": "/azure/postgresql/hyperscale/reference-metadata",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/reference-hyperscale-parameters.md",
+      "redirect_url": "/azure/postgresql/hyperscale/reference-parameters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/tutorial-design-database-hyperscale-multi-tenant.md",
+      "redirect_url": "/azure/postgresql/hyperscale/tutorial-design-database-multi-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/tutorial-design-database-hyperscale-realtime.md",
+      "redirect_url": "/azure/postgresql/hyperscale/tutorial-design-database-realtime",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/tutorial-hyperscale-private-access.md",
+      "redirect_url": "/azure/postgresql/hyperscale/tutorial-private-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/tutorial-hyperscale-server-group.md",
+      "redirect_url": "/azure/postgresql/hyperscale/tutorial-server-group",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/tutorial-hyperscale-shard.md",
+      "redirect_url": "/azure/postgresql/hyperscale/tutorial-shard",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/postgresql/policy-samples.md",
       "redirect_url": "/azure/postgresql/policy-reference",
       "redirect_document_id": false
@@ -25611,6 +25906,81 @@
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-cli-reference.md",
       "redirect_url": "/cli/azure/spring-cloud",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/setup-geodr-failover-pool-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/setup-geodr-failover-database-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-restore-database-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/restore-database-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-import-from-bacpac-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/import-from-bacpac-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/auditing-and-threat-detection-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/auditing-threat-detection-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/setup-geodr-and-failover-database-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/setup-geodr-failover-database-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-create-managed-instance-to-failover-group-cli.md",
+      "redirect_url": "/azure/azure-sql/database/az-cli-script-samples-content-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/scripts/transparent-data-encryption-byok-sql-managed-instance-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-managed-instance-restore-geo-backup-cli.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/scripts/restore-geo-backup-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-create-configure-managed-instance-cli.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/scripts/create-configure-managed-instance-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-copy-database-to-new-server-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/copy-database-to-new-server-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-backup-database-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/backup-database-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-add-managed-instance-to-failover-group-cli.md",
+      "redirect_url": "/azure/azure-sql/database/az-cli-script-samples-content-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-auditing-and-threat-detection-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/auditing-threat-detection-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-add-elastic-pool-to-failover-group-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/add-elastic-pool-to-failover-group-cli",
       "redirect_document_id": false
     },
     {
@@ -44493,6 +44863,11 @@
       "redirect_url": "/azure/communication-services/concepts/telephony/port-phone-number",
       "redirect_document_id": false
     },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/pstn-call.md",
+        "redirect_url": "/azure/communication-services/quickstarts/telephony/pstn-call",
+        "redirect_document_id": false
+      },
     {
       "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/concepts.md",
       "redirect_url": "/azure/communication-services/concepts/sms/concepts",

@@ -23,13 +23,13 @@ Playback Technology refers to the specific browser or plugin technology used to 
 
 In order to ensure that your asset is playable on a wide variety of devices, the following tech order is recommended and is the default if: `techOrder: ["azureHtml5JS", "flashSS", "html5FairPlayHLS","silverlightSS", "html5"]` and can be set directly on the `<video>` or programatically in the options:
 
-`<video data-setup='{"techOrder": ["azureHtml5JS", "flashSS", "html5FairPlayHLS, "silverlightSS", "html5"]}`
+`<video data-setup='{"techOrder": ["azureHtml5JS", "flashSS", "html5FairPlayHLS", "silverlightSS", "html5"]}`
 
 or
 
 ```javascript
     amp("vid1", {
-          techOrder: ["azureHtml5JS", "flashSS", "html5FairPlayHLS, "silverlightSS", "html5"]
+          techOrder: ["azureHtml5JS", "flashSS", "html5FairPlayHLS", "silverlightSS", "html5"]
     });
 ```
 

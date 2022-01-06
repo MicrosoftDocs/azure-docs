@@ -15,7 +15,9 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer custom and composed models
 
-Azure Form Recognizer uses advanced machine-learning technology to detect and extract information from document images and return the extracted data in a structured JSON output. With Form Recognizer, you can train standalone custom models or combine custom models to create composed models.
+
+Form Recognizer uses advanced machine-learning technology to detect and extract information from document images and return the extracted data in a structured JSON output. With Form Recognizer, you can train standalone custom models or combine custom models to create composed models.
+
 
 * **Custom models**: By using custom models, you can analyze and extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases.
 * **Composed models**: A composed model is created by taking a collection of custom models and assigning them to a single model that encompasses your form types. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis.
@@ -24,7 +26,8 @@ Azure Form Recognizer uses advanced machine-learning technology to detect and ex
 
 ## What is a custom model?
 
-A custom model is a machine-learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started. Your custom model can be trained with or without labeled datasets.
+
+A custom model is a machine-learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
 
 ## What is a composed model?
 

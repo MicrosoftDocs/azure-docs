@@ -19,7 +19,7 @@ This article highlights capabilities, features, and enhancements recently releas
 
 ## December 2021
 
-This release is published December 16, 2021
+This release is published December 16, 2021.
 
 ### Data controller
 
@@ -34,6 +34,7 @@ This release is published December 16, 2021
 - Edit memory and CPU configuration in Azure portal in directly connected mode
 - Ability to specify a single replica for a business critical instance using Azure CLI or Kubernetes yaml file
 - Updated SQL binaries to latest Azure PaaS-compatible binary version
+- Resolved issue where the point in time restore did not respect the configured time zone
 
 ## November 2021
 

@@ -143,9 +143,9 @@ landingContent:
           - text: Python SDK
             url: "quickstarts/try-v3-python-sdk.md#general-document-model"
           - text: Java SDK
-            url: "quickstarts/try-v3-java-sdk.md#try-it-general-document-model"
+            url: "quickstarts/try-v3-java-sdk.md#general-document-model"
           - text: JavaScript SDK
-            url: "quickstarts/try-v3-javascript-sdk.md#try-it-general-document-model"
+            url: "quickstarts/try-v3-javascript-sdk.md#general-document-model"
           - text: REST API (cURL)
             url: "quickstarts/try-v3-rest-api.md#try-it-general-document-model"
           - text: Form Recognizer Studio

@@ -87,8 +87,6 @@ items:
               href: upload-usage-data.md
         - name: Inventory database instances
           href: view-arc-data-services-inventory-in-azure-portal.md
-        - name: Get data controller username & password
-          href: retrieve-the-username-password-for-data-controller.md
         - name: Update service principal credentials
           href: update-service-principal-credentials.md
     - name: Upgrade
@@ -209,7 +207,7 @@ items:
               href: managed-instance-high-availability.md
             - name: Reserved capacity
               href: reserved-capacity-overview.md
-            - name: Rotate certificates (Active Directory)
+            - name: Rotate certificates
               href: rotate-user-tls-certificate.md
             - name: Delete
               href: delete-managed-instance.md
