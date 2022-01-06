@@ -283,7 +283,7 @@ To disable, the use the [`az hdinsight monitor disable`](/cli/azure/hdinsight/mo
 ```azurecli
 az hdinsight monitor disable --name $cluster --resource-group $resourceGroup
 ```
-## <a name="oms-with-firewall">Prerequisites for clusters behind a firewall</a>
+## <a name="oms-with-firewall"></a>Prerequisites for clusters behind a firewall
 
 To be able to successfully setup Azure Monitor integration with HDInsight, behind a firewall, some customers may need to enable the following endpoints:
 
