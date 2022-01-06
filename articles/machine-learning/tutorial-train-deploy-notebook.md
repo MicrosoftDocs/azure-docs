@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Train and deploy an example in Jupyter Notebook"
 titleSuffix: Azure Machine Learning
-description: Use Azure Machine Learning to train an image classification model with scikit-learn in a cloud-based Python Jupyter Notebook. This tutorial is part one of two. 
+description: Use Azure Machine Learning to train and deploy an image classification model with scikit-learn in a cloud-based Python Jupyter Notebook. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -94,7 +94,7 @@ Before you train a model, you need to understand the data you're using to train 
 * Download the MNIST dataset
 * Display some sample images
 
-You'll use Azure Open Datasets to get the raw MNIST data files. [Azure Open Datasets](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) are curated public datasets that you can use to add scenario-specific features to machine learning solutions for better models. Each dataset has a corresponding class, `MNIST` in this case, to retrieve the data in different ways.
+You'll use Azure Open Datasets to get the raw MNIST data files. Azure Open Datasets are curated public datasets that you can use to add scenario-specific features to machine learning solutions for better models. Each dataset has a corresponding class, `MNIST` in this case, to retrieve the data in different ways.
 
 
 ```python
@@ -288,7 +288,7 @@ service = Model.deploy(
 service.wait_for_deployment(show_output=True)
 ```
 
-The [*scoring script*](score.py) file referenced in the code above can be found in the same folder as this notebook, and has two functions:
+The scoring script file referenced in the code above can be found in the same folder as this notebook, and has two functions:
 
 1. an `init` function that executes once when the service starts - in this function you normally get the model from the registry and set global variables
 1. a `run(data)` function that executes each time a call is made to the service. In this function, you normally format the input data, run a prediction, and output the predicted result.
