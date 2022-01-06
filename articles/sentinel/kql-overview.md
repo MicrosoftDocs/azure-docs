@@ -3,9 +3,8 @@ title: Kusto Query Language in Microsoft Sentinel
 description: This article describes how Kusto Query Language is used in Microsoft Sentinel, and provides some basic familiarity with the language.
 author: yelevin
 ms.author: yelevin
-ms.service: azure-sentinel
-ms.topic: conceptual
-ms.date: 10/19/2021
+ms.topic: tutorial
+ms.date: 01/06/2022
 ---
 
 # Kusto Query Language in Microsoft Sentinel

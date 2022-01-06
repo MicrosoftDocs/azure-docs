@@ -27,6 +27,21 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
+## January 2022
+
+### Kusto Query Language workbook and tutorial
+
+Kusto Query Language is used in Microsoft Sentinel to search, analyze, and visualize data, as the basis for detection rules, workbooks, hunting, and more.
+
+The new **Advanced KQL for Microsoft Sentinel** interactive Workbook is designed to help you improve your Kusto Query Language proficiency by taking a use case-driven approach based on:
+
+- Grouping Kusto Query Language operators/commands by category for easy navigation.
+- Listing the possible tasks a user would perform with Kusto Query Language in Microsoft Sentinel. Each task includes operators used, sample queries and use cases.
+- Compiling a list of existing content found in Microsoft Sentinel (analytics rules, hunting queries, workbooks and so on) to provide additional references specific to the operators you want to learn.
+- Allowing you to execute sample queries on-the-fly, within your own environment or in "LA Demo" - a public [Log Analytics demo environment](https://aka.ms/lademo). Try the sample Kusto Query Language statements in real time without the need to navigate away from the Workbook.
+
+Accompanying the new workbook is an explanatory [blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/advanced-kql-framework-workbook-empowering-you-to-become-kql/ba-p/3033766), as well as a new [introductory tutorial](kql-overview.md) to Kusto Query Language in the Microsoft Sentinel documentation.
+
 ## December 2021
 
 - [IoT OT Threat Monitoring with Defender for IoT solution](#iot-ot-threat-monitoring-with-defender-for-iot-solution-public-preview)
@@ -35,7 +50,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ### IoT OT Threat Monitoring with Defender for IoT solution (Public preview)
 
-The new **IoT OT Threat Monitoring with Defender for IoT** solution available in the [Microsoft Sentinel content hub](sentinel-solutions-catalog.md#microsoft) provides further support for the Microsoft Sentinel integration with Microsoft Defender for IoT, bridging gaps between IT and OT  security challenges, and empowering SOC teams with enhanced abilities to efficiently and effectively detect and respond to OT threats.
+The new **IoT OT Threat Monitoring with Defender for IoT** solution available in the [Microsoft Sentinel content hub](sentinel-solutions-catalog.md#microsoft) provides further support for the Microsoft Sentinel integration with Microsoft Defender for IoT, bridging gaps between IT and OT security challenges, and empowering SOC teams with enhanced abilities to efficiently and effectively detect and respond to OT threats.
 
 For more information, see [Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT](iot-solution.md).
 
