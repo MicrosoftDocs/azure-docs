@@ -3,7 +3,7 @@ title: Archive for What's new in Azure Active Directory? | Microsoft Docs
 description: The What's new release notes in the Overview section of this content set contains 6 months of activity. After 6 months, the items are removed from the main article and put into this archive article.
 services: active-directory
 author: ajburnle
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -2212,7 +2212,7 @@ The Azure AD provisioning service currently operates on a cyclic basis. The serv
 **Service category:** Other  
 **Product capability:** Entitlement Management
  
-A new delegated permission EntitlementManagement.Read.All is now available for use with the Entitlement Management API in Microsoft Graph beta. To find out more about the available APIs, see [Working with the Azure AD entitlement management API](/graph/api/resources/entitlementmanagement-root).
+A new delegated permission EntitlementManagement.Read.All is now available for use with the Entitlement Management API in Microsoft Graph beta. To find out more about the available APIs, see [Working with the Azure AD entitlement management API](/graph/api/resources/entitlementmanagement-overview).
 
 ---
 

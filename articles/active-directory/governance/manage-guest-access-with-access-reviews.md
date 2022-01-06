@@ -4,12 +4,11 @@ description: Manage guest users as members of a group or assigned to an applicat
 services: active-directory
 documentationcenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 4/16/2021

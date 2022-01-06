@@ -81,4 +81,4 @@ This option requires:
 ### Quickstarts
 
 - [Get a phone Number](../../quickstarts/telephony/get-phone-number.md)
-- [Call to Phone](../../quickstarts/voice-video-calling/pstn-call.md)
+- [Call to Phone](../../quickstarts/telephony/pstn-call.md)

@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 12/21/2021
+ms.date: 12/28/2021
 ms.custom: template-how-to
 ---
 
@@ -14,22 +14,26 @@ ms.custom: template-how-to
 
 This article outlines how to register SAP HANA, and how to authenticate and interact with SAP HANA in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
+> [!IMPORTANT]
+> SAP HANA as a source is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Supported capabilities
 
 |**Metadata extraction**|  **Full scan**  |**Incremental scan**|**Scoped scan**|**Classification**|**Access policy**|**Lineage**|
 |---|---|---|---|---|---|---|
 | [Yes](#register)| [Yes](#scan)| No | No | No | No| No |
 
-When scanning SAP HANA source, Purview supports extracting metadata including:
+When scanning SAP HANA source, Purview supports extracting technical metadata including:
 
-   - Server
-   - Database
-   - Schema
-   - Table including its column, foreign key, index, and unique constraint
-   - View including its view column
-   - Stored procedure including its parameter dataset and result set
-   - Function including its parameter dataset
-   - Synonym
+- Server
+- Databases
+- Schemas
+- Tables including the columns, foreign keys, indexes, and unique constraints
+- Views including the columns
+- Stored procedures including the parameter dataset and result set
+- Functions including the parameter dataset
+- Sequences
+- Synonyms
 
 ## Prerequisites
 
@@ -37,7 +41,7 @@ When scanning SAP HANA source, Purview supports extracting metadata including:
 
 * You must have an active [Azure Purview resource](create-catalog-portal.md).
 
-* You need Data Source Administrator or Data Reader permissions to register a source and manage it in Azure Purview Studio. For more information about permissions, see [Access control in Azure Purview](catalog-permissions.md).
+* You need Data Source Administrator and Data Reader permissions to register a source and manage it in Azure Purview Studio. For more information about permissions, see [Access control in Azure Purview](catalog-permissions.md).
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.13.8013.1.
 

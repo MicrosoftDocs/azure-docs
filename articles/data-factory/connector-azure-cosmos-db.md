@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/08/2021
+ms.date: 12/28/2021
 ---
 
 # Copy and transform data in Azure Cosmos DB (SQL API) by using Azure Data Factory
@@ -79,7 +79,8 @@ The Azure Cosmos DB (SQL API) connector supports the following authentication ty
 
 - [Key authentication](#key-authentication)
 - [Service principal authentication](#service-principal-authentication)
-- [Managed identities for Azure resources authentication](#managed-identity)
+- [System-assigned managed identity authentication](#managed-identity)
+- [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
 
 ### Key authentication
 
@@ -219,18 +220,18 @@ You can also store service principal key in Azure Key Vault.
 }
 ```
 
-### <a name="managed-identity"></a> Managed identities for Azure resources authentication
+### <a name="managed-identity"></a> System-assigned managed identity authentication
 
 >[!NOTE]
->Currently, the managed identity authentication is not supported in data flow.
+>Currently, the system-assigned managed identity authentication is not supported in data flow.
 
-A data factory or Synapse pipeline can be associated with a [managed identity for Azure resources](data-factory-service-identity.md), which represents this specific service instance. You can directly use this managed identity for Cosmos DB authentication, similar to using your own service principal. It allows this designated resource to access and copy data to or from your Cosmos DB.
+A data factory or Synapse pipeline can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents this specific service instance. You can directly use this managed identity for Cosmos DB authentication, similar to using your own service principal. It allows this designated resource to access and copy data to or from your Cosmos DB.
 
-To use managed identities for Azure resource authentication, follow these steps.
+To use system-assigned managed identities for Azure resource authentication, follow these steps.
 
-1. [Retrieve the managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the **managed identity object ID** generated along with your service.
+1. [Retrieve the system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the **managed identity object ID** generated along with your service.
 
-2. Grant the managed identity proper permission. See examples on how permission works in Cosmos DB from [Access control lists on files and directories](../cosmos-db/how-to-setup-rbac.md). More specifically, create a role definition, and assign the role to the managed identity.
+2. Grant the system-assigned managed identity proper permission. See examples on how permission works in Cosmos DB from [Access control lists on files and directories](../cosmos-db/how-to-setup-rbac.md). More specifically, create a role definition, and assign the role to the system-assigned managed identity.
 
 These properties are supported for the linked service:
 
@@ -251,6 +252,51 @@ These properties are supported for the linked service:
         "typeProperties": {
             "accountEndpoint": "<account endpoint>",
             "database": "<database name>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+### User-assigned managed identity authentication
+
+>[!NOTE]
+>Currently, the user-assigned managed identity authentication is not supported in data flow.
+
+A data factory or Synapse pipeline can be associated with a [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity), which represents this specific service instance. You can directly use this managed identity for Cosmos DB authentication, similar to using your own service principal. It allows this designated resource to access and copy data to or from your Cosmos DB.
+
+To use user-assigned managed identities for Azure resource authentication, follow these steps.
+
+1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant the user-assigned managed identity proper permission. See examples on how permission works in Cosmos DB from [Access control lists on files and directories](../cosmos-db/how-to-setup-rbac.md). More specifically, create a role definition, and assign the role to the user-assigned managed identity.
+
+2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity.
+
+These properties are supported for the linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to **CosmosDb**. |Yes |
+| accountEndpoint | Specify the account endpoint URL for the Azure Cosmos DB. | Yes |
+| database | Specify the name of the database. | Yes |
+| credentials | Specify the user-assigned managed identity as the credential object. | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
+
+**Example:**
+
+```json
+{
+    "name": "CosmosDbSQLAPILinkedService",
+    "properties": {
+        "type": "CosmosDb",
+        "typeProperties": {
+            "accountEndpoint": "<account endpoint>",
+            "database": "<database name>",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
