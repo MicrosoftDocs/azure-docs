@@ -96,9 +96,31 @@ To access data stored in an Azure SQL Database with a managed identity, you must
 
 After you create a SQL contained user, grant permissions to it by using the [GRANT T-SQL command](/sql/t-sql/statements/grant-object-permissions-transact-sql).
 
-### Deny public network access
+### Secure communication with Azure SQL Database
 
-In Azure SQL Database, the __Deny public network access__ allows you to block public access to the database. We __do not support__ accessing SQL Database if this option is enabled. When using a SQL Database with Azure Machine Learning studio, the data access is always made through the public endpoint for the SQL Database.
+To secure communication between Azure Machine Learning and Azure SQL Database, there are two options. Both options have drawbacks:
+
+# [Allow Azure services and resources](#tab/allowservices)
+
+Setting __Allow Azure services and resources to access this server__ to __ON__ for the SQL server restricts communication to only services and resources within Azure.
+
+> [!WARNING]
+> Enabling this setting __allows all connections from Azure__. Including connections from the subscriptions from other customers. If you enable this option, make sure that your login and user permissions limit access to authorized users only.
+
+For information on enabling this setting, see [IP firewall rules - Azure SQL Database and Synapse Analytics](/azure/azure-sql/database/firewall-configure).
+
+# [Allow IP address range](#tab/allowiprange)
+
+Add the IP addresses used by Azure Machine Learning service to the __Firewalls and virtual networks__ settings for Azure SQL Database. Adding these IP addresses allows communication directly from the Azure Machine Learning service.
+
+> [!WARNING]
+> The IP ranges for the Azure Machine Learning service may change over time. There is no built-in way to automatically update the firewall rules when the IPs change.
+
+To get a list of the IP addresses for Azure Machine Learning, download the [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) and search the file for `AzureMachineLearning.<region>`, where `<region>` is the Azure region that contains your Azure Machine Learning workspace.
+
+To add the IP addresses to your Azure SQL Database, see [IP firewall rules - Azure SQL Database and Synapse Analytics](/azure/azure-sql/database/firewall-configure).
+
+---
 
 ## Next steps
 
