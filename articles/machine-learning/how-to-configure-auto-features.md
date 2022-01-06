@@ -336,9 +336,9 @@ BERT generally runs longer than other featurizers. For better performance, we re
 
 AutoML will distribute BERT training across multiple nodes if they are available (upto a max of eight nodes). This can be done in your `AutoMLConfig` object by setting the `max_concurrent_iterations` parameter to higher than 1. 
 
-## Supported languages for BERT in autoML 
+## Supported languages for BERT in AutoML 
 
-AutoML currently supports around 100 languages and depending on the dataset's language, autoML chooses the appropriate BERT model. For German data, we use the German BERT model. For English, we use the English BERT model. For all other languages, we use the multilingual BERT model.
+AutoML currently supports around 100 languages and depending on the dataset's language, AutoML chooses the appropriate BERT model. For German data, we use the German BERT model. For English, we use the English BERT model. For all other languages, we use the multilingual BERT model.
 
 In the following code, the German BERT model is triggered, since the dataset language is specified to `deu`, the three letter language code for German according to [ISO classification](https://iso639-3.sil.org/code/deu):
 
