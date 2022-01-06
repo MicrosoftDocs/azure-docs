@@ -4,7 +4,7 @@ description: Analyze the usage of your app or add-in after users acquire it from
 ms.localizationpriority: medium
 ms.author: mingshen
 ms.reviewer: dannyevers
-ms.date: 9/13/2021
+ms.date: 1/10/2022
 ---
 
 # View the usage report in Partner Center
@@ -17,8 +17,6 @@ The service level agreement (SLA) for acquisitions data is currently four days.
 
 ## How to view the Usage report
 
-#### [Workspaces view](#tab/workspaces-view)
-
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home). You can use the same username and password you use to manage Office Store products.
 
 1. Select the **Insights** tile.
@@ -27,17 +25,7 @@ The service level agreement (SLA) for acquisitions data is currently four days.
 
 1. In the left-menu, select **Usage**.
 
-#### [Current view](#tab/current-view)
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home). You can use the same username and password you use to manage Office Store products.
-
-1. In the left-nav, select **Office Store** > **Overview** > **Analyze** > **Usage**.
-
----
-
 ## Multiple apps
-
-#### [Workspaces view](#tab/workspaces-view)
 
 As a provider, if you have multiple apps listed on Microsoft AppSource, you can pick the app you want to view the usage for from the list near the upper-left corner of the page.
 
@@ -45,12 +33,6 @@ As a provider, if you have multiple apps listed on Microsoft AppSource, you can 
 
 > [!NOTE]
 > Usage of only one app at a time is displayed on the Usage dashboard.
-
-#### [Current view](#tab/current-view)
-
-As a provider, if you have multiple apps listed on Microsoft AppSource, you can pick an app from a drop-down by selecting the two-directional arrow icon :::image type="content" source="images/usage-bidirec-arrow.png" alt-text="Usage Bidirectional Arrow "::: near top left side of a page. Usage of only one app at a time is displayed on a page.
-
----
 
 ## Time period
 
@@ -77,13 +59,13 @@ The Usage chart (Retention tab) shows DAU/MAU ratio, which is basically the numb
 
 ## Cohort Active Usage (90D)
 
-The Cohort Active Usage (90D) chart shows how a group of users use your app week over week. 
+The Cohort Active Usage (90D) chart shows how a group of users use your app week over week.
 
-The week starts on Monday and ends on Sunday. 
+The week starts on Monday and ends on Sunday.
 
 For example, for the week of June 1, 2020, the Week 1 usage is 5000, meaning 5000 distinct users launched an app successfully in that week. For the same week, if the Week 2 usage is 20%, that means that 1000 out of those 5000 users launched the same app successfully during the week of June 8.
 
-Date filter doesn’t apply to this chart and it always shows cohort usage for 90 days. 
+Date filter doesn’t apply to this chart and it always shows cohort usage for 90 days.
 
 ## Device sessions
 
