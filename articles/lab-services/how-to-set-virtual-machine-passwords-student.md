@@ -23,7 +23,7 @@ If the **Use same password for all virtual machines** option was disabled, when 
 
 ## Reset password later
 
-Student also can set the password by clicking the overflow menu (**vertical three dots**) on the lab tile, and selecting **Reset password**. 
+Student also can set the password by clicking the overflow menu (**vertical three dots**) on the lab tile, and selecting **Reset password**.
 
 ![Reset password later](./media/how-to-set-virtual-machine-passwords/student-set-password-2.png)
 

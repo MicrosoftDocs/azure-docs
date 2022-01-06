@@ -19,7 +19,7 @@ To set up a lab in a lab account, you must be a member of the **Lab Creator** ro
 2. Select **Sign in** and enter your credentials. Select or enter a **user ID** that is a member of the **Lab Creator** role in the lab account, and enter password. Azure Lab Services supports organizational accounts and Microsoft accounts.
 3. Select **New lab**.
 
-    ![Create a lab](./media/tutorial-setup-classroom-lab/new-lab-button.png)
+    ![Create a lab](./media/how-to-manage-classroom-labs/new-lab-button.png)
 4. In the **New Lab** window, do the following actions:
     1. Specify a **name** for your lab.
     1. Select the **size of the virtual machines** you need for the class. For the list of sizes available, see the [VM Sizes](#vm-sizes) section.
@@ -29,7 +29,7 @@ To set up a lab in a lab account, you must be a member of the **Lab Creator** ro
     1. Review the **total price per hour** displayed on the page.
     1. Select **Save**.
 
-        ![Screenshot that shows the New lab window.](./media/tutorial-setup-classroom-lab/new-lab-window.png)
+        ![Screenshot that shows the New lab window.](./media/how-to-manage-classroom-labs/new-lab-window.png)
 
         > [!NOTE]
         > You see an option to select a location for your lab if the lab account was configured to [allow lab creator to pick lab location](allow-lab-creator-pick-lab-location.md) option.
@@ -43,41 +43,41 @@ To set up a lab in a lab account, you must be a member of the **Lab Creator** ro
 
         An educator can choose to use the same password for all the VMs in the lab, or allow students to set passwords for their VMs. By default, this setting is enabled for all Windows and Linux images except for Ubuntu. When you select **Ubuntu** VM, this setting is disabled, so the students will be prompted to set a password when they sign in for the first time.  
 
-        ![New lab window](./media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
+        ![New lab window](./media/how-to-manage-classroom-labs/virtual-machine-credentials.png)
     4. Then, select **Next** on the **Virtual machine credentials** page.
 6. On the **Lab policies** page, do the following steps:
     1. Enter the number of hours allotted for each user (**quota for each user**) outside the scheduled time for the lab.
     2. For the **Auto-shutdown of virtual machines** option, specify whether you want the VM to be automatically shutdown when user disconnects. You can also specify how long the VM should wait for the user to reconnect before automatically shutting down.. For more information, see [Enable automatic shutdown of VMs on disconnect](how-to-enable-shutdown-disconnect.md).
     3. Then, select **Finish**.
 
-        ![Quota for each user](./media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+        ![Quota for each user](./media/how-to-manage-classroom-labs/quota-for-each-user.png)
 
 7. You should see the following screen that shows the status of the template VM creation. The creation of the template in the lab takes up to 20 minutes.
 
-    ![Status of the template VM creation](./media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
+    ![Status of the template VM creation](./media/how-to-manage-classroom-labs/create-template-vm-progress.png)
 8. On the **Template** page, do the following steps: These steps are **optional** for the tutorial.
 
+    1. Start the template VM.
     1. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using SSH or a GUI remote desktop.  Additional setup is required to use a GUI remote desktop. See [Enable graphical remote desktop for Linux virtual machines](how-to-use-remote-desktop-linux-student.md) for more information.
     1. Select **Reset password** to reset the password for the VM. The VM must be running before the reset password button is available.
     1. Install and configure software on your template VM.
     1. **Stop** the VM.  
-    1. Enter a **description** for the template
 
 9. On **Template** page, select **Publish** on the toolbar.
 
-    ![Publish template button](./media/tutorial-setup-classroom-lab/template-page-publish-button.png)
+    ![Publish template button](./media/how-to-manage-classroom-labs/template-page-publish-button.png)
 
     > [!WARNING]
     > Once you publish, you can't unpublish.
 10. On the **Publish template** page, enter the number of virtual machines you want to create in the lab, and then select **Publish**.
 
-    ![Publish template - number of VMs](./media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
+    ![Publish template - number of VMs](./media/how-to-manage-classroom-labs/publish-template-number-vms.png)
 11. You see the **status of publishing** the template on page. This process can take up to an hour.
 
-    ![Publish template - progress](./media/tutorial-setup-classroom-lab/publish-template-progress.png)
+    ![Publish template - progress](./media/how-to-manage-classroom-labs/publish-template-progress.png)
 12. Switch to the **Virtual machines pool** page by selecting Virtual machines on the left menu or by selecting Virtual machines tile. Confirm that you see virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs.
 
-    ![Virtual machines in stopped state](./media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
+    ![Virtual machines in stopped state](./media/how-to-manage-classroom-labs/virtual-machines-stopped.png)
 
     You do the following tasks on this page (don't do these steps for the tutorial. These steps are for your information only.):
 

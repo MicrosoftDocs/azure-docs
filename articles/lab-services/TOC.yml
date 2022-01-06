@@ -173,7 +173,7 @@
       href: instructor-access-virtual-machines.md
     - name: (deprecated)
       items:
-      - name: Create and manage labs
+      - name: Create and manage labs (deprecated)
         href: how-to-manage-classroom-labs.md        
       - name: Create and configure lab accounts (deprecated)
         items:
