@@ -46,7 +46,7 @@ The tutorial applies to the [Azure Lab Services portal](https://labs.azure.com) 
 1. Select the button in the lower right of the tile as shown in the following image to connect to the lab's VM.
     :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/connect-vm.png" alt-text="Screenshot of My virtual machines page in Azure Lab Services portal. Connect VM button is highlighted.":::
 1. Do one of the following steps:
-    1. For **Windows** virtual machines, open the **RDP** file once it has finished downloading. Use the **username** and **password** you get from your educator to sign in to the machine. For more information, see [Connect to the VM](how-to-use-classroom-lab.md#connect-to-the-vm).
+    1. For **Windows** virtual machines, open the **RDP** file once it has finished downloading. Use the **username** and **password** you get from your educator to sign in to the machine. For more information, see [Connect to the VM](how-to-use-lab.md#connect-to-the-vm).
     2. For **Linux** virtual machines, you can use **SSH** or **RDP** (if it's enabled) to connect to them. For more information, see [Connect to Linux virtual machines in a lab](how-to-use-remote-desktop-linux-student.md).
 
 ## Next steps
@@ -54,4 +54,4 @@ The tutorial applies to the [Azure Lab Services portal](https://labs.azure.com) 
 In this tutorial, you accessed a lab using the registration link you got from your educator.  When done with the VM, stop the VM from the Azure Lab Services portal.
 
 >[!div class="nextstepaction"]
->[Stop the VM](how-to-use-classroom-lab.md#start-or-stop-the-vm)
+>[Stop the VM](how-to-use-lab.md#start-or-stop-the-vm)

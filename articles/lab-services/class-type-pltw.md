@@ -126,7 +126,7 @@ As you follow this recommendation, note the major tasks for setting up a lab:
 
 Students can connect to their lab VMs from Windows computers, Mac, and Chromebook. For instructions, see:
 
-- [Connect from Windows](./how-to-use-classroom-lab.md#connect-to-the-vm)
+- [Connect from Windows](./how-to-use-lab.md#connect-to-the-vm)
 - [Connect from Mac](./connect-virtual-machine-mac-remote-desktop.md)
 - [Connect from Chromebook](./connect-virtual-machine-chromebook-remote-desktop.md)
 

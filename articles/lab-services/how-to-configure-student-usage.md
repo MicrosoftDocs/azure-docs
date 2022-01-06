@@ -242,4 +242,4 @@ See the following articles:
 
 - For administrators: [Create and manage lab plans](how-to-manage-lab-plans.md)
 - For lab owners: [Create and manage labs](how-to-manage-labs.md) and [Set up and publish templates](how-to-create-manage-template.md)
-- For lab users: [Access labs](how-to-use-classroom-lab.md)
+- For lab users: [Access labs](how-to-use-lab.md)

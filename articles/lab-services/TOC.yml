@@ -194,7 +194,7 @@
   - name: Connect to VMs in labs (student)
     items:        
     - name: Access labs
-      href: how-to-use-classroom-lab.md
+      href: how-to-use-lab.md
     - name: Connect to Linux VMs
       href: how-to-use-remote-desktop-linux-student.md                
     - name: Connect to a VM from Mac using RDP
