@@ -405,7 +405,7 @@ definitions as `constraintTemplate` is deprecated.
   - An _array_ that includes the
     [kind](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/#required-fields)
     of Kubernetes object to limit evaluation to.
-   - Defining `["*"]` for _kinds_ is disallowed.
+  - Defining `["*"]` for _kinds_ is disallowed.
 - **values** (optional)
   - Defines any parameters and values to pass to the Constraint. Each value must exist in the
     Constraint template CRD.
