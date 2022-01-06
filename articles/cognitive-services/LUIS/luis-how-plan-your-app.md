@@ -39,9 +39,9 @@ For more information, see [understanding good utterances for LUIS apps](luis-con
 
 ## Identify your entities
 
-In the example utterances, identify the entities you want extracted. To book a flight, you need information like the destination, date, airline, ticket category, and travel class. Create entities for these data types and then mark the [entities](luis-concept-entity-types.md) in the example utterances. Entities are important for accomplishing an intent.
+In the example utterances, identify the entities you want extracted. To book a flight, you need information like the destination, date, airline, ticket category, and travel class. Create entities for these data types and then mark the [entities](concepts/entities.md) in the example utterances. Entities are important for accomplishing an intent.
 
-When determining which entities to use in your app, keep in mind that there are different types of entities for capturing relationships between object types. [Entities in LUIS](luis-concept-entity-types.md) provides more detail about the different types.
+When determining which entities to use in your app, keep in mind that there are different types of entities for capturing relationships between object types. [Entities in LUIS](concepts/entities.md) provides more detail about the different types.
 
 > [!TIP]
 > LUIS offers [prebuilt entities](./howto-add-prebuilt-models.md) for common, conversational user scenarios. Consider using prebuilt entities as a starting point for your application development.
@@ -52,14 +52,14 @@ In many cases, especially when working with natural conversation, users provide 
 
 **Int-ent-ties** is the concept that actions (usually understood as intents) could also be captured as entities and relied on in this form in the output JSON where you can map it to a specific action. _Negation_ is a common usage to leverage this reliance on both intent and entity for full extraction.
 
-Consider the following two utterances which are very close considering word choice but have different results:
+Consider the following two utterances, which are very close considering word choice but have different results:
 
 |Utterance|
 |--|
 |`Please schedule my flight from Cairo to Seattle`|
 |`Cancel my flight from Cairo to Seattle`|
 
-Instead of having two separate intents, create a single intent with a `FlightAction` machine learning entity. The machine learning entity should extract the details of the action for both a scheduling and a cancelling request as well as either a origin or destination location.
+Instead of having two separate intents, create a single intent with a `FlightAction` machine learning entity. The machine learning entity should extract the details of the action for both a scheduling and a canceling request, as well as either an origin or destination location.
 
 The `FlightAction` entity would be structured in the following pseudo-schema of machine learning entity and subentities:
 

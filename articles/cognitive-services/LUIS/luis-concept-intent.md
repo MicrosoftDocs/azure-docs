@@ -70,7 +70,7 @@ If you want to determine negative and positive intentions, such as "I **want** a
 
 ## Intents and patterns
 
-If you have example utterances, which can be defined in part or whole as a regular expression, consider using the [regular expression entity](luis-concept-entity-types.md#regex-entity) paired with a [pattern](luis-concept-patterns.md).
+If you have example utterances, which can be defined in part or whole as a regular expression, consider using the [regular expression entity](concepts/entities.md#regex-entity) paired with a [pattern](luis-concept-patterns.md).
 
 Using a regular expression entity guarantees the data extraction so that the pattern is matched. The pattern matching guarantees an exact intent is returned.
 
@@ -96,6 +96,6 @@ If reducing the number of intents or dividing your intents into multiple apps do
 
 ## Next steps
 
-* Learn more about [entities](luis-concept-entity-types.md), which are important words relevant to intents
+* Learn more about [entities](concepts/entities.md), which are important words relevant to intents
 * Learn how to [add and manage intents](luis-how-to-add-intents.md) in your LUIS app.
 * Review intent [best practices](luis-concept-best-practices.md)

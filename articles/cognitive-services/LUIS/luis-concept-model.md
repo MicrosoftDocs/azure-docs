@@ -85,5 +85,5 @@ The app's schema (models and features) is trained and published to the predictio
 
 ## Next steps
 
-* Understand [intents](luis-concept-intent.md) and [entities](luis-concept-entity-types.md).
+* Understand [intents](luis-concept-intent.md) and [entities](concepts/entities.md).
 * Learn more about [features](luis-concept-feature.md)

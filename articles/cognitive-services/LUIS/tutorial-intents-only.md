@@ -184,7 +184,7 @@ After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn
 
 ## Related information
 
-* [Types of entities](luis-concept-entity-types.md)
+* [Types of entities](concepts/entities.md)
 * [How to train](luis-how-to-train.md)
 * [How to publish](luis-how-to-publish-app.md)
 * [How to test in LUIS portal](luis-interactive-test.md)

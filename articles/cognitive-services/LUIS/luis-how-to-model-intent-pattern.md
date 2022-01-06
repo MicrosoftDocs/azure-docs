@@ -14,7 +14,7 @@ ms.date: 05/17/2020
 ---
 
 # How to add patterns to improve prediction accuracy
-After a LUIS app receives endpoint utterances, use a [pattern](luis-concept-patterns.md) to improve prediction accuracy for utterances that reveal a pattern in word order and word choice. Patterns use specific [syntax](luis-concept-patterns.md#pattern-syntax) to indicate the location of: [entities](luis-concept-entity-types.md), entity [roles](./luis-concept-entity-types.md), and optional text.
+After a LUIS app receives endpoint utterances, use a [pattern](luis-concept-patterns.md) to improve prediction accuracy for utterances that reveal a pattern in word order and word choice. Patterns use specific [syntax](luis-concept-patterns.md#pattern-syntax) to indicate the location of: [entities](concepts/entities.md), entity [roles](concepts/entities.md), and optional text.
 
 > [!CAUTION]
 > Patterns only include machine-learning entity parents, not subentities.
@@ -32,7 +32,7 @@ After a LUIS app receives endpoint utterances, use a [pattern](luis-concept-patt
     > [!div class="mx-imgBorder"]
     > ![Screenshot of entity for pattern](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    If your entity includes a [role](./luis-concept-entity-types.md), indicate the role with a single colon, `:`, after the entity name, such as `{Location:Origin}`. The list of roles for the entities displays in a list. Select the role, and then select Enter.
+    If your entity includes a [role](concepts/entities.md), indicate the role with a single colon, `:`, after the entity name, such as `{Location:Origin}`. The list of roles for the entities displays in a list. Select the role, and then select Enter.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of entity with role](./media/luis-how-to-model-intent-pattern/patterns-4.png)
@@ -44,7 +44,7 @@ After a LUIS app receives endpoint utterances, use a [pattern](luis-concept-patt
 
 ## Create a pattern.any entity
 
-[Pattern.any](luis-concept-entity-types.md) entities are only valid in [patterns](luis-how-to-model-intent-pattern.md), not intents' example utterances. This type of entity helps LUIS find the end of entities of varying length and word choice. Because this entity is used in a pattern, LUIS knows where the end of the entity is in the utterance template.
+[Pattern.any](concepts/entities.md) entities are only valid in [patterns](luis-how-to-model-intent-pattern.md), not intents' example utterances. This type of entity helps LUIS find the end of entities of varying length and word choice. Because this entity is used in a pattern, LUIS knows where the end of the entity is in the utterance template.
 
 1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
 1. Open your app by selecting its name on **My Apps** page.

@@ -70,4 +70,4 @@ The context toolbar provides other actions:
 
 ## Next steps
 
-If your app design includes intent detection, [create new intents](luis-how-to-add-intents.md), and add example utterances. If your app design is only data extraction, add example utterances to the None intent, then [create entities](./luis-how-to-add-entities.md), and label the example utterances with those entities.
+If your app design includes intent detection, [create new intents](luis-how-to-add-intents.md), and add example utterances. If your app design is only data extraction, add example utterances to the None intent, then [create entities](how-to/entities.md), and label the example utterances with those entities.

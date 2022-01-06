@@ -23,16 +23,16 @@ If your app exceeds the LUIS model limits, consider using a [LUIS dispatch](luis
 | Explicit list | 50 per application|
 | External entities | no limits |
 | [Intents][intents]|500 per application: 499 custom intents, and the required _None_ intent.<br>[Dispatch-based](https://aka.ms/dispatch-tool) application has corresponding 500 dispatch sources.|
-| [List entities](./luis-concept-entity-types.md) | Parent: 50, child: 20,000 items. Canonical name is *default character max. Synonym values have no length restriction. |
-| [machine-learning entities + roles](./luis-concept-entity-types.md):<br> composite,<br>simple,<br>entity role|A limit of either 100 parent entities or 330 entities, whichever limit the user hits first. A role counts as an entity for the purpose of this limit. An example is a composite with a simple entity, which has 2 roles is: 1 composite + 1 simple + 2 roles = 4 of the 330 entities.<br>Subentities can be nested up to 5 levels, with a maximum of 20 children per level.|
+| [List entities](concepts/entities.md) | Parent: 50, child: 20,000 items. Canonical name is *default character max. Synonym values have no length restriction. |
+| [machine-learning entities + roles](concepts/entities.md):<br> composite,<br>simple,<br>entity role|A limit of either 100 parent entities or 330 entities, whichever limit the user hits first. A role counts as an entity for the purpose of this limit. An example is a composite with a simple entity, which has 2 roles is: 1 composite + 1 simple + 2 roles = 4 of the 330 entities.<br>Subentities can be nested up to 5 levels, with a maximum of 20 children per level.|
 |Model as a feature| Maximum number of models that can be used as a feature to a specific model to be 10 models. The maximum number of phrase lists used as a feature for a specific model to be 10 phrase lists.|
 | [Preview - Dynamic list entities](./luis-migration-api-v3.md)|2 lists of ~1k per query prediction endpoint request|
 | [Patterns](luis-concept-patterns.md)|500 patterns per application.<br>Maximum length of pattern is 400 characters.<br>3 Pattern.any entities per pattern<br>Maximum of 2 nested optional texts in pattern|
-| [Pattern.any](./luis-concept-entity-types.md)|100 per application, 3 pattern.any entities per pattern |
+| [Pattern.any](concepts/entities.md)|100 per application, 3 pattern.any entities per pattern |
 | [Phrase list][phrase-list]|500 phrase lists. 10 global phrase lists due to the model as a feature limit. Non-interchangeable phrase list has max of 5,000 phrases. Interchangeable phrase list has max of 50,000 phrases. Maximum number of total phrases per application  of 500,000 phrases.|
 | [Prebuilt entities](./howto-add-prebuilt-models.md) | no limit|
-| [Regular expression entities](./luis-concept-entity-types.md)|20 entities<br>500 character max. per regular expression entity pattern|
-| [Roles](./luis-concept-entity-types.md)|300 roles per application. 10 roles per entity|
+| [Regular expression entities](concepts/entities.md)|20 entities<br>500 character max. per regular expression entity pattern|
+| [Roles](concepts/entities.md)|300 roles per application. 10 roles per entity|
 | [Utterance][utterances] | 500 characters<br><br>If you have text longer than this character limit, you need to segment the utterance prior to input to LUIS and you will receive individual intent responses per segment. There are obvious breaks you can work with, such as punctuation marks and long pauses in speech.|
 | [Utterance examples][utterances] | 15,000 per application - there is no limit on the number of utterances per intent<br><br>If you need to train the application with more examples, use a [dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) model approach. You train individual LUIS apps (known as child apps to the parent dispatch app) with one or more intents and then train a dispatch app that samples from each child LUIS app's utterances to direct the prediction request to the correct child app. |
 | [Versions](./luis-concept-app-iteration.md)| 100 versions per application |
