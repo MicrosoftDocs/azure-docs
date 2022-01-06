@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 01/06/2022
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
@@ -24,7 +24,7 @@ For customers who provided an address in Europe, Azure AD keeps most of the iden
 
 For cloud-based Azure AD Multi-Factor Authentication, authentication is complete in the closest datacenter to the user. Datacenters for Azure AD Multi-Factor Authentication exist in North America, Europe, and Asia Pacific.
 
-* Multi-factor authentication using phone calls originate from US datacenters and are routed by global providers.
+* Multi-factor authentication using phone calls originate from datacenters in the customer's region and are routed by global providers.
 * Multi-factor authentication using SMS is routed by global providers.
 * Multi-factor authentication requests using the Microsoft Authenticator app push notifications that originate from EU datacenters are processed in EU datacenters.
     * Device vendor-specific services, such as Apple Push Notifications, may be outside Europe.
