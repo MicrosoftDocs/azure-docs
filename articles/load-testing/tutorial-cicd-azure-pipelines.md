@@ -59,29 +59,6 @@ The sample application's source repo includes an Apache JMeter script named *Sam
 * `get`: Carries out a GET operation from Azure Cosmos DB to retrieve the count.
 * `lasttimestamp`: Updates the time stamp since the last user went to the website.
 
-Update the Apache JMeter script with the URL of your sample web app:
- 
-1. In your sample application's repository, open *SampleApp.jmx* for editing.
-
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/edit-jmx.png" alt-text="Screenshot that shows the button for editing the Apache JMeter test script.":::
-
-1. Search for `<stringProp name="HTTPSampler.domain">`.
-
-   You'll see three instances of `<stringProp name="HTTPSampler.domain">` in the file.
-
-1. Replace all three instances of the value with the URL of your sample web app: 
-
-   ```xml
-   <stringProp name="HTTPSampler.domain">your-app-name.azurewebsites.net</stringProp>
-   ```
-
-    You'll deploy the sample application to an Azure App Service web app by using Azure Pipelines in the subsequent steps. For now, replace the placeholder text `your-app-name` in the previous XML snippet with a unique name that you want to provide to the App Service web app. You'll then use this same name to create the web app.
-
-    > [!IMPORTANT]
-    > Don't include `https` or `http` in the sample application's URL.
-
-1. Commit your changes to the main branch.
-
 ## Set up Azure Pipelines access permissions for Azure
 
 In this section, you'll configure your Azure DevOps project to have permissions to access the Azure Load Testing resource.
@@ -163,9 +140,6 @@ First, you'll install the Azure Load Testing extension from the Azure DevOps Mar
     |`<Azure subscriptionId>`     | Your Azure subscription ID. |
     |`<Name of your load test resource>`     | The name of your Azure Load Testing resource. |
     |`<Name of your load test resource group>`     | The name of the resource group that contains the Azure Load Testing resource. |
-    
-    > [!IMPORTANT]
-    > The name of Azure web app should match the name that you used for the endpoint URL in the *SampleApp.jmx* test script.
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-review.png" alt-text="Screenshot that shows the Azure Pipelines Review tab when you're creating a pipeline.":::
 
@@ -282,25 +256,6 @@ In this tutorial, you'll reconfigure the sample application to accept only secur
     ```
     
 1. Commit the changes to the *config.json* file.
-
-1. Edit the *SampleApp_Secrets.jmx* file.
-
-1. Search for `<stringProp name="HTTPSampler.domain">`.
-
-   You'll see three instances of `<stringProp name="HTTPSampler.domain">` in the file.
-
-1. Replace all three instances of the value with the URL of your sample web app: 
-
-   ```xml
-   <stringProp name="HTTPSampler.domain">{your-app-name}.azurewebsites.net</stringProp>
-   ```
-
-    You'll deploy the sample application to an Azure App Service web app by using the GitHub Actions workflow. In the previous XML snippet, replace the placeholder text `{your-app-name}` with the unique name of the App Service web app.
-
-    > [!IMPORTANT]
-    > Don't include `https` or `http` in the sample application's URL.
-
-1. Save and commit the Apache JMeter script.
 
 1. Go to the **Pipelines** page, select your pipeline definition, and then select **Edit**.
 

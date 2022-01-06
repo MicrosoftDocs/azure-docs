@@ -99,31 +99,6 @@ The sample application's source repo includes an Apache JMeter script named *Sam
 > [!NOTE]
 > The sample Apache JMeter script requires two plugins: ```Custom Thread Groups``` and ```Throughput Shaping Timer```. To open the script on your local Apache JMeter instance, you need to install both plugins. You can use the [Apache JMeter Plugins Manager](https://jmeter-plugins.org/install/Install/) to do this.
 
-To load test the sample web app that you deployed previously, you need to update the API URLs in the Apache JMeter script.
-
-1. Open the directory of the cloned sample app in Visual Studio Code:
-
-    ```powershell
-    cd nodejs-appsvc-cosmosdb-bottleneck
-    code .
-    ```
- 
-1. Open *SampleApp.jmx*.
-
-1. Search for `<stringProp name="HTTPSampler.domain">`.
-
-   You'll see three instances of `<stringProp name="HTTPSampler.domain">` in the file.
-
-1. Replace the value with the URL of the newly deployed sample application:
-
-   ```xml
-   <stringProp name="HTTPSampler.domain">your-app-name.azurewebsites.net</stringProp>
-   ```
-
-   Update the value in all three places. Don't include the `https://` prefix.  
-
-1. Save your changes and close the file.
-
 ### Create the Azure Load Testing resource
 
 The Load Testing resource is a top-level resource for your load-testing activities. This resource provides a centralized place to view and manage load tests, test results, and related artifacts.
@@ -151,6 +126,10 @@ To create a load test in the Load Testing resource for the sample app:
    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab and how to upload an Apache JMeter script." :::
 
     Optionally, you can select and upload additional Apache JMeter configuration files or other files that are referenced in the JMX file. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s).
+
+1. On the **Parameters** tab, enter the API URL as an environment variable. Enter the environment variable **Name** as webapp and **Value** as `<yourappname>.azurewebsites.net` where <yourappname> is name of the newly deployed sample application. Don't include the `https://` prefix.
+
+    :::image type="content" source="media/tutorial-identify-bottlenecks-azure-portal/create-new-test-parameters.png" alt-text="Screenshot that shows the parameters tab to add environment variable":::
 
 1. On the **Load** tab, configure the following details. You can leave the default value for this tutorial.
 
