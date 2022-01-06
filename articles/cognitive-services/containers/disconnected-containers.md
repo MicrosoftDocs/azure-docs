@@ -24,18 +24,30 @@ Containers enable you to run Cognitive Services APIs in your own environment, an
     * Language Detection
 * Computer Vision - Read
 
-Commitment tier pricing is also available for the following Applied AI service container:
+Disconnected container usage is also available for the following Applied AI service:
 * Form Recognizer – Custom/Invoice
 
 
 ## Request access to use containers in disconnected environments
 
-Fill out and submit the [request form](https://aka.ms/csgate) to request access to the containers disconnected from the internet.
+Fill out and submit the [request form](https://aka.ms/csdisconnectedcontainers) to request access to the containers disconnected from the internet.
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
 
 ## Purchase a commitment plan to use containers in disconnected environments
+
+### Create a new resource
+
+1. Sign into the [Azure portal](https://portal.azure.com/) and select **Create a new resource** for one of the applicable Cognitive Services or Applied AI services listed above. 
+
+2. Enter the applicable information to create your resource. Be sure to select **Commitment tier disconnected containers** as your pricing tier.
+
+    :::image type="content" source="media/offline-container-signup.png" alt-text="A screenshot showing resource creation on the Azure portal." lightbox="media/offline-container-signup.png":::
+
+3. Select **Review + Create** at the bottom of the page. Review the information, and select **Create**. Once your resource is created, you will be able to change your pricing from pay-as-you-go, to a commitment plan.  
+
+
 
 To use a container in a disconnected environment, you will need to sign up for a pricing plan that allows you to run select containers in disconnected environments, for a specified amount of time. See [Quickstart: Purchase commitment tier pricing](../commitment-tier.md) for more information.
 
@@ -61,22 +73,12 @@ See the following articles for more information
 * [Computer Vision - Read container](../computer-vision/computer-vision-how-to-install-containers.md)
 * [Form Recognizer – Custom/Invoice container](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md)
 
-## Download a license file 
-
-After you have been approved and purchased a commitment plan for disconnected containers, you will need to download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container.
-
- To get your license file:
-
-1. Log in to the [Azure portal](https://portal.azure.com/), and navigate to the Azure resource you purchased a commitment plan for. Make sure **Overview** is selected in the left navigation menu.
-1. Under **Activate the container(s) with the licensing file**, download the file shown. 
-1. The license file will be named `license.dat`. Place this file in a memorable location on your computer.
-
 ## Download a Docker container with `docker pull`
 
 After you have a license file, download the Docker container you have approval to run in a disconnected environment. For example:
 
 ```Docker
-docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice:latest
 ```
 
 > [!IMPORTANT]
@@ -84,12 +86,13 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-
 
 ## Configure the container to be run in a disconnected environment.
 
-Now that you've downloaded a container and license file, you can run the container in a disconnected environment. 
+Now that you've downloaded your container, you will need to run the container with the `DownloadLicense=True` parameter in your `docker run` command. This parameter will download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container.
+
 The following example shows the formatting of the `docker run` command you'll use, with placeholder values. Replace these placeholder values with your own values.
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
-| `{IMAGE}` | The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text` |
+| `{IMAGE}` | The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice` |
 | `{LICENSE_MOUNT}` | The path where the license will be downloaded, and mounted.  | `/path/to/license/directory` |
 | `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 | `{API_KEY}` | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
@@ -98,7 +101,7 @@ The following example shows the formatting of the `docker run` command you'll us
 | `{LICENSE_LOCATION}` | The path where the license will be downloaded, and mounted.  | `/path/to/license/directory` |
 
 ```bash
-docker run -v {LICENSE_MOUNT}  --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus 4 \ 
+docker run -v {LICENSE_MOUNT}  --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \ 
 {IMAGE} \
 eula=accept \
 billing={ENDPOINT_URI} \
@@ -110,7 +113,7 @@ Mounts:License={LICENSE_LOCATION}
 > [!TIP]
 > If your container requires additional encrypted models, they should be downloaded by running the container with the `DownloadModel=True` flag.
 
-Wherever the container is run, the license file must be mounted to the container and the location of the license folder on the container's local filesystem must be specified with the `LicenseFolderKey` parameter 
+At runtime, mount the license file to your image and specify the `Mounts:License` parameter to indicate the directory where the license file can be found.
 
 ```bash
 docker run -v {LICENSE_MOUNT} {IMAGE} \
