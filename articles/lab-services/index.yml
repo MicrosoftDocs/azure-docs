@@ -48,7 +48,7 @@ landingContent:
     - linkListType: tutorial
       links:
         - text: Set up a lab
-          url: tutorial-setup-classroom-lab.md
+          url: tutorial-setup-lab.md
     - linkListType: how-to-guide
       links:
         - text: Create and manage labs

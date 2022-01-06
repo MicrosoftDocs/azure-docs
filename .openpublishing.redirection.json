@@ -18188,7 +18188,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/lab-services/classroom-labs/tutorial-setup-classroom-lab.md",
+      "source_path_from_root": "/articles/lab-services/classroom-labs/tutorial-setup-lab.md",
       "redirect_url": "/azure/lab-services/tutorial-setup-classroom-lab",
       "redirect_document_id": true
     },
@@ -45525,7 +45525,12 @@
     },
     {
       "source_path_from_root": "/articles/lab-services/how-to-use-classroom-lab.md",
-      "redirect_url": "/azure/lab-services/how-to-use-lab.md",
+      "redirect_url": "/azure/lab-services/how-to-use-lab",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/lab-services/tutorial-setup-classroom-lab.md",
+      "redirect_url": "/azure/lab-services/tutorial-setup-lab",
       "redirect_document_id": false
     }
   ]

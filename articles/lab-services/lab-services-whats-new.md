@@ -98,4 +98,4 @@ Remember, changes made to the lab settings from the lab plan will apply only to 
 
 - [Create a lab plan](tutorial-setup-lab-plan.md).
 - [Manage your lab plan](how-to-manage-lab-plans.md).
-- [Set up a lab](tutorial-setup-classroom-lab.md)
+- [Set up a lab](tutorial-setup-lab.md)

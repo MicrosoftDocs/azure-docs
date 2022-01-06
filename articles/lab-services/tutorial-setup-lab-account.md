@@ -75,4 +75,4 @@ To set up a lab in a lab account, the user must be a member of the **Lab Creator
 In this tutorial, you created a lab account. To learn about how to create a lab as an educator, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Set up a lab](tutorial-setup-classroom-lab.md)
+> [Set up a lab](tutorial-setup-lab.md)

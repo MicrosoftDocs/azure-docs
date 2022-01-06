@@ -44,7 +44,7 @@ You'll need permission to create an Azure VM in your school's Azure subscription
 
 ## Create a lab
 
-[Create the lab](tutorial-setup-classroom-lab.md) in Lab Services, and select the custom image from the shared image gallery.
+[Create the lab](tutorial-setup-lab.md) in Lab Services, and select the custom image from the shared image gallery.
 
 ## Next steps
 

@@ -91,12 +91,12 @@ For more information, see [Azure Lab Services in Microsoft Teams](./lab-services
 After you understand the requirements for your class's lab, you're ready to set it up. To learn how, follow the links in this section. Instructions are also provided for setting up labs in Teams.
 
 1. **Create a lab**. See the following tutorials:
-    - [Create a lab](./tutorial-setup-classroom-lab.md#create-a-lab)
+    - [Create a lab](./tutorial-setup-lab.md#create-a-lab)
     - [Create a lab in Teams](./how-to-get-started-create-lab-within-teams.md)
     - [Create a lab in Canvas](how-to-get-started-create-lab-within-canvas.md)
 
 1. **Customize images and publish lab VMs**. To connect to a special VM called the template VM, see:
-    - [Create and manage a template VM](./tutorial-setup-classroom-lab.md#publish-the-lab)
+    - [Create and manage a template VM](./tutorial-setup-lab.md#publish-the-lab)
     - [Use a shared image gallery](./how-to-use-shared-image-gallery.md)
 
     > [!NOTE]
@@ -110,15 +110,15 @@ After you understand the requirements for your class's lab, you're ready to set 
     - [Manage a VM pool in Lab Services in Teams](./how-to-manage-vm-pool-within-teams.md)
 
 1. **Add and manage lab users**. To add users to your lab, see:
-   - [Add users to the lab](./tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-   - [Send invitations to users](./tutorial-setup-classroom-lab.md#send-invitation-emails-to-users)
+   - [Add users to the lab](./tutorial-setup-lab.md#add-users-to-the-lab)
+   - [Send invitations to users](./tutorial-setup-lab.md#send-invitation-emails-to-users)
    - [Manage Lab Services user lists in Teams](./how-to-manage-user-lists-within-teams.md)
 
     For information about the types of accounts that students can use, see [Student accounts](./how-to-configure-student-usage.md#student-accounts).
   
 1. **Set cost controls**. To set a schedule, establish quotas, and enable automatic shutdown, see the following tutorials:
 
-   - [Set a schedule](./tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+   - [Set a schedule](./tutorial-setup-lab.md#set-a-schedule-for-the-lab)
 
         > [!NOTE]
         > Depending on the operating system you've installed, a VM might take several minutes to start. To ensure that a lab VM is ready for use during your scheduled hours, we recommend that you start it 30 minutes in advance.

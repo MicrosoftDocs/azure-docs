@@ -86,7 +86,7 @@ The template image can now be published to the lab. See [publish the template VM
 
 As you set up your lab, see the following articles:
 
-- [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
+- [Add users](tutorial-setup-lab.md#add-users-to-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+- [Set a schedule](tutorial-setup-lab.md#set-a-schedule-for-the-lab)
 - [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)

@@ -9,7 +9,7 @@ ms.date: 11/24/2021
 
 Azure Lab Services provides several cost controls to ensure that Windows virtual machines (VMs) are not running unexpectedly:
 
-- [Set a schedule](./tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+- [Set a schedule](./tutorial-setup-lab.md#set-a-schedule-for-the-lab)
 - [Set quotas for users](./how-to-configure-student-usage.md#set-quotas-for-users)
 - [Enable automatic shutdown on disconnect](./how-to-enable-shutdown-disconnect.md)
 

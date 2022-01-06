@@ -15,7 +15,7 @@
   - name: Set up a lab plan
     href: tutorial-setup-lab-plan.md
   - name: Set up a lab
-    href: tutorial-setup-classroom-lab.md 
+    href: tutorial-setup-lab.md 
   - name: Access a lab
     href: tutorial-connect-virtual-machine-classroom-lab.md
   - name: Track usage of a lab

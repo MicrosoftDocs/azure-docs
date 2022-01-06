@@ -23,7 +23,7 @@ Once you get have Azure subscription, you can create a new lab plan in Azure Lab
 
 ### Lab settings
 
-For instructions on how to create a lab, see [Tutorial: Set up a lab](tutorial-setup-classroom-lab.md).  Use the following settings when creating the lab.
+For instructions on how to create a lab, see [Tutorial: Set up a lab](tutorial-setup-lab.md).  Use the following settings when creating the lab.
 
 | Lab settings | Value |
 | ------------ | ------------------ |
@@ -84,8 +84,8 @@ This article walked you through the steps to create a lab for ethical hacking cl
 
 Next steps are common to setting up any lab.
 
-- [Publish the lab](tutorial-setup-classroom-lab.md#publish-the-lab)
+- [Publish the lab](tutorial-setup-lab.md#publish-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
+- [Set a schedule](tutorial-setup-lab.md#set-a-schedule-for-the-lab)
+- [Add users](tutorial-setup-lab.md#add-users-to-the-lab)
 - [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)

@@ -15,7 +15,7 @@ Educators can use the **Sync** button to trigger a manual sync once the course m
 
 :::image type="content" source="./media/how-to-manage-users-with-teams/sync-users.png" alt-text="Sync users":::
 
-Once the automatic or manual sync is complete the following is true depending on whether the lab has been [published](tutorial-setup-classroom-lab.md#publish-the-lab).
+Once the automatic or manual sync is complete the following is true depending on whether the lab has been [published](tutorial-setup-lab.md#publish-the-lab).
 
 If the lab has *not* been published at least once:
 
