@@ -29,9 +29,7 @@ ms.date: 01/05/2022
 
 ### Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md
-
-)]
+[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $failoverResourceGroup -y

@@ -31,9 +31,7 @@ This Azure CLI script example creates a database in Azure SQL Database, creates 
 
 ### Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md
-
-)]
+[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

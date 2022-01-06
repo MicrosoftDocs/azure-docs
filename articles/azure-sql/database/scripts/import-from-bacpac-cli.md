@@ -31,9 +31,7 @@ This Azure CLI script example imports a database from a *.bacpac* file into a da
 
 ### Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md
-
-)]
+[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

@@ -33,9 +33,7 @@ This sample requires an existing Managed Instance, see [Use Azure CLI to create 
 
 ### Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md
-
-)]
+[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

@@ -31,9 +31,7 @@ This Azure CLI script example creates elastic pools in Azure SQL Database, moves
 
 ### Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md
-
-)]
+[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup
