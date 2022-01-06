@@ -98,7 +98,7 @@ Consider protecting the self-hosted gateway against [disruption](https://kuberne
 > 
 > Learn more on how to [install an API Management self-hosted gateway on Kubernetes with Helm](how-to-deploy-self-hosted-gateway-kubernetes-helm.md).
 
-### Preventing against node failures
+### Protecting against node failure
 To prevent being affected due to data center or node failures, consider using a Kubernetes cluster that uses availability zones to achieve high availability on the node-level.
 
 Availability zones allow you to schedule the self-hosted gateway's pod on nodes spread across the zones by using:
