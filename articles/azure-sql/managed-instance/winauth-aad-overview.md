@@ -1,5 +1,5 @@
 ---
-title: What is Windows Authentication for Azure Active Directory principals on Azure SQL Managed Instance?
+title: What is Windows Authentication for Azure Active Directory principals on Azure SQL Managed Instance? (Preview)
 titleSuffix: Azure SQL Managed Instance
 description: Learn about Windows Authentication for Azure Active Directory principals on Azure SQL Managed Instance.
 services: sql-database
@@ -13,7 +13,7 @@ ms.reviewer: mathoma, bonova, urmilano, wiassaf, kendralittle
 ms.date: 01/31/2022
 ---
 
-# What is Windows Authentication for Azure Active Directory principals on Azure SQL Managed Instance?
+# What is Windows Authentication for Azure Active Directory principals on Azure SQL Managed Instance? (Preview)
 
 [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) is the intelligent, scalable cloud database service that combines the broadest SQL Server database engine compatibility with the benefits of a fully managed and evergreen platform as a service. Kerberos authentication for Azure Active Directory (Azure AD) enables Windows authentication access to Azure SQL Managed Instance. Windows Authentication for managed instances empowers customers to move existing services to the cloud while maintaining a seamless user experience and provides the basis for infrastructure modernization.
 
@@ -23,7 +23,7 @@ Windows Authentication for Azure AD principals on managed instances is available
 
 Enabling Windows Authentication for a managed instance doesn't require customers to deploy new on-premises infrastructure or manage the overhead of setting up Domain Services.
 
-Windows Authentication for Azure AD principals on Azure SQL Managed Instance enables two key scenarios: migrating on-premises SQL Servers to Azure with minimal changes and modernizing infrastructure.
+Windows Authentication for Azure AD principals on Azure SQL Managed Instance enables two key scenarios: migrating on-premises SQL Servers to Azure with minimal changes and modernizing security infrastructure.
 
 ### Lift and shift on-premises SQL Servers to Azure with minimal changes
 
@@ -34,15 +34,15 @@ Windows Authentication for Azure Active Directory principals enables the followi
 
 - **"Double hop" authentication** <!--- TODO: link to double hop article once it's created -->
     - Web applications use IIS identity impersonation to run queries against an instance in the security context of the end user.
-    - Linked servers are used to run queries across instances in the security context of the originating user.
+    - Linked servers  <!--- TODO: link to linked server article once it's created --> are used to run queries across instances in the security context of the originating user.
  
 - **SharePoint, Reporting Services, Integration Services, and Analysis Services** 
     - Many on-premises SQL Server customers use applications such as SharePoint, SQL Server Reporting Services (SSRS), SQL Server Integration Services (SSIS), and SQL Server Analysis Services (SSAS). Using Windows Authentication is a recommended security best practice for these applications.
     - Azure SQL Managed Instance is certified for SharePoint 2019 and SharePoint 2016.
 
-### Modernize infrastructure
+### Modernize security infrastructure
 
-Enabling Windows Authentication for Azure Active Directory principals on Azure SQL Managed Instance enables customers to modernize their security practices.
+Enabling Windows Authentication for Azure Active Directory principals on Azure SQL Managed Instance equips customers to modernize their security practices.
 
 For example, a customer can enable a mobile analyst, using proven tools that rely on Windows Authentication, to authenticate to a managed instance using biometric credentials.
 

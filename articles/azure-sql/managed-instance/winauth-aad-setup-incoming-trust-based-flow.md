@@ -1,5 +1,5 @@
 ---
-title: How to set up Windows Authentication for Azure Active Directory with the incoming trust based flow
+title: How to set up Windows Authentication for Azure Active Directory with the incoming trust based flow (Preview)
 titleSuffix: Azure SQL Managed Instance
 description: Learn how to set up Windows authentication for Azure Active Directory with the incoming trust based flow.
 services: sql-database
@@ -13,7 +13,7 @@ ms.reviewer: mathoma, bonova, urmilano, wiassaf, kendralittle
 ms.date: 01/31/2022
 ---
 
-# How to set up Windows Authentication for Azure Active Directory with the incoming trust based flow
+# How to set up Windows Authentication for Azure Active Directory with the incoming trust based flow (Preview)
 
 
 ## Prerequisites

@@ -1,5 +1,5 @@
 ---
-title: How to set up Windows authentication for Azure Active Directory with the modern interactive flow
+title: How to set up Windows authentication for Azure Active Directory with the modern interactive flow (Preview)
 titleSuffix: Azure SQL Managed Instance
 description: Learn how to set up Windows Authentication for Azure Active Directory with the modern interactive flow.
 services: sql-database
@@ -14,7 +14,7 @@ ms.date: 01/31/2022
 ---
 
 
-# How to set up Windows Authentication for Azure Active Directory with the modern interactive flow
+# How to set up Windows Authentication for Azure Active Directory with the modern interactive flow (Preview)
 
 
 ## Prerequisites
