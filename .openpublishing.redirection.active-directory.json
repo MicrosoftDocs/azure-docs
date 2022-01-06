@@ -711,6 +711,36 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/develop/vs-active-directory-add-connected-service.md",
+            "redirect_url": "/visualstudio/azure/vs-active-directory-add-connected-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/vs-active-directory-dotnet-what-happened.md",
+            "redirect_url": "/visualstudio/azure/vs-active-directory-dotnet-what-happened",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/vs-active-directory-dotnet-getting-started.md",
+            "redirect_url": "/visualstudio/azure/vs-active-directory-dotnet-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/vs-active-directory-error.md",
+            "redirect_url": "/visualstudio/azure/vs-active-directory-error",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/vs-active-directory-webapi-getting-started.md",
+            "redirect_url": "/visualstudio/azure/vs-active-directory-webapi-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/vs-active-directory-webapi-what-happened.md",
+            "redirect_url": "/visualstudio/azure/vs-active-directory-webapi-what-happened",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-connectors.md",
             "redirect_url": "/azure/active-directory/active-directory-application-proxy-connectors-azure-portal",
             "redirect_document_id": false
