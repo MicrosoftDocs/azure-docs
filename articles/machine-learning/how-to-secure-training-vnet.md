@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 11/05/2021
+ms.date: 01/06/2022
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
 
 ---
@@ -53,6 +53,12 @@ In this article you learn how to secure the following training compute resources
 
 ### Azure Machine Learning compute cluster/instance
 
+* Compute clusters and instances create the following resources. If they are unable to create these resources (for example, if there is a resource lock on the resource group) then creation, scale out, or scale in, may fail.
+
+    * IP address.
+    * Network Security Group (NSG).
+    * Load balancer.
+
 * The virtual network must be in the same subscription as the Azure Machine Learning workspace.
 * The subnet used for the compute instance or cluster must have enough unassigned IP addresses.
 
@@ -60,8 +66,6 @@ In this article you learn how to secure the following training compute resources
     * A compute instance only requires one IP address.
 
 * To create a compute cluster or instance [without a public IP address](#no-public-ip) (a preview feature), your workspace must use a private endpoint to connect to the VNet. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
-* Make sure that there are no security policies or locks that restrict permissions to manage the virtual network. When checking for policies or locks, look at both the subscription and resource group for the virtual network.
-* Check to see whether your security policies or locks on the virtual network's subscription or resource group restrict permissions to manage the virtual network. 
 * If you plan to secure the virtual network by restricting traffic, see the [Required public internet access](#required-public-internet-access) section.
 * The subnet used to deploy compute cluster/instance shouldn't be delegated to any other service. For example, it shouldn't be delegated to ACI.
 
