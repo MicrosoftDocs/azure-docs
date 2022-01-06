@@ -46,7 +46,7 @@ sections:
       - question: |
           In which regions, can I create Azure Edge Hardware Center orders? 
         answer: |
-          The Edge Hardware Center service is available in East US, West Europe, and South East Asia for Azure public cloud. For most up-to-date information, see [Edge Hardware Center region availability](azure-edge-hardware-center-overview.md#region-availability).
+          The Edge Hardware Center service is available in East US, West Europe, and South East Asia for Azure public cloud. However, the region in which the service is created is used to store only the relevant data and this region can be different from the region where the device is shipped.
 
       - question: |
           I created an order via the Azure Edge Hardware Center. Can I now cancel the order?
