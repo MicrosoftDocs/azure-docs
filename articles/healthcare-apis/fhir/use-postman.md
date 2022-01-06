@@ -5,7 +5,7 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 08/25/2021
+ms.date: 01/06/2022
 ms.author: ginle
 ---
 
@@ -18,7 +18,7 @@ In this article, we will walk through the steps of accessing the Healthcare APIs
 
 ## Prerequisites
 
-* The FHIR service deployed in Azure. For information about how to deploy the FHIR service, see [Deploy a FHIR service](fhir/fhir-portal-quickstart.md).
+* The FHIR service deployed in Azure. For information about how to deploy the FHIR service, see [Deploy a FHIR service](fhir-portal-quickstart.md).
 * A registered client application to access the FHIR service. For information about how to register a client application, see [Register a service client application in Azure Active Directory](register-application.md). 
 * Permissions granted to the client application and your user account, for example, "FHIR Data Contributor", to access the FHIR service. 
 * Postman installed locally. For more information about Postman, see [Get Started with Postman](https://www.getpostman.com/).
