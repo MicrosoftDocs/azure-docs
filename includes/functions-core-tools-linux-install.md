@@ -33,7 +33,7 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
     | Linux distribution         | Version    |
     | -------------------------- | ---------- |
-    | Debian 11                  | 'bullseye' |
+    | Debian 11                  | `bullseye` |
     | Debian 10                  | `buster`   |
     | Debian 9                   | `stretch`  |
     | Ubuntu 20.04               | `focal`    |
