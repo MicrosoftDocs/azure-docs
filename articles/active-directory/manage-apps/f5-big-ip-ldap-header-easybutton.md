@@ -375,7 +375,7 @@ If making a change to the app is a no go, then consider having the BIG-IP listen
 
 Select **Deploy** to commit all settings and verify that the application has appeared in your tenant. This last step provides break down of all applied settings before they’re committed.
 
-Your application should now be published and accessible via Secure Hybrid Access, either directly via its URL or through Microsoft’s application portals. For increased security, organizations using this pattern could also consider blocking all direct access to the application, thereby forcing a strict path through the BIG-IP.
+Your application should now be published and accessible via Secure Hybrid Access, either directly via its URL or through Microsoft’s application portals.
 
 ## Next steps
 
