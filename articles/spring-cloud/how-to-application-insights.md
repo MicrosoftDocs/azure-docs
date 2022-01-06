@@ -7,7 +7,6 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2021
 ms.custom: devx-track-java, devx-track-azurecli
-zone_pivot_groups: spring-cloud-tier-selection
 ---
 
 # Application Insights Java In-Process Agent in Azure Spring Cloud
@@ -171,14 +170,9 @@ resource "azurerm_spring_cloud_service" "example" {
 }
 ```
 
-## Manage Application Insights
+## Manage Application Insights using the Azure Portal in Enterprise Tier
 
-::: zone pivot="sc-enterprise-tier"
-
-You can use the Azure Portal or CLI to manage the settings of Application Insights.
-# [Portal](#tab/azure-portal)
-
-You can manage Application Insights using the Azure Portal.
+This section applies to the Enterprise Tier only.
 
 To check and update the current settings in Application Insights, follow these steps:
 
@@ -214,9 +208,7 @@ Select the **Bound** hyperlink or **Edit Binding** to edit Application Insights 
    ![e-spring-ipa-7](./media/enterprise/application-insights/enterprise-spring-ipa-7.png)
    ![e-spring-ipa-8](./media/enterprise/application-insights/enterprise-spring-ipa-8.png)
 
-# [Azure CLI](#tab/azure-cli)
-
-::: zone-end
+## Manage Application Insights
 
 You can manage Application Insights using Azure CLI commands. In the following commands, be sure to replace the *\<placeholder>* text with the values described. The *\<service-name>* placeholder refers to the name of your Azure Spring Cloud instance.
 
@@ -286,7 +278,9 @@ az spring-cloud app-insights update \
     --disable
 ```
 
-::: zone pivot="sc-enterprise-tier"
+## Manage Application Insights using Azure CLI in the Enterprise Tier
+
+This section applies to the Enterprise Tier only.
 
 Azure Enterprise tier uses [Buildpack Bindings](./how-to-enterprise-build-service.md#buildpack-bindings) to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights`.
 
@@ -344,10 +338,6 @@ To delete an Application Insights buildpack binding, use the following command:
        --name <your-binding-name> \
        --builder-name <your-builder-name> \
    ```
-
----
-
-::: zone-end
 
 ## Java agent update/upgrade
 
