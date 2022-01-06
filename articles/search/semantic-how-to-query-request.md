@@ -24,7 +24,7 @@ Captions and answers are extracted verbatim from text in the search document. Th
 
 + A Cognitive Search service at a Standard tier (S1, S2, S3), located in one of these regions: Australia East, East US, East US 2, North Central US, South Central US, West US, West US 2, North Europe, UK South, West Europe. If you have an existing S1 or greater service in one of these regions, you can enable semantic search on your service without having to create a new one.
 
-+ [Enable semantic search on your service](semantic-search-overview.md#enable-semantic-search). 
++ [Semantic search enabled on your search service](semantic-search-overview.md#enable-semantic-search). 
 
 + An existing search index with content in a [supported language](/rest/api/searchservice/preview-api/search-documents#queryLanguage). Semantic search works best on content that is informational or descriptive.
 
