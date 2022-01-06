@@ -100,7 +100,7 @@ If you have an existing Azure Stack Edge resource to manage your physical device
 
 ### Create an order resource
 
-To create an order resource, use the Azure Edge Hardware Center. [Azure Edge Hardware Center](azure-edge-hardware-center.md) lets you explore and order a variety of hardware from the Azure hybrid portfolio including Azure Stack Edge Pro devices.
+To create an order resource, use the Azure Edge Hardware Center. [Azure Edge Hardware Center](azure-edge-hardware-center-overview.md) lets you explore and order a variety of hardware from the Azure hybrid portfolio including Azure Stack Edge Pro devices.
 
 When you place an order through the Edge Hardware Center, you can order multiple devices, to be shipped to more than one address, and you can reuse ship to addresses from other orders.
 
