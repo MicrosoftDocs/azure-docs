@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 01/05/2022
+ms.date: 01/06/2022
 ---
 # Important upcoming changes to Microsoft Defender for Cloud
 
@@ -25,7 +25,6 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)                                                                                       | February 2022             |
 | [Deprecating the recommendation to use service principals to protect your subscriptions](#deprecating-the-recommendation-to-use-service-principals-to-protect-your-subscriptions)   | February 2022             |
 | [Deprecating the recommendations to install the network traffic data collection agent](#deprecating-the-recommendations-to-install-the-network-traffic-data-collection-agent)       | February 2022             |
-| [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                           | Q1 2022                   |
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)                                     | March 2022                |
 |                                                                                                                                                                                     |                           |
 
@@ -44,7 +43,7 @@ We've created new alerts that provide this information and add to it. In additio
 
 ### Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013
 
-**Estimated date for change:** February 2022 
+**Estimated date for change:** January 2022 
 
 The legacy implementation of ISO 27001 will be removed from Defender for Cloud's regulatory compliance dashboard. If you're tracking your ISO 27001 compliance with Defender for Cloud, onboard the new ISO 27001:2013 standard for all relevant management groups or subscriptions, and the current legacy ISO 27001 will soon be removed from the dashboard.
 
@@ -53,7 +52,7 @@ The legacy implementation of ISO 27001 will be removed from Defender for Cloud's
 
 ### Multiple changes to identity recommendations
 
-**Estimated date for change:** January 2022
+**Estimated date for change:** February 2022
 
 Defender for Cloud includes multiple recommendations for improving the management of users and accounts. In December, we'll be making the changes outlined below.
 
@@ -129,13 +128,6 @@ Changes in our roadmap and priorities have removed the need for the network traf
 |||
 
 
-
-
-### Enhancements to recommendation to classify sensitive data in SQL databases
-
-**Estimated date for change:** Q1 2022
-
-The recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result the recommendation's ID will also change (currently, it's b0df6f56-862d-4730-8597-38c0fd4ebd59).
 
 
 ### Changes to recommendations for managing endpoint protection solutions
