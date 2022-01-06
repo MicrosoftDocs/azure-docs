@@ -45,7 +45,7 @@ Fill out and submit the [request form](https://aka.ms/csdisconnectedcontainers) 
 
     :::image type="content" source="media/offline-container-signup.png" alt-text="A screenshot showing resource creation on the Azure portal." lightbox="media/offline-container-signup.png":::
 
-3. Select **Review + Create** at the bottom of the page. Review the information, and select **Create**. Once your resource is created, you will be able to change your pricing from pay-as-you-go, to a commitment plan.  
+3. Select **Review + Create** at the bottom of the page. Review the information, and select **Create**. 
 
 ## Familiarize yourself with the Docker container you want to run
 
