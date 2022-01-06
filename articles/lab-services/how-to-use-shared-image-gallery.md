@@ -29,7 +29,7 @@ Here are the couple of scenarios supported by this feature:
 ## Prerequisites
 
 - Create a [shared image gallery](../virtual-machines/create-gallery.md).
-- You have attached the shared image gallery to the lab plan. For step-by-step instructions, see [How to attach or detach shared image gallery](how-to-attach-detach-shared-image-gallery-2.md).
+- You have attached the shared image gallery to the lab plan. For step-by-step instructions, see [How to attach or detach shared image gallery](how-to-attach-detach-shared-image-gallery.md).
 - Image must be replicated to the same region as the lab plan.
 
 ## Save an image to the shared image gallery
@@ -67,7 +67,7 @@ An educator can pick a custom image available in the shared image gallery for th
 >[!IMPORTANT]
 >Azure Compute Gallery images will not show if they have been disabled or if the region of the lab plan is different than the gallery images.
 
-For more information about replicating images, see  [replication in Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries.md). For more information about disabling gallery images for a lab plan, see [enable and disable images](how-to-attach-detach-shared-image-gallery-2.md#enable-and-disable-images).
+For more information about replicating images, see  [replication in Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries.md). For more information about disabling gallery images for a lab plan, see [enable and disable images](how-to-attach-detach-shared-image-gallery.md#enable-and-disable-images).
 
 ### Re-save a custom image to shared image gallery
 
@@ -81,7 +81,7 @@ If instead you choose **Update existing image**, the original custom image's def
 
 ## Next steps
 
-To learn about how to set up shared image gallery by attaching and detaching it to a lab plan, see [How to attach and detach shared image gallery](how-to-attach-detach-shared-image-gallery-2.md).
+To learn about how to set up shared image gallery by attaching and detaching it to a lab plan, see [How to attach and detach shared image gallery](how-to-attach-detach-shared-image-gallery.md).
 
 To explore other options for bringing custom images to shared image gallery outside of the context of a lab, see [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md).
 

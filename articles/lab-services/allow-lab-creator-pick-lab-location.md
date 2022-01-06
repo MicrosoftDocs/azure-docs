@@ -66,7 +66,7 @@ Earlier, the pricing was based on the VM size that you choose for the lab. Now, 
 See the following articles:
 
 - [Connect your lab's network with a peer virtual network](how-to-connect-peer-virtual-network.md)
-- [Attach a shared image gallery to a lab](how-to-attach-detach-shared-image-gallery.md)
+- [Attach a shared image gallery to a lab](how-to-attach-detach-shared-image-gallery-1.md)
 - [Add a user as a lab owner](how-to-add-user-lab-owner.md)
 - [View firewall settings for a lab](how-to-configure-firewall-settings.md)
 - [Configure other settings for a lab](how-to-configure-lab-accounts.md)
