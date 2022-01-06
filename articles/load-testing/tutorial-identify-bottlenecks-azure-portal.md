@@ -127,7 +127,7 @@ To create a load test in the Load Testing resource for the sample app:
 
     Optionally, you can select and upload additional Apache JMeter configuration files or other files that are referenced in the JMX file. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s).
 
-1. On the **Parameters** tab, enter the API URL as an environment variable. Enter the environment variable **Name** as webapp and **Value** as `<yourappname>.azurewebsites.net` where <yourappname> is name of the newly deployed sample application. Don't include the `https://` prefix.
+1. On the **Parameters** tab, add a new environment variable. Enter *webapp* for the **Name** and *`<yourappname>.azurewebsites.net`* for the **Value**. Replace the placeholder text `<yourappname>` with the name of the newly deployed sample application. Don't include the `https://` prefix.
 
     :::image type="content" source="media/tutorial-identify-bottlenecks-azure-portal/create-new-test-parameters.png" alt-text="Screenshot that shows the parameters tab to add environment variable":::
 
