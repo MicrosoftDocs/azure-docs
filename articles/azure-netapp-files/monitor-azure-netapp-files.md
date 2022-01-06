@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/05/2022
+ms.date: 01/06/2022
 ms.author: anfdocs
 ---
 # Ways to monitor Azure NetApp Files
@@ -24,6 +24,8 @@ This article describes ways to monitor Azure NetApp Files.
 The Activity log provides insight into subscription-level events. For instance, you can get information about when a resource is modified or when a virtual machine is started. You can view the activity log in the Azure portal or retrieve entries with PowerShell and CLI. This article provides details on viewing the Activity log and sending it to different destinations.
 
 To understand how Activity log works, see [Azure Activity log](../azure-monitor/essentials/activity-log.md).
+
+For Activity log warnings for Azure NetApp Files volumes, see [Activity log warnings for Azure NetApp Files volumes](troubleshoot-volumes.md#activity-log-warnings-for-volumes).
 
 ## Azure NetApp Files metrics 
 

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 01/05/2022
+ms.date: 01/06/2022
 ms.author: anfdocs
 ---
 # Troubleshoot volume errors for Azure NetApp Files
@@ -79,7 +79,7 @@ This section explains the causes of some of the common allocation failures and s
 
 |     Warnings    |     Resolutions    |
 |-|-|
-| `Percentage Volume Consumed Size reached 90%`  | The used size of an Azure NetApp Files volume has reached 90% of the volume quota. You should [resize the volume](azure-netapp-files-resize-capacity-pools-or-volumes.md) soon. | 
+| The `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/ScaleUp` operation displays a warning: <br> `Percentage Volume Consumed Size reached 90%`  | The used size of an Azure NetApp Files volume has reached 90% of the volume quota. You should [resize the volume](azure-netapp-files-resize-capacity-pools-or-volumes.md) soon. | 
 
 ## Next steps  
 
