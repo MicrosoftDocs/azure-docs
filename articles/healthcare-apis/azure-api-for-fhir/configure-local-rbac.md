@@ -11,10 +11,10 @@ ms.custom: devx-track-azurepowershell
 ---
 # Configure local RBAC for FHIR
 
-This article explains how to configure the Azure API for FHIR to use a secondary Azure Active Directory (Azure AD) tenant for data access. Use this mode only if it is not possible for you to use the Azure Active Directory tenant associated with your subscription.
+This article explains how to configure the Azure API for FHIR to use a secondary Azure Active Directory (Azure AD) tenant for data access. Use this mode only if it is not possible for you to use the Azure AD tenant associated with your subscription.
 
 > [!NOTE]
-> If your FHIR service is configured to use your primary Azure Active Directory tenant associated with your subscription, [use Azure RBAC to assign data plane roles](configure-azure-rbac.md).
+> If your FHIR service is configured to use your primary Azure AD tenant associated with your subscription, [use Azure RBAC to assign data plane roles](configure-azure-rbac.md).
 
 ## Add a new service principal or use an existing one
 
