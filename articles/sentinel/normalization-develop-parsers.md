@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-ASIM users use source-agnostic parsers instead of table names in their queries to view data in a normalized format and to include all data relevant to the schema in the query. The source-agnostic parsers use source-specific parsers to handle the specific details of each source. 
+ASIM users use unifying parsers instead of table names in their queries to view data in a normalized format and to include all data relevant to the schema in the query. The unifying parsers use source-specific parsers to handle the specific details of each source. 
 
 Microsoft Sentinel provides source-specific parsers for many sources. However, you may want to develop your source-specific parser in the following situations:
 
@@ -31,7 +31,7 @@ To develop a custom ASIM source-specific parser, use the following workflow:
 - Develop one or more ASIM parsers for your source. You need to develop a parser for each schema relevant to the source.
 - Testing your parser.
 - Deploy the parsers into your Microsoft Sentinel workspaces.
-- Update the relevant ASIM source agnostic parser to reference the new custom parser. Refer to the [Managing ASIM parsers](normalization-manage-parsers.md) document for details. 
+- Update the relevant ASIM unifying parser to reference the new custom parser. Refer to the [Managing ASIM parsers](normalization-manage-parsers.md) document for details. 
 
 This document guides you through the process's development, testing, and deployment steps.
 
@@ -205,7 +205,7 @@ You can also combine multiple templates to a single deploy process using [linked
 
 ### Mandatory tests
 
-The following tests are mandatory. A parser that fails will prevent queries using the schema source-agnostic parsers it is part of from working correctly:
+The following tests are mandatory. A parser that fails will prevent queries using the schema unifying parsers it is part of from working correctly:
 - Make sure that the parser produces all mandatory fields. 
 - Make sure that all normalized fields have the correct type.
 - Make sure that fields with logical types are populated only with permitted values. For example, an IP address field is always populated with a valid IP address, and that an enumerated field always gets permitted values.

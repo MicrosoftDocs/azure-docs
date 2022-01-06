@@ -47,9 +47,9 @@ Web Session events may also include [User](network-normalization-schema.md#user)
 
 ## Parsers
 
-### Source-agnostic parsers
+### Unifying parsers
 
-To use the source-agnostic parsers that unify all of the out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the following KQL functions as the table name in your query:
+To use the unifying parsers that unify all of the out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the following KQL functions as the table name in your query:
 
 | Name | Description | Usage instructions |
 | ---- | --- | --- |

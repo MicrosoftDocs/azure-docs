@@ -12,46 +12,46 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-ASIM users use source-agnostic parsers instead of table names in their queries. Using source-agnostic parsers enables viewing data in a normalized format and getting all the data relevant to the schema in a single query. Each source-agnostic parser uses multiple source-specific parsers that handle each source's specific details. 
+ASIM users use unifying parsers instead of table names in their queries. Using unifying parsers enables viewing data in a normalized format and getting all the data relevant to the schema in a single query. Each unifying parser uses multiple source-specific parsers that handle each source's specific details. 
 
-You may need to manage the source-specific parsers used by each source-agnostic parser to:
+You may need to manage the source-specific parsers used by each unifying parser to:
 
-- Add a custom source-specific parser to a source-agnostic parser.
+- Add a custom source-specific parser to a unifying parser.
 
-- Replace a built-in source-specific parser used by a source-agnostic parser with a custom source-specific parser to:
-  - Use a version of the built-in parser other than the one used by default in the source-agnostic parser. 
-  - Fix the version of the source-agnostic parser used by the source-agnostic parser to prevent automated updates.
+- Replace a built-in source-specific parser used by a unifying parser with a custom source-specific parser to:
+  - Use a version of the built-in parser other than the one used by default in the unifying parser. 
+  - Fix the version of the source-specific parser used by the unifying parser to prevent automated updates.
   - Use a modified version of the built-in parser.
 
-This document will teach you how to do these tasks, whether using built-in source-agnostic ASIM parsers or workspace deployed source-agnostic parsers. The procedures below assume that all source-specific parsers have already been deployed to the workspace as outlined in the document [Develop ASIM parsers](normalization-develop-parsers.md).
+This document will teach you how to do these tasks, whether using built-in unifying ASIM parsers or workspace deployed unifying parsers. The procedures below assume that all source-specific parsers have already been deployed to the workspace as outlined in the document [Develop ASIM parsers](normalization-develop-parsers.md).
 
 > [!IMPORTANT]
 > ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-## Managing built-in source-agnostic parsers
+## Managing built-in unifying parsers
 
 ### Setup
 
-The user cannot edit built-in source-agnostic parsers. The following mechanisms enable users to influence the built-in source-agnostic parsers behavior:
+The user cannot edit built-in unifying parsers. The following mechanisms enable users to influence the built-in unifying parsers behavior:
 
--  To enable adding source-specific parsers, ASIM uses custom source-agnostic parsers. These parsers are workspace deployed and are picked up automatically by the built-in source agnostic parsers if they exist. You can [deploy initial empty custom source-agnostic parsers](https://aka.ms/DeployASimCustom) for all supported schemas, or deploy individually for specific schemas:
+-  To enable adding source-specific parsers, ASIM uses custom unifying parsers. These parsers are workspace deployed and are picked up automatically by the built-in unifying parsers if they exist. You can [deploy initial empty custom unifying parsers](https://aka.ms/DeployASimCustom) for all supported schemas, or deploy individually for specific schemas:
   - [DNS](https://aka.ms/DeployASimCustomDns)
 
 - To enable excluding built-in source-specific parsers, ASIM uses a watchlist. Deploy the watchlist from [GitHub](https://aka.ms/DeployASimExceptionWatchlist).
 
-### Adding a custom parser to a built-in source agnostic parser
+### Adding a custom parser to a built-in unifying parser
 
-To add a custom parser, insert a line to the custom source-agnostic parser referencing the new custom parser. Make sure to add both a filtering custom parser and a parameter-less custom parser. The syntax of the line to add is different for each schema:
+To add a custom parser, insert a line to the custom unifying parser referencing the new custom parser. Make sure to add both a filtering custom parser and a parameter-less custom parser. The syntax of the line to add is different for each schema:
 
 | Schema | Custom&nbsp;source&#8209;agnostic filtering  parser | Format of line to add | Custom&nbsp;source&#8209;agnostic Parameter-less parser |  Format of line to add |
 | ------ | ---------------------------------------- | --------------------- | ---------------- | --------------------- | 
 | DNS    | Im_DnsCustom | _parser_name_ (starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype) | ASim_DnsCustom | _parser_name_ |
 | | | | |  
 
-When adding an additional parser to a custom source-agnostic parser that already references parsers, make sure you add a comma at the end of the previous line. 
+When adding an additional parser to a custom unifying parser that already references parsers, make sure you add a comma at the end of the previous line. 
 
-For example, the custom source-agnostic parser after adding `added_parser` is:
+For example, the custom unifying parser after adding `added_parser` is:
 
 ```KQL
 union isfuzzy=true
@@ -76,17 +76,17 @@ To modify an existing built-in source-specific parser
 ### Prevent automated update of a built-in parser
 
 To fix the version used for a built-in source-specific parser:
-- Add the built-in parser version you want to use to the custom source-agnostic parser as outlined above for custom parsers, for example, `_Im_Dns_AzureFirewallV02`.
+- Add the built-in parser version you want to use to the custom unifying parser as outlined above for custom parsers, for example, `_Im_Dns_AzureFirewallV02`.
 - Add an exception for the built-in parser as outlined above. When excluding a large number of built-in parsers, for example, to opt out entirely from automatic updates, you can add:
   - A record with `Any` as the SourceSpecificParser field to exclude all parsers for the CallerContext.
   - A record for  `Any` in the CallerContext and the SourceSpecificParser fields to exclude all built-in parsers.
  
 
-## Managing workspace-deployed source-agnostic parsers
+## Managing workspace-deployed unifying parsers
 
-### Adding a custom parser to a workspace-deployed source-agnostic parser
+### Adding a custom parser to a workspace-deployed unifying parser
 
-To add a custom parser, insert a line to the union statement in the workspace-deployed source-agnostic parser referencing the new custom parser. Make sure to add both a filtering custom parser and a parameter-less custom parser. The syntax of the line to add is different for each schema:
+To add a custom parser, insert a line to the union statement in the workspace-deployed unifying parser referencing the new custom parser. Make sure to add both a filtering custom parser and a parameter-less custom parser. The syntax of the line to add is different for each schema:
 
 | Schema |  Filtering  parser | Format of line to add | Parameter-less parser |  Format of line to add |
 | ------ | ---------------------------------------- | --------------------- | ---------------- | --------------------- | 
@@ -99,9 +99,9 @@ To add a custom parser, insert a line to the union statement in the workspace-de
 | **Web Session** | imWebSession | _parser_name_ parser (starttime, endtime, srcipaddr_has_any, url_has_any, httpuseragent_has_any, eventresultdetails_in, eventresult) | ASimWebSession |  _parser_name_ | 
 | | | | |  
 
-When adding an additional parser to a source-agnostic parser, make sure you add a comma at the end of the previous line.
+When adding an additional parser to a unifying parser, make sure you add a comma at the end of the previous line.
 
-For example, the DNS filtering source-agnostic parser after adding `added_parser` is:
+For example, the DNS filtering unifying parser after adding `added_parser` is:
 
 ```KQL
   let Generic=(starttime:datetime=datetime(null), endtime:datetime=datetime(null) , srcipaddr:string='*' , domain_has_any:dynamic=dynamic([]) , responsecodename:string='*', response_has_ipv4:string='*' , response_has_any_prefix:dynamic=dynamic([]) , eventtype:string='lookup' ){
@@ -121,9 +121,9 @@ For example, the DNS filtering source-agnostic parser after adding `added_parser
 
 ### Use a modified version of a workspace-deployed parser
 
-Since workspace-deployed parsers can be edited, you can directly modify the parser. Instead, you can create a parser based on the original, comment out the original, and add your modified version to the workspace-deployed source-agnostic parser.
+Since workspace-deployed parsers can be edited, you can directly modify the parser. Instead, you can create a parser based on the original, comment out the original, and add your modified version to the workspace-deployed unifying parser.
 
-For example, the DNS filtering source-agnostic parser after adding replacing the vimDnsAzureFirewall with a modified version:
+For example, the DNS filtering unifying parser after adding replacing the vimDnsAzureFirewall with a modified version:
 
 ```KQL
   let Generic=(starttime:datetime=datetime(null), endtime:datetime=datetime(null) , srcipaddr:string='*' , domain_has_any:dynamic=dynamic([]) , responsecodename:string='*', response_has_ipv4:string='*' , response_has_any_prefix:dynamic=dynamic([]) , eventtype:string='lookup' ){

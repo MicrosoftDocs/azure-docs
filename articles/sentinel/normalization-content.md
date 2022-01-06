@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Normalized security content in Microsoft Sentinel includes analytics rules, hunting queries, and workbooks that work with source-agnostic normalization parsers.
+Normalized security content in Microsoft Sentinel includes analytics rules, hunting queries, and workbooks that work with unifying normalization parsers.
 
 <a name="builtin"></a>You can find normalized, built-in content in Microsoft Sentinel galleries and [solutions](sentinel-solutions-catalog.md), create your own normalized content, or modify existing content to use normalized data.
 
@@ -151,7 +151,7 @@ The following built-in web session related content is supported for ASIM normali
 
 To enable your custom content to use normalization:
 
-- Modify your queries to use the source-agnostic parsers relevant to the query.
+- Modify your queries to use the unifying parsers relevant to the query.
 - Modify field names in your query to use the normalized schema field names.
 - When applicable, change conditions to use the normalized values of the fields in your query.
 

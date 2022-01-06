@@ -36,9 +36,9 @@ Microsoft Sentinel provides the following built-in, product-specific authenticat
 - **AWS sign-ins**, collected using the AWS CloudTrail connector.
 - **Okta authentication**, collected using the Okta connector.
 
-To use the source-agnostic parser, which unifies all of listed parsers, ensuring that you analyze data across all the configured sources, use **imAuthentication** as the table name in your query.
+To use the unifying parser, which unifies all of listed parsers, ensuring that you analyze data across all the configured sources, use **imAuthentication** as the table name in your query.
 
-Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelAuth).
+Deploy the [unifying and source-specific parsers](normalization-about-parsers.md) from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelAuth).
 
 
 

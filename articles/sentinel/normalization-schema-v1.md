@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-The network normalization schema is used to describe reported network events, and is used by Microsoft Sentinel to enable source-agnostic analytics.
+The network normalization schema is used to describe reported network events, and is used by Microsoft Sentinel to enable unifying analytics.
 
 For more information, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
 
@@ -190,8 +190,8 @@ The original version of the Microsoft Sentinel Network session normalization sch
 
 Differences between version 0.1, documented in this article, and [version 0.2](network-normalization-schema.md) include:
 
-- In version 0.2, source-agnostic and source-specific parser names have been changed to conform to a standard ASIM naming convention.
-- Version 0.2 adds specific guidelines and source-agnostic parsers to accommodate specific device types.
+- In version 0.2, unifying and source-specific parser names have been changed to conform to a standard ASIM naming convention.
+- Version 0.2 adds specific guidelines and unifying parsers to accommodate specific device types.
 
 The following sections describe how [version 0.2](network-normalization-schema.md) differs for specific fields.
 
