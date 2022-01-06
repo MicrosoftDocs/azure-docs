@@ -182,8 +182,8 @@
               href: f5-aad-password-less-vpn.md  
             - name: B2C
               href: https://docs.microsoft.com/azure/active-directory-b2c/partner-f5
-      - name: Silverfort
-        href: silverfort-azure-ad-integration.md
+    - name: Silverfort
+      href: silverfort-azure-ad-integration.md
     - name: Single sign-on
       items:
       - name: Linked
