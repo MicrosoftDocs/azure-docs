@@ -45,13 +45,8 @@ items:
              href: configure-azure-rbac-using-scripts.md
     - name: Get an Access Token
       href: get-access-token.md
-    - name: Access using Postman
-      href: use-postman.md  
-    - name: Access using cURL
-      href: using-curl.md
-    - name: Access using REST Client
-      href: using-rest-client.md
-    - name: Diagnostic logging
+    - name: Access Healthcare APIs
+      href: access-healthcare-apis.md  
       expanded: true
       items:
       - name: Enable diagnostic logging in Healthcare APIs
