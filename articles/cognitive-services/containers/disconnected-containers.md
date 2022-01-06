@@ -47,13 +47,6 @@ Fill out and submit the [request form](https://aka.ms/csdisconnectedcontainers) 
 
 3. Select **Review + Create** at the bottom of the page. Review the information, and select **Create**. Once your resource is created, you will be able to change your pricing from pay-as-you-go, to a commitment plan.  
 
-
-
-To use a container in a disconnected environment, you will need to sign up for a pricing plan that allows you to run select containers in disconnected environments, for a specified amount of time. See [Quickstart: Purchase commitment tier pricing](../commitment-tier.md) for more information.
-
-> [!CAUTION]
-> When purchasing a commitment plan, make sure you're purchasing a plan for disconnected containers.
-
 ## Familiarize yourself with the Docker container you want to run
 
 Before running a Docker container in a disconnected environment, make sure you know the steps to successfully download and use the container. For example:
