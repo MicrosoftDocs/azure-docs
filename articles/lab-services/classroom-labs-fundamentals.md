@@ -35,4 +35,4 @@ Student VMs that are hosted in the classroom lab have a username and password se
 
 ## Next steps
 
-To learn more about features available in Lab Services, see [Azure Lab Services concepts](classroom-labs-concepts.md) and [Azure Lab Services overview](classroom-labs-overview.md).
+To learn more about features available in Lab Services, see [Azure Lab Services concepts](classroom-labs-concepts.md) and [Azure Lab Services overview](lab-services-overview.md).

@@ -37,14 +37,14 @@ The following sections build on this article by describing the specific data gat
 
 Azure Cognitive Search collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md). See the [data reference](monitor-azure-cognitive-search-data-reference.md) for detailed information on the metrics and logs metrics created by Azure Cognitive Search.
 
-You can also obtain system data from the search service itself, including statistics, counts, and status:
+In addition to the resource logs collected by Azure Monitor, you can also obtain system data from the search service itself, including statistics, counts, and status:
 
 * [Service Statistics (REST)](/rest/api/searchservice/get-service-statistics)
 * [Index Statistics (REST)](/rest/api/searchservice/get-index-statistics)
 * [Document Counts (REST)](/rest/api/searchservice/count-documents)
 * [Indexer Status (REST)](/rest/api/searchservice/get-indexer-status)
 
-The above information can also be read from the Azure portal. For REST calls, use an [admin API key](search-security-api-keys.md) and [Postman](search-get-started-rest.md) or another REST client.
+The system information above information can also be read from the Azure portal. For REST calls, use an [admin API key](search-security-api-keys.md) and [Postman](search-get-started-rest.md) or another REST client.
 
 On Azure portal pages, check the Usage and Monitoring tabs for counts and metrics. Commands on the left-navigation provide access to configuration and data exploration pages.
 
@@ -93,7 +93,7 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 > [!IMPORTANT]
 > When you select **Logs** from the Azure Cognitive Search menu, Log Analytics is opened with the query scope set to the current search service. This means that log queries will only include data from that resource. If you want to run a query that includes data from other search services or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/logs/scope) for details.
 
-Following are queries that you can use to help you monitor your search service.
+Following are queries that you can use to help you monitor your search service. See the [**Azure Cognitive Search monitoring data reference**](monitor-azure-cognitive-search-data-reference.md) for descriptions of schema elements.
 
 #### List metrics by name
 

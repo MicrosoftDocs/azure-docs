@@ -98,7 +98,7 @@
       href: tutorial-multiple-data-sources.md
   - name: Index any data
     href: tutorial-optimize-indexing-push-api.md
-  - name: Use AI to create content
+  - name: Enrich with AI (skills)
     items:
     - name: C#
       href: cognitive-search-tutorial-blob-dotnet.md
@@ -132,12 +132,16 @@
       href: search-lucene-query-architecture.md
     - name: Semantic search
       href: semantic-search-overview.md
+    - name: Query types and composition
+      href: search-query-overview.md
     - name: Relevance scoring
       href: index-similarity-and-scoring.md     
   - name: Indexing
     items:
     - name: Search indexes
       href: search-what-is-an-index.md
+    - name: Import
+      href: search-what-is-data-import.md
     - name: Analyzers
       href: search-analyzers.md
     - name: Indexers
@@ -146,6 +150,8 @@
     items:
     - name: Enrichment overview
       href: cognitive-search-concept-intro.md
+    - name: Enrichment cache
+      href: cognitive-search-incremental-indexing-conceptual.md
     - name: Skillsets
       href: cognitive-search-working-with-skillsets.md
     - name: Debug sessions
@@ -154,8 +160,6 @@
       href: knowledge-store-concept-intro.md
     - name: Projections
       href: knowledge-store-projection-overview.md
-    - name: Enrichment cache
-      href: cognitive-search-incremental-indexing-conceptual.md
   - name: Security
     items:
     - name: Security overview
@@ -285,8 +289,6 @@
       href: index-add-custom-analyzers.md
   - name: Data import
     items:
-    - name: Data import overview
-      href: search-what-is-data-import.md
     - name: Import data (portal)
       href: search-import-data-portal.md
     - name: Rebuild an index
@@ -377,6 +379,8 @@
       href: cognitive-search-attach-cognitive-services.md
     - name: Create a skillset
       href: cognitive-search-defining-skillset.md
+    - name: Debug a skillset
+      href: cognitive-search-how-to-debug-skillset.md
     - name: Reference an annotation    
       href: cognitive-search-concept-annotations-syntax.md
     - name: Map to index fields
@@ -427,8 +431,8 @@
       href: semantic-answers.md
     - name: Add spell check to queries
       href: speller-how-to-add.md
-    - name: Query types and composition
-      href: search-query-overview.md
+    - name: Search results paging and formatting
+      href: search-pagination-page-layout.md
     - name: Use simple syntax (examples)
       href: search-query-simple-examples.md
     - name: Use full Lucene (examples)
@@ -443,16 +447,6 @@
         href: index-add-suggesters.md
       - name: Add autocomplete and suggestions
         href: search-add-autocomplete-suggestions.md
-    - name: Paging and counts
-      href: search-pagination-page-layout.md
-    - name: Syntax reference
-      items:
-      - name: Simple query syntax
-        href: query-simple-syntax.md
-      - name: Full Lucene query syntax
-        href: query-lucene-syntax.md
-      - name: moreLikeThis (preview)
-        href: search-more-like-this.md
   - name: Filters
     items:
     - name: Filter overview
@@ -527,7 +521,7 @@
     href: /cli/azure/search
   - name: Azure PowerShell
     href: /powershell/module/az.search 
-  - name: Resource Manager template
+  - name: Azure Resource Manager template
     href: /azure/templates/microsoft.search/searchservices
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
@@ -560,6 +554,14 @@
       href: search-query-odata-search-score-function.md
     - name: OData Language Grammar
       href: search-query-odata-syntax-reference.md
+  - name: Query syntax reference
+    items:
+    - name: Simple query syntax
+      href: query-simple-syntax.md
+    - name: Full Lucene query syntax
+      href: query-lucene-syntax.md
+    - name: moreLikeThis (preview)
+      href: search-more-like-this.md
   - name: Skills reference
     items:
     - name: Built-in skills

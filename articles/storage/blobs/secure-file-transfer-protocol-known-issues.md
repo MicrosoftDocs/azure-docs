@@ -20,11 +20,11 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 > 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-> To enroll in the preview, see [this form](https://forms.office.com/r/gZguN0j65Y).
+> To enroll in the preview, complete [this form](https://forms.office.com/r/gZguN0j65Y) AND request to join via 'Preview features' in Azure portal.
 
 ## Data redundancy options
 
-- Geo-redundant storage (GRS), and Geo-zone-redundant storage (GZRS) are not supported in accounts that have SFTP enabled.
+- Geo-redundant storage (GRS), Geo-zone-redundant storage (GZRS), Read-access geo-redundant storage (RA-GRS), and Read-access geo-zone-redundant storage (RA-GZRS) are not supported in accounts that have SFTP enabled.
 
 ## Authorization
 
@@ -56,6 +56,8 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 | ecdsa-sha2-nistp256 | diffie-hellman-group14-sha256 | aes128-cbc| | ecdsa-sha2-nistp384 |
 | ecdsa-sha2-nistp384| diffie-hellman-group16-sha512 | aes256-cbc |  | 
 ||| aes192-cbc ||
+
+SFTP support for Azure Blob Storage currently limits its cryptographic algorithm support in accordance to the Microsoft Security Development Lifecycle (SDL). We strongly recommend that customers utilize SDL approved algorithms to securely access their data. More details can be found [here](/security/sdl/cryptographic-recommendations)
 
 ## Security
 
@@ -93,11 +95,11 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 - Maximum file size upload is limited by client message size. A few examples below: 
 
-  - 32k message (OpenSSH default) * 50k blocks = 1.52GB 
+  - 32KB message (OpenSSH default) * 50k blocks = 1.52GB 
 
-  - 100k message (OpenSSH Windows max) * 50k blocks = 4.77GB 
+  - 100KB message (OpenSSH Windows max) * 50k blocks = 4.77GB 
 
-  - 256k message (OpenSSH Linux max) * 50k blocks = 12.20GB 
+  - 256KB message (OpenSSH Linux max) * 50k blocks = 12.20GB 
 
 ## Other
 
@@ -105,6 +107,27 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 - PowerShell and Azure CLI and not supported. You can leverage Portal and ARM templates for Public Preview.
 
+## Troubleshooting
+
+- To resolve the `Failed to update SFTP settings for account 'accountname'. Error: The value 'True' is not allowed for property isSftpEnabled.` error, ensure that the following pre-requisites are met at the storage account level:
+
+  - The account needs to be a GPv2 or Block Blob Storage account.
+  
+  - The account needs to have LRS or ZRS replication setup.
+  
+  - The account needs to have hierarchical namespace enabled on it.
+  
+  - The account needs to be in a [supported regions](secure-file-transfer-protocol-support.md#regional-availability).
+  
+  - Customer's subscription needs to be signed up for the preview. To enroll in the preview, complete [this form](https://forms.office.com/r/gZguN0j65Y) *and* request to join via 'Preview features' in the Azure portal.
+
+- To resolve the `Home Directory not accessible error.` error, check that:
+  
+  - The user has been assigned appropriate permissions to the container.
+  
+  -	The container name is specified in the connection string if you have not configured (set home directory) and provisioned (create the directory inside the container) a home directory for the user.
+
 ## See also
 
-- [SSH File Transfer (SFTP) protocol support in Azure Blob Storage](secure-file-transfer-protocol-support.md)
+- [SSH File Transfer Protocol (SFTP) support in Azure Blob Storage](secure-file-transfer-protocol-support.md)
+- [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP) (preview)](secure-file-transfer-protocol-support-how-to.md)

@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 06/25/2020
 ms.author: cynthn
-ms.custom: mvc, mode-portal
+ms.custom: mvc, mode-ui
 ---
 
 # Quickstart: Create a Linux virtual machine in the Azure portal

@@ -115,7 +115,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Equinix Federation App SSO
 
-To configure Single Sign-On on **Equinix Federation App** side, please the follow the [link](https://docs.equinix.com/Content/ECPortal/ssf/ssf.htm).
+To configure Single Sign-On on **Equinix Federation App** side, please the follow the [link](https://docs.equinix.com/Content/home.htm).
 
 ### Create Equinix Federation App test user
 

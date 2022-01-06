@@ -15,7 +15,7 @@ ms.date: 11/23/2021
 The question answering Authoring API is used to automate common tasks like adding new question answer pairs, as well as creating, publishing, and maintaining projects/knowledge bases. 
 
 > [!NOTE]
-> Currently authoring functionality is only available via the question answering REST API.
+> Currently authoring functionality is only available via the REST API. This article provides examples of using the REST API with cURL. For full documentation of all parameters and functionality available consult the [REST API reference content](/rest/api/cognitiveservices/questionanswering/question-answering-projects).
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ To create a project/knowledge base programmatically:
 
 |Variable name | Value |
 |--------------------------|-------------|
-| `ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively, you can find the value in **Language Studio** > **question answering** > **Deploy knowledge base** > **Get prediction URL**. An example endpoint is: `https://southcentralus.api.cognitive.microsoft.com/`. If this was your endpoint in the code sample below, you would only need to add the region specific portion of `southcentral` as the rest of the endpoint path is already present.|
+| `ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively, you can find the value in **Language Studio** > **question answering** > **Deploy knowledge base** > **Get prediction URL**. An example endpoint is: `https://southcentralus.api.cognitive.microsoft.com/`. If the prior example was your endpoint in the code sample below, you would only need to add the region specific portion of `southcentral` as the rest of the endpoint path is already present.|
 | `API-KEY` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either Key1 or Key2. Always having two valid keys allows for secure key rotation with zero downtime. Alternatively, you can find the value in **Language Studio** > **question answering** > **Deploy knowledge base** > **Get prediction URL**. The key value is part of the sample request.|
 | `NEW-PROJECT-NAME` | The name for your new question answering project/knowledge base.|
 
@@ -70,7 +70,7 @@ curl -X PATCH -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: applic
 }
 ```
 
-## Delete project
+## Delete Project
 
 To delete a project/knowledge base programmatically:
 
@@ -547,7 +547,7 @@ curl -X GET -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: applicat
 ]
 ```
 
-## List projects
+## List Projects
 
 Retrieve a list of all question answering projects your account has access to.
 
@@ -736,7 +736,7 @@ curl -X GET -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: applicat
 ### Example query
 
 ```bash
-curl -X GET -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: application/json" -d '{
+curl -X PUT -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: application/json" -d '{
 "value": [
     {
       "alterations": [

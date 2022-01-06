@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/06/2021
+ms.date: 11/15/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
@@ -80,6 +80,7 @@ Point-in-time restore for block blobs has the following limitations and known is
 - If an immutability policy is configured, then a restore operation can be initiated, but any blobs that are protected by the immutability policy will not be modified. A restore operation in this case will not result in the restoration of a consistent state to the date and time given.
 - A block that has been uploaded via [Put Block](/rest/api/storageservices/put-block) or [Put Block from URL](/rest/api/storageservices/put-block-from-url), but not committed via [Put Block List](/rest/api/storageservices/put-block-list), is not part of a blob and so is not restored as part of a restore operation.
 - A blob with an active lease cannot be restored. If a blob with an active lease is included in the range of blobs to restore, the restore operation will fail atomically. Break any active leases prior to initiating the restore operation.
+- Performing a customer-managed failover on a storage account resets the earliest possible restore point for that storage account. For example, suppose you have set the retention period to 30 days. If more than 30 days have elapsed since the failover, then you can restore to any point within that 30 days. However, if fewer than 30 days have elapsed since the failover, then you cannot restore to a point prior to the failover, regardless of the retention period. For example, if it's been 10 days since the failover, then the earliest possible restore point is 10 days in the past, not 30 days in the past.  
 - Snapshots are not created or deleted as part of a restore operation. Only the base blob is restored to its previous state.
 - Restoring Azure Data Lake Storage Gen2 flat and hierarchical namespaces is not supported.
 
@@ -111,5 +112,5 @@ For more information about pricing for point-in-time restore, see [Block blob pr
 
 - [Perform a point-in-time restore on block blob data](point-in-time-restore-manage.md)
 - [Change feed support in Azure Blob Storage](storage-blob-change-feed.md)
-- [Enable soft delete for blobs](./soft-delete-blob-enable.md)
+- [Enable soft delete for blobs](soft-delete-blob-enable.md)
 - [Enable and manage blob versioning](versioning-enable.md)

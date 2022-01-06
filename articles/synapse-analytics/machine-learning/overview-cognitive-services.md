@@ -5,10 +5,10 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: overview
-ms.reviewer: jrasnick, garye, negust, ruxu
+ms.reviewer: sngun, garye, negust, ruxu
 ms.date: 06/30/2021
-author: garyericson
-ms.author: garye
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.custom: ignite-fall-2021
 ---
 

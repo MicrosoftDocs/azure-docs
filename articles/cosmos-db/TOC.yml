@@ -82,10 +82,10 @@
           href: ../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Synapse Link use cases
           href: synapse-link-use-cases.md
-        - name: Synapse Link FAQ
-          href: synapse-link-frequently-asked-questions.yml
         - name: Custom partitioning - Overview
           href: custom-partitioning-analytical-store.md
+        - name: Synapse Link FAQ
+          href: synapse-link-frequently-asked-questions.yml     
     - name: Backup and restore
       items:
         - name: Backup and restore introduction
@@ -877,6 +877,8 @@
               href: sql/couchbase-cosmos-migration.md
             - name: Migrate - DynamoDB to SQL API
               href: sql/dynamo-to-cosmos.md
+            - name: Migrate - HBase to SQL API
+              href: sql/migrate-hbase-to-cosmos-db.md
         - name: Security
           items:
             - name: Configure Cross Origin Resource Sharing(CORS)
@@ -964,7 +966,7 @@
         - name: REST (Data plane)
           href: /rest/api/cosmos-db/
         - name: REST (Management plane)
-          href: /rest/api/cosmos-db-resource-provider/2021-04-15/sql-resources
+          href: /rest/api/cosmos-db-resource-provider/2021-04-01-preview/sql-resources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
@@ -1022,6 +1024,8 @@
           href: cassandra/apache-cassandra-consistency-mapping.md
     - name: How-to guides
       items:
+        - name: From Apache Cassandra to Cassandra API
+          href: cassandra/cassandra-adoption.md     
         - name: Migrate to Cassandra API
           items:
             - name: Migrate - Oracle DB to Cassandra API using Striim
@@ -1030,6 +1034,8 @@
               href: cassandra/oracle-migrate-cosmos-db-blitzz.md
             - name: Migrate - Apache Cassandra to Cassandra API using Blitzz
               href: cassandra/migrate-data-blitzz.md
+            - name: Migrate - Apache Cassandra to Cassandra API using dual-write proxy
+              href: cassandra/migrate-data-dual-write-proxy.md              
             - name: Migrate - Apache Cassandra to Cassandra API using Databricks
               href: cassandra/migrate-data-databricks.md
             - name: Migrate - PostgreSQL to Cassandra API using Apache Kafka
@@ -1050,6 +1056,8 @@
           href: cassandra/access-data-spring-data-app.md
         - name: Troubleshoot common issues
           href: cassandra/troubleshoot-common-issues.md
+        - name: Troubleshoot NoHostAvailableException
+          href: cassandra/troubleshoot-nohostavailable-exception.md
         - name: Monitor using Diagnostics Logs
           href: cassandra/diagnostic-queries-cassandra.md
         - name: Cassandra and Spark
@@ -1089,10 +1097,12 @@
           href: cassandra/glowroot-cassandra.md
         - name: Error codes definitions
           href: cassandra/error-codes-solution.md
+        - name: Lightweight Transactions in Cassandra API
+          href: cassandra/lwt-cassandra-api.md
     - name: Reference
       items:
         - name: REST resource provider
-          href: /rest/api/cosmos-db-resource-provider/2021-04-15/cassandra-resources
+          href: /rest/api/cosmos-db-resource-provider/2021-04-01-preview/cassandra-resources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
@@ -1236,7 +1246,7 @@
     - name: Reference
       items:
         - name: REST resource provider
-          href: /rest/api/cosmos-db-resource-provider/2021-04-15/mongo-db-resources
+          href: /rest/api/cosmos-db-resource-provider/2021-04-01-preview/mongo-db-resources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
@@ -1282,8 +1292,6 @@
       items:
         - name: Graph data modeling
           href: graph/graph-modeling.md
-        - name: Third-party Graph Modeling solutions
-          href: graph/graph-modeling-tools.md
         - name: Graph data partitioning
           href: graph/graph-partitioning.md
         - name: Import graph data
@@ -1304,8 +1312,6 @@
           href: graph/use-regional-endpoints.md
         - name: Access system document properties
           href: graph/access-system-properties-gremlin.md
-        - name: Visualize graph data
-          href: graph/graph-visualization-partners.md
         - name: Monitor using Diagnostics Logs
           href: graph/diagnostic-queries-gremlin.md
         - name: Store and manage Spring Data
@@ -1319,8 +1325,14 @@
           href: graph/powershell-samples.md
         - name: Manage using Azure CLI
           href: graph/cli-samples.md
-        - name: Supply chain traceability solution
-          href: graph/supply-chain-traceability-solution.md
+        - name: Gremlin partner solutions
+          items:
+          - name: Visualization solutions
+            href: graph/graph-visualization-partners.md
+          - name: Modeling solutions
+            href: graph/graph-modeling-tools.md
+          - name: Supply chain traceability solution
+            href: graph/supply-chain-traceability-solution.md
     - name: Reference
       items:
         - name: Response Headers
@@ -1328,7 +1340,7 @@
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: REST resource provider
-          href: /rest/api/cosmos-db-resource-provider/2021-04-15/gremlin-resources
+          href: /rest/api/cosmos-db-resource-provider/2021-04-01-preview/gremlin-resources
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
         - name: Azure CLI

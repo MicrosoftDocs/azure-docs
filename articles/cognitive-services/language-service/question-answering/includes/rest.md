@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Use cURL & REST to manage knowledge base - custom question answering"
 description: This quickstart shows you how to create, publish, and query your knowledge base using the REST APIs.
-ms.date: 11/16/2021
+ms.date: 11/29/2021
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
@@ -10,20 +10,17 @@ ms.custom: ignite-fall-2021
 
 ## Prerequisites
 
-> [!NOTE]
-> This documentation does not apply to the latest release. To learn about using the REST API with the latest release consult the [question answering REST API quickstart](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/quickstart/sdk?pivots=rest).
-
 * The current version of [cURL](https://curl.haxx.se/). Several command-line switches are used in the quickstarts, which are noted in the [cURL documentation](https://curl.haxx.se/docs/manpage.html).
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * Question answering, requires a [Language resource](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled to generate an API key and endpoint.
-	* After your Language resource deploys, select **Go to resource**. You will need the key and endpoint from the resource you create to connect to the API. Paste your key and endpoint into the code below later in the quickstart.
+    * After your Language resource deploys, select **Go to resource**. You will need the key and endpoint from the resource you create to connect to the API. Paste your key and endpoint into the code below later in the quickstart.
 * An existing knowledge base to query. If you have not setup a knowledge base, you can follow the instructions in the [**Language Studio quickstart**](../quickstart/sdk.md). Or add a knowledge base that uses this [Surface User Guide URL](https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf) as a data source.
 
 ## Query a knowledge base
 
 ### Generate an answer from a knowledge base
 
-To query a question answering project/knowledge base with the REST APIs and cURL, you need to  information:
+To [query a question answering project/knowledge base](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers) with the REST APIs and cURL, you need the following information:
 
 |Variable name | Value |
 |--------------------------|-------------|
@@ -92,7 +89,7 @@ Since we know from our previous execution of the code that our confidence score 
 
 ## Query text without a knowledge base
 
-You can also use question answering without a knowledge base with the prebuilt question answering REST API, which is called via `query-text`. In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
+You can also [use question answering without a knowledge base](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text) with the prebuilt question answering REST API, which is called via `query-text`. In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
 
 For this example, you only need to modify the variables for `API KEY` and `ENDPOINT`.
 

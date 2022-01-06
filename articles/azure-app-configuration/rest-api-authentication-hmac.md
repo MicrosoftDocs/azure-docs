@@ -5,6 +5,7 @@ author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
+ms.devlang: csharp, golang, java, javascript, powershell, python
 ms.date: 08/17/2020
 ---
 

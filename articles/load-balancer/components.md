@@ -5,11 +5,10 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/26/2021
+ms.date: 12/27/2021
 ms.author: allensu
 
 ---
@@ -29,7 +28,7 @@ The nature of the IP address determines the **type** of load balancer created. P
 |  | Public load balancer  | Internal load balancer |
 | ---------- | ---------- | ---------- |
 | **Frontend IP configuration**| Public IP address | Private IP address|
-| **Description** | A public load balancer maps the public IP and port of incoming traffic to the private IP and port of the VM. Load balancer maps traffic the other way around for the response traffic from the VM. You can distribute specific types of traffic across multiple VMs or services by applying load-balancing rules. For example, you can spread the load of web request traffic across multiple web servers.| An internal load balancer distributes traffic to resources that are inside a virtual network. Azure restricts access to the frontend IP addresses of a virtual network that are load balanced. Front-end IP addresses and virtual networks are never directly exposed to an internet endpoint. Internal line-of-business applications run in Azure and are accessed from within Azure or from on-premises resources. |
+| **Description** | A public load balancer maps the public IP and port of incoming traffic to the private IP and port of the VM. Load balancer maps traffic the other way around for the response traffic from the VM. You can distribute specific types of traffic across multiple VMs or services by applying load-balancing rules. For example, you can spread the load of web request traffic across multiple web servers.| An internal load balancer distributes traffic to resources that are inside a virtual network. Azure restricts access to the frontend IP addresses of a virtual network that are load balanced. Front-end IP addresses and virtual networks are never directly exposed to an internet endpoint, meaning an internal load balancer cannot accept incoming traffic from the internet. Internal line-of-business applications run in Azure and are accessed from within Azure or from on-premises resources. |
 | **SKUs supported** | Basic, Standard | Basic, Standard |
 
 ![Tiered load balancer example](./media/load-balancer-overview/load-balancer.png)
@@ -118,6 +117,7 @@ Basic load balancer doesn't support outbound rules.
 
 - Learn about load balancer [limits](../azure-resource-manager/management/azure-subscription-service-limits.md) 
 - Load balancer provides load balancing and port forwarding for specific TCP or UDP protocols. Load-balancing rules and inbound NAT rules support TCP and UDP, but not other IP protocols including ICMP.
+- Load Balancer backend pool cannot consist of a [Private Endpoint](../private-link/private-endpoint-overview.md).
 - Outbound flow from a backend VM to a frontend of an internal Load Balancer will fail.
 - A load balancer rule cannot span two virtual networks. All load balancer frontends and their backend instances must be in a single virtual network.  
 - Forwarding IP fragments isn't supported on load-balancing rules. IP fragmentation of UDP and TCP packets isn't supported on load-balancing rules. HA ports load-balancing rules can be used to forward existing IP fragments. For more information, see [High availability ports overview](load-balancer-ha-ports-overview.md).

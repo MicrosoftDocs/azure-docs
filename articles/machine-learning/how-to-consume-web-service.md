@@ -10,6 +10,7 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
+ms.devlang: csharp, golang, java, python
 ms.custom: "devx-track-python,devx-track-csharp"
 
 
