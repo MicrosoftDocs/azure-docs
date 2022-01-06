@@ -29,7 +29,7 @@ Your university might have one or more Azure subscriptions. You use subscription
 The relationship between a lab plan and its subscription is important because:
 
 - Billing is reported through the subscription that contains the lab plan.
-- You can grant users in the subscription's Azure Active Directory (Azure AD) tenant manage Azure Lab Services lab plans and labs. You can add a user as a lab plan owner, lab plan contributor, lab creator, or lab owner. For more information about built-in RBAC roles, see [Manage identity](#manage-identity).
+- You can grant users in the subscription's Azure Active Directory (Azure AD) tenant manage Azure Lab Services lab plans and labs. You can add a user as a lab plan owner, lab plan contributor, lab creator, or lab owner. For more information about built-in RBAC roles, see [Manage identity](#rbac-roles).
 
 Labs virtual machines (VMs) are managed and hosted for you within a subscription that's owned by Azure Lab Services.
 
