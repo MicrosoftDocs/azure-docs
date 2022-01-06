@@ -40,6 +40,12 @@ You'll learn how to:
 
 To get started, you need a GitHub repository with the sample web application. You'll use this repository to configure a GitHub Actions workflow to run the load test.
 
+The sample application's source repo includes an Apache JMeter script named *SampleApp.jmx*. This script makes three API calls on each test iteration:
+
+* `add`: Carries out a data insert operation on Azure Cosmos DB for the number of visitors on the web app.
+* `get`: Carries out a GET operation from Azure Cosmos DB to retrieve the count.
+* `lasttimestamp`: Updates the time stamp since the last user went to the website.
+
 1. Open a browser and go to the sample application's [source GitHub repository](https://github.com/Azure-Samples/nodejs-appsvc-cosmosdb-bottleneck.git).
 
     The sample application is a Node.js app that consists of an Azure App Service web component and an Azure Cosmos DB database.
@@ -47,14 +53,6 @@ To get started, you need a GitHub repository with the sample web application. Yo
 1. Select **Fork** to fork the sample application's repository to your GitHub account.
 
     :::image type="content" source="./media/tutorial-cicd-github-actions/fork-github-repo.png" alt-text="Screenshot that shows the button to fork the sample application's GitHub repo.":::
-
-## Configure the Apache JMeter script
-
-The sample application's source repo includes an Apache JMeter script named *SampleApp.jmx*. This script makes three API calls on each test iteration:
-
-* `add`: Carries out a data insert operation on Azure Cosmos DB for the number of visitors on the web app.
-* `get`: Carries out a GET operation from Azure Cosmos DB to retrieve the count.
-* `lasttimestamp`: Updates the time stamp since the last user went to the website.
 
 ## Set up GitHub access permissions for Azure
 
@@ -112,7 +110,7 @@ To access Azure resources, you'll create an Azure Active Directory service princ
 
 ## Configure the GitHub Actions workflow to run a load test
 
-In this section, you'll set up a GitHub Actions workflow that triggers the load test. 
+In this section, you'll set up a GitHub Actions workflow that triggers the load test. The sample application repository contains a workflow file. The workflow first deploys the sample web application to Azure App Service, and then invokes the load test. The GitHub action uses an environment variable to pass the URL of the web application to the Apache JMeter script.
 
 To run a load test by using Azure Load Testing from a CI/CD workflow, you need a YAML configuration file. The sample application's repository contains the *SampleApp.yaml* file that contains the parameters for running the test.
 

@@ -43,6 +43,12 @@ You'll learn how to:
 
 To get started, you need a GitHub repository with the sample web application. You'll use this repository to configure an Azure Pipelines workflow to run the load test.
 
+The sample application's source repo includes an Apache JMeter script named *SampleApp.jmx*. This script makes three API calls on each test iteration:
+
+* `add`: Carries out a data insert operation on Azure Cosmos DB for the number of visitors on the web app.
+* `get`: Carries out a GET operation from Azure Cosmos DB to retrieve the count.
+* `lasttimestamp`: Updates the time stamp since the last user went to the website.
+
 1. Open a browser and go to the sample application's [source GitHub repository](https://github.com/Azure-Samples/nodejs-appsvc-cosmosdb-bottleneck.git).
 
     The sample application is a Node.js app that consists of an Azure App Service web component and an Azure Cosmos DB database.
@@ -50,14 +56,6 @@ To get started, you need a GitHub repository with the sample web application. Yo
 1. Select **Fork** to fork the sample application's repository to your GitHub account.
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/fork-github-repo.png" alt-text="Screenshot that shows the button to fork the sample application's GitHub repo.":::
-
-## Configure the Apache JMeter script
-
-The sample application's source repo includes an Apache JMeter script named *SampleApp.jmx*. This script makes three API calls on each test iteration:
-
-* `add`: Carries out a data insert operation on Azure Cosmos DB for the number of visitors on the web app.
-* `get`: Carries out a GET operation from Azure Cosmos DB to retrieve the count.
-* `lasttimestamp`: Updates the time stamp since the last user went to the website.
 
 ## Set up Azure Pipelines access permissions for Azure
 
@@ -107,7 +105,7 @@ To access Azure resources, create a service connection in Azure DevOps and use r
 
 ## Configure the Azure Pipelines workflow to run a load test
 
-In this section, you'll set up an Azure Pipelines workflow that triggers the load test.
+In this section, you'll set up an Azure Pipelines workflow that triggers the load test. The sample application repository contains a pipelines definition file. The pipeline first deploys the sample web application to Azure App Service, and then invokes the load test. The pipeline uses an environment variable to pass the URL of the web application to the Apache JMeter script.
 
 First, you'll install the Azure Load Testing extension from the Azure DevOps Marketplace, create a new pipeline, and then connect it to the sample application's forked repository.
 

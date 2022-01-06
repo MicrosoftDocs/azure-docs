@@ -88,8 +88,6 @@ Now that you have the application deployed and running, you can run your first l
 
 In this section, you'll create a load test by using a sample Apache JMeter test script.
 
-### Configure the Apache JMeter script
-
 The sample application's source repo includes an Apache JMeter script named *SampleApp.jmx*. This script makes three API calls to the web app on each test iteration:  
 
 * `add`: Carries out a data insert operation on Azure Cosmos DB for the number of visitors on the web app.
@@ -128,6 +126,8 @@ To create a load test in the Load Testing resource for the sample app:
     Optionally, you can select and upload additional Apache JMeter configuration files or other files that are referenced in the JMX file. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s).
 
 1. On the **Parameters** tab, add a new environment variable. Enter *webapp* for the **Name** and *`<yourappname>.azurewebsites.net`* for the **Value**. Replace the placeholder text `<yourappname>` with the name of the newly deployed sample application. Don't include the `https://` prefix.
+
+    The Apache JMeter test script uses the environment variable to retrieve the web application URL. The script then invokes the three APIs in the web application.
 
     :::image type="content" source="media/tutorial-identify-bottlenecks-azure-portal/create-new-test-parameters.png" alt-text="Screenshot that shows the parameters tab to add environment variable":::
 
