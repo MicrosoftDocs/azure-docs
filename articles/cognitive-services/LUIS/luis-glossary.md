@@ -324,7 +324,7 @@ Training errors are predictions on your training data that do not match their la
 
 ## Utterance
 
-An [utterance](luis-concept-utterance.md) is user input that is short text representative of a sentence in a conversation. It is a natural language phrase such as "book 2 tickets to Seattle next Tuesday". Example utterances are added to train the model and the model predicts on new utterance at runtime
+An [utterance](concepts/utterances.md) is user input that is short text representative of a sentence in a conversation. It is a natural language phrase such as "book 2 tickets to Seattle next Tuesday". Example utterances are added to train the model and the model predicts on new utterance at runtime
 
 ## Version
 

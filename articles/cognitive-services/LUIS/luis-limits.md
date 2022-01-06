@@ -113,7 +113,7 @@ Your sign-in access is for **60 minutes**. After this time period, you will get 
 [batch-testing]: ./luis-interactive-test.md#batch-testing
 [intents]: ./luis-concept-intent.md
 [phrase-list]: ./luis-concept-feature.md
-[utterances]: ./luis-concept-utterance.md
+[utterances]: ./concepts/utterances.md
 [luis-how-to-manage-versions]: ./luis-how-to-manage-versions.md
 [pricing]: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
 <!-- TBD: fix this link -->

@@ -69,7 +69,7 @@ Create a new version before making changes to the app. In the new version, make 
 
 ### Fix version by adding or editing example utterances and retraining
 
-The primary method of fixing your app will be to add or edit example utterances and retrain. The new or changed utterances need to follow guidelines for [varied utterances](luis-concept-utterance.md).
+The primary method of fixing your app will be to add or edit example utterances and retrain. The new or changed utterances need to follow guidelines for [varied utterances](concepts/utterances.md).
 
 Adding example utterances should be done by someone who:
 

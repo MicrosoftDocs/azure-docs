@@ -52,7 +52,7 @@ landingContent:
           - text: Entities
             url: concepts/entities.md
           - text: Utterances
-            url: luis-concept-utterance.md
+            url: concepts/utterances.md
           - text: Phrase list features
             url: luis-concept-feature.md
       - linkListType: quickstart
