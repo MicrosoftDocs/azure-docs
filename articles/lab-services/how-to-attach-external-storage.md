@@ -30,7 +30,7 @@ Azure Files shares are accessed by using a public or private endpoint. Mount the
 
 If you're using a public endpoint to the Azure Files share, it's important to remember the following:
 
-- The virtual network for the storage account doesn't have to be peered to the lab account.  The file share can be created anytime before the template VM is published.
+- The virtual network for the storage account doesn't have to be the connect to the lab virtual network. You can create the file share anytime before the template VM is published.
 - The file share can be accessed from any machine if a user has the storage account key.  
 - Linux students can see the storage account key. Credentials for mounting an Azure Files share are stored in `{file-share-name}.cred` on Linux VMs, and are readable by sudo. Because students are given sudo access by default in Azure Lab Services VMs, they can read the storage account key. If the storage account endpoint is public, students can get access to the file share outside of their student VM. Consider rotating the storage account key after class has ended, and using private file shares.
 
@@ -38,7 +38,7 @@ If you're using a private endpoint to the Azure Files share, it's important to r
 
 - Access is restricted to traffic originating from the private network, and can’t be accessed through the public internet. Only VMs in the private virtual network, VMs in a network peered to the private virtual network, or machines connected to a VPN for the private network, can access the file share.  
 - Linux students can see the storage account key. Credentials for mounting an Azure Files share are stored in `{file-share-name}.cred` on Linux VMs, and are readable by sudo. Because students are given sudo access by default in Azure Lab Services VMs, they can read the storage account key. Consider rotating the storage account key after class has ended.
-- This approach requires the file share virtual network to be peered to the lab account. The virtual network for the Azure Storage account must be peered to the virtual network for the lab account before the lab is created.
+- This approach requires the file share virtual network to be connected to the lab.  To enable advanced networking for labs, see [Connect to your virtual network in Azure Lab Services using vnet injection](how-to-connect-vnet-injection.md).  VNet injection must be done during lab plan creation.
 
 > [!NOTE]
 > By default, standard file shares can span up to 5 TiB. See [Create an Azure file share](../storage/files/storage-how-to-create-file-share.md) for information on how to create file shares than span up to 100 TiB.
@@ -140,12 +140,12 @@ Keep in mind the following important points:
 - You can set permissions on a directory or file level.
 - You can use current user credentials to authenticate to the file share.
 
-For a public endpoint, the virtual network for the storage account doesn't have to peer to the lab account. You can create the file share anytime before the template VM is published.
+For a public endpoint, the virtual network for the storage account doesn't have to be connect to the lab virtual network. You can create the file share anytime before the template VM is published.
 
 For a private endpoint:
 
 - Access is restricted to traffic originating from the private network, and can’t be accessed through the public internet. Only VMs in the private virtual network, VMs in a network peered to the private virtual network, or machines connected to a VPN for the private network, can access the file share.  
-- This approach requires the file share virtual network to be peered to the lab account. The virtual network for the Azure Storage account must be peered to the virtual network for the lab account before the lab is created.
+- This approach requires the file share virtual network to be connected to the lab.  To enable advanced networking for labs, see [Connect to your virtual network in Azure Lab Services using vnet injection](how-to-connect-vnet-injection.md).  VNet injection must be done during lab plan creation.
 
 To create an Azure Files share that's enabled for Active Directory authentication, and to domain-join the lab VMs, follow these steps:
 
@@ -160,7 +160,7 @@ To create an Azure Files share that's enabled for Active Directory authenticatio
     - **Storage File Data SMB Share Contributor** role should be assigned to students who need to add or edit files on the file share.
     - **Storage File Data SMB Share Reader** role should be assigned to students who only need to read the files from the file share.
 6. Set up directory-level and/or file-level permissions for the file share. You must set up permissions from a domain-joined machine that has network access to the file share. To modify directory-level and/or file-level permissions, mount the file share by using the storage key, not your Azure AD credentials. To assign permissions, use the [Set-Acl](/powershell/module/microsoft.powershell.security/set-acl) PowerShell command, or [icacls](/windows-server/administration/windows-commands/icacls) in Windows.
-7. [Peer the virtual network](how-to-connect-peer-virtual-network.md) for the storage account to the lab account.
+7. [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md).
 8. [Create the lab](how-to-manage-labs.md).
 9. Save a script on the template VM that students can run to connect to the network drive. To get example script:
     1. Open the storage account in the Azure portal.
@@ -181,12 +181,12 @@ To create an Azure Files share that's enabled for Active Directory authenticatio
 - Permission policies are IP-based for each volume.
 - If students need their own volume that other students don't have access to, permission policies must be assigned after the lab is published.
 - In the context of Azure Lab Services, only Linux machines are supported.
-- The virtual network for the Azure NetApp Files capacity pool must be peered to the virtual network for the lab account **before** the lab is created.
+- The virtual network for the Azure NetApp Files capacity pool must be connected to the lab.  To enable advanced networking for labs, see [Connect to your virtual network in Azure Lab Services using vnet injection](how-to-connect-vnet-injection.md).  VNet injection must be done during lab plan creation.
 
 To use an Azure NetApp Files share in Azure Lab Services:
 
 1. To create an Azure NetApp Files capacity pool and one or more NFS volumes, see [set up Azure NetApp Files and NFS volume](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md). For information about service levels, see [Service levels for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-service-levels.md).
-2. [Peer the virtual network](how-to-connect-peer-virtual-network.md) for the Azure NetApp Files capacity pool to the lab account.
+2. [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md)
 3. [Create the lab](how-to-manage-labs.md).
 4. On the template VM, install the components necessary to use NFS file shares.
     - Ubuntu:

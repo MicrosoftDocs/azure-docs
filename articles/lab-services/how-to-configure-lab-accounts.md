@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 08/17/2020
 ---
 
-# Configure automatic shutdown of VMs for a lab account
+# Configure automatic shutdown of VMs for a lab account (deprecated)
 
 You can enable several auto-shutdown cost control features to proactively prevent additional costs when the virtual machines are not being actively used. The combination of the following three automatic shutdown and disconnect features catches most of the cases where users accidentally leave their virtual machines running:
 
