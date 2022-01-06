@@ -37,8 +37,6 @@ landingContent:
         links:
           - text: Authentication & Authorization
             url: authentication-authorization.md
-          - text: Access using REST Client
-            url: using-rest-client.md
       - linkListType: reference
         links:
           - text: Healthcare APIs FAQs
