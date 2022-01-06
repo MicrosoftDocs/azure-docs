@@ -61,33 +61,26 @@ imDNS | where SrcIpAddr != "127.0.0.1" and EventSubType == "response"
 
 ### Unifying parsers
 
-To use the unifying parsers that unify all of the out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the following KQL functions as the table name in your query:
+To use the unifying parsers that unify all of the out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the filtering parser _Im_Dns or the parameter-less parser _ASim_Dns.
 
-| Name | Description | Usage instructions |
-| --- | --- | --- |
-| **imDNS** | Aggregative parser that uses *union* to include normalized events from all DNS sources. |- Update this parser if you want to add or remove sources from source-agnostic analytics. <br><br>- Use this function in your source-agnostic queries.|
-| **ASimDNS** | Similar to the `imDns` function, but without parameter support, and therefore does not force the **Logs** page time picker to use the `custom` value. |- Update this parser if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries if you don't plan to use parameters.|
-| **vimDNS\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source, such as *vimDNSWindowsOMS*. |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the `im` aggregative parser to include reference to your new parser. <br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use a source-specific parser for source-specific analytics.|
-| **ASimDNS\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source. Unlike the `vim*` functions, the `ASimDNS*` functions do not support parameters. |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the aggregative `ASim` parser to include reference to your new parser.<br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use an `ASim` source-specific parser for interactive queries when not using parameters.|
-| | | |
-
-The parsers can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/azsentinelDNS).
+The use [workspace deployed parsers](normalization-parsers-overview.md#built-in-asim-parsers-and-workspace-deployed-parsers) use the [Microsoft Sentinel GitHub repository](https://aka.ms/azsentinelDNS).
 
 ### Out-of-the-box, source-specific parsers
 
 Microsoft Sentinel provides the following out-of-the-box, product-specific DNS parsers:
 
-| **Name** | **Description** |
-| --- | --- |
-|**Microsoft DNS Server**  |   **Collected using the DNS connector and the Log Analytics Agent**: <br> - `ASimDnsMicrosoftOMS` (regular) <br>- `vimDnsMicrosoftOMS` (parametrized) <br><br>  **Collected using NXlog**: <br> - `ASimDnsMicrosoftNXlog` (regular)<br>- `vimDnsMicrosoftNXlog` (parameterized) |
-| **Azure Firewall** |- `ASimDnsAzureFirewall` (regular)<br>- `vimDnsAzureFirewall` (parameterized) |
-|**Sysmon for Windows**   (event 22) | **Collected using the Log Analytics Agent or the Azure Monitor Agent**, supporting both the `Event` and `WindowsEvent` tables: <br>- `ASimDnsMicrosoftSysmon` (regular)<br>- `vimDnsMicrosoftSysmon` (parametrized)  |
-|**Cisco Umbrella**  | - `ASimDnsCiscoUmbrella` (regular)<br>- `vimDnsCiscoUmbrella` (parametrized)  |
-|**Infoblox NIOS**  |- `ASimDnsInfobloxNIOS` (regular)<br>- `vimDnsInfobloxNIOS` (parametrized) |
-| **GCP DNS** |- `ASimDnsGcp` (regular)<br>- `vimDnsGcp`  (parametrized) |
-| **Corelight Zeek DNS events** | - `ASimDnsCorelightZeek` (regular)<br>- `vimDnsCorelightZeek`  (parametrized) |
-| **zScaler ZIA** |- `AsimDnszScalerZIA` (regular)<br>- `vimDnszScalerZIA` (parametrized)  |
-| | |
+| **Source** | **Built-in parsers** | **Workspace deployed parsers** | 
+| --- | --------------------------- | ------------------------------ | 
+|**Microsoft DNS Server**<br>Collected using the DNS connector<br> and the Log Analytics Agent | `_ASim_DnsMicrosoftOMS` (regular) <br> `_Im_DnsMicrosoftOMS` (filtering) <br><br>  | `ASimDnsMicrosoftOMS` (regular) <br>`vimDnsMicrosoftOMS` (filtering) <br><br> |
+| **Microsoft DNS Server**<br>Collected using NXlog| `_ASim_DnsMicrosoftNXlog` (regular)<br>`_Im_DnsMicrosoftNXlog` (filtering)| `ASimDnsMicrosoftNXlog` (regular)<br> `vimDnsMicrosoftNXlog` (filtering)|
+| **Azure Firewall** | `_ASim_DnsAzureFirewall` (regular)<br> `_Im_DnsAzureFirewall` (filtering) | `ASimDnsAzureFirewall` (regular)<br>vimDnsAzureFirewall` (filtering) |
+|**Sysmon for Windows**  (event 22)<br>Collected using the Log Analytics Agent<br> or the Azure Monitor Agent,<br>supporting both the<br> `Event` and `WindowsEvent` tables | `_ASim_DnsMicrosoftSysmon` (regular)<br> `_Im_DnsMicrosoftSysmon` (filtering)  | `ASimDnsMicrosoftSysmon` (regular)<br> `vimDnsMicrosoftSysmon` (filtering)|
+|**Cisco Umbrella**  | `_ASim_DnsCiscoUmbrella` (regular)<br> `_Im_DnsCiscoUmbrella` (filtering)  | `ASimDnsCiscoUmbrella` (regular)<br> `vimDnsCiscoUmbrella` (filtering) |
+|**Infoblox NIOS**  | `_ASim_DnsInfobloxNIOS` (regular)<br> `_Im_DnsInfobloxNIOS` (filtering) | `ASimDnsInfobloxNIOS` (regular)<br> `vimDnsInfobloxNIOS` (filtering) |
+| **GCP DNS** | `_ASim_DnsGcp` (regular)<br> `_Im_DnsGcp`  (filtering) | `ASimDnsGcp` (regular)<br> `vimDnsGcp`  (filtering) |
+| **Corelight Zeek DNS events** | `_ASim_DnsCorelightZeek` (regular)<br> `_Im_DnsCorelightZeek`  (filtering) |  `ASimDnsCorelightZeek` (regular)<br> `vimDnsCorelightZeek`  (filtering)
+| **zScaler ZIA** |`_ASim_DnsZscalerZIA` (regular)<br> `_Im_DnsZdcalerZIA` (filtering)  | `AsimDnsZscalerZIA` (regular)<br> `vimDnsSzcalerZIA` (filtering)  |
+| | | |
 
 The parsers can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/azsentinelDNS).
 
