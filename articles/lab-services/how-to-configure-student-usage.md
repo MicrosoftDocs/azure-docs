@@ -99,13 +99,13 @@ This method shows you how to send email with a registration link and an optional
 
 1. In the **Users** pane, select **Invite all**.
 
-    ![The "Invite all" button](./media/tutorial-setup-classroom-lab/invite-all-button.png)
+    ![The "Invite all" button](./media/how-to-configure-student-usage/invite-all-button.png)
 
 1. In the **Send invitation by email** window, enter an optional message, and then select **Send**.
 
     The email automatically includes the registration link. To get and save the registration link separately, select the ellipsis (**...**) at the top of the **Users** pane, and then select **Registration link**.
 
-    ![The "Send registration link by email" window](./media/tutorial-setup-classroom-lab/send-email.png)
+    ![The "Send registration link by email" window](./media/how-to-configure-student-usage/send-email.png)
 
     The **Invitation** column of the **Users** list displays the invitation status for each added user. The status should change to **Sending** and then to **Sent on \<date>**.
 
