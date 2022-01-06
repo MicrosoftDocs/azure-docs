@@ -3,9 +3,8 @@ title: Network security concepts and requirements in Azure | Microsoft Docs
 description: This article provides basic explanations about core network security concepts and requirements, and information on what Azure offers in each of these areas.
 services: security
 documentationcenter: na
-author: TomShinder
-manager: barbkess
-editor: TomSh
+author: TerryLanfear
+manager: rkarlin
 
 ms.assetid: bedf411a-0781-47b9-9742-d524cf3dbfc1
 ms.service: security
