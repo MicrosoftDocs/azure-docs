@@ -30,7 +30,7 @@ landingContent:
             url: lab-services-whats-new.md
       - linkListType: concept
         links:
-          - text: Labs concepts
+          - text: Lab Services concepts
             url: classroom-labs-concepts.md
   # Card
   - title: Lab plans
@@ -41,8 +41,13 @@ landingContent:
           url: tutorial-setup-lab-plan.md
     - linkListType: how-to-guide
       links:
-        - text: Configure autoshutdown with lab plans
+        - text: Add Lab Creator
+          url: add-lab-creator.md
+        - text: Configure auto-shutdown
           url: how-to-configure-auto-shutdown-lab-plans.md
+        - text: Connect to a virtual network
+          url: how-to-connect-vnet-injection.md
+        
   - title: Labs
     linkLists:
     - linkListType: tutorial
@@ -69,8 +74,10 @@ landingContent:
             url: tutorial-connect-lab-virtual-machine.md
       - linkListType: how-to-guide
         links:
-          - text: Use remote desktop connection for Linux VMs
+          - text: Connect to Linux VMs
             url: how-to-use-remote-desktop-linux-student.md
+          - text: Set or reset passwords
+            url: how-to-set-virtual-machine-passwords-student.md
   - title: Explore reference content
     linkLists:
       - linkListType: reference
