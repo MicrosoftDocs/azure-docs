@@ -82,6 +82,9 @@ When you select `ManagedIdentity`, you must enable a managed identity in Azure S
 
 ## Create upstream settings via the Azure portal
 
+> [!NOTE]
+> Integration with App Service Environment is currently not supported.
+
 1. Go to Azure SignalR Service.
 2. Select **Settings** and switch **Service Mode** to **Serverless**. The upstream settings will appear:
 

@@ -120,6 +120,67 @@ As you work with the node resource group, keep in mind that you can't:
 - Specify names for the managed resources within the node resource group.
 - Modify or delete Azure-created tags of managed resources within the node resource group.
 
+## OIDC Issuer (Preview)
+
+This enables an OIDC Issuer URL of the provider which allows the API server to discover public signing keys. 
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+### Before you begin
+
+You must have the following resource installed:
+
+* The Azure CLI
+* The `aks-preview` extension version 0.5.50 or later
+* Kubernetes version 1.19.x or above
+
+
+#### Register the `EnableOIDCIssuerPreview` feature flag
+
+To use the OIDC Issuer feature, you must enable the `EnableOIDCIssuerPreview` feature flag on your subscription. 
+
+```azurecli
+az feature register --name EnableOIDCIssuerPreview --namespace Microsoft.ContainerService
+```
+You can check on the registration status by using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableOIDCIssuerPreview')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+#### Install the aks-preview CLI extension
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+### Create an AKS cluster with OIDC Issuer
+
+To create a cluster using the OIDC Issuer.
+
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
+az aks create -n aks -g myResourceGroup --enable-oidc-issuer
+```
+
+### Upgrade an AKS cluster with OIDC Issuer
+
+To upgrade a cluster to use OIDC Issuer.
+
+```azurecli-interactive
+az aks upgrade -n aks -g myResourceGroup --enable-oidc-issuer
+```
+
 ## Next steps
 
 - Learn how [upgrade the node images](node-image-upgrade.md) in your cluster.
