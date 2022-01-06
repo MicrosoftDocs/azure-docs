@@ -14,7 +14,18 @@ ms.date: 12/30/2021
 This section discusses troubleshooting issues caused by conditions on an Azure Cache for Redis server or any of the virtual machines hosting it.
 
 - [High server load](#high-server-load)
+    - [Rapid changes in number of client connections](#rapid-changes-in-number-of-client-connections)
+    - [Long running or expensive commands](#long-running-or-expensive-commands)
+    - [Scaling](#scaling)
+    - [Server maintenance](#server-maintenance)
+- [High server load mitigation](#high-server-load-mitigation)
+    - Add more shards
+    - Create alerts
 - [High memory usage](#high-memory-usage)
+- [Memory pressure on Redis server](#memory-pressure-on-redis-server)
+- [High CPU usage or server load](#high-cpu-usage-or-server-load)
+- [Long-running commands](#long-running-commands)
+- [Server-side bandwidth limitation](#server-side-bandwidth-limitation)
 
 > [!NOTE]
 > Several of the troubleshooting steps in this guide include instructions to run Redis commands and monitor various performance metrics. For more information and instructions, see the articles in the [Additional information](#additional-information) section.
