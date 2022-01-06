@@ -23,7 +23,7 @@ You may need to manage the source-specific parsers used by each unifying parser 
   - Fix the version of the source-specific parser used by the unifying parser to prevent automated updates.
   - Use a modified version of the built-in parser.
 
-This document will teach you how to do these tasks, whether using built-in unifying ASIM parsers or workspace deployed unifying parsers. The procedures below assume that all source-specific parsers have already been deployed to the workspace as outlined in the document [Develop ASIM parsers](normalization-develop-parsers.md).
+This document will guide you how to perform these tasks, whether using built-in unifying ASIM parsers or workspace deployed unifying parsers. The procedures below assume that all source-specific parsers have already been deployed to the workspace as outlined in the document [Develop ASIM parsers](normalization-develop-parsers.md#deploy-parsers).
 
 > [!IMPORTANT]
 > ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -36,7 +36,7 @@ This document will teach you how to do these tasks, whether using built-in unify
 The user cannot edit built-in unifying parsers. The following mechanisms enable users to influence the built-in unifying parsers behavior:
 
 -  To enable adding source-specific parsers, ASIM uses custom unifying parsers. These parsers are workspace deployed and are picked up automatically by the built-in unifying parsers if they exist. You can [deploy initial empty custom unifying parsers](https://aka.ms/DeployASimCustom) for all supported schemas, or deploy individually for specific schemas:
-  - [DNS](https://aka.ms/DeployASimCustomDns)
+    - [DNS](https://aka.ms/DeployASimCustomDns)
 
 - To enable excluding built-in source-specific parsers, ASIM uses a watchlist. Deploy the watchlist from [GitHub](https://aka.ms/DeployASimExceptionWatchlist).
 
@@ -44,7 +44,7 @@ The user cannot edit built-in unifying parsers. The following mechanisms enable 
 
 To add a custom parser, insert a line to the custom unifying parser referencing the new custom parser. Make sure to add both a filtering custom parser and a parameter-less custom parser. The syntax of the line to add is different for each schema:
 
-| Schema | Custom&nbsp;source&#8209;agnostic filtering  parser | Format of line to add | Custom&nbsp;source&#8209;agnostic Parameter-less parser |  Format of line to add |
+| Schema | Custom source&#8209;agnostic filtering  parser | Format of line to add | Custom source&#8209;agnostic Parameter-less parser |  Format of line to add |
 | ------ | ---------------------------------------- | --------------------- | ---------------- | --------------------- | 
 | DNS    | Im_DnsCustom | _parser_name_ (starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype) | ASim_DnsCustom | _parser_name_ |
 | | | | |  
@@ -88,16 +88,16 @@ To fix the version used for a built-in source-specific parser:
 
 To add a custom parser, insert a line to the union statement in the workspace-deployed unifying parser referencing the new custom parser. Make sure to add both a filtering custom parser and a parameter-less custom parser. The syntax of the line to add is different for each schema:
 
-| Schema |  Filtering  parser | Format of line to add | Parameter-less parser |  Format of line to add |
-| ------ | ---------------------------------------- | --------------------- | ---------------- | --------------------- | 
-| **Authentication**  | ImAuthentication | _parser_name_ (starttime, endtime, targetusername_has) | ASimAuthentication | _parser_name_ |
-| **DNS**   | ImDns | _parser_name_ (starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype) | ASimDns | _parser_name_ |
-| **File Event** | | | imFileEvent | _parser_name_ |
-| **Network Session** | imNetworkSession | _parser_name_ (starttime, endtime, srcipaddr_has_any_prefix, dstipaddr_has_any_prefix, dstportnumber, url_has_any, httpuseragent_has_any, hostname_has_any, dvcaction, eventresult) | ASimNetworkSession |  _parser_name_ |
-| **Process Event** | | | - imProcess<br> - imProcessCreate<br> - imProcessTerminate |  _parser_name_ |
-| **Registry Event** | | | imRegistry |  _parser_name_ |
-| **Web Session** | imWebSession | _parser_name_ parser (starttime, endtime, srcipaddr_has_any, url_has_any, httpuseragent_has_any, eventresultdetails_in, eventresult) | ASimWebSession |  _parser_name_ | 
-| | | | |  
+| Schema |  Filtering  parser | Parameter-less parser |
+| ------ | -------------- | --------------------- |
+| **Authentication**  | **Name:** ImAuthentication<br><br>**Line to add:**<br> _parser_name_ (starttime, endtime, targetusername_has) | **Name:** ASimAuthentication<br><br> **Line to add:** _parser_name_ |
+| **DNS**   |  **Name:** ImDns<br><br>**Line to add:**<br> _parser_name_ (starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype) | **Name:** ASimDns<br><br>**Line to add:** _parser_name_ |
+| **File Event** | | **Name:** imFileEvent<br><br>**Line to add:** _parser_name_ |
+| **Network Session** | **Name:** imNetworkSession<br><br>**Line to add:**<br> _parser_name_ (starttime, endtime, srcipaddr_has_any_prefix, dstipaddr_has_any_prefix, dstportnumber, url_has_any, httpuseragent_has_any, hostname_has_any, dvcaction, eventresult) | **Name:** ASimNetworkSession<br><br>**Line to add:** _parser_name_ |
+| **Process Event** | | **Names:**<br> - imProcess<br> - imProcessCreate<br> - imProcessTerminat<br><br>**Line to add:**  _parser_name_ |
+| **Registry Event** | | **Name:** imRegistry |  _parser_name_ |
+| **Web Session** | **Name:** imWebSession<br><br>**Line to add:**<br> _parser_name_ parser (starttime, endtime, srcipaddr_has_any, url_has_any, httpuseragent_has_any, eventresultdetails_in, eventresult) | **Name:** ASimWebSession<br><br>**Line to add:**  _parser_name_ | 
+| |  |  
 
 When adding an additional parser to a unifying parser, make sure you add a comma at the end of the previous line.
 
