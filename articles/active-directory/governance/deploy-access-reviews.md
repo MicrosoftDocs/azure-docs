@@ -405,7 +405,7 @@ Follow the instructions in the articles listed in the table.
 
 ## Use the Access Reviews API
 
-To interact with and manage reviewable resources, see [Microsoft Graph API methods](/graph/api/resources/accessreviewsv2-root) and [role and application permission authorization checks](/graph/api/resources/accessreviewsv2-root). The access reviews methods in the Microsoft Graph API are available for both application and user contexts. When you run scripts in the application context, the account used to run the API (the service principle) must be granted the AccessReview.Read.All permission to query access reviews information.
+To interact with and manage reviewable resources, see [Microsoft Graph API methods](/graph/api/resources/accessreviewsv2-overview) and [role and application permission authorization checks](/graph/api/resources/accessreviewsv2-overview). The access reviews methods in the Microsoft Graph API are available for both application and user contexts. When you run scripts in the application context, the account used to run the API (the service principle) must be granted the AccessReview.Read.All permission to query access reviews information.
 
 Popular access reviews tasks to automate by using the Microsoft Graph API for access reviews are:
 
@@ -416,7 +416,7 @@ Popular access reviews tasks to automate by using the Microsoft Graph API for ac
 * Collect decisions from an access review.
 * Collect decisions from completed reviews where the reviewer made a different decision than what the system recommended.
 
-When you create new Microsoft Graph API queries for automation, use the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer). You can build and explore your Microsoft Graph queries before you put them into scripts and code. This step can help you to quickly iterate your query so that you get exactly the results you're looking for, without changing the code of your script.
+When you create new Microsoft Graph API queries for automation, use [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) to build and explore your Microsoft Graph queries before you put them into scripts and code. This step can help you to quickly iterate your query so that you get exactly the results you're looking for, without changing the code of your script.
 
 ## Monitor access reviews
 
