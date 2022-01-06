@@ -34,12 +34,12 @@ Each number in the version indicates general compatibility with the previous ver
 
 Aim to run the latest patch release of the minor version you're running. For example, your production cluster is on **`1.17.7`**. **`1.17.8`** is the latest available patch version available for the *1.17* series. You should upgrade to **`1.17.8`** as soon as possible to ensure your cluster is fully patched and supported.
 
-## Kubernetes Alias Minor Version (Preview)
+## Kubernetes version alias (Preview)
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 > [!NOTE]
-> Alias Minor Version requires Azure CLI version 2.31.0 or above with the aks-preview extension installed. Please use `az upgrade` to install the latest version of the CLI.
+> Kubernetes version alias requires Azure CLI version 2.31.0 or above with the aks-preview extension installed. Please use `az upgrade` to install the latest version of the CLI.
 
 You will need the *aks-preview* Azure CLI extension version 0.5.49 or greater. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
 

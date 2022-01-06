@@ -104,7 +104,6 @@ New-AzVm
 -SubnetName "mySubnet"
 -SecurityGroupName "myNetworkSecurityGroup"
 -PublicIpAddressName "myPublicIpAddress"
--OpenPorts 80,3389
 -Size "Standard_D2s_v3"
 -CapacityReservationGroupId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName}"
 ```

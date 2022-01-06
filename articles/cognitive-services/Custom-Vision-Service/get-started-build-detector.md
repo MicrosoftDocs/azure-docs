@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 - A set of images with which to train your detector model. You can use the set of [sample images](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) on GitHub. Or, you can choose your own images using the tips below.
-- A [supported web browser](overview.md#supported-browsers-for-custom-vision-website)
+- A [supported web browser](overview.md#supported-browsers-for-custom-vision-web-portal)
 
 ## Create Custom Vision resources
 
