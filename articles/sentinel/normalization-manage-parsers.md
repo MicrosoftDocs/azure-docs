@@ -41,7 +41,9 @@ The user cannot edit built-in unifying parsers. The following mechanisms enable 
 
 ### Adding a custom parser to a built-in unifying parser
 
-To add a custom parser, insert a line to the custom unifying parser referencing the new custom parser. Make sure to add both a filtering custom parser and a parameter-less custom parser. The syntax of the line to add is different for each schema:
+To add a custom parser, insert a line to the custom unifying parser referencing the new custom parser. Make sure to add both a filtering custom parser and a parameter-less custom parser. To learn more about how to edit parsers, refer to the document [Functions in Azure Monitor log queries](/azure/azure-monitor/logs/functions#edit-a-function).
+
+The syntax of the line to add is different for each schema:
 
 | Schema | Custom source&#8209;agnostic filtering  parser | Format of line to add | Custom source&#8209;agnostic Parameter-less parser |  Format of line to add |
 | ------ | ---------------------------------------- | --------------------- | ---------------- | --------------------- | 
