@@ -108,7 +108,7 @@ Availability zones allow you to schedule the self-hosted gateway's pod on nodes 
 > [!Note]
 > If you are using Azure Kubernetes Service, learn how to use availability zones in [this article](./../aks/availability-zones.md).
 
-### Preventing against pod disruption
+### Protecting against pod disruption
 
 Pods can experience disruption due to [various](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#voluntary-and-involuntary-disruptions) reasons such as manual pod deletion, node maintenance, etc.
 
