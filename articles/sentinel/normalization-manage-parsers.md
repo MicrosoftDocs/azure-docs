@@ -35,7 +35,7 @@ This document will teach you how to do these tasks, whether using built-in sourc
 
 The user cannot edit built-in source-agnostic parsers. The following mechanisms enable users to influence the built-in source-agnostic parsers behavior:
 
--  To enable adding source-specific parsers, ASIM uses custom source-agnostic parsers, which are workspace deployed and are picked up automatically by the built-in source agnostic parsers if they exist. You can [deploy initial empty custom source-agnostic parsers](https://aka.ms/DeployASimCustom) for all supported schemas, or deploy individually for specific schemas:
+-  To enable adding source-specific parsers, ASIM uses custom source-agnostic parsers. These parsers are workspace deployed and are picked up automatically by the built-in source agnostic parsers if they exist. You can [deploy initial empty custom source-agnostic parsers](https://aka.ms/DeployASimCustom) for all supported schemas, or deploy individually for specific schemas:
   - [DNS](https://aka.ms/DeployASimCustomDns)
 
 - To enable excluding built-in source-specific parsers, ASIM uses a watchlist. Deploy the watchlist from [GitHub](https://aka.ms/DeployASimExceptionWatchlist).
