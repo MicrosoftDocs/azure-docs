@@ -129,7 +129,7 @@ To create a load test in the Load Testing resource for the sample app:
 
     The Apache JMeter test script uses the environment variable to retrieve the web application URL. The script then invokes the three APIs in the web application.
 
-    :::image type="content" source="media/tutorial-identify-bottlenecks-azure-portal/create-new-test-parameters.png" alt-text="Screenshot that shows the parameters tab to add environment variable":::
+    :::image type="content" source="media/tutorial-identify-bottlenecks-azure-portal/create-new-test-parameters.png" alt-text="Screenshot that shows the parameters tab to add environment variable.":::
 
 1. On the **Load** tab, configure the following details. You can leave the default value for this tutorial.
 
