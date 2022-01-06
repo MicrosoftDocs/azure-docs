@@ -1073,3 +1073,6 @@
   - name: Azure Orbital
     tocHref: /azure/orbital/
     topicHref: /azure/orbital/
+  - name: Load Testing
+    tocHref: /azure/load-testing/
+    topicHref: /azure/load-testing/overview-what-is-azure-load-testing
