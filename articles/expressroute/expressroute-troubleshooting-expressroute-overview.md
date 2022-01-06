@@ -65,6 +65,8 @@ The following are the logical steps, in troubleshooting ExpressRoute circuit:
   
 * [Confirm the traffic flow](#confirm-the-traffic-flow)
 
+* [Use DebugACL to confirm connectivity](#debug-acl)
+
 
 ## Verify circuit provisioning and state
 Provisioning an ExpressRoute circuit establishes a redundant Layer 2 connections between CEs/PE-MSEEs (2)/(4) and MSEEs (5). For more information on how to create, modify, provision, and verify an ExpressRoute circuit, see the article [Create and modify an ExpressRoute circuit][CreateCircuit].
@@ -312,6 +314,36 @@ A sample output of the command for a non-existent peering is:
 Get-AzExpressRouteCircuitRouteTable : The BGP Peering AzurePublicPeering with Service Key ********************* is not found.
 StatusCode: 400
 ```
+
+## Test private peering connectivity
+Test your private peering connectivity by "counting" inbound and outbound packets over private peering at the Microsoft edge of your ExpressRoute circuit, on a Microsoft Enterprise Edge (MSEE) device. This diagnostic tool works by applying an Access Control List (ACL) to the MSEE and counting the packets that hit specific ACL rules. Using this tool allows you to confirm connectivity by answering the questions *Are my packets getting to Azure?* and *Are they getting back to on-prem?*
+
+### Run test
+1. To access this diagnostic tool, navigate to the **Diagnose and solve** tab of your ExpressRoute resource in the Azure portal.
+2. Select the **Connectivity issues** card under **Common problems**.
+3. In the dropdown for **Tell us more about the problem your are experiencing**, select "Connectivity to Azure Private, Azure Public, or Dynamics 365 services."
+4. Scroll down to the **Test your private peering connectivity** section and expand it.
+5. Execute the [PsPing test](https://docs.microsoft.com/sysinternals/downloads/psping) from your on-premises IP address to your Azure IP address and keep it running for the duration of the connectivity test.
+6. Fill out the fields of the form, making sure to enter the same on-premises and Azure IP addresses used in Step 5.
+7. Select **Submit** and then wait for your results to load. Once your results are ready, review the information for interpreting them below.
+
+### Interpreting results
+Your test results for each MSEE device will look like the example below. You will have two sets of results for the primary and secondary MSEE devices. Review the number of matches in and out and use the following scenarios to interpret the results:
+* **You see packet matches sent and received on both MSEEs:** This indicates healthy traffic inbound to and outbound from the MSEE on your circuit. If loss is occurring either on-premises or in Azure, it is happening downstream from the MSEE.
+* **(If testing PsPing from On-Prem to Azure) *(received)* results show matches, but *sent* results show NO matches:** This indicates that traffic is getting inbound to Azure, but is not returning to on-prem. Check for return-path routing issues (are you advertising the appropriate prefixes to Azure? Is there a UDR overriding prefixes? etc).
+* **(If testing PsPing from Azure to On-Prem) *(sent)* results show NO matches, but *(receieved)* results show matches:** This indicates that traffic is getting to on-premises, but is not getting back. You should work with your provider to find out why traffic isn't being routed to Azure via your ExpressRoute circuit.
+* **One MSEE shows NO matches, while the other shows good matches:** This indicates that one MSEE isn't receiving or passing any traffic. It could be offline (BGP/ARP down, etc).
+
+#### Example
+```
+src 10.0.0.0 dst 20.0.0.0 dstport 3389 (received): 120 matches
+src 20.0.0.0 srcport 3389 dst 10.0.0.0 (sent): 120 matches
+```
+This test result has the following properties:
+
+* IP Port: 3389
+* On-Prem IP Address CIDR: 10.0.0.0
+* Azure IP Address CIDR: 20.0.0.0
 
 ## Next Steps
 For more information or help, check out the following links:
