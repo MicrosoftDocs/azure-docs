@@ -150,10 +150,4 @@ Let’s cover an example cost estimate for the PLTW classes.  This estimate does
 
 ## Next steps
 
-Next steps are common to setting up any lab.
-
-- [Publish the lab](tutorial-setup-lab.md#publish-the-lab)
-- [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-lab.md#set-a-schedule-for-the-lab)
-- [Add users](tutorial-setup-lab.md#add-users-to-the-lab)
-- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)
+[!INCLUDE [next steps for class types](./includes/lab-services-class-type-next-steps.md)]

@@ -11,7 +11,7 @@ This article describes how to create and delete a lab. It also shows you how to 
 
 ## Prerequisites
 
-To set up a lab in a lab plan, you must have `Microsoft.LabServices/labPlans/CreateLab/action` permission.  Often instructors are given the **Lab Creator** role in the lab plan.  A lab owner can add other users to the Lab Creator role by using steps in the following article: [Add a user to the Lab Creator role](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role). For more role options, see [Lab Services RBAC roles](administrator-guide.md#manage-identity).
+To set up a lab in a lab plan, you must have `Microsoft.LabServices/labPlans/CreateLab/action` permission.  Often instructors are given the **Lab Creator** role in the lab plan.  A lab owner can add other users to the Lab Creator role by using steps in the following article: [Add a user to the Lab Creator role](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role). For more role options, see [Lab Services RBAC roles](administrator-guide.md#rbac-roles).
 
 ## Create a lab
 

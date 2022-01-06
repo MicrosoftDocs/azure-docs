@@ -2,7 +2,7 @@
 title: Connect to a Linux VM in Azure Lab Services | Microsoft Docs
 description: Learn how to use remote desktop for Linux virtual machines in a lab in Azure Lab Services.  
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 01/04/2022
 ---
 
 # Connect to Linux virtual machines in a lab of Azure Lab Services
@@ -23,10 +23,10 @@ This article shows how students can connect to a Linux virtual machine (VM) in a
 
     ![Student VM - connection options](./media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
 
-1. Select the **SSH** option and you will see the **Connect to your virtual machine** dialog box:  
+1. Select the **SSH** option and you'll see the **Connect to your virtual machine** dialog box:  
 
     ![SSH connection string](./media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
-1. Click the **Copy** button next to the text box to copy the SSH connection information to the clipboard.
+1. Select the **Copy** button next to the text box to copy the SSH connection information to the clipboard.
 1. Save the SSH connection information, such as in Text pad, so that you can use this connection information in the next step.
 1. From an SSH terminal (like [Putty](https://www.putty.org/)), connect to your VM.
 
@@ -41,14 +41,14 @@ The instructor may choose to configure VMs so that students can also connect usi
 
 Students can use Microsoft Remote Desktop (RDP) to connect to their Linux VMs after their instructor sets up their lab with RDP and GUI packages for a Linux graphical desktop environment, such as XFCE. Here are the steps to connect:
 
-1. On the tile for your VM, ensure the VM is running and click **Connect**. You see two options to connect to the VM: **SSH** and **RDP**.
+1. On the tile for your VM, ensure the VM is running and select **Connect**. You see two options to connect to the VM: **SSH** and **RDP**.
 
     ![Student VM - connection options](./media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
 2. Select the **RDP** option.  When the RDP file is downloaded onto your machine, save it to your VM.
 
-3. If you are connecting from a Windows computer, typically, the RDP client is already installed and configured.  As a result, all you need to do is click on the RDP file to open it and start the remote session.
+3. If you're connecting from a Windows computer, typically, the RDP client is already installed and configured.  As a result, all you need to do is select on the RDP file to open it and start the remote session.
 
-    Instead, if you are connecting from either a Mac or Chromebook, refer to the following steps:
+    Instead, if you're connecting from either a Mac or Chromebook, refer to the following steps:
    - [Connect to a VM using RDP on a Mac](connect-virtual-machine-mac-remote-desktop.md).
    - [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-remote-desktop.md).
 
@@ -75,7 +75,7 @@ Students need to find out from their instructor which Linux graphical desktop en
 1. Once you have the SSH connection information, open the X2Go client and select **Session** > **New Session**.
    ![X2Go create new session](./media/how-to-use-classroom-lab/x2go-new-session.png)
 
-1. Enter the values in the **Session Preferences** pane based on your SSH connection information.  For example, your connection information will look similar to this:
+1. Enter the values in the **Session Preferences** pane based on your SSH connection information.  For example, your connection information will look similar to following command.
 
     ```bash
     ssh -p 12345 student@ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com
@@ -87,20 +87,20 @@ Students need to find out from their instructor which Linux graphical desktop en
    - **Host** - The ID of your VM; for example, **`ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com`**.
    - **Login** - The username for your VM; for example, **student**.
    - **SSH port** - The unique port assigned to your VM; for example, **12345**.
-   - **Session type** - Select the Linux graphical desktop environment that your instructor configured your VM.  You  need to get this information from your instructor.  For example, select `XFCE` if you are using either XFCE or Xubuntu graphical desktop environments.
+   - **Session type** - Select the Linux graphical desktop environment that your instructor configured your VM.  You  need to get this information from your instructor.  For example, select `XFCE` if you're using either XFCE or Xubuntu graphical desktop environments.
 
-    Finally, click **OK** to create the session.
+    Finally, select **OK** to create the session.
 
     ![X2Go Session Preferences](./media/how-to-use-classroom-lab/x2go-session-preferences.png)
 
-1. Click on your session in the right-hand pane.
+1. Select on your session in the right-hand pane.
 
     ![X2Go start new session](./media/how-to-use-classroom-lab/x2go-start-session.png)
 
     > [!NOTE]
-    > If you are prompted with a similar message to this, select **yes** to continue to entering your password: **The authenticity of host '[`00000000-0000-0000-0000-000000000000.eastus2.cloudapp.eastus.cloudapp.azure.com`]:12345' can't be established.  ECDSA key fingerprint is SHA256:00000000000000000000000000000000000000000000.Are you sure you want to continue connecting (yes/no)?**
+    > If you are prompted with a message about authenticity, select **yes** to continue to entering your password.  Message will be similar to "The authenticity of host '[`00000000-0000-0000-0000-000000000000.eastus2.cloudapp.eastus.cloudapp.azure.com`]:12345' can't be established.  ECDSA key fingerprint is SHA256:00000000000000000000000000000000000000000000.Are you sure you want to continue connecting (yes/no)?"
 
-1. When prompted, enter your password and click **OK**.  You will now be remotely connected to your VM's GUI desktop environment.
+1. When prompted, enter your password and select **OK**.  You'll now be remotely connected to your VM's GUI desktop environment.
 
 ## Next steps
 

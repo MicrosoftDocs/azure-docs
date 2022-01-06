@@ -19,7 +19,7 @@ In this tutorial, you set up a lab with virtual machines that are used by studen
 
 ## Prerequisites
 
-To set up a lab, you must be a member of one of these roles in the lab plan: Owner, Lab Creator, or Contributor. For more information, see [Azure Lab Services built-in roles](administrator-guide.md#manage-identity). The user account that you used to create a lab plan will already have the required permissions to create a lab.
+To set up a lab, you must be a member of one of these roles in the lab plan: Owner, Lab Creator, or Contributor. For more information, see [Azure Lab Services built-in roles](administrator-guide.md#rbac-roles). The user account that you used to create a lab plan will already have the required permissions to create a lab.
 
 Here's the typical workflow when using Azure Lab Services:
 
