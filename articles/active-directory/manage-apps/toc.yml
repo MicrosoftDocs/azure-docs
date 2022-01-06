@@ -166,7 +166,7 @@
           href: f5-aad-integration.md
         - name: Easy Button guided configuration
           items:
-          - name: Kerbesos
+          - name: Kerberos
             href: f5-big-ip-kerberos-easy-button.md
           - name: Headers and LDAP
             href: f5-big-ip-ldap-header-easybutton.md
