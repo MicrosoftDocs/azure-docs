@@ -128,7 +128,7 @@ Get started at development time with:
   * [Microsoft Q&A question page](/answers/topics/azure-monitor.html)
   * [StackOverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * Your suggestions:
-  * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)
+  * [UserVoice](https://feedback.azure.com/d365community/forum/8849e04d-1325-ec11-b6e6-000d3a4f09d0)
 * Blog:
   * [Application Insights blog](https://azure.microsoft.com/blog/tag/application-insights)
 

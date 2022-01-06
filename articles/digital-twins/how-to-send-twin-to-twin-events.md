@@ -5,9 +5,10 @@ titleSuffix: Azure Digital Twins
 description: See how to create a function in Azure for propagating events through the twin graph.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 8/13/2021
+ms.date: 11/16/2021
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: contperf-fy22q2
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -15,13 +16,11 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Set up twin-to-twin event handling with Azure Functions
+# Set up twin-to-twin event handling
 
 A fully-connected Azure Digital Twins graph is driven by event propagation. Data arrives into Azure Digital Twins from external sources like IoT Hub, and then is propagated through the Azure Digital Twins graph, updating relevant twins as appropriate.
 
-For example, consider a graph representing Floors and Rooms in a building, where each Floor contains multiple Rooms. You may want to set up a twin-to-twin data flow such that every time the temperature property on a Room twin is updated, a new average temperature is calculated for all the Rooms on the same Floor, and the temperature property of the Floor twin is updated to reflect the new average temperature across all the Rooms it contains (including the one that was updated). 
-
-In this article, you'll see how to send events from twin to twin, allowing you to update twins in response to property changes or other data from another twin in the graph. Currently, twin-to-twin updates are handled by setting up an [Azure function](../azure-functions/functions-overview.md) that watches for twin life cycle events that should affect other areas of the graph, and makes changes to other twins accordingly.
+This article shows how to **send events from twin to twin**, so that twins can be updated in response to property changes or other data from related twins in the graph. This is done by setting up an [Azure function](../azure-functions/functions-overview.md) that watches for twin life cycle events. The function recognizes which events should affect other twins in the graph, and uses the event data to update the affected twins accordingly.
 
 ## Prerequisites
 
@@ -79,9 +78,9 @@ Now, your function can receive events through your event grid topic. The data fl
 
 The last step is to verify that the flow is working, by updating a twin and checking that related twins are updated according to the logic in your Azure function.
 
-To kick off the process, update the twin that's the source of the event flow. You can use the [Azure CLI](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_update), [Azure Digital Twins SDK](how-to-manage-twin.md#update-a-digital-twin), or [Azure Digital Twins REST APIs](how-to-use-postman.md?tabs=data-plane) to make the update.
+To kick off the process, update the twin that's the source of the event flow. You can use the [Azure CLI](/cli/azure/dt/twin#az_dt_twin_update), [Azure Digital Twins SDK](how-to-manage-twin.md#update-a-digital-twin), or [Azure Digital Twins REST APIs](how-to-use-postman.md?tabs=data-plane) to make the update.
 
-Next, query your Azure Digital Twins instance for the related twin. You can use the [Azure CLI](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_query), or the [Azure Digital Twins REST APIs and SDK](how-to-query-graph.md#run-queries-with-the-api). Verify that the twin received the data and updated as expected.
+Next, query your Azure Digital Twins instance for the related twin. You can use the [Azure CLI](/cli/azure/dt/twin#az_dt_twin_query), or the [Azure Digital Twins REST APIs and SDK](how-to-query-graph.md#run-queries-with-the-api). Verify that the twin received the data and updated as expected.
 
 ## Next steps
 

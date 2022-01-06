@@ -21,7 +21,8 @@ ms.author: victorh
 | Authentication certificates |100 | |
 | Trusted root certificates |100 | |
 | Request timeout minimum |1 second | |
-| Request timeout maximum |24 hours | |
+| Request timeout maximum to private backend |24 hours | |
+| Request timeout maximum to external backend |4 minutes | |
 | Number of sites |100<sup>1</sup> |1 per HTTP listener |
 | URL maps per listener |1 | |
 | Maximum path-based rules per URL map|100||
@@ -31,13 +32,17 @@ ms.author: victorh
 | Number of conditions per rewrite rule set|40| |
 | Concurrent WebSocket connections |Medium gateways 20k<sup>2</sup><br> Large gateways 50k<sup>2</sup>| |
 | Maximum URL length|32KB| |
-| Maximum header size for HTTP/2 |16KB| |
+| Maximum header size|32KB| |
+| Maximum header field size for HTTP/2|8KB| |
+| Maximum header size for HTTP/2|16KB| |
 | Maximum file upload size (Standard SKU) |V2 - 4 GB<br>V1 - 2GB | |
-| Maximum file upload size (WAF SKU) |V1 Medium - 100 MB<br>V1 Large - 500 MB<br>V2 - 750 MB<br>V2 (with CRS 3.2 or newer) - 4GB| |
-| WAF body size limit (without files)|V1 or V2 (with CRS 3.1 and older) - 128KB<br>V2 (with CRS 3.2 or newer) - 2MB| |
+| Maximum file upload size (WAF SKU) |V1 Medium - 100 MB<br>V1 Large - 500 MB<br>V2 - 750 MB<br>V2 (with CRS 3.2 or newer) - 4GB<sup>3</sup>| |
+| WAF body size limit (without files)|V1 or V2 (with CRS 3.1 and older) - 128KB<br>V2 (with CRS 3.2 or newer) - 2MB<sup>3</sup>| |
 | Maximum WAF custom rules|100||
 | Maximum WAF exclusions per Application Gateway|40||
 
 <sup>1</sup> In case of WAF-enabled SKUs, you must limit the number of resources to 40.
 
 <sup>2</sup> Limit is per Application Gateway instance not per Application Gateway resource.
+
+<sup>3</sup> Must define the value via WAF Policy for Application Gateway

@@ -7,6 +7,7 @@ ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
+ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 
 ---
@@ -272,14 +273,15 @@ When a timer trigger function is invoked, a timer object is passed into the func
 
 ```json
 {
-    "schedule":{
+    "Schedule":{
+        "AdjustForDST": true
     },
-    "scheduleStatus": {
-        "last":"2016-10-04T10:15:00+00:00",
-        "lastUpdated":"2016-10-04T10:16:00+00:00",
-        "next":"2016-10-04T10:20:00+00:00"
+    "ScheduleStatus": {
+        "Last":"2016-10-04T10:15:00+00:00",
+        "LastUpdated":"2016-10-04T10:16:00+00:00",
+        "Next":"2016-10-04T10:20:00+00:00"
     },
-    "isPastDue":false
+    "IsPastDue":false
 }
 ```
 

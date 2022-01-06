@@ -1,3 +1,12 @@
 {
+<<<<<<< HEAD
     "git.ignoreLimitWarning": true
+=======
+    "markdownlint.config": {
+        "MD028": false,
+        "MD025": {
+            "front_matter_title": ""
+        }
+    }
+>>>>>>> d23883f860c1ce9422a391333e3a1143c74b4358
 }

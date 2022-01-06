@@ -7,9 +7,10 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/16/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
+ms.custom: ignite-fall-2021
 ---
 <!-- markdownlint-disable MD033 -->
 
@@ -19,7 +20,7 @@ The ID document model combines powerful Optical Character Recognition (OCR) capa
 
 ***Sample U.S. Driver's License processed with Form Recognizer Studio***
 
-:::image type="content" source="./media/studio/drivers-license.png" alt-text="sample identification card" lightbox="./media/overview-id.jpg":::
+:::image type="content" source="media/studio/drivers-license.png" alt-text="sample identification card" lightbox="media/overview-id.jpg":::
 
 ## Development options
 
@@ -33,7 +34,7 @@ The following resources are supported by Form Recognizer v3.0:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**ID document model**|<ul><li> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li></ul>|**prebuilt-idDocument**|
+|**ID document model**|<ul><li> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md)</li><li>[**JavaScript SDK**](quickstarts/try-v3-javascript-sdk.md)</li></ul>|**prebuilt-idDocument**|
 
 ### Try Form Recognizer
 
@@ -56,7 +57,7 @@ See how data, including name, birth date, machine-readable zone, and expiration 
 
 1. Select the **Analyze** button:
 
-    :::image type="content" source="media/studio/id-document-analyze.png" alt-text="{alt-text}":::
+    :::image type="content" source="media/studio/id-document-analyze.png" alt-text="Screenshot: analyze ID document menu.":::
 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)
@@ -120,25 +121,25 @@ You will need an ID document. You can use our [sample ID document](https://raw.g
 
 * **ID document (v3.0)** model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
 
-    ### ID document preview key-value pair extraction
+### ID document preview field extraction
 
-    |Name| Type | Description | Standardized output|
-    |:-----|:----|:----|:----|
-    | 🆕 Endorsements | String | Additional driving privileges granted to a driver such as Motorcycle or School bus.  | |
-    | 🆕 Restrictions | String | Restricted driving privileges applicable to suspended or revoked licenses.| |
-    | 🆕VehicleClassification | String | Types of vehicles that can be driven by a driver. ||
-    |  CountryRegion | countryRegion | Country or region code compliant with ISO 3166 standard |  |
-    |  DateOfBirth | Date | DOB | yyyy-mm-dd |
-    |  DateOfExpiration | Date | Expiration date DOB | yyyy-mm-dd |
-    |  DocumentNumber | String | Relevant passport number, driver's license number, etc. |  |
-    |  FirstName | String | Extracted given name and middle initial if applicable |  |
-    |  LastName | String | Extracted surname |  |
-    |  Nationality | countryRegion | Country or region code compliant with ISO 3166 standard (Passport only) |  |
-    |  Sex | String | Possible extracted values include "M", "F" and "X" | |
-    |  MachineReadableZone | Object | Extracted Passport MRZ including two lines of 44 characters each | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
-    |  DocumentType | String | Document type, for example, Passport, Driver's License | "passport" |
-    |  Address | String | Extracted address (Driver's License only) ||
-    |  Region | String | Extracted region, state, province, etc. (Driver's License only) |  |
+|Name| Type | Description | Standardized output|
+|:-----|:----|:----|:----|
+| 🆕 Endorsements | String | Additional driving privileges granted to a driver such as Motorcycle or School bus.  | |
+| 🆕 Restrictions | String | Restricted driving privileges applicable to suspended or revoked licenses.| |
+| 🆕VehicleClassification | String | Types of vehicles that can be driven by a driver. ||
+|  CountryRegion | countryRegion | Country or region code compliant with ISO 3166 standard |  |
+|  DateOfBirth | Date | DOB | yyyy-mm-dd |
+|  DateOfExpiration | Date | Expiration date DOB | yyyy-mm-dd |
+|  DocumentNumber | String | Relevant passport number, driver's license number, etc. |  |
+|  FirstName | String | Extracted given name and middle initial if applicable |  |
+|  LastName | String | Extracted surname |  |
+|  Nationality | countryRegion | Country or region code compliant with ISO 3166 standard (Passport only) |  |
+|  Sex | String | Possible extracted values include "M", "F" and "X" | |
+|  MachineReadableZone | Object | Extracted Passport MRZ including two lines of 44 characters each | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
+|  DocumentType | String | Document type, for example, Passport, Driver's License | "passport" |
+|  Address | String | Extracted address (Driver's License only) ||
+|  Region | String | Extracted region, state, province, etc. (Driver's License only) |  |
 
 ### Migration guide and REST API v3.0
 

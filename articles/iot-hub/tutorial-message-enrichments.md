@@ -1,12 +1,12 @@
 ---
 title: Tutorial - Use Azure IoT Hub message enrichments
 description: Tutorial showing how to use message enrichments for Azure IoT Hub messages
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 12/20/2019
-ms.author: robinsh
+ms.author: lizross
 ms.custom: "mqtt, devx-track-azurecli, devx-track-csharp"
 # Customer intent: As a customer using Azure IoT Hub, I want to add information to the messages that come through my IoT hub and are sent to another endpoint. For example, I'd like to pass the IoT hub name to the application that reads the messages from the final endpoint, such as Azure Storage.
 ---
@@ -246,7 +246,7 @@ At this point, the resources are all set up and the message routing is configure
 
 1. Go to your IoT hub by selecting **Resource groups**. Then select the resource group set up for this tutorial (**ContosoResourcesMsgEn**). Find the IoT hub in the list, and select it. Select **Message routing** for the IoT hub.
 
-   ![Select message routing](./media/tutorial-message-enrichments/select-iot-hub.png)
+   :::image type="content" source="./media/tutorial-message-enrichments/select-iot-hub.png" alt-text="Screenshot that shows how to select message routing." border="true":::
 
    The message routing pane has three tabs labeled **Routes**, **Custom endpoints**, and **Enrich messages**. Browse the first two tabs to see the configuration set up by the script. Use the third tab to add message enrichments. Let's enrich messages going to the endpoint for the storage container called **enriched**. Fill in the name and value, and then select the endpoint **ContosoStorageEndpointEnriched** from the drop-down list. Here's an example of how to set up an enrichment that adds the IoT hub name to the message:
 
@@ -257,7 +257,7 @@ At this point, the resources are all set up and the message routing is configure
    | Key | Value | Endpoint (drop-down list) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
-   | DeviceLocation | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |
+   | DeviceLocation | $twin.tags.location (assumes that the device twin has a location tag) | AzureStorageContainers > ContosoStorageEndpointEnriched |
    |customerID | 6ce345b8-1e4a-411e-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
 
    > [!NOTE]
@@ -366,7 +366,7 @@ The messages in the container called **enriched** have the message enrichments i
 When you look at messages that have been enriched, you should see "my IoT Hub" with the hub name and the location and the customer ID, like this:
 
 ```json
-{"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage","my IoT Hub":"contosotesthubmsgen3276","devicelocation":"$twin.tags.location","customerID":"6ce345b8-1e4a-411e-9398-d34587459a3a"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
+{"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage","my IoT Hub":"contosotesthubmsgen3276","devicelocation":"Plant 43","customerID":"6ce345b8-1e4a-411e-9398-d34587459a3a"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
 ```
 
 Here's an unenriched message. Notice that "my IoT Hub," "devicelocation," and "customerID" don't show up here because these fields are added by the enrichments. This endpoint has no enrichments.

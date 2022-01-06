@@ -311,8 +311,6 @@ To use your function app with virtual networks, you need to join it to a subnet.
 
 1. To use your function app with virtual networks, update the app settings shown in the following table. To add or edit a setting, select **+ New application setting** or the **Edit** icon in the rightmost column of the app settings table. When you finish, select **Save**.
 
-    :::image type="content" source="./media/functions-create-vnet/10-configure-app-settings.png" alt-text="Screenshot of how to configure function app settings for private endpoints.":::
-
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **AzureWebJobsStorage** | mysecurestorageConnectionString | The connection string of the storage account you created. This storage connection string is from the [Get the storage account connection string](#get-the-storage-account-connection-string) section. This setting allows your function app to use the secure storage account for normal operations at runtime. | 

@@ -1,16 +1,16 @@
 ---
-title: "Quickstart - Deploy your first application in Azure Spring Cloud"
+title: "Quickstart - Deploy your first application to Azure Spring Cloud"
 description: In this quickstart, we deploy an application to Azure Spring Cloud.
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/18/2021
 ms.author: karler
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, mode-other
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
-# Quickstart: Deploy your first application in Azure Spring Cloud
+# Quickstart: Deploy your first application to Azure Spring Cloud
 
 ::: zone pivot="programming-language-csharp"
 This quickstart explains how to deploy a small application to run on Azure Spring Cloud.
@@ -335,10 +335,10 @@ To complete this quickstart:
 
 ## Generate a Spring Cloud project
 
-Start with [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.5&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client) to generate a sample project with recommended dependencies for Azure Spring Cloud. This link uses the following URL to provide default settings for you. 
+Start with [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.7&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client) to generate a sample project with recommended dependencies for Azure Spring Cloud. This link uses the following URL to provide default settings for you. 
 
 ```url
-https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.5&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.7&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client
 ```
 The following image shows the recommended Initializr set up for this sample project. 
 
@@ -422,7 +422,7 @@ The following procedure builds and deploys the application using the Azure CLI. 
     mvn clean package -DskipTests
     ```
 
-1. Create the app with public endpoint assigned. If you selected Java version 11 when generating the Spring Cloud project, include the `--runtime-version=Java_11` switch.
+1. Create the app with a public endpoint assigned. If you selected Java version 11 when generating the Spring Cloud project, include the `--runtime-version=Java_11` switch.
 
     ```azurecli
     az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --assign-endpoint true
@@ -537,7 +537,7 @@ az group delete --name <your resource group name> --yes
 In this quickstart, you learned how to:
 
 > [!div class="checklist"]
-> * Generate a basic Azure Spring Cloud project
+> * Generate a basic Spring Cloud project
 > * Provision a service instance
 > * Build and deploy the app with a public endpoint
 > * Stream logs in real time
@@ -545,6 +545,6 @@ In this quickstart, you learned how to:
 To learn how to use more Azure Spring capabilities, advance to the quickstart series that deploys a sample application to Azure Spring Cloud:
 
 > [!div class="nextstepaction"]
-> [Build and Run Microservices](./quickstart-sample-app-introduction.md)
+> [Build and Run Apps](./quickstart-sample-app-introduction.md)
 
 More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).

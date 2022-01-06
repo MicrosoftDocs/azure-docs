@@ -1,6 +1,6 @@
 ---
 title: Statsbeat in Azure Application Insights | Microsoft Docs
-description: Statstics about Application Insights SDKs and Auto-Instrumentation
+description: Statistics about Application Insights SDKs and Auto-Instrumentation
 ms.topic: conceptual
 ms.date: 09/20/2021
 
@@ -53,10 +53,12 @@ Statsbeat collects essential and non-essential metrics.
 
 ### Non-essential Statsbeat
 
-- Track the success and failure of disk persistence
-- Live metrics network statsbeat
-- Azure metadata service network statsbeat
-- Profiler network statsbeat
+Track the Disk I/O failure when using disk persistence for retriable telemetry
+
+|Metric Name|Unit|Supported dimensions|
+|-----|-----|-----|
+|Read Failure Count|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`|
+|Write Failure Count|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`|
 
 ### Configure Statsbeat
 

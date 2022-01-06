@@ -2,7 +2,7 @@
 title: Configure Node.js apps
 description: Learn how to configure a Node.js app in the native Windows instances, or in a pre-built Linux container, in Azure App Service. This article shows the most common configuration tasks. 
 ms.custom: devx-track-js, devx-track-azurecli
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: article
 ms.date: 04/23/2021
 zone_pivot_groups: app-service-platform-windows-linux
@@ -165,6 +165,9 @@ You can also configure a custom start file with the following extensions:
 
 - A *.js* file
 - A [PM2 file](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) with the extension *.json*, *.config.js*, *.yaml*, or *.yml*
+
+> [!NOTE]
+> Starting from **Node 14 LTS**, the container doesn't automatically start your app with PM2. To start your app with PM2, set the startup command to `pm2 start <.js-file-or-PM2-file> --no-daemon`. Be sure to use the `--no-daemon` argument because PM2 needs to run in the foreground for the container to work properly.
 
 To add a custom start file, run the following command in the [Cloud Shell](https://shell.azure.com):
 

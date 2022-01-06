@@ -76,8 +76,10 @@
         href: reservations/understand-reservation-charges-mariadb.md?toc=/azure/cost-management-billing/toc.json
       - name: Database for MySQL
         href: reservations/understand-reservation-charges-mysql.md?toc=/azure/cost-management-billing/toc.json
-      - name: Database for PostgreSQL
+      - name: Database for PostgreSQL - Single Server
         href: reservations/understand-reservation-charges-postgresql.md?toc=/azure/cost-management-billing/toc.json
+      - name: Database for PostgreSQL - Hyperscale (Citus)
+        href: ../postgresql/hyperscale/concepts-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
       - name: Databricks
         href: reservations/reservation-discount-databricks.md
       - name: Data Explorer
@@ -142,12 +144,8 @@
       items:
       - name: Account administrator tasks
         href: manage/account-admin-tasks.md
-      - name: Pay your bill
-        href: understand/pay-bill.md
       - name: Edit billing contact information
         href: manage/change-azure-account-profile.md
-      - name: Resolve past due balance
-        href: manage/resolve-past-due-balance.md
       - name: Grant access to billing
         href: manage/manage-billing-access.md
       - name: Microsoft Customer Agreements roles in Azure
@@ -180,18 +178,12 @@
         href: manage/azurestudents-subscription-disabled.md
       - name: Set up and configure AWS integration
         href: costs/aws-integration-set-up-configure.md
-      - name: Set up pay by invoice
-        href: manage/pay-by-invoice.md
       - name: Create additional subscriptions
         href: manage/create-subscription.md
       - name: Grant access to create EA subscriptions
         href: manage/grant-access-to-create-subscription.md
       - name: Export subscription information
         href: manage/export-subscriptions.md
-      - name: Delete an Azure billing payment method
-        href: manage/delete-azure-payment-method.md
-      - name: Change credit card
-        href: manage/change-credit-card.md
       - name: Change administrator
         href: manage/add-change-subscription-administrator.md
       - name: Switch subscription offer
@@ -290,6 +282,8 @@
       href: costs/cost-analysis-common-uses.md
     - name: Automate actions with budgets
       href: manage/cost-management-budget-scenario.md
+    - name: Save and share customized views
+      href: costs/save-share-views.md
     - name: Use cost alerts
       href: costs/cost-mgt-alerts-monitor-usage-spending.md
     - name: Export cost data with a Storage SAS key
@@ -376,6 +370,18 @@
       items:
       - name: Renew a reservation
         href: reservations/reservation-renew.md?toc=/azure/cost-management-billing/toc.json
+  - name: Manage payment methods
+    items:
+    - name: Pay your Azure bill
+      href: understand/pay-bill.md
+    - name: Set up pay by check or wire transfer
+      href: manage/pay-by-invoice.md
+    - name: Resolve pay-as-you-go past due balance
+      href: manage/resolve-past-due-balance.md
+    - name: Add or update credit card
+      href: manage/change-credit-card.md
+    - name: Delete billing payment method
+      href: manage/delete-azure-payment-method.md
   - name: Troubleshoot
     items:
     - name: Can't view or find invoices
@@ -451,7 +457,7 @@
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-cost-management
   - name: Cost Management feedback forum
-    href: https://feedback.azure.com/forums/906772-cost-management
+    href: https://feedback.azure.com/d365community/forum/748a4eaa-0e25-ec11-b6e6-000d3a4f07b8
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing

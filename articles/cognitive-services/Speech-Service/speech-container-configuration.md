@@ -3,13 +3,13 @@ title: Configure Speech containers
 titleSuffix: Azure Cognitive Services
 description: Speech service provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
 services: cognitive-services
-author: aahill
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/22/2021
-ms.author: aahi
+ms.author: eur
 ---
 
 # Configure Speech service containers

@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 ms.reviewer: alamaral
 ---
 
-# Review the application activity report in Azure Active Directory
+# Review the application activity report
 
 Many organizations use Active Directory Federation Services (AD FS) to provide single sign-on to cloud applications. There are significant benefits to moving your AD FS applications to Azure AD for authentication, especially in terms of cost management, risk management, productivity, compliance, and governance. But understanding which applications are compatible with Azure AD and identifying specific migration steps can be time consuming.
 

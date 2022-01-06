@@ -31,14 +31,20 @@ In this mode, the extension requires the following properties:
 
 | Property                  | Environment variable template                       | Description                                | Example value |
 |---------------------------|-----------------------------------------------------|--------------------------------------------|---------|
-| Blob Service URI | `<CONNECTION_NAME_PREFIX>__blobServiceUri`<sup>1</sup>  | The data plane URI of the blob service to which you are connecting. | <storage_account_name>.blob.core.windows.net |
+| Blob Service URI | `<CONNECTION_NAME_PREFIX>__serviceUri`<sup>1</sup>  | The data plane URI of the blob service to which you are connecting, using the HTTPS scheme. | https://<storage_account_name>.blob.core.windows.net |
 
-<sup>1</sup> `<CONNECTION_NAME_PREFIX>__serviceUri` can be used as an alias. If both aliases provided, the `blobServiceUri` form will be used. The `serviceUri` form cannot be used when the overall connection configuration is to be used across blobs, queues, and/or tables.
-
-> [!NOTE]
-> By default, the blob trigger uses Azure Queues internally. `<CONNECTION_NAME_PREFIX>__queueServiceUri` can also be specified, but the default behavior without it is to use the connection defined by "AzureWebJobsStorage". The trigger would need [Storage Queue Data Contributor](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-contributor) on whichever connection is to be used for these queues.
+<sup>1</sup> `<CONNECTION_NAME_PREFIX>__blobServiceUri` can be used as an alias. If the connection configuration will be used by a blob trigger, `blobServiceUri` must also be accompanied by `queueServiceUri`. See below.
 
 Additional properties may be set to customize the connection. See [Common properties for identity-based connections](../articles/azure-functions/functions-reference.md#common-properties-for-identity-based-connections).
+
+The `serviceUri` form  cannot be used when the overall connection configuration is to be used across blobs, queues, and/or tables. The URI itself can only designate the blob service. As an alternative, you can provide a URI specifically for each service, allowing a single connection to be used. If both versions are provided, the multi-service form will be used. To configure the connection for multiple services, instead of `<CONNECTION_NAME_PREFIX>__serviceUri`, set:
+
+| Property                  | Environment variable template                       | Description                                | Example value |
+|---------------------------|-----------------------------------------------------|--------------------------------------------|---------|
+| Blob Service URI | `<CONNECTION_NAME_PREFIX>__blobServiceUri` | The data plane URI of the blob service to which you are connecting, using the HTTPS scheme. | https://<storage_account_name>.blob.core.windows.net |
+| Queue Service URI (**required for blob triggers**<sup>2</sup>)  | `<CONNECTION_NAME_PREFIX>__queueServiceUri` | The data plane URI of a queue service, using the HTTPS scheme. This value is only needed for blob triggers. | https://<storage_account_name>.queue.core.windows.net |
+
+<sup>2</sup> By default, the blob trigger uses Azure Queues internally. In the `serviceUri` form, the `AzureWebJobsStorage` connection is used. However, when specifying `blobServiceUri`, a queue service URI must also be provided with `queueServiceUri`. It is recommended that you use the service from the same storage account as the blob service. You will also need to make sure the trigger can read and write messages in the configured queue service by assigning a role like [Storage Queue Data Contributor](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-contributor). 
 
 [!INCLUDE [functions-identity-based-connections-configuration](./functions-identity-based-connections-configuration.md)]
 

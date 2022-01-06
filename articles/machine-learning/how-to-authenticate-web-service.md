@@ -8,7 +8,7 @@ ms.author: cgronlun
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: mlops
-ms.date: 11/06/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 
 ---

@@ -52,7 +52,7 @@ It takes some time to download a parent image during app start-up. However, you 
 
 ## Change the Docker image of a custom container
 
-To change an existing custom container app from the current Docker image to a new image, use the following command:
+To change an existing custom container from the current Docker image to a new image, use the following command:
 
 ```azurecli-interactive
 az webapp config container set --name <app-name> --resource-group <group-name> --docker-custom-image-name <docker-hub-repo>/<image>
@@ -122,10 +122,10 @@ You are all set, and the web app will now use managed identity to pull from Azur
 
 ## Use an image from a network protected registry
 
-To connect and pull from a registry inside a virtual network or on-premises, your app will need to be connected to a virtual network using the VNet integration feature. This is also need for Azure Container Registry with private endpoint. When your network and DNS resolution is configured, you enable the routing of the image pull through the VNet by setting the App Setting `WEBISTE_PULL_IMAGE_OVER_VNET=true`:
+To connect and pull from a registry inside a virtual network or on-premises, your app will need to be connected to a virtual network using the VNet integration feature. This is also need for Azure Container Registry with private endpoint. When your network and DNS resolution is configured, you enable the routing of the image pull through the VNet by setting the App Setting `WEBSITE_PULL_IMAGE_OVER_VNET=true`:
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBISTE_PULL_IMAGE_OVER_VNET=true
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITE_PULL_IMAGE_OVER_VNET=true
 ```
 
 ::: zone-end
@@ -196,21 +196,25 @@ This method works both for single-container apps or multi-container apps, where 
 
 ::: zone pivot="container-windows"
 
-You can use the *C:\home* directory in your app's file system to persist files across restarts and share them across instances. The `C:\home` in your app is provided to enable your container app to access persistent storage.
+You can use the *C:\home* directory in your custom container file system to persist files across restarts and share them across instances. The `C:\home` directory is provided to enable your custom container to access persistent storage.
 
-When persistent storage is disabled, writes to the `C:\home` directory aren't persisted. [Docker host logs and container logs](#access-diagnostic-logs) are saved in a default persistent shared storage that is not attached to the container. When persistent storage is enabled, all writes to the `C:\home` directory are persisted and can be accessed by all instances of a scaled-out app, and log are accessible at `C:\home\LogFiles`.
+When persistent storage is disabled, then writes to the `C:\home` directory are not persisted across app restarts or across multiple instances. When persistent storage is enabled, all writes to the `C:\home` directory are persisted and can be accessed by all instances of a scaled-out app. Additionally, any contents inside the `C:\home` directory of the container are overwritten by any existing files already present on the persistent storage when the container starts.
+
+The only exception is the `C:\home\LogFiles` directory, which is used to store the container and application logs. This folder will always persist upon app restarts if [application logging is enabled](troubleshoot-diagnostic-logs.md?#enable-application-logging-windows) with the **File System** option, independently of the persistent storage being enabled or disabled. In other words, enabling or disabling the persistent storage will not affect the application logging behavior.
 
 ::: zone-end
 
 ::: zone pivot="container-linux"
 
-You can use the */home* directory in your app's file system to persist files across restarts and share them across instances. The `/home` in your app is provided to enable your container app to access persistent storage.
+You can use the */home* directory in your custom container file system to persist files across restarts and share them across instances. The `/home` directory is provided to enable your custom container to access persistent storage.
 
-When persistent storage is disabled, then writes to the `/home` directory aren't persisted across app restarts or across multiple instances. The only exception is the `/home/LogFiles` directory, which is used to store the Docker and container logs. When persistent storage is enabled, all writes to the `/home` directory are persisted and can be accessed by all instances of a scaled-out app.
+When persistent storage is disabled, then writes to the `/home` directory are not persisted across app restarts or across multiple instances. When persistent storage is enabled, all writes to the `/home` directory are persisted and can be accessed by all instances of a scaled-out app. Additionally, any contents inside the `/home` directory of the container are overwritten by any existing files already present on the persistent storage when the container starts.
+
+The only exception is the `/home/LogFiles` directory, which is used to store the container and application logs. This folder will always persist upon app restarts if [application logging is enabled](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) with the **File System** option, independently of the persistent storage being enabled or disabled. In other words, enabling or disabling the persistent storage will not affect the application logging behavior.
 
 ::: zone-end
 
-By default, persistent storage is disabled and the setting is not exposed in the app settings. To enable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting via the [Cloud Shell](https://shell.azure.com). In Bash:
+By default, persistent storage is disabled on custom containers and the setting is exposed in the app settings. To enable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting value to `true` via the [Cloud Shell](https://shell.azure.com). In Bash:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
@@ -257,7 +261,7 @@ There are several ways to access Docker logs:
 - [In Azure portal](#in-azure-portal)
 - [From the Kudu console](#from-the-kudu-console)
 - [With the Kudu API](#with-the-kudu-api)
-- [Send logs to Azure monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor-preview)
+- [Send logs to Azure monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)
 
 ### In Azure portal
 

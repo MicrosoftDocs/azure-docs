@@ -3,17 +3,16 @@ title: Create an Azure CDN endpoint | Microsoft Docs
 description: This article shows how to create a new Azure Content Delivery Network (CDN) endpoint, including advanced settings.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 
 ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 09/09/2021
-ms.author: allensu
+ms.author: duau
 ms.custom: mvc
 
 ---

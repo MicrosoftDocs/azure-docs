@@ -46,6 +46,27 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 > [!NOTE]
 > For PowerShell, you will need to install the [Azure Image Builder PowerShell Modules](../windows/image-builder-powershell.md#prerequisites).
 
+> [!IMPORTANT]
+> Our 2021-10-01 API introduces a change to the error schema that will be part of every future API release. Any customer that has automated our service needs to expect to receive a new error output when switching to 2021-10-01 or newer API versions (new schema shown below). We recommend that once customers switch to the new API version (2021-10-01 and beyond), they don't revert to older versions as they'll have to change their automation again to expect the older error schema. We do not anticipate changing the error schema again in future releases.
+
+For API versions 2020-02-14 and older, the error output will look like the following:
+```text
+{
+  "code": "ValidationFailed",
+  "message": "Validation failed: 'ImageTemplate.properties.source': Field 'imageId' has a bad value: '/subscriptions/subscriptionID/resourceGroups/resourceGroupName/providers/Microsoft.Compute//images//imageName'. Please review  http://aka.ms/azvmimagebuildertmplref  for details on fields requirements in the Image Builder Template."
+}
+```
+
+For API versions 2021-10-01 and newer, the error output will look like the following:
+```text
+{
+  "error": {
+    "code": "ValidationFailed",
+    "message": "Validation failed: 'ImageTemplate.properties.source': Field 'imageId' has a bad value: '/subscriptions/subscriptionID/resourceGroups/resourceGroupName/providers/Microsoft.Compute//images//imageName'. Please review  http://aka.ms/azvmimagebuildertmplref  for details on fields requirements in the Image Builder Template."
+  }
+}
+```
+
 The following sections include problem resolution guidance for common image template submission errors.
 
 ### Update/Upgrade of image templates is currently not supported
@@ -86,8 +107,8 @@ In most cases, the resource deployment failure error occurs due to missing permi
 #### Solution
 
 Depending on your scenario, Azure Image Builder may need permissions to:
-- Source image or Shared Image Gallery resource group
-- Distribution image or Shared Image Gallery resource
+- Source image or Azure Compute Gallery (formerly known as Shared Image Gallery) resource group
+- Distribution image or Azure Compute Gallery resource
 - The storage account, container, or blob that the File customizer is accessing. 
 
 For more information on configuring permissions, see [Configure Azure Image Builder Service permissions using Azure CLI](image-builder-permissions-cli.md) or [Configure Azure Image Builder Service permissions using PowerShell](image-builder-permissions-powershell.md)
@@ -108,8 +129,8 @@ Missing permissions.
 #### Solution
 
 Depending on your scenario, Azure Image Builder may need permissions to:
-* Source image or Shared Image Gallery resource group
-* Distribution image or Shared Image Gallery resource
+* Source image or Azure Compute Gallery resource group
+* Distribution image or Azure Compute Gallery resource
 * The storage account, container, or blob that the File customizer is accessing. 
 
 For more information on configuring permissions, see [Configure Azure Image Builder Service permissions using Azure CLI](image-builder-permissions-cli.md) or [Configure Azure Image Builder Service permissions using PowerShell](image-builder-permissions-powershell.md)
@@ -171,7 +192,7 @@ You can view the customization.log in storage account in the resource group by s
 
 ### Understanding the customization log
 
-The log is verbose. It covers the image build including any issues with the image distribution, such as Shared Image Gallery replication. These errors are surfaced in the error message of the image template status.
+The log is verbose. It covers the image build including any issues with the image distribution, such as Azure Compute Gallery replication. These errors are surfaced in the error message of the image template status.
 
 The customization.log includes the following stages:
 
@@ -320,17 +341,17 @@ File customizer is downloading a large file.
 
 The file customizer is only suitable for small file downloads less than 20 MB. For larger file downloads, use a script or inline command. For example, on Linux you can use `wget` or `curl`. On Windows, you can use`Invoke-WebRequest`.
 
-### Error waiting on shared image gallery
+### Error waiting on Azure Compute Gallery
 
 #### Error
 
 ```text
-Deployment failed. Correlation ID: XXXXXX-XXXX-XXXXXX-XXXX-XXXXXX. Failed in distributing 1 images out of total 1: {[Error 0] [Distribute 0] Error publishing MDI to shared image gallery:/subscriptions/<subId>/resourceGroups/xxxxxx/providers/Microsoft.Compute/galleries/xxxxx/images/xxxxxx, Location:eastus. Error: Error returned from SIG client while publishing MDI to shared image gallery for dstImageLocation: eastus, dstSubscription: <subId>, dstResourceGroupName: XXXXXX, dstGalleryName: XXXXXX, dstGalleryImageName: XXXXXX. Error: Error waiting on shared image gallery future for resource group: XXXXXX, gallery name: XXXXXX, gallery image name: XXXXXX.Error: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded}
+Deployment failed. Correlation ID: XXXXXX-XXXX-XXXXXX-XXXX-XXXXXX. Failed in distributing 1 images out of total 1: {[Error 0] [Distribute 0] Error publishing MDI to Azure Compute Gallery:/subscriptions/<subId>/resourceGroups/xxxxxx/providers/Microsoft.Compute/galleries/xxxxx/images/xxxxxx, Location:eastus. Error: Error returned from SIG client while publishing MDI to Azure Compute Gallery for dstImageLocation: eastus, dstSubscription: <subId>, dstResourceGroupName: XXXXXX, dstGalleryName: XXXXXX, dstGalleryImageName: XXXXXX. Error: Error waiting on Azure Compute Gallery future for resource group: XXXXXX, gallery name: XXXXXX, gallery image name: XXXXXX.Error: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded}
 ```
 
 #### Cause
 
-Image Builder timed out waiting for the image to be added and replicated to the Shared Image Gallery (SIG). If the image is being injected into the SIG, it can be assumed the image build was successful. However, the overall process failed, because the image builder was waiting on shared image gallery to complete the replication. Even though the build has failed, the replication continues. You can get the properties of the image version by checking the distribution *runOutput*.
+Image Builder timed out waiting for the image to be added and replicated to the Azure Compute Gallery. If the image is being injected into the SIG, it can be assumed the image build was successful. However, the overall process failed, because the image builder was waiting on Azure Compute Gallery to complete the replication. Even though the build has failed, the replication continues. You can get the properties of the image version by checking the distribution *runOutput*.
 
 ```bash
 $runOutputName=<distributionRunOutput>
@@ -620,7 +641,7 @@ For more information on Azure DevOps capabilities and limitations, see [Microsof
  
 #### Solution
 
-You can host your own DevOps agents, or look to reduce the time of your build. For example, if you are distributing to the shared image gallery, replicate to one region. If you want to replicate asynchronously. 
+You can host your own DevOps agents, or look to reduce the time of your build. For example, if you are distributing to the Azure Compute Gallery, replicate to one region. If you want to replicate asynchronously. 
 
 ### Slow Windows Logon: 'Please wait for the Windows Modules Installer'
 

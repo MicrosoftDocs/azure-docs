@@ -3,7 +3,7 @@ title: Create a capacity pool for Azure NetApp Files | Microsoft Docs
 description: Describes how to create a capacity pool so that you can create volumes within it.  
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 06/14/2021
-ms.author: b-juche
+ms.date: 11/4/2021
+ms.author: anfdocs
 ---
 # Create a capacity pool for Azure NetApp Files
 
@@ -46,7 +45,7 @@ You must have already created a NetApp account.
 
     * **Size**     
      Specify the size of the capacity pool that you are purchasing.        
-     The minimum capacity pool size is 4 TiB. You can create a pool with a size that is multiples of 4 TiB.   
+     The minimum capacity pool size is 4 TiB. You can change the size of a capacity pool in 1-TiB increments.
 
    * **QoS**   
      Specify whether the capacity pool should use the **Manual** or **Auto** QoS type.  
