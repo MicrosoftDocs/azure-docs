@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/16/2021
+ms.date: 01/06/2022
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: udayh
@@ -37,7 +37,7 @@ Each service account has a unique ID. When you visit the **IAM & Admin** page in
 
 :::image type="content" source="media/workload-identity-federation-create-trust-gcp/service-account-details.png" alt-text="Shows a screen shot of the Service Accounts page" border="false":::
 
-Tokens issued by Google to the service account will have this unique ID as the *subject* claim.
+Tokens issued by Google to the service account will have this **Unique ID** as the *subject* claim.
 
 The *issuer* claim in the tokens will be `https://accounts.google.com`.
 
@@ -45,14 +45,22 @@ You need these claim values to configure a trust relationship with an Azure AD a
 
 ## Configure an Azure AD app to trust a Google Cloud identity
 
-Configure a federated identity credential on your Azure AD application to set up the trust relationship. You can add up to 20 of these trusts to each Azure AD application.  See this article for steps to [Create a federated identity credential](workload-identity-federation-create-trust.md#create-a-federated-identity-credential),
+Configure a federated identity credential on your Azure AD application to set up the trust relationship. 
 
 The most important fields for creating the federated identity credential are:
 
 - *object ID*: the object ID of the app (not the application (client) ID) you previously registered in Azure AD.
-- *subject*: must match the `sub` claim in the token issued by another identity provider, such as Google. This is the Unique ID of the service account you plan to use.
+- *subject*: must match the `sub` claim in the token issued by another identity provider, in this case Google. This is the Unique ID of the service account you plan to use.
 - *issuer*: must match the `iss` claim in the token issued by the identity provider. A URL that complies with the [OIDC Discovery spec](https://openid.net/specs/openid-connect-discovery-1_0.html). Azure AD uses this issuer URL to fetch the keys that are necessary to validate the token. In the case of Google Cloud, the issuer is `https://accounts.google.com`.
-- *audiences*: must match the `aud` claim in the token. For security reasons, you should pick a value that is unique for tokens meant for Azure AD. The Microsoft recommended value is “api://AzureADTokenExchange”.
+- *audiences*: must match the `aud` claim in the token. For security reasons, you should pick a value that is unique for tokens meant for Azure AD. The Microsoft recommended value is `api://AzureADTokenExchange`.
+
+The following command configures a federated identity credential:
+
+```http
+az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/41be38fd-caac-4354-aa1e-1fdb20e43bfa/federatedIdentityCredentials' --body '{"name":"GcpFederation","issuer":"https://accounts.google.com","subject":"100172753465132042621","description":"Testing","audiences":["api://AzureADTokenExchange"]}'
+```
+
+For more information and examples, see [Create a federated identity credential](workload-identity-federation-create-trust.md#create-a-federated-identity-credential).
 
 ## Exchange a Google token for an access token
 
@@ -65,10 +73,21 @@ As mentioned earlier, Google cloud resources such as App Engine automatically us
 Here’s an example in TypeScript of how to request an ID token from the Google metadata server:
 
 ```typescript
-async function googleIDToken() {
+async function getGoogleIDToken() {
     const headers = new Headers();
-    const endpoint="http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/identity?audience=api://AzureADTokenExchange";
-    return fetch(endpoint, {method: "GET", headers: headers});
+
+    headers.append("Metadata-Flavor", "Google ");
+
+    let aadAudience = "api://AzureADTokenExchange";
+
+    const endpoint="http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/identity?audience="+ aadAudience;
+
+    const options = {
+            method: "GET",
+            headers: headers,
+        };
+
+    return fetch(endpoint, options);
 }
 ```
 
@@ -86,7 +105,7 @@ Now that you have an identity token from Google, you can exchange it for an acce
 
 Using MSAL, you write a token class (implementing the `TokenCredential` interface) exchange the ID token.  The token class is used to with different client libraries to access Azure AD protected resources.
 
-The following TypeScript sample code snippet implements the `TokenCredential` interface, gets an ID token from Google (using the `googleIDToken` method previously defined), and exchanges the ID token for an access token.
+The following TypeScript sample code snippet implements the `TokenCredential` interface, gets an ID token from Google (using the `getGoogleIDToken` method previously defined), and exchanges the ID token for an access token.
 
 ```typescript
 const msal = require("@azure/msal-node");
@@ -102,15 +121,21 @@ class ClientAssertionCredential implements TokenCredential {
     
     async getToken(scope: string | string[], _options?: GetTokenOptions):Promise<AccessToken> {
 
-        var scopes:string[] = [];           
-        // write code here to update the scopes array, based on scope parameter
+        var scopes:string[] = [];
+
+        if (typeof scope === "string") {
+            scopes[0]=scope;
+        } else if (Array.isArray(scope)) {
+            scopes = scope;
+        }   
 
         // Get the ID token from Google.
-        return googleIDToken() // calling this directly just for clarity, 
+        return getGoogleIDToken() // calling this directly just for clarity, 
                                // this should be a callback
         // pass this as a client assertion to the confidential client app
         .then((clientAssertion:any)=> {
-            let msalApp = new msal.ConfidentialClientApplication({
+            var msalApp: any;
+            msalApp = new msal.ConfidentialClientApplication({
                 auth: {
                     clientId: this.clientID,
                     authority: this.aadAuthority + this.tenantID,
@@ -121,30 +146,40 @@ class ClientAssertionCredential implements TokenCredential {
         })
         .then(function(aadToken) {
             // return in form expected by TokenCredential.getToken
-            return({ 
+            let returnToken = {
                 token: aadToken.accessToken,
-                expiresOnTimestamp: aadToken.expiresOn.getTime()
-            });
+                expiresOnTimestamp: aadToken.expiresOn.getTime(),
+            };
+            return (returnToken);
         })
         .catch(function(error) {
             // error stuff
         });
     }
 }
+export default ClientAssertionCredential;
 ```
 
-Here’s an example of how you can access Azure Blob storage using `ClientAssertionCredential` token class and the Azure Blob Storage client library. When you make requests to the `BlobServiceClient` to access storage, the `BlobServiceClient` calls the `getToken` method on the `ClientAssertionCredential` object get a fresh ID token and exchange it for an access token.  
+## Access Azure AD protected resources
+
+As an example, here's how you can access Azure Blob storage using the `ClientAssertionCredential` token class and the Azure Blob Storage client library. When you make requests to the `BlobServiceClient` to access storage, the `BlobServiceClient` calls the `getToken` method on the `ClientAssertionCredential` object to get a fresh ID token and exchange it for an access token.  
 
 The following TypeScript example initializes a new `ClientAssertionCredential` object and then creates a new `BlobServiceClient` object.
 
 ```typescript
 const { BlobServiceClient } = require("@azure/storage-blob");
 
-const tokenCredential =  new ClientAssertionCredential(clientID,
+var storageUrl = "https://<storageaccount>.blob.core.windows.net";
+var clientID:any = "<client-id>";
+var tenantID:any = "<tenant-id>";
+var aadAuthority:any = "https://login.microsoftonline.com/";
+var credential =  new ClientAssertionCredential(clientID,
                                                 tenantID,
                                                 aadAuthority);
                                              
-const blobClient = new BlobServiceClient(blobUrl, tokenCredential);
+const blobServiceClient  = new BlobServiceClient(storageUrl, credential);
+
+// write code to access Blob storage
 ```
 
 ## Next steps
