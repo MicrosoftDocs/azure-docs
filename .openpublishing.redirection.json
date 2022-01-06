@@ -7664,6 +7664,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-how-to-publish-app.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/how-to/publish",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/LUIS/luis-how-to-add-intents.md",
       "redirect_url": "/azure/cognitive-services/LUIS/how-to/intents",
       "redirect_document_id": false

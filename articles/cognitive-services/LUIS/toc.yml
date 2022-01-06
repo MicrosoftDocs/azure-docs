@@ -89,8 +89,6 @@ items:
     - name: Batch testing
       href: luis-how-to-batch-test.md
       displayName: import, export
-  - name: Publish
-    href: luis-how-to-publish-app.md
   - name: Query prediction runtime
     href: luis-get-started-get-intent-from-browser.md
   - name: Migrate
@@ -155,6 +153,8 @@ items:
     href: concepts/entities.md
   - name: Intents
     href: concepts/intents.md
+  - name: Publish
+    href: how-to/publish.md
   - name: App models
     items:
     - name: Types
