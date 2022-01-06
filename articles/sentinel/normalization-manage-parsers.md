@@ -35,8 +35,7 @@ This document will guide you how to perform these tasks, whether using built-in 
 
 The user cannot edit built-in unifying parsers. The following mechanisms enable users to influence the built-in unifying parsers behavior:
 
--  To enable adding source-specific parsers, ASIM uses custom unifying parsers. These parsers are workspace deployed and are picked up automatically by the built-in unifying parsers if they exist. You can [deploy initial empty custom unifying parsers](https://aka.ms/DeployASimCustom) for all supported schemas, or deploy individually for specific schemas:
-    - [DNS](https://aka.ms/DeployASimCustomDns)
+-  To enable adding source-specific parsers, ASIM uses custom unifying parsers. These parsers are workspace deployed and are picked up automatically by the built-in unifying parsers if they exist. You can [deploy initial empty custom unifying parsers](https://aka.ms/DeployASimCustom) for all supported schemas, or individually for specific schemas.
 
 - To enable excluding built-in source-specific parsers, ASIM uses a watchlist. Deploy the watchlist from [GitHub](https://aka.ms/DeployASimExceptionWatchlist).
 
