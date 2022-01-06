@@ -3,6 +3,11 @@
   #- name: Overview
     #expanded: true
     #items:
+  - name: Onboarding
+    expanded: true
+    items:
+    - name: Enable M-CIEM on your Azure AD tenant 
+      href: cloudknox-onboard-enable-mciem-on-tenant.md
   - name: Installation
     expanded: true
     items:
