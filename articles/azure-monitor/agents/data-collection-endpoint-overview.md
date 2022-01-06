@@ -107,4 +107,4 @@ You can use data collection endpoints to enable the Azure Monitor agent to commu
 
 ## Next steps
 - [Associate endpoint to machines](data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal)
-- [Add endpoint to AMPLS resource](../logs/private-link-security.md#connect-azure-monitor-resources) 
+- [Add endpoint to AMPLS resource](../logs/private-link-configure.md#connect-azure-monitor-resources) 
