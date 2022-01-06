@@ -92,7 +92,7 @@ async function getGoogleIDToken() {
 ```
 
 > [!IMPORTANT]
-> The *audience* here needs to match the *audiences* value you configured on your Azure AD application when [creating the federated identity credential](#configure-an-Azure-AD-app-to-trust-google-cloud).
+> The *audience* here needs to match the *audiences* value you configured on your Azure AD application when [creating the federated identity credential](#configure-an-azure-ad-app-to-trust-a-google-cloud-identity).
 
 ### Exchange the identity token for an Azure AD access token
 
