@@ -35,7 +35,7 @@ In this section, we review the process of setting up a Private Link through the 
 
 ### Connect Azure Monitor resources
 
-Connect Azure Monitor resources (Log Analytics workspaces, Application Insights components and [Data Collection endpoints](../agents/data-collection-endpoint-overview.md) to your AMPLS.
+Connect Azure Monitor resources (Log Analytics workspaces, Application Insights components and [Data Collection endpoints](../agents/data-collection-endpoint-overview.md)) to your AMPLS.
 
 1. In your Azure Monitor Private Link scope, select **Azure Monitor Resources** in the left-hand menu. Select the **Add** button.
 2. Add the workspace or component. Selecting the **Add** button brings up a dialog where you can select Azure Monitor resources. You can browse through your subscriptions and resource groups, or you can type in their name to filter down to them. Select the workspace or component and select **Apply** to add them to your scope.
