@@ -14,7 +14,7 @@ ms.custom: devx-track-js
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Node.js" src="https://docs.microsoft.com/media/logos/logo_nodejs.svg" width="60px">
+            <img alt="Node.js" src="/media/logos/logo_nodejs.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
