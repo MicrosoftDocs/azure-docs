@@ -42,7 +42,7 @@ The following table lists accepted data types, when each data type should be use
 | Data type | Used for testing | Recommended quantity | Used for training | Recommended quantity |
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio only](#audio-data-for-testing) | Yes (visual inspection) | 5+ audio files | No | Not applicable |
-| [Audio + human-labeled transcripts](#audio--human-labeled-transcript-data-for-trainingtesting) | Yes (evaluation of accuracy) | 0.5-5 hours of audio | Yes | 1-20 hours of audio |
+| [Audio + human-labeled transcripts](#audio--human-labeled-transcript-data-for-training-or-testing) | Yes (evaluation of accuracy) | 0.5-5 hours of audio | Yes | 1-20 hours of audio |
 | [Plain text](#plain-text-data-for-training) | No | Not applicable | Yes | 1-200 MB of related text |
 | [Structured text](#structured-text-data-for-training-public-preview) (public preview) | No | Not applicable | Yes | Up to 10 classes with up to 4,000 items and up to 50,000 training sentences |
 | [Pronunciation](#pronunciation-data-for-training) | No | Not applicable | Yes | 1 KB to 1 MB of pronunciation text |
@@ -90,7 +90,7 @@ To upload your data:
 1. Select a speech data type for your dataset, and upload your data.
 
    > [!NOTE]
-   > If your dataset file size exceeds 128 MB, you can upload it by using the **Azure Blob or shared location** option. You can also use [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) to upload a dataset of [any allowed size](speech-services-quotas-and-limits.md#model-customization). See [the next section](#upload-data-using-speech-to-text-rest-api-v30) for details.
+   > If your dataset file size exceeds 128 MB, you can upload it by using the **Azure Blob or shared location** option. You can also use [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) to upload a dataset of [any allowed size](speech-services-quotas-and-limits.md#model-customization). See [the next section](#upload-data-by-using-speech-to-text-rest-api-v30) for details.
 
 1. Specify whether the dataset will be used for **Training** or **Testing**. 
 
@@ -305,7 +305,7 @@ Use the following table to ensure that your related data file for pronunciations
 
 ## Audio data for testing
 
-Audio data is optimal for testing the accuracy of Microsoft's baseline speech-to-text model or a custom model. Keep in mind that audio data is used to inspect the accuracy of speech with regard to a specific model's performance. If you want to quantify the accuracy of a model, use [audio + human-labeled transcripts](#audio--human-labeled-transcript-data-for-trainingtesting).
+Audio data is optimal for testing the accuracy of Microsoft's baseline speech-to-text model or a custom model. Keep in mind that audio data is used to inspect the accuracy of speech with regard to a specific model's performance. If you want to quantify the accuracy of a model, use [audio + human-labeled transcripts](#audio--human-labeled-transcript-data-for-training-or-testing).
 
 Custom Speech requires audio files with these properties:
 
