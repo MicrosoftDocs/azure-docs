@@ -3,7 +3,7 @@ title: Best practices for Azure AD roles - Azure Active Directory
 description: Best practices for using Azure Active Directory roles.
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
@@ -57,7 +57,7 @@ Access reviews enable organizations to review administrator's access regularly t
 - A malicious actor can compromise an account.
 - People move teams within a company. If there is no auditing, they can amass unnecessary access over time.
  
-For information about access reviews for roles, see [Create an access review of Azure AD roles in PIM](../privileged-identity-management/pim-how-to-start-security-review.md). For information about access reviews of groups that are assigned roles, see [Create an access review of groups and applications in Azure AD access reviews](../governance/create-access-review.md).
+For information about access reviews for roles, see [Create an access review of Azure AD roles in PIM](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md). For information about access reviews of groups that are assigned roles, see [Create an access review of groups and applications in Azure AD access reviews](../governance/create-access-review.md).
 
 ## 5. Limit the number of Global Administrators to less than 5
 

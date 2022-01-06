@@ -43,7 +43,7 @@ If you can't find an answer to your problem using search, submit a new question 
 | [Azure Virtual Machine Images](shared-image-galleries.md) | [azure-virtual-machine-images](/answers/topics/azure-virtual-machines-images.html) | 
 | [Azure Virtual Machine migration](classic-vm-deprecation.md) | [azure-virtual-machine-migration](/answers/topics/azure-virtual-machines-migration.html) | 
 | [Azure Virtual Machine monitoring](../azure-monitor/vm/monitor-vm-azure.md) | [azure-virtual-machine-monitoring](/answers/topics/azure-virtual-machines-monitoring.html) |
-| [Azure Virtual Machine networking](network-overview.md) | [azure-virtual-machine-networking](/answers/topics/azure-virtual-machines-networking.html) | 
+| [Azure Virtual Machine networking](../virtual-network/network-overview.md) | [azure-virtual-machine-networking](/answers/topics/azure-virtual-machines-networking.html) | 
 | [Azure Virtual Machine storage](managed-disks-overview.md) | [azure-virtual-machine-storage](/answers/topics/azure-virtual-machines-storage.html) | 
 | [Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md) | [azure-virtual-machine-scale-set](/answers/topics/azure-virtual-machines-scale-set.html) | 
 

@@ -7,14 +7,13 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 08/19/2021
+ms.date: 08/23/2021
 ms.author: cherylmc
 
 ---
 # Tutorial: Create a User VPN connection using Azure Virtual WAN
 
 This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an OpenVPN or IPsec/IKE (IKEv2) VPN connection using a User VPN (P2S) configuration. This type of connection requires the native VPN client to be configured on each connecting client computer.
- 
 * If you want to create a User VPN connection using Azure AD authentication, use the [Configure a User VPN connection - Azure Active Directory authentication](virtual-wan-point-to-site-azure-ad.md) article instead.
 * For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
 
@@ -36,11 +35,11 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [Before beginning](../../includes/virtual-wan-before-include.md)]
 
-## <a name="wan"></a>Create virtual WAN
+## <a name="wan"></a>Create a virtual WAN
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
-## <a name="p2sconfig"></a>Create User VPN configuration
+## <a name="p2sconfig"></a>Create a User VPN configuration
 
 The User VPN (P2S) configuration defines the parameters for remote clients to connect. The instructions you follow depend on the authentication method you want to use.
 
@@ -52,9 +51,11 @@ In the following steps, when selecting the authentication method, you have three
 
 * **Radius-based authentication:** Obtain the Radius server IP, Radius server secret, and certificate information.
 
+### Configuration steps
+
 [!INCLUDE [Create P2S configuration](../../includes/virtual-wan-p2s-configuration-include.md)]
 
-## <a name="hub"></a>Create virtual hub and gateway
+## <a name="hub"></a>Create a virtual hub and gateway
 
 [!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
 
@@ -71,13 +72,13 @@ Once you have finished configuring your client, you can connect.
 
 [!INCLUDE [Configure clients](../../includes/virtual-wan-p2s-configure-clients-include.md)]
 
-## <a name="connect-vnet"></a>Connect to VNet
+## <a name="connect-vnet"></a>Connect VNet to hub
 
 In this section, you create a connection between your virtual hub and your VNet. For this tutorial, you do not need to configure the routing settings.
 
 [!INCLUDE [Connect virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
-## <a name="viewwan"></a>View virtual WAN
+## <a name="viewwan"></a>View a virtual WAN
 
 1. Navigate to your **virtual WAN**.
 

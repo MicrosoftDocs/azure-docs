@@ -1,9 +1,9 @@
 ---
-author: msmimart
+author: kengaderdus
 ms.service: active-directory-b2c
 ms.topic: include
 ms.date: 01/27/2021
-ms.author: mimart
+ms.author: kengaderdus
 ---
 
 * Complete the steps in [Get started with custom policies in Active Directory B2C](../articles/active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-custom-policy).

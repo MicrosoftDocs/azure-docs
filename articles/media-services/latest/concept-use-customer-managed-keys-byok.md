@@ -16,7 +16,7 @@ Bring Your Own Key (BYOK) is an Azure wide initiative to help customers move the
 
 ## Keys and key management
 
-You can use your own key with Media Services when you use the Media Services 2020-05-01 API. A default account key is created for all accounts which is encrypted by a system key owned by Media Services. When you use your own key, the account key is encrypted with your key. Content keys are encrypted by the account key. JobInputHttp urls and symmetric token validation keys are also encrypted.
+You can use your own key with Media Services when you use the Media Services 2020-05-01 or later API. A default account key is created for all accounts which is encrypted by a system key owned by Media Services. When you use your own key, the account key is encrypted with your key. Content keys are encrypted by the account key. JobInputHttp urls and symmetric token validation keys are also encrypted.
 
 :::image type="content" source="./media/customer-managed-key/customer-managed-key.svg" alt-text="A customer managed key replaces a system managed key":::
 

@@ -114,7 +114,7 @@ To configure a High-availability cluster provider, two primary steps are involve
    To configure the High-availability cluster provider, the following information is required:
    
    - **Name**. A name for this provider. It should be unique for this Azure Monitor for SAP solutions instance.
-   - **Prometheus Endpoint**. http\://\<servername or ip address\>:9664/metrics.
+   - **Prometheus Endpoint**. `http://<servername or ip address>:9664/metrics`.
    - **SID**. For SAP systems, use the SAP SID. For other systems (for example, NFS clusters), use a three-character name for the cluster. The SID must be distinct from other clusters that are monitored.   
    - **Cluster name**. The cluster name used when creating the cluster. The cluster name can be found in the cluster property `cluster-name`.
    - **Hostname**. The Linux hostname of the virtual machine (VM).  
@@ -137,7 +137,7 @@ To configure an OS (Linux) provider, two primary steps are involved:
 2. Configure an OS (Linux) provider for each BareMetal or VM node instance in your environment. 
    To configure the OS (Linux) provider, the following information is required: 
       - Name. A name for this provider. It should be unique for this Azure Monitor for SAP Solutions instance. 
-      - Node Exporter endpoint. Usually http://<servername or ip address>:9100/metrics. 
+      - Node Exporter endpoint. Usually `http://<servername or ip address>:9100/metrics`. 
 
 > [!NOTE]
 > 9100 is a Port Exposed for Node_Exporter Endpoint.

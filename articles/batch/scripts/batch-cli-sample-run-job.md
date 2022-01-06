@@ -1,10 +1,10 @@
 ---
-title: Azure CLI Script Example - Run a Batch job
-description: This script creates a Batch job and adds a series of tasks to the job. It also demonstrates how to monitor a job and its tasks.
+title: Azure CLI Script Example - Run a Batch job | Microsoft Docs
+description: Learn how to create a Batch job and add a series of tasks to the job using the Azure CLI. This article also shows how to monitor a job and its tasks.
 ms.topic: sample
-ms.date: 12/12/2019 
-ms.custom: devx-track-azurecli
-
+ms.date: 09/17/2021
+ms.custom: devx-track-azurecli, seo-azure-cli
+keywords: batch, batch job, monitor job, azure cli samples, azure cli code samples, azure cli script samples
 ---
 
 # CLI example: Run a job and tasks with Azure Batch

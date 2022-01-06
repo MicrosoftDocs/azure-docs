@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 08/20/2021
 ms.author: jovanpop
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ---
 
 # Tutorial: Create Logical Data Warehouse with serverless SQL pool
@@ -87,7 +87,7 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::MyCosmosDbAccountCredential TO <
 GO
 ```
 
-Find more details in [grant DATABASE SCOPED CREDENTIAL permissions](https://docs.microsoft.com/sql/t-sql/statements/grant-database-scoped-credential-transact-sql) page.
+Find more details in [grant DATABASE SCOPED CREDENTIAL permissions](/sql/t-sql/statements/grant-database-scoped-credential-transact-sql) page.
 
 ### Define external file formats
 

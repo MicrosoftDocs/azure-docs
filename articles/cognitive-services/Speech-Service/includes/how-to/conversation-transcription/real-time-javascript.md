@@ -1,9 +1,9 @@
 ---
-author: laujan
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/20/2020
-ms.author: lajanuar
+ms.author: eur
 ---
 
 ## Install the Speech SDK
@@ -72,6 +72,7 @@ This sample code does the following:
 * Creates a `ConversationTranscriber` using the constructor.
 * Adds participants to the conversation. The strings `voiceSignatureStringUser1` and `voiceSignatureStringUser2` should come as output from the steps above.
 * Registers to events and begins transcription.
+* If you want to differentiate speakers without providing voice samples, please enable `DifferentiateGuestSpeakers` feature as in [Conversation Transcription Overview](../../../conversation-transcription.md). 
 
 ```javascript
 (function() {
@@ -83,16 +84,11 @@ This sample code does the following:
     var region = "your-region";
     var filepath = "audio-file-to-transcribe.wav"; // 8-channel audio
     
-    // create the push stream and write file to it
-    var pushStream = sdk.AudioInputStream.createPushStream();
-    fs.createReadStream(filepath).on('data', function(arrayBuffer) {
-        pushStream.write(arrayBuffer.slice());
-    }).on('end', function() {
-        pushStream.close();
-    });
-    
     var speechTranslationConfig = sdk.SpeechTranslationConfig.fromSubscription(subscriptionKey, region);
-    var audioConfig = sdk.AudioConfig.fromStreamInput(pushStream);
+    var audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync(filepath));
+    speechTranslationConfig.setProperty("ConversationTranscriptionInRoomAndOnline", "true");
+
+    // en-us by default. Adding this code to specify other languages, like zh-cn.
     speechTranslationConfig.speechRecognitionLanguage = "en-US";
     
     // create conversation and transcriber

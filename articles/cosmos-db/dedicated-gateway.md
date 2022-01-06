@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/20/2021
+ms.date: 11/08/2021
 ms.author: tisande
 ---
 
@@ -80,6 +80,14 @@ The dedicated gateway is available in the following sizes:
 > [!NOTE]
 > Once created, you can't modify the size of the dedicated gateway nodes. However, you can add or remove nodes.
 
+There are many different ways to provision a dedicated gateway:
+
+- [Provision a dedicated gateway using the Azure Portal](how-to-configure-integrated-cache.md#provision-a-dedicated-gateway-cluster)
+- [Use Azure Cosmos DB's REAT API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/2021-04-01-preview/service/create)
+- [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/service?view=azure-cli-latest#az_cosmosdb_service_create)
+- [ARM template](https://docs.microsoft.com/azure/templates/microsoft.documentdb/databaseaccounts/services?tabs=bicep)
+    - Note: You cannot deprovision a dedicated gateway using ARM templates
+
 ## Dedicated gateway in multi-region accounts
 
 When you provision a dedicated gateway cluster in multi-region accounts, identical dedicated gateway clusters are provisioned in each region. For example, consider an Azure Cosmos DB account in East US and North Europe. If you provision a dedicated gateway cluster with two D8 nodes in this account, you'd have four D8 nodes in total - two in East US and two in North Europe. You don't need to explicitly configure dedicated gateways in each region and your connection string remains the same. There are also no changes to best practices for performing failovers.
@@ -95,8 +103,32 @@ The dedicated gateway has the following limitations during the public preview:
 
 - Dedicated gateways are only supported on SQL API accounts.
 - You can't provision a dedicated gateway in Azure Cosmos DB accounts with [IP firewalls](how-to-configure-firewall.md) or [Private Link](how-to-configure-private-endpoints.md) configured.
-- You can't provision a dedicated gateway in Azure Cosmos DB accounts with [availability zones](high-availability.md#availability-zone-support) enabled.
+- You can't provision a dedicated gateway in an Azure Cosmos DB account in a [Virtual Network (Vnet)](how-to-configure-vnet-service-endpoint.md)
+- You can't provision a dedicated gateway in Azure Cosmos DB accounts with [availability zones](../availability-zones/az-region.md).
 - You can't use [role-based access control (RBAC)](how-to-setup-rbac.md) to authenticate data plane requests routed through the dedicated gateway
+
+The dedicated gateway blade is hidden on Azure Cosmos DB accounts with IP firewalls, Vnet, Private Link, or availability zones.
+
+## Supported regions
+
+The dedicated gateway is in public preview and isn't supported in every Azure region yet. Throughout the public preview, we'll be adding new capacity. We won't have region restrictions when the dedicated gateway is generally available.
+
+Current list of supported Azure regions:
+
+| **Americas** | **Europe and Africa**  | **Asia Pacific**  |
+| ------------ | -------- | ----------- | 
+| Brazil South      | France Central    | Australia Central |
+| Canada Central  | France South    | Australia Central 2 |
+| Canada East     | Germany North   | Australia Southeast |
+| Central US     | Germany West Central   | Central India |
+| East US     | North Europe   | East Asia |
+| East US 2     | Switzerland North   | Japan West |
+| North Central US     | UK South   | Korea Central |
+| South Central US     | UK West   | Korea South |
+| West Central US     | West Europe   | Southeast Asia |
+| West US     |   | UAE Central |
+| West US 2     |    | West India |
+
 
 ## Next steps
 
@@ -105,3 +137,6 @@ Read more about dedicated gateway usage in the following articles:
 - [Integrated cache](integrated-cache.md)
 - [Configure the integrated cache](how-to-configure-integrated-cache.md)
 - [Integrated cache FAQ](integrated-cache-faq.md)
+- Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

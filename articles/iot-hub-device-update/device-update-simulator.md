@@ -25,7 +25,6 @@ In this tutorial you will learn how to:
 > * Create a device group
 > * Deploy an image update
 > * Monitor the update deployment
-
 ## Prerequisites
 * If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
 
@@ -47,7 +46,7 @@ PS> Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
 PS> Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
 
-(*You may be prompted to restart after this step*)
+   (*You may be prompted to restart after this step*)
 
 2. Go to the Microsoft Store on the web and install [Ubuntu 18.04 LTS](https://www.microsoft.com/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab`).
 
@@ -61,7 +60,7 @@ PS> Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsyst
 PS> wsl --setdefault Ubuntu-18.04
 ```
 
-6. List all Linux distributions, make sure that Ubuntu is the default one.
+6. List all Linux distributions, making sure that Ubuntu is the default one.
 
 ```powershell
 PS> wsl --list
@@ -79,23 +78,23 @@ There are two versions of the agent. For this tutorial, since you're exercising 
 
 1. Start Ubuntu WSL and enter the following command (note that extra space and dot at the end).
 
-  ```shell
-  explorer.exe .
-  ```
+```shell
+explorer.exe .
+```
 
 2. Copy AducIotAgentSim-microsoft-swupdate (or AducIotAgentSim-microsoft-apt) from your local folder where it was downloaded under /mnt to your home folder in WSL.
 
 3. Run the following command to make the binaries executable.
 
-  ```shell
-  sudo chmod u+x AducIotAgentSim-microsoft-swupdate
-  ```
+```shell
+sudo chmod u+x AducIotAgentSim-microsoft-swupdate
+```
 
   or
 
-  ```shell
-  sudo chmod u+x AducIotAgentSim-microsoft-apt
-  ```
+```shell
+sudo chmod u+x AducIotAgentSim-microsoft-apt
+```
 Device Update for Azure IoT Hub software is subject to the following license terms:
    * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
    * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
@@ -124,7 +123,7 @@ Start Device Update Agent on your new Software Devices.
 
 Replace `<device connection string>` with your connection string
 ```shell
-./AducIotAgentSim-microsoft-swupdate -c '<device connection string>'
+sudo ./AducIotAgentSim-microsoft-swupdate "<device connection string>"
 ```
 
 or
@@ -157,7 +156,7 @@ Agent running. [main]
 
 ## Import update
 
-1. Download the [sample import manifest](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/TutorialImportManifest.json) and [sample image update](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu).
+1. Download the [sample import manifest](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0/TutorialImportManifest_Sim.json) and [sample image update](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu). _Note_: these are re-used update files from the Raspberry Pi tutorial, because the update in this tutorial will be simulated and therefore the specific file content doesn't matter. 
 2. Log in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT Hub with Device Update. Then, select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
 
 3. Select the Updates tab.
@@ -172,7 +171,7 @@ Agent running. [main]
 
 7. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
   
-  :::image type="content" source="media/import-update/container.png" alt-text="Screenshot showing container selection." lightbox="media/import-update/container.png":::
+   :::image type="content" source="media/import-update/container.png" alt-text="Screenshot showing container selection." lightbox="media/import-update/container.png":::
 
 8. Select "Submit" to start the import process.
 

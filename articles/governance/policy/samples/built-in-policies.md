@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 08/20/2021
+ms.date: 12/15/2021
 ms.topic: sample
 ms.custom: generated
 ---
@@ -50,6 +50,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Azure Active Directory
 
 [!INCLUDE [azure-policy-reference-policies-azure-active-directory](../../../../includes/policy/reference/bycat/policies-azure-active-directory.md)]
+
+## Azure Arc
+
+[!INCLUDE [azure-policy-reference-policies-azure-arc](../../../../includes/policy/reference/bycat/policies-azure-arc.md)]
 
 ## Azure Data Explorer
 
@@ -134,6 +138,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## HDInsight
 
 [!INCLUDE [azure-policy-reference-policies-hdinsight](../../../../includes/policy/reference/bycat/policies-hdinsight.md)]
+
+## Healthcare APIs
+
+[!INCLUDE [azure-policy-reference-policies-healthcare-apis](../../../../includes/policy/reference/bycat/policies-healthcare-apis.md)]
 
 ## Internet of Things
 
@@ -226,6 +234,14 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Tags
 
 [!INCLUDE [azure-policy-reference-policies-tags](../../../../includes/policy/reference/bycat/policies-tags.md)]
+
+## Update Management Center
+
+[!INCLUDE [azure-policy-reference-policies-update-management-center](../../../../includes/policy/reference/bycat/policies-update-management-center.md)]
+
+## Video Analyzers
+
+[!INCLUDE [azure-policy-reference-policies-video-analyzers](../../../../includes/policy/reference/bycat/policies-video-analyzers.md)]
 
 ## VM Image Builder
 

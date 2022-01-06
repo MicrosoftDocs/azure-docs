@@ -2,13 +2,12 @@
 title: How to secure input constrained device with Azure AD and Azure Maps REST APIs
 titleSuffix: Azure Maps
 description: How to configure a browser-less application which supports sign-in to Azure AD and calls Azure Maps REST APIs.
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 06/12/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
 ---
 
 # Secure an input constrained device with Azure AD and Azure Maps REST APIs
@@ -52,7 +51,7 @@ Create the device based application in Azure AD to enable Azure AD sign in. This
 
 6. Configure Azure role-based access control (Azure RBAC) for users or groups. See [Grant role-based access for users to Azure Maps](#grant-role-based-access-for-users-to-azure-maps).
 
-7. Add code for acquiring token flow in the application, for implementation details see [Device code flow](../active-directory/develop/scenario-desktop-acquire-token.md#device-code-flow). When acquiring tokens, reference the scope: `user_impersonation` which was selected on earlier steps.
+7. Add code for acquiring token flow in the application, for implementation details see [Device code flow](../active-directory/develop/scenario-desktop-acquire-token-device-code-flow.md). When acquiring tokens, reference the scope: `user_impersonation` which was selected on earlier steps.
 
     > [!Tip]
     > Use Microsoft Authentication Library (MSAL) to acquire access tokens.

@@ -5,7 +5,7 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 08/26/2021
 ms.author: dech
 
 ---
@@ -626,6 +626,10 @@ In this tutorial, you've done the following tasks:
 > * Exported from Azure Cosmos DB to JSON
 
 You can now proceed to the next tutorial and learn how to query data using Azure Cosmos DB.
+
+Trying to do capacity planning for a migration to Azure Cosmos DB?
+  * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+  * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 > [!div class="nextstepaction"]
 >[How to query data?](../cosmos-db/tutorial-query-sql-api.md)

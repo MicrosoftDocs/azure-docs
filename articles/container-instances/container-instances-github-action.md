@@ -245,7 +245,7 @@ Output is similar to:
 
 ```console
 [...]
-Checking in file github/workflows/main.yml in the Github repository myid/acr-build-helloworld-node
+Checking in file github/workflows/main.yml in the GitHub repository myid/acr-build-helloworld-node
 Creating workflow...
 GitHub Action Workflow has been created - https://github.com/myid/acr-build-helloworld-node/runs/515192398
 GitHub workflow completed.

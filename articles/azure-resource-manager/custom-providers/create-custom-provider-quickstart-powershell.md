@@ -6,9 +6,7 @@ ms.author: evanhi
 ms.date: 09/22/2020
 ms.topic: quickstart
 ms.devlang: azurepowershell
-ms.custom: devx-track-azurepowershell
-  - devx-track-azurepowershell
-  - mode-api
+ms.custom: devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Create an Azure custom resource provider with Azure PowerShell

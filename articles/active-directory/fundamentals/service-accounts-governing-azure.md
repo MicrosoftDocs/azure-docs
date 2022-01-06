@@ -3,7 +3,7 @@ title: Governing Azure Active Directory service accounts
 description: Principles and procedures for managing the lifecycle of service accounts in Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
@@ -106,7 +106,7 @@ Proactively monitor your service accounts to ensure the service account’s usag
 
 * Are sign-in patterns of service accounts changing?
 
-We recommend you export Azure AD sign-In logs and import them into your existing Security Information and Event Management (SIEM) tools such as Azure Sentinel. Use your SIEM to build alerting and dashboards.
+We recommend you export Azure AD sign-In logs and import them into your existing Security Information and Event Management (SIEM) tools such as Microsoft Sentinel. Use your SIEM to build alerting and dashboards.
 
 ### Review service account permissions
 
@@ -190,4 +190,3 @@ For more information on securing Azure service accounts, see:
 
 
  
-

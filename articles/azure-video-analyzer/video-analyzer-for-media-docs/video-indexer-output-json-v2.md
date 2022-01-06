@@ -1,5 +1,5 @@
 ---
-title: Examine the  Azure Video Analyzer for Media (formerly Video Indexer) output produced by v2 API - Azure
+title: Examine the v2 API output from Azure Video Analyzer for Media (formerly Video Indexer)
 titleSuffix: Azure Video Analyzer for Media
 description: This topic examines the Azure Video Analyzer for Media (formerly Video Indexer) output produced by v2 API.
 services: azure-video-analyzer
@@ -43,7 +43,7 @@ For more information, see [View and edit video insights](video-indexer-view-edit
 1. To retrieve the JSON file, call [Get Video Index API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index)
 1. If you are also interested in specific artifacts, call [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url)
 
-	In the API call, specify the requested artifact type (OCR, Faces, Key frames etc.)
+    In the API call, specify the requested artifact type (OCR, Faces, Key frames etc.)
 
 ## Root elements of the insights
 
@@ -55,8 +55,8 @@ For more information, see [View and edit video insights](video-indexer-view-edit
 |description|The playlist's description.|
 |userName|The name of the user who created the playlist.|
 |created|The playlist's creation time.|
-|privacyMode|The playlist’s privacy mode (Private/Public).|
-|state|The playlist’s (uploaded, processing, processed, failed, quarantined).|
+|privacyMode|The playlist's privacy mode (Private/Public).|
+|state|The playlist's (uploaded, processing, processed, failed, quarantined).|
 |isOwned|Indicates whether the playlist was created by the current user.|
 |isEditable|Indicates whether the current user is authorized to edit the playlist.|
 |isBase|Indicates whether the playlist is a base playlist (a video) or a playlist made of other videos (derived).|
@@ -112,7 +112,7 @@ This section shows the summary of the insights.
 |accountId|The video's VI account ID.|
 |id|The video's ID.|
 |name|The video's name.
-|state|The video’s state (uploaded, processing, processed, failed, quarantined).|
+|state|The video's state (uploaded, processing, processed, failed, quarantined).|
 |processingProgress|The processing progress during processing (for example, 20%).|
 |failureCode|The failure code if failed to process (for example, 'UnsupportedFileType').|
 |failureMessage|The failure message if failed to process.|
@@ -134,34 +134,34 @@ This section shows the summary of the insights.
 
 ```json
 {
-	"videos": [{
-		"accountId": "2cbbed36-1972-4506-9bc7-55367912df2d",
-		"id": "142a356aa6",
-		"state": "Processed",
-		"privacyMode": "Private",
-		"processingProgress": "100%",
-		"failureCode": "General",
-		"failureMessage": "",
-		"externalId": null,
-		"externalUrl": null,
-		"metadata": null,
-		"insights": {. . . },
-		"thumbnailId": "89d7192c-1dab-4377-9872-473eac723845",
-		"publishedUrl": "https://videvmediaservices.streaming.mediaservices.windows.net:443/d88a652d-334b-4a66-a294-3826402100cd/Xamarine.ism/manifest",
-		"publishedProxyUrl": null,
-		"viewToken": "Bearer=<token>",
-		"sourceLanguage": "En-US",
-		"language": "En-US",
-		"indexingPreset": "Default",
-		"linguisticModelId": "00000000-0000-0000-0000-000000000000"
-	}],
+    "videos": [{
+        "accountId": "2cbbed36-1972-4506-9bc7-55367912df2d",
+        "id": "142a356aa6",
+        "state": "Processed",
+        "privacyMode": "Private",
+        "processingProgress": "100%",
+        "failureCode": "General",
+        "failureMessage": "",
+        "externalId": null,
+        "externalUrl": null,
+        "metadata": null,
+        "insights": {. . . },
+        "thumbnailId": "89d7192c-1dab-4377-9872-473eac723845",
+        "publishedUrl": "https://videvmediaservices.streaming.mediaservices.windows.net:443/d88a652d-334b-4a66-a294-3826402100cd/Xamarine.ism/manifest",
+        "publishedProxyUrl": null,
+        "viewToken": "Bearer=<token>",
+        "sourceLanguage": "En-US",
+        "language": "En-US",
+        "indexingPreset": "Default",
+        "linguisticModelId": "00000000-0000-0000-0000-000000000000"
+    }],
 }
 ```
 ### insights
 
 Each insight (for example, transcript lines, faces, brands, etc.), contains a list of unique elements (for example, face1, face2, face3), and each element has its own metadata and a list of its instances (which are time ranges with additional optional metadata).
 
-A face might  have an ID, a name, a thumbnail, other metadata, and a list of its temporal instances (for example: 00:00:05 – 00:00:10, 00:01:00 - 00:02:30 and 00:41:21 – 00:41:49.) Each temporal instance can have additional metadata. For example, the face’s rectangle coordinates (20,230,60,60).
+A face might  have an ID, a name, a thumbnail, other metadata, and a list of its temporal instances (for example: 00:00:05 – 00:00:10, 00:01:00 - 00:02:30 and 00:41:21 – 00:41:49.) Each temporal instance can have additional metadata. For example, the face's rectangle coordinates (20,230,60,60).
 
 |Version|The code version|
 |---|---|
@@ -234,10 +234,10 @@ Example:
   "language":"en-US",
   "instances":[
      {
-	"adjustedStart":"0:00:10.21",
-	"adjustedEnd":"0:00:12.81",
-	"start":"0:00:10.21",
-	"end":"0:00:12.81"
+    "adjustedStart":"0:00:10.21",
+    "adjustedEnd":"0:00:12.81",
+    "start":"0:00:10.21",
+    "end":"0:00:12.81"
      }
   ]
 },
@@ -249,10 +249,10 @@ Example:
   "language":"en-US",
   "instances":[
      {
-	"adjustedStart":"0:00:12.81",
-	"adjustedEnd":"0:00:17.03",
-	"start":"0:00:12.81",
-	"end":"0:00:17.03"
+    "adjustedStart":"0:00:12.81",
+    "adjustedEnd":"0:00:17.03",
+    "start":"0:00:12.81",
+    "end":"0:00:17.03"
      }
   ]
 },
@@ -305,22 +305,22 @@ Example:
 
 ```json
 {
-	id: 0,
-	text: "technology",
-	confidence: 1,
-	language: "en-US",
-	instances: [{
-			adjustedStart: "0:05:15.782",
-			adjustedEnd: "0:05:16.249",
-			start: "0:05:15.782",
-			end: "0:05:16.249"
-	},
-	{
-			adjustedStart: "0:04:54.761",
-			adjustedEnd: "0:04:55.228",
-			start: "0:04:54.761",
-			end: "0:04:55.228"
-	}]
+    id: 0,
+    text: "technology",
+    confidence: 1,
+    language: "en-US",
+    instances: [{
+            adjustedStart: "0:05:15.782",
+            adjustedEnd: "0:05:16.249",
+            start: "0:05:15.782",
+            end: "0:05:16.249"
+    },
+    {
+            adjustedStart: "0:04:54.761",
+            adjustedEnd: "0:04:55.228",
+            start: "0:04:54.761",
+            end: "0:04:55.228"
+    }]
 }
 ```
 
@@ -328,7 +328,7 @@ Example:
 
 `animatedCharacters` element replaces `faces` in case the video was indexed with an animated characters model. This is done using a custom model in Custom Vision, Video Analyzer for Media runs it on keyframes.
 
-If faces (not animated characters) are present, Video Analyzer for Media uses Face API on all the video’s frames to detect faces and celebrities.
+If faces (not animated characters) are present, Video Analyzer for Media uses Face API on all the video's frames to detect faces and celebrities.
 
 |Name|Description|
 |---|---|
@@ -346,30 +346,30 @@ If faces (not animated characters) are present, Video Analyzer for Media uses Fa
 
 ```json
 "faces": [{
-	"id": 2002,
-	"name": "Xam 007",
-	"confidence": 0.93844,
-	"description": null,
-	"thumbnailId": "00000000-aee4-4be2-a4d5-d01817c07955",
-	"knownPersonId": "8340004b-5cf5-4611-9cc4-3b13cca10634",
-	"referenceId": null,
-	"title": null,
-	"imageUrl": null,
-	"instances": [{
-		"thumbnailsIds": ["00000000-9f68-4bb2-ab27-3b4d9f2d998e",
-		"cef03f24-b0c7-4145-94d4-a84f81bb588c"],
-		"adjustedStart": "00:00:07.2400000",
-		"adjustedEnd": "00:00:45.6780000",
-		"start": "00:00:07.2400000",
-		"end": "00:00:45.6780000"
-	},
-	{
-		"thumbnailsIds": ["00000000-51e5-4260-91a5-890fa05c68b0"],
-		"adjustedStart": "00:10:23.9570000",
-		"adjustedEnd": "00:10:39.2390000",
-		"start": "00:10:23.9570000",
-		"end": "00:10:39.2390000"
-	}]
+    "id": 2002,
+    "name": "Xam 007",
+    "confidence": 0.93844,
+    "description": null,
+    "thumbnailId": "00000000-aee4-4be2-a4d5-d01817c07955",
+    "knownPersonId": "8340004b-5cf5-4611-9cc4-3b13cca10634",
+    "referenceId": null,
+    "title": null,
+    "imageUrl": null,
+    "instances": [{
+        "thumbnailsIds": ["00000000-9f68-4bb2-ab27-3b4d9f2d998e",
+        "cef03f24-b0c7-4145-94d4-a84f81bb588c"],
+        "adjustedStart": "00:00:07.2400000",
+        "adjustedEnd": "00:00:45.6780000",
+        "start": "00:00:07.2400000",
+        "end": "00:00:45.6780000"
+    },
+    {
+        "thumbnailsIds": ["00000000-51e5-4260-91a5-890fa05c68b0"],
+        "adjustedStart": "00:10:23.9570000",
+        "adjustedEnd": "00:10:39.2390000",
+        "start": "00:10:23.9570000",
+        "end": "00:10:39.2390000"
+    }]
 }]
 ```
 
@@ -521,8 +521,8 @@ Business and product brand names detected in the speech to text transcript and/o
 |---|---|
 |id|The brand ID.|
 |name|The brands name.|
-|referenceId | The suffix of the brand wikipedia url. For example, "Target_Corporation” is the suffix of [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|referenceUrl | The brand’s Wikipedia url, if exists. For example, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
+|referenceId | The suffix of the brand wikipedia url. For example, "Target_Corporation" is the suffix of [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
+|referenceUrl | The brand's Wikipedia url, if exists. For example, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |description|The brands description.|
 |tags|A list of predefined tags that were associated with this brand.|
 |confidence|The confidence value of the Video Analyzer for Media brand detector (0-1).|
@@ -850,7 +850,7 @@ Video Analyzer for Media makes inference of main topics from transcripts. When p
 |Name|Description|
 |---|---|
 |id|The speaker ID.|
-|name|The speaker name in the form of "Speaker #*<number>*" For example: "Speaker #1".|
+|name|The speaker name in the form of "Speaker #*\<number\>*" For example: "Speaker #1".|
 |instances |A list of time ranges where this speaker appeared.|
 
 ```json
@@ -860,10 +860,10 @@ Video Analyzer for Media makes inference of main topics from transcripts. When p
   "name":"Speaker #1",
   "instances":[
      {
-	"adjustedStart":"0:00:10.21",
-	"adjustedEnd":"0:00:12.81",
-	"start":"0:00:10.21",
-	"end":"0:00:12.81"
+    "adjustedStart":"0:00:10.21",
+    "adjustedEnd":"0:00:12.81",
+    "start":"0:00:10.21",
+    "end":"0:00:12.81"
      }
   ]
 },
@@ -872,10 +872,10 @@ Video Analyzer for Media makes inference of main topics from transcripts. When p
   "name":"Speaker #2",
   "instances":[
      {
-	"adjustedStart":"0:00:12.81",
-	"adjustedEnd":"0:00:17.03",
-	"start":"0:00:12.81",
-	"end":"0:00:17.03"
+    "adjustedStart":"0:00:12.81",
+    "adjustedEnd":"0:00:17.03",
+    "start":"0:00:12.81",
+    "end":"0:00:17.03"
      }
   ]
 },

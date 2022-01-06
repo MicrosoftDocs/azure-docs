@@ -8,7 +8,7 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/16/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q1
 ---
@@ -166,7 +166,7 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
 [!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
 > [!IMPORTANT]
-> To attach an Azure Kubernetes Services (AKS) or Arc enabled Kubernetes cluster, you must be subscription owner or have permission to access AKS cluster resources under the subscription. Otherwise, the cluster list on "attach new compute" page will be blank.
+> To attach an Azure Kubernetes Services (AKS) or Azure Arc-enabled Kubernetes cluster, you must be subscription owner or have permission to access AKS cluster resources under the subscription. Otherwise, the cluster list on "attach new compute" page will be blank.
 
 To detach your compute use the following steps:
 
@@ -192,12 +192,15 @@ If you created your compute instance or compute cluster with SSH access enabled,
 
 1. Copy the connection string.
 1. For Windows, open PowerShell or a command prompt:
-    1. Go into the directory or folder where your key is stored
-    1. Add the -i flag to the connection string to locate the private key and point to where it is stored:
+   1. Go into the directory or folder where your key is stored
+   1. Add the -i flag to the connection string to locate the private key and point to where it is stored:
     
-        ```ssh -i <keyname.pem> azureuser@... (rest of connection string)```
+      `ssh -i <keyname.pem> azureuser@... (rest of connection string)`
 
 1. For Linux users, follow the steps from [Create and use an SSH key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md)
+1. For SCP use: 
+
+   `scp -i key.pem -P {port} {fileToCopyFromLocal }  azureuser@yourComputeInstancePublicIP:~/{destination}`
 
 ## Next steps
 

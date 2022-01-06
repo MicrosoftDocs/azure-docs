@@ -33,6 +33,8 @@
     href: ./validated-partners/data-management/komprise-quick-start-guide.md
   - name: StorageX getting started guide
     href: ./validated-partners/data-management/storagex-quick-start-guide.md
+  - name: Cirrus Data getting started guide
+    href: ./validated-partners/data-management/cirrus-data-migration-guide.md
   expanded: false
 - name: Primary and secondary storage partners
   items:
@@ -40,4 +42,6 @@
     href: .\validated-partners\primary-secondary-storage\partner-overview.md
   - name: ISV file services
     href: .\validated-partners\primary-secondary-storage\isv-file-services.md
+  - name: Tiger Bridge getting started guide
+    href: ./validated-partners/primary-secondary-storage/tiger-bridge-deployment-guide.md
   expanded: false

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/15/2021
+ms.date: 12/24/2021
 ---
 
 # Copy and transform data in Azure SQL Database by using Azure Data Factory or Azure Synapse Analytics
@@ -48,6 +48,32 @@ If you use Azure SQL Database [serverless tier](../azure-sql/database/serverless
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## Create an Azure SQL Database linked service using UI
+
+Use the following steps to create an Azure SQL Database linked service in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+   # [Azure Data Factory](#tab/data-factory)
+
+   :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+   # [Azure Synapse](#tab/synapse-analytics)
+
+   :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+   
+
+2. Search for SQL and select the Azure SQL Database connector.
+
+    :::image type="content" source="media/connector-azure-sql-database/azure-sql-database-connector.png" alt-text="Select Azure SQL Database connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-azure-sql-database/configure-azure-sql-database-linked-service.png" alt-text="Screenshot of configuration for Azure SQL Database linked service.":::
+
+## Connector configuration details
+
 The following sections provide details about properties that are used to define Azure Data Factory or Synapse pipeline entities specific to an Azure SQL Database connector.
 
 ## Linked service properties
@@ -63,6 +89,7 @@ These properties are supported for an Azure SQL Database linked service:
 | tenant | Specify the tenant information, like the domain name or tenant ID, under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes, when you use Azure AD authentication with a service principal |
 | azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure AD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
 | alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see the JSON example following the table and [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
+| credentials | Specify the user-assigned managed identity as the credential object. | Yes, when you use user-assigned managed identity authentication |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is located in a private network. If not specified, the default Azure integration runtime is used. | No |
 
 > [!NOTE]
@@ -71,8 +98,9 @@ These properties are supported for an Azure SQL Database linked service:
 For different authentication types, refer to the following sections on prerequisites and JSON samples, respectively:
 
 - [SQL authentication](#sql-authentication)
-- [Azure AD application token authentication: Service principal](#service-principal-authentication)
-- [Azure AD application token authentication: Managed identities for Azure resources](#managed-identity)
+- [Service principal authentication](#service-principal-authentication)
+- [System-assigned managed identity authentication](#managed-identity)
+- [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
 
 >[!TIP]
 >If you hit an error with the error code "UserErrorFailedToConnectToSqlServer" and a message like "The session limit for the database is XXX and has been reached," add `Pooling=false` to your connection string and try again. `Pooling=false` is also recommended for **SHIR(Self Hosted Integration Runtime)** type linked service setup. Pooling and other connection parameters can be added as new parameter names and values in **Additional connection properties** section of linked service creation form.
@@ -199,11 +227,11 @@ To use a service principal-based Azure AD application token authentication, foll
 }
 ```
 
-### <a name="managed-identity"></a> Managed identities for Azure resources authentication
+### <a name="managed-identity"></a> System-assigned managed identity authentication
 
-A data factory or Synapse workspace can be associated with a [managed identity for Azure resources](data-factory-service-identity.md) that represents the service when authenticating to other resources in Azure. You can use this managed identity for Azure SQL Database authentication. The designated factory or Synapse workspace can access and copy data from or to your database by using this identity.
+A data factory or Synapse workspace can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity) that represents the service when authenticating to other resources in Azure. You can use this managed identity for Azure SQL Database authentication. The designated factory or Synapse workspace can access and copy data from or to your database by using this identity.
 
-To use managed identity authentication, follow these steps.
+To use system-assigned managed identity authentication, follow these steps.
 
 1. [Provision an Azure Active Directory administrator](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-database) for your server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or an Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator has full access to the database.
 
@@ -230,6 +258,51 @@ To use managed identity authentication, follow these steps.
         "type": "AzureSqlDatabase",
         "typeProperties": {
             "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;Connection Timeout=30"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### User-assigned managed identity authentication
+
+A data factory or Synapse workspace can be associated with a [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity) that represents the service when authenticating to other resources in Azure. You can use this managed identity for Azure SQL Database authentication. The designated factory or Synapse workspace can access and copy data from or to your database by using this identity.
+
+To use user-assigned managed identity authentication, follow these steps.
+
+1. [Provision an Azure Active Directory administrator](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-database) for your server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or an Azure AD group. If you grant the group with user-assigned managed identity an admin role, skip steps 3. The administrator has full access to the database.
+
+2. [Create contained database users](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities) for the user-assigned managed identity. Connect to the database from or to which you want to copy data by using tools like SQL Server Management Studio, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL:
+  
+    ```sql
+    CREATE USER [your_resource_name] FROM EXTERNAL PROVIDER;
+    ```
+
+3. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant the user-assigned managed identity needed permissions as you normally do for SQL users and others. Run the following code. For more options, see [this document](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+
+    ```sql
+    ALTER ROLE [role name] ADD MEMBER [your_resource_name];
+    ```
+4. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity. 
+
+5. Configure an Azure SQL Database linked service.
+
+**Example:**
+
+```json
+{
+    "name": "AzureSqlDbLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;Connection Timeout=30",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -488,7 +561,7 @@ Learn more details from [Invoke a stored procedure from a SQL sink](#invoke-a-st
 
 The Azure SQL Database connector in copy activity provides built-in data partitioning to copy data in parallel. You can find data partitioning options on the **Source** tab of the copy activity.
 
-![Screenshot of partition options](./media/connector-sql-server/connector-sql-partition-options.png)
+:::image type="content" source="./media/connector-sql-server/connector-sql-partition-options.png" alt-text="Screenshot of partition options":::
 
 When you enable partitioned copy, copy activity runs parallel queries against your Azure SQL Database source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, the service concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Azure SQL Database.
 
@@ -549,7 +622,7 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 
 If the table has physical partition, you would see "HasPartition" as "yes" like the following.
 
-![Sql query result](./media/connector-azure-sql-database/sql-query-result.png)
+:::image type="content" source="./media/connector-azure-sql-database/sql-query-result.png" alt-text="Sql query result":::
 
 ## Best practice for loading data into Azure SQL Database
 
@@ -574,7 +647,7 @@ Copy activity currently doesn't natively support loading data into a database te
 
 As an example, you can create a pipeline with a **Copy activity** chained with a **Stored Procedure activity**. The former copies data from your source store into an Azure SQL Database staging table, for example, **UpsertStagingTable**, as the table name in the dataset. Then the latter invokes a stored procedure to merge source data from the staging table into the target table and clean up the staging table.
 
-![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+:::image type="content" source="./media/connector-azure-sql-database/azure-sql-database-upsert.png" alt-text="Upsert":::
 
 In your database, define a stored procedure with MERGE logic, like the following example, which is pointed to from the previous stored procedure activity. Assume that the target is the **Marketing** table with three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column.
 
@@ -671,7 +744,7 @@ Settings specific to Azure SQL Database are available in the **Source Options** 
 
 **Stored procedure**: Choose this option if you wish to generate a projection and source data from a stored procedure that is executed from your source database. You can type in the schema, procedure name, and parameters, or click on Refresh to ask the service to discover the schemas and procedure names. Then you can click on Import to import all procedure parameters using the form ``@paraName``.
 
-![Stored procedure](media/data-flow/stored-procedure-2.png "Stored Procedure")
+:::image type="content" source="media/data-flow/stored-procedure-2.png" alt-text="Stored procedure":::
 
 - SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 - Parameterized SQL Example: ``"select * from {$tablename} where orderyear > {$year}"``
@@ -686,7 +759,7 @@ Settings specific to Azure SQL Database are available in the **Source Options** 
 - Serializable
 - None (ignore isolation level)
 
-![Isolation Level](media/data-flow/isolationlevel.png "Isolation Level")
+:::image type="content" source="media/data-flow/isolationlevel.png" alt-text="Isolation Level":::
 
 ### Sink transformation
 
@@ -694,7 +767,7 @@ Settings specific to Azure SQL Database are available in the **Settings** tab of
 
 **Update method:** Determines what operations are allowed on your database destination. The default is to only allow inserts. To update, upsert, or delete rows, an alter-row transformation is required to tag rows for those actions. For updates, upserts and deletes, a key column or columns must be set to determine which row to alter.
 
-![Key Columns](media/data-flow/keycolumn.png "Key Columns")
+:::image type="content" source="media/data-flow/keycolumn.png" alt-text="Key Columns":::
 
 The column name that you pick as the key here will be used by the service as part of the subsequent update, upsert, delete. Therefore, you must pick a column that exists in the Sink mapping. If you wish to not write the value to this key column, then click "Skip writing key columns".
 
@@ -710,11 +783,15 @@ You can parameterize the key column used here for updating your target Azure SQL
 
 **Use TempDB:** By default, the service will use a global temporary table to store data as part of the loading process. You can alternatively uncheck the "Use TempDB" option and instead, ask the service to store the temporary holding table in a user database that is located in the database that is being used for this Sink.
 
-![Use Temp DB](media/data-flow/tempdb.png "Use Temp DB")
+:::image type="content" source="media/data-flow/tempdb.png" alt-text="Use Temp DB":::
 
 **Pre and Post SQL scripts**: Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database
 
-![pre and post SQL processing scripts](media/data-flow/prepost1.png "SQL processing scripts")
+:::image type="content" source="media/data-flow/prepost1.png" alt-text="pre and post SQL processing scripts":::
+
+> [!TIP]
+> 1. It's recommended to break single batch scripts with multiple commands into multiple batches.
+> 2. Only Data Definition Language (DDL) and Data Manipulation Language (DML) statements that return a simple update count can be run as part of a batch. Learn more from [Performing batch operations](/sql/connect/jdbc/performing-batch-operations)
 
 ### Error row handling
 
@@ -732,7 +809,7 @@ By default, a data flow run will fail on the first error it gets. You can choose
 
 **Report success on error:** If enabled, the data flow will be marked as a success even if error rows are found. 
 
-![Error row handling](media/data-flow/sql-error-row-handling.png "Error row handling")
+:::image type="content" source="media/data-flow/sql-error-row-handling.png" alt-text="Error row handling":::
 
 
 ## Data type mapping for Azure SQL Database

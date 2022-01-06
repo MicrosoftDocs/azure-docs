@@ -6,8 +6,8 @@ description: Extract a positive-negative sentiment score from text in an AI enri
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 06/17/2020
+ms.topic: reference
+ms.date: 09/17/2021
 ---
 
 # Sentiment cognitive skill
@@ -36,14 +36,14 @@ Parameters are case-sensitive.
 
 | Parameter Name | Description |
 |----------------|----------------------|
-| `defaultLanguageCode` | (optional) The language code to apply to documents that don't specify language explicitly. <br/> See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md) |
+| `defaultLanguageCode` | (optional) The language code to apply to documents that don't specify language explicitly. <br/> See the [full list of supported languages](../cognitive-services/text-analytics/language-support.md). |
 
 ## Skill inputs 
 
 | Input	Name | Description |
 |--------------------|-------------|
 | `text` | The text to be analyzed.|
-| `languageCode`	|  (Optional) A string indicating the language of the records. If this parameter is not specified, the default value is "en". <br/>See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md).|
+| `languageCode`	|  (Optional) A string indicating the language of the records. If this parameter is not specified, the default value is "en". <br/>See the [full list of supported languages](../cognitive-services/text-analytics/language-support.md).|
 
 ## Skill outputs
 

@@ -1,19 +1,18 @@
 ---
 title: "Quickstart: ASP.NET Core web app that signs in users and calls Microsoft Graph | Azure"
 titleSuffix: Microsoft identity platform
-description: In this quickstart, you learn how an app leverages Microsoft.Identity.Web to implement Microsoft sign-in in an ASP.NET Core web app using OpenID Connect and calls Microsoft Graph
+description: In this quickstart, you learn how an app uses Microsoft.Identity.Web to implement Microsoft sign-in in an ASP.NET Core web app using OpenID Connect and calls Microsoft Graph.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 05/17/2021
 ms.author: jmprieur
-ms.custom: "devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core"
-# Customer intent: As an application developer, I want to download and run a demo ASP.NET Core web app that can sign in users with personal Microsoft accounts (MSA) and work/school accounts from any Azure Active Directory instance, then access their data in Microsoft Graph on their behalf.
+ms.custom: devx-track-csharp, aaddev, "scenarios:getting-started", "languages:aspnet-core", mode-other
+#Customer intent: As an application developer, I want to download and run a demo ASP.NET Core web app that can sign in users with personal Microsoft accounts (MSA) and work/school accounts from any Azure Active Directory instance, then access their data in Microsoft Graph on their behalf.
 ---
 
 # Quickstart: ASP.NET Core web app that signs in users and calls Microsoft Graph on their behalf
@@ -33,7 +32,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
 > 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. Enter a **Name** for your application, for example `AspNetCoreWebAppCallsGraph-Quickstart`. Users of your app might see this name, and you can change it later.
@@ -42,7 +41,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. Under **Manage**, select **Authentication**.
 > 1. Enter a **Front-channel logout URL** of `https://localhost:44321/signout-oidc`.
 > 1. Select **Save**.
-> 1. Under **Manage**, select **Certificates & secrets** > **New client secret**.
+> 1. Under **Manage**, select **Certificates & secrets** > **Client secrets** > **New client secret**.
 > 1. Enter a **Description**, for example `clientsecret1`.
 > 1. Select **In 1 year** for the secret's expiration.
 > 1. Select **Add** and immediately record the secret's **Value** for use in a later step. The secret value is *never displayed again* and is irretrievable by any other means. Record it in a secure location as you would any password.
@@ -124,11 +123,12 @@ This section gives an overview of the code required to sign in users and call th
 The *Microsoft.AspNetCore.Authentication* middleware uses a `Startup` class that's executed when the hosting process initializes:
 
 ```csharp
-  // Get the scopes from the configuration (appsettings.json)
-  var initialScopes = Configuration.GetValue<string>("DownstreamApi:Scopes")?.Split(' ');
 
   public void ConfigureServices(IServiceCollection services)
-  {
+  {  
+    // Get the scopes from the configuration (appsettings.json)
+    var initialScopes = Configuration.GetValue<string>("DownstreamApi:Scopes")?.Split(' ');
+  
       // Add sign-in with Microsoft
       services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
         .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"))

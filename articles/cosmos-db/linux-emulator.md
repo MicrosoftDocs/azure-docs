@@ -1,5 +1,5 @@
 ---
-title: Run the Azure Cosmos DB emulator on Docker for Linux
+title: Run the Azure Cosmos DB Emulator on Docker for Linux
 description: Learn how to run and use the Azure Cosmos DB Linux Emulator on Linux, and macOS. Using the emulator you can develop and test your application locally for free, without an Azure subscription.
 ms.service: cosmos-db
 ms.topic: how-to
@@ -9,6 +9,7 @@ ms.date: 06/04/2021
 ---
 
 # Run the emulator on Docker for Linux (Preview)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The Azure Cosmos DB Linux Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Currently, the Linux emulator only supports SQL API. Using the Azure Cosmos DB Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos DB Linux Emulator, you can switch to using an Azure Cosmos DB account in the cloud. This article describes how to install and use the emulator on macOS and Linux environments.
 
@@ -240,7 +241,7 @@ The number of physical partitions provisioned on the emulator is too low. Either
   - If the emulator fails to start with the following error:
   
     ```bash
-    "Failed loading Emulator secrets certificate. Error: 0x8009000f or similar, a new policy might have been added to your host that prevents an application such as Azure Cosmos DB emulator from creating and adding self signed certificate files into your certificate store."
+    "Failed loading Emulator secrets certificate. Error: 0x8009000f or similar, a new policy might have been added to your host that prevents an application such as Azure Cosmos DB Emulator from creating and adding self signed certificate files into your certificate store."
     ```
 
     This can be the case even when you run in Administrator context, since the specific policy usually added by your IT department takes priority over the local Administrator. Using a Docker image for the emulator instead might help in this case, as long as you still have the permission to add the self-signed emulator SSL certificate into your host machine context (this is required by Java and .NET Cosmos SDK client application).

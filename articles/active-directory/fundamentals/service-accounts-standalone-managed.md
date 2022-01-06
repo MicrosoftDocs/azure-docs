@@ -3,7 +3,7 @@ title: Secure standalone managed service accounts | Azure Active Directory
 description: A guide to securing standalone managed service accounts.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
@@ -56,7 +56,7 @@ To see how to mitigate potential security issues posed by sMSAs, refer to the fo
 | Security issue| Mitigation |
 | - | - |
 | sMSA is a member of privileged groups. | <li>Remove the sMSA from elevated privileged groups, such as Domain Admins.<li>Use the *least privileged* model, and grant the sMSA only the rights and permissions it requires to run its services.<li>If you're unsure of the required permissions, consult the service creator. |
-| sMSA has read/write access to sensitive resources. | <li>Audit access to sensitive resources.<li>Archive audit logs to a Security Information and Event Management (SIEM) program, such as Azure Log Analytics or Azure Sentinel, for analysis.<li>Remediate resource permissions if an undesirable level of access is detected. |
+| sMSA has read/write access to sensitive resources. | <li>Audit access to sensitive resources.<li>Archive audit logs to a Security Information and Event Management (SIEM) program, such as Azure Log Analytics or Microsoft Sentinel, for analysis.<li>Remediate resource permissions if an undesirable level of access is detected. |
 | By default, the sMSA password rollover frequency is 30 days. | You can use group policy to tune the duration, depending on enterprise security requirements. To set the password expiration duration, use the following path:<br>*Computer Configuration\Policies\Windows Settings\Security Settings\Security Options*. For domain member, use **Maximum machine account password age**. |
 | | |
 
@@ -90,13 +90,13 @@ To return only sMSAs in the Active Directory domain, run the following command:
 
 To manage your sMSAs, you can use the following Active Directory PowerShell cmdlets:
 
-`Get-ADServiceAccount`  
-` Install-ADServiceAccount`  
-` New-ADServiceAccount`  
-` Remove-ADServiceAccount`  
-`Set-ADServiceAccount`  
-`Test-ADServiceAccount`  
-`Ininstall-ADServiceAccount`
+`Get-ADServiceAccount`
+`Install-ADServiceAccount`
+`New-ADServiceAccount`
+`Remove-ADServiceAccount`
+`Set-ADServiceAccount`
+`Test-ADServiceAccount`
+`Uninstall-ADServiceAccount`
 
 ## Move to sMSAs
 

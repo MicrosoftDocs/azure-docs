@@ -1,11 +1,9 @@
 ---
 title: Deploy a PyTorch model as an Azure Functions application
 description: Use a pre-trained ResNet 18 deep neural network from PyTorch with Azure Functions to assign 1 of 1000 ImageNet labels to an image.
-author: gvashishtha
 
 ms.topic: tutorial
 ms.date: 02/28/2020
-ms.author: gopalv
 ms.custom: devx-track-python, devx-track-azurepowershell
 
 ---

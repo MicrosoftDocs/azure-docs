@@ -3,7 +3,7 @@ title: Deploy Azure Site Recovery replication appliance - Preview
 description: This article describes support and requirements when deploying the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Preview
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/19/2021
+ms.date: 09/01/2021
 ---
 
 # Deploy Azure Site Recovery replication appliance - Preview
@@ -14,7 +14,10 @@ ms.date: 08/19/2021
 >[!NOTE]
 > Ensure you create a new Recovery Services vault for setting up the preview appliance. Don't use an existing vault.
 
-You deploy an on-premises replication appliance when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure.
+>[!NOTE]
+> Enabling replication for physical machines is not supported with this preview. 
+
+You deploy an on-premises replication appliance when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs to Azure.
 
 - The replication appliance coordinates communications between on-premises VMware and Azure. It also manages data replication.
 - [Learn more](vmware-azure-architecture-preview.md) about the Azure Site Recovery replication appliance components and processes.
@@ -42,7 +45,7 @@ FIPS (Federal Information Processing Standards) | Do not enable FIPS mode|
 
 |**Component** | **Requirement**|
 |--- | ---|
-|IP address type | Static|
+|Fully qualified domain name (FQDN) | Static|
 |Ports | 443 (Control channel orchestration)<br>9443 (Data transport)|
 |NIC type | VMXNET3 (if the appliance is a VMware VM)|
 
@@ -62,13 +65,38 @@ Ensure the following URLs are allowed and reachable from the Azure Site Recovery
   |aka.ms |Allow access to also known as links. Used for Azure Site Recovery appliance updates. |
   |download.microsoft.com/download |Allow downloads from Microsoft download. |
   |`*.servicebus.windows.net `|Communication between the appliance and the Azure Site Recovery service. |
-  |`*.discoverysrv.windowsazure.com `|Connect to Azure Site Recovery discovery service URL. |
-  |`*.hypervrecoverymanager.windowsazure.com `|Connect to Azure Site Recovery micro-service URLs  |
-  |`*.blob.core.windows.net `|Upload data to Azure storage which is used to create target disks |
-  |`*.backup.windowsazure.com `|Protection service URL – a microservice used by Azure Site Recovery for processing and creating replicated disks in Azure |
+  |`*.discoverysrv.windowsazure.com `<br><br>`*.hypervrecoverymanager.windowsazure.com `<br><br> `*.backup.windowsazure.com ` |Connect to Azure Site Recovery micro-service URLs.
+  |`*.blob.core.windows.net `|Upload data to Azure storage which is used to create target disks. |
+
 
 > [!NOTE]
 > Private links are not supported with the preview release.
+
+## Folder exclusions from Antivirus program
+
+### If Antivirus Software is active on appliance
+
+Exclude following folders from Antivirus software for smooth replication and to avoid connectivity issues.
+
+C:\ProgramData\Microsoft Azure <br>
+C:\ProgramData\ASRLogs <br>
+C:\Windows\Temp\MicrosoftAzure 
+C:\Program Files\Microsoft Azure Appliance Auto Update <br>
+C:\Program Files\Microsoft Azure Appliance Configuration Manager <br>
+C:\Program Files\Microsoft Azure Push Install Agent <br>
+C:\Program Files\Microsoft Azure RCM Proxy Agent <br>
+C:\Program Files\Microsoft Azure Recovery Services Agent <br>
+C:\Program Files\Microsoft Azure Server Discovery Service <br>
+C:\Program Files\Microsoft Azure Site Recovery Process Server <br>
+C:\Program Files\Microsoft Azure Site Recovery Provider <br>
+C:\Program Files\Microsoft Azure to On-Premise Reprotect agent <br>
+C:\Program Files\Microsoft Azure VMware Discovery Service <br>
+C:\Program Files\Microsoft On-Premise to Azure Replication agent <br>
+E:\ <br>
+
+### If Antivirus software is active on Source machine
+
+If source machine has an Antivirus software active, installation folder should be excluded. So, exclude folder C:\ProgramData\ASR\agent for smooth replication.
 
 ## Prepare Azure account
 
@@ -144,6 +172,9 @@ The OVF template spins up a machine with the required specifications.
 4. Select **Finalize,** the system reboots and you can login with the administrator user account.
 
 ### Set up the appliance through PowerShell
+
+>[!NOTE]
+> Enabling replication for physical machines is not supported with this preview. 
 
 In case of any organizational restrictions, you can manually set up the Site Recovery replication appliance through PowerShell. Follow these steps:
 
@@ -236,6 +267,9 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
     Ensure you do not close the browser while configuration is in progress.
 
+    >[!NOTE]
+    > Appliance cloning is not supported with this preview. If you attempt to clone, it might disrupt the recovery flow.
+
 
 ## View Azure Site Recovery replication appliance in Azure portal
 
@@ -263,4 +297,4 @@ An appliance that uses an inbuilt process server to protect the workload can han
 For detailed information about how to use multiple appliances and failover a replication appliance, see [this article](switch-replication-appliance-preview.md)
 
 ## Next steps
-Set up disaster recovery of [VMware VMs](vmware-azure-tutorial.md) to Azure.
+Set up disaster recovery of [VMware VMs](vmware-azure-set-up-replication-tutorial-preview.md) to Azure.

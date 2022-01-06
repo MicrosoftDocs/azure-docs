@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Route events with a managed identity (preview)
+title: Route events with a managed identity
 titleSuffix: Azure Digital Twins
 description: See how to enable a system-assigned identity for Azure Digital Twins and use it to forward events, using the Azure portal or CLI.
 author: baanders
@@ -16,14 +16,14 @@ ms.custom: subject-rbac-steps, contperf-fy21q4
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Enable a managed identity for routing Azure Digital Twins events (preview)
+# Enable a managed identity for routing Azure Digital Twins events
 
-This article describes how to enable a [system-assigned identity for an Azure Digital Twins instance](concepts-security.md#managed-identity-for-accessing-other-resources-preview) (currently in preview), and use the identity when forwarding events to supported routing destinations. Setting up a managed identity isn't required for routing, but it can help the instance to easily access other Azure AD-protected resources, such as [Event Hub](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md).
+This article describes how to enable a [system-assigned identity for an Azure Digital Twins instance](concepts-security.md#managed-identity-for-accessing-other-resources), and use the identity when forwarding events to supported routing destinations. Setting up a managed identity isn't required for routing, but it can help the instance to easily access other Azure AD-protected resources, such as [Event Hubs](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md).
 
 Here are the steps that are covered in this article: 
 
 1. Create an Azure Digital Twins instance with a system-assigned identity or enable system-assigned identity on an existing Azure Digital Twins instance. 
-1. Add an appropriate role or roles to the identity. For example, assign the **Azure Event Hub Data Sender** role to the identity if the endpoint is Event Hub, or **Azure Service Bus Data Sender role** if the endpoint is Service Bus.
+1. Add an appropriate role or roles to the identity. For example, assign the **Azure Event Hub Data Sender** role to the identity if the endpoint is Event Hubs, or **Azure Service Bus Data Sender role** if the endpoint is Service Bus.
 1. Create an endpoint in Azure Digital Twins that can use system-assigned identities for authentication.
 
 ## Enable system-managed identity for the instance 
@@ -46,7 +46,7 @@ The system-managed identity option is located in the **Advanced** tab of instanc
 
 In this tab, select the **On** option for **System managed identity** to turn on this feature.
 
-:::image type="content" source="media/how-to-enable-managed-identities/create-instance-advanced.png" alt-text="Screenshot of the Azure portal showing the Advanced tab of the Create Resource dialog for Azure Digital Twins. System managed identity is turned on.":::
+:::image type="content" source="media/how-to-route-with-managed-identity/create-instance-advanced.png" alt-text="Screenshot of the Azure portal showing the Advanced tab of the Create Resource dialog for Azure Digital Twins. System managed identity is turned on.":::
 
 You can then use the bottom navigation buttons to continue with the rest of instance setup.
    
@@ -72,13 +72,13 @@ Start by opening the [Azure portal](https://portal.azure.com) in a browser.
 
 1. Search for the name of your instance in the portal search bar, and select it to view its details.
 
-1. Select **Identity (preview)** in the left-hand menu.
+1. Select **Identity** in the left-hand menu.
 
 1. On this page, select the **On** option to turn on this feature.
 
 1. Select the **Save** button, and **Yes** to confirm.
 
-    :::image type="content" source="media/how-to-enable-managed-identities/identity-digital-twins.png" alt-text="Screenshot of the Azure portal showing the Identity (preview) page for an Azure Digital Twins instance.":::
+    :::image type="content" source="media/how-to-route-with-managed-identity/identity-digital-twins.png" alt-text="Screenshot of the Azure portal showing the Identity page for an Azure Digital Twins instance.":::
 
 After the change is saved, more fields will appear on this page for the new identity's **Object ID** and **Permissions**.
 
@@ -104,7 +104,7 @@ az dt create --dt-name <name-of-existing-instance> --resource-group <resource-gr
 
 ## Assign Azure roles to the identity 
 
-Once a system-assigned identity is created for your Azure Digital Twins instance, you'll need to assign it appropriate roles to authenticate with different types of [endpoints](concepts-route-events.md) for forwarding events to supported destinations. This section describes the role options and how to assign them to the system-assigned identity.
+Once a system-assigned identity is created for your Azure Digital Twins instance, you'll need to assign it appropriate roles to authenticate with different types of [endpoints](concepts-route-events.md) for routing events to supported destinations. This section describes the role options and how to assign them to the system-assigned identity.
 
 >[!NOTE]
 > This is an important step—without it, the identity won't be able to access your endpoints and events won't be delivered.
@@ -159,13 +159,13 @@ az dt create --dt-name <instance-name> --resource-group <resource-group> --assig
 
 For more examples of role assignments with this command, see the [az dt create reference documentation](/cli/azure/dt#az_dt_create).
 
-You can also use the [az role assignment](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true) command group to create and manage roles. This command can be used to support other scenarios where you don't want to group role assignment with the create command.
+You can also use the [az role assignment](/cli/azure/role/assignment) command group to create and manage roles. This command can be used to support other scenarios where you don't want to group role assignment with the create command.
 
 ---
 
 ## Create an endpoint with identity-based authentication
 
-After setting up a system-managed identity for your Azure Digital Twins instance and assigning it the appropriate role(s), you can create Azure Digital Twins [endpoints](how-to-manage-routes.md#create-an-endpoint-for-azure-digital-twins) that can use the identity for authentication. This option is only available for Event Hub and Service Bus-type endpoints (it's not supported for Event Grid).
+After setting up a system-managed identity for your Azure Digital Twins instance and assigning it the appropriate role(s), you can create Azure Digital Twins [endpoints](how-to-manage-routes.md#create-an-endpoint-for-azure-digital-twins) that can use the identity for authentication. This option is only available for Event Hubs and Service Bus-type endpoints (it's not supported for Event Grid).
 
 >[!NOTE]
 > You cannot edit an endpoint that has already been created with key-based identity to change to identity-based authentication. You must choose the authentication type when the endpoint is first created.
@@ -180,7 +180,7 @@ When you get to the step of completing the details required for your endpoint ty
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png" alt-text="Screenshot of creating an endpoint of type Event Hub." lightbox="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png":::
+        :::image type="content" source="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png" alt-text="Screenshot of creating an endpoint of type Event Hubs." lightbox="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -190,7 +190,7 @@ Finish setting up your endpoint and select **Save**.
 
 # [CLI](#tab/cli)
 
-Creating the endpoint with the CLI is done by adding a `--auth-type` parameter to the `az dt endpoint create` command that's used to create the endpoint. (For more information about this command, see its [reference documentation](/cli/azure/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) or the [general instructions for setting up an Azure Digital Twins endpoint](how-to-manage-routes.md#create-the-endpoint)).
+Creating the endpoint with the CLI is done by adding a `--auth-type` parameter to the `az dt endpoint create` command that's used to create the endpoint. (For more information about this command, see its [reference documentation](/cli/azure/dt/endpoint/create) or the [general instructions for setting up an Azure Digital Twins endpoint](how-to-manage-routes.md#create-the-endpoint)).
 
 To create an endpoint that uses identity-based authentication, specify the `IdentityBased` authentication type with the  `--auth-type` parameter. The example below illustrates this functionality for an Event Hubs endpoint.
 

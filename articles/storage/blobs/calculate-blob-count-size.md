@@ -16,7 +16,7 @@ ms.custom: subject-rbac-steps
 
 This article uses the Azure Blob Storage inventory feature and Azure Synapse to calculate the blob count and total size of blobs per container. These values are useful when optimizing blob usage per container.
 
-Blob metadata is not included in this method. The Azure Blob Storage inventory feature uses the [List Blobs](/rest/api/storageservices/list-blobs) REST API with default parameters. So, the example doesn’t support snapshots, '$' containers, and so on.
+Blob metadata is not included in this method. The Azure Blob Storage inventory feature uses the [List Blobs](/rest/api/storageservices/list-blobs) REST API with default parameters. So, the example doesn't support snapshots, '$' containers, and so on.
 
 ## Enable inventory reports
 
@@ -46,7 +46,7 @@ After you create your Azure Synapse workspace, do the following steps.
     For the `bulk` parameter, use the URL of the inventory report CSV file that you want to analyze.
 
     ```sql
-    SELECT LEFT([Name], CHARINDEX('/', [Name]) - 1) AS Container, 
+    SELECT LEFT([Name], CHARINDEX('/', [Name]) - 1) AS Container,
             COUNT(*) As TotalBlobCount,
             SUM([Content-Length]) As TotalBlobSize
     FROM OPENROWSET(

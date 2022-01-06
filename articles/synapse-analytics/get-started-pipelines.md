@@ -4,8 +4,7 @@ description: In this tutorial, you'll learn how to integrate pipelines and activ
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
-manager: julieMSFT
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
@@ -36,6 +35,7 @@ Once the pipeline is published, you may want to run it immediately without waiti
 
 1. Open the pipeline.
 1. Click **Add trigger** > **Trigger now**.
+1. Select **OK**. 
 
 ## Monitor pipeline execution
 

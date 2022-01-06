@@ -1,10 +1,9 @@
 ---
 title: Tutorial - Trigger a Batch job using Azure Functions
 description: Tutorial - Apply OCR to scanned documents as they're added to a storage blob
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 08/23/2021
-ms.author: peshultz
 ms.custom: "mvc, devx-track-csharp"
 ---
 
@@ -37,15 +36,15 @@ In this section, you'll use Batch Explorer to create the Batch pool and Batch jo
 
 ### Create a pool
 
-1. Sign in to [Batch Explorer](https://azure.github.io/BatchExplorer/) using your Azure credentials.
-1. Create a pool by selecting **Pools** on the left side bar, then the **Add** button above the search form.
-   1. Choose an ID and display name. We'll use `ocr-pool` for this example.
-   1. Set the scale type to **Fixed size**, and set the dedicated node count to 3.
-   1. Select **Ubuntu 18.04-LTS** as the operating system.
-   1. Choose `Standard_f2s_v2` as the virtual machine size.
-   1. Enable the start task and add the command `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"`. Be sure to set the user identity as **Task default user (Admin)**, which allows start tasks to include commands with `sudo`.
-   1. Select **OK**.
-
+1. Sign in to Batch Explorer using your Azure credentials.
+1. Create a pool by selecting **Pools** on the left side bar, then the **Add** button above the search form. 
+	1. Choose an ID and display name. We'll use `ocr-pool` for this example.
+	1. Set the scale type to **Fixed size**, and set the dedicated node count to 3.
+	1. Select **Ubuntuserver** > **18.04-lts** as the operating system.
+	1. Choose `Standard_f2s_v2` as the virtual machine size.
+	1. Enable the start task and add the command `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"`. Be sure to set the user identity as **Task user (Admin)**, which allows start tasks to include commands with `sudo`.
+	1. Select **OK**.
+  
 ### Create a job
 
 1. Create a job on the pool by selecting **Jobs** on the left side bar, then the **Add** button above the search form.
@@ -66,12 +65,15 @@ Here you'll create blob containers that will store your input and output files f
 In this section you'll create the Azure Function that triggers the OCR Batch job whenever a file is uploaded to your input container.
 
 1. Follow the steps in [Create a function triggered by Azure Blob storage](../azure-functions/functions-create-storage-blob-triggered-function.md) to create a function.
-   1. When prompted for a storage account, use the same storage account that you linked to your Batch account.
-1. For **runtime stack**, choose .NET. We'll write our function in C# to leverage the Batch .NET SDK.
-1. Once the blob-triggered function is created, use the [`run.csx`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/run.csx) and [`function.proj`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/function.proj) from GitHub in the Function.
-   * `run.csx` is run when a new blob is added to your input blob container.
-   * `function.proj` lists the external libraries in your Function code, for example, the Batch .NET SDK.
-1. Change the placeholder values of the variables in the `Run()` function of the `run.csx` file to reflect your Batch and storage credentials. You can find these credentials in the Azure portal in the **Keys** section of your Batch account.
+	1. For **runtime stack**, choose .NET. We'll write our function in C# to leverage the Batch .NET SDK.
+	1. When prompted for a storage account under **Hosting**, use the same storage account that you linked to your Batch account.
+	1. While creating the Azure Blob storage account trigger, be sure to set the path as `input/{name}` (to match the name of your input container).
+1. Once the blob-triggered function is created, select **Code + Test**. Use the [`run.csx`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/run.csx) and [`function.proj`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/function.proj) from GitHub in the Function. `function.proj` doesn't exist by default, so select the **Upload** button to upload it into your development workspace.
+	* `run.csx` is run when a new blob is added to your input blob container.
+	* `function.proj` lists the external libraries in your Function code, for example, the Batch .NET SDK.
+1. Change the placeholder values of the variables in the `Run()` function of the `run.csx` file to reflect your Batch and storage credentials. You can find your Batch and storage account credentials in the Azure portal in the **Keys** section of your Batch account.
+	* Retrieve your Batch and storage account credentials in the Azure portal in the **Keys** section of your Batch account. 
+
 
 ## Trigger the function and retrieve results
 

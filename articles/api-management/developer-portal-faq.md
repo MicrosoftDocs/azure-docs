@@ -4,12 +4,12 @@ titleSuffix: Azure API Management
 description: Frequently asked questions about the developer portal in API Management. The developer portal is a customizable website where API consumers can explore your APIs.
 services: api-management
 documentationcenter: API Management
-author: mikebudzynski
+author: dlepow
 
 ms.service: api-management
 ms.topic: troubleshooting
 ms.date: 07/30/2021
-ms.author: apimpm 
+ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -75,7 +75,7 @@ You can also enable CORS manually.
 1. Select the **Manually apply it on the global level** link to see the generated policy code.
 2. Navigate to **All APIs** in the **APIs** section of your API Management service in the Azure portal.
 3. Select the **</>** icon in the **Inbound processing** section.
-4. Insert the policy in the **<inbound>** section of the XML file. Make sure the **<origin>** value matches your developer portal's domain.
+4. Insert the policy in the **\<inbound\>** section of the XML file. Make sure the **\<origin\>** value matches your developer portal's domain.
 
 > [!NOTE]
 > 
@@ -162,7 +162,7 @@ If you don't need the sign-up functionality enabled by default in the developer 
  
 1. Modify the **Sign up** page content to remove fields used to enter identity data, in case users navigate directly to it.
    
-   Optionally, delete the **Sign up** page. Currently, you use the [contentItem](/rest/api/apimanagement/2021-01-01-preview/content-item) REST APIs to list and delete this page.
+   Optionally, delete the **Sign up** page. Currently, you use the [contentItem](/rest/api/apimanagement/current-ga/content-item) REST APIs to list and delete this page.
  
 1. Save your changes, and [republish the portal](api-management-howto-developer-portal-customize.md#publish).
 
@@ -184,7 +184,7 @@ Among other authentication methods, the developer portal supports single sign-on
 https://contoso.com/signin-sso?token=[user-specific token]
 ```
 ### Generate user tokens
-You can generate *user-specific tokens* (including admin tokens) using the [Get Shared Access Token](/rest/api/apimanagement/2020-12-01/user/get-shared-access-token) operation of the [API Management REST API](/rest/api/apimanagement/apimanagementrest/api-management-rest).
+You can generate *user-specific tokens* (including admin tokens) using the [Get Shared Access Token](/rest/api/apimanagement/current-ga/user/get-shared-access-token) operation of the [API Management REST API](/rest/api/apimanagement/apimanagementrest/api-management-rest).
 
 > [!NOTE]
 > The token must be URL-encoded.
@@ -201,4 +201,3 @@ Learn more about the new developer portal:
 Browse other resources:
 
 - [GitHub repository with the source code](https://github.com/Azure/api-management-developer-portal)
-

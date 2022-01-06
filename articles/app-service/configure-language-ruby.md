@@ -1,10 +1,11 @@
 ---
 title: Configure Ruby apps - Azure App Service
-description: Learn how to configure a pre-built Ruby container for your app. This article shows the most common configuration tasks. 
+description: Learn how to configure a pre-built Ruby container for your app. This article shows the most common configuration tasks.
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18, devx-track-azurecli
+ms.devlang: ruby
+ms.custom: mvc, seodec18, devx-track-azurecli, mode-other
 ---
 
 # Configure a Linux Ruby app for Azure App Service
@@ -58,7 +59,7 @@ ENV['WEBSITE_SITE_NAME']
 
 ## Customize deployment
 
-When you deploy a [Git repository](deploy-local-git.md), or a [Zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation), the deployment engine (Kudu) automatically runs the following post-deployment steps by default:
+When you deploy a [Git repository](deploy-local-git.md), or a [Zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the deployment engine (Kudu) automatically runs the following post-deployment steps by default:
 
 1. Check if a *Gemfile* exists.
 1. Run `bundle clean`. 

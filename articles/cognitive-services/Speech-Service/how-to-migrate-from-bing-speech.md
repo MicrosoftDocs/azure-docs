@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.author: lajanuar
+ms.author: eur
 
 # Customer intent: As a developer currently using the deprecated Bing Speech, I want to learn the differences between Bing Speech and the Speech service, so that I can migrate my application to the Speech service.
 ---
@@ -27,7 +27,7 @@ A single Speech service subscription key grants access to the following features
 * [Custom speech-to-text](./custom-speech-overview.md)
 * [Text-to-speech](text-to-speech.md)
 * [Custom text-to-speech voices](./how-to-custom-voice-create-voice.md)
-* [Speech translation](speech-translation.md) (does not include [Text translation](../translator/translator-info-overview.md))
+* [Speech translation](speech-translation.md) (does not include [Text translation](../translator/translator-overview.md))
 
 The [Speech SDK](speech-sdk.md) is a functional replacement for the Bing Speech client libraries, but uses a different API.
 

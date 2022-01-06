@@ -183,9 +183,84 @@ A device could report an error such as:
 }
 ```
 
+### Object type
+
+If a writable property is defined as an object, the service must send a complete object to the device. The device should acknowledge the update by sending sufficient information back to the service for the service to understand how the device has acted on the update. This response could include:
+
+- The entire object.
+- Just the fields that the device updated.
+- A subset of the fields.
+
+For large objects, consider minimizing the size of the object you include in the acknowledgment.
+
+The following example shows a writable property defined as an `Object` with four fields:
+
+DTDL:
+
+```json
+{
+  "@type": "Property",
+  "name": "samplingRange",
+  "schema": {
+    "@type": "Object",
+    "fields": [
+      {
+        "name": "startTime",
+        "schema": "dateTime"
+      },
+      {
+        "name": "lastTime",
+        "schema": "dateTime"
+      },
+      {
+        "name": "count",
+        "schema": "integer"
+      },
+      {
+        "name": "errorCount",
+        "schema": "integer"
+      }
+    ]
+  },
+  "displayName": "Sampling range"
+  "writable": true
+}
+```
+
+To update this writable property, send a complete object from the service that looks like the following:
+
+```json
+{
+  "samplingRange": {
+    "startTime": "2021-08-17T12:53:00.000Z",
+    "lastTime": "2021-08-17T14:54:00.000Z",
+    "count": 100,
+    "errorCount": 5
+  }
+}
+```
+
+The device responds with an acknowledgment that looks like the following:
+
+```json
+{
+  "samplingRange": {
+    "ac": 200,
+    "av": 5,
+    "ad": "Weighing status updated",
+    "value": {
+      "startTime": "2021-08-17T12:53:00.000Z",
+      "lastTime": "2021-08-17T14:54:00.000Z",
+      "count": 100,
+      "errorCount": 5
+    }
+  }
+}
+```
+
 ### Sample no component writable property
 
-When a device receives multiple reported properties in a single payload, it can send the reported property responses across multiple payloads.
+When a device receives multiple desired properties in a single payload, it can send the reported property responses across multiple payloads or or combine the responses into a single payload.
 
 A device or module can send any valid JSON that follows the DTDL v2 rules:
 
@@ -200,6 +275,12 @@ DTDL:
     {
       "@type": "Property",
       "name": "targetTemperature",
+      "schema": "double",
+      "writable": true
+    },
+    {
+      "@type": "Property",
+      "name": "targetHumidity",
       "schema": "double",
       "writable": true
     }
@@ -244,13 +325,16 @@ Sample reported property second payload:
 }
 ```
 
+> [!NOTE]
+> You could choose to combine these two reported property payloads into a single payload.
+
 ### Sample multiple components writable property
 
 The device or module must add the `{"__t": "c"}` marker to indicate that the element refers to a component.
 
 The marker is sent only for updates to properties defined in a component. Updates to properties defined in the default component don't include the marker, see [Sample no component writable property](#sample-no-component-writable-property)
 
-When a device receives multiple reported properties in a single payload, it can send the reported property responses across multiple payloads.
+When a device receives multiple reported properties in a single payload, it can send the reported property responses across multiple payloads or combine the responses into a single payload.
 
 The device or module should confirm that it received the properties by sending reported properties:
 
@@ -334,6 +418,9 @@ Sample reported property second payload:
   }
 }
 ```
+
+> [!NOTE]
+> You could choose to combine these two reported property payloads into a single payload.
 
 ## Commands
 

@@ -1,9 +1,9 @@
 ---
-author: laujan
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
-ms.author: lajanuar
+ms.author: eur
 ms.custom: devx-track-csharp
 ---
 
@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="C#" src="https://docs.microsoft.com/media/logos/logo_Csharp.svg" width="60px">
+            <img alt="C#" src="/media/logos/logo_Csharp.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::

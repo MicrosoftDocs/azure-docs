@@ -2,8 +2,11 @@
 title: Private endpoints overview
 description: Understand the use of private endpoints for Azure Backup and the scenarios where using private endpoints helps maintain the security of your resources.
 ms.topic: conceptual
-ms.date: 08/19/2021 
+ms.date: 11/09/2021 
 ms.custom: devx-track-azurepowershell
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Overview and concepts of private endpoints for Azure Backup
@@ -23,7 +26,7 @@ This article will help you understand how private endpoints for Azure Backup wor
 - Virtual networks with Network Policies aren't supported for Private Endpoints. You'll need to [disable Network Polices](../private-link/disable-private-endpoint-network-policy.md) before continuing.
 - You need to re-register the Recovery Services resource provider with the subscription if you registered it before May 1 2020. To re-register the provider, go to your subscription in the Azure portal, navigate to **Resource provider** on the left navigation bar, then select **Microsoft.RecoveryServices** and select **Re-register**.
 - [Cross-region restore](backup-create-rs-vault.md#set-cross-region-restore) for SQL and SAP HANA database backups aren't supported if the vault has private endpoints enabled.
-- When you move a Recovery Services vault already using private endpoints to a new tenant, you'll need to update the Recovery Services vault to recreate and reconfigure the vault’s managed identity and create new private endpoints as needed (which should be in the new tenant). If this isn't done, the backup and restore operations will start failing. Also, any role-based access control (RBAC) permissions set up within the subscription will need to be reconfigured.
+- When you move a Recovery Services vault already using private endpoints to a new tenant, you'll need to update the Recovery Services vault to recreate and reconfigure the vault’s managed identity and create new private endpoints as needed (which should be in the new tenant). If this isn't done, the backup and restore operations will start failing. Also, any Azure role-based access control (Azure RBAC) permissions set up within the subscription will need to be reconfigured.
 
 ## Recommended and supported scenarios
 
@@ -61,17 +64,17 @@ When the workload extension or MARS agent is installed for Recovery Services vau
 >In the above text, `<geo>` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
 >- [All public clouds](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
 >- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
->- [Germany](/azure/germany/germany-developer-guide#endpoint-mapping)
->- [US Gov](/azure/azure-government/documentation-government-developer-guide)
+>- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
+>- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 The storage FQDNs hit in both the scenarios are same. However, for a Recovery Services vault with private endpoint setup, the name resolution for these should return a private IP address. This can be achieved by using private DNS zones, by creating DNS entries for storage account in host files, or by using conditional forwarders to custom DNS with the respective DNS entries. The private IP mappings for the storage account are listed in the private endpoint blade for the storage account ion the portal.
 
 >The private endpoints for blobs and queues follow a standard naming pattern, they start with **\<the name of the private endpoint>_ecs** or **\<the name of the private endpoint>_prot**, and are suffixed with **\_blob** and **\_queue** respectively.
 
 The endpoints for the Azure Backup service are modified for private endpoint enabled vaults.  
-If you have configured a DNS proxy server, using  third-party proxy servers and firewalls, the above domain names must be allowed and redirected to a custom DNS (with private IP addresses mappings) or to 169.63.129.16 with a virtual network link to a private DNS zone with these private IP addresses mappings.
+If you have configured a DNS proxy server, using  third-party proxy servers and firewalls, the above domain names must be allowed and redirected to a custom DNS (with private IP addresses mappings) or to 168.63.129.16 with a virtual network link to a private DNS zone with these private IP addresses mappings.
 
-The following example shows Azure firewall used as DNS proxy to redirect the domain name queries for Recovery Services vault, blob, queues and AAD to 169.63.129.16.
+The following example shows Azure firewall used as DNS proxy to redirect the domain name queries for Recovery Services vault, blob, queues and AAD to 168.63.129.16.
 
 :::image type="content" source="./media/private-endpoints-overview/azure-firewall-used-as-dns-proxy-inline.png" alt-text="Diagram showing the use of Azure firewall as DNS proxy to redirect the domain name queries." lightbox="./media/private-endpoints-overview/azure-firewall-used-as-dns-proxy-expanded.png":::
 
@@ -87,14 +90,14 @@ The workload backup extension and MARS agent run on Azure VM in a VNet or on-pre
 >In the above text, `<geo>` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
 >- [All public clouds](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
 >- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
->- [Germany](/azure/germany/germany-developer-guide#endpoint-mapping)
->- [US Gov](/azure/azure-government/documentation-government-developer-guide)
+>- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
+>- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 The modified URLs are specific for a vault.  See `<vault_id>` in the URL name. Only extensions and agents registered to this vault can communicate with Azure Backup via these endpoints. This restricts the access to the clients within this VNet. The extension/agent will communicate via `*.privatelink.<geo>.backup.windowsazure.com` that needs to resolve the corresponding private IP in the NIC.
 
 When the private endpoint for Recovery Services vaults is created via Azure portal with the **integrate with private DNS zone** option, the required DNS entries for private IP addresses for Azure Backup services (`*.privatelink.<geo>backup.windowsazure.com`) are created automatically whenever the resource is allocated. Otherwise, you need to create the DNS entries manually for these FQDNs in the custom DNS or in the host files.
 
-For the manual management of DNS records after the VM discovery for communication channel - blob/queue, see [DNS records for blobs and queues (only for custom DNS servers/host files) after the first registration](/azure/backup/private-endpoints#dns-records-for-blobs-and-queues-only-for-custom-dns-servershost-files-after-the-first-registration). For the manual management of DNS records after the first backup for backup storage account blob, see [DNS records for blobs (only for custom DNS servers/host files) after the first backup](/azure/backup/private-endpoints#dns-records-for-blobs-only-for-custom-dns-servershost-files-after-the-first-backup).
+For the manual management of DNS records after the VM discovery for communication channel - blob/queue, see [DNS records for blobs and queues (only for custom DNS servers/host files) after the first registration](./private-endpoints.md#dns-records-for-blobs-and-queues-only-for-custom-dns-servershost-files-after-the-first-registration). For the manual management of DNS records after the first backup for backup storage account blob, see [DNS records for blobs (only for custom DNS servers/host files) after the first backup](./private-endpoints.md#dns-records-for-blobs-only-for-custom-dns-servershost-files-after-the-first-backup).
 
 >The private IP addresses for the FQDNs can be found in the private endpoint blade for the private endpoint created for the Recovery Services vault.
 
@@ -116,4 +119,4 @@ The following diagram shows how the name resolution works for storage accounts u
 
 ## Next steps
 
-- [Create and use private endpoints](private-endpoints.md)
+- [Create and use private endpoints](private-endpoints.md).
