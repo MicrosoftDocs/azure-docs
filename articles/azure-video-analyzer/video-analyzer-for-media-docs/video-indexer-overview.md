@@ -2,7 +2,7 @@
 title: What is Azure Video Analyzer for Media (formerly Video Indexer)?
 description: This article gives an overview of the Azure Video Analyzer for Media (formerly Video Indexer) service.
 ms.topic: overview
-ms.date: 12/10/2021
+ms.date: 01/04/2022
 ms.author: juliako
 ---
 
@@ -79,7 +79,12 @@ The following list shows the insights you can retrieve from your videos using Vi
 * **Audio effects** (preview): Detects the following audio effects in the non-speech segments of the content: Gunshot, Glass shatter, Alarm, Siren, Explosion, Dog Bark, Screaming, Laughter, Crowd reactions (cheering, clapping, and booing) and Silence. Note: the full set of events is available only when choosing ‘Advanced Audio Analysis’ in upload preset, otherwise only ‘Silence’ and ‘Crowd reaction’ will be available.
 * **Emotion detection**: Identifies emotions based on speech (what's being said) and voice tonality (how it's being said). The emotion could be joy, sadness, anger, or fear.
 * **Translation**: Creates translations of the audio transcript to 54 different languages.
-* **Audio effects detection** (preview): Detects various acoustics events and classifies them into different acoustic categories (such as Gunshot, Screaming, Crowd Reaction and more). The detected acoustic events are in the closed captions file. The file can be downloaded from the Video Analyzer for Media portal. For more information, see [Audio effects detection](audio-effects-detection.md).
+* **Audio effects detection**: Detects the following audio effects in the non-speech segments of the content: alarm or siren, dog barking, crowd reactions (cheering, clapping, and booing), gunshot or explosion, laughter, breaking glass, and silence.
+
+    The detected acoustic events are in the closed captions file. The file can be downloaded from the Video Analyzer for Media portal. For more information, see [Audio effects detection](audio-effects-detection.md).
+
+    > [!NOTE]
+    > The full set of events is available only when you choose **Advanced Audio Analysis** when uploading a file, in upload preset. By default, only silence is detected.
 
 ### Audio and video insights (multi-channels)
 
