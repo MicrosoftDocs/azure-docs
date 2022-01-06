@@ -98,21 +98,21 @@ Before you begin, make sure that:
 
 If you have an existing Azure Stack Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key).
 
-### [Azure Edge Hardware Center (Preview)](#tab/azure-edge-hardware-center)
+### Create an order resource
 
-Azure Edge Hardware Center (Preview) lets you explore and order a variety of hardware from the Azure hybrid portfolio including Azure Stack Edge Pro devices.
+To create an order resource, use the Azure Edge Hardware Center. [Azure Edge Hardware Center](../azure-edge-hardware-center/azure-edge-hardware-center-overview.md) lets you explore and order a variety of hardware from the Azure hybrid portfolio including Azure Stack Edge Pro devices.
 
-When you place an order through the Azure Edge Hardware Center, you can order multiple devices, to be shipped to more than one address, and you can reuse ship to addresses from other orders.
+When you place an order through the Edge Hardware Center, you can order multiple devices, to be shipped to more than one address, and you can reuse ship to addresses from other orders.
 
-Ordering through Azure Edge Hardware Center will create an Azure resource that will contain all your order-related information. One resource each will be created for each of the units ordered. You will have to create an Azure Stack Edge resource after you receive the device to activate and manage it.
+Ordering through Edge Hardware Center will create an Azure resource that will contain all your order-related information. One resource each will be created for each of the units ordered. You will have to create an Azure Stack Edge resource after you receive the device to activate and manage it.
 
 [!INCLUDE [Create order in Azure Edge Hardware Center](../../includes/azure-edge-hardware-center-new-order.md)]
 
-#### Create a management resource for each device
+### Create a management resource for each device
 
 [!INCLUDE [Create management resource](../../includes/azure-edge-hardware-center-create-management-resource.md)]
 
-### [Azure CLI](#tab/azure-cli)
+<!--### [Azure CLI](#tab/azure-cli)
 
 If necessary, prepare your environment for Azure CLI.
 
@@ -153,7 +153,7 @@ The resource creation takes a few minutes. Run the [az databoxedge order show](/
 az databoxedge order show --resource-group myasepgpu1 --device-name myasegpu1 
 ```
 
-After you place an order, Microsoft reviews the order and contacts you by email with shipping details.
+After you place an order, Microsoft reviews the order and contacts you by email with shipping details.-->
 
 ---
 
