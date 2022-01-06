@@ -44,7 +44,7 @@ Set up a sample application that, demonstrates how a job or a Windows service ca
 
 ### Step 2: Create a Conditional Access policy
 
-Create a location based Conditional Access policy that applies to service principals.
+Create risk- or location-based Conditional Access policies that apply to service principals.
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
@@ -54,10 +54,12 @@ Create a location based Conditional Access policy that applies to service princi
    1. Under **What does this policy apply to?**, select **Workload identities (Preview)**.
    1. Under **Include**, choose **Select service principals**, and select the appropriate service principals from the list.
 1. Under **Cloud apps or actions**, select **All cloud apps**. The policy will apply only when a service principal requests a token.
-1. Under **Conditions** > **Locations**, include **Any location** and exclude **Selected locations** where you want to allow access.
-1. Under **Grant**, **Block access** is the only available option. Access is blocked when a token request is made from outside the allowed range.
-1. Your policy can be saved in **Report-only** mode, allowing administrators to estimate the effects, or policy is enforced by turning policy **On**.
-1. Select **Create** to complete your policy.
+1. Under **Conditions** select the condition(s) you want to enforce.
+   1. Under **Service principal risk**, select the risk level(s) **High**, **Medium**, or **Low** where you want the policy to block access.
+   1. Under **Locations**, include **Any location** and exclude **Selected locations** where you want to allow access. 
+3. Under **Grant**, **Block access** is the only available option. Access is blocked when a token request is made from outside the allowed range.
+4. Your policy can be saved in **Report-only** mode, allowing administrators to estimate the effects, or policy is enforced by turning policy **On**.
+5. Select **Create** to complete your policy.
 
 ## Roll back
 
@@ -103,7 +105,13 @@ Sample JSON for configuration using the Microsoft Graph beta endpoint.
         "[Service principal Object ID]"
       ],
     },
-    "locations": {
+     "servicePrincipalRiskLevels": [
+        "low",
+        "medium",
+        "high"
+      ],
+    },
+     "locations": {
       "includeLocations": [
         "All"
       ],
