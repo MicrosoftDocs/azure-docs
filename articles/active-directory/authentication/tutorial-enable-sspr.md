@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 1/04/2022
+ms.date: 1/05/2022
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
@@ -64,7 +64,7 @@ In this tutorial, set up SSPR for a set of users in a test group. Use the *SSPR-
 
 When users need to unlock their account or reset their password, they're prompted for another confirmation method. This extra authentication factor makes sure that Azure AD finished only approved SSPR events. You can choose which authentication methods to allow, based on the registration information the user provides.
 
-1. From the menu on the left side of the **Authentication methods** page, set the **Number of methods required to reset** to *1*.
+1. From the menu on the left side of the **Authentication methods** page, set the **Number of methods required to reset** to *2*.
 
     To improve security, you can increase the number of authentication methods required for SSPR.
 
@@ -96,12 +96,12 @@ To keep users informed about account activity, you can set up Azure AD to send e
 
 1. From the menu on the left side of the **Notifications** page, set up the following options:
 
-   * Set **Notify users on password resets** option to *Yes*.
-   * Set **Notify all admins when other admins reset their password** to *Yes*.
+   * Set **Notify users on password resets?** option to *Yes*.
+   * Set **Notify all admins when other admins reset their password?** to *Yes*.
 
 1. To apply the notification preferences, select **Save**.
 
-If users need more help with the SSPR process, you can customize the "Contact your administrator" link. The user can select this link in the SSPR registration process and when they unlock their account or resets their password. To make sure your users get the support needed, we highly recommend you provide a custom helpdesk email or URL.
+If users need more help with the SSPR process, you can customize the "Contact your administrator" link. The user can select this link in the SSPR registration process and when they unlock their account or resets their password. To make sure your users get the support needed, we recommend you provide a custom helpdesk email or URL.
 
 1. From the menu on the left side of the **Customization** page, set **Customize helpdesk link** to *Yes*.
 1. In the **Custom helpdesk email or URL** field, provide an email address or web page URL where your users can get more help from your organization, like *https:\//support.contoso.com/*
