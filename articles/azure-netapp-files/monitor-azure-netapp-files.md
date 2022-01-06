@@ -1,6 +1,6 @@
 ---
 title: Ways to monitor Azure NetApp Files | Microsoft Docs
-description: Describes ways to monitor Azure NetApp Files, including using the Activity log, metrics, and capacity utilization monitoring.
+description: Describes ways to monitor Azure NetApp Files, including the Activity log, metrics, and capacity utilization monitoring.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-hchen
@@ -21,7 +21,7 @@ This article describes ways to monitor Azure NetApp Files.
 
 ## Azure Activity log
 
-The Activity log is a platform log in Azure that provides insight into subscription-level events. This includes such information as when a resource is modified or when a virtual machine is started. You can view the activity log in the Azure portal or retrieve entries with PowerShell and CLI. This article provides details on viewing the Activity log and sending it to different destinations.
+The Activity log provides insight into subscription-level events. For instance, you can get information about when a resource is modified or when a virtual machine is started. You can view the activity log in the Azure portal or retrieve entries with PowerShell and CLI. This article provides details on viewing the Activity log and sending it to different destinations.
 
 To understand how Activity log works, see [Azure Activity log](../azure-monitor/essentials/activity-log.md).
 
@@ -35,7 +35,7 @@ For more information about Azure NetApp Files metrics, see [Metrics for Azure Ne
 
 ## Capacity utilization monitoring 
 
-You should monitor and manage capacity regularly.  You can monitor capacity utilization at the VM level.  You can check the used and available capacity of a volume by using Windows or Linux clients. You can also configure alerts by using `ANFCapacityManager`.  See [Monitor capacity utilization](volume-hard-quota-guidelines.md#how-to-operationalize-the-volume-hard-quota-change) for more information. 
+It's important to monitor capacity regularly.  You can monitor capacity utilization at the VM level.  You can check the used and available capacity of a volume by using Windows or Linux clients. You can also configure alerts by using `ANFCapacityManager`.  For more information, see [Monitor capacity utilization](volume-hard-quota-guidelines.md#how-to-operationalize-the-volume-hard-quota-change).
 
 ## Next steps  
 
