@@ -1,0 +1,20 @@
+---
+title: include file for backup replication policy FAQ
+description: include file for backup replication policy FAQ
+services: backup
+author: v-bllyd
+manager: srinathv
+ms.service: backup
+ms.topic: include
+ms.date: 01/06/2021
+ms.author: v-bllyd
+ms.custom: include file
+---
+
+## Frequently asked questions - Microsoft Azure backup replication policy
+
+This article answers common questions about replication policy, recovery points and retention.
+
+### Backup policy
+
+!extract [!include ../articles/backup/backup-azure-file-folder-backup-faq.yml, section, 0]
