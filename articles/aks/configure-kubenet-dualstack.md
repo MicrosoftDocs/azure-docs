@@ -80,21 +80,21 @@ AKS configures the required supporting services for dual-stack networking. This 
 ## Deploying a dual-stack cluster
 
 Three new attributes are provided to support dual-stack clusters:
-* `-ip-families` - takes a comma-separated list of IP families to enable on the cluster. 
+* `--ip-families` - takes a comma-separated list of IP families to enable on the cluster. 
   * Currently only `ipv4` or `ipv4,ipv6` are supported.
-* `-pod-cidrs` - takes a comma-separated list of CIDR notation IP ranges to assign pod IPs from.
-  * The count and order of ranges in this list must match the value provided to `-ip-families`.
+* `--pod-cidrs` - takes a comma-separated list of CIDR notation IP ranges to assign pod IPs from.
+  * The count and order of ranges in this list must match the value provided to `--ip-families`.
   * If no values are supplied, the default values of `10.244.0.0/16,fd12:3456:789a::/64` will be used.
-* `-service-cidrs` - takes a comma-separated list of CIDR notation IP ranges to assign service IPs from.
-  * The count and order of ranges in this list must match the value provided to `-ip-families`.
+* `--service-cidrs` - takes a comma-separated list of CIDR notation IP ranges to assign service IPs from.
+  * The count and order of ranges in this list must match the value provided to `--ip-families`.
   * If no values are supplied, the default values of `10.0.0.0/16,fd12:3456:789a:1::/108` will be used.
-  * The IPv6 subnet assigned to `-service-cidrs` can be no larger than a /108.
+  * The IPv6 subnet assigned to `--service-cidrs` can be no larger than a /108.
 
 ### Deploy the cluster
 
 # [Azure CLI](#tab/azure-cli)
 
-Deploying a dual-stack cluster requires passing the `-ip-families` parameter with the parameter value of `ipv4,ipv6` to indicate that a dual-stack cluster should be created.
+Deploying a dual-stack cluster requires passing the `--ip-families` parameter with the parameter value of `ipv4,ipv6` to indicate that a dual-stack cluster should be created.
 
 1. First, create a resource group to create the cluster in:
     ```azurecli-interactive
