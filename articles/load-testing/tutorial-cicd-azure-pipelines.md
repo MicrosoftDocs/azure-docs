@@ -85,7 +85,7 @@ To access Azure resources, create a service connection in Azure DevOps and use r
 
     You'll see the details of the service principal in the Azure portal. Note the service principal's **Application (Client) ID** value.
 
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/service-connection-object-id.png" alt-text="Screenshot that shows how to get the application I D for the service connection.":::
+    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/service-connection-object-id.png" alt-text="Screenshot that shows how to get the application ID for the service connection.":::
     
 1. Assign the Load Test Contributor role to the service principal to allow access to the Azure Load Testing service.
 
