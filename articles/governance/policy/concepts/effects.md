@@ -399,7 +399,7 @@ definitions as `constraintTemplate` is deprecated.
 - **apiGroups** (required when using _templateInfo_)
   - An _array_ that includes the
     [API groups](https://kubernetes.io/docs/reference/using-api/#api-groups) to match. An empty
-    array (`[""]`) is the core API group while `["*"]` matches all API groups.
+    array (`[""]`) is the core API group.
 - **kinds** (required when using _templateInfo_)
   - An _array_ that includes the
     [kind](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/#required-fields)
