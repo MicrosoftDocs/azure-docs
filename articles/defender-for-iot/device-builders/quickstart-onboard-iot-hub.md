@@ -1,12 +1,12 @@
 ---
-title: 'Quickstart: Enable Microsoft Defender for IoT on Azure IoT Hub'
+title: 'Quickstart: Enable Microsoft Defender for IoT on your Azure IoT Hub'
 description: Learn how to enable Defender for IoT in an Azure IoT hub.
 ms.topic: quickstart
-ms.date: 01/05/2022
+ms.date: 01/06/2022
 ms.custom: mode-other
 ---
 
-# Quickstart: Enable Microsoft Defender for IoT on Azure IoT Hub
+# Quickstart: Enable Microsoft Defender for IoT on your Azure IoT Hub
 
 This article explains how to enable Microsoft Defender for IoT on an Azure IoT hub.
 
@@ -72,4 +72,4 @@ The **Secure your IoT solution** button will only appear if the IoT Hub has not 
 Advance to the next article to configure your solution...
 
 > [!div class="nextstepaction"]
-> [Add Azure resources to your IoT solution](quickstart-configure-your-solution.md)
+> [Add a resource group to your IoT solution](quickstart-configure-your-solution.md)

@@ -19,13 +19,8 @@
   - name: Install Defender for IoT micro agent (Preview)
     displayName: package, authentication, methods, certificate, authenticate, version
     href: quickstart-standalone-agent-binary-installation.md
-  - name: Create a Defender for IoT micro agent module twin (Preview)
-    href: quickstart-create-micro-agent-module-twin.md
   - name: Configure Defender-IoT-micro-agent for Azure RTOS
     href: quickstart-azure-rtos-security-module.md
-  - name: Add Azure resources to your IoT solution
-    displayName: resources, monitored, resource
-    href: quickstart-configure-your-solution.md
   - name: Investigate security recommendations
     href: quickstart-investigate-security-recommendations.md
   - name: Investigate security alerts
@@ -40,6 +35,11 @@
       href: quickstart-create-security-twin.md
 - name: Tutorials
   items:
+  - name: Add a resource group to your IoT solutionv
+    displayName: resources, monitored, resource
+    href: quickstart-configure-your-solution.md
+  - name: Create a DefenderforIoTMicroAgent module twin (Preview)
+    href: quickstart-create-micro-agent-module-twin.md
   - name: Configure a micro agent twin
     href: tutorial-configure-micro-agent-twin.md
 - name: Concepts
