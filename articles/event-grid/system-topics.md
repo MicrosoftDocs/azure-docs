@@ -45,7 +45,7 @@ In the past, a system topic was implicit and wasn't exposed for simplicity. Syst
 - Set up alerts on publish and delivery failures 
 
 > [!NOTE]
-> Azure Event Grid creates a system topic resource in the same Azure subscription that has the event source. For example, if you create a system topic for a storage account *ContosoStorage* in an Azure subscription *ContosoSubscription*, Event Grid creates the system topic in the ContosoSubscription. It's not possible to create a system topic in an Azure subscription that's different from the event source's Azure subscription.
+> Azure Event Grid creates a system topic resource in the same Azure subscription that has the event source. For example, if you create a system topic for a storage account *ContosoStorage* in an Azure subscription *ContosoSubscription*, Event Grid creates the system topic in the *ContosoSubscription*. It's not possible to create a system topic in an Azure subscription that's different from the event source's Azure subscription.
 
 ## Lifecycle of system topics
 You can create a system topic in two ways: 
