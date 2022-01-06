@@ -68,4 +68,4 @@ Now imagine you want to quickly create a confirmation intent. You can use one of
 
 [Add entities](entities.md)
 
-[Train and test](train-test.md)
+<!--[Train and test](train-test.md)-->

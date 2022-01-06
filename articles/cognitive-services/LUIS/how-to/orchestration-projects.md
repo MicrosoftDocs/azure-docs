@@ -59,8 +59,8 @@ You need to follow the following steps to change LUIS authoring resource to a La
 4. From the left Menu, select **Azure resource**
 5. Select **Authoring resource** , then change your LUIS authoring resource to the Language resource.
 
-:::image type="content" source="../media/orchestration/authoring resource-change.png" alt-text="A screenshot showing how to change your authoring resource using the LUIS portal." lightbox="../media/orchestration/authoring resource-change.png":::
+:::image type="content" source="../media/orchestration/authoring-resource-change.png" alt-text="A screenshot showing how to change your authoring resource using the LUIS portal." lightbox="../media/orchestration/authoring-resource-change.png":::
 
 ## Next steps
 
-[Conversational language understanding documentation](../../language-service/conversational-language-understanding/how-to/create-project.md#create-an-orchestration-workflow-project.md).
+[Conversational language understanding documentation](../../language-service/conversational-language-understanding/how-to/create-project.md#create-an-orchestration-workflow-project).
