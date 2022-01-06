@@ -42,15 +42,15 @@ items:
   - name: Start a new app
     href: luis-how-to-start-new-app.md
     displayName: import, export, container
+  - name: Use intents
+    href: how-to/intents.md
+    displayName: roles, import
   - name: Use entities
     href: how-to/entities.md
   - name: Label utterances
     href: how-to/label-utterances.md
   - name: Build model
     items:
-    - name: Add an intent
-      href: luis-how-to-add-intents.md
-      displayName: roles, import
     - name: Use prebuilt models
       href: howto-add-prebuilt-models.md
     - name: Add features
@@ -153,12 +153,12 @@ items:
   - name: Entity types
     displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles
     href: concepts/entities.md
+  - name: Intents
+    href: concepts/intents.md
   - name: App models
     items:
     - name: Types
       href: luis-concept-model.md
-    - name: Intents classify utterances
-      href: luis-concept-intent.md
     - name: Example utterances
       href: luis-concept-utterance.md
     - name: Prebuilt models
