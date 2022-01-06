@@ -153,14 +153,14 @@ items:
     href: concepts/entities.md
   - name: Intents
     href: concepts/intents.md
+  - name: Utterances
+    href: concepts/utterances.md
   - name: Publish
     href: how-to/publish.md
   - name: App models
     items:
     - name: Types
       href: luis-concept-model.md
-    - name: Example utterances
-      href: luis-concept-utterance.md
     - name: Prebuilt models
       href: luis-concept-prebuilt-model.md
     - name: Patterns
