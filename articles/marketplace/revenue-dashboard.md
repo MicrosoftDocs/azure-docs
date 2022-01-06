@@ -35,10 +35,6 @@ The [Revenue dashboard](https://partner.microsoft.com/dashboard/commercial-marke
 
 ## Access the Revenue dashboard
 
-[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
-
-#### [Workspaces view](#tab/workspaces-view)
-
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
 1. On the Home page, select the **Insights** tile.
@@ -48,16 +44,6 @@ The [Revenue dashboard](https://partner.microsoft.com/dashboard/commercial-marke
 1. In the left menu, under **Marketplace offers**, select **Revenue**.
 
     [ ![Illustrates the Revenue dashboard.](./media/revenue-dashboard/revenue-dashboard.png) ](./media/revenue-dashboard/revenue-dashboard.png#lightbox)
-
-#### [Current view](#tab/current-view)
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-
-1. In the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center, expand the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** section and select **Revenue**.
-
-    :::image type="content" source="./media/revenue-dashboard/revenue-dashboard-nav.png" alt-text="Illustrates the Revenue dashboard link in the left nav of the Partner Center Home page.":::
-
----
 
 ## Elements of the Revenue dashboard
 
