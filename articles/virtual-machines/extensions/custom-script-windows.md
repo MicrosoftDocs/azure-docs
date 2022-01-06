@@ -267,10 +267,16 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 
 ### How to run custom script more than once with CLI
 
+The custom script extension handler will prevent re-executing a script if the *exact* same settings have been passed. This is to prevent accidental re-execution which might cause unexpected behaviors in case the script is not idempotent. You can confirm if the handler has blocked the re-execution by looking at the C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension\<HandlerVersion>\CustomScriptHandler.log, and search for a warning like below:
+
+```warning
+Current sequence number, <SequenceNumber>, is not greater than the sequence number of the most recently executed configuration. Exiting...
+```
+
 If you want to run the custom script extension more than once, you can only do this action under these conditions:
 
 * The extension **Name** parameter is the same as the previous deployment of the extension.
-* Update the configuration otherwise the command won't be re-executed. You can add in a dynamic property into the command, such as a timestamp.
+* Update the configuration otherwise the command won't be re-executed. You can add in a dynamic property into the command, such as a timestamp. If the handler detects a change in the configuration settings, then it will consider it as an explicit desire to re-execute the script.
 
 Alternatively, you can set the [ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) property to **true**.
 
@@ -281,9 +287,12 @@ If you are using [Invoke-WebRequest](/powershell/module/microsoft.powershell.uti
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
 ```
-## Virtual Machine Scale Sets
 
-To deploy the Custom Script Extension on a Scale Set, see [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension)
+## Virtual machine scale sets
+
+If you deploy the Custom Script Extension from the Azure portal, you don't have control over the expiration of the shared access signature token for accessing the script in your storage account. The result is that the initial deployment works, but when the storage account shared access signature token expires, any subsequent scaling operation fails because the Custom Script Extension can no longer access the storage account.
+
+We recommend that you use [PowerShell](/powershell/module/az.Compute/Add-azVmssExtension?view=azps-7.0.0), the [Azure CLI](/cli/azure/vmss/extension?view=azure-cli-latest), or an Azure Resource Manager template when you deploy the Custom Script Extension on a virtual machine scale set. This way, you can choose to use a managed identity or have direct control of the expiration of the shared access signature token for accessing the script in your storage account for as long as you need.
 
 ## Classic VMs
 

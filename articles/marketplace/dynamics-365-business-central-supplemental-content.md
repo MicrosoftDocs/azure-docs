@@ -1,21 +1,21 @@
 ---
-title: Set up Dynamics 365 for Business Central offer supplemental content on Microsoft AppSource (Azure Marketplace)
-description: Set up Dynamics 365 for Business Central offer supplemental content on Microsoft AppSource (Azure Marketplace).
+title: Set up Dynamics 365 Business Central offer supplemental content on Microsoft AppSource (Azure Marketplace)
+description: Set up Dynamics 365 Business Central offer supplemental content on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/19/2021
+ms.date: 12/04/2021
 ---
 
-# Set up Dynamics 365 for Business Central offer supplemental content
+# Set up Dynamics 365 Business Central offer supplemental content
 
 This page lets you provide additional information to help us validate your offer. This information is not shown to customers or published to the marketplace.
 
 ## Target release
 
-Indicate which release of Microsoft Dynamics Business Central your solution targets: **Current**, **Next Major**, or **Next Minor**. This information lets us test your solution appropriately.
+Indicate which release of Microsoft Dynamics 365 Business Central your solution targets: **Current**, **Next Major**, or **Next Minor**. This information lets us test your solution appropriately.
 
 ## Supported editions
 

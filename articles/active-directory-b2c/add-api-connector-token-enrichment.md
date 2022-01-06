@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/29/2021
+ms.date: 11/09/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -247,8 +247,8 @@ After you deploy your REST API, set the metadata of the `REST-GetProfile` techni
 
 - **ServiceUrl**. Set the URL of the REST API endpoint.
 - **SendClaimsIn**. Specify how the input claims are sent to the RESTful claims provider.
-- **AuthenticationType**. Set the type of authentication being performed by the RESTful claims provider. 
-- **AllowInsecureAuthInProduction**. In a production environment, make sure to set this metadata to `true`
+- **AuthenticationType**. Set the type of authentication being performed by the RESTful claims provider such as `Basic` or `ClientCertificate` 
+- **AllowInsecureAuthInProduction**. In a production environment, make sure to set this metadata to `false`.
 	
 See the [RESTful technical profile metadata](restful-technical-profile.md#metadata) for more configurations.
 

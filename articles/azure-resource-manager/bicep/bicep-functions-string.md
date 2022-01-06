@@ -495,6 +495,9 @@ guid(resourceGroup().id, deployment().name)
 
 A string containing 36 characters in the format of a globally unique identifier.
 
+> [!NOTE]
+> Importance of order: It is not just the same parameters, they need to be in the same order. For example: `guid('hello', 'world') != guid('world', 'hello')`
+
 ### Examples
 
 The following example returns results from guid:
@@ -701,7 +704,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 You can only use this function within an expression for the default value of a parameter. Using this function anywhere else in a Bicep file returns an error. The function isn't allowed in other parts of the Bicep file because it returns a different value each time it's called. Deploying the same Bicep file with the same parameters wouldn't reliably produce the same results.
 
-The newGuid function differs from the [guid](#guid) function because it doesn't take any parameters. When you call guid with the same parameter, it returns the same identifier each time. Use guid when you need to reliably generate the same GUID for a specific environment. Use newGuid when you need a different identifier each time, such as deploying resources to a test environment.
+The newGuid function differs from the [guid](#guid) function because it doesn't take any parameters. When you call guid with the same parameters, it returns the same identifier each time. Use guid when you need to reliably generate the same GUID for a specific environment. Use newGuid when you need a different identifier each time, such as deploying resources to a test environment.
 
 The newGuid function uses the [Guid structure](/dotnet/api/system.guid) in the .NET Framework to generate the globally unique identifier.
 

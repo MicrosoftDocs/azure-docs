@@ -63,7 +63,7 @@ If you are on the Basic tier and constrained by one or more of these [limits](./
 
 ## Next steps
 
-This example explained how to manually scale an Azure Spring Cloud application. To learn how to monitor an application by setting up alerts, see [Set-up autoscale](./how-to-setup-autoscale.md).
+This example explained how to manually scale an application in Azure Spring Cloud. To learn how to monitor an application by setting up alerts, see [Set-up autoscale](./how-to-setup-autoscale.md).
 
 > [!div class="nextstepaction"]
 > [Learn how to set up alerts](./tutorial-alerts-action-groups.md)

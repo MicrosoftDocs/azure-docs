@@ -50,7 +50,8 @@ Make sure you have an Azure VMware Solution private cloud with access to the vCe
     1. In **Diagnostic setting**, under Destination details, select **Stream to an Event Hub**. 
     1. From the **Event Hub namespace** drop-down menu, choose where you want to send the logs, select, and **Save**.
     
-       :::image type="content" source="media/diagnostic-settings/stream-to-event-hub.png" alt-text="Screenshot showing the drill-down path to send the logs."::: 
+       :::image type="content" source="media/diagnostic-settings/stream-event-hub.png" alt-text="Screenshot showing the drill-down path to send the logs." lightbox="media/diagnostic-settings/stream-event-hub.png"::: 
+
 
 
 

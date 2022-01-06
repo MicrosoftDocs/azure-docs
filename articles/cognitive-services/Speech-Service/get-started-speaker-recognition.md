@@ -10,7 +10,8 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/02/2020
 ms.author: eur
-ms.custom: devx-track-csharp, cog-serv-seo-aug-2020, ignite-fall-2021
+ms.devlang: cpp, csharp, javascript
+ms.custom: devx-track-csharp, cog-serv-seo-aug-2020, ignite-fall-2021, mode-other
 zone_pivot_groups: programming-languages-set-twenty-five
 keywords: speaker recognition, voice biometry
 ---

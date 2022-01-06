@@ -130,6 +130,8 @@
         href: flexible-server/tutorial-deploy-wordpress-on-aks.md
       - name: Build PHP (Laravel) app with database
         href: flexible-server/tutorial-php-database-app.md
+      - name: Deploy Java Spring Boot app on AKS in VNet
+        href: flexible-server/tutorial-deploy-springboot-on-aks-vnet.md
       - name: Connect with private web app
         href: flexible-server/tutorial-webapp-server-vnet.md
       - name: Database deployment
@@ -211,6 +213,8 @@
           href: flexible-server/how-to-restore-server-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-restore-server-cli.md
+      - name: Restore a deleted server
+        href: flexible-server/how-to-restore-dropped-server.md 
     - name: Troubleshooting
       items:
       - name: Troubleshoot Connection errors
@@ -351,7 +355,7 @@
         items:
         - name: Configuring SSL
           href: concepts-ssl-connection-security.md
-      - name: Threat protection with Azure Defender
+      - name: Threat protection with Microsoft Defender for Cloud
         href: ../security-center/defender-for-databases-usage.md?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
       - name: Encryption at rest
         items:

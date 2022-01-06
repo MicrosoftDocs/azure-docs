@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020, devx-track-azurecli
 ms.date: 04/27/2020
---- 
+---
 
 # Upload data for Apache Hadoop jobs in HDInsight
 

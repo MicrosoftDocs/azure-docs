@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/03/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -19,7 +19,9 @@ This article outlines how to register Azure Data Explorer, and how to authentica
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| No | No |
+| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| No | No** |
+
+\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
 ## Prerequisites
 
@@ -35,9 +37,11 @@ This section describes how to register Azure Data Explorer in Azure Purview usin
 
 ### Authentication for registration
 
-There is only one way to set up authentication for Azure data explorer:
+There are several methods available for authentication for Azure Data Explorer:
 
-- Service Principal
+- [Service Principal](#service-principal-to-register)
+- [System-assigned managed identity (SAMI)](#system-or-user-assigned-managed-identity-to-register)
+- [User-assigned managed identity (UAMI)](#system-or-user-assigned-managed-identity-to-register)
 
 #### Service Principal to register
 
@@ -71,9 +75,25 @@ It is required to get the Service Principal's application ID and secret:
 
 1. Add the service principal to the **AllDatabasesViewer** role in the **Permissions** tab.
 
+### System or user assigned managed identity to register
+
+* **System-assigned managed identity** - As soon as the Azure Purview Account is created, a system-assigned managed identity (SAMI) is created automatically in Azure AD tenant. It has the same name as your Azure Purview account.
+
+* **User-assigned managed identity** (preview) - Similar to a system-managed identity, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Azure Purview to authenticate against Azure Active Directory. For more information, you can see our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
+
+To register using either of these managed identities, follow these steps:
+
+1. If you would like to use a user-assigned managed identity and have not created one, follow the steps to create the identity in the [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
+
+1. Navigate to the [Azure portal](https://portal.azure.com). Then navigate to your Azure data explorer instance.
+
+1. Select the **Permissions** tab on the left pane.
+
+1. Add the SAMI or UAMI to the **AllDatabasesViewer** role in the **Permissions** tab.
+
 ### Steps to register
 
-To register a new Azure Data Explorer (Kusto) account in your data catalog, do the following:
+To register a new Azure Data Explorer (Kusto) account in your data catalog, follow these steps:
 
 1. Navigate to your Purview account
 1. Select **Data Map** on the left navigation.
@@ -95,11 +115,11 @@ On the **Register sources (Azure Data Explorer (Kusto))** screen, do the followi
 
 ## Scan
 
-Follow the steps below to scan Azure Data Explorer to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md)
+Follow the steps below to scan Azure Data Explorer to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
 
 ### Create and run scan
 
-To create and run a new scan, do the following:
+To create and run a new scan, follow these steps:
 
 1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://web.purview.azure.com/resource/).
 

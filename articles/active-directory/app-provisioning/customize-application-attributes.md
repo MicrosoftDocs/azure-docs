@@ -3,12 +3,12 @@ title: Tutorial - Customize Azure Active Directory attribute mappings in Applica
 description: Learn what attribute mappings for Software as a Service (SaaS) apps in Azure Active Directory Application Provisioning are how you can modify them to address your business needs.
 services: active-directory
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/07/2021
+ms.date: 11/15/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -42,6 +42,9 @@ Follow these steps to access the **Mappings** feature of user provisioning:
    ![Use Attribute Mapping to configure attribute mappings for apps](./media/customize-application-attributes/22.png)
 
    In this screenshot, you can see that the **Username** attribute of a managed object in Salesforce is populated with the **userPrincipalName** value of the linked Azure Active Directory Object.
+   
+   > [!NOTE]
+   > Clearing **Create** doesn't affect existing users. If **Create** isn't selected, you can't create new users.   
 
 1. Select an existing **Attribute Mapping** to open the **Edit Attribute** screen. Here you can edit the user attributes that flow between Azure AD and the target application.
 
@@ -253,6 +256,7 @@ The request format in the PATCH and POST differ. To ensure that POST and PATCH a
   - **Things to consider**
     - All roles will be provisioned as primary = false.
     - The POST contains the role type. The PATCH request does not contain type. We are working on sending the type in both POST and PATCH requests.
+    - AppRoleAssignmentsComplex is not compatible with setting scope to "Sync All users and groups." 
     
   - **Example output** 
   

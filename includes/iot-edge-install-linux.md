@@ -15,7 +15,7 @@ You need to complete two steps on your device before it's ready to install the I
 
 ### Access the Microsoft installation packages
 
-1. Install the repository configuration that matches your device's operating system.
+1. Download the repository configuration package that matches your device's operating system.
 
    * **Ubuntu Server 18.04**:
 

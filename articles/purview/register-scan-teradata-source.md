@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/28/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -18,10 +18,24 @@ This article outlines how to register Teradata, and how to authenticate and inte
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-teradata.md)|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes**](how-to-lineage-teradata.md)|
 
-> [!Important]
-> Supported Teradata database versions are 12.x to 16.x.
+\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+
+The supported Teradata database versions are 12.x to 17.x.
+
+When scanning Teradata source, Purview supports:
+
+- Extracting technical metadata including:
+
+    - Server
+    - Databases
+    - Tables including the columns, foreign keys, indexes, and constraints
+    - Views including the columns
+    - Stored procedures including the parameter dataset and result set
+    - Functions including the parameter dataset
+
+- Fetching static lineage on assets relationships among tables, views and stored procedures.
 
 ## Prerequisites
 
@@ -31,7 +45,7 @@ This article outlines how to register Teradata, and how to authenticate and inte
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
-* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
 * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
 
@@ -61,12 +75,9 @@ The only supported authentication for a Teradata source is **Basic authenticatio
 
 On the **Register sources (Teradata)** screen, do the following:
 
-1.  Enter a **Name** that the data source will be listed with in the
-    Catalog.
+1.  Enter a **Name** that the data source will be listed with in the Catalog.
 
-1.  Enter the **Host** name to connect to a Teradata source. It can also
-    be an IP address or a fully qualified connection string to the
-    server.
+1.  Enter the **Host** name to connect to a Teradata source. It can also be an IP address or a fully qualified connection string to the     server.
 
 1.  Select a collection or create a new one (Optional)
 
@@ -101,24 +112,24 @@ Follow the steps below to scan Teradata to automatically identify assets and cla
 
         To understand more on credentials, refer to the link [here](./manage-credentials.md)
 
-1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For Example: schema1; schema2. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default. When the list is empty, all available schemas are imported.
+    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For Example: `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default. When the list is empty, all available schemas are imported.
 
-    Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For Example: A%; %B; %C%; D
-     * start with A or
-     * end with B or
-     * contain C or
-     * equal D
+        Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For example: `A%; %B; %C%; D`
+        * Start with A or
+        * End with B or
+        * Contain C or
+        * Equal D
 
-    Usage of NOT and special characters are not acceptable
+        Usage of NOT and special characters are not acceptable
 
-1. **Driver location**: Specify the path to the JDBC driver location in your VM where self-host integration runtime is running. This should be the path to valid JAR folder location.
+    1. **Driver location**: Specify the path to the JDBC driver location in your VM where self-host integration runtime is running. This should be the path to valid JAR folder location.
 
-1. **Maximum memory available:** Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Teradata source to be scanned.
+    1. **Maximum memory available:** Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Teradata source to be scanned.
 
-    > [!Note]
-    > As a thumb rule, please provide 2GB memory for every 1000 tables
+        > [!Note]
+        > As a rule of thumb, please provide 2GB memory for every 1000 tables
 
-    :::image type="content" source="media/register-scan-teradata-source/setup-scan.png" alt-text="setup scan" border="true":::
+        :::image type="content" source="media/register-scan-teradata-source/setup-scan.png" alt-text="setup scan" border="true":::
 
 1. Select **Continue**.
 
