@@ -31,7 +31,7 @@ To create a workspace, follow the steps in [Create a Log Analytics workspace in 
 
 In the wizard for creating an Azure Spring Cloud service instance, you can configure the **Log Analytics workspace** field with an existing workspace or create one.
 
-[![Screenshot that shows where to configure diagnostic settings during provisioning.](media/spring-cloud-quickstart-setup-log-analytics/setup-diagnostics-setting.png)](media/spring-cloud-quickstart-setup-log-analytics/setup-diagnostics-setting.png#lightbox)
+:::image type="content" source="media/spring-cloud-quickstart-setup-log-analytics/setup-diagnostics-setting.png" alt-text="Screenshot that shows where to configure diagnostic settings during provisioning.":::
 
 ## Set up Log Analytics for an existing service
 
