@@ -201,7 +201,7 @@ You can also combine multiple templates to a single deploy process using [linked
 > ARM templates can combine different resources, so parsers can be deployed alongside connectors, analytic rules, or watchlists, to name a few useful options. For example, your parser can reference a watchlist deployed alongside it.
 > 
 
-## Testing parsers
+## Test parsers
 
 ### Mandatory tests
 
@@ -248,12 +248,12 @@ Handle the results as follows:
 
 | Message | Action |
 | ------- | ------ |
-| (0) Error: Missing mandatory field [\<Field\>] | Add this field to your parser. In many cases, this would be a derived value or a constant value and not a field already available from the source. |
-| (0) Error: type mismatch for field [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>] | Make sure that the type of normalized field is correct, usually by using a [conversion function](/azure/data-explorer/kusto/query/scalarfunctions#conversion-functions) such as tostring. |
-| (1) Warning: Missing recommended field [\<Field\>] | Consider adding this field to your parser. |
-| (1) Warning: Missing alias [\<Field\>] | Check if the field the alias refers to exists and if so, add the alias. |
-| (2) Info: Missing optional field [\<Field\>] | While optional fields are often missing, it is worth reviewing the list to determine if any of the optional fields can be mapped from the source. |
-| (2) Info: extra unnormalized field [\<Field\>] | While unnormalized fields are valid, it is worth reviewing the list to determine if any of the unnormalized values can be mapped to an optional field. |
+| **(0) Error: Missing mandatory field [\<Field\>]** | Add this field to your parser. In many cases, this would be a derived value or a constant value and not a field already available from the source. |
+| **(0) Error: type mismatch for field [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>]** | Make sure that the type of normalized field is correct, usually by using a [conversion function](/azure/data-explorer/kusto/query/scalarfunctions#conversion-functions) such as tostring. |
+| **(1) Warning: Missing recommended field [\<Field\>]** | Consider adding this field to your parser. |
+| **(1) Warning: Missing alias [\<Field\>]** | Check if the field the alias refers to exists and if so, add the alias. |
+| **(2) Info: Missing optional field [\<Field\>]** | While optional fields are often missing, it is worth reviewing the list to determine if any of the optional fields can be mapped from the source. |
+| **(2) Info: extra unnormalized field [\<Field\>]** | While unnormalized fields are valid, it is worth reviewing the list to determine if any of the unnormalized values can be mapped to an optional field. |
  | |
 ||| 
 
