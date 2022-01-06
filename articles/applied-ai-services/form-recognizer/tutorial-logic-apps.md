@@ -97,7 +97,7 @@ At this point, you should have a Form Recognizer resource and a OneDrive folder 
    * **Region**. Select your local region.
    * **Enable log analytics**. For this project, select **No**.
 
-1. When you're done, you should have something similar to the image below (Resource group, Logic App name, and Region may be different). After checking these values, select **Review and create** in the bottom-left corner.
+1. When you're done, you should have something similar to the image below (Resource group, Logic App name, and Region may be different). After checking these values, select **Review + create** in the bottom-left corner.
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-six.png" alt-text="Image showing correct values to create a Logic App resource.":::
 
@@ -111,7 +111,7 @@ At this point, you should have a Form Recognizer resource and a OneDrive folder 
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-eight.png" alt-text="Image showing how to enter the Logic App designer":::
 
-1. Now you should see a screen that looks like the one below. Now you're ready to start designing and implementing your Logic App.
+1. You should see a screen that looks like the one below. Now, you're ready to start designing and implementing your Logic App.
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-nine.png" alt-text="Image of the Logic App Designer":::
 
@@ -119,25 +119,27 @@ At this point, you should have a Form Recognizer resource and a OneDrive folder 
 
 Now that you have the Logic App connector resource set up and configured, the only thing left to do is to create the automation flow and test it out!
 
-1. Search for **OneDrive** in the search bar and select the **When a file is created** trigger.
+1. Search for and select **OneDrive** or **OneDrive for Business** in the search bar.
+
+1. Select the **When a file is created** trigger.
 
 1. You'll see a OneDrive pop-up window and be prompted to log into your OneDrive account. Select **Sign in** and follow the prompts to connect your account.
 
-> [!NOTE]
-> If you try to sign into the OneDrive connector using an Office 365 account, you may receive the following error: ***Sorry, we can't sign you in here with your @MICROSOFT.COM account.***
->
- > * This error happens because OneDrive is a cloud-based storage for personal use that can be accessed with an Outlook.com or Microsoft Live account not with Office 365 account.
-> * You can use OneDrive for Business connector if you want to use an Office 365 account. Make sure that you have [created a OneDrive Folder](#create-a-onedrive-folder) for this project in your OneDrive for Business account.
+    > [!TIP]
+    > If you try to sign into the OneDrive connector using an Office 365 account, you may receive the following error: ***Sorry, we can't sign you in here with your @MICROSOFT.COM account.***
+    >
+     > * This error happens because OneDrive is a cloud-based storage for personal use that can be accessed with an Outlook.com or Microsoft Live account not with Office 365 account.
+    > * You can use the OneDrive for Business connector if you want to use an Office 365 account. Make sure that you have [created a OneDrive Folder](#create-a-onedrive-folder) for this project in your OneDrive for Business account.
 
-1. After your account is connected, select the folder you created earlier in your OneDrive or OneDrive for Business account. Leave the other default values. Your window should look similar to the one below.
+1. After your account is connected, select the folder you created earlier in your OneDrive or OneDrive for Business account. Leave the other default values in place. Your window should look similar to the one below.
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-ten.gif" alt-text="GIF showing how to add the first node to workflow.":::
 
 1. Next, we're going to add a new step to the workflow. Select the plus button underneath the newly created OneDrive node.
 
-1. A new node should have been added to the Logic App designer view. Search for "Form Recognizer" in the search bar and select **Analyze invoice (preview)** from the list.
+1. A new node should be added to the Logic App designer view. Search for "Form Recognizer" in the search bar and select **Analyze invoice (preview)** from the list.
 
-1. Now you should see a window where you will create your connection. Specifically, you're going to connect your Form Recognizer resource to the Logic Apps Designer Studio:
+1. Now, you should see a window where you will create your connection. Specifically, you're going to connect your Form Recognizer resource to the Logic Apps Designer Studio:
 
     * Enter a **Connection name**. It should be something easy to remember.
     * Enter the Form Recognizer resource **Endpoint URL** and **Account Key** that you copied previously. If you skipped this step earlier or lost the strings, you can navigate back to your Form Recognizer resource and copy them again. When you're done, select **Create**.
@@ -158,7 +160,7 @@ Now that you have the Logic App connector resource set up and configured, the on
 
 1. In the actions bar, scroll down until you find **Send an email (V2)** and select this action.
 
-1. Just like with OneDrive, you'll be asked to sign into your Outlook  or Office 365 Outlook account. After you sign in, you should see a window like the one pictured below. In this window, we're going to format the email to be sent with the dynamic content that Form Recognizer will extract from the invoice.
+1. Just like with OneDrive, you'll be asked to sign into your Outlook or Office 365 Outlook account. After you sign in, you should see a window like the one pictured below. In this window, we're going to format the email to be sent with the dynamic content that Form Recognizer will extract from the invoice.
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-thirteen.gif" alt-text="GIF showing how to add final step to workflow.":::
 
@@ -192,13 +194,13 @@ Let's quickly review what we've done before we test our flow:
 
 > [!div class="checklist"]
 >
-> * We created a trigger – In this case scenario, the trigger is when a file is created in a pre-specified folder in our OneDrive account.
-> * We added a Form Recognizer action to our flow – In this scenario we decided to use the invoice API to automatically analyze the invoices from the OneDrive folder.
-> * We added an Outlook.com action to our flow – for this scenario we sent some of the analyzed invoice data to a pre-determined email address.
+> * We created a trigger—in this case scenario, the trigger is when a file is created in a pre-specified folder in our OneDrive account.
+> * We added a Form Recognizer action to our flow—in this scenario we decided to use the invoice API to automatically analyze the invoices from the OneDrive folder.
+> * We added an Outlook.com action to our flow—for this scenario we sent some of the analyzed invoice data to a pre-determined email address.
 
-Now that we've created the flow the last thing to do is to test it and make sure we're getting the expected behavior.
+Now that we've created the flow, the last thing to do is to test it and make sure that we're getting the expected behavior.
 
-1. Now to test the Logic App first open a new tab and navigate to the OneDrive folder you set up at the beginning of this tutorial. Now add this file to the OneDrive folder [Sample invoice.](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/invoice-logic-apps-tutorial.pdf)
+1. Now, to test the Logic App first open a new tab and navigate to the OneDrive folder you set up at the beginning of this tutorial. Add this file to the OneDrive folder [Sample invoice.](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/invoice-logic-apps-tutorial.pdf)
 
 1. Return to the Logic App designer tab and select the **Run trigger** button and select **Run** from the drop-down menu.
 
