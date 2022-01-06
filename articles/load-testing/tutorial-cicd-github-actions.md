@@ -112,7 +112,7 @@ To access Azure resources, you'll create an Azure Active Directory service princ
 
 In this section, you'll set up a GitHub Actions workflow that triggers the load test. The sample application repository contains a workflow file. The workflow first deploys the sample web application to Azure App Service, and then invokes the load test. The GitHub action uses an environment variable to pass the URL of the web application to the Apache JMeter script.
 
-To run a load test by using Azure Load Testing from a CI/CD workflow, you need a YAML configuration file. The sample application's repository contains the *SampleApp.yaml* file that contains the parameters for running the test.
+Update the *SampleApp.yaml* GitHub Actions workflow file to configure the parameters for running the load test.
 
 1. Open the *.github/workflows/workflow.yml* GitHub Actions workflow file in your sample application's repository.
  
