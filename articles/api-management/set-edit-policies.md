@@ -10,8 +10,8 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 11/01/2018
+ms.topic: how-to
+ms.date: 01/06/2022
 ms.author: danlep
 ---
 
@@ -68,6 +68,9 @@ Policy scopes are evaluated in the following order:
 The statements within policies are evaluated according to the position of the `<base>` element, if it is present in a section at a scope. The `<base>` element indicates the location in the current scope where the parent policy statements in that section are evaluated. Global policy has no parent policy and using the `<base>` element in it has no effect.
 
 To see the policies in the current scope in the policy editor, click **Recalculate effective policy for selected scope**. You can also see effective policies when you [debug polices](api-management-debug-policies.md) using the Azure API Management Extension for Visual Studio Code.
+
+> [!NOTE]
+> Product-scoped policies are not applied for clients using an API-scoped subscription or the built-in all-access subscription. Product-scoped policies are also not applied in certain cases when client requests don't include a subscription key. For more information, see [Subscriptions in API Management](api-management-subscriptions.md).
 
 ### Global scope
 

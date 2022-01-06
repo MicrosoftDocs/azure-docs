@@ -91,14 +91,14 @@ To disable the subscription requirement using the portal:
 
 When API Management receives an API request from a client without a subscription key, it handles the request according to these rules: 
 
-* It checks first for the existence of a product that includes the API but doesn't require a subscription (an open product), and handles the request in the context of that product. 
-* If an open product including the API isn't found, it checks if the API requires a subscription. If a subscription isn't required, it handles the request in the context of that API and operation.
+* It checks first for the existence of a product that includes the API but doesn't require a subscription (an open product). If the open product exists, API Management handles the request in the context of that product. 
+* If an open product including the API isn't found, API Management checks whether the API requires a subscription. If a subscription isn't required, it handles the request in the context of that API and operation.
 * If no configured product or API is found, API Management denies access.
 
 ## Next steps
 Get more information on API Management:
 
-+ Learn how API Management [policies](api-management-howto-policies.md) get applied at different scopes.
++ Learn how API Management [policies](set-edit-policies.md#configure-scope) get applied at different scopes.
 + Learn other [concepts](api-management-terminology.md) in API Management.
 + Follow our [tutorials](import-and-publish.md) to learn more about API Management.
 + Check our [FAQ page](api-management-faq.yml) for common questions.

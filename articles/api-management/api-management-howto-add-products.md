@@ -167,7 +167,7 @@ az apim product api delete --resource-group apim-hello-word-resource-group \
 
 * **Open product** - Developers can access the product's APIs without a subscription key. However, you can configure other mechanisms to secure client access to the APIs, including [OAuth 2.0](api-management-howto-protect-backend-with-aad.md), [client certificates](api-management-howto-mutual-certificates-for-clients.md), and [restricting caller IP addresses](./api-management-access-restriction-policies.md#RestrictCallerIPs).
 
-    When a client makes an API request without a subscription key, API Management checks whether the API is associated with an open product, and then processes the request in the context of that open product. Policies and access control rules configured for the open product can be applied. 
+    When a client makes an API request without a subscription key, API Management checks whether the API is associated with an open product. If the open product exists, it then processes the request in the context of that open product. Policies and access control rules configured for the open product can be applied. 
 
 
 ## Next steps
