@@ -146,4 +146,6 @@ The second column uses different verbs (buy, reserve, book), different quantitie
 After the app is published, only add utterances from active learning in the development lifecycle process. If utterances are too similar, add a pattern.
 
 ## Next steps
-[Patterns and features concepts](patterns-features.md)
+
+[Intents](intents.md)
+<!--[Patterns and features concepts](patterns-features.md)-->
