@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the basics of the Azure Digital Twins query language.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/27/2021
+ms.date: 1/7/2022
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
@@ -43,6 +43,12 @@ When writing queries for Azure Digital Twins, keep the following considerations 
   :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="EscapedSingleQuote":::
 
 [!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+
+## Querying historized twin data over time
+
+The Azure Digital Twins query language is only for querying the **present** state of your digital twins and relationships.
+
+To run queries on historized digital twin data collected over time, use the [Data History](concepts-data-history.md) feature to connect your Azure Digital Twins instance to an [Azure Data Explorer (ADX)](/azure/data-explorer/data-explorer-overview) cluster. This will automatically historize digital twin property updates to Azure Data Explorer, where they can be queried using the [Azure Digital Twins plugin for Azure Data Explorer](concepts-data-explorer-plugin.md).
 
 ## Next steps
 

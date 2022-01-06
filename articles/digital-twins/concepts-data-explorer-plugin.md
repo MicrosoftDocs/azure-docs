@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the Azure Digital Twins query plugin for Azure Data Explorer
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 12/06/2021
+ms.date: 1/07/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -74,9 +74,9 @@ To see example queries and complete a walkthrough with sample data, see [Azure D
 
 ## Using Azure Data Explorer IoT data with Azure Digital Twins
 
-There are various ways to ingest IoT data into Azure Data Explorer. Here are two of them that you might take advantage of when using Azure Data Explorer with Azure Digital Twins:
-* Create a history record of digital twin property values in Azure Data Explorer with an Azure function that handles twin change events and writes the twin data to Azure Data Explorer. This process is similar to the one used in [Integrate with Azure Time Series Insights](how-to-integrate-time-series-insights.md). This path will be suitable for customers who use telemetry data to bring their digital twins to life.
-* [Ingest IoT data directly into your Azure Data Explorer cluster from IoT Hub](/azure/data-explorer/ingest-data-iot-hub) or from other sources. Then, the Azure Digital Twins graph will be used to contextualize the time series data using joint Azure Digital Twins/Azure Data Explorer queries. This path may be suitable for direct-ingestion workloads. 
+There are multiple ways to ingest IoT data from Azure Digital Twins into Azure Data Explorer. Here are two ways that you might use:
+* Create a history record of digital twin property values in Azure Data Explorer with an Azure function that handles twin change events and writes the twin data to Azure Data Explorer. This process is similar to the one used in [Integrate with Azure Time Series Insights](how-to-integrate-time-series-insights.md). This path is a good choice if you use telemetry data to bring your digital twins to life.
+* [Ingest IoT data directly into your Azure Data Explorer cluster from IoT Hub](/azure/data-explorer/ingest-data-iot-hub) or from other sources. Then, the Azure Digital Twins graph will be used to contextualize the time series data using joint Azure Digital Twins/Azure Data Explorer queries. This path is a good choice for direct-ingestion workloads. 
 
 ### Mapping data across Azure Data Explorer and Azure Digital Twins
 

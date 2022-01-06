@@ -41,6 +41,12 @@
     href: concepts-query-language.md
   - name: Query Units
     href: concepts-query-units.md 
+  - name: Querying historized data
+    items:
+      - name: Data History (integrating with ADX)
+        href: concepts-data-history.md
+      - name: Querying with the ADX plugin
+        href: concepts-data-explorer-plugin.md
   - name: Developer interfaces
     items:
     - name: Azure Digital Twins Explorer
@@ -49,10 +55,6 @@
       href: concepts-apis-sdks.md
     - name: CLI command set
       href: concepts-cli.md
-  - name: Data History (with Azure Data Explorer)
-    href: concepts-data-history.md
-  - name: Querying historized data
-    href: concepts-data-explorer-plugin.md  
   - name: Data ingress and egress
     href: concepts-data-ingress-egress.md
   - name: Event notifications

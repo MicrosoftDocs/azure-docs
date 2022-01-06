@@ -17,9 +17,9 @@ ms.service: digital-twins
 
 # Azure Digital Twins Data History
 
-**Data History** is an integration feature of Azure Digital Twins. It allows you to connect an Azure Digital Twins instance to an [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster and automatically historize digital twin property updates to Azure Data Explorer. This direct integration simplifies setup, reduces management overhead, and is simpler than writing an Azure function to transform and historize twin property updates. 
+**Data History** is an integration feature of Azure Digital Twins. It allows you to connect an Azure Digital Twins instance to an [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster so that digital twin property updates are automatically historized to Azure Data Explorer.
 
-Once twin property values are historized to Azure Data Explorer, customers can run joint queries using the [Azure Digital Twins plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to reason across digital twins, their relationships, and time series data to gain insights into the behavior of modeled environments. Customers can also use these queries to power operational dashboards, enrich 2D and 3D web applications, and drive immersive augmented/mixed reality experiences to convey the current and historical state of assets, processes, and people modeled in Azure Digital Twins. 
+Once twin property values are historized to Azure Data Explorer, you can run joint queries using the [Azure Digital Twins plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to reason across digital twins, their relationships, and time series data to gain insights into the behavior of modeled environments. You can also use these queries to power operational dashboards, enrich 2D and 3D web applications, and drive immersive augmented/mixed reality experiences to convey the current and historical state of assets, processes, and people modeled in Azure Digital Twins. 
 
 ## Required resources and data flow
 
@@ -72,7 +72,8 @@ Time series data for twin property updates is stored in Azure Data Explorer with
 
 | Attribute | Type | Description |
 | --- | --- | --- |
-| `TimeStamp` | DateTime | The date/time the property update message was processed by Azure Digital Twins |
+| `SourceTime` | DateTime |  An optional, writable property that users can set to represent the time data was collected from devices. This property can only be written using the latest version of the [Azure Digital Twins APIs/SDKs](concepts-apis-sdks.md). For more information about how to update this property, see [Update a digital twin](how-to-manage-twin.md#update-a-digital-twin). |
+| `TimeStamp` | DateTime | The date/time the property update message was processed by Azure Digital Twins. This field is set by the system and isn't writable by users. |
 | `Id` | String | The twin ID |
 | `ModelId` | String | The DTDL model ID (DTMI) |
 | `Key` | String | The name of the updated property |
@@ -99,7 +100,7 @@ For instance, if you're representing a property with three fields for roll, pitc
 
 Azure Digital Twins Data History builds on the existing ingestion mechanism provided by Azure Data Explorer. Azure Digital Twins will ensure that property updates are made available to Azure Data Explorer within less than two seconds. Extra latency may be introduced by Azure Data Explorer ingesting the data. 
 
-There are two methods in Azure Data Explorer for ingesting data: [batch ingestion](#batch-ingestion-default) and [streaming ingestion](#streaming-ingestion). These ingestion methods can be configured for individual tables by a customer according to their needs and the specific data ingestion scenario.
+There are two methods in Azure Data Explorer for ingesting data: [batch ingestion](#batch-ingestion-default) and [streaming ingestion](#streaming-ingestion). You can configure these ingestion methods for individual tables according to your needs and the specific data ingestion scenario.
 
 Streaming ingestion has the lowest latency. However, due to processing overhead, this mode should only be used if less than 4 GB of data is ingested every hour. Batch ingestion works best if high ingestion data rates are expected. Azure Data Explorer uses batch ingestion by default. The following table summarizes the expected worst-case end-to-end latency: 
 
