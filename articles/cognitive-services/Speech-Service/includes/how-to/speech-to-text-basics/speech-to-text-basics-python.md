@@ -1,9 +1,9 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
-ms.author: pafarley
+ms.author: eur
 ---
 
 One of the core features of the Speech service is the ability to recognize and transcribe human speech (often referred to as speech-to-text). In this quickstart, you learn how to use the Speech SDK in your apps and products to perform high-quality speech-to-text conversion.
@@ -18,29 +18,13 @@ This article assumes:
 
 * You have an Azure account and Speech service subscription. If you don't have and account and subscription -- [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
-## Install and import the Speech SDK
+## Install the Speech SDK
 
-Before you can do anything, you'll need to install the Speech SDK.
-
-```Python
-pip install azure-cognitiveservices-speech
-```
-
-If you're on macOS and run into install issues, you may need to run this command first.
-
-```Python
-python3 -m pip install --upgrade pip
-```
-
-After the Speech SDK is installed, import it into your Python project.
-
-```Python
-import azure.cognitiveservices.speech as speechsdk
-```
+[!INCLUDE [Get the Speech SDK include](../../get-speech-sdk-python.md)]
 
 ## Create a speech configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig). This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. Create a [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) using your key and location/region. See the [Find keys and location/region](../../../overview.md#find-keys-and-locationregion) page to find your key-location/region pair.
+To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig). This class includes information about your subscription, like your speech key and associated location/region, endpoint, host, or authorization token. Create a [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) using your speech key and location/region. See the [Find keys and location/region](../../../overview.md#find-keys-and-locationregion) page to find your speech key-location/region pair.
 
 ```Python
 speech_config = speechsdk.SpeechConfig(subscription="<paste-your-speech-key-here>", region="<paste-your-speech-location/region-here>")
@@ -48,8 +32,8 @@ speech_config = speechsdk.SpeechConfig(subscription="<paste-your-speech-key-here
 
 There are a few other ways that you can initialize a [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig):
 
-* With an endpoint: pass in a Speech service endpoint. A key or authorization token is optional.
-* With a host: pass in a host address. A key or authorization token is optional.
+* With an endpoint: pass in a Speech service endpoint. A speech key or authorization token is optional.
+* With a host: pass in a host address. A speech key or authorization token is optional.
 * With an authorization token: pass in an authorization token and the associated region.
 
 > [!NOTE]
@@ -115,7 +99,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 ## Continuous recognition
 
-The previous examples use single-shot recognition, which recognizes a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
+The previous examples use at-start recognition, which recognizes a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
 
 In contrast, continuous recognition is used when you want to **control** when to stop recognizing. It requires you to connect to the `EventSignal` to get the recognition results, and to stop recognition, you must call [stop_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#stop-continuous-recognition--) or [stop_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#stop-continuous-recognition-async--). Here's an example of how continuous recognition is performed on an audio input file.
 

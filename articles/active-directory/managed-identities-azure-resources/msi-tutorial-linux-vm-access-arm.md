@@ -4,11 +4,10 @@ description: A tutorial that walks you through the process of using a user-assig
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: daveba
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
@@ -158,7 +157,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
     "properties":{"provisioningState":"Succeeded"}
     } 
     ```
-    
+
 ## Next steps
 
 In this tutorial, you learned how to create a user-assigned managed identity and attach it to a Linux virtual machine to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:

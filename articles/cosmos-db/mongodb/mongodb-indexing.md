@@ -3,7 +3,7 @@ title: Manage indexing in Azure Cosmos DB's API for MongoDB
 description: This article presents an overview of Azure Cosmos DB indexing capabilities using Azure Cosmos DB's API for MongoDB
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: how-to
 ms.date: 10/13/2021
 author: gahl-levy
@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 # Manage indexing in Azure Cosmos DB's API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-Azure Cosmos DB's API for MongoDB takes advantage of the core index-management capabilities of Azure Cosmos DB. This article focuses on how to add indexes using Azure Cosmos DB's API for MongoDB. You can also read an [overview of indexing in Azure Cosmos DB](../index-overview.md) that's relevant across all APIs.
+Azure Cosmos DB's API for MongoDB takes advantage of the core index-management capabilities of Azure Cosmos DB. This article focuses on how to add indexes using Azure Cosmos DB's API for MongoDB. Indexes are specialized data structures that make querying your data roughly an order of magnitude faster.
 
 ## Indexing for MongoDB server version 3.6 and higher
 

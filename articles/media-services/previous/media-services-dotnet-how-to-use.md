@@ -10,7 +10,7 @@ ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
@@ -43,7 +43,7 @@ Alternatively, you can get the latest Media Services .NET SDK bits from GitHub (
 2. Build the solution.
 3. Use **NuGet** to install and add **Azure Media Services .NET SDK Extensions** (**windowsazure.mediaservices.extensions**). Installing this package, also installs **Media Services .NET SDK** and adds all other required dependencies.
    
-    Ensure that you have the newest version of NuGet installed. For more information and installation instructions, see [NuGet](https://nuget.codeplex.com/).
+    Ensure that you have the newest version of NuGet installed. For more information and installation instructions, see [NuGet](https://www.nuget.org/packages/CodePlex.LinqToXsd/).
 
     1. In Solution Explorer, right-click the name of the project and choose **Manage NuGet Packages**.
 

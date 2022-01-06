@@ -1,6 +1,6 @@
 ---
-title: How Azure applies assigned SQL licenses to hourly usage
-description: This article provides a detailed explanation about how Azure applies assigned SQL licenses to hourly usage with Azure Hybrid Benefit.
+title: How Azure applies centrally assigned SQL licenses to hourly usage
+description: This article provides a detailed explanation about how Azure applies centrally assigned SQL licenses to hourly usage with Azure Hybrid Benefit.
 keywords:
 author: bandersmsft
 ms.author: banders
@@ -11,9 +11,9 @@ ms.subservice: ahb
 ms.reviewer: chrisrin
 ---
 
-# How Azure applies assigned SQL licenses to hourly usage
+# How Azure applies centrally assigned SQL licenses to hourly usage
 
-This article provides a detailed explanation about how the Azure Hybrid Benefit at a scope-level works to help you manage your SQL Server licenses. The process starts with an administrator assigning licenses to subscription or a billing account scope.
+This article provides details about how centrally managing Azure Hybrid Benefit for SQL Server at a scope-level works. The process starts with an administrator assigning licenses to subscription or a billing account scope.
 
 Each resource reports its usage once an hour using the appropriate full price or pay-as-you-go meters. Internally in Azure, the Usage Application engine evaluates the available NCLs and applies them for that hour. For a given hour of vCore resource consumption, the pay-as-you-go meters are switched to the corresponding Azure Hybrid Benefit meter with a zero ($0) price if there's enough unutilized NCLs in the selected scope.
 
@@ -40,5 +40,5 @@ The following diagram shows how the assigned SQL Server licenses apply over time
 
 ## Next steps
 
-- Review the [Scope-level Azure Hybrid Benefit management FAQ](faq-azure-hybrid-benefit-scope.yml).
+- Review the [Centrally managed Azure Hybrid Benefit FAQ](faq-azure-hybrid-benefit-scope.yml).
 - Learn about how to [transition from existing Azure Hybrid Benefit experience](transition-existing.md).

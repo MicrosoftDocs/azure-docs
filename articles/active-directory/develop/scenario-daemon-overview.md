@@ -1,6 +1,6 @@
 ---
 title: Build a daemon app that calls web APIs | Azure
-titleSuffix: Microsoft identity platform 
+titleSuffix: Microsoft identity platform
 description: Learn how to build a daemon app that calls web APIs
 services: active-directory
 author: jmprieur
@@ -10,12 +10,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/31/2020
+ms.date: 10/14/2021
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-
 #Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform.
-
 ---
 
 # Scenario: Daemon application that calls web APIs
@@ -43,10 +41,9 @@ Applications that acquire a token for their own identities:
 
 ## Specifics
 
-> [!IMPORTANT]
->
-> - Users can't interact with a daemon application. A daemon application requires its own identity. This type of application requests an access token by using its application identity and presenting its application ID, credential (password or certificate), and application ID URI to Azure AD. After successful authentication, the daemon receives an access token (and a refresh token) from the Microsoft identity platform. This token is then used to call the web API (and is refreshed as needed).
-> - Because users can't interact with daemon applications, incremental consent isn't possible. All the required API permissions need to be configured at application registration. The code of the application just requests statically defined permissions. This also means that daemon applications won't support incremental consent.
+Users can't interact with a daemon application. A daemon application requires its own identity. This type of application requests an access token by using its application identity and presenting its application ID, credential (password or certificate), and application ID URI to Azure AD. After successful authentication, the daemon receives an access token (and a refresh token) from the Microsoft identity platform. This token is then used to call the web API (and is refreshed as needed).
+
+Because users can't interact with daemon applications, incremental consent isn't possible. All the required API permissions need to be configured at application registration. The code of the application just requests statically defined permissions. This also means that daemon applications won't support incremental consent.
 
 For developers, the end-to-end experience for this scenario has the following aspects:
 
@@ -61,5 +58,5 @@ For developers, the end-to-end experience for this scenario has the following as
 
 ## Next steps
 
-Move on to the next article in this scenario, 
+Move on to the next article in this scenario,
 [App registration](./scenario-daemon-app-registration.md).

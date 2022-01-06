@@ -47,6 +47,8 @@ The step of setting up parent/child relationships authorizes child devices to co
 
 Only IoT Edge devices can be parent devices, but both IoT Edge devices and IoT devices can be children. A parent can have many children, but a child can only have one parent. A gateway hierarchy is created by chaining parent/child sets together so that the child of one device is the parent of another.
 
+By default, a parent can have up to 100 children. You can change this limit by setting the **MaxConnectedClients** environment variable in the parent device's edgeHub module.
+
 <!-- TODO: graphic of gateway hierarchy -->
 
 # [Portal](#tab/azure-portal)
@@ -112,7 +114,7 @@ To enable gateway discovery, every IoT Edge gateway device needs to be configure
 
 To enable secure connections, every IoT Edge device in a gateway scenario needs to be configured with an unique device CA certificate and a copy of the root CA certificate shared by all devices in the gateway hierarchy.
 
-You should already have IoT Edge installed on your device. If not, follow the steps to [Register an IoT Edge device in IoT Hub](how-to-register-device.md) and then [Install the Azure IoT Edge runtime](how-to-install-iot-edge.md).
+You should already have IoT Edge installed on your device. If not, follow the steps to [Manually provision a single Linux IoT Edge device](how-to-provision-single-device-linux-symmetric.md).
 
 The steps in this section reference the **root CA certificate** and **device CA certificate and private key** that were discussed earlier in this article. If you created those certificates on a different device, have them available on this device. You can transfer the files physically, like with a USB drive, with a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/).
 
@@ -354,7 +356,7 @@ The API proxy module was designed to be customized to handle most common gateway
                        },
                        "IoTEdgeAPIProxy": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-api-proxy:1.0",
+                               "image": "mcr.microsoft.com/azureiotedge-api-proxy:1.1",
                                "createOptions": "{\"HostConfig\": {\"PortBindings\": {\"443/tcp\": [{\"HostPort\":\"443\"}]}}}"
                            },
                            "type": "docker",
@@ -434,7 +436,7 @@ Before discussing the required proxy module for IoT Edge devices in gateway hier
 
 If your lower layer devices can't connect to the cloud, but you want them to pull module images as usual, then the top layer device of the gateway hierarchy must be configured to handle these requests. The top layer device needs to run a Docker **registry** module that is mapped to your container registry. Then, configure the API proxy module to route container requests to it. Those details are discussed in the earlier sections of this article. In this configuration, the lower layer devices should not point to cloud container registries, but to the registry running in the top layer.
 
-For example, instead of calling `mcr.microsoft.com/azureiotedge-api-proxy:1.0`, lower layer devices should call `$upstream:443/azureiotedge-api-proxy:1.0`.
+For example, instead of calling `mcr.microsoft.com/azureiotedge-api-proxy:1.1`, lower layer devices should call `$upstream:443/azureiotedge-api-proxy:1.1`.
 
 The **$upstream** parameter points to the parent of a lower layer device, so the request will route through all the layers until it reaches the top layer which has a proxy environment routing container requests to the registry module. The `:443` port in this example should be replaced with whichever port the API proxy module on the parent device is listening on.
 

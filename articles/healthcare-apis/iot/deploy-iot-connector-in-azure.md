@@ -1,12 +1,13 @@
 ---
 title: Deploy IoT connector in the Azure portal - Azure Healthcare APIs
-description: In this article, you'll learn how to deploy IoT connector in the Azure portal. 
+description: In this article, you'll learn how to deploy IoT connector in the Azure portal.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 10/13/2021
+ms.date: 11/10/2021
 ms.author: jasteppe
+ms.custom: mode-api
 ---
 
 # Deploy IoT connector in the Azure portal
@@ -23,9 +24,8 @@ It's important that you have the following prerequisites completed before you be
 * [Azure account](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
 * [Resource group deployed in the Azure portal](../../azure-resource-manager/management/manage-resource-groups-portal.md)
 * [Event Hubs namespace and Event Hub deployed in the Azure portal](../../event-hubs/event-hubs-create.md)
-* [Workspace deployed in Azure Healthcare APIs](../workspace-overview.md)  
+* [Workspace deployed in Azure Healthcare APIs](../healthcare-apis-quickstart.md)  
 * [FHIR service deployed in Azure Healthcare APIs](../fhir/fhir-portal-quickstart.md) 
-
 
 ## Deploy IoT connector 
 
@@ -33,7 +33,7 @@ It's important that you have the following prerequisites completed before you be
  
    ![Screenshot of entering the workspace resource name in the search bar field.](media/select-workspace-resource-group.png#lightbox)
 
-2. Select the **IoT connectors** blade.
+2. Select **Deploy IoT connectors**.
 
    ![Screenshot of IoT connectors blade.](media/iot-connector-blade.png#lightbox)
 
@@ -150,7 +150,7 @@ Under the **Tags** tab, enter the tag properties associated with the IoT connect
 
 4. Next, select **Create**.
 
-   The newly deployed IoT connector will display inside your Azure resource group.
+   The newly deployed IoT connector will display inside your Azure Resource groups page.
 
    ![Screenshot of Deployed IoT connector listed in the Azure Recent resources list.](media/azure-resources-iot-connector-deployed.png#lightbox)  
 
@@ -220,7 +220,7 @@ For more information about authoring access to Event Hubs resources, see [Author
 
    ![Screenshot of FHIR service added role assignment message.](media/fhir-service-added-role-assignment.png#lightbox)
 
-   For more information about assigning roles to the FHIR service, see [Configure Azure RBAC for the FHIR service](../fhir/configure-azure-rbac-for-fhir.md).
+   For more information about assigning roles to the FHIR service, see [Configure Azure RBAC](.././configure-azure-rbac.md).
 
 ## Next steps
 

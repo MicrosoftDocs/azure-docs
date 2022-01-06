@@ -104,7 +104,9 @@ Reference [compute environments supported](compute-linked-services.md) for detai
 
 ## Next steps
 
-See the following tutorial for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs.
+- [Learn how to use credentials from a user-assigned managed identity in a linked service](credentials.md).
+
+See the following tutorials for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs.
 
 - [Quickstart: create a Data Factory using .NET](quickstart-create-data-factory-dot-net.md)
 - [Quickstart: create a Data Factory using PowerShell](quickstart-create-data-factory-powershell.md)

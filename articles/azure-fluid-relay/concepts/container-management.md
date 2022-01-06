@@ -41,6 +41,22 @@ Containers are named by the Azure Fluid Relay service at container creation time
 
 Developers are responsible for any experience and business logic related to user discovery of existing containers. This could take the form of a browsable list of containers based on user participation in the Fluid session, direct sharing of containers between users, or programmatic assignment of containers to existing artifacts or processes.
 
+## Example container creation flow
+
+:::image type="content" source="../images/container-creation-flow.jpg" lightbox="../images/container-creation-flow-lightbox.jpg" alt-text="A diagram describing the container creation process data flows":::
+
+In this example, the app/page is loaded with a generic JWT (not bound to a specific container) that the client app will use when it comes time to create a new container.
+
+The client-side app uses the Fluid Framework API to create a new container in the Azure Fluid Relay service which results in a container object with a newly assigned container ID. Further interactions with the container require a new JWT that contains the container ID.
+
+Once the client has created the new container, it will save the container ID in some system that maps containers and users to manage permissions. This system will drive any container discovery/browsing experience that the developer wants to create for their users.
+
+Before interacting with the container, the client will request a container-specific JWT that will be used for subsequent calls from the Fluid Framework runtime to the Azure Fluid Relay service. 
+
+## Exporting container content
+
+If an application stores data that may need to be exported by end users, the application developer is responsible for building that export functionality into their application, using the current state of the Fluid container as represented by the Distributed Data Structures defined in the container. For more information on connecting to and opening Fluid containers, see: [Containers (fluidframework.com)](https://fluidframework.com/docs/build/containers/). For more information about listing and deleting containers with the control plane API, see: [Delete Fluid containers in Microsoft Azure Fluid Relay Server](../how-tos/container-deletion.md).
+
 ## See also
 
 - [Overview of Azure Fluid Relay architecture](architecture.md)

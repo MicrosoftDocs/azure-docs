@@ -78,7 +78,7 @@ Host groups that are enabled for automatic placement do not require all the VMs 
 Known issues and limitations when using automatic VM placement:
 
 - You will not be able to redeploy your VM.
-- You will not be able to use Lsv2, NVasv4, NVsv3, Msv2, or M-series VMs with dedicated hosts
+- You will not be able to use DCv2, Lsv2, NVasv4, NVsv3, Msv2, or M-series VMs with dedicated hosts
 
 
 ## Virtual machine scale set support

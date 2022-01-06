@@ -13,12 +13,6 @@ ms.date: 10/12/2021
 
 Azure Purview is a unified data governance solution. You deploy an Azure Purview account to centrally manage data governance across your data estate, spanning both cloud and on-prem environments. To use Azure Purview as your centralized data governance solution, you need to deploy one or more Purview accounts inside your Azure subscription. We recommend keeping the number of Purview instances as minimum, however, in some cases more Purview instances are needed to fulfill business security and compliance requirements.
 
-## Intended audience
-
-- Data architecture team
-- Data governance and management teams
-- Data security team
-
 ## Single Purview account
 
 Consider deploying minimum number of Purview accounts for the entire organization. This approach takes maximum advantage of the "network effects" where the value of the platform increases exponentially as a function of the data that resides inside the platform. 
@@ -59,7 +53,7 @@ If your organization has data in multiple geographies and you must keep metadata
 
 Currently, Purview doesn't support multi-tenancy. If you have Azure data sources distributed across multiple Azure subscriptions under different Azure Active Directory tenants, it is recommended deploying separate Azure Purview accounts under each tenant. 
 
-An exception applies to VM-based data sources and Power BI tenants.For more information about how to scan and register a cross tenant Power BI in a single Purview account, see, [Register and scan a cross-tenant Power BI](/register-scan-power-bi-tenant#register-and-scan-a-cross-tenant-power-bi). 
+An exception applies to VM-based data sources and Power BI tenants.For more information about how to scan and register a cross tenant Power BI in a single Purview account, see, [Register and scan a cross-tenant Power BI](./register-scan-power-bi-tenant.md). 
 
 :::image type="content" source="media/concept-best-practices/accounts-multiple-tenants.png" alt-text="Screenshot that shows multiple Azure Purview accounts based on multi-tenancy requirements."lightbox="media/concept-best-practices/accounts-multiple-tenants.png"::: 
 
@@ -69,7 +63,7 @@ Review [Azure Purview Pricing model](https://azure.microsoft.com/pricing/details
 
 Some organizations often have many business units (BUs) that operate separately, and, in some cases, they don't even share billing with each other. In those cases, the organization will end up creating a Purview instance for each BU. This model is not ideal, however, may be necessary, especially because Business Units are often not willing to share Azure billing. 
 
-For more information about cloud computing cost model in chargeback and showback models, see, [What is cloud accounting?](/cloud-adoption-framework/strategy/cloud-accounting).  
+For more information about cloud computing cost model in chargeback and showback models, see, [What is cloud accounting?](/azure/cloud-adoption-framework/strategy/cloud-accounting).  
 
 ## Additional considerations and recommendations 
 

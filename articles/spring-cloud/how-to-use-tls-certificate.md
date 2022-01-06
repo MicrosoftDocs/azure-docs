@@ -2,15 +2,15 @@
 title: Use TLS/SSL certificates in your application in Azure Spring Cloud
 titleSuffix: Azure Spring Cloud
 description: Use TLS/SSL certificates in an application.
-author: karlerickson
-ms.author: jieshe
+author: barbkess
+ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 10/08/2021
 ms.custom: devx-track-java
 ---
 
-# Use a TLS/SSL certificate in your application in Azure Spring Cloud
+# Use TLS/SSL certificates in your application in Azure Spring Cloud
 
 This article shows you how to use public certificates in Azure Spring Cloud for your application. Your app may act as a client and access an external service that requires certificate authentication, or it may need to perform cryptographic tasks.  
 

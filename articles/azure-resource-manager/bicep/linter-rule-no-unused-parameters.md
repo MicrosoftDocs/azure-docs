@@ -2,14 +2,16 @@
 title: Linter rule - no unused parameters
 description: Linter rule - no unused parameters
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 11/18/2021
 ---
 
 # Linter rule - no unused parameters
 
-This rule finds parameters that aren't reference anywhere in the Bicep file.
+This rule finds parameters that aren't referenced anywhere in the Bicep file.
 
-## Returned code
+## Linter rule code
+
+Use the following value in the [Bicep configuration file](bicep-config-linter.md) to customize rule settings:
 
 `no-unused-params`
 

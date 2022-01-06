@@ -8,7 +8,7 @@ titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: mathoma, vanto
+ms.reviewer: kendralittle, mathoma, vanto
 ms.date: 08/03/2021
 ms.custom: devx-track-azurepowershell
 ---

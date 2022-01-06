@@ -69,7 +69,7 @@ do
     for container in ${containers[@]}
     do 
         
-        blobs=$(az storage blob list -c $container --connection-string $connectionString --query "[?properties.blobType=='PageBlob' && ends_with(name,'.vhd')].[name]" -o tsv)
+        blobs=$(az storage blob list --show-next-marker -c $container --connection-string $connectionString --query "[?properties.blobType=='PageBlob' && ends_with(name,'.vhd')].[name]" -o tsv)
         
         for blob in ${blobs[@]}
         do

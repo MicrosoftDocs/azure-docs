@@ -1,7 +1,7 @@
 ---
 title: Connect to a Linux VM in Azure Lab Services | Microsoft Docs
 description: Learn how to use remote desktop for Linux virtual machines in a lab in Azure Lab Services.  
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
@@ -40,7 +40,7 @@ The instructor may choose to configure VMs so that students can also connect usi
 >  If you need to use [GNOME](https://www.gnome.org/) or [MATE](https://mate-desktop.org/) you should coordinate with your instructor to ensure your lab VM can be properly configured.  There is a known networking conflict that can occur with the Azure Linux Agent which is needed for the VMs to work properly in Azure Lab Services.  Instead, we recommend using a different graphical desktop environment, such as [XFCE](https://www.xfce.org/).
 
 ### Connect to the student VM using Microsoft Remote Desktop (RDP)
-Students can use Microsoft Remote Desktop (RDP) to connect to their Linux VMs after their instructor sets up their lab with RDP and GUI packages for a Linux graphical desktop environment (such as XFCE, MATE, and so on). Here are the steps to connect: 
+Students can use Microsoft Remote Desktop (RDP) to connect to their Linux VMs after their instructor sets up their lab with RDP and GUI packages for a Linux graphical desktop environment, such as XFCE. Here are the steps to connect: 
 
 1. On the tile for your VM, ensure the VM is running and click **Connect**. You see two options to connect to the VM: **SSH** and **RDP**.
 
@@ -53,7 +53,7 @@ Students can use Microsoft Remote Desktop (RDP) to connect to their Linux VMs af
    - [Connect to a VM using RDP on a Mac](connect-virtual-machine-mac-remote-desktop.md).
    - [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-remote-desktop.md).
 
-The RDP client includes various settings that can be adjusted to optimize the user's connection experience.  Typically, these settings don't need to be changed.  By default, the settings are already configured to choose the right experience based on your network connection.  For more information on these settings, [read the article about the RDP client's **Experience** settings](https://docs.microsoft.com/windows-server/administration/performance-tuning/role/remote-desktop/session-hosts#client-experience-settings).
+The RDP client includes various settings that can be adjusted to optimize the user's connection experience.  Typically, these settings don't need to be changed.  By default, the settings are already configured to choose the right experience based on your network connection.  For more information on these settings, [read the article about the RDP client's **Experience** settings](/windows-server/administration/performance-tuning/role/remote-desktop/session-hosts#client-experience-settings).
 
 If your instructor has configured the GNOME graphical desktop with the RDP client, we recommend the following settings to optimize performance:
 - Under the **Display** tab, set the color depth to **High Color (15 bit)**.
@@ -63,7 +63,7 @@ If your instructor has configured the GNOME graphical desktop with the RDP clien
     ![Change RDP Experience Settings](./media/how-to-enable-remote-desktop-linux/rdp-experience-settings.png)
 
 ### Connect to the student VM using X2Go
-Students can use X2Go to connect to their Linux VMs after their instructor sets up their lab with X2Go and the GUI packages for a Linux graphical desktop environment (such as XFCE, MATE, and so on).
+Students can use X2Go to connect to their Linux VMs after their instructor sets up their lab with X2Go and the GUI packages for a Linux graphical desktop environment, such as XFCE.
 
 Students need to find out from their instructor which Linux graphical desktop environment their instructor has installed.  This information is needed in the next steps to connect using the X2Go client.
 

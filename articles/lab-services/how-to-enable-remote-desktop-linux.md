@@ -1,7 +1,7 @@
 ---
 title: Enable graphical remote desktop for Linux in Azure Lab Services | Microsoft Docs
 description: Learn how to enable remote desktop for Linux virtual machines in a lab in Azure Lab Services.  
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
@@ -70,17 +70,22 @@ Follow the below steps to set up the template VM:
  
     ![SSH connection string](./media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
-4. Finally, install either RDP or X2Go along with the graphical desktop environment of your choice.
+1. Finally, install either RDP or X2Go along with the graphical desktop environment of your choice.
 
-For optimal performance, we typically recommend using the XFCE graphical desktop and for users to connect to the desktop using X2Go.  To set up XFCE with X2Go on Ubuntu, use the following instructions:
-  - [Install and configure X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/XFCE_Xubuntu/ReadMe.md)
+  For optimal performance, we typically recommend using the XFCE graphical desktop and for users to connect to the desktop using X2Go.  To set up XFCE with X2Go on Ubuntu, use the following instructions:
+    - [Install and configure X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/XFCE_Xubuntu/ReadMe.md)
 
-In cases where you instead need to have users connect to the graphical desktop with RDP, use the following instructions for Ubuntu:
-  - [Install and configure RDP](../virtual-machines/linux/use-remote-desktop.md)
+  In cases where you instead need to have users connect to the graphical desktop with RDP, use the following instructions for Ubuntu:
+    - [Install and configure RDP](../virtual-machines/linux/use-remote-desktop.md)
 
-For the GNOME or MATE graphical desktop environments, you may encounter a networking conflict with the Azure Linux Agent which is needed for the VMs to work properly in Azure Lab Services.  For example, by default if you create a lab from an Ubuntu 18.04 LTS image that has GNOME or MATE installed, lab creation will fail with the following error message: **Communication could not be established with the VM agent.  Please verify that the VM agent is enabled and functioning.**  Likewise, this networking conflict will cause publish to hang when attempting to provision the student VMs.
+### Using GNOME or MATE graphical desktops
 
-We recommend using the following instructions to set up the GNOME or MATE graphical desktops on Ubuntu.  These instructions include a fix for the networking conflict that exists with Ubuntu 18.04 LTS.  They also support Ubuntu 20.04 LTS and 21.04 LTS:
+For the GNOME or MATE graphical desktop environments, you may encounter a networking conflict with the Azure Linux Agent which is needed for the VMs to work properly in Azure Lab Services.  This networking conflict causes the following side effects when Ubuntu 18.04 LTS is used with either GNOME or MATE installed:
+ - Lab creation using the image will fail with the error message, **Communication could not be established with the VM agent.  Please verify that the VM agent is enabled and functioning.**  
+ - Publishing student VMs will stop responding if the auto-shutdown settings are enabled.
+ - Resetting the student VM password will stop responding.
+
+We recommend using the following instructions to set up the GNOME or MATE graphical desktops on Ubuntu.  These instructions include a fix for the networking conflict that exists with Ubuntu 18.04 LTS.  They also support installing GNOME and MATE on Ubuntu 20.04 LTS and 21.04 LTS:
  - [Install and configure GNOME/RDP and MATE/X2go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/GNOME_MATE/ReadMe.md)
 
 ## Connect to the template VM via the GUI

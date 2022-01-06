@@ -3,6 +3,7 @@ title: Explore Java trace logs in Azure Application Insights
 description: Search Log4J or Logback traces in Application Insights
 ms.topic: conceptual
 ms.date: 05/18/2019
+ms.devlang: java
 ms.custom: devx-track-java
 author: mattmccleary
 ms.author: mmcc
@@ -66,7 +67,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
 
 *Logback*
 
-```XML
+```xml
 
     <dependencies>
        <dependency>
@@ -79,7 +80,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
 
 *Log4J v2.0*
 
-```XML
+```xml
 
     <dependencies>
        <dependency>
@@ -92,7 +93,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
 
 *Log4J v1.2*
 
-```XML
+```xml
 
     <dependencies>
        <dependency>
@@ -142,7 +143,7 @@ To start getting traces, merge the relevant snippet of code to the Log4J or Logb
 
 *Logback*
 
-```XML
+```xml
 
     <appender name="aiAppender" 
       class="com.microsoft.applicationinsights.logback.ApplicationInsightsAppender">
@@ -155,7 +156,7 @@ To start getting traces, merge the relevant snippet of code to the Log4J or Logb
 
 *Log4J v2.0*
 
-```XML
+```xml
 
     <Configuration packages="com.microsoft.applicationinsights.log4j.v2">
       <Appenders>
@@ -171,7 +172,7 @@ To start getting traces, merge the relevant snippet of code to the Log4J or Logb
 
 *Log4J v1.2*
 
-```XML
+```xml
 
     <appender name="aiAppender" 
          class="com.microsoft.applicationinsights.log4j.v1_2.ApplicationInsightsAppender">

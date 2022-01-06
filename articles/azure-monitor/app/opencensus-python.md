@@ -2,8 +2,9 @@
 title: Monitor Python applications with Azure Monitor | Microsoft Docs
 description: Provides instructions to wire up OpenCensus Python with Azure Monitor
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 10/12/2021
 ms.reviewer: mbullwin
+ms.devlang: python
 ms.custom: devx-track-python
 author: lzchen
 ms.author: lechen
@@ -18,6 +19,9 @@ Microsoft's supported solution for tracking and exporting data for your Python a
 Any other telemetry SDKs for Python are UNSUPPORTED and are NOT recommended by Microsoft to use as a telemetry solution.
 
 You may have noted that OpenCensus is converging into [OpenTelemetry](https://opentelemetry.io/). However, we continue to recommend OpenCensus while OpenTelemetry gradually matures.
+
+> [!NOTE]
+> A preview [OpenTelemetry-based Python offering](opentelemetry-enable.md?tabs=python) is available. [Learn more](opentelemetry-overview.md).
 
 ## Prerequisites
 
@@ -86,7 +90,7 @@ Here are the exporters that OpenCensus provides mapped to the types of telemetry
     90
     ```
 
-1. Although entering values is helpful for demonstration purposes, ultimately we want to emit the log data to Azure Monitor. Pass your connection string directly into the exporter. Or, you can specify it in an environment variable, `APPLICATIONINSIGHTS_CONNECTION_STRING`. Modify your code from the previous step based on the following code sample:
+1. Although entering values is helpful for demonstration purposes, ultimately we want to emit the log data to Azure Monitor. Pass your connection string directly into the exporter. Or, you can specify it in an environment variable, `APPLICATIONINSIGHTS_CONNECTION_STRING`. We recommend using the connection string to instantiate the exporters that are used to send telemetry to Application Insights. Modify your code from the previous step based on the following code sample:
 
     ```python
     import logging
@@ -98,6 +102,9 @@ Here are the exporters that OpenCensus provides mapped to the types of telemetry
     logger.addHandler(AzureLogHandler(
         connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
     )
+    # You can also instantiate the exporter directly if you have the environment variable
+    # `APPLICATIONINSIGHTS_CONNECTION_STRING` configured
+    # logger.addHandler(AzureLogHandler())
 
     def valuePrompt():
         line = input("Enter a value: ")
@@ -139,6 +146,9 @@ Here are the exporters that OpenCensus provides mapped to the types of telemetry
     # Use properties in logging statements
     logger.warning('action', extra=properties)
     ```
+
+> [!NOTE]
+> As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. You have the option to disable non-essential data collection. [Learn More](./statsbeat.md).
 
 #### Configure logging for Django applications
 
@@ -288,7 +298,7 @@ OpenCensus.stats supports 4 aggregation methods but provides partial support for
     Point(value=ValueLong(7), timestamp=2019-10-09 20:58:07.138614)
     ```
 
-1. Although entering values is helpful for demonstration purposes, ultimately we want to emit the metric data to Azure Monitor. Pass your connection string directly into the exporter. Or, you can specify it in an environment variable, `APPLICATIONINSIGHTS_CONNECTION_STRING`. Modify your code from the previous step based on the following code sample:
+1. Although entering values is helpful for demonstration purposes, ultimately we want to emit the metric data to Azure Monitor. Pass your connection string directly into the exporter. Or, you can specify it in an environment variable, `APPLICATIONINSIGHTS_CONNECTION_STRING`. We recommend using the connection string to instantiate the exporters that are used to send telemetry to Application Insights. Modify your code from the previous step based on the following code sample:
 
     ```python
     from datetime import datetime
@@ -318,6 +328,9 @@ OpenCensus.stats supports 4 aggregation methods but provides partial support for
     # TODO: replace the all-zero GUID with your instrumentation key.
     exporter = metrics_exporter.new_metrics_exporter(
         connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+    # You can also instantiate the exporter directly if you have the environment variable
+    # `APPLICATIONINSIGHTS_CONNECTION_STRING` configured
+    # exporter = metrics_exporter.new_metrics_exporter()
 
     view_manager.register_exporter(exporter)
 
@@ -453,7 +466,7 @@ For information on how to modify tracked telemetry before it's sent to Azure Mon
     [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='f3f9f9ee6db4740a', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:46.157732Z', end_time='2019-06-27T18:21:47.269583Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
     ```
 
-1. Although entering values is helpful for demonstration purposes, ultimately we want to emit `SpanData` to Azure Monitor. Pass your connection string directly into the exporter. Or, you can specify it in an environment variable, `APPLICATIONINSIGHTS_CONNECTION_STRING`. Modify your code from the previous step based on the following code sample:
+1. Although entering values is helpful for demonstration purposes, ultimately we want to emit `SpanData` to Azure Monitor. Pass your connection string directly into the exporter. Or, you can specify it in an environment variable, `APPLICATIONINSIGHTS_CONNECTION_STRING`. We recommend using the connection string to instantiate the exporters that are used to send telemetry to Application Insights. Modify your code from the previous step based on the following code sample:
 
     ```python
     from opencensus.ext.azure.trace_exporter import AzureExporter
@@ -466,6 +479,9 @@ For information on how to modify tracked telemetry before it's sent to Azure Mon
             connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000'),
         sampler=ProbabilitySampler(1.0),
     )
+    # You can also instantiate the exporter directly if you have the environment variable
+    # `APPLICATIONINSIGHTS_CONNECTION_STRING` configured
+    # exporter = AzureExporter()
 
     def valuePrompt():
         with tracer.span(name="test") as span:

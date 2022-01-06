@@ -141,7 +141,7 @@ If you want to enable users to edit their profile in your application, you use a
 > This article explains how to set up your tenant manually. You can automate the entire process from this article. Automating will deploy the Azure AD B2C [SocialAndLocalAccountsWithMFA starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack), which will provide Sign Up and Sign In, Password Reset and Profile Edit journeys. To automate the walkthrough below, visit the [IEF Setup App](https://aka.ms/iefsetup) and follow the instructions.
 
 
-## Add signing and encryption keys
+## Add signing and encryption keys for Identity Experience Framework applications
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
@@ -272,33 +272,6 @@ Add the application IDs to the extensions file *TrustFrameworkExtensions.xml*.
 1. Replace both instances of `ProxyIdentityExperienceFrameworkAppId` with the application ID of the ProxyIdentityExperienceFramework application that you created earlier.
 1. Save the file.
 
-## Upload the policies
-
-1. Select the **Identity Experience Framework** menu item in your B2C tenant in the Azure portal.
-1. Select **Upload custom policy**.
-1. In this order, upload the policy files:
-    1. *TrustFrameworkBase.xml*
-    2. *TrustFrameworkLocalization.xml*
-    3. *TrustFrameworkExtensions.xml*
-    4. *SignUpOrSignin.xml*
-    5. *ProfileEdit.xml*
-    6. *PasswordReset.xml*
-
-As you upload the files, Azure adds the prefix `B2C_1A_` to each.
-
-> [!TIP]
-> If your XML editor supports validation, validate the files against the `TrustFrameworkPolicy_0.3.0.0.xsd` XML schema that is located in the root directory of the starter pack. XML schema validation identifies errors before uploading.
-
-## Test the custom policy
-
-1. Under **Custom policies**, select **B2C_1A_signup_signin**.
-1. For **Select application** on the overview page of the custom policy, select the web application named *webapp1* that you previously registered.
-1. Make sure that the **Reply URL** is `https://jwt.ms`.
-1. Select **Run now**.
-1. Sign up using an email address. Don't use **Facebook** option yet. 
-1. Select **Run now** again.
-1. Sign in with the same account to confirm that you have the correct configuration.
-
 ## Add Facebook as an identity provider
 
 The **SocialAndLocalAccounts** starter pack includes Facebook social sign in. Facebook is *not* required for using custom policies, but we use it here to demonstrate how you can enable federated social login in a custom policy.
@@ -324,7 +297,7 @@ Add your Facebook application's [App Secret](identity-provider-facebook.md) as a
 1. Select **Create**.
 
 ### Update TrustFrameworkExtensions.xml in custom policy starter pack
-1. In the `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** file, replace the value of `client_id` with the Facebook application ID:
+In the `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** file, replace the value of `client_id` with the Facebook application ID and save changes.
 
    ```xml
    <TechnicalProfile Id="Facebook-OAUTH">
@@ -333,11 +306,34 @@ Add your Facebook application's [App Secret](identity-provider-facebook.md) as a
        <Item Key="client_id">00000000000000</Item>
    ```
 
-1. Upload the *TrustFrameworkExtensions.xml* file to your tenant.
+
+## Upload the policies
+
+1. Select the **Identity Experience Framework** menu item in your B2C tenant in the Azure portal.
+1. Select **Upload custom policy**.
+1. In this order, upload the policy files:
+    1. *TrustFrameworkBase.xml*
+    2. *TrustFrameworkLocalization.xml*
+    3. *TrustFrameworkExtensions.xml*
+    4. *SignUpOrSignin.xml*
+    5. *ProfileEdit.xml*
+    6. *PasswordReset.xml*
+
+As you upload the files, Azure adds the prefix `B2C_1A_` to each.
+
+> [!TIP]
+> If your XML editor supports validation, validate the files against the `TrustFrameworkPolicy_0.3.0.0.xsd` XML schema that is located in the root directory of the starter pack. XML schema validation identifies errors before uploading.
+
+## Test the custom policy
+
 1. Under **Custom policies**, select **B2C_1A_signup_signin**.
-1. Select **Run now** and select Facebook to sign in with Facebook and test the custom policy.
-
-
+1. For **Select application** on the overview page of the custom policy, select the web application named *webapp1* that you previously registered.
+1. Make sure that the **Reply URL** is `https://jwt.ms`.
+1. Select **Run now**.
+1. Sign up using an email address.
+1. Select **Run now** again.
+1. Sign in with the same account to confirm that you have the correct configuration.
+1. Select **Run now** again, and select Facebook to sign in with Facebook and test the custom policy.
 ::: zone-end
 
 ## Next steps

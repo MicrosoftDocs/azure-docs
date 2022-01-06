@@ -7,9 +7,9 @@ ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.topic: conceptual
-author: BustosMSFT
-ms.author: robustos
-ms.reviewer: mathoma
+author: emlisa
+ms.author: emlisa
+ms.reviewer: kendralittle, mathoma
 ms.date: 10/25/2021
 ---
 
@@ -21,7 +21,6 @@ The auto-failover groups feature allows you to manage the replication and failov
 > [!NOTE]
 > Auto-failover groups support geo-replication of all databases in the group to only one secondary server or instance in a different region. If you need to create multiple Azure SQL Database geo-secondary replicas (in the same or different regions) for the same primary replica, use [active geo-replication](active-geo-replication-overview.md).
 > 
-> Auto-failover groups are not currently supported in the [Hyperscale](service-tier-hyperscale.md) service tier. For geographic failover of a Hyperscale database, use [active geo-replication](active-geo-replication-overview.md).
 
 When you are using auto-failover groups with automatic failover policy, an outage that impacts one or several of the databases in the group will result in an automatic geo-failover. Typically, these are outages that cannot be automatically mitigated by the built-in high availability infrastructure. Examples of geo-failover triggers include an incident caused by a SQL Database tenant ring or control ring being down due to an OS kernel memory leak on compute nodes, or an incident caused by one or more tenant rings being down because a wrong network cable was accidentally cut during routine hardware decommissioning. For more information, see [SQL Database High Availability](high-availability-sla.md).
 
@@ -226,6 +225,9 @@ The following diagram illustrates a typical configuration of a geo-redundant clo
 > [!NOTE]
 > See [Add managed instance to a failover group](../managed-instance/failover-group-add-instance-tutorial.md) for a detailed step-by-step tutorial adding a SQL Managed Instance to use failover group.
 
+> [!IMPORTANT]
+> If you deploy auto-failover groups in a hub-and-spoke network topology cross-region, replication traffic should go directly between the two managed instance subnets rather than be directed through the hub networks.
+
 If your application uses SQL Managed Instance as the data tier, follow these general guidelines when designing for business continuity:
 
 ### <a name="creating-the-secondary-instance"></a> Create the geo-secondary managed instance
@@ -239,7 +241,7 @@ For more information about creating the secondary SQL Managed Instance in the sa
 
 ### <a name="using-geo-paired-regions"></a> Use paired regions
 
-Deploy both managed instances to [paired regions](../../best-practices-availability-paired-regions.md) for performance reasons. SQL Managed Instance failover groups in paired regions have better performance compared to unpaired regions.
+Deploy both managed instances to [paired regions](../../availability-zones/cross-region-replication-azure.md) for performance reasons. SQL Managed Instance failover groups in paired regions have better performance compared to unpaired regions.
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a> Enable geo-replication traffic between two managed instances
 
@@ -247,7 +249,7 @@ Because each managed instance is isolated in its own VNet, two-directional traff
 
 ### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a> Create a failover group between managed instances in different subscriptions
 
-You can create a failover group between SQL Managed Instances in two different subscriptions, as long as subscriptions are associated to the same [Azure Active Directory Tenant](../../active-directory/fundamentals/active-directory-whatis.md#terminology). When using PowerShell API, you can do it by specifying the `PartnerSubscriptionId` parameter for the secondary SQL Managed Instance. When using REST API, each instance ID included in the `properties.managedInstancePairs` parameter can have its own Subscription Id.
+You can create a failover group between SQL Managed Instances in two different subscriptions, as long as subscriptions are associated to the same [Azure Active Directory Tenant](../../active-directory/fundamentals/active-directory-whatis.md#terminology). When using PowerShell API, you can do it by specifying the `PartnerSubscriptionId` parameter for the secondary SQL Managed Instance. When using REST API, each instance ID included in the `properties.managedInstancePairs` parameter can have its own Subscription ID.
   
 > [!IMPORTANT]
 > Azure portal does not support creation of failover groups across different subscriptions. Also, for the existing failover groups across different subscriptions and/or resource groups, failover cannot be initiated manually via portal from the primary SQL Managed Instance. Initiate it from the geo-secondary instance instead.
@@ -348,7 +350,7 @@ If you are using [Virtual Network service endpoints and rules](vnet-service-endp
 
 If your business continuity plan requires failover using groups with automatic failover, you can restrict access to your database in SQL Database by using public IP firewall rules. To support automatic failover, follow these steps:
 
-1. [Create a public IP](../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
+1. [Create a public IP](../../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address)
 2. [Create a public load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) and assign the public IP to it.
 3. [Create a virtual network and the virtual machines](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) for your front-end components.
 4. [Create network security group](../../virtual-network/network-security-groups-overview.md) and configure inbound connections.
@@ -413,6 +415,7 @@ Be aware of the following limitations:
 - Failover groups cannot be renamed. You will need to delete the group and re-create it with a different name.
 - Database rename is not supported for databases in failover group. You will need to temporarily delete failover group to be able to rename a database, or remove the database from the failover group.
 - System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases require objects to be manually created on the secondary instances and also manually kept in sync after any changes made on primary instance. The only exception is Service master Key (SMK) for SQL Managed Instance, that is replicated automatically to secondary instance during creation of failover group. Any subsequent changes of SMK on the primary instance however will not be replicated to secondary instance.
+- Failover groups cannot be created between instances if any of them are in an instance pool.
 
 ## <a name="programmatically-managing-failover-groups"></a> Programmatically manage failover groups
 

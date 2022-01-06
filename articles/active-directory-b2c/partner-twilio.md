@@ -61,22 +61,24 @@ The following components make up the Twilio solution:
 1. Open the B2C-WebAPI-DotNet solution and replace the following values with your own tenant-specific values in the web.config:
 
     ```xml
-   <add key="ida:Tenant" value="yourtenant.onmicrosoft.com" />
-   <add key="ida:TenantId" value="d6f33888-0000-4c1f-9b50-1590f171fc70" />
-   <add key="ida:ClientId" value="6bd98cc8-0000-446a-a05e-b5716ef2651b" />
-   <add key="ida:ClientSecret" value="secret" />
-   <add key="ida:AadInstance" value="https://yourtenant.b2clogin.com/tfp/{0}/{1}" />
-   <add key="ida:RedirectUri" value="https://your hosted psd2 demo app url/" />
-   ```
+    <add key="ida:Tenant" value="yourtenant.onmicrosoft.com" />
+    <add key="ida:TenantId" value="d6f33888-0000-4c1f-9b50-1590f171fc70" />
+    <add key="ida:ClientId" value="6bd98cc8-0000-446a-a05e-b5716ef2651b" />
+    <add key="ida:ClientSecret" value="secret" />
+    <add key="ida:AadInstance" value="https://yourtenant.b2clogin.com/tfp/{0}/{1}" />
+    <add key="ida:RedirectUri" value="https://your hosted psd2 demo app url/" />
+    ```
 
 1. The [web app](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Twilio-VerifyAPI/source-code/PSD2%20Demo%20App) also hosts the ID token hint generator and metadata endpoint.
+
    - Create your signing certificate as described in this [sample description](https://github.com/azure-ad-b2c/samples/tree/master/policies/invite#creating-a-signing-certificate).
+
    - Update the following lines based on your certificate in the web.config:
    
-   ```xml
-   <add key="ida:SigningCertThumbprint" value="4F39D6014818082CBB763E5BA5F230E545212E89" />
-   <add key="ida:SigningCertAlgorithm" value="RS256" />
-   ```
+     ```xml
+     <add key="ida:SigningCertThumbprint" value="4F39D6014818082CBB763E5BA5F230E545212E89" />
+     <add key="ida:SigningCertAlgorithm" value="RS256" />
+     ```
 
 1. Upload the demo application to your hosting provider of choice. Guidance for Azure App Service is provided in [this sample description](https://github.com/azure-ad-b2c/samples/tree/master/policies/invite#hosting-the-application-in-azure-app-service), including instructions for uploading your certificate.
 

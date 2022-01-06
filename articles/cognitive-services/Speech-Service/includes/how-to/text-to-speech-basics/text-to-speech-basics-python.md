@@ -1,9 +1,9 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/02/2021
-ms.author: pafarley
+ms.author: eur
 ---
 
 In this quickstart, you learn common design patterns for doing text-to-speech synthesis using the Speech SDK. You start by doing basic configuration and synthesis, and move on to more advanced examples for custom application development including:
@@ -23,24 +23,7 @@ This article assumes that you have an Azure account and Speech service subscript
 
 ## Install the Speech SDK
 
-Before you can do anything, you'll need to install the Speech SDK.
-
-```Python
-pip install azure-cognitiveservices-speech
-```
-
-If you're on macOS and run into install issues, you may need to run this command first.
-
-```Python
-python3 -m pip install --upgrade pip
-```
-
-After the Speech SDK is installed, include the following import statements at the top of your script.
-
-```Python
-from azure.cognitiveservices.speech import AudioDataStream, SpeechConfig, SpeechSynthesizer, SpeechSynthesisOutputFormat
-from azure.cognitiveservices.speech.audio import AudioOutputConfig
-```
+[!INCLUDE [Get the Speech SDK include](../../get-speech-sdk-python.md)]
 
 ## Create a speech configuration
 
@@ -65,8 +48,8 @@ speech_config = SpeechConfig(subscription="<paste-your-speech-key-here>", region
 
 ## Select synthesis language and voice
 
-The Azure Text to Speech service supports more than 250 voices and over 70 languages and variants.
-You can get the [full list](../../../language-support.md#neural-voices), or try them in [text to speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+The Azure Text-to-Speech service supports more than 270 voices and more than 110 languages and variants.
+You can get the [full list](../../../language-support.md#prebuilt-neural-voices), or try them in [text to speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
 Specify the language or voice of [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) to match your input text and use the wanted voice.
 
 ```python
@@ -158,11 +141,11 @@ Running your program again will write a customized `.wav` file to the specified 
 Speech Synthesis Markup Language (SSML) allows you to fine-tune the pitch, pronunciation, speaking rate, volume, and more of the text-to-speech output by submitting your requests from an XML schema. This section shows an example of changing the voice, but for a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
 
 To start using SSML for customization, you make a simple change that switches the voice.
-First, create a new XML file for the SSML config in your root project directory, in this example `ssml.xml`. The root element is always `<speak>`, and wrapping the text in a `<voice>` element allows you to change the voice using the `name` param. See the [full list](../../../language-support.md#neural-voices) of supported **neural** voices.
+First, create a new XML file for the SSML config in your root project directory, in this example `ssml.xml`. The root element is always `<speak>`, and wrapping the text in a `<voice>` element allows you to change the voice using the `name` param. See the [full list](../../../language-support.md#prebuilt-neural-voices) of supported **neural** voices.
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-US-ChristopherNeural">
+  <voice name="en-US-JennyNeural">
     When you're on the freeway, it's a good idea to use a GPS.
   </voice>
 </speak>
@@ -185,7 +168,7 @@ stream.save_to_wav_file("path/to/write/file.wav")
 ```
 
 > [!NOTE]
-> To change the voice without using SSML, you can set the property on the `SpeechConfig` by using `SpeechConfig.speech_synthesis_voice_name = "en-US-ChristopherNeural"`
+> To change the voice without using SSML, you can set the property on the `SpeechConfig` by using `SpeechConfig.speech_synthesis_voice_name = "en-US-JennyNeural"`
 
 ## Get facial pose events
 

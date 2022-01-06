@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: 'Tutorial: Code a client app'
 titleSuffix: Azure Digital Twins
-description: Tutorial to write the minimal code for a client app, using the .NET (C#) SDK.
+description: Follow this tutorial to learn how to write the minimal code for an Azure Digital Twins client app, using the .NET (C#) SDK.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 04/28/2021
+ms.date: 10/18/2021
 ms.topic: tutorial
 ms.service: digital-twins
 
@@ -28,7 +28,7 @@ Developers working with Azure Digital Twins commonly write client applications f
 
 ## Prerequisites
 
-This tutorial uses the command line for setup and project work. As such, you can use any code editor to walk through the exercises.
+This Azure Digital Twins tutorial uses the command line for setup and project work. As such, you can use any code editor to walk through the exercises.
 
 What you need to begin:
 * Any code editor
@@ -132,7 +132,7 @@ In the directory where you created your project, create a new .json file called 
 > [!TIP] 
 > There is a language-agnostic [DTDL Validator sample](/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [Parse and validate models](how-to-parse-models.md).
 
-Next, add some more code to *Program.cs* to upload the model you've just created into your Azure Digital Twins instance.
+Next, add some more code to *Program.cs* to upload the model you've created into your Azure Digital Twins instance.
 
 First, add a few `using` statements to the top of the file:
 
@@ -156,7 +156,7 @@ In your command window, run the program with this command:
 ```cmd/sh
 dotnet run
 ```
-"Upload a model" will be printed in the output, indicating that this code was reached, but there is no output yet to indicate whether the upload was successful.
+"Upload a model" will be printed in the output, indicating that this code was reached, but there's no output yet to indicate whether the upload was successful.
 
 To add a print statement showing all models that have been successfully uploaded to the instance, add the following code right after the previous section:
 
@@ -164,7 +164,7 @@ To add a print statement showing all models that have been successfully uploaded
 
 **Before you run the program again to test this new code**, recall that the last time you ran the program, you uploaded your model already. Azure Digital Twins won't let you upload the same model twice, so if you attempt to upload the same model again, the program should throw an exception.
 
-With this in mind, run the program again with this command in your command window:
+With this information in mind, run the program again with this command in your command window:
 
 ```cmd/sh
 dotnet run
@@ -198,7 +198,7 @@ In your command window, run the program with `dotnet run`. In the output, look f
 
 Then, run the program again. 
 
-Notice that no error is thrown when the twins are created the second time, even though the twins already exist after the first run. Unlike model creation, twin creation is, on the REST level, a *PUT* call with *upsert* semantics. This means that if a twin already exists, an attempt to create the same twin again will just replace the original twin. No error is thrown.
+Notice that no error is thrown when the twins are created the second time, even though the twins already exist after the first run. Unlike model creation, twin creation is, on the REST level, a *PUT* call with *upsert* semantics. Using this kind of REST call means that if a twin already exists, an attempt to create the same twin again will just replace the original twin. No error is thrown.
 
 ### Create relationships
 

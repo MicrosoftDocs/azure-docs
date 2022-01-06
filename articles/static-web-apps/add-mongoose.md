@@ -39,7 +39,7 @@ Begin by creating a [Cosmos DB serverless](../cosmos-db/serverless.md) account. 
 3. Enter **Azure Cosmos DB** in the search box
 4. Click **Azure Cosmos DB**
 5. Click **Create**
-6. Under **Azure Cosmos DB API for MongoDB** select **Create**
+6. If prompted, under **Azure Cosmos DB API for MongoDB** select **Create**
 7. Configure your Azure Cosmos DB Account with the following information
     - Subscription: Choose the subscription you wish to use
     - Resource: Click **Create new**, and set the name to **aswa-mongoose**
@@ -48,8 +48,8 @@ Begin by creating a [Cosmos DB serverless](../cosmos-db/serverless.md) account. 
     - Capacity mode: **Serverless (preview)**
     - Version: **4.0**
 :::image type="content" source="media/add-mongoose/cosmos-db.png" alt-text="Create new Cosmos DB instance":::
-7. Click **Review + create**
-8. Click **Create**
+8. Click **Review + create**
+9. Click **Create**
 
 The creation process will take a few minutes. Later steps will return to the database to gather the connection string.
 

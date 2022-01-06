@@ -100,7 +100,7 @@ The following JSON code snippet includes the two network properties that you mus
 
 ```json
 networkProperties: {
-    "resourceProviderConnection": "Inbound" | "Outbound",
+    "resourceProviderConnection": "Outbound",
     "privateLink": "Enabled"
 }
 ```

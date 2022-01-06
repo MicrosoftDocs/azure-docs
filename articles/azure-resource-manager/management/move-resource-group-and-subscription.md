@@ -2,7 +2,7 @@
 title: Move resources to a new subscription or resource group
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 11/30/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -10,7 +10,9 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 This article shows you how to move Azure resources to either another Azure subscription or another resource group under the same subscription. You can use the Azure portal, Azure PowerShell, Azure CLI, or the REST API to move resources.
 
-Both the source group and the target group are locked during the move operation. Write and delete operations are blocked on the resource groups until the move completes. This lock means you can't add, update, or delete resources in the resource groups. It doesn't mean the resources are frozen. For example, if you move an Azure SQL logical server and its databases to a new resource group or subscription, applications that use the databases experience no downtime. They can still read and write to the databases. The lock can last for a maximum of four hours, but most moves complete in much less time.
+Both the source group and the target group are locked during the move operation. Write and delete operations are blocked on the resource groups until the move completes. This lock means you can't add, update, or delete resources in the resource groups. It doesn't mean the resources are frozen. For example, if you move an Azure SQL logical server, its databases and other dependent resources to a new resource group or subscription, applications that use the databases experience no downtime. They can still read and write to the databases. The lock can last for a maximum of four hours, but most moves complete in much less time.
+
+If your move requires setting up new dependent resources, you'll experience an interruption in those services until they've been reconfigured.
 
 Moving a resource only moves it to a new resource group or subscription. It doesn't change the location of the resource.
 
@@ -161,9 +163,9 @@ When the move has completed, you're notified of the result.
 
 To test your move scenario without actually moving the resources, use the [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) command. Use this command only when you need to predetermine the results. To run this operation, you need the:
 
-* resource ID of the source resource group
-* resource ID of the target resource group
-* resource ID of each resource to move
+* Resource ID of the source resource group
+* Resource ID of the target resource group
+* Resource ID of each resource to move
 
 ```azurepowershell
 Invoke-AzResourceAction -Action validateMoveResources `
@@ -193,9 +195,9 @@ To move to a new subscription, include a value for the `DestinationSubscriptionI
 
 To test your move scenario without actually moving the resources, use the [az resource invoke-action](/cli/azure/resource#az_resource_invoke_action) command. Use this command only when you need to predetermine the results. To run this operation, you need the:
 
-* resource ID of the source resource group
-* resource ID of the target resource group
-* resource ID of each resource to move
+* Resource ID of the source resource group
+* Resource ID of the target resource group
+* Resource ID of each resource to move
 
 In the request body, use `\"` to escape double quotes.
 
@@ -231,10 +233,10 @@ To move to a new subscription, provide the `--destination-subscription-id` param
 
 The [validate move operation](/rest/api/resources/resources/validate-move-resources) lets you test your move scenario without actually moving the resources. Use this operation to check if the move will succeed. Validation is automatically called when you send a move request. Use this operation only when you need to predetermine the results. To run this operation, you need the:
 
-* name of the source resource group
-* resource ID of the target resource group
-* resource ID of each resource to move
-* the [access token](/rest/api/azure/#acquire-an-access-token) for your account
+* Name of the source resource group
+* Resource ID of the target resource group
+* Resource ID of each resource to move
+* The [access token](/rest/api/azure/#acquire-an-access-token) for your account
 
 Send the following request:
 

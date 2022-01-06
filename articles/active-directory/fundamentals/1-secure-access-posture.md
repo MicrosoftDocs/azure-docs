@@ -3,7 +3,7 @@ title: Determine your security posture for external collaboration with Azure Act
 description: Before you can execute an external access security plan, you must determine what you are trying to achieve.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals

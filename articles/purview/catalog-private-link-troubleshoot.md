@@ -13,7 +13,7 @@ ms.date: 10/15/2021
 # Troubleshooting private endpoint configuration for Purview accounts
 
 > [!IMPORTANT]
-> If you created a _portal_ private endpoint for your Purview account **prior to 27 September 2021 at 15:30 UTC**, you'll need to take the required actions as detailed in, [Reconfigure DNS for portal private endpoints](./catalog-private-link.md#reconfigure-dns-for-portal-private-endpoints). **These actions must be completed before October 11, 2021. Failing to do so will cause existing portal private endpoints to stop functioning**.
+> If you created a _portal_ private endpoint for your Purview account **prior to 27 September 2021 at 15:30 UTC**, you'll need to take the required actions as detailed in, [Reconfigure DNS for portal private endpoints](./catalog-private-link.md#reconfigure-dns-for-portal-private-endpoints). **These actions must be completed before November 12, 2021. Failing to do so will cause existing portal private endpoints to stop functioning**.
 
 This guide summarizes known limitations related to using private endpoints for Azure Purview and provides a list of steps and solutions for troubleshooting some of the most common relevant issues. 
 
@@ -25,7 +25,7 @@ This guide summarizes known limitations related to using private endpoints for A
 - Using Azure portal, the ingestion private endpoints can be created via the Azure Purview portal experience described in the preceding steps. They can't be created from the Private Link Center.
 - Creating DNS A records for ingestion private endpoints inside existing Azure DNS Zones, while the Azure Private DNS Zones are located in a different subscription than the private endpoints is not supported via the Azure Purview portal experience. A records can be added manually in the destination DNS Zones in the other subscription. 
 - Self-hosted integration runtime machine must be deployed in the same VNet where Azure Purview ingestion private endpoint is deployed.
-- We currently do not support scanning a Power BI tenant which has a private endpoint configured with public access blocked.
+- We currently do not support scanning a Power BI tenant, which has a private endpoint configured with public access blocked.
 - For limitation related to Private Link service, see [Azure Private Link limits](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits).
 
 ## Recommended troubleshooting steps  
@@ -45,7 +45,7 @@ This guide summarizes known limitations related to using private endpoints for A
 3. If portal private endpoint is deployed, and public network access is set to deny in your Azure Purview account, make sure you launch [Azure Purview Studio](https://web.purview.azure.com/resource/) from internal network.
   <br>
     - To verify the correct name resolution, you can use a **NSlookup.exe** command line tool to query `web.purview.azure.com`. The result must return a private IP address that belongs to portal private endpoint. 
-    - To verify network connectivity you can use any network test tools to test outbound connectivity to `web.purview.azure.com` endpoint to port **443**. The connection must be successful.    
+    - To verify network connectivity, you can use any network test tools to test outbound connectivity to `web.purview.azure.com` endpoint to port **443**. The connection must be successful.    
 
 3. If Azure Private DNS Zones are used, make sure the required Azure DNS Zones are deployed and there is DNS (A) record for each private endpoint.
 
@@ -82,11 +82,11 @@ This guide summarizes known limitations related to using private endpoints for A
     TcpTestSucceeded : True
     ```
     
-5. If you have created your Azure Purview account after 18th August 2021, make sure you download and install the latest version of self-hosted integration runtime from [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=39717).
+5. If you have created your Azure Purview account after 18 August 2021, make sure you download and install the latest version of self-hosted integration runtime from [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=39717).
    
 6. From self-hosted integration runtime VM, test network connectivity and name resolution to Purview endpoint.
 
-7. From self-hosted integration runtime, test network connectivity and name resolution to Azure Purview managed resources such as blob queue and event hub through port 443 and private IP addresses. (Replace the managed storage account and Event Hubs namespace with corresponding managed resource name assigned to your Azure Purview account).
+7. From self-hosted integration runtime, test network connectivity and name resolution to Azure Purview managed resources such as blob queue and Event Hub through port 443 and private IP addresses. (Replace the managed storage account and Event Hubs namespace with corresponding managed resource name assigned to your Azure Purview account).
 
     ```powershell
     Test-NetConnection -ComputerName `scansoutdeastasiaocvseab`.blob.core.windows.net -Port 443
@@ -119,7 +119,7 @@ This guide summarizes known limitations related to using private endpoints for A
     ```powershell
     Test-NetConnection -ComputerName `Atlas-1225cae9-d651-4039-86a0-b43231a17a4b`.servicebus.windows.net -Port 443
     ```
-    Example of successful outbound connection to eventhub namespace through private IP address:
+    Example of successful outbound connection to Event Hub namespace through private IP address:
 
     ```
     ComputerName     : Atlas-1225cae9-d651-4039-86a0-b43231a17a4b.servicebus.windows.net
@@ -148,7 +148,7 @@ You may receive the following error message when running a scan:
 `Internal system error. Please contact support with correlationId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx System Error, contact support.`
 
 ### Cause 
-This can be an indication of issues related to connectivity or name resolution between the VM running self-hosted integration runtime and Azure Purview's managed resources storage account or event hub.
+This can be an indication of issues related to connectivity or name resolution between the VM running self-hosted integration runtime and Azure Purview's managed resources storage account or Event Hub.
 
 ### Resolution 
 Validate if name resolution between the VM running Self-Hosted Integration Runtime.
@@ -160,7 +160,7 @@ You may receive the following error message when running a new scan:
   `message: Unable to setup config overrides for this scan. Exception:'Type=Microsoft.WindowsAzure.Storage.StorageException,Message=The remote server returned an error: (404) Not Found.,Source=Microsoft.WindowsAzure.Storage,StackTrace= at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndExecuteAsync[T](IAsyncResult result)`
 
 ### Cause 
-This can be an indication of running an older version of self-hosted integration runtime. If you have created your Azure Purview account after 18th August 2021, you need to use the self-hosted integration runtime version 5.9.7885.3.
+This can be an indication of running an older version of self-hosted integration runtime. You'll need to use the self-hosted integration runtime version 5.9.7885.3 or greater.
 
 ### Resolution 
 Upgrade self-hosted integration runtime to 5.9.7885.3.

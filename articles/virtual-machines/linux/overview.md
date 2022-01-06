@@ -106,7 +106,7 @@ Azure supports for [cloud-init](https://cloud-init.io/) across most Linux Distro
 
 ## Networking
 * [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md)
-* [IP addresses in Azure](../../virtual-network/public-ip-addresses.md)
+* [IP addresses in Azure](../../virtual-network/ip-services/public-ip-addresses.md)
 * [Opening ports to a Linux VM in Azure](nsg-quickstart.md)
 * [Create a Fully Qualified Domain Name in the Azure portal](../create-fqdn.md)
 

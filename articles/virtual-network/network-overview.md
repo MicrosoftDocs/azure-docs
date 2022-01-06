@@ -50,7 +50,7 @@ This table lists the methods that you can use to create a network interface.
 
 ## IP addresses
 
-You can assign these types of [IP addresses](../virtual-network/public-ip-addresses.md) to a network interface in Azure:
+You can assign these types of [IP addresses](./ip-services/public-ip-addresses.md) to a network interface in Azure:
 
 - **Public IP addresses** - Used to communicate inbound and outbound (without network address translation (NAT)) with the Internet and other Azure resources not connected to a virtual network. Assigning a public IP address to a NIC is optional. Public IP addresses have a nominal charge, and there's a maximum number that can be used per subscription.
 - **Private IP addresses** - Used for communication within a virtual network, your on-premises network, and the Internet (with NAT). At least one private IP address must be assigned to a VM. To learn more about NAT in Azure, read [Understanding outbound connections in Azure](../load-balancer/load-balancer-outbound-connections.md).
@@ -75,9 +75,9 @@ This table lists the methods that you can use to create an IP address.
 
 | Method | Description |
 | ------ | ----------- |
-| [Azure portal](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | By default, public IP addresses are dynamic. The IP address may change when the VM is stopped or deleted. To guarantee that the VM always uses the same public IP address, create a static public IP address. By default, the portal assigns a dynamic private IP address to a NIC when creating a VM. You can change this IP address to static after the VM is created.|
-| [Azure PowerShell](../virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | You use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) with the **`-AllocationMethod`** parameter as Dynamic or Static. |
-| [Azure CLI](../virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | You use [az network public-ip create](/cli/azure/network/public-ip) with the **`--allocation-method`** parameter as Dynamic or Static. |
+| [Azure portal](./ip-services/virtual-network-deploy-static-pip-arm-portal.md) | By default, public IP addresses are dynamic. The IP address may change when the VM is stopped or deleted. To guarantee that the VM always uses the same public IP address, create a static public IP address. By default, the portal assigns a dynamic private IP address to a NIC when creating a VM. You can change this IP address to static after the VM is created.|
+| [Azure PowerShell](./ip-services/virtual-network-deploy-static-pip-arm-ps.md) | You use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) with the **`-AllocationMethod`** parameter as Dynamic or Static. |
+| [Azure CLI](./ip-services/virtual-network-deploy-static-pip-arm-cli.md) | You use [az network public-ip create](/cli/azure/network/public-ip) with the **`--allocation-method`** parameter as Dynamic or Static. |
 | [Template](../virtual-network/template-samples.md) | For more information on deploying a public IP address using a template, see [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/nic-publicip-dns-vnet). |
 
 After you create a public IP address, you can associate it with a VM by assigning it to a NIC.

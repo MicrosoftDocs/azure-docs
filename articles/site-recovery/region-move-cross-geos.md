@@ -51,11 +51,10 @@ Make sure your Azure account has permissions for replication of VMs to Azure.
 
 ### Set up an Azure network
 
-Set up a the target [Azure network](../virtual-network/quick-create-portal.md).
+Set up the target [Azure network](../virtual-network/quick-create-portal.md).
 
 - Azure VMs are placed in this network when they're created after failover.
 - The network should be in the same region as the Recovery Services vault
-
 
 ### Set up an Azure storage account
 
@@ -93,7 +92,7 @@ The Mobility service must be installed on each server you want to replicate. Sit
 
     - [Network Security Groups](../virtual-network/manage-network-security-group.md)
     - [Load balancers](../load-balancer/index.yml)
-    - [Public IP](../virtual-network/virtual-network-public-ip-address.md)
+    - [Public IP](../virtual-network/ip-services/virtual-network-public-ip-address.md)
     
     For any other networking components, refer to the networking [documentation](../index.yml?pivot=products&panel=network).
 

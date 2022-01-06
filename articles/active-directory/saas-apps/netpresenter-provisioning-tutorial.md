@@ -12,7 +12,6 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2021
 ms.author: Zhchia
@@ -50,7 +49,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 4. Click on the **Generate Token** button.
 5. Save the **SCIM Endpoint URL** and **Token** at a secure place, you'll need it in the **Step 5**.
 
-   ![Token and url](media/netpresenter/get-token-and-url.png)
+   ![Token and URL](media/netpresenter/get-token-and-url.png)
 
 1. **Optional:** Under **Sign in options**, 'Force sign in with Microsoft' can be enabled or disabled. By enabling it, users with an Azure AD account will lose the ability to sign in with their local account.
 

@@ -8,7 +8,7 @@ ms.workload: identity
 ms.topic: how-to
 author: curtand
 ms.author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.reviewer: krbain
 ms.date: 03/29/2021
 ms.custom: it-pro
@@ -118,7 +118,7 @@ Once admins have taken the above steps, the user can't gain new tokens for any a
 > [!NOTE]
 > Data on the device cannot be recovered after a wipe.
 
-- Use [Microsoft Cloud App Security (MCAS) to block data download](/cloud-app-security/use-case-proxy-block-session-aad) when appropriate. If the data can only be accessed online, organizations can monitor sessions and achieve real-time policy enforcement.
+- Use [Microsoft Defender for Cloud Apps to block data download](/cloud-app-security/use-case-proxy-block-session-aad) when appropriate. If the data can only be accessed online, organizations can monitor sessions and achieve real-time policy enforcement.
 
 - Enable [Continuous Access Evaluation (CAE) in Azure AD](../conditional-access/concept-continuous-access-evaluation.md). CAE allows admins to revoke the session tokens and access tokens for applications that are CAE capable.  
 

@@ -4,11 +4,12 @@ description: This article describes how to configure the Azure API for FHIR to u
 author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.topic: reference 
-ms.date: 03/15/2020
+ms.topic: reference
+ms.date: 12/06/2021
 ms.author: zxue
+ms.custom: devx-track-azurepowershell
 ---
-# Configure local RBAC for FHIR 
+# Configure local RBAC for FHIR
 
 This article explains how to configure the Azure API for FHIR to use an external, secondary Azure Active Directory tenant for managing data plane access. Use this mode only if it is not possible for you to use the Azure Active Directory tenant associated with your subscription.
 
@@ -22,7 +23,7 @@ Local RBAC allows you to use an external Azure Active Directory tenant with your
 Using the `Az` PowerShell module:
 
 ```azurepowershell-interactive
-New-AzADServicePrincipal -ApplicationId 3274406e-4e0a-4852-ba4f-d7226630abb7
+New-AzADServicePrincipal -ApplicationId 3274406e-4e0a-4852-ba4f-d7226630abb7 -Role Contributor
 ```
 
 or you can use the `AzureAd` PowerShell module:
@@ -60,6 +61,10 @@ The Azure API for FHIR will cache decisions for up to 5 minutes. If you grant a 
 ## Next steps
 
 In this article, you learned how to assign FHIR data plane access using an external (secondary) Azure Active Directory tenant. Next learn about additional settings for the Azure API for FHIR:
- 
+
 >[!div class="nextstepaction"]
->[Additional settings Azure API for FHIR](azure-api-for-fhir-additional-settings.md)
+>[Configure CORS](configure-cross-origin-resource-sharing.md)
+
+>[!div class="nextstepaction"]
+>[Configure Private Link](configure-private-link.md)
+

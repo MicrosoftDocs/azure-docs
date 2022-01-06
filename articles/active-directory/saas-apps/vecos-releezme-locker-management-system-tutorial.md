@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/08/2021
+ms.date: 10/20/2021
 ms.author: jeedes
 
 ---
@@ -18,7 +18,7 @@ ms.author: jeedes
 
 In this tutorial, you'll learn how to integrate VECOS Releezme Locker management system with Azure Active Directory (Azure AD). When you integrate VECOS Releezme Locker management system with Azure AD, you can:
 
-* Control in Azure AD who has access to VECOS Releezme Locker management system.
+* Control in Azure AD who has access to VECOS Releezme Locker management system. Access to the VECOS Releezme Locker Management System is only needed for users who need to manage the lockers, i.e., facility managers, service desk employees, etc.
 * Enable your users to be automatically signed-in to VECOS Releezme Locker management system with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
@@ -74,18 +74,46 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following steps: 
 
-	a. In the **Identifier(Entity ID)** text box, type the URL: 
-    `https://au.releezme.net/`
+	a. In the **Identifier(Entity ID)** text box, type a URL using the following pattern: 
+    `https://<baseURL>/`
 
-    b. In the **Reply URL** textbox, type the URL:
-    `https://au.releezme.net/Saml2/Acs`
+    b. In the **Reply URL** textbox, type a URL using the following pattern: 
+    `https://<baseURL>/Saml2/Acs`
     
-    c. In the **Sign on URL** text box, type the URL:  
-    `https://sso-na.releezme.net`
+    c. In the **Sign on URL** text box, type a URL using the following pattern:   
+    `https://<baseURL>/sso` (optionally add the `?companycode=` query parameter with the company code value given by VECOS.)
+
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [VECOS Releezme Locker management system support team](mailto:servicedesk@vecos.com) what region you are connecting to. Depending on your region, the URL's below will be different:
+
+    | **Region** | **baseURL** |
+    |-------|-------|
+	| Europe| `https://www.releezme.net` |
+	| North America | `https://na.releezme.net` |
+	| Asia Pacific | `https://au.releezme.net` |
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
+
+## Configure VECOS Releezme Locker management system Roles
+
+1. In the Azure portal, select **App Registrations**, and then select **All applications**.
+1. In the app registrations list, select **VECOS Releezme Locker management system**.
+1. In the app registration open **App roles**.
+1. In the app roles page, create a new app role by clicking **Create app role**
+1. In the **display name** field enter a name for the role, e.g., `VECOS Company Facility Manager`.
+1. Select **Users/Groups** as the **Allowed member types** value.
+1. Enter the VECOS Releezme Locker management system role name in the **Value** field. See table below.
+1. Click **Apply**.
+
+| Role | Role Value | Description |
+| -- | --------- | ---------- |
+| Service Desk | CompanyServiceDesk | Limited access service desk. Mostly read-only access |
+| Service Desk+ | CompanyServiceDeskPlus | Advanced version of the service desk with more read/write access |
+| Facility Manager | CompanyFacilityManager | Facility Manager with access to setup of the company |
+| Facility Manager+ | CompanyFacilityManagerPlus | Advanced Facility Manager with additional access within the company. |
+| Administrator | CompanyAdmin | Administrator with full company access |
 
 ### Create an Azure AD test user
 
@@ -131,4 +159,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure VECOS Releezme Locker management system you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure VECOS Releezme Locker management system you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

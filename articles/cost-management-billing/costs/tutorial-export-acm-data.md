@@ -3,7 +3,7 @@ title: Tutorial - Create and manage exported data from Azure Cost Management
 description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2021
+ms.date: 11/03/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -40,6 +40,7 @@ Data export is available for various Azure account types, including [Enterprise 
 For Azure Storage accounts:
 - Write permissions are required to change the configured storage account, independent of permissions on the export.
 - Your Azure storage account must be configured for blob or file storage.
+- The storage account must not have a firewall configured.
 
 If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 

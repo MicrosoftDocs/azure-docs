@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.subservice: security
 ms.topic: overview 
 ms.custom: sqldbrb=1, fasttrack-edit
-ms.reviewer: vanto
+ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 03/09/2020
 ---
 

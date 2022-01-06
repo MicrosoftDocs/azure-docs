@@ -6,7 +6,6 @@ documentationcenter: na
 author: KumudD
 # Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure Virtual Network, so that my Azure resources such as VMs, can securely communicate with each other, the internet, and my on-premises resources.
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -23,7 +22,7 @@ Azure virtual network enables Azure resources to securely communicate with each 
 
 ### Communicate with the internet
 
-All resources in a VNet can communicate outbound to the internet, by default. You can communicate inbound to a resource by assigning a public IP address or a public Load Balancer. You can also use public IP or public Load Balancer to manage your outbound connections.  To learn more about outbound connections in Azure, see [Outbound connections](../load-balancer/load-balancer-outbound-connections.md), [Public IP addresses](virtual-network-public-ip-address.md), and [Load Balancer](../load-balancer/load-balancer-overview.md).
+All resources in a VNet can communicate outbound to the internet, by default. You can communicate inbound to a resource by assigning a public IP address or a public Load Balancer. You can also use public IP or public Load Balancer to manage your outbound connections.  To learn more about outbound connections in Azure, see [Outbound connections](../load-balancer/load-balancer-outbound-connections.md), [Public IP addresses](./ip-services/virtual-network-public-ip-address.md), and [Load Balancer](../load-balancer/load-balancer-overview.md).
 
 >[!NOTE]
 >When using only an internal [Standard Load Balancer](../load-balancer/load-balancer-overview.md), outbound connectivity is not available until you define how you want [outbound connections](../load-balancer/load-balancer-outbound-connections.md) to work with an instance-level public IP or a public Load Balancer.

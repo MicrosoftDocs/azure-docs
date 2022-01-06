@@ -7,7 +7,7 @@ ms.topic: reference
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick
+ms.reviewer: fipopovi
 ---
 
 # Database collation support for Synapse SQL in Azure Synapse Analytics 
@@ -18,12 +18,15 @@ You can change the default database collation from the Azure portal when you cre
 
 You can specify the default serverless SQL pool database collation at creation time using CREATE DATABASE statement.
 
+> [!NOTE]
+> In Azure Synapse Analytics, query text (including variables, constants, etc.) is always handled using the database-level collation, and not the server-level collation as in other SQL Server offerings.
+
 ## Change collation
 To change the default collation for dedicated SQL pool database, update to the Collation field in the provisioning experience. For example, if you wanted to change the default collation to case sensitive, you would rename the Collation from SQL_Latin1_General_CP1_CI_AS to SQL_Latin1_General_CP1_CS_AS. 
 
 To change the default collation for a serverless SQL pool database, you can use ALTER DATABASE statement.
 
-## List of unsupported collation types
+## List of unsupported collation types for Dedicated SQL pools
 *    Japanese_Bushu_Kakusu_140_BIN
 *    Japanese_Bushu_Kakusu_140_BIN2
 *    Japanese_Bushu_Kakusu_140_CI_AI_VSS
@@ -92,9 +95,6 @@ To change the default collation for a serverless SQL pool database, you can use 
 *    Japanese_XJIS_140_CS_AS_WS
 *    Japanese_XJIS_140_CS_AS_KS
 *    Japanese_XJIS_140_CS_AS_KS_WS
-
-Additionally, dedicated SQL pool doesn't support following collation types:
-
 *    SQL_EBCDIC1141_CP1_CS_AS
 *    SQL_EBCDIC277_2_CP1_CS_AS
 *    UTF-8
