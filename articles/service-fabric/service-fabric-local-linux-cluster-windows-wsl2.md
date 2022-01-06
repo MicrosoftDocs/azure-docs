@@ -54,6 +54,7 @@ For manual installation of the Service Fabric runtime and common SDK, follow the
 
 5. Inside genie namespace, SF SDK can also be installed as mentioned under Script Installation or Manual Installation steps in [Set up a linux local cluster](service-fabric-get-started-linux.md)
 
+6. Provide sudo privileges to current user by making an entry (e.g. <USERNAME> ALL = (ALL) NOPASSWD:ALL) in /etc/sudoers
 
 ## Set up a local cluster
 Service Fabric inside WSL2 VM is recommended to manage from host windows
@@ -114,7 +115,7 @@ sudo ./SetupServiceFabric.sh --servicefabricruntime=/mnt/c/Users/testuser/Downlo
     No, at one time only one local cluster can be run either in host or in guest VM.
 
  3. How to deploy one node linux local cluster?  
-    One node or five node linux local cluster can be deployed from Linux Local Cluster Manager from the menu options. While deploying from setup script, five node cluster is deployed by default and for one node cluster CreateOneNodeCluster should be passed.
+    One node or five node linux local cluster can be deployed from Local Cluster Manager from the menu options. While deploying from setup script, five node cluster is deployed by default and for one node cluster CreateOneNodeCluster should be passed.
 
  4. How to connect to Linux Local Cluster in PowerShell and Visual Studio?  
     If linux local cluster is up and running, connect-servicefabriccluster cmdlet should automatically connect to this cluster. Similar Visual Studio will automatically detect this local cluster.
