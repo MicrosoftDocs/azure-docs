@@ -297,7 +297,15 @@ C# script uses a *function.json* file for configuration instead of attributes. T
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
-The `ServiceBusQueueTrigger` annotation allows you to create a function that runs when a Service Bus queue message is created. Configuration options available include queue name and connection string name.
+The `ServiceBusQueueTrigger` annotation allows you to create a function that runs when a Service Bus queue message is created. Configuration options available include the following properties:
+
+|Property | Description|
+|---------|----------------------|
+|**name** | The name of the variable that represents the queue or topic message in function code. |
+|**queueName**| Name of the queue to monitor.  Set only if monitoring a queue, not for a topic.
+|**topicName**| Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
+|**subscriptionName**| Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
+|**connection**|  The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
 
 The `ServiceBusTopicTrigger` annotation allows you to designate a topic and subscription to target what data triggers the function.
 
@@ -306,7 +314,7 @@ The `ServiceBusTopicTrigger` annotation allows you to designate a topic and subs
 See the trigger [example](#example) for more detail.
 
 ::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
