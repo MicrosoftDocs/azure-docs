@@ -4,7 +4,7 @@ description: Enable SQL insights in Azure Monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/15/2021
+ms.date: 1/6/2022
 ---
 
 # Enable SQL insights (preview)
@@ -118,7 +118,7 @@ The Azure virtual machines has the following requirements.
 
 - Operating system: Ubuntu 18.04 
 - Recommended Azure virtual machine sizes: Standard_B2s (2 cpus, 4 GiB memory) 
-- Supported regions: Any [region supported by the Azure Monitor agent](../agents/azure-monitor-agent-overview.md#supported-regions)
+- Deployed in any [Azure region supported by the Azure Monitor agent](../agents/azure-monitor-agent-overview.md#supported-regions) and meeting all Azure Monitor agent [prerequisites](../agents/azure-monitor-agent-install#prerequisites).
 
 > [!NOTE]
 > The Standard_B2s (2 cpus, 4 GiB memory) virtual machine size will support up to 100 connection strings. You shouldn't allocate more than 100 connections to a single virtual machine.
