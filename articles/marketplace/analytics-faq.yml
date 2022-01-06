@@ -93,7 +93,7 @@ sections:
           Estimated revenue is the amount billed to the customer who purchased an offer or consumed services.
 
       - question: |
-          What does Total revenue and Others revenue mean?
+          What does Total revenue and Other revenue mean?
         answer: | 
           _Total revenue_ represents the billed sales of purchases or consumption that have entries in the transaction history report. This represents the total billed sales for the following statuses only:
           - Sent
@@ -125,14 +125,19 @@ sections:
           - **Not eligible**: The overall revenue for which a partner isn't eligible to receive pay outs. To learn more about eligibility, see [Payout statements](/partner-center/payout-statement).
 
       - question: |
-          Is Purchase record id same as Order id in transaction history report?
+          Is Purchase record id the same as Order id in the transaction history report?
         answer: |
-          Yes, the Purchase record id refers to the same “order id” data field.
+          Yes, the Purchase record id refers to the same “Order id” data field.
+
+      - question: |
+          How can I reconcile payout reports with orders, usage, and the customer report?
+        answer: |
+          The revenue dashboard provides a unified view of all analytic and payout reports. All transactions in the dashboard and downloaded report represent an aggregated summary of billed sales, orders, usage, and payments. You can verify the entries across reports using a combination of Purchase record id and Order id key.
 
       - question: |
           Why is customer information blank in many rows of the revenue report?
         answer: |
-          Customer information such as email or customer name could be blank due to a customer not providing consent to share their personally identifiable information. In some cases, this could be due to a known technical limitation that is being addressed.
+          Customer information such as email or customer name could be blank due to a customer not providing consent to share their personally identifiable information. In some cases, this could be due to a known technical limitation being addressed.
 
       - question: |
           Does customer name represent bill to account, the end-customer, or the reseller information?
@@ -170,7 +175,7 @@ sections:
       - question: |
           What does “Billed Month” refer to?
         answer: |
-          Billed Month refers to the order purchase month or the offer usage month for which the billing is done.
+          Billed Month refers to the order purchase month or the offer usage month for which the billing is done. For example, if a customer used a consumption or usage-based offer in the month of January, on the 4th of February you can download an accurate January-billed revenue report.
 
       - question: |
           Why do I see a steep drop in estimated revenue trend for current month?
