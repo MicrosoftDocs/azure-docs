@@ -21,7 +21,6 @@ The auto-failover groups feature allows you to manage the replication and failov
 > [!NOTE]
 > Auto-failover groups support geo-replication of all databases in the group to only one secondary server or instance in a different region. If you need to create multiple Azure SQL Database geo-secondary replicas (in the same or different regions) for the same primary replica, use [active geo-replication](active-geo-replication-overview.md).
 > 
-> Auto-failover groups are not currently supported in the [Hyperscale](service-tier-hyperscale.md) service tier. For geographic failover of a Hyperscale database, use [active geo-replication](active-geo-replication-overview.md).
 
 When you are using auto-failover groups with automatic failover policy, an outage that impacts one or several of the databases in the group will result in an automatic geo-failover. Typically, these are outages that cannot be automatically mitigated by the built-in high availability infrastructure. Examples of geo-failover triggers include an incident caused by a SQL Database tenant ring or control ring being down due to an OS kernel memory leak on compute nodes, or an incident caused by one or more tenant rings being down because a wrong network cable was accidentally cut during routine hardware decommissioning. For more information, see [SQL Database High Availability](high-availability-sla.md).
 

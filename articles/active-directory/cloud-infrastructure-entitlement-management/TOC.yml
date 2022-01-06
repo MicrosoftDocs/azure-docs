@@ -40,7 +40,7 @@
       href: cloudknox-servicenow.md
     - name: CloudKnox FortSentry registration
       href: cloudknox-fortsentry-registration.md
-  - name: How-to guides
+  - name: Configure authorization systems
     expanded: true
     items:
     - name: Configure an IDP to enable the SAML login process
@@ -49,6 +49,9 @@
       href: cloudknox-vcenter-sentry-config-modification.md
     - name: G Suite integration for GCP Sentry configuration
       href: cloudknox-gsuite-integration-gcp-sentry.md
+  - name: How-to guides
+    expanded: true
+    items:
     - name: Create custom queries
       href: cloudknox-howto-create-custom-queries.md
     - name: Generate custom reports
@@ -76,6 +79,20 @@
   - name: Dashboards
     expanded: true
     items:
+    - name: The CloudKnox Settings dashboard
+      href: cloudknox-ui-product-settings.md
+    - name: The Usage Analytics dashboard
+      href: cloudknox-product-user-management.md
+    - name: The User Management dashboard
+      href: cloudknox-ui-user-management.md
+    - name: The Integrations dashboard
+      href: cloudknox-ui-integrations.md
+    - name: The Account Settings dashboard
+      href: cloudknox-ui-account-settings.md
+    - name: The Activity Triggers dashboard
+      href: cloudknox-ui-triggers.md
+    - name: The Tasks pane
+      href: cloudknox-ui-tasks.md
     - name: The CloudKnox dashboard
       href: cloudknox-ui-dashboard.md
     - name: The Usage Analytics dashboard
@@ -94,11 +111,10 @@
       href: cloudknox-product-account-explorer.md
     - name: CloudKnox product account settings
       href: cloudknox-product-account-settings.md
-  - name: Training material
-    expanded: true
-    items:
-    - name: Training videos
-      href: cloudknox-training-videos.md
+    - name: Create and save product alerts
+      href: cloudknox-product-alerts.md 
+    - name: Filter and query user activity
+      href: cloudknox-product-audit-trail.md
   - name: Data management
     expanded: true
     items:
@@ -135,6 +151,11 @@
     #items:
     #- name: Compliance with established guidelines
       #href: cloudknox-product-compliance.md
+  - name: Training material
+    expanded: true
+    items:
+    - name: Training videos
+      href: cloudknox-training-videos.md
   - name: Reference
     expanded: true
     items:
