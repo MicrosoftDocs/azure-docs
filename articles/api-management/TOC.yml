@@ -148,8 +148,10 @@
               href: how-to-deploy-self-hosted-gateway-azure-arc.md
             - name: Deploy a self-hosted gateway to Azure Kubernetes Service
               href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
-            - name: Deploy a self-hosted gateway to Kubernetes
+            - name: Deploy a self-hosted gateway to Kubernetes (YAML)
               href: how-to-deploy-self-hosted-gateway-kubernetes.md
+            - name: Deploy a self-hosted gateway to Kubernetes (Helm)
+              href: how-to-deploy-self-hosted-gateway-kubernetes-helm.md
             - name: Deploy a self-hosted gateway to Docker
               href: how-to-deploy-self-hosted-gateway-docker.md
             - name: Configure custom domain for self-hosted gateway

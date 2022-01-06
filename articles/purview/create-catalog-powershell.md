@@ -82,7 +82,7 @@ For more information about Purview, [see our overview page](overview.md). For mo
     Use the [New-AzPurviewAccount](/powershell/module/az.purview/new-azpurviewaccount) cmdlet to create the Purview account:
 
     ```azurepowershell
-    New-AzPurviewAccount -Name yourPurviewAccountName -ResourceGroupName myResourceGroup -Location eastus -IdentityType SystemAssigned -SkuCapacity 4 -SkuName Standard -PublicNetworkAccess
+    New-AzPurviewAccount -Name yourPurviewAccountName -ResourceGroupName myResourceGroup -Location eastus -IdentityType SystemAssigned -SkuCapacity 4 -SkuName Standard -PublicNetworkAccess Enabled
     ```
 
     # [Azure CLI](#tab/azure-cli)
