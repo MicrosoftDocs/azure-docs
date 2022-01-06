@@ -5,7 +5,7 @@ author: madsd
 ms.topic: overview
 ms.date: 11/15/2021
 ms.author: madsd
-ms.custom: references_regions
+ms.custom: references_regions, fasttrack-edit
 ---
 # App Service Environment overview
 
@@ -47,6 +47,12 @@ There are many networking features that enable apps in the multi-tenant App Serv
 The ASE is a single tenant deployment of the Azure App Service that runs in your virtual network. 
 
 Applications are hosted in App Service plans, which are created in an App Service Environment. The App Service plan is essentially a provisioning profile for an application host. As you scale your App Service plan out, you create more application hosts with all of the apps in that App Service plan on each host. A single ASEv3 can have up to 200 total App Service plan instances across all of the App Service plans combined. A single Isolated v2 App Service plan can have up to 100 instances by itself.
+
+> [!NOTE]
+> It is possible for the App Service plans and the apps they host to be provisioned in a different Subscription to the App Service Environment. This can be useful for segregating access. The prerequisties are:
+> - The Subscriptions must share the same Azure AD Tenant
+> - The App Service Environment, App Service plans and apps must be in the same region
+> - Today you cannot create App Service Plans and apps in a different subscription using the Azure Portal. Instead, use either [Azure REST API](/rest/api/appservice/app-service-plans/create-or-update) or [Azure Resource Manager Templates](/azure/templates/microsoft.web/allversions).
 
 ## Virtual network support
 

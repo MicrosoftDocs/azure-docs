@@ -7,7 +7,6 @@ ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: eriklind
 ---
 
 # Get started with Azure Maps iOS SDK (Preview)

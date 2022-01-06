@@ -28,25 +28,28 @@ To enable calling and chat between your Communication Services users and your Te
 
 Custom applications built with Azure Communication Services to connect and communicate with Teams users can be used by end users or by bots, and there's no differentiation in how they appear to Teams users, unless explicitly indicated by the developer of the application.
 
-To start a call or chat with a Teams user, the user’s Azure Active Directory (Azure AD) object ID is required. This can be obtained using [Microsoft Graph API](/graph/api/resources/users) or from your on-premises directory if you are using [Azure AD Connect](../../../active-directory/hybrid/how-to-connect-sync-whatis.md) (or some other mechanism) to synchronize between your on-premises directory and Azure AD.
+To start a call or chat with a Teams user, the user's Azure Active Directory (Azure AD) object ID is required. This can be obtained using [Microsoft Graph API](/graph/api/resources/users) or from your on-premises directory if you are using [Azure AD Connect](../../../active-directory/hybrid/how-to-connect-sync-whatis.md) (or some other mechanism) to synchronize between your on-premises directory and Azure AD.
 
 ## Calling
 With the Calling SDK, a Communication Services user or endpoint can start a 1:1 call with Teams users, identified by their Azure Active Directory (Azure AD) object ID. You can easily modify an existing application that calls other Communication Services users to instead call a Teams user.
  
 [Manage calls - An Azure Communication Services how-to guide | Microsoft Docs](../../how-tos/calling-sdk/manage-calls.md?pivots=platform-web)
 
-Calling another Communication Services endpoint using [communicationUserId](/javascript/api/@azure/communication-common/communicationuseridentifier?view=azure-node-latest#communicationUserId):
+Calling another Communication Services endpoint using [communicationUserId](/javascript/api/@azure/communication-common/communicationuseridentifier#communicationUserId):
 ```js
 const acsCallee = { communicationUserId: '<ACS User ID>' }
 const call = callAgent.startCall([acsCallee]);
 ```
 
-Calling a Teams user using [microsoftTeamsUserId](/javascript/api/@azure/communication-common/microsoftteamsuseridentifier?view=azure-node-latest#microsoftTeamsUserId):
+Calling a Teams user using [microsoftTeamsUserId](/javascript/api/@azure/communication-common/microsoftteamsuseridentifier#microsoftTeamsUserId):
 ```js
 const teamsCallee = { microsoftTeamsUserId: '<Teams User AAD Object ID>' }
 const call = callAgent.startCall([teamsCallee]);
 ```
- 
+**Voice and video calling events**
+
+[Communication Services voice and video calling events](/azure/event-grid/communication-services-voice-video-events) are raised for calls between a Communication Services user and Teams users.
+
 **Limitations and known issues**
 - Teams users must be in "TeamsOnly" mode. Skype for Business users can't receive 1:1 calls from Communication Services users.
 - Escalation to a group call isn't supported.
@@ -77,9 +80,9 @@ To make it easier to test, we have published a sample app [here](https://github.
 
 **Limitations and known issues** </br>
 While in private preview, a Communication Services user can do various actions using the Communication Services Chat SDK, including sending and receiving of plain and rich text messages, typing indicators, read receipts, real-time notifications and more. However, most of the Teams chat features aren't supported. Here are some key behaviors and known issues:
--	Chats can only be initiated by Communication Services users. 
--	Communication Services users can't send or receive gifs, images, or files. Links to files and images can be shared.
--	Communication Services users can delete the chat. This removes the Teams user from the chat thread and hides the message history from the Teams client.
+-    Chats can only be initiated by Communication Services users. 
+-    Communication Services users can't send or receive gifs, images, or files. Links to files and images can be shared.
+-    Communication Services users can delete the chat. This removes the Teams user from the chat thread and hides the message history from the Teams client.
 - Known issue: Communication Services users aren't displayed correctly in the participant list. They are currently displayed as External but their people card might be inconsistent. 
 - Known issue: A chat can't be escalated to a call from within the Teams app. 
 - Known issue: Editing of messages by the Teams user is not supported. 

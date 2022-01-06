@@ -1,14 +1,14 @@
 ---
 title: Use the Table API and Java to build an app - Azure Cosmos DB
 description: This quickstart shows how to use the Azure Cosmos DB Table API to create an application with the Azure portal and Java
-author: SnehaGunda
+author: sakash279
+ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/28/2020
-ms.author: sngun
-ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-other
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 
 # Quickstart: Build a Java app to manage Azure Cosmos DB Table API data

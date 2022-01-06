@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 07/26/2021
 ---
 # Tune applications and databases for performance in Azure SQL Database and Azure SQL Managed Instance
@@ -267,7 +267,9 @@ To learn more about the script and get started, visit the [wiki](https://aka.ms/
 
 ## Next steps
 
-- For more information about DTU-based service tiers, see [DTU-based purchasing model](service-tiers-dtu.md).
-- For more information about vCore-based service tiers, see [vCore-based purchasing model](service-tiers-vcore.md).
-- For more information about elastic pools, see [What is an Azure elastic pool?](elastic-pool-overview.md)
-- For information about performance and elastic pools, see [When to consider an elastic pool](elastic-pool-overview.md)
+- Learn about the [DTU-based purchasing model](service-tiers-dtu.md).
+- Learn more about the [vCore-based purchasing model](service-tiers-vcore.md).
+- Read [What is an Azure elastic pool?](elastic-pool-overview.md)
+- Discover [When to consider an elastic pool](elastic-pool-overview.md)
+- Read about [Monitoring Microsoft Azure SQL Database and Azure SQL Managed Instance performance using dynamic management views](monitoring-with-dmvs.md)
+- Learn to [Diagnose and troubleshoot high CPU on Azure SQL Database](high-cpu-diagnose-troubleshoot.md)

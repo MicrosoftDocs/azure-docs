@@ -3,7 +3,7 @@ title: 'Tutorial: Node.js app with MongoDB'
 description: Learn how to get a Node.js app working in Azure, with connection to a MongoDB database in Azure (Cosmos DB). Sails.js and Angular 12 are used in the tutorial.
 
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 07/13/2021
 ms.custom: mvc, cli-validate, seodec18, devx-track-js, devx-track-azurecli

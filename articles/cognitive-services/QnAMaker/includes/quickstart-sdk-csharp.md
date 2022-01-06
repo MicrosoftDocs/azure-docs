@@ -1,9 +1,9 @@
 ---
 title: "Quickstart: QnA Maker client library for .NET"
 description: This quickstart shows how to get started with the QnA Maker client library for .NET. Follow these steps to install the package and try out the example code for basic tasks.  QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals.
-ms.topic: quickstart
+ms.topic: include
 ms.date: 04/28/2021
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: ignite-fall-2021
 ---
 
 Use the QnA Maker client library for .NET to:
@@ -24,7 +24,7 @@ Use the QnA Maker client library for .NET to:
 ## Prerequisites
 
 > [!NOTE]
-> This documentation does not apply to the latest release. To learn about using the C# API with the latest release consult the [question answering C# quickstart](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/quickstart/sdk?pivots=programming-language-csharp).
+> This documentation does not apply to the latest release. To learn about using the C# API with the latest release consult the [question answering C# quickstart](../../language-service/question-answering/quickstart/sdk.md?pivots=programming-language-csharp).
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).

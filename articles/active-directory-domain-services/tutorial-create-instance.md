@@ -2,13 +2,13 @@
 title: Tutorial - Create an Azure Active Directory Domain Services managed domain | Microsoft Docs
 description: In this tutorial, you learn how to create and configure an Azure Active Directory Domain Services managed domain using the Azure portal.
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/15/2021
+ms.date: 12/15/2021
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to create an Azure Active Directory Domain Services managed domain so that I can synchronize identity information with my Azure Active Directory tenant and provide Domain Services connectivity to virtual machines and applications in Azure.
@@ -157,7 +157,7 @@ To authenticate users on the managed domain, Azure AD DS needs password hashes i
 >
 > Synchronized credential information in Azure AD can't be re-used if you later create a managed domain - you must reconfigure the password hash synchronization to store the password hashes again. Previously domain-joined VMs or users won't be able to immediately authenticate - Azure AD needs to generate and store the password hashes in the new managed domain.
 >
-> [Azure AD Connect Cloud Sync is not supported with Azure AD DS][/azure/active-directory/cloud-sync/what-is-cloud-sync#comparison-between-azure-ad-connect-and-cloud-sync]. On-premises users need to be synced using Azure AD Connect in order to be able to access domain-joined VMs. For more information, see [Password hash sync process for Azure AD DS and Azure AD Connect][password-hash-sync-process].
+> [Azure AD Connect Cloud Sync is not supported with Azure AD DS](../active-directory/cloud-sync/what-is-cloud-sync.md#comparison-between-azure-ad-connect-and-cloud-sync). On-premises users need to be synced using Azure AD Connect in order to be able to access domain-joined VMs. For more information, see [Password hash sync process for Azure AD DS and Azure AD Connect][password-hash-sync-process].
 
 The steps to generate and store these password hashes are different for cloud-only user accounts created in Azure AD versus user accounts that are synchronized from your on-premises directory using Azure AD Connect.
 

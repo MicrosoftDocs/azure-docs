@@ -5,6 +5,7 @@ author: cgillum
 ms.topic: overview
 ms.date: 05/11/2021
 ms.author: azfuncdf
+ms.devlang: csharp, javascript, powershell, python
 #Customer intent: As a developer, I want to understand durable orchestrations so that I can use them effectively in my applications.
 ---
 

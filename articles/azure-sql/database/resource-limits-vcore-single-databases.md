@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 07/21/2021
 ---
 # Resource limits for single databases using the vCore purchasing model
@@ -32,7 +32,7 @@ You can set the service tier, compute size (service objective), and storage amou
 * [Transact-SQL](single-database-manage.md#transact-sql-t-sql) via [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
 * [Azure portal](single-database-manage.md#the-azure-portal)
 * [PowerShell](single-database-manage.md#powershell)
-* [Azure CLI](single-database-manage.md#the-azure-cli)
+* [Azure CLI](single-database-manage.md#azure-cli)
 * [REST API](single-database-manage.md#rest-api)
 
 > [!IMPORTANT]

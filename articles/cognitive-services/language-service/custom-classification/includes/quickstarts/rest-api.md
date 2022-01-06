@@ -97,7 +97,7 @@ Use the following JSON in your request. Replace the placeholder values below wit
     "metadata": {
         "name": "MyProject",
         "multiLingual": true,
-        "description": "Tryong out custom text classification",
+        "description": "Trying out custom text classification",
         "modelType": "multiClassification",
         "language": "string",
         "storageInputContainerName": "YOUR-CONTAINER-NAME",
@@ -269,7 +269,6 @@ Use the following header to authenticate your request.
 Use the following JSON in your request. The model will be named `MyModel` once training is complete.  
 
 ```json
-{
 {
   "trainedModelLabel": "MyModel"
 }

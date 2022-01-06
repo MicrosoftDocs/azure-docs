@@ -7,7 +7,8 @@ ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: mode-other
+ms.devlang: golang
+ms.custom: mode-api
 ---
 
 # Quickstart: Upload, download, and list blobs using Go

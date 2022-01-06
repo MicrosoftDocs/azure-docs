@@ -2,7 +2,7 @@
 title: Multi-user authorization using Resource Guard
 description: An overview of Multi-user authorization using Resource Guard.
 ms.topic: how-to
-ms.date: 10/20/2021
+ms.date: 12/06/2021
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -23,8 +23,7 @@ This document includes the following:
 - Disable MUA on a Recovery Services vault
 
 >[!NOTE]
->- Multi-user authorization for Backup is currently in preview and is available in all public Azure regions.
->- If you are using the preview before November 2, 2021, register your subscription using Preview Features **AzureBackupResourceGuard** feature under the **Microsoft.RecoveryServices** provider in the Azure portal to get started.
+> Multi-user authorization for Backup is currently in preview and is available in all public Azure regions.
 
 ## How does MUA for Backup work?
 
@@ -82,6 +81,7 @@ Here is the flow of events in a typical scenario:
 
 -  The Resource Guard and the Recovery Services vault must be in the same Azure region.
 -  As stated in the previous section, ensure the Backup admin does **not** have **Contributor** permissions on the Resource Guard. You can choose to have the Resource Guard in another subscription of the same directory or in another directory to ensure maximum isolation.
+- Ensure that your subscriptions containing the Recovery Services vault as well as the Resource Guard (in different subscriptions or tenants) are registered to use the **Microsoft.RecoveryServices** provider. For more details, see [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1).
 
 ## Usage scenarios
 
