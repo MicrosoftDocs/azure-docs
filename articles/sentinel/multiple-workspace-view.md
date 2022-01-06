@@ -3,7 +3,7 @@ title: Work with Microsoft Sentinel incidents in many workspaces at once | Micro
 description: How to view incidents in multiple workspaces concurrently in Microsoft Sentinel.
 author: yelevin
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 01/06/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
@@ -21,19 +21,18 @@ To take full advantage of Microsoft Sentinel’s capabilities, Microsoft recomme
 When you open Microsoft Sentinel, you are presented with a list of all the workspaces to which you have access rights, across all selected tenants and subscriptions. To the left of each workspace name is a checkbox. Clicking the name of a single workspace will bring you into that workspace. To choose multiple workspaces, click all the corresponding checkboxes, and then click the **Multiple Workspace View** button at the top of the page.
 
 > [!IMPORTANT]
-> Multiple Workspace View currently supports a maximum of 10 concurrently displayed workspaces. 
-> 
-> If you check more than 10 workspaces, a warning message will appear.
+> Multiple Workspace View currently supports a maximum of 30 concurrently displayed workspaces.
+>
 
 Note that in the list of workspaces, you can see the directory, subscription, location, and resource group associated with each workspace. The directory corresponds to the tenant.
 
-   ![Choose multiple workspaces](./media/multiple-workspace-view/workspaces.png)
+![Choose multiple workspaces](./media/multiple-workspace-view/workspaces.png)
 
 ## Working with incidents
 
 In **Multiple Workspace View**, only the **Incidents** screen is available for now. It looks and functions in most ways like the regular **Incidents** screen. There are a few important differences, though:
 
-   ![View incidents in multiple workspaces](./media/multiple-workspace-view/incidents.png)
+![View incidents in multiple workspaces](./media/multiple-workspace-view/incidents.png)
 
 - The counters at the top of the page - *Open incidents*, *New incidents*, *In progress*, etc. - show the numbers for all of the selected workspaces collectively.
 
