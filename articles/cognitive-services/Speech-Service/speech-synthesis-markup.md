@@ -119,28 +119,30 @@ Within the `speak` element, you can specify multiple voices for Text-to-Speech o
 
 By default, the Text-to-Speech service synthesizes text using a neutral speaking style for neural voices. You can adjust the speaking style, style degree, and role at the sentence level.
 
-| Attribute | Description | Required / Optional |
-|-----------|-------------|---------------------|
-| `style` | Specifies the speaking style. Currently, speaking styles are voice-specific. | Required if adjusting the speaking style for a neural voice. If using `mstts:express-as`, then style must be provided. If an invalid value is provided, this element will be ignored. |
-| `styledegree` | Specifies the intensity of speaking style. **Accepted values**: 0.01 to 2 inclusive. The default value is 1, which means the predefined style intensity. The minimum unit is 0.01, which results in a slight tendency for the target style. A value of 2 results in a doubling of the default style intensity.  | Optional. If you don't set the `style` attribute the `styledegree` will be ignored. Speaking style degree adjustments are supported for Chinese (Mandarin, Simplified) neural voices.|
-| `role` | Specifies the speaking role-play. The voice will act as a different age and gender, but the voice name won't be changed.  | Optional. Role adjustments are supported for these Chinese (Mandarin, Simplified) neural voices: `zh-CN-XiaomoNeural` and `zh-CN-XiaoxuanNeural`.)|
-
-
 Styles, style degree, and roles are supported for a subset of neural voices. If a style or role isn't supported, the service will use the default neutral speech. There are multiple ways to determine what styles and roles are supported for each voice.
 - The [Voice styles and roles](language-support.md#voice-styles-and-roles) table
 - The [voice list API](rest-text-to-speech.md#get-a-list-of-voices)
 - The code-free [Audio Content Creation](https://aka.ms/audiocontentcreation) portal
+
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| `style` | Specifies the speaking style. Speaking styles are voice-specific. | Required if adjusting the speaking style for a neural voice. If using `mstts:express-as`, then style must be provided. If an invalid value is provided, this element will be ignored. |
+| `styledegree` | Specifies the intensity of speaking style. **Accepted values**: 0.01 to 2 inclusive. The default value is 1, which means the predefined style intensity. The minimum unit is 0.01, which results in a slight tendency for the target style. A value of 2 results in a doubling of the default style intensity.  | Optional. If you don't set the `style` attribute the `styledegree` will be ignored. Speaking style degree adjustments are supported for Chinese (Mandarin, Simplified) neural voices.|
+| `role` | Specifies the speaking role-play. The voice will act as a different age and gender, but the voice name won't be changed.  | Optional. Role adjustments are supported for these Chinese (Mandarin, Simplified) neural voices: `zh-CN-XiaomoNeural` and `zh-CN-XiaoxuanNeural`.)|
+
 
 ### Style
 
 You use the `mstts:express-as` element to express different emotions like cheerfulness, empathy, and calm, or optimize the voice for different scenarios like customer service, newscast, and voice assistant. 
 
 **Syntax**
+
 ```xml
 <mstts:express-as style="string"></mstts:express-as>
 ```
 
 **Example**
+
 This SSML snippet illustrates how the `<mstts:express-as>` element is used to change the speaking style to `cheerful`.
 
 ```xml
@@ -185,12 +187,15 @@ The table below has descriptions of each supported style.
 The intensity of speaking style can be adjusted to better fit your use case. You specify a stronger or softer style with `styledegree` to make the speech more expressive or subdued. Speaking style degree adjustments are supported for Chinese (Mandarin, Simplified) neural voices.
 
 **Syntax**
+
 ```xml
 <mstts:express-as style="string" styledegree="value"></mstts:express-as>
 ```
 
 **Example**
+
 This SSML snippet illustrates how the `styledegree` attribute is used to change the intensity of speaking style for `zh-CN-XiaomoNeural`.
+
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
        xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="zh-CN">
@@ -209,12 +214,15 @@ Apart from adjusting the speaking styles and style degree, you can also adjust t
 * `zh-CN-XiaoxuanNeural`
 
 **Syntax**
+
 ```xml
 <mstts:express-as role="string" style="string"></mstts:express-as>
 ```
 
 **Example**
+
 This SSML snippet illustrates how the `role` attribute is used to change the role-play for `zh-CN-XiaomoNeural`.
+
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
        xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="zh-CN">
@@ -247,12 +255,14 @@ The table below has descriptions of each supported role.
 
 ## Adjust speaking languages
 
-You can adjust speaking languages for neural voices.
+You can adjust speaking languages for neural voices at the sentence level and word level.
+
 Enable one voice to speak different languages fluently (like English, Spanish, and Chinese) using the `<lang xml:lang>` element. This is an optional element unique to the Speech service. Without this element, the voice will speak its primary language.
-Currently, speaking language adjustments are supported for these neural voices: `en-US-JennyMultilingualNeural`. Above changes are applied at the sentence level and word level. If a language isn't supported, the service will return no audio stream.
+
+Speaking language adjustments are only supported for the `en-US-JennyMultilingualNeural` neural voice. Above changes are applied at the sentence level and word level. If a language isn't supported, the service will return no audio stream.
 
 > [!NOTE]
-> Currently, the `<lang xml:lang>` element is incompatible with `prosody` and `break` element, you cannot adjust pause and prosody like pitch, contour, rate, volume in this element.
+> The `<lang xml:lang>` element is incompatible with `prosody` and `break` element, you cannot adjust pause and prosody like pitch, contour, rate, or volume in this element.
 
 **Syntax**
 
@@ -264,9 +274,9 @@ Currently, speaking language adjustments are supported for these neural voices: 
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| `lang` | Specifies the speaking languages. Currently, speaking different languages are voice-specific. | Required if adjusting the speaking language for a neural voice. If using `lang xml:lang`, then locale must be provided. |
+| `lang` | Specifies the speaking languages. Speaking different languages are voice-specific. | Required if adjusting the speaking language for a neural voice. If using `lang xml:lang`, then locale must be provided. |
 
-Use this table to determine which speaking languages are supported for each neural voice.
+Use this table to determine which speaking languages are supported for each neural voice. If a language isn't supported, the service will return no audio stream.
 
 | Voice                            | Locale language           | Description                                                 |
 |----------------------------------|---------------------------|-------------------------------------------------------------|
