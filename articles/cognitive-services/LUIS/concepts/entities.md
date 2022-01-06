@@ -10,7 +10,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/07/2021
+ms.date: 01/06/2022
 
 ---
 
@@ -154,9 +154,9 @@ A single word or phrase in an utterance can match more than one entity. In that 
 
 All entities are returned in the  entities  array of the response from the endpoint
 
-## Best practices for entities:
+## Best practices for entities
 
-### Use machine-learning entities:
+### Use machine-learning entities
 
 Machine learned entities are tailored to your app and require labeling to be successful. If you are not using machine learned entities, you might be using the wrong entities.
 

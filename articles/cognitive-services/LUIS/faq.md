@@ -15,7 +15,7 @@ ms.date: 01/05/2022
 
 ## What are the maximum limits for LUIS application?
 
-LUIS has several limit areas. The first is the model limit, which controls intents, entities, and features in LUIS. The second area is quota limits based on key type. A third area of limits is the keyboard combination for controlling the LUIS website. A fourth area is the world region mapping between the LUIS authoring website and the LUIS endpoint APIs.See [LUIS limits](luis-limits.md) for more details.
+LUIS has several limit areas. The first is the model limit, which controls intents, entities, and features in LUIS. The second area is quota limits based on key type. A third area of limits is the keyboard combination for controlling the LUIS website. A fourth area is the world region mapping between the LUIS authoring website and the LUIS endpoint APIs. See [LUIS limits](luis-limits.md) for more details.
 
 ## What is the difference between Authoring and Prediction keys?
 
@@ -25,7 +25,7 @@ An authoring resource lets you create, manage, train, test, and publish your app
 
 Conversion of speech to text in LUIS allows you to send spoken utterances to an endpoint and receive a LUIS prediction response. The process is an integration of the [Speech](../Speech-Service/overview.md) service with LUIS. Learn more about Speech to Intent with a [tutorial](../Speech-Service/how-to-recognize-intents-from-speech-csharp.md).
 
-## Do LUIS Supports speech to text?
+## Does LUIS support speech to text?
 
 Yes, [Speech](../speech-service/how-to-recognize-intents-from-speech-csharp.md#luis-and-speech) to text is provided as an integration with LUIS.
 
@@ -40,13 +40,14 @@ LUIS has little or no knowledge of the broader _NLP_ aspects, such as semantic s
 For semantic similarity Natural Language Understanding (NLU), you can use [Conversation Language Understanding](../language-service/conversational-language-understanding/overview.md)
 
 ## What are the Authoring and prediction pricing?
-Language Understand has separate resources, one type for authoring, and one type for querying the prediction endpoint, each has their own pricing.See [Resource usage and limits](luis-limits.md#resource-usage-and-limits)
+Language Understand has separate resources, one type for authoring, and one type for querying the prediction endpoint, each has their own pricing. See [Resource usage and limits](luis-limits.md#resource-usage-and-limits)
 
 ## What are the supported regions?
 
 See [region support](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
 
-## How do LUIS store the data?
+## How does LUIS store data?
+
 LUIS stores data encrypted in an Azure data store corresponding to the region specified by the key. Data used to train the model such as entities, intents, and utterances will be saved in LUIS for the lifetime of the application. If an owner or contributor deletes the app, this data will be deleted with it. If an application hasn't been used in 90 days, it will be deleted.See [Data retention](luis-concept-data-storage.md) to know more details about data storage
 
 ## Does LUIS support Customer-Managed Keys (CMK)?
@@ -55,7 +56,7 @@ The Language Understanding service automatically encrypts your data when it is p
 
 ## Is it important to train the None intent?
 
-Yes, it is good to train your  **None**  intent with utterances, especially as you add more labels to other intents. See [none intent](/azure/cognitive-services/luis/concepts/intents?branch=pr-en-us-181263#none-intent) details.
+Yes, it is good to train your  **None**  intent with utterances, especially as you add more labels to other intents. <!--See [none intent](concepts/intents.md) for details.-->
 
 ## How do I edit my LUIS app programmatically?
 

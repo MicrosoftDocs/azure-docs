@@ -48,7 +48,7 @@ Following the pizza example, we would need to create a "PizzaOrder" entity to ex
 
     :::image type="content" source="../media/add-entities/machine-learned-entity-with-structure.png" alt-text="A screenshot creating a machine learned entity." lightbox="../media/add-entities/machine-learned-entity-with-structure.png":::
 
-A pizza order might include many details, like quantity and type. To add these details, we would create a subentity.
+    A pizza order might include many details, like quantity and type. To add these details, we would create a subentity.
 
 3. In  **Add subentities** , add a subentity by selecting the  **+**  on the parent entity row.
 
@@ -73,7 +73,7 @@ For extracting structured text or a predefined sequence of alphanumeric values, 
 2. Select  **+ Create**.
 3. In the  **Create an entity type**  dialog box, enter the name of the entity and select  **RegEx** , enter the regular expression in the  **Regex**  field and select  **Create**.
  
- :::image type="content" source="../media/add-entities/add-regular-expression-entity.png" alt-text="A screenshot of creating a regular expression entity." lightbox="../media/add-entities/add-regular-expression-entity.png":::
+    :::image type="content" source="../media/add-entities/add-regular-expression-entity.png" alt-text="A screenshot of creating a regular expression entity." lightbox="../media/add-entities/add-regular-expression-entity.png":::
 
 ## Create a list entity
 
@@ -85,7 +85,7 @@ Use the procedure to create a list entity. Once the list entity is created, you 
 2. In the  **Create an entity type**  dialog box, enter the name of the entity, such as _Size_ and select  **List**.
 3. In the  **Create a list entity**  dialog box, in the  **Add new sublist....** , enter the list item name, such as _large_. Also, you can add synonyms to a list item like _huge_ and _mega_ for item _large_.
 
- :::image type="content" source="../media/add-entities/create-list-entity-colors.png" alt-text="Create a list of sizes as a list entity in the Entity detail page." lightbox="../media/add-entities/create-list-entity-colors.png":::
+    :::image type="content" source="../media/add-entities/create-list-entity-colors.png" alt-text="Create a list of sizes as a list entity in the Entity detail page." lightbox="../media/add-entities/create-list-entity-colors.png":::
 
 4. When you are finished adding list items and synonyms, select  **Create**.
 
@@ -106,11 +106,11 @@ In this procedure, add origin and destination roles to a prebuilt geographyV2 en
 
 If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](../reference-pattern-syntax.md#explicit-lists) to correct this problem.
 
-3. Select the newly added prebuilt geographyV2 entity from the  **Entities**  page list of entities.
-4. To add a new role, select  **+**  next to  **No roles added**.
-5. In the  **Type role...**  textbox, enter the name of the role Origin then enter. Add a second role name of Destination then enter.
+1. Select the newly added prebuilt geographyV2 entity from the  **Entities**  page list of entities.
+2. To add a new role, select  **+**  next to  **No roles added**.
+3. In the  **Type role...**  textbox, enter the name of the role Origin then enter. Add a second role name of Destination then enter.
 
-:::image type="content" source="../media/how-to-add-entities/add-role-to-prebuilt-geographyv2-entity.png" alt-text="A screenshot showing how to add an origin role to a location entity." lightbox="../media/how-to-add-entities//add-role-to-prebuilt-geographyv2-entity.png":::
+    :::image type="content" source="../media/how-to-add-entities/add-role-to-prebuilt-geographyv2-entity.png" alt-text="A screenshot showing how to add an origin role to a location entity." lightbox="../media/how-to-add-entities//add-role-to-prebuilt-geographyv2-entity.png":::
 
 The role is added to the prebuilt entity but isn't added to any utterances using that entity.
 
@@ -127,7 +127,7 @@ To recognize common types of information, add a [prebuilt entity](../concepts/en
 2. On the  **Entities**  page, select  **Add prebuilt entity**.
 3. In  **Add prebuilt entities**  dialog box, select the prebuilt entity.
 
-  :::image type="content" source="../media/luis-prebuilt-domains/add-prebuilt-entity.png" alt-text="A screenshot showing the dialog box for a prebuilt entity." lightbox="../media/luis-prebuilt-domains/add-prebuilt-entity.png":::
+    :::image type="content" source="../media/luis-prebuilt-domains/add-prebuilt-entity.png" alt-text="A screenshot showing the dialog box for a prebuilt entity." lightbox="../media/luis-prebuilt-domains/add-prebuilt-entity.png":::
 
 4. Select  **Done**. After the entity is added, you do not need to train the app.
 
@@ -135,6 +135,6 @@ To recognize common types of information, add a [prebuilt entity](../concepts/en
 
 The  [**Pattern.any**](../concepts/entities.md#patternany-entity) entity is only available with patterns. <!-- See the [patterns article](../concepts/patterns-features.md) for more information. --> 
 
-## Next steps:
+## Next steps
 
-[Label you example utterances](label-utterances.md)
+[Label your example utterances](label-utterances.md)

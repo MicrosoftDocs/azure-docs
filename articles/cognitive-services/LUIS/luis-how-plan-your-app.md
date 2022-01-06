@@ -52,14 +52,14 @@ In many cases, especially when working with natural conversation, users provide 
 
 **Int-ent-ties** is the concept that actions (usually understood as intents) could also be captured as entities and relied on in this form in the output JSON where you can map it to a specific action. _Negation_ is a common usage to leverage this reliance on both intent and entity for full extraction.
 
-Consider the following two utterances which are very close considering word choice but have different results:
+Consider the following two utterances, which are very close considering word choice but have different results:
 
 |Utterance|
 |--|
 |`Please schedule my flight from Cairo to Seattle`|
 |`Cancel my flight from Cairo to Seattle`|
 
-Instead of having two separate intents, create a single intent with a `FlightAction` machine learning entity. The machine learning entity should extract the details of the action for both a scheduling and a cancelling request as well as either a origin or destination location.
+Instead of having two separate intents, create a single intent with a `FlightAction` machine learning entity. The machine learning entity should extract the details of the action for both a scheduling and a canceling request, as well as either an origin or destination location.
 
 The `FlightAction` entity would be structured in the following pseudo-schema of machine learning entity and subentities:
 

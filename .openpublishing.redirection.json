@@ -7674,7 +7674,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-how-to-entities.md",
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-how-to-add-entities.md",
       "redirect_url": "/azure/cognitive-services/LUIS/how-to/entities",
       "redirect_document_id": true
     },

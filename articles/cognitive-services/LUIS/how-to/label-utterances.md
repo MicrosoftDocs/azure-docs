@@ -48,7 +48,7 @@ The entity palette offers an alternative to the previous labeling experience. It
 2. Select the entity from the palette that you want to label. This action is visually indicated with a new cursor. The cursor follows the mouse as you move in the LUIS portal.
 3. In the example utterance, _paint_ the entity with the cursor.
 
-:::image type="content" source="../media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png" alt-text="A screenshot showing an entity painted with the cursor." lightbox="../media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png":::
+    :::image type="content" source="../media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png" alt-text="A screenshot showing an entity painted with the cursor." lightbox="../media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png":::
 
 ## Add entity as a feature from the Entity Palette
 
@@ -64,13 +64,13 @@ The Entity Palette's lower section allows you to add features to the currently s
 1. Go to the Intent details page, which has example utterances that use the role.
 2. To label with the role, select the entity label (solid line under text) in the example utterance, then select  **View in entity pane**  from the drop-down list.
 
-:::image type="content" source="../media/add-entities/view-in-entity-pane.png" alt-text="A screenshot showing the view in entity menu." lightbox="../media/add-entities/view-in-entity-pane.png":::
+    :::image type="content" source="../media/add-entities/view-in-entity-pane.png" alt-text="A screenshot showing the view in entity menu." lightbox="../media/add-entities/view-in-entity-pane.png":::
 
-The entity palette opens to the right.
+    The entity palette opens to the right.
 
 3. Select the entity, then go to the bottom of the palette and select the role.
-1. 
-:::image type="content" source="../media/add-entities/select-role-in-entity-palette.png" alt-text="A screenshot showing where to select a role." lightbox="../media/add-entities/select-role-in-entity-palette.png":::
+ 
+    :::image type="content" source="../media/add-entities/select-role-in-entity-palette.png" alt-text="A screenshot showing where to select a role." lightbox="../media/add-entities/select-role-in-entity-palette.png":::
 
 ### Labeling entity roles
 
@@ -130,6 +130,6 @@ Entity prediction errors indicate the predicted entity doesn't match the labeled
 
 :::image type="content" source="../media/label-utterances/example-utterance-indicates-prediction-error.png" alt-text="A screenshot showing the entity palette for a machine-learning entity." lightbox="../media/label-utterances/example-utterance-indicates-prediction-error.png":::
 
-## Next steps:
+## Next steps
 
 [Train and Test your application](../luis-how-to-train.md)
