@@ -159,6 +159,7 @@ az spring-cloud build-service builder buildpack-binding create \
        --secrets e=f g=h
 ```
 
+For more information, see the [Buildpack Bindings](#buildpack-bindings) section for information on the `properties` and `secrets` parameters for your buildpack.
 ## Show the details for a specific binding
 
 The details of a specific binding can be viewed using the following command:
@@ -186,6 +187,7 @@ az spring-cloud build-service builder buildpack-binding set \
        --secrets e=f2 g=h
 ```
 
+For more information, see the [Buildpack Bindings](#buildpack-bindings) section for information on the `properties` and `secrets` parameters for your buildpack.
 #### Delete a binding
 
 Use the following command to change the binding status from *Bound* to *Unbound*.
