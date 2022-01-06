@@ -32,7 +32,7 @@ This Azure CLI script example scales a single database in Azure SQL Database to 
 > [!TIP]
 > Use [az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list) to get a list of operations performed on the database, and use [az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel) to cancel an update operation on the database.
 
-### Clean up resources
+## Clean up resources
 
 [!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
 

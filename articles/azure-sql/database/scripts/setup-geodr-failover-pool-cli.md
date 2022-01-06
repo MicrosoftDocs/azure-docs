@@ -29,7 +29,7 @@ This Azure CLI script example configures active geo-replication for a pooled dat
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-elastic-pool.sh" range="4-47":::
 
-### Clean up resources
+## Clean up resources
 
 [!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
 

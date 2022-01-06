@@ -29,7 +29,7 @@ This Azure CLI script example creates a single database in Azure SQL Database an
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="4-33":::
 
-### Clean up resources
+## Clean up resources
 
 [!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
 

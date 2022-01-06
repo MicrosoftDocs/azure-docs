@@ -29,7 +29,7 @@ This Azure CLI script example creates elastic pools in Azure SQL Database, moves
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/scale-pool/scale-pool.sh" range="4-35":::
 
-### Clean up resources
+## Clean up resources
 
 [!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
 

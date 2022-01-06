@@ -31,7 +31,7 @@ This sample requires an existing pair of managed instances, see [Use Azure CLI t
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/sql-managed-instance-restore-geo-backup/restore-geo-backup-cli.sh" range="4-28":::
 
-### Clean up resources
+## Clean up resources
 
 [!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
 

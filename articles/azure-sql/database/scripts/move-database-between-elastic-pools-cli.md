@@ -29,7 +29,7 @@ This Azure CLI script example creates two elastic pools, moves a pooled database
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/move-database-between-pools/move-database-between-pools.sh" range="4-39":::
 
-### Clean up resources
+## Clean up resources
 
 [!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
 

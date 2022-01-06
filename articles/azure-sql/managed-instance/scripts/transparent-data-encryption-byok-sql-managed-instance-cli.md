@@ -31,7 +31,7 @@ This sample requires an existing Managed Instance, see [Use Azure CLI to create 
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/transparent-data-encryption/setup-tde-byok-sqlmi.sh" range="4-41":::
 
-### Clean up resources
+## Clean up resources
 
 [!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
 

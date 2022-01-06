@@ -29,7 +29,7 @@ This Azure CLI example backs up a database in SQL Database to an Azure storage c
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/backup-database/backup-database.sh" range="4-40":::
 
-### Clean up resources
+## Clean up resources
 
 [!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
 
