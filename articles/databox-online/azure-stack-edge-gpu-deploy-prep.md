@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 11/15/2021
+ms.date: 01/05/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -78,6 +78,7 @@ Before you begin, make sure that:
 
 Before you deploy a physical device, make sure that:
 
+- You've [run the Network Readiness Checker tool](azure-stack-edge-deploy-check-network-readiness.md) to check network readiness for your Azure Stack Edge device. You can use the tool to check whether your firewall rules are blocking access to any essential URLs for the service and verify custom URLs, among other tests. For more information, see [Check network readiness for your Azure Stack Edge device].(azure-stack-edge-deploy-check-network-readiness.md).
 - You've reviewed the safety information that was included in the shipment package.
 - You have a 1U slot available in a standard 19" rack in your datacenter for rack mounting the device.
 - You have access to a flat, stable, and level work surface where the device can rest safely.
