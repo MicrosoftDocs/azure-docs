@@ -76,7 +76,7 @@ To create a single database in the Azure portal, this quickstart starts at the A
 
 You can create an Azure resource group, server, and single database using the Azure command-line interface (Azure CLI).
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Set parameter values
 
@@ -126,7 +126,7 @@ You can create an Azure resource group, server, and single database using the Az
 
 The following Azure CLI code blocks create a resource group, server, single database, and server-level IP firewall rule for access to the server. Make sure to record the generated resource group and server names, so you can manage these resources later.
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Set parameter values
 

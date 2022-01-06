@@ -19,7 +19,7 @@ ms.date: 01/05/2022
 
 This Azure CLI example restores a single database in Azure SQL Database to a specific point in time.  
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
