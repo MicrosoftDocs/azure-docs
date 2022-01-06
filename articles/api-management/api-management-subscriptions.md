@@ -16,11 +16,11 @@ In Azure API Management, *subscriptions* are the most common way for API consume
 
 ## What are subscriptions?
 
-By publishing APIs through API Management, you can easily secure API access using subscription keys. Developers who need to consume the published APIs must include a valid subscription key in HTTP requests when calling those APIs. If an invalid subscription key is provided, the calls are:
+By publishing APIs through API Management, you can easily secure API access using subscription keys. Developers who need to consume the published APIs must include a valid subscription key in HTTP requests when calling those APIs. Without a valid subscription key, the calls are:
 * Rejected immediately by the API Management gateway. 
 * Not forwarded to the back-end services.
 
-To access APIs, you'll need a subscription configured in API Management and a subscription key. A *subscription* is a named container for a pair of subscription keys. 
+To access APIs, you'll need a subscription and a subscription key. A *subscription* is a named container for a pair of subscription keys. 
 
 > [!NOTE]
 > Regularly regenerating keys is a common security precaution. Like most Azure products requiring a subscription key, API Management  generates keys in pairs. Each application using the service can switch from *key A* to *key B* and regenerate key A with minimal disruption, and vice versa. 
@@ -61,14 +61,14 @@ You don't need to create a product and add APIs to it first.
 
 ### All-access subscription
 
-Each API Management also instance comes with an immutable, all-APIs subscription (also called an *all-access* subscription). This built-in subscription makes it straightforward to test and debug APIs within the test console.
+Each API Management instance comes with an immutable, all-APIs subscription (also called an *all-access* subscription). This built-in subscription makes it straightforward to test and debug APIs within the test console.
 
 > [!NOTE]
 > If you're using an API-scoped subscription or the all-access subscription, any [policies](api-management-howto-policies.md) configured at the product scope aren't applied to that subscription.
 
 ### Standalone subscriptions
 
-API Management also allows *standalone* subscriptions, which are not associated with a specific developer account. This feature proves useful in scenarios similar to several developers or teams sharing a subscription.
+API Management also allows *standalone* subscriptions, which are not associated with a developer account. This feature proves useful in scenarios similar to several developers or teams sharing a subscription.
 
 Creating a subscription without assigning an owner makes it a standalone subscription. To grant developers and the rest of your team access to the standalone subscription key, either:
 * Manually share the subscription key.
@@ -82,22 +82,23 @@ API publishers can [create subscriptions](api-management-howto-create-subscripti
 
 ## Products or APIs that don't require subscriptions
 
-Under certain scenarios, API publishers might want to publish a product or a particular API to the public without the requirement of subscriptions. 
+Under certain scenarios, API publishers might want to publish a product or a particular API to the public without the requirement of subscriptions. While a publisher could choose to enable unsecured access to certain APIs, configuring another mechanism to secure client access is usually recommended.
 
-To configure one of these options in the portal:
+To disable the subscription requirement using the portal:
 
 * **Product** - Disable **Requires subscription**  on the **Settings** page of the product. As a result, all APIs under the product can be accessed without a key.  
 * **API** - Disable **Subscription required** on the **Settings** page of the API. As a result, the API can be accessed without a key. 
 
-When API Management receives an API request from a client without a subscription key, it handles the request and applies [policies](api-management-howto-policies.md) at the appropriate scope (global, product, or API) according to these rules. 
+When API Management receives an API request from a client without a subscription key, it handles the request according to these rules: 
 
-* It checks first for the existence of a product that includes the API but doesn't require a subscription (an open product), and handles the request in the context of that product. For more information, see [Access to product APIs](api-management-howto-add-products.md#access-to-product-apis).
-* If an open product including the API isn't found, it checks if the API doesn't require a subscription. If so, it handles the request in the context of that API.
+* It checks first for the existence of a product that includes the API but doesn't require a subscription (an open product), and handles the request in the context of that product. 
+* If an open product including the API isn't found, it checks if the API requires a subscription. If a subscription isn't required, it handles the request in the context of that API and operation.
 * If no configured product or API is found, API Management denies access.
 
 ## Next steps
 Get more information on API Management:
 
++ Learn how API Management [policies](api-management-howto-policies.md) get applied at different scopes.
 + Learn other [concepts](api-management-terminology.md) in API Management.
 + Follow our [tutorials](import-and-publish.md) to learn more about API Management.
 + Check our [FAQ page](api-management-faq.yml) for common questions.

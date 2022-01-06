@@ -10,8 +10,8 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/25/2021
+ms.topic: conceptual
+ms.date: 01/05/2022
 ms.author: danlep
 
 ---

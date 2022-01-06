@@ -56,18 +56,18 @@ To set or edit a policy, follow the following steps:
  
 ## Configure scope
 
-Policies can be configured globally or at the scope of a Product, API, or Operation. To begin configuring a policy, you must first select the scope at which the policy should apply.
+Policies can be configured globally (for all APIs) or at the scope of a product, API, or operation. To begin configuring a policy, you must first select the scope at which the policy should apply.
 
 Policy scopes are evaluated in the following order:
 
-1. Global scope
+1. Global scope (all APIs)
 2. Product scope
 3. API scope
 4. Operation scope
 
-The statements within policies are evaluated according to the placement of the `base` element, if it is present. Global policy has no parent policy and using the `<base>` element in it has no effect.
+The statements within policies are evaluated according to the position of the `<base>` element, if it is present in a section at a scope. The `<base>` element indicates the location in the current scope where the parent policy statements in that section are evaluated. Global policy has no parent policy and using the `<base>` element in it has no effect.
 
-To see the policies in the current scope in the policy editor, click **Recalculate effective policy for selected scope**.
+To see the policies in the current scope in the policy editor, click **Recalculate effective policy for selected scope**. You can also see effective policies when you [debug polices](api-management-debug-policies.md) using the Azure API Management Extension for Visual Studio Code.
 
 ### Global scope
 
