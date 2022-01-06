@@ -21,11 +21,6 @@
             "redirect_document_id": false
           },
           {
-            "source_path_from_root": "/articles/virtual-machines/windows/nested-virtualization.md",
-            "redirect_url": "https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization",
-            "redirect_document_id": false
-          },
-          {
             "source_path_from_root": "/articles/virtual-machines/windows/tutorial-govern-resources.md",
             "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-govern-resources",
             "redirect_document_id": false
@@ -2783,11 +2778,6 @@
           {
             "source_path_from_root": "/articles/virtual-machines/image-version-managed-image-cli.md",
             "redirect_url": "/azure/virtual-machines/image-version",
-            "redirect_document_id": false
-          },
-          {
-            "source_path_from_root": "/articles/virtual-machines/windows/constrained-vcpu.md",
-            "redirect_url": "/azure/virtual-machines/constrained-vcpu",
             "redirect_document_id": false
           },
           {
