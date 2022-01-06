@@ -12,6 +12,8 @@ ms.custom: devx-track-java
 
 # Service Registry
 
+This article describes the use of Service Registry with Azure Spring Cloud Enterprise Tier.
+
 [Service Registry](https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/2.1/spring-cloud-services/GUID-service-registry-index.html) is one of the proprietary VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key tenets of a microservice-based architecture. It can be difficult, and brittle in production, to hand-configure each client of a service or adopt some form of access convention. Instead, your apps can use the Service Registry to dynamically discover and call registered services.
 
 ## Prerequisites
@@ -53,4 +55,3 @@ Use the following steps to bind an application to the Service Registry.
 ## Next steps
 
 * [Create Roles and Permissions](./how-to-permissions.md)
-* [Access Config Server and Service Registry](./how-to-access-data-plane-azure-ad-rbac.md)

@@ -13,9 +13,9 @@ zone_pivot_groups: spring-cloud-tier-selection
 
 # Enable system-assigned managed identity for an application in Azure Spring Cloud
 
-Managed identities for Azure resources provide an automatically managed identity in Azure Active Directory to an Azure resource such as your application in Azure Spring Cloud. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
-
 This article shows how to enable and disable system-assigned managed identities for an application in Azure Spring Cloud, using the Azure portal and CLI.
+
+Managed identities for Azure resources provide an automatically managed identity in Azure Active Directory to an Azure resource such as your application in Azure Spring Cloud. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
 
 ## Prerequisites
 

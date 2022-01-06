@@ -5,12 +5,14 @@ description: How to Use Build Service in Azure Spring Cloud Enterprise Tier
 author: karlerickson
 ms.author: fenzho
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 12/31/2021
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Build Service
+
+This article describes the extra configuration and functionality included in Build Service with Azure Spring Cloud Enterprise Tier.
 
 In Azure Spring Cloud, the existing Standard tier already supports compiling user source code into [OCI images](https://opencontainers.org/) through [Kpack](https://github.com/pivotal/kpack). Kpack is a Kubernetes (K8s) implementation of [Cloud Native Buildpacks (CNB)](https://buildpacks.io/) provided by VMware. This article provides details of the extra configurations and functionality exposed in the Azure Spring Cloud Enterprise tier.
 
