@@ -92,7 +92,7 @@ This section outlines common error messages that you may see, along with the ste
 
 - Insufficient permissions to create lab.
 
-  In Canvas, an instructor will see a message indicating that they don’t have sufficient permission. Instructors should contact their Azure admin so they may be assigned the appropriate [Lab Services built-in role](administrator-guide.md#manage-identity).
+  In Canvas, an instructor will see a message indicating that they don’t have sufficient permission. Instructors should contact their Azure admin so they may be assigned the appropriate [Lab Services built-in role](administrator-guide.md#rbac-roles).
 
 - Message that there isn't enough capacity to create lab VMs.
 

@@ -19,7 +19,7 @@ We've made fundamental improvements for the service to boost performance, reliab
 
 **[Improved auto-shutdown](how-to-configure-auto-shutdown-lab-plans.md)**. Auto-shutdown settings are now available for **all** operating systems! If we detect a student shut down their VM, we’ll stop billing.
 
-**[More built-in roles](administrator-guide.md#manage-identity)**. In addition to Lab Creator, we’ve added Lab Operator and Lab Assistant roles. Lab Operators can manage existing labs, but not create new ones. Lab Assistant can only help students by starting, stopping, or redeploying virtual machines. They will not be able to adjust quota or set schedules.
+**[More built-in roles](administrator-guide.md#rbac-roles)**. In addition to Lab Creator, we’ve added Lab Operator and Lab Assistant roles. Lab Operators can manage existing labs, but not create new ones. Lab Assistant can only help students by starting, stopping, or redeploying virtual machines. They will not be able to adjust quota or set schedules.
 
 **[Improved cost tracking in Cost Management](cost-management-guide.md#separate-the-costs)**. Lab virtual machines are now the cost unit tracked in Azure Cost Management. Tags for lab plan ID and lab name are automatically added if you want to group lab VM cost entries together. Custom tags on labs will propagate to Azure Cost Management entries to allow further cost analysis.  
 

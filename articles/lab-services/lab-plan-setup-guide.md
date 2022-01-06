@@ -60,7 +60,7 @@ To plan your lab plan settings, consider the following questions.
 
 Your school's IT administrators ordinarily take on the Owner and Contributor roles for a lab plan. These roles are responsible for managing the policies that apply to all the labs in the lab plan. The person who creates the lab plan is automatically an Owner. You can add additional Owners and Contributors from the Azure Active Directory (Azure AD) tenant that's associated with your subscription.
 
-For more information about the lab plan Owner and Contributor roles, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#manage-identity).
+For more information about the lab plan Owner and Contributor roles, see [RBAC roles](./administrator-guide.md#rbac-roles).
 
 [!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
 
@@ -70,13 +70,13 @@ Lab users see only a single list of the VMs that they have access to across Azur
 
 You may choose to have your IT team or faculty members create labs. To create labs, you then assign these people to the Lab Creator role within the lab plan. You ordinarily assign this role from the Azure AD tenant that's associated with your school subscription. Whoever creates a lab is automatically assigned as the Owner of the lab.  
 
-For more information about the Lab Creator role, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#manage-identity).
+For more information about the Lab Creator role, see [RBAC roles](./administrator-guide.md#rbac-roles).
 
 ### Who will be allowed to own and manage labs?
 
 You can also choose to have IT and faculty members own\manage labs *without* giving them the ability to create labs.  In this case, users from your subscription's Azure AD tenant are assigned either the Owner or Contributor for existing labs.  
 
-For more information about the lab Owner and Contributor roles, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#manage-identity).
+For more information about the lab Owner and Contributor roles, see [RBAC roles](./administrator-guide.md#rbac-roles).
 
 ### Do you want to save images and share them across labs?
 

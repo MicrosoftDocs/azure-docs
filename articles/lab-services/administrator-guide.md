@@ -157,7 +157,7 @@ For information on VM sizes and their cost, see the [Azure Lab Services Pricing]
 > [!NOTE]
 > You may not see some of the expected VM sizes in the list when creating a lab. The list is populated based on the current capacity of the lab's location.
 
-## Manage identity
+## RBAC roles
 
 By using [Azure role-based access control (RBAC)](../role-based-access-control/overview.md) for access to lab plans and labs, you can assign the following roles:
 
