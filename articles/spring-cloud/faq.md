@@ -4,7 +4,7 @@ description: This article answers frequently asked questions about Azure Spring 
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 12/15/2021
+ms.date: 09/08/2020
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
