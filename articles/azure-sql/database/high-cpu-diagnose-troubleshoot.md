@@ -58,6 +58,7 @@ Common causes of new and unusual high CPU utilization are:
 * New queries in the workload that use a large amount of CPU.
 * An increase in the frequency of regularly running queries.
 * Query plan regression, including regression due to [parameter sensitive plan (PSP) problems](../identify-query-performance-issues.md), resulting in one or more queries consuming more CPU.
+* Query plan regression due to out of date statistics after modifications from insert, update, delete, or merge operations change the data distribution in the table or indexed view.
 * A significant increase in compilation or recompilation of query plans.
 * Databases where queries use [excessive parallelism](configure-max-degree-of-parallelism.md#excessive-parallelism).
 
