@@ -144,14 +144,18 @@ The table below defines the parameters used for defining the Key Vault informati
 > | `dns_label`                        | If specified, is the DNS name of the private DNS zone          | Optional    | 
 > | `dns_resource_group_name`          | The name of the resource group containing the Private DNS zone | Optional    | 
 
+## NFS Support
 
-## Azure NetApp Support
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                           | Description                                                             | Type        |
+> | ---------------------------------- | ----------------------------------------------------------------------- | ----------- |
+> | `NFS_Provider`                     | Defines what NFS backend to use, the options are 'AFS' for Azure Files NFS or 'ANF' for Azure NetApp files.  | 
+> | `sapmnt_volume_size`               | Defines the size (in GB) for the 'sapmnt' volume                        | Optional    |
 
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                                                            | Type         | Notes  |
 > | ---------------------------------- | -----------------------------------------------------------------------| -----------  | ------ |
-> | `use_ANF`                          | If specified, deploys the Azure NetApp Files Account and Capacity Pool | Optional     | |
 > | `ANF_account_arm_id`               | Azure resource identifier for the Azure NetApp Files Account           | Optional     | For existing environment deployments |
 > | `ANF_account_name`                 | Name for the Azure NetApp Files Account                                | Optional     | |
 > | `ANF_service_level`                | Service level for the Azure NetApp Files Capacity Pool                 | Optional     | |
@@ -159,6 +163,7 @@ The table below defines the parameters used for defining the Key Vault informati
 > | `anf_subnet_name`                  | The name of the ANF subnet                                             | Optional     | |
 > | `anf_subnet_arm_id`                | The Azure resource identifier for the `ANF` subnet                     | Required     | For existing environment deployments |
 > | `anf_subnet_address_prefix`        | The address range for the `ANF` subnet                                 | Required     | For new environment deployments  |
+> | `transport_volume_size`        | Defines the size (in GB) for the 'saptransport' volume                 | Optional     |
 
 
 ## Other Parameters

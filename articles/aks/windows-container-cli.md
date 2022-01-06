@@ -353,7 +353,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## Next steps
 
-In this article, you deployed a Kubernetes cluster and deployed an ASP.NET sample application in a Windows Server container to it. [Access the Kubernetes web dashboard][kubernetes-dashboard] for the cluster you just created.
+In this article, you deployed a Kubernetes cluster and deployed an ASP.NET sample application in a Windows Server container to it.
 
 To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
@@ -389,7 +389,6 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [azure-portal]: https://portal.azure.com
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: concepts-network.md#services
-[kubernetes-dashboard]: kubernetes-dashboard.md
 [restricted-vm-sizes]: quotas-skus-regions.md#restricted-vm-sizes
 [use-advanced-networking]: configure-azure-cni.md
 [aks-support-policies]: support-policies.md

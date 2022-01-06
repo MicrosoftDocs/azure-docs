@@ -75,6 +75,10 @@ Only write to directories you have access rights to. For example, the `/tmp` dir
 
 * If failed during apt package installation, check if the user has been set to root before running the apt command? (Make sure switch back to non-root user) 
 
+## Run doesn't complete on GPU local deployment
+
+GPU base images can't be used for local deployment, unless the local deployment is on an Azure Machine Learning compute instance.  GPU base images are supported only on Microsoft Azure Services such as Azure Machine Learning compute clusters and instances, Azure Container Instance (ACI), Azure VMs, or Azure Kubernetes Service (AKS).
+
 ## Image built based on the prebuilt Docker image can't boot up
 
 * The non-root user needs to be `dockeruser`. Otherwise, the owner of the following directories must be set to the user name you want to use when running the image:

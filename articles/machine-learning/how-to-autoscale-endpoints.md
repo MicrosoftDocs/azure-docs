@@ -47,7 +47,7 @@ The following snippet creates the autoscale profile:
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="create_autoscale_profile" :::
 
 > [!NOTE]
-> For more, see the [reference page for autoscale](/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)
+> For more, see the [reference page for autoscale](/cli/azure/monitor/autoscale)
 
 # [Portal](#tab/azure-portal)
 

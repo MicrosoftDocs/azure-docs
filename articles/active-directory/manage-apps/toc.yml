@@ -168,10 +168,14 @@
           href: f5-big-ip-forms-advanced.md
         - name: Configure F5 BIG-IP Access Policy Manager for header-based SSO
           href: f5-big-ip-header-advanced.md
-        - name: Extend Azure Active Directory B2C using F5 BIG-IP
+        - name: Extend Azure Active Directory B2C to protect on-premises applications using F5 BIG-IPC
           href: https://docs.microsoft.com/azure/active-directory-b2c/partner-f5
-        - name: Configure F5 BIG-IP Easy Button for Header-based and LDAP SSO    
+        - name: Configure F5 BIG-IP Easy Button for Header-based and LDAP SSO        
           href: f5-big-ip-ldap-header-easybutton.md
+        - name: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication    
+          href: f5-big-ip-kerberos-advanced.md
+        - name: Configure F5 BIG-IP Access Easy Button for Kerberos SSO    
+          href: f5-big-ip-kerberos-easy-button.md
       - name: Silverfort
         href: silverfort-azure-ad-integration.md
     - name: Single sign-on
@@ -206,8 +210,8 @@
       href: admin-consent-workflow-faq.md
     - name: App Management certificates FAQ
       href: application-management-certs-faq.md
-    - name: Reasons apps appear in Enterprise Applications
-      href: application-types.md
+    - name: Application list
+      href: application-list.md
     - name: Reasons users are assigned to an app
       href: ways-users-get-assigned-to-applications.md
     - name: Methods of removing user access to an app

@@ -1,6 +1,226 @@
 {
   "redirections": [
     {
+      "source_path": "articles/machine-learning/classic/ai-gallery-control-personal-data-dsr.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/ai-gallery-control-personal-data-dsr",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/algorithm-parameters-optimize.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/algorithm-parameters-optimize",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/azure-ml-netsharp-reference-guide.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/azure-ml-netsharp-reference-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/consume-web-services.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/consume-web-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/consuming-from-excel.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/consuming-from-excel",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/create-endpoint.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/create-endpoint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/create-experiment.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/create-experiment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/create-models-and-endpoints-with-powershell.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/create-models-and-endpoints-with-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/create-workspace.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/create-workspace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/custom-r-modules.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/custom-r-modules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/deploy-a-machine-learning-web-service.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/deploy-a-machine-learning-web-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/deploy-consume-web-service-guide.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/deploy-consume-web-service-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/deploy-with-resource-manager-template.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/deploy-with-resource-manager-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/evaluate-model-performance.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/evaluate-model-performance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/excel-add-in-for-web-services.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/excel-add-in-for-web-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/execute-python-scripts.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/execute-python-scripts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/export-delete-personal-data-dsr.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/export-delete-personal-data-dsr",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/gallery-how-to-use-contribute-publish.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/gallery-how-to-use-contribute-publish",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/import-data.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/import-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/interpret-model-results.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/interpret-model-results",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/manage-experiment-iterations.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/manage-experiment-iterations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/manage-new-webservice.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/manage-new-webservice",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/manage-web-service-endpoints-using-api-management.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/manage-web-service-endpoints-using-api-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/manage-workspace.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/manage-workspace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/model-progression-experiment-to-web-service.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/model-progression-experiment-to-web-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/powershell-module.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/powershell-module",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/r-get-started.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/r-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/retired-data-science-for-beginners-videos.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/retired-data-science-for-beginners-videos",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/retrain-classic-web-service.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/retrain-classic-web-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/retrain-machine-learning-model.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/retrain-machine-learning-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/sample-experiments.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/sample-experiments",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/studio-classic-overview.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/studio-classic-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/support-aml-studio.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/support-aml-studio",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/tutorial-part1-credit-risk.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/tutorial-part1-credit-risk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/tutorial-part2-credit-risk-train.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/tutorial-part2-credit-risk-train",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/tutorial-part3-credit-risk-deploy.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/tutorial-part3-credit-risk-deploy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/use-data-from-an-on-premises-sql-server.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/use-data-from-an-on-premises-sql-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/use-sample-datasets.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/use-sample-datasets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/version-control.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/version-control",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/web-service-error-codes.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/web-service-error-codes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/web-service-parameters.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/web-service-parameters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/web-services-logging.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/web-services-logging",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/web-services-that-use-import-export-modules.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/web-services-that-use-import-export-modules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/index.yml",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/index",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/blobs/storage-c-plus-plus-how-to-use-blobs.md",
       "redirect_url": "/azure/storage/blobs/quickstart-blobs-c-plus-plus",
       "redirect_document_id": false
@@ -2171,6 +2391,16 @@
     {
       "source_path_from_root": "/articles/aks/windows-node-limitations.md",
       "redirect_url": "/azure/aks/windows-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/kubernetes-dashboard.md",
+      "redirect_url": "/azure/aks/kubernetes-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/egress.md",
+      "redirect_url": "/azure/aks/load-balancer-standard",
       "redirect_document_id": false
     },
     {
@@ -5694,6 +5924,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-arc/data/retrieve-the-username-password-for-data-controller.md",
+      "redirect_url": "/azure/azure-arc/data/update-service-principal-credentials",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-arc/data/create-aks-cluster-data-controller.md",
+      "redirect_url": "/azure/azure-arc/data/create-complete-managed-instance-indirectly-connected",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-arc/data/how-to-apply-security-context-constraint.md",
       "redirect_url": "/azure/azure-arc/data",
       "redirect_document_id": false
@@ -7390,8 +7630,8 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/concepts/model-versioning.md",
-      "redirect_url": "/azure/cognitive-services/language-service/overview",
-      "redirect_document_id": false
+      "redirect_url": "/azure/cognitive-services/language-service/concepts/model-lifecycle",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/text-analytics-resource-external-community.md",
@@ -7474,16 +7714,6 @@
     {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-devops-with-github.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-devops-automation",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/app/app-insights-dashboards.md",
-      "redirect_url": "/azure/azure-monitor/app/overview-dashboard",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/application-insights/app-insights-performance-counters.md",
-      "redirect_url": "/azure/azure-monitor/app/performance-counters",
       "redirect_document_id": true
     },
     {
@@ -17709,8 +17939,8 @@
     },
     {
       "source_path_from_root": "/articles/lab-services/classroom-labs/classroom-labs-overview.md",
-      "redirect_url": "/azure/lab-services/classroom-labs-overview",
-      "redirect_document_id": true
+      "redirect_url": "/azure/lab-services/get-started-manage-labs",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/lab-services/classroom-labs/classroom-labs-scenarios.md",
@@ -22494,6 +22724,286 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-app-type.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-app-type",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-audit.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-audit",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-backup.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-backup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-choose-distribution-column.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-choose-distribution-column",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-colocation.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-colocation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-columnar.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-columnar",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-configuration-options.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-configuration-options",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-connection-pool.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-connection-pool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-distributed-data.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-distributed-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-extensions.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-extensions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-firewall-rules.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-firewall-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-high-availability.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-high-availability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-limits.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-limits",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-maintenance.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-maintenance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-monitoring.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-monitoring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-nodes.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-nodes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-private-access.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-private-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-read-replicas.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-read-replicas",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-reserved-pricing.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-reserved-pricing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-security-overview.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-security-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-ssl-connection-security.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-ssl-connection-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-tiers.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-tiers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-hyperscale-versions.md",
+      "redirect_url": "/azure/postgresql/hyperscale/concepts-versions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-alert-on-metric.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-alert-on-metric",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-compute-quota.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-compute-quota",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-create-users.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-create-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-high-availability.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-high-availability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-logging.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-logging",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-maintenance.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-maintenance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-manage-firewall-using-portal.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-manage-firewall-using-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-modify-distributed-tables.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-modify-distributed-tables",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-monitoring.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-monitoring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-private-access.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-private-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-read-replicas-portal.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-read-replicas-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-restart.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-restart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-restore-portal.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-restore-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-scale-grow.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-scale-grow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-scale-initial.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-scale-initial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-scale-rebalance.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-scale-rebalance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-table-size.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-table-size",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-troubleshoot-common-connection-issues.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-troubleshoot-common-connection-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-troubleshoot-read-only.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-troubleshoot-read-only",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-upgrade.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-upgrade",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/howto-hyperscale-useful-diagnostic-queries.md",
+      "redirect_url": "/azure/postgresql/hyperscale/howto-useful-diagnostic-queries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/hyperscale-overview.md",
+      "redirect_url": "/azure/postgresql/hyperscale/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/hyperscale-product-updates.md",
+      "redirect_url": "/azure/postgresql/hyperscale/product-updates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/quickstart-create-hyperscale-basic-tier.md",
+      "redirect_url": "/azure/postgresql/hyperscale/quickstart-create-basic-tier",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/quickstart-create-hyperscale-portal.md",
+      "redirect_url": "/azure/postgresql/hyperscale/quickstart-create-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/reference-hyperscale-functions.md",
+      "redirect_url": "/azure/postgresql/hyperscale/reference-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/reference-hyperscale-metadata.md",
+      "redirect_url": "/azure/postgresql/hyperscale/reference-metadata",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/reference-hyperscale-parameters.md",
+      "redirect_url": "/azure/postgresql/hyperscale/reference-parameters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/tutorial-design-database-hyperscale-multi-tenant.md",
+      "redirect_url": "/azure/postgresql/hyperscale/tutorial-design-database-multi-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/tutorial-design-database-hyperscale-realtime.md",
+      "redirect_url": "/azure/postgresql/hyperscale/tutorial-design-database-realtime",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/tutorial-hyperscale-private-access.md",
+      "redirect_url": "/azure/postgresql/hyperscale/tutorial-private-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/tutorial-hyperscale-server-group.md",
+      "redirect_url": "/azure/postgresql/hyperscale/tutorial-server-group",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/tutorial-hyperscale-shard.md",
+      "redirect_url": "/azure/postgresql/hyperscale/tutorial-shard",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/postgresql/policy-samples.md",
       "redirect_url": "/azure/postgresql/policy-reference",
       "redirect_document_id": false
@@ -24470,7 +24980,7 @@
     },
     {
       "source_path_from_root": "/articles/sentinel/connect-dns.md",
-      "redirect_url": "/azure/sentinel/data-connectors-reference#domain-name-server",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#windows-dns-server-preview",
       "redirect_document_id": false
     },
     {
@@ -25399,6 +25909,81 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/setup-geodr-failover-pool-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/setup-geodr-failover-database-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-restore-database-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/restore-database-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-import-from-bacpac-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/import-from-bacpac-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/auditing-and-threat-detection-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/auditing-threat-detection-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/setup-geodr-and-failover-database-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/setup-geodr-failover-database-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-create-managed-instance-to-failover-group-cli.md",
+      "redirect_url": "/azure/azure-sql/database/az-cli-script-samples-content-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/scripts/transparent-data-encryption-byok-sql-managed-instance-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-managed-instance-restore-geo-backup-cli.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/scripts/restore-geo-backup-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-create-configure-managed-instance-cli.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/scripts/create-configure-managed-instance-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-copy-database-to-new-server-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/copy-database-to-new-server-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-backup-database-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/backup-database-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-add-managed-instance-to-failover-group-cli.md",
+      "redirect_url": "/azure/azure-sql/database/az-cli-script-samples-content-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-auditing-and-threat-detection-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/auditing-threat-detection-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-add-elastic-pool-to-failover-group-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/add-elastic-pool-to-failover-group-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md",
       "redirect_url": "/azure/sql-database/scripts/sql-database-add-single-db-to-failover-group-powershell",
       "redirect_document_id": false
@@ -26294,9 +26879,9 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/storage/common/storage-enable-and-view-metrics.md",
-      "redirect_url": "/azure/storage/common/monitor-storage",
-      "redirect_document_id": true
+      "source_path_from_root": "/articles/cloud-services-extended-support/role-startup-failure.md",
+      "redirect_url": "/troubleshoot/azure/cloud-services/role-startup-failure",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/common/storage-metrics-in-azure-monitor.md",
@@ -26526,7 +27111,7 @@
     {
       "source_path_from_root": "/articles/storage/storage-enable-and-view-metrics.md",
       "redirect_url": "/azure/storage/common/storage-enable-and-view-metrics",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/storage-enable-and-view-metrics-classic-portal.md",
@@ -39789,6 +40374,46 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/index-devices.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-devices-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/get-speech-devices-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-devices-sdk-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-devices-sdk-troubleshooting.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/how-to-devices-microphone-array-configuration.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-devices-sdk-roobo-v1.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-devices-sdk-roobo-v2.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/entitylinking/GettingStarted.md",
       "redirect_url": "/azure/cognitive-services/text-analytics",
       "redirect_document_id": false
@@ -40471,6 +41096,11 @@
     {
       "source_path": "articles/batch/batch-certificates.md",
       "redirect_url": "/azure/batch/credential-access-key-vault",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/batch/batch-low-pri-vms.md",
+      "redirect_url": "/azure/batch/batch-spot-vms",
       "redirect_document_id": false
     },
     {
@@ -44233,6 +44863,11 @@
       "redirect_url": "/azure/communication-services/concepts/telephony/port-phone-number",
       "redirect_document_id": false
     },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/pstn-call.md",
+        "redirect_url": "/azure/communication-services/quickstarts/telephony/pstn-call",
+        "redirect_document_id": false
+      },
     {
       "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/concepts.md",
       "redirect_url": "/azure/communication-services/concepts/sms/concepts",
@@ -44876,6 +45511,16 @@
     {
       "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-aks.md",
       "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-aks-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/secure-line-of-business-apps.md",
+      "redirect_url": "/azure/active-directory/develop/zero-trust-for-developers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/networking/azure-orbital-overview.md",
+      "redirect_url": "/azure/orbital/overview",
       "redirect_document_id": false
     }
   ]

@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backup
 description: Provides a summary of support settings and limitations when backing up Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 10/19/2021
+ms.date: 12/08/2021
 ms.custom: references_regions 
 ms.reviewer: geg
 author: v-amallick
@@ -81,7 +81,7 @@ For Azure VM Linux backups, Azure Backup supports the list of Linux [distributio
 - Azure Backup doesn't support Core OS Linux.
 - Azure Backup doesn't support 32-bit operating systems.
 - Other bring-your-own Linux distributions might work as long as the [Azure VM agent for Linux](../virtual-machines/extensions/agent-linux.md) is available on the VM, and as long as Python is supported.
-- Azure Backup doesn't support a proxy-configured Linux VM if it doesn't have Python version 2.7 installed.
+- Azure Backup doesn't support a proxy-configured Linux VM if it doesn't have Python version 2.7 or higher installed.
 - Azure Backup doesn't support backing up NFS files that are mounted from storage, or from any other NFS server, to Linux or Windows machines. It only backs up disks that are locally attached to the VM.
 
 ## Support matrix for managed pre-post scripts for Linux databases
@@ -164,7 +164,7 @@ Backup of Azure VMs with locks | Unsupported for unmanaged VMs. <br><br> Support
 Windows Storage Spaces configuration of standalone Azure VMs | Supported
 [Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) | Supported for flexible orchestration model to back up and restore Single Azure VM.
 Restore with Managed identities | Yes, supported for managed Azure VMs, and not supported for classic and unmanaged Azure VMs.  <br><br> Cross Region Restore isn't supported with managed identities. <br><br> Currently, this is available in all Azure public and national cloud regions.   <br><br> [Learn more](backup-azure-arm-restore-vms.md#restore-vms-with-managed-identities).
-Trusted Launch VM    |  Backup supported (in preview)    <br><br>  To enroll your subscription for this feature, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).    <br><br>  Backup for Trusted Launch VM is supported through [Enhanced policy](backup-azure-vms-enhanced-policy.md). You can enable backup only through [Recovery Services vault](/azure/backup/backup-azure-arm-vms-prepare) and [VM Manage blade](/azure/backup/backup-during-vm-creation#start-a-backup-after-creating-the-vm).    <br><br>   **Feature details**   <br>  <ul><li> Migration of an existing [Generation 2](/azure/virtual-machines/generation-2) VM (protected with Azure Backup) to Trusted Launch VM is currently not supported. Learn about how to [create a Trusted Launch VM](/azure/virtual-machines/trusted-launch-portal?tabs=portal#deploy-a-trusted-vm). </li><li> Configurations of Backup, Alerts, and Monitoring for Trusted Launch VM are currently not supported through Backup center. </li><li> Currently, you can restore as [Create VM](/azure/backup/backup-azure-arm-restore-vms#create-a-vm), or [Restore disk](/azure/backup/backup-azure-arm-restore-vms#restore-disks) only.  </li><li> [vTPM state](/azure/virtual-machines/trusted-launch#vtpm) doesn't persist while you restore a VM from a recovery point. Therefore, scenarios that require vTPM persistence may not work across the backup and restore operation.  </li></ul>   
+<a name="tvm-backup">Trusted Launch VM</a>    |  Backup supported (in preview)    <br><br>  To enroll your subscription for this feature, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).    <br><br>  Backup for Trusted Launch VM is supported through [Enhanced policy](backup-azure-vms-enhanced-policy.md). You can enable backup only through [Recovery Services vault](/azure/backup/backup-azure-arm-vms-prepare) and [VM Manage blade](/azure/backup/backup-during-vm-creation#start-a-backup-after-creating-the-vm).    <br><br>   **Feature details**   <br>  <ul><li> Migration of an existing [Generation 2](/azure/virtual-machines/generation-2) VM (protected with Azure Backup) to Trusted Launch VM is currently not supported. Learn about how to [create a Trusted Launch VM](/azure/virtual-machines/trusted-launch-portal?tabs=portal#deploy-a-trusted-vm). </li><li> Configurations of Backup, Alerts, and Monitoring for Trusted Launch VM are currently not supported through Backup center. </li><li> Currently, you can restore as [Create VM](/azure/backup/backup-azure-arm-restore-vms#create-a-vm), or [Restore disk](/azure/backup/backup-azure-arm-restore-vms#restore-disks) only.  </li><li> [vTPM state](/azure/virtual-machines/trusted-launch#vtpm) doesn't persist while you restore a VM from a recovery point. Therefore, scenarios that require vTPM persistence may not work across the backup and restore operation.  </li></ul>   
 
 ## VM storage support
 
@@ -172,7 +172,7 @@ Trusted Launch VM    |  Backup supported (in preview)    <br><br>  To enroll you
 --- | ---
 Azure VM data disks | Support for backup of Azure VMs with up to 32 disks.<br><br> Support for backup of Azure VMs with unmanaged disks or classic VMs is up to 16 disks only.
 Data disk size | Individual disk size can be up to 32 TB and a maximum of 256 TB combined for all disks in a VM.
-Storage type | Standard HDD, Standard SSD, Premium SSD.
+Storage type | Standard HDD, Standard SSD, Premium SSD. <br><br>  Backup and restore of [ZRS disks](/azure/virtual-machines/disks-redundancy#zone-redundant-storage-for-managed-disks) is supported.
 Managed disks | Supported.
 Encrypted disks | Supported.<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Azure AD app).<br/><br/> Encrypted VMs can't be recovered at the file/folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that are already protected by Azure Backup.
 Disks with Write Accelerator enabled | Currently, Azure VM with WA disk backup is previewed in all Azure public regions. <br><br> To enroll your subscription for WA Disk, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com). <br><br> Snapshots don’t include WA disk snapshots for unsupported subscriptions as WA disk will be excluded. <br><br>**Important** <br> Virtual machines with WA disks need internet connectivity for a successful backup (even though those disks are excluded from the backup).

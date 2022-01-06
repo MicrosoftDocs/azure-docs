@@ -107,5 +107,5 @@ The following table compares the two types of Azure lab environments:
 
 See the following articles: 
 
-- [About Classroom Labs](../lab-services/classroom-labs-overview.md)
+- [About Lab Services](../lab-services/lab-services-overview.md)
 - [About DevTest Labs](devtest-lab-overview.md)

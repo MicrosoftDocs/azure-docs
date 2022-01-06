@@ -34,6 +34,37 @@ Each number in the version indicates general compatibility with the previous ver
 
 Aim to run the latest patch release of the minor version you're running. For example, your production cluster is on **`1.17.7`**. **`1.17.8`** is the latest available patch version available for the *1.17* series. You should upgrade to **`1.17.8`** as soon as possible to ensure your cluster is fully patched and supported.
 
+## Kubernetes Alias Minor Version (Preview)
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+> [!NOTE]
+> Alias Minor Version requires Azure CLI version 2.31.0 or above with the aks-preview extension installed. Please use `az upgrade` to install the latest version of the CLI.
+
+You will need the *aks-preview* Azure CLI extension version 0.5.49 or greater. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+Azure Kubernetes Service allows for you to create a cluster without specifiying the exact patch version. When creating a cluster without specifying a patch, the cluster will run the minor version's latest patch. For example, if you create a cluster with **`1.21`**, your cluster will be running **`1.21.7`**, which is the latest patch version of *1.21*.
+
+To see what patch you are on, run the `az aks show --resource-group myResourceGroup --name myAKSCluster` command. The property `currentKubernetesVersion` shows the whole Kubernetes version.
+
+```
+{
+ "apiServerAccessProfile": null,
+  "autoScalerProfile": null,
+  "autoUpgradeProfile": null,
+  "azurePortalFqdn": "myaksclust-myresourcegroup.portal.hcp.eastus.azmk8s.io",
+  "currentKubernetesVersion": "1.21.7",
+}
+```
+
 ## Kubernetes version support policy
 
 AKS defines a generally available version as a version enabled in all SLO or SLA measurements and available in all regions. AKS supports three GA minor versions of Kubernetes:
@@ -169,7 +200,7 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 | 1.19*  | Aug-04-20  | Sep 2020   | Nov 2020  | 1.22 GA |
 | 1.20  | Dec-08-20  | Jan 2021   | Mar 2021  | 1.23 GA |
 | 1.21  | Apr-08-21 | May 2021   | Jul 2021  | 1.24 GA |
-| 1.22  | Aug-04-21 | Sept 2021   | Nov 2021  | 1.25 GA |
+| 1.22  | Aug-04-21 | Sept 2021   | Dec 2021  | 1.25 GA |
 | 1.23  | Dec 2021 | Jan 2022   | Feb 2022  | 1.26 GA |
 
 > [!NOTE]
@@ -250,6 +281,8 @@ For information on how to upgrade your cluster, see [Upgrade an Azure Kubernetes
 
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-get-versions]: /cli/azure/aks#az_aks_get_versions
 [preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [get-azaksversion]: /powershell/module/az.aks/get-azaksversion

@@ -9,12 +9,11 @@ editor: ''
 
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/06/2021
+ms.date: 12/17/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -88,6 +87,10 @@ To generate a lastSignInDateTime timestamp, you need a successful sign-in. Becau
 
 - The last successful sign-in of a user took place before April 2020.
 - The affected user account was never used for a successful sign-in.
+
+### For how long is the last sign-in retained?
+
+The last sign-in date is associated with the user object. The value is retained until the sign-in of the user. 
 
 ## Next steps
 

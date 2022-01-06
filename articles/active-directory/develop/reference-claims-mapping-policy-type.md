@@ -164,6 +164,7 @@ There are certain sets of claims that define how and when they're used in tokens
 | verified_secondary_email |
 | wids |
 | win_ver |
+| nickname |
 
 ### Table 2: SAML restricted claim set
 
@@ -332,6 +333,29 @@ The ID element identifies which property on the source provides the value for th
 > [!NOTE]
 > Names and URIs of claims in the restricted claim set cannot be used for the claim type elements. For more information, see the "Exceptions and restrictions" section later in this article.
 
+### Group Filter (Preview)
+
+**String:** GroupFilter
+
+**Data type:** JSON blob
+
+**Summary:** Use this property to apply a filter on the user’s groups to be included in the group claim. This can be a useful means of reducing the token size.
+
+**MatchOn:** The **MatchOn** property identifies the group attribute on which to apply the filter. 
+
+Set the **MatchOn** property to one of the follwoing values:
+
+- "displayname": The group display name.
+- "samaccountname": The On-premises SAM Account Name
+
+**Type:** The **Type** property selects the type of filter you wish to apply to the attribute selected by the **MatchOn** property. 
+
+Set the **Type** property to one of the following values:
+
+- "prefix": Include groups where the **MatchOn** property starts with the provided **Value** property.
+- "suffix": Include groups where the **MatchOn** property ends with the provided **Value** property.
+- "contains": Include groups where the **MatchOn** property contains with the provided **Value** property.
+
 ### Claims transformation
 
 **String:** ClaimsTransformation
@@ -353,10 +377,11 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 |Join|string1, string2, separator|outputClaim|Joins input strings by using a separator in between. For example: string1:"foo@bar.com" , string2:"sandbox" , separator:"." results in outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|Email or UPN|extracted string|ExtensionAttributes 1-15 or any other Schema Extensions which are storing a UPN or email address value for the user e.g. johndoe@contoso.com. Extracts the local part of an email address. For example: mail:"foo@bar.com" results in outputClaim:"foo". If no \@ sign is present, then the original input string is returned as is.|
 
-**InputClaims:** Use an InputClaims element to pass the data from a claim schema entry to a transformation. It has two attributes: **ClaimTypeReferenceId** and **TransformationClaimType**.
+**InputClaims:** Use an InputClaims element to pass the data from a claim schema entry to a transformation. It has three attributes: **ClaimTypeReferenceId**, **TransformationClaimType** and **TreatAsMultiValue** (Preview)
 
 - **ClaimTypeReferenceId** is joined with ID element of the claim schema entry to find the appropriate input claim.
 - **TransformationClaimType** is used to give a unique name to this input. This name must match one of the expected inputs for the transformation method.
+- **TreatAsMultiValue** is a Boolean flag indicating if the transform should be applied to all values or just the first. By default, transformations will only be applied to the first element in a multi value claim, by setting this value to true it ensures it is applied to all. ProxyAddresses and groups are 2 examples for input claims that you would likely want to treat as a multi value. 
 
 **InputParameters:** Use an InputParameters element to pass a constant value to a transformation. It has two attributes: **Value** and **ID**.
 

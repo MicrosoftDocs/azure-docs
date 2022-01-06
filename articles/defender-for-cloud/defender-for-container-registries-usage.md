@@ -1,7 +1,7 @@
 ---
 title: How to use Microsoft Defender for container registries
 description: Learn about using Microsoft Defender for container registries to scan Linux images in your Linux-hosted registries
-ms.date: 11/09/2021
+ms.date: 12/09/2021
 ms.topic: how-to
 ---
 
@@ -45,7 +45,7 @@ To enable vulnerability scans of images stored in your Azure Resource Manager-ba
 
 ## View and remediate findings
 
-1. To view the findings, go to the **Recommendations** page. If issues were found, you'll see the recommendation **Vulnerabilities in Azure Container Registry images should be remediated**
+1. To view the findings, open the **Recommendations** page. If issues were found, you'll see the recommendation [Container registry images should have vulnerability findings resolved (powered by Qualys)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dbd0cb49-b563-45e7-9724-889e799fa648).
 
     ![Recommendation to remediate issues .](media/monitor-container-security/acr-finding.png)
 
@@ -87,16 +87,16 @@ To enable vulnerability scans of images stored in your Azure Resource Manager-ba
 
     1. Push the updated image. This will trigger a scan.
 
-    1. Check the recommendations page for the recommendation "Vulnerabilities in Azure Container Registry images should be remediated".
+    1. Check the recommendations page for the recommendation [Container registry images should have vulnerability findings resolved (powered by Qualys)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dbd0cb49-b563-45e7-9724-889e799fa648).
 
         If the recommendation still appears and the image you've handled still appears in the list of vulnerable images, check the remediation steps again.
 
     1. When you are sure the updated image has been pushed, scanned, and is no longer appearing in the recommendation, delete the “old” vulnerable image from your registry.
 
-## Disable specific findings (preview)
+## Disable specific findings
 
 > [!NOTE]
-> [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]
+> [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
 
 If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
 
@@ -123,7 +123,7 @@ You can use any of the following criteria:
 
 To create a rule:
 
-1. From the recommendations detail page for **Vulnerabilities in Azure Container Registry images should be remediated**, select **Disable rule**.
+1. From the recommendations detail page for [Container registry images should have vulnerability findings resolved (powered by Qualys)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dbd0cb49-b563-45e7-9724-889e799fa648), select **Disable rule**.
 1. Select the relevant scope.
 1. Define your criteria.
 1. Select **Apply rule**.

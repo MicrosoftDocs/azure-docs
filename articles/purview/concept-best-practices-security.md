@@ -136,7 +136,7 @@ Examples of control plane operations and data plane operations:
 |Setup a Private Endpoint for Azure Purview     | Control plane         | Contributor         | Azure RBAC roles        |
 |Delete a Purview account      | Control plane         | Contributor         | Azure RBAC roles        |
 |View Purview metrics to get current capacity units       | Control plane         | Reader       | Azure RBAC roles        |
-|Create a collection      | Data plane           | Control plane        | Azure RBAC roles        |
+|Create a collection      | Data plane           | Collection Admin        | Azure Purview roles        |
 |Register a data source    | Data plane          | Collection Admin         | Azure Purview roles         |
 |Scan a SQL Server      | Data plane          | Data source admin and data reader or data curator          | Azure Purview roles         |
 |Search inside Purview Data Catalog      | Data plane          | Data source admin and data reader or data curator          | Azure Purview roles         |
@@ -229,6 +229,8 @@ For more information, see [Integrate Azure Purview with Azure security products]
 ### Secure metadata extraction and storage
 
 Azure Purview is a data governance solution in cloud. You can register and scan different data sources from various data systems from your on-premises, Azure, or multi-cloud environments into Azure Purview. While data source is registered and scanned in Purview, the actual data and data sources stay in their original locations, only metadata is extracted from data sources and stored in Purview Data Map which means, you do not need to move data out of the region or their original location to extract the metadata into Azure Purview.
+
+When an Azure Purview account is deployed, in addition, a managed resource group is also deployed in your Azure subscription. A managed Azure Storage Account and a Managed Event Hub are deployed inside this resource group. The managed storage account is used to ingest metadata from data sources during the scan. Since these resources are consumed by the Azure Purview they cannot be accessed by any other users or principals, except the Azure Purview account. This is because an Azure role-based access control (RBAC) deny assignment is added automatically for all principals to this resource group at the time of Purview account deployment, preventing any CRUD operations on these resources if they are not initiated from Azure Purview.
 
 ### Where is metadata stored? 
 
@@ -325,8 +327,8 @@ As a general rule, you can use the following options to set up integration runti
 |Scenario  |Runtime option   |Supported Credentials   |
 |---------|---------|---------|
 |Data source is an Azure Platform as a Service, such as Azure Data Lake Storage Gen 2 or Azure SQL inside public network      | Option 1: Azure Runtime          | Azure Purview Managed Identity, Service Principal or Access Key / SQL Authentication (depending on Azure data source type)         |
-|Data source is an Azure Platform as a Service, such as Azure Data Lake Storage Gen 2 Gen 2 or Azure SQL inside public network      | Option 2: Self-hosted integration runtime          | Service Principal or Access Key / SQL Authentication (depending on Azure data source type)         |
-|Data source is an Azure Platform as a Service, such as Azure Data Lake Storage Gen 2 Gen 2 or Azure SQL inside private network using Azure Private Link Service      |  Self-hosted integration runtime         | Service Principal or Access Key / SQL Authentication (depending on Azure data source type)         |
+|Data source is an Azure Platform as a Service, such as Azure Data Lake Storage Gen 2 or Azure SQL inside public network      | Option 2: Self-hosted integration runtime          | Service Principal or Access Key / SQL Authentication (depending on Azure data source type)         |
+|Data source is an Azure Platform as a Service, such as Azure Data Lake Storage Gen 2 or Azure SQL inside private network using Azure Private Link Service      |  Self-hosted integration runtime         | Service Principal or Access Key / SQL Authentication (depending on Azure data source type)         |
 |Data source is inside an Azure IaaS VM such as SQL Server       | Self-hosted integration runtime deployed in Azure         | SQL Authentication or Basic Authentication (depending on Azure data source type)         |
 |Data source is inside an on-premises system such as SQL Server or Oracle      | Self-hosted integration runtime deployed in Azure or in the on-premises network        | SQL Authentication or Basic Authentication (depending on Azure data source type)         |
 |Multi-cloud      | Azure runtime or self-hosted integration runtime based on data source types          |  Supported credential options vary based on data sources types       |
