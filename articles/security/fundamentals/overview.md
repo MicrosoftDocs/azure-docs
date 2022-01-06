@@ -50,9 +50,13 @@ The built-in capabilities are organized in six functional areas: Operations, App
 
 This section provides additional information regarding key features in security operations and summary information about these capabilities.
 
+### Microsoft Sentinel
+
+[Microsoft Sentinel](../../sentinel/overview.md) is a scalable, cloud-native, security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution. Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for attack detection, threat visibility, proactive hunting, and threat response.
+
 ### Microsoft Defender for Cloud
 
-[Defender for Cloud](../../security-center/security-center-introduction.md) helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+[Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 In addition, Defender for Cloud helps with security operations by providing you a single dashboard that surfaces alerts and recommendations that can be acted upon immediately. Often, you can remediate issues with a single click within the Defender for Cloud console.
 
@@ -290,7 +294,7 @@ You can enable the following diagnostic log categories for NSGs:
 
 - Rules counter: Contains entries for how many times each NSG rule is applied to deny or allow traffic.
 
-### Defender for Cloud
+### Microsoft Defender for Cloud
 
 [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) continuously analyzes the security state of your Azure resources for network security best practices. When Defender for Cloud identifies potential security vulnerabilities, it creates [recommendations](../../security-center/security-center-recommendations.md) that guide you through the process of configuring the needed controls to harden and protect your resources.
 
