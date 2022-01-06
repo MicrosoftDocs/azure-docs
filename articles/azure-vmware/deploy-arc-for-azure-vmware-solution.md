@@ -320,7 +320,7 @@ Copy the JSON above into an empty file and save the file as `AzureArcAVSVMContri
 1. Select the **AAD user** or **group name**. Repeat this step for each user or group you want to give permission to.
 1. Repeat the above steps for each scope and role.
 
-    :::image type="content" source="media/deploy-arc-for-avs/assign-custom-role-user-groups.png" alt-text="Image showing navigation to access control IAM and add role assignment"lightbox="media/media/deploy-arc-for-avs/assign-custom-role-user-groups.png":::
+    :::image type="content" source="media/deploy-arc-for-avs/assign-custom-role-user-groups.png" alt-text="Image showing navigation to access control IAM and add role assignment."lightbox="media/deploy-arc-for-avs/assign-custom-role-user-groups.png":::
 
 ## Create Arc enabled Azure VMware Solution VM
 
