@@ -328,7 +328,7 @@ The ID element identifies which property on the source provides the value for th
 
 **MatchOn:** The **MatchOn** property identifies the group attribute on which to apply the filter. 
 
-Set the **MatchOn** property to one of the follwoing values:
+Set the **MatchOn** property to one of the following values:
 
 - "displayname": The group display name.
 - "samaccountname": The On-premises SAM Account Name
