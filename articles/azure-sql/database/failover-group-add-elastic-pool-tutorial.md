@@ -502,9 +502,7 @@ This portion of the tutorial uses the following PowerShell cmdlet:
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md
-
-)]
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
 
    ```azurecli
    echo "Cleaning up resources by removing the resource group..."
