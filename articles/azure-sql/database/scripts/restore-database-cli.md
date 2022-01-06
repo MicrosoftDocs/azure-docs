@@ -23,8 +23,6 @@ This Azure CLI example restores a single database in Azure SQL Database to a spe
 
 ## Sample script
 
-### Sign in to Azure
-
 [!INCLUDE [cli-run-local-sign-in.md](../../../../includes/cli-run-local-sign-in.md)]
 
 ### Run the script
