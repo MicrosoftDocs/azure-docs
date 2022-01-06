@@ -15,7 +15,7 @@ recommendations: false
 
 # Tutorial: Use Azure Logic Apps with Form Recognizer
 
-Azure Logic Apps is a cloud-based platform that can be used to automate workflows without writing a single line of code. The platform enables you to easily integrate Microsoft and third-party applications with your apps, data, services, and systems. A logic app is the Azure resource you create when you want to develop a workflow. Here are a few examples of what you can do with a logic app:
+Azure Logic Apps is a cloud-based platform that can be used to automate workflows without writing a single line of code. The platform enables you to easily integrate Microsoft and third-party applications with your apps, data, services, and systems. A Logic App is the Azure resource you create when you want to develop a workflow. Here are a few examples of what you can do with a Logic App:
 
 * Create business processes and workflows visually.
 * Integrate workflows with software as a service (SaaS) and enterprise applications.
@@ -23,7 +23,7 @@ Azure Logic Apps is a cloud-based platform that can be used to automate workflow
 
 For more information, *see* [Logic Apps Overview](/azure/logic-apps/logic-apps-overview).
 
- In this tutorial, you'll learn how to build a logic app connector flow to automate the following tasks:
+ In this tutorial, you'll learn how to build a Logic App connector flow to automate the following tasks:
 
 > [!div class="checklist"]
 >
@@ -60,11 +60,11 @@ To complete this tutorial, you'll need the following:
 
 * A free [**Outlook online**](https://signup.live.com/signup.aspx?lic=1&mkt=en-ca) or [**Office 365**](https://www.microsoft.com/en-us/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook) email account**.
 
-* **A sample invoice to test your logic app**. You can download and use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/invoice-logic-apps-tutorial.pdf) for this tutorial.
+* **A sample invoice to test your Logic App**. You can download and use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/invoice-logic-apps-tutorial.pdf) for this tutorial.
 
 ## Create a OneDrive folder
 
-Before we jump into creating the logic app, we have to set up a OneDrive folder.
+Before we jump into creating the Logic App, we have to set up a OneDrive folder.
 
 1. Go to your [OneDrive](https://onedrive.live.com/) or [OneDrive for Business](https://www.microsoft.com/microsoft-365/onedrive/onedrive-for-business) home page.
 
@@ -198,7 +198,7 @@ Let's quickly review what we've done before we test our flow:
 
 Now that we've created the flow the last thing to do is to test it and make sure we're getting the expected behavior.
 
-1. Now to test the logic app first open a new tab and navigate to the OneDrive folder you set up at the beginning of this tutorial. Now add this file to the OneDrive folder [Sample invoice.](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/invoice-logic-apps-tutorial.pdf)
+1. Now to test the Logic App first open a new tab and navigate to the OneDrive folder you set up at the beginning of this tutorial. Now add this file to the OneDrive folder [Sample invoice.](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/invoice-logic-apps-tutorial.pdf)
 
 1. Return to the Logic App designer tab and select the **Run trigger** button and select **Run** from the drop-down menu.
 
