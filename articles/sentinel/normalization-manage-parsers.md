@@ -95,7 +95,7 @@ To add a custom parser, insert a line to the union statement in the workspace-de
 | **File Event** | | **Name:** imFileEvent<br><br>**Line to add:** _parser_name_ |
 | **Network Session** | **Name:** imNetworkSession<br><br>**Line to add:**<br> _parser_name_ (starttime, endtime, srcipaddr_has_any_prefix, dstipaddr_has_any_prefix, dstportnumber, url_has_any, httpuseragent_has_any, hostname_has_any, dvcaction, eventresult) | **Name:** ASimNetworkSession<br><br>**Line to add:** _parser_name_ |
 | **Process Event** | | **Names:**<br> - imProcess<br> - imProcessCreate<br> - imProcessTerminat<br><br>**Line to add:**  _parser_name_ |
-| **Registry Event** | | **Name:** imRegistry |  _parser_name_ |
+| **Registry Event** | | **Name:** imRegistry<br><br>**Line to add:** _parser_name_ |
 | **Web Session** | **Name:** imWebSession<br><br>**Line to add:**<br> _parser_name_ parser (starttime, endtime, srcipaddr_has_any, url_has_any, httpuseragent_has_any, eventresultdetails_in, eventresult) | **Name:** ASimWebSession<br><br>**Line to add:**  _parser_name_ | 
 | |  |  
 

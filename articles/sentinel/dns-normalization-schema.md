@@ -73,10 +73,10 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific DNS p
 | --- | --------------------------- | ------------------------------ | 
 |**Microsoft DNS Server**<br>Collected using the DNS connector<br> and the Log Analytics Agent | `_ASim_DnsMicrosoftOMS` (regular) <br> `_Im_DnsMicrosoftOMS` (filtering) <br><br>  | `ASimDnsMicrosoftOMS` (regular) <br>`vimDnsMicrosoftOMS` (filtering) <br><br> |
 | **Microsoft DNS Server**<br>Collected using NXlog| `_ASim_DnsMicrosoftNXlog` (regular)<br>`_Im_DnsMicrosoftNXlog` (filtering)| `ASimDnsMicrosoftNXlog` (regular)<br> `vimDnsMicrosoftNXlog` (filtering)|
-| **Azure Firewall** | `_ASim_DnsAzureFirewall` (regular)<br> `_Im_DnsAzureFirewall` (filtering) | `ASimDnsAzureFirewall` (regular)<br>vimDnsAzureFirewall` (filtering) |
-|**Sysmon for Windows**  (event 22)<br>Collected using the Log Analytics Agent<br> or the Azure Monitor Agent,<br>supporting both the<br> `Event` and `WindowsEvent` tables | `_ASim_DnsMicrosoftSysmon` (regular)<br> `_Im_DnsMicrosoftSysmon` (filtering)  | `ASimDnsMicrosoftSysmon` (regular)<br> `vimDnsMicrosoftSysmon` (filtering)|
-|**Cisco Umbrella**  | `_ASim_DnsCiscoUmbrella` (regular)<br> `_Im_DnsCiscoUmbrella` (filtering)  | `ASimDnsCiscoUmbrella` (regular)<br> `vimDnsCiscoUmbrella` (filtering) |
-|**Infoblox NIOS**  | `_ASim_DnsInfobloxNIOS` (regular)<br> `_Im_DnsInfobloxNIOS` (filtering) | `ASimDnsInfobloxNIOS` (regular)<br> `vimDnsInfobloxNIOS` (filtering) |
+| **Azure Firewall** | `_ASim_DnsAzureFirewall` (regular)<br> `_Im_DnsAzureFirewall` (filtering) | `ASimDnsAzureFirewall` (regular)<br>`vimDnsAzureFirewall` (filtering) |
+| **Sysmon for Windows**  (event 22)<br> Collected using the Log Analytics Agent<br> or the Azure Monitor Agent,<br>supporting both the<br> `Event` and `WindowsEvent` tables | `_ASim_DnsMicrosoftSysmon` (regular)<br> `_Im_DnsMicrosoftSysmon` (filtering)  | `ASimDnsMicrosoftSysmon` (regular)<br> `vimDnsMicrosoftSysmon` (filtering) |
+| **Cisco Umbrella**  | `_ASim_DnsCiscoUmbrella` (regular)<br> `_Im_DnsCiscoUmbrella` (filtering)  | `ASimDnsCiscoUmbrella` (regular)<br> `vimDnsCiscoUmbrella` (filtering) |
+| **Infoblox NIOS**  | `_ASim_DnsInfobloxNIOS` (regular)<br> `_Im_DnsInfobloxNIOS` (filtering) | `ASimDnsInfobloxNIOS` (regular)<br> `vimDnsInfobloxNIOS` (filtering) |
 | **GCP DNS** | `_ASim_DnsGcp` (regular)<br> `_Im_DnsGcp`  (filtering) | `ASimDnsGcp` (regular)<br> `vimDnsGcp`  (filtering) |
 | **Corelight Zeek DNS events** | `_ASim_DnsCorelightZeek` (regular)<br> `_Im_DnsCorelightZeek`  (filtering) |  `ASimDnsCorelightZeek` (regular)<br> `vimDnsCorelightZeek`  (filtering)
 | **zScaler ZIA** |`_ASim_DnsZscalerZIA` (regular)<br> `_Im_DnsZdcalerZIA` (filtering)  | `AsimDnsZscalerZIA` (regular)<br> `vimDnsSzcalerZIA` (filtering)  |
