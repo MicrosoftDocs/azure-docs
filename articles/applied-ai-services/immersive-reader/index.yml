@@ -69,7 +69,7 @@ landingContent:
             url: how-to-configure-translation.md
           - text: Store user preferences
             url: how-to-store-user-preferences.md
-          - text: Security Advisory: Update Role Assignment for Azure Active Directory authentication
+          - text: Security Advisory - Update Role Assignment for Azure Active Directory authentication
             url: security-how-to-update-role-assignment.md
       - linkListType: reference
         links:
