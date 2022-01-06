@@ -4,7 +4,7 @@ description: Learn how to integrate with Azure Firewall to secure outbound traff
 author: madsd
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 09/16/2021
+ms.date: 01/05/2022
 ms.author: madsd
 ms.custom: seodec18, references_regions
 
@@ -245,6 +245,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 | \*.ctldl.windowsupdate.com:443 |
 | \*.prod.microsoftmetrics.com:443 |
 | \*.dsms.core.windows.net:443 |
+| \*.prod.warm.ingest.monitor.core.windows.net |
 
 ### Linux dependencies
 
@@ -445,6 +446,7 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |\*.management.usgovcloudapi.net:443 |
 |\*.update.microsoft.com:443 |
 |\*.prod.microsoftmetrics.com:443 |
+| \*.prod.warm.ingest.monitor.core.usgovcloudapi.net |
 
 <!--Image references-->
 [1]: ./media/firewall-integration/firewall-apprule.png
