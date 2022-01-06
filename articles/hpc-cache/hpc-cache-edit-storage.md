@@ -1,11 +1,11 @@
 ---
 title: Update Azure HPC Cache storage targets
 description: How to edit Azure HPC Cache storage targets
-author: femila
+author: ronhogue
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/30/2021
-ms.author: femila
+ms.date: 01/06/2022
+ms.author: rohogue
 ---
 
 # Edit storage targets
@@ -68,7 +68,7 @@ To change a blob storage target's namespace with the Azure CLI, use the command 
 
 For NFS storage targets, you can change or add virtual namespace paths, change the NFS export or subdirectory values that a namespace path points to, and change the usage model.
 
-Storage targets in caches with some types of custom DNS settings also have a control for refreshing their IP addresses. (This kind of configuration is rare.) Learn how to refresh the DNS settings in [View and manage storage targets](manage-storage-targets.md#update-ip-address-custom-dns-configurations-only).
+Storage targets in caches with some types of custom DNS settings also have a control for refreshing their IP addresses. (This kind of configuration is rare.) Learn how to refresh the DNS settings in [View and manage storage targets](manage-storage-targets.md#update-ip-address-specific-configurations-only).
 
 Details are below:
 
