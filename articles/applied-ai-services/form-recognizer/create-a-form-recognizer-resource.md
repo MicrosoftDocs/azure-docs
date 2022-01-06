@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 01/04/2022
+ms.date: 01/06/2022
 ms.author: bemabonsu
 recommendations: false
 #Customer intent: I want to learn how to use create a Form Recognizer service in the Azure portal.
@@ -32,7 +32,7 @@ Let's get started:
 1. Next, you're going to fill out the **Create Form Recognizer** fields with the following values:
 
    * **Subscription**. Select your current subscription.
-   * **Resource group**. This is the [Azure resource group](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that will contain your resource. You can create a new group or add it to a pre-existing group.
+   * **Resource group**. The [Azure resource group](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that will contain your resource. You can create a new group or add it to a pre-existing group.
    * **Region**. Select your local region.
    * **Name**. Enter a name for your resource. We recommend using a descriptive name, for example *YourNameFormRecognizer*.
    * **Pricing tier**. The cost of your resource depends on the pricing tier you choose and your usage. For more information, see [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.

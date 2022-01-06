@@ -1,5 +1,5 @@
 ---
-title: Form Recognizer with Logic Apps
+title: Use Form Recognizer with Logic Apps
 titleSuffix: Azure Applied AI Services
 description: A tutorial outlining how to use Form Recognizer with Logic Apps.
 author: laujan
@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 12/23/2021
+ms.date: 01/06/2022
 ms.author: bemabonsu
 recommendations: false
 #Customer intent: As a form-processing software developer, I want to learn how to use the Form Recognizer service with Logic Apps.
 ---
 
-# Tutorial: Form Recognizer with Logic Apps
+# Tutorial: Uwe Form Recognizer with Logic Apps
 
-Azure Logic Apps is a cloud-based platform that can be used to automate workflows without writing a single line of code. Logic Apps enable you to easily integrate Microsoft and third-party applications with your apps, data, services, and systems. Here are a few examples of what you can do with the logic apps:
+Azure Logic Apps is a cloud-based platform that can be used to automate workflows without writing a single line of code. Logic Apps enables you to easily integrate Microsoft and third-party applications with your apps, data, services, and systems. Here are a few examples of what you can do with the logic apps:
 
 * Create business processes and workflows visually.
 * Integrate workflows with software as a service (SaaS) and enterprise applications.
@@ -33,7 +33,7 @@ For more information, *see* [Logic Apps Overview](/azure/logic-apps/logic-apps-o
 
 ## Prerequisites
 
-To complete this tutorial, you'll need the following:
+To complete this tutorial, you'll need the following assets:
 
 * **An Azure subscription**. You can [create a free Azure subscription](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -76,7 +76,7 @@ Before we jump into creating the logic app, we have to set up a OneDrive folder.
 
 ### Create a Logic App resource
 
-At this point, you should have a Form Recognizer resource and a OneDrive folder all set . Now, it is time to create a Logic App resource.
+At this point, you should have a Form Recognizer resource and a OneDrive folder all set. Now, it is time to create a Logic App resource.
 
 1. Select **Create a resource** from the Azure home page.
 
@@ -89,7 +89,7 @@ At this point, you should have a Form Recognizer resource and a OneDrive folder 
 1. Next, you're going to fill out the **Create Form Recognizer** fields with the following values:
 
    * **Subscription**. Select your current subscription.
-   * **Resource group**. This is the [Azure resource group](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that will contain your resource. Choose the same resource group you have for your Form Recognizer resource.
+   * **Resource group**. The [Azure resource group](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that will contain your resource. Choose the same resource group you have for your Form Recognizer resource.
    * **Type**. Select **Consumption**. The Consumption resource type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](/azure/logic-apps/logic-apps-pricing#consumption-pricing).
    * **Logic App name**. Enter a name for your resource. We recommend using a descriptive name, for example *YourNameLogicApp*.
    * **Region**. Select your local region.
@@ -99,13 +99,13 @@ At this point, you should have a Form Recognizer resource and a OneDrive folder 
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-six.png" alt-text="Image showing correct values to create a Logic App resource.":::
 
-1. A short validation should run after it completes select **Create** in the bottom left corner.
+1. A short validation should run after it completes select **Create** in the bottom-left corner.
 
 1. You will be redirected to a screen that says **Deployment in progress** give Azure some time to deploy; it can take a couple minutes. After the deployment is complete you should see a banner that says, **Your deployment is complete**. When you reach this screen, select **Go to resource**.
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-seven.gif" alt-text="GIF showing how to get to newly created Logic App resource.":::
 
-1. You will be redirected to the **Logic Apps Designer** page. There is a short video for a quick introduction to Logic Apps available on the home screen. When you're ready to begin designing the Logic App, select the **Blank Logic App** button.
+1. You'll be redirected to the **Logic Apps Designer** page. There is a short video for a quick introduction to Logic Apps available on the home screen. When you're ready to begin designing the Logic App, select the **Blank Logic App** button.
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-eight.png" alt-text="Image showing how to enter the Logic App designer":::
 
@@ -113,7 +113,7 @@ At this point, you should have a Form Recognizer resource and a OneDrive folder 
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-nine.png" alt-text="Image of the Logic App Designer":::
 
-### Creating automation flow
+### Create automation flow
 
 Now that you have the Logic App connector resource set up and configured, the only thing left to do is to create the automation flow and test it out!
 
@@ -125,7 +125,7 @@ Now that you have the Logic App connector resource set up and configured, the on
 > If you try to sign into the OneDrive connector using an Office 365 account, you may receive the following error: ***Sorry, we can't sign you in here with your @MICROSOFT.COM account.***
 >
  > * This error happens because OneDrive is a cloud-based storage for personal use that can be accessed with an Outlook.com or Microsoft Live account not with Office 365 account.
-> * You can use OneDrive for business connector if you want to use an Office 365. Make sure that you have [created a OneDrive Folder](#create-a-onedrive-folder) for this project in your OneDrive for Business account.
+> * You can use OneDrive for Business connector if you want to use an Office 365. Make sure that you have [created a OneDrive Folder](#create-a-onedrive-folder) for this project in your OneDrive for Business account.
 
 1. After your account is connected, select the folder you created earlier in your OneDrive or OneDrive for Business account. Leave the other default values. Your window should look similar to the one below. (Note you folder name may vary from the example shown.)
 
@@ -135,33 +135,35 @@ Now that you have the Logic App connector resource set up and configured, the on
 
 1. A new node should have been added to the Logic App designer view. Search "Form recognizer" in the search bar and select "Analyze invoice (preview)" from the list.
 
-1. Now you should see a window where you will create your connection. Specifically, you are going to connect your Form Recognizer resource to the Logic Apps Designer Studio:
+1. Now you should see a window where you will create your connection. Specifically, you're going to connect your Form Recognizer resource to the Logic Apps Designer Studio:
 
     * Enter a **Connection name**. It should be something easy to remember.
-    * Enter the Form Recognizer resource **Endpoint URL** and **Account Key** that you copied earlier. If you skipped this step earlier or lost the codes, you can navigate back to your Form Recognizer resource and copy them again. When you're done select "Create".
+    * Enter the Form Recognizer resource **Endpoint URL** and **Account Key** that you copied earlier. If you skipped this step earlier or lost the codes, you can navigate back to your Form Recognizer resource and copy them again. When you're done, select **Create**.
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-eleven.gif" alt-text="GIF showing how to add second node to workflow.":::
 
 1. You should see the parameters tab for the **Analyze Invoice** connector.
 
-1. Select the "Document/Image File field. A dynamic content pop-up should appear if it does not select the add dynamic content button below the field. select "File content" from the pop-up list. This is essentially sending the file(s) that were created to be analyzed by the Form recognizer invoice prebuilt. Once you see the "File content" badge show up in the "Document /Image file content", you have done this correctly.
+1. Select the **Document/Image File Content** field. A dynamic content pop-up should appear. If it doesn't, select the **Add dynamic content** button below the field.
+
+1. Select **File content** from the pop-up list. This step is essentially sending the file(s) to be analyzed to the Form recognizer prebuilt-invoice model. Once you see the "File content" badge show up in the "Document /Image file content", you have completed this step correctly.
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-twelve.gif" alt-text="GIF showing how to add dynamic content to second node.":::
 
 1. We need to add the last step. Once again, select the **➕ New step** button to add another action.
 
-1. In the search bar enter *Outlook* and select **Outlook.com** (personal) or **Office 365 Outlook** (work).
+1. In the search bar, enter *Outlook* and select **Outlook.com** (personal) or **Office 365 Outlook** (work).
 
-1. in the actions bar scroll down until you find **Send an email (V2)** and select this action.
+1. In the actions bar, scroll down until you find **Send an email (V2)** and select this action.
 
-1. Just like with OneDrive you'll be asked to sign into your Outlook  or Office 365 Outlook account.After you sign in, you should see a window like the one pictured below. In this window, we're going to format the email to be sent with the dynamic content we have gotten from Form Recognizer.
+1. Just like with OneDrive you'll be asked to sign into your Outlook  or Office 365 Outlook account. After you sign in, you should see a window like the one pictured below. In this window, we're going to format the email to be sent with the dynamic content we've gotten from Form Recognizer.
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-thirteen.gif" alt-text="GIF showing how to add final step to workflow.":::
 
 1. We're almost done! Make the following changes to the following fields:
 
     * **To**. Enter your personal or business email address or any other email address you have access to.
-    * **Subject**. Enter ***Invoice Received from:*** and then append dynamic content **Vendor name field Vendor name**.
+    * **Subject**. Enter ***Invoice received from:*** and then append dynamic content **Vendor name field Vendor name**.
 
       > [!NOTE]
       >
@@ -177,26 +179,39 @@ Now that you have the Logic App connector resource set up and configured, the on
 
       :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-fifteen.png" alt-text="Image of Outlook node filled in":::
 
-1. The logic app designer view should look something like this. Congratulations you're done! Select save in the upper left corner
+1. The logic app designer view should look something like the image below.
+
+1. **Select Save in the upper left corner**.
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-sixteen.png" alt-text="Image of finished connector flow.":::
 
-### Testing automation flow
+That's it!
 
-Let's quickly review what we have done before we test our flow.
+### Test automation flow
 
-1. We created a trigger – In this case scenario, the trigger is when a file is created in a pre-specified folder in our OneDrive.
-1. We added a Form Recognizer action to our flow – In this scenario we decided to use the invoice API to automatically analyze the invoices from the OneDrive folder.
-1. We added a Outlook.com action to our flow – for this scenario we sent some of the analyzed invoice data to a pre-determined email address.
+Let's quickly review what we've done before we test our flow:
 
-Now that we have created the flow the last thing to do is to test it and make sure we're getting the expected behavior.
+> [!div class="checklist"]
+>
+> * We created a trigger – In this case scenario, the trigger is when a file is created in a pre-specified folder in our OneDrive account.
+> * We added a Form Recognizer action to our flow – In this scenario we decided to use the invoice API to automatically analyze the invoices from the OneDrive folder.
+> * We added an Outlook.com action to our flow – for this scenario we sent some of the analyzed invoice data to a pre-determined email address.
+
+Now that we've created the flow the last thing to do is to test it and make sure we're getting the expected behavior.
 
 1. Now to test the logic app first open a new tab and navigate to the OneDrive folder you set up at the beginning of this tutorial. Now add this file to the OneDrive folder [Sample invoice.](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/invoice-logic-apps-tutorial.pdf)
 
-1. Return to the Logic App designer tab and select the **Run trigger** button in the menu bar.
+1. Return to the Logic App designer tab and select the **Run trigger** button and select **Run** from the drop-down menu.
 
 1. You should see a sample run of your Logic App run if all the steps have green check marks it means the run was successful.
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-seventeen.gif" alt-text="GIF of sample run of Logic App.":::
 
-1. Check your email and you should see a new email with the information we pre-specified. Congratulations! You have officially completed the tutorial. Be sure to pause or delete the Logic App after you're done so usage stops.
+1. Check your email and you should see a new email with the information we pre-specified. Congratulations! You've officially completed the tutorial.
+
+1. Be sure to [disable or delete](/azure/logic-apps/manage-logic-apps-with-azure-portal#disable-or-enable-a-single-logic-app) your logic App after you're done so usage stops.
+
+## Next Steps
+
+> [!div class="nextstepaction"]
+> [Use the invoice processing prebuilt model in Power Automate](/ai-builder/flow-invoice-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json)
