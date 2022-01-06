@@ -66,20 +66,7 @@ This public preview covers a complete overhaul of the current architecture for p
 - [Learn](./vmware-azure-architecture-preview.md) about the new architecture and the changes introduced.
 - Check the pre-requisites and setup the ASR replication appliance by following [these steps](./deploy-vmware-azure-replication-appliance-preview.md).
 - [Enable replication](./vmware-azure-set-up-replication-tutorial-preview.md) for your VMware machines.
-- Check out the [automatic upgrade](./upgrade-mobility-service-preview.md) and [switch](./switch-replication-appliance-preview.md) capability for ASR replication appliance.
-
-
-### Update rollup 56
-
-[Update rollup 56](https://support.microsoft.com/topic/update-rollup-56-for-azure-site-recovery-kb5005376-33f27950-1a07-43e5-bf40-4b380a270ef6) provides the following updates:
-
-**Update** | **Details**
---- | ---
-**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
-**Issue fixes/improvements** | A number of fixes and improvement as detailed in the rollup KB article.
-
-**Azure Site Recovery Service** | Made improvements so that enabling replication and re-protect operations are faster by 46%.
-**Azure Site Recovery Portal** | Replication can now be enabled between any two Azure regions around the world. You are no longer limited to enabling replication within your continent.
+- Check out the [automatic upgrade](./upgrade-mobility-service-preview.md) and [switch](./switch-replication-appliance-preview.md) capability for ASR replication appliance.
 
 
 ## Updates (July 2021)
