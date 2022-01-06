@@ -4,14 +4,13 @@ description: Quickstart showing how to set and retrieve a secret from Azure Key 
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, mode-ui
 ms.date: 09/03/2019
 ms.author: mbaldwin
-#Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
+#Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal
 

@@ -4,12 +4,11 @@ description: Code samples for using Azure SDKs with an Azure VM that has managed
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: 
 
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity

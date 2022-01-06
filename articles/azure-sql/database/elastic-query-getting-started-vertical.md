@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: scoriani 
 ms.author: scoriani
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 01/25/2019
 ---
 # Get started with cross-database queries (vertical partitioning) (preview)

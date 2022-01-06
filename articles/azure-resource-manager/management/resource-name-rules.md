@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 12/27/2021
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -87,6 +87,8 @@ In the following tables, the term alphanumeric refers to:
 > | policyAssignments | scope of assignment | 1-128 display name<br><br>1-64 resource name<br><br>1-24 resource name at management group scope | Display name can contain any characters.<br><br>Resource name can't use:<br>`<>*%&:\?.+/` or control characters. <br><br>Can't end with period or space. |
 > | policyDefinitions | scope of definition | 1-128 display name<br><br>1-64 resource name | Display name can contain any characters.<br><br>Resource name can't use:<br>`<>*%&:\?.+/` or control characters. <br><br>Can't end with period or space. |
 > | policySetDefinitions | scope of definition | 1-128 display name<br><br>1-64 resource name<br><br>1-24 resource name at management group scope | Display name can contain any characters.<br><br>Resource name can't use:<br>`<>*%&:\?.+/` or control characters. <br><br>Can't end with period or space. |
+> | roleAssignments | tenant | 36 | Must be a globally unique identifier (GUID). |
+> | roleDefinitions | tenant | 36 | Must be a globally unique identifier (GUID). |
 
 ## Microsoft.Automation
 
@@ -687,6 +689,7 @@ In the following tables, the term alphanumeric refers to:
 > | servers / elasticPools | server | 1-128 | Can't use:<br>`<>*%&:\/?` or control characters<br><br>Can't end with period or space. |
 > | servers / failoverGroups | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. |
 > | servers / firewallRules | server | 1-128 | Can't use:<br>`<>*%&:;\/?` or control characters<br><br>Can't end with period. |
+> | servers / keys | server |  | Must be in format:<br>`VaultName_KeyName_KeyVersion`. |
 
 ## Microsoft.Storage
 
@@ -752,7 +755,7 @@ In the following tables, the term alphanumeric refers to:
 > [!NOTE]
 > A web site must have a globally unique URL. When you create a web site that uses a hosting plan, the URL is `http://<app-name>.azurewebsites.net`. The app name must be globally unique. When you create a web site that uses an App Service Environment, the app name must be unique within the [domain for the App Service Environment](../../app-service/environment/using-an-ase.md#app-access). For both cases, the URL of the site is globally unique.
 >
-> Azure Functions has the same naming rules and restrictions as Microsoft.Web/sites.
+> Azure Functions has the same naming rules and restrictions as Microsoft.Web/sites. However, prior to version 4.x of Azure Functions Core Tools, the function name was truncated to 32 characters when generating the host ID. For version 4.x, this limit no longer applies. For earlier versions, limit the function name to 32 characters to avoid naming collisions.
 
 ## Next steps
 

@@ -1,12 +1,8 @@
 ---
 title: Prioritize security actions by data sensitivity - Microsoft Defender for Cloud
 description: Use Azure Purview's data sensitivity classifications in Microsoft Defender for Cloud
-author: memildin
-ms.author: memildin
-ms.date: 11/09/2021
 ms.topic: overview
-ms.service: security-center
-manager: rkarlin
+ms.date: 11/09/2021
 ---
 # Prioritize security actions by data sensitivity
 
@@ -21,7 +17,7 @@ This page explains the integration of Purview's data sensitivity classification 
 ## Availability
 |Aspect|Details|
 |----|:----|
-|Release state:|Preview.<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
+|Release state:|Preview.<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
 |Pricing:|You'll need an Azure Purview account to create the data sensitivity classifications and run the scans. Viewing the scan results and using the output is free for Defender for Cloud users|
 |Required roles and permissions:|**Security admin** and **Security contributor**|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet (**Partial**: Subset of alerts and vulnerability assessment for SQL servers. Behavioral threat protections aren't available.)|

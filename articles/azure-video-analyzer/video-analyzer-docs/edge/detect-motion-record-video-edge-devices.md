@@ -1,10 +1,10 @@
 ---
-title: Detect motion and record video on edge devices - Azure
+title: Detect motion and record video on edge devices 
 description: Use Azure Video Analyzer to analyze the live video feed from a (simulated) IP camera. It shows how to detect if any motion is present, and if so, record an MP4 video clip to the local file system on the edge device. The quickstart uses an Azure VM as an IoT Edge device and also uses a simulated live video stream.
 ms.topic: quickstart
 ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-other
 ---
 
 # Quickstart: Detect motion and record video on edge devices
@@ -27,7 +27,7 @@ This quickstart shows you how to use Azure Video Analyzer to analyze the live vi
 
 As you set up the Azure resources for this quickstart, a short video of a parking lot is copied to the Linux VM in Azure that's used as the IoT Edge device. This video file will be used to simulate a live stream for this tutorial.
 
-Open an application like [VLC media player](https://www.videolan.org/vlc/), select Ctrl+N, and paste [this link](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) to the parking lot video to start playback. At about the 5-second mark, a white car moves through the parking lot.
+Open an application like [VLC media player](https://www.videolan.org/vlc/), select Ctrl+N, and paste [this link](https://avamedia.blob.core.windows.net/public/lots_015.mkv) to the parking lot video to start playback. At about the 5-second mark, a white car moves through the parking lot.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LUbN]
 
@@ -234,7 +234,7 @@ If you intend to try the other quickstarts, then keep the resources you created.
 
 ## Next steps
 
-- Follow the [Run Azure Video Analyzer with your own model](analyze-live-video-use-your-model-http.md) quickstart to apply AI to live video feeds.
+- Follow [Quickstart: Analyze a live video feed from a (simulated) IP camera using your own HTTP model](analyze-live-video-use-your-model-http.md) to apply AI to live video feeds.
 - Review additional challenges for advanced users:
 
   - Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products/) page. Look for devices that conform with profiles G, S, or T.

@@ -1,6 +1,6 @@
 ---
-title: 'Connect to and manage an Azure database for PostgreSQL'
-description: This guide describes how to connect to an Azure database for PostgreSQL single server in Azure Purview, and use Purview's features to scan and manage your Azure database for PostgreSQL source.
+title: 'Connect to and manage an Azure Database for PostgreSQL'
+description: This guide describes how to connect to an Azure Database for PostgreSQL single server in Azure Purview, and use Purview's features to scan and manage your Azure Database for PostgreSQL source.
 author: evangelinew
 ms.author: evwhite
 ms.service: purview
@@ -10,19 +10,21 @@ ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage an Azure database for PostgreSQL in Azure Purview
+# Connect to and manage an Azure Database for PostgreSQL in Azure Purview
 
-This article outlines how to register an Azure database for PostgreSQL deployed with single server deployment option, as well as how to authenticate and interact with an Azure database for PostgreSQL in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register an Azure Database for PostgreSQL deployed with single server deployment option, as well as how to authenticate and interact with an Azure Database for PostgreSQL in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
-
-Purview only supports single server deployment option for Azure database for PostgreSQL.
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
 | [Yes](#register) | [Yes](#scan)| [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No | No** |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+
+> [!Important]
+>  Purview only supports single server deployment option for Azure Database for PostgreSQL. 
+>  Versions 8.x to 12.x
 
 ## Prerequisites
 
@@ -34,15 +36,15 @@ Purview only supports single server deployment option for Azure database for Pos
 
 ## Register
 
-This section describes how to register an Azure database for PostgreSQL in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
+This section describes how to register an Azure Database for PostgreSQL in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
 
 ### Authentication for registration
 
-Currently, to be able to manage and interact with an Azure database for PostgreSQL single server, only SQL Authentication is supported.
+Currently, to be able to manage and interact with an Azure Database for PostgreSQL single server, only SQL Authentication is supported.
 
 #### SQL Authentication
 
-Connecting to an Azure Database for PostgreSQL database requires the fully qualified server name and login credentials. You can follow the instructions in [CONNECT AND QUERY](../postgresql/connect-python.md) to create a login for your Azure database for PostgreSQL if you don't have this available. You will need **username** and **password** for the next steps.
+Connecting to an Azure Database for PostgreSQL database requires the fully qualified server name and login credentials. You can follow the instructions in [CONNECT AND QUERY](../postgresql/connect-python.md) to create a login for your Azure Database for PostgreSQL if you don't have this available. You will need **username** and **password** for the next steps.
 
 1. If you do not have an Azure Key vault already, follow [this guide to create an Azure Key Vault](../key-vault/certificates/quick-create-portal.md).
 1. Navigate to your key vault in the Azure portal
@@ -54,7 +56,7 @@ Connecting to an Azure Database for PostgreSQL database requires the fully quali
 
 ### Steps to register
 
-To register a new Azure database for PostgreSQL in your data catalog, do the following:
+To register a new Azure Database for PostgreSQL in your data catalog, do the following:
 
 1. Navigate to your Purview account.
 

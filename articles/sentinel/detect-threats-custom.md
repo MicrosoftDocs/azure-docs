@@ -1,17 +1,8 @@
 ---
 title: Create custom analytics rules to detect threats with Microsoft Sentinel | Microsoft Docs
 description: Learn how to create custom analytics rules to detect security threats with Microsoft Sentinel. Take advantage of event grouping, alert grouping, and alert enrichment, and understand AUTO DISABLED.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
@@ -80,7 +71,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
     >
     > - Using ADX functions to create Azure Data Explorer queries inside the Log Analytics query window **is not supported**.
     >
-    > - When using the **`bag_unpack`** function in a query, if you project the columns as fields using "`project field1`" and the column doesn't exist, the query will fail. To guard against this happening, you must project the column as follows:
+    > - When using the **`bag_unpack`** function in a query, if you [project the columns](/azure/data-explorer/kusto/query/projectoperator) as fields using "`project field1`" and the column doesn't exist, the query will fail. To guard against this happening, you must [project the column](/azure/data-explorer/kusto/query/projectoperator) as follows:
     >   - `project field1 = column_ifexists("field1","")`
 
 ### Alert enrichment
@@ -90,9 +81,9 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
 - Use the **Entity mapping** configuration section to map parameters from your query results to Microsoft Sentinel-recognized entities. Entities enrich the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow. They are also the criteria by which you can group alerts together into incidents in the **Incident settings** tab.
 
-    Learn more about [entities in Microsoft Sentinel](entities-in-azure-sentinel.md).
+    Learn more about [entities in Microsoft Sentinel](entities.md).
 
-    See [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md) for complete entity mapping instructions, along with important information about [backward compatibility](map-data-fields-to-entities.md#notes-on-the-new-version).
+    See [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md) for complete entity mapping instructions, along with important information about limitations and [backward compatibility](map-data-fields-to-entities.md#notes-on-the-new-version).
 
 - Use the **Custom details** configuration section to extract event data items from your query and surface them in the alerts produced by this rule, giving you immediate event content visibility in your alerts and incidents.
 
@@ -101,6 +92,14 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 - Use the **Alert details** configuration section to tailor the alert's presentation details to its actual content. Alert details allow you to display, for example, an attacker's IP address or account name in the title of the alert itself, so it will appear in your incidents queue, giving you a much richer and clearer picture of your threat landscape.
 
     See complete instructions on [customizing your alert details](customize-alert-details.md).
+
+> [!NOTE]
+> **The size limit for an entire alert is *64 KB***.
+> - Alerts that grow larger than 64 KB will be truncated. As entities are identified, they are added to the alert one by one until the alert size reaches 64 KB, and any remaining entities are dropped from the alert.
+>
+> - The other alert enrichments also contribute to the size of the alert.
+>
+> - To reduce the size of your alert, use the `project-away` operator in your query to [remove any unnecessary fields](/azure/data-explorer/kusto/query/projectawayoperator). (Consider also the `project` operator if there are only [a few fields you need to keep](/azure/data-explorer/kusto/query/projectoperator).)
 
 ### Query scheduling and alert threshold
 
@@ -121,7 +120,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
         >
         > To account for **latency** that may occur between an event's generation at the source and its ingestion into Microsoft Sentinel, and to ensure complete coverage without data duplication, Microsoft Sentinel runs scheduled analytics rules on a **five-minute delay** from their scheduled time.
         >
-        > For a detailed technical explanation of why this delay is necessary and how it solves this problem, see Ron Marsiano's excellent blog post on the subject, "[Handling ingestion delay in Microsoft Sentinel scheduled alert rules](https://techcommunity.microsoft.com/t5/azure-sentinel/handling-ingestion-delay-in-azure-sentinel-scheduled-alert-rules/ba-p/2052851)".
+        > For more information, see [Handle ingestion delay in scheduled analytics rules](ingestion-delay.md).
 
 - Use the **Alert threshold** section to define the sensitivity level of the rule. For example, set **Generate alert when number of query results** to **Is greater than** and enter the number 1000 if you want the rule to generate an alert only if the query returns more than 1000 results each time it runs. This is a required field, so if you don’t want to set a threshold – that is, if you want your alert to register every event – enter 0 in the number field.
 
@@ -242,9 +241,10 @@ If you want to package your rule to be managed and deployed as code, you can eas
 
 ### Issue: No events appear in query results
 
-If **event grouping** is set to **trigger an alert for each event**, then in certain scenarios, when viewing the query results at a later time (such as when pivoting back to alerts from an incident), it's possible that no query results will appear. This is because the event's connection to the alert is accomplished by the hashing of the particular event's information, and the inclusion of the hash in the query. If the query results have changed since the alert was generated, the hash will no longer be valid and no results will be displayed.
+When **event grouping** is set to **trigger an alert for each event**, query results viewed at a later time may appear to be missing, or different than expected.  For example, you might view a query's results at a later time when you've pivoted back to the results from a related incident.
 
-To see the events, manually remove the line with the hash from the rule's query, and run the query.
+- Results are automatically saved with the alerts. However, if the results are too large, no results are saved, and then no data will appear when viewing the query results again.
+- In cases where there is [ingestion delay](ingestion-delay.md), or the query is not deterministic due to aggregation, the alert's result might be different than the result shown by running the query manually.
 
 > [!NOTE]
 > This issue has been solved by the addition of a new field, **OriginalQuery**, to the results when this event grouping option is selected. See the [description](#event-grouping-and-rule-suppression) above.
@@ -295,7 +295,7 @@ For more information, see:
 For more information, see:
 
 - [Tutorial: Investigate incidents with Microsoft Sentinel](investigate-cases.md)
-- [Classify and analyze data using entities in Microsoft Sentinel](entities-in-azure-sentinel.md)
+- [Classify and analyze data using entities in Microsoft Sentinel](entities.md)
 - [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
 
 Also, learn from an example of using custom analytics rules when [monitoring Zoom](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) with a [custom connector](create-custom-connector.md).

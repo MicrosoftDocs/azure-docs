@@ -8,7 +8,6 @@ manager: gwallace
 editor: mlearned
 ms.assetid: 
 ms.service: az-devops-project
-ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload:

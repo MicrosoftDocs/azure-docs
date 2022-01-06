@@ -449,9 +449,7 @@ For this project, you used the Form Recognizer JavaScript client library to trai
 ## See also
 
 * [What is Form Recognizer?](../../overview.md)
-<<<<<<< HEAD:articles/applied-ai-services/form-recognizer/includes/how-to-guides/javascript-sdk.md
 
 * The sample code from this project can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js).
-=======
+
 * The sample code from this guide can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js).
->>>>>>> 103f7cf9752d7b4e4c9bf3da2c3649ad27ebfd2f:articles/applied-ai-services/form-recognizer/includes/quickstarts/javascript-sdk.md

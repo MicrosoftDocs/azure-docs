@@ -15,7 +15,7 @@ ms.date: 01/26/2021
 
 This article explains how to measure query performance and volume using metrics and resource logging. It also explains how to collect the input terms used in queries - necessary information when you need to assess the utility and effectiveness of your search corpus.
 
-The Azure portal shows basic metrics about query latency, query load (QPS), and throttling. Historical data that feeds into these metrics is preserved for 30 days. For longer retention, or to report on operational data and query strings, you must enable a [diagnostic setting](search-monitor-logs.md) that specifies a storage option for persisting logged events and metrics.
+The Azure portal shows basic metrics about query latency, query load (QPS), and throttling. Historical data that feeds into these metrics is preserved for 30 days. For longer retention, or to report on operational data and query strings, you must enable a [diagnostic setting](monitor-azure-cognitive-search.md) that specifies a storage option for persisting logged events and metrics.
 
 Conditions that maximize the integrity of data measurement include:
 
@@ -114,7 +114,7 @@ For deeper exploration, open metrics explorer from the **Monitoring** menu so th
 
 ## Return query strings entered by users
 
-When you enable resource logging, the system captures query requests in the **AzureDiagnostics** table. As a prerequisite, you must have already enabled [resource logging](search-monitor-logs.md), specifying a log analytics workspace or another storage option.
+When you enable resource logging, the system captures query requests in the **AzureDiagnostics** table. As a prerequisite, you must have already enabled [resource logging](monitor-azure-cognitive-search.md), specifying a log analytics workspace or another storage option.
 
 1. Under the Monitoring section, select **Logs** to open up an empty query window in Log Analytics.
 
@@ -184,4 +184,4 @@ If you specified an email notification, you will receive an email from "Microsof
 If you haven't done so already, review the fundamentals of search service monitoring to learn about the full range of oversight capabilities.
 
 > [!div class="nextstepaction"]
-> [Monitor operations and activity in Azure Cognitive Search](search-monitor-usage.md)
+> [Monitor operations and activity in Azure Cognitive Search](monitor-azure-cognitive-search.md)

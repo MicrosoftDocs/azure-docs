@@ -76,6 +76,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure_cli_scripts",
+      "url": "https://github.com/Azure-Samples/azure-cli-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "powershell_scripts",
       "url": "https://github.com/Azure/azure-docs-powershell-samples",
       "branch": "master",
@@ -324,13 +330,13 @@
     {
       "path_to_root": "azure-iot-sdk-node",
       "url": "https://github.com/Azure/azure-iot-sdk-node",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "iot-samples-c",
       "url": "https://github.com/Azure/azure-iot-sdk-c",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -526,12 +532,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azure-sdk-for-java-cosmos-db",
-      "url": "https://github.com/Azure/azure-sdk-for-java/",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "azure-sdk-for-java-script-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-js/",
       "branch": "main",
@@ -588,12 +588,6 @@
     {
       "path_to_root": "samples-cosmosdb-dotnet-v3",
       "url": "https://github.com/Azure/azure-cosmos-dotnet-v3",
-      "branch": "master",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "samples-cosmosdb-dotnet-v2",
-      "url": "https://github.com/Azure/azure-cosmos-dotnet-v2",
       "branch": "master",
       "branch_mapping": {}
     },
@@ -718,12 +712,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azure-cosmosdb-java-v2",
-      "url": "https://github.com/Azure/azure-cosmosdb-java",
-      "branch": "master",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "azure-cosmosdb-graph-dotnet",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-graph-gremlindotnet-getting-started",
       "branch": "main",
@@ -824,6 +812,7 @@
   "redirection_files": [
     ".openpublishing.redirection.json",
     ".openpublishing.redirection.active-directory.json",
+    ".openpublishing.redirection.azure-sql.json",
     ".openpublishing.redirection.data-factory.json",
     ".openpublishing.redirection.defender-for-cloud.json",
     ".openpublishing.redirection.defender-for-iot.json",
@@ -832,8 +821,12 @@
     ".openpublishing.redirection.key-vault.json",
     ".openpublishing.redirection.media-services.json",
     ".openpublishing.redirection.security-benchmark.json",
+    ".openpublishing.redirection.sql-database.json",
     ".openpublishing.redirection.synapse-analytics.json",
     ".openpublishing.redirection.azure-web-pubsub.json",
+    ".openpublishing.redirection.azure-monitor.json",
+    ".openpublishing.redirection.azure-percept.json",
+    ".openpublishing.redirection.azure-productivity.json",
     "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
     "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",   
     "articles/azure-relay/.openpublishing.redirection.relay.json",

@@ -1,8 +1,8 @@
 ---
 title: Add a polygon layer to a map | Microsoft Azure Maps
 description: Learn how to add polygons or circles to maps. See how to use the Azure Maps Web SDK to customize geometric shapes and make them easy to update and maintain.
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps

@@ -5,6 +5,7 @@ services: media-services
 author: willzhan
 manager: femila
 ms.service: media-services
+ms.devlang: csharp
 ms.topic: how-to
 ms.date: 05/25/2021
 ms.author: inhenkel
