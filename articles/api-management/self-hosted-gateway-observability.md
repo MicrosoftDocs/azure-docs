@@ -42,7 +42,7 @@ The self-hosted gateway will automatically start measuring the following metrics
 - ClientDurationInMs
 - GatewayDurationInMs
 
-They are available in the configured OpenTelemetry Collector with additional dimensions.
+They are automatically exported to the configured OpenTelemetry Collector every 1 minute with additional dimensions.
 
 ## Next steps
 
