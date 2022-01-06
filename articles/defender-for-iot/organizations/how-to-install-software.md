@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Microsoft Defender for IoT.
-ms.date: 12/30/2021
+ms.date: 01/06/2022
 ms.topic: how-to
 ---
 
@@ -80,7 +80,7 @@ The installation image is accessible from Defender for IoT, in the [Azure portal
 
     :::image type="content" source="media/tutorial-install-components/sensor-tab.png" alt-text="Screeshot of the sensor tab under Defender for IoT.":::
 
-1. Select a version from the drop down menu.
+1. Select a version from the drop-down menu.
 
 1. Select the **Download** button.
 
@@ -212,7 +212,7 @@ When the connection is established, the BIOS is configurable.
 
 #### Configuring the BIOS
 
-You need to configure the appliance BIOS if:
+Configure the appliance BIOS if:
 
 - You did not purchase your appliance from Arrow.
 
@@ -680,7 +680,7 @@ Mount the ISO file using one of the following options;
 
     :::image type="content" source="media/tutorial-install-components/sensor-ip-address.png" alt-text="Screenshot of the sensor IP address screen.":::
 
-1. Enter the path of the mounted logs folder. We recommenced to use the default path, and press the **Enter** key.
+1. Enter the path of the mounted logs folder. We recommend using the default path, and press the **Enter** key.
 
     :::image type="content" source="media/tutorial-install-components/mounted-backups-path.png" alt-text="Screenshot of the mounted backup path screen.":::
 
@@ -716,7 +716,7 @@ Before installing the software on the appliance, you need to adjust the applianc
 
 The installation process takes about 20 minutes. After the installation, the system is restarted several times.
 
-During the installation process, you will can add a secondary NIC. If you choose not to install the secondary NIC during installation, you can [add a secondary NIC](#add-a-secondary-nic) at a later time.
+During the installation process, you can add a secondary NIC. If you choose not to install the secondary NIC during installation, you can [add a secondary NIC](#add-a-secondary-nic) at a later time.
 
 To install the software:
 
@@ -734,7 +734,7 @@ To install the software:
 
    | Parameter | Configuration |
    |--|--|
-   | **configure management network interface** | For Dell: **eth0, eth1** <br /> For HP: **enu1, enu2** <br>  or <br />**possible value** |
+   | **configure management network interface** | For Dell: **eth0, eth1** <br /> For HP: **enu1, enu2** <br>  Or <br />**possible value** |
    | **configure management network IP address:** | **IP address provided by the customer** |
    | **configure subnet mask:** | **IP address provided by the customer** |
    | **configure DNS:** | **IP address provided by the customer** |
@@ -829,7 +829,7 @@ The on-premises management console supports both VMware and Hyper-V deployment o
 
 ### Create the virtual machine (ESXi)
 
-To a create virtual machine (ESXi):
+To create a virtual machine (ESXi):
 
 1. Sign in to the ESXi, choose the relevant **datastore**, and select **Datastore Browser**.
 
@@ -1190,7 +1190,7 @@ Post-installation validation must include the following tests:
 
   - When the last backup happened
 
-  - How much space there is for the extra backup files
+  - How much space there are for the extra backup files
 
 - **ifconfig**: Displays the parameters for the appliance's physical interfaces.
 
@@ -1316,7 +1316,7 @@ For any other issues, contact [Microsoft Support](https://support.microsoft.com/
 
 ## Configure a SPAN port
 
-A virtual switch does not have mirroring capabilities. However, you can use promiscuous mode in a virtual switch environment. Promiscuous mode  is a mode of operation, as well as a security, monitoring and administration technique, that is defined at the virtual switch, or portgroup level. By default, Promiscuous mode is disabled. When Promiscuous mode is enabled the virtual machine’s network interfaces that are in the same portgroup will use the Promiscuous mode to view all network traffic that goes through that virtual switch. You can implement a workaround with either ESXi, or Hyper-V.
+A virtual switch does not have mirroring capabilities. However, you can use promiscuous mode in a virtual switch environment. Promiscuous mode  is a mode of operation, and a security, monitoring and administration technique, that is defined at the virtual switch, or portgroup level. By default, Promiscuous mode is disabled. When Promiscuous mode is enabled the virtual machine’s network interfaces that are in the same portgroup will use the Promiscuous mode to view all network traffic that goes through that virtual switch. You can implement a workaround with either ESXi, or Hyper-V.
 
 :::image type="content" source="media/tutorial-install-components/purdue-model.png" alt-text="A screenshot of where in your architecture the sensor should be placed.":::
 
