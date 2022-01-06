@@ -1,16 +1,7 @@
 ---
 title: About Microsoft Sentinel content and solutions | Microsoft Docs
 description: This article describes Microsoft Sentinel content and solutions, which customers can use to find data analysis tools packaged together with data connectors.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: batamig
-manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: bagol
@@ -32,7 +23,7 @@ Content in Microsoft Sentinel includes any of the following types:
 - **[Data connectors](connect-data-sources.md)** provide log ingestion from different sources into Microsoft Sentinel
 - **[Parsers](normalization-about-parsers.md)** provide log formatting/transformation into [ASIM](normalization.md) formats, supporting usage across various Microsoft Sentinel content types and scenarios
 - **[Workbooks](get-visibility.md)** provide monitoring, visualization, and interactivity with data in Microsoft Sentinel, highlighting meaningful insights for users
-- **[Analytic rules](detect-threats-built-in.md)** provide alerts that point to relevant SOC actions via incidents
+- **[Analytics rules](detect-threats-built-in.md)** provide alerts that point to relevant SOC actions via incidents
 - **[Hunting queries](hunting.md)** are used by SOC teams to proactively hunt for threats in Microsoft Sentinel
 - **[Notebooks](notebooks.md)** help SOC teams use advanced hunting features in Jupyter and Azure Notebooks
 - **[Watchlists](watchlists.md)** support the ingestion of *specific* data for enhanced threat detection and reduced alert fatigue

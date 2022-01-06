@@ -427,7 +427,7 @@ The following SAML application scenarios are supported via your own metadata end
 * Specify multiple logout URLs or POST binding for the logout URL in the application or service principal object.
 * Specify a signing key to verify relying party requests in the application or service principal object.
 * Specify a token encryption key in the application or service principal object.
-* Specify IdP-initiated sign-on, where the identity provider is Azure AD B2C.
+* [Specify IdP-initiated sign-on, where the identity provider is Azure AD B2C](saml-service-provider-options.md#configure-idp-initiated-flow).
 
 ## Next steps
 

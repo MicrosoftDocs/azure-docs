@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 11/02/2021
+ms.date: 12/28/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -27,8 +27,15 @@ The supported PostgreSQL server versions are 8.4 to 12.x.
 
 When scanning PostgreSQL source, Purview supports:
 
-- Extracting metadata including PostgreSQL server, databases, schemas, tables, views, and table/view columns.
-- Fetching lineage on assets relationships among tables and views.
+- Extracting technical metadata including:
+
+    - Server
+    - Databases
+    - Schemas
+    - Tables including the columns
+    - Views including the columns
+    
+- Fetching static lineage on assets relationships among tables and views.
 
 ## Prerequisites
 
@@ -38,7 +45,7 @@ When scanning PostgreSQL source, Purview supports:
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
-* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.11.7953.1.
 
 * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
 
@@ -116,7 +123,7 @@ To create and run a new scan, do the following:
 
     1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default. When the list is empty, all available schemas are imported.
         
-        Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For Example: `A%; %B; %C%; D`
+        Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For example: `A%; %B; %C%; D`
         * Start with A or
         * End with B or
         * Contain C or
@@ -127,7 +134,7 @@ To create and run a new scan, do the following:
     1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of PostgreSQL source to be scanned.
 
         > [!Note]
-        > As a thumb rule, please provide 1GB memory for every 1000 tables
+        > As a rule of thumb, please provide 1GB memory for every 1000 tables
 
         :::image type="content" source="media/register-scan-postgresql/scan.png" alt-text="scan PostgreSQL" border="true":::
 

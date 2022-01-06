@@ -4,18 +4,17 @@ description: Step-by-step instructions for configuring managed identities for Az
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: ''
-
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
+ms.custom: mode-other
 ---
 
 # Configure managed identities for Azure resources on an Azure virtual machine scale using a template

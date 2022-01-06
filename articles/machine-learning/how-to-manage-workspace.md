@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley
-ms.date: 04/22/2021
+ms.date: 12/30/2021
 ms.topic: how-to
 ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4
 
@@ -29,6 +29,8 @@ As your needs change or requirements for automation increase you can also manage
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 By default, creating a workspace also creates an Azure Container Registry (ACR).  Since ACR does not currently support unicode characters in resource group names, use a resource group that does not contain these characters.
+
+[!INCLUDE [application-insight](../../includes/machine-learning-application-insight.md)]
 
 ## Create a workspace
 
@@ -370,6 +372,7 @@ In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top 
 * **Azure portal**: 
   * If you go directly to your workspace from a share link from the SDK or the Azure portal, you can't view the standard **Overview** page that has subscription information in the extension. In this scenario, you also can't switch to another workspace. To view another workspace, go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
   * All assets (Datasets, Experiments, Computes, and so on) are available only in [Azure Machine Learning studio](https://ml.azure.com). They're *not* available from the Azure portal.
+  * Attempting to export a template for a workspace from the Azure portal may return an error similar to the following text: `Could not get resource of the type <type>. Resources of this type will not be exported.` As a workaround, use one of the templates provided at [https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices) as the basis for your template.
 
 ### Workspace diagnostics
 
@@ -400,3 +403,5 @@ Examples of creating a workspace:
 Once you have a workspace, learn how to [Train and deploy a model](tutorial-train-models-with-aml.md).
 
 To learn more about planning a workspace for your organization's requirements, see [Organize and set up Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization).
+
+To check for problems with your workspace, see [How to use workspace diagnostics](how-to-workspace-diagnostic-api.md).

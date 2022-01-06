@@ -10,13 +10,12 @@ editor: TomSh
 ms.assetid: bedf411a-0781-47b9-9742-d524cf3dbfc1
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-#Customer intent: As an IT Pro or decision maker I am looking for information on the network security controls available in Azure.
+#Customer intent: As an IT Pro or decision maker, I am looking for information on the network security controls available in Azure.
 
 ---
 # Azure network security overview

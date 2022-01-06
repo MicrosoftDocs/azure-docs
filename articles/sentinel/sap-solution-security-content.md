@@ -2,12 +2,10 @@
 title: Microsoft Sentinel SAP solution - security content reference | Microsoft Docs
 description: Learn about the built-in security content provided by the Microsoft Sentinel SAP solution.
 author: batamig
-ms.author: bagold
-ms.service: microsoft-sentinel
+ms.author: bagol
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.subservice: microsoft-sentinel
 ---
 
 # Microsoft Sentinel SAP solution: security content reference (public preview)

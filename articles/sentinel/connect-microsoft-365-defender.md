@@ -1,17 +1,8 @@
 ---
 title: Connect Microsoft 365 Defender data to Microsoft Sentinel| Microsoft Docs
 description: Learn how to ingest incidents, alerts, and raw event data from Microsoft 365 Defender into Microsoft Sentinel.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
@@ -49,7 +40,9 @@ For more information about incident integration and advanced hunting event colle
 
 - You must have a valid license for Microsoft 365 Defender, as described in [Microsoft 365 Defender prerequisites](/microsoft-365/security/mtp/prerequisites). 
 
-- You must be a **global administrator** or a **security administrator** in Azure Active Directory.
+- Your user must be assigned the [Global Administrator](/azure/active-directory/roles/permissions-reference#global-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) roles on the tenant you want to stream the logs from.
+
+- Your user must have read and write permissions on your Microsoft Sentinel workspace.
 
 ## Connect to Microsoft 365 Defender
 

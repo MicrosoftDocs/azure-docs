@@ -5,7 +5,7 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 11/30/2021
 ---
 
 # PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server

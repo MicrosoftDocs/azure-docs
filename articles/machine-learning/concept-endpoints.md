@@ -10,7 +10,7 @@ ms.author: seramasu
 author: rsethur
 ms.reviewer: laobri
 ms.custom: devplatv2, ignite-fall-2021
-ms.date: 10/21/2021
+ms.date: 12/22/2021
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
@@ -61,7 +61,7 @@ The following diagram shows an online endpoint that has two deployments, 'blue' 
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments":::
 
-### Online endpoints requirements
+### Online deployments requirements
 
 To create an online endpoint, you need to specify the following elements:
 - Model files (or specify a registered model in your workspace) 
@@ -97,12 +97,12 @@ However [managed online endpoints](#managed-online-endpoints-vs-kubernetes-onlin
 ### Security
 
 - Authentication: Key and Azure ML Tokens
-- Managed identity: User assigned and system assigned (managed online endpoint only)
+- Managed identity: User assigned and system assigned
 - SSL by default for endpoint invocation
 
 ### Autoscaling
 
-Autoscale automatically runs the right amount of resources to handle the load on your application. Managed endpoints support autoscaling through integration with the [Azure monitor autoscale](../azure-monitor/autoscale/autoscale-overview.md) feature. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination.
+Autoscale automatically runs the right amount of resources to handle the load on your application. Managed endpoints support autoscaling through integration with the [Azure monitor autoscale](/azure/azure-monitor/autoscale/autoscale-overview) feature. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination.
 
 :::image type="content" source="media/concept-endpoints/concept-autoscale.png" alt-text="Screenshot showing that autoscale flexibly provides between min and max instances, depending on rules":::
 
@@ -114,7 +114,9 @@ Visual Studio Code enables you to interactively debug endpoints.
 
 ## Managed online endpoints vs Kubernetes online endpoints (preview)
 
-There are two types of online endpoints: **managed online endpoints** (preview) and **Kubernetes online endpoints** (preview). The following table highlights some of their key differences.
+There are two types of online endpoints: **managed online endpoints** (preview) and **Kubernetes online endpoints** (preview). Managed online endpoints help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. The main example in this doc uses managed online endpoints for deployment. 
+
+The following table highlights the key differences between managed online endpoints and Kubernetes online endpoints. 
 
 |  | Managed online endpoints | Kubernetes online endpoints |
 |-|-|-|
@@ -143,15 +145,12 @@ Managed online endpoints can help streamline your deployment process. Managed on
 
     :::image type="content" source="media/concept-endpoints/log-analytics-and-azure-monitor.png" alt-text="Screenshot showing Azure Monitor graph of endpoint latency":::
 
-- Managed identity
-    -  Use [managed identities to access secured resources from scoring script](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)
-
 - View costs 
     - Managed online endpoints let you [monitor cost at the endpoint and deployment level](how-to-view-online-endpoints-costs.md)
     
     :::image type="content" source="media/concept-endpoints/endpoint-deployment-costs.png" alt-text="Screenshot cost chart of an endpoint and deployment":::
 
-For a step-by-step tutorial, see [How to deploy managed online endpoints](how-to-deploy-managed-online-endpoints.md).
+For a step-by-step tutorial, see [How to deploy online endpoints](how-to-deploy-managed-online-endpoints.md).
 
 ## What are batch endpoints (preview)?
 
@@ -195,10 +194,10 @@ Specify the storage output location to any datastore and path. By default, batch
 
 ## Next steps
 
-- [How to deploy managed online endpoints with the Azure CLI](how-to-deploy-managed-online-endpoints.md)
+- [How to deploy online endpoints with the Azure CLI](how-to-deploy-managed-online-endpoints.md)
 - [How to deploy batch endpoints with the Azure CLI](how-to-use-batch-endpoint.md)
-- [How to use managed online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)
+- [How to use online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)
 - [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)
-- [How to view online endpoint costs](how-to-view-online-endpoints-costs.md)
+- [How to view managed online endpoint costs](how-to-view-online-endpoints-costs.md)
 - [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)

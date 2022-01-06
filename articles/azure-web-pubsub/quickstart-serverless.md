@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
    > For more information about the supported versions of Node.js, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages).
 * [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v3 or higher preferred) to run Azure Function apps locally and deploy to Azure.
 
-* [Azure command-line interface (Azure CLI)](/cli/azure) to manage Azure resources.
+* The [Azure CLI](/cli/azure) to manage Azure resources.
 
 * (Optional)[ngrok](https://ngrok.com/download) to expose local function as event handler for Web PubSub service. This is optional only for running the function app locally.
 
@@ -42,7 +42,7 @@ In this tutorial, you learn how to:
 
 * [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v3 or higher preferred) to run Azure Function apps locally and deploy to Azure.
 
-* [Azure command-line interface (Azure CLI)](/cli/azure) to manage Azure resources.
+* The [Azure CLI](/cli/azure) to manage Azure resources.
 
 * (Optional)[ngrok](https://ngrok.com/download) to expose local function as event handler for Web PubSub service. This is optional only for running the function app locally.
 
@@ -69,7 +69,7 @@ In this tutorial, you learn how to:
 2. *Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub` function extension package.
 
     > [!NOTE]
-    > The step will be optional when [Extension bundles](/azure/azure-functions/functions-bindings-register#extension-bundles) are supported.
+    > The step will be optional when [Extension bundles](../azure-functions/functions-bindings-register.md#extension-bundles) are supported.
 
    a. Remove `extensionBundle` section in `host.json` to enable install specific extension package in next step. Or simply make host json as simple a below.
     ```json

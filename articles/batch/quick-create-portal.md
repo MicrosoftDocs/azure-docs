@@ -3,7 +3,7 @@ title: Azure Quickstart - Run your first Batch job in the Azure portal
 description: This quickstart shows how to use the Azure portal to create a Batch account, a pool of compute nodes, and a job that runs basic tasks on the pool.
 ms.date: 05/25/2021
 ms.topic: quickstart
-ms.custom: mvc, mode-portal
+ms.custom: mvc, mode-ui
 ---
 
 # Quickstart: Run your first Batch job in the Azure portal
