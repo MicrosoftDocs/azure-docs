@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 01/06/2022
 ms.author: v-ydequadros
 ---
 
@@ -16,7 +16,7 @@ ms.author: v-ydequadros
 
 The Microsoft CloudKnox Permissions Management **Usage Analytics** dashboard allows system administrators to collect, analyze, report on, and visualize data about all identity types. CloudKnox **Usage Analytics** captures user activity details in order for system administrators to make informed decisions about granting privileges, and reducing risk on unused privileges.
 
-## Introduction
+## Usage Analytics
 
 The CloudKnox **Usage Analytics** feature contains details about identities, resources, and tasks that you can use to create a report.
 
@@ -35,26 +35,22 @@ For common definitions used in the CloudKnox application, see the glossary.
 
 On the **Usage Analytics** dashboard:
 
-- The **Users** tab provides a high level overview of user details. The following components make up the **Users** tab:
-    - **Users**: This section  displays the total number of users, inactive and active users based on the authorization system selected. For more information, see [Apply filters for users](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-users).
-    - **Tasks**: This section  displays the number of tasks granted to a user, and the total number of unexecuted and executed tasks based on the authorization system selected.  For more information, see  [Apply filters to users](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-users).
-    - **Resources**: This section  displays how many resources have been accessed by users based on the authorization system selected. For more information, see [Apply apply filters for users](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-users).
+- The **Users** tab provides a high-level overview of user details. The following components make up the **Users** tab:
+    - **Users**: This section  displays the total number of users, inactive and active users based on the authorization system selected. For more information, see [View usage analytics about users](cloudknox-product-usage-analytics.md#view-usage-analytics-about-users).
+    - **Tasks**: This section  displays the number of tasks granted to a user, and the total number of unexecuted and executed tasks based on the authorization system selected.  For more information, see [Use the Task Explorer](cloudknox-product-usage-analytics.md#use-the-task-explorer).
+    - **Resources**: This section  displays how many resources have been accessed by users based on the authorization system selected. For more information, see [Use the Resource Explorer](cloudknox-product-usage-analytics.md#use-the-resource-explorer).
 - The **Users** table  displays the privileges assigned,  privileges used, and resources accessed by users
     - **Username**: Provides the name of the user.
-
 
          - To view more details about the user, select the username. 
 
            Users are denoted with an icon for Security Assertion Markup Language (SAML) users, an icon for Enterprise Directory (ED) user, an icon for local users, and an icon for cross-account users (users from another account). AWS roles, AWS EC2 instances, Azure applications, and Google service accounts are shown with their respective icons. 
-           For more information, see Use identity explorer for users. 
-            <!---Add link--->
+           For more information, see [View usage analytics about users](cloudknox-product-usage-analytics.md#view-usage-analytics-about-users)
 
          - To view additional details about the user, select the username. 
 
            Users are denoted with an icon for Security Assertion Markup Language (SAML) users, an icon for Enterprise Directory (ED) user, an icon for local users, and an icon for cross-account users (users from another account). AWS roles, AWS EC2 instances, Azure applications, and Google service accounts are shown with their respective icons. 
-           For more information, see How to use identity explorer for users. 
-    <!---Add link--->
-
+           For more information, see [View usage analytics about users](cloudknox-product-usage-analytics.md#view-usage-analytics-about-users).
 
     - **Domain/Account**: This column displays a domain name for SAML or ED users and displays an account name for local users, AWS roles, AWS  EC2 instances, Azure applications, and Google service accounts.
     - **Privilege Creep Index** (PCI): Captures the incurred risk of users with access to high-risk privileges. Information is displayed in the following columns:
@@ -80,13 +76,8 @@ On the **Usage Analytics** dashboard:
 
     -  To expand details about the user, select the **Tags** icon. 
 
+       For more information, see [Use the User Explorer](cloudknox-product-usage-analytics.md#use-the-user-explorer). 
 
-       For more information, see View user information on the Information pane. 
-
-       For more information, see How to read the information panel for users. 
-
-        <!---Add link--->
-        
 ### Apply filters for users
 
 There are many filter options on the **Users** screen, including filters by **Authorization systems**, filters by **User** types and filters by **Task** types. You can apply filters in one, two, or all three categories, depending on what information the system administrator wants. 
@@ -283,7 +274,7 @@ The **Groups** dashboard provides a high level overview of group details.
 - On the **Usage Analytics** page, select **Groups** from the  drop-down list across the top of the screen. The following components make up the **Groups** dashboard:
 
     - **Groups** - This section  displays the total number of groups, inactive, and active groups based on the authorization system selected. For more information, see [How to apply filters for groups](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-groups).
-    - **Tasks** - This section  displays the number of tasks granted to groups, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see [How to apply filters to users](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-users).
+    - **Tasks** - This section  displays the number of tasks granted to groups, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see [How to apply filters to users](cloudknox-product-usage-analytics.md#apply-filters-for-users).
     - **Resources** - This section  displays how many resources have been accessed by groups based on the authorization system selected. For more information, see [How to apply filters for groups](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-groups).
 
 
@@ -411,20 +402,18 @@ You can apply the following set of predefined tags in CloudKnox:
 The **Active Resources** dashboard provides a high level overview of resource details. On the main **Usage Analytics** page, select **Active Resources** from the  drop-down list across the top of the screen. The following components make up the **Active Resources** dashboard:
 
 - **Users**: This section  displays the total number of users, inactive and active users based on the authorization system selected. 
-     For more information, see [Apply filters for users](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-users).
+     For more information, see [Apply filters for users](cloudknox-product-usage-analytics.md#apply-filters-for-users).
 - **Tasks**: This section  displays the number of tasks granted to a user, and the total number of unexecuted and executed tasks based on the authorization system selected. 
-     For more information, see [Apply filters to users](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-users).
+     For more information, see [Apply filters to users](cloudknox-product-usage-analytics.md#apply-filters-for-users).
 - **Resources**: This section  displays how many resources have been accessed by users based on the authorization system selected. 
-     For more information, see [Apply filters for users](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-users).
+     For more information, see [Apply filters for users](cloudknox-product-usage-analytics.md#apply-filters-for-users).
 
     The **Active Resources** table for each resource  displays the following information about its tasks, activity, and user privileges.
 
 - **Resource Name**: Provides the name of the resource.
 
 
-     - To view more details about the resource, select the resource name. For more information, see Use the Identity Explorer for Active Resources.
-     
-        <!---Add link--->
+     - To view more details about the resource, select the resource name. For more information, see [Use the Resource Explorer](cloudknox-product-usage-analytics.md#use-the-resource-explorer).
 
        Hovering over the resource name displays the resource ID. Two resources may potentially have the same name, but different IDs.
 
@@ -438,11 +427,9 @@ The **Active Resources** dashboard provides a high level overview of resource de
     - **Access with**: Captures the number of users that have access to the resource.
     - **Accessed**: Displays how many users have accessed the resource.
 
-     - To view additional details about the resource, select the resource name. For more information, see How to use identity explorer for Active Resources.
-     
-     <!---Add link--->
+     - To view additional details about the resource, select the resource name. For more information, see [Use the Resource Explorer](cloudknox-product-usage-analytics.md#use-the-resource-explorer)
 
-       Hovering over the resource name displays the resource ID. Two resources may potentially have the same name, but different IDs.
+    Hovering over the resource name displays the resource ID. Two resources may potentially have the same name, but different IDs.
 
 - **Account** - Displays the account name the resource belongs to.
 - **Resource Type** - Displays the type of resource. For example, Key (encryption key) or bucket (storage).
@@ -537,9 +524,9 @@ The **Active Tasks** dashboard provides a high level overview of privileges used
 
 The dashboard only lists tasks that have been used in the last 90 days. The following components make up the **Active Tasks** dashboard:
 
-- **Users**: This section  displays the total number of users, inactive and active users based on the authorization system selected. For more information, see [Apply filters for active tasks](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-active-tasks).
-- **Tasks**: This section  displays the number of tasks granted to a user, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see [Apply filters for active tasks](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-active-tasks).
-- **Resources**: This section  displays how many resources have been accessed by users based on the authorization system selected. For more information, see [Apply filters for active tasks](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-active-tasks).
+- **Users**: This section  displays the total number of users, inactive and active users based on the authorization system selected. For more information, see [Apply filters for active tasks](cloudknox-product-usage-analytics.md#apply-filters-for-active-tasks).
+- **Tasks**: This section  displays the number of tasks granted to a user, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see [Apply filters for active tasks](cloudknox-product-usage-analytics.md#apply-filters-for-active-tasks).
+- **Resources**: This section  displays how many resources have been accessed by users based on the authorization system selected. For more information, see [Apply filters for active tasks](cloudknox-product-usage-analytics.md#apply-filters-for-active-tasks).
 
 ### Table view
 
@@ -547,9 +534,7 @@ The following components make up the **Active Tasks** table:
 
 
 - **Task Name**: Provides the name of the task. 
-    - To view more details about the task, select the task name. For more information, see Use the Identity Explorer to view for Active Tasks.
-    
-    <!---Add link--->
+    - To view more details about the task, select the task name. For more information, see Use the Identity Explorer to view for Active Tasks.[Use the Task Explorer](cloudknox-product-usage-analytics.md#use-the-task-explorer).
 
     - A **Deleted** icon next to the task name means the task is a delete task. 
     - A **High risk task** icon next to the task name means the task is high-risk. 
@@ -557,7 +542,7 @@ The following components make up the **Active Tasks** table:
 
 
 - **No. of Times Task is Performed**: Captures the number of times the task has been performed by all users, groups, etc.
-- **Performed On (Resources)**: The number of resources the task was used on. For more information, see [View usage analytics about active resources](cloudknox-product-usage-analytics.md#how-to-view-usage-analytics-about-active-resources).
+- **Performed On (Resources)**: The number of resources the task was used on. For more information, see [View usage analytics about active resources](cloudknox-product-usage-analytics.md#iew-usage-analytics-about-active-resources).
 - **Number of Users**: Displays how many tasks are assigned to a particular user, and is broken into the following columns:
     - **Unexecuted**: Captures the number of users that have access to the task but haven't accessed it.
     - **Executed**: Displays how many of the granted tasks the user has accessed.
@@ -800,11 +785,6 @@ The CloudKnox explorers provide more information about an identity, including en
 ### Use the User Explorer
 
 1. To access the **User Explorer**, select an authorization system from the left side panel, select **Groups**, and then select **User**. 
-
-For more information, see Apply filters to users.
-
-    <!---Add link--->
-
 2. Under the **Username** column, select the username to expand details within the last 90 days. The default view is the **User Info** tab.
 3. The **User Info** tab displays the high risk activities performed in the last 90 days with the following details:
     - **User Info**: This section displays the following details:
@@ -945,14 +925,8 @@ For more information, see Apply filters to users.
 ### Use the Role Explorer (AWS Only)
 
 1. To access the **Role Explorer**, choose an authorization system. 
-
-
-2. Select **Groups**, and then select **Role / App / Service a/c**. For more information, see Apply filters to users. 
-
-    <!---Add link--->
-
+2. Select **Groups**, and then select **Role / App / Service a/c**. 
 3. To expand details within the last 90 days, under the **Username** column, select the username. The default view is the **Role Info** tab.
-     
 4. The **Role Info** tab displays the following details:
     - **Tasks**:  Displays unused and used tasks for the individual user, application, or service account. The tasks are grouped by service and can be expanded to view the task, application, or service names.
 
@@ -1015,9 +989,7 @@ For more information, see Apply filters to users.
 
 ### Use the Resource Explorer
 
-1. To access the **Resource Explorer**, select **Active Resources** from the  drop-down list, then select an authorization system. **Resource**. For more information, see Apply filters to users. 
-    <!---Add link--->
-
+1. To access the **Resource Explorer**, select **Active Resources** from the  drop-down list, then select an authorization system. **Resource**. 
 2. To expand details within the last 90 days, under the **Resource Name** column, select the resource. 
 
 3. The default view is the **Access Graph** tab. It displays the following details:
@@ -1025,7 +997,6 @@ For more information, see Apply filters to users.
     - **Policies/Roles** – Displays the name of the policy  or the role that gave the identity access to the resource.
 
          - To view the full details of the policy or role, select **View**.
-
 
     - **Sources** (AWS Only) – Displays the ways in which an identity acquires access to a policy. The three ways in which the policy is accessed is defined below:
         - **Direct** –  Displays that a policy was directly attached to a particular identity.
@@ -1086,9 +1057,7 @@ For more information, see Apply filters to users.
 
 ### Use the Task Explorer
 
-1. To access the **Task Explorer**, select **Active Tasks** from the  drop-down list, and select an authorization system. For more information, see Apply filters to users.
-    <!---Add link--->
-
+1. To access the **Task Explorer**, select **Active Tasks** from the  drop-down list, and select an authorization system. 
     - To expand details within the last 90 days, in the **Task Name** column, select the task. 
 2. The default view is the **Activity** tab.The **Activity** tab displays the high risk activities performed in the last 90 days with the following details:
     - **Username** – Displays the name of the user who performed the task.
@@ -1119,8 +1088,7 @@ The **Account Explorer** displays all the identities - users, roles, EC2 instanc
 
 1. To access the **Account Explorer**:
 
-    - To choose an authorization system from the left-side panel, select the **Lock** icon. Select an AWS account. For more information, see Apply filters to users. 
-    <!---Add link--->
+    - To choose an authorization system from the left-side panel, select the **Lock** icon. Then select an AWS account. 
       - Under the **Domain/Account** column, select the domain or account name to access **Account Explorer**. The default view is the **Cross Account** **Users** tab.
        - Or, select the **Data Collectors** icon on the top menu. Choose the **Authorization Systems** tab and select the **Name** of any AWS accounts.
 2. The **Cross Account** **Users** tab displays which identities can access the specified account, with the following details:
@@ -1128,7 +1096,6 @@ The **Account Explorer** displays all the identities - users, roles, EC2 instanc
       The **Account Explorer** displays identities that aren't part of the  specified AWS account, but have permission to access the account through various roles.
 
       - To export the data in comma-separated values (CSV) file format, select the **Export** button.
-
 
       - To view **Account Explorer** for other accounts, select the authorization system drop-down on the right side and choose one of the available accounts.
 
