@@ -114,7 +114,9 @@ For information, check these other sections:
 - [Connection resilience](cache-best-practices-connection.md#connection-resilience)
 - `AzureRedisEvents` [notifications](cache-failover.md#can-i-be-notified-in-advance-of-planned-maintenance)
 
-To check whether your Azure Cache for Redis had a failover during when timeouts occurred, check the metric **Errors** by typing `Failover` on the portal. For more information on failovers, see [Failover and patching for Azure Cache for Redis](cache-failover.md).
+To check whether your Azure Cache for Redis had a failover during when timeouts occurred, check the metric **Errors**. On the Resource menu of the Azure portal, select **Metrics**. Then create a new chart measuring the `Errors` metric, split by `ErrorType`. Once you have created this chart, you see a count for **Failover**.
+
+For more information on failovers, see [Failover and patching for Azure Cache for Redis](cache-failover.md).
 
 ### High Server load
 
