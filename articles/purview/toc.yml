@@ -81,6 +81,8 @@ items:
       href: concept-scans-and-ingestion.md
     - name: Data lineage
       href: concept-data-lineage.md
+    - name: Classification
+      href: concept-classification.md
   - name: Data catalog
     items:
     - name: Catalog search

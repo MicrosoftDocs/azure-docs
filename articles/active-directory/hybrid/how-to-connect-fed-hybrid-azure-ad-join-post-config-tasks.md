@@ -10,9 +10,8 @@ ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 08/10/2018
+ms.date: 01/05/2022
 ms.subservice: hybrid
 ms.author: billmath
 

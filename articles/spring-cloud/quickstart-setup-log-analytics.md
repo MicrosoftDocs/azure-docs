@@ -91,7 +91,7 @@ Use the following steps to set up your Log Analytics workspace.
 1. Set up the diagnostic settings. For more information on log categories and contents, see [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
 
    ```azurecli
-   az monitor diagnositc-settings create \
+   az monitor diagnostic-settings create \
        --name "<new-name-for-settings>" \
        --resource "<service-instance-id>" \
        --workspace "<workspace-id>" \

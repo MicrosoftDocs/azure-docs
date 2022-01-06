@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 02/19/2019
 ms.author: martinle
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ---
 
