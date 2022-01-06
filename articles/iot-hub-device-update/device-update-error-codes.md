@@ -1,9 +1,9 @@
 ---
-title: Client error codes for Device Update for Azure IoT Hub | Microsoft Docs
-description: This document provides a table of client error codes for various Device Update components.
+title: Error codes for Device Update for Azure IoT Hub | Microsoft Docs
+description: This document provides a table of error codes for various Device Update components.
 author: chrisjlin
 ms.author: lichris
-ms.date: 2/18/2021
+ms.date: 1/6/2022
 ms.topic: reference
 ms.service: iot-hub-device-update
 ---
@@ -12,7 +12,7 @@ ms.service: iot-hub-device-update
 
 This document provides a table of error codes for various Device Update components. This is meant to be used as a reference for users who want to try parsing their own error codes to diagnose and troubleshoot issues.
 
-There are two primary client-side components that may throw error codes: the Device Update agent, and the Delivery Optimization agent.
+There are two primary client-side components that may throw error codes: the Device Update agent, and the Delivery Optimization agent. Error codes also come from the Device Update content service.
 
 ## Device Update agent
 
