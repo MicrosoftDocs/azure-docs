@@ -34,11 +34,11 @@ Each method has advantages over the other:
 | When should I use them? | In most cases. | - When developing new parsers.<br> - For parsers not yet available as built-in parsers. |
 ||||
 
-Both methods can coexist. Using both methods is especially useful to allow customization of built-in parsers by incorporating custom workspace deployed parsers in the built-in parsers hierarchy as described below. 
+Using both methods is especially useful to allow customization of built-in parsers by incorporating custom workspace deployed parsers in the built-in parsers hierarchy as described in the document [Managing ASIM parsers](normalization-manage-parsers.md). 
 
 ## Parser hierarchy
 
-ASIM includes two levels of parsers: **source-agnostic** and **source-specific** parsers. The user usually uses the **source-agnostic** parser for the relevant schema, ensuring all data relevant to the schema is queried. The **source agnostic parser**, which in turn calls **source-specific** parsers to perform the actual parsing and normalization, which is specific for each source.
+ASIM includes two levels of parsers: **unifying** and **source-specific** parsers. The user usually uses the **unifying parser** for the relevant schema, ensuring all data relevant to the schema is queried. The **unifying parser** in turn calls **source-specific** parsers to perform the actual parsing and normalization, which is specific for each source.
 
 The built-in parser hierarchy adds a layer which enables customization, as discussed in the document [Managing ASIM parsers](normalization-develop-parsers.md).
 
