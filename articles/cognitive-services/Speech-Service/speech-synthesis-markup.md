@@ -156,8 +156,8 @@ This SSML snippet illustrates how the `<mstts:express-as>` element is used to ch
 
 The table below has descriptions of each supported style.
 
-|Style                     |	Description                |
-|-------------------------|----------------------------|
+|Style|Description|
+|-----------|-------------|
 |`style="affectionate"`|Expresses a warm and affectionate tone, with higher pitch and vocal energy. The speaker is in a state of attracting the attention of the listener. The personality of the speaker is often endearing in nature.|
 |`style="angry"`|Expresses an angry and annoyed tone.|
 |`style="assistant"`|Expresses a warm and relaxed tone for digital assistants.|
@@ -172,7 +172,7 @@ The table below has descriptions of each supported style.
 |`style="fearful"`|Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.|
 |`style="gentle"`|Expresses a mild, polite, and pleasant tone, with lower pitch and vocal energy.|
 |`style="lyrical"`|Expresses emotions in a melodic and sentimental way.|
-|`style="narration-professional|Express a professional, objective tone for content reading.|
+|`style="narration-professional"`|Expresses a professional, objective tone for content reading.|
 |`style="newscast"`|Expresses a formal and professional tone for narrating news.|
 |`style="newscast-casual"`|Expresses a versatile and casual tone for general news delivery.|
 |`style="newscast-formal"`|Expresses a formal, confident, and authoritative tone for news delivery.|
