@@ -12,7 +12,7 @@ Before you begin, it's a good idea to read the overview of
 [A video walk-through of this document is available](https://youtu.be/nYd55FiKpgs).
 
 Guest configuration uses
-[Desired State Configuration (DSC)](/powershell/dsc/overview/overview)
+[Desired State Configuration (DSC)](/powershell/dsc/overview)
 version 3 to audit and configure machines. The DSC configuration defines the
 state that the machine should be in. There's many notable differences in how
 DSC is implemented in guest configuration.
