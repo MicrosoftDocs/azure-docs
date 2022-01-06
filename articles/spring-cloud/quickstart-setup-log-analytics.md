@@ -27,7 +27,7 @@ Use the following steps to set up your Log Analytics workspace.
 
 #### [Portal](#tab/Azure-Portal)
 
-## Create a Log Analytics Workspace
+## Create a Log Analytics workspace
 
 To create a workspace, follow the steps in [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
