@@ -21,10 +21,6 @@ You can set up Azure Monitor Logs for your application in Azure Spring Cloud to 
 
 Complete the previous quickstart in this series: [Provision an Azure Spring Cloud service](./quickstart-provision-service-instance.md).
 
-## Set up a Log Analytics workspace
-
-Use the following steps to set up your Log Analytics workspace.
-
 #### [Portal](#tab/Azure-Portal)
 
 ## Create a Log Analytics workspace
@@ -77,6 +73,10 @@ az monitor log-analytics workspace show \
      --workspace-name <workspace-name> \
      --query id --output tsv
 ```
+
+## Set up Log Analytics for a new service
+
+Setting up for a new service isn't applicable when you're using the Azure CLI.
 
 ## Set up Log Analytics for an existing service
 
