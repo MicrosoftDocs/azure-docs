@@ -162,7 +162,6 @@ func main() {
 	}
 
 	//Create a secret
-	//
 	_, err = client.SetSecret(context.Background(), mySecretName, mySecretValue, nil)
 	if err != nil {
 		log.Fatalf("failed to create a secret: %v", err)
