@@ -3,7 +3,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: databox   
 ms.topic: include
-ms.date: 10/21/2021
+ms.date: 01/05/2022
 ms.author: alkohli
 ms.custom: contperf-fy22q1
 ---
@@ -19,7 +19,7 @@ Do the following steps in the Azure portal to order a device:
 
    ![Screenshot of Azure Data Box section with Create option called out](media/data-box-order-portal/data-box-import-02.png)
 
-4. Check whether Data Box service is available in your region. Enter or select the following information, and then select **Apply**.
+4. Check whether Data Box service is available in your region. Enter or select the following information, and then select **Apply**.<!--CHANGES: Basics tab no longer contains "Data destination". New "Data destination" tab has Data destination, Destination Azure region, Storage account(s), plus Large file share. Adapted Basics tab wasn't shown during presentation.-->
 
     |Setting  |Value  |
     |---------|---------|
@@ -38,6 +38,11 @@ Do the following steps in the Azure portal to order a device:
     For Data Box, the maximum usable capacity for a single order is 80 TB. For Data Box Heavy, the maximum usable capacity for a single order is 770 TB. You can create multiple orders for larger data sizes.
 
     If you select **Data Box Heavy**, the Data Box team checks device availability in your region. They'll notify you when you can continue with the order.
+
+    <!--PLACEHOLDER FOR UPDATES: If the Data Box product is not available based on your selections on the **Get started** screen, you'll see a message in red. These issues name make a SKU unavailable:
+
+    - Subscription not supported in the SKU (with possible country effect - India).
+    - Can't ship across international country boundaries. (Note work-around.)-->
 
 6. In **Order**, go to the **Basics** tab. Enter or select the following information. Then select **Next: Data destination>**.
 
