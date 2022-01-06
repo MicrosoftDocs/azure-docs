@@ -35,7 +35,9 @@ For more information about Azure NetApp Files metrics, see [Metrics for Azure Ne
 
 ## Capacity utilization monitoring 
 
-It's important to monitor capacity regularly.  You can monitor capacity utilization at the VM level.  You can check the used and available capacity of a volume by using Windows or Linux clients. You can also configure alerts by using `ANFCapacityManager`.  For more information, see [Monitor capacity utilization](volume-hard-quota-guidelines.md#how-to-operationalize-the-volume-hard-quota-change).
+It's important to monitor capacity regularly.  You can monitor capacity utilization at the VM level.  You can check the used and available capacity of a volume by using Windows or Linux clients. You can also configure alerts by using `ANFCapacityManager`.  
+
+For more information, see [Monitor capacity utilization](volume-hard-quota-guidelines.md#how-to-operationalize-the-volume-hard-quota-change).
 
 ## Next steps  
 
