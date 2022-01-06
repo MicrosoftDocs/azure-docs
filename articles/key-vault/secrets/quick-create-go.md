@@ -76,7 +76,7 @@ if err != nil {
 
 client, err := azsecrets.NewClient("https://<keyVaultName>.vault.azure.net/", cred, nil)
 if err != nil {
-    log.Fatalf("failed to connect to client: %v", err)
+    log.Fatalf("failed to create a client: %v", err)
 }
 ```
 
@@ -109,7 +109,7 @@ pager := client.ListSecrets(nil)
 for pager.NextPage(context.Background()) {
   resp := pager.PageResponse()
   for _, secret := range resp.Secrets {
-    fmt.Printf("Secret ID: %s", *secret.ID)
+    fmt.Printf("Secret ID: %s\n", *secret.ID)
   }
 }
 
