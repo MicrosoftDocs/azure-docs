@@ -107,11 +107,4 @@ Let’s cover an example cost estimate for this class.  Suppose you have a class
 
 ## Next steps
 
-The template image can now be published to the lab. See [publish the template VM](how-to-create-manage-template.md#publish-the-template-vm) for further instructions.
-
-As you set up your lab, see the following articles:
-
-- [Add users](tutorial-setup-lab.md#add-users-to-the-lab)
-- [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-lab.md#set-a-schedule-for-the-lab)
-- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)
+[!INCLUDE [next steps for class types](./includes/lab-services-class-type-next-steps.md)]

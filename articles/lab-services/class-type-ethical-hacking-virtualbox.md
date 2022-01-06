@@ -2,7 +2,7 @@
 title: Set up an ethical hacking lab on VirtualBox with Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab using Azure Lab Services to teach ethical hacking with VirtualBox. 
 ms.topic: how-to
-ms.date: 06/11/2021
+ms.date: 01/04/2022
 ---
 
 # Set up a lab to teach ethical hacking class with VirtualBox
@@ -82,10 +82,4 @@ This article walked you through the steps to create a lab for ethical hacking cl
 
 ## Next steps
 
-Next steps are common to setting up any lab.
-
-- [Publish the lab](tutorial-setup-lab.md#publish-the-lab)
-- [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-lab.md#set-a-schedule-for-the-lab)
-- [Add users](tutorial-setup-lab.md#add-users-to-the-lab)
-- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)
+[!INCLUDE [next steps for class types](./includes/lab-services-class-type-next-steps.md)]
