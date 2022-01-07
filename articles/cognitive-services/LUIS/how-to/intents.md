@@ -31,9 +31,9 @@ The intent needs [example utterances](../concepts/utterances.md) in order to pre
 
 Example utterances are text examples of user questions or commands. To teach Language Understanding (LUIS) when to predict the intent, you need to add example utterances. LUIS needs 15 to 30 example utterances to begin understanding the intent. Carefully consider each utterance you add. Each utterance should be chosen for how they are different than the examples that are already in the intent.
 
-1. On the intent details page, enter a relevant utterance you expect from your users, such as "*I want to change my pizza order to large please*" in the text box below the intent name, and then press Enter.
+On the intent details page, enter a relevant utterance you expect from your users, such as "*I want to change my pizza order to large please*" in the text box below the intent name, and then press Enter.
    
-    :::image type="content" source="../media/luis-how-to-add-intents/add-new-utterance-to-intent.png" alt-text="A screenshot of the intents details page, with a highlighted utterance." lightbox="../media/luis-how-to-add-intents/add-new-utterance-to-intent.png":::
+:::image type="content" source="../media/luis-how-to-add-intents/add-new-utterance-to-intent.png" alt-text="A screenshot of the intents details page, with a highlighted utterance." lightbox="../media/luis-how-to-add-intents/add-new-utterance-to-intent.png":::
 
 LUIS converts all utterances to lowercase and adds spaces around [tokens](../luis-language-support.md#tokenization), such as hyphens.
 

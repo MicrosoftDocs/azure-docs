@@ -46,8 +46,8 @@ You can use conversational language understanding to create a new orchestration 
 
 To use an orchestration project to connect LUIS, question answering, and conversational language understanding, you need:
 
-1. A language resource in [Language Studio](https://language.azure.com/) or the Azure portal.
-2. To change your LUIS authoring resource to the Language resource. You can also optionally export your application from LUIS, and then [import it into conversational language understanding](../../language-service/conversational-language-understanding/how-to/create-project.md#import-a-project).
+* A language resource in [Language Studio](https://language.azure.com/) or the Azure portal.
+* To change your LUIS authoring resource to the Language resource. You can also optionally export your application from LUIS, and then [import it into conversational language understanding](../../language-service/conversational-language-understanding/how-to/create-project.md#import-a-project).
 
 ## Change a LUIS resource to a language resource:
 
