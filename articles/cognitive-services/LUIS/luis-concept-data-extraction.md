@@ -238,7 +238,7 @@ Location names are set and known such as cities, counties, states, provinces, an
 
 ### New and emerging names
 
-Some apps need to be able to find new and emerging names such as products or companies. These types of names are the most difficult type of data extraction. Begin with a **[simple entity](concepts/entities.md)** and add a [phrase list](luis-concept-feature.md). [Review](./luis-how-to-review-endpoint-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
+Some apps need to be able to find new and emerging names such as products or companies. These types of names are the most difficult type of data extraction. Begin with a **[simple entity](concepts/entities.md)** and add a [phrase list](concepts/patterns-features.md). [Review](./luis-how-to-review-endpoint-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
 
 ## Pattern.any entity data
 
