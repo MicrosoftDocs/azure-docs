@@ -32,8 +32,8 @@ Common scenarios include:
 
 * **Unlocking legacy assets** - APIs are used to abstract and modernize legacy backends and make them accessible from new cloud services and modern applications. APIs allow innovation without the risk, cost, and delays of migration.
 * **API-centric app integration** - APIs are easily consumable, standards-based, and self-describing mechanisms for exposing and accessing data, applications, and processes. They simplify and reduce the cost of app integration.
-* **Multi-channel user experiences** - APIs are frequently used to enable user experiences such as web, mobile, wearable, or Internet of Things applications. APIs can be reused to accelerate development and ROI.
-* **B2B integration** - APIs exposed to partners and customers lower the barrier for integrating business processes and exchanging data between business entities. APIs eliminate the overhead inherent in point-to-point integration. Especially with self-service discovery and onboarding enabled, APIs are the primary tools for scaling B2B integration.
+* **Multi-channel user experiences** - APIs are frequently used to enable user experiences such as web, mobile, wearable, or Internet of Things applications. Reuse APIs to accelerate development and ROI.
+* **B2B integration** - APIs exposed to partners and customers lower the barrier to integrate business processes and exchange data between business entities. APIs eliminate the overhead inherent in point-to-point integration. Especially with self-service discovery and onboarding enabled, APIs are the primary tools for scaling B2B integration.
 
 ## API Management components
 
@@ -123,6 +123,7 @@ When a product is ready for use by developers, it can be published. Once publish
 
 More information:
 * [Create and publish a product][How to create and publish a product]
+* [Subscriptions in API Management](api-management-subscriptions.md)
 
 ### Groups
 
