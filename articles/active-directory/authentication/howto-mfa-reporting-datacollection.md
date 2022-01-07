@@ -185,7 +185,7 @@ Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azu
 
 - It may take up to 30 days for data to be fully removed.
 
-## Remove data for self-service password reset
+## Delete data for self-service password reset
 
 Users can add answers to security questions as part of SSPR. Security questions and answers are hashed to prevent unauthorized access. Only the hashed data is saved, so the security questions and answers can't be exported. Users can go to [My sign-ins](https://mysignins.microsoft.com/security-info) to edit or delete them. The only other information saved for SSPR is the user email address. 
 
