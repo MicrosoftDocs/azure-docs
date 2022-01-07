@@ -78,7 +78,7 @@ In this tutorial, you learn how to:
 
 ## Disable cache for auth workflow
 
-Add the following settings to disable Front Door's caching policies from trying to cache authentication and authorization related pages.
+Add the following settings to disable Front Door's caching policies from trying to cache authentication and authorization-related pages.
 
 ### Add a condition
 
