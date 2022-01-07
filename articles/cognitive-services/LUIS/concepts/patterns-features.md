@@ -324,4 +324,7 @@ The correctly labeled example utterances display in a way to show how the entiti
 
 ## Next steps
 
-Learn more about [LUIS application design](application-design.md),[prebuilt models](/azure/cognitive-services/luis/luis-concept-prebuilt-model?branch=pr-en-us-181263), [intents](intents.md) and [entities](entities.md).
+<!--[LUIS application design](application-design.md)-->
+* [prebuilt models](../luis-concept-prebuilt-model.md)
+* [intents](intents.md)
+* [entities](entities.md).

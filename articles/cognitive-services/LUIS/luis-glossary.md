@@ -162,7 +162,7 @@ See Prebuilt model's entry for [prebuilt entity](#prebuilt-entity)
 
 In machine learning, a feature is a characteristic that helps the model recognize a particular concept. It is a hint that LUIS can use, but not a hard rule.
 
-This term is also referred to as a **[machine-learning feature](luis-concept-feature.md)**.
+This term is also referred to as a **[machine-learning feature](concepts/patterns-features.md)**.
 
 These hints are used in conjunction with the labels to learn how to predict new data. LUIS supports both phrase lists and using other models as features.
 
@@ -208,7 +208,7 @@ Each app has one owner who is the person that created the app. The owner manages
 
 ## Phrase list
 
-A [phrase list](luis-concept-feature.md) is a specific type of machine learning feature that includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products).
+A [phrase list](concepts/patterns-features.md) is a specific type of machine learning feature that includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products).
 
 ## Prebuilt model
 

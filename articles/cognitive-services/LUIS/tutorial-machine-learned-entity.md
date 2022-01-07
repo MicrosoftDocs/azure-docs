@@ -4,7 +4,7 @@ description: Extract structured data from an utterance using the machine-learnin
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/28/2020
+ms.date: 01/07/2022
 #Customer intent: As a new user, I want to understand how to extract complex data contained in a user utterance.
 ---
 
@@ -12,7 +12,7 @@ ms.date: 04/28/2020
 
 In this tutorial, extract structured data from an utterance using the machine-learning entity.
 
-The machine-learning entity supports the [model decomposition concept](luis-concept-model.md#v3-authoring-model-decomposition) by providing subentity entities with [features](luis-concept-feature.md).
+The machine-learning entity supports the [model decomposition concept](luis-concept-model.md#v3-authoring-model-decomposition) by providing subentity entities with [features](concepts/patterns-features.md).
 
 **In this tutorial, you learn how to:**
 
@@ -296,7 +296,7 @@ In order to receive a LUIS prediction in a chat bot or other client application,
 
 * [Tutorial - intents](./tutorial-intents-only.md)
 * [Concept - entities](concepts/entities.md) conceptual information
-* [Concept - features](luis-concept-feature.md) conceptual information
+* [Concept - features](concepts/patterns-features.md) conceptual information
 * [How to train](luis-how-to-train.md)
 * [How to publish](luis-how-to-publish-app.md)
 * [How to test in LUIS portal](luis-interactive-test.md)
