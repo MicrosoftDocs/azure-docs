@@ -41,3 +41,15 @@ zone_pivot_groups: web-app-tutorial
 [!INCLUDE [python-flask](./includes/web-app/python-flask-tutorial-01-prepare-app.md)]
 
 ::: zone-end
+
+::: zone pivot="devlang-java-spring"
+
+[!INCLUDE [java-spring](./includes/web-app/java-spring-tutorial-01-prepare-app.md)]
+
+::: zone-end
+
+::: zone pivot="devlang-blazor-server"
+
+[!INCLUDE [blazor-server](./includes/web-app/blazor-server-tutorial-01-prepare-app.md)]
+
+::: zone-end

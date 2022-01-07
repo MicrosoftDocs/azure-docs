@@ -94,24 +94,14 @@
     items:
     - name: ASP.NET
       href: tutorial-v2-asp-webapp.md
-    - name: Web app
-      items:
-      - name: 1- Prepare your app for auth
-        href: web-app-tutorial-01-prepare-app.md 
-      - name: 2 - Prepare Azure AD for your app
-        href: web-app-tutorial-02-prepare-azure-ad.md
-      - name: 3 - Sign in users
-        href: web-app-tutorial-03-sign-in-users.md
-      - name: 4 - Get user data from web API
-        href: web-app-tutorial-04-call-web-api-graph.md
     - name: Blazor Server
       href: tutorial-blazor-server.md
     - name: Node.js web app tutorial
       href: tutorial-v2-nodejs-webapp-msal.md
-    - name: Python Flask
+    - name: Web app
       items:
       - name: 1 - Prepare your app for auth
-        href: web-app-tutorial-01-prepare-app.md
+        href: web-app-tutorial-01-prepare-app.md 
       - name: 2 - Prepare Azure AD for your app
         href: web-app-tutorial-02-prepare-azure-ad.md
       - name: 3 - Sign in users

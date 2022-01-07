@@ -41,3 +41,14 @@ zone_pivot_groups: web-app-tutorial
 
 ::: zone-end
 
+::: zone pivot="devlang-java-spring"
+
+[!INCLUDE [java-spring](./includes/web-app/java-spring-tutorial-02-prepare-azure-ad.md)]
+
+::: zone-end
+
+::: zone pivot="devlang-blazor-server"
+
+[!INCLUDE [blazor-server](./includes/web-app/blazor-server-tutorial-02-prepare-azure-ad.md)]
+
+::: zone-end
