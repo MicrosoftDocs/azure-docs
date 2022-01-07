@@ -30,7 +30,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
 
     /// <summary>
     /// Main interface to anything Spatial Anchors related
-    /// </summary>	
+    /// </summary>
     private SpatialAnchorManager _spatialAnchorManager = null;
 
     /// <summary>
@@ -185,7 +185,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
     }
   
     /// <summary>
-    /// Creates an Azure Spatial Anchor at the given position
+    /// Creates an Azure Spatial Anchor at the given position rotated towards the user
     /// </summary>
     /// <param name="position"></param>
     /// <returns></returns>
