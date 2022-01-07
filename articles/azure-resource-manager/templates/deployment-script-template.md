@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/07/22
+ms.date: 01/07/2022
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
 
