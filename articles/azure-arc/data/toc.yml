@@ -207,7 +207,7 @@ items:
               href: managed-instance-high-availability.md
             - name: Reserved capacity
               href: reserved-capacity-overview.md
-            - name: Rotate certificates (Active Directory)
+            - name: Rotate certificates
               href: rotate-user-tls-certificate.md
             - name: Delete
               href: delete-managed-instance.md

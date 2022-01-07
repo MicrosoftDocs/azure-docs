@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
-ms.reviewer: jrasnick
+ms.reviewer: sngun
  
 ---
 # Tutorial: Train a model in Python with automated machine learning

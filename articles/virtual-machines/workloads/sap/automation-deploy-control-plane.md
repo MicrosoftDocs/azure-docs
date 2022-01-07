@@ -89,7 +89,7 @@ You can copy the sample configuration files to start testing the deployment auto
 
 cd C:\Azure_SAP_Automated_Deployment
 
-xcopy sap-automation\samples\WORKSPACES WORKSPACES
+xcopy /E sap-automation\samples\WORKSPACES WORKSPACES
 
 ```
 

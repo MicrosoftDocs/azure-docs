@@ -2212,7 +2212,7 @@ The Azure AD provisioning service currently operates on a cyclic basis. The serv
 **Service category:** Other  
 **Product capability:** Entitlement Management
  
-A new delegated permission EntitlementManagement.Read.All is now available for use with the Entitlement Management API in Microsoft Graph beta. To find out more about the available APIs, see [Working with the Azure AD entitlement management API](/graph/api/resources/entitlementmanagement-root).
+A new delegated permission EntitlementManagement.Read.All is now available for use with the Entitlement Management API in Microsoft Graph beta. To find out more about the available APIs, see [Working with the Azure AD entitlement management API](/graph/api/resources/entitlementmanagement-overview).
 
 ---
 
