@@ -20,8 +20,8 @@ Users will be added or deleted from the lab user list as per changes to the team
 
 If the lab has been published, the lab capacity will be automatically updated.
 
-    * If there are any new additions to the team, new VMs will be created.
-    * If any user has been deleted from the team, the associated VM will be deleted as well.
+- If there are any new additions to the team, new VMs will be created.
+- If any user has been deleted from the team, the associated VM will be deleted as well.
 
 ## Next steps
 

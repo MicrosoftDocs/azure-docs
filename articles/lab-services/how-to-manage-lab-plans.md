@@ -16,27 +16,27 @@ In Azure Lab Services, a lab plan is a container for managed lab types such as l
 The following steps illustrate how to use the Azure portal to create a lab plan with Azure Lab Services.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All Services** on the left menu. Select **DevOps** from **Categories**. Then, select **Azure Lab Services**. If you select star (`*`) next to **Azure Lab Services**, it's added to the **FAVORITES** section on the left menu. From the next time onwards, you select **Azure Lab Services** under **FAVORITES**.
+1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
+1. Search for **lab plan**.  (**Lab plan (preview)** can also be found under the **DevOps** category.)
+1. On the **Lab plan (preview)** tile, select the **Create** dropdown and choose **Lab plan**.
 
-    :::image type="content" source="./media/tutorial-setup-lab-plan/select-lab-plans-service.png" alt-text="All Services -> Lab Plans":::
-3. On the **lab plans** page, select **Add** on the toolbar or **Create lab plan** on the page.
+    :::image type="content" source="./media/tutorial-setup-lab-plan/select-lab-plans-service.png" alt-text="All Services -> Lab Services":::
 
-    :::image type="content" source="./media/tutorial-setup-lab-plan/add-lab-plan-button.png" alt-text="Select Add on the Lab Plans page":::
-4. On the **Basics** tab of the **Create a lab plan** page, do the following actions:
+1. On the **Basics** tab of the **Create a lab plan** page, do the following actions:
     1. Select the **Azure subscription** in which you want to create the lab plan.
     2. For **Resource group**, select an existing resource group or select **Create new**, and enter a name for the resource group.
     3. For **Name**, enter a lab plan name.
     4. For **Region**, select a location/region in which you want to create the lab plan.
 
         :::image type="content" source="./media/tutorial-setup-lab-plan/lab-plan-basics-page.png" alt-text="Lab plan - basics page":::
-5. Select **Next: Networking** at the bottom of the page.
-6. To host on a virtual network, select **Enable advanced networking**.
+1. Select **Next: Networking** at the bottom of the page.
+1. To host on a virtual network, select **Enable advanced networking**.
 
     1. For **Virtual network**, select an existing virtual network for the lab network. For a virtual network to appear in this list, it must be in the same region as the lab plan. For more information, see [Connect to your virtual network](how-to-connect-vnet-injection.md).
     2. Specify an existing **subnet** for VMs in the lab. For a subnet to appear in this list, it must be delegated for use with `Microsoft.LabServices/labplans` when you configure the subnet for the virtual network. For more information, see [Add a virtual network subnet](/azure/virtual-network/virtual-network-manage-subnet).  
 
         :::image type="content" source="./media/how-to-manage-lab-plans/create-lab-plan-advanced-networking.png" alt-text="Create lab plan -> Networking":::
-7. Select **Next: Tags** at the bottom of the page to switch to the **Tags** tab. Add any tags you want to associate with the lab plan.  For more information, see [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md).
+1. Select **Next: Tags** at the bottom of the page to switch to the **Tags** tab. Add any tags you want to associate with the lab plan.  For more information, see [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md).
 
     :::image type="content" source="./media/how-to-manage-lab-plans/create-lab-plan-tags.png" alt-text="Screenshot that shows the Create lab plan page with the Tags tab highlighted.":::
 8. Select **Review + create** at the bottom of this page to switch to the **Review + create** tab.

@@ -22,9 +22,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The following steps illustrate how to use the Azure portal to create a lab plan with Azure Lab Services.
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
-1. Search for **lab plan**.  (**Lab plan (preview** can also be found under the **DevOps** category.)
+1. Search for **lab plan**.  (**Lab plan (preview)** can also be found under the **DevOps** category.)
 1. On the **Lab plan (preview)** tile, select the **Create** dropdown and choose **Lab plan**.
 
     :::image type="content" source="./media/tutorial-setup-lab-plan/select-lab-plans-service.png" alt-text="All Services -> Lab Services":::
