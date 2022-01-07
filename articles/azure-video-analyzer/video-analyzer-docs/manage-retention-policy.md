@@ -50,4 +50,4 @@ You can also set or update the `retentionPeriod` property of a video resource, u
 
 ## Next steps
 
-[Playback of recordings](viewing-videos-how-to.md)
+[Viewing videos](viewing-videos-how-to.md)
