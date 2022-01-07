@@ -22,7 +22,7 @@ To complete this tutorial, make sure you have:
 1. **PC** - A PC running Windows
 2. **Visual Studio** - <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> installed with the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.18362.0 or newer)** component. The [C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) for Visual Studio should be installed from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 3. **HoloLens** - A HoloLens device with [developer mode](/windows/mixed-reality/using-visual-studio) enabled. This article requires a HoloLens device with the [Windows 10 May 2020 Update](/windows/mixed-reality/whats-new/release-notes-may-2020). To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, then select the **Check for updates** button.
-4. **Unity** - [Unity 2020.3.21](https://unity3d.com/get-unity/download) with modules **Universal Windwos Platform Build Support** and **Windows Build Support (IL2CPP)**
+4. **Unity** - [Unity 2020.3.25](https://unity.com/download) with modules **Universal Windows Platform Build Support** and **Windows Build Support (IL2CPP)**
 
 ## Creating and setting up Unity Project
 
@@ -643,4 +643,16 @@ Now lets add code that will create & place a green sphere once the CloudSpatialA
 
 That's it! Run your app from **Visual Studio** one last time to try out the whole scenario end to end. Move around your device, and place your white sphere. Then, keep moving your head to capture environment data until the sphere turns yellow. Your local anchor will be uploaded, and your sphere will turn blue. Finally, tap your screen once more to remove your local anchor and begin a query for its cloud counterpart. Continue moving your device around until your cloud spatial anchor is located. A green sphere should appear in the correct location, and you can repeat the whole scenario again.
 
+## Putting everything together
+
+Here is how the complete `AzureSpatialAnchorsScript` class file should look like, after all the different elements have been put together. You can use it as a reference to compare against your own file, and spot if you may have any differences left.
+
+
 [!INCLUDE [AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md)]
+
+## Next steps
+
+In this tutorial, you've learn more about how to use Azure Spatial Anchors in a new Unity HoloLens app. To learn more about how to use Azure Spatial Anchors in a new Android app, continue to the next tutorial.
+
+> [!div class="nextstepaction"]
+> [Starting a new Android app](../articles/spatial-anchors/tutorials/tutorial-new-android-app.md)

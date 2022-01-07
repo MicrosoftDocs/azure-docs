@@ -1,15 +1,32 @@
 ---
 title: 'Tutorial: Create a new Android app'
 description: In this tutorial, you learn how to create a new Android app using Azure Spatial Anchors.
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ---
+<!-- 
+/*
+Tap in the air - Start Session + Create Anchors
+Tapping on a cube - Delete Anchors
+Tap + Hold for 4 sec - Stop the session and remove all game objects
+Tap + Hold for 4 sec - Start the session and look for all objects.
+
+https://github.com/microsoft/OpenXR-Unity-MixedReality-Samples/blob/e127cd11d01bf42d23a78e68322bcb6572e7fb61/AzureSpatialAnchorsSample/Assets/Scripts/SpatialAnchorsSample.cs
+
+Notes for tutorial:
+    
+- Make sure you have internet on your Hl2
+- User Debug - ARM64 - Device, Debug -> Start Debugging to see logs 
+- "After closing session you could have a different device on a different day (depending on your anchor expiration), as long as you still have the IDs"
+- Tapping will be middle of the hand, not your fingers
+- Using Legacy shader since it's included in a default Unity build. Default shaders are only included if part of the scene.
+-->
 
 # Tutorial: Step-by-step instructions to create a new Android app using Azure Spatial Anchors
 
