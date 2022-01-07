@@ -43,7 +43,7 @@ To complete this tutorial, you'll need the following:
 
   1. Copy the **Keys and Endpoint** values from the resource you created and paste them in a convenient location, such as *Microsoft Notepad*. You'll need the key and endpoint values to connect your application to the Form Recognizer API.
 
-    :::image border="true" type="content" source="media/containers/keys-and-endpoint.png" alt-text="Still photo showing how to access resource key and endpoint URL":::
+    :::image border="true" type="content" source="media/containers/keys-and-endpoint.png" alt-text="Still photo showing how to access resource key and endpoint URL.":::
 
     > [!TIP]
     > For further guidance, *see* [**create a Form Recognizer resource**](create-a-form-recognizer-resource.md).
@@ -72,7 +72,7 @@ Before we jump into creating the Logic App, we have to set up a OneDrive folder.
 
 1. You should see the new folder in your files. For now, we're done with OneDrive, but you'll need to access this folder later.
 
-:::image border="true" type="content" source="media/logic-apps-tutorial/onedrive-setup.gif" alt-text="Gif showing how steps to create a folder in OneDrive":::
+:::image border="true" type="content" source="media/logic-apps-tutorial/onedrive-setup.gif" alt-text="GIF showing steps to create a folder in OneDrive.":::
 
 ### Create a Logic App resource
 
@@ -107,11 +107,11 @@ At this point, you should have a Form Recognizer resource and a OneDrive folder 
 
 1. You'll be redirected to the **Logic Apps Designer** page. There is a short video for a quick introduction to Logic Apps available on the home screen. When you're ready to begin designing your Logic App, select the **Blank Logic App** button.
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-eight.png" alt-text="Image showing how to enter the Logic App designer":::
+    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-eight.png" alt-text="Image showing how to enter the Logic App Designer.":::
 
 1. You should see a screen that looks like the one below. Now, you're ready to start designing and implementing your Logic App.
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-nine.png" alt-text="Image of the Logic App Designer":::
+    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-nine.png" alt-text="Image of the Logic App Designer.":::
 
 ### Create automation flow
 
@@ -178,11 +178,11 @@ Now that you have the Logic App connector resource set up and configured, the on
 
       1. Lastly, because the amount due is an important number we also want to send the confidence score for this extraction in the email. To do this type ***Amount due (confidence):***  and add the dynamic content **Amount due field confidence of amount due**. When you're done, the window should look similar to the screen below.
 
-      :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-fifteen.png" alt-text="Image of Outlook node filled in":::
+      :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-fifteen.png" alt-text="Image of completed Outlook node.":::
 
 1. **Select Save in the upper left corner**.
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-sixteen.png" alt-text="Image of finished connector flow.":::
+    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-sixteen.png" alt-text="Image of completed connector flow.":::
 
 > [!NOTE]
 >
