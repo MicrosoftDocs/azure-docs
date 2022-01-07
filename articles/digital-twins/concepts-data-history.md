@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Data History (with Azure Data Explorer)
+title: Data History (integrating with ADX)
 titleSuffix: Azure Digital Twins
 description: Understand data history for Azure Digital Twins.
 author: baanders

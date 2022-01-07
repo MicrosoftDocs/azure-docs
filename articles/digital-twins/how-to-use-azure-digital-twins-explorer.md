@@ -22,6 +22,12 @@ ms.service: digital-twins
 >[!NOTE]
 >This tool is currently in **public preview**.
 
+## How to access
+
+The main way to access Azure Digital Twins Explorer is through the [Azure portal](https://portal.azure.com).
+
+To open Azure Digital Twins Explorer for an Azure Digital Twins instance, first navigate to the instance in the portal, by searching for its name in the portal search bar.
+
 [!INCLUDE [digital-twins-access-explorer.md](../../includes/digital-twins-access-explorer.md)]
 
 ### Switch contexts within the app

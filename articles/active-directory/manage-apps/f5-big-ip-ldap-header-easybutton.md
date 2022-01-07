@@ -31,21 +31,21 @@ To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD i
 
 For this scenario, we have a legacy application using HTTP authorization headers to control access to protected content. Azure AD pre-authentication provides the user identifier, while other attributes fetched from an LDAP connected Human Resource (HR) system provide fine grained application permissions.
 
-Ideally, Azure AD should manage the application, but being legacy it does not support any form of modern authentication protocol. Modernization would take considerable effort, introducing inevitable costs and risk of potential downtime.
+Ideally, application access should be managed directly by Azure AD but being legacy it lacks any form of modern authentication protocol. Modernization would take considerable effort and time, introducing inevitable costs and risk of potential downtime.
 
-Instead, a BIG-IP Virtual Edition (VE) deployed between the public internet and the internal Azure VNet application is connected and will be used to gate inbound access to the application, along with Azure AD for its extensive choice of authentication and authorization capabilities.
+Instead, a BIG-IP deployed between the public internet and the internal application will be used to gate inbound access to the application.
 
-Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO. It significantly improves the overall security posture of the application, and allows the business to continue operating at pace, without interruption.
+Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application.
 
 ## Scenario architecture
 
 The secure hybrid access solution for this scenario is made up of:
 
-**Application:** Backend header-based service to be protected by Azure AD and BIG-IP secure hybrid access.
+**Application:** BIG-IP published service to be protected by and Azure AD SHA.
 
-**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SSO to the BIG-IP APM.
+**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SSO to the BIG-IP APM. Trough SSO, Azure AD provides the BIG-IP with any required session attributes.
 
-**HR system:** Legacy employee database acting as source of truth for application authorization
+**HR system:** Legacy employee database acting as source of truth for fine grained application permissions.
 
 **BIG-IP:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the backend application.
 
@@ -106,7 +106,7 @@ For scenarios where the Guided Configuration lacks the flexibility to achieve a 
 
 ## Register Easy Button
 
-Before a client or service can access Microsoft Graph, it must be trusted by the Microsoft identity platform. Registering with Azure AD establishes a trust relationship between your application and the identity provider. BIG-IP must also be registered as a client in Azure AD, before the Easy Button wizard is trusted to access Microsoft Graph.
+Before a client or service can access Microsoft Graph, it must be trusted by the Microsoft identity platform by being registered with Azure AD. A BIG-IP must also be registered as a client in Azure AD, before the Easy Button wizard is trusted to access Microsoft Graph.
 
 1. Sign-in to the [Azure AD portal](https://portal.azure.com) using an account with Application Administrative rights
 

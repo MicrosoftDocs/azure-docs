@@ -50,10 +50,12 @@ The endpoint is attached to an Azure Digital Twins instance using management API
 
 For detailed instructions on how to send Azure Digital Twins data to Azure Maps, see [Use Azure Digital Twins to update an Azure Maps indoor map](how-to-integrate-maps.md). For detailed instructions on how to send Azure Digital Twins data to Time Series Insights, see [Integrate with Time Series Insights](how-to-integrate-time-series-insights.md).
 
+Azure Digital Twins implements **at least once** delivery for data emitted to egress services. 
+
 ## Next steps
 
 Learn more about endpoints and routing events to external services:
-* [Routing Azure Digital Twins events](concepts-route-events.md)
+* [Endpoints and event routes](concepts-route-events.md)
 
 See how to set up Azure Digital Twins to ingest data from IoT Hub:
 * [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)

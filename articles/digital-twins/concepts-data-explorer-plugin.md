@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Querying historized data
+title: Querying with the ADX plugin
 titleSuffix: Azure Digital Twins
 description: Learn about the Azure Digital Twins query plugin for Azure Data Explorer
 author: baanders
