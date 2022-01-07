@@ -62,9 +62,9 @@ Before your function can access Azure Digital Twins, it needs some information a
 
 ## Connect the function to the endpoint
 
-Next, subscribe your Azure function to the Event Grid endpoint you created earlier. This will ensure that data can flow from an updated twin through the event grid topic to the function, which can use the event information to update other twins as needed.
+Next, subscribe your Azure function to the Event Grid endpoint you created earlier. This will ensure that data can flow from an updated twin through the Event Grid topic to the function, which can use the event information to update other twins as needed.
 
-To do this, you'll create an **Event Grid subscription** that sends data from the event grid topic that you created earlier to your Azure function.
+To do this, you'll create an **Event Grid subscription** that sends data from the Event Grid topic that you created earlier to your Azure function.
 
 Use the following CLI command, filling in placeholders for your subscription ID, resource group, function app, and function name.
 
@@ -72,7 +72,7 @@ Use the following CLI command, filling in placeholders for your subscription ID,
 az eventgrid event-subscription create --name <name-for-your-event-subscription> --source-resource-id /subscriptions/<subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.EventGrid/topics/<your-event-grid-topic> \ --endpoint-type azurefunction --endpoint /subscriptions/<subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.Web/sites/<your-function-app-name>/functions/<function-name> 
 ```
 
-Now, your function can receive events through your event grid topic. The data flow setup is complete.
+Now, your function can receive events through your Event Grid topic. The data flow setup is complete.
 
 ## Test and verify results
 
