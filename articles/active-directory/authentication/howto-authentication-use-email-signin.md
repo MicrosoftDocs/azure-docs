@@ -38,7 +38,7 @@ This article shows you how to enable and use email as an alternate login ID.
 Here's what you need to know about email as an alternate login ID:
 
 * The feature is available in Azure AD Free edition and higher.
-* The feature enables sign-in with *ProxyAddresses*, in addition to UPN, for cloud-authenticated Azure AD users. More on how this applies to Azure AD B2B scenarios in the [B2B](#b2b-guest-user-sign-in-with-an-email-address) section.
+* The feature enables sign-in with *ProxyAddresses*, in addition to UPN, for cloud-authenticated Azure AD users. More on how this applies to Azure AD business-to-business (B2B) collaboration in the [B2B](#b2b-guest-user-sign-in-with-an-email-address) section.
 * When a user signs in with a non-UPN email, the `unique_name` and `preferred_username` claims (if present) in the [ID token](../develop/id-tokens.md) will return the non-UPN email.
 * The feature supports managed authentication with Password Hash Sync (PHS) or Pass-Through Authentication (PTA).
 * There are two options for configuring the feature:
@@ -124,7 +124,7 @@ One of the user attributes that's automatically synchronized by Azure AD Connect
 
 ![Diagram of email as an alternate login ID for B2B guest user sign-in.](media/howto-authentication-use-email-signin/email-alternate-login-id-b2b.png)
 
-Email as an alternate login ID applies to [Azure AD business-to-business (B2B) collaboration](../external-identities/what-is-b2b.md) under a "bring your own sign-in identifiers" model. When email as an alternate login ID is enabled in the home tenant, Azure AD users can perform guest sign in with non-UPN email on the resource tenanted endpoint. No action is required from the resource tenant to enable this functionality.
+Email as an alternate login ID applies to [Azure AD B2B collaboration](../external-identities/what-is-b2b.md) under a "bring your own sign-in identifiers" model. When email as an alternate login ID is enabled in the home tenant, Azure AD users can perform guest sign in with non-UPN email on the resource tenanted endpoint. No action is required from the resource tenant to enable this functionality.
 
 ## Enable user sign-in with an email address
 
