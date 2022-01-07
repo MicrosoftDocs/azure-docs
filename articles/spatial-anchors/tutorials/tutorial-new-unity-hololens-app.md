@@ -121,13 +121,29 @@ Tap + Hold for 2 sec | Start the session and look for all anchors.
 ## Add Tap recognition
 1. Open `AzureSpatialAnchorsScript.cs` in Visual Studio. 
 2. Add the following array to your class
+
+<!-- 
+[!code-csharp][MainActivity](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-29&highlight=3-6)] 
+-->
+test 1
+[!code-csharp](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-29)]
+
+test 2
+[!code-csharp[ASAScript]](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-29)]
+
+test3
+[!code-csharp][ASAScript(../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-29)]
+
+test4
+[!code][ASAScript(../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-29)]
+
 ```csharp
 public class AzureSpatialAnchorsScript : MonoBehaviour
 {
     private float[] tappingTimer = { 0, 0 };
 ...
 ```
-3. Add the following two methods below the Update() method. We will add implementation at a later stage
+1. Add the following two methods below the Update() method. We will add implementation at a later stage
 ```java
 Update(){
 }
