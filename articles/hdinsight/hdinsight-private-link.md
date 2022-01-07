@@ -22,14 +22,14 @@ When `privateLink` is set to *enabled*, internal [standard load balancers](../lo
 ## Private Link Deployment Steps
 Successfully creating a Private Link cluster takes many steps, so we have outlined them here. Follow each of the steps below to ensure everything is setup correctly.
 
-### [Step 1: Create Prerequisites](#Createpreqs)
-### [Step 2: Configure HDInsight Subnet](#DisableNetworkPolicy)
-### [Step 3: Deploy NAT gateway OR Firewall](#NATorFirewall)
-### [Step 4: Deploy Private Link cluster](#deployCluster)
-### [Step 5: Create Private Endpoints](#PrivateEndpoints)
-### [Step 6: Configure DNS](#ConfigureDNS)
-### [Step 7: Check cluster connectivity](#CheckConnectivity)
-### [Appendix: Manage private endpoints for Azure HDInsight](#ManageEndpoints)
+* Step 1: Create prerequisites
+* Step 2: Configure HDInsight subnet
+* Step 3: Deploy NAT gateway OR firewall
+* Step 4: Deploy Private Link cluster
+* Step 5: Create private endpoints
+* Step 6: Configure DNS
+* Step 7: Check cluster connectivity
+* Appendix: Manage private endpoints for Azure HDInsight
 
 ## <a name="Createpreqs"></a>Step 1: Create Prerequisites
 
