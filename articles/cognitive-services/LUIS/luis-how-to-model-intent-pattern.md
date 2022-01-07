@@ -130,7 +130,7 @@ For a pattern to be matched to an utterance, _first_ the entities within the utt
 2. Open your app by selecting its name on  **My Apps**  page.
 3. Select  **Build** , then select  **Features**  in your app&#39;s left panel.
 4. On the  **Features**  page, select  **+ Create**.
-5. In the  **Create new phrase list feature**  dialog box, enter a name such as Pizza Toppings. In the  **Value**  box, enter examples of topings, such as _Ham_. You can type one value at a time, or a set of values separated by commas, and then press  **Enter**.
+5. In the  **Create new phrase list feature**  dialog box, enter a name such as Pizza Toppings. In the  **Value**  box, enter examples of toppings, such as _Ham_. You can type one value at a time, or a set of values separated by commas, and then press  **Enter**.
 
 :::image type="content" source="media/luis-add-features/add-phrase-list-cities.png" alt-text="A screenshot showing how to add feature (phrase list) Cities" lightbox="media/luis-add-features/add-phrase-list-cities.png":::
 
@@ -152,4 +152,4 @@ To add an entity as a feature to another entity, you can add the feature either 
 
 ## Next steps
 
-* [Train and test](luis-how-to-train.md) your app after improvment.
+* [Train and test](luis-how-to-train.md) your app after improvement.
