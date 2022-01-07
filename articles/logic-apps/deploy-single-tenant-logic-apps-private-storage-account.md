@@ -79,7 +79,7 @@ The following errors commonly happen with a private storage account that's behin
 | Problem | Error |
 |---------|-------|
 | Access to the `host.json` file is denied | `"System.Private.CoreLib: Access to the path 'C:\\home\\site\\wwwroot\\host.json' is denied."` |
-| Can't load workflows in the logic app resource | `Encountered an error (ServiceUnavailable) from host runtime` |
+| Can't load workflows in the logic app resource | `"Encountered an error (ServiceUnavailable) from host runtime."` |
 |||
 
 As the logic app isn't running when these errors occur, you can't use the Kudu console debugging service on the Azure platform to troubleshoot these errors. However, you can use the following methods instead:
