@@ -1,6 +1,6 @@
 ---
-title:  Microsoft CloudKnox Permissions Management - Enable Cloud Microsoft Infrastructure Entitlement Management (M-CIEM) on your Azure Active Directory (Azure AD) tenant
-description: How to enable Cloud Microsoft Infrastructure Entitlement Management (M-CIEM) on your Azure Active Directory (Azure AD) tenant.
+title:  Microsoft CloudKnox Permissions Management - Enable Microsoft Cloud Infrastructure Entitlement Management (M-CIEM) on your Azure Active Directory (Azure AD) tenant
+description: How to enable Microsoft Cloud Infrastructure Entitlement Management (M-CIEM) on your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,17 +8,18 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 01/06/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - Enable Cloud Microsoft Infrastructure Entitlement Management (M-CIEM) on your Azure Active Directory (Azure AD) tenant
+# Microsoft CloudKnox Permissions Management - Enable Microsoft Cloud Infrastructure Entitlement Management (M-CIEM) on your Azure Active Directory (Azure AD) tenant
 
 This topic describes how to:
-    - Enable Cloud Microsoft Infrastructure Entitlement Management (M-CIEM)  on your Azure Active Directory (Azure AD) tenant.
-    - Onboard the Amazon Web Services (AWS) authorization system.
-    - Onboard the Microsoft Azure (Azure) authorization system.
-    - Onboard the Google Cloud Platform (GCP) authorization system.
+
+- Enable Microsoft Cloud Infrastructure Entitlement Management (M-CIEM)  on your Azure Active Directory (Azure AD) tenant.
+- Onboard the Amazon Web Services (AWS) authorization system.
+- Onboard the Microsoft Azure (Azure) authorization system.
+- Onboard the Google Cloud Platform (GCP) authorization system.
 
 ## Enable M-CIEM on your Azure AD tenant
 
@@ -55,7 +56,7 @@ This topic describes how to:
 
     On the **Data Collections** tab, in the **Recently Uploaded On** and **Recently Transformed On** columns, you’ll see that M-CIEM has started collecting data.
 
-    When the data has been processed, the CloudKnox **Dashboard** will display Privilege Creep Index (PCI) information.
+    After the data is processed, the CloudKnox dashboard displays Privilege Creep Index (PCI) information.
 
 
 ## Onboard the GCP authorization system
@@ -64,13 +65,13 @@ This topic describes how to:
 2. On the **Data Collections** tab, select **GCP**, and then select **Create Configuration**.
 3. In the **M-CIEM Onboarding – Azure OIDC App Creation** dialog, enter the **OIDC Azure App Name**.
 4. To create the app registration, copy the script in the dialog and run it in your command-line interface (CLI).
-5. In the** M-CIEM Onboarding – Azure OIDC Account Details & IDP Access** dialog, enter the **GCP Project Name**.
+5. In the **M-CIEM Onboarding – Azure OIDC Account Details & IDP Access** dialog, enter the **GCP Project Name**.
 6. For the rest of the values, accept the default values or change them as required. Then select **Next**.
 7. In the **M-CIEM Onboarding – Summary** dialog, review the information you’ve added, and then select **View Now & Save**.
 
     On the **Data Collections** tab, in the **Recently Uploaded On** and **Recently Transformed On** columns, you’ll see that M-CIEM has started collecting data.
 
-    When the data has been processed, the CloudKnox **Dashboard** will display Privilege Creep Index (PCI) information.
+    After the data is processed, the CloudKnox dashboard displays Privilege Creep Index (PCI) information.
 
 
 
