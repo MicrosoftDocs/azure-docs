@@ -98,7 +98,7 @@ There are many filter options within the **Groups** screen, including filters by
     4. To remove all filters, select **X**.
 
 
-## View information about groups on the Information Pane
+## View information about groups on the Information pane
 
 1. To view more information about the group after you have applied the filters and selected the authorization system, select the icon at the end of the row.
 

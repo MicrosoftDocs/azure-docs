@@ -99,7 +99,7 @@ There are many filter options within the **Active Tasks** screen, including filt
 
     3. To filter by the selection, select **Apply**. 
 
-## View information about active tasks in the Information Pane
+## View information about active tasks in the Information pane
 
 
 - Set the filters and select your Authorization System. Then select the icon at the end of the row to view more information about the active task.

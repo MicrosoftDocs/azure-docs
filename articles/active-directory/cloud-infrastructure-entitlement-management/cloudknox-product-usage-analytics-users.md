@@ -212,7 +212,7 @@ There are many filter options on the **Users** screen, including filters by **Au
             - **Start Date**: The day the key was generated.
             - **Expires**: The day the key expires.
         - **Application Usage**: The usage pattern for the application over the last 90 days.
-        - **Roles**: Lists all the roles that are assigned to a user.The following fields provide more information about the role:
+        - **Roles**: Lists all the roles that are assigned to a user. The following fields provide more information about the role:
 
             - **Name**: Name of the role.
             - **Resource**: The scope where the role is assigned.
