@@ -13,7 +13,7 @@ metadata:
   ms.subservice: ciem
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 01/04/2022
+  ms.date: 01/07/2022
   ms.author: v-ydequadros
   
   
@@ -71,7 +71,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Manage users with Microsoft CloudKnox Permissions Management
-            url: cloudknox-product-usage-analytics.md
+            url: cloudknox-usage-analytics-home.md
   # Card
   - title: Generate reports with Microsoft CloudKnox Permissions Management
     linkLists:

@@ -101,7 +101,7 @@
     - name: The Usage Analytics dashboard
       href: cloudknox-ui-usage-analytics.md
     - name: The Usage Analytics explorers
-      href: cloudknox-product-usage-analytics-explorers.md
+      href: cloudknox-usage-analytics-explorers.md
     - name: The Audit Trail dashboard
       href: cloudknox-ui-audit-trail.md
     - name: The JEP Controller dashboard
@@ -147,7 +147,7 @@
     expanded: true
     items:
     - name: View details about identities, resources, and tasks
-      href: cloudknox-product-usage-analytics.md
+      href: cloudknox-usage-analytics-home.md
     - name: Adjust permissions with the JEP Controller
       href: cloudknox-product-jep-controller.md
     - name: Filter and query user activity
