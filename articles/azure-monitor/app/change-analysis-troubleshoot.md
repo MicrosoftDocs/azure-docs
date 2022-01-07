@@ -38,7 +38,7 @@ This error message is likely a temporary internet connectivity issue, since:
 Try refreshing the page and checking your internet connection. If the error persists, contact the [Change Analysis help team](mailto:changeanalysishelp@microsoft.com).
 
 ### This is taking longer than expected.
-You'll receive this error message when the registration takes longer than 2 minutes. While unusual, it doesn't mean something went wrong. Restart your webb app to see your registration changes. Changes should show up within a few hours of app restart.
+You'll receive this error message when the registration takes longer than 2 minutes. While unusual, it doesn't mean something went wrong. Restart your web app to see your registration changes. Changes should show up within a few hours of app restart.
 
 If your changes still don't show after 6 hours, contact the [Change Analysis help team](mailto:changeanalysishelp@microsoft.com). 
 
