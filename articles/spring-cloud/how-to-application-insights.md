@@ -53,7 +53,8 @@ Enable the Java In-Process Agent by using the following procedure.
 
 When the **Application Insights** feature is enabled, you can:
 
-In the left navigation pane, select **Application Insights** to view the **Overview** page of Application Insights. The **Overview** page will show you an overview of all running applications.
+* In the left navigation pane, select **Application Insights** to view the **Overview** page of Application Insights. The **Overview** page will show you an overview of all running applications.
+
 
 * Select **Application Map** to see the status of calls between applications.
 
