@@ -110,13 +110,13 @@ Deploying a dual-stack cluster requires passing the `--ip-families` parameter wi
 
 When using an Azure Resource Manager template to deploy, pass `["IPv4", "IPv6"]` to the `ipFamilies` parameter to the `networkProfile` object. See the [Azure Resource Manager template documentation][deploy-arm-template] for help with deploying this template, if needed.
 
-:::code language="json" source="includes/configure-kubenet-dualstack/aksipv6.json" highlight="47-50":::
+:::code language="json" source="includes/configure-kubenet-dual-stack/aksipv6.json" highlight="47-50":::
 
 # [Bicep](#tab/bicep)
 
 When using a Bicep template to deploy, pass `["IPv4", "IPv6"]` to the `ipFamilies` parameter to the `networkProfile` object. See the [Bicep template documentation][deploy-bicep-template] for help with deploying this template, if needed.
 
-:::code language="bicep" source="includes/configure-kubenet-dualstack/aksipv6.bicep" highlight="25-28":::
+:::code language="bicep" source="includes/configure-kubenet-dual-stack/aksipv6.bicep" highlight="25-28":::
 
 ---
 
@@ -157,7 +157,7 @@ kubectl create deployment nginx --image=nginx:latest --replicas=3
 
 # [YAML](#tab/yaml)
 
-:::code language="yaml" source="includes/configure-kubenet-dualstack/nginx-deployment.yaml":::
+:::code language="yaml" source="includes/configure-kubenet-dual-stack/nginx-deployment.yaml":::
 
 ---
 
@@ -197,7 +197,7 @@ service/nginx-ipv6 exposed
 
 # [YAML](#tab/yaml)
 
-:::code language="yaml" source="includes/configure-kubenet-dualstack/nginx-service.yaml":::
+:::code language="yaml" source="includes/configure-kubenet-dual-stack/nginx-service.yaml":::
 
 ---
 
