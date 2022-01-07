@@ -25,7 +25,7 @@ You will need an indirect mode data controller with the imageTag v1.0.0_2021-07-
 To check the version, run:
 
 ```console
-kubectl get datacontrollers -n -o custom-columns=BUILD:.spec.docker.imageTag
+kubectl get datacontrollers -n <namespace> -o custom-columns=BUILD:.spec.docker.imageTag
 ```
 
 ## Install tools
@@ -42,7 +42,7 @@ Before you can proceed with the tasks in this article you need to install:
 Pull the list of available images for the data controller with the following command:
 
    ```azurecli
-   az arcdata dc list-upgrades --k8s-namespace <namespace> –-use-k8s
+   az arcdata dc list-upgrades --k8s-namespace <namespace>
    ```
 
 The command above returns output like the following example:
@@ -76,23 +76,23 @@ az arcdata dc upgrade --desired-version <version> --k8s-namespace <namespace> --
 The output for the preceding command is:
 
 ```output
-Preparing to upgrade dc arcdc in namespace arc to version 20211024.1.
-Preparing to upgrade dc arcdc in namespace arc to version 20211024.1.
+Preparing to upgrade dc arcdc in namespace arc to version <version-tag>.
+Preparing to upgrade dc arcdc in namespace arc to version <version-tag>.
 ****Dry Run****
-Arcdata Control Plane would be upgraded to: 20211024.1
+Arcdata Control Plane would be upgraded to: <version-tag>
 ```
 
-To upgrade the data controller, run the `az arcdata dc upgrade` command. If you don't specify a target image, the data controller will be upgraded to the latest version. The following example uses a local variable (`$version`) to use the version you selected previously ([View available images and chose a version](#view-available-images-and-chose-a-version)).
+To upgrade the data controller, run the `az arcdata dc upgrade` command. If you don't specify a target image, the data controller will be upgraded to the latest version.
 
 ```azurecli
-az arcdata dc upgrade --desired-version $version --k8s-namespace <namespace> --use-k8s
+az arcdata dc upgrade --k8s-namespace <namespace> --use-k8s
 ```
 
 The output for the preceding command shows the status of the steps:
 
 ```output
-Preparing to upgrade dc arcdc in namespace arc to version 20211024.1.
-Preparing to upgrade dc arcdc in namespace arc to version 20211024.1.
+Preparing to upgrade dc arcdc in namespace arc to version <version-tag>.
+Preparing to upgrade dc arcdc in namespace arc to version <version-tag>.
 Creating service account: arc:cr-upgrade-worker
 Creating cluster role: arc:cr-upgrade-worker
 Creating cluster role binding: arc:crb-upgrade-worker
@@ -101,6 +101,8 @@ Cluster role: arc:cr-upgrade-worker created successfully.
 Service account arc:cr-upgrade-worker has been created successfully.
 Creating privileged job arc-elevated-bootstrapper-job
 ```
+
+In example above, you can include `--desired-version <version>` to specify a version if you do not want the latest version. 
 
 ## Monitor the upgrade status
 
