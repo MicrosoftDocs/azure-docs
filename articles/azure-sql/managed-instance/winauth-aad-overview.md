@@ -19,6 +19,14 @@ ms.date: 01/31/2022
 
 ## Key capabilities and scenarios
 
+As customers modernize their infrastructure, application, and data tiers, they also modernize their identity management capabilities by shifting to Azure AD. Azure SQL offers multiple [Azure AD Authentication](/azure/azure-sql/database/authentication-aad-overview.md) options:
+
+- 'Azure Active Directory - Password' offers authentication with Azure AD credentials
+- 'Azure Active Directory - Universal with MFA' adds multi-factor authentication
+- 'Azure Active Directory – Integrated' uses federation providers like ADFS to enable Single Sign-On experiences
+
+However, some legacy apps can't change their authentication to Azure AD: legacy application code may longer be available, there may be a dependency on legacy drivers, clients may not be able to be changed, and so on. Windows Authentication for Azure AD principals removes this migration blocker and provides support for a broader range of customer applications.
+
 Windows Authentication for Azure AD principals on managed instances is available for devices or virtual machines (VMs) joined to Active Directory (AD), Azure AD, or hybrid Azure AD. An Azure AD hybrid user whose user identity exists both in Azure AD and AD can access a managed instance in Azure using Azure AD Kerberos.
 
 Enabling Windows Authentication for a managed instance doesn't require customers to deploy new on-premises infrastructure or manage the overhead of setting up Domain Services.
@@ -29,7 +37,7 @@ Windows Authentication for Azure AD principals on Azure SQL Managed Instance ena
 
 By enabling Windows Authentication for Azure Active Directory principals, customers can migrate to Azure SQL Managed Instance without implementing changes to application authentication stacks or deploying Azure AD Domain Services. Customers can also use Windows Authentication to access a managed instance from their AD or Azure AD joined devices.
 
-Windows Authentication for Azure Active Directory principals enables the following patterns on managed instances. These patterns are frequently used in traditional on-premises SQL Servers:
+Windows Authentication for Azure Active Directory principals also enables the following patterns on managed instances. These patterns are frequently used in traditional on-premises SQL Servers:
 
 
 - **"Double hop" authentication** <!--- TODO: link to double hop article once it's created -->
@@ -39,12 +47,11 @@ Windows Authentication for Azure Active Directory principals enables the followi
 - **SharePoint, Reporting Services, Integration Services, and Analysis Services** 
     - Many on-premises SQL Server customers use applications such as SharePoint, SQL Server Reporting Services (SSRS), SQL Server Integration Services (SSIS), and SQL Server Analysis Services (SSAS). Using Windows Authentication is a recommended security best practice for these applications.
     - Azure SQL Managed Instance is certified for SharePoint 2019 and SharePoint 2016.
-
 ### Modernize security infrastructure
 
 Enabling Windows Authentication for Azure Active Directory principals on Azure SQL Managed Instance equips customers to modernize their security practices.
 
-For example, a customer can enable a mobile analyst, using proven tools that rely on Windows Authentication, to authenticate to a managed instance using biometric credentials.
+For example, a customer can enable a mobile analyst, using proven tools that rely on Windows Authentication, to authenticate to a managed instance using biometric credentials. This can be accomplished even if the mobile analyst works from a laptop which is joined to Azure AD.
 
 ## Next steps
 
