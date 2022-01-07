@@ -1,0 +1,38 @@
+### YamlMime:Landing
+
+title: update management center (preview) documentation
+metadata:
+  title: Update management center (preview) documentation
+  description: Learn how to use update management center (preview) in Azure to manage updates on machines across Azure and a hybrid environments.
+  services: update-management-center
+  author: mgoedtel
+  manager: evansma
+  ms.service: update-management-center
+  ms.topic: landing-page
+  ms.date: 08/17/2021
+  ms.author: magoedte
+
+landingContent:
+
+  # Card (optional)
+  - title: Get started with update management center
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is update management center (preview)?
+            url: overview.md
+      - linkListType: get-started
+        links:
+          - text: Enable update management center (preview)
+            url: enable-machines.md
+  # Card
+  - title: Manage machine update state
+    linkLists:     
+      - linkListType: get-started
+        links:
+          - text: View update compliance for machines
+            url: view-updates.md
+          - text: Deploy updates to machines
+            url: deploy-updates.md
+          - text: Manage multiple machines
+            url: manage-multiple-machines.md

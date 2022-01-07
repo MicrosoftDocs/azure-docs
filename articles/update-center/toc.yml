@@ -1,0 +1,32 @@
+- name: Azure Update management center Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Update management center
+    href: overview.md
+- name: How-to guides
+  items:
+  - name: Deploy
+    items:
+    - name: Enable Update management center
+      href: enable-machines.md
+    - name: Configure Windows Update client
+      href: configure-wuagent.md
+  - name: Manage
+    items:
+    - name: View update compliance 
+      href: view-updates.md
+    - name: Deploy updates and track results
+      href: deploy-updates.md
+    - name: Manage multiple machines
+      href: manage-multiple-machines.md
+    - name: Manage updates for Azure VMs using REST API
+      href: manage-vms-programmatically.md
+    - name: Manage updates for Arc-enabled servers using REST API
+      href: manage-arc-enabled-servers-programmatically.md
+    - name: Query update logs
+      href: query-logs.md 
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot issues
+      href: troubleshoot.md
