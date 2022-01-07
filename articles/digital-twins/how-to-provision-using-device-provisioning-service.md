@@ -303,7 +303,7 @@ You can manually delete the device from IoT Hub with an [Azure CLI command](/cli
 Follow the steps below to delete the device in the Azure portal:
 
 1. Navigate to your IoT hub, and choose **IoT devices** in the menu options on the left. 
-2. You'll see a device with the device registration ID you chose in the [first half of this article](#auto-provision-device-using-device-provisioning-service). You can also choose any other device to delete, as long as it has a twin in Azure Digital Twins so you can verify that the twin is automatically deleted after the device is deleted.
+2. You'll see a device with the device registration ID you chose in the [first half of this article](#autoprovision-device-using-device-provisioning-service). You can also choose any other device to delete, as long as it has a twin in Azure Digital Twins so you can verify that the twin is automatically deleted after the device is deleted.
 3. Select the device and choose **Delete**.
 
 :::image type="content" source="media/how-to-provision-using-device-provisioning-service/delete-device-twin.png" alt-text="Screenshot of the Azure portal showing how to delete device twin from the IoT devices." lightbox="media/how-to-provision-using-device-provisioning-service/delete-device-twin.png":::
