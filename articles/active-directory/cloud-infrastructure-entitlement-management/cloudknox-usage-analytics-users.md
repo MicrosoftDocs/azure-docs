@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/06/2022
+ms.date: 01/07/2022
 ms.author: v-ydequadros
 ---
 
@@ -44,13 +44,13 @@ On the **Usage Analytics** dashboard:
 - The **Users** table  displays the privileges assigned,  privileges used, and resources accessed by users
     - **Username**: Provides the name of the user.
 
-         - To view more details about the user, select the username. 
+         - To view more information about a user, select their username. 
 
            Users are denoted with an icon for Security Assertion Markup Language (SAML) users, an icon for Enterprise Directory (ED) user, an icon for local users, and an icon for cross-account users (users from another account). AWS roles, AWS EC2 instances, Azure applications, and Google service accounts are shown with their respective icons. 
            For more information, see View usage analytics about users.
         <!---Add link.--->
 
-         - To view additional details about the user, select the username. 
+         - To view more information about the user, select the username. 
 
            Users are denoted with an icon for Security Assertion Markup Language (SAML) users, an icon for Enterprise Directory (ED) user, an icon for local users, and an icon for cross-account users (users from another account). AWS roles, AWS EC2 instances, Azure applications, and Google service accounts are shown with their respective icons. 
            For more information, see View usage analytics about users.
@@ -61,9 +61,7 @@ On the **Usage Analytics** dashboard:
         - **Index**: Calculates a risk score for the user based on the high-risk privileges they have access to and if that privilege has been accessed, and the number of resources they can access.
         - **Since**: Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level, for example, **! High - 130 days**.
 
-             As a system administrator, you can hover over the information in this column for specific details on how long the user has had a high, medium, or low privilege creep index (PCI). For example, if you hover over **! High - 130 days**, the following message displays:
-
-             **The User's privilege creep index has been High since 14 February 2020, 1:37 PM in the authorization system**.
+             As a system administrator, you can hover over the information in this column for specific details on how long the user has had a high, medium, or low privilege creep index (PCI). For example, if you hover over **! High - 130 days**, the following message displays: **The User's privilege creep index has been High since 14 February 2020, 1:37 PM in the authorization system**.
 
     - **Tasks**: Displays how many tasks are assigned to a particular user, and is broken into the following columns:
         - **Granted**: Captures the number of tasks that have been granted to the user directly, granted to the user if part of a group, or granted based on the AWS role type the user can assume.
@@ -264,7 +262,7 @@ There are many filter options on the **Users** screen, including filters by **Au
 
 CloudKnox has the following set of predefined tags that can be applied:
 
-- **ck_attest**: This tag is used to attest an identity, and when selected, the value is automatically filled in with the date and time the tag was applied, and the user who applied the tag.
+- **ck_attest**: This tag is used to confirm an identity, and when selected, the value is automatically filled in with the date and time the tag was applied, and the user who applied the tag.
 - **ck_exclude_from_pci**: Any identity with this tag is excluded from the account level PCI score.
 - **ck_exclude_from_reports**: Any identity with this tag is excluded from reports.
 - **ck_primary_owner**: This tag is used for service accounts to indicate the primary owner of the service account.

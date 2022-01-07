@@ -1,5 +1,5 @@
 ---
-title:  Microsoft CloudKnox Permissions Management - Enable Microsoft Cloud Infrastructure Entitlement Management (M-CIEM) on your Azure Active Directory (Azure AD) tenant
+title:  Microsoft CloudKnox Permissions Management - Enable Microsoft Cloud Infrastructure Entitlement Management on the Azure Active Directory tenant
 description: How to enable Microsoft Cloud Infrastructure Entitlement Management (M-CIEM) on your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: Yvonne-deQ
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/06/2022
+ms.date: 01/07/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - Enable Microsoft Cloud Infrastructure Entitlement Management (M-CIEM) on your Azure Active Directory (Azure AD) tenant
+# Microsoft CloudKnox Permissions Management - Enable Microsoft Cloud Infrastructure Entitlement Management on the Azure Active Directory tenant
 
 This topic describes how to:
 

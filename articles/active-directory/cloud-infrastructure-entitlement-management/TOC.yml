@@ -7,7 +7,7 @@
     expanded: true
     items:
     - name: Enable M-CIEM on your Azure AD tenant 
-      href: cloudknox-onboard-enable-mciem-on-tenant.md
+      href: cloudknox-onboard-enable-tenant.md
   - name: Installation
     expanded: true
     items:
@@ -80,19 +80,19 @@
       - name: Analyze usage for an identity, a task, or an authorization system
         href: cloudknox-howto-analyze-usage.md
       - name: View details about users, groups, active resources, active tasks, access keys, and serverless functions
-        href: cloudknox-product-usage-analytics.md
+        href: cloudknox-usage-analytics-home.md
       - name: View usage analytics information about users
-        href: cloudknox-product-usage-analytics-users.md
+        href: cloudknox-usage-analytics-users.md
       - name: View usage analytics information about groups
-        href: cloudknox-product-usage-analytics-groups.md
+        href: cloudknox-usage-analytics-groups.md
       - name: View usage analytics information about active resources
-        href: cloudknox-product-usage-analytics-active-resources.md
+        href: cloudknox-usage-analytics-active-resources.md
       - name: View usage analytics information about active tasks
-        href: cloudknox-product-usage-analytics-active-tasks.md
+        href: cloudknox-usage-analytics-active-tasks.md
       - name: View usage analytics information about access keys
-        href: cloudknox-product-usage-analytics-access-keys.md
-      - name: View usage analytics information about serverless functions (AWS only)
-        href: cloudknox-product-usage-analytics-serverless-functions.md
+        href: cloudknox-usage-analytics-access-keys.md
+      - name: View usage analytics information about serverless functions
+        href: cloudknox-usage-analytics-serverless-functions.md
   - name: Dashboards
     expanded: true
     items:

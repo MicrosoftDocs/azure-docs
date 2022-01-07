@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/06/2022
+ms.date: 01/07/2022
 ms.author: v-ydequadros
 ---
 
@@ -99,7 +99,7 @@ There are many filter options within the **Access Keys** screen, including filte
 
     3. To filter by the selection, select **Apply**. 
 
-## View information about access keys on the Information Pane
+## View information about access keys on the Information pane
 
 When the filters are set and the authorization system is selected, select the icon at the end of the row to view more information about the access key.
 

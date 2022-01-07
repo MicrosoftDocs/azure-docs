@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/06/2022
+ms.date: 01/07/2022
 ms.author: v-ydequadros
 ---
 
@@ -76,7 +76,7 @@ The CloudKnox explorers provide more information about an identity, including en
 
             - **Source Name**: The name of the source, that is, admin.
             - **Source**: Displays the ways in which an identity acquires access to a policy.
-        - **Permission Boundary** (AWS only) - A constraint that an admin can place on a user to restrict certain accesses to policies.
+        - **Permission Boundary** (AWS only) - An admin can can set this  option to restrict a user's access to certain policies.
 
              - To display the full details of the policy, next to the policy name, select **View**.
 
