@@ -2,7 +2,7 @@
 title: Overview for EIoT networks
 description: Learn more about Microsoft Defender for IoT features and services, and understand how Microsoft Defender for IoT provides comprehensive IoT security for EIoT networks.
 ms.topic: overview
-ms.date: 12/15/2021
+ms.date: 12/27/2021
 ---
 
 # Enterprise IoT network protection
@@ -12,6 +12,8 @@ The Microsoft Defender for IoT team is responsible for securing IoT, and Operati
 The enterprise IoT network protection extends the agentless capabilities to go beyond operational environments, and advance into the enterprise environments. This protection provides coverage for the entire breadth of IoT devices in your environment including corporate printers, cameras, to purpose-built devices, proprietary, and unique devices.
 
 The expansion into the enterprise network, creates a unique opportunity to apply Microsoft 365 Defender’s asset discovery capabilities.
+
+:::image type="content" source="media/overview-eiot/defender-for-endpoint-architecture.png" alt-text="Screenshot that shows the Microsoft Defender for Endpoint integration architecture with Microsoft Defender for IoT.":::
 
 ## Microsoft Defender for Endpoint integration
 

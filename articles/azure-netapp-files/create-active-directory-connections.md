@@ -11,9 +11,8 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 01/07/2022
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -97,7 +96,9 @@ Several features of Azure NetApp Files require that you have an Active Directory
     | Unix groups  | 24-hour TTL, 1-minute negative TTL  |
     | Unix users  | 24-hour TTL, 1-minute negative TTL  |
 
-    Caches have a specific timeout period called *Time to Live*. After the timeout period, entries age out so that stale entries do not linger. The *negative TTL* value is where a lookup that has failed resides to help avoid performance issues due to LDAP queries for objects that might not exist.”   
+    Caches have a specific timeout period called *Time to Live*. After the timeout period, entries age out so that stale entries do not linger. The *negative TTL* value is where a lookup that has failed resides to help avoid performance issues due to LDAP queries for objects that might not exist.
+    
+* Azure NetApp Files does not support the use of Active Directory Domain Services Read-Only Domain Controllers (RODC). To ensure that Azure NetApp Files does not try to use an RODC domain controller, configure the **AD Site** field of the Azure NetApp Files Active Directory connection with an Active Directory site that does not contain any RODC domain controllers.
 
 ## Decide which Domain Services to use 
 

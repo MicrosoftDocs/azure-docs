@@ -3,7 +3,7 @@ title: Securing service principals in Azure Active Directory
 description: Find, assess, and secure service principals.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals

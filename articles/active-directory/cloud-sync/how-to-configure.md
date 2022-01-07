@@ -3,7 +3,7 @@ title: 'Azure AD Connect cloud sync new agent configuration'
 description: This article describes how to install cloud sync.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
