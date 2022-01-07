@@ -110,13 +110,101 @@ Deploying a dual-stack cluster requires passing the `--ip-families` parameter wi
 
 When using an Azure Resource Manager template to deploy, pass `["IPv4", "IPv6"]` to the `ipFamilies` parameter to the `networkProfile` object. See the [Azure Resource Manager template documentation][deploy-arm-template] for help with deploying this template, if needed.
 
-:::code language="json" source="includes/configure-kubenet-dual-stack/aksipv6.json" highlight="47-50":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "type": "string",
+      "defaultValue": "aksdualstack"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "kubernetesVersion": {
+      "type": "string",
+      "defaultValue": "1.22.2"
+    },
+    "nodeCount": {
+      "type": "int",
+      "defaultValue": 3
+    },
+    "nodeSize": {
+      "type": "string",
+      "defaultValue": "Standard_B2ms"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.ContainerService/managedClusters",
+      "apiVersion": "2021-10-01",
+      "name": "[parameters('clusterName')]",
+      "location": "[parameters('location')]",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "properties": {
+        "agentPoolProfiles": [
+          {
+            "name": "nodepool1",
+            "count": "[parameters('nodeCount')]",
+            "mode": "System",
+            "vmSize": "[parameters('nodeSize')]"
+          }
+        ],
+        "dnsPrefix": "[parameters('clusterName')]",
+        "kubernetesVersion": "[parameters('kubernetesVersion')]",
+        "networkProfile": {
+          "ipFamilies": [
+            "IPv4",
+            "IPv6"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
 
 # [Bicep](#tab/bicep)
 
 When using a Bicep template to deploy, pass `["IPv4", "IPv6"]` to the `ipFamilies` parameter to the `networkProfile` object. See the [Bicep template documentation][deploy-bicep-template] for help with deploying this template, if needed.
 
-:::code language="bicep" source="includes/configure-kubenet-dual-stack/aksipv6.bicep" highlight="25-28":::
+```bicep
+param clusterName string = 'aksdualstack'
+param location string = resourceGroup().location
+param kubernetesVersion string = '1.22.2'
+param nodeCount int = 3
+param nodeSize string = 'Standard_B2ms'
+
+resource aksCluster 'Microsoft.ContainerService/managedClusters@2021-10-01' = {
+  name: clusterName
+  location: location
+  identity: {
+    type: 'SystemAssigned'
+  }
+  properties: {
+    agentPoolProfiles: [
+      {
+        name: 'nodepool1'
+        count: nodeCount
+        mode: 'System'
+        vmSize: nodeSize
+      }
+    ]
+    dnsPrefix: clusterName
+    kubernetesVersion: kubernetesVersion
+    networkProfile: {
+      ipFamilies: [
+        'IPv4'
+        'IPv6'
+      ]
+    }
+  }
+}
+```
 
 ---
 
@@ -157,7 +245,27 @@ kubectl create deployment nginx --image=nginx:latest --replicas=3
 
 # [YAML](#tab/yaml)
 
-:::code language="yaml" source="includes/configure-kubenet-dual-stack/nginx-deployment.yaml":::
+```yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx
+  name: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - image: nginx:latest
+        name: nginx
+```
 
 ---
 
@@ -197,7 +305,43 @@ service/nginx-ipv6 exposed
 
 # [YAML](#tab/yaml)
 
-:::code language="yaml" source="includes/configure-kubenet-dual-stack/nginx-service.yaml":::
+```yml
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nginx
+  name: nginx-ipv4
+spec:
+  externalTrafficPolicy: Local
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: nginx
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nginx
+  name: nginx-ipv6
+spec:
+  externalTrafficPolicy: Local
+  ipFamilies:
+  - IPv6
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: nginx
+  type: LoadBalancer
+
+```
 
 ---
 
