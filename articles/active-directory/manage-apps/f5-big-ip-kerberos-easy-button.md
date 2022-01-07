@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Configure F5 BIG-IP Easy Button for Kerberos SSO
 
-In this tutorial, you'll learn to implement Secure Hybrid Access (SHA) with Single Sign-on (SSO) to Kerberos applications using F5’s BIG-IP Easy Button guided configuration.
+In this article, you'll learn to implement Secure Hybrid Access (SHA) with single sign-on (SSO) to Kerberos applications using F5’s BIG-IP Easy Button guided configuration.
 
 Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefits, including:
 
@@ -39,7 +39,7 @@ Having a BIG-IP in front of the application enables us to overlay the service wi
 
 ## Scenario architecture
 
-The secure hybrid access solution for this scenario is made up of the following:
+The SHA solution for this scenario is made up of the following:
 
 **Application:** BIG-IP published service to be protected by and Azure AD SHA. The application host is domain-joined and so is integrated with Active Directory (AD).
 
@@ -49,7 +49,7 @@ The secure hybrid access solution for this scenario is made up of the following:
 
 **BIG-IP:** Reverse proxy functionality enables publishing backend applications. The APM then overlays published applications with SAML Service Provider (SP) and SSO functionality.
 
-Secure hybrid access for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
+SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
 
 ![Scenario architecture](./media/f5-big-ip-kerberos-easy-button/scenario-architecture.png)
 
@@ -441,7 +441,7 @@ For those scenarios, go ahead and deploy using the Guided Configuration. Then na
 
 ## Troubleshooting
 
-You can fail to access the secure hybrid access protected application due to any number of factors, including a misconfiguration. 
+You can fail to access the SHA protected application due to any number of factors, including a misconfiguration. 
 
 Consider the following points while troubleshooting any issue.
 
