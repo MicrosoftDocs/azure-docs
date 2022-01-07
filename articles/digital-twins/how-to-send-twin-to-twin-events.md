@@ -30,13 +30,13 @@ To set up twin-to-twin handling, you'll need an **Azure Digital Twins instance**
 
 Optionally, you may want to set up [automatic telemetry ingestion through IoT Hub](how-to-ingest-iot-hub-data.md) for your twins as well. This is not required in order to send data from twin to twin, but it's an important piece of a complete solution where the twin graph is driven by live telemetry.
 
-## Set up endpoint and route
+## Send twin events to an endpoint
 
 To set up twin-to-twin event handling, start by creating an **endpoint** in Azure Digital Twins and a **route** to that endpoint. Twins undergoing an update will use the route to send information about their update events to the endpoint (where Event Grid can pick them up later and pass them to an Azure function for processing).
 
 [!INCLUDE [digital-twins-twin-to-twin-resources.md](../../includes/digital-twins-twin-to-twin-resources.md)]
 
-## Create the Azure function
+## Create Azure function to update twins
 
 Next, create an Azure function that will listen on the endpoint and receive twin events that are sent there via the route. 
 
@@ -60,9 +60,9 @@ Before your function can access Azure Digital Twins, it needs some information a
 
 [!INCLUDE [digital-twins-configure-function-app-cli.md](../../includes/digital-twins-configure-function-app-cli.md)]
 
-## Connect the function to Event Grid
+## Connect the function to the endpoint
 
-Next, subscribe your Azure function to the event grid topic you created earlier. This will ensure that data can flow from an updated twin through the event grid topic to the function.
+Next, subscribe your Azure function to the event grid topic endpoint you created earlier. This will ensure that data can flow from an updated twin through the event grid topic to the function.
 
 To do this, you'll create an **Event Grid subscription** that sends data from the event grid topic that you created earlier to your Azure function.
 
