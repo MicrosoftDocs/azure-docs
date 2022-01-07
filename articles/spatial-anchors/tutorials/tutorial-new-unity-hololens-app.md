@@ -71,11 +71,11 @@ We'll now set some Unity project settings that help us target the Windows Hologr
 #### Set capabilities
 1. Go to **Edit** > **Project Settings** > **Player** (you may still have it open from the previous step).
 2. Make sure the **Universal Windows Platform Settings** tab is selected
-3. In the **Publishing Settings** Configuration section, check the following
+3. In the **Publishing Settings** Configuration section, enable the following
     1. InternetClient
     1. InternetClientServer
     1. PrivateNetworkClientServer
-    1. SpatialPerception
+    1. SpatialPerception (might already be enabled)
 
 #### Set up the main camera
 1. In the **Hierarchy Panel**, select **Main Camera**.
@@ -84,6 +84,7 @@ We'll now set some Unity project settings that help us target the Windows Hologr
 4. Click on the **Background** field to open a color picker.
 5. Set **R, G, B, and A** to **0**.
 6. Click **Add Component** and add the **Tracked Pose Driver** Component to the camera
+![Unity - Camera Setup](../../../includes/media/spatial-anchors-unity/unity-camera-setup.png)
 
 ## Creating the Scene
 
@@ -96,7 +97,7 @@ We'll now set some Unity project settings that help us target the Windows Hologr
 You should now have a cube prefab in your **Project** pane.
 
 ## Trying it out
-To test out that everything is working, build your app in **Unity** and deploy it from **Visual Studio**. Follow Chapter 6 from the [**MR Basics 100: Getting started with Unity** course](/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio) to do so. You should see the Unity start screen, and then a clear display.
+To test out that everything is working, build your app in **Unity** and deploy it from **Visual Studio**. Follow [**Using Visual Studio to deploz and debug** course](/windows/mixed-reality/develop/advanced-concepts/using-visual-studio) to do so. You should see the Unity start screen, and then a clear display.
 
 ## Create a Spatial Anchors resource
 TODO: Link to here https://docs.microsoft.com/en-us/azure/spatial-anchors/how-tos/create-asa-account?tabs=azure-portal 
