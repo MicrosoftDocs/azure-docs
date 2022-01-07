@@ -126,77 +126,14 @@ Tap + Hold for 2 sec | Start the session and look for all anchors.
 [!code-csharp][MainActivity](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-29&highlight=3-6)] 
 -->
 
-test android
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=21-23,27-33,17-18)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=24-29&highlight=3-6)]
 
-test 1
-[!code-csharp](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-29)]
+3. Add the following two methods below the Update() method. We will add implementation at a later stage
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=57-59,95,99-104,116-122,136&highlight=4-17)]
 
-test 2
-[!code-csharp[ASAScript]](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-29)]
-
-test3
-[!code-csharp][ASAScript(../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-29)]
-
-test4
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-29)]
-
-test5
-[!code-csharp[ASAScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-29)]
-
-Test6
-
-```csharp
-public class AzureSpatialAnchorsScript : MonoBehaviour
-{
-    private float[] tappingTimer = { 0, 0 };
-...
-```
-1. Add the following two methods below the Update() method. We will add implementation at a later stage
-```java
-Update(){
-}
-
-private async void ShortTap(Vector3 handPosition)    {    }
-
-private async void LongTap() {}
-```
 4. Add the following code top the `Update()` method. This will allow the app to recognize short and long (2s) hand tapping gestures
-```csharp
-    void Update()
-    {
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=Update&highlight=3-38)]
 
-        //Check for any air taps from either hand
-        for (int i = 0; i < 2; i++)
-        {
-            InputDevice device = InputDevices.GetDeviceAtXRNode((i == 0) ? XRNode.RightHand : XRNode.LeftHand);
-            if (device.TryGetFeatureValue(CommonUsages.primaryButton, out bool isTapping))
-            {
-                if (!isTapping)
-                {
-                    //Stopped Tapping or wasn't tapping
-                    if (0f < tappingTimer[i] && tappingTimer[i] < 1f)
-                    {
-                        if (device.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 handPosition))
-                            ShortTap(handPosition);
-                    }
-                    tappingTimer[i] = 0;
-                }
-                else
-                {
-                    tappingTimer[i] += Time.deltaTime;
-                    if (tappingTimer[i] >= 2)
-                    {
-                        if (device.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 handPosition))
-                            LongTap();
-                        tappingTimer[i] = -float.MaxValue;
-                    }
-                }
-            }
-
-        }
-    }
-```
 ## Add & Configure SpatialAnchorManager
 The ASA SDK offers a simple interface called `SpatialAnchorManager` to make the basic calls to the ASA service. Let's add it as a variable to our `AzureSpatialAnchorsScript.cs`
 ```csharp
