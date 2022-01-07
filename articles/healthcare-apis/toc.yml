@@ -45,7 +45,7 @@ items:
              href: configure-azure-rbac-using-scripts.md
     - name: Get an Access Token
       href: get-access-token.md
-    - name: Access Healthcare APIs
+    - name: Access services
       href: access-healthcare-apis.md  
     - name: Diagnostic logging
       expanded: true

@@ -21,7 +21,7 @@ In this article, you'll learn about the different ways to access the services in
 
 - [Access the FHIR service using Postman](././fhir/use-postman.md)
 - [Access the FHIR service using cURL](././fhir/using-curl.md)
-- [Access the FHIR service using Rest Client](././fhir/using-rest-client.md)
+- [Access the FHIR service using REST Client](././fhir/using-rest-client.md)
 
 ## Access the DICOM service
 
@@ -36,7 +36,7 @@ The IoT connector works with the IoT Hub and Event Hubs in your subscription to 
 - [Receive device data through Azure IoT Hub](iot/device-data-through-iot-hub.md)
 - [Access the FHIR service using Postman](fhir/use-postman.md)
 - [Access the FHIR service using cURL](fhir/using-curl.md)
-- [Access the FHIR service using Rest Client](fhir/using-rest-client.md)
+- [Access the FHIR service using REST Client](fhir/using-rest-client.md)
 
 
 ## Next steps
