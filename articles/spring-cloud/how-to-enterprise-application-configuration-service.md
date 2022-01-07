@@ -24,11 +24,11 @@ With Application Configuration Service, you have a central place to manage exter
 
 ## Manage Application Configuration Service settings
 
-Application Configuration Service supports Azure DevOps, GitHub, GitLab, and Bitbucket for storing you config file.
+Application Configuration Service supports Azure DevOps, GitHub, GitLab, and Bitbucket for storing your configuration files.
 
-To manage the service settings, open the **Settings** section and add a new entry in the **Repositories** section.
+To manage the service settings, open the **Settings** section and add a new entry under the **Repositories** section.
 
-![acs-settings](./media/enterprise/how-to-enterprise-application-configuration-service/config-service-settings.png)
+:::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-settings.png" alt-text="Screenshot of where to add a repository" lightbox="media/enterprise/how-to-enterprise-application-configuration-service/config-service-settings.png":::
 
 The properties for each entry are described in the following table.
 
@@ -49,9 +49,9 @@ Configuration will be pulled from Git backends using what is defined in a patter
 
 ### Authentication
 
-The following image shows the three types of repositories supported by Application Configuration Service.
+The following image shows the three types of repository authentication supported by Application Configuration Service.
 
-![acs-auth](./media/enterprise/how-to-enterprise-application-configuration-service/config-service-auth.png)
+:::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-auth.png" alt-text="Screenshot of where to edit authentication types":::
 
 - Public repository
 
@@ -77,9 +77,7 @@ The following image shows the three types of repositories supported by Applicati
    | Host key algorithm | No | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. (Required if supplying `Host key`). |
    | Strict host key checking | No | Optional value that indicates whether the backend should be ignored if it encounters an error when using the provided `Host key`. Valid values are `true` and `false`. The default value is `true`. |
 
-To validate access to the target URI, select **Validate**. After validation is completed successfully, select **Apply** to update the configuration settings.
-
-![acs-settings](./media/enterprise/how-to-enterprise-application-configuration-service/config-service-settings.png)
+To validate access to the target URI, select **Validate**. After validation completes successfully, select **Apply** to update the configuration settings.
 
 ## Refresh strategies
 
@@ -138,22 +136,20 @@ To use the centralized configurations, you must bind the app to Application Conf
 
 1. Select **Bind app** and choose one app in the dropdown. Select **Apply** to bind.
 
-   ![acs-app-bind-dropdown](./media/enterprise/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png)
+   :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png" alt-text="Screenshot of where to select application to bind":::
 
    > [!NOTE]
    > When you change the bind/unbind status, you must restart or redeploy the app to for the binding to take effect.
 
 1. Select **Apps**, then select the [pattern(s)](./how-to-enterprise-application-configuration-service.md#pattern) to be used by the apps.
 
-   a. Open the **Apps** section to list all the apps.
+   a. In the left navigation pane, select **Apps** to view the list all the apps.
+   b. Select the target app to configure patterns for from the `name` column.
+   c. In the left navigation pane, select **Configuration**, then select **General settings**.
+   d. In the **Config file patterns** dropdown, choose one or more patterns from the list.
 
-      ![acs-app-dashboard](./media/enterprise/how-to-enterprise-application-configuration-service/config-service-app-dashboard.png)
+   :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-pattern.png" alt-text="Screenshot of pattern selection screen":::
 
-   b. Select the target app to configure patterns.
-
-   c. Open the **Configuration** section and select **General settings**. Under the **Config file patterns** property, choose one or more patterns from the dropdown list. Select **Save** to save the changes.
-
-      ![acs-pattern](./media/enterprise/how-to-enterprise-application-configuration-service/config-service-pattern.png)
-
+   e. Select **Save**
 ## Next Steps
 
