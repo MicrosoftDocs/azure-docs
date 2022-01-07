@@ -14,13 +14,6 @@ As data and content has a lifecycle that requires active management (for example
  
 To manage assets effectively, the responsible people in the organization must understand how and when to apply data governance processes and manage workflows. 
 
-### Intended audience
-
-- Data owners
-- Data stewards
-- Data custodians
-- Data governance managers
-
 ## Why do you need business processes for managing assets in Azure Purview?
 
 An organization employing Purview should define processes and people structure to manage the lifecycle of assets and ensure data is valuable to users of the catalog. Metadata in the catalog must be maintained to be able to manage data at scale for discovery, quality, security and privacy. 
