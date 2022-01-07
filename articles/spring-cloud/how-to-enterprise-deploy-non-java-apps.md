@@ -36,7 +36,7 @@ az spring-cloud app deploy
 ## Application Restriction
 - Your application must listen on port 8080, the service checks the port on TCP for readiness and liveness.
 - If your source code contains a package management folder (ie: "node_modules"), ensure the folder contains all the dependencies. Otherwise, remove it and let Azure Spring Cloud install it.
-- See [Support Matrix](#supported-matrix) to see whether your source code language is supported and the feature is provided.
+- See [Support Matrix](#support-matrix) to see whether your source code language is supported and the feature is provided.
 
 ## Support Matrix
 
