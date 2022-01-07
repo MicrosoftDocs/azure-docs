@@ -34,6 +34,9 @@ When scanning Google BigQuery source, Purview supports:
 
 - Fetching static lineage on assets relationships among tables and views.
 
+>[!NOTE]
+> Currently, Purview only supports scanning Google BigQuery datasets in US multi-regional location. If the specified dataset is in other location e.g. us-east1 or EU, you will observe scan completes but no assets shown up in Purview.
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
