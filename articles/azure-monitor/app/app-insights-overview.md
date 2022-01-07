@@ -13,19 +13,20 @@ Application Insights is a feature of [Azure Monitor](../overview.md) that provid
 - Automatically detect performance anomalies.
 - Help diagnose issues by using powerful analytics tools.
 - See what users actually do with apps.
-  Help continuously improve app performance and usability.
+- Help continuously improve app performance and usability.
 
 Application Insights:
 
 - Works on a wide variety of platforms, including .NET, Node.js, Java, and Python.
-- Works for apps hosted on-premises, on any public cloud, or hybrid.
+- Works for apps hosted on-premises, hybrid, or on any public cloud.
 - Integrates with DevOps processes.
 - Has connection points to many development tools.
-- Can monitor and analyze telemetry from mobile apps by integrating with Visual Studio App Center.
+- Can monitor and analyze telemetry from mobile apps by integrating with Visual Studio [App Center](https://appcenter.ms/).
 
+<a name="how-does-application-insights-work"></a>
 ## How Application Insights works
 
-To use Application Insights, you either install a small instrumentation package (SDK) in your app, or enable Application Insights by using the Application Insights agent. For languages and platforms that support the Application Insights agent, see [supported](./platforms.md). You can instrument the web app, any background components, and the JavaScript in the web pages themselves.
+To use Application Insights, you either install a small instrumentation package (SDK) in your app, or enable Application Insights by using the Application Insights agent. For languages and platforms that support the Application Insights agent, see [Supported languages](./platforms.md). You can instrument the web app, any background components, and the JavaScript in the web pages themselves.
 
 The instrumentation monitors your app and directs the telemetry data to an Application Insights resource by using a unique instrumentation key. The impact on your app's performance is small. Tracking calls are non-blocking, and are batched and sent in a separate thread. 
 
@@ -65,7 +66,8 @@ Application Insights helps development teams understand app performance and usag
 
 - Custom events and metrics in client or server code that track business events, like items sold
 
-## How to see Application Insights telemetry
+<a name="where-do-i-see-my-telemetry"></a>
+## Where to see Application Insights telemetry
 
 There are many ways to explore Application Insights data. For more information, see the following articles:
 
@@ -131,7 +133,7 @@ There are several ways to get started with Application Insights. Begin with what
 
 ### Prerequisites
 
-- You need an Azure account. Application Insights is hosted in Azure, and sends its telemetry to Azure for analysis and presentation. If you don't have an Azure subscription, you can [sign up for a free account](https://azure.microsoft.com/free). If your organization already has an Azure subscription, an administrator can [add you to it](/azure/active-directory/fundamentals/add-users-azure-active-directory).
+- You need an Azure account. Application Insights is hosted in Azure, and sends its telemetry to Azure for analysis and presentation. If you don't have an Azure subscription, you can [sign up for free](https://azure.microsoft.com/free). If your organization already has an Azure subscription, an administrator can [add you to it](/azure/active-directory/fundamentals/add-users-azure-active-directory).
 
 - The basic [Application Insights pricing plan](https://azure.microsoft.com/pricing/details/application-insights/) has no charge until your app has substantial usage. 
 
@@ -187,7 +189,7 @@ When you receive an alert or discover a problem:
 
 - [Instrument your web pages](./javascript.md) for page view, AJAX, and other client-side telemetry.
 - [Analyze mobile app usage](../app/mobile-center-quickstart.md) by integrating with Visual Studio App Center.
-- [Availability tests](./monitor-web-app-availability.md) ping your website regularly from Application Insights servers.
+- [Monitor availability with URL ping tests](./monitor-web-app-availability.md) to your website from Application Insights servers.
 
 <!-- ## Support and feedback
 * Questions and Issues:
