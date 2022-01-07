@@ -31,20 +31,21 @@ This topic describes how to view usage analytics about active resources.
 
 The **Active Resources** dashboard provides a high-level overview of resource details. On the main **Usage Analytics** page, select **Active Resources** from the  drop-down list across the top of the screen. The following components make up the **Active Resources** dashboard:
 
-- **Users**: This section  displays the total number of users, inactive and active users based on the authorization system selected. 
-     For more information, see [Apply filters for users](cloudknox-product-usage-analytics.md#apply-filters-for-users).
-- **Tasks**: This section  displays the number of tasks granted to a user, and the total number of unexecuted and executed tasks based on the authorization system selected. 
-     For more information, see [Apply filters to users](cloudknox-product-usage-analytics.md#apply-filters-for-users).
+- **Users**: This section  displays the total number of users, inactive and active users based on the authorization system selected. For more information, see Apply filters for users.
+    <!---Add link.--->
+- **Tasks**: This section  displays the number of tasks granted to a user, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see Apply filters to tasks.
+    <!---Add link.--->
 - **Resources**: This section  displays how many resources have been accessed by users based on the authorization system selected. 
-     For more information, see [Apply filters for users](cloudknox-product-usage-analytics.md#apply-filters-for-users).
-
+     For more information, see Apply filters for resources.
+    <!---Add link.--->
     The **Active Resources** table for each resource  displays the following information about its tasks, activity, and user privileges.
 
 - **Resource Name**: Provides the name of the resource.
 
-     - To view more details about the resource, select the resource name. For more information, see [Use the Resource Explorer](cloudknox-product-usage-analytics.md#use-the-resource-explorer).
+     - To view more details about the resource, select the resource name. For more information, see Use the Resource Explorer.
+     <!---Add link.--->
 
-       Hovering over the resource name displays the resource ID. Two resources may potentially have the same name, but different IDs.
+     - To display the resource ID, hover over the resource name. Two resources may potentially have the same name, but different IDs.
 
 - **Account**: Displays the account name the resource belongs to.
 - **Resource Type**: Displays the type of resource, that is, Key (encryption key) or bucket (storage).
@@ -56,9 +57,10 @@ The **Active Resources** dashboard provides a high-level overview of resource de
     - **Access with**: Captures the number of users that have access to the resource.
     - **Accessed**: Displays how many users have accessed the resource.
 
-     - To view more information about the resource, select the resource name. For more information, see [Use the Resource Explorer](cloudknox-product-usage-analytics.md#use-the-resource-explorer)
+     - To view more information about the resource, select the resource name. For more information, see Use the Resource Explorer.
+     <!---Add link.--->
 
-    Hovering over the resource name displays the resource ID. Two resources may potentially have the same name, but different IDs.
+     - To display the resource ID, hover over the resource name. Two resources may potentially have the same name, but different IDs.
 
 - **Account** - Displays the account name the resource belongs to.
 - **Resource Type** - Displays the type of resource. For example, Key (encryption key) or bucket (storage).
@@ -107,7 +109,7 @@ There are many filter options within the **Active Resources** screen, including 
     1. More options under **Access Type** and **Encryptions Settings** appear:
         - **Access Type** - Select **All**, **Public**, **Private**, **Restricted**, or **Other Accounts**.
 
-             To view information about each option, hover over the information **(i)** icon.
+             - To view information about each option, hover over the information **(i)** icon.
 
         - **Encryption Settings**: Select **All**, **Not Encrypted**, **SSE-S3**, or **KMS**.
 

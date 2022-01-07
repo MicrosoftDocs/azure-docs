@@ -27,11 +27,11 @@ The Microsoft CloudKnox Permissions Management **Usage Analytics** dashboard all
 
 This topic describes how to use the Usage Analytics explorers.
 
-## The CloudKnox Usage Analytics explorers
+## The Usage Analytics explorers
 
 The CloudKnox explorers provide more information about an identity, including entitlements, identity activity, resources the identity has touched, and tasks the identity has performed.
 
-### Access the CloudKnox Usage Analytics explorers
+### Access the Usage Analytics explorers
 
 1. To perform a general search and open the explorer, select **Search** at the upper right of the CloudKnox home screen.
 
@@ -39,7 +39,7 @@ The CloudKnox explorers provide more information about an identity, including en
 
 3. From the **Search**  drop-down list, you can switch from **All** to **Resources**, **Tasks**, **Users**, or **AWS Roles**.
 
-## Use the User Explorer
+## The User Explorer
 
 1. To access the **User Explorer**, select an authorization system from the left side panel, select **Groups**, and then select **User**. 
 2. Under the **Username** column, select the username to expand details within the last 90 days. The default view is the **User Info** tab.
@@ -179,7 +179,7 @@ The CloudKnox explorers provide more information about an identity, including en
         - **Source Name**: Displays the name of the source.
         - **Source Type**: Displays the type of source applied to the identity.
 
-## Use the Role Explorer (Available in AWS Only)
+## The Role Explorer (Available in AWS Only)
 
 1. To access the **Role Explorer**, choose an authorization system. 
 2. Select **Groups**, and then select **Role / App / Service a/c**. 
@@ -244,7 +244,7 @@ The CloudKnox explorers provide more information about an identity, including en
     - **No. of Resources with Access** – Displays the number of resources with access to the task.
 
 
-## Use the Resource Explorer
+## The Resource Explorer
 
 1. To access the **Resource Explorer**, select **Active Resources** from the  drop-down list, then select an authorization system. **Resource**. 
 2. To expand details within the last 90 days, under the **Resource Name** column, select the resource. 
@@ -312,7 +312,7 @@ The CloudKnox explorers provide more information about an identity, including en
 9. To view a different authorization system account, select the drop-down from the right side of the screen.
 10. To export the results in comma-separated values (CSV) file format, select **Export**.
 
-## Use the Task Explorer
+## The Task Explorer
 
 1. To access the **Task Explorer**, select **Active Tasks** from the  drop-down list, and select an authorization system. 
     - To expand details within the last 90 days, in the **Task Name** column, select the task. 
@@ -339,7 +339,7 @@ The CloudKnox explorers provide more information about an identity, including en
 5. On the down menu next to **Resources**, the default view is **Tasks – Table**. To see a graph view of how many resources have been accessed, select **Accessed – Graph** .
 6. To change to another authorization system account, select the drop-down on the right side of the screen.
 
-## Use the Account Explorer
+## The Account Explorer
 
 The **Account Explorer** displays all the identities - users, roles, EC2 instances, and Lambda Functions - that can access the selected account from an external account.
 

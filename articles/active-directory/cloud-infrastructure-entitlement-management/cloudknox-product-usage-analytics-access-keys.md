@@ -105,7 +105,7 @@ When the filters are set and the authorization system is selected, select the ic
 
 - **Tasks**:  Displays unused and used tasks for each access key. The tasks are grouped by service and can be expanded to view the task, application, or service names.
 
-    A service can  display in both the **Unused** and **Used** columns, depending on when it was accessed. If none of the tasks have been used in a service, there will be an exclamation point (**!**) and if hovered over displays **None of the tasks in this group have been used in the last 90 days**. 
+    A service can  display in both the **Unused** and **Used** columns, depending on when it was accessed. If none of the tasks have been used in a service, it is marked by an exclamation point (**!**). When you hover over the exclamation point, the following message displays: **None of the tasks in this group have been used in the last 90 days**. 
 
     A task can move from **Used** to **Unused** if that task hasn't been touched for more than 90 days.
 

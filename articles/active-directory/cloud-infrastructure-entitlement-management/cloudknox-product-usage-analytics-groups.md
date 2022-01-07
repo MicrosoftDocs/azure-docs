@@ -33,9 +33,12 @@ The **Groups** dashboard provides a high-level overview of group details.
 
 - On the **Usage Analytics** page, select **Groups** from the  drop-down list across the top of the screen. The following components make up the **Groups** dashboard:
 
-    - **Groups** - This section  displays the total number of groups, inactive, and active groups based on the authorization system selected. For more information, see [Apply filters for groups](cloudknox-product-usage-analytics.md#apply-filters-for-groups).
-    - **Tasks** - This section  displays the number of tasks granted to groups, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see [Apply filters for groups](cloudknox-product-usage-analytics.md#apply-filters-for-groups).
-    - **Resources** - This section  displays how many resources have been accessed by groups based on the authorization system selected. For more information, see [Apply filters for active resources](cloudknox-product-usage-analytics.md#apply-filters-for-active-resources).
+    - **Groups** - This section  displays the total number of groups, inactive, and active groups based on the authorization system selected. For more information, see Apply filters for groups.
+        <!---Add link.--->
+    - **Tasks** - This section  displays the number of tasks granted to groups, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see Apply filters for groups.
+        <!---Add link.--->
+    - **Resources** - This section displays how many resources have been accessed by groups based on the authorization system selected. For more information, see Apply filters for active resources.
+        <!---Add link.--->
 
 
 The **Groups** table  displays the privileges assigned,  privileges used, and resources accessed by users.

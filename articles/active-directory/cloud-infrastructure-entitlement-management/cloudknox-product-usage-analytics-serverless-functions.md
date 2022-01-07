@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - View usage analytics about serverless functions (AWS Only)
-description: How to view Microsoft CloudKnox Permissions Management usage analytics about serverless functions (AWS Only).
+title: Microsoft CloudKnox Permissions Management - View usage analytics about serverless functions (AWS only)
+description: How to view Microsoft CloudKnox Permissions Management usage analytics about serverless functions (AWS only).
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -12,7 +12,7 @@ ms.date: 01/06/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - View usage analytics about serverless functions (AWS Only)
+# Microsoft CloudKnox Permissions Management - View usage analytics about serverless functions (AWS only)
 
 The CloudKnox **Usage Analytics** feature contains details about identities, resources, and tasks that you can use make informed decisions about granting privileges, and reducing risk on unused privileges.
 
@@ -25,7 +25,7 @@ The CloudKnox **Usage Analytics** feature contains details about identities, res
 
 The Microsoft CloudKnox Permissions Management **Usage Analytics** dashboard allows system administrators to collect, analyze, report on, and visualize data about all identity types.
 
-This topic describes how to view usage analytics about serverless functions (AWS Only).
+This topic describes how to view usage analytics about serverless functions (AWS only).
 
 ## View information on the Serverless Functions dashboard
 

@@ -35,9 +35,12 @@ The **Active Tasks** dashboard provides a high-level overview of privileges used
 
 The dashboard only lists tasks that have been used in the last 90 days. The following components make up the **Active Tasks** dashboard:
 
-- **Users**: This section  displays the total number of users, inactive and active users based on the authorization system selected. For more information, see [Apply filters for active tasks](cloudknox-product-usage-analytics.md#apply-filters-for-active-tasks).
-- **Tasks**: This section  displays the number of tasks granted to a user, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see [Apply filters for active tasks](cloudknox-product-usage-analytics.md#apply-filters-for-active-tasks).
-- **Resources**: This section  displays how many resources have been accessed by users based on the authorization system selected. For more information, see [Apply filters for active tasks](cloudknox-product-usage-analytics.md#apply-filters-for-active-tasks).
+- **Users**: This section  displays the total number of users, inactive and active users based on the authorization system selected. For more information, see Apply filters for active users.
+    <!---Add link.--->
+- **Tasks**: This section  displays the number of tasks granted to a user, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see Apply filters for active tasks.
+    <!---Add link.--->
+- **Resources**: This section  displays how many resources have been accessed by users based on the authorization system selected. For more information, see Apply filters for active resources.
+    <!---Add link.(--->
 
 ## Table view
 
@@ -45,15 +48,16 @@ The following components make up the **Active Tasks** table:
 
 
 - **Task Name**: Provides the name of the task. 
-    - To view more details about the task, select the task name. For more information, see Use the Identity Explorer to view for Active Tasks.[Use the Task Explorer](cloudknox-product-usage-analytics.md#use-the-task-explorer).
-
+    - To view more details about the task, select the task name. For more information, see Use the Identity Explorer to view for Active Tasks.
+    <!---Add link.--->
     - A **Deleted** icon next to the task name means the task is a delete task. 
     - A **High risk task** icon next to the task name means the task is high-risk. 
     - A **Task** icon next to the task name means the task is a normal task.
 
 
 - **No. of Times Task is Performed**: Captures the number of times the task has been performed by all users, groups, and so on.
-- **Performed On (Resources)**: The number of resources on which the task was used. For more information, see [View usage analytics about active resources](cloudknox-product-usage-analytics.md#view-usage-analytics-about-active-resources).
+- **Performed On (Resources)**: The number of resources on which the task was used. For more information, see View usage analytics about active resources.
+    <!---Add link.--->
 - **Number of Users**: Displays how many tasks are assigned to a user. The tasks are organized into the following columns:
     - **Unexecuted**: Captures the number of users that have access to the task but haven't accessed it.
     - **Executed**: Displays how many of the granted tasks the user has accessed.

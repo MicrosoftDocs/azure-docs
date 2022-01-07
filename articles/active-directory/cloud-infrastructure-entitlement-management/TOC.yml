@@ -81,7 +81,7 @@
         href: cloudknox-howto-analyze-usage.md
       - name: View details about users, groups, active resources, active tasks, access keys, and serverless functions
         href: cloudknox-product-usage-analytics.md
-      - name: View usage analytics information about groups
+      - name: View usage analytics information about users
         href: cloudknox-product-usage-analytics-users.md
       - name: View usage analytics information about groups
         href: cloudknox-product-usage-analytics-groups.md
@@ -93,8 +93,6 @@
         href: cloudknox-product-usage-analytics-access-keys.md
       - name: View usage analytics information about serverless functions (AWS only)
         href: cloudknox-product-usage-analytics-serverless-functions.md
-      - name: The Usage Analytics explorers
-        href: cloudknox-product-usage-analytics-explorers.md
   - name: Dashboards
     expanded: true
     items:
@@ -102,6 +100,8 @@
       href: cloudknox-ui-product-settings.md
     - name: The Usage Analytics dashboard
       href: cloudknox-ui-usage-analytics.md
+    - name: The Usage Analytics explorers
+      href: cloudknox-product-usage-analytics-explorers.md
     - name: The Audit Trail dashboard
       href: cloudknox-ui-audit-trail.md
     - name: The JEP Controller dashboard
