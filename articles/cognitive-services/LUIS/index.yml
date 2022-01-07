@@ -54,7 +54,7 @@ landingContent:
           - text: Utterances
             url: concepts/utterances.md
           - text: Phrase list features
-            url: luis-concept-feature.md
+            url: concepts/patterns-features.md
       - linkListType: quickstart
         links:
           - text: "Portal: Create a new LUIS app"

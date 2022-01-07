@@ -7674,6 +7674,56 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-how-to-review-endpoint-utterances.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/how-to/improve-application",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-tutorial-review-endpoint-utterances.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/how-to/improve-application",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-concept-enterprise.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/how-to/improve-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-concept-review-endpoint-utterances.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/how-to/improve-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/sign-in-luis-portal.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/how-to/sign-in",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-how-to-start-new-app.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/how-to/sign-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-tutorial-pattern.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-model-intent-pattern",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-concept-features.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/concepts/patterns-features",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-concept-patterns.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/concepts/patterns-features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-how-to-add-features.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/concepts/patterns-features",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/LUIS/luis-how-to-add-intents.md",
       "redirect_url": "/azure/cognitive-services/LUIS/how-to/intents",
       "redirect_document_id": false
