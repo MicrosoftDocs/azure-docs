@@ -42,10 +42,12 @@ To complete this tutorial, make sure you have:
     1. **Mixed Reality OpenXR Plugin**
 > [!NOTE]
 > Make sure you have refreshed the catalog and the newest version is selected for each
+
 ![MRFT - Feature Selection](../../../includes/media/spatial-anchors-unity/mrft-setup.png)
-1. Press **Get Features** --> **Import** --> **Approve** --> **Exit**
-1. When refocussing your Unity window, Unity will start importing the modules
-1. If you get a message about using the new input system click **Yes** to restart Unity and enable the backends.
+
+5. Press **Get Features** --> **Import** --> **Approve** --> **Exit**
+6. When refocussing your Unity window, Unity will start importing the modules
+7. If you get a message about using the new input system click **Yes** to restart Unity and enable the backends.
 
 
 ### Set up the project settings
