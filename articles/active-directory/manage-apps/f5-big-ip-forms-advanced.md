@@ -282,9 +282,9 @@ An access profile binds many APM elements managing access to BIG-IP virtual serv
 
 1. Select the link in the upper **Deny** box to change the **Successful** branch to **Allow**, and then select **Save**.
 
-** Configure attribute mappings**
+      **(Optional) Configure attribute mappings**
 
-Although it's optional, adding a LogonID_Mapping configuration enables the BIG-IP active sessions list to display the UPN of the logged-in user instead of a session number. This information is useful when you're analyzing logs or troubleshooting.
+      Although it's optional, adding a LogonID_Mapping configuration enables the BIG-IP active sessions list to display the UPN of the logged-in user instead of a session number. This information is useful when you're analyzing logs or troubleshooting.
 
 1. Select the plus (**+**) symbol for the **SAML Auth Successful** branch.
 
