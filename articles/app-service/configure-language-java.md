@@ -1120,7 +1120,7 @@ JBoss EAP is only available on the Premium v3 and Isolated v2 App Service Plan t
 
 ### JDK versions and maintenance
 
-December 2021, Microsoft and Adoptium builds of OpenJDK are provided and supported on App Service for Java 8, 11, and 17. These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and runnning Java SE applications. For local development or testing, you can install the Microsoft build of OpenJDK from the [downloads page](https://docs.microsoft.com/java/openjdk/download). The table below describes the new Java versions in the December release:
+Microsoft and Adoptium builds of OpenJDK are provided and supported on App Service for Java 8, 11, and 17. These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and runnning Java SE applications. For local development or testing, you can install the Microsoft build of OpenJDK from the [downloads page](https://docs.microsoft.com/java/openjdk/download). The table below describes the new Java versions included in the January 2022 App Service platform release:
 
 | Java Version | Linux            | Windows              |
 |--------------|------------------|----------------------|
@@ -1130,7 +1130,7 @@ December 2021, Microsoft and Adoptium builds of OpenJDK are provided and support
 
 \* In following releases, Java 8 on Linux will be distributed from Adoptium builds of the OpenJDK. 
 
-If you are [pinned](#choosing-a-java-runtime-version) to an older minor version of Java, your site may be using the [Zulu for Azure](https://www.azul.com/downloads/azure-only/zulu/) binaries provided through [Azul Systems](https://www.azul.com/). You can continue to use these binaries for your site, but any security patches or improvements will only be available in new versions of the OpenJDK, so we recommend that you periodically update your Web Apps to a later version of Java.
+If you are [pinned](#choosing-a-java-runtime-version) to an older minor version of Java your site may be using the [Zulu for Azure](https://www.azul.com/downloads/azure-only/zulu/) binaries provided through [Azul Systems](https://www.azul.com/). You can continue to use these binaries for your site, but any security patches or improvements will only be available in new versions of the OpenJDK, so we recommend that you periodically update your Web Apps to a later version of Java.
 
 Major version updates will be provided through new runtime options in Azure App Service. Customers update to these newer versions of Java by configuring their App Service deployment and are responsible for testing and ensuring the major update meets their needs.
 
