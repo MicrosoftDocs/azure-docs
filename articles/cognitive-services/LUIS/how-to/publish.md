@@ -20,7 +20,7 @@ When you finish building, training, and testing your active LUIS app, you make i
 2. Open your app by selecting its name on  **My Apps**  page.
 3. To publish to the endpoint, select  **Publish**  in the top-right corner of the panel.
 
-:::image type="content" source="../media/luis-how-to-publish-app/publish-top-nav-bar.png" alt-text="A screenshot showing the navigation bar at the top of the screen, with the publish button in the top-right." lightbox="../media/luis-how-to-publish-app/publish-top-nav-bar.png":::
+    :::image type="content" source="../media/luis-how-to-publish-app/publish-top-nav-bar.png" alt-text="A screenshot showing the navigation bar at the top of the screen, with the publish button in the top-right." lightbox="../media/luis-how-to-publish-app/publish-top-nav-bar.png":::
 
 1. Select your settings for the published prediction endpoint, then select  **Publish**.
 
