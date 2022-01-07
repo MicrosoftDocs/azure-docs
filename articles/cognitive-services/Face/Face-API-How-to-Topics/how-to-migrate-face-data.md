@@ -11,6 +11,7 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: nitinme
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

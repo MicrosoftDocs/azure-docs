@@ -4,8 +4,7 @@ description: In this tutorial, you'll learn to analyze data with Apache Spark.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
-manager: julieMSFT
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial

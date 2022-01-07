@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/17/2021
 ms.author: eur
+ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other
 zone_pivot_groups: programming-languages-set-twenty-four
 keywords: text to speech
@@ -33,7 +34,11 @@ keywords: text to speech
 [!INCLUDE [Java Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-java.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-nodejs"
+[!INCLUDE [JavaScript Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-nodejs.md)]
+::: zone-end
+
+::: zone pivot="programming-language-browserjs"
 [!INCLUDE [JavaScript Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-javascript.md)]
 ::: zone-end
 

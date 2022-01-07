@@ -40,12 +40,12 @@ Alert processing rules allow you to specify that logic in a single rule, instead
 
 ### Add action groups to all alert types
 
-Azure Monitor alert rules let you select which action groups will be triggered when their alerts are fired. However, not all Azure alert sources let you specify action groups. Some examples of such alerts include [Azure Backup alerts](/azure/backup/backup-azure-monitoring-built-in-monitor#azure-monitor-alerts-for-azure-backup-preview.md), [VM Insights guest health alerts](/azure/azure-monitor/vm/vminsights-health-alerts#configure-notifications.md), [Azure Stack Edge](/azure/databox-online/azure-stack-edge-gpu-manage-device-event-alert-notifications.md), and Azure Stack Hub.
+Azure Monitor alert rules let you select which action groups will be triggered when their alerts are fired. However, not all Azure alert sources let you specify action groups. Some examples of such alerts include [Azure Backup alerts](/azure/backup/backup-azure-monitoring-built-in-monitor#azure-monitor-alerts-for-azure-backup-preview.md), [VM Insights guest health alerts](/azure/azure-monitor/vm/vminsights-health-alerts#configure-notifications.md), [Azure Stack Edge](/azure/databox-online/azure-stack-edge-gpu-manage-device-event-alert-notifications), and Azure Stack Hub.
 
 For those alert types, you can use alert processing rules to add action groups.
 
 > [!NOTE]
-> Alert processing rules do not affect [Azure Service Health](/azure/service-health/service-health-overview.md) alerts.
+> Alert processing rules do not affect [Azure Service Health](/azure/service-health/service-health-overview) alerts.
 
 ## Alert processing rule properties
 <a name="filter-criteria"></a>
@@ -125,7 +125,7 @@ In the fourth tab (**Details**), you give this rule a name, pick where it will b
 ### [Azure CLI](#tab/azure-cli)
 
 > [!NOTE]
-> The Azure CLI is in the process of being updated to leverage the latest preview version of alert processing rules. Until then, you can use existing CLI capabilities under the **action rule** command to create alert processing rules. That CLI does not support some of the newer alert processing rules features.
+> The Azure CLI is in the process of being updated to leverage the GA API of alert processing rules. Until then, you can use existing CLI capabilities under the **action rule** command to create alert processing rules. Meanwhile, the existing CLI does not support some of the newer alert processing rules features.
 
 You can create alert processing rules with the Azure CLI using the [az monitor action-rule create](/cli/azure/monitor/action-rule#az_monitor_action_rule_create) command.  The `az monitor action-rule` reference is just one of many [Azure CLI references for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
 
@@ -214,7 +214,7 @@ From here, you can enable, disable, or delete alert processing rules at scale by
 ### [Azure CLI](#tab/azure-cli)
 
 > [!NOTE]
-> The Azure CLI is in the process of being updated to leverage the latest preview version of alert processing rules. Until then, you can use existing CLI capabilies under the **action rule** command to create alert processing rules. That CLI does not support some of the newer alert processing rules features.
+> The Azure CLI is in the process of being updated to leverage the GA API of alert processing rules. Until then, you can use existing CLI capabilies under the **action rule** command to create alert processing rules. Meanwhile, the existing CLI does not support some of the newer alert processing rules features.
 
 You can view and manage your alert processing rules using the [az monitor action-rule](/cli/azure/monitor) command from the Azure CLI.
 

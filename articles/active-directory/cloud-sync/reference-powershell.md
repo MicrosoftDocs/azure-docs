@@ -3,7 +3,7 @@ title: 'AADCloudSyncTools PowerShell Module for Azure AD Connect cloud sync'
 description: This article describes how to install the Azure AD Connect cloud provisioning agent.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to

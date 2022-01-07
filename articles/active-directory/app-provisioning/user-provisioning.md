@@ -1,13 +1,13 @@
 ---
-title: What is automated SaaS app user provisioning in Azure Active Directory
-description: An introduction to how you can use Azure Active Directory to automatically provision, de-provision, and continuously update user accounts across multiple third-party SaaS applications.
+title: What is automated app user provisioning in Azure Active Directory
+description: An introduction to how you can use Azure Active Directory to automatically provision, de-provision, and continuously update user accounts across multiple third-party applications.
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: overview
 ms.workload: identity
-ms.date: 11/15/2021
+ms.date: 12/08/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---

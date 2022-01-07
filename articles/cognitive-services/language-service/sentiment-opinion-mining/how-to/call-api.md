@@ -50,11 +50,7 @@ If you're using the REST API, to get Opinion Mining in your results, you must in
 
 ### Specify the sentiment analysis model
 
-By default, sentiment analysis will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform sentiment analysis operations.
-
-| Supported Versions | latest Generally Available version | latest preview version |
-|--|--|--|
-| `2019-10-01`, `2020-04-01`, `2021-10-01-preview` | `2020-04-01`   | `2021-10-01-preview`   |
+By default, sentiment analysis will use the latest available AI model on your text. You can also configure your API requests to use a specific [model version](../../concepts/model-lifecycle.md).
 
 ### Using a preview model version
 

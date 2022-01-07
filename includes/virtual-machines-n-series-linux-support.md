@@ -28,11 +28,11 @@ NVIDIA CUDA drivers for NC, NCv2, NCv3, ND, and NDv2-series VMs (optional for NV
 
 Microsoft redistributes NVIDIA GRID driver installers for NV and NVv3-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV VMs, only on the operating systems listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure. You do not need to set up a NVIDIA vGPU software license server.
 
-The GRID drivers redistributed by Azure do not work on non-NV series VMs like NC, NCv2, NCv3, ND, and NDv2-series VMs.
+The GRID drivers redistributed by Azure do not work on most non-NV series VMs like NC, NCv2, NCv3, ND, and NDv2-series VMs but works on NCasT4v3 series.
 
 |Distribution|Driver|
 | --- | -- |
-|Ubuntu 16.04 LTS, 18.04 LTS, 20.04 LTS<br/><br/>Red Hat Enterprise Linux 7.7, 7.8, 7.9, 8.0, 8.1<br/><br/>SUSE Linux Enterprise Server 12 SP2+, 15 SP2 | NVIDIA GRID 13, driver branch [R470](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
+|Ubuntu 16.04 LTS, 18.04 LTS, 20.04 LTS<br/><br/>Red Hat Enterprise Linux 7.7, 7.8, 7.9<br/><br/>CentOS 7.6, 7.7<br/><br/>SUSE Linux Enterprise Server 12 SP2+, 15 SP2 | NVIDIA GRID 13.1, driver branch [R470](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
 
 Visit [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json) for the complete list of all previous Nvidia GRID driver links.
 

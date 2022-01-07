@@ -8,8 +8,8 @@ ms.topic: quickstart
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: wiassaf
-ms.reviewer: jrasnick
-ms.custom: mode-portal
+ms.reviewer: sngun
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create a dedicated SQL pool using the Azure portal

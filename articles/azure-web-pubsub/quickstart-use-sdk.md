@@ -6,7 +6,7 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: quickstart
 ms.date: 11/01/2021
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Quickstart: Publish messages using the service SDK for the Azure Web PubSub instance

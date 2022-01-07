@@ -93,7 +93,7 @@ sections:
       - question: |
           Are there any tips or tricks to reduce cognitive services charges on ingestion?
         answer: |
-          It is understandable that you don't want to execute built-in skills or custom skills more than is absolutely necessary, especially if you are dealing with millions of documents to process. With that in mind, we have added "incremental enrichment" capabilities to skillset execution. In essence, you can provide a cache location (a blob storage connection string) that will be used to store the output of "intermediate" enrichment steps.  That allows the enrichment pipeline to be smart and apply only enrichments that are necessary when you modify your skillset. This will naturally also save indexing time as the pipeline will be more efficient.
+          It is understandable that you don't want to execute built-in skills or custom skills more than is it's necessary, especially if you are dealing with millions of documents to process. With that in mind, we have added "incremental enrichment" capabilities to skillset execution. In essence, you can provide a cache location (a blob storage connection string) that will be used to store the output of "intermediate" enrichment steps.  That allows the enrichment pipeline to be smart and apply only enrichments that are necessary when you modify your skillset. This will naturally also save indexing time as the pipeline will be more efficient.
           
           Learn more about [incremental enrichment](cognitive-search-incremental-indexing-conceptual.md)
           

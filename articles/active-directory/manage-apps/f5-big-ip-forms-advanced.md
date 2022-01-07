@@ -1,6 +1,6 @@
 ---
-title: F5 BIG-IP APM and Azure AD SSO to form-based authentication applications
-description: Learn how to integrate F5's BIG-IP Access Policy Manager and Azure Active Directory for secure hybrid access to form-based applications.
+title: Configure F5 BIG-IP’s Access Policy Manager for form-based SSO
+description: Learn how to configure F5's BIG-IP Access Policy Manager and Azure Active Directory for secure hybrid access to form-based applications.
 author: gargi-sinha
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -11,11 +11,11 @@ ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
-# Integrate Azure AD with F5 BIG-IP for form-based authentication single sign-on
+# Configure F5 BIG-IP Access Policy Manager for form-based SSO
 
-In this article, you'll learn how to integrate F5's BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to form-based applications.
+In this article, you'll learn how to configure F5's BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to form-based applications.
 
-Integrating BIG-IP published applications with Azure AD provides many benefits, including:
+Configuring BIG-IP published applications with Azure AD provides many benefits, including:
 
 - Improved Zero Trust governance through Azure AD pre-authentication and authorization
 - Full single sign-on (SSO) between Azure AD and BIG-IP published services
@@ -116,7 +116,7 @@ Setting up a SAML federation trust between BIG-IP APM and Azure AD is one of the
       >[!NOTE]
       >In this configuration, the SAML flow would operate in IdP-initiated mode, where Azure AD issues users a SAML assertion before they're redirected to the BIG-IP service endpoint for the application. The BIG-IP APM supports both IdP-initiated and service provider-initiated modes.
 
-   c. For the `Logout URI`, enter the BIG-IP APM single logout (SLO) endpoint, prepended by the host header of the service that's being published. Providing an SLO URI ensures that users' BIG-IP APM session is also terminated after they're signed out of Azure AD. An example URI might be *https://myvacation.contoso.com/saml/sp/profile/redirect/slr*.
+   c. For the `Logout URI`, enter the BIG-IP APM single logout (SLO) endpoint, prepended by the host header of the service that's being published. Providing an SLO URI ensures that users' BIG-IP APM session is also terminated after they're signed out of Azure AD. An example URI might be `https://myvacation.contoso.com/saml/sp/profile/redirect/slr`.
 
      ![Screenshot showing a basic SAML configuration.](./media/f5-big-ip-forms-advanced/basic-saml-configuration.png)
 
