@@ -150,6 +150,8 @@
     href: authentication-flows-app-scenarios.md
   - name: Applications and service principals
     href: app-objects-and-service-principals.md
+  - name: Workload identities
+    href: workload-identities-overview.md
   - name: Workload identity federation
     href: workload-identity-federation.md
   - name: Identity platform best practices
@@ -161,8 +163,6 @@
       href: zero-trust-for-developers.md
     - name: Best practices for least privileged access for apps
       href: secure-least-privileged-access.md
-    - name: Secure line-of-business applications using Zero Trust principles
-      href: secure-line-of-business-apps.md
     - name: Security best practices for Azure AD application registration
       href: security-best-practices-for-app-registration.md
   - name: Automatic user provisioning (SCIM)
@@ -597,20 +597,6 @@
       href: v2-howto-app-gallery-listing.md
     - name: Publish to the Office 365 Seller Dashboard
       href: /office/dev/store/add-in-submission-guide
-  - name: Work with Visual Studio
-    items:
-    - name: Use the Active Directory connected service
-      href: vs-active-directory-add-connected-service.md
-    - name: Get started with .NET MVC projects
-      href: vs-active-directory-dotnet-getting-started.md
-    - name: What happened to my .NET MVC project?
-      href: vs-active-directory-dotnet-what-happened.md
-    - name: Get started with WebAPI projects
-      href: vs-active-directory-webapi-getting-started.md
-    - name: What happened to my WebAPI project?
-      href: vs-active-directory-webapi-what-happened.md
-    - name: Diagnose errors during authentication
-      href: vs-active-directory-error.md
   - name: Remove an app registration
     href: ./howto-remove-app.md
   - name: Restore or remove a deleted app registration

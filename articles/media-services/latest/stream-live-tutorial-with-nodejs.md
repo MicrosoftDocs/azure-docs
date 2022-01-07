@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: javascript
 ms.topic: tutorial
 ms.custom: "mvc, devx-track-nodejs"
 ms.date: 02/13/2021

@@ -76,7 +76,7 @@ Data files are automatically validated once you hit the **Submit** button. Data 
 
 Once the data is uploaded, you can check the details in the training set detail view. On the **Overview** tab, you can further check the pronunciation scores and the noise level for each of your data. The pronunciation score ranges from 0 to 100. A score below 70 normally indicates a speech error or script mismatch. A heavy accent can reduce your pronunciation score and affect the generated digital voice.
 
-A higher signal-to-noise ratio (SNR) indicates lower noise in your audio. You can typically reach a 50+ SNR by recording at professional studios. Audio with an SNR below 20 can result in obvious noise in your generated voice.
+A higher signal-to-noise ratio (SNR) indicates lower noise in your audio. You can typically reach a 35+ SNR by recording at professional studios. Audio with an SNR below 20 can result in obvious noise in your generated voice.
 
 Consider re-recording any utterances with low pronunciation scores or poor signal-to-noise ratios. If you can't re-record, consider excluding those utterances from your data.
 
@@ -104,10 +104,6 @@ The second type of errors listed in the table below will be automatically fixed,
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
-| Audio | Stereo audio auto fixed | Use mono in your audio sample recordings. Stereo audio channels are automatically merged into a mono channel, which can cause content loss.  Download the normalized dataset and review it.|
-| Volume | Volume peak auto fixed |The volume peak should be within the range of -3 dB (70% of max volume) to -6 dB (50%). Control the volume peak during the sample recording or data preparation. This audio is linearly scaled to fit the peak range automatically (-4 dB or 65%). Download the normalized dataset and review it.|
-|Mismatch | Silence auto fixed| The start silence is detected to be longer than 200 ms, and has been trimmed to 200 ms automatically. Download the normalized dataset and review it. |
-| Mismatch |Silence auto fixed | The end silence is detected to be longer than 200 ms, and has been trimmed to 200 ms automatically. Download the normalized dataset and review it. |
 | Mismatch |Silence auto fixed |The start silence is detected to be shorter than 100 ms, and has been extended to 100 ms automatically. Download the normalized dataset and review it. |
 | Mismatch |Silence auto fixed | The end silence is detected to be shorter than 100 ms, and has been extended to 100 ms automatically. Download the normalized dataset and review it.|
 

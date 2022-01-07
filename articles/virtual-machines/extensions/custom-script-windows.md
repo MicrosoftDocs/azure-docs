@@ -287,9 +287,12 @@ If you are using [Invoke-WebRequest](/powershell/module/microsoft.powershell.uti
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
 ```
-## Virtual Machine Scale Sets
 
-To deploy the Custom Script Extension on a Scale Set, see [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension)
+## Virtual machine scale sets
+
+If you deploy the Custom Script Extension from the Azure portal, you don't have control over the expiration of the shared access signature token for accessing the script in your storage account. The result is that the initial deployment works, but when the storage account shared access signature token expires, any subsequent scaling operation fails because the Custom Script Extension can no longer access the storage account.
+
+We recommend that you use [PowerShell](/powershell/module/az.Compute/Add-azVmssExtension?view=azps-7.0.0), the [Azure CLI](/cli/azure/vmss/extension?view=azure-cli-latest), or an Azure Resource Manager template when you deploy the Custom Script Extension on a virtual machine scale set. This way, you can choose to use a managed identity or have direct control of the expiration of the shared access signature token for accessing the script in your storage account for as long as you need.
 
 ## Classic VMs
 

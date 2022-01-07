@@ -4,11 +4,10 @@ description: This topic details supported and unsupported topologies for Azure A
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
-ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: conceptual
@@ -137,7 +136,7 @@ It's possible to have more than one staging server when you want to have multipl
 ## Multiple Azure AD tenants
 We recommend having a single tenant in Azure AD for an organization. Before you plan to use multiple Azure AD tenants, see the article [Administrative units management in Azure AD](../roles/administrative-units.md). It covers common scenarios where you can use a single tenant.
 
-### (Public preview) Each object multiple times in an Azure AD tenant
+### (Public preview) Sync AD objects to multiple Azure AD tenants
 
 ![Diagram that shows a topology of multiple Azure A D tenants.](./media/plan-connect-topologies/multi-tenant-1.png)
 
@@ -148,13 +147,16 @@ This topology implements the following use cases:
 
 * AADConnect can synchronize the same users, groups, and contacts from a single Active Directory to multiple Azure AD tenants. These tenants can be in different Azure environments, such as the Azure China environment or the Azure Government environment, but they could also be in the same Azure environment, such as two tenants that are both in Azure Commercial. 
 *	The same Source Anchor can be used for a single object in separate tenants (but not for multiple objects in the same tenant)
-*	You will need to deploy an AADConnect server or deploy an AADConnect Provisioning Agent for every Azure AD tenant you want to synchronize to - one AADConnect server cannot synchronize to more than one Azure AD tenant. Note that the Provisioning Agent is required for every forest you want to synchronize – but it is supported to have different sync scopes and different sync rules for different tenants.
+*	You will need to deploy an AADConnect server for every Azure AD tenant you want to synchronize to - one AADConnect server cannot synchronize to more than one Azure AD tenant.
+*	It is supported to have different sync scopes and different sync rules for different tenants.
 *	Only one Azure AD tenant sync can be configured to write back to Active Directory for the same object. This includes device and group writeback as well as Hybrid Exchange configurations – these features can only be configured in one tenant. The only exception here is Password Writeback – see below.
 *	It is supported to configure Password Hash Sync from Active Directory to multiple Azure AD tenants for the same user object. If Password Hash Sync is enabled for a tenant, then Password Writeback may be enabled as well, and this can be done on multiple tenants: if the password is changed on one tenant, then password writeback will update it in Active Directory, and Password Hash Sync will update the password in the other tenants.
 *	It is not supported to use the same custom domain name in more than one Azure AD tenant, with one exception: it is supported to use a custom domain name in the Azure Commercial environment and use that same domain name in the Azure GCCH environment. Note that the custom domain name MUST exist in Commercial before it can be verified in the GCCH environment.
 *	It is not supported to configure hybrid experiences such as Seamless SSO and Hybrid Azure AD Join on more than one tenant. Doing so would overwrite the configuration of the other tenant and would make it unusable. 
 *	You can synchronize device objects to more than one tenant but only one tenant can be configured to trust a device.
 * Each Azure AD Connect instance should be running on a domain-joined machine.
+
+Related information to enable cross cloud federation can be found in [the dual federation article](./how-to-connect-fed-single-adfs-multitenant-federation.md)
 
 >[!NOTE]
 >Global Address List Synchronization (GalSync) is not done automatically in this topology and requires an additional custom MIM implementation to ensure each tenant has a complete Global Address List (GAL) in Exchange Online and Skype for Business Online.

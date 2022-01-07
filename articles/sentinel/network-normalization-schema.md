@@ -109,7 +109,7 @@ Fields common to all schemas are described in the [ASIM schema overview](normali
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | **EventCount** | Mandatory | Integer | Netflow sources support aggregation, and the **EventCount** field should be set to the value of the Netflow **FLOWS** field. For other sources, the value is typically set to `1`. |
-| **EventType** | Mandatory | Enumerated | Describes the operation reported by the record.<br><br> For Network Session records, supported values include:<br>- `NetworkConnection`<br>- `NetworkSession` |
+| **EventType** | Mandatory | Enumerated | Describes the operation reported by the record.<br><br> For Network Session records, the value should be `NetworkSession`. |
 | **EventSubType** | Optional | String | Additional description of the event type, if applicable. <br> For Network Session records, supported values include:<br>- `Start`<br>- `End` |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `NetworkSession`. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.1`.        |
