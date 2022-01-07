@@ -41,11 +41,11 @@ Use this article to get started with the LUIS portal, and create an authoring re
 
 >[!Note]
 > * When creating a new resource, make sure that the resource name only includes alphanumeric characters, '-', and can’t start or end with '-'. Otherwise, it will fail.
-> * Make sure that you have the [proper permissions on your subscription to create an Azure resource](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles). If you do not have the proper permissions, contact the admin of your subscription to give you sufficient permissions.
+> * Make sure that you have the [proper permissions on your subscription to create an Azure resource](../../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles). If you do not have the proper permissions, contact the admin of your subscription to give you sufficient permissions.
 
 
 ## Create a new LUIS app
-There are a couple of ways to create a LUIS app. You can create a LUIS app in the LUIS portal, or through the LUIS authoring [APIs](../developer-reference-resource). 
+There are a couple of ways to create a LUIS app. You can create a LUIS app in the LUIS portal, or through the LUIS authoring [APIs](../developer-reference-resource.md). 
 
 **Using the LUIS portal** You can create a new app in the portal in several ways:
 * Start with an empty app and create intents, utterances, and entities.

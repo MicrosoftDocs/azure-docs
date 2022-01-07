@@ -54,9 +54,6 @@ items:
     items:
     - name: Use prebuilt models
       href: howto-add-prebuilt-models.md
-    - name: Add features
-      displayName: synonym, interchange, phrase list, descriptor, feature
-      href: luis-how-to-add-features.md
     - name: Get intent using the REST API
       href: luis-get-started-get-intent-from-rest.md
     - name: Change the model using the REST API
@@ -153,6 +150,9 @@ items:
     href: concepts/intents.md
   - name: Utterances
     href: concepts/utterances.md
+  - name: Patterns and features
+    href: concepts/patterns-features.md
+    displayName: descriptor, phrase list, feature, synonym, interchange, phrase list, descriptor, feature
   - name: Publish
     href: how-to/publish.md
   - name: App models
@@ -161,12 +161,6 @@ items:
       href: luis-concept-model.md
     - name: Prebuilt models
       href: luis-concept-prebuilt-model.md
-    - name: Patterns
-      href: luis-concept-patterns.md
-      displayName: roles
-    - name: Features
-      href: luis-concept-feature.md
-      displayName: descriptor, phrase list, feature
     - name: Extend app at runtime
       href: schema-change-prediction-runtime.md
   - name: Prediction score

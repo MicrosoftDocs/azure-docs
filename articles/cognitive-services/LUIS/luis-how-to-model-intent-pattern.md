@@ -3,14 +3,14 @@ title: Patterns add accuracy - LUIS
 titleSuffix: Azure Cognitive Services
 description: Add pattern templates to improve prediction accuracy in Language Understanding (LUIS) applications.
 services: cognitive-services
-
+author: aahill
+ms.author: aahi
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/17/2020
-
+ms.date: 01/07/2022
 ---
 
 # How to add patterns to improve prediction accuracy
@@ -113,7 +113,7 @@ Template utterance examples for this intent would include:
 |Who does {EmployeeListEntity} report to[?]|interchangeable: {EmployeeListEntity} <br> ignore: [?]|
 |Who reports to {EmployeeListEntity}[?]|interchangeable: {EmployeeListEntity} <br> ignore: [?]|
 
-The "_{EmployeeListEntity}_" syntax marks the entity location within the template utterance and which entity it is. The optional syntax, "_[?]_", marks words or [punctuation](../luis-reference-application-settings.md#punctuation-normalization) that is optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
+The "_{EmployeeListEntity}_" syntax marks the entity location within the template utterance and which entity it is. The optional syntax, "_[?]_", marks words or [punctuation](luis-reference-application-settings.md) that is optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
 
 > [!IMPORTANT]
 > While the syntax looks like a regular expression, it is not a regular expression. Only the curly bracket, "_{ }_", and square bracket, "_[ ]_", syntax is supported. They can be nested up to two levels.
@@ -124,7 +124,7 @@ For a pattern to be matched to an utterance, _first_ the entities within the utt
 > While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern will not match.
 
 ## Add phrase list as a feature
-[Features](/azure/cognitive-services/luis/concepts/patterns-features?branch=pr-en-us-181263#features) help LUIS by providing hints that certain words and phrases are part of an app domain vocabulary.
+[Features](concepts/patterns-features.md) help LUIS by providing hints that certain words and phrases are part of an app domain vocabulary.
 
 1. Sign in to the [LUIS portal](https://www.luis.ai/), and select your  **Subscription**  and  **Authoring resource**  to see the apps assigned to that authoring resource.
 2. Open your app by selecting its name on  **My Apps**  page.
@@ -132,7 +132,7 @@ For a pattern to be matched to an utterance, _first_ the entities within the utt
 4. On the  **Features**  page, select  **+ Create**.
 5. In the  **Create new phrase list feature**  dialog box, enter a name such as Pizza Toppings. In the  **Value**  box, enter examples of topings, such as _Ham_. You can type one value at a time, or a set of values separated by commas, and then press  **Enter**.
 
-:::image type="content" source="../media/luis-add-features/add-phrase-list-cities.png" alt-text="Screenshot of adding feature (phrase list) Cities" lightbox="../media/luis-add-features/add-phrase-list-cities.png":::
+:::image type="content" source="media/luis-add-features/add-phrase-list-cities.png" alt-text="A screenshot showing how to add feature (phrase list) Cities" lightbox="media/luis-add-features/add-phrase-list-cities.png":::
 
 6. Keep the  **These values are interchangeable**  selector enabled if the phrases can be used interchangeably. The interchangeable phrase list feature serves as a list of synonyms for training. Non-interchangeable phrase lists serve as separate features for training, meaning that features are similar but the intent changes when you swap phrases.
 7. The phrase list can apply to the entire app with the  **Global**  setting, or to a specific model (intent or entity). If you create the phrase list as a _feature_ from an intent or entity, the toggle is not set to global. In this case, the toggle specifies that the feature is local only to that model, therefore, _not global_ to the application.
