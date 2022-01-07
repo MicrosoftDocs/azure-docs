@@ -72,9 +72,11 @@ Use one of the following templates, based on your needs.
 | One filter | The ARM template has a filter for resource groups. |
 | Two filters | The ARM template has a filter for resource groups and a filter for meter categories. |
 
+## Review and deploy the template
+
 ## [No filter](#tab/no-filter)
 
-## Review the template
+### Review the template
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/create-budget-simple).
 
@@ -84,7 +86,7 @@ One Azure resource is defined in the template:
 
 * [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create an Azure budget.
 
-## Deploy the template
+### Deploy the template
 
 1. Select the following image to sign in to Azure and open a template. The template creates a budget without any filters.
 
@@ -92,7 +94,7 @@ One Azure resource is defined in the template:
 
 2. Select or enter the following values.
 
-   :::image type="content" source="./media/quick-create-budget-template/create-budget-using-template-portal.png" alt-text="Resource Manager template, Create budget without a filter, deploy portal]" lightbox="./media/quick-create-budget-template/create-budget-using-template-portal.png" :::
+   :::image type="content" source="./media/quick-create-budget-template/create-budget-simple-image.png" alt-text="Resource Manager template, Create budget without a filter, deploy portal]" lightbox="./media/quick-create-budget-template/create-budget-simple-image.png" :::
    
     * **Subscription**: select an Azure subscription.
     * **Resource group**: if required, select an existing resource group, or **Create new**.
@@ -104,7 +106,6 @@ One Azure resource is defined in the template:
     * **End Date**: enter the end date for the budget in YYYY-MM-DD format. 
     * **First Threshold**: enter a threshold value for the first notification. A notification is sent when the cost exceeds the threshold. It's always percent and has to be between 0.01 and 1000.
     * **Second Threshold**: enter a threshold value for the second notification. A notification is sent when the cost exceeds the threshold. It's always percent and has to be between 0.01 and 1000.
-    * **Contact Roles** enter the list of contact roles to send the budget notification to when the threshold is exceeded. Default values are Owner, Contributor, and Reader. Expected format is `["Owner","Contributor","Reader"]`.
     * **Contact Emails** enter a list of email addresses to send the budget notification to when a threshold is exceeded. It accepts an array of strings. Expected format is `["user1@domain.com","user2@domain.com"]`.
    
 3. Depending on your Azure subscription type, do one of the following actions:
@@ -117,9 +118,9 @@ One Azure resource is defined in the template:
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use Azure PowerShell, Azure CLI, and REST API. To learn about other deployment templates, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
 
-## [One filter](#tab/one-filter)
+### [One filter](#tab/one-filter)
 
-## Review the template
+### Review the template
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/create-budget-onefilter).
 
@@ -129,7 +130,7 @@ One Azure resource is defined in the template:
 
 * [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create an Azure budget.
 
-## Deploy the template
+### Deploy the template
 
 1. Select the following image to sign in to Azure and open a template. The template creates a budget with a filter for resource groups.
 
@@ -137,7 +138,7 @@ One Azure resource is defined in the template:
 
 2. Select or enter the following values.
 
-   :::image type="content" source="./media/quick-create-budget-template/create-budget-using-template-portal.png" alt-text="Resource Manager template, Create budget with one filter, deploy portal]" lightbox="./media/quick-create-budget-template/create-budget-using-template-portal.png" :::
+   :::image type="content" source="./media/quick-create-budget-template/create-budget-one-filter-image.png" alt-text="Resource Manager template, Create budget with one filter, deploy portal]" lightbox="./media/quick-create-budget-template/create-budget-one-filter-image.png" :::
    
     * **Subscription**: select an Azure subscription.
     * **Resource group**: if required, select an existing resource group, or **Create new**.
@@ -151,7 +152,6 @@ One Azure resource is defined in the template:
     * **Second Threshold**: enter a threshold value for the second notification. A notification is sent when the cost exceeds the threshold. It's always percent and has to be between 0.01 and 1000.
     * **Contact Roles** enter the list of contact roles to send the budget notification to when the threshold is exceeded. Default values are Owner, Contributor, and Reader. Expected format is `["Owner","Contributor","Reader"]`.
     * **Contact Emails** enter a list of email addresses to send the budget notification to when a threshold is exceeded. It accepts an array of strings. Expected format is `["user1@domain.com","user2@domain.com"]`.
-    * **Contact Groups** enter a list of action group resource IDs, as a full resource URIs, to send the budget notification to when the threshold is exceeded. It accepts an array of strings. Expected format is `["action group resource ID1","action group resource ID2"]`. If don't want to use action groups, enter `[]`.
     * **Resource Group Filter Values** enter a list of resource group names to filter. It accepts an array of strings. Expected format is `["Resource Group Name1","Resource Group Name2"]`. The array can't be empty. 
    
 3. Depending on your Azure subscription type, do one of the following actions:
@@ -164,9 +164,9 @@ One Azure resource is defined in the template:
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use Azure PowerShell, Azure CLI, and REST API. To learn about other deployment templates, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
 
-## [Two filters](#tab/two-filters)
+### [Two filters](#tab/two-filters)
 
-## Review the template
+### Review the template
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/create-budget).
 
@@ -176,7 +176,7 @@ One Azure resource is defined in the template:
 
 * [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create an Azure budget.
 
-## Deploy the template
+### Deploy the template
 
 1. Select the following image to sign in to Azure and open a template. The template creates a budget with a filter for resource groups and a filter for meter categories.
 
@@ -184,7 +184,7 @@ One Azure resource is defined in the template:
 
 2. Select or enter the following values.
 
-   :::image type="content" source="./media/quick-create-budget-template/create-budget-using-template-portal.png" alt-text="Resource Manager template, Create budget with two filters, deploy portal]" lightbox="./media/quick-create-budget-template/create-budget-using-template-portal.png" :::
+   :::image type="content" source="./media/quick-create-budget-template/create-budget-two-filters-image.png" alt-text="Resource Manager template, Create budget with two filters, deploy portal]" lightbox="./media/quick-create-budget-template/create-budget-two-filters-image.png" :::
    
     * **Subscription**: select an Azure subscription.
     * **Resource group**: if required, select an existing resource group, or **Create new**.
@@ -216,7 +216,11 @@ The Azure portal is used to deploy the template. In addition to the Azure portal
 
 ## Validate the deployment
 
-You can use the Azure portal to verify that the budget is created by navigating to **Cost Management + Billing** > select a scope > **Budgets**. Or, use the following Azure CLI or Azure PowerShell scripts to view the budget.
+Use one of the following ways to verify that the budget is created.
+
+# [Azure portal](#tab/portal)
+
+Navigate to **Cost Management + Billing** > select a scope > **Budgets**.
 
 # [CLI](#tab/CLI)
 
@@ -236,13 +240,9 @@ Get-AzConsumptionBudget
 
 When you no longer need a budget, delete it by using one the following methods:
 
-### Azure portal
+# [Azure portal](#tab/portal)
 
 Navigate to **Cost Management + Billing** > select a billing scope > **Budgets** > select a budget > then select **Delete budget**.
-
-### Command line
-
-You can remove the budget using Azure CLI or Azure PowerShell.
 
 # [CLI](#tab/CLI)
 
