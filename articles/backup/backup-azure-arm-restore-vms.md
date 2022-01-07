@@ -157,7 +157,7 @@ As one of the [restore options](#restore-options), Cross Region Restore (CRR) al
 
 To begin using the feature, read the [Before You Begin section](./backup-create-rs-vault.md#set-cross-region-restore).
 
-To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore).
+To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore).
 
 ### View backup items in secondary region
 

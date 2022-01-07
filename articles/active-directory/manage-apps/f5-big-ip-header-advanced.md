@@ -2,20 +2,20 @@
 title: Configure F5 BIG-IP Access Policy Manager for header-based SSO
 description: Learn how to configure F5's BIG-IP Access Policy Manager (APM) and Azure Active Directory SSO for header-based authentication
 services: active-directory
-author: gargi-sinha
+author: NishthaBabith-V
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 11/10/2021
-ms.author: gasinh
+ms.author: v-nisba
 ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure F5 BIG-IP’s Access Policy Manager for header-based SSO
 
-In this tutorial, you'll learn how to configure F5's BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to header-based applications.
+In this article, you’ll learn to implement Secure Hybrid Access (SHA) with single sign-on (SSO) to header-based applications using F5’s BIG-IP advanced configuration.
 
 Configuring BIG-IP published applications with Azure AD provides many benefits, including:
 
@@ -30,20 +30,20 @@ To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD i
 
 ## Scenario description
 
-For this scenario, we have an internal application whose access relies on receiving HTTP authorization headers from a legacy broker system. This enables users to be directed to their respective areas of content.
+For this scenario, we have a legacy application using HTTP authorization headers to control access to protected content.
 
-The ideal scenario is to have the application managed and governed directly through Azure AD. However, as it lacks any form of modern protocol interop, it would take considerable effort and time to modernize, introducing inevitable costs and risks of potential downtime.
+Ideally, application access should be managed directly by Azure AD but being legacy it lacks any form of modern authentication protocol. Modernization would take considerable effort and time, introducing inevitable costs and risk of potential downtime. Instead, a BIG-IP deployed between the public internet and the internal application will be used to gate inbound access to the application.
 
-Instead, a BIG-IP Virtual Edition (VE) deployed between the public internet and the internal Azure VNet the application is connected to will be used. It will enable to gate inbound access, with Azure AD for its extensive choice of authentication and authorization capabilities.
+Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application.
 
-Having a BIG-IP in front of the application enables to overlay the service with Azure AD pre-authentication and header-based SSO. It significantly improves the overall security posture of the application, allowing the business to continue operating at pace, without interruption.
 
-The secure hybrid access solution for this scenario is made up of the following components:
+## Scenario architecture
 
-- **Application**: Backend service to be protected by Azure AD and BIG-IP secure hybrid access
+The secure hybrid access solution for this scenario is made up of:
 
-- **Azure AD**: The SAML Identity Provider (IdP), responsible for
-verification of user credentials, Conditional Access (CA), and SSO to the BIG-IP APM.
+- **Application**: BIG-IP published service to be protected by and Azure AD SHA.
+
+- **Azure AD**: Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SSO to the BIG-IP. Through SSO, Azure AD provides the BIG-IP with any required session attributes including user identifiers.
 
 - **BIG-IP**: Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP, before
 performing header-based SSO to the backend application.
@@ -52,13 +52,13 @@ performing header-based SSO to the backend application.
 
 | Step | Description |
 |:-------|:-----------|
-| 1. | User connects to application's SAML SP endpoint (BIG-IP APM). |
-| 2. | APM access policy redirects user to SAML IdP (Azure AD) for pre-authentication.|
-| 3. | SAML IdP authenticates user and applies any enforced CA policies. |
-| 4. | Azure AD redirects user back to SAML SP with issued token and claims. |
-| 5. | BIG-IP APM grants user access and injects headers in the request to the application. |
+| 1. | User connects to application's SAML SP endpoint (BIG-IP). |
+| 2. | BIG-IP APM access policy redirects user to Azure AD (SAML IdP).|
+| 3. | Azure AD pre-authenticates user and applies any enforced CA policies. |
+| 4. | User is redirected to BIG-IP (SAML SP) and SSO is performed using issued SAML token. |
+| 5. | BIG-IP injects Azure AD attributes as headers in request to the application. |
+| 6. | Application authorizes request and returns payload. |
 
-For increased security, organizations using this pattern could also consider blocking all direct access to the application, in that way, forcing a strict path through the BIG-IP.
 
 ## Prerequisites
 
@@ -398,7 +398,6 @@ This last step provides break down of all applied settings before they are commi
 
 Your application is now published and accessible via Secure Hybrid Access, either directly via its URL or through Microsoft's application portals.
 
-For increased security, organizations using this pattern could also consider blocking all direct access to the application, in that way forcing a strict path through the BIG-IP.
 
 ## Next steps
 
@@ -406,6 +405,8 @@ As a user, launch a browser and connect to the application's external URL or sel
 The output of the injected headers displayed by our headers-based application is shown.
 
 ![Screenshot shows the output](./media/f5-big-ip-header-advanced/mytravel-example.png)
+
+For increased security, organizations using this pattern could also consider blocking all direct access to the application, in that way forcing a strict path through the BIG-IP.
 
 ## Troubleshooting
 

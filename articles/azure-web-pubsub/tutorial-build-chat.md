@@ -596,7 +596,7 @@ In the above code, we simply print a message to console when a client is connect
 
 ### Expose localhost
 
-Then we need to set the Webhook URL in the service so it can know where to call when there is a new event. But there is a problem that our server is running on localhost so does not have an internet accessible endpoint. Here we use [ngrok](https://ngrok.com/) to expose our localhost to internet.
+Then we need to set the Webhook URL in the service so it can know where to call when there is a new event. But there is a problem that our server is running on localhost so does not have an internet accessible endpoint. There are several tools available on the internet to expose localhost to the internet, for example, [ngrok](https://ngrok.com), [loophole](https://loophole.cloud/docs/), or [TunnelRelay](https://github.com/OfficeDev/microsoft-teams-tunnelrelay). Here we use [ngrok](https://ngrok.com/).
 
 1.  First download ngrok from https://ngrok.com/download, extract the executable to your local folder or your system bin folder.
 2.  Start ngrok
@@ -605,11 +605,11 @@ Then we need to set the Webhook URL in the service so it can know where to call 
     ngrok http 8080
     ```
 
-ngrok will print a URL (`https://<domain-name>.ngrok.io`) that can be accessed from internet.
+ngrok will print a URL (`https://<domain-name>.ngrok.io`) that can be accessed from internet. In above step we listens the `/eventhandler` path, so next we'd like the service to send events to `https://<domain-name>.ngrok.io/eventhandler`.
 
 ### Set event handler
 
-Then we update the service event handler and set the Webhook URL.
+Then we update the service event handler and set the Webhook URL to `https://<domain-name>.ngrok.io/eventhandler`. Event handlers can be set from either the portal or the CLI as [described in this article](howto-develop-eventhandler.md#configure-event-handler), here we set it through CLI.
 
 Use the Azure CLI [az webpubsub hub create](/cli/azure/webpubsub/hub#az_webpubsub_hub_update) command to create the event handler settings for the chat hub
 
