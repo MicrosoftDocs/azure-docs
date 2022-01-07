@@ -25,7 +25,11 @@
     href: overview-certificates.md
   - name: Diagnostics
     href: ../overview-diagnostics.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+<<<<<<< HEAD
   - name: Migrating to ASEv3
+=======
+  - name: Migrate to ASEv3
+>>>>>>> 40daa9c5a1c4c9e8f37bf07110c81e2ca7dd1d6f
     href: migrate.md
 - name: How-To guides
   items:
