@@ -67,9 +67,9 @@ Application Insights helps development teams understand app performance and usag
 - Custom events and metrics in client or server code that track business events, like items sold
 
 <a name="where-do-i-see-my-telemetry"></a>
-## Where to see Application Insights telemetry
+## Where to see Application Insights data
 
-There are many ways to explore Application Insights data. For more information, see the following articles:
+There are many ways to explore Application Insights telemetry. For more information, see the following articles:
 
 - [Smart detection in Application Insights](./proactive-diagnostics.md)
 
