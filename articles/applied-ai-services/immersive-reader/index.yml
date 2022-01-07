@@ -64,7 +64,7 @@ landingContent:
             url: how-to/display-math.md
           - text: Configure Read Aloud
             url: how-to-configure-read-aloud.md
-          - text: Configure translation
+          - text: Configure Translation
             url: how-to-configure-translation.md          
           - text: Use multiple Immersive Reader resources
             url: how-to-multiple-resources.md
