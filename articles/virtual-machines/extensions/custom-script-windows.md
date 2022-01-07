@@ -1,6 +1,6 @@
 ---
 title: Azure Custom Script Extension for Windows 
-description: Automate Windows VM configuration tasks by using the Custom Script extension
+description: Automate Windows VM configuration tasks by using the Custom Script Extension.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
@@ -22,7 +22,7 @@ This document details how to use the Custom Script Extension using the Azure Pow
 > [!NOTE]  
 > Do not use Custom Script Extension to run Update-AzVM with the same VM as its parameter, since it will wait on itself.  
 
-### Operating System
+### Operating system
 
 The Custom Script Extension for Windows will run on the extension supported extension OSs;
 
@@ -37,11 +37,11 @@ The Custom Script Extension for Windows will run on the extension supported exte
 * Windows Server 2019
 * Windows Server 2019 Core
 
-### Script Location
+### Script location
 
 You can configure the extension to use your Azure Blob storage credentials to access Azure Blob storage. The script location can be anywhere, as long as the VM can route to that end point, such as GitHub or an internal file server.
 
-### Internet Connectivity
+### Internet connectivity
 
 If you need to download a script externally such as from GitHub or Azure Storage, then additional firewall and Network Security Group ports need to be opened. For example, if your script is located in Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](../../virtual-network/network-security-groups-overview.md#service-tags).
 
@@ -49,7 +49,7 @@ Note that CustomScript Extension does not have any way to bypass certificate val
 
 If your script is on a local server, then you may still need additional firewall and Network Security Group ports need to be opened.
 
-### Tips and Tricks
+### Tips and tricks
 
 * The highest failure rate for this extension is because of syntax errors in the script, test the script runs without error, and also put in additional logging into the script to make it easier to find where it failed.
 * Write scripts that are idempotent. This ensures that if they run again accidentally, it will not cause system changes.
@@ -135,7 +135,7 @@ These items should be treated as sensitive data and specified in the extensions 
 >[!NOTE]
 >These property names are case-sensitive. To avoid deployment problems, use the names as shown here.
 
-#### Property value details
+### Property value details
 
 * `commandToExecute`: (**required**, string)  the entry point script to execute. Use this field instead if your command contains secrets such as passwords, or your fileUris are sensitive.
 * `fileUris`: (optional, string array) the URLs for file(s) to be downloaded. If URLs are sensitive (such as URLs containing keys), this field should be specified in protectedSettings
@@ -156,7 +156,7 @@ Using public settings maybe useful for debugging, but it's recommended that you 
 
 Public settings are sent in clear text to the VM where the script will be executed.  Protected settings are encrypted using a key known only to the Azure and the VM. The settings are saved to the VM as they were sent, that is, if the settings were encrypted they're saved encrypted on the VM. The certificate used to decrypt the encrypted values is stored on the VM, and used to decrypt settings (if necessary) at runtime.
 
-####  Property: managedIdentity
+#### Property: managedIdentity
 > [!NOTE]
 > This property **must** be specified in protected settings only.
 
@@ -265,7 +265,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 
 ```
 
-### How to run custom script more than once with CLI
+### Running a custom script more than once with CLI
 
 The custom script extension handler will prevent re-executing a script if the *exact* same settings have been passed. This is to prevent accidental re-execution which might cause unexpected behaviors in case the script is not idempotent. You can confirm if the handler has blocked the re-execution by looking at the C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension\<HandlerVersion>\CustomScriptHandler.log, and search for a warning like below:
 
@@ -326,9 +326,7 @@ Set-AzureVMCustomScriptExtension -VM $vm -FileUri $fileUri -Run 'Create-File.ps1
 $vm | Update-AzureVM
 ```
 
-## Troubleshoot and support
-
-### Troubleshoot
+## Troubleshooting
 
 Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure PowerShell module. To see the deployment state of extensions for a given VM, run the following command:
 
@@ -360,7 +358,7 @@ Since the absolute download path may vary over time, it's better to opt for rela
 
 Path information after the first URI segment is kept for files downloaded via the `fileUris` property list.  As shown in the table below, downloaded files are mapped into download subdirectories to reflect the structure of the `fileUris` values.  
 
-#### Examples of Downloaded Files
+## Examples of downloaded files
 
 | URI in fileUris | Relative downloaded location | Absolute downloaded location <sup>1</sup> |
 | ---- | ------- |:--- |
@@ -369,6 +367,6 @@ Path information after the first URI segment is kept for files downloaded via th
 
 <sup>1</sup> The absolute directory paths change over the lifetime of the VM, but not within a single execution of the CustomScript extension.
 
-### Support
+## Support
 
 If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). You can also file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
