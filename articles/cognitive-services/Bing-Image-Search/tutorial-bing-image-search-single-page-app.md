@@ -16,7 +16,7 @@ ms.custom: devx-track-js
 
 # Tutorial: Create a single-page app using the Bing Image Search API
 
-[!INCLUDE [Bing move notice](includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
 
 The Bing Image Search API enables you to search the web for high-quality, relevant images. Use this tutorial to build a single-page web application that can send search queries to the API, and display the results within the webpage. This tutorial is similar to the [corresponding tutorial](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) for Bing Web Search.
 
