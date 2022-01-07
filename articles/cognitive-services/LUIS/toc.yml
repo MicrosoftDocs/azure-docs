@@ -37,10 +37,8 @@ items:
     href: /legal/cognitive-services/luis/data-privacy-security?context=/azure/cognitive-services/LUIS/context/context
 - name: How-to guides
   items:
-  - name: Sign in to LUIS portal
-    href: sign-in-luis-portal.md
-  - name: Start a new app
-    href: luis-how-to-start-new-app.md
+  - name: Sign in to the LUIS portal and create an app
+    href: how-to/sign-in.md
     displayName: import, export, container
   - name: Use intents
     href: how-to/intents.md
@@ -49,13 +47,13 @@ items:
     href: how-to/entities.md
   - name: Label utterances
     href: how-to/label-utterances.md
+  - name: Improve a LUIS app
+    href: how-to/improve-application.md
+    displayName: active learning
   - name: Build model
     items:
     - name: Use prebuilt models
       href: howto-add-prebuilt-models.md
-    - name: Add features
-      displayName: synonym, interchange, phrase list, descriptor, feature
-      href: luis-how-to-add-features.md
     - name: Get intent using the REST API
       href: luis-get-started-get-intent-from-rest.md
     - name: Change the model using the REST API
@@ -73,9 +71,6 @@ items:
     - name: Using the dashboard
       displayName: dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage
       href: luis-how-to-use-dashboard.md
-    - name: Review endpoint utterances
-      displayName: active learning
-      href: luis-how-to-review-endpoint-utterances.md
     - name: Add Patterns
       displayName: syntax, template, roles
       href: luis-how-to-model-intent-pattern.md
@@ -155,6 +150,9 @@ items:
     href: concepts/intents.md
   - name: Utterances
     href: concepts/utterances.md
+  - name: Patterns and features
+    href: concepts/patterns-features.md
+    displayName: descriptor, phrase list, feature, synonym, interchange, phrase list, descriptor, feature
   - name: Publish
     href: how-to/publish.md
   - name: App models
@@ -163,20 +161,10 @@ items:
       href: luis-concept-model.md
     - name: Prebuilt models
       href: luis-concept-prebuilt-model.md
-    - name: Patterns
-      href: luis-concept-patterns.md
-      displayName: roles
-    - name: Features
-      href: luis-concept-feature.md
-      displayName: descriptor, phrase list, feature
     - name: Extend app at runtime
       href: schema-change-prediction-runtime.md
   - name: Prediction score
     href: luis-concept-prediction-score.md
-  - name: Improve app performance
-    items:
-    - name: Review endpoint utterances
-      href: luis-concept-review-endpoint-utterances.md
   - name: Data management
     items:
     - name: Data collection
@@ -199,9 +187,6 @@ items:
   - name: Using LUIS and QnA Maker
     href: choose-natural-language-processing-service.md
     displayName: nlp, qna maker
-  - name: Enterprise design strategies
-    href: luis-concept-enterprise.md
-    displayName: import
   - name: Applying DevOps practices with LUIS
     items:
     - name: Continuous Integration and Continuous Delivery (CI/CD) workflows
@@ -219,12 +204,6 @@ items:
     - name: 2. Extract user data
       href: tutorial-machine-learned-entity.md
       displayName: n-depth, constraint, descriptor, phrase list, entity, feature
-  - name: Improve app
-    items:
-    - name: Fix unsure predictions
-      href: luis-tutorial-review-endpoint-utterances.md
-    - name: Add patterns to improve predictions
-      href: luis-tutorial-pattern.md
   - name: Use with Bot Framework 
     items:
     - name: Bot Framework Composer

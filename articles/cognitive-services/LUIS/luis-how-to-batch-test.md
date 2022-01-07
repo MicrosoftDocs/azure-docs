@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/18/2021
+ms.date: 01/07/2022
 
 ---
 
@@ -36,7 +36,7 @@ If you run into errors uploading your batch file to LUIS, check for the followin
 
 ## Fixing batch errors
 
-If there are errors in the batch testing, you can either add more utterances to an intent, and/or label more utterances with the entity to help LUIS make the discrimination between intents. If you have added utterances, and labeled them, and still get prediction errors in batch testing, consider adding a [phrase list](luis-concept-feature.md) feature with domain-specific vocabulary to help LUIS learn faster.
+If there are errors in the batch testing, you can either add more utterances to an intent, and/or label more utterances with the entity to help LUIS make the discrimination between intents. If you have added utterances, and labeled them, and still get prediction errors in batch testing, consider adding a [phrase list](concepts/patterns-features.md) feature with domain-specific vocabulary to help LUIS learn faster.
 
 
 <a name="batch-testing"></a>

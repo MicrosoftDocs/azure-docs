@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 01/07/2022
 
 ---
 
@@ -79,7 +79,7 @@ Adding example utterances should be done by someone who:
 
 ### Patterns and phrase lists
 
-The analytics page doesn’t indicate when to use [patterns](luis-concept-patterns.md) or [phrase lists](luis-concept-feature.md). If you do add them, it can help with incorrect or unclear predictions but won’t help with data imbalance.
+The analytics page doesn’t indicate when to use [patterns](luis-concept-patterns.md) or [phrase lists](concepts/patterns-features.md). If you do add them, it can help with incorrect or unclear predictions but won’t help with data imbalance.
 
 ### Review data imbalance
 
