@@ -177,7 +177,7 @@ Property value details:
 - [Sample 2](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-subscription.json): create a resource group at the subscription level, create a key vault in the resource group, and then use deployment script to assign a certificate to the key vault.
 - [Sample 3](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json): create a user-assigned managed identity, assign the contributor role to the identity at the resource group level, create a key vault, and then use deployment script to assign a certificate to the key vault.
 - [Sample 4](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-lock-sub.json): it is the same scenario as Sample 1 in this list. A new resource group is created to run the deployment script. This template is a subscription level template.
-- [Sample 5](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-lock-sub.json): it is the same scenario as Sample 1 in this list. A new resource group is created to run the deployment script. This template is a resource group level template.
+- [Sample 5](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-lock-sub.json): it is the same scenario as Sample 4. This template is a resource group level template.
 
 ## Use inline scripts
 
