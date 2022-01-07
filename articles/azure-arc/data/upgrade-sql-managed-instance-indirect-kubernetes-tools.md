@@ -87,7 +87,7 @@ Status:
   Observed Generation:   2
   Primary Endpoint:      30.76.129.38,1433
   Ready Replicas:        1/1
-  Running Version:       20211024.1
+  Running Version:       <version-tag>
   State:                 Ready
 ```
 
