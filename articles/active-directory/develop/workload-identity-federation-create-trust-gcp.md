@@ -70,6 +70,7 @@ Now that you have configured the Azure AD application to trust the Google servic
 
 As mentioned earlier, Google cloud resources such as App Engine automatically use the default service account of your Cloud project. You can also configure the app to use a different service account when you deploy your service. Your service can [request an ID token](https://cloud.google.com/compute/docs/instances/verifying-instance-identity#request_signature) for that service account from the metadata server that handles such requests. With this approach, you don't need any keys for your service account: these are all managed by Google.
 
+# [TypeScript](#tab/typescript)
 Here’s an example in TypeScript of how to request an ID token from the Google metadata server:
 
 ```typescript
@@ -91,6 +92,30 @@ async function getGoogleIDToken() {
 }
 ```
 
+# [C#](#tab/csharp)
+Here’s an example in TypeScript of how to request an ID token from the Google metadata server:
+```csharp
+private string getGoogleIdToken()
+{
+    const string endpoint = "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/identity?audience=api://AzureADTokenExchange";
+                
+    var httpWebRequest = (HttpWebRequest)WebRequest.Create(endpoint);
+    //httpWebRequest.ContentType = "application/json";
+    httpWebRequest.Accept = "*/*";
+    httpWebRequest.Method = "GET";
+    httpWebRequest.Headers.Add("Metadata-Flavor", "Google ");
+
+    var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+
+    using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+    {
+        string result = streamReader.ReadToEnd();
+        return result;
+    }
+}
+```
+---
+
 > [!IMPORTANT]
 > The *audience* here needs to match the *audiences* value you configured on your Azure AD application when [creating the federated identity credential](#configure-an-azure-ad-app-to-trust-a-google-cloud-identity).
 
@@ -105,6 +130,7 @@ Now that you have an identity token from Google, you can exchange it for an acce
 
 Using MSAL, you write a token class (implementing the `TokenCredential` interface) exchange the ID token.  The token class is used to with different client libraries to access Azure AD protected resources.
 
+# [TypeScript](#tab/typescript)
 The following TypeScript sample code snippet implements the `TokenCredential` interface, gets an ID token from Google (using the `getGoogleIDToken` method previously defined), and exchanges the ID token for an access token.
 
 ```typescript
@@ -160,9 +186,79 @@ class ClientAssertionCredential implements TokenCredential {
 export default ClientAssertionCredential;
 ```
 
+# [C#](#tab/csharp)
+
+The following C# sample code snippet implements the `TokenCredential` interface, gets an ID token from Google (using the `getGoogleIDToken` method previously defined), and exchanges the ID token for an access token.
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using Microsoft.Identity.Client;
+using Azure.Core;
+using System.Threading;
+using System.Net;
+using System.IO;
+
+public class ClientAssertionCredential:TokenCredential
+{
+    private readonly string clientID;
+    private readonly string tenantID;
+    private readonly string aadAuthority;
+                
+    public ClientAssertionCredential(string clientID, string tenantID, string aadAuthority)
+    {
+        this.clientID = clientID;
+        this.tenantID = tenantID;
+        this.aadAuthority = aadAuthority;  // https://login.microsoftonline.com/
+        this._logger = _logger;
+        
+    }
+
+    public override AccessToken GetToken(TokenRequestContext requestContext, CancellationToken cancellationToken = default) {
+
+        return GetTokenImplAsync(false, requestContext, cancellationToken).GetAwaiter().GetResult();
+    }
+
+    public override async ValueTask<AccessToken> GetTokenAsync(TokenRequestContext requestContext, CancellationToken cancellationToken = default)
+    {
+        return await GetTokenImplAsync(true, requestContext, cancellationToken).ConfigureAwait(false);
+    }
+
+    private async ValueTask<AccessToken> GetTokenImplAsync(bool async, TokenRequestContext requestContext, CancellationToken cancellationToken)
+    {
+        // calling this directly just for clarity, this should be a callback
+        string idToken = getGoogleIdToken();
+        
+        try
+        {
+            // pass token as a client assertion to the confidential client app
+            var app = ConfidentialClientApplicationBuilder.Create(this.clientID)
+                                            .WithClientAssertion(idToken)
+                                            .Build();
+
+            var authResult = app.AcquireTokenForClient(requestContext.Scopes)
+                .WithAuthority(this.aadAuthority + this.tenantID)
+                .ExecuteAsync();                
+
+            AccessToken token = new AccessToken(authResult.Result.AccessToken, authResult.Result.ExpiresOn);
+            
+            return token;
+        }
+        catch (Exception ex)
+        {
+            throw (ex);
+        }        
+    }    
+}
+```
+
+---
+
 ## Access Azure AD protected resources
 
 As an example, here's how you can access Azure Blob storage using the `ClientAssertionCredential` token class and the Azure Blob Storage client library. When you make requests to the `BlobServiceClient` to access storage, the `BlobServiceClient` calls the `getToken` method on the `ClientAssertionCredential` object to get a fresh ID token and exchange it for an access token.  
+
+# [TypeScript](#tab/typescript)
 
 The following TypeScript example initializes a new `ClientAssertionCredential` object and then creates a new `BlobServiceClient` object.
 
@@ -182,4 +278,26 @@ const blobServiceClient  = new BlobServiceClient(storageUrl, credential);
 // write code to access Blob storage
 ```
 
+# [C#](#tab/csharp)
+
+```csharp
+string clientID = "<client-id>";
+string tenantID = "<tenant-id>";
+string authority = "https://login.microsoftonline.com/";
+string storageUrl = "https://<storageaccount>.blob.core.windows.net";
+
+var credential = new ClientAssertionCredential(clientID,
+                            tenantID,
+                            authority,
+                            _logger);
+
+BlobServiceClient blobServiceClient = new BlobServiceClient(new Uri(storageUrl), credential);
+
+// write code to access Blob storage
+```
+
+---
+
 ## Next steps
+
+Learn more about [workload identity federation](workload-identity-federation.md).
