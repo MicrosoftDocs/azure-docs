@@ -6,7 +6,7 @@ ms.topic: article
 ms.date: 12/15/2021
 ---
 
-# Use dual-stack kubenet networking in Azure Kubernetes Service (AKS) (PREVIEW)
+# Use dual-stack kubenet networking in Azure Kubernetes Service (AKS) (Preview)
 
 AKS clusters can now be deployed in a dual-stack (using both IPv4 and IPv6 addresses) mode when using [kubenet][kubenet] networking and a dual-stack Azure virtual network. In this configuration, nodes receive both an IPv4 and IPv6 address from the Azure virtual network subnet. Pods receive both an IPv4 and IPv6 address from a logically different address space to the Azure virtual network subnet of the nodes. Network address translation (NAT) is then configured so that the pods can reach resources on the Azure virtual network. The source IP address of the traffic is NAT'd to the node's primary IP address of the same family (IPv4 to IPv4 and IPv6 to IPv6).
 
@@ -15,7 +15,8 @@ This article shows you how to use dual-stack networking with an AKS cluster. For
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Limitations
-
+> [!NOTE]
+> Dual-stack kubenet networking is currently not available in sovereign clouds. This note will be removed when rollout is complete.
 * Azure Route Tables have a hard limit of 400 routes per table. Because each node in a dual-stack cluster requires two routes, one for each IP address family, dual-stack clusters are limited to 200 nodes.
 * During preview, service objects are only supported with `externalTrafficPolicy: Local`.
 * Dual-stack networking is required for the Azure Virtual Network and the pod CIDR - single stack IPv6-only isn't supported for node or pod IP addresses. Services can be provisioned on IPv4 or IPv6.
@@ -127,7 +128,7 @@ az aks get-credentials -g <ResourceGroupName> -n <ClusterName> -a
 
 ### Inspect the nodes to see both IP families
 
-Once the cluster is provisioned, check the nodes are provisioned with dual-stack networking:
+Once the cluster is provisioned, confirm that the nodes are provisioned with dual-stack networking:
 
 ```bash-interactive
 kubectl get nodes -o=custom-columns="NAME:.metadata.name,ADDRESSES:.status.addresses[?(@.type=='InternalIP')].address,PODCIDRS:.spec.podCIDRs[*]"
@@ -227,7 +228,6 @@ curl -s "http://[${SERVICE_IP}]" | head -n5
 <style>
 ```
 
-## Next steps
 
 <!-- LINKS - External -->
 [kubernetes-dual-stack]: https://kubernetes.io/docs/concepts/services-networking/dual-stack/
