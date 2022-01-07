@@ -27,10 +27,7 @@ Do the following steps in the Azure portal to order a device:
     |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
     |Resource group | Select an existing resource group. A resource group is a logical container for the resources that can be managed or deployed together. |
     |Source country/region    |    Select the country/region where your data currently resides.         |
-    |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, see [region availability for Data Box](../articles/databox/data-box-overview.md#region-availability) or [region availability for Data Box Heavy](../articles/databox/data-box-heavy-overview.md#region-availability).  |
-
-    > [!NOTE]
-    > If the selected source and destination regions cross international country borders, Data Box and Data Box Heavy won't be available.<!--Neither will Data Box Disk, but these steps only apply to Data Box and Data Box Heavy.-->
+    |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, see [region availability for Data Box](../articles/databox/data-box-overview.md#region-availability) or [region availability for Data Box Heavy](../articles/databox/data-box-heavy-overview.md#region-availability).<br>If the selected source and destination regions cross international country borders, Data Box and Data Box Heavy won't be available. |
 
     [ ![Starting an Azure Data Box import order](media/data-box-order-portal/data-box-import-03.png) ](media/data-box-order-portal/data-box-import-03.png#lightbox)
 
@@ -72,17 +69,20 @@ Do the following steps in the Azure portal to order a device:
 
       - If you select Azure Premium FileStorage accounts, the provisioned quota on the storage account share will increase to the size of data being copied to the file shares. After the quota is increased, it isn't adjusted again, for example, if for some reason the Data Box can't copy your data.
 
-      This quota is used for billing. After your data is uploaded to the datacenter, you should adjust the quota to meet your needs. For more information, see [Understanding billing](../articles/storage/files/understanding-billing.md).
+        This quota is used for billing. After your data is uploaded to the datacenter, you should adjust the quota to meet your needs. For more information, see [Understanding billing](../articles/storage/files/understanding-billing.md).
 
       - If you're using a General Purpose v1 or General Purpose v2 storage account, you can enable large file shares to allow data copies of up to 100 TiB per share. If large file shares aren't enabled, a data copy at Azure will fail once the 5 TB standard share limit is reached.
     
-        To enable large file shares on your storage accounts: Select **Enable**. Then, on the **Enable large file shares** screen:
+        To enable large file shares on your storage accounts: 
 
-        1. Select the **Enabled** button for each storage account that you want to enable large file shares enabled on.
-        1. Select the checkbox indicating that you agree to enable large file shares on the selected storage accounts. The storage account upgrade can't be reversed after you place your order.
-        1. Select **Apply**.
+        1. Select **Enable**. 
+        1. Then, on the **Enable large file shares** screen:
 
-        ![Screenshot of the Enable Large File Shares screen for a Data Box order using storage accounts. The Enabled button, terms checkbox, and Apply button are highlighted.](media/data-box-order-portal/data-box-import-07.png)
+           1. Select the **Enabled** button for each storage account that you want to enable large file shares enabled on.
+           1. Select the checkbox indicating that you agree to enable large file shares on the selected storage accounts. The storage account upgrade can't be reversed after you place your order.
+           1. Select **Apply**.
+
+           ![Screenshot of the Enable Large File Shares screen for a Data Box order using storage accounts. The Enabled button, terms checkbox, and Apply button are highlighted.](media/data-box-order-portal/data-box-import-07.png)
 
     > [!NOTE]
     > Storage accounts with virtual networks are supported. To allow the Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings. For more information, see how to [Add Azure Data Box as a trusted service](../articles/storage/common/storage-network-security.md#exceptions).
