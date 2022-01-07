@@ -163,6 +163,9 @@ In this section, you create a function triggered by messages in an Azure Storage
 
 Starting with version 3 of the WebJobs SDK, to connect to Azure Storage services you must install a separate Storage binding extension package. 
 
+>[!NOTE]
+> Beginning with 5.x, Microsoft.Azure.WebJobs.Extensions.Storage has been [split by storage service](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage/CHANGELOG.md#major-changes-and-features) and has migrated the `AddAzureStorage()` extension method by service type.
+
 1. Get the latest stable version of the [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet package, version 3.x.
 
 1. In the following command, replace `<3_X_VERSION>` with the current version  number you found in step 1. Each type of NuGet Package has a unique version number. 
