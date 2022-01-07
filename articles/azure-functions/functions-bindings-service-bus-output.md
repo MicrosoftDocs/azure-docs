@@ -388,7 +388,7 @@ Messaging-specific parameter types contain additional message metadata. The spec
 
 # [Extension v5.x](#tab/extensionv5/in-process)
 
-Use the [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) type when sending messages with metadata. Parameters are defined as `return` type attributes. Use an `ICollector<T>` or `IAsyncCollector<T>` to wite multiple messages. A message is created when you call the `Add` method.
+Use the [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) type when sending messages with metadata. Parameters are defined as `return` type attributes. Use an `ICollector<T>` or `IAsyncCollector<T>` to write multiple messages. A message is created when you call the `Add` method.
 
 When the parameter value is null when the function exits, Functions doesn't create a message.
 
@@ -396,7 +396,7 @@ When the parameter value is null when the function exits, Functions doesn't crea
 
 # [Functions 2.x and higher](#tab/functionsv2/in-process)
 
-Use the [Message](/dotnet/api/microsoft.azure.servicebus.message) type when sending messages with metadata. Parameters are defined as `return` type attributes. Use an `ICollector<T>` or `IAsyncCollector<T>` to wite multiple messages. A message is created when you call the `Add` method.
+Use the [Message](/dotnet/api/microsoft.azure.servicebus.message) type when sending messages with metadata. Parameters are defined as `return` type attributes. Use an `ICollector<T>` or `IAsyncCollector<T>` to write multiple messages. A message is created when you call the `Add` method.
 
 When the parameter value is null when the function exits, Functions doesn't create a message.
 
@@ -422,19 +422,19 @@ Messaging-specific types are not yet supported.
 
 # [Extension 5.x and higher](#tab/extensionv5/csharp-script)
 
-Use the [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) type when sending messages with metadata. Parameters are defined as `out` parameters. Use an `ICollector<T>` or `IAsyncCollector<T>` to wite multiple messages. A message is created when you call the `Add` method.
+Use the [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) type when sending messages with metadata. Parameters are defined as `out` parameters. Use an `ICollector<T>` or `IAsyncCollector<T>` to write multiple messages. A message is created when you call the `Add` method.
 
 When the parameter value is null when the function exits, Functions doesn't create a message.
 
 # [Functions 2.x and higher](#tab/functionsv2/csharp-script)
 
-Use the [Message](/dotnet/api/microsoft.azure.servicebus.message) type when sending messages with metadata. Parameters are defined as `out` parameters. Use an `ICollector<T>` or `IAsyncCollector<T>` to wite multiple messages. A message is created when you call the `Add` method.
+Use the [Message](/dotnet/api/microsoft.azure.servicebus.message) type when sending messages with metadata. Parameters are defined as `out` parameters. Use an `ICollector<T>` or `IAsyncCollector<T>` to write multiple messages. A message is created when you call the `Add` method.
 
 When the parameter value is null when the function exits, Functions doesn't create a message.
 
 # [Functions 1.x](#tab/functionsv1/csharp-script)
 
-Use the [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) type when sending messages with metadata. Parameters are defined as `out` parameters. Use an `ICollector<T>` or `IAsyncCollector<T>` to wite multiple messages. A message is created when you call the `Add` method. 
+Use the [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) type when sending messages with metadata. Parameters are defined as `out` parameters. Use an `ICollector<T>` or `IAsyncCollector<T>` to write multiple messages. A message is created when you call the `Add` method. 
 
 When the parameter value is null when the function exits, Functions doesn't create a message.
 
