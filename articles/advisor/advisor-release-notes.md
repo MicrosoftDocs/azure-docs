@@ -18,7 +18,7 @@ Improvements include:
 
 1. Cross version resize recommendations are now available. In general, newer versions of SKU families are more optimized, provide more features, and have better performance/cost ratios than older versions. 
 
-3. For better actionability, we updated recommendation criteria to include additional SKU characteristics such as accelerated networking support, premium storage support, availability in a region, inclusion in an availability set, etc. 
+3. For better actionability, we updated recommendation criteria to include other SKU characteristics such as accelerated networking support, premium storage support, availability in a region, inclusion in an availability set, etc. 
 
 ![vm-right-sizing-recommendation](media/overview/advisor-vm-right-sizing.png)
 
