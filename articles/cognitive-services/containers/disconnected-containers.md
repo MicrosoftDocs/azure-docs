@@ -15,18 +15,24 @@ ms.author: aahi
 
 Containers enable you to run Cognitive Services APIs in your own environment, and are great for your specific security and data governance requirements. Disconnected containers enable you to use several of these APIs completely disconnected from the internet. Currently, the following containers can be run in this manner:
 
-* Speech to Text (Standard)
-* Text to Speech (Neural)
-* Language Understanding standard (Text Requests)
+* [Speech to Text (Standard)](../speech-service/speech-container-howto.md?tabs=stt)
+* [Text to Speech (Neural)](../speech-service/speech-container-howto.md?tabs=ntts)
+* [Language Understanding standard (Text Requests)](../luis/luis-container-howto.md)
 * Azure Cognitive Service for Language
-    * Sentiment Analysis
-    * Key Phrase Extraction
-    * Language Detection
-* Computer Vision - Read
+    * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md)
+    * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md)
+    * [Language Detection](../language-service/language-detection/how-to/use-containers.md)
+* [Computer Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md)
 
 Disconnected container usage is also available for the following Applied AI service:
-* Form Recognizer – Custom/Invoice
+* [Form Recognizer – Custom/Invoice](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md)
 
+>[!IMPORTANT]
+> Before attempting to run a Docker container in an offline environment, make sure you know the steps to successfully download and use the container. For example:
+> * Host computer requirements and recommendations.
+> * The Docker `pull` command you will use to download the container.
+> * How to validate that a container is running.
+> * How to send queries to the container's endpoint, once it's running.
 
 ## Request access to use containers in disconnected environments
 
@@ -46,25 +52,6 @@ Fill out and submit the [request form](https://aka.ms/csdisconnectedcontainers) 
     :::image type="content" source="media/offline-container-signup.png" alt-text="A screenshot showing resource creation on the Azure portal." lightbox="media/offline-container-signup.png":::
 
 3. Select **Review + Create** at the bottom of the page. Review the information, and select **Create**. 
-
-## Familiarize yourself with the Docker container you want to run
-
-Before running a Docker container in a disconnected environment, make sure you know the steps to successfully download and use the container. For example:
-* The host computer requirements and recommendations.
-* The Docker `pull` command you will use to download the container.
-* Validate that a container is running.
-* Send queries to the container's endpoint, once it's running.
-
-See the following articles for more information
-* [Speech to Text container (Standard)](../speech-service/speech-container-howto.md?tabs=stt)
-* [Text to Speech container (Neural)](../speech-service/speech-container-howto.md?tabs=ntts)
-* [Language Understanding standard container (Text Requests)](../luis/luis-container-howto.md)
-* Azure Cognitive Service for Language
-    * [Sentiment Analysis container](../language-service/sentiment-opinion-mining/how-to/use-containers.md)
-    * [Key Phrase Extraction container](../language-service/key-phrase-extraction/how-to/use-containers.md)
-    * [Language Detection container](../language-service/language-detection/how-to/use-containers.md)
-* [Computer Vision - Read container](../computer-vision/computer-vision-how-to-install-containers.md)
-* [Form Recognizer – Custom/Invoice container](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md)
 
 ## Download a Docker container with `docker pull`
 
