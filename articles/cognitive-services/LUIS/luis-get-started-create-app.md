@@ -44,7 +44,7 @@ Select **Done**.
 
 ## Add prebuilt domain
 
-LUIS offers a set of prebuilt domains that can help you get started with your application. A prebuilt domain app is already populated with [intents](./luis-concept-intent.md), [entities](concepts/entities.md) and [utterances](./luis-concept-utterance.md).
+LUIS offers a set of prebuilt domains that can help you get started with your application. A prebuilt domain app is already populated with [intents](./luis-concept-intent.md), [entities](concepts/entities.md) and [utterances](concepts/utterances.md).
 
 1. In the left navigation, select **Prebuilt domains**.
 2. Search for **HomeAutomation**.

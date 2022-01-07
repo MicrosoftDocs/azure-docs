@@ -53,15 +53,15 @@ such as the Kubernetes dashboard, oc, or helm if you are familiar with those too
 Pull the list of available images for the data controller with the following command:
 
 ```azurecli
-az arcdata dc list-upgrades --k8s-namespace <namespace> –-use-k8s
+az arcdata dc list-upgrades --k8s-namespace <namespace>
  ```
 
 The command above returns output like the following example:
 
 ```output
-Found 2 valid versions.  The current datacontroller version is v1.0.0_2021-07-30.
-v1.1.0_2021-11-02
-v1.0.0_2021-07-30
+Found 2 valid versions.  The current datacontroller version is <current-version>.
+<available-version>
+...
 ```
 
 ## Create or download .yaml file

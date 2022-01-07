@@ -51,7 +51,7 @@ Azure Digital Twins implements **at least once** delivery for data emitted to eg
 ## Next steps
 
 Learn more about endpoints and routing events to external services:
-* [Routing Azure Digital Twins events](concepts-route-events.md)
+* [Endpoints and event routes](concepts-route-events.md)
 
 See how to set up Azure Digital Twins to ingest data from IoT Hub:
 * [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)
