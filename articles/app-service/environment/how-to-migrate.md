@@ -3,7 +3,7 @@ title: How to migrate App Service Environment v2 to App Service Environment v3
 description: Learn how to migrate your App Service Environment v2 to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 12/20/2021
+ms.date: 1/17/2022
 ms.author: jordanselig
 ---
 # How to migrate App Service Environment v2 to App Service Environment v3
@@ -16,7 +16,7 @@ An App Service Environment (ASE) v2 can be migrated to an [App Service Environme
 
 ## Prerequisites
 
-Ensure you understand how migrating to an ASEv3 will affect your applications. Review the [migration process](migrate.md#overview-of-the-migration-process) to understand the process timeline and where and when you'll need to get involved. Also review the [FAQs](migrate.md#frequently-asked-questions), which may answer some questions you currently have.
+Ensure you understand how migrating to an App Service Environment v3 will affect your applications. Review the [migration process](migrate.md#overview-of-the-migration-process) to understand the process timeline and where and when you'll need to get involved. Also review the [FAQs](migrate.md#frequently-asked-questions), which may answer some questions you currently have.
 
 For the initial preview of the migration tool, you should follow the below steps in order and as written since you'll be making Azure REST API calls. The recommended way for making these calls is by using the [Azure CLI](https://docs.microsoft.com/cli/azure/). For information about other methods, see [Getting Started with Azure REST](https://docs.microsoft.com/rest/api/azure/).
 
@@ -24,7 +24,7 @@ For this guide, [install the Azure CLI](https://docs.microsoft.com/cli/azure/ins
 
 ## 1. Get your App Service Environment ID
 
-Run these commands to get your ASE ID and store it as an environment variable. Replace the placeholders for name and resource group with your values for the ASE you want to migrate.
+Run these commands to get your App Service Environment ID and store it as an environment variable. Replace the placeholders for name and resource group with your values for the App Service Environment you want to migrate.
 
 ```azurecli
 ASE_NAME=<Your-App-Service-Environment-name>
@@ -34,7 +34,7 @@ ASE_ID=$(az appservice ase show --name $ASE_NAME --resource-group $ASE_RG --quer
 
 ## 2. Delegate your App Service Environment subnet
 
-ASEv3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. Previous versions didn't require this delegation. You'll need to confirm your subnet is delegated properly and update the delegation if needed before migrating. You can update the delegation either by running the following command or by navigating to the subnet in the [Azure portal](https://portal.azure.com).
+App Service Environment v3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. Previous versions didn't require this delegation. You'll need to confirm your subnet is delegated properly and update the delegation if needed before migrating. You can update the delegation either by running the following command or by navigating to the subnet in the [Azure portal](https://portal.azure.com).
 
 ```azurecli
 az network vnet subnet update -g $ASE_RG -n <subnet-name> --vnet-name <vnet-name> --delegations Microsoft.Web/hostingEnvironments
@@ -44,7 +44,7 @@ az network vnet subnet update -g $ASE_RG -n <subnet-name> --vnet-name <vnet-name
 
 ## 3. Validate migration is supported
 
-The following command will check whether your ASE is supported for migration. If you receive an error, you can't migrate at this time. For an estimate of when you can migrate, see the [timeline](migrate.md#preview-limitations). If your environment [won't be supported for migration](migrate.md#migration-tool-limitations) or you want to migrate to ASEv3 manually, see [migration alternatives](migration-alternatives.md).
+The following command will check whether your App Service Environment is supported for migration. If you receive an error, you can't migrate at this time. For an estimate of when you can migrate, see the [timeline](migrate.md#preview-limitations). If your environment [won't be supported for migration](migrate.md#migration-tool-limitations) or you want to migrate to ASEv3 manually, see [migration alternatives](migration-alternatives.md).
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=validation"
@@ -54,7 +54,7 @@ If there are no errors, your migration is supported and you can continue to the 
 
 ## 4. Generate IP addresses for your new App Service Environment v3
 
-Run the following command to create the new IPs. This step will take about 5 minutes to complete. Don't scale or make changes to your existing ASE during this time. The `--debug` flag is included because the response will include the `Location` where you will be able to find the new IPs once they are generated.
+Run the following command to create the new IPs. This step will take about 5 minutes to complete. Don't scale or make changes to your existing App Service Environment during this time. The `--debug` flag is included because the response will include the `Location` where you will be able to find the new IPs once they are generated.
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=premigration" --verbose
@@ -78,7 +78,7 @@ Don't move on to full migration immediately after completing the previous step. 
 
 ## 6. Full migration
 
-Only start this step once you've completed all pre-migration actions listed above and understand the [implications of full migration](migrate.md#full-migration) including what will happen during this time. There will be about one hour of downtime. Don't scale or make changes to your existing ASE during this step.
+Only start this step once you've completed all pre-migration actions listed above and understand the [implications of full migration](migrate.md#full-migration) including what will happen during this time. There will be about one hour of downtime. Don't scale or make changes to your existing App Service Environment during this step.
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=fullmigration" --verbose
@@ -90,7 +90,7 @@ Run the following command to check the status of your migration. The status will
 az rest --method get --uri "${ASE_ID}?api-version=2018-11-01" --query properties.status
 ```
 
-Once you get a status of "Ready", migration is done and you have an ASEv3.
+Once you get a status of "Ready", migration is done and you have an App Service Environment v3.
 
 Get the details of your new environment by running the following command or by navigating to the [Azure portal](https://portal.azure.com).
 
