@@ -150,7 +150,6 @@ One Azure resource is defined in the template:
     * **End Date**: enter the end date for the budget in YYYY-MM-DD format. 
     * **First Threshold**: enter a threshold value for the first notification. A notification is sent when the cost exceeds the threshold. It's always percent and has to be between 0.01 and 1000.
     * **Second Threshold**: enter a threshold value for the second notification. A notification is sent when the cost exceeds the threshold. It's always percent and has to be between 0.01 and 1000.
-    * **Contact Roles** enter the list of contact roles to send the budget notification to when the threshold is exceeded. Default values are Owner, Contributor, and Reader. Expected format is `["Owner","Contributor","Reader"]`.
     * **Contact Emails** enter a list of email addresses to send the budget notification to when a threshold is exceeded. It accepts an array of strings. Expected format is `["user1@domain.com","user2@domain.com"]`.
     * **Resource Group Filter Values** enter a list of resource group names to filter. It accepts an array of strings. Expected format is `["Resource Group Name1","Resource Group Name2"]`. The array can't be empty. 
    
