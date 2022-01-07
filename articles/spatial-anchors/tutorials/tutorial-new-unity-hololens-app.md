@@ -89,7 +89,9 @@ We'll now set some Unity project settings that help us target the Windows Hologr
 ## Trying it out
 You should now have an empty scene that is ready to be deployed to your HoloLens device. To test out that everything is working, build your app in **Unity** and deploy it from **Visual Studio**. Follow [**Using Visual Studio to deploy and debug**](https://docs.microsoft.com/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2) to do so. You should see the Unity start screen, and then a clear display.
 
+<!-- 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
+TODO : uncomment this-->
 
 ## Creating & Adding Scripts
 
@@ -107,6 +109,7 @@ You should now have an empty scene that is ready to be deployed to your HoloLens
 
 ## App Overview
 Our app will support the following interactions:
+
 Gesture | Action
 ------|------- 
 Tap anywhere | Start/Continue Session + Create anchor at Hand Position
