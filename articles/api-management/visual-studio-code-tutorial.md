@@ -57,7 +57,7 @@ To edit the OpenAPI format, right-click the API name in the Explorer pane and se
 
 ## Apply policies to the API
 
-API Management provides [policies](api-management-policies.md) that you can configure for your APIs. Policies are a collection of statements. These statements are run sequentially on the request or response of an API. Policies can be global, which apply to all APIs in your API Management instance, or specific to an API or API operation.
+API Management provides [policies](api-management-policies.md) that you can configure for your APIs. Policies are a collection of statements. These statements are run sequentially on the request or response of an API. Policies can be global, which apply to all APIs in your API Management instance, or specific to a product, an API, or an API operation.
 
 This section shows how to apply common outbound policies to your API that transform the API response. The policies in this example change response headers and hide original backend URLs that appear in the response body.
 
