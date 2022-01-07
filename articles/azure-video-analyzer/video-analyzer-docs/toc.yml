@@ -129,7 +129,7 @@
       href: edge/deploy-on-stack-edge.md
   - name: Viewing
     items:     
-    - name: Viewing videos
+    - name: Recorded and live videos
       href: viewing-videos-how-to.md
     - name: Create access policies for playback
       href: access-policies.md      
