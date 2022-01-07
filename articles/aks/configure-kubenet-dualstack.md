@@ -79,30 +79,30 @@ AKS configures the required supporting services for dual-stack networking. This 
 ## Deploying a dual-stack cluster
 
 Three new attributes are provided to support dual-stack clusters:
-* `-ip-families` - takes a comma-separated list of IP families to enable on the cluster. 
+* `--ip-families` - takes a comma-separated list of IP families to enable on the cluster. 
   * Currently only `ipv4` or `ipv4,ipv6` are supported.
-* `-pod-cidrs` - takes a comma-separated list of CIDR notation IP ranges to assign pod IPs from.
-  * The count and order of ranges in this list must match the value provided to `-ip-families`.
+* `--pod-cidrs` - takes a comma-separated list of CIDR notation IP ranges to assign pod IPs from.
+  * The count and order of ranges in this list must match the value provided to `--ip-families`.
   * If no values are supplied, the default values of `10.244.0.0/16,fd12:3456:789a::/64` will be used.
-* `-service-cidrs` - takes a comma-separated list of CIDR notation IP ranges to assign service IPs from.
-  * The count and order of ranges in this list must match the value provided to `-ip-families`.
+* `--service-cidrs` - takes a comma-separated list of CIDR notation IP ranges to assign service IPs from.
+  * The count and order of ranges in this list must match the value provided to `--ip-families`.
   * If no values are supplied, the default values of `10.0.0.0/16,fd12:3456:789a:1::/108` will be used.
-  * The IPv6 subnet assigned to `-service-cidrs` can be no larger than a /108.
+  * The IPv6 subnet assigned to `--service-cidrs` can be no larger than a /108.
 
 ### Deploy the cluster
 
 # [Azure CLI](#tab/azure-cli)
 
-Deploying a dual-stack cluster requires passing the `-ip-families` parameter with the parameter value of `ipv4,ipv6` to indicate that a dual-stack cluster should be created.
+Deploying a dual-stack cluster requires passing the `--ip-families` parameter with the parameter value of `ipv4,ipv6` to indicate that a dual-stack cluster should be created.
 
 1. First, create a resource group to create the cluster in:
     ```azurecli-interactive
-    az group create -l westus2 -n <ResourceGroupName>
+    az group create -l <Region> -n <ResourceGroupName>
     ```
 
 1. Then create the cluster itself:
     ```azurecli-interactive
-    az aks create -l westus2 -g <ResourceGroupName> -n <ClusterName> --ip-families ipv4,ipv6
+    az aks create -l <Region> -g <ResourceGroupName> -n <ClusterName> --ip-families ipv4,ipv6
     ```
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
@@ -122,7 +122,7 @@ When using a Bicep template to deploy, pass `["IPv4", "IPv6"]` to the `ipFamilie
 Finally, after the cluster has been created, get the admin credentials:
 
 ```azurecli-interactive
-az aks get-credentials -l westus2 -g <ResourceGroupName> -n <ClusterName> -a
+az aks get-credentials -g <ResourceGroupName> -n <ClusterName> -a
 ```
 
 ### Inspect the nodes to see both IP families
@@ -160,17 +160,17 @@ kubectl create deployment nginx --image=nginx:latest --replicas=3
 
 ---
 
-Using the following `kubectl get pods` command will show that the pods have both IPv4 and IPv6 addresses:
+Using the following `kubectl get pods` command will show that the pods have both IPv4 and IPv6 addresses (note that the pods will not show IP addresses until they are ready):
 
 ```bash-interactive
-kubectl get pods -o custom-columns="NAME:.metadata.name,IPs:.status.podIPs[*].ip,NODE:.spec.nodeName"
+kubectl get pods -o custom-columns="NAME:.metadata.name,IPs:.status.podIPs[*].ip,NODE:.spec.nodeName,READY:.status.conditions[?(@.type=='Ready')].status"
 ```
 
 ```
-NAME                     IPs                                NODE
-nginx-55649fd747-9cr7h   10.244.2.2,fd12:3456:789a:0:2::2   aks-nodepool1-14508455-vmss000002
-nginx-55649fd747-p5lr9   10.244.0.7,fd12:3456:789a::7       aks-nodepool1-14508455-vmss000000
-nginx-55649fd747-r2rqh   10.244.1.2,fd12:3456:789a:0:1::2   aks-nodepool1-14508455-vmss000001
+NAME                     IPs                                NODE                                READY
+nginx-55649fd747-9cr7h   10.244.2.2,fd12:3456:789a:0:2::2   aks-nodepool1-14508455-vmss000002   True
+nginx-55649fd747-p5lr9   10.244.0.7,fd12:3456:789a::7       aks-nodepool1-14508455-vmss000000   True
+nginx-55649fd747-r2rqh   10.244.1.2,fd12:3456:789a:0:1::2   aks-nodepool1-14508455-vmss000001   True
 ```
 
 ### Expose the workload via a `LoadBalancer`-type service
