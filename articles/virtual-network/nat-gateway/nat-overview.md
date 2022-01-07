@@ -41,7 +41,7 @@ NAT can be created in a specific Availability Zone and has redundancy built in w
 
 NAT is fully scaled out from the start. There's no ramp up or scale-out operation required.  Azure manages the operation of NAT for you.  NAT always has multiple fault domains and can sustain multiple failures without service outage.
 
-* Outbound connectivity can be defined for each subnet with NAT.  Multiple subnets within the same virtual network can have different NATs. A subnet is configured by specifying which NAT gateway resource to use.  All outbound traffic for the subnet is processed by NAT automatically without any customer configuration.  User-defined routes aren't necessary. NAT takes precedence over other outbound scenarios and replaces the default Internet destination of a subnet.
+* Outbound connectivity can be defined for each subnet with NAT.  Multiple subnets within the same virtual network can have different NATs. Or multiple subnets within the same virtual network can use the same NAT. A subnet is configured by specifying which NAT gateway resource to use.  All outbound traffic for the subnet is processed by NAT automatically without any customer configuration.  User-defined routes aren't necessary. NAT takes precedence over other outbound scenarios and replaces the default Internet destination of a subnet.
 * NAT supports TCP and UDP protocols only. ICMP is not supported.
 * A NAT gateway resource can use a:
 
@@ -53,6 +53,7 @@ NAT is fully scaled out from the start. There's no ramp up or scale-out operatio
 * NAT cannot be associated to an IPv6 Public IP address or IPv6 Public IP Prefix. However, it can be associated to a dual stack subnet.
 * NAT allows flows to be created from the virtual network to the services outside your VNet. Return traffic from the Internet is only allowed in response to an active flow. Services outside your VNet cannot initiate a connection to instances.
 * NAT can't span multiple virtual networks.
+* Multiple NATs cannot be attached to a single subnet. 
 * NAT cannot be deployed in a [Gateway Subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub)
 * The private side of NAT (virtual machine instances or other compute resources) sends TCP Reset packets for attempts to communicate on a TCP connection that doesn't exist. One example is connections that have reached idle timeout. The next packet received will return a TCP Reset to the private IP address to signal and force connection closure. The public side of NAT doesn't generate TCP Reset packets or any other traffic.  Only traffic produced by the customer's virtual network is emitted.
 * A default TCP idle timeout of 4 minutes is used and can be increased to up to 120 minutes. Any activity on a flow can also reset the idle timer, including TCP keepalives.
