@@ -37,10 +37,8 @@ items:
     href: /legal/cognitive-services/luis/data-privacy-security?context=/azure/cognitive-services/LUIS/context/context
 - name: How-to guides
   items:
-  - name: Sign in to LUIS portal
-    href: sign-in-luis-portal.md
-  - name: Start a new app
-    href: luis-how-to-start-new-app.md
+  - name: Sign in to the LUIS portal and create an app
+    href: how-to/sign-in.md
     displayName: import, export, container
   - name: Use intents
     href: how-to/intents.md
