@@ -1,6 +1,6 @@
 ---
 title: Upgrade indirectly connected Azure Arc data controller using the CLI
-description: Upgrade indirectly connected Azure Arc data controller using the CLI
+description: Article describes how to upgrade an indirectly connected Azure Arc data controller using the CLI
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data

@@ -1,6 +1,6 @@
 ---
 title: Upgrade indirectly connected Azure Arc data controller using Kubernetes tools
-description: Article explains how to upgrade an indirectly connected Azure Arc data controller using Kubernetes tools
+description: Article describes how to upgrade an indirectly connected Azure Arc data controller using Kubernetes tools
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data

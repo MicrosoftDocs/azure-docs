@@ -11,7 +11,7 @@ ms.date: 12/10/2021
 ms.topic: how-to
 ---
 
-# Upgrade directly connected Azure Arc data controller using the CLI
+# Upgrade a directly connected Azure Arc data controller using the CLI
 
 This article describes how to upgrade a directly connected Azure Arc-enabled data controller using the Azure CLI (`az`).
 
