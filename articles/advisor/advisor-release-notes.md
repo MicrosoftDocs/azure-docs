@@ -20,4 +20,6 @@ Improvements include:
 
 3. For better actionability, we updated recommendation criteria to include additional SKU characteristics such as accelerated networking support, premium storage support, availability in a region, inclusion in an availability set, etc. 
 
+![vm-right-sizing-recommendation](media/overview/advisor-vm-right-sizing.png)
+
 Read the [How-to guide](advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances) to learn more.
