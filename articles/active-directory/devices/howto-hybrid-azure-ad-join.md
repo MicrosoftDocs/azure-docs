@@ -15,7 +15,7 @@ ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
 ---
-# Enable devices to hybrid Azure AD join
+# Configure hybrid Azure AD join
 
 Bringing your devices to Azure AD maximizes user productivity through single sign-on (SSO) across your cloud and on-premises resources. You can secure access to your resources with [Conditional Access](../conditional-access/howto-conditional-access-policy-compliant-device.md) at the same time.
 
@@ -27,6 +27,7 @@ Bringing your devices to Azure AD maximizes user productivity through single sig
 - Global administrator credentials for your Azure AD tenant.
 - Enterprise administrator credentials for each of the on-premises Active Directory Domain Services forests.
 - (**For federated domains**) Windows Server 2012 R2 with Active Directory Federation Services installed.
+- Users must be able to register their devices with Azure AD. More information about this setting can be found under the heading **Configure device settings**, in the article, [Configure device settings](device-management-azure-portal.md#configure-device-settings).
 
 Hybrid Azure AD join requires devices to have access to the following Microsoft resources from inside your organization's network:  
 
@@ -150,7 +151,6 @@ Configure hybrid Azure AD join by using Azure AD Connect for a federated environ
 1. On the **Configuration complete** page, select **Exit**.
 
    ![Configuration complete](./media/hybrid-azuread-join-federated-domains/20.png)
-
 
 ### Federated caveats
 

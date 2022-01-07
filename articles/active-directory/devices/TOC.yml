@@ -7,9 +7,7 @@
 - name: Tutorials
   expanded: false
   items:
-  - name: Configure hybrid Azure AD join manually
-    href: hybrid-azuread-join-manual.md
-  - name: Configure Azure AD join during Windows 10 first-run experience
+  - name: Azure AD join during Windows 10 first-run experience
     href: azuread-joined-devices-frx.md
 - name: Concepts
   expanded: true
@@ -38,12 +36,14 @@
       href: hybrid-azuread-join-plan.md
     - name: Configure hybrid Azure AD join
       href: howto-hybrid-azure-ad-join.md
+    - name: Targeted hybrid Azure AD join deployment
+      href: hybrid-azuread-join-control.md 
+    - name: Configure hybrid Azure AD join manually
+      href: hybrid-azuread-join-manual.md
     - name: Enable older operating systems
       href: howto-hybrid-join-downlevel.md
     - name: Verifying hybrid Azure AD join
       href: howto-hybrid-join-verify.md
-    - name: Targeted hybrid Azure AD join deployment
-      href: hybrid-azuread-join-control.md 
   - name: Plan your Azure AD join implementation
     href: azureadjoin-plan.md
   - name: Assign local admins to Azure AD joined devices
