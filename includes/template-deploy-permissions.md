@@ -1,10 +1,10 @@
 ---
-title: Permissions for Deploying Bicep Files and ARM Templates | Microsoft Docs
-description: Permissions for Bicep File and ARM Template deployment.
+
 ms.author: daphnemamsft
-ms.topic: conceptual
+ms.service: bicep, arm-templates
+ms.topic: include
 ms.date: 1/06/2022
-ms.custom: devx-track-azurecli, seo-azure-cli
+
 ---
 
 ## Required Permissions 
