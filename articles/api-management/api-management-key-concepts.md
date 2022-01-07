@@ -8,7 +8,7 @@ editor: ''
  
 ms.service: api-management
 ms.topic: overview
-ms.date: 12/14/2021
+ms.date: 01/07/2022
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -23,36 +23,38 @@ APIs enable digital experiences, simplify application integration, underpin new 
 
 Azure API Management helps customers meet these challenges:
 
+* Abstract backend architecture diversity and complexity from API consumers
 * Securely expose services hosted on and outside of Azure as APIs
-* Control, distribute, and observe APIs
+* Protect, accelerate, and observe APIs
 * Enable API discovery and consumption by internal and external users
 
 Common scenarios include:
 
-* **Secure mobile infrastructure** by gating access with API keys, preventing denial of service attacks, or using advanced security policies like JWT token validation
-* **Enable ISV partner ecosystems** by offering fast partner onboarding through the developer portal and building an API façade to decouple API consumption from internal implementations
-* **Run an internal API program** by offering a centralized location to communicate about APIs, gate access based on organizational accounts, and provide a secure channel between the API gateway and the backend
+* **Unlocking legacy assets** - APIs are used to abstract and modernize legacy backends and make them accessible from new cloud services and modern applications. APIs allow innovation without the risk, cost, and delays of migration.
+* **API-centric app integration** - APIs are easily consumable, standards-based, and self-describing mechanisms for exposing and accessing data, applications, and processes. They simplify and reduce the cost of app integration.
+* **Multi-channel user experiences** - APIs are frequently used to enable user experiences such as web, mobile, wearable, or Internet of Things applications. APIs can be reused to accelerate development and ROI.
+* **B2B integration** - APIs exposed to partners and customers lower the barrier for integrating business processes and exchanging data between business entities. APIs eliminate the overhead inherent in point-to-point integration. Especially with self-service discovery and onboarding enabled, APIs are the primary tools for scaling B2B integration.
 
 ## API Management components
 
-Azure API Management is made up of an API *gateway*, a *management plane*, and a *developer portal*. These components are Azure-hosted and fully managed by default. Different capabilities are available in the API Management [service tiers](api-management-features.md).
+Azure API Management is made up of an API *gateway*, a *management plane*, and a *developer portal*. These components are Azure-hosted and fully managed by default. API Management is available in various [tiers](api-management-features.md) differing in capacity and features.
 
 :::image type="content" source="media/api-management-key-concepts/api-management-components.png" alt-text="Key components of Azure API Management":::
 
 ### API gateway
 
-All requests from client applications first reach the API gateway, which forwards a valid request to a configured backend service. The API gateway acts as a façade to the backend services, allowing API providers to abstract API implementations and evolve backend architecture without impacting API consumers. The gateway enables consistent configuration of routing, security, throttling, caching, and observability.
+All requests from client applications first reach the API gateway, which then forwards them to respective backend services. The API gateway acts as a façade to the backend services, allowing API providers to abstract API implementations and evolve backend architecture without impacting API consumers. The gateway enables consistent configuration of routing, security, throttling, caching, and observability.
 
 The API gateway:
   
-  * Accepts API calls and routes them to a wide range of backends
+  * Accepts API calls and routes them to configured backends
   * Verifies API keys, JWT tokens, certificates, and other credentials
   * Enforces usage quotas and rate limits
-  * Can transform your API on the fly without code modifications
-  * Can cache backend responses
-  * Logs call metadata for troubleshooting and analysis
+  * Optionally transforms requests and responses as specified in [policy statements](#policies)
+  * If configured, caches responses to improve response latency and minimize the load on backend services
+  * Emits logs, metrics, and traces for monitoring, reporting, and troubleshooting
 
-With the [self-hosted gateway](self-hosted-gateway-overview.md), customers can optionally deploy the API gateway to the same environments where they host their APIs, while optimizing API traffic and ensuring compliance with regulations and policies. The self-hosted gateway enables customers with hybrid IT infrastructure to manage APIs hosted on-premises and across clouds from a single API Management service in Azure.
+With the [self-hosted gateway](self-hosted-gateway-overview.md), customers can deploy the API gateway to the same environments where they host their APIs, to optimize API traffic and ensure compliance with local regulations and guidelines. The self-hosted gateway enables customers with hybrid IT infrastructure to manage APIs hosted on-premises and across clouds from a single API Management service in Azure.
 
 The self-hosted gateway is packaged as a Linux-based Docker container and is commonly deployed to Kubernetes, including to Azure Kubernetes Service and [Azure Arc-enabled  Kubernetes](how-to-deploy-self-hosted-gateway-azure-arc.md). 
 
@@ -64,6 +66,7 @@ Customers interact with the management plane through Azure tools including the A
 
 Use the management plane to:
 
+  * Provision and configure API Management service settings
   * Define or import API schemas from a wide range of sources, including OpenAPI specifications, Azure compute services, or WebSocket or GraphQL backends
   * Package APIs into products
   * Set up [policies](#policies) like quotas or transformations on the APIs
@@ -73,7 +76,11 @@ Use the management plane to:
 
 ### Developer portal
 
-App developers use the open-source [developer portal][Developer portal] to discover the APIs, onboard to use them, and learn how to consume them in applications. (APIs can also be exported to the [Power Platform](export-api-power-platform.md) for discovery and use by citizen developers.)
+The open-source [developer portal][Developer portal] is an automatically generated, fully customizable website with the documentation of your APIs. 
+
+API providers can customize the look and feel of the developer portal by adding custom content, customizing styles, and adding their branding. Extend the developer portal further by [self-hosting](developer-portal-self-host.md).
+
+App developers use the open-source developer portal to discover the APIs, onboard to use them, and learn how to consume them in applications. (APIs can also be exported to the [Power Platform](export-api-power-platform.md) for discovery and use by citizen developers.)
 
 Using the developer portal, developers can:
 
@@ -81,8 +88,8 @@ Using the developer portal, developers can:
   * Call an API via the interactive console
   * Create an account and subscribe to get API keys
   * Access analytics on their own usage
-
-Customize the look and feel of the developer portal by adding custom content, customizing styles, and adding your branding. Extend the developer portal further by [self-hosting](developer-portal-self-host.md).
+  * Download API definitions
+  * Manage API keys
 
 ## Integration with Azure services
 
@@ -100,9 +107,9 @@ API Management integrates with many complementary Azure services, including:
 
 ### APIs
 
-APIs are the foundation of an API Management service instance. Each API represents a set of *operations* available to developers. Each API contains a reference to the backend service that implements the API, and its operations map to backend operations. 
+APIs are the foundation of an API Management service instance. Each API represents a set of *operations* available to app developers. Each API contains a reference to the backend service that implements the API, and its operations map to backend operations. 
 
-Operations in API Management are highly configurable, with control over URL mapping, query and path parameters, request and response content, and operation response caching. Rate limit, quotas, and other policies can also be implemented at the API or individual operation level.
+Operations in API Management are highly configurable, with control over URL mapping, query and path parameters, request and response content, and operation response caching. 
 
 More information:
 * [Import and publish your first API][How to create APIs]
@@ -110,7 +117,7 @@ More information:
 
 ### Products
 
-Products are how APIs are surfaced to developers. Products in API Management have one or more APIs, and can be *open* or *protected*. Protected products require a subscription, while open products can be used without a subscription. 
+Products are how APIs are surfaced to developers. Products in API Management have one or more APIs, and can be *open* or *protected*. Protected products require a subscription key, while open products can be consumed freely. 
 
 When a product is ready for use by developers, it can be published. Once published, it can be viewed or subscribed to by developers. Subscription approval is configured at the product level and can either require an administrator's approval or be automatic.
 
