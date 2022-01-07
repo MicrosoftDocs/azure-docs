@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > [!NOTE]
 > This tutorial requires the Azure Static Web Apps Standard and Azure Front Door Standard / Premium plans.
 
-## Copy URL
+## Copy web app URL
 
 1. Navigate to the Azure portal.
 
@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 ## Add Azure Front Door
 
-1. Navigate to the Azure portal.
+1. Navigate to the Azure home screen.
 
 1. Select **Create a resource**.
 
@@ -43,15 +43,15 @@ In this tutorial, you learn how to:
 
 1. Select **Front Door Standard/Premium**.
 
-    Make sure to select the service labeled *Front Door Standard/Premium*.
+    Make sure to select the service labeled *Front Door Standard/Premium* and not the plain *Front Door* option.
 
 1. Select **Create**.
 
-1. Select **Azure Front Door Standard/Premium (Preview)**.
+1. Select the **Azure Front Door Standard/Premium** option.
 
-1. Select **Quick create**.
+1. Select the **Quick create** option.
 
-1. Select **Continue to create a front door**.
+1. Select the **Continue to create a front door** button.
 
 1. In the *Basics* tab, enter the following values:
 
@@ -64,8 +64,8 @@ In this tutorial, you learn how to:
     | Tier | Select **Standard**. |
     | Endpoint name | Enter a unique name for your Front Door host. |
     | Origin type | Select **Custom**. |
-    | Origin host name | Enter the hostname of your static web app. Make sure your value does not include a trailing slash or protocol. (For example, `desert-rain-04056.azurestaticapps.net`)  |
-    | Caching | Check the *Enable caching* checkbox. |
+    | Origin host name | Enter the hostname of your static web app that you set aside from the beginning of this tutorial. Make sure your value does not include a trailing slash or protocol. (For example, `desert-rain-04056.azurestaticapps.net`)  |
+    | Caching | Check the **Enable caching** checkbox. |
     | Query string caching behavior | Select **Use Query string** from the dropdown. |
 
 1. Select **Review + create**.
@@ -79,6 +79,8 @@ In this tutorial, you learn how to:
 ## Disable cache for auth workflow
 
 Add the following settings to disable Front Door's caching policies from trying to cache authentication and authorization related pages.
+
+### Add a condition
 
 1. Under *Settings*, select **Rule set**.
 
@@ -96,29 +98,39 @@ Add the following settings to disable Front Door's caching policies from trying 
 
 1. Select the **Edit** link above the *Value* textbox.
 
-1. Enter **/.auth** in the value textbox.
+1. Enter **/.auth** in the textbox.
 
-1. Select **Add an action**.
+1. Select the **Update** button.
+
+1. Select the **No transform** option from the *Case transform* dropdown.
+
+### Add an action
+
+1. Select the **Add an action** dropdown.
 
 1. Select **Cache expiration**.
 
 1. Select **Bypass cache** in the *Cache Behavior* dropdown.
 
-1. Select **Save**.
+1. Select the **Save** button.
+
+### Associate rule to an endpoint
+
+Now that the rule is created, you apply the rule to a Front Door endpoint.
 
 1. Select the **Unassociated** link.
 
-1. Select the Endpoint name you want to apply this rule.
+1. Select the Endpoint name to which you want to apply the caching rule.
 
-1. Select **Next**.
+1. Select the **Next** button.
 
-1. Select **Associate**.
+1. Select the **Associate** button.
 
 ## Copy Front Door ID
 
 Use the following steps to copy the Front Door instance's unique identifier.
 
-1. Select **Overview**.
+1. Select the **Overview** link on the left-hand navigation.
 
 1. From the *Overview* window, copy the value labeled **Front Door ID** and paste it into a file for later use.
 
