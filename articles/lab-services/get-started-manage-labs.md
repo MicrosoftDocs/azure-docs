@@ -41,7 +41,7 @@ To help keep down costs and save students' quota hours, automatic shutdowns are 
 
 For more information, see [Configure automatic shutdown of VMs for a lab plan](how-to-configure-auto-shutdown-lab-plans.md).
 
-### Managing Virtual Machines
+### Managing virtual machines
 
 Managing the lab allows teachers to control things like lab capacity (the number of VMs available for students) and manually starting, stopping, or resetting VMs. Teachers can also connect to student VMs to troubleshoot issues with software or the VM itself.
 

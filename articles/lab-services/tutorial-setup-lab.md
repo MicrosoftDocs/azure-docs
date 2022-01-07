@@ -2,7 +2,7 @@
 title: Set up a lab using Azure Lab Services | Microsoft Docs
 description: In this tutorial, you use Azure Lab Services to set up a lab with virtual machines that are used by students in your class. 
 ms.topic: tutorial
-ms.date: 1/4/2022
+ms.date: 1/6/2022
 ---
 
 # Tutorial: Set up a lab
@@ -23,7 +23,7 @@ To set up a lab, you must be a member of one of these roles in the lab plan: Own
 
 Here's the typical workflow when using Azure Lab Services:
 
-1. The person that created the lab plan adds other users to the **Lab Creator** role. For example, the administrator (who created the lab plan) assigns educators to the **Lab Creator** role on the lab plan so that they can create labs for their classes.  The administrator can also assign educators the **Lab Creator** role on the resource group that contains one or more lab plans.  
+1. The person that created the lab plan adds other users to the **Lab Creator** role. For example, the administrator (who created the lab plan) assigns educators to the **Lab Creator** role on the lab plan or resource group so that they can create labs for their classes.  The administrator can also assign educators the **Lab Creator** role on the resource group that contains one or more lab plans.  
 2. Then, the educators create labs with VMs for their classes and send registration links to students in the class.  If the administrator assigned the **Lab Creator** role at the resource group, the educator can choose from all lab plans in that resource group when creating new labs.
 3. Students use the registration link that they receive from educators to register to the lab. Once they're registered, they can use VMs in the labs to do the class work and homework.  If the [Canvas](lab-services-within-canvas-overview.md) or [Teams](lab-services-within-teams-overview.md) integration with Azure Lab Services is used, this step is skipped by the students.
 
@@ -86,7 +86,7 @@ In this step, you publish the lab. When you publish the template VM, Azure Lab S
 
 3. You see the **status of publishing** the template on page.
 
-    :::image type="content" source="./media/tutorial-setup-lab/publish-template-progress.png" alt-text="Screenshot of Azure Lab Services template page.  The publishing action is in progress message is highlighted.":::
+    :::image type="content" source="./media/tutorial-setup-lab/publish-template-progress.png" alt-text="Screenshot of Azure Lab Services template page.  The publishing is in progress message is highlighted.":::
 
 4. Wait until the publishing is complete.
 5. Select **Virtual machine pool** on the left menu or select **Virtual machines** tile on the dashboard page to see the list of available machines. Confirm that you see virtual machines that are in **Unassigned** state. These VMs aren't assigned to students yet. They should be in **Stopped** state. For more information about managing the virtual machine pool, see [Managing Virtual Machines](get-started-manage-labs.md#managing-virtual-machines).
@@ -100,7 +100,7 @@ In this step, you publish the lab. When you publish the template VM, Azure Lab S
 
 Create a scheduled event for the lab so that VMs in the lab are automatically started and stopped at specific times. The user quota (default: 10 hours) you specified earlier is the extra time assigned to each student outside this scheduled time.
 
-1. Switch to the **Schedules** page, and select **Add scheduled event** on the toolbar.  If the lab is in the process of being published, wait until the publish action is completed.
+1. Switch to the **Schedules** page, and select **Add scheduled event** on the toolbar.  **Add scheduled event** will be disabled if the lab is actively being published.
 
     :::image type="content" source="./media/how-to-create-schedules/add-schedule-button.png" alt-text="Screenshot of the Add scheduled event button on the Schedules page. The Schedules menu item and Add scheduled event button are highlighted.":::
 
@@ -148,7 +148,7 @@ An Azure AD group can be created within your organization's Azure Active Directo
 
     If you don't see an Azure AD group in the list, could be because of the following reasons:
 
-    * You are using a guest account for an Azure AD with [restricted access](/azure/active-directory/enterprise-users/users-restrict-guest-permissions). If you aren't able to search for groups inside the Azure AD, you can't add an Azure AD group to the lab.
+    * You're using a guest account for an Azure AD with [restricted access](/azure/active-directory/enterprise-users/users-restrict-guest-permissions). If you aren't able to search for groups inside the Azure AD, you can't add an Azure AD group to the lab.
     * The Azure AD group you're looking for was created through Teams.  Azure AD groups created through Teams don't show up in this list. To use Azure Lab Services with Teams, see [Azure Lab Services within Microsoft Teams](lab-services-within-teams-overview.md) and [managing a lab’s user list from within Teams](how-to-manage-user-lists-within-teams.md).
 1. Once you picked the Azure AD group to sync your lab to, select **Add**.
 1. Once a lab is synced, it will pull everyone inside the Azure AD group into the lab as users. You'll see the user list updated. Only the people in this Azure AD group will have access to your lab. The user list will refresh every 24 hours to match the latest membership of the Azure AD group. You can also select on the **Sync** button on the **Users** page to manually sync to the latest changes in the Azure AD group.
@@ -200,7 +200,7 @@ A CSV text file is used to store comma-separated (CSV) tabular data (numbers and
     :::image type="content" source="./media/tutorial-setup-lab/send-email.png" alt-text="Screenshot of Send invitation by email windows for Azure Lab Services.":::
 1. You see the status of **invitation** in the **Users** list. The status should change to **Sending** and then to **Sent on &lt;date&gt;**.
 
-For more information about adding students to a class and managing their usage of the lab, see [How to configure student usage](how-to-configure-student-usage.md).
+For more information about managing student usage of the lab, see [How to configure student usage](how-to-configure-student-usage.md).
 
 ## Next steps
 
