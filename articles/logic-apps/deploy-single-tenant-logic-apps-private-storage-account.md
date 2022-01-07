@@ -82,12 +82,6 @@ The following errors commonly happen with a private storage account that's behin
 | Can't load workflows in the logic app resource | `Encountered an error (ServiceUnavailable) from host runtime` |
 |||
 
-KUDU Console is a debugging service on the Azure platform which allows you to explore your Web App. You can surf the bugs available on it through deployment logs, see memory dumps, upload files towards your Web App, add JSON endpoints to your Web Apps, etc.,
-
-To access the KUDU console of a Web App on Azure, you should be the administrator for that particular Web App. Using your Azure login credentials, you can access the KUDU console of your Web App by entering https://#####.scm.azurewebsites.net
-
-Note: #### is the name of your Web App.
-
 As the logic app isn't running when these errors occur, you can't use the Kudu console debugging service on the Azure platform to troubleshoot these errors. However, you can use the following methods instead:
 
 - Create an Azure virtual machine (VM) inside a different subnet within the same VNet that's integrated with your logic app. Try to connect from the VM to the storage account.
