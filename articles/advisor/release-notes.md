@@ -8,7 +8,7 @@ ms.date: 01/03/2022
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
 
-## December 2021
+## January 2022
 
 ### Do more for less with enhanced Azure Advisor cost recommendations for virtual machines 
 
