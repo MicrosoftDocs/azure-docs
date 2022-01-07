@@ -2,28 +2,30 @@
 title: Delete an Azure Lab Services lab from Teams
 description: Learn how to delete an Azure Lab Services lab from Teams. 
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 01/06/2022
 ---
 
 # Delete labs within Teams
 
 This article shows how to delete a lab from the **Azure Lab Services** app.
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 ## Prerequisites
 
-* [Create a Lab Services account](tutorial-setup-lab-account.md#create-a-lab-account) in the Azure portal.
-* [Get started and create a Lab Services lab within Teams](how-to-get-started-create-lab-within-teams.md).
+* [Create a lab plan](tutorial-setup-lab-plan.md).
+* [Create a lab within Teams](how-to-get-started-create-lab-within-teams.md).
 
 ## Delete labs
 
-A lab created within Teams can be deleted in the [Lab Services website](https://labs.azure.com) by deleting the lab directly, as described in [Manage labs in Azure Lab Services](how-to-manage-labs.md).
+A lab created within Teams can be deleted in the [Lab Services portal](https://labs.azure.com) directly.  For more information, see [Delete a lab](manage-labs.md#delete-a-lab).
 
-Lab deletion is also triggered when the team is deleted. If the team in which the lab is created gets deleted, lab would be automatically deleted 24 hours after the automatic user list sync is triggered.
+Lab deletion is also triggered when the team is deleted. If the associated team is deleted, the lab will be automatically deleted 24 hours later when the automatic user list sync is triggered.
 
 > [!IMPORTANT]
 > Deletion of the tab or uninstalling the app will not result in deletion of the lab.
 
-If the tab is deleted, users on the team membership list will still be able to access the VMs on the [Lab Services website](https://labs.azure.com) unless the lab deletion is explicitly triggered by deleting the lab on website or deleting the team.
+If the *tab* is deleted in Teams, users can still access the lab VMs on the [Azure Lab Services portal](https://labs.azure.com).  When the team is deleted or the lab is explicitly deleted, users can no longer access their VMs through the [Azure Lab Services portal](https://labs.azure.com).
 
 ## Next steps
 
