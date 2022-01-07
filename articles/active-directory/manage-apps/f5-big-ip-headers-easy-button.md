@@ -12,6 +12,7 @@ ms.date: 01/07/2022
 ms.author: v-nisba
 ms.collection: M365-identity-device-management
 ---
+
 # Tutorial: Configure F5’s BIG-IP Easy Button for header-based SSO
 
 In this article, you’ll learn to implement Secure Hybrid Access (SHA) with single sign-on (SSO) to header-based applications using F5’s BIG-IP Easy Button Guided Configuration.
