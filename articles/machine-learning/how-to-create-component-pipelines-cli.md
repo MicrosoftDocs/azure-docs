@@ -202,7 +202,7 @@ Click on a component. You'll see some basic information about the component, suc
 
 In the `1b_e2e_registered_components` directory, open the `pipeline.yml` file. The `inputs` and `outputs` dictionaries are similar to those already discussed. The only significant difference is the value of the `component` values in the `jobs.{job_name}.component` entries. The `component` value is of the form `azureml:{component_name}:{component_version}`. The `train-job` definition, for instance, looks like this:
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml" range="29-40 highlight="32":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml" range="29-40" highlight="32":::
 
 
 ## Caching & reuse  
