@@ -69,7 +69,7 @@ This section provides references for Windows applications and SQL Server solutio
 ### SQL Server
 
 * [SQL Server on Azure Virtual Machines with Azure NetApp Files - Azure Example Scenarios](/azure/architecture/example-scenario/file-storage/sql-server-azure-netapp-files)
-* [SQL Server on Azure Deployment Guide Using Azure NetApp Files](https://www.netapp.com/pdf.html?item=/media/27154-tr-4888.pdf)
+* [SQL Server on Azure Deployment Guide Using Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/deploying-sql-server-on-azure-using-azure-netapp-files/ba-p/3023143)
 * [Benefits of using Azure NetApp Files for SQL Server deployment](solutions-benefits-azure-netapp-files-sql-server.md)
 * [Deploy SQL Server Over SMB with Azure NetApp Files](https://www.youtube.com/watch?v=x7udfcYbibs)
 * [Deploy SQL Server Always-On Failover Cluster over SMB with Azure NetApp Files](https://www.youtube.com/watch?v=zuNJ5E07e8Q) 
