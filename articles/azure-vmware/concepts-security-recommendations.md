@@ -20,7 +20,7 @@ Use the following guidelines and links for general security recommendations for 
 | Keep up to date on VMware Security Advisories | Subscribe to VMware notifications in my.vmware.com and regularly review and remediate any [VMware Security Advisories](https://www.vmware.com/security/advisories.html). |
 | Enable Microsoft Defender for Cloud | [Microsoft Defender for Cloud](https://docs.microsoft.com/azure/defender-for-cloud/) provides unified security management and advanced threat protection across hybrid cloud workloads. |
 | Follow the Microsoft Security Response Center blog | [Microsoft Security Response Center](https://msrc-blog.microsoft.com/) |
-| Review and implement recommendations within the Azure Security Baseline for Azure VMware Solution | [Azure security baseline for VMware Solution](https://docs.microsoft.com/security/benchmark/azure/baselines/vmware-solution-security-baseline) |
+| Review and implement recommendations within the Azure Security Baseline for Azure VMware Solution | [Azure security baseline for VMware Solution](https://docs.microsoft.com/security/benchmark/azure/baselines/vmware-solution-security-baseline/) |
 
 
 ## Network
@@ -30,9 +30,9 @@ The following are network-related security recommendations for Azure VMware Solu
 | **Recommendation** | **Comments** |
 | :-- | :-- |
 | Only allow trusted networks | Only allow access to your environments over ExpressRoute or other secured networks. Avoid exposing your management services like vCenter, for example, on the internet. |
-| Use Azure Firewall Premium | If you must expose management services on the internet, use [Azure Firewall Premium](https://docs.microsoft.com/azure/firewall/premium-migrate) with both IDPS Alert and Deny mode along with TLS inspection for proactive threat detection. |
-| Deploy and configure Network Security Groups on VNET | Ensure any VNET deployed has [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) configured to control ingress and egress to your environment. |
-| Review and implement recommendations within the Azure security baseline for Azure VMware Solution | [Azure security baseline for Azure VMware Solution](https://docs.microsoft.com/security/benchmark/azure/baselines/vmware-solution-security-baseline) |
+| Use Azure Firewall Premium | If you must expose management services on the internet, use [Azure Firewall Premium](https://docs.microsoft.com/azure/firewall/premium-migrate/) with both IDPS Alert and Deny mode along with TLS inspection for proactive threat detection. |
+| Deploy and configure Network Security Groups on VNET | Ensure any VNET deployed has [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview/) configured to control ingress and egress to your environment. |
+| Review and implement recommendations within the Azure security baseline for Azure VMware Solution | [Azure security baseline for Azure VMware Solution](https://docs.microsoft.com/security/benchmark/azure/baselines/vmware-solution-security-baseline/) |
 
 ## HCX
 
