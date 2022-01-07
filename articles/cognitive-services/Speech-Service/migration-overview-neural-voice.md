@@ -32,7 +32,7 @@ Go to the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-s
 ## Prebuilt standard voice
 
 > [!IMPORTANT]
-> We are retiring the standard voices on August 31, 2024. During the retiring period (9/1/2021 - 8/31/2024), existing standard voice users can continue to use standard voices, but all new users who sign up for speech resources from **9/1/2021** should choose [neural voice names](https://review.docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support?branch=pr-en-us-184324#prebuilt-neural-voices) in your speech synthesis request. After 8/31/2024, the standard voices will no longer be supported in your speech synthesis request. 
+> We are retiring the standard voices on August 31, 2024. During the retiring period (9/1/2021 - 8/31/2024), existing standard voice users can continue to use standard voices, but all new users who sign up for speech resources from **9/1/2021** should choose [neural voice names](language-support.md#prebuilt-neural-voices) in your speech synthesis request. After 8/31/2024, the standard voices will no longer be supported in your speech synthesis request. 
 
 Go to [this article](how-to-migrate-to-prebuilt-neural-voice.md) to learn how to migrate to prebuilt neural voice.
 
