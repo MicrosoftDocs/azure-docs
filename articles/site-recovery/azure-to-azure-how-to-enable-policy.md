@@ -42,8 +42,8 @@ Proximity Placement Groups (PPG) | Supported. If the source VM is inside a PPG, 
 VMs in both PPG and availability set | Not supported
 Customer-managed keys (CMK) enabled disks | Not supported
 Storage spaces direct (S2D) clusters | Not supported
-VMSS VMs | Not supported
-VM with image as ASR Configuration Server | Not supported
+Virtual machine scale set VMs | Not supported
+VM with image as Azure Site Recovery Configuration Server | Not supported
 Powered off VMs | Not supported. VM must be powered on for the Policy to work on it.
 Azure Resource Manager Deployment Model | Supported
 Classic Deployment Model | Not supported
