@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Tutorial: Transform and protect your API
 
-In this tutorial, you'll learn how to transform your API so it doesn't reveal private backend info. Transforming an API might help you hide the technology stack info that's running in the backend. It also helps you hide the original URLs that appear in the body of the API's HTTP response. And then, redirect the URLs to an API Management gateway.
+In this tutorial, you'll learn how to transform your API so it doesn't reveal private backend info. Transforming an API might help you hide the technology stack info that's running in the backend. It also helps you hide the original URLs that appear in the body of the API's HTTP response.
 
 The tutorial also explains how to add protection to your backend API by configuring a rate limit with Azure API Management. You might want to limit the rate of API calls so the API isn't overused by developers. For more information, see [API Management policies](api-management-policies.md).
 
@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 
 ## Transform an API to strip response headers
 
-This section shows how to hide the HTTP headers that you don't want to show to your users. And this section explains how to delete the following headers in the HTTP response:
+This section shows how to hide the HTTP headers that you don't want to show to your users. For example, delete the following headers in the HTTP response:
 
 * **X-Powered-By**
 * **X-AspNet-Version**
