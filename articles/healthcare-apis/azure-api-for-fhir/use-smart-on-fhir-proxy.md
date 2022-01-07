@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: dseven
 ms.author: matjazl
 author: zxue
-ms.date: 09/10/2019
+ms.date: 01/06/2022
 ---
 
 # Tutorial: Azure Active Directory SMART on FHIR proxy
@@ -96,7 +96,7 @@ Add the reply URL to the public client application that you created earlier for 
 
 ## Get a test patient
 
-To test the Azure API for FHIR and the SMART on FHIR proxy, you'll need to have at least one patient in the database. If you've not interacted with the API yet, and you don't have data in the database, see [Access the FHIR service using Postman](./../use-postman.md) to load a patient. Make a note of the ID of a specific patient.
+To test the Azure API for FHIR and the SMART on FHIR proxy, you'll need to have at least one patient in the database. If you've not interacted with the API yet, and you don't have data in the database, see [Access the FHIR service using Postman](./../fhir/use-postman.md) to load a patient. Make a note of the ID of a specific patient.
 
 ## Download the SMART on FHIR app launcher
 
