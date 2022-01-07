@@ -120,7 +120,7 @@ Microsoft CloudKnox Permissions Management's **Data Sources** page collects data
 
 4. View the following details for each authorization system:
      - **Name** - Displays the name of the authorization system, if available. Otherwise, it will display the ID of the authorization system.
-         - To access Account explorer, click the name or the ID. For more information, see [How to use explorer](cloudknox-product-usage-analytics.md).
+         - To access Account explorer, click the name or the ID. 
      - **ID** - Displays the identification number of the authorization system. It is a unique number that identifies a specific authorization system.
      - **Controller Status** - Displays either **Enabled** or **Disabled**.
 
@@ -128,7 +128,7 @@ Microsoft CloudKnox Permissions Management's **Data Sources** page collects data
      - **Benchmark Status** - The results of security best practices tests.
      - **Entitlement Status** - The permissions of all identities and resources for all the configured authentication systems. 
 
-5.  To perform the following actions, click the ellipses **(...)**:  
+5. To perform the following actions, click the ellipses **(...)**:  
 
      - **Collect Data** - By default, the data is collected every hour. If you want to trigger data collection immediately, click this option.
      - **Delete** - Stops collecting and erasing collected data from an authorization system.
