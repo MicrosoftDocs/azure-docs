@@ -471,11 +471,11 @@ You can add or remove resource network rules in the Azure portal.
 
 3. Select **Networking** to display the configuration page for networking.
 
-4. Under **Firewalls and virtual networks** select Allow access from **Selected networks**
+4. Under **Firewalls and virtual networks**, for **Selected networks**, select to allow access.
 
-5. Scroll down to find Resource instances and in the **Resource type** drop-down list, choose the resource type of your resource instance.
+5. Scroll down to find **Resource instances**, and in the **Resource type** dropdown list, choose the resource type of your resource instance.
 
-6. In the **Instance name** drop-down list, choose the resource instance. You can also choose to include all resource instances in the active tenant, subscription, or resource group.
+6. In the **Instance name** dropdown list, choose the resource instance. You can also choose to include all resource instances in the active tenant, subscription, or resource group.
 
 7. Select **Save** to apply your changes. The resource instance appears in the **Resource instances** section of the network settings page.
 
