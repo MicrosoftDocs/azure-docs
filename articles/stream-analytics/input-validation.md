@@ -15,9 +15,61 @@ ms.date: 12/10/2021
 
 # Input validation in Azure Stream Analytics queries
 
-**Input validation** is a technique to use to protect the main query logic from malformed or unexpected events. It adds a first stage to a query, in which we make sure the schema we submit to the core business logic matches its expectations. It also adds a second stage, in which we triage exceptions. In this stage, we can reject invalid records into a secondary output. This article illustrates how to implement this technic.
+**Input validation** is a technique to use to protect the main query logic from malformed or unexpected events. The query is upgraded to explicitly process and check records so they can't break the main logic.
 
-To see an example of a query set up with input validation, see the section: [Example of query with input validation](#example-of-query-with-input-validation)
+To implement input validation, we add two initial steps to a query. We first make sure the schema submitted to the core business logic matches its expectations. We then triage exceptions, and optionally route invalid records into a secondary output.
+
+A query with input validation will be structured as follows:
+
+```SQL
+WITH preProcessingStage AS (
+	SELECT
+		-- Rename incoming fields, used for audit and debugging
+		field1 AS in_field1,
+		field2 AS in_field2,
+		...
+
+		-- Try casting fields in their expected type
+		TRY_CAST(field1 AS bigint) as field1,
+		TRY_CAST(field2 AS array) as field2,
+		...
+
+	FROM myInput TIMESTAMP BY myTimestamp
+),
+
+triagedOK AS (
+	SELECT -- Only fields in their new expected type
+		field1,
+		field2,
+		...
+	FROM preProcessingStage
+	WHERE ( ... ) -- Clauses make sure that the core business logic expectations are satisfied
+),
+
+triagedOut AS (
+	SELECT -- All fields to ease diagnostic
+		*
+	FROM preProcessingStage
+	WHERE NOT (...) -- Same clauses as triagedOK, opposed with NOT
+)
+
+-- Core business logic
+SELECT
+	...
+INTO myOutput
+FROM triagedOK
+...
+
+-- Audit output. For human review, correction, and manual re-insertion downstream
+SELECT
+	*
+INTO BlobOutput -- To a storage adapter that doesn't require strong typing, here blob/adls
+FROM triagedOut
+```
+
+To see a comprehensive example of a query set up with input validation, see the section: [Example of query with input validation](#example-of-query-with-input-validation).
+
+This article illustrates how to implement this technique.
 
 ## Context
 
@@ -33,7 +85,7 @@ But the capabilities offered by dynamic schema handling come with a potential do
 
 With input validation, we add preliminary steps to our query to handle such malformed events. We'll primarily use [WITH](/stream-analytics-query/with-azure-stream-analytics) and [TRY_CAST](/stream-analytics-query/try-cast-azure-stream-analytics) to implement it.
 
-## Problem statement
+## Scenario: input validation for unreliable event producers
 
 We'll be building a new ASA job that will ingest data from a single event hub. As is most often the case, we aren't responsible for the data producers. Here the producers are IoT devices sold by multiple hardware vendors.
 
