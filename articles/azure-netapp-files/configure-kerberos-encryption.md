@@ -118,4 +118,4 @@ You should understand the security options available for NFSv4.1 volumes, the te
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Create an Active Directory connection](create-active-directory-connections.md)
 * [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md) 
-* [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups)
+* [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
