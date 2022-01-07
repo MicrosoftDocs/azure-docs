@@ -210,10 +210,6 @@ items:
     - name: 2. Extract user data
       href: tutorial-machine-learned-entity.md
       displayName: n-depth, constraint, descriptor, phrase list, entity, feature
-  - name: Improve app
-    items:
-    - name: Add patterns to improve predictions
-      href: luis-tutorial-pattern.md
   - name: Use with Bot Framework 
     items:
     - name: Bot Framework Composer
