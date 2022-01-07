@@ -12,13 +12,13 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ### Do more for less with enhanced Azure Advisor cost recommendations for virtual machines 
 
-[*Shutdown/Resize your virtual machines*](advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances) recommendation was enhanced to increase the quality, robustness and applicability.
+[*Shutdown/Resize your virtual machines*](advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances) recommendation was enhanced to increase the quality, robustness, and applicability.
 
 Improvements include:  
 
 1. Cross SKU family series resize recommendations are now available.  
 
-1. Cross version resize recommendations are now availble. In addition to finding the best fit across SKU families, we also find the best fit across versions. In general, newer versions of SKU families are more optimized, provide more features and better performance/cost than older versions. 
+1. Cross version resize recommendations are now available. In addition to finding the best fit across SKU families, we also find the best fit across versions. In general, newer versions of SKU families are more optimized, provide more features and better performance/cost than older versions. 
 
 3. Quality improvements. We received feedback that some of our recommendations were not actionable due to certain criteria not being considered. As part of this release, we’ve taken this feedback to heart and considered even more SKU characteristics such as accelerated networking support, premium storage support, availability in a region, inclusion in an availability set, etc. to ensure our recommendations are of the highest quality. 
 
