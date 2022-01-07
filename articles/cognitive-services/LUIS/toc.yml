@@ -54,8 +54,9 @@ items:
     items:
     - name: Use prebuilt models
       href: howto-add-prebuilt-models.md
-    - name: Get intent using the REST API
-      href: luis-get-started-get-intent-from-rest.md
+    - name: Add features
+      displayName: synonym, interchange, phrase list, descriptor, feature
+      href: luis-how-to-add-features.md
     - name: Change the model using the REST API
       href: get-started-get-model-rest-apis.md
   - name: Integrate your app
