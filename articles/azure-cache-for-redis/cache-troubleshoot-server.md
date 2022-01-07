@@ -14,14 +14,12 @@ ms.date: 12/30/2021
 This section discusses troubleshooting issues caused by conditions on an Azure Cache for Redis server or any of the virtual machines hosting it.
 
 - [High server load](#high-server-load)
-    - [Add more shards](#add-more-shards)
-    - [Create alerts](#create-alerts)
-    - [Rapid changes in number of client connections](#rapid-changes-in-number-of-client-connections)
-    - [Long running or expensive commands](#long-running-or-expensive-commands)
-    - [Scaling](#scaling)
-    - [Server maintenance](#server-maintenance)
+  - [Add more shards](#add-more-shards)
+  - [Rapid changes in number of client connections](#rapid-changes-in-number-of-client-connections)
+  - [Long running or expensive commands](#long-running-or-expensive-commands)
+  - [Scaling](#scaling)
+  - [Server maintenance](#server-maintenance)
 - [High memory usage](#high-memory-usage)
-- [Memory pressure on Redis server](#memory-pressure-on-redis-server)
 - [High CPU usage or server load](#high-cpu-usage-or-server-load)
 - [Long-running commands](#long-running-commands)
 - [Server-side bandwidth limitation](#server-side-bandwidth-limitation)
@@ -39,10 +37,6 @@ Following are some options to consider for high server load.
 ### Scale up or scale out
 
 Scale out to add more shards, so that load is distributed across multiple Redis processes. Also, consider scaling up to a larger cache size with more CPU cores. For more information, see [Azure Cache for Redis planning FAQs](cache-planning-faq.yml).
-
-### Create alerts
-
-Create alerts on metrics like **CPU Usage** or **Redis Server Load** to be notified early about potential impacts.
 
 ### Rapid changes in number of client connections
 

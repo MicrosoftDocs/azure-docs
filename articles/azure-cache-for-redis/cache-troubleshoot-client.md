@@ -48,7 +48,7 @@ When client connections reach the maximum for the cache, you can have failures i
 
 High client connections might indicate a connection leak in client code. Connections might not be getting reused or closed properly. Review client code for connection use.
 
-If the high connections are all legitimate and required client connections, upgrading your cache to a size with a higher connection limit might be required.
+If the high connections are all legitimate and required client connections, upgrading your cache to a size with a higher connection limit might be required. Check if the `Max aggregate for Connected Clients` metric is close or higher than the maximum number of allowed connections for a particular cache size. For more information on sizing per client connections, see [Azure Cache for Redis performance](cache-planning-faq.yml#azure-cache-for-redis-performance).
 
 ## Additional information
 
