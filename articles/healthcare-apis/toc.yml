@@ -32,20 +32,20 @@ items:
         - name: Register a client application
           expanded: true
           items:
-           - name: Register a client application using the portal
+           - name: Register application using the portal
              href: register-application.md
-           - name: Register a client application using scripts
+           - name: Register application using scripts
              href: register-application-cli-rest.md  
         - name: Grant access permissions
           expanded: true
           items:
-           - name: Grant access permissions using the portal
+           - name: Grant permissions using the portal
              href: configure-azure-rbac.md
-           - name: Grant access permissions using CLI and REST API
+           - name: Grant permissions using scripts
              href: configure-azure-rbac-using-scripts.md
     - name: Get an Access Token
       href: get-access-token.md
-    - name: Access services
+    - name: Access Healthcare APIs
       href: access-healthcare-apis.md  
     - name: Diagnostic logging
       expanded: true
