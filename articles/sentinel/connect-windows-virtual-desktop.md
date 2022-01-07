@@ -39,7 +39,6 @@ After a successful connection is established, run queries in Microsoft Sentinel 
 
 For example, see sample queries from the [Azure Virtual Desktop documentation](../virtual-desktop/diagnostics-log-analytics.md).
 
-
 Microsoft Sentinel also provides built-in queries in the **General** > **Logs** > **Azure Virtual Desktop** area:
 
 [![Azure Virtual Desktop built-in queries in Microsoft Sentinel.](media/connect-windows-virtual-desktop/windows-virtual-desktop-queries.png) ](media/connect-windows-virtual-desktop/windows-virtual-desktop-queries.png#lightbox)
