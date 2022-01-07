@@ -125,6 +125,10 @@ Tap + Hold for 2 sec | Start the session and look for all anchors.
 <!-- 
 [!code-csharp][MainActivity](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-29&highlight=3-6)] 
 -->
+
+test android
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=21-23,27-33,17-18)]
+
 test 1
 [!code-csharp](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-29)]
 
@@ -135,7 +139,12 @@ test3
 [!code-csharp][ASAScript(../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-29)]
 
 test4
-[!code][ASAScript(../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-29)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-29)]
+
+test5
+[!code-csharp[ASAScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-29)]
+
+Test6
 
 ```csharp
 public class AzureSpatialAnchorsScript : MonoBehaviour
