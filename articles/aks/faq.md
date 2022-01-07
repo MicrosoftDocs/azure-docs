@@ -125,7 +125,7 @@ Label: ```"admissions.enforcer/disabled": "true"``` or Annotation: ```"admission
 
 ## Is Azure Key Vault integrated with AKS?
 
-[Azure Key Vault Provider for Secrets Store CSI Driver][aks-keyvault-provider] provides native integration of Azure Keyvault into AKS.
+[Azure Key Vault Provider for Secrets Store CSI Driver][aks-keyvault-provider] provides native integration of Azure Key Vault into AKS.
 
 ## Can I run Windows Server containers on AKS?
 
