@@ -17,7 +17,7 @@ This article walks you through the steps to use Azure Video Analyzer edge module
 
     [!INCLUDE [azure-subscription-permissions](./includes/common-includes/azure-subscription-permissions.md)]
 * [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
-    * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+    * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)[
 
 ### Set up Azure resources
 
@@ -1001,5 +1001,5 @@ You can examine the Video Analyzer video resource that was created by the live p
 
 ## Next steps
 
-* Learn how to [Viewing videos](../viewing-videos-how-to.md)
+* Check out [Recorded and live videos](../viewing-videos-how-to.md)
 * Try [Quickstart: Analyze a live video feed from a (simulated) IP camera using your own HTTP model](analyze-live-video-use-your-model-http.md)
