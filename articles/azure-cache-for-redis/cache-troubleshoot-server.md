@@ -14,13 +14,12 @@ ms.date: 12/30/2021
 This section discusses troubleshooting issues caused by conditions on an Azure Cache for Redis server or any of the virtual machines hosting it.
 
 - [High server load](#high-server-load)
+    - [Add more shards](#add-more-shards)
+    - [Create alerts](#create-alerts)
     - [Rapid changes in number of client connections](#rapid-changes-in-number-of-client-connections)
     - [Long running or expensive commands](#long-running-or-expensive-commands)
     - [Scaling](#scaling)
     - [Server maintenance](#server-maintenance)
-- [High server load mitigation](#high-server-load-mitigation)
-    - [Add more shards](#add-more-shards)
-    - [Create alerts](#create-alerts)
 - [High memory usage](#high-memory-usage)
 - [Memory pressure on Redis server](#memory-pressure-on-redis-server)
 - [High CPU usage or server load](#high-cpu-usage-or-server-load)
@@ -35,7 +34,15 @@ This section discusses troubleshooting issues caused by conditions on an Azure C
 
 High server load means the Redis server is busy and unable to keep up with requests, leading to timeouts. Check the **Redis Server Load** metric on your cache by selecting **Monitor** from the Resource menu on the left. You can Redis Server Load graph in the working pane.
 
-Following are some common reasons for high server load.
+Following are some options for high server load.
+
+### Add more shards
+
+Scale out to add more shards, so that load is distributed across multiple Redis processes. Also, consider scaling up to a larger cache size with more CPU cores. For more information, see [Azure Cache for Redis planning FAQs](cache-planning-faq.yml).
+
+### Create alerts
+
+Create alerts on metrics like **CPU Usage** or **Redis Server Load** to be notified early about potential impacts.
 
 ### Rapid changes in number of client connections
 
@@ -53,16 +60,6 @@ Scaling operations are CPU and memory intensive as it could involve moving data 
 
 If your Azure Cache for Redis underwent a failover, all client connections from the node that went down are transferred to the node that is still running. The server load could spike because of the increased connections. You can try rebooting your client applications so that all the client connections get recreated and redistributed among the two nodes.
 
-## High server load mitigation
-
-### Add more shards
-
-Scale out to add more shards, so that load is distributed across multiple Redis processes. Also, consider scaling up to a larger cache size with more CPU cores. For more information, see [Azure Cache for Redis planning FAQs](cache-planning-faq.yml).
-
-### Create alerts
-
-Create alerts on metrics like **CPU Usage** or **Redis Server Load** to be notified early about potential impacts.
-
 ## High memory usage
 
 Memory pressure on the server can lead to various performance problems that delay processing of requests. When memory pressure hits, the system pages data to disk, which causes the system to slow down significantly.
@@ -72,28 +69,18 @@ Several possible can cause this memory pressure:
 - The cache is filled with data near its maximum capacity.
 - Redis server is seeing high memory fragmentation. Fragmentation is most often caused by storing large objects. Redis is optimized for small objects. If the `used_memory_rss` value is higher than the `used_memory` metric, it means part of Redis memory has been swapped off by the operating system, and you can expect some significant latencies. Because Redis server does not have control over how its allocations are mapped to memory pages, high `used_memory_rss` is often the result of a spike in memory usage.
 
-Redis exposes two stats through the `INFO` command that can help you identify this issue: `used_memory` and `used_memory_rss`. You can also view these metrics using the portal.
+Redis exposes two stats through the [INFO](https://redis.io/commands/info) command that can help you identify this issue: "used_memory" and "used_memory_rss". You can [view these metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) using the portal.
 
 Validate that the `maxmemory-reserved` and `maxfragmentationmemory-reserved` values are set appropriately.
-
-For recommendations on memory management, see [Best practices for memory management](cache-best-practices-memory-management.md).
-
-## Memory pressure on Redis server
-
-Memory pressure on the server side leads to all kinds of performance problems that can delay processing of requests. When memory pressure hits, the system may page data to disk. This _page faulting_ causes the system to slow down significantly. There are several possible causes of this memory pressure:
-
-- The cache is filled with data near its maximum capacity.
-- Redis is seeing high memory fragmentation. This fragmentation is most often caused by storing large objects since Redis is optimized for small objects.
-
-Redis exposes two stats through the [INFO](https://redis.io/commands/info) command that can help you identify this issue: "used_memory" and "used_memory_rss". You can [view these metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) using the portal.
 
 There are several possible changes you can make to help keep memory usage healthy:
 
 - [Configure a memory policy](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) and set expiration times on your keys. This policy may not be sufficient if you have fragmentation.
 - [Configure a maxmemory-reserved value](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) that is large enough to compensate for memory fragmentation.
-- Break up your large cached objects into smaller related objects.
 - [Create alerts](cache-how-to-monitor.md#alerts) on metrics like used memory to be notified early about potential impacts.
 - [Scale](cache-how-to-scale.md) to a larger cache size with more memory capacity. For more information, see [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
+
+For recommendations on memory management, see [Best practices for memory management](cache-best-practices-memory-management.md).
 
 ## High CPU usage or server load
 
