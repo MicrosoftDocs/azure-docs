@@ -160,7 +160,7 @@ In this tab, learn how to deploy live pipeline using using Video Analyzer’s [C
 | ResourceGroup | Provide resource group name |
 | AccountName | Provide Video Analyzer account name |
 | TenantId | Provide tenant ID |
-| ClientId | Provide app registration client id |
+| ClientId | Provide app registration client ID |
 | Secret | Provide app registration client secret |
 | AuthenticationEndpoint | Provide authentication end point (example: https://login.microsoftonline.com) |
 | ArmEndPoint | Provide ARM end point (example: https://management.azure.com) |
