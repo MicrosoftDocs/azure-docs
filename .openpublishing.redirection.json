@@ -7741,7 +7741,7 @@
     {
       "source_path_from_root": "/articles/cognitive-services/LUIS/luis-get-started-get-intent-from-rest.md",
       "redirect_url": "/azure/cognitive-services/LUIS/client-libraries-rest-api",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-batch-testing.md",
