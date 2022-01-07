@@ -1,6 +1,6 @@
 ---
-title: Upgrade a direct mode Azure Arc-enabled Managed Instance using the CLI
-description: Article describes how to upgrade a direct mode Azure Arc-enabled Managed Instance using the CLI
+title: Upgrade a directly connected Azure Arc-enabled Managed Instance using the CLI
+description: Article describes how to upgrade a directly connected Azure Arc-enabled Managed Instance using the CLI
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,7 +11,7 @@ ms.date: 11/10/2021
 ms.topic: how-to
 ---
 
-# Upgrade a direct mode Azure Arc-enabled Managed Instance using the CLI
+# Upgrade a directly connected Azure Arc-enabled Managed Instance using the CLI
 
 This article describes how to upgrade a SQL Managed Instance deployed on a directly connected Azure Arc-enabled data controller using the Azure CLI (`az`).
 
