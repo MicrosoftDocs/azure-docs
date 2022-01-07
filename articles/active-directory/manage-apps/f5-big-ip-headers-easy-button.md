@@ -247,7 +247,7 @@ For this example, you can include one more attribute:
 
 #### Additional User Attributes
 
-In the **Additional User Attributes tab**, you can enable session augmentation required by a variety of distributed systems such as Oracle, SAP, and other JAVA based implementations requiring attributes stored in other directories. Attributes fetched from an LDAP source can then be injected as additional SSO headers to further control access based on roles, Partner IDs, etc. ![Graphical user interface, text, application
+In the **Additional User Attributes tab**, you can enable session augmentation required by a variety of distributed systems such as Oracle, SAP, and other JAVA based implementations requiring attributes stored in other directories. Attributes fetched from an LDAP source can then be injected as additional SSO headers to further control access based on roles, Partner IDs, etc. 
 
     ![Screenshot for additional user attributes](./media/f5-big-ip-easy-button-header/additional-user-attributes.png)
 
