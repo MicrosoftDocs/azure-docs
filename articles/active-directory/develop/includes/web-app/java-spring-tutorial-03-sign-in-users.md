@@ -7,7 +7,7 @@ ms.subservice: develop
 ms.topic: include
 ---
 
-In this tutorial, you sign in users in a web app that uses the Microsoft Authentication Library (MSAL).
+In this tutorial, you sign in users in a Java Spring web app that uses the Microsoft Authentication Library (MSAL).
 
 Follow the steps in this tutorial to:
 

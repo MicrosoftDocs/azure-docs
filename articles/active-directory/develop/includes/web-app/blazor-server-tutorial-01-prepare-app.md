@@ -7,7 +7,7 @@ ms.subservice: develop
 ms.topic: include
 ---
 
-In this tutorial, you build a web app that signs in users and calls Microsoft Graph by using the authorization code flow with PKCE. The SPA you build uses the Microsoft Authentication Library (MSAL).
+In this tutorial, you build a Blazor Server web app that signs in users and calls Microsoft Graph by using the authorization code flow with PKCE. The SPA you build uses the Microsoft Authentication Library (MSAL).
 
 Follow the steps in this tutorial to:
 

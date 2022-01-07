@@ -8,7 +8,7 @@ ms.topic: include
 ---
 
 
-In this tutorial, you register a web app that uses the Microsoft Authentication Library (MSAL) in the Microsoft Identity platform.
+In this tutorial, you register a Blazor Server web app that uses the Microsoft Authentication Library (MSAL) in the Microsoft Identity platform.
 
 Follow the steps in this tutorial to:
 
