@@ -111,7 +111,7 @@ To create a semantic configuration in the Azure portal:
 
 1. At this point, a wizard will appear allowing you to select a title field, content fields, and keyword fields. Make sure to list content fields and keyword fields in priority order. After you're finished, select **OK** and then save the changes.
 
-:::image type="content" source="./media/semantic-search-overview/create-semantic-config.png" alt-text="Creating a semantic configuration in the Azure portal" border="true":::
+:::image type="content" source="./media/semantic-search-overview/create-semantic-config.png" alt-text="Screenshot that shows how to create a semantic configuration in the Azure portal." border="true":::
 
 
 ### [**REST API**](#tab/rest)
@@ -206,7 +206,7 @@ When selecting fields for your semantic configuration, choose only fields of the
 
 1. In Search explorer, set query options that enable semantic queries, semantic configurations, and spell correction. You can also paste the required query parameters into the query string.
 
-:::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options-v2.png" alt-text="Query options in Search explorer" border="true":::
+:::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options-v2.png" alt-text="Screen shot showing query options in Search explorer." border="true":::
 
 ## Query using REST
 
