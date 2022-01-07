@@ -4,7 +4,7 @@ description: Learn how to troubleshoot problems in Application Change Analysis.
 ms.topic: conceptual
 author: cawams
 ms.author: cawa
-ms.date: 12/28/2021 
+ms.date: 01/07/2022 
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -38,15 +38,9 @@ This error message is likely a temporary internet connectivity issue, since:
 Try refreshing the page and checking your internet connection. If the error persists, contact the [Change Analysis help team](mailto:changeanalysishelp@microsoft.com).
 
 ### This is taking longer than expected.
-You'll receive this error message when the registration takes longer than 2 minutes. While unusual, it doesn't mean something went wrong. Double check your **Microsoft.ChangeAnalysis** resource provider registration status:
+You'll receive this error message when the registration takes longer than 2 minutes. While unusual, it doesn't mean something went wrong. Restart your webb app to see your registration changes. Changes should show up within a few hours of app restart.
 
-1. In the Azure portal, search for **Subscriptions**.
-1. Select your subscription.
-1. Navigate to **Resource providers** under **Settings** in the side menu.
-1. Search for **Microsoft.ChangeAnalysis** and verify it's registered.
-    * If registered with a green check, unregister, re-register, or refresh the registration.
-        ![Troubleshoot RP registration taking too long](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
-1. If issue persists, contact the [Change Analysis help team](mailto:changeanalysishelp@microsoft.com). 
+If your changes still don't show after 6 hours, contact the [Change Analysis help team](mailto:changeanalysishelp@microsoft.com). 
 
 ## Azure Lighthouse subscription is not supported.
 
