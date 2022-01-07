@@ -17,6 +17,17 @@ ms.date: 09/09/2021
 
 Use the Data Flow activity to transform and move data via mapping data flows. If you're new to data flows, see [Mapping Data Flow overview](concepts-data-flow-overview.md)
 
+## Create a Data Flow activity with UI
+
+To use a Data Flow activity in a pipeline, complete the following steps:
+
+1. Search for _Data Flow_ in the pipeline Activities pane, and drag a Data Flow activity to the pipeline canvas.
+1. Select the new Data Flow activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+   :::image type="content" source="media/control-flow-execute-data-flow-activity/data-flow-activity.png" alt-text="Shows the UI for a Data Flow activity.":::
+
+1. Select an existing data flow or create a new one using the New button.  Select other options as required to complete your configuration.
+
 ## Syntax
 
 ```json

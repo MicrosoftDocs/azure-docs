@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 10/21/2021
+ms.date: 01/07/2022
 ms.topic: how-to
 ms.custom: devplatv2
 
@@ -82,9 +82,9 @@ You should receive a JSON dictionary with information about the pipeline job, in
 
 Open `ComponentA.yaml` to see how the first component is defined: 
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/basics/3a_basic_pipeline/componentA.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/3a_basic_pipeline/componentA.yml":::
 
-In the current preview, only components of type `command` are supported. The `name` is the unique identifier and used in Studio to describe the component, and `display_name` is used to provide friendly name . The `version` key-value pair allows you to evolve your pipeline components while maintaining reproducibility with older versions. 
+In the current preview, only components of type `command` are supported. The `name` is the unique identifier and used in Studio to describe the component, and `display_name` is used for a display-friendly name. The `version` key-value pair allows you to evolve your pipeline components while maintaining reproducibility with older versions. 
 
 All files in the `code.local_path` value will be uploaded to Azure for processing. 
 
@@ -101,7 +101,7 @@ For more information on components and their specification, see [What is an Azur
 
 In the example directory, the `pipeline.yaml` file looks like the following code:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/basics/3a_basic_pipeline/pipeline.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/3a_basic_pipeline/pipeline.yml":::
 
 If you open the job's URL in Studio (the value of `services.Studio.endpoint` from the `job create` command when creating a job or `job show` after the job has been created), you'll see a graph representation of your pipeline:
 
@@ -168,15 +168,42 @@ Each of these phases may have multiple components. For instance, the data prepar
 
 The `job.yml` begins with the mandatory `type: pipeline` key-value pair. Then, it defines inputs and outputs as follows:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/job.yml" range="8-25":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/job.yml" range="5-22":::
 
 As described previously, these entries specify the input data to the pipeline, in this case the dataset in `./data`, and the intermediate and final outputs of the pipeline, which are stored in separate paths. The names within these input and output entries become values in the `inputs` and `outputs` entries of the individual jobs: 
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/job.yml" range="29-75":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/job.yml" range="26-72":::
 
 Notice how `jobs.train_job.outputs.model_output` is used as an input to both the prediction job and the scoring job, as shown in the following diagram: 
 
 :::image type="content" source="media/how-to-create-component-pipelines-cli/regression-graph.png" alt-text="pipeline graph of the NYC taxi-fare prediction task" lightbox="media/how-to-create-component-pipelines-cli/regression-graph.png":::
+
+## Register components for reuse and sharing
+
+While some components will be specific to a particular pipeline, the real benefit of components comes from reuse and sharing. Register a component in your Machine Learning workspace to make it available for reuse. Registered components support automatic versioning so you can update the component but assure that pipelines that require an older version will continue to work.  
+
+In the azureml-examples repository, navigate to the `cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components` directory. 
+
+To register a component, use the `az ml component create` command:
+
+```azurecli
+az ml component create --file train.yml
+az ml component create --file score.yml
+az ml component create --file eval.yml
+```
+
+After these commands run to completion, you can see the components in Studio:
+
+![Screenshot of Studio showing the components that were just registered](media/how-to-create-component-pipelines-cli/registered-components.png)
+
+Click on a component. You'll see some basic information about the component, such as creation and modification dates. Also, you'll see editable fields for Tags and Description. The tags can be used for adding rapidly searched keywords. The description field supports Markdown formatting and should be used to describe your component's functionality and basic use. 
+
+### Use registered components in a job specification file 
+
+In the `1b_e2e_registered_components` directory, open the `pipeline.yml` file. The keys and values in the `inputs` and `outputs` dictionaries are similar to those already discussed. The only significant difference is the value of the `component` values in the `jobs.<JOB_NAME>.component` entries. The `component` value is of the form `azureml:<JOB_NAME>:<COMPONENT_VERSION>`. The `train-job` definition, for instance, specifies that version 31 of the registered component `Train` should be used:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml" range="29-40" highlight="4":::
+
 
 ## Caching & reuse  
 
@@ -185,13 +212,13 @@ By default, only those components whose inputs have changed are rerun. You can c
 ## FAQ
 
 ### How do I change the location of the outputs generated by the pipeline?
-You can use the `settings` section in the pipeline job to specify a different datastore for all the jobs in the pipeline (See line 25 - 26 in [this example](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/jobs/pipelines-with-components/basics/1a_e2e_local_components/pipeline.yml)). Specifying a different datastore for a specific job or specific output is currently not supported. Specifying paths where are outputs are saved on the datastore is also not currently supported.
+You can use the `settings` section in the pipeline job to specify a different datastore for all the jobs in the pipeline (See line 25 - 26 in [this example](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/basics/1a_e2e_local_components/pipeline.yml)). Specifying a different datastore for a specific job or specific output is currently not supported. Specifying paths where are outputs are saved on the datastore is also not currently supported.
 
 ### How do I specify a compute that can be used by all jobs?
-You can specify a compute at the pipeline job level, which will be used by jobs that don't explicitly mention a compute. (See line 28 in [this example](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/jobs/pipelines-with-components/basics/1a_e2e_local_components/pipeline.yml).)
+You can specify a compute at the pipeline job level, which will be used by jobs that don't explicitly mention a compute. (See line 28 in [this example](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/basics/1a_e2e_local_components/pipeline.yml).)
 
 ### What job types are supported in the pipeline job?
-The current release supports command and component job types. For component job type, only command component is supported. We'll support more job types such as sweep in future releases.
+The current release supports command, component, and sweep job types.
 
 ### What are the different modes that I use with inputs or outputs?
 | Category | Allowed Modes | Default |
@@ -205,10 +232,10 @@ You can iterate quickly with command jobs and then connect them together into a 
 
 ### I'm doing distributed training in my component. The component, which is registered, specifies distributed training settings including node count. How can I change the number of nodes used during runtime? The optimal number of nodes is best determined at runtime, so I don't want to update the component and register a new version.
 
-You can use the overrides section in component job to change the resource and distribution settings. See [this example using TensorFlow](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/jobs/pipelines-with-components/basics/6a_tf_hello_world/) or [this example using PyTorch](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/jobs/pipelines-with-components/basics/6y_pytorch_hello_world).  
+You can use the overrides section in component job to change the resource and distribution settings. See [this example using TensorFlow](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/6a_tf_hello_world) or [this example using PyTorch](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/6c_pytorch_hello_world).  
 
 ### How can I define an environment with conda dependencies inside a component?
-See [this example](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/jobs/pipelines-with-components/basics/5c_env_conda_file).
+See [this example](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/5c_env_conda_file).
  
 
 ## Next steps

@@ -1,13 +1,13 @@
 ---
 title: Security agent authentication (Preview)
 description: Perform micro agent authentication with two possible methods.
-ms.date: 1/20/2021
+ms.date: 11/09/2021
 ms.topic: conceptual
 ---
 
 # Micro agent authentication methods (Preview)
 
-There are two options for authentication with the Defender for IoT Micro Agent: 
+There are two options for authentication with the Defender for IoT micro agent: 
 
 - Connection string 
 
@@ -15,7 +15,7 @@ There are two options for authentication with the Defender for IoT Micro Agent:
 
 ## Authentication using a connection string 
 
-In order to use a connection string, you need to add a file that uses the connection string encoded in utf-8 in the defender agent directory in a file named `connection_string.txt`. For example,
+In order to use a connection string, you need to add a file that uses the connection string encoded in utf-8 in the Defender for Cloud agent directory in a file named `connection_string.txt`. For example,
 
 ```azurecli
 echo “<connection string>” > connection_string.txt 
@@ -32,15 +32,15 @@ sudo systemctl restart defender-iot-micro-agent.service
 
 To perform authentication using a certificate: 
 
-1. Place the PEM-encoded public part of a certificate into the defender agent directory, in a file called `certificate_public.pem`.
-1. Place the PEM-encoded private key, into the defender agent directory, in a file called `certificate_private.pem`.
+1. Place the PEM-encoded public part of a certificate into the Defender for Cloud agent directory, in a file called `certificate_public.pem`.
+1. Place the PEM-encoded private key, into the Defender for Cloud agent directory, in a file called `certificate_private.pem`.
 1. Place the appropriate connection string in a file named `connection_string.txt`. For example,
 
     ```azurecli
     HostName=<the host name of the iot hub>;DeviceId=<the id of the device>;ModuleId=<the id of the module>;x509=true 
     ```
 
-    This action indicates that the defender agent will expect a certificate to be provided for authentication. 
+    This action indicates that the Defender for Cloud agent will expect a certificate to be provided for authentication. 
 
 1. restart the service using the following code: 
 

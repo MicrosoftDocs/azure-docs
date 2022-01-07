@@ -7,7 +7,6 @@ documentationcenter: ''
 
 ms.assetid: 1d2e0938-482f-4f43-bdf6-0a5da2e9a185
 ms.service: azure-government
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government

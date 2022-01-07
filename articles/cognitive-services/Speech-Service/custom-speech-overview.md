@@ -68,9 +68,6 @@ Content like data, models, tests, and endpoints are organized into *projects* in
 
 To create your first project, select **Speech-to-text/Custom speech**, and then select **New Project**. Follow the instructions provided by the wizard to create your project. After you create a project, you should see four tabs: **Data**, **Testing**, **Training**, and **Deployment**. Use the links provided in [Next steps](#next-steps) to learn how to use each tab.
 
-> [!IMPORTANT]
-> The [Speech Studio](https://aka.ms/speechstudio) (formerly known as "Custom Speech portal") was recently updated! If you created previous data, models, tests, and published endpoints in the CRIS.ai portal or with APIs, you need to create a new project in the new portal to connect to these old entities.
-
 ## Model and Endpoint lifecycle
 
 Older models typically become less useful over time because the newest model usually has higher accuracy. Therefore, base models as well as custom models and endpoints created through the portal are subject to expiration after 1 year for adaptation and 2 years for decoding. See a detailed description in the [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md) article.

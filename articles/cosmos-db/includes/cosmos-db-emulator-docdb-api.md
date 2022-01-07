@@ -3,19 +3,18 @@ title: "include file"
 description: "include file"
 services: cosmos-db
 documentationcenter: ''
-author: SnehaGunda
+author: WilliamDAssafMSFT
 manager: kfile
 editor: ''
 tags: ''
 
 ms.assetid:
 ms.service: cosmos-db
-ms.devlang: dotnet
 ms.topic: "include"
 ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 04/13/2018
-ms.author: sngun
+ms.author: wiassaf
 ms.custom: "include file"
 ---
 

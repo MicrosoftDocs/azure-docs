@@ -6,11 +6,11 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/28/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage Google BigQuery projects in Azure Purview
+# Connect to and manage Google BigQuery projects in Azure Purview (Preview)
 
 This article outlines how to register Google BigQuery projects, and how to authenticate and interact with Google BigQuery in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
@@ -23,8 +23,19 @@ This article outlines how to register Google BigQuery projects, and how to authe
 |---|---|---|---|---|---|---|
 | [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-google-bigquery.md)|
 
-> [!Important]
-> Supported Google BigQuery version is 11.0.0.
+When scanning Google BigQuery source, Purview supports:
+
+- Extracting technical metadata including:
+
+    - Projects
+    - Datasets
+    - Tables including the columns
+    - Views including the columns
+
+- Fetching static lineage on assets relationships among tables and views.
+
+>[!NOTE]
+> Currently, Purview only supports scanning Google BigQuery datasets in US multi-regional location. If the specified dataset is in other location e.g. us-east1 or EU, you will observe scan completes but no assets shown up in Purview.
 
 ## Prerequisites
 
@@ -34,7 +45,7 @@ This article outlines how to register Google BigQuery projects, and how to authe
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
-* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
 * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
 

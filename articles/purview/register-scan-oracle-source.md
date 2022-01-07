@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/28/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -18,12 +18,28 @@ This article outlines how to register Oracle, and how to authenticate and intera
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-oracle.md)|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes**](how-to-lineage-oracle.md)|
 
-> [!Important]
-> Supported Oracle server versions are 6i to 19c
+\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
-Proxy server is not supported when scanning Oracle source.
+The supported Oracle server versions are 6i to 19c. Proxy server is not supported when scanning Oracle source.
+
+When scanning Oracle source, Purview supports:
+
+- Extracting technical metadata including:
+
+    - Server
+    - Schemas
+    - Packages
+    - Tables including the columns, foreign keys, indexes, triggers and unique constraints
+    - Views including the columns and triggers
+    - Stored procedures including the parameter dataset and result set
+    - Functions including the parameter dataset
+    - Sequences
+    - Synonyms
+    - Types including the type attributes
+
+- Fetching static lineage on assets relationships among tables, views and stored procedures.
 
 ## Prerequisites
 
@@ -33,7 +49,7 @@ Proxy server is not supported when scanning Oracle source.
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
-* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
 * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
 
@@ -102,8 +118,8 @@ On the **Register sources (Oracle)** screen, do the following:
 1. Enter a **Name** that the data source will be listed within the Catalog.
 
 1. Enter the **Host** name to connect to an Oracle source. This can either be:
-    * A host name used by JDBC to connect to the database server. For example: MyDatabaseServer.com
-    * An IP address. For example: 192.169.1.2
+    * A host name used by JDBC to connect to the database server. For example: `MyDatabaseServer.com`
+    * An IP address. For example: `192.169.1.2`
     * Its fully qualified JDBC connection string. For example:
 
          ```
@@ -148,27 +164,27 @@ To create and run a new scan, do the following:
         * Provide the user name used by JDBC to connect to the database server in the User name input field.
         * Store the user password used by JDBC to connect to the database server in the secret key.
 
-    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, schema1; schema2. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default. When the list is empty, all available schemas are imported.
-        Acceptable schema name patterns using SQL LIKE expressions syntax include using %.
-        For example: A%; %B; %C%; D
-           - start with A or
-           - end with B or
-           - contain C or
-           - equal D
+    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default. When the list is empty, all available schemas are imported.
+
+        Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For example: `A%; %B; %C%; D`
+        * Start with A or
+        * End with B or
+        * Contain C or
+        * Equal D
 
         Usage of NOT and special characters are not acceptable.
 
-1. **Driver location**: Specify the path to the JDBC driver location in your VM where self-host integration runtime is running. This should be the path to valid JAR folder location.
+    1. **Driver location**: Specify the path to the JDBC driver location in your VM where self-host integration runtime is running. This should be the path to valid JAR folder location.
 
-    > [!Note]
-    > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
+        > [!Note]
+        > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
 
-1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of SAP S/4HANA source to be scanned.
+    1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Oracle source to be scanned.
 
-    > [!Note]
-    > As a thumb rule, please provide 1GB memory for every 1000 tables
+        > [!Note]
+        > As a rule of thumb, please provide 1GB memory for every 1000 tables
 
-    :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="scan oracle" border="true":::
+        :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="scan oracle" border="true":::
 
 1. Select **Continue**.
 

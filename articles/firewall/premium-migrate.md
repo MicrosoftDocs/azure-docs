@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/06/2021
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -135,7 +135,7 @@ function TransformPolicyToPremium {
                         ResourceGroupName = $Policy.ResourceGroupName 
                         Location = $Policy.Location 
                         ThreatIntelMode = $Policy.ThreatIntelMode 
-                        BasePolicy = $Policy.BasePolicy.Id
+                        BasePolicy = $Policy.BasePolicy.Id 
                         DnsSetting = $Policy.DnsSettings 
                         Tag = $Policy.Tag 
                         SkuTier = "Premium" 
@@ -164,12 +164,18 @@ function TransformPolicyToPremium {
 
 function ValidateAzNetworkModuleExists {
     Write-Host "Validating needed module exists"
-    $networkModule = Get-InstalledModule -Name "Az.Network" -ErrorAction SilentlyContinue
-    if (($null -eq $networkModule) -or ($networkModule.Version -lt 4.5.0)){
+    $networkModule = Get-InstalledModule -Name "Az.Network" -MinimumVersion 4.5 -ErrorAction SilentlyContinue
+    if ($null -eq $networkModule) {
         Write-Host "Please install Az.Network module version 4.5.0 or higher, see instructions: https://github.com/Azure/azure-powershell#installation"
         exit(1)
     }
+    $resourceModule = Get-InstalledModule -Name "Az.Resources" -MinimumVersion 4.2 -ErrorAction SilentlyContinue
+    if ($null -eq $resourceModule) {
+        Write-Host "Please install Az.Resources module version 4.2.0 or higher, see instructions: https://github.com/Azure/azure-powershell#installation"
+        exit(1)
+    }
     Import-Module Az.Network -MinimumVersion 4.5.0
+    Import-Module Az.Resources -MinimumVersion 4.2.0
 }
 
 ValidateAzNetworkModuleExists
@@ -202,7 +208,21 @@ The minimum Azure PowerShell version requirement is 6.5.0. For more information,
    ```azurepowershell
    $azfw = Get-AzFirewall -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
    $azfw.Sku.Tier="Premium"
-   $azfw.Allocate($vnet,$pip, $mgmtpip)
+   $vnet = Get-AzVirtualNetwork -ResourceGroupName "<resource-group-name>" -Name "<Virtual-Network-Name>"
+   $publicip = Get-AzPublicIpAddress -Name "<Firewall-PublicIP-name>" -ResourceGroupName "<resource-group-name>"
+   $azfw.Allocate($vnet,$publicip)
+   Set-AzFirewall -AzureFirewall $azfw
+   ```
+
+- Allocate Firewall Premium in Forced Tunnel Mode
+
+   ```azurepowershell
+   $azfw = Get-AzFirewall -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
+   $azfw.Sku.Tier="Premium"
+   $vnet = Get-AzVirtualNetwork -ResourceGroupName "<resource-group-name>" -Name "<Virtual-Network-Name>"
+   $publicip = Get-AzPublicIpAddress -Name "<Firewall-PublicIP-name>" -ResourceGroupName "<resource-group-name>"
+   $mgmtPip = Get-AzPublicIpAddress -ResourceGroupName "<resource-group-name>"-Name "<Management-PublicIP-name>"
+   $azfw.Allocate($vnet,$publicip,$mgmtPip)
    Set-AzFirewall -AzureFirewall $azfw
    ```
 
@@ -221,10 +241,17 @@ The minimum Azure PowerShell version requirement is 6.5.0. For more information,
 
    ```azurepowershell
    $azfw = Get-AzFirewall -Name -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
+   $hub = get-azvirtualhub -ResourceGroupName "<resource-group-name>" -name "<vWANhub-name>"
    $azfw.Sku.Tier="Premium"
    $azfw.Allocate($hub.id)
    Set-AzFirewall -AzureFirewall $azfw
    ```
+
+## Attach a Premium policy to a Premium Firewall
+
+You can attach a Premium policy to the new Premium Firewall using the Azure portal:
+
+:::image type="content" source="media/premium-migrate/premium-firewall-policy.png" alt-text="Screenshot showing firewall policy":::
 
 ## Next steps
 

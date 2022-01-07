@@ -1,11 +1,11 @@
---- 
+---
 title: What is Azure Arc-enabled PostgreSQL Hyperscale?
 description: What is Azure Arc-enabled PostgreSQL Hyperscale?
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: TheJY
-ms.author: jeanyd
+author: grrlgeek
+ms.author: jeschult
 ms.reviewer: mikeray
 ms.date: 11/03/2021
 ms.topic: how-to
@@ -128,7 +128,7 @@ With the Direct connectivity mode offered by Azure Arc-enabled data services you
 
 - **Deploy it, create your own.** Follow these steps to create on your own Kubernetes cluster: 
    1. [Install the client tools](install-client-tools.md)
-   2. [Create the Azure Arc data controller](create-data-controller.md)
+   2. [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)
    3. [Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-hyperscale-server-group.md) 
 
 - **Learn**
@@ -139,11 +139,11 @@ With the Direct connectivity mode offered by Azure Arc-enabled data services you
 
 
 - **Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to potentially benefit from better performances**:
-    * [Nodes and tables](../../postgresql/concepts-hyperscale-nodes.md)
-    * [Determine application type](../../postgresql/concepts-hyperscale-app-type.md)
-    * [Choose a distribution column](../../postgresql/concepts-hyperscale-choose-distribution-column.md)
-    * [Table colocation](../../postgresql/concepts-hyperscale-colocation.md)
-    * [Distribute and modify tables](../../postgresql/howto-hyperscale-modify-distributed-tables.md)
-    * [Design a multi-tenant database](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
-    * [Design a real-time analytics dashboard](../../postgresql/tutorial-design-database-hyperscale-realtime.md)* 
+    * [Nodes and tables](../../postgresql/hyperscale/concepts-nodes.md)
+    * [Determine application type](../../postgresql/hyperscale/concepts-app-type.md)
+    * [Choose a distribution column](../../postgresql/hyperscale/concepts-choose-distribution-column.md)
+    * [Table colocation](../../postgresql/hyperscale/concepts-colocation.md)
+    * [Distribute and modify tables](../../postgresql/hyperscale/howto-modify-distributed-tables.md)
+    * [Design a multi-tenant database](../../postgresql/hyperscale/tutorial-design-database-multi-tenant.md)*
+    * [Design a real-time analytics dashboard](../../postgresql/hyperscale/tutorial-design-database-realtime.md)* 
 

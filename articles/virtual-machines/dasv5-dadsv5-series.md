@@ -19,7 +19,7 @@ The Dasv5-series and Dadsv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup
 
 ## Dasv5-series
 
-Dasv5-series VMs utilize AMD's 3rd Generation EPYC<sup>TM</sup> 7763v processors that can achieve a boosted maximum frequency of 3.7GHz. The Dasv5-series sizes offer a combination of vCPU and memory for most production workloads. The new VMs with no local disk provide a better value proposition for workloads that do not require local temp disk.
+Dasv5-series VMs utilize AMD's 3rd Generation EPYC<sup>TM</sup> 7763v processors that can achieve a boosted maximum frequency of 3.5GHz. The Dasv5-series sizes offer a combination of vCPU and memory for most production workloads. The new VMs with no local disk provide a better value proposition for workloads that do not require local temp disk.
 
 > [!NOTE]
 > For frequently asked questions, see [Azure VM sizes with no local temp disk](azure-vms-no-temp-disk.yml).
@@ -51,7 +51,7 @@ Dasv5-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 
 ## Dadsv5-series
 
-Dadsv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup> 7763v processors that can achieve a boosted maximum frequency of 3.7GHz. The Dadsv5-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads. The new VMs have 50% larger local storage, as well as better local disk IOPS for both read and write compared to the [Dav4/Dasv4](dav4-dasv4-series.md) sizes with [Gen2](generation-2.md) VMs.
+Dadsv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup> 7763v processors that can achieve a boosted maximum frequency of 3.5GHz. The Dadsv5-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads. The new VMs have 50% larger local storage, as well as better local disk IOPS for both read and write compared to the [Dav4/Dasv4](dav4-dasv4-series.md) sizes with [Gen2](generation-2.md) VMs.
 
 Dadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
@@ -71,7 +71,7 @@ Dadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium S
 | Standard_D8ads_v5  | 8  | 32  | 300  | 16 | 38000 / 500   | 12800/200  | 20000/600  | 4 | 12500  |
 | Standard_D16ads_v5 | 16 | 64  | 600  | 32 | 75000 / 1000  | 25600/384  | 40000/800  | 8 | 12500 |
 | Standard_D32ads_v5 | 32 | 128 | 1200 | 32 | 150000 / 2000 | 51200/768  | 80000/1000 | 8 | 16000 |
-| Standard_D48ads_v5 | 48 | 192 | 1800 | 32 | 225000 / 3000 | 76800/1152 | 80000/200 | 8 | 24000 |
+| Standard_D48ads_v5 | 48 | 192 | 1800 | 32 | 225000 / 3000 | 76800/1152 | 80000/2000 | 8 | 24000 |
 | Standard_D64ads_v5 | 64 | 256 | 2400 | 32 | 300000 / 4000 | 80000/1200 | 80000/2000 | 8 | 32000 |
 | Standard_D96ads_v5 | 96 | 384 | 3600 | 32 | 450000 / 4000 | 80000/1600 | 80000/2000 | 8 | 40000 |
 

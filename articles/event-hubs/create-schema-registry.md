@@ -3,7 +3,7 @@ title: Create an Azure Event Hubs schema registry
 description: This article shows you how to create a schema registry in an Azure Event Hubs namespace.
 ms.topic: quickstart
 ms.date: 06/01/2021
-ms.custom: references_regions, ignite-fall-2021
+ms.custom: references_regions, ignite-fall-2021, mode-other
 ---
 
 # Create an Azure Event Hubs schema registry

@@ -648,7 +648,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "azEnvironment": "AZUREPUBLICCLOUD",
     "extendedLocation": {
       "type": "edgeZone",
-      "location": "microsoftlosangeles"
+      "name": "microsoftlosangeles"
     },
     "evictionPolicy": "",
     "isHostCompatibilityLayerVm": "true",
@@ -703,7 +703,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             "lun": "0",
             "managedDisk": {
               "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/MicrosoftCompute/disks/exampledatadiskname",
-              "storageAccountType": "Standard_LRS"
+              "storageAccountType": "StandardSSD_LRS"
             },
             "name": "exampledatadiskname",
             "opsPerSecondThrottle": "65280",
@@ -734,7 +734,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             },
             "managedDisk": {
                 "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-                "storageAccountType": "Standard_LRS"
+                "storageAccountType": "StandardSSD_LRS"
             },
             "name": "exampleosdiskname",
             "osType": "Windows",
@@ -766,7 +766,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "azEnvironment": "AZUREPUBLICCLOUD",
     "extendedLocation": {
       "type": "edgeZone",
-      "location": "microsoftlosangeles"
+      "name": "microsoftlosangeles"
     },
     "evictionPolicy": "",
     "isHostCompatibilityLayerVm": "true",
@@ -821,7 +821,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             "lun": "0",
             "managedDisk": {
               "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-              "storageAccountType": "Standard_LRS"
+              "storageAccountType": "StandardSSD_LRS"
             },
             "name": "exampledatadiskname",
             "opsPerSecondThrottle": "65280",
@@ -852,7 +852,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             },
             "managedDisk": {
                 "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-                "storageAccountType": "Standard_LRS"
+                "storageAccountType": "StandardSSD_LRS"
             },
             "name": "exampleosdiskname",
             "osType": "linux",

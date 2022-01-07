@@ -10,12 +10,12 @@ ms.date: 02/22/2021
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: aakapo
 
 ms.collection: M365-identity-device-management
 ---
-# Deployment frequently asked questions (FAQs) for hybrid FIDO2 security keys in Azure AD 
+# Deployment frequently asked questions (FAQs) for hybrid FIDO2 security keys in Azure AD
 
 This article covers deployment frequently asked questions (FAQs) for hybrid Azure AD joined devices and passwordless sign-in to on-prem resources. With this passwordless feature, you can enable Azure AD authentication on Windows 10 devices for hybrid Azure AD joined devices using FIDO2 security keys. Users can sign into Windows on their devices with modern credentials like FIDO2 keys and access traditional Active Directory Domain Services (AD DS) based resources with a seamless single sign-on (SSO) experience to their on-prem resources.
 
@@ -175,14 +175,14 @@ To unblock the accounts, use **Active Directory Users and Computers** to modify 
 
 ### How is Azure AD Kerberos linked to my on-premises Active Directory Domain Services environment?
 
-There are two parts - the on-premises AD DS environment, and the Azure AD tenant.
+There are two parts: the on-premises AD DS environment and the Azure AD tenant.
 
 **Active Directory Domain Services (AD DS)**
 
 The Azure AD Kerberos server is represented in an on-premises AD DS environment as a domain controller (DC) object. This DC object is made up of multiple objects:
 
 * *CN=AzureADKerberos,OU=Domain Controllers,\<domain-DN>*
-    
+
     A *Computer* object that represents a Read-Only Domain Controller (RODC) in AD DS. There's no computer associated with this object. Instead, it's a logical representation of a DC.
 
 * *CN=krbtgt_AzureAD,CN=Users,\<domain-DN>*

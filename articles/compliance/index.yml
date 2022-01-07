@@ -15,7 +15,7 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 06/14/2021
+  ms.date: 12/08/2021
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -131,7 +131,7 @@ conceptualContent:
           text: JSIG
         - url: /azure/compliance/offerings/offering-ndaa-section-889
           itemType: concept
-          text: NDAA Section 889
+          text: NDAA
         - url: /azure/compliance/offerings/offering-nist-800-161
           itemType: concept
           text: NIST 800-161
@@ -300,6 +300,9 @@ conceptualContent:
         - url: /azure/compliance/offerings/offering-canada-privacy-laws
           itemType: concept
           text: Canada privacy laws
+        - url: /azure/compliance/offerings/offering-canada-protected-b
+          itemType: concept
+          text: Canada Protected B
         - url: /compliance/regulatory/offering-ccpa
           itemType: concept
           text: US CCPA
@@ -403,35 +406,6 @@ additionalContent:
     - title: Additional compliance resources
       summary: To access a resource you may need to be signed into your cloud service 
       items:
-
-        - title: Audit reports and certificates
-          summary: Accessible in the Azure portal by navigating to Home > Security Center > Regulatory Compliance
-          links:
-            - text: ISO 20000-1, 22301, 27001, 27017, 27018, 27701, 9001
-              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
-            - text: SOC 1, 2, 3
-              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
-            - text: PCI DSS and PCI 3DS
-              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
-            - text: HITRUST
-              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
-            - text: FedRAMP SSP (incl. NIST 800-53 controls)
-              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
-            - text: UK Cyber Essentials Plus
-              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
-            - text: Spain ENS High
-              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
-            - text: GSMA
-              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
-            - text: ASIP HDS (France)
-              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
-            - text: Australia IRAP
-              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
-            - text: Singapore MTCS
-              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
-            - text: OSPAR (Singapore)
-              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
-
 
         - title: Privacy and GDPR
           links:

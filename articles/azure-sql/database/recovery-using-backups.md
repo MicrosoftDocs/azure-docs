@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
-ms.reviewer: mathoma, danil
-ms.date: 11/13/2020
+ms.reviewer: kendralittle, mathoma, danil
+ms.date: 01/07/2021
 ---
 # Recover using automated database backups - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -21,7 +21,7 @@ The following options are available for database recovery by using [automated da
 - Create a new database on the same server, recovered to a specified point in time within the retention period.
 - Create a database on the same server, recovered to the deletion time for a deleted database.
 - Create a new database on any server in the same region, recovered to the point of the most recent backups.
-- Create a new database on any server in any other region, recovered to the point of the most recent replicated backups.
+- Create a new database on any server in any other region, recovered to the point of the most recent replicated backups. Cross-region and cross-subscription restore for SQL Managed Instance isn't currently supported
 
 If you configured [backup long-term retention](long-term-retention-overview.md), you can also create a new database from any long-term retention backup on any server.
 
@@ -206,6 +206,9 @@ You can also use Azure PowerShell or the REST API for recovery. The following ta
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by SQL Database and SQL Managed Instance, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Arguments for the commands in the Az module and in Azure Resource Manager modules are to a great extent identical.
+
+> [!NOTE]
+> Restore points represent a period between the earliest restore point and the latest log backup point. Information on latest restore point is currently unavailable on Azure PowerShell.
 
 #### SQL Database
 

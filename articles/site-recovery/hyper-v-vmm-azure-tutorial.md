@@ -103,7 +103,7 @@ Install the agent on each Windows core Hyper-V host containing VMs that you want
    Invoke-WebRequest -Uri <put the URI here> -OutFile .\ASR\MARSsoftware.exe
    ```
    
-3. Execute the installer:
+3. Execute the installer by running the below command:
 
    ```powershell
    .\MARSsoftware.exe

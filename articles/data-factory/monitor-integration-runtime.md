@@ -5,8 +5,8 @@ ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 10/27/2021
-author: jasonwhowell
-ms.author: jasonh 
+author: joshuha-msft
+ms.author: joowen 
 ms.custom: devx-track-azurepowershell
 ---
 

@@ -13,13 +13,13 @@ ms.subservice: teams-interop
 # Join a Teams meeting
 
 > [!IMPORTANT]
-> BYOI interoperability is in public preview and available to all Communication Services applications and Teams organizations.
->
-> Preview APIs and SDKs are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> BYOI interoperability is now generally available to all Communication Services applications and Teams organizations.
 
 Azure Communication Services can be used to build applications that enable users to join and participate in Teams meetings. [Standard ACS pricing](https://azure.microsoft.com/pricing/details/communication-services/) applies to these users, but there's no additional fee for the interoperability capability itself. With the bring your own identity (BYOI) model, you control user authentication and users of your applications don't need Teams licenses to join Teams meetings. This is ideal for business-to-consumer solutions that enable licensed Teams users (for example, healthcare providers or financial advisors) and external users (for example, patients or clients) using a custom application to join into a virtual consultation experience.
 
-It's also possible to use Microsoft 365 Teams identities with the Azure Communication Services SDKs. More information is available [here](./teams-interop.md).
+It's also possible to use Teams identities with the Azure Communication Services SDKs. More information is available [here](./teams-interop.md).
+
+Interoperability is not enabled for [Teams for personal use](https://www.microsoft.com/microsoft-teams/teams-for-home).
 
 It's currently not possible for a Teams user to join a call that was initiated using the Azure Communication Services Calling SDK.
 
@@ -31,7 +31,7 @@ Custom applications built with Azure Communication Services to connect and commu
 
 ## Meeting experience
 
-As with Teams anonymous meeting join, your application must have the meeting link to join, which can be retrieved via the Graph API or from the calendar in Microsoft Teams. The name of BYOI users displayed in Teams is configurable via the Communication Services Calling SDK and they're labeled as “external” to let Teams users know they haven't been authenticated using Azure Active Directory.
+As with Teams anonymous meeting join, your application must have the meeting link to join, which can be retrieved via the Graph API or from the calendar in Microsoft Teams. The name of BYOI users displayed in Teams is configurable via the Communication Services Calling SDK and they're labeled as “external” to let Teams users know they haven't been authenticated using Azure Active Directory. When the first ACS user joins a Teams meeting, the Teams client will display a message indicating that some features might not be available because one of the participants is using a custom client.
 
 During a meeting, Communication Services users will be able to use core audio, video, screen sharing, and chat functionality via Azure Communication Services SDKs. Once a Communication Services user leaves the meeting or the meeting ends, they can no longer send or receive new chat messages, but they will have access to messages sent and received during the meeting. Anonymous Communication Services users cannot add/remove participants to/from the meeting and they cannot start recording or transcription for the meeting.
 
@@ -44,14 +44,19 @@ Microsoft will indicate to you via the Azure Communication Services API that rec
 
 ## Limitations and known issues
 
-- A BYOI user may join a Teams meeting that is scheduled for a Teams channel and use audio and video, but they will not be able to send or receive any chat messages, since they are not members of the channel.
+- Communication Services users may join a Teams meeting that is scheduled for a Teams channel and use audio and video, but they will not be able to send or receive any chat messages, since they are not members of the channel.
+- Communication Services users may join a Teams webinar, but the presenter and attendee roles are not currently enforced, thus Communication Services users could perform actions not intended for attendees, such as screen sharing, turning their camera on/off, or unmuting themselves, if your application provides UX for those actions.
 - When using Microsoft Graph to [list the participants in a Teams meeting](/graph/api/call-list-participants), details for Communication Services users are not currently included.
 - PowerPoint presentations are not rendered for Communication Services users.
-- Teams meetings support up to 1000 participants, but the Azure Communication Services Calling SDK currently only supports 350 participants.
+- Teams meetings support up to 1000 participants, but the Azure Communication Services Calling SDK currently only supports 350 participants and Chat SDK supports 250 participants. 
 - With [Cloud Video Interop for Microsoft Teams](/microsoftteams/cloud-video-interop), some devices have seen issues when a Communication Services user shares their screen.
-- Features such as raised hand, together mode, and breakout rooms are only available for Teams users.
+- [Communication Services voice and video calling events](/azure/event-grid/communication-services-voice-video-events) are not raised for Teams meeting.
+- Features such as reactions, raised hand, together mode, and breakout rooms are only available for Teams users.
+- Communication Services users cannot interact with poll or Q&A apps in meetings.
+- Communication Services won't have access to all chat features supported by Teams. They can send and receive text messages, use typing indicators, read receipts and other features supported by Chat SDK. However features like file sharing, reply or react to a message are not supported for Communication Services users.   
 - The Calling SDK does not currently support closed captions for Teams meetings.
-- Communication Services users cannot join [Teams live events](/microsoftteams/teams-live-events/what-are-teams-live-events)
+- Communication Services users are not included in the [Real-Time Analytics](/microsoftteams/use-real-time-telemetry-to-troubleshoot-poor-meeting-quality).
+- Communication Services users cannot join [Teams live events](/microsoftteams/teams-live-events/what-are-teams-live-events).
 - [Teams activity handler events](/microsoftteams/platform/bots/bot-basics?tabs=csharp) for bots do not fire when Communication Services users join a Teams meeting.
 
 ## Next steps

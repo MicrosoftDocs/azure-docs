@@ -153,7 +153,7 @@
       href: concepts-ssl-connection-security.md
     - name: Configure TLS
       href: howto-tls-configurations.md
-    - name: Threat protection with Azure Defender
+    - name: Threat protection with Microsoft Defender for Cloud
       href: ../security-center/defender-for-databases-usage.md?toc=/azure/mariadb/toc.json&bc=/azure/mariadb/breadcrumb/toc.json
     - name: Auditing Concepts
       href: concepts-audit-logs.md    

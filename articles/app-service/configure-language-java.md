@@ -271,6 +271,9 @@ Azure Blob Storage logging for Linux based App Services can only be configured u
 
 If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j) for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](../azure-monitor/app/java-2x-trace-logs.md).
 
+> [!NOTE]
+> Due to known vulnerability [CVE-2021-44228](https://logging.apache.org/log4j/2.x/security.html), be sure to use Log4j version 2.16 or later.
+
 ## Customization and tuning
 
 Azure App Service supports out of the box tuning and customization through the Azure portal and CLI. Review the following articles for non-Java-specific web app configuration:
@@ -463,7 +466,7 @@ This section shows how to connect Java applications deployed on Azure App Servic
 
 ### Configure Application Insights
 
-Azure Monitor application insights is a cloud native application monitoring service that enables customers to observe failures, bottlenecks, and usage patterns to improve application performance and reduce mean time to resolution (MTTR). With a few clicks or CLI commands, you can enable monitoring for your Node.js or Java apps, auto-collecting logs, metrics, and distributed traces, eliminating the need for including an SDK in your app.
+Azure Monitor application insights is a cloud native application monitoring service that enables customers to observe failures, bottlenecks, and usage patterns to improve application performance and reduce mean time to resolution (MTTR). With a few clicks or CLI commands, you can enable monitoring for your Node.js or Java apps, auto-collecting logs, metrics, and distributed traces, eliminating the need for including an SDK in your app. See the [Application Insights documentation](../azure-monitor/app/java-standalone-config.md) for more information about the available app settings for configuring the agent.
 
 #### Azure portal
 

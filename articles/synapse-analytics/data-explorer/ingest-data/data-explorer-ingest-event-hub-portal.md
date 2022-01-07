@@ -24,7 +24,7 @@ ms.subservice: data-explorer
 
 [!INCLUDE [data-connector-intro](../includes/data-explorer-ingest-data-intro.md)]
 
-Azure Synapse Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. [Event Hubs](/azure/event-hubs/event-hubs-about) can process millions of events per second in near real time. In this article, you create an Event Hub, connect to it from Azure Synapse Data Explorer and see data flow through the system.
+Azure Synapse Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. [Event Hubs](../../../event-hubs/event-hubs-about.md) can process millions of events per second in near real time. In this article, you create an Event Hub, connect to it from Azure Synapse Data Explorer and see data flow through the system.
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ Azure Synapse Data Explorer offers ingestion (data loading) from Event Hubs, a b
         .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp", "Properties": {"Path": "$.timeStamp"}},{"column":"Name", "Properties": {"Path":"$.name"}} ,{"column":"Metric", "Properties": {"Path":"$.metric"}}, {"column":"Source", "Properties": {"Path":"$.source"}}]'
         ```
 
-- We recommend using a [user assigned managed identity](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity) or [system assigned managed identity](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) for the data connection (optional).
+- We recommend using a [user assigned managed identity](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity) or [system assigned managed identity](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) for the data connection (optional).
 - [A sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data and sends it to an Event Hub. Download the sample app to your system.
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) to run the sample app.
 
@@ -137,7 +137,7 @@ Fill out the form with the following information, and then select **Create**.
 | Event Hub namespace | A unique namespace name | The name you chose earlier that identifies your namespace. |
 | Event Hub | *test-hub* | The Event Hub you created. |
 | Consumer group | *test-group* | The consumer group defined in the Event Hub you created. |
-| Event system properties | Select relevant properties | The [Event Hub system properties](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). If there are multiple records per event message, the system properties will be added to the first record. When adding system properties, [create](/azure/data-explorer/kusto/management/create-table-command?context=/azure/synapse-analytics/context/context) or [update](/azure/data-explorer/kusto/management/alter-table-command?context=/azure/synapse-analytics/context/context) table schema and [mapping](/azure/data-explorer/kusto/management/mappings?context=/azure/synapse-analytics/context/context) to include the selected properties. |
+| Event system properties | Select relevant properties | The [Event Hub system properties](../../../service-bus-messaging/service-bus-amqp-protocol-guide.md#message-annotations). If there are multiple records per event message, the system properties will be added to the first record. When adding system properties, [create](/azure/data-explorer/kusto/management/create-table-command?context=/azure/synapse-analytics/context/context) or [update](/azure/data-explorer/kusto/management/alter-table-command?context=/azure/synapse-analytics/context/context) table schema and [mapping](/azure/data-explorer/kusto/management/mappings?context=/azure/synapse-analytics/context/context) to include the selected properties. |
 | Compression | *None* | The compression type of the Event Hub messages payload. Supported compression types: *None, Gzip*.|
 | Managed Identity | System-assigned | The managed identity used by the Data Explorer cluster for access to read from the Event Hub.<br /><br />**Note**:<br />When the data connection is created:<br/>\- *System-assigned* identities are automatically created if they don't exist<br />\- The managed identity is automatically assigned the *Azure Event Hubs Data Receiver* role and is added to your Data Explorer cluster. We recommend verifying that the role was assigned and that the identity was added to the cluster. |
 

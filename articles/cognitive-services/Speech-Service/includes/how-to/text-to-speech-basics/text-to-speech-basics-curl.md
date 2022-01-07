@@ -23,7 +23,7 @@ At a command prompt, run the following command. You will need to insert the foll
 You might also wish to change the following values.
 - The `X-Microsoft-OutputFormat` header value, which controls the audio output format. You can find a list of supported audio output formats in the [text-to-speech REST API reference](../../../rest-text-to-speech.md#audio-outputs).
 - The output voice. To get a list of voices available for your Speech endpoint, see the next section.
-- The output file. In this example, we direct the response from the server into a file named `output.wav`.
+- The output file. In this example, we direct the response from the server into a file named `output.mp3`.
 
 :::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/text-to-speech.sh":::
 
@@ -38,34 +38,40 @@ You should receive a response like the following one.
 ```http
 [
     {
-        "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
-        "DisplayName": "Hoda",
-        "LocalName": "هدى",
-        "ShortName": "ar-EG-Hoda",
+        "Name": "Microsoft Server Speech Text to Speech Voice (en-US, ChristopherNeural)",
+        "DisplayName": "Christopher",
+        "LocalName": "Christopher",
+        "ShortName": "en-US-ChristopherNeural",
+        "Gender": "Male",
+        "Locale": "en-US",
+        "LocaleName": "English (United States)",
+        "SampleRateHertz": "24000",
+        "VoiceType": "Neural",
+        "Status": "GA"
+    },
+    {
+        "Name": "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
+        "DisplayName": "Jenny",
+        "LocalName": "Jenny",
+        "ShortName": "en-US-JennyNeural",
         "Gender": "Female",
-        "Locale": "ar-EG",
-        "SampleRateHertz": "16000",
-        "VoiceType": "Standard"
+        "Locale": "en-US",
+        "LocaleName": "English (United States)",
+        "SampleRateHertz": "24000",
+        "VoiceType": "Neural",
+        "Status": "GA"
     },
     {
-        "Name": "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)",
-        "DisplayName": "Naayf",
-        "LocalName": "نايف",
-        "ShortName": "ar-SA-Naayf",
-        "Gender": "Male",
-        "Locale": "ar-SA",
-        "SampleRateHertz": "16000",
-        "VoiceType": "Standard"
-    },
-    {
-        "Name": "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)",
-        "DisplayName": "Ivan",
-        "LocalName": "Иван",
-        "ShortName": "bg-BG-Ivan",
-        "Gender": "Male",
-        "Locale": "bg-BG",
-        "SampleRateHertz": "16000",
-        "VoiceType": "Standard"
+        "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)",
+        "DisplayName": "Xiaoxiao",
+        "LocalName": "晓晓",
+        "ShortName": "zh-CN-XiaoxiaoNeural",
+        "Gender": "Female",
+        "Locale": "zh-CN",
+        "LocaleName": "Chinese (Mandarin, Simplified)",
+        "SampleRateHertz": "24000",
+        "VoiceType": "Neural",
+        "Status": "GA"
     },
     {
         // This response is truncated. The response will include 

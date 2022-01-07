@@ -14,7 +14,7 @@ ms.author: davidmu
 ms.reviewer: alamaral
 ---
 
-# Manage access to apps in Azure Active Directory
+# Manage access to an application
 
 Ongoing access management, usage evaluation, and reporting continue to be a challenge after an app is integrated into your organization's identity system. In many cases, IT Administrators or help desk have to take an ongoing active role in managing access to your apps. Sometimes, assignment is performed by a general or divisional IT team. Often, the assignment decision is intended to be delegated to the business decision maker, requiring their approval before IT makes the assignment.  
 

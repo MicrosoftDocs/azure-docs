@@ -18,13 +18,14 @@ ms.date: 11/01/2021
 | Azure Data Explorer \* | Yes | 
 | Azure Data Lake Storage Gen1 | Yes | 
 | Azure Data Lake Storage Gen2 | Yes | 
-| Azure Database for Maria DB \* | Yes | 
+| Azure Database for MariaDB \* | Yes | 
 | Azure Database for MySQL \* | Yes | 
 | Azure Database for PostgreSQL \* | Yes |
 | Azure Files | Yes | 
 | Azure SQL Database \* | Yes | 
 | Azure SQL Managed Instance \* | Yes | 
 | Azure Synapse Analytics \* | Yes | 
+| Azure Dedicated SQL pool (formerly SQL DW) \* | Yes | 
 | Azure Table Storage | Yes |
 | Amazon S3 | Yes | 
 | Hive \* | Yes | 
@@ -68,6 +69,7 @@ In additional to lineage, the data asset schema (shown in Asset -> Schema tab) i
 | Azure SQL Database \* | Yes |
 | Azure SQL Managed Instance \* | Yes | 
 | Azure Synapse Analytics \* | Yes |
+| Azure Dedicated SQL pool (formerly SQL DW) \* | Yes | 
 
 *\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
 

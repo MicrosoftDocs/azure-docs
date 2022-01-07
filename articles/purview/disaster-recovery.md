@@ -44,7 +44,7 @@ As you plan your manual BCDR plan, keep the following points in mind:
 
 ## Related information
 
-- [Business Continuity and Disaster Recovery](../best-practices-availability-paired-regions.md)
+- [Business Continuity and Disaster Recovery](../availability-zones/cross-region-replication-azure.md)
 - [Build high availability into your BCDR strategy](/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
 - [Azure status](https://status.azure.com/status)
 

@@ -86,7 +86,7 @@ This guide summarizes known limitations related to using private endpoints for A
    
 6. From self-hosted integration runtime VM, test network connectivity and name resolution to Purview endpoint.
 
-7. From self-hosted integration runtime, test network connectivity and name resolution to Azure Purview managed resources such as blob queue and event hub through port 443 and private IP addresses. (Replace the managed storage account and Event Hubs namespace with corresponding managed resource name assigned to your Azure Purview account).
+7. From self-hosted integration runtime, test network connectivity and name resolution to Azure Purview managed resources such as blob queue and Event Hub through port 443 and private IP addresses. (Replace the managed storage account and Event Hubs namespace with corresponding managed resource name assigned to your Azure Purview account).
 
     ```powershell
     Test-NetConnection -ComputerName `scansoutdeastasiaocvseab`.blob.core.windows.net -Port 443
@@ -119,7 +119,7 @@ This guide summarizes known limitations related to using private endpoints for A
     ```powershell
     Test-NetConnection -ComputerName `Atlas-1225cae9-d651-4039-86a0-b43231a17a4b`.servicebus.windows.net -Port 443
     ```
-    Example of successful outbound connection to eventhub namespace through private IP address:
+    Example of successful outbound connection to Event Hub namespace through private IP address:
 
     ```
     ComputerName     : Atlas-1225cae9-d651-4039-86a0-b43231a17a4b.servicebus.windows.net
@@ -148,7 +148,7 @@ You may receive the following error message when running a scan:
 `Internal system error. Please contact support with correlationId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx System Error, contact support.`
 
 ### Cause 
-This can be an indication of issues related to connectivity or name resolution between the VM running self-hosted integration runtime and Azure Purview's managed resources storage account or event hub.
+This can be an indication of issues related to connectivity or name resolution between the VM running self-hosted integration runtime and Azure Purview's managed resources storage account or Event Hub.
 
 ### Resolution 
 Validate if name resolution between the VM running Self-Hosted Integration Runtime.
@@ -160,7 +160,7 @@ You may receive the following error message when running a new scan:
   `message: Unable to setup config overrides for this scan. Exception:'Type=Microsoft.WindowsAzure.Storage.StorageException,Message=The remote server returned an error: (404) Not Found.,Source=Microsoft.WindowsAzure.Storage,StackTrace= at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndExecuteAsync[T](IAsyncResult result)`
 
 ### Cause 
-This can be an indication of running an older version of self-hosted integration runtime. If you have created your Azure Purview account after 18 August 2021, you need to use the self-hosted integration runtime version 5.9.7885.3.
+This can be an indication of running an older version of self-hosted integration runtime. You'll need to use the self-hosted integration runtime version 5.9.7885.3 or greater.
 
 ### Resolution 
 Upgrade self-hosted integration runtime to 5.9.7885.3.
