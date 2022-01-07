@@ -23,7 +23,7 @@ Configuring BIG-IP published applications with Azure AD provides many benefits, 
 
 To learn about all the benefits, see [Integrate F5 BIG-IP with Azure Active Directory](f5-aad-integration.md) and [What is application access and single sign-on with Azure AD?](../active-directory-appssoaccess-whatis.md).
 
-# Scenario description
+## Scenario description
 
 For this scenario, we have an internal legacy application that's configured for basic form-based authentication (FBA).
 
@@ -32,7 +32,7 @@ Ideally, application access should be managed directly by Azure AD but being leg
 Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application.
 
 
-# Scenario Architecture
+## Scenario Architecture
 
 The secure hybrid access solution for this scenario is made up of:
 
@@ -58,7 +58,7 @@ SHA for this scenario supports both SP and IdP initiated flows. The following im
 | 8 | The application payload is served by the web server and sent to the client. |
 | | |
 
-# Prerequisites
+## Prerequisites
 
 Prior BIG-IP experience is not necessary, but you'll need:
 
@@ -81,14 +81,14 @@ Prior BIG-IP experience is not necessary, but you'll need:
 
 - An existing form-based authentication application, or [set up an IIS FBA app](/troubleshoot/aspnet/forms-based-authentication) for testing.
 
-# BIG-IP deployment methods
+## BIG-IP deployment methods
 
 There are many methods to configure BIG-IP for this scenario, including a template-driven guided configuration. This article covers the advanced approach, which provides a more flexible way of implementing SHA by manually creating all BIG-IP configuration objects. You would also use this approach for more complex scenarios that the guided configuration templates don't cover.
 
 > [!NOTE]
 > You should replace all example strings or values in this article with those for your actual environment.
 
-# Register F5 BIG-IP in Azure AD
+## Register F5 BIG-IP in Azure AD
 
 Before BIG-IP can hand off pre-authentication to Azure AD, it must be registered in your tenant. This is the first step in establishing SSO between both entities. It's no different from making any IdP aware of a SAML relying party. In this case, the app that you create from the F5 BIG-IP gallery template is the relying party that represents the SAML SP for the BIG-IP published application.
 
@@ -106,7 +106,7 @@ Before BIG-IP can hand off pre-authentication to Azure AD, it must be registered
 
 6. Provide a name for the new application to recognize the instance of the application. Select **Add/Create** to add it to your tenant.
 
-## Enable SSO to F5 BIG-IP
+### Enable SSO to F5 BIG-IP
 
 Next, configure the BIG-IP registration to fulfill SAML tokens that the BIG-IP APM requests:
 
@@ -141,7 +141,7 @@ Next, configure the BIG-IP registration to fulfill SAML tokens that the BIG-IP A
 
 SAML signing certificates created by Azure AD have a lifespan of three years. For more information, see [Managed certificates for federated single sign-on](./manage-certificates-for-federated-single-sign-on.md).
 
-## Assign users and groups
+### Assign users and groups
 
 By default, Azure AD will issue tokens only for users who have been granted access to an application. To grant specific users and groups access to the application:
 
@@ -151,7 +151,7 @@ By default, Azure AD will issue tokens only for users who have been granted acce
 
 3. Select users and groups, and then select **Assign** to assign them to your application.   
 
-# BIG-IP Advanced configuration
+## BIG-IP Advanced configuration
 
 Now you can proceed with setting up the BIG-IP configurations.
 
@@ -380,7 +380,7 @@ For more information about using BIG-IP iRules to achieve this, see the followin
 * [K12056: Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056)
 
 
-# Summary
+## Summary
 
 Your application should now be published and accessible via secure hybrid access, either directly via the app's URL or through the Microsoft application portals.
 
@@ -388,7 +388,7 @@ The application should also be visible as a target resource in Azure AD CA. For 
 
 For increased security, organizations that use this pattern could also consider blocking all direct access to the application, which then forces a strict path through the BIG-IP.
 
-# Next steps
+## Next steps
 
 From a browser, connect to the application's external URL or select the application's icon in the MyApps portal. After you authenticate to Azure AD, you’re redirected to the BIG-IP endpoint for the application and prompted for a password. Notice that the APM pre-fills the username with the UPN from Azure AD. The username that's pre-populated by the APM is read only to ensure session consistency between Azure AD and the back-end application. You can hide this field from view with an additional configuration, if necessary.
 
@@ -398,7 +398,7 @@ After the information is submitted, users should be automatically signed in to t
 
 ![Screenshot showing a welcome message.](./media/f5-big-ip-forms-advanced/welcome-message.png)
 
-# Troubleshoot
+## Troubleshoot
 
 Failure to access the secure hybrid access-protected application can result from any of several factors, including a misconfiguration. When you troubleshoot this issue, be aware of the following:
 
@@ -431,7 +431,7 @@ The **View Variables** link in this location might also help determine the root 
 
 For more information, see the F5 BIG-IP [Session Variables reference](https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html).
 
-# Additional resources
+## Additional resources
 
 * [Active Directory Authentication](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html) (F5 article about BIG-IP advanced configuration)
 
