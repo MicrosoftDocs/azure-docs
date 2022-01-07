@@ -1,12 +1,12 @@
 ---
 title: 'Azure ExpressRoute: Verify Connectivity - Troubleshooting Guide'
-description: This page provides instructions on troubleshooting and validating end to end connectivity of an ExpressRoute circuit.
+description: This page provides instructions on troubleshooting and validating end-to-end connectivity of an ExpressRoute circuit.
 services: expressroute
 author: duongau
 
 ms.service: expressroute
 ms.topic: troubleshooting
-ms.date: 10/31/2019
+ms.date: 01/07/2021
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell
 
@@ -23,7 +23,7 @@ This article helps you verify and troubleshoot ExpressRoute connectivity. Expres
 >
 
 
-The purpose of this document is to help user to identify if and where a connectivity issue exists. Thereby, to help seek support from the appropriate team to resolve an issue. If Microsoft support is needed to resolve an issue, open a support ticket with [Microsoft Support][Support].
+The purpose of this document is to help you identify if and where a connectivity issue exists. Thereby, to help seek support from the appropriate team to resolve an issue. If Microsoft support is needed to resolve an issue, open a support ticket with [Microsoft Support][Support].
 
 > [!IMPORTANT]
 > This document is intended to help diagnosing and fixing simple issues. It is not intended to be a replacement for Microsoft support. Open a support ticket with [Microsoft Support][Support] if you are unable to solve the problem using the guidance provided.
@@ -65,7 +65,7 @@ The following are the logical steps, in troubleshooting ExpressRoute circuit:
   
 * [Confirm the traffic flow](#confirm-the-traffic-flow)
 
-* [Use DebugACL to confirm connectivity](#debug-acl)
+* [Use DebugACL to confirm connectivity](#test-private-peering-connectivity)
 
 
 ## Verify circuit provisioning and state
@@ -77,7 +77,7 @@ Provisioning an ExpressRoute circuit establishes a redundant Layer 2 connections
 >
 
 ### Verification via the Azure portal
-In the Azure portal, open the ExpressRoute circuit blade. In the ![3][3] section of the blade, the ExpressRoute essentials are listed as shown in the following screenshot:
+In the Azure portal, open the ExpressRoute circuit page. In the ![3][3] section of the page, the ExpressRoute essentials are listed as shown in the following screenshot:
 
 ![4][4]    
 
@@ -156,11 +156,11 @@ After the service provider has completed the provisioning the ExpressRoute circu
 > In IPVPN connectivity model, service providers handle the responsibility of configuring the peerings (layer 3 services). In such a model, after the service provider has configured a peering and if the peering is blank in the portal, try refreshing the circuit configuration using the refresh button on the portal. This operation will pull the current routing configuration from your circuit. 
 >
 
-In the Azure portal, status of an ExpressRoute circuit peering can be checked under the ExpressRoute circuit blade. In the ![3][3] section of the blade, the ExpressRoute peerings would be listed as shown in the following screenshot:
+In the Azure portal, status of an ExpressRoute circuit peering can be checked under the ExpressRoute circuit page. In the ![3][3] section of the page, the ExpressRoute peerings would be listed as shown in the following screenshot:
 
 ![5][5]
 
-In the preceding example, as noted Azure private peering is provisioned, whereas Azure public and Microsoft peerings are not provisioned. A successfully provisioned peering context would also have the primary and secondary point-to-point subnets listed. The /30 subnets are used for the interface IP address of the MSEEs and CEs/PE-MSEEs. For the peerings that are provisioned, the listing also indicates who last modified the configuration. 
+In the preceding example, as noted Azure private peering is provisioned, but Azure public and Microsoft peerings aren't provisioned. A successfully provisioned peering context would also have the primary and secondary point-to-point subnets listed. The /30 subnets are used for the interface IP address of the MSEEs and CEs/PE-MSEEs. For the peerings that are provisioned, the listing also indicates who last modified the configuration. 
 
 > [!NOTE]
 > If enabling a peering fails, check if the primary and secondary subnets assigned match the configuration on the linked CE/PE-MSEE. Also check if the correct *VlanId*, *AzureASN*, and *PeerASN* are used on MSEEs and if these values maps to the ones used on the linked CE/PE-MSEE. If MD5 hashing is chosen, the shared key should be same on MSEE and PE-MSEE/CE pair. Previously configured shared key would not be displayed for security reasons. Should you need to change any of these configuration on an MSEE router, refer to [Create and modify routing for an ExpressRoute circuit][CreatePeering].  
@@ -214,7 +214,7 @@ $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-
 Get-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 ```
 
-If a peering is not configured, there would be an error message. A sample response, when the stated peering (Azure Public peering in this example) is not configured within the circuit:
+If a peering isn't configured, there would be an error message. A sample response, when the stated peering (Azure Public peering in this example) isn't configured within the circuit:
 
 ```azurepowershell
 Get-AzExpressRouteCircuitPeeringConfig : Sequence contains no matching element
@@ -286,7 +286,7 @@ Path    : 123##
 >
 
 
-The following example shows the response of the command for a peering that does not exist:
+The following example shows the response of the command for a peering that doesn't exist:
 
 ```azurepowershell
 Get-AzExpressRouteCircuitRouteTable : The BGP Peering AzurePublicPeering with Service Key ********************* is not found.
@@ -316,22 +316,40 @@ StatusCode: 400
 ```
 
 ## Test private peering connectivity
-Test your private peering connectivity by "counting" inbound and outbound packets over private peering at the Microsoft edge of your ExpressRoute circuit, on a Microsoft Enterprise Edge (MSEE) device. This diagnostic tool works by applying an Access Control List (ACL) to the MSEE and counting the packets that hit specific ACL rules. Using this tool allows you to confirm connectivity by answering the questions *Are my packets getting to Azure?* and *Are they getting back to on-prem?*
+
+Test your private peering connectivity by **counting** packets arriving and leaving the Microsoft edge of your ExpressRoute circuit, on the Microsoft Enterprise Edge (MSEE) devices. This diagnostic tool works by applying an Access Control List (ACL) to the MSEE to count the number of packets that hit specific ACL rules. Using this tool will allow you to confirm connectivity by answering the questions such as:
+
+* Are my packets getting to Azure?
+* Are they getting back to on-prem?
 
 ### Run test
-1. To access this diagnostic tool, navigate to the **Diagnose and solve** tab of your ExpressRoute resource in the Azure portal.
-2. Select the **Connectivity issues** card under **Common problems**.
-3. In the dropdown for **Tell us more about the problem your are experiencing**, select "Connectivity to Azure Private, Azure Public, or Dynamics 365 services."
-4. Scroll down to the **Test your private peering connectivity** section and expand it.
-5. Execute the [PsPing test](https://docs.microsoft.com/sysinternals/downloads/psping) from your on-premises IP address to your Azure IP address and keep it running for the duration of the connectivity test.
-6. Fill out the fields of the form, making sure to enter the same on-premises and Azure IP addresses used in Step 5.
-7. Select **Submit** and then wait for your results to load. Once your results are ready, review the information for interpreting them below.
+1. To access this diagnostic tool, select **Diagnose and solve problems** from your ExpressRoute circuit in the Azure portal.
+
+    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/diagnose-problems.png" alt-text="Screenshot of diagnose and solve problem page from ExpressRoute circuit.":::
+
+1. Select the **Connectivity issues** card under **Common problems**.
+
+    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/connectivity-issues.png" alt-text="Screenshot of connectivity issues option.":::
+
+1. In the dropdown for *Tell us more about the problem your are experiencing*, select **Connectivity to Azure Private, Azure Public, or Dynamics 365 services.**
+
+    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/tell-us-more.png" alt-text="Screenshot of drop-down option for problem user is experiencing.":::
+
+1. Scroll down to the **Test your private peering connectivity** section and expand it.
+
+    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/test-private-peering.png" alt-text="Screenshot of troubleshooting connectivity issues options.":::
+
+1. Execute the [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) test from your on-premises IP address to your Azure IP address and keep it running during the connectivity test.
+
+1. Fill out the fields of the form, making sure to enter the same on-premises and Azure IP addresses used in Step 5. Then select **Submit** and then wait for your results to load. Once your results are ready, review the information for interpreting them below.
+
+    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/form.png" alt-text="Screenshot of of debug ACL form.":::
 
 ### Interpreting results
-Your test results for each MSEE device will look like the example below. You will have two sets of results for the primary and secondary MSEE devices. Review the number of matches in and out and use the following scenarios to interpret the results:
+Your test results for each MSEE device will look like the example below. You'll have two sets of results for the primary and secondary MSEE devices. Review the number of matches in and out and use the following scenarios to interpret the results:
 * **You see packet matches sent and received on both MSEEs:** This indicates healthy traffic inbound to and outbound from the MSEE on your circuit. If loss is occurring either on-premises or in Azure, it is happening downstream from the MSEE.
-* **(If testing PsPing from On-Prem to Azure) *(received)* results show matches, but *sent* results show NO matches:** This indicates that traffic is getting inbound to Azure, but is not returning to on-prem. Check for return-path routing issues (are you advertising the appropriate prefixes to Azure? Is there a UDR overriding prefixes? etc).
-* **(If testing PsPing from Azure to On-Prem) *(sent)* results show NO matches, but *(receieved)* results show matches:** This indicates that traffic is getting to on-premises, but is not getting back. You should work with your provider to find out why traffic isn't being routed to Azure via your ExpressRoute circuit.
+* **(If testing PsPing from On-prem to Azure) *(received)* results show matches, but *sent* results show NO matches:** This indicates that traffic is getting inbound to Azure, but isn't returning to on-prem. Check for return-path routing issues (are you advertising the appropriate prefixes to Azure? Is there a UDR overriding prefixes? etc).
+* **(If testing PsPing from Azure to On-prem) *(sent)* results show NO matches, but *(received)* results show matches:** This indicates that traffic is getting to on-premises, but isn't getting back. You should work with your provider to find out why traffic isn't being routed to Azure via your ExpressRoute circuit.
 * **One MSEE shows NO matches, while the other shows good matches:** This indicates that one MSEE isn't receiving or passing any traffic. It could be offline (BGP/ARP down, etc).
 
 #### Example
@@ -342,7 +360,7 @@ src 20.0.0.0 srcport 3389 dst 10.0.0.0 (sent): 120 matches
 This test result has the following properties:
 
 * IP Port: 3389
-* On-Prem IP Address CIDR: 10.0.0.0
+* On-prem IP Address CIDR: 10.0.0.0
 * Azure IP Address CIDR: 20.0.0.0
 
 ## Next Steps
