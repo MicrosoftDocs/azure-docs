@@ -125,7 +125,7 @@ Label: ```"admissions.enforcer/disabled": "true"``` or Annotation: ```"admission
 
 ## Is Azure Key Vault integrated with AKS?
 
-AKS isn't currently natively integrated with Azure Key Vault. However, the [Azure Key Vault provider for CSI Secrets Store][csi-driver] enables direct integration from Kubernetes pods to Key Vault secrets.
+[Azure Key Vault Provider for Secrets Store CSI Driver][aks-keyvault-provider] provides native integration of Azure Keyvault into AKS.
 
 ## Can I run Windows Server containers on AKS?
 
@@ -310,6 +310,7 @@ AKS doesn't apply Network Security Groups (NSGs) to its subnet and will not modi
 [availability-zones]: ./availability-zones.md
 [az-regions]: ../availability-zones/az-region.md
 [uptime-sla]: ./uptime-sla.md
+[aks-keyvault-provider]: ./csi-secrets-store-driver.md
 
 <!-- LINKS - external -->
 [aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
