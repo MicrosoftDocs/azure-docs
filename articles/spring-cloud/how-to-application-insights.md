@@ -47,7 +47,7 @@ Enable the Java In-Process Agent by using the following procedure.
 1. Select **Save** to save the change.
 
 > [!Note]
-> Do not use the same AI in different Azure Spring Cloud instances, or else you will see mixed data.
+> Do not use the same Applicaiton Insights instance in different Azure Spring Cloud instances, or else you will see mixed data.
 
 ## Using the Application Insights feature
 
@@ -216,9 +216,11 @@ Application Insights settings are found in the *ApplicationInsights* item listed
 
    ![e-spring-ipa-8](./media/enterprise/how-to-application-insights/ai-edit-binding.png)
 
-## Manage Application Insights
+## Manage Application Insights using Azure CLI
 
 You can manage Application Insights using Azure CLI commands. In the following commands, be sure to replace the *\<placeholder>* text with the values described. The *\<service-name>* placeholder refers to the name of your Azure Spring Cloud instance.
+
+### Manage Application Insights in the Standard or Enterprise Tier
 
 To configure Application Insights when creating an Azure Spring Cloud instance, use the following command. For the `app-insights` argument, you can specify an Application Insights name or resource ID.
 
@@ -286,9 +288,9 @@ az spring-cloud app-insights update \
     --disable
 ```
 
-## Manage Application Insights using Azure CLI in the Enterprise Tier
+### Manage Application Insights in the Enterprise Tier
 
-This section applies to the Enterprise Tier only.
+This section applies to the Enterprise Tier only, and provides instructions that that supplement the previous section.
 
 Azure Enterprise tier uses [Buildpack Bindings](./how-to-enterprise-build-service.md#buildpack-bindings) to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights`.
 
