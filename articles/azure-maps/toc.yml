@@ -13,7 +13,7 @@ items:
   - name: Create an Android app
     href: quick-android-map.md
   - name: Create an iOS app
-    href: quick-iOS-app.md
+    href: quick-ios-app.md
 - name: Tutorials
   items:
   - name: Web SDK Tutorials
@@ -70,14 +70,16 @@ items:
     href: choose-pricing-tier.md
   - name: Creator for Indoor maps
     items:
-    - name: Creator service geographic scope
-      href: creator-geographic-scope.md
     - name: Indoor map concepts
       href: creator-indoor-maps.md
+    - name: Creator service geographic scope
+      href: creator-geographic-scope.md
     - name: Drawing conversion errors and warnings
-      href: drawing-conversion-error-codes.md  
+      href: drawing-conversion-error-codes.md
   - name: Encryption of data at rest
     href: ../security/fundamentals/encryption-atrest.md
+  - name: Azure Services that support managed identities
+    href: ../active-directory/managed-identities-azure-resources/services-support-managed-identities.md
   - name: Coverage
     items:
     - name: Coverage
@@ -91,7 +93,7 @@ items:
     - name: Routing coverage
       href: routing-coverage.md
     - name: Weather coverage
-      href: weather-coverage.md  
+      href: weather-coverage.md
   - name: Localization support
     href: supported-languages.md
   - name: Supported map styles
@@ -119,6 +121,8 @@ items:
           href: how-to-secure-spa-users.md
         - name: How to secure web application
           href: how-to-secure-webapp-users.md
+        - name: How to secure sas application
+          href: how-to-secure-sas-app.md
         - name: How to secure non-interactive sign-in single page application
           href: how-to-secure-spa-app.md
         - name: How to secure input constrained application
@@ -158,11 +162,11 @@ items:
       - name: Create a data source
         href: create-data-source-web-sdk.md
       - name: Add a symbol layer
-        href: map-add-pin.md     
+        href: map-add-pin.md
       - name: Add a bubble layer
         href: map-add-bubble-layer.md
       - name: Add a popup
-        href: map-add-popup.md   
+        href: map-add-popup.md
       - name: Add HTML markers
         href: map-add-custom-html.md
       - name: Add a line layer
@@ -178,7 +182,7 @@ items:
       - name: Add tile layers
         href: map-add-tile-layer.md
       - name: Show traffic 
-        href: map-show-traffic.md 
+        href: map-show-traffic.md
       - name: Cluster point data
         href: clustering-point-data-web-sdk.md
       - name: Use data-driven style expressions
@@ -243,7 +247,7 @@ items:
       href: web-sdk-best-practices.md
   - name: Develop with the Android SDK
     items:
-    - name: Getting started with Android map control
+    - name: The Android map control
       href: how-to-use-android-map-control-library.md
     - name: Change the style of the map
       href: set-android-map-styles.md
@@ -279,12 +283,46 @@ items:
       href: android-map-events.md
   - name: Develop with the iOS SDK
     items:
-    - name: Getting started with iOS map control
-      href: how-to-use-ios-map-control-library.md      
+    - name: The iOS map control
+      href: how-to-use-ios-map-control-library.md
+    - name: Change the style of a map
+      href: set-map-style-ios-sdk.md
+    - name: Add controls to a map
+      href: add-controls-map-ios.md
+    - name: Create a data source
+      href: create-data-source-ios-sdk.md
+    - name: Add a symbol layer
+      href: add-symbol-layer-ios.md
+    - name: Add a bubble layer
+      href: add-bubble-layer-map-ios.md
+    - name: Display feature information
+      href: display-feature-information-ios-sdk.md
+    - name: Add a line layer
+      href: add-line-layer-map-ios.md
+    - name: Add a polygon layer
+      href: add-polygon-layer-map-ios.md
+    - name: Add a polygon extrusion layer
+      href: add-polygon-extrusion-layer-map-ios.md
+    - name: Add heat map layer
+      href: add-heat-map-layer-ios.md
+    - name: Add an image layer
+      href: add-image-layer-map-ios.md
+    - name: Add a tile layer
+      href: add-tile-layer-map-ios.md
+    - name: Show traffic data 
+      href: show-traffic-data-map-ios-sdk.md
+    - name: Clustering point data
+      href: clustering-point-data-ios-sdk.md
+    - name: Use data-driven expressions
+      href: data-driven-style-expressions-ios-sdk.md
+    - name: React to events
+      href: interact-map-ios-sdk.md  
+    - name: Use the Azure Maps indoor maps module
+      href: how-to-use-indoor-module-ios.md
   - name: Use Azure Maps in Power BI
     items: 
-    - name: Getting started
-      href: power-bi-visual-getting-started.md
+    - name: The Azure Maps Power BI visual
+      href: power-bi-visual-get-started.md
     - name: Understanding layers
       href: power-bi-visual-understanding-layers.md
     - name: Add a bubble layer
@@ -336,7 +374,7 @@ items:
     - name: Render service
       href: /rest/api/maps/render
     - name: Render service V2
-      href: /rest/api/maps/renderv2
+      href: /rest/api/maps/render-v2
     - name: Route service
       href: /rest/api/maps/route
     - name: Search service
@@ -364,11 +402,11 @@ items:
       - name: WFS service
         href: /rest/api/maps/v2/wfs
     - name: Maps account management
-      href: /rest/api/maps-management
+      href: /rest/api/maps-management/
   - name: JavaScript
     items:
     - name: Map control
-      href: /javascript/api/azure-maps-javascript/
+      href: /javascript/api/azure-maps-control/
     - name: Drawing tools
       href: /javascript/api/azure-maps-drawing-tools/
     - name: Service module
@@ -394,7 +432,7 @@ items:
     - name: IoT Hub Device Provisioning Service
       href: ../iot-dps/index.yml
     - name: IoT Central
-      href: /microsoft-iot-central/
+      href: /azure/iot-central/
     - name: IoT Edge
       href: ../iot-edge/index.yml
     - name: IoT Plug and Play
@@ -412,7 +450,7 @@ items:
   - name: Azure Maps terms of use
     href: https://azure.microsoft.com/support/legal/
   - name: Azure Maps pricing
-    href: https://azure.microsoft.com/pricing/details/azure-maps
+    href: https://azure.microsoft.com/pricing/details/azure-maps/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Azure Maps videos
@@ -424,11 +462,11 @@ items:
   - name: Azure Maps glossary
     href: glossary.md
   - name: Service updates
-    href: https://azure.microsoft.com/updates 
+    href: https://azure.microsoft.com/updates/
   - name: Azure IoT Developer Center
-    href: https://azure.microsoft.com/develop/iot/
+    href: https://azure.microsoft.com/overview/iot/
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=iot    
+    href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Technical case studies
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Azure Maps on IoT School

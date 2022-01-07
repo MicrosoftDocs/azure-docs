@@ -2,6 +2,7 @@
 title: Troubleshooting no data - Application Insights for .NET
 description: Not seeing data in Azure Application Insights? Try here.
 ms.topic: conceptual
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
 
@@ -40,6 +41,33 @@ Internet Information Services (IIS) logs counts of all request reaching IIS and 
 
 > [!IMPORTANT]
 > [Connection Strings](./sdk-connection-string.md?tabs=net) are recommended over instrumentation keys. New Azure regions **require** the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
+
+
+## <a id="SSL"></a>Check TLS/SSL client settings (ASP.NET)
+
+If you have an ASP.NET application that it is hosted in Azure App Service or in IIS on a virtual machine, your application could fail to connect to the Snapshot Debugger service due to a missing SSL security protocol.
+
+[The Snapshot Debugger endpoint requires TLS version 1.2](snapshot-debugger-upgrade.md). The set of SSL security protocols is one of the quirks enabled by the httpRuntime targetFramework value in the system.web section of web.config.
+If the httpRuntime targetFramework is 4.5.2 or lower, then TLS 1.2 isn't included by default.
+
+> [!NOTE]
+> The httpRuntime targetFramework value is independent of the target framework used when building your application.
+
+To check the setting, open your web.config file and find the system.web section. Ensure that the `targetFramework` for `httpRuntime` is set to 4.6 or above.
+
+   ```xml
+   <system.web>
+      ...
+      <httpRuntime targetFramework="4.7.2" />
+      ...
+   </system.web>
+   ```
+
+> [!NOTE]
+> Modifying the httpRuntime targetFramework value changes the runtime quirks applied to your application and can cause other, subtle behavior changes. Be sure to test your application thoroughly after making this change. For a full list of compatibility changes, see [Retargeting changes](/dotnet/framework/migration-guide/application-compatibility#retargeting-changes).
+
+> [!NOTE]
+> If the targetFramework is 4.7 or above then Windows determines the available protocols. In Azure App Service, TLS 1.2 is available. However, if you are using your own virtual machine, you may need to enable TLS 1.2 in the OS.
 
 
 ## FileNotFoundException: Could not load file or assembly 'Microsoft.AspNet TelemetryCorrelation

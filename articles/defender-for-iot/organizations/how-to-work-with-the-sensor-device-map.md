@@ -1,7 +1,7 @@
 ---
 title: Work with the sensor device map
 description: The Device Map provides a graphical representation of network devices detected. Use the map to analyze, and manage device information, network slices and generate reports.
-ms.date: 1/7/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
@@ -264,7 +264,7 @@ The following labels and indicators may appear on devices on the map:
 | :::image type="content" source="media/how-to-work-with-maps/amount-alerts-v2.png" alt-text="Number of alerts"::: | Number of alerts associated with the device |
 | :::image type="icon" source="media/how-to-work-with-maps/type-v2.png" border="false"::: | Device type icon, for example storage, PLC or historian. |
 | :::image type="content" source="media/how-to-work-with-maps/grouped-v2.png" alt-text="devices grouped"::: | Number of devices grouped in a subnet in an IT network. In this example 8. |
-| :::image type="content" source="media/how-to-work-with-maps/not-authorized-v2.png" alt-text="device Learning period"::: | An device that was detected after the Learning period and was not authorized as a network device. |
+| :::image type="content" source="media/how-to-work-with-maps/not-authorized-v2.png" alt-text="device Learning period"::: | A device that was detected after the Learning period and was not authorized as a network device. |
 | Solid line | Logical connection between devices |
 | :::image type="content" source="media/how-to-work-with-maps/new-v2.png" alt-text="New device"::: | New device discovered after Learning is complete. |
 

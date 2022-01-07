@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/23/2021
+ms.date: 11/10/2021
 ---
 
 # Usage metering, billing, and pricing models for Azure Logic Apps
@@ -68,12 +68,11 @@ To help you estimate more accurate consumption costs, review these tips:
 
 In single-tenant Azure Logic Apps, a logic app and its workflows follow the [**Standard** plan](https://azure.microsoft.com/pricing/details/logic-apps/) for pricing and billing. You create such logic apps in various ways, for example, when you choose the **Logic App (Standard)** resource type or use the **Azure Logic Apps (Standard)** extension in Visual Studio Code. This pricing model requires that logic apps use a hosting plan and a pricing tier, which differs from the Consumption plan in that you're billed for reserved capacity and dedicated resources whether or not you use them.
 
+When you create or deploy logic apps with the **Logic App (Standard)** resource type, you can use the Workflow Standard hosting plan in all Azure regions. You also have the option to select an existing **App Service Environment v3** resource as your deployment location, but you can only use the App Service plan with this option. If you choose this option, you're charged for the instances used by the App Service plan and for running your logic app workflows. No other charges apply.
+
 > [!IMPORTANT]
-> When you create or deploy logic apps with the **Logic App (Standard)** resource type, you can use the Workflow Standard hosting plan in all Azure regions. You can use 
-> an App Service hosting plan *only* if you use an existing **App Service Environment v3 (ASEv3)** resource as the region where you create and deploy your logic app resource.
->
-> The following options are no longer available or supported with the public release of the **Logic App (Standard)** resource type in Azure regions: 
-> Functions Premium plan, App Service Environment v1, and App Service Environment v2. The App Service plan is unavailable and unsupported except with ASEv3.
+> The following plans and resources are no longer available or supported with the public release of the **Logic App (Standard)** resource type in Azure regions: 
+> Functions Premium plan, App Service Environment v1, and App Service Environment v2. Except with ASEv3, the App Service plan is unavailable and unsupported.
 
 The following table summarizes how the Standard model handles metering and billing for the following components when used with a logic app and a workflow in single-tenant Azure Logic Apps:
 

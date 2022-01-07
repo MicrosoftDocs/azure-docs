@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/29/2021
+ms.date: 01/05/2022
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: librown
 
 ms.collection: M365-identity-device-management
@@ -58,7 +58,10 @@ To enable the authentication method for passwordless phone sign-in, complete the
 1. Each added group or user is enabled by default to use Microsoft Authenticator in both passwordless and push notification modes ("Any" mode). To change this, for each row:
    1. Browse to **...** > **Configure**.
    1. For **Authentication mode** - choose **Any**, or **Passwordless**. Choosing **Push** prevents the use of the passwordless phone sign-in credential. 
-1. To apply the new policy, select **Save**.
+1. To apply the new policy, click **Save**. 
+
+   >[!NOTE]
+   >If you see an error when you try to save, the cause might be due to the number of users or groups being added. As a workaround, replace the users and groups you are trying to add with a single group, in the same operation, and then click **Save** again.
 
 ## User registration and management of Microsoft Authenticator
 
@@ -94,7 +97,7 @@ The user is then presented with a number. The app prompts the user to authentica
 
 After the user has utilized passwordless phone sign-in, the app continues to guide the user through this method. However, the user will see the option to choose another method.
 
-:::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/web-sign-in-microsoft-authenticator-app.png" alt-text="Example of a browser sign-in using the Microsoft Authenticator app.":::
+:::image type="content" border="true" source="./media/howto-authentication-passwordless-phone/web-sign-in-microsoft-authenticator-app.png" alt-text="Example of a browser sign-in using the Microsoft Authenticator app.":::
 
 ## Known Issues
 

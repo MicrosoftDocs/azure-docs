@@ -2,7 +2,7 @@
 author: craigshoemaker
 ms.service: azure-functions
 ms.topic: include
-ms.date: 03/05/2019
+ms.date: 11/15/2021
 ms.author: cshoe
 ---
 

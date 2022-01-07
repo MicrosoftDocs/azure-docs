@@ -119,6 +119,8 @@ You can add this version of the extension from the extension bundle v3 by adding
 }
 ```
 
+[!INCLUDE [functions-bindings-bundle-v3-tables-note](../../includes/functions-bindings-bundle-v3-tables-note.md)]
+
 To learn more, see [Update your extensions].
 
 # [Bundle v2.x](#tab/extensionv2)

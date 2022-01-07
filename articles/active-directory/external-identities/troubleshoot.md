@@ -66,11 +66,11 @@ When we check whether a user is able to be invited to your tenant, one of the th
 
 ## I can't invite an email address because of a conflict in proxyAddresses
 
-This happens when another object in the directory has the same invited email address as one of its proxyAddresses. To fix this conflict, remove the email from the [user](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true) object, and also delete the associated [contact](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true) object before trying to invite this email again.
+This happens when another object in the directory has the same invited email address as one of its proxyAddresses. To fix this conflict, remove the email from the [user](/graph/api/resources/user) object, and also delete the associated [contact](/graph/api/resources/contact) object before trying to invite this email again.
 
 ## The guest user object doesn't have a proxyAddress
 
-When inviting an external guest user, sometimes this will conflict with an existing [Contact object](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true). When this occurs, the guest user is created without a proxyAddress. This means that the user will not be able to redeem this account using [just-in-time redemption](redemption-experience.md#redemption-through-a-direct-link) or [email one-time passcode authentication](one-time-passcode.md#user-experience-for-one-time-passcode-guest-users).
+When inviting an external guest user, sometimes this will conflict with an existing [Contact object](/graph/api/resources/contact). When this occurs, the guest user is created without a proxyAddress. This means that the user will not be able to redeem this account using [just-in-time redemption](redemption-experience.md#redemption-through-a-direct-link) or [email one-time passcode authentication](one-time-passcode.md#user-experience-for-one-time-passcode-guest-users).
 
 ## How does ‘\#’, which is not normally a valid character, sync with Azure AD?
 

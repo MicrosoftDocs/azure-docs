@@ -32,6 +32,10 @@ landingContent:
             url: core/concepts-architecture.md
           - text: Application templates
             url: core/concepts-app-templates.md
+      - linkListType: video
+        links:
+          - text: Video resources
+            url: https://www.youtube.com/playlist?list=PL1ljc761XCiYlm8Rx58jLsUp4gAspw1SG
       - linkListType: whats-new
         links:
           - text: Recent updates

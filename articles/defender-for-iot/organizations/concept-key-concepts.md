@@ -1,13 +1,13 @@
 ---
 title: Key advantages
 description: Learn about basic Defender for IoT concepts.
-ms.date: 09/09/2021
+ms.date: 11/09/2021
 ms.topic: article
 ---
 
 # Basic concepts
 
-This article describes key advantages of Azure Defender for IoT.
+This article describes key advantages of Microsoft Defender for IoT.
 
 ## Rapid non-invasive deployment and passive monitoring
 
@@ -52,7 +52,7 @@ The platform provides an intuitive data-mining interface for granular searching 
 
 The Sensor Cloud Management mode determines where device, alert, and other information that the sensor detects is displayed.
 
-For **cloud-connected sensors**, information that the sensor detects is displayed in the sensor console. Alert information is delivered through an IoT hub and can be shared with other Azure services, such as Azure Sentinel.
+For **cloud-connected sensors**, information that the sensor detects is displayed in the sensor console. Alert information is delivered through an IoT hub and can be shared with other Azure services, such as Microsoft Sentinel.
 
 For **locally connected sensors**, information that the sensor detects is displayed in the sensor console. Detection information is also shared with the on-premises management console if the sensor is connected to it.
 

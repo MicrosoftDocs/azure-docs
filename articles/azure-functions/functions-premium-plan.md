@@ -32,7 +32,7 @@ Billing for the Premium plan is based on the number of core seconds and memory a
 
 ## Create a Premium plan
 
-When you create a function app in the Azure portal, the Consumption plan is the default. To create a function app that runs in a Premium plan, you must explicitly create an App Service plan using one of the _Elastic Premium_ SKUs. The function app you create is then hosted in this plan. The Azure portal makes it easy to create both the Premium plan and the function app at the same time. You can run more than one function app in the same Premium plan, but they most both run on the same operating system (Windows or Linux). 
+When you create a function app in the Azure portal, the Consumption plan is the default. To create a function app that runs in a Premium plan, you must explicitly create an App Service plan using one of the _Elastic Premium_ SKUs. The function app you create is then hosted in this plan. The Azure portal makes it easy to create both the Premium plan and the function app at the same time. You can run more than one function app in the same Premium plan, but they must both run on the same operating system (Windows or Linux). 
 
 The following articles show you how to create a function app with a Premium plan, either programmatically or in the Azure portal:
 
@@ -73,6 +73,8 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 Pre-warmed instances are instances warmed as a buffer during scale and activation events. Pre-warmed instances continue to buffer until the maximum scale-out limit is reached. The default pre-warmed instance count is 1, and for most scenarios this value should remain as 1.
 
 When an app has a long warm-up (like a custom container image), you may need to increase this buffer. A pre-warmed instance becomes active only after all active instances have been sufficiently used.
+
+You can also define a warmup trigger that is run during the pre-warming process. You can use a warmup trigger to pre-load custom dependencies during the pre-warming process so your functions are ready to start processing requests immediately. To learn more, see [Azure Functions warmup trigger](functions-bindings-warmup.md).
 
 Consider this example of how always-ready instances and pre-warmed instances work together. A premium function app has five always ready instances configured, and the default of one pre-warmed instance. When the app is idle and no events are triggering, the app is provisioned and running with five instances. At this time, you aren't billed for a pre-warmed instance as the always-ready instances aren't used, and no pre-warmed instance is allocated.
 
@@ -166,7 +168,7 @@ See the complete regional availability of Functions on the [Azure web site](http
 |Brazil South| 100 | 20 |
 |Canada Central| 100 | 20 |
 |Central India| 100 | 20 |
-|Central US| 100 | 20 |
+|Central US| 100 | 40 |
 |China East 2| 100 | 20 |
 |China North 2| 100 | 20 |
 |East Asia| 100 | 20 |
@@ -180,7 +182,7 @@ See the complete regional availability of Functions on the [Azure web site](http
 |Korea Central| 100 | 20 |
 |Korea South| Not Available | 20 |
 |North Central US| 100 | 20 |
-|North Europe| 100 | 20 |
+|North Europe| 100 | 40 |
 |Norway East| 100 | 20 |
 |South Africa North| 100 | 20 |
 |South Central US| 100 | 20 |
@@ -195,7 +197,7 @@ See the complete regional availability of Functions on the [Azure web site](http
 |USGov Texas| 100 | Not Available |
 |USGov Virginia| 100 | 20 |
 |West Central US| 100 | 20 |
-|West Europe| 100 | 20 |
+|West Europe| 100 | 40 |
 |West India| 100 | 20 |
 |West US| 100 | 20 |
 |West US 2| 100 | 20 |

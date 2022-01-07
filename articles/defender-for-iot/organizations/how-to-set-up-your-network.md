@@ -1,19 +1,19 @@
 ---
 title: Set up your network
 description: Learn about solution architecture, network preparation, prerequisites, and other information needed to ensure that you successfully set up your network to work with Azure Defender for IoT appliances.
-ms.date: 11/07/2021
+ms.date: 12/19/2021
 ms.topic: how-to
 ---
 
-# About Azure Defender for IoT network setup
+# About Microsoft Defender for IoT network setup
 
-Azure Defender for IoT delivers continuous ICS threat monitoring and device discovery. The platform includes the following components:
+Microsoft Defender for IoT delivers continuous ICS threat monitoring and device discovery. The platform includes the following components:
 
 **Defender for IoT sensors:** Sensors collect ICS network traffic by using passive (agentless) monitoring. Passive and nonintrusive, the sensors have zero performance impact on OT and IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network. Detections are displayed in the sensor console. There, you can view, investigate, and analyze them in a network map, a device inventory, and an extensive range of reports. Examples include risk assessment reports, data mining queries, and attack vectors.
 
 **Defender for IoT on-premises management console**: The on-premises management console provides a consolidated view of all network devices. It delivers a real-time view of key OT and IoT risk indicators and alerts across all your facilities. Tightly integrated with your SOC workflows and playbooks, it enables easy prioritization of mitigation activities and cross-site correlation of threats.
 
-**Defender for IoT portal:** The Defender for IoT application can help you purchase solution appliances, install and update software, and update TI packages.
+**Defender for IoT in the Azure portal:** The Defender for IoT application can help you purchase solution appliances, install and update software, and update TI packages.
 
 This article provides information about solution architecture, network preparation, prerequisites, and more to help you successfully set up your network to work with Defender for IoT appliances. Readers working with the information in this article should be experienced in operating and managing OT and IoT networks. Examples include automation engineers, plant managers, OT network infrastructure service providers, cybersecurity teams, CISOs, or CIOs.
 
@@ -101,8 +101,8 @@ Verify that your organizational security policy allows access to the following:
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
-| HTTPS | TCP | In/Out | 443 | To access the sensor, and on-premises management console web console. | Access to Web console | Client | Sensor and on-premises management console |
 | SSH | TCP | In/Out | 22 | CLI | To access the CLI. | Client | Sensor and on-premises management console |
+| HTTPS | TCP | In/Out | 443 | To access the sensor, and on-premises management console web console. | Access to Web console | Client | Sensor and on-premises management console |
 
 #### Sensor access to Azure portal
 
@@ -114,8 +114,8 @@ Verify that your organizational security policy allows access to the following:
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
-| SSL | TCP | In/Out | 443 | Give the sensor access to the on-premises management console. | The connection between the sensor, and the on-premises management console | Sensor | On-premises management console |
 | NTP | UDP | In/Out | 123 | Time Sync | Connects the NTP to the on-premises management console. | Sensor | On-premises management console |
+| SSL | TCP | In/Out | 443 | Give the sensor access to the on-premises management console. | The connection between the sensor, and the on-premises management console | Sensor | On-premises management console |
 
 #### Additional firewall rules for external services (optional)
 
@@ -123,16 +123,16 @@ Open these ports to allow extra services for Defender for IoT.
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
-| HTTP | TCP | Out | 80 | The CRL download for certificate validation when uploading  certificates. | Access to the CRL server | Sensor and on-premises management console | CRL server |
-| LDAP | TCP | In/Out | 389 | Active Directory | Allows Active Directory management of users that have access, to log in to the system. | On-premises management console and Sensor | LDAP server |
-| LDAPS | TCP | In/Out | 636 | Active Directory | Allows Active Directory management of users that have access, to log in to the system. | On-premises management console and Sensor | LDAPS server |
-| [SNMP](how-to-set-up-snmp-mib-monitoring.md) | UDP | Out | 161 | Monitoring | Monitors the sensor's health. | On-premises management console and Sensor | SNMP server |
 | SMTP | TCP | Out | 25 | Email | Used to open the customer's mail server, in order to send emails for alerts, and events. | Sensor and On-premises management console | Email server |
-| Syslog | UDP | Out | 514 | LEEF | The logs that are sent from the on-premises management console to Syslog server. | On-premises management console and Sensor | Syslog server |
 | DNS | TCP/UDP | In/Out | 53 | DNS | The DNS server port. | On-premises management console and Sensor | DNS server |
+| HTTP | TCP | Out | 80 | The CRL download for certificate validation when uploading  certificates. | Access to the CRL server | Sensor and on-premises management console | CRL server |
 | [WMI](how-to-configure-windows-endpoint-monitoring.md) | TCP/UDP | Out | 135, 1025-65535 | Monitoring | Windows Endpoint Monitoring. | Sensor | Relevant network element |
-| Tunneling | TCP | In | 9000 </br></br> in addition to port 443 </br></br> Allows access from the sensor, or end user, to the on-premises management console. </br></br> Port 22 from the sensor to the on-premises management console. | Monitoring | Tunneling | Sensor | On-premises management console |
+| [SNMP](how-to-set-up-snmp-mib-monitoring.md) | UDP | Out | 161 | Monitoring | Monitors the sensor's health. | On-premises management console and Sensor | SNMP server |
+| LDAP | TCP | In/Out | 389 | Active Directory | Allows Active Directory management of users that have access, to log in to the system. | On-premises management console and Sensor | LDAP server |
 | Proxy | TCP/UDP | In/Out | 443 | Proxy | To connect the sensor to a proxy server | On-premises management console and Sensor | Proxy server |
+| Syslog | UDP | Out | 514 | LEEF | The logs that are sent from the on-premises management console to Syslog server. | On-premises management console and Sensor | Syslog server |
+| LDAPS | TCP | In/Out | 636 | Active Directory | Allows Active Directory management of users that have access, to log in to the system. | On-premises management console and Sensor | LDAPS server |
+| Tunneling | TCP | In | 9000 </br></br> in addition to port 443 </br></br> Allows access from the sensor, or end user, to the on-premises management console. </br></br> Port 22 from the sensor to the on-premises management console. | Monitoring | Tunneling | Sensor | On-premises management console |
 
 ### Plan rack installation
 
@@ -156,7 +156,7 @@ To plan your rack installation:
 
 ## About passive network monitoring
 
-The appliance receives traffic from multiple sources, either by switch mirror ports (SPAN ports) or by network TAPs. The management port is connected to the business, corporate, or sensor management network with connectivity to an on-premises management console or the Defender for IoT portal.
+The appliance receives traffic from multiple sources, either by switch mirror ports (SPAN ports) or by network TAPs. The management port is connected to the business, corporate, or sensor management network with connectivity to an on-premises management console or Defender for IoT in the Azure portal.
 
 :::image type="content" source="media/how-to-set-up-your-network/switch-with-port-mirroring.png" alt-text="Diagram of a managed switch with port mirroring.":::
 
@@ -182,7 +182,7 @@ Level 1 consists of embedded controllers that control and manipulate the manufac
 
 #### Level 2: Supervisory
 
-Level 2 represents the systems and functions associated with the runtime supervision and operation of an area of a production facility. These usually include the following: 
+Level 2 represents the systems and functions associated with the runtime supervision and operation of an area of a production facility. These usually include the following:
 
 - Operator interfaces or HMIs
 
@@ -600,7 +600,7 @@ An overview of the industrial network diagram will allow you to define the prope
     > [!NOTE]
     > The Defender for IoT appliance should be connected to a lower-level switch that sees the traffic between the ports on the switch.  
 
-1. **Committed devices** - Provide the approximate number of network devices that will be monitored. You will need this information when onboarding your subscription to the Azure Defender for IoT portal. During the onboarding process, you will be prompted to enter the number of devices in increments of 1000.
+1. **Committed devices** - Provide the approximate number of network devices that will be monitored. You will need this information when onboarding your subscription to Defender for IoT in the Azure portal. During the onboarding process, you will be prompted to enter the number of devices in increments of 1000.
 
 1. **(Optional) Subnet list** - Provide a subnet list for the production networks and a description (optional).
 

@@ -97,7 +97,6 @@ If the cluster was created with Databricks Runtime 7.3 LTS (*not* ML), run the f
 ```
 %pip install --upgrade --force-reinstall -r https://aka.ms/automl_linux_requirements.txt
 ```
-For Databricks Runtime 7.0 and lower, install the Azure Machine Learning SDK using the [init script](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/automl/README.md).
 
 ### AutoML config settings
 
@@ -109,7 +108,7 @@ In AutoML config, when using Azure Databricks add the following parameters:
 ## ML notebooks that work with Azure Databricks
 
 Try it out:
-+ While many sample notebooks are available, **only [these sample notebooks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) work with Azure Databricks.**
++ While many sample notebooks are available, **only [these sample notebooks](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-databricks) work with Azure Databricks.**
 
 + Import these samples directly from your workspace. See below:
 ![Select Import](./media/how-to-configure-environment/azure-db-screenshot.png)

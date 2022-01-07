@@ -2,14 +2,16 @@
 title: Linter rule - admin user name should not be literal
 description: Linter rule - admin user name should not be a literal
 ms.topic: conceptual
-ms.date: 10/15/2021
+ms.date: 11/18/2021
 ---
 
 # Linter rule - admin user name should not be literal
 
 This rule finds when an admin user name is set to a literal value.
 
-## Returned code
+## Linter rule code
+
+Use the following value in the [Bicep configuration file](bicep-config-linter.md) to customize rule settings:
 
 `adminusername-should-not-be-literal`
 

@@ -3,7 +3,7 @@ title: Introduction to securing Azure Active Directory service accounts
 description: Explanation of the types of service accounts available in Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals

@@ -11,6 +11,7 @@ ms.date: 10/25/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
+ms.devlang: csharp
 ---
 
 # Run an Azure Function in response to a blob rehydration event

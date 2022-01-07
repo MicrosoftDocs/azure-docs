@@ -1,7 +1,7 @@
 ---
 title: VM extension management with Azure Arc-enabled servers
 description: Azure Arc-enabled servers can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 10/28/2021
+ms.date: 12/21/2021
 ms.topic: conceptual
 ---
 
@@ -45,7 +45,7 @@ In this release, we support the following VM extensions on Windows and Linux mac
 To learn about the Azure Connected Machine agent package and details about the Extension agent component, see [Agent overview](agent-overview.md#agent-component-details).
 
 > [!NOTE]
-> Recently support for the DSC VM extension was removed for Azure Arc-enabled servers. Alternatively, we recommend using the Custom Script Extension to manage the post-deployment configuration of your server or machine.
+> The Desired State Configuration VM extension is no longer available for Azure Arc-enabled servers. Alternatively, we recommend [migrating to guest configuration](../../governance/policy/how-to/guest-configuration-azure-automation-migration.md) or using the Custom Script Extension to manage the post-deployment configuration of your server.
 
 Arc-enabled servers support moving machines with one or more VM extensions installed between resource groups or another Azure subscription without experiencing any impact to their configuration. The source and destination subscriptions must exist within the same [Azure Active Directory tenant](../../active-directory/develop/quickstart-create-new-tenant.md). This support is enabled starting with the Connected Machine agent version **1.8.21197.005**. For more information about moving resources and considerations before proceeding, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
@@ -53,7 +53,7 @@ Arc-enabled servers support moving machines with one or more VM extensions insta
 
 |Extension |Publisher |Type |Additional information |
 |----------|----------|-----|-----------------------|
-|Azure Defender integrated vulnerability scanner |Qualys |WindowsAgent.AzureSecurityCenter |[Azure Defender’s integrated vulnerability assessment solution for Azure and hybrid machines](../../security-center/deploy-vulnerability-assessment-vm.md)|
+|Microsoft Defender for Cloud integrated vulnerability scanner |Qualys |WindowsAgent.AzureSecurityCenter |[Microsoft Defender for Cloud’s integrated vulnerability assessment solution for Azure and hybrid machines](../../security-center/deploy-vulnerability-assessment-vm.md)|
 |Microsoft Antimalware extension |Microsoft.Azure.Security |IaaSAntimalware |[Microsoft Antimalware extension for Windows](../../virtual-machines/extensions/iaas-antimalware-windows.md) |
 |Custom Script extension |Microsoft.Compute | CustomScriptExtension |[Windows Custom Script Extension](../../virtual-machines/extensions/custom-script-windows.md)|
 |Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |MicrosoftMonitoringAgent |[Log Analytics VM extension for Windows](../../virtual-machines/extensions/oms-windows.md)|
@@ -66,7 +66,7 @@ Arc-enabled servers support moving machines with one or more VM extensions insta
 
 |Extension |Publisher |Type |Additional information |
 |----------|----------|-----|-----------------------|
-|Azure Defender integrated vulnerability scanner |Qualys |LinuxAgent.AzureSecurityCenter |[Azure Defender’s integrated vulnerability assessment solution for Azure and hybrid machines](../../security-center/deploy-vulnerability-assessment-vm.md)|
+|Microsoft Defender for Cloud integrated vulnerability scanner |Qualys |LinuxAgent.AzureSecurityCenter |[Microsoft Defender for Cloud’s integrated vulnerability assessment solution for Azure and hybrid machines](../../security-center/deploy-vulnerability-assessment-vm.md)|
 |Custom Script extension |Microsoft.Azure.Extensions |CustomScript |[Linux Custom Script Extension Version 2](../../virtual-machines/extensions/custom-script-linux.md) |
 |Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |OmsAgentForLinux |[Log Analytics VM extension for Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Azure Monitor for VMs (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentLinux |[Dependency agent virtual machine extension for Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |

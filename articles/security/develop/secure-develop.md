@@ -11,7 +11,6 @@ ms.subservice: security-develop
 services: azure
 
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ---
@@ -99,7 +98,7 @@ If your application allows [file uploads](https://owasp.org/www-community/vulner
 
 Antimalware protection helps identify and remove viruses, spyware, and other malicious software. You can install [Microsoft Antimalware](../fundamentals/antimalware.md) or a Microsoft partner's endpoint protection solution ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10), and [Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
-[Microsoft Antimalware](../fundamentals/antimalware.md) includes features like real-time protection, scheduled scanning, malware remediation, signature updates, engine updates, samples reporting, and exclusion event collection. You can integrate Microsoft Antimalware and partner solutions with [Azure Security Center](../../security-center/security-center-partner-integration.md) for ease of deployment and built-in detections (alerts and incidents).
+[Microsoft Antimalware](../fundamentals/antimalware.md) includes features like real-time protection, scheduled scanning, malware remediation, signature updates, engine updates, samples reporting, and exclusion event collection. You can integrate Microsoft Antimalware and partner solutions with [Microsoft Defender for Cloud](../../security-center/security-center-partner-integration.md) for ease of deployment and built-in detections (alerts and incidents).
 
 ### Don't cache sensitive content
 

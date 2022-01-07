@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: language-service-question-answering, ignite-fall-2021
+ms.custom: language-service-question-answering, ignite-fall-2021, mode-other
 ---
 
 # Create, test, and deploy a custom question answering project

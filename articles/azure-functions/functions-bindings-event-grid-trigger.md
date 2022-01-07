@@ -6,6 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
+ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, fasttrack-edit, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -31,11 +32,7 @@ The type of the input parameter used with an Event Grid trigger depends on these
 + Binding extension version
 + Modality of the C# function. 
 
-The C# function can be created using one of the following C# modes:
-
-* [In-process class library](functions-dotnet-class-library.md): compiled C# function that runs in the same process as the Functions runtime. 
-* [Isolated process class library](dotnet-isolated-process-guide.md): compiled C# function that runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0. 
-* [C# script](functions-reference-csharp.md): used primarily when creating C# functions in the Azure portal.
+[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
 # [In-process](#tab/in-process)
 
@@ -183,10 +180,10 @@ The following examples show trigger binding in [Java](functions-reference-java.m
   public void logEvent(
     @EventGridTrigger(
       name = "event"
-    ) 
-    String content, 
+    )
+    String content,
     final ExecutionContext context) {
-      context.getLogger().info("Event content: " + content);      
+      context.getLogger().info("Event content: " + content);
   }
 ```
 
@@ -219,8 +216,8 @@ Upon arrival, the event's JSON payload is de-serialized into the ```EventSchema`
   public void logEvent(
     @EventGridTrigger(
       name = "event"
-    ) 
-    EventSchema event, 
+    )
+    EventSchema event,
     final ExecutionContext context) {
       context.getLogger().info("Event content: ");
       context.getLogger().info("Subject: " + event.subject);

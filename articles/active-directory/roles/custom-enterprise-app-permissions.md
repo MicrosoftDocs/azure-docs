@@ -3,7 +3,7 @@ title: App permissions for custom roles in Azure Active Directory | Microsoft Do
 description: Preview enterprise app permissions for custom Azure AD roles in the Azure portal, PowerShell, or Graph API.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
@@ -225,5 +225,5 @@ To delegate create, read, update, and delete (CRUD) permissions for updating the
 
 ## Next steps
 
-- [Create custom roles using the Azure portal, Azure AD PowerShell, and Graph API](custom-create.md)
+- [Create custom roles using the Azure portal, Azure AD PowerShell, and Microsoft Graph API](custom-create.md)
 - [List role assignments](view-assignments.md)

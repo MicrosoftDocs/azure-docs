@@ -4,7 +4,7 @@ description: Find content and API references for administrator roles for Microso
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
@@ -35,7 +35,7 @@ All products in Microsoft 365 can be managed with administrative roles in Azure 
 > | Secure Score | [Azure AD built-in roles](permissions-reference.md) | [Graph API](/graph/api/overview)<br>[Fetch role assignments](/graph/api/directoryrole-list) |
 > | Compliance Manager | [Compliance Manager roles](/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud#permissions-and-role-based-access-control) | Not available |
 > | Azure Information Protection | [Azure AD built-in roles](permissions-reference.md) | [Graph API](/graph/api/overview)<br>[Fetch role assignments](/graph/api/directoryrole-list) |
-> | Microsoft Cloud App Security | [Role-based access control](/cloud-app-security/manage-admins) | [API reference](/cloud-app-security/api-tokens)  |
+> | Microsoft Defender for Cloud Apps | [Role-based access control](/cloud-app-security/manage-admins) | [API reference](/cloud-app-security/api-tokens)  |
 > | Azure Advanced Threat Protection | [Azure ATP role groups](/azure-advanced-threat-protection/atp-role-groups) | Not available |
 > | Windows Defender Advanced Threat Protection | [Windows Defender ATP role-based access control](/windows/security/threat-protection/windows-defender-atp/rbac-windows-defender-advanced-threat-protection) | Not available |
 > | Privileged Identity Management | [Azure AD built-in roles](permissions-reference.md) | [Graph API](/graph/api/overview)<br>[Fetch role assignments](/graph/api/directoryrole-list) |

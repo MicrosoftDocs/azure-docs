@@ -3,20 +3,18 @@ title: Network security concepts and requirements in Azure | Microsoft Docs
 description: This article provides basic explanations about core network security concepts and requirements, and information on what Azure offers in each of these areas.
 services: security
 documentationcenter: na
-author: TomShinder
-manager: barbkess
-editor: TomSh
+author: TerryLanfear
+manager: rkarlin
 
 ms.assetid: bedf411a-0781-47b9-9742-d524cf3dbfc1
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 01/06/2022
 ms.author: terrylan
-#Customer intent: As an IT Pro or decision maker I am looking for information on the network security controls available in Azure.
+#Customer intent: As an IT Pro or decision maker, I am looking for information on the network security controls available in Azure.
 
 ---
 # Azure network security overview
@@ -76,13 +74,13 @@ Learn more:
 
 * [Network Security Groups](../../virtual-network/network-security-groups-overview.md)
 
-#### ASC just in time VM access
+#### Defender for Cloud just in time VM access
 
-[Azure security center](../../security-center/security-center-introduction.md) can manage the NSGs on VMs and lock access to the VM until a user with the appropriate Azure role-based access control [Azure RBAC](../../role-based-access-control/overview.md) permissions requests access. When the user is successfully authorized ASC makes modifications to the NSGs to allow access to selected ports for the time specified. When the time expires the NSGs are restored to their previous secured state.
+[Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) can manage the NSGs on VMs and lock access to the VM until a user with the appropriate Azure role-based access control [Azure RBAC](../../role-based-access-control/overview.md) permissions requests access. When the user is successfully authorized Defender for Cloud makes modifications to the NSGs to allow access to selected ports for the time specified. When the time expires the NSGs are restored to their previous secured state.
 
 Learn more:
 
-* [Azure Security Center Just in Time Access](../../security-center/security-center-just-in-time.md)
+* [Microsoft Defender for Cloud Just in Time Access](../../security-center/security-center-just-in-time.md)
 
 #### Service endpoints
 
@@ -129,16 +127,13 @@ You can access these enhanced network security features by using an Azure partne
 
 ## Azure Firewall
 
-Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It is a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. Some features include:
+[Azure Firewall](../../firewall/overview.md) is a cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection.
 
-* High availability
-* Cloud scalability
-* Application FQDN filtering rules
-* Network traffic filtering rules
+Azure Firewall is offered in two SKUs: Standard and Premium. [Azure Firewall Standard](../../firewall/features.md) provides L3-L7 filtering and threat intelligence feeds directly from Microsoft Cyber Security. [Azure Firewall Premium](../../firewall/premium-features.md) provides advanced capabilities include signature-based IDPS to allow rapid detection of attacks by looking for specific patterns.
 
 Learn more:
 
-* [Azure Firewall overview](../../firewall/overview.md)
+* [What is Azure Firewall](../../firewall/overview.md)
 
 ## Secure remote access and cross-premises connectivity
 
@@ -366,11 +361,11 @@ For more information on Network Watcher and how to start testing some of the fun
 > [!NOTE]
 > For the most up-to-date notifications on availability and status of this service, check the [Azure updates page](https://azure.microsoft.com/updates/?product=network-watcher).
 
-### Azure Security Center
+### Microsoft Defender for Cloud
 
-Azure Security Center helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a large set of security solutions.
+Microsoft Defender for Cloud helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a large set of security solutions.
 
-Security Center helps you optimize and monitor network security by:
+Defender for Cloud helps you optimize and monitor network security by:
 
 * Providing network security recommendations.
 * Monitoring the state of your network security configuration.
@@ -378,7 +373,7 @@ Security Center helps you optimize and monitor network security by:
 
 Learn more:
 
-* [Introduction to Azure Security Center](../../security-center/security-center-introduction.md)
+* [Introduction to Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
 
 ### Virtual Network TAP
 

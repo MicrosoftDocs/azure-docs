@@ -74,7 +74,7 @@ Partners also filter costs in a specific billing currency across customers in th
 
 ![Example showing Actual cost selection for currencies](./media/get-started-partners/actual-cost-selector.png)
 
-Use the [amortized cost view](quick-acm-cost-analysis.md#customize-cost-views) in billing scopes to view reserved instance amortized costs across a reservation term.
+Use the [amortized cost view](quick-acm-cost-analysis.md#switch-between-actual-and-amortized-cost) in billing scopes to view reserved instance amortized costs across a reservation term.
 
 ### Billing profile scope
 
@@ -155,7 +155,7 @@ To view or change policies:
 1. In the Azure portal, navigate to **Cost Management** (not Cost Management + Billing).
 1. In the left menu under **Settings**, select **Configuration**.
 1. The billing profile configuration is shown. Polices are shown as Enabled or Disabled. If you want to change a policy, select **Edit** under a policy.  
-    :::image type="content" source="./media/get-started-partners/configuration-policy-settings.png" alt-text="ALTTEXT" lightbox="./media/get-started-partners/configuration-policy-settings.png" :::
+    :::image type="content" source="./media/get-started-partners/configuration-policy-settings.png" alt-text="Screenshot showing the billing profile configuration page where you can view and edit policy settings." lightbox="./media/get-started-partners/configuration-policy-settings.png" :::
 1. If needed, change the policy settings, and then select **Save**.
 
 ### View subscription costs in the customer tenant
@@ -172,7 +172,7 @@ The retail rates used to compute costs shown in the view are the same prices sho
 
 ## Analyze costs in cost analysis
 
-Partners with access to billing scopes in the partner tenant can explore and analyze invoiced costs in cost analysis across customers for a specific customer or for an invoice. In the [cost analysis](quick-acm-cost-analysis.md) view, you can also [save views](quick-acm-cost-analysis.md#saving-and-sharing-customized-views).
+Partners with access to billing scopes in the partner tenant can explore and analyze invoiced costs in cost analysis across customers for a specific customer or for an invoice. In cost analysis, you can also save views.
 
 Azure RBAC users with access to the subscription in the customer tenant can also analyze retail costs for subscriptions in the customer tenant, save views, and export data to CSV and PNG files.
 

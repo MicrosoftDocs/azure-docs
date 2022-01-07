@@ -47,7 +47,9 @@ The following table lists the currently available versions of the default *Micro
 | --- | --- | --- |
 | 1.x | `[1.*, 2.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v1.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle |
 | 2.x | `[2.*, 3.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v2.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle |
-| 3.x | `[3.3.0, 4.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v3.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle |
+| 3.x | `[3.3.0, 4.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v3.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle<sup>1</sup> |
+
+<sup>1</sup> Version 3.x of the extension bundle currently does not include the [Table Storage bindings](./functions-bindings-storage-table.md). If your app requires Table Storage, you will need to continue using the 2.x version for now.
 
 > [!NOTE]
 > While you can a specify custom version range in host.json, we recommend you use a version value from this table.
@@ -106,7 +108,7 @@ In **Visual Studio**, you can install packages from the Package Manager Console 
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
 ```
 
-The name of the package used for a given binding is provided in the reference article for that binding. For an example, see the [Packages section of the Service Bus binding reference article](functions-bindings-service-bus.md#functions-1x).
+The name of the package used for a given binding is provided in the reference article for that binding.
 
 Replace `<TARGET_VERSION>` in the example with a specific version of the package, such as `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to Functions runtime 1.x or 2.x are specified in the reference article for the binding.
 

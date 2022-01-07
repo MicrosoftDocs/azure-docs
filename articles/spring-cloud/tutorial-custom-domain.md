@@ -19,7 +19,7 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 
 ## Prerequisites
 
-* An application deployed to Azure Spring Cloud (see [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](./quickstart.md), or use an existing app).
+* An application deployed to Azure Spring Cloud (see [Quickstart: Launch an existing application in Azure Spring Cloud using the Azure portal](./quickstart.md), or use an existing app).
 * A domain name with access to the DNS registry for domain provider such as GoDaddy.
 * A private certificate (that is, your self-signed certificate) from a third-party provider. The certificate must match the domain.
 * A deployed instance of [Azure Key Vault](../key-vault/general/overview.md)
@@ -168,7 +168,7 @@ After you add the CNAME, the DNS records page will resemble the following exampl
 ![DNS records page](./media/custom-dns-tutorial/dns-records.png)
 
 ## Map your custom domain to Azure Spring Cloud app
-If you don't have an application in Azure Spring Cloud, follow the instructions in [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](./quickstart.md).
+If you don't have an application in Azure Spring Cloud, follow the instructions in [Quickstart: Launch an existing application in Azure Spring Cloud using the Azure portal](./quickstart.md).
 
 #### [Portal](#tab/Azure-portal)
 Go to application page.

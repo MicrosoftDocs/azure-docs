@@ -2,12 +2,12 @@
 title: Azure Service Bus bindings for Azure Functions
 description: Learn to send Azure Service Bus triggers and bindings in Azure Functions.
 author: craigshoemaker
-
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
-ms.date: 02/19/2020
+ms.date: 12/03/2021
 ms.author: cshoe
 ms.custom: fasttrack-edit
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Service Bus bindings for Azure Functions
@@ -19,29 +19,65 @@ Azure Functions integrates with [Azure Service Bus](https://azure.microsoft.com/
 | Run a function when a Service Bus queue or topic message is created | [Trigger](./functions-bindings-service-bus-trigger.md) |
 | Send Azure Service Bus messages |[Output binding](./functions-bindings-service-bus-output.md) |
 
-## Add to your Functions app
+::: zone pivot="programming-language-csharp"
 
-### Functions 2.x and higher
+## Install extension
 
-Working with the trigger and bindings requires that you reference the appropriate package. The NuGet package is used for .NET class libraries while the extension bundle is used for all other application types.
+The extension NuGet package you install depends on the C# mode you're using in your function app: 
 
-| Language                                        | Add by...                                   | Remarks 
-|-------------------------------------------------|---------------------------------------------|-------------|
-| C#                                              | Installing the [NuGet package], version 4.x | |
-| C# Script, Java, JavaScript, Python, PowerShell | Registering the [extension bundle]          | The [Azure Tools extension] is recommended to use with Visual Studio Code. |
-| C# Script (online-only in Azure portal)         | Adding a binding                            | To update existing binding extensions without having to republish your function app, see [Update your extensions]. |
+# [In-process](#tab/in-process)
 
-[NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/
-[core tools]: ./functions-run-local.md
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
-[Update your extensions]: ./functions-bindings-register.md
-[Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
-#### Service Bus extension 5.x and higher
+Add the extension to your project installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.RabbitMQ).
 
-A new version of the Service Bus bindings extension is now available. It introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). For .NET applications, the new extension version also changes the types that you can bind to, replacing the types from `Microsoft.ServiceBus.Messaging` and `Microsoft.Azure.ServiceBus` with newer types from [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus).
+# [Isolated process](#tab/isolated-process)
 
-This extension version is available by installing the [NuGet package], version 5.x, or it can be added from the extension bundle v3 by adding the following in your `host.json` file:
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated process](dotnet-isolated-process-guide.md).
+
+Add the extension to your project installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.servicebus).
+
+# [C# script](#tab/csharp-script)
+
+Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
+
+You can install this version of the extension in your function app by registering the [extension bundle], version 2.x, or a later version.
+
+---
+
+The functionality of the extension varies depending on the extension version:
+
+# [Extension v5.x](#tab/extensionv5/in-process)
+
+Version 5.x of the Service Bus bindings extension introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). This extension version also changes the types that you can bind to, replacing the types from `Microsoft.ServiceBus.Messaging` and `Microsoft.Azure.ServiceBus` with newer types from [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus).
+
+This extension version is available by installing the [NuGet package], version 5.x or later.
+
+# [Functions 2.x and higher](#tab/functionsv2/in-process)
+
+Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install NuGet package, versions < 5.x. 
+
+# [Functions 1.x](#tab/functionsv1/in-process)
+
+Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
+
+# [Extension 5.x and higher](#tab/extensionv5/isolated-process)
+
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ServiceBus), version 5.x.
+
+# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
+
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ServiceBus), version 4.x.
+
+# [Functions 1.x](#tab/functionsv1/isolated-process)
+
+Functions version 1.x doesn't support isolated process.
+
+# [Extension 5.x and higher](#tab/extensionv5/csharp-script)
+
+Version 5.x of the Service Bus bindings extension introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). This extension version also changes the types that you can bind to, replacing the types from `Microsoft.ServiceBus.Messaging` and `Microsoft.Azure.ServiceBus` with newer types from [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus).
+
+This extension version is available from the extension bundle v3 by adding the following lines in your `host.json` file:
 
 ```json
 {
@@ -55,16 +91,52 @@ This extension version is available by installing the [NuGet package], version 5
 
 To learn more, see [Update your extensions].
 
-[core tools]: ./functions-run-local.md
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
-[NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus
-[Update your extensions]: ./functions-bindings-register.md
-[Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
+# [Functions 2.x and higher](#tab/functionsv2/csharp-script)
 
-### Functions 1.x
+You can install this version of the extension in your function app by registering the [extension bundle], version 2.x. 
+
+# [Functions 1.x](#tab/functionsv1/csharp-script)
 
 Functions 1.x apps automatically have a reference to the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
 
+---
+
+::: zone-end 
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+
+## Install bundle
+
+The Service Bus binding is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the binding, or if bundles aren't already installed. To learn more, see [extension bundle].
+
+# [Bundle v3.x](#tab/extensionv3)
+
+Version 3.x of the extension bundle contains version 5.x of the Service Bus bindings extension, which introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). 
+
+You can add this version of the extension from the preview extension bundle v3 by adding or replacing the following code in your `host.json` file:
+
+```json
+{
+  "version": "3.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[3.3.0, 4.0.0)"
+  }
+}
+```
+
+To learn more, see [Update your extensions].
+
+# [Bundle v2.x](#tab/extensionv2)
+
+You can install this version of the extension in your function app by registering the [extension bundle], version 2.x.
+
+# [Functions 1.x](#tab/functions1)
+
+Functions 1.x apps automatically have a reference to the extension.
+
+---
+
+::: zone-end
 
 <a name="host-json"></a>  
 
@@ -137,7 +209,8 @@ The example host.json file below contains only the settings for version 5.0.0 an
             "maxConcurrentCalls": 16,
             "maxConcurrentSessions": 8,
             "maxMessages": 1000,
-            "sessionIdleTimeout": "00:01:00"
+            "sessionIdleTimeout": "00:01:00",
+            "enableCrossEntityTransactions": false
         }
     }
 }
@@ -154,6 +227,7 @@ When using service bus extension version 5.x and higher, the following global co
 |maxConcurrentSessions|8|The maximum number of sessions that can be handled concurrently per scaled instance.|
 |maxMessages|1000|The maximum number of messages that will be passed to each function call. This only applies for functions that receive a batch of messages.|
 |sessionIdleTimeout|n/a|The maximum amount of time to wait for a message to be received for the currently active session. After this time has elapsed, the processor will close the session and attempt to process another session.|
+|enableCrossEntityTransactions|false|Whether or not to enable transactions that span multiple entities on a Service Bus namespace.|
 
 ### Retry settings
 
@@ -167,9 +241,11 @@ In addition to the above configuration properties when using version 5.x and hig
 |maxDelay|00:01:00|The maximum delay to allow between retry attempts|
 |maxRetries|3|The maximum number of retry attempts before considering the associated operation to have failed.|
 
----
-
 ## Next steps
 
 - [Run a function when a Service Bus queue or topic message is created (Trigger)](./functions-bindings-service-bus-trigger.md)
 - [Send Azure Service Bus messages from Azure Functions (Output binding)](./functions-bindings-service-bus-output.md)
+
+[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/
+[Update your extensions]: ./functions-bindings-register.md
