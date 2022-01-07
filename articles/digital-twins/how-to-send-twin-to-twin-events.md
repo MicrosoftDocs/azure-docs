@@ -5,10 +5,10 @@ titleSuffix: Azure Digital Twins
 description: See how to create a function in Azure for propagating events through the twin graph.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/16/2021
+ms.date: 1/07/2022
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperf-fy22q2
+ms.custom: contperf-fy22q3
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -18,9 +18,9 @@ ms.custom: contperf-fy22q2
 
 # Set up twin-to-twin event handling
 
-A fully-connected Azure Digital Twins graph is driven by event propagation. Data arrives into Azure Digital Twins from external sources like IoT Hub, and then is propagated through the Azure Digital Twins graph, updating relevant twins as appropriate.
+This article shows how to **send events from twin to twin**, so that when one digital twin in the graph is updated, related twins in the graph that are affected by this information can update accordingly. This will help you create a fully-connected Azure Digital Twins graph, where data that arrives into Azure Digital Twins from external sources like IoT Hub is propagated through the entire graph.
 
-This article shows how to **send events from twin to twin**, so that twins can be updated in response to property changes or other data from related twins in the graph. This is done by setting up an [Azure function](../azure-functions/functions-overview.md) that watches for twin life cycle events. The function recognizes which events should affect other twins in the graph, and uses the event data to update the affected twins accordingly.
+To set up this twin-to-twin event handling, you'll create an [Azure function](../azure-functions/functions-overview.md) that watches for twin life cycle events. The function recognizes which events should affect other twins in the graph, and uses the event data to update the affected twins accordingly.
 
 ## Prerequisites
 
