@@ -5,17 +5,16 @@ description: In this quickstart, you learn how to implement authentication in a 
 services: active-directory
 author: jmprieur
 manager: CelesteDG
+
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: quickstart
 ms.workload: identity
-ms.date: 11/22/2021
+ms.date: 11/17/2021
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:ASP.NET", devx-track-js, mode-api
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
 #Customer intent: As an application developer, I want to know how to set up OpenID Connect authentication in a web application built using Node.js with Express.
 ---
-
-# Quickstart: Add sign in using OpenID Connect to a Node.js web app
 
 In this quickstart, you download and run a code sample that demonstrates how to set up OpenID Connect authentication in a web application built using Node.js with Express. The sample is designed to run on any platform.
 
@@ -27,7 +26,7 @@ In this quickstart, you download and run a code sample that demonstrates how to 
 ## Register your application
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application, for example `MyWebApp`. Users of your app might see this name, and you can change it later.
@@ -41,7 +40,7 @@ In this quickstart, you download and run a code sample that demonstrates how to 
 1. Select **Add a platform** > **Web**. 
 1. In the **Redirect URIs** section,  enter `http://localhost:3000/auth/openid/return`.
 1. Enter a **Front-channel logout URL** `https://localhost:3000`.
-1. In the **Implicit grant and hybrid flows** section, select **ID tokens** as this sample requires the [Implicit grant flow](./v2-oauth2-implicit-grant-flow.md) to be enabled to sign-in the user.
+1. In the **Implicit grant and hybrid flows** section, select **ID tokens** as this sample requires the [Implicit grant flow](../../v2-oauth2-implicit-grant-flow.md) to be enabled to sign-in the user.
 1. Select **Configure**.
 1. Under **Manage**, select **Certificates & secrets** > **Client secrets** > **New client secret**.
 1. Enter a key description (for instance app secret).
@@ -107,9 +106,9 @@ $ node app.js | bunyan
 
 You will have a server successfully running on `http://localhost:3000`.
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
 
 ## Next steps
 Learn more about the web app scenario that the Microsoft identity platform supports:
 > [!div class="nextstepaction"]
-> [Web app that signs in users scenario](scenario-web-app-sign-user-overview.md)
+> [Web app that signs in users scenario](../../scenario-web-app-sign-user-overview.md)

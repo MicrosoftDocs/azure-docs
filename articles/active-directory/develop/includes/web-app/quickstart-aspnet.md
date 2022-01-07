@@ -5,40 +5,67 @@ description: Download and run a code sample that shows how an ASP.NET web app ca
 services: active-directory
 author: jmprieur
 manager: CelesteDG
+
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: quickstart
 ms.workload: identity
-ms.date: 11/22/2021
+ms.date: 11/27/2021
 ms.author: jmprieur
-ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-started", "languages:ASP.NET", contperf-fy21q1, mode-other
-#Customer intent: As an application developer, I want to see a sample ASP.NET web app that can sign in Azure AD users.
+ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1"
+# Customer intent: As an application developer, I want to see a sample ASP.NET web app that can sign in Azure AD users.
 ---
-
-# Quickstart: ASP.NET web app that signs in Azure AD users
 
 In this quickstart, you download and run a code sample that demonstrates an ASP.NET web application that can sign in users with Azure Active Directory (Azure AD) accounts.
 
-#### Step 1: Configure your application in the Azure portal
-For the code sample in this quickstart to work, enter **https://localhost:44368/** for **Redirect URI**.
+The following diagram shows how the sample app works:
 
-> [!div class="nextstepaction"]
-> [Make this change for me]()
+![Diagram of the interaction between the web browser, the web app, and the Microsoft identity platform in the sample app.](../../media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
 
-> [!div class="alert alert-info"]
-> ![Already configured](media/quickstart-v2-aspnet-webapp/green-check.png) Your application is configured with this attribute.
+## Prerequisites
+
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+* [.NET Framework 4.7.2+](https://dotnet.microsoft.com/download/visual-studio-sdks)
+
+## Register and download the app
+You have two options to start building your application: automatic or manual configuration.
+
+### Automatic configuration
+If you want to automatically configure your app and then download the code sample, follow these steps:
+
+1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Azure portal page for app registration</a>.
+1. Enter a name for your application and select **Register**.
+1. Follow the instructions to download and automatically configure your new application in one click.
+
+### Manual configuration
+If you want to manually configure your application and code sample, use the following procedures.
+
+#### Step 1: Register your application
+
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations** > **New registration**.
+1. For **Name**, enter a name for your application. For example, enter **ASPNET-Quickstart**. Users of your app will see this name, and you can change it later.
+1. Add **https://localhost:44368/** in **Redirect URI**, and select **Register**.
+1. Under **Manage**, select **Authentication**.
+1. In the **Implicit grant and hybrid flows** section, select **ID tokens**.
+1. Select **Save**.
 
 #### Step 2: Download the project
 
-Run the project by using Visual Studio 2019.
-> [!div class="sxs-lookup nextstepaction"]
-> [Download the code sample](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
-[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+[Download the Visual Studio 2019 solution](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+
+[!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
 
 
 #### Step 3: Your app is configured and ready to run
 We've configured your project with values of your app's properties.
+
+
+#### Step 3: Run your Visual Studio project
 
 1. Extract the .zip file to a local folder that's close to the root folder. For example, extract to *C:\Azure-Samples*.
    
@@ -47,8 +74,20 @@ We've configured your project with values of your app's properties.
 3. Depending on the version of Visual Studio, you might need to right-click the project **AppModelv2-WebApp-OpenIDConnect-DotNet** and then select **Restore NuGet packages**.
 4. Open the Package Manager Console by selecting **View** > **Other Windows** > **Package Manager Console**. Then run `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`.
 
-> [!NOTE]
-> `Enter_the_Supported_Account_Info_Here`
+5. Edit *Web.config* and replace the parameters `ClientId`, `Tenant`, and `redirectUri` with:
+   ```xml
+   <add key="ClientId" value="Enter_the_Application_Id_here" />
+   <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
+   <add key="redirectUri" value="https://localhost:44368/" />
+   ```
+   In that code:
+
+   - `Enter_the_Application_Id_here` is the application (client) ID of the app registration that you created earlier. Find the application (client) ID on the app's **Overview** page in **App registrations** in the Azure portal.
+   - `Enter_the_Tenant_Info_Here` is one of the following options:
+     - If your application supports **My organization only**, replace this value with the directory (tenant) ID or tenant name (for example, `contoso.onmicrosoft.com`). Find the directory (tenant) ID on the app's **Overview** page in **App registrations** in the Azure portal.
+     - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`.
+     - If your application supports **All Microsoft account users**, replace this value with `common`.
+   - `redirectUri` is the **Redirect URI** you entered earlier in **App registrations** in the Azure portal.
 
 ## More information
 
@@ -57,7 +96,7 @@ This section gives an overview of the code required to sign in users. This overv
 
 ### How the sample works
 
-![Diagram of the interaction between the web browser, the web app, and the Microsoft identity platform in the sample app.](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
+![Diagram of the interaction between the web browser, the web app, and the Microsoft identity platform in the sample app.](../../media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
 
 ### OWIN middleware NuGet packages
 
@@ -108,16 +147,16 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-> |Where  | Description |
-> |---------|---------|
-> | `ClientId`     | The application ID from the application registered in the Azure portal. |
-> | `Authority`    | The security token service (STS) endpoint for the user to authenticate. It's usually `https://login.microsoftonline.com/{tenant}/v2.0` for the public cloud. In that URL, *{tenant}* is the name of your tenant, your tenant ID, or `common` for a reference to the common endpoint. (The common endpoint is used for multitenant applications.) |
-> | `RedirectUri`  | The URL where users are sent after authentication against the Microsoft identity platform. |
-> | `PostLogoutRedirectUri`     | The URL where users are sent after signing off. |
-> | `Scope`     | The list of scopes being requested, separated by spaces. |
-> | `ResponseType`     | The request that the response from authentication contains an authorization code and an ID token. |
-> | `TokenValidationParameters`     | A list of parameters for token validation. In this case, `ValidateIssuer` is set to `false` to indicate that it can accept sign-ins from any personal, work, or school account type. |
-> | `Notifications`     | A list of delegates that can be run on `OpenIdConnect` messages. |
+|Where  | Description |
+|---------|---------|
+| `ClientId`     | The application ID from the application registered in the Azure portal. |
+| `Authority`    | The security token service (STS) endpoint for the user to authenticate. It's usually `https://login.microsoftonline.com/{tenant}/v2.0` for the public cloud. In that URL, *{tenant}* is the name of your tenant, your tenant ID, or `common` for a reference to the common endpoint. (The common endpoint is used for multitenant applications.) |
+| `RedirectUri`  | The URL where users are sent after authentication against the Microsoft identity platform. |
+| `PostLogoutRedirectUri`     | The URL where users are sent after signing off. |
+| `Scope`     | The list of scopes being requested, separated by spaces. |
+| `ResponseType`     | The request that the response from authentication contains an authorization code and an ID token. |
+| `TokenValidationParameters`     | A list of parameters for token validation. In this case, `ValidateIssuer` is set to `false` to indicate that it can accept sign-ins from any personal, work, or school account type. |
+| `Notifications`     | A list of delegates that can be run on `OpenIdConnect` messages. |
 
 
 > [!NOTE]
@@ -146,11 +185,11 @@ public void SignIn()
 
 You can protect a controller or controller actions by using the `[Authorize]` attribute. This attribute restricts access to the controller or actions by allowing only authenticated users to access the actions in the controller. An authentication challenge will then happen automatically when an unauthenticated user tries to access one of the actions or controllers decorated by the `[Authorize]` attribute.
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
 
 ## Next steps
 
 For a complete step-by-step guide on building applications and new features, including a full explanation of this quickstart, try out the ASP.NET tutorial.
 
 > [!div class="nextstepaction"]
-> [Add sign-in to an ASP.NET web app](tutorial-v2-asp-webapp.md)
+> [Add sign-in to an ASP.NET web app](../../tutorial-v2-asp-webapp.md)
