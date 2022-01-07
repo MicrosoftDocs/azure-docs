@@ -30,19 +30,23 @@ To complete this tutorial, make sure you have:
 1. Create a new **Unity** Project in **Unity Hub**
 2. Select **3D**
 3. Name your project and enter a save **Location**.
-4. Select **Create**.
-5. Save the empty default scene to a new file using: **File** > **Save As**.
-6. Name the new scene **Main** and press the **Save** button.
+4. Select **Create** and wait for Unity to create your project.
 
 ### Import ASA and OpenXR
 1. Launch [Mixed Reality Feature Toolkit](https://docs.microsoft.com/en-us/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool)
 2. Select your project path - This is the folder that contains folders such as *Assets*, *Library*, *Logs*, etc - and click **Discover Features**
-3. Under **Azure Mixed Reality Services** select **Azure Spatial Anchors SDK Core** and **Azure Spatial Anchors SDK for Windows**
-4. Under **Platform Support** select **Mixed Reality OpenXR Plugin**
-5. Press **Get Features** --> **Import** --> **Approve** --> **Exit**
-6. When refocussing your Unity window, Unity will start importing the modules
-7. If you get a message about using the new input system click **Yes** to restart Unity and enable the backends.
-<!-- Add screenshot of selection-->
+3. Under Azure Mixed Reality Services select both
+    1. **Azure Spatial Anchors SDK Core**
+    1. **Azure Spatial Anchors SDK for Windows**
+1. Under Platform Support select 
+    1. **Mixed Reality OpenXR Plugin**
+> [!NOTE]
+> Make sure you have refreshed the catalog and the newest version is selected for each
+![MRFT - Feature Selection](../../../includes/media/spatial-anchors-unity/mrft-setup.png)
+1. Press **Get Features** --> **Import** --> **Approve** --> **Exit**
+1. When refocussing your Unity window, Unity will start importing the modules
+1. If you get a message about using the new input system click **Yes** to restart Unity and enable the backends.
+
 
 ### Set up the project settings
 We'll now set some Unity project settings that help us target the Windows Holographic SDK for development.
