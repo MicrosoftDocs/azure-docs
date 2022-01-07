@@ -112,7 +112,7 @@ With the built-in monitoring capability in Azure Spring Cloud, you can debug and
 Complete previous steps:
 
 * [Provision an instance of Azure Spring Cloud](./quickstart-provision-service-instance.md)
-* [Set up the config server](./quickstart-setup-config-server.md)
+* [Set up the config server](./quickstart-setup-config-server.md). For enterprise tier, please follow [set up Application Configuration Service](./how-to-enterprise-application-configuration-service.md).
 * [Build and deploy apps](./quickstart-deploy-apps.md).
 * [Set up Log Analytics workspace](./quickstart-setup-log-analytics.md).
 

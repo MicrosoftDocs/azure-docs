@@ -39,6 +39,8 @@ To find an issue, you can either search by typing a keyword or select the soluti
 
 Selection of **Config Server Health Check**, **Config Server Health Status**, or **Config Server Update History** will display various results.
 
+> Spring Cloud Config Server is not applicable to enterprise tier.
+
 ![Issues options](media/spring-cloud-diagnose/detectors-options.png)
 
 Find your target detector, and select it to execute. A summary of diagnostics will be shown after you execute the detector. You can select **View Full Report** to check diagnostic details or select **Show Tile Menu** button to go back to detector list.

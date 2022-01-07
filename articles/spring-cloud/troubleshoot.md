@@ -97,7 +97,7 @@ Before you onboard your application, ensure that it meets the following criteria
 
 * The application can run locally with the specified Java runtime version.
 * The environment config (CPU/RAM/Instances) meets the minimum requirement set by the application provider.
-* The configuration items have their expected values. For more information, see [Config Server](./how-to-config-server.md).
+* The configuration items have their expected values. For more information, see [Config Server](./how-to-config-server.md). For enterprise tier, please see [Application Configuration Service](./how-to-enterprise-application-configuration-service.md).
 * The environment variables have their expected values.
 * The JVM parameters have their expected values.
 * We recommended that you disable or remove the embedded _Config Server_ and _Spring Service Registry_ services from the application package.

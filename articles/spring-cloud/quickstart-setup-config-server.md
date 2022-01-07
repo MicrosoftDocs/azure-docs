@@ -19,6 +19,7 @@ Azure Spring Cloud Config Server is a centralized configuration service for dist
 ## Prerequisites
 
 * Complete the previous quickstart in this series: [Provision Azure Spring Cloud service](./quickstart-provision-service-instance.md).
+* Azure Spring Cloud Config server is only applicable to basic or standard tier.
 
 ## Azure Spring Cloud Config Server procedures
 

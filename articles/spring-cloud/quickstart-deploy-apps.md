@@ -174,7 +174,7 @@ This document explains how to build and deploy microservice applications to Azur
 * Maven Plugin
 * Intellij
 
-Before deployment using Azure CLI or Maven, complete the examples that [provision an instance of Azure Spring Cloud](./quickstart-provision-service-instance.md) and [set up the config server](./quickstart-setup-config-server.md).
+Before deployment using Azure CLI or Maven, complete the examples that [provision an instance of Azure Spring Cloud](./quickstart-provision-service-instance.md) and [set up the config server](./quickstart-setup-config-server.md). For enterprise tier, please follow [set up Application Configuration Service](./how-to-enterprise-application-configuration-service.md).
 
 ## Prerequisites
 
