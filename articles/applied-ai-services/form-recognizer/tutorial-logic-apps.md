@@ -37,20 +37,18 @@ To complete this tutorial, you'll need the following:
 
 * **An Azure subscription**. You can [create a free Azure subscription](https://azure.microsoft.com/free/cognitive-services/)
 
-* **A Form Recognizer resource**.  Once you have your Azure subscription, [create a Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. If you have an existing Form Recognizer resource, navigate directly to your resource page.
+* **A Form Recognizer resource**.  Once you have your Azure subscription, [create a Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. If you have an existing Form Recognizer resource, navigate directly to your resource page. You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
-  * You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
+  1. After the resource deploys, select **Go to resource**.
 
-  * After the resource deploys, select **Go to resource**.
-
-  * Copy the key and endpoint values from the resource you created and paste them in a convenient location, such as *Microsoft Notepad*. You'll need the key and endpoint values to connect your application to the Form Recognizer API.
+  1. Copy the **Keys and Endpoint** values from the resource you created and paste them in a convenient location, such as *Microsoft Notepad*. You'll need the key and endpoint values to connect your application to the Form Recognizer API.
 
     :::image border="true" type="content" source="media/containers/keys-and-endpoint.png" alt-text="Still photo showing how to access resource key and endpoint URL":::
 
     > [!TIP]
     > For further guidance, *see* [**create a Form Recognizer resource**](create-a-form-recognizer-resource.md).
 
-* A free [**OneDrive**](https://onedrive.live.com/signup) or [**OneDrive for Business**](https://www.microsoft.com/en-us/microsoft-365/onedrive/onedrive-for-business) cloud storage account.
+* A free [**OneDrive**](https://onedrive.live.com/signup) or [**OneDrive for Business**](https://www.microsoft.com/microsoft-365/onedrive/onedrive-for-business) cloud storage account.
 
     > [!NOTE]
     >
@@ -58,7 +56,7 @@ To complete this tutorial, you'll need the following:
     > * OneDrive for Business is part of Office 365 and is designed for organizations. It provides cloud storage where you can store, share, and sync all work files.
     >
 
-* A free [**Outlook online**](https://signup.live.com/signup.aspx?lic=1&mkt=en-ca) or [**Office 365**](https://www.microsoft.com/en-us/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook) email account**.
+* A free [**Outlook online**](https://signup.live.com/signup.aspx?lic=1&mkt=en-ca) or [**Office 365**](https://www.microsoft.com/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook) email account**.
 
 * **A sample invoice to test your Logic App**. You can download and use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/invoice-logic-apps-tutorial.pdf) for this tutorial.
 
@@ -172,10 +170,13 @@ Now that you have the Logic App connector resource set up and configured, the on
 
     * **Body**. We're going to add specific information about the invoice:
 
-      * Type ***Invoice ID:*** and append the dynamic content **Invoice ID field Invoice ID**.
-      * On a new line type ***Invoice due date:*** and append the dynamic content **Invoice date field invoice date (date)**.
-      * Type ***Amount due:*** and append the dynamic content **Amount due field Amount due (number)**.
-      * Lastly, because the amount due is an important number we also want to send the confidence score for this extraction in the email. To do this type ***Amount due (confidence):***  and add the dynamic content **Amount due field confidence of amount due**. When you're done, the window should look similar to the screen below.
+      1. Type ***Invoice ID:*** and append the dynamic content **Invoice ID field Invoice ID**.
+
+      1. On a new line type ***Invoice due date:*** and append the dynamic content **Invoice date field invoice date (date)**.
+
+      1. Type ***Amount due:*** and append the dynamic content **Amount due field Amount due (number)**.
+
+      1. Lastly, because the amount due is an important number we also want to send the confidence score for this extraction in the email. To do this type ***Amount due (confidence):***  and add the dynamic content **Amount due field confidence of amount due**. When you're done, the window should look similar to the screen below.
 
       :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-fifteen.png" alt-text="Image of Outlook node filled in":::
 
@@ -214,7 +215,7 @@ Now that we've created the flow, the last thing to do is to test it and make sur
 
 Congratulations! You've officially completed this tutorial.
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Use the invoice processing prebuilt model in Power Automate](/ai-builder/flow-invoice-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json)
