@@ -475,6 +475,17 @@ groups:
     title: JavaScript
   - id: devlang-react
     title: React
+## Web app ##
+- id: web-app-tutorial
+  title: web-app-tutorial
+  prompt: Choose a language or framework
+  pivots:
+  - id: devlang-asp-net
+    title: ASP.NET
+  - id: devlang-openjdk
+    title: OpenJDK
+  - id: devlang-python-flask
+    title: Python Flask
 ############ END MICROSOFT IDENTITY PLATFORM
 #Owner: antchu
 - id: runtime-version-programming-functions

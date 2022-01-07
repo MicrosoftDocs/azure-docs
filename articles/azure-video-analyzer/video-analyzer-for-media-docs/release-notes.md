@@ -3,7 +3,7 @@ title: Azure Video Analyzer for Media (formerly Video Indexer) release notes | M
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Analyzer for Media (formerly Video Indexer).
 ms.topic: article
 ms.custom: references_regions
-ms.date: 01/03/2022
+ms.date: 01/04/2022
 ms.author: juliako
 ---
 
@@ -17,6 +17,18 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## January 2022
+
+### Improved audio effects detection
+
+The audio effects detection capability was improved to have a better detection rate over the following classes: 
+
+* Crowd reactions (cheering, clapping, and booing), 
+* Gunshot or explosion, 
+* Laughter
+
+For more information, see [Audio effects detection](audio-effects-detection.md).
 
 ## December 2021 
  
