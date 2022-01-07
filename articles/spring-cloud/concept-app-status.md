@@ -21,7 +21,7 @@ To view general status of an application type, select **Apps** in the left navig
 
 * **Provisioning Status** shows the deployment’s provisioning state
 * **Running instance** shows how many app instances are running/how many app instances are desired. If the app should be stopped, this column shows *stopped*.
-* **Registered Instance** shows how many app instances are registered to eureka/how many app instance are desired. If the app should be stopped, this column shows *stopped*.
+* **Registered Instance** shows how many app instances are registered to eureka/how many app instance are desired. If the app should be stopped, this column shows *stopped*. Notice that eureka is not applicable to enterprise tier. Please see [how to Service Registry](how-to-enterprise-service-registry.md) if you are using enterprise tier.
 
 ![Apps status](media/spring-cloud-concept-app-status/apps-ui-status.png)
 

@@ -84,6 +84,8 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 ## Enable Eureka Server service discovery
 
+> Eureka is not applicable to enterprise tier. Please see [how to Service Registry](how-to-enterprise-service-registry.md) if you are using enterprise tier.
+
 In the configuration source that will be used when the app runs in Azure Spring Cloud, set `spring.application.name` to the same name as the Azure Spring Cloud app to which the project will be deployed.
 
 For example, if you deploy a .NET project named `EurekaDataProvider` to an Azure Spring Cloud app named `planet-weather-provider` the *appSettings.json* file should include the following JSON:
