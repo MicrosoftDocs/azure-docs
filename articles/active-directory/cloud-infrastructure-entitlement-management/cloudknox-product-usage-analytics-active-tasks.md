@@ -29,7 +29,7 @@ This topic describes how to view usage analytics about active tasks.
 
 ## Dashboard view
 
-The **Active Tasks** dashboard provides a high level overview of privileges used by various identities. 
+The **Active Tasks** dashboard provides a high-level overview of privileges used by various identities. 
 
 - On the main **Usage Analytics** page, select **Active Tasks** from the  drop-down list across the top of the screen. 
 
@@ -52,9 +52,9 @@ The following components make up the **Active Tasks** table:
     - A **Task** icon next to the task name means the task is a normal task.
 
 
-- **No. of Times Task is Performed**: Captures the number of times the task has been performed by all users, groups, etc.
-- **Performed On (Resources)**: The number of resources on which the task was used on. For more information, see [View usage analytics about active resources](cloudknox-product-usage-analytics.md#view-usage-analytics-about-active-resources).
-- **Number of Users**: Displays how many tasks are assigned to a particular user, and is broken into the following columns:
+- **No. of Times Task is Performed**: Captures the number of times the task has been performed by all users, groups, and so on.
+- **Performed On (Resources)**: The number of resources on which the task was used. For more information, see [View usage analytics about active resources](cloudknox-product-usage-analytics.md#view-usage-analytics-about-active-resources).
+- **Number of Users**: Displays how many tasks are assigned to a user. The tasks are organized into the following columns:
     - **Unexecuted**: Captures the number of users that have access to the task but haven't accessed it.
     - **Executed**: Displays how many of the granted tasks the user has accessed.
 
@@ -65,7 +65,7 @@ There are many filter options within the **Active Tasks** screen, including filt
 - **Filtering by Authorization Systems**
     1. To expand the **Authorization systems** menu, select the **Lock** icon on the left  of the page, and then select all applicable systems. 
 
-         The default filter is the first authorization system in the filter list if filters haven't been used before, or the system defaults to the last filtered selection.
+         The default filter is the first authorization system in the filter list if filters haven't been used before. If you have used a filter before, the system defaults to the last filtered selection you used.
 
        - To automatically select all options for a single authorization system, next to the authorization system name, select **Only**. 
 

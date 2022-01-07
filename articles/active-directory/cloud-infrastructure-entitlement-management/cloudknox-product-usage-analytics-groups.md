@@ -29,7 +29,7 @@ This topic describes how to view usage analytics about groups.
 
 ## View information on the Groups dashboard
 
-The **Groups** dashboard provides a high level overview of group details.
+The **Groups** dashboard provides a high-level overview of group details.
 
 - On the **Usage Analytics** page, select **Groups** from the  drop-down list across the top of the screen. The following components make up the **Groups** dashboard:
 
@@ -48,17 +48,17 @@ The **Groups** table  displays the privileges assigned,  privileges used, and re
 - **Domain/Account**: This column displays a domain name for SAML or Enterprise Directory (ED) groups and displays an account name for local groups.
 - **Privilege Creep Index**: Captures the incurred risk of groups with access to high-risk privileges and is displayed in the following columns:
     - **Index**: Calculates a risk score for the group based on the high-risk privileges they have access to and if that privilege has been accessed.
-    - **Since**: Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level, that is **! High - 130 days**.
+    - **Since**: Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high-level, that is **! High - 130 days**.
 
-         You can hover over the information in this column for specific details on how long the user has had a high, medium, or low privilege creep index.
+         You can hover over the information in this column for more information on how long the user has had a high, medium, or low privilege creep index.
 
          For example, hovering over **! High - 130 days** displays **The User's privilege creep index has been High since 14 February 2020, 1:37 PM in the authorization system**. 
 
 - **Users**: Displays the number of users that belong to the group.
-- **Tasks**: Displays how many tasks are assigned to a particular group, and is broken into the following columns:
+- **Tasks**: Displays how many tasks are assigned to a particular group. It is organized into the following columns:
     - **Granted**: Captures the number of tasks that have been granted to the user directly, granted to the user if part of a group, or granted based on the AWS role type the user can assume.
     - **Executed**: Displays how many of the granted tasks the member's of the group have executed.
-- **Resources**: Displays how many resources a particular group can access, and is broken into the following columns:
+- **Resources**: Displays how many resources a particular group can access. It is organized into the following columns:
     - **All**: Captures the number of resources the group has access to.
     - **Accessed**: Displays how many of the resources the group has accessed.
 - **Tags**: Displays the number of tags applied to a group.
@@ -70,7 +70,7 @@ There are many filter options within the **Groups** screen, including filters by
 - **Filtering by Authorization Systems**
     1. To expand the **Authorization systems** menu, and select all applicable systems, select the **Lock** icon on the left side of the page. 
 
-        The default filter will be the first authorization system in the filter list if filters haven't been used before, or will default to the last filtered selection.
+        The default filter is the first authorization system in the filter list, if filters haven't been used before. If you have used a filter before, the last filtered selection displays.
 
        -  To automatically select all options for a single authorization system, next to the authorization system name, select **Only**.
     2. To filter by the selection, select **Apply**.
@@ -141,7 +141,7 @@ There are many filter options within the **Groups** screen, including filters by
 
          If the current group is only part of one authorization system, this box will be pre-populated. 
 
-         If they are part of multiple authorization systems, the system administrator can select the appropriate authorization system the tag is being created for.
+         If they're part of multiple authorization systems, the system administrator can select the appropriate authorization system the tag is being created for.
 
     8. To save the tag, select **Save**.
     9. To close the **Tag** window, select the **X**.
@@ -150,7 +150,7 @@ There are many filter options within the **Groups** screen, including filters by
 
 You can apply the following set of predefined tags in CloudKnox:
 
-- **ck_attest**: This tag is used to attest an identity. When selected, the value is automatically filled in with the date and time the tag was applied, and the user who applied the tag.
+- **ck_attest**: This tag is used to confirm an identity. When selected, the value is automatically filled in with the date and time the tag is applied, and the name of the user who applied the tag.
 - **ck_exclude_from_reports**: Any identity with this tag is excluded from reports.
 - **ck_primary_owner**: This tag is used for service accounts to indicate the primary owner of the service account.
 - **ck_secondary_owner**: This tag is used for service accounts to indicate the secondary owner of the service account.

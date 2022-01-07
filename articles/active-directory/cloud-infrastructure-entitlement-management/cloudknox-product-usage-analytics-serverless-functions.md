@@ -29,25 +29,25 @@ This topic describes how to view usage analytics about serverless functions (AWS
 
 ## View information on the Serverless Functions dashboard
 
-The **Serverless Functions**, or lambda table, provides a high level overview of serverless function details. On the main **Usage Analytics** page, select **Serverless Functions** from the  drop-down list across the top of the screen. **
+The **Serverless Functions**, or lambda table, provides a high-level overview of serverless function details. On the main **Usage Analytics** page, select **Serverless Functions** from the  drop-down list across the top of the screen. **
 
 To activate the **Access Keys** option, select **AWS** from the filter options drop-down list. The following components make up the **Serverless Functions** table:
 
 
 - **Function Name**: Displays the name of the function.
 - **Domain/Account**: Displays the authorization system that lambda resides in
-- **Privilege Creep Index**: Captures the incurred risk of lambda function with access to high-risk privileges and is broken into the following columns:
+- **Privilege Creep Index**: Captures the incurred risk of lambda function with access to high-risk privileges. This information is organized into the following columns:
     - **Index**: Calculates a risk score for the lambda function based on the high-risk privileges they have access to and if that privilege has been accessed.
-    - **Since**: Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level, that is **! High - 130 days**.
+    - **Since**: Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high-level, that is **! High - 130 days**.
 
         You can hover over the information in this column for specific details on how long the user has had a high, medium, or low privilege creep index.
 
         For example, hovering over **! High - 130 days** will display **The User's privilege creep index has been High since 14 February 2020, 1:37 PM in the authorization system**.
 
-- **Tasks**: Displays how many tasks are assigned to a particular lambda function, and is broken into the following columns:
-    - **Granted**: Captures the sum of the unique tasks that have been granted to all versions of the lambda function through the execution roles, meaning a function can have two roles with seven tasks each. If both roles have a delete task, the delete task will only be counted once.
+- **Tasks**: Displays how many tasks are assigned to a particular lambda function. This information is organized into the following columns:
+    - **Granted**: Captures the sum of the unique tasks assigned to all versions of the lambda function through the execution roles, meaning a function can have two roles with seven tasks each. If both roles have a delete task, the delete task will only be counted once.
     - **Executed**: Displays how many of the granted tasks the lambda function has executed through any version of the function.
-- **Resources**: Displays how many resources a particular lambda function can access, and is broken into the following columns:
+- **Resources**: Displays how many resources a particular lambda function can access. The information is organized into the following columns:
     - **All**: Captures the number of resources the lambda function has access to.
     - **Accessed**: Displays how many of the resources the lambda function has accessed through any version of the function.
 - **Last Activity On**: Displays the date and time the lambda function last performed any type of task in the authorization system. 
@@ -69,7 +69,7 @@ The only filter option in the **Serverless Functions** screen is **Authorization
 
 You can apply the following set of predefined tags:
 
-- **ck_attest**: This tag is used to attest an identity. When selected, the value is automatically filled in with the date and time the tag was applied, and the user who applied the tag.
+- **ck_attest**: This tag is used to confirm an identity. When selected, the value is automatically filled in with the date and time the tag was applied, and the user who applied the tag.
 - **ck_exclude_from_pci**: Any identity with this tag is excluded from the account level PCI score.
 - **ck_exclude_from_reports**: Any identity with this tag is excluded from reports.
 - **ck_primary_owner**: Used for service accounts to indicate the primary owner of the service account.

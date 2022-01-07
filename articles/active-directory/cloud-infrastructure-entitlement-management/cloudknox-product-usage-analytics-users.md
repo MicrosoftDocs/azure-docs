@@ -43,7 +43,7 @@ On the **Usage Analytics** dashboard:
            Users are denoted with an icon for Security Assertion Markup Language (SAML) users, an icon for Enterprise Directory (ED) user, an icon for local users, and an icon for cross-account users (users from another account). AWS roles, AWS EC2 instances, Azure applications, and Google service accounts are shown with their respective icons. 
            For more information, see [View usage analytics about users](cloudknox-product-usage-analytics.md#view-usage-analytics-about-users)
 
-         - To view additional details about the user, select the username. 
+         - To view more information about the user, select the username. 
 
            Users are denoted with an icon for Security Assertion Markup Language (SAML) users, an icon for Enterprise Directory (ED) user, an icon for local users, and an icon for cross-account users (users from another account). AWS roles, AWS EC2 instances, Azure applications, and Google service accounts are shown with their respective icons. 
            For more information, see [View usage analytics about users](cloudknox-product-usage-analytics.md#view-usage-analytics-about-users).

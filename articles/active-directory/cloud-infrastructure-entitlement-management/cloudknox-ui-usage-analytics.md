@@ -109,7 +109,7 @@ When you select **Active Resources** in the top toolbar, the results table displ
 - **Resource Type** - The type of resource: **key**, **bucket**, **instance**, and **policy**.
 - **No. Of Times Users Accessed** - The number of times users have accessed the resource.
 - **Tasks** - How many granted and used tasks the user has accomplished.
-- **No. Of Times Users** - The number of user who have access to the resource and who have accessed the resource.
+- **No. Of Times Users** - The number of users who have access to the resource and who have accessed the resource.
 - **Tags** - Select the ellipses **(...)** to display the associated tag information.
 - The down arrow - Select the down arrow to view details about the associated **Tasks**, sorted by **Unused** and **Used**, **User Groups**, **Roles Available**, and **Policies**.
 
@@ -120,9 +120,9 @@ When you select **Active Resources** in the top toolbar, the results table displ
 When you select **Active Tasks** in the top toolbar, the results table displays the following information.
 
 - **Task Name** - A list of available tasks.
-- **No. Of Times Task Is Performed** - The number of times the task was performed.
+- **No. Of Times Task Is Performed** - The number of times the task was done.
 - **Performed On (Resources)** - How many resources were accessed.
-- **No. Of Users** - The number of user who have unexecuted and executed access.
+- **No. Of Users** - The number of users who have unexecuted and executed access.
 - The down arrow - Select the down arrow to view details about the associated **Tasks**, sorted by **Unused** and **Used**, **User Groups**, **Roles Available**, and **Policies**.
 
     Select the up arrow to return to the previous view.

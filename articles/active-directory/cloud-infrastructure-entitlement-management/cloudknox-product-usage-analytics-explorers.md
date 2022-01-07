@@ -92,7 +92,7 @@ The CloudKnox explorers provide more information about an identity, including en
             - **Type**: Displays the type of resource, that is, subscriptions.
             - **Source Name**: The name of the source, that is, admin.
             - **Source Type**: Displays the role that applies to the user, that is source could be **Group**, meaning the user belongs to a group in which the role applies.
-4. To view which roles a user can assume with the following details, select the **Access Info (AWS Only)** tab. This applies to AWS users only.
+4. To view which roles a user can assume with the following details, select the **Access Info (AWS Only)** tab. This option applies to AWS users only.
 
     - To view which roles are available to the user, select **Roles Available**.
     - To view which roles the user has assumed, select **Roles Accessed**.
@@ -110,7 +110,7 @@ The CloudKnox explorers provide more information about an identity, including en
     - **Date Occurred On**: The date on which the user logged in.
     - **IP Address**: The IP address from which the user logged in.
     - **Access Agent**: The browser or browser agent from which the user accessed their account.
-    - **Status**: Whether the login was successful or not.
+    - **Status**: Displays if the login was successful or unsuccessful.
     - **Authorization System**: The authorization system from which the user performed the activity.
 
      In the  drop-down list next to **Login**, the default view is **Activity – Tasks**. 
@@ -194,7 +194,7 @@ The CloudKnox explorers provide more information about an identity, including en
         - **Search**: In the **Search** box, system administrators can type a specific task name and find how many of those tasks have been unused or used.
         - **All**: The **Tasks** drop-down can be filtered by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
     - **Policies**:  Displays the policies attached to the role.
-    - **Permission Boundary**: This is a constraint that an admin can place on a role to restrict certain accesses to policies.
+    - **Permission Boundary**: This is a restriction that an admin can place on a role to restrict certain accesses to policies.
 
 
          - To display the full details of the policy, select **View** next to the policy name.
@@ -385,6 +385,6 @@ The **Account Explorer** displays all the identities - users, roles, EC2 instanc
 
         - To view all the identities from that account can access the specified account, select the icon to the left of the account name.
         - For EC2 instances and Lambda Functions, to view **Role Summary**, which displays the details noted above, select **View** to the right of the identity name.
-        - To view a diagram of the ways in which the identity is able to access the specified account and through which role(s), select the identity name.
+        - To view a diagram of the ways in which the identity can access the specified account and through which role(s), select the identity name.
 
 <!---## Next steps--->
