@@ -159,7 +159,7 @@ Do the following steps in the Azure portal to order a device:
 
     If you want to create a new key version, select **Create new version**.
 
-    ![Screenshot of the "Create a Key" screen in Azure Key Vault. The "Create new version" link is highlighted.](./media/data-box-order-portal/customer-managed-key-10.png)
+    ![Screenshot of the Create A Key screen in Azure Key Vault. The Create New Version link is highlighted.](./media/data-box-order-portal/customer-managed-key-10.png)
 
     Choose settings for the new key version, and select **Create**.
 
@@ -246,8 +246,20 @@ Do the following steps in the Azure portal to order a device:
 
     ![Screenshot showing the Email section of the Contact Details tab for a Data Box order. The area for typing email addresses and the Review Plus Order button are highlighted.](media/data-box-order-portal/contact-details-03.png)
 
-21. Review the information in **Review + Order** related to the order, contact, notification, and privacy terms. Check the box corresponding to the agreement to privacy terms.
+    Select **Review + Order** to continue.
 
-22. Select **Order**. The order takes a few minutes to be created.
+21. In **Review + Order**:
 
-    ![Screenshot of the Review Plus Order tab for a Data Box order. The Review Plus Order tab and the Order button are highlighted.](media/data-box-order-portal/data-box-import-10.png)
+    1. Review the information in **Review + Order** related to the order, contact details, notification, and privacy terms. 
+    
+    1. Check the box corresponding to the agreement to privacy terms. When you select the checkbox, the order information is validated.
+
+    1. Once the order is validated, select **Order**.
+
+    <!--![Screenshot of the Review Plus Order tab for a Data Box order. The validation status, terms checkbox, and Order button are highlighted.](media/data-box-order-portal/data-box-import-10.png)-->
+
+    [ ![Screenshot of the Review Plus Order tab for a Data Box order. The validation status, terms checkbox, and Order button are highlighted.](media/data-box-order-portal/data-box-import-10-inline.png) ](media/data-box-order-portal/data-box-import-10-expanded.png#lightbox)
+
+    The order takes a few minutes to be created. Your completed order will look similar to this one. You can select **Go to resource** to open the order.
+
+    ![Screenshot of a completed deployment for a Data Box order. The Go To Resource button is highlighted.](media/data-box-order-portal/data-box-import-11.png)
