@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/04/2022
+ms.date: 01/07/2022
 ms.author: alkohli
 ---
 
@@ -19,7 +19,7 @@ The release notes are continuously updated. As critical issues that require a wo
 
 This release corresponds to the software version:
 
-- **Data Box Gateway 2105 (1.6.1588.3220-42623-42265845)** - KB *PLEASE PROVIDE KB.*
+- **Data Box Gateway 2105 (1.6.1588.3220-42623-42265845)** - 4618211
 
 > [!NOTE]
 > Update 2105 can be applied only to Data Box Gateway devices that are running general availability (GA) versions of the software or later. *Is this note needed for 2105?*
