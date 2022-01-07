@@ -38,7 +38,7 @@ To set up twin-to-twin event handling, start by creating an **endpoint** in Azur
 
 ## Create Azure function to update twins
 
-Next, create an Azure function that will listen on the endpoint and receive twin events that are sent there via the route. 
+Next, create an Azure function that will listen on the endpoint and receive twin events that are sent there via the route. The logic of the function should use the information in the events to determine what other twins need to be updated and then perform the updates.
 
 1. First, create an Azure Functions project in Visual Studio on your machine. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#create-an-azure-functions-project).
 
@@ -62,7 +62,7 @@ Before your function can access Azure Digital Twins, it needs some information a
 
 ## Connect the function to the endpoint
 
-Next, subscribe your Azure function to the event grid topic endpoint you created earlier. This will ensure that data can flow from an updated twin through the event grid topic to the function.
+Next, subscribe your Azure function to the Event Grid endpoint you created earlier. This will ensure that data can flow from an updated twin through the event grid topic to the function, which can use the event information to update other twins as needed.
 
 To do this, you'll create an **Event Grid subscription** that sends data from the event grid topic that you created earlier to your Azure function.
 
