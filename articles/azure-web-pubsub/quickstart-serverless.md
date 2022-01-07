@@ -199,7 +199,7 @@ In this tutorial, you learn how to:
         };
         ```
    # [C#](#tab/csharp)
-   - Update `negotiate.cs` and replace `Run` function with following codes. And add `using Microsoft.Azure.WebJobs.Extensions.WebPubSub;` in header to resolve required dependencies.
+   - Update `negotiate.cs` and replace `Run` function with following codes.
         ```c#
         [FunctionName("negotiate")]
         public static WebPubSubConnection Run(
@@ -210,6 +210,10 @@ In this tutorial, you learn how to:
             log.LogInformation("Connecting...");
             return connection;
         }
+        ```
+   - Add below `using` statements in header to resolve required dependencies.
+        ```c#
+        using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
         ```
 
 5. Create a `message` function to broadcast client messages through service.
@@ -283,7 +287,6 @@ In this tutorial, you learn how to:
         ```c#
         using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
         using Microsoft.Azure.WebPubSub.Common;
-
         ```
 
 6. Add the client single page `index.html` in the project root folder and copy content as below.
