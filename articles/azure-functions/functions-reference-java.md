@@ -190,7 +190,12 @@ The following example shows the operating system setting in the `runtime` sectio
  
 ## JDK runtime availability and support 
 
-For local development of Java function apps, download and use the appropriate Azul Zulu Enterprise for Azure Java JDKs from [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/). Azure Functions uses an Azul Java JDK runtime when you deploy your function app to the cloud.
+Microsoft and [Adoptium](https://adoptium.net/) builds of OpenJDK are provided and supported on Functions for Java 8 and 11. These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and runnning Java SE applications. For local development or testing, you can install the Microsoft build of OpenJDK from the [downloads page](https://docs.microsoft.com/java/openjdk/download). The table below describes the new Java versions included in the January 2022 Functions platform release:
+
+| Java Version | Linux            | Windows              |
+|--------------|------------------|----------------------|
+| Java 8       | 1.8.0_312 (Adoptium) | 1.8.0_312 (Adoptium) |
+| Java 11      | 11.0.13 (MSFT)   | 11.0.13 (MSFT)       |
 
 [Azure support](https://azure.microsoft.com/support/) for issues with the JDKs and function apps is available with a [qualified support plan](https://azure.microsoft.com/support/plans/).
 
