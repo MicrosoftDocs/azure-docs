@@ -194,7 +194,7 @@ az ml component create --file eval.yml
 
 After these commands run to completion, you can see the components in Studio:
 
-![Screenshot of Studio showing the components that were just registered](media/how-to-create-component-pipelines/registered-components.png)
+![Screenshot of Studio showing the components that were just registered](media/how-to-create-component-pipelines-cli/registered-components.png)
 
 Click on a component. You'll see some basic information about the component, such as creation and modification dates. Also, you'll see editable fields for Tags and Description. The tags can be used for adding rapidly-searched keywords. The description field supports Markdown formatting and should be used to describe your component's functionality and basic use. 
 
