@@ -8,7 +8,7 @@ ms.author: cesardl
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.date: 01/15/2022
+ms.date: 02/15/2022
 ---
 
 # Generate an AutoML model's training code (preview)
@@ -68,7 +68,7 @@ When you enable code generation, automated ML generates the model's training cod
 
 * **script_run_notebook.ipynb**: Notebook with boiler-plate code to run the model's training code (script.py) in AzureMLCompute through Azure ML SDK classes such as `ScriptRunConfig`. 
 
-![Code generation diagram](./media/how-to-generate-automl-training-code/code-generation-design.png)
+![Code generation diagram](./media/how-to-generate-automl-training-code/code-generation-design.svg)
 
 ## Get generated code and model artifacts
 
