@@ -84,7 +84,7 @@ Open `ComponentA.yaml` to see how the first component is defined:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/3a_basic_pipeline/componentA.yml":::
 
-In the current preview, only components of type `command` are supported. The `name` is the unique identifier and used in Studio to describe the component, and `display_name` is used to provide friendly name . The `version` key-value pair allows you to evolve your pipeline components while maintaining reproducibility with older versions. 
+In the current preview, only components of type `command` are supported. The `name` is the unique identifier and used in Studio to describe the component, and `display_name` is used for a display-friendly name. The `version` key-value pair allows you to evolve your pipeline components while maintaining reproducibility with older versions. 
 
 All files in the `code.local_path` value will be uploaded to Azure for processing. 
 
@@ -196,7 +196,7 @@ After these commands run to completion, you can see the components in Studio:
 
 ![Screenshot of Studio showing the components that were just registered](media/how-to-create-component-pipelines-cli/registered-components.png)
 
-Click on a component. You'll see some basic information about the component, such as creation and modification dates. Also, you'll see editable fields for Tags and Description. The tags can be used for adding rapidly-searched keywords. The description field supports Markdown formatting and should be used to describe your component's functionality and basic use. 
+Click on a component. You'll see some basic information about the component, such as creation and modification dates. Also, you'll see editable fields for Tags and Description. The tags can be used for adding rapidly searched keywords. The description field supports Markdown formatting and should be used to describe your component's functionality and basic use. 
 
 ### Use registered components in a job specification file 
 
