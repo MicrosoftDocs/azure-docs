@@ -62,7 +62,7 @@ In the left navigation pane, select **Application Insights** to view the **Overv
 * Select the link between customers-service and `petclinic` to see more details such as a query from SQL.
 * Select an endpoint to see all the applications making requests to the endpoint.
 
-   ![e-ipa-4](./media/enterprise/application-insights/enterprise-ipa-4.png)
+   ![Application Insights Map endpoints image](./media/enterprise/how-to-application-insights/ai-application-map-endpoints.png)
 
 * In the left navigation pane, select **Performance** to see the performance data of all applications' operations, as well as dependencies and roles.
 
@@ -86,7 +86,7 @@ In the left navigation pane, select **Application Insights** to view the **Overv
 
 * In the left navigation pane, select **Logs** to view all applications' logs, or one application's logs when filtering by `cloud_RoleName`.
 
-   ![Example of Application Logs](./media/enterprise/application-insights/enterprise-ipa-11.png)
+   ![Example of Application Logs](./media/enterprise/how-to-application-insights/ai-application-logs.png)
 
 ## Automation
 
@@ -174,39 +174,47 @@ resource "azurerm_spring_cloud_service" "example" {
 
 This section applies to the Enterprise Tier only.
 
-To check and update the current settings in Application Insights, follow these steps:
+You can use the Portal to check or update the current settings in Application Insights.
+
+### Enable Application Insights
 
 1. Select **Application Insights**.
 1. Enable Application Insights by selecting **Edit binding**, or the **Unbound** hyperlink.
 
-   ![e-spring-ipa-1](./media/enterprise/application-insights/enterprise-spring-ipa-1.png)
+   ![WHere to Enable Application Insights](./media/enterprise/how-to-application-insights/ai-binding-enable.png)
 
 1. Edit **Application Insights** or **Sampling rate**, then select **Save**.
 
-   ![e-spring-ipa-2](./media/enterprise/application-insights/enterprise-spring-ipa-2.png)
+### Disable Application Insights
 
-1. Select **Unbind binding** to disable Application Insights.
+1. Select **Application Insights**.
+1. Select **Unbind binding** to disable Application Insights. 
 
-   ![e-spring-ipa-3](./media/enterprise/application-insights/enterprise-spring-ipa-3.png)
+   ![Where to disable Application Insights](./media/enterprise/how-to-application-insights/ai-unbind-binding.png)
 
-1. Select the name under the *Application Insights* column to open the Application Insights section.
-   ![e-spring-ipa-4](./media/enterprise/application-insights/enterprise-spring-ipa-4.png)
+### Change Application Insights Settings
 
-To check and update the current settings for Application Insights in Build Service, follow these steps:
+Select the name under the *Application Insights* column to open the Application Insights section.
+
+![Where to change Application Insights settings](./media/enterprise/how-to-application-insights/ai-change-settings.png)
+
+### Edit Application Insights buildpack bindings in Build Service
+
+To check and update the current settings for the Application Insights buildpack bindings in Build Service, follow these steps:
 1. Select **Build Service**.
 1. Choose your builder.
 1. Select **Edit** under the Bindings column.
 
-   ![e-spring-ipa-5](./media/enterprise/application-insights/enterprise-spring-ipa-5.png)
+Application Insights settings are found in the *ApplicationInsights* item listed under the *Binding type* column.
 
-Application Insights settings are one of the bindings listed with the *Binding type* of *ApplicationInsights*.
 
-   ![e-spring-ipa-6](./media/enterprise/application-insights/enterprise-spring-ipa-6.png)
+1. Select the **Bound** hyperlink, or select **Edit Binding** under the ellipse, to open and edit the Application Insights buildpack bindings.
 
-Select the **Bound** hyperlink or **Edit Binding** to edit Application Insights buildpack bindings.
+   ![Where to select editing of bindings in Build Service](./media/enterprise/how-to-application-insights/ai-builder-settings.png)
 
-   ![e-spring-ipa-7](./media/enterprise/application-insights/enterprise-spring-ipa-7.png)
-   ![e-spring-ipa-8](./media/enterprise/application-insights/enterprise-spring-ipa-8.png)
+1. Edit the binding settings, then select **Save**.
+
+   ![e-spring-ipa-8](./media/enterprise/how-to-application-insights/ai-edit-binding.png)
 
 ## Manage Application Insights
 

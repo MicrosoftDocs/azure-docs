@@ -46,7 +46,7 @@ Use the following steps to provision an Azure Spring Cloud service instance:
 
 1. On the Azure Spring Cloud *Create* page, select **Change** next to the *Pricing* option, then select the **Enterprise** tier.
 
-   ![Where to choose the Enterprise Tier on the Create Page](./media/enterprise/service-instance/choose-enterprise-tier.png)
+   ![Where to choose the Enterprise Tier on the Create Page](./media/enterprise/getting-started-enterprise/choose-enterprise-tier.png)
 
    Select the **Terms** checkbox to agree to the legal terms and privacy statements of the Enterprise tier offering in the Azure Marketplace.
 
@@ -55,7 +55,7 @@ Use the following steps to provision an Azure Spring Cloud service instance:
    > [!NOTE]
    > All Tanzu components are enabled by default. Please carefully consider which Tanzu components you want to use or enable during the provisioning phase. After provisioning the Azure Spring Cloud instance, you can't enable or disable Tanzu components.
 
-   ![VMware Tanzu Settings screen](./media/enterprise/service-instance/create-instance-tanzu-settings-public-preview.png)
+   ![VMware Tanzu Settings screen](./media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png)
 
 1. Select the **Application Insights** section, then select **Enable Application Insights**. You can also enable Application Insights after you provision the Azure Spring Cloud instance.
 
@@ -65,7 +65,7 @@ Use the following steps to provision an Azure Spring Cloud service instance:
    > [!NOTE]
    > You'll pay for the usage of Application Insights when integrated with Azure Spring Cloud. For more information about Application Insights pricing, see [Manage usage and costs for Application Insights](../azure-monitor/app/pricing.md).
 
-   ![Application Insights settings](./media/enterprise/service-instance/application-insights.png)
+   ![Application Insights settings](./media/enterprise/getting-started-enterprise/application-insights.png)
 
 1. Select **Review and create** at the bottom left of the page. After validation completes successfully, select **Create** to start provisioning the service instance.
 
@@ -99,7 +99,7 @@ To use Application Configuration Service, follow these steps.
 1. Select **Application Configuration Service**.
 1. Select **Overview** to view the running state and resources allocated to Application Configuration Service.
 
-   ![Application Configuration Service Overview screen](./media/enterprise/application-configuration-service/overview.png)
+   ![Application Configuration Service Overview screen](./media/enterprise/getting-started-enterprise/config-service-overview.png)
 
 1. Select **Settings** and add a new entry in the **Repositories** section with the following information:
 
@@ -110,16 +110,16 @@ To use Application Configuration Service, follow these steps.
 
 1. Select **Validate** to validate access to the target URI. After validation completes successfully, select **Apply** to update the configuration settings.
 
-   ![Application Configuration Service Settings overview](./media/enterprise/application-configuration-service/settings.png)
+   ![Application Configuration Service Settings overview](./media/enterprise/getting-started-enterprise/config-service-settings.png)
 
 1. Select **App binding**, then select **Bind app**.
 1. Choose one app in the dropdown and select **Apply** to bind the application to Application Configuration Service.
 
-   ![ACS Bind an app dropdown](./media/enterprise/application-configuration-service/app-bind-dropdown.png)
+   ![ACS Bind an app dropdown](./media/enterprise/getting-started-enterprise/config-service-app-bind-dropdown.png)
 
    A list under **App name** shows the apps bound with Application Configuration Service, as shown in the following screenshot:
 
-   ![Bound ACS application list example](./media/enterprise/application-configuration-service/app-bind.png)
+   ![Bound ACS application list example](./media/enterprise/getting-started-enterprise/config-service-app-bind.png)
 
 ## Use Service Registry
 
@@ -133,11 +133,11 @@ To use Service Registry, follow these steps.
 1. Select **App binding**, then select **Bind app**.
 1. Choose one app in the dropdown and select **Apply** to bind the application to Service Registry.
 
-   ![Service Registry bind an app dropdown](./media/enterprise/service-registry/app-bind-dropdown.png)
+   ![Service Registry bind an app dropdown](./media/enterprise/getting-started-enterprise/service-reg-app-bind-dropdown.png)
 
    A list under **App name** shows the apps bound with Service Registry, as shown in the following screenshot:
 
-   ![Bound Service Registry application list example](./media/enterprise/service-registry/app-bind.png)
+   ![Bound Service Registry application list example](./media/enterprise/getting-started-enterprise/service-reg-app-bind.png)
 
 ## Build and deploy applications
 
@@ -189,7 +189,7 @@ To build locally, use the following steps:
 
 Access the `api gateway` and `customers service` applications from the browser using the `Public Url` shown above. The Public Url has the format `https://<service_name>-api-gateway.azuremicroservices.io`.
 
-![Access petclinic customers service](./media/enterprise/app-deployment/access-customers-service.png)
+![Access petclinic customers service](./media/enterprise/getting-started-enterprise/access-customers-service.png)
 
 ## Use Spring Cloud Gateway
 
@@ -206,7 +206,7 @@ Assign a public endpoint for the gateway to access to it, using the following st
 1. Select **Overview** to view the running state and resources allocated to Spring Cloud Gateway.
 1. Select **Yes** next to *Assign endpoint* to assign a public endpoint. A URL will be generated for you after a few minutes.
 
-![Assign public endpoint for gateway](./media/enterprise/gateway/overview.png)
+![Assign public endpoint for gateway](./media/enterprise/getting-started-enterprise/gateway-overview.png)
 
 1. Save the URL which will be used later.
 
@@ -266,7 +266,7 @@ To use API portal, follow these steps to assign a public endpoint to the API por
 1. Select **Overview** to view the running state and resources allocated to the API portal.
 1. Select **Yes** next to *Assign endpoint* to assign a public endpoint. A URL will be generated for you after a few minutes.
 
-   ![Assign public endpoint for API portal](./media/enterprise/api-portal/overview.png)
+   ![Assign public endpoint for API portal](./media/enterprise/getting-started-enterprise/api-portal-overview.png)
 
 1. Visit the routes information through the API portal.
 
@@ -274,7 +274,7 @@ To use API portal, follow these steps to assign a public endpoint to the API por
 
    Select the assigned endpoint URL to go to API portal. You can see all the routes configured in Spring Cloud Gateway.
 
-   ![API portal with configured routes](./media/enterprise/api-portal/portal.png)
+   ![API portal with configured routes](./media/enterprise/getting-started-enterprise/api-portal-portal.png)
 
 1. Try out APIs through the API portal.
 
@@ -282,7 +282,7 @@ To use API portal, follow these steps to assign a public endpoint to the API por
 
    Select the API you would like to try out, then select `EXECUTE`. The response from the API will be shown.
 
-   ![Try out the API portal](./media/enterprise/api-portal/tryout.png)
+   ![Try out the API portal](./media/enterprise/getting-started-enterprise/api-portal-tryout.png)
 
 ## Real-time app log streaming
 
@@ -318,7 +318,7 @@ For more information on monitoring apps with third-party APMs, see [Buildpack Bi
 
 1. Open the [Azure portal](https://ms.portal.azure.com/?AppPlatformExtension=entdf#home), then delete the service instance as in the following screenshot.
 
-   ![Delete an instance image](./media/enterprise/service-instance/delete-instance.png)
+   ![Delete an instance image](./media/enterprise/getting-started-enterprise/service-instance-delete-instance.png)
 
 1. Run the following command to remove the preview version of the Azure CLI extension.
 

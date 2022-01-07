@@ -28,7 +28,7 @@ Application Configuration Service supports Azure DevOps, GitHub, GitLab, and Bit
 
 To manage the service settings, open the **Settings** section and add a new entry in the **Repositories** section.
 
-![acs-settings](./media/enterprise/application-configuration-service/settings.png)
+![acs-settings](./media/enterprise/how-to-enterprise-application-configuration-service/config-service-settings.png)
 
 The properties for each entry are described in the following table.
 
@@ -51,7 +51,7 @@ Configuration will be pulled from Git backends using what is defined in a patter
 
 The following image shows the three types of repositories supported by Application Configuration Service.
 
-![acs-auth](./media/enterprise/application-configuration-service/auth.png)
+![acs-auth](./media/enterprise/how-to-enterprise-application-configuration-service/config-service-auth.png)
 
 - Public repository
 
@@ -79,7 +79,7 @@ The following image shows the three types of repositories supported by Applicati
 
 To validate access to the target URI, select **Validate**. After validation is completed successfully, select **Apply** to update the configuration settings.
 
-![acs-settings](./media/enterprise/application-configuration-service/settings.png)
+![acs-settings](./media/enterprise/how-to-enterprise-application-configuration-service/config-service-settings.png)
 
 ## Refresh strategies
 
@@ -138,7 +138,7 @@ To use the centralized configurations, you must bind the app to Application Conf
 
 1. Select **Bind app** and choose one app in the dropdown. Select **Apply** to bind.
 
-   ![acs-app-bind-dropdown](./media/enterprise/application-configuration-service/app-bind-dropdown.png)
+   ![acs-app-bind-dropdown](./media/enterprise/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png)
 
    > [!NOTE]
    > When you change the bind/unbind status, you must restart or redeploy the app to for the binding to take effect.
@@ -147,13 +147,13 @@ To use the centralized configurations, you must bind the app to Application Conf
 
    a. Open the **Apps** section to list all the apps.
 
-      ![acs-app-dashboard](./media/enterprise/application-configuration-service/app-dashboard.png)
+      ![acs-app-dashboard](./media/enterprise/how-to-enterprise-application-configuration-service/config-service-app-dashboard.png)
 
    b. Select the target app to configure patterns.
 
    c. Open the **Configuration** section and select **General settings**. Under the **Config file patterns** property, choose one or more patterns from the dropdown list. Select **Save** to save the changes.
 
-      ![acs-pattern](./media/enterprise/application-configuration-service/pattern.png)
+      ![acs-pattern](./media/enterprise/how-to-enterprise-application-configuration-service/config-service-pattern.png)
 
 ## Next Steps
 

@@ -20,7 +20,7 @@ In Azure Spring Cloud, the existing Standard tier already supports compiling use
 
 Build Service in the Enterprise tier is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps. You can configure the number of resources given to the build agent pool during or after provisioning a new service instance of Azure Spring Cloud using the **VMware Tanzu settings**.
 
-![Where to allocate resources to Build Service](./media/enterprise/build-service/agent-pool.png)
+![Where to allocate resources to Build Service](./media/enterprise/how-to-enterprise-build-service/agent-pool.png)
 
 The Build Agent Pool scale set sizes available are:
   | Scale Set | CPU/Gi |
@@ -33,7 +33,7 @@ The Build Agent Pool scale set sizes available are:
  
 The image below shows the resources allocated to the Build Service Agent Pool after the service instance is provisioned successfully.
 
-![Finding resources allocated to Build Service](./media/enterprise/build-service/agent-pool-size.png)
+![Finding resources allocated to Build Service](./media/enterprise/how-to-enterprise-build-service/agent-pool-size.png)
 
 ## Default Builder and Tanzu Buildpacks
 
@@ -57,15 +57,15 @@ Besides the `default` builder, you can also create custom builders with the prov
 
 All the builders configured in a Spring Cloud Service instance are listed in the **Build Service** section under **VMware Tanzu components**.
 
-![List of configured builders](./media/enterprise/build-service/builder-list.png)
+![List of configured builders](./media/enterprise/how-to-enterprise-build-service/builder-list.png)
 
 Select **Add** to create a new builder. The image below shows the resources used to create the customized builder.
 
-![Fields to fill in to Add a builder](./media/enterprise/build-service/builder-create.png)
+![Fields to fill in to Add a builder](./media/enterprise/how-to-enterprise-build-service/builder-create.png)
 
 A custom builder can also be edited. You can update the buildpacks or the [OS Stack](https://docs.pivotal.io/tanzu-buildpacks/stacks.html), but the builder name is read only.
 
-![How to edit the builder](./media/enterprise/build-service/builder-edit.png)
+![How to edit the builder](./media/enterprise/how-to-enterprise-build-service/builder-edit.png)
 
 You can delete any custom builder, but the `default` builder is read only.
 

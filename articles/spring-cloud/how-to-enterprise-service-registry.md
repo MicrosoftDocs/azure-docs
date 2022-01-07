@@ -50,7 +50,7 @@ Use the following steps to bind an application to the Service Registry.
 
 1. Select **Bind app** and choose one app in the dropdown, then select **Apply** to bind.
 
-   ![sr-app-bind-dropdown](./media/enterprise/service-registry/app-bind-dropdown.png)
+   ![sr-app-bind-dropdown](./media/enterprise/how-to-enterprise-service-registry/service-reg-app-bind-dropdown.png)
 
 ## Next steps
 

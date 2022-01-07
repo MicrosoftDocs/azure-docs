@@ -53,7 +53,7 @@ To access the API portal, use the following steps to assign a public endpoint:
 1. Select **Overview** to view the running state and resources allocated to the API portal.
 1. Select **Yes** next to *Assign endpoint* to assign a public endpoint. A URL will be generated within a few minutes.
 
-  ![Assign public endpoint for API portal](./media/enterprise/api-portal/overview.png)
+  ![Assign public endpoint for API portal](./media/enterprise/how-to-use-enterprise-api-portal/api-portal-overview.png)
 
 1. Save the URL for use later. 
 
@@ -69,7 +69,7 @@ az spring-cloud api-portal update --assign-endpoint
    
 Select the `endpoint URL` to go to API portal. You will see all the routes configured in Spring Cloud Gateway.
 
-![API portal routes image](./media/enterprise/api-portal/portal.png)
+![API portal routes image](./media/enterprise/how-to-use-enterprise-api-portal/api-portal-portal.png)
 
 ## Try APIs using the API portal.
 
@@ -78,6 +78,6 @@ Select the `endpoint URL` to go to API portal. You will see all the routes confi
 1. Select the API you would like to try.
 1. Select **EXECUTE** and the response will be shown.
 
-   ![Try out API portal](./media/enterprise/api-portal/tryout.png)
+   ![Try out API portal](./media/enterprise/how-to-use-enterprise-api-portal/api-portal-tryout.png)
 
 ## Next Steps

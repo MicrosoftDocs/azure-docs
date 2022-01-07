@@ -33,13 +33,13 @@ To see the offer and read a detailed description, see [Azure Spring Cloud Enterp
 
 To see the supported plans in your market, select **Plans + Pricing**.
 
-![VMWare Offer Plan](./media/enterprise/marketplace/plan.png)
+![Enterprise Tier VMWare Plan Offering](./media/enterprise/how-to-enterprise-marketplace-offer/enterprise-plan.png)
 
 > [!NOTE]
 > If you see "No plans are available for market '\<Location>'", that means none of your Azure subscriptions can purchase the SaaS offer. For more information, see [No plans are available for market '\<Location>'](./troubleshoot.md#no-plans-are-available-for-market-location) in [Troubleshooting](./troubleshoot.md).
 
 To see the Enterprise Tier creation page, select **Set up + subscribe**
 
-![VMWare Offer](./media/enterprise/marketplace/marketplace-view.png)
+![Enterprise Tier VMWare Plan Offering](./media/enterprise/how-to-enterprise-marketplace-offer/marketplace-view.png)
 
 ## Next Steps

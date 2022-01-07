@@ -134,7 +134,7 @@ Not all the filters/predicates are supported in Azure Spring Cloud because of se
 
    Select **Yes** next to *Assign endpoint* to assign a public endpoint. You'll get a URL in a few minutes. Save the URL to use later.
 
-   ![Assign public endpoint for gateway](./media/enterprise/gateway/overview.png)
+   ![Assign public endpoint for gateway](./media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-overview.png)
 
    You can also use CLI to do it.
 
@@ -150,7 +150,7 @@ Not all the filters/predicates are supported in Azure Spring Cloud because of se
 
    You can also view those properties in the portal.
 
-   ![Properties endpoint for gateway](./media/enterprise/gateway/configuration.png)
+   ![Properties endpoint for gateway](./media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-configuration.png)
 
 1. Configure routing rules to apps.
 
@@ -183,7 +183,7 @@ Not all the filters/predicates are supported in Azure Spring Cloud because of se
 
    You can also view the routes in the portal.
 
-   ![Routes for gateway](./media/enterprise/gateway/route.png)
+   ![Routes for gateway](./media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png)
 
 1. Access to app `customers service` and `owners` APIs through gateway endpoint.
    ```
