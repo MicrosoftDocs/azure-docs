@@ -15,7 +15,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-t
 
 This article demonstrates how to:  
 
-* Run your Java, Java EE, Jakarta EE, or MicroProfile application on the Open Liberty or WebSphere Liberty runtime with PostgreSQL DB connection.
+* Run your Java, Java EE, Jakarta EE, or MicroProfile application on the Open Liberty or WebSphere Liberty runtime with a PostgreSQL DB connection.
 * Build the application Docker image using Open Liberty or WebSphere Liberty container images.
 * Deploy the containerized application to an AKS cluster using the Open Liberty Operator.
 
@@ -39,25 +39,25 @@ For more information on Open Liberty, see [the Open Liberty project page](https:
 
 The steps in this section guide you to create a Jakarta EE runtime on AKS. After completing these steps, you will have an Azure Container Registry and an Azure Kubernetes Service cluster for the sample application.
 
-1. Visit the [Azure portal](https://aka.ms/publicportal). In the search box at the top of the page, type **IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service**. When the suggestions start appearing, select the one and only match that appears in the **Marketplace** section.
+1. Visit the [Azure portal](https://portal.azure.com/). In the search box at the top of the page, type **IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service**. When the suggestions start appearing, select the one and only match that appears in the **Marketplace** section.
 1. Select **Create** to start.
-1. In **Basics** tab, create a new resource group called *java-liberty-project-rg*.
+1. In the **Basics** tab, create a new resource group called *java-liberty-project-rg*.
 1. Select *East US* as **Region**.
 1. Select the user-assigned managed identity you created above.
 1. Leave all other values at the defaults and start creating the cluster by selecting **Review + create**.
 1. When the validation completes, select **Create**. This may take up to ten minutes.
 1. After the deployment is complete, select the resource group into which you deployed the resources.
    1. In the list of resources in the resource group, select the resource with **Type** of **Container registry**.
-   1. Save aside the values for **Registry name**, **Login server**, **Username** and **password**. You may use the copy icon at the right of each field to copy the value of that field to the system clipboard.
+   1. Save aside the values for **Registry name**, **Login server**, **Username**, and **password**. You may use the copy icon at the right of each field to copy the value of that field to the system clipboard.
 1. Navigate again to the resource group into which you deployed the resources.
 1. In the **Settings** section, select **Deployments**.
-1. Select the bottom most deployment.  The **Deployment name** will match the publisher ID of the offer. It will contain the string **ibm**.
+1. Select the bottom most deployment. The **Deployment name** will match the publisher ID of the offer. It will contain the string **ibm**.
 1. In the left pane, select **Outputs**.
-1. Using the same copy technique as with the preceding values, save aside the values for  the following outputs.
+1. Using the same copy technique as with the preceding values, save aside the values for the following outputs:
 
-   **clusterName**
-   **appDeploymentTemplateYamlEncoded**
-   **cmdToConnectToCluster**
+   - **clusterName**
+   - **appDeploymentTemplateYamlEncoded**
+   - **cmdToConnectToCluster**
 
    These values will be used later in this article. Note that several other useful commands are listed in the outputs.
 
@@ -69,7 +69,7 @@ The steps in this section guide you through creating an Azure Database for Postg
 
    An Azure resource group is a logical group in which Azure resources are deployed and managed.  
 
-   Create a resource group called *java-liberty-project-postgresql* using the [az group create](/cli/azure/group#az_group_create) command  in the *eastus* location.
+   Create a resource group called *java-liberty-project-postgresql* using the [az group create](/cli/azure/group#az_group_create) command in the *eastus* location.
 
    ```bash
    RESOURCE_GROUP_NAME=java-liberty-project-postgresql
@@ -78,7 +78,11 @@ The steps in this section guide you through creating an Azure Database for Postg
 
 1. Create the PostgreSQL server
 
-   Use the [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) command to create the DB server. The following example creates a DB server named *youruniquedbname*. Make sure *youruniqueacrname* are unique within Azure. (Hint: prepend a disambiguation string, such as your initials and the MMDD of today's date.)
+   Use the [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) command to create the DB server. The following example creates a DB server named *youruniquedbname*. Make sure *youruniqueacrname* is unique within Azure.
+   
+   > [!TIP]
+   > To help ensure a globally unique name, prepend a disambiguation string such as your intitials and the MMDD of today's date.
+
 
    ```bash
    export DB_NAME=youruniquedbname
@@ -116,7 +120,7 @@ Follow the steps in this section to deploy the sample application on the Jakarta
 ### Check out the application
 
 Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks).
-There are three samples in the repository.  We will use *javaee-app-db-using-actions/postgres*. Here is the file structure of the application.
+There are three samples in the repository. We will use *javaee-app-db-using-actions/postgres*. Here is the file structure of the application.
 
 ```
 javaee-app-db-using-actions/postgres
@@ -139,9 +143,9 @@ javaee-app-db-using-actions/postgres
 
 The directories *java*, *resources*, and *webapp* contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
 
-In directory *aks* we placed two deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *openlibertyapplication.yaml* is used to deploy the application image.
+In the *aks* directory, we placed two deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *openlibertyapplication.yaml* is used to deploy the application image.
 
-In directory *docker*, we place four Dockerfiles. *Dockerfile-local* is used for local debug and *Dockerfile* is used to build image for AKS deployment. They all work with Open Liberty. *Dockerfile-wlp-local* is used for local debug and *Dockerfile-wlp* is used to build image for AKS deployment, they all work with WebSphere Liberty.
+In the *docker* directory, we placed four Dockerfiles. *Dockerfile-local* is used for local debugging, and *Dockerfile* is used to build the image for an AKS deployment. These two files work with Open Liberty. *Dockerfile-wlp-local* and *Dockerfile-wlp* are also used for local debugging and to build the image for an AKS deployment respectively, but instead work with WebSphere Liberty.
 
 In directory *liberty/config*, the *server.xml* is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
 
@@ -159,7 +163,7 @@ After the offer is successfully deployed, an AKS cluster with a namespace will b
 
 ### Build the project
 
-Now that you have gathered the necessary properties, you can build the application.  The POM file for the project reads many properties from the environment.
+Now that you have gathered the necessary properties, you can build the application. The POM file for the project reads many properties from the environment.
 
 ```bash
 cd <path-to-your-repo>/javaee-app-db-using-actions/postgres
@@ -182,8 +186,8 @@ mvn clean install
 
 ### Test your project locally
 
-Use the `liberty:devc` to run and test it locally before dealing with any Azure complexity. For more information on `liberty:devc`, see the [Liberty Plugin documentation](https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#devc-container-mode).
-We've prepared the *Dockerfile-local* and *Dockerfile-wlp-local* for it in the sample application.
+Use the `liberty:devc` command to run and test the project locally before dealing with any Azure complexity. For more information on `liberty:devc`, see the [Liberty Plugin documentation](https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#devc-container-mode).
+In the sample application, we've prepared *Dockerfile-local* and *Dockerfile-wlp-local* for use with `liberty:devc`.
 
 1. Start your local docker environment if you haven't done so already. The instructions for doing this vary depending on the host operating system.
 
@@ -284,7 +288,7 @@ The steps in this section deploy and test the application.
 
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unnecessary resources.  When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, container registry, and all related resources.
+To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, container registry, and all related resources.
 
 ```azurecli-interactive
 az group delete --name <RESOURCE_GROUP_NAME> --yes --no-wait
