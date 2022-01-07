@@ -7,7 +7,7 @@ author: aahill
 ms.manager: nitinme
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 01/07/2022
 ---
 
 
@@ -63,6 +63,13 @@ Now imagine you want to quickly create a confirmation intent. You can use one of
     :::image type="content" source="../media/luis-prebuilt-domains/add-prebuilt-domain-intents.png" alt-text="A screenshot showing the menu for adding prebuilt intents." lightbox="../media/luis-prebuilt-domains/add-prebuilt-domain-intents.png":::
 
 3. Select the  **Done**  button.
+
+## Get an intent from your LUIS app
+
+To get an intent from your app, you can use either the [REST API](../client-libraries-rest-api.md?pivots=rest-api#get-intent-from-the-prediction-endpoint), or the client libraries in the following languages:
+* [C#](../client-libraries-rest-api.md?pivots=programming-language-csharp#get-prediction-from-runtime)
+* [JavaScript](../client-libraries-rest-api.md?pivots=programming-language-javascript#get-prediction-from-runtime)
+* [Python](../client-libraries-rest-api.md?pivots=programming-language-python#get-prediction-from-runtime)
 
 ## Next steps
 
