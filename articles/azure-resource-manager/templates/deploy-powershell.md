@@ -55,7 +55,9 @@ You can target your deployment to a resource group, subscription, management gro
 
   For more information about tenant level deployments, see [Create resources at the tenant level](deploy-to-tenant.md).
 
-For every scope, the user deploying the template must have the required [!INCLUDE [permissions](C:\Users\daphnema\Repos\azure-docs-pr\includes\template-deploy-permissions.md)] to create resources.
+For every scope, the user deploying the template must have the required permissions to create resources.
+
+[!INCLUDE [permissions](../../../template-deploy-permissions.md)]
 
 ## Deployment name
 
