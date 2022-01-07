@@ -486,6 +486,10 @@ groups:
     title: OpenJDK
   - id: devlang-python-flask
     title: Python Flask
+  - id: devlang-java-spring
+    title: Java Spring
+  - id: devlang-blazor-server
+    title: Blazor Server
 ############ END MICROSOFT IDENTITY PLATFORM
 #Owner: antchu
 - id: runtime-version-programming-functions

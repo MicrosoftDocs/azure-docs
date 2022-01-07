@@ -35,3 +35,15 @@ zone_pivot_groups: web-app-tutorial
 [!INCLUDE [python-flask](./includes/web-app/python-flask-tutorial-04-call-web-api-graph.md)]
 
 ::: zone-end
+
+::: zone pivot="devlang-java-spring"
+
+[!INCLUDE [java-spring](./includes/web-app/java-spring-tutorial-04-call-web-api-graph.md)]
+
+::: zone-end
+
+::: zone pivot="devlang-blazor-server"
+
+[!INCLUDE [blazor-server](./includes/web-app/blazor-server-tutorial-04-call-web-api-graph.md)]
+
+::: zone-end
