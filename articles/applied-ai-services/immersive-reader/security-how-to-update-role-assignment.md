@@ -40,7 +40,7 @@ Any new Immersive Reader resources you create with our script at [How to: Create
 
 ## Call to Action
 
-If you created and configured an Immersive Reader resource using the instructions at [How to: Create an Immersive Reader resource](./how-to-create-immersive-reader.md) prior to November 2021, it is advised that you perform the operation below to update the role assignment permissions on ALL of your Immersive Reader resources. The operation involves running a script to update the role assignment on a single resource. If you have multiple resources, run this script multiple times, once for each resource.
+If you created and configured an Immersive Reader resource using the instructions at [How to: Create an Immersive Reader resource](./how-to-create-immersive-reader.md) prior to February 2022, it is advised that you perform the operation below to update the role assignment permissions on ALL of your Immersive Reader resources. The operation involves running a script to update the role assignment on a single resource. If you have multiple resources, run this script multiple times, once for each resource.
 
 ### Set up PowerShell environment
 
