@@ -64,8 +64,6 @@
       href: cloudknox-howto-create-approve-privilege-request.md
     - name: Create group-based permissions
       href: cloudknox-howto-create-group-based-permissions.md
-    - name: Analyze usage for an identity, a task, or an authorization system
-      href: cloudknox-howto-analyze-usage.md
     - name: Create an alert trigger
       href: cloudknox-howto-create-alert-trigger.md
     - name: Create and save product alerts
@@ -76,25 +74,32 @@
       href: cloudknox-product-dashboard.md
     - name: View details about identities, resources, and tasks
       href: cloudknox-product-user-management.md
+    - name: Usage Analytics 
+      expanded: true
+      items:
+      - name: Analyze usage for an identity, a task, or an authorization system
+        href: cloudknox-howto-analyze-usage.md
+      - name: View details about users, groups, active resources, active tasks, access keys, and serverless functions
+        href: cloudknox-product-usage-analytics.md
+      - name: View usage analytics information about groups
+        href: cloudknox-product-usage-analytics-users.md
+      - name: View usage analytics information about groups
+        href: cloudknox-product-usage-analytics-groups.md
+      - name: View usage analytics information about active resources
+        href: cloudknox-product-usage-analytics-active-resources.md
+      - name: View usage analytics information about active tasks
+        href: cloudknox-product-usage-analytics-active-tasks.md
+      - name: View usage analytics information about access keys
+        href: cloudknox-product-usage-analytics-access-keys.md
+      - name: View usage analytics information about serverless functions (AWS only)
+        href: cloudknox-product-usage-analytics-serverless-functions.md
+      - name: The Usage Analytics explorers
+        href: cloudknox-product-usage-analytics-explorers.md
   - name: Dashboards
     expanded: true
     items:
     - name: The CloudKnox Settings dashboard
       href: cloudknox-ui-product-settings.md
-    - name: The Usage Analytics dashboard
-      href: cloudknox-product-user-management.md
-    - name: The User Management dashboard
-      href: cloudknox-ui-user-management.md
-    - name: The Integrations dashboard
-      href: cloudknox-ui-integrations.md
-    - name: The Account Settings dashboard
-      href: cloudknox-ui-account-settings.md
-    - name: The Activity Triggers dashboard
-      href: cloudknox-ui-triggers.md
-    - name: The Tasks pane
-      href: cloudknox-ui-tasks.md
-    - name: The CloudKnox dashboard
-      href: cloudknox-ui-dashboard.md
     - name: The Usage Analytics dashboard
       href: cloudknox-ui-usage-analytics.md
     - name: The Audit Trail dashboard
@@ -107,6 +112,18 @@
       href: cloudknox-ui-reports.md
     - name: The Autopilot dashboard
       href: cloudknox-ui-autopilot.md
+    - name: The User Management dashboard
+      href: cloudknox-ui-user-management.md
+    - name: The Integrations dashboard
+      href: cloudknox-ui-integrations.md
+    - name: The Account Settings dashboard
+      href: cloudknox-ui-account-settings.md
+    - name: The Activity Triggers dashboard
+      href: cloudknox-ui-triggers.md
+    - name: The Tasks pane
+      href: cloudknox-ui-tasks.md
+    - name: The CloudKnox dashboard
+      href: cloudknox-ui-dashboard.md
     - name: The CloudKnox Account Explorer
       href: cloudknox-product-account-explorer.md
     - name: CloudKnox product account settings
