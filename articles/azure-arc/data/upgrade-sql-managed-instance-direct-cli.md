@@ -42,7 +42,7 @@ The output will be:
 
 ```output
 Preparing to upgrade sql sqlmi-1 in namespace arc to data controller version.
-****Dry Run****1 instance(s) would be upgraded by this commandsqlmi-1 would be upgraded to 20211024.1.
+****Dry Run****1 instance(s) would be upgraded by this commandsqlmi-1 would be upgraded to <version-tag>.
 ```
 
 ### General Purpose
@@ -95,7 +95,7 @@ Status:
   Observed Generation:   2
   Primary Endpoint:      30.76.129.38,1433
   Ready Replicas:        1/1
-  Running Version:       20211024.1
+  Running Version:       <version-tag>
   State:                 Ready
 ```
 
