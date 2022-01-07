@@ -60,7 +60,7 @@ Example:
       ]
 ``` 
 
-## Accessing preview images
+## Access preview images
 
 To acquire the static URLs to the available preview images, a GET request must be called on the video resource with an [authorized bearer token](../viewing-videos-how-to.md#accessing-videos). You will see the URLs listed under **contentUrls** in the response as shown below.
 
