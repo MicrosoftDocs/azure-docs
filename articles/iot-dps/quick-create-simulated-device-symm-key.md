@@ -34,7 +34,7 @@ This quickstart demonstrates a solution for a Windows-based workstation. However
 
 ::: zone pivot="programming-language-csharp"
 
-* Install [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
+* Install [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
 
     ```cmd
     dotnet --info
@@ -336,8 +336,8 @@ To update and run the provisioning sample with your device information:
     Provisioning Status: PROV_DEVICE_REG_STATUS_CONNECTED
     Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
 
-    Registration Information received from service: 
-    test-docs-hub.azure-devices.net, deviceId: device-007    
+    Registration Information received from service:
+    test-docs-hub.azure-devices.net, deviceId: device-007
     Press enter key to exit:
     ```
 
