@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: spring-cloud-tier-selection
 ---
 
-# API Portal
+# Use API Portal
 
 This article describes the use of the API portal with Azure Spring Cloud Enterprise Tier.
 

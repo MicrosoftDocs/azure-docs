@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: spring-cloud-tier-selection
 ---
 
-# Spring Cloud Gateway
+# Use Spring Cloud Gateway
 
 This article describes how to use Spring Cloud Gateway with Azure Spring Cloud Enterprise Tier.
 

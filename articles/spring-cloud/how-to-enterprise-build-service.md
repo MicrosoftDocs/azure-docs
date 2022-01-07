@@ -10,7 +10,7 @@ ms.date: 12/31/2021
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Build Service
+# Use Build Service
 
 This article describes the extra configuration and functionality included in Build Service with Azure Spring Cloud Enterprise Tier.
 

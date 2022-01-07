@@ -9,7 +9,7 @@ ms.date: 12/15/2021
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Application Insights Java In-Process Agent in Azure Spring Cloud
+# Use Application Insights Java In-Process Agent in Azure Spring Cloud
 
 This article explains how to monitor applications by using the Application Insights Java agent in Azure Spring Cloud.
 

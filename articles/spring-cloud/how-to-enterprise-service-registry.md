@@ -10,7 +10,7 @@ ms.date: 11/08/2021
 ms.custom: devx-track-java
 ---
 
-# Service Registry
+# Use Service Registry
 
 This article describes the use of Service Registry with Azure Spring Cloud Enterprise Tier.
 

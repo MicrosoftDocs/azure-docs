@@ -10,7 +10,7 @@ ms.date: 11/08/2021
 ms.custom: devx-track-java
 ---
 
-# Application Configuration Service
+# Use Application Configuration Service
 
 This article describes the use of Application Configuration Service with Azure Spring Cloud Enterprise Tier.
 
