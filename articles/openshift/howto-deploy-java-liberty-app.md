@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-t
 
 # Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift 4 cluster
 
-This guide demonstrates how to run your Java, Java EE, [Jakarta EE](https://jakarta.ee/), or [MicroProfile](https://microprofile.io/) application on the Open Liberty/WebSphere Liberty runtime and then deploy the containerized application to an Azure Red Hat OpenShift (ARO) 4 cluster using the Open Liberty Operator. This article will walk you through preparing a Liberty application, building the application Docker image and running the containerized application on an ARO 4 cluster.  For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/).For more information on WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
+This guide demonstrates how to run your Java, Java EE, [Jakarta EE](https://jakarta.ee/), or [MicroProfile](https://microprofile.io/) application on the Open Liberty/WebSphere Liberty runtime and then deploy the containerized application to an Azure Red Hat OpenShift (ARO) 4 cluster using the Open Liberty Operator. This article will walk you through preparing a Liberty application, building the application Docker image and running the containerized application on an ARO 4 cluster. For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/).For more information on WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
 [!INCLUDE [aro-support](includes/aro-support.md)]
 
@@ -33,7 +33,7 @@ Complete the following prerequisites to successfully walk through this guide.
 1. Clone the code for this sample on your local system. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aro).
 1. Follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](./tutorial-create-cluster.md).
 
-   Though the "Get a Red Hat pull secret" step is labeled as optional, **it is required for this article**.  The pull secret enables your Azure Red Hat OpenShift cluster to find the Open Liberty Operator.
+   Though the "Get a Red Hat pull secret" step is labeled as optional, **it is required for this article**. The pull secret enables your Azure Red Hat OpenShift cluster to find the Open Liberty Operator.
 
    If you plan to run memory-intensive applications on the cluster, specify the proper virtual machine size for the worker nodes using the `--worker-vm-size` parameter. For example, `Standard_E4s_v3` is the minimum virtual machine size to install the Elasticsearch Operator on a cluster. For more information, see:
 
@@ -53,7 +53,7 @@ Complete the following prerequisites to successfully walk through this guide.
 The steps in this tutorial create a Docker image which must be pushed to a container registry accessible to OpenShift. The simplest option is to use the built-in registry provided by OpenShift. To enable the built-in container registry, follow the steps in [Configure built-in container registry for Azure Red Hat OpenShift 4](built-in-container-registry.md). Three items from those steps are used in this article.
 
 * The username and password of the Azure AD user for signing in to the OpenShift web console.
-* The output of `oc whoami` after following the steps for signing in to the OpenShift CLI.  This value is called **aad-user** for discussion.
+* The output of `oc whoami` after following the steps for signing in to the OpenShift CLI. This value is called **aad-user** for discussion.
 * The container registry URL.
 
 Note these items down as you complete the steps to enable the built-in container registry.
@@ -68,7 +68,7 @@ Note these items down as you complete the steps to enable the built-in container
 
 ### Create an administrator for the demo project
 
-Besides image management, the **aad-user** will also be granted administrative permissions for managing resources in the demo project of the ARO 4 cluster.  Sign in to the OpenShift CLI and grant the **aad-user** the necessary privileges by following these steps.
+Besides image management, the **aad-user** will also be granted administrative permissions for managing resources in the demo project of the ARO 4 cluster. Sign in to the OpenShift CLI and grant the **aad-user** the necessary privileges by following these steps.
 
 1. Sign in to the OpenShift web console from your browser using the `kubeadmin` credentials.
 1. At the right-top of the web console, expand the context menu of the signed-in user, then select **Copy Login Command**.
@@ -89,7 +89,7 @@ Besides image management, the **aad-user** will also be granted administrative p
 
 ### Install the Open Liberty OpenShift Operator
 
-After creating and connecting to the cluster, install the Open Liberty Operator.  The main starting page for the Open Liberty Operator is on [GitHub](https://github.com/OpenLiberty/open-liberty-operator).
+After creating and connecting to the cluster, install the Open Liberty Operator. The main starting page for the Open Liberty Operator is on [GitHub](https://github.com/OpenLiberty/open-liberty-operator).
 
 1. Sign in to the OpenShift web console from your browser using the `kubeadmin` credentials.
 2. Navigate to **Operators** > **OperatorHub** and search for **Open Liberty**.
@@ -99,22 +99,23 @@ After creating and connecting to the cluster, install the Open Liberty Operator.
 
    ![create operator subscription for Open Liberty Operator](./media/howto-deploy-java-liberty-app/install-operator.png)
 6. Select **Install** and wait a minute or two until the installation completes.
-7. Observe the Open Liberty Operator is successfully installed and ready for use.  If you don't, diagnose and resolve the problem before continuing.
+7. Observe the Open Liberty Operator is successfully installed and ready for use. If you don't, diagnose and resolve the problem before continuing.
+
    :::image type="content" source="media/howto-deploy-java-liberty-app/open-liberty-operator-installed.png" alt-text="Installed Operators showing Open Liberty is installed.":::
 
-### Create an Azure Database for MySQL(Only if required by your application)
+### Create an Azure Database for MySQL
 
-Follow the instructions below to set up an Azure Database for MySQL for use with your app.
+Follow the instructions below to set up an Azure Database for MySQL for use with your app. If your application doesn't require a database, you can skip this section.
 
 1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure Database for MySQL server by using the Azure portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal). Return to this document after creating the database.
     > [!NOTE]
     >
-    > * At **Basics** step, write down ***Server name**.mysql.database.azure.com*, **Server admin login** and **Password**.
+    > * At the **Basics** step, write down the ***Server name**.mysql.database.azure.com*, **Server admin login** and **Password**.
 
 2. Once your database is created, open **your SQL server** > **Connection security** and complete the following settings:
-   * Set **Allow access to Azure services** to **Yes**.
-   * Select **Add current client IP address**. 
-   * Set **Minimal TLS Version** to **>1.0** > Select **Save**.
+   1. Set **Allow access to Azure services** to **Yes**.
+   2. Select **Add current client IP address**. 
+   3. Set **Minimal TLS Version** to **>1.0** and select **Save**.
 
    ![configure mysql database connection security rule](./media/howto-deploy-java-liberty-app/configure-mysql-database-connection-security.png)
 
@@ -127,24 +128,24 @@ Follow the instructions below to set up an Azure Database for MySQL for use with
 4. If you didn't create a database in above steps, follow the steps in [Quickstart: Create an Azure Database for MySQL server by using the Azure portal#connect-to-the-server-by-using-mysqlexe](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal#connect-to-the-server-by-using-mysqlexe) to create one. Return to this document after creating the database.
     > [!NOTE]
     >
-    > * Write down **Database name** you created.
+    > * Write down the **Database name** you created.
 
 ## Prepare the Liberty application
 
-We'll use a Java EE 8 application as our example in this guide. Open Liberty is a [Java EE 8 full profile](https://javaee.github.io/javaee-spec/javadocs/) compatible server, so it can easily run the application.  Open Liberty is also [Jakarta EE 8 full profile compatible](https://jakarta.ee/specifications/platform/8/apidocs/).
+We'll use a Java EE 8 application as our example in this guide. Open Liberty is a [Java EE 8 full profile](https://javaee.github.io/javaee-spec/javadocs/) compatible server, so it can easily run the application. Open Liberty is also [Jakarta EE 8 full profile compatible](https://jakarta.ee/specifications/platform/8/apidocs/).
 
 ### Run the application on Open Liberty
 
-To run the application on Open Liberty, you need to create an Open Liberty server configuration file so that the [Liberty Maven plugin](https://github.com/OpenLiberty/ci.maven#liberty-maven-plugin) can package the application for deployment. The Liberty Maven plugin is not required to deploy the application to OpenShift.  However, we'll use it in this example with Open Liberty’s developer (dev) mode.  Developer mode lets you easily run the application locally. Complete the following steps on your local computer.
+To run the application on Open Liberty, you need to create an Open Liberty server configuration file so that the [Liberty Maven plugin](https://github.com/OpenLiberty/ci.maven#liberty-maven-plugin) can package the application for deployment. The Liberty Maven plugin is not required to deploy the application to OpenShift. However, we'll use it in this example with Open Liberty’s developer (dev) mode. Developer mode lets you easily run the application locally. Complete the following steps on your local computer.
 
 # [with DB connection](#tab/with-mysql-devc)
 
-Follow the steps in this section to prepare the sample application for later use in this article. These steps use Maven and the `liberty-maven-plugin`.  To learn more about the `liberty-maven-plugin` see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html).
+Follow the steps in this section to prepare the sample application for later use in this article. These steps use Maven and the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html).
 
 #### Check out the application
 
 Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aro).
-There are three samples in the repository.  We will use *open-liberty-on-aro/3-integration/connect-db/mysqls*. Here is the file structure of the application.
+There are three samples in the repository. We will use *open-liberty-on-aro/3-integration/connect-db/mysql*. Here is the file structure of the application.
 
 ```
 open-liberty-on-aro/3-integration/connect-db/mysql
@@ -167,15 +168,15 @@ open-liberty-on-aro/3-integration/connect-db/mysql
 
 The directories *java*, *resources*, and *webapp* contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
 
-In directory *aro* we placed two deployment files. *db-secret.xml* is used to create [Secrets](https://docs.openshift.com/container-platform/4.6/nodes/pods/nodes-pods-secrets.html) with DB connection credentials. The file *openlibertyapplication.yaml* is used to deploy the application image.
+In the *aro* directory, we placed two deployment files. *db-secret.xml* is used to create [Secrets](https://docs.openshift.com/container-platform/4.6/nodes/pods/nodes-pods-secrets.html) with DB connection credentials. The file *openlibertyapplication.yaml* is used to deploy the application image.
 
-In directory *docker*, we place four Dockerfiles. *Dockerfile-local* is used for local debug and *Dockerfile* is used to build image for ARO deployment. They all work with Open Liberty. *Dockerfile-wlp-local* is used for local debug and *Dockerfile-wlp* is used to build image for ARO deployment, they all work with WebSphere Liberty.
+In the *docker* directory, we placed four Dockerfiles. *Dockerfile-local* is used for local debugging, and *Dockerfile* is used to build the image for an ARO deployment. These two files work with Open Liberty. *Dockerfile-wlp-local* and *Dockerfile-wlp* are also used for local debugging and to build the image for an ARO deployment respectively, but instead work with WebSphere Liberty.
 
-In directory *liberty/config*, the *server.xml* is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
+In the *liberty/config* directory, the *server.xml* is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
 
 #### Build project
 
-Now that you have gathered the necessary properties, you can build the application.  The POM file for the project reads many properties from the environment.
+Now that you have gathered the necessary properties, you can build the application. The POM file for the project reads many properties from the environment.
 
 ```bash
 cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
@@ -193,8 +194,8 @@ mvn clean install
 
 #### Test your application locally
 
-Use the `liberty:devc` to run and test it locally before dealing with any Azure complexity. For more information on `liberty:devc`, see the [Liberty Plugin documentation](https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#devc-container-mode).
-We've prepared the *Dockerfile-local* and *Dockerfile-wlp-local* for it in the sample application.
+Use the `liberty:devc` command to run and test the project locally before dealing with any Azure complexity. For more information on `liberty:devc`, see the [Liberty Plugin documentation](https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#devc-container-mode).
+In the sample application, we've prepared Dockerfile-local and Dockerfile-wlp-local for use with `liberty:devc`.
 
 1. Start your local docker environment if you haven't done so already. The instructions for doing this vary depending on the host operating system.
 
@@ -217,7 +218,7 @@ We've prepared the *Dockerfile-local* and *Dockerfile-wlp-local* for it in the s
 # [without DB connection](#tab/without-mysql-dev)
 
 1. Copy `2-simple/src/main/liberty/config/server.xml` to `1-start/src/main/liberty/config`, overwriting the existing zero-length file. This `server.xml` configures the Open Liberty server with Java EE features.
-1. Copy `2-simple/pom.xml` to `1-start/pom.xml`.  This step adds the `liberty-maven-plugin` to the POM.
+1. Copy `2-simple/pom.xml` to `1-start/pom.xml`. This step adds the `liberty-maven-plugin` to the POM.
 1. Change directory to `1-start` of your local clone.
 1. Run `mvn clean package` in a console to generate a war package `javaee-cafe.war` in the directory `./target`.
 1. Run `mvn liberty:dev` to start Open Liberty in dev mode.
@@ -277,7 +278,7 @@ When you're satisfied with the state of the application, push it to the built-in
 
    > [!NOTE]
    > Take note of the username and password you use to sign in here. This username and password will function as an administrator for other actions in this and other articles.
-1. Sign in with the OpenShift CLI by using the following steps.  For discussion, this process is known as `oc login`.
+1. Sign in with the OpenShift CLI by using the following steps. For discussion, this process is known as `oc login`.
    1. At the right-top of the web console, expand the context menu of the signed-in user, then select **Copy Login Command**.
    1. Sign in to a new tab window with the same user if necessary.
    1. Select **Display Token**.
@@ -361,7 +362,7 @@ When you're satisfied with the state of the application, push it to the built-in
 
    > [!NOTE]
    > Take note of the username and password you use to sign in here. This username and password will function as an administrator for other actions in this and other articles.
-1. Sign in with the OpenShift CLI by using the following steps.  For discussion, this process is known as `oc login`.
+1. Sign in with the OpenShift CLI by using the following steps. For discussion, this process is known as `oc login`.
    1. At the right-top of the web console, expand the context menu of the signed-in user, then select **Copy Login Command**.
    1. Sign in to a new tab window with the same user if necessary.
    1. Select **Display Token**.
@@ -421,7 +422,7 @@ Because we use the Open Liberty Operator to manage Liberty applications, we need
 1. Expand **Home**, Select **Projects** > **open-liberty-demo**.
 1. Navigate to **Operators** > **Installed Operators**.
 1. In the middle of the page, select **Open Liberty Operator**.
-1. In the middle of the page, select **Open Liberty Application**.  The navigation of items in the user interface mirrors the actual containment hierarchy of technologies in use.
+1. In the middle of the page, select **Open Liberty Application**. The navigation of items in the user interface mirrors the actual containment hierarchy of technologies in use.
    <!-- Diagram source https://github.com/Azure-Samples/open-liberty-on-aro/blob/master/diagrams/aro-java-containment.vsdx -->
    ![ARO Java Containment](./media/howto-deploy-java-liberty-app/aro-java-containment.png)
 1. Select **Create OpenLibertyApplication**
@@ -455,7 +456,7 @@ Now you can deploy the sample Liberty application to the ARO 4 cluster with the 
    cd <path-to-repo>/3-integration/connect-db/mysql
 
    # Change project to "open-liberty-demo"
-   oc project open-liberty-demo   
+   oc project open-liberty-demo 
    
    # Create DB secret
    oc create -f db-secret.yaml
@@ -486,7 +487,7 @@ Because we use the Open Liberty Operator to manage Liberty applications, we need
 1. Expand **Home**, Select **Projects** > **open-liberty-demo**.
 1. Navigate to **Operators** > **Installed Operators**.
 1. In the middle of the page, select **Open Liberty Operator**.
-1. In the middle of the page, select **Open Liberty Application**.  The navigation of items in the user interface mirrors the actual containment hierarchy of technologies in use.
+1. In the middle of the page, select **Open Liberty Application**. The navigation of items in the user interface mirrors the actual containment hierarchy of technologies in use.
    <!-- Diagram source https://github.com/Azure-Samples/open-liberty-on-aro/blob/master/diagrams/aro-java-containment.vsdx -->
    ![ARO Java Containment](./media/howto-deploy-java-liberty-app/aro-java-containment.png)
 1. Select **Create OpenLibertyApplication**
@@ -517,7 +518,7 @@ Instead of using the web console GUI, you can deploy the application from the CL
 
 1. Sign in to the OpenShift web console from your browser using the credentials of the Azure AD user.
 2. Sign in to the OpenShift CLI with the token for the Azure AD user.
-3. Change directory to `2-simple` of your local clone, and run the following commands to deploy your Liberty application to the ARO 4 cluster.  Command output is also shown inline.
+3. Change directory to `2-simple` of your local clone, and run the following commands to deploy your Liberty application to the ARO 4 cluster. Command output is also shown inline.
 
    ```bash
    # Switch to namespace "open-liberty-demo" where resources of demo app will belong to
@@ -543,7 +544,7 @@ Instead of using the web console GUI, you can deploy the application from the CL
    javaee-cafe-simple   1/1     1            0           102s
    ```
 
-4. Check to see `1/1` under the `READY` column before you continue.  If not, investigate and resolve the problem before continuing.
+4. Check to see `1/1` under the `READY` column before you continue. If not, investigate and resolve the problem before continuing.
 5. Discover the host of route to the application with the `oc get route` command, as shown here.
 
    ```bash
