@@ -47,6 +47,7 @@ items:
       href: get-access-token.md
     - name: Access Healthcare APIs
       href: access-healthcare-apis.md  
+    - name: Diagnostic logging
       expanded: true
       items:
       - name: Enable diagnostic logging in Healthcare APIs
