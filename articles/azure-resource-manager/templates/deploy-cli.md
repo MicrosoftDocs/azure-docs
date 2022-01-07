@@ -51,7 +51,7 @@ You can target your Azure deployment template to a resource group, subscription,
 
   For more information about tenant level deployments, see [Create resources at the tenant level](deploy-to-tenant.md).
 
-For every scope, the user deploying the template must have the required [!INCLUDE [permissions](../bicep-template-deploy-permissions.md)] to create resources.
+For every scope, the user deploying the template must have the required [!INCLUDE [permissions](C:\Users\daphnema\Repos\azure-docs-pr\includes\template-deploy-permissions.md)] to create resources.
 
 ## Deploy local template
 
