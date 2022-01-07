@@ -29,7 +29,7 @@ This topic describes how to view usage analytics about groups.
 
 ## View information on the Groups dashboard
 
-The **Groups** dashboard provides a high-level overview of group details.
+The **Groups** dashboard provides a high level overview of group details.
 
 - On the **Usage Analytics** page, select **Groups** from the  drop-down list across the top of the screen. The following components make up the **Groups** dashboard:
 
@@ -51,7 +51,7 @@ The **Groups** table  displays the privileges assigned,  privileges used, and re
 - **Domain/Account**: This column displays a domain name for SAML or Enterprise Directory (ED) groups and displays an account name for local groups.
 - **Privilege Creep Index**: Captures the incurred risk of groups with access to high-risk privileges and is displayed in the following columns:
     - **Index**: Calculates a risk score for the group based on the high-risk privileges they have access to and if that privilege has been accessed.
-    - **Since**: Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high-level, that is **! High - 130 days**.
+    - **Since**: Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level, that is **! High - 130 days**.
 
          You can hover over the information in this column for more information on how long the user has had a high, medium, or low privilege creep index.
 

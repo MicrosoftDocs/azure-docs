@@ -29,16 +29,16 @@ This topic describes how to view usage analytics about serverless functions (AWS
 
 ## View information on the Serverless Functions dashboard
 
-The **Serverless Functions**, or lambda table, provides a high-level overview of serverless function details. On the main **Usage Analytics** page, select **Serverless Functions** from the  drop-down list across the top of the screen. **
+The **Serverless Functions**, or lambda table, provides a high level overview of serverless function details. On the main **Usage Analytics** page, select **Serverless Functions** from the  drop-down list across the top of the screen. **
 
 To activate the **Access Keys** option, select **AWS** from the filter options drop-down list. The following components make up the **Serverless Functions** table:
 
 
 - **Function Name**: Displays the name of the function.
-- **Domain/Account**: Displays the authorization system that lambda resides in
+- **Domain/Account**: Displays the authorization system that contains lambda.
 - **Privilege Creep Index**: Captures the incurred risk of lambda function with access to high-risk privileges. This information is organized into the following columns:
     - **Index**: Calculates a risk score for the lambda function based on the high-risk privileges they have access to and if that privilege has been accessed.
-    - **Since**: Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high-level, that is **! High - 130 days**.
+    - **Since**: Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level, that is **! High - 130 days**.
 
         You can hover over the information in this column for specific details on how long the user has had a high, medium, or low privilege creep index.
 
