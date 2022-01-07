@@ -86,30 +86,24 @@ We'll now set some Unity project settings that help us target the Windows Hologr
 6. Click **Add Component** and add the **Tracked Pose Driver** Component to the camera
 ![Unity - Camera Setup](../../../includes/media/spatial-anchors-unity/unity-camera-setup.png)
 
-## Creating the Scene
-
-### Create the cube prefab
-1. Go to **GameObject** -> **3D Object** -> **Cube**.
-2. In the **Inspector**, set its scale to **0.1, 0.1, 0.1**.
-3. Find the **Cube** object in the **Hierarchy** pane. Click on it and drag it into the **Assets** folder in the **Project** pane.
-4. Right click and **Delete** the original cube you created in the **Hierarchy** pane.
-
-You should now have a cube prefab in your **Project** pane.
-
 ## Trying it out
-To test out that everything is working, build your app in **Unity** and deploy it from **Visual Studio**. Follow [**Using Visual Studio to deploz and debug** course](/windows/mixed-reality/develop/advanced-concepts/using-visual-studio) to do so. You should see the Unity start screen, and then a clear display.
+You should now have an empty scene that is ready to be deployed to your HoloLens device. To test out that everything is working, build your app in **Unity** and deploy it from **Visual Studio**. Follow [**Using Visual Studio to deploy and debug**](https://docs.microsoft.com/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2) to do so. You should see the Unity start screen, and then a clear display.
 
-## Create a Spatial Anchors resource
-TODO: Link to here https://docs.microsoft.com/en-us/azure/spatial-anchors/how-tos/create-asa-account?tabs=azure-portal 
+[!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## Creating & Adding Scripts
 
-1. In the **Project** pane, create a new folder, **Scripts**, under the **Assets** folder.
-2. Right-click on the folder, then select **Create >**, **C# Script**. Title it **AzureSpatialAnchorsScript**.
+1. In Unity in the **Project** pane, create a new folder called _Scripts_, in the **Assets** folder.
+2. In the folder right-click -> **Create** -> **C# Script**. Title it **AzureSpatialAnchorsScript**
 3. Go to **GameObject** -> **Create Empty**.
-4. Select it, and in the **Inspector** rename it from **GameObject** to **AzureSpatialAnchors**. Select **Add Component** and search for and add the **AzureSpatialAnchorsScript**
-5. Still on the **AzureSpatialAnchors** GameObject select **Add Component** again and search for and add the **SpatialAnchorManager** script.
-6. TODO: fill out Spatial Anchor Manager
+4. Select it, and in the **Inspector** rename it from **GameObject** to **AzureSpatialAnchors**. 
+1. Still on the GameObject
+    1. Set its position to 0,0,0
+    1. Select **Add Component** and search for and add the **AzureSpatialAnchorsScript**
+    1. Select **Add Component** again and search for and add the **SpatialAnchorManager** script
+    1. In the added **SpatialAnchorManager** component fill out the **Account ID**, **Account Key** and **Account Domain** which you have copied in the previous step from the spatial anchors resource on the azure portal.
+
+![Unity - ASA GameObject](../../../includes/media/spatial-anchors-unity/unity-ASA-gameobject.png)
 
 ## App Overview
 Our app will support the following interactions:
