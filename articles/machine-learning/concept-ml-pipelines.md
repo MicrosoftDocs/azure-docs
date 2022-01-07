@@ -19,7 +19,7 @@ In this article, you learn how a machine learning pipeline helps you build, opti
 <a name="compare"></a>
 ## Which Azure pipeline technology should I use?
 
-The Azure cloud provides several types of pipeline, each with a different purpose. The following table lists the different pipelines and what they are used for:
+The Azure cloud provides several types of pipeline, each with a different purpose. The following table lists the different pipelines and what they're used for:
 
 | Scenario | Primary persona | Azure offering | OSS offering | Canonical pipe | Strengths | 
 | -------- | --------------- | -------------- | ------------ | -------------- | --------- | 
