@@ -218,7 +218,8 @@ POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronizat
 
 11. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and re-enable provisioning. 
 
-> [!NOTE] Failure to restore the previous settings may results in attributes (name.formatted for example) updating in Workplace unexpectedly. Be sure to check the configuration before enabling  provisioning 
+> [!NOTE] 
+> Failure to restore the previous settings may results in attributes (name.formatted for example) updating in Workplace unexpectedly. Be sure to check the configuration before enabling  provisioning 
 
 ## Change log
 
