@@ -10,14 +10,14 @@ ms.date: 12/31/2021
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
+# How to Deploy Non-Java Applications in Azure Spring Cloud
 This article shows you how to deploy your non-java application to Azure Spring Cloud Enterprise tier.
 
 ## Prerequisites
 
-- An Azure Spring Cloud Enterprise tier instance with apps.
-  - To provision a service instance, see [Get started with Enterprise Tier](./01-get-started.md).
-  - To create apps, see [App and deployment management](./07-apps.md)
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), version 2.0.67 or higher.
+- An provisioned Azure Spring Cloud Enterprise Tier instance. For more information, see [Get started with Enterprise Tier](./get-started-enterprise.md).
+- Application(s) running in Azure Spring Cloud. For more information on creating apps, see [App and deployment management in Azure Spring Cloud](./07-app.md)
+- [Azure CLI](/cli/azure/install-azure-cli), version 2.0.67 or higher.
 - Your application source code.
 
 ## Deploy your application
@@ -35,10 +35,10 @@ az spring-cloud app deploy
 
 ## Application Restriction
 - Your application must listen on port 8080, the service checks the port on TCP for readiness and liveness.
-- If your source code contains package management folder, for example "node_modules", ensure the folder contains all the dependencies. Otherwise, remove it and let Azure Spring Cloud to install it.
-- See [Supported Matrix](#supported-matrix) to see whether your source code language is supported and the feature is provided.
+- If your source code contains a package management folder (ie: "node_modules"), ensure the folder contains all the dependencies. Otherwise, remove it and let Azure Spring Cloud install it.
+- See [Support Matrix](#supported-matrix) to see whether your source code language is supported and the feature is provided.
 
-## Supported Matrix
+## Support Matrix
 
 <!--Seems there should be some icon to show the supported or not supported. I left the supported as empty for a better viewer for content writer-->
 
@@ -70,3 +70,5 @@ az spring-cloud app deploy
 | Soft Deletion                                                   |      |        |      |         |    |
 | interactive diagnostic experience(AppLens-based)                |      |        |      |         |    |
 | SLA                                                             |      |        |      |         |    |
+
+## Next Steps
