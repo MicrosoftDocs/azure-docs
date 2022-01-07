@@ -26,7 +26,7 @@ It is recommended that you use a non-production environment to test the steps in
 
 To add an enterprise application to your Azure AD tenant, you need:
 
-- An Azure account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, or Application Administrator.
 
 ## Add an enterprise application
