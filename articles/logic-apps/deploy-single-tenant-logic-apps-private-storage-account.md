@@ -20,7 +20,7 @@ This article describes the steps to follow for deploying such logic apps to prot
 
 ## Deploy using Azure portal or Visual Studio Code
 
-This deployment method requires that temporary public access to your storage account. If you can't enable public access due to your organization's policies, you can still deploy your logic app to a private storage account. However, you have to [deploy with an Azure Resource Manager template (ARM template)](#deploy-arm-templat), which is described in a later section.
+This deployment method requires that temporary public access to your storage account. If you can't enable public access due to your organization's policies, you can still deploy your logic app to a private storage account. However, you have to [deploy with an Azure Resource Manager template (ARM template)](#deploy-arm-template), which is described in a later section.
 
 1. Create different private endpoints for each of the Table, Queue, Blob, and File storage services.
 
