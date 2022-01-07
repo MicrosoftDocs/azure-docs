@@ -15,7 +15,7 @@ ms.author: v-baolianzou
 # Migrate from prebuilt standard voice to prebuilt neural voice
 
 > [!IMPORTANT]
-> We are retiring the standard voices on **August 31, 2024** and they will no longer be supported after that date. During the retiring period (8/31/2021 - 8/31/2024), existing standard voice users can continue to use standard voices, but all new users/new speech resources must choose neural voices. 
+> We are retiring the standard voices on August 31, 2024. During the retiring period (9/1/2021 - 8/31/2024), existing standard voice users can continue to use standard voices, but all new users who sign up for speech resources from **9/1/2021** should choose [neural voice names](https://review.docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support?branch=pr-en-us-184324#prebuilt-neural-voices) in your speech synthesis request. After 8/31/2024, the standard voices will no longer be supported in your speech synthesis request. 
 
 The prebuilt neural voice provides more natural sounding speech output, and thus, a better end-user experience. 
 
