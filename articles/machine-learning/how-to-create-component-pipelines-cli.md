@@ -180,7 +180,7 @@ Notice how `jobs.train_job.outputs.model_output` is used as an input to both the
 
 ## Register components for reuse and sharing
 
-While some components will be specific to a particular pipeline, the real benefit of components comes from reuse and sharing. You can register a component in your Machine Learning workspace to make it available for reuse. Registered components support automatic versioning so you can update the component but assure that pipelines that require an older version will continue to work.  
+While some components will be specific to a particular pipeline, the real benefit of components comes from reuse and sharing. Register a component in your Machine Learning workspace to make it available for reuse. Registered components support automatic versioning so you can update the component but assure that pipelines that require an older version will continue to work.  
 
 In the azureml-examples repository, navigate to the `cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components` directory. 
 
@@ -194,13 +194,13 @@ az ml component create --file eval.yml
 
 After these commands run to completion, you can see the components in Studio:
 
-![Screenshot of Studio showing the components that were just registered])(media/how-to-create-component-pipelines/registered-components.png)
+![Screenshot of Studio showing the components that were just registered](media/how-to-create-component-pipelines/registered-components.png)
 
-Click on a component. You'll see some basic information about the component, such as creation and modification dates. Also, you will see editable fields for Tags and Description. The tags can be used for adding rapidly-searched keywords. The description field supports Markdown formatting and should be used to describe your component's functionality and basic use. 
+Click on a component. You'll see some basic information about the component, such as creation and modification dates. Also, you'll see editable fields for Tags and Description. The tags can be used for adding rapidly-searched keywords. The description field supports Markdown formatting and should be used to describe your component's functionality and basic use. 
 
 ### Use registered components in a job specification file 
 
-In the `1b_e2e_registered_components` directory, open the `pipeline.yml` file. The `inputs` and `outputs` dictionaries are similar to those already discussed. The only significant difference is the value of the `component` values in the `jobs.{job_name}.component` entries. The `component` value is of the form `azureml:{component_name}:{component_version}`. The `train-job` definition, for instance, looks like this:
+In the `1b_e2e_registered_components` directory, open the `pipeline.yml` file. The keys and values in the `inputs` and `outputs` dictionaries are similar to those already discussed. The only significant difference is the value of the `component` values in the `jobs.<JOB_NAME>.component` entries. The `component` value is of the form `azureml:<JOB_NAME>:<COMPONENT_VERSION>`. The `train-job` definition, for instance, specifies that version 31 of the registered component `Train` should be used:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml" range="29-40" highlight="4":::
 
