@@ -128,7 +128,7 @@ Styles, style degree, and roles are supported for a subset of neural voices. If 
 |-----------|-------------|---------------------|
 | `style` | Specifies the speaking style. Speaking styles are voice-specific. | Required if adjusting the speaking style for a neural voice. If using `mstts:express-as`, then style must be provided. If an invalid value is provided, this element will be ignored. |
 | `styledegree` | Specifies the intensity of speaking style. **Accepted values**: 0.01 to 2 inclusive. The default value is 1, which means the predefined style intensity. The minimum unit is 0.01, which results in a slight tendency for the target style. A value of 2 results in a doubling of the default style intensity.  | Optional. If you don't set the `style` attribute the `styledegree` will be ignored. Speaking style degree adjustments are supported for Chinese (Mandarin, Simplified) neural voices.|
-| `role` | Specifies the speaking role-play. The voice will act as a different age and gender, but the voice name won't be changed.  | Optional. Role adjustments are supported for these Chinese (Mandarin, Simplified) neural voices: `zh-CN-XiaomoNeural` and `zh-CN-XiaoxuanNeural`.)|
+| `role` | Specifies the speaking role-play. The voice will act as a different age and gender, but the voice name won't be changed.  | Optional. Role adjustments are supported for these Chinese (Mandarin, Simplified) neural voices: `zh-CN-XiaomoNeural`, `zh-CN-XiaoxuanNeural`, `zh-CN-YunxiNeural` and `zh-CN-YunyeNeural`.|
 
 
 ### Style
@@ -210,8 +210,11 @@ This SSML snippet illustrates how the `styledegree` attribute is used to change 
 ### Role
 
 Apart from adjusting the speaking styles and style degree, you can also adjust the `role` parameter so that the voice will imitate a different age and gender. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name won't be changed. Role adjustments are supported for these Chinese (Mandarin, Simplified) neural voices:
+
 * `zh-CN-XiaomoNeural`
 * `zh-CN-XiaoxuanNeural`
+* `zh-CN-YunxiNeural`
+* `zh-CN-YunyeNeural`
 
 **Syntax**
 
@@ -333,7 +336,7 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
 | `strength` | Specifies the relative duration of a pause using one of the following values:<ul><li>none</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul> | Optional |
-| `time` | Specifies the absolute duration of a pause in seconds or milliseconds,this value should be set less than 5000 ms. Examples of valid values are `2s` and `500ms` | Optional |
+| `time` | Specifies the absolute duration of a pause in seconds or milliseconds. This value should be set less than 5000 ms. Examples of valid values are `2s` and `500ms` | Optional |
 
 | Strength                      | Description |
 |-------------------------------|-------------|
@@ -372,7 +375,7 @@ Use the `mstts:silence` element to insert pauses before or after text, or betwee
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
 | `type` | Specifies the location of silence be added: <ul><li>`Leading` – at the beginning of text </li><li>`Tailing` – in the end of text </li><li>`Sentenceboundary` – between adjacent sentences </li></ul> | Required |
-| `Value` | Specifies the absolute duration of a pause in seconds or milliseconds,this value should be set less than 5000 ms. Examples of valid values are `2s` and `500ms` | Required |
+| `Value` | Specifies the absolute duration of a pause in seconds or milliseconds. This value should be set less than 5000 ms. Examples of valid values are `2s` and `500ms` | Required |
 
 **Example**
 In this example, `mtts:silence` is used to add 200 ms of silence between two sentences.
@@ -523,7 +526,7 @@ The `lexicon` element contains at least one `lexeme` element. Each `lexeme` elem
 
 Lexicon contains necessary `xml:lang` attribute to indicate which locale it should be applied for. One custom lexicon is limited to one locale by design, so apply it for a different locale it won't work.
 
-It's important to note, that you cannot directly set the pronunciation of a phrase using the custom lexicon. If you need to set the pronunciation for an acronym or an abbreviated term, first provide an `alias`, then associate the `phoneme` with that `alias`. For example:
+It's important to note, that you can't directly set the pronunciation of a phrase using the custom lexicon. If you need to set the pronunciation for an acronym or an abbreviated term, first provide an `alias`, then associate the `phoneme` with that `alias`. For example:
 
 ```xml
   <lexeme>
@@ -581,7 +584,7 @@ Since it's easy to make mistakes in custom lexicon, Microsoft has provided [vali
 
 **Speech service phonetic sets**
 
-In the sample above, we're using the International Phonetic Alphabet, also known as the IPA phone set. We suggest developers use the IPA, because it is the international standard. For some IPA characters, they have the 'precomposed' and 'decomposed' version when being represented with Unicode. Custom lexicon only supports the decomposed Unicode.
+In the sample above, we're using the International Phonetic Alphabet, also known as the IPA phone set. We suggest developers use the IPA, because it's the international standard. For some IPA characters, they've the 'precomposed' and 'decomposed' version when being represented with Unicode. Custom lexicon only supports the decomposed Unicode.
 
 Considering that the IPA isn't easy to remember, the Speech service defines a phonetic set for seven languages (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`).
 

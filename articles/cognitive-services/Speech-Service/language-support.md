@@ -208,7 +208,7 @@ Below table lists out the prebuilt neural voices supported in each language. You
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoyouNeural` | Child voice, optimized for story narrating |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Male   | `zh-CN-YunxiNeural` | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunyangNeural` | Optimized for news reading,<br /> multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunyeNeural` | Optimized for story narrating,<br /> multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunyeNeural` | Optimized for story narrating, multiple role-play and styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinese (Taiwanese Mandarin) | `zh-TW` | Female | `zh-TW-HsiaoChenNeural` | General |
 | Chinese (Taiwanese Mandarin) | `zh-TW` | Female | `zh-TW-HsiaoYuNeural` | General |
 | Chinese (Taiwanese Mandarin) | `zh-TW` | Male | `zh-TW-YunJheNeural` | General |
@@ -499,11 +499,16 @@ With the cross-lingual feature (preview), you can transfer you custom neural voi
 | Language | Locale | Cross-lingual (preview) |
 |--|--|--|
 | Arabic (Egypt) | `ar-EG` | No |
+| Arabic (Saudi Arabia) | `ar-SA` | No |
 | Bulgarian (Bulgaria) | `bg-BG` | No |
+| Catalan (Spain) | `ca-ES` | No |
+| Chinese (Cantonese, Traditional) | `zh-HK` | No |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Yes |
 | Chinese (Mandarin, Simplified), English bilingual | `zh-CN` bilingual | Yes |
 | Chinese (Taiwanese Mandarin) | `zh-TW` | No |
+| Croatian (Croatia) | `hr-HR` | No |
 | Czech (Czech) | `cs-CZ` | No |
+| Danish (Denmark) | `da-DK` | No |
 | Dutch (Netherlands) | `nl-NL` | No |
 | English (Australia) | `en-AU` | Yes |
 | English (Canada) | `en-CA` | No |
@@ -511,25 +516,38 @@ With the cross-lingual feature (preview), you can transfer you custom neural voi
 | English (Ireland) | `en-IE` | No |
 | English (United Kingdom) | `en-GB` | Yes |
 | English (United States) | `en-US` | Yes |
+| Finnish (Finland) | `fi-FI` | No |
 | French (Canada) | `fr-CA` | Yes |
 | French (France) | `fr-FR` | Yes |
+| French (Switzerland) | `fr-CH` | No |
 | German (Austria) | `de-AT` | No |
 | German (Germany) | `de-DE` | Yes |
+| German (Switzerland) | `de-CH` | No |
+| Greek (Greece) | `el-GR` | No |
+| Hebrew (Israel) | `he-IL` | No |
+| Hindi (India) | `hi-IN` | No |
 | Hungarian (Hungary) | `hu-HU` | No |
+| Indonesian (Indonesia) | `id-ID` | No |
 | Italian (Italy) | `it-IT` | Yes |
 | Japanese (Japan) | `ja-JP` | Yes |
 | Korean (Korea) | `ko-KR` | Yes |
+| Malay (Malaysia) | `ms-MY` | No |
 | Norwegian (Bokmål, Norway) | `nb-NO` | No |
+| Polish (Poland) | `pl-PL` | No |
 | Portuguese (Brazil) | `pt-BR` | Yes |
 | Portuguese (Portugal) | `pt-PT` | No |
+| Romanian (Romania) | `ro-RO` | No |
 | Russian (Russia) | `ru-RU` | Yes |
 | Slovak (Slovakia) | `sk-SK` | No |
+| Slovenian (Slovenia) | `sl-SI` | No |
 | Spanish (Mexico) | `es-MX` | Yes |
 | Spanish (Spain) | `es-ES` | Yes |
+| Swedish (Sweden) | `sv-SE` | No |
+| Tamil (India) | `ta-IN` | No | 
+| Telugu (India) | `te-IN` | No | 
+| Thai (Thailand) | `th-TH` | No | 
 | Turkish (Turkey) | `tr-TR` | No |
 | Vietnamese (Vietnam) | `vi-VN` | No |
-
-
 
 ## Language identification
 
