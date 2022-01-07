@@ -42,9 +42,13 @@ For now, we do not support [WebHook-Request-Rate](https://github.com/cloudevents
 
 ### Configure through Azure portal
 
-Find your Azure Web PubSub service from **Azure portal**. Navigate to **Settings** and enter your hub-name. Then click **Add** to configure your server side webhook URL. Don't forget to click **Save** when finish.
+Find your Azure Web PubSub service from **Azure portal**. Navigate to **Settings** and enter your hub-name. Then click **Add** to configure your server side webhook URL. For an existing hub configuration, click **...** on right side will navigate to same editing page.
 
 :::image type="content" source="media/quickstart-serverless/set-event-handler.png" alt-text="Screenshot of setting the event handler.":::
+
+Then in the below editing page, you'd need to configure hub name, server webhook URL, and select `user` and `system` events you'd like to subscribe. Finally click **Save** when everything is done. 
+
+:::image type="content" source="media/quickstart-serverless/edit-event-handler.png" alt-text="Screenshot of editing the event handler.":::
 
 ### Configure through Azure CLI
 

@@ -142,7 +142,7 @@ In this tutorial, you learn how to:
    - Update `index.cs` and replace `Run` function with following codes.
         ```c#
         [FunctionName("index")]
-        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req)
+        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req, ILogger log)
         {
             string indexFile = "index.html";
             if (Environment.GetEnvironmentVariable("HOME") != null)
@@ -199,11 +199,11 @@ In this tutorial, you learn how to:
         };
         ```
    # [C#](#tab/csharp)
-   - Update `negotiate.cs` and replace `Run` function with following codes.
+   - Update `negotiate.cs` and replace `Run` function with following codes. And add `using Microsoft.Azure.WebJobs.Extensions.WebPubSub;` in header to resolve required dependencies.
         ```c#
         [FunctionName("negotiate")]
         public static WebPubSubConnection Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             [WebPubSubConnection(Hub = "simplechat", UserId = "{headers.x-ms-client-principal-name}")] WebPubSubConnection connection,
             ILogger log)
         {
@@ -264,21 +264,26 @@ In this tutorial, you learn how to:
         ```c#
         [FunctionName("message")]
         public static async Task<UserEventResponse> Run(
-            [WebPubSubTrigger(WebPubSubEventType.User, "message")] UserEventRequest request,
+            [WebPubSubTrigger("simplechat", WebPubSubEventType.User, "message")] UserEventRequest request,
             BinaryData data,
             WebPubSubDataType dataType,
             [WebPubSub(Hub = "simplechat")] IAsyncCollector<WebPubSubAction> actions)
         {
             await actions.AddAsync(WebPubSubAction.CreateSendToAllAction(
-                BinaryData.FromString($"[{request.ConnectionContext.UserId}] {message.ToString()}"),
-                dataType
-            );
+                BinaryData.FromString($"[{request.ConnectionContext.UserId}] {data.ToString()}"),
+                dataType));
             return new UserEventResponse
             {
                 Data = BinaryData.FromString("[SYSTEM] ack"),
                 DataType = WebPubSubDataType.Text
             };
         }
+        ```
+   - Add below `using` statements in header to resolve required dependencies.
+        ```c#
+        using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
+        using Microsoft.Azure.WebPubSub.Common;
+
         ```
 
 6. Add the client single page `index.html` in the project root folder and copy content as below.

@@ -75,7 +75,7 @@ In this tutorial, you learn how to:
     ```
    b. Run command to install specific function extension package.
     ```bash
-    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0
+    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.1.0
     ```
 
 3. Create an `index` function to read and host a static web page for clients.
@@ -191,7 +191,7 @@ In this tutorial, you learn how to:
         };
         ```
    # [C#](#tab/csharp)
-   - Update `negotiate.cs` and replace `Run` function with following codes.
+   - Update `negotiate.cs` and replace `Run` function with following codes. And add `using Microsoft.Azure.WebJobs.Extensions.WebPubSub;` in header to resolve required dependencies.
         ```c#
         [FunctionName("negotiate")]
         public static WebPubSubConnection Run(
@@ -265,6 +265,12 @@ In this tutorial, you learn how to:
             return value.ToString("0.000");
         }
         ``` 
+   - Add below `using` statements in header to resolve required dependencies.
+        ```c#
+        using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
+        using Microsoft.Azure.WebPubSub.Common;
+
+        ```
 
 6. Add the client single page `index.html` in the project root folder and copy content as below.
     ```html
