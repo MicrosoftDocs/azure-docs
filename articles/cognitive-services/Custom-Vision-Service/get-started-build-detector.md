@@ -5,13 +5,12 @@ description: In this quickstart, you'll learn how to use the Custom Vision websi
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 09/27/2021
 ms.author: pafarley
-ms.custom: cog-serv-seo-aug-2020
+ms.custom: cog-serv-seo-aug-2020, mode-other
 keywords: image recognition, image recognition app, custom vision
 ---
 
@@ -24,6 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 - A set of images with which to train your detector model. You can use the set of [sample images](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) on GitHub. Or, you can choose your own images using the tips below.
+- A [supported web browser](overview.md#supported-browsers-for-custom-vision-web-portal)
 
 ## Create Custom Vision resources
 

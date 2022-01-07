@@ -2,7 +2,6 @@
 title: Create and provision an IoT Edge device on Linux using symmetric keys - Azure IoT Edge | Microsoft Docs
 description: Create and provision a single IoT Edge device in IoT Hub for manual provisioning with symmetric keys
 author: kgremban
-ms.reviewer: v-tcassi
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
@@ -44,7 +43,7 @@ This article covers registering your IoT Edge device and installing IoT Edge on 
 <!-- Device registration prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-register-device.md](../../includes/iot-edge-prerequisites-register-device.md)]
 
-### IoT Edge installation
+### Device requirements
 
 An X64, ARM32, or ARM64 Linux device.
 

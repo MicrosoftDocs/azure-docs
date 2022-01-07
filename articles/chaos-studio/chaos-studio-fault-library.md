@@ -4,7 +4,7 @@ description: Understand the available actions you can use with Chaos Studio incl
 services: chaos-studio
 author: johnkemnetz
 ms.topic: article
-ms.date: 11/10/2021
+ms.date: 01/05/2022
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: ignite-fall-2021
@@ -700,7 +700,7 @@ Known issues on Linux:
 |-|-|
 | Capability Name | Failover-1.0 |
 | Target type | Microsoft-CosmosDB |
-| Description | Causes a Cosmos DB account with a single write region to fail over to a specified read region to simulate a [write region outage](../cosmos-db/high-availability.md#multi-region-accounts-with-a-single-write-region-write-region-outage) |
+| Description | Causes a Cosmos DB account with a single write region to fail over to a specified read region to simulate a [write region outage](../cosmos-db/high-availability.md) |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:cosmosDB:failover/1.0 |
 | Parameters (key, value) |  |
@@ -755,7 +755,6 @@ Known issues on Linux:
             "value": "{\"action\":\"delay\",\"mode\":\"one\",\"selector\":{\"namespaces\":[\"default\"],\"labelSelectors\":{\"app\":\"web-show\"}},\"delay\":{\"latency\":\"10ms\",\"correlation\":\"100\",\"jitter\":\"0ms\"}}"
         }
     ],
-      "duration": "PT10M",
       "selectorid": "myResources"
     }
   ]
@@ -789,7 +788,6 @@ Known issues on Linux:
             "value": "{\"action\":\"pod-failure\",\"mode\":\"one\",\"duration\":\"30s\",\"selector\":{\"labelSelectors\":{\"app.kubernetes.io\/component\":\"tikv\"}}}"
         }
     ],
-      "duration": "PT10M",
       "selectorid": "myResources"
     }
   ]
@@ -823,7 +821,6 @@ Known issues on Linux:
             "value": "{\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app\":\"app1\"}},\"stressors\":{\"memory\":{\"workers\":4,\"size\":\"256MB\"}}}"
         }
     ],
-      "duration": "PT10M",
       "selectorid": "myResources"
     }
   ]
@@ -857,7 +854,6 @@ Known issues on Linux:
             "value": "{\"action\":\"latency\",\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app\":\"etcd\"}},\"volumePath\":\"\/var\/run\/etcd\",\"path\":\"\/var\/run\/etcd\/**\/*\",\"delay\":\"100ms\",\"percent\":50,\"duration\":\"400s\"}"
         }
     ],
-      "duration": "PT10M",
       "selectorid": "myResources"
     }
   ]
@@ -891,7 +887,6 @@ Known issues on Linux:
             "value": "{\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app\":\"app1\"}},\"timeOffset\":\"-10m100ns\"}"
         }
     ],
-      "duration": "PT10M",
       "selectorid": "myResources"
     }
   ]
@@ -925,7 +920,6 @@ Known issues on Linux:
             "value": "{\"mode\":\"one\",\"selector\":{\"namespaces\":[\"chaos-mount\"]},\"failKernRequest\":{\"callchain\":[{\"funcname\":\"__x64_sys_mount\"}],\"failtype\":0}}"
         }
     ],
-      "duration": "PT10M",
       "selectorid": "myResources"
     }
   ]
@@ -959,7 +953,6 @@ Known issues on Linux:
             "value": "{\"mode\":\"all\",\"selector\":{\"labelSelectors\":{\"app\":\"nginx\"}},\"target\":\"Request\",\"port\":80,\"method\":\"GET\",\"path\":\"\/api\",\"abort\":true,\"duration\":\"5m\",\"scheduler\":{\"cron\":\"@every 10m\"}}"
         }
     ],
-      "duration": "PT10M",
       "selectorid": "myResources"
     }
   ]
@@ -993,7 +986,6 @@ Known issues on Linux:
             "value": "{\"action\":\"random\",\"mode\":\"all\",\"patterns\":[\"google.com\",\"chaos-mesh.*\",\"github.?om\"],\"selector\":{\"namespaces\":[\"busybox\"]}}"
         }
     ],
-      "duration": "PT10M",
       "selectorid": "myResources"
     }
   ]

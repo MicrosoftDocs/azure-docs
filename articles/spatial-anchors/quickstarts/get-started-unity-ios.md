@@ -4,11 +4,11 @@ description: In this quickstart, you learn how to build an iOS app with Unity us
 author: msftradford
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
-
 ms.author: parkerra
 ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
+ms.custom: mode-other
 ---
 
 # Quickstart: Create a Unity iOS app with Azure Spatial Anchors
@@ -30,9 +30,10 @@ You'll learn how to:
 
 To complete this quickstart, make sure you have:
 
-- A macOS machine with the latest version of <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a> and <a href="https://unity3d.com/get-unity/download" target="_blank">Unity (LTS)</a> installed. Use **Unity 2020 LTS** with ASA SDK version 2.9 or later (which uses the [Unity XR Plug-in Framework](https://docs.unity3d.com/Manual/XRPluginArchitecture.html)) or **Unity 2019 LTS** with ASA SDK version 2.8 or earlier.
-- Git installed via HomeBrew. Enter the following command into a single line of the Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Then, run `brew install git` and `brew install git-lfs`.
 - A developer enabled <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit compatible</a> iOS device.
+- A macOS machine with the latest version of <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a> installed.
+- A Unity installation. For supported versions and required capabilities, visit the [Unity project setup page](../how-tos/setup-unity-project.md).
+- Git installed via HomeBrew. Enter the following command into a single line of the Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Then, run `brew install git` and `brew install git-lfs`.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 

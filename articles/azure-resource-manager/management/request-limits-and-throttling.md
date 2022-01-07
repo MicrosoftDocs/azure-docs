@@ -2,7 +2,7 @@
 title: Request limits and throttling
 description: Describes how to use throttling with Azure Resource Manager requests when subscription limits have been reached.
 ms.topic: conceptual
-ms.date: 11/15/2021
+ms.date: 12/01/2021
 ms.custom: seodec18, devx-track-azurepowershell
 ---
 # Throttling Resource Manager requests
@@ -53,7 +53,7 @@ The Microsoft.Network resource provider applies the following throttle limits:
 | read (GET) | 10000 per 5 minutes |
 
 > [!NOTE]
-> **Azure Private DNS** has a throttle limit of 500 read (GET) operations per 5 minutes.
+> **Azure DNS** and **Azure Private DNS** have a throttle limit of 500 read (GET) operations per 5 minutes.
 >
 
 ### Compute throttling

@@ -1,38 +1,38 @@
 ---
-title: Connect to Azure Blob Storage using the SFTP protocol (preview) | Microsoft Docs
+title: Connect to Azure Blob Storage using SFTP (preview) | Microsoft Docs
 description: Learn how to enable SFTP support for your Azure Blob Storage account so that you can directly connect to your Azure Storage account by using an SFTP client.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/15/2021
+ms.date: 11/22/2021
 ms.author: normesta
 ms.reviewer: ylunagaria
 
 ---
 
-# Connect to Azure Blob Storage by using the Secure File Transfer (SFTP) protocol (preview)
+# Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP) (preview)
 
-You can securely connect to the Blob Storage endpoint of an Azure Storage account by using an SFTP client, and then upload and download files. This article shows you how to enable SFTP protocol support, and then connect to Blob Storage by using an SFTP client. 
+You can securely connect to the Blob Storage endpoint of an Azure Storage account by using an SFTP client, and then upload and download files. This article shows you how to enable SFTP, and then connect to Blob Storage by using an SFTP client. 
 
-To learn more about SFTP protocol support in Azure Blob Storage, see [Secure File Transfer (SFTP) protocol support in Azure Blob Storage](secure-file-transfer-protocol-support.md).
+To learn more about SFTP support in Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) in Azure Blob Storage](secure-file-transfer-protocol-support.md).
 
 > [!IMPORTANT]
-> SFTP protocol support is currently in PREVIEW and is available in [these regions](secure-file-transfer-protocol-support.md#regional-availability).
+> SFTP support is currently in PREVIEW and is available in [these regions](secure-file-transfer-protocol-support.md#regional-availability).
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-> To enroll in the preview, see [this form](https://forms.office.com/r/gZguN0j65Y).
+> To enroll in the preview, complete [this form](https://forms.office.com/r/gZguN0j65Y) AND request to join via 'Preview features' in Azure portal.
 
 ## Prerequisites
 
-- A standard general-purpose v2 or premium block blob storage account. You can also enable SFTP as create the account. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
+- A standard general-purpose v2 or premium block blob storage account. You can also enable SFTP as you create the account. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
 
 - The account redundancy option of the storage account is set to either locally-redundant storage (LRS) or zone-redundant storage (ZRS).
 
 - The hierarchical namespace feature of the account must be enabled. To enable the hierarchical namespace feature, see [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
 
-- If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 22. The SFTP protocol uses that port.
+- If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 22. The SFTP uses that port.
 
 ## Register the feature
 
@@ -47,7 +47,7 @@ Before you can enable SFTP support, you must register the SFTP feature with your
    > [!div class="mx-imgBorder"]
    > ![Preview setting](./media/secure-file-transfer-protocol-support-how-to/preview-features-setting.png)
 
-4. In the **Preview features** page, select the **AllowSFTP** feature, and then select **Register**.
+4. In the **Preview features** page, select the **SFTP support for Azure Blob Storage** feature, and then select **Register**.
 
 ### Verify feature registration
 
@@ -55,7 +55,7 @@ Verify that the feature is registered before continuing with the other steps in 
 
 1. Open the **Preview features** page of your subscription. 
 
-2. Locate the **AllowSFTP** feature and make sure that **Registered** appears in the **State** column.
+2. Locate the **SFTP support for Azure Blob Storage** feature and make sure that **Registered** appears in the **State** column.
 
 ## Enable SFTP support
 

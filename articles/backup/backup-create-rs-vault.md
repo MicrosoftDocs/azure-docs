@@ -37,7 +37,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
 
 ## Set Cross Region Restore
 
-The restore option Cross Region Restore (CRR) allows you to restore data in a secondary, Azure paired region. You can use it to conduct drills when there is an audit or compliance requirement (or) restore the data if there's a disaster in the primary region.
+The restore option Cross Region Restore (CRR) allows you to restore data in a secondary, [Azure paired region](../availability-zones/cross-region-replication-azure.md). You can use it to conduct drills when there is an audit or compliance requirement (or) restore the data if there's a disaster in the primary region.
 
 Before you begin:
 - CRR is supported:
@@ -87,7 +87,7 @@ To configure your vault to encrypt with customer-managed keys, these steps must 
 
 1. Assign the encryption key to the Recovery Services vault
 
-Instructions for each of these steps can be found [in this article](encryption-at-rest-with-cmk.md#configuring-a-vault-to-encrypt-using-customer-managed-keys).
+Instructions for each of these steps can be found [in this article](encryption-at-rest-with-cmk.md#configure-a-vault-to-encrypt-using-customer-managed-keys).
 
 ## Modifying default settings
 

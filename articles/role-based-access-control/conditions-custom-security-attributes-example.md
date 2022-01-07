@@ -94,8 +94,6 @@ Access keys are a common way to provide access to data plane resources. Access k
 
 Like access keys, shared access signature (SAS) tokens do not have identity binding, but expire on a regularly basis. The lack of identity binding represents the same security risks as access keys do. You must manage the expiration to ensure that clients do not get errors. SAS tokens require additional code to manage and operate daily and can be a significant overhead for a DevOps team.
 
-Resource-based access control lists (ACLs) are typically stored on a resource as a list of users and allowed actions on that specific resource. ACLs offer fine-grained access control and have identity bindings. However, ACLs require you to manage access on each object, creates performance implications related to managing ACLs recursively, and creates management overhead for custom scripts and permission drift remediation.
-
 Azure RBAC provides centralized fine-grained access control. Azure RBAC has identity binding that reduces your security risk. Using conditions you can potentially scale the management of role assignments and make access control easier to maintain because access is based on flexible and dynamic attributes.
 
 Here are some of the benefits of this solution:

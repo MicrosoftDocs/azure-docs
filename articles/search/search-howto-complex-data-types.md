@@ -69,6 +69,8 @@ This limit applies only to complex collections, and not complex types (like Addr
 
 As with any index definition, you can use the portal, [REST API](/rest/api/searchservice/create-index), or [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindex) to create a schema that includes complex types. 
 
+Other Azure SDKs provide samples in [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/search/azure-search-documents/samples/sample_index_crud_operations.py), [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/indexes/CreateIndexExample.java), and [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/search/search-documents/samples/v11/javascript/indexOperations.js).
+
 ### [**Azure portal**](#tab/complex-type-portal)
 
 1. On the search service **Overview** page, select the **Indexes** tab.
@@ -112,7 +114,7 @@ The following example shows a JSON index schema with simple fields, collections,
 }
 ```
 
-### [**.NET SDK**](#tab/complex-type-dotnet)
+### [**C#**](#tab/complex-type-csharp)
 
 Use the [Search Index class](/dotnet/api/azure.search.documents.indexes.models.searchindex) to define the index schema.
 

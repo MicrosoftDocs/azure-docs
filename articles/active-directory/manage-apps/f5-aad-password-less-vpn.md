@@ -1,7 +1,7 @@
 ---
-title: Secure hybrid access with F5 VPN
+title: Configure F5 BIG-IP SSL-VPN solution in Azure AD
 titleSuffix: Azure AD
-description: Tutorial for Azure Active Directory Single Sign-on (SSO) integration with F5 BIG-IP for Password-less VPN 
+description: Tutorial to configure F5’s BIG-IP based  Secure socket layer Virtual private network (SSL-VPN) solution with Azure Active Directory (AD) for Secure Hybrid Access (SHA) 
 services: active-directory
 author: davidmu1
 manager: martinco
@@ -15,11 +15,11 @@ ms.collection: M365-identity-device-management
 ms.reviewer: miccohen
 ---
 
-# Integrate F5 BIG-IP for Password-less VPN with Azure Active Directory
+# Configure F5 BIG-IP SSL-VPN solution in Azure AD
 
-In this tutorial, learn how to integrate F5’s BIG-IP based  Secure socket layer Virtual private network (SSL-VPN) solution with Azure Active Directory (AD) for Secure Hybrid Access (SHA).
+In this tutorial, learn how to configure F5’s BIG-IP based  Secure socket layer Virtual private network (SSL-VPN) solution with Azure Active Directory (AD) for Secure Hybrid Access (SHA).
 
-Integrating a BIG-IP SSL-VPN with Azure AD provides [many key benefits](f5-aad-integration.md), including:
+Configuring a BIG-IP SSL-VPN with Azure AD provides [many key benefits](f5-aad-integration.md), including:
 
 - Improved Zero trust governance through [Azure AD pre-authentication and authorization](../../app-service/overview-authentication-authorization.md)
 

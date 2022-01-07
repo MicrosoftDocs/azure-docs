@@ -10,7 +10,7 @@ ms.date: 07/17/2020
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
@@ -119,7 +119,7 @@ If you have problems with using SSPR from the Windows sign-in screen, the Azure 
 
 When users reset their password from the sign-in screen of a Windows 10 device, a low-privilege temporary account called `defaultuser1` is created. This account is used to keep the password reset process secure.
 
-The account itself has a randomly generated password, doesn't show up for device sign-in, and is automatically removed after the user resets their password. Multiple `defaultuser` profiles may exist but can be safely ignored.
+The account itself has a randomly generated password, which is validated against an organizations password policy, doesn't show up for device sign-in, and is automatically removed after the user resets their password. Multiple `defaultuser` profiles may exist but can be safely ignored.
 
 ## Windows 7, 8, and 8.1 password reset
 

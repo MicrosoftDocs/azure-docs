@@ -9,7 +9,7 @@ ms.custom: references_regions, devx-track-azurepowershell
 ms.topic: conceptual
 author: SQLSourabh 
 ms.author: sourabha
-ms.reviewer: mathoma, wiassaf, danil
+ms.reviewer: kendralittle, mathoma, wiassaf, danil
 ms.date: 08/28/2021
 ---
 # Automated backups - Azure SQL Database & Azure SQL Managed Instance
@@ -17,9 +17,6 @@ ms.date: 08/28/2021
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
-
-> [!div class="nextstepaction"]
-> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## What is a database backup?
 
@@ -33,7 +30,7 @@ When you restore a database, the service determines which full, differential, an
 
 ### Backup storage redundancy
 
-By default, SQL Database and SQL Managed Instance store data in geo-redundant [storage blobs](../../storage/common/storage-redundancy.md) that are replicated to a [paired region](../../best-practices-availability-paired-regions.md). Geo-redundancy helps to protect against outages impacting backup storage in the primary region and allows you to restore your server to a different region in the event of a disaster. 
+By default, SQL Database and SQL Managed Instance store data in geo-redundant [storage blobs](../../storage/common/storage-redundancy.md) that are replicated to a [paired region](../../availability-zones/cross-region-replication-azure.md). Geo-redundancy helps to protect against outages impacting backup storage in the primary region and allows you to restore your server to a different region in the event of a disaster. 
 
 The option to configure backup storage redundancy provides the flexibility to choose between locally redundant, zone-redundant, or geo-redundant storage blobs. To ensure that your data stays within the same region where your managed instance or SQL database is deployed, you can change the default geo-redundant backup storage redundancy and configure either locally redundant or zone-redundant storage blobs for backups. Storage redundancy mechanisms store multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failure, network or power outages, or massive natural disasters. The configured backup storage redundancy is applied to both short-term backup retention settings that are used for point in time restore (PITR) and long-term retention backups used for long-term backups (LTR). 
 
@@ -47,7 +44,7 @@ For SQL Database, the backup storage redundancy can be configured at the time of
 > Zone-redundant storage is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> Backup storage redundancy for SQL Database and Hyperscale is currently in preview. 
+> Backup storage redundancy for Hyperscale is currently in preview. 
 
 ### Backup usage
 
@@ -225,7 +222,7 @@ For more details about backup storage pricing visit [Azure SQL Database pricing 
 > Backup storage redundancy for Hyperscale and SQL Managed Instance can only be set during database creation. This setting cannot be modified once the resource is provisioned. [Database copy](database-copy.md) process can be used to update the backup storage redundancy settings for an existing Hyperscale database. 
 
 > [!NOTE]
-> Backup storage redundancy for SQL Database and Hyperscale is currently in preview. 
+> Backup storage redundancy for Hyperscale is currently in preview. 
 
 ### Monitor costs
 
@@ -306,7 +303,7 @@ az sql db str-policy set \
     --diffbackup-hours 24
 ```
 
-#### [SQL Database](#tab/managed-instance)
+#### [SQL Managed Instance](#tab/managed-instance)
 
 Use the following example to change the PITR backup retention of a **single active** database in a SQL Managed Instance.
 

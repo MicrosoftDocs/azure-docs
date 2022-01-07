@@ -273,6 +273,9 @@
       - name: Azure Certified Device
         tocHref: /azure/certification/
         topicHref: /azure/certification/
+      - name: Industrial IoT
+        tocHref: /azure/industrial-iot/
+        topicHref: /azure/industrial-iot/index
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
@@ -613,7 +616,7 @@
       topicHref: /azure/healthcare-apis/dicom/index
     - name: Data Transformation
       tocHref: /azure/healthcare-apis/data-transformation/
-      topicHref: /azure/healthcare-apis/data-transformation/index
+      topicHref: /azure/healthcare-apis/fhir/convert-data
     - name: IoT Connector
       tocHref: /azure/healthcare-apis/iot/
       topicHref: /azure/healthcare-apis/iot/index
@@ -697,8 +700,8 @@
         tocHref: /azure/media-services/azure-media-player/
         topicHref: /azure/media-services/azure-media-player/
       - name: Live Video Analytics on IoT Edge
-        tocHref: /azure/media-services/live-video-analytics-edge/
-        topicHref: /azure/media-services/live-video-analytics-edge/        
+        tocHref: /shows/internet-of-things-show/deep-dive-live-video-analytics-on-iot-edge
+        topicHref: /shows/internet-of-things-show/deep-dive-live-video-analytics-on-iot-edge        
   - name: Messaging services
     tocHref: /azure/messaging-services/
     topicHref: /azure/messaging-services/
@@ -1067,3 +1070,9 @@
   - name: Service Connector
     tocHref: /azure/service-connector/
     topicHref: /azure/service-connector/
+  - name: Azure Orbital
+    tocHref: /azure/orbital/
+    topicHref: /azure/orbital/
+  - name: Load Testing
+    tocHref: /azure/load-testing/
+    topicHref: /azure/load-testing/overview-what-is-azure-load-testing

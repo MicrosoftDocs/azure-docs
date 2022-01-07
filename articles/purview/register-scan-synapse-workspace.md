@@ -126,7 +126,7 @@ You can set up authentication for an Azure Synapse source in either of two ways:
 > These steps for serverless databases **do not** apply to replicated databases. Currently in Synapse, serverless databases that are replicated from Spark databases are read-only. For more information, go [here](../synapse-analytics/sql/resources-self-help-sql-on-demand.md#operation-is-not-allowed-for-a-replicated-database).
 
 > [!NOTE]
-> You must set up authentication on each dedicated SQL database in your Azure Synapse workspace that you intend to register and scan. The permissions that are mentioned in the following sections for serverless SQL database apply to all databases within your workspace. That is, you'll have to set up authentication only once.
+> You must set up authentication on each SQL database that you intended to register and scan from your Azure Synapse workspace.
 
 #### Use a managed identity for dedicated SQL databases
 
@@ -146,17 +146,20 @@ You can set up authentication for an Azure Synapse source in either of two ways:
     EXEC sp_addrolemember 'db_datareader', [PurviewAccountName]
     GO
     ```
+1. Follow the same steps for **each database you want to scan.**
 
 #### Use a managed identity for serverless SQL databases
 
 1. Go to your Azure Synapse workspace.
-1. Go to the **Data** section, and follow the next steps for **each database you want to scan.**
+1. Go to the **Data** section, and select one of your SQL databases.
 1. Select the ellipsis (**...**) next to your database, and then start a new SQL script.
 1. Add the Azure Purview account MSI (represented by the account name) as **db_datareader** on the serverless SQL databases. You do so by running the following command in your SQL script:
     ```sql
     CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
     ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
     ```
+
+1. Follow the same steps for **each database you want to scan.**
 
 #### Grant permission to use credentials for external tables
 

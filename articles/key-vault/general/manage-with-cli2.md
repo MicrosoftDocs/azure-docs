@@ -40,7 +40,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To use the Azure CLI commands in this article, you must have the following items:
 
 * A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
-* Azure Command-Line Interface version 2.0 or later. To install the latest version, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+* Azure CLI version 2.0 or later. To install the latest version, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 * An application that will be configured to use the key or password that you create in this article. A sample application is available from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the included Readme file.
 
 ### Getting help with Azure Cross-Platform Command-Line Interface
@@ -195,7 +195,7 @@ For detailed steps on registering an application with Azure Active Directory you
 To register an application in Azure Active Directory:
 
 ```azurecli
-az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --skip-assignment
+az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv"
 # If you don't specify a password, one will be created for you.
 ```
 

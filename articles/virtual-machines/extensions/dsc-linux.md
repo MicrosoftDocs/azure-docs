@@ -7,7 +7,7 @@ ms.subservice: extensions
 author: mgoedtel
 ms.author: magoedte
 ms.collection: linux
-ms.date: 06/12/2018 
+ms.date: 06/12/2018
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -34,7 +34,7 @@ The DSCForLinux extension is published and supported by Microsoft. The extension
 
 ### Operating system
 
-For nodes running Linux, the DSC Linux extension supports all the Linux distributions listed in the [PowerShell DSC documentation](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
+For nodes running Linux, the DSC Linux extension supports all the Linux distributions listed in the [PowerShell DSC documentation](/powershell/dsc/getting-started/lnxgettingstarted).
 
 ### Internet connectivity
 
