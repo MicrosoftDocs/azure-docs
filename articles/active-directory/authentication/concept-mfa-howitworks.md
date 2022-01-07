@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # How it works: Azure AD Multi-Factor Authentication
 
-Multi-factor authentication is a process in which users are prompted during the sign-in process for an additional form of identification, such as to enter a code on their cellphone or to provide a fingerprint scan.
+Multi-factor authentication is a process in which users are prompted during the sign-in process for an additional form of identification, such as a code on their cellphone or  a fingerprint scan.
 
 If you only use a password to authenticate a user, it leaves an insecure vector for attack. If the password is weak or has been exposed elsewhere, an attacker could be using it to gain access. When you require a second form of authentication, security is increased because this additional factor isn't something that's easy for an attacker to obtain or duplicate.
 
@@ -33,11 +33,11 @@ Azure AD Multi-Factor Authentication can also further secure password reset. Whe
 
 You don't need to change apps and services to use Azure AD Multi-Factor Authentication. The verification prompts are part of the Azure AD sign-in, which automatically requests and processes the multi-factor authentication challenge when needed.
 
-![Authentication methods in use at the sign-in screen](media/concept-authentication-methods/overview-login.png)
+![Multi-factor authentication sign-in screen.](media/concept-mfa-howitworks/sign-in-screen.png)
 
 ## Available verification methods
 
-When a user signs in to an application or service and receives an MFA prompt, they can choose from one of their registered forms of additional verification. Users can access [My Profile](https://myprofile.microsoft.com) to edit or add verification methods.
+When users sign in to an application or service and receive a multi-factor authentication prompt, they can choose from one of their registered forms of additional verification. Users can access [My Profile](https://myprofile.microsoft.com) to edit or add verification methods.
 
 The following additional forms of verification can be used with Azure AD Multi-Factor Authentication:
 
@@ -51,11 +51,11 @@ The following additional forms of verification can be used with Azure AD Multi-F
 
 ## How to enable and use Azure AD Multi-Factor Authentication
 
-All Azure AD tenants can use [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) to quickly enable Microsoft Authenticator for all users. Users and groups can be enabled for Azure AD Multi-Factor Authentication to prompt for additional verification during the sign-in event. 
+You can use [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) in Azure AD tenants to quickly enable Microsoft Authenticator for all users. You can enable Azure AD Multi-Factor Authentication to prompt users and groups for additional verification during sign-in. 
 
-For more granular controls, [Conditional Access](../conditional-access/overview.md) policies can be used to define events or applications that require multi-factor authentication. These policies can allow regular sign-in events when the user is on the corporate network or a registered device, but prompt for additional verification factors when remote or on a personal device.
+For more granular controls, you can use [Conditional Access](../conditional-access/overview.md) policies to define events or applications that require multi-factor authentication. These policies can allow regular sign-in when the user is on the corporate network or a registered device but prompt for additional verification factors when the user is remote or on a personal device.
 
-![Overview diagram of how Conditional Access works to secure the sign-in process.](media/tutorial-enable-azure-mfa/conditional-access-overview.png)
+![Diagram that shows how Conditional Access works to secure the sign-in process.](media/tutorial-enable-azure-mfa/conditional-access-overview.png)
 
 ## Next steps
 
@@ -63,7 +63,7 @@ To learn about licensing, see [Features and licenses for Azure AD Multi-Factor A
 
 To learn more about different authentication and validation methods, see [Authentication methods in Azure Active Directory](concept-authentication-methods.md).
 
-To see MFA in action, enable Azure AD Multi-Factor Authentication for a set of test users in the following tutorial:
+To see multi-factor authentication in action, enable Azure AD Multi-Factor Authentication for a set of test users in the following tutorial:
 
 > [!div class="nextstepaction"]
 > [Enable Azure AD Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)
