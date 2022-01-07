@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: troubleshooting
-ms.date: 12/01/2021
+ms.date: 12/31/2021
 ---
 # Troubleshoot Azure Cache for Redis client-side issues
 
