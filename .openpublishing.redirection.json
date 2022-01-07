@@ -7740,7 +7740,7 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/LUIS/luis-get-started-get-intent-from-rest.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/client-libraries-rest-api",
+      "redirect_url": "/azure/cognitive-services/LUIS/how-to/intents",
       "redirect_document_id": false
     },
     {
