@@ -77,17 +77,19 @@ az arcdata dc upgrade --resource-group <resource group> --name <data controller 
 The output for the preceding command is:
 
 ```output
-Preparing to upgrade dc arcdc in namespace arc to version 20211024.1.
-Preparing to upgrade dc arcdc in namespace arc to version 20211024.1.
+Preparing to upgrade dc arcdc in namespace arc to version <version-tag>.
+Preparing to upgrade dc arcdc in namespace arc to version <version-tag>.
 ****Dry Run****
-Arcdata Control Plane would be upgraded to: 20211024.1
+Arcdata Control Plane would be upgraded to: <version-tag>
 ```
 
-To upgrade the data controller, run the `az arcdata dc upgrade` command. If you don't specify a target image, the data controller will be upgraded to the latest version. The following example uses a local variable (`$version`) to use the version you selected previously ([View available images and chose a version](#view-available-images-and-chose-a-version)).
+To upgrade the data controller, run the `az arcdata dc upgrade` command. If you don't specify a target image, the data controller will be upgraded to the latest version.
 
 ```azurecli
-az arcdata dc upgrade --resource-group <resource group> --name <data controller name> --desired-version <version> [--no-wait]
+az arcdata dc upgrade --resource-group <resource group> --name <data controller name> [--no-wait]
 ```
+
+In example above, you can include `--desired-version <version>` to specify a version if you do not want the latest version. 
 
 ## Monitor the upgrade status
 
