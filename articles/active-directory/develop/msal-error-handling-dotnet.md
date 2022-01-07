@@ -36,7 +36,7 @@ You can also have a look at the fields of [MsalClientException](/dotnet/api/micr
 
 If [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception) is thrown, try [Authentication and authorization error codes](reference-aadsts-error-codes.md) to see if the code is listed there.
 
-If [MsalUIRequiredException] is thrown, it is an indication that an interactive flow needs to happen for the user to resolve the issue. In public client apps such as desktop and mobile app, this is resolved by calling `AcquireTokenInteractive` which displays a browser. In confidential client apps, web apps should redirect the user to the authorization page, and web APIs should return an HTTP status code and header indicative of the authentication failure, i.e. 401 Unauthorized and a WWW-Authenticate header.
+If [MsalUIRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception) is thrown, it is an indication that an interactive flow needs to happen for the user to resolve the issue. In public client apps such as desktop and mobile app, this is resolved by calling `AcquireTokenInteractive` which displays a browser. In confidential client apps, web apps should redirect the user to the authorization page, and web APIs should return an HTTP status code and header indicative of the authentication failure (401 Unauthorized and a WWW-Authenticate header).
 
 ### Common .NET exceptions
 
