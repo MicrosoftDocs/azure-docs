@@ -5,7 +5,7 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: connect
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier

@@ -3,7 +3,7 @@ title: Steps to assign an Azure role - Azure RBAC
 description: Learn the steps to assign Azure roles to users, groups, service principals, or managed identities using Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity

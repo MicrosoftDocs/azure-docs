@@ -12,7 +12,7 @@ Before you begin, it's a good idea to read the overview of
 [A video walk-through of this document is available](https://youtu.be/nYd55FiKpgs).
 
 Guest configuration uses
-[Desired State Configuration (DSC)](/powershell/dsc/overview/overview)
+[Desired State Configuration (DSC)](/powershell/dsc/overview)
 version 3 to audit and configure machines. The DSC configuration defines the
 state that the machine should be in. There's many notable differences in how
 DSC is implemented in guest configuration.
@@ -55,9 +55,9 @@ extracted.
 
 Multiple benefits result from this change.
 
-- It's possible to use difference module versions for each configuration, on
+- It's possible to use different module versions for each configuration, on
   the same machine.
-- When a configuration is no longer deleted on a machine, the entire folder
+- When a configuration is no longer needed on a machine, the entire folder
   where it was extracted is safely deleted by the agent without the need to
   manage shared dependencies across configurations.
 - It's not required to manage multiple versions of any module in a central

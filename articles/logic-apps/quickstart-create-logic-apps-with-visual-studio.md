@@ -28,7 +28,7 @@ In this quickstart, you create the same logic app with Visual Studio as the Azur
 
 * Download and install these tools, if you don't have them already:
 
-  * [Visual Studio 2019, 2017, or 2015 - Community edition or greater](https://aka.ms/download-visual-studio). This quickstart uses Visual Studio Community 2017.
+  * [Visual Studio 2019, 2017, or 2015 - Community edition](https://aka.ms/download-visual-studio). The Azure Logic Apps extension is currently unavailable for Visual Studio 2022. This quickstart uses Visual Studio Community 2017.
 
     > [!IMPORTANT]
     > When you install Visual Studio 2019 or 2017, make sure that you select the **Azure development** workload.

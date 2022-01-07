@@ -41,7 +41,7 @@ Having a BIG-IP in front of the application enables us to overlay the service wi
 
 The secure hybrid access solution for this scenario is made up of the following:
 
-**Application:** Backend service protected by Azure AD and BIG-IP SHA. The application host is domain-joined and so is integrated with Active Directory (AD).
+**Application:** BIG-IP published service to be protected by and Azure AD SHA. The application host is domain-joined and so is integrated with Active Directory (AD).
 
 **Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SSO to the BIG-IP APM.
 
@@ -55,8 +55,8 @@ Secure hybrid access for this scenario supports both SP and IdP initiated flows.
 
 | Steps| Description|
 | -------- |-------|
-| 1| User connects to application endpoint (BIG-IP) |
-| 2| BIG-IP access policy redirects user to Azure AD (SAML IdP) |
+| 1| User connects to SAML SP endpoint for application (BIG-IP APM) |
+| 2| APM access policy redirects user to Azure AD (SAML IdP) |
 | 3| Azure AD pre-authenticates user and applies any enforced CA policies |
 | 4| User is redirected to BIG-IP (SAML SP) and SSO is performed using issued SAML token |
 | 5| BIG-IP requests Kerberos ticket from KDC |
@@ -92,7 +92,7 @@ Prior BIG-IP experience isn’t necessary, but you will need:
 
 There are many methods to configure BIG-IP for this scenario, including two template-based options and an advanced configuration. This tutorial covers latest Guided Configuration 16.1 offering an Easy button template.
 
-With the **Easy Button**, admins no longer go back and forth between Azure AD and a BIG-IP to enable services for SHA. The end-to-end deployment and policy management is handled directly between the APM’s Guided Configuration wizard and Microsoft Graph. This rich integration between BIG-IP APM and Azure AD ensures applications can quickly, easily support identity federation, SSO, and Azure AD MFA, without management overhead of having to do on a per app basis.
+With the **Easy Button**, admins no longer go back and forth between Azure AD and a BIG-IP to enable services for SHA. The end-to-end deployment and policy management is handled directly between the APM’s Guided Configuration wizard and Microsoft Graph. This rich integration between BIG-IP APM and Azure AD ensures applications can quickly, easily support identity federation, SSO, and Azure AD Conditional Access, reducing administrative overhead.
 
 The advanced approach provides a more flexible way of implementing SHA by manually creating all BIG-IP configuration objects. You would also use this approach for scenarios not covered by the guided configuration templates.
 
@@ -101,7 +101,7 @@ The advanced approach provides a more flexible way of implementing SHA by manual
 
 ## Register Easy Button
 
-Before a client or service can access Microsoft Graph, it must be trusted by the Microsoft identity platform. Registering with Azure AD establishes a trust relationship between your application and the IdP. BIG-IP must also be registered as a client in Azure AD, before the Easy Button wizard is trusted to access Microsoft Graph.
+Before a client or service can access Microsoft Graph, it must be trusted by the Microsoft identity platform by being registered with Azure AD. A BIG-IP must also be registered as a client in Azure AD, before the Easy Button wizard is trusted to access Microsoft Graph.
 
 1. Sign-in to the [Azure AD portal](https://portal.azure.com/) using an account with Application Administrative rights
 
@@ -315,7 +315,7 @@ Enable **Kerberos** and **Show Advanced Setting** to enter the following:
 
 * **User Realm Source:** Required if the user domain is different to the BIG-IP’s kerberos realm. In that case, the APM session variable would contain the logged in user domain. For example,*session.saml.last.attr.name.domain*
 
-![Screenshot for SSO and HTTP headers](./media/f5-big-ip-kerberos-easy-button/sso-headers.png)
+   ![Screenshot for SSO and HTTP headers](./media/f5-big-ip-kerberos-easy-button/sso-headers.png)
 
 * **KDC:** IP of a Domain Controller (Or FQDN if DNS is configured & efficient)
 
@@ -325,7 +325,7 @@ Enable **Kerberos** and **Show Advanced Setting** to enter the following:
 
 * **Send Authorization:** Disable for applications that prefer negotiating authentication instead of receiving the kerberos token in the first request. For example, *Tomcat.*
 
-![Screenshot for SSO method configuration](./media/f5-big-ip-kerberos-easy-button/sso-method-config.png)
+   ![Screenshot for SSO method configuration](./media/f5-big-ip-kerberos-easy-button/sso-method-config.png)
 
 
 ### Session Management
@@ -480,7 +480,7 @@ F5 provides a great BIG-IP specific paper to help diagnose KCD related issues, s
 
 ## Additional resources
 
-* [BIG-IP Advanced configuration](https://techdocs.f5.com/kb/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)
+* [BIG-IP Advanced configuration](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)
 
 * [The end of passwords, go password-less](https://www.microsoft.com/security/business/identity/passwordless)
 
