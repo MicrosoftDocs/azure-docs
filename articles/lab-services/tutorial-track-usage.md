@@ -2,7 +2,7 @@
 title: Track usage of a lab in Azure Lab Services | Microsoft Docs
 description: In this tutorial, you, as a lab creator/owner, track the usage of your lab. 
 ms.topic: tutorial
-ms.date: 06/26/2020
+ms.date: 01/06/2022
 ---
 
 # Tutorial: Track usage of a lab in Azure Lab Service
@@ -47,4 +47,4 @@ For more information about managing virtual machine pool for the lab, see [Set u
 
 ## Next steps
 
-To learn more about labs, see articles under [Administrator Guide](administrator-guide.md).
+To learn more about labs, see [Administrator Guide](administrator-guide.md).
