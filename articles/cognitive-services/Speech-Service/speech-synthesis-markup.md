@@ -158,7 +158,7 @@ Above changes are applied at the sentence level, and styles and role-plays vary 
 <mstts:express-as role="string" style="string"></mstts:express-as>
 ```
 > [!NOTE]
-> At the moment, `styledegree` only supports Chinese (Mandarin, Simplified) neural voices. `role` only supports zh-CN-XiaomoNeural and zh-CN-XiaoxuanNeural.
+> At the moment, `styledegree` only supports Chinese (Mandarin, Simplified) neural voices. `role` only supports zh-CN-XiaomoNeural, zh-CN-XiaoxuanNeural, zh-CN-YunxiNeural, and zh-CN-YunyeNeural.
 
 **Attributes**
 
