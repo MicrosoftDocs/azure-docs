@@ -1496,6 +1496,17 @@ groups:
     title: IAR EWARM
   - id: iot-toolset-mplab
     title: MPLAB
+# Owner: timlt
+- id: iot-develop-stm-toolset
+  title: IoT Devices
+  prompt: Choose a build environment
+  pivots:
+  - id: iot-toolset-cmake
+    title: CMake
+  - id: iot-toolset-iar-ewarm
+    title: IAR EWARM
+  - id: iot-toolset-stm32cube
+    title: STM32Cube IDE
 # Owner: v-amallick
 - id: backup-client-powershelltier-clitier-portaltier
   title: Clients
