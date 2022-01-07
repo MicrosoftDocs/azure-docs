@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: 'Tutorial: Create a graph in Azure Digital Twins (CLI)'
 titleSuffix: Azure Digital Twins
-description: Tutorial to build an Azure Digital Twins scenario using the Azure CLI
+description: Tutorial that shows how to build an Azure Digital Twins scenario using the Azure CLI
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 6/1/2021
+ms.date: 12/29/2021
 ms.topic: tutorial
 ms.service: digital-twins
 
@@ -56,8 +56,8 @@ To work with Azure Digital Twins in this article, you first need to **set up an 
 Otherwise, follow the instructions in [Set up an instance and authentication](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance). The instructions also contain steps to verify that you've completed each step successfully and are ready to move on to using your new instance.
 
 After you set up your Azure Digital Twins instance, make a note of the following values that you'll need to connect to the instance later:
-* the instance's **_host name_**
-* the **Azure subscription** that you used to create the instance. 
+* The instance's **_host name_**
+* The **Azure subscription** that you used to create the instance. 
 
 You can get both of these values for your instance in the output of the following Azure CLI command: 
 
@@ -73,7 +73,7 @@ Now that the CLI and Azure Digital Twins instance are set up, you can begin buil
 
 The first step in creating an Azure Digital Twins solution is defining twin [models](concepts-models.md) for your environment. 
 
-Models are similar to classes in object-oriented programming languages; they provide user-defined templates for [digital twins](concepts-twins-graph.md) to follow and instantiate later. They are written in a JSON-like language called **Digital Twins Definition Language (DTDL)**, and can define a twin's *properties*, *telemetry*, *relationships*, and *components*.
+Models are similar to classes in object-oriented programming languages; they provide user-defined templates for [digital twins](concepts-twins-graph.md) to follow and instantiate later. They're written in a JSON-like language called **Digital Twins Definition Language (DTDL)**, and can define a twin's *properties*, *telemetry*, *relationships*, and *components*.
 
 > [!NOTE]
 > DTDL also allows for the definition of *commands* on digital twins. However, commands are not currently supported in the Azure Digital Twins service.
@@ -84,9 +84,9 @@ Navigate on your machine to the *Room.json* file that you created in the [Prereq
 
 ### Upload models to Azure Digital Twins
 
-After designing models, you need to upload them to your Azure Digital Twins instance. This configures your Azure Digital Twins service instance with your own custom domain vocabulary. Once you have uploaded the models, you can create twin instances that use them.
+After designing models, you need to upload them to your Azure Digital Twins instance. Doing so configures your Azure Digital Twins service instance with your own custom domain vocabulary. Once you've uploaded the models, you can create twin instances that use them.
 
-1. To add models using Cloud Shell, you'll need to upload your model files to Cloud Shell's storage so the files will be available when you run the Cloud Shell command that uses them. To do this, select the "Upload/Download files" icon and choose "Upload".
+1. To add models using Cloud Shell, you'll need to upload your model files to Cloud Shell's storage so the files will be available when you run the Cloud Shell command that uses them. To do so, select the "Upload/Download files" icon and choose "Upload".
 
     :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Screenshot of Cloud Shell browser window showing selection of the Upload icon.":::
     
@@ -104,7 +104,7 @@ After designing models, you need to upload them to your Azure Digital Twins inst
     >[!TIP]
     >You can also upload all models within a directory at the same time, by using the `--from-directory` option for the model create command. For more information, see [Optional parameters for az dt model create](/cli/azure/dt/model#az_dt_model_create-optional-parameters).
 
-1. Verify the models were created with the [az dt model list](/cli/azure/dt/model#az_dt_model_list) command as shown below. This will print a list of all models that have been uploaded to the Azure Digital Twins instance with their full information. 
+1. Verify the models were created with the [az dt model list](/cli/azure/dt/model#az_dt_model_list) command as shown below. Doing so will print a list of all models that have been uploaded to the Azure Digital Twins instance with their full information. 
 
     ```azurecli-interactive
     az dt model list --dt-name <Azure-Digital-Twins-instance-name> --definition
@@ -118,21 +118,21 @@ After designing models, you need to upload them to your Azure Digital Twins inst
 
 The CLI also handles errors from the service. 
 
-Re-run the `az dt model create` command to try re-uploading one of the same models you just uploaded, for a second time:
+Rerun the `az dt model create` command to try re-uploading one of the same models you uploaded, for a second time:
 
 ```azurecli-interactive
 az dt model create --dt-name <Azure-Digital-Twins-instance-name> --models Room.json
 ```
 
-As models cannot be overwritten, this will now return an error code of `ModelIdAlreadyExists`.
+As models cannot be overwritten, running this command on the same model will now return an error code of `ModelIdAlreadyExists`.
 
 ## Create digital twins
 
 Now that some models have been uploaded to your Azure Digital Twins instance, you can create [digital twins](concepts-twins-graph.md) based on the model definitions. Digital twins represent the entities within your business environment—things like sensors on a farm, rooms in a building, or lights in a car. 
 
-To create a digital twin, you use the [az dt twin create](/cli/azure/dt/twin#az_dt_twin_create) command. You must reference the model that the twin is based on, and can optionally define initial values for any properties in the model. You do not have to pass any relationship information at this stage.
+To create a digital twin, you use the [az dt twin create](/cli/azure/dt/twin#az_dt_twin_create) command. You must reference the model that the twin is based on, and can optionally define initial values for any properties in the model. You don't have to pass any relationship information at this stage.
 
-1. Run this code in the Cloud Shell to create several twins, based on the Room model you updated earlier and another model, Floor. Recall that Room has three properties, so you can provide arguments with the initial values for these. (Initializing property values is optional in general, but they're needed for this tutorial.)
+1. Run this code in the Cloud Shell to create several twins, based on the Room model you updated earlier and another model, Floor. Recall that Room has three properties, so you can provide arguments with the initial values for these properties. (Initializing property values is optional in general, but they're needed for this tutorial.)
 
     ```azurecli-interactive
     az dt twin create --dt-name <Azure-Digital-Twins-instance-name> --dtmi "dtmi:example:Room;2" --twin-id room0 --properties '{"RoomName":"Room0", "Temperature":70, "HumidityLevel":30}'
@@ -158,7 +158,7 @@ To create a digital twin, you use the [az dt twin create](/cli/azure/dt/twin#az_
     az dt twin query --dt-name <Azure-Digital-Twins-instance-name> --query-command "SELECT * FROM DIGITALTWINS"
     ```
     
-    Look for the room0, room1, floor0, and floor1 twins in the results. Here is an excerpt showing part of the result of this query.
+    Look for the room0, room1, floor0, and floor1 twins in the results. Here's an excerpt showing part of the result of this query.
     
     :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Screenshot of Cloud Shell showing partial result of twin query, including room0 and room1." lightbox="media/tutorial-command-line/cli/output-query-all.png":::
 
@@ -198,7 +198,7 @@ You can also modify the properties of a twin you've created.
 
 Next, you can create some **relationships** between these twins, to connect them into a [twin graph](concepts-twins-graph.md). Twin graphs are used to represent an entire environment. 
 
-The types of relationships that you can create from one twin to another are defined within the [models](#model-a-physical-environment-with-dtdl) that you uploaded earlier. The [model definition for Floor](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) specifies that floors can have a type of relationship called *contains*. This makes it possible to create a *contains*-type relationship from each Floor twin to the corresponding room that it contains.
+The types of relationships that you can create from one twin to another are defined within the [models](#model-a-physical-environment-with-dtdl) that you uploaded earlier. The [model definition for Floor](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) specifies that floors can have a type of relationship called *contains*. Since the model definition specifies this relationship, it makes it possible to create a *contains*-type relationship from each Floor twin to the corresponding room that it contains.
 
 To add a relationship, use the [az dt twin relationship create](/cli/azure/dt/twin/relationship#az_dt_twin_relationship_create) command. Specify the twin that the relationship is coming from, the type of relationship, and the twin that the relationship is connecting to. Lastly, give the relationship a unique ID. If a relationship was defined to have properties, you can initialize the relationship properties in this command as well.
 
@@ -243,7 +243,7 @@ The twins and relationships you have set up in this tutorial form the following 
 
 ## Query the twin graph to answer environment questions
 
-A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment. In the Azure CLI, this is done with the [az dt twin query](/cli/azure/dt/twin#az_dt_twin_query) command.
+A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment. In the Azure CLI, querying is done with the [az dt twin query](/cli/azure/dt/twin#az_dt_twin_query) command.
 
 [!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
 
@@ -255,7 +255,7 @@ Run the following queries in the Cloud Shell to answer some questions about the 
     az dt twin query --dt-name <Azure-Digital-Twins-instance-name> --query-command "SELECT * FROM DIGITALTWINS"
     ```
 
-    This allows you to take stock of your environment at a glance, and make sure everything is represented as you want it to be within Azure Digital Twins. The result of this is an output containing each digital twin with its details. Here is an excerpt:
+    This query allows you to take stock of your environment at a glance, and make sure everything is represented as you want it to be within Azure Digital Twins. The result of this query is an output containing each digital twin with its details. Here's an excerpt:
 
     :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Screenshot of Cloud Shell showing partial result of twin query, including room0 and room1." lightbox="media/tutorial-command-line/cli/output-query-all.png":::
 
@@ -268,7 +268,7 @@ Run the following queries in the Cloud Shell to answer some questions about the 
     az dt twin query --dt-name <Azure-Digital-Twins-instance-name> --query-command "SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'dtmi:example:Room;2')"
     ```
 
-    You can restrict your query to twins of a certain type, to get more specific information about what's represented. The result of this shows room0 and room1, but does **not** show floor0 or floor1 (since they are floors, not rooms).
+    You can restrict your query to twins of a certain type, to get more specific information about what's represented. The result of this shows room0 and room1, but does **not** show floor0 or floor1 (since they're floors, not rooms).
     
     :::image type="content" source="media/tutorial-command-line/cli/output-query-model.png" alt-text="Screenshot of Cloud Shell showing result of model query, which includes only room0 and room1." lightbox="media/tutorial-command-line/cli/output-query-model.png":::
 
@@ -293,7 +293,7 @@ Run the following queries in the Cloud Shell to answer some questions about the 
     az dt twin query --dt-name <Azure-Digital-Twins-instance-name> --query-command "SELECT * FROM DigitalTwins T WHERE T.Temperature > 75"
     ```
 
-    You can query the graph based on properties to answer a variety of questions, including finding outliers in your environment that might need attention. Other comparison operators (*<*,*>*, *=*, or *!=*) are also supported. room1 shows up in the results here, because it has a temperature of 80.
+    You can query the graph based on properties to answer different kinds of questions, including finding outliers in your environment that might need attention. Other comparison operators (*<*,*>*, *=*, or *!=*) are also supported. room1 shows up in the results here, because it has a temperature of 80.
 
     :::image type="content" source="media/tutorial-command-line/cli/output-query-property.png" alt-text="Screenshot of Cloud Shell showing result of property query, which includes only room1." lightbox="media/tutorial-command-line/cli/output-query-property.png":::
 
