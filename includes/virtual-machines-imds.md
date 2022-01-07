@@ -46,6 +46,8 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | jq
 ```
 
+The `jq` utility is available in many cases but not all. If this is missing use `| python -m json.tool` instead.
+
 ---
 
 **Response**
@@ -568,6 +570,8 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 ```bash
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04" | jq
 ```
+
+The `jq` utility is available in many cases but not all. If this is missing use `| python -m json.tool` instead.
 
 ---
 
