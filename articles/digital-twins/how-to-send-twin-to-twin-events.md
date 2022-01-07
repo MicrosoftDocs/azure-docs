@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Set up twin-to-twin event handling
 titleSuffix: Azure Digital Twins
-description: See how to create a function in Azure for propagating events through the twin graph.
+description: Learn how to create a function in Azure for propagating events through the twin graph.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/16/2021
+ms.date: 1/7/2022
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy22q2
@@ -18,9 +18,9 @@ ms.custom: contperf-fy22q2
 
 # Set up twin-to-twin event handling
 
-A fully-connected Azure Digital Twins graph is driven by event propagation. Data arrives into Azure Digital Twins from external sources like IoT Hub, and then is propagated through the Azure Digital Twins graph, updating relevant twins as appropriate.
+This article shows how to **send events from twin to twin**, so that twins can be updated in response to property changes or other data from related twins in the graph. This type of event handling is done by setting up an [Azure function](../azure-functions/functions-overview.md) that watches for twin life-cycle events. The function recognizes which events should affect other twins in the graph, and uses the event data to update the affected twins.
 
-This article shows how to **send events from twin to twin**, so that twins can be updated in response to property changes or other data from related twins in the graph. This is done by setting up an [Azure function](../azure-functions/functions-overview.md) that watches for twin life cycle events. The function recognizes which events should affect other twins in the graph, and uses the event data to update the affected twins accordingly.
+A fully connected Azure Digital Twins graph is driven by event propagation. Data arrives into Azure Digital Twins from external sources like IoT Hub, and then is propagated through the Azure Digital Twins graph, updating relevant twins as appropriate.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ This article uses **Visual Studio**. You can download the latest version from [V
 
 To set up twin-to-twin handling, you'll need an **Azure Digital Twins instance** to work with. For instructions on how to create an instance, see [Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md). The instance should contain at least **two twins** that you want to send data between.
 
-Optionally, you may want to set up [automatic telemetry ingestion through IoT Hub](how-to-ingest-iot-hub-data.md) for your twins as well. This is not required in order to send data from twin to twin, but it's an important piece of a complete solution where the twin graph is driven by live telemetry.
+Optionally, you may want to set up [automatic telemetry ingestion through IoT Hub](how-to-ingest-iot-hub-data.md) for your twins as well. This process isn't required to send data from twin to twin, but it's an important piece of a complete solution where the twin graph is driven by live telemetry.
 
 ## Set up endpoint and route
 
@@ -40,7 +40,7 @@ To set up twin-to-twin event handling, start by creating an **endpoint** in Azur
 
 Next, create an Azure function that will listen on the endpoint and receive twin events that are sent there via the route. 
 
-1. First, create an Azure Functions project in Visual Studio on your machine. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#create-an-azure-functions-project).
+1. First, create an Azure Functions project in Visual Studio on your machine. For instructions on how to do so, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#create-an-azure-functions-project).
 
 2. Add the following packages to your project (you can use the Visual Studio NuGet package manager or `dotnet` commands in a command-line tool).
 
@@ -62,9 +62,9 @@ Before your function can access Azure Digital Twins, it needs some information a
 
 ## Connect the function to Event Grid
 
-Next, subscribe your Azure function to the event grid topic you created earlier. This will ensure that data can flow from an updated twin through the event grid topic to the function.
+Next, subscribe your Azure function to the Event Grid topic you created earlier. Doing so will ensure that data can flow from an updated twin through the Event Grid topic to the function.
 
-To do this, you'll create an **Event Grid subscription** that sends data from the event grid topic that you created earlier to your Azure function.
+To subscribe your Azure function, you'll create an **Event Grid subscription** that sends data from the Event Grid topic that you created earlier to your Azure function.
 
 Use the following CLI command, filling in placeholders for your subscription ID, resource group, function app, and function name.
 
@@ -72,7 +72,7 @@ Use the following CLI command, filling in placeholders for your subscription ID,
 az eventgrid event-subscription create --name <name-for-your-event-subscription> --source-resource-id /subscriptions/<subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.EventGrid/topics/<your-event-grid-topic> \ --endpoint-type azurefunction --endpoint /subscriptions/<subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.Web/sites/<your-function-app-name>/functions/<function-name> 
 ```
 
-Now, your function can receive events through your event grid topic. The data flow setup is complete.
+Now, your function can receive events through your Event Grid topic. The data flow setup is complete.
 
 ## Test and verify results
 
