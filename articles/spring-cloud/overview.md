@@ -73,7 +73,7 @@ This documentation includes sections that explain how to get started and leverag
     * [Troubleshoot](./how-to-self-diagnose-solve.md): Azure Spring Cloud diagnostics provide an interactive experience to help troubleshoot apps. No configuration is required. When you find issues, Azure Spring Cloud diagnostics identifies problems and guides you to information that helps troubleshoot and resolve issues.
     * [Migrate](/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud): How to migrate an existing Spring Cloud application or Spring Boot application to run on Azure Spring Cloud.
 
-## Enterprise Tier Overview
+## Enterprise Tier overview
 Azure Spring Cloud Enterprise Tier (preview) is optimized for the needs of enterprise Spring developers through advanced configuration, flexibility, portability, and enterprise-ready VMware Spring Runtime 24x7 support. Developers also benefit from proprietary Tanzu components such as Tanzu Build Service and Spring Cloud Gateway, and access to Spring experts. Via this new tier offering, you can secure the following benefits:
 
 * All features available in Azure Spring Cloud standard tier are also offered in enterprise tier with enterprise grade quality. Enterprise Tier will keep **feature parity** with the standard tier.
