@@ -32,7 +32,7 @@ Your client application might have intermittent connectivity issues caused by ev
 
 ### Server maintenance
 
-Sometimes, your cache undergoes a planned or an unplanned server maintenance. Your application can be negatively affected during the maintenance. You can validate by checking the "Errors: Type Failover" metric on your portal. To minimize the effects of failovers, see [Connection resilience](cache-best-practices-connection.md#connection-resilience).
+Sometimes, your cache undergoes a planned or an unplanned server maintenance. Your application can be negatively affected during the maintenance. You can validate by checking the `Errors (Type: Failover)` metric on your portal. To minimize the effects of failovers, see [Connection resilience](cache-best-practices-connection.md#connection-resilience).
 
 ### Number of connected clients
 
@@ -86,7 +86,7 @@ If you have a firewall configured for your Azure Cache For Redis, ensure that yo
 
 #### Third-party firewall or external proxy
 
-When you use a third-party firewall or proxy in your network, check that the endpoint for Azure Cache for Redis, `*.redis.cache.windows.net`, is allowed along with the ports `6379` and `6380`. You might need to allow more ports when using a clustered cache.
+When you use a third-party firewall or proxy in your network, check that the endpoint for Azure Cache for Redis, `*.redis.cache.windows.net`, is allowed along with the ports `6379` and `6380`. You might need to allow more ports when using a clustered cache or geo-replication.
 
 ## Next steps
 

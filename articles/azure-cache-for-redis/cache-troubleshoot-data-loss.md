@@ -10,8 +10,6 @@ ms.date: 12/01/2021
 
 # Troubleshoot data loss in Azure Cache for Redis
 
-
-
 This article discusses how to diagnose actual or perceived data losses that might occur in Azure Cache for Redis.
 
 - [Partial loss of keys](#partial-loss-of-keys)
@@ -30,7 +28,9 @@ This article discusses how to diagnose actual or perceived data losses that migh
 
 ## Partial loss of keys
 
-Azure Cache for Redis doesn't randomly delete keys after they've been stored in memory. However, it does remove keys in response to expiration policies, eviction policies, and to explicit key-deletion commands. Keys that have been written to the primary node in a Premium or Standard Azure Cache for Redis instance also might not be available on a replica right away. Data is replicated from the primary to the replica in an asynchronous and non-blocking manner.
+Azure Cache for Redis doesn't randomly delete keys after they've been stored in memory. However, it does remove keys in response to expiration policies, eviction policies, and to explicit key-deletion commands. You can run these commands on the [console](cache-configure.md#redis-console) or through the [CLI](cache-how-to-redis-cli-tool.md).
+
+Keys that have been written to the primary node in a Premium or Standard Azure Cache for Redis instance also might not be available on a replica right away. Data is replicated from the primary to the replica in an asynchronous and non-blocking manner.
 
 If you find that keys have disappeared from your cache, check the following possible causes:
 
