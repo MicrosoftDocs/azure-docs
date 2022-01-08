@@ -14,7 +14,7 @@ ms.date: 12/30/2021
 This section discusses troubleshooting issues caused by conditions on an Azure Cache for Redis server or any of the virtual machines hosting it.
 
 - [High server load](#high-server-load)
-  - [Add more shards](#add-more-shards)
+  - [Scale up or scale out](#scale-up-or-scale-out)
   - [Rapid changes in number of client connections](#rapid-changes-in-number-of-client-connections)
   - [Long running or expensive commands](#long-running-or-expensive-commands)
   - [Scaling](#scaling)
@@ -75,10 +75,6 @@ There are several possible changes you can make to help keep memory usage health
 - [Scale](cache-how-to-scale.md) to a larger cache size with more memory capacity. For more information, see [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
 
 For recommendations on memory management, see [Best practices for memory management](cache-best-practices-memory-management.md).
-
-## High CPU usage or server load
-
-This section was moved. For more information, see [High Server load](cache-troubleshoot-timeouts.md#high-server-load).
 
 ## Long-running commands
 
