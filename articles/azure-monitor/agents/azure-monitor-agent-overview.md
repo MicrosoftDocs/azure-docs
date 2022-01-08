@@ -28,9 +28,10 @@ In addition to consolidating this functionality into a single agent, the Azure M
 ### Current limitations
 When compared with the existing agents, this new agent doesn't yet have full parity.
 - **Comparison with Log Analytics agents (MMA/OMS):**
-  - Not all Log Analytics solutions are supported today. See [what's supported](#supported-services-and-features).
-  - No support for Azure Private Links.
-  - No support for collecting file based logs or IIS logs.
+	- Not all Log Analytics solutions are supported today. [View supported features and services](#supported-services-and-features).
+	- No support for Azure Private Links.
+	- No support for collecting file based logs or IIS logs.
+
 - **Comparison with Azure Diagnostics extensions (WAD/LAD):**
   - No support for Event Hubs and Storage accounts as destinations.
   - No support for collecting file based logs, IIS logs, ETW events, .NET events and crash dumps.
@@ -49,14 +50,14 @@ The Azure Monitor agent replaces the [legacy agents for Azure Monitor](agents-ov
 - **Environment requirements:** The Azure Monitor agent supports [these operating systems](./agents-overview.md#supported-operating-systems) today. Support for future operating system versions, environment support, and networking requirements will most likely be provided in this new agent. 
  
   Assess whether your environment is supported by the Azure Monitor agent. If not, you might need to stay with the current agent. If the Azure Monitor agent supports your current environment, consider transitioning to it.
-- **Current and new feature requirements:** The Azure Monitor agent introduces several new capabilities, such as filtering, scoping, and multi-homing. But it isn't at parity yet with the current agents for other functionality, such as custom log collection and integration with all solutions. ([See the solutions in preview](../faq.yml).) 
- 
+- **Current and new feature requirements:** The Azure Monitor agent introduces several new capabilities, such as filtering, scoping, and multi-homing. But it isn't at parity yet with the current agents for other functionality, such as custom log collection and integration with all solutions. ([View supported features and services](#supported-services-and-features).) 
+
   Most new capabilities in Azure Monitor will be made available only with the Azure Monitor agent. Over time, more functionality will be available only in the new agent. Consider whether the Azure Monitor agent has the features you require and if there are some features that you can temporarily do without to get other important features in the new agent. 
   
   If the Azure Monitor agent has all the core capabilities you require, consider transitioning to it. If there are critical features that you require, continue with the current agent until the Azure Monitor agent reaches parity.
 - **Tolerance for rework:** If you're setting up a new environment with resources such as deployment scripts and onboarding templates, assess the effort involved. If the setup will take a significant amount of work, consider setting up your new environment with the new agent as it's now generally available. 
  
-  Azure Monitor's Log Analytics agent is retiring on 31 August 2024. The current agents will be supported for several years after deprecation begins.
+  Azure Monitor's Log Analytics agent is retiring on 31 August 2024. The current agents will be supported until the retirement date.
 
 ## Supported resource types
 Azure virtual machines, virtual machine scale sets, and Azure Arc-enabled servers are currently supported. Azure Kubernetes Service and other compute resource types aren't currently supported.
@@ -73,7 +74,7 @@ The following table shows the current support for the Azure Monitor agent with o
 | Azure service | Current support | More information |
 |:---|:---|:---|
 | [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) | Private preview | [Sign-up link](https://aka.ms/AMAgent) |
-| [Microsoft Sentinel](../../sentinel/overview.md) | <ul><li>Windows Event Forwarding (WEF): Private preview</li><li>Windows Security Events: [Public preview](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul>  | <ul><li>[Sign-up link](https://aka.ms/AMAgent) </li><li>No sign-up needed</li></ul> |
+| [Microsoft Sentinel](../../sentinel/overview.md) | <ul><li>Windows Forwarding Event (WEF): [Public preview](/azure/sentinel/data-connectors-reference#windows-forwarded-events-preview)</li><li>Windows Security Events: [GA](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul>  | <ul><li>No sign-up needed </li><li>No sign-up needed</li></ul> |
 
 The following table shows the current support for the Azure Monitor agent with Azure Monitor features.
 

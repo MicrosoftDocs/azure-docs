@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 07/15/2021
-ms.author: b-hchen
+ms.date: 01/07/2022
+ms.author: anfdocs
 ---
 # Configure NFSv4.1 Kerberos encryption for Azure NetApp Files
 
@@ -119,3 +118,4 @@ You should understand the security options available for NFSv4.1 volumes, the te
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Create an Active Directory connection](create-active-directory-connections.md)
 * [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md) 
+* [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)

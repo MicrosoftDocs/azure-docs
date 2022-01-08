@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 11/02/2021
-ms.author: b-hchen
+ms.date: 01/07/2022
+ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
 
@@ -97,7 +96,9 @@ Several features of Azure NetApp Files require that you have an Active Directory
     | Unix groups  | 24-hour TTL, 1-minute negative TTL  |
     | Unix users  | 24-hour TTL, 1-minute negative TTL  |
 
-    Caches have a specific timeout period called *Time to Live*. After the timeout period, entries age out so that stale entries do not linger. The *negative TTL* value is where a lookup that has failed resides to help avoid performance issues due to LDAP queries for objects that might not exist.”   
+    Caches have a specific timeout period called *Time to Live*. After the timeout period, entries age out so that stale entries do not linger. The *negative TTL* value is where a lookup that has failed resides to help avoid performance issues due to LDAP queries for objects that might not exist.
+    
+* Azure NetApp Files does not support the use of Active Directory Domain Services Read-Only Domain Controllers (RODC). To ensure that Azure NetApp Files does not try to use an RODC domain controller, configure the **AD Site** field of the Azure NetApp Files Active Directory connection with an Active Directory site that does not contain any RODC domain controllers.
 
 ## Decide which Domain Services to use 
 
@@ -224,9 +225,15 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
      * **Security privilege users**   <!-- SMB CA share feature -->   
-        You can grant security privilege (`SeSecurityPrivilege`) to users that require elevated privilege to access the Azure NetApp Files volumes. The specified user accounts will be allowed to perform certain actions on Azure NetApp Files SMB shares that require security privilege not assigned by default to domain users.   
+        You can grant security privilege (`SeSecurityPrivilege`) to AD users or groups that require elevated privilege to access the Azure NetApp Files volumes. The specified AD users or groups will be allowed to perform certain actions on Azure NetApp Files SMB shares that require security privilege not assigned by default to domain users.   
 
-        For example, user accounts used for installing SQL Server in certain scenarios must be granted elevated security privilege. If you are using a non-administrator (domain) account to install SQL Server and the account does not have the security privilege assigned, you should add security privilege to the account.  
+        The following privilege applies when you use the **Security privilege users** setting:
+
+        |  Privilege  |  Description  |
+        |---|---|
+        |  `SeSecurityPrivilege`  |  Manage log operations.  |
+
+        For example, user accounts used for installing SQL Server in certain scenarios must (temporarily) be granted elevated security privilege. If you are using a non-administrator (domain) account to install SQL Server and the account does not have the security privilege assigned, you should add security privilege to the account.  
 
         > [!IMPORTANT]
         > Using the **Security privilege users** feature requires that you submit a waitlist request through the **[Azure NetApp Files SMB Continuous Availability Shares Public Preview waitlist submission page](https://aka.ms/anfsmbcasharespreviewsignup)**. Wait for an official confirmation email from the Azure NetApp Files team before using this feature.        
@@ -238,7 +245,15 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         ![Screenshot showing the Security privilege users box of Active Directory connections window.](../media/azure-netapp-files/security-privilege-users.png) 
 
      * **Backup policy users**  
-        You can include additional accounts that require elevated privileges to the computer account created for use with Azure NetApp Files. The specified accounts will be allowed to change the NTFS permissions at the file or folder level. For example, you can specify a non-privileged service account used for migrating data to an SMB file share in Azure NetApp Files.  
+        You can grant additional security privileges to AD users or groups that require elevated backup privileges to access the Azure NetApp Files volumes. The specified AD user accounts or groups will have elevated NTFS permissions at the file or folder level. For example, you can specify a non-privileged service account used for backing up, restoring, or migrating data to an SMB file share in Azure NetApp Files.
+
+        The following privileges apply when you use the **Backup policy users**  setting:
+
+        |  Privilege  |  Description  |
+        |---|---|
+        |  `SeBackupPrivilege`  |  Back up files and directories, overriding any ACLs.  |
+        |  `SeRestorePrivilege`  |  Restore files and directories, overriding any ACLs. <br> Set any valid user or group SID as the file owner.    |
+        |  `SeChangeNotifyPrivilege`  |  Bypass traverse checking. <br> Users with this privilege are not required to have traverse (`x`) permissions to traverse folders or symlinks.  |
 
         ![Active Directory backup policy users](../media/azure-netapp-files/active-directory-backup-policy-users.png)
 
@@ -259,9 +274,20 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         
         You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.  
 
-    * **Administrators** 
+    * **Administrators privilege users** 
 
-        You can specify users or groups that will be given administrator privileges on the volume. 
+        You can grant additional security privileges to AD users or groups that require even more elevated privileges to access the Azure NetApp Files volumes. The specified accounts will have further elevated permissions at the file or folder level.
+
+        The following privileges apply when you use the **Administrators privilege users** setting:
+
+        |  Privilege  |  Description  |
+        |---|---|
+        |  `SeBackupPrivilege`  |  Back up files and directories, overriding any ACLs. |  
+        |  `SeRestorePrivilege`  |  Restore files and directories, overriding any ACLs. <br> Set any valid user or group SID as the file owner.  |  
+        |  `SeChangeNotifyPrivilege`  |  Bypass traverse checking. <br> Users with this privilege are not required to have traverse (`x`) permissions to traverse folders or symlinks.  |  
+        |  `SeTakeOwnershipPrivilege`  |  Take ownership of files or other objects. |  
+        |  `SeSecurityPrivilege`  |  Manage log operations. |  
+        |  `SeChangeNotifyPrivilege`  |  Bypass traverse checking. <br> Users with this privilege are not required to have traverse (`x`) permissions to traverse folders or symlinks.  |  
 
         ![Screenshot that shows the Administrators box of Active Directory connections window.](../media/azure-netapp-files/active-directory-administrators.png) 
         

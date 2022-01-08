@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 12/09/2021
+ms.date: 01/04/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021, mode-api
 ---
-
+<!-- markdownlint-disable MD025 -->
 # Quickstart: C# client library SDK v3.0 | Preview
 
 >[!NOTE]
@@ -30,7 +30,7 @@ In this quickstart, you'll use following features to analyze and extract data an
 
 * [**Layout model**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
-* [**Prebuilt model**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained invoice model.
+* [**Prebuilt model**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained model.
 
 ## Prerequisites
 
@@ -155,6 +155,16 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
     :::image type="content" source="../media/quickstarts/add-code-here.png" alt-text="Screenshot: add the sample code to the Main method.":::
 
+> [!TIP]
+> If you would like to try more than one code sample:
+>
+> * Select one of the sample code blocks below to copy and paste into your application.
+> * [**Run your application**](#run-your-application).
+> * Comment out that sample code block but keep the set-up code and library directives.
+> * Select another sample code block to copy and paste into your application.
+> * [**Run your application**](#run-your-application).
+> * You can continue to comment out, copy/paste, and run the sample blocks of code.
+
 ### Select one of the following code samples to copy and paste into your application Program.cs file:
 
 * [**General document model**](#general-document-model)
@@ -169,7 +179,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 ## General document model
 
-##### Extract text, tables, structure, key-value pairs, and named entities from documents.
+Extract text, tables, structure, key-value pairs, and named entities from documents.
 
 > [!div class="checklist"]
 >
@@ -284,7 +294,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ## Layout model
 
-##### Extract text, selection marks, text styles, table structures, and bounding region coordinates from documents.
+Extract text, selection marks, text styles, table structures, and bounding region coordinates from documents.
 
 > [!div class="checklist"]
 >
@@ -369,20 +379,22 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ## Prebuilt model
 
-### Choose the invoice prebuilt model ID
+Extract and analyze data from common document types using a pre-trained model.
+
+##### Choose a prebuilt model ID
 
 You are not limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the model IDs for the prebuilt models currently supported by the Form Recognizer service:
 
 * [**prebuilt-invoice**](../concept-invoice.md): extracts text, selection marks, tables, key-value pairs, and key information from invoices.
 * [**prebuilt-receipt**](../concept-receipt.md): extracts text and key information from receipts.
-* [**prebuilt-idDocument**](../concept-id-document.md): extracts text and key information from U.S. drivers licenses and international passports.
+* [**prebuilt-idDocument**](../concept-id-document.md): extracts text and key information from driver licenses and international passports.
 * [**prebuilt-businessCard**](../concept-business-card.md): extracts text and key information from business cards.
 
-##### Extract and analyze data from common document types using a pre-trained model.
+#### Try the prebuilt invoice model
 
 > [!div class="checklist"]
 >
-> * For this example, we wll analyze an invoice document using a prebuilt model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
+> * We wll analyze an invoice using the prebuilt-invoice model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
 > * We've added the file URI value to the `Uri fileUri` variable at the top of the Program.cs file.
 > * To analyze a given file at a URI, use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-invoice` as the model ID. The returned value is an `AnalyzeResult` object containing data from the submitted document.
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.

@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: eur
+ms.devlang: cpp, csharp, java, javascript, objective-c, python
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -81,11 +82,11 @@ The `voice` element is required. It's used to specify the voice that is used for
 **Example**
 
 > [!NOTE]
-> This example uses the `en-US-ChristopherNeural` voice. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech).
+> This example uses the `en-US-JennyNeural` voice. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech).
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-ChristopherNeural">
+    <voice name="en-US-JennyNeural">
         This is the text that is spoken.
     </voice>
 </speak>
@@ -140,6 +141,8 @@ The intensity of speaking style can be further changed to better fit your use ca
 Apart from adjusting the speaking styles and style degree, you can also adjust the `role` parameter so that the voice will imitate a different age and gender. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name won't be changed. Currently, role adjustments are supported for these Chinese (Mandarin, Simplified) neural voices:
 * `zh-CN-XiaomoNeural`
 * `zh-CN-XiaoxuanNeural`
+* `zh-CN-YunxiNeural`
+* `zh-CN-YunyeNeural`
 
 Above changes are applied at the sentence level, and styles and role-plays vary by voice. If a style or role-play isn't supported, the service will return speech in the default neutral speaking way. You can see what styles and roles are supported for each voice through the [voice list API](rest-text-to-speech.md#get-a-list-of-voices) or through the code-free [Audio Content Creation](https://aka.ms/audiocontentcreation) platform.
 
@@ -155,7 +158,7 @@ Above changes are applied at the sentence level, and styles and role-plays vary 
 <mstts:express-as role="string" style="string"></mstts:express-as>
 ```
 > [!NOTE]
-> At the moment, `styledegree` only supports Chinese (Mandarin, Simplified) neural voices. `role` only supports zh-CN-XiaomoNeural and zh-CN-XiaoxuanNeural.
+> At the moment, `styledegree` only supports Chinese (Mandarin, Simplified) neural voices. `role` only supports zh-CN-XiaomoNeural, zh-CN-XiaoxuanNeural, zh-CN-YunxiNeural, and zh-CN-YunyeNeural.
 
 **Attributes**
 
@@ -163,7 +166,7 @@ Above changes are applied at the sentence level, and styles and role-plays vary 
 |-----------|-------------|---------------------|
 | `style` | Specifies the speaking style. Currently, speaking styles are voice-specific. | Required if adjusting the speaking style for a neural voice. If using `mstts:express-as`, then style must be provided. If an invalid value is provided, this element will be ignored. |
 | `styledegree` | Specifies the intensity of speaking style. **Accepted values**: 0.01 to 2 inclusive. The default value is 1, which means the predefined style intensity. The minimum unit is 0.01, which results in a slight tendency for the target style. A value of 2 results in a doubling of the default style intensity.  | Optional (At the moment, `styledegree` only supports Chinese (Mandarin, Simplified) neural voices.)|
-| `role` | Specifies the speaking role-play. The voice will act as a different age and gender, but the voice name won't be changed.  | Optional (At the moment, `role` only supports zh-CN-XiaomoNeural and zh-CN-XiaoxuanNeural.)|
+| `role` | Specifies the speaking role-play. The voice will act as a different age and gender, but the voice name won't be changed.  | Optional (At the moment, `role` only supports zh-CN-XiaomoNeural, zh-CN-XiaoxuanNeural, zh-CN-YunxiNeural, and zh-CN-YunyeNeural.)|
 
 Use this table to determine which speaking styles are supported for each neural voice.
 
@@ -314,7 +317,7 @@ Enable one voice to speak different languages fluently (like English, Spanish, a
 Currently, speaking language adjustments are supported for these neural voices: `en-US-JennyMultilingualNeural`. Above changes are applied at the sentence level and word level. If a language isn't supported, the service will return no audio stream.
 
 > [!NOTE]
-> Currently, the `<lang xml:lang>` element is incompatible with `prosody` and `break` element, you cannot adjust pause and prosody like pitch, contour, rate, duration, volume in this element.
+> Currently, the `<lang xml:lang>` element is incompatible with `prosody` and `break` element, you cannot adjust pause and prosody like pitch, contour, rate, volume in this element.
 
 **Syntax**
 
@@ -385,7 +388,7 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
 | `strength` | Specifies the relative duration of a pause using one of the following values:<ul><li>none</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul> | Optional |
-| `time` | Specifies the absolute duration of a pause in seconds or milliseconds,this value should be set less than 5000 ms. Examples of valid values are `2s` and `500ms` | Optional |
+| `time` | Specifies the absolute duration of a pause in seconds or milliseconds. This value should be set less than 5000 ms. Examples of valid values are `2s` and `500ms` | Optional |
 
 | Strength                      | Description |
 |-------------------------------|-------------|
@@ -400,7 +403,7 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-ChristopherNeural">
+    <voice name="en-US-JennyNeural">
         Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
     </voice>
 </speak>
@@ -424,13 +427,13 @@ Use the `mstts:silence` element to insert pauses before or after text, or betwee
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
 | `type` | Specifies the location of silence be added: <ul><li>`Leading` – at the beginning of text </li><li>`Tailing` – in the end of text </li><li>`Sentenceboundary` – between adjacent sentences </li></ul> | Required |
-| `Value` | Specifies the absolute duration of a pause in seconds or milliseconds,this value should be set less than 5000 ms. Examples of valid values are `2s` and `500ms` | Required |
+| `Value` | Specifies the absolute duration of a pause in seconds or milliseconds. This value should be set less than 5000 ms. Examples of valid values are `2s` and `500ms` | Required |
 
 **Example**
 In this example, `mtts:silence` is used to add 200 ms of silence between two sentences.
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-<voice name="en-US-ChristopherNeural">
+<voice name="en-US-JennyNeural">
 <mstts:silence  type="Sentenceboundary" value="200ms"/>
 If we’re home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
 A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time.
@@ -457,7 +460,7 @@ The `s` element can contain text and the following elements: `audio`, `break`, `
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-ChristopherNeural">
+    <voice name="en-US-JennyNeural">
         <p>
             <s>Introducing the sentence element.</s>
             <s>Used to mark individual sentences.</s>
@@ -496,7 +499,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-ChristopherNeural">
+    <voice name="en-US-JennyNeural">
         <phoneme alphabet="ipa" ph="təˈmeɪtoʊ"> tomato </phoneme>
     </voice>
 </speak>
@@ -504,7 +507,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-ChristopherNeural">
+    <voice name="en-US-JennyNeural">
         <phoneme alphabet="sapi" ph="iy eh n y uw eh s"> en-US </phoneme>
     </voice>
 </speak>
@@ -512,7 +515,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-ChristopherNeural">
+    <voice name="en-US-JennyNeural">
         <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
     </voice>
 </speak>
@@ -575,7 +578,7 @@ The `lexicon` element contains at least one `lexeme` element. Each `lexeme` elem
 
 Lexicon contains necessary `xml:lang` attribute to indicate which locale it should be applied for. One custom lexicon is limited to one locale by design, so apply it for a different locale it won't work.
 
-It's important to note, that you cannot directly set the pronunciation of a phrase using the custom lexicon. If you need to set the pronunciation for an acronym or an abbreviated term, first provide an `alias`, then associate the `phoneme` with that `alias`. For example:
+It's important to note, that you can't directly set the pronunciation of a phrase using the custom lexicon. If you need to set the pronunciation for an acronym or an abbreviated term, first provide an `alias`, then associate the `phoneme` with that `alias`. For example:
 
 ```xml
   <lexeme>
@@ -615,7 +618,7 @@ After you've published your custom lexicon, you can reference it from your SSML.
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
           xmlns:mstts="http://www.w3.org/2001/mstts"
           xml:lang="en-US">
-    <voice name="en-US-ChristopherNeural">
+    <voice name="en-US-JennyNeural">
         <lexicon uri="http://www.example.com/customlexicon.xml"/>
         BTW, we will be there probably at 8:00 tomorrow morning.
         Could you help leave a message to Robert Benigni for me?
@@ -633,7 +636,7 @@ Since it's easy to make mistakes in custom lexicon, Microsoft has provided [vali
 
 **Speech service phonetic sets**
 
-In the sample above, we're using the International Phonetic Alphabet, also known as the IPA phone set. We suggest developers use the IPA, because it is the international standard. For some IPA characters, they have the 'precomposed' and 'decomposed' version when being represented with Unicode. Custom lexicon only supports the decomposed Unicode.
+In the sample above, we're using the International Phonetic Alphabet, also known as the IPA phone set. We suggest developers use the IPA, because it's the international standard. For some IPA characters, they've the 'precomposed' and 'decomposed' version when being represented with Unicode. Custom lexicon only supports the decomposed Unicode.
 
 Considering that the IPA isn't easy to remember, the Speech service defines a phonetic set for seven languages (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`).
 
@@ -662,14 +665,14 @@ For more information on the detailed Speech service phonetic alphabet, see the [
 
 ## Adjust prosody
 
-The `prosody` element is used to specify changes to pitch, contour, range, rate, duration, and volume for the Text-to-Speech output. The `prosody` element can contain text and the following elements: `audio`, `break`, `p`, `phoneme`, `prosody`, `say-as`, `sub`, and `s`.
+The `prosody` element is used to specify changes to pitch, contour, range, rate, and volume for the Text-to-Speech output. The `prosody` element can contain text and the following elements: `audio`, `break`, `p`, `phoneme`, `prosody`, `say-as`, `sub`, and `s`.
 
 Because prosodic attribute values can vary over a wide range, the speech recognizer interprets the assigned values as a suggestion of what the actual prosodic values of the selected voice should be. The Text-to-Speech service limits or substitutes values that aren't supported. Examples of unsupported values are a pitch of 1 MHz or a volume of 120.
 
 **Syntax**
 
 ```xml
-<prosody pitch="value" contour="value" range="value" rate="value" duration="value" volume="value"></prosody>
+<prosody pitch="value" contour="value" range="value" rate="value" volume="value"></prosody>
 ```
 
 **Attributes**
@@ -680,7 +683,6 @@ Because prosodic attribute values can vary over a wide range, the speech recogni
 | `contour` |Contour now supports neural voice. Contour represents changes in pitch. These changes are represented as an array of targets at specified time positions in the speech output. Each target is defined by sets of parameter pairs. For example: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>The first value in each set of parameters specifies the location of the pitch change as a percentage of the duration of the text. The second value specifies the amount to raise or lower the pitch, using a relative value or an enumeration value for pitch (see `pitch`). | Optional |
 | `range` | A value that represents the range of pitch for the text. You can express `range` using the same absolute values, relative values, or enumeration values used to describe `pitch`. | Optional |
 | `rate` | Indicates the speaking rate of the text. You can express `rate` as:<ul><li>A relative value, expressed as a number that acts as a multiplier of the default. For example, a value of *1* results in no change in the rate. A value of *0.5* results in a halving of the rate. A value of *3* results in a tripling of the rate.</li><li>A constant value:<ul><li>x-slow</li><li>slow</li><li>medium</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul> | Optional |
-| `duration` | Duration is not available for neural voices.| N/A |
 | `volume` | Indicates the volume level of the speaking voice. You can express the volume as:<ul><li>An absolute value, expressed as a number in the range of 0.0 to 100.0, from *quietest* to *loudest*. For example, 75. The default is 100.0.</li><li>A relative value, expressed as a number preceded by "+" or "-" that specifies an amount to change the volume. For example, +10 or -5.5.</li><li>A constant value:<ul><li>silent</li><li>x-soft</li><li>soft</li><li>medium</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul> | Optional |
 
 ### Change speaking rate
@@ -691,7 +693,7 @@ Speaking rate can be applied at the word or sentence-level.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-ChristopherNeural">
+    <voice name="en-US-JennyNeural">
         <prosody rate="+30.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -707,7 +709,7 @@ Volume changes can be applied at the sentence level.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-ChristopherNeural">
+    <voice name="en-US-JennyNeural">
         <prosody volume="+20.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -723,7 +725,7 @@ Pitch changes can be applied at the sentence level.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-ChristopherNeural">
+    <voice name="en-US-JennyNeural">
         Welcome to <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody>
     </voice>
 </speak>
@@ -738,7 +740,7 @@ Pitch changes can be applied at the sentence level.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-ChristopherNeural">
+    <voice name="en-US-JennyNeural">
         <prosody contour="(60%,-60%) (100%,+80%)" >
             Were you the only person in the room?
         </prosody>
@@ -790,7 +792,7 @@ The speech synthesis engine speaks the following example as "Your first request 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-ChristopherNeural">
+    <voice name="en-US-JennyNeural">
         <p>
         Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
         on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
@@ -826,7 +828,7 @@ Any audio included in the SSML document must meet these requirements:
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-ChristopherNeural">
+    <voice name="en-US-JennyNeural">
         <p>
             <audio src="https://contoso.com/opinionprompt.wav"/>
             Thanks for offering your opinion. Please begin speaking after the beep.
@@ -866,7 +868,7 @@ Only one background audio file is allowed per SSML document. However, you can in
 ```xml
 <speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
     <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
-    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, ChristopherNeural)">
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)">
         The text provided in this document will be spoken over the background audio.
     </voice>
 </speak>
