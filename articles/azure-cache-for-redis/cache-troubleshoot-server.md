@@ -20,7 +20,6 @@ This section discusses troubleshooting issues caused by conditions on an Azure C
   - [Scaling](#scaling)
   - [Server maintenance](#server-maintenance)
 - [High memory usage](#high-memory-usage)
-- [High CPU usage or server load](#high-cpu-usage-or-server-load)
 - [Long-running commands](#long-running-commands)
 - [Server-side bandwidth limitation](#server-side-bandwidth-limitation)
 
