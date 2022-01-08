@@ -239,6 +239,8 @@
       href: search-api-versions.md
     - name: Preview features
       href: search-api-preview.md
+    - name: Handle concurrent updates
+      href: search-howto-concurrency.md
     - name: Develop in .NET
       items:
       - name: Use Azure.Search.Documents
@@ -271,6 +273,12 @@
       href: search-how-to-create-search-index.md
     - name: Create a multi-language index
       href: search-language-support.md
+    - name: Drop and rebuild an index
+      href: search-howto-reindex.md
+    - name: Load an index
+      href: search-import-data-portal.md
+    - name: Index large data sets
+      href: search-howto-large-index.md
     - name: Synonyms
       items:
       - name: Add synonyms
@@ -287,16 +295,6 @@
       href: index-add-language-analyzers.md
     - name: Add a custom analyzer
       href: index-add-custom-analyzers.md
-  - name: Data import
-    items:
-    - name: Import data (portal)
-      href: search-import-data-portal.md
-    - name: Rebuild an index
-      href: search-howto-reindex.md
-    - name: Index large data sets
-      href: search-howto-large-index.md
-    - name: Handle concurrent updates
-      href: search-howto-concurrency.md
   - name: Indexers
     items:
     - name: Create an indexer
