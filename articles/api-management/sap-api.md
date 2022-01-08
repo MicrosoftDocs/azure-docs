@@ -21,6 +21,8 @@ In this article, you'll:  [ADJUST STEPS AS NEEDED]
 > * Complete API configuration
 > * Test the API in the Azure portal
 
+For an example of an end-to-end scenario to integrate API Management with an SAP gateway, see [this blog](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/).
+
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
@@ -66,7 +68,7 @@ Add the following operations to the API that you imported.
 1. From the side navigation menu, under the **APIs** section, select **APIs**.
 1. Under **All APIs**, select your imported API.
 1. Select the **Test** tab to access the Test console. 
-1. ...
+1. [ADD APPROPRIATE TESTS FOR THIS API]
 1. ...
 1. When testing is complete, exit the test console.
 
