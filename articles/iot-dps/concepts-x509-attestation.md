@@ -51,7 +51,7 @@ The leaf certificate, or end-entity certificate, identifies the certificate hold
 
 Leaf certificates used with [Individual enrollment](./concepts-service.md#individual-enrollment) or [Enrollment group](./concepts-service.md#enrollment-group) entries must have the certificate common name (CN) set to the registration ID. The registration ID identifies the device registration with DPS and must be unique to the DPS instance (ID scope) where the device registers. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
 
-For enrollment groups, the registration ID also sets the device ID when the device is provisioned to IoT Hub. The device ID will be shown in the **Registration Records** for the authenticated device in the enrollment group.
+For enrollment groups, the certificate common name (CN) also sets the device ID that is registered with IoT Hub. The device ID will be shown in the **Registration Records** for the authenticated device in the enrollment group. For individual enrollments, the device ID can be set in the enrollment entry. If it's not set in the enrollment entry, then the certificate common name (CN) is used.
 
 To learn more, see [Authenticating devices signed with X.509 CA certificates](../iot-hub/iot-hub-x509ca-overview.md#authenticating-devices-signed-with-x509-ca-certificates).
 
