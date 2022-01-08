@@ -67,11 +67,11 @@ To create a new update deployment, perform the following steps.
 
 ![Example showing Install updates now basic tab](./media/deploy-updates/install-updates-now-basics.png)
 
-     3. Use the **Update classifications** region to specify update classifications for products. For each product, deselect all supported update classifications but the ones to include in your update deployment. If your deployment is meant to apply only a select set of updates, it is necessary to deselect all the pre-selected update classifications when configuring the **Inclusion/exclusion** updates option as described in the next step. This ensures only the updates you have specified to include in this deployment are installed on the target machine.
+   3. Use the **Update classifications** region to specify update classifications for products. For each product, deselect all supported update classifications but the ones to include in your update deployment. If your deployment is meant to apply only a select set of updates, it is necessary to deselect all the pre-selected update classifications when configuring the **Inclusion/exclusion** updates option as described in the next step. This ensures only the updates you have specified to include in this deployment are installed on the target machine.
 
 ![Example showing selection of updates classification](./media/deploy-updates/select-updates.png)
   
-     4. Optionally define **inclusion or exclusion** to add or exclude selected updates from the deployment. Under the **Include/Exclude** region on the page, you enter a comma separated list of KB article ID numbers to include or exclude for Windows updates. For example,  `3103696, 3134815`. For Windows, you can refer to [MSRC link](https://msrc.microsoft.com/update-guide/deployments) to get the details of latest KBs released.
+  4. Optionally define **inclusion or exclusion** to add or exclude selected updates from the deployment. Under the **Include/Exclude** region on the page, you enter a comma separated list of KB article ID numbers to include or exclude for Windows updates. For example,  `3103696, 3134815`. For Windows, you can refer to [MSRC link](https://msrc.microsoft.com/update-guide/deployments) to get the details of latest KBs released.
  
    For supported Linux distros, you specify a comma separated list of packages by the package name, and you can include wildcards . For example, `kernel*, glibc, libc=1.0.1`.
 
@@ -80,7 +80,7 @@ Based on the options specified, update management center (private preview) shows
 > [!NOTE]
 > Selected Updates shows a preview of OS updates which may be installed based on the last OS update assessment information available. If the OS update assessment information in Update Center Management (private preview) is old or obsolete, the actual updates installed would vary. Especially if you have chosen to install specific update category, where the OS updates applicable may vary as new packages or KB Ids may be available for the category.
 
-5. When you're finished configuring the deployment, select **Install**. A notification is generated to inform you the activity has started and another is created when it is completed. When its successfully completed, the installation operation results are available to view under the **Update history** tab. The status of the operation can be viewed at any time from the [Azure Activity log](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log).  
+  5. When you're finished configuring the deployment, select **Install**. A notification is generated to inform you the activity has started and another is created when it is completed. When its successfully completed, the installation operation results are available to view under the **Update history** tab. The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log).  
 
 ## View update history
 

@@ -44,7 +44,7 @@ On the **Overview** page, the summary tiles help answer the following questions:
    * **OS Orchestrated** - The machine is automatically updated by the OS.
    * **Manual Updates** - You control the application of patches to a machine by applying patches manually inside the machine. In this mode for the Windows OS, automatic updates is disabled.
 
-   More information about each orchestration method is available in the [automatic VM guest patching](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes) article. 
+   More information about each orchestration method is available in the [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes) article. 
 
 * **OS update management run status** tile shows how many update deployments failed and successfully completed by time range selected. By default, the tile shows the last 30 days. Using the **Time** picker, you can select a different preset range.
 
@@ -66,11 +66,11 @@ On the page, the table lists all of the machines in the specified subscription, 
 * Under the column **Update configuration**, the machine's patch mode. Values are:
 
    * **AutomaticByOS** - The machine is automatically updated by the OS.
-   * **AutomaticByPlatform** - The Azure VM is automatically updated by the platform. The VM is set to [automatic VM guest patching](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching), and for an Azure virtual machine scale set, it is set to [automatic OS image upgrade](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
+   * **AutomaticByPlatform** - The Azure VM is automatically updated by the platform. The VM is set to [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching), and for an Azure virtual machine scale set, it is set to [automatic OS image upgrade](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
    * **ImageDefault** - For Linux machines, its default patching configuration is used.
    * **Manual** - You control the application of patches to a machine by applying patches manually inside the machine. In this mode for the Windows OS, automatic updates is disabled.
 
-* The machine's status. For an Azure VM, it shows it's [power state](https://docs.microsoft.com/azure/virtual-machines/states-billing#power-states-and-billing), and for an Arc-enabled server, it shows if it is connected or not. 
+* The machine's status. For an Azure VM, it shows it's [power state](/azure/virtual-machines/states-billing#power-states-and-billing), and for an Arc-enabled server, it shows if it is connected or not. 
 
 Narrow the results in the grid by using filters to focus on a subset of your resources. The selectors above the tiles return subscriptions, resource groups, resource types (that is, Azure VMs and Arc-enabled servers), regions, etc. and are based on the Azure role-based access rights you've been granted. You can combine filters to scope to a specific resource.
 
@@ -114,7 +114,7 @@ You are prompted to confirm for the machines selected, that you want to proceed 
 1. After selecting your update classification criteria, verify the list updates to reflect your criteria. Select **Next** to continue with your selection.
 1. On the **Review + install** page, verify your update deployment options and then select **Review+install**. 
 
-A notification is generated to inform you the activity has started and another is created when it is completed. When it's successfully completed, the installation operation results are available to view from either the **Update history** tab, when you select the machine from the **Machines** page, or on the **History** page, which you are redirected to automatically after initiating the update deployment. The status of the operation can be viewed at any time from the [Azure Activity log](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log).
+A notification is generated to inform you the activity has started and another is created when it is completed. When it's successfully completed, the installation operation results are available to view from either the **Update history** tab, when you select the machine from the **Machines** page, or on the **History** page, which you are redirected to automatically after initiating the update deployment. The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log).
 
 ### Set up a recurring update deployment
 
@@ -145,7 +145,7 @@ When you click on any one maintenance run ID records, you can view an expanded s
 
 ### Resource Graph
 
-The update assessment and deployment data is available for query in Azure Resource Graph. You can apply this data to scenarios that include security compliance, security operations, and troubleshooting. Selecting the option **Go to resource graph** takes you to Resource Graph Explorer, which enables running Resource Graph queries directly in the Azure portal. Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for Python, and more. For more information, see [First query with Azure Resource Graph Explorer](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal).
+The update assessment and deployment data is available for query in Azure Resource Graph. You can apply this data to scenarios that include security compliance, security operations, and troubleshooting. Selecting the option **Go to resource graph** takes you to Resource Graph Explorer, which enables running Resource Graph queries directly in the Azure portal. Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for Python, and more. For more information, see [First query with Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
 
 When Resource Graph Explorer opens, it is automatically populated with the same query used to generate the results presented in the table on the **History** page in update management center (private preview). Before going any further, you should review the [query Update logs](query-logs.md) article to learn about the log records and their properties, and the sample queries included. 
 

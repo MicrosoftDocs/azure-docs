@@ -79,7 +79,7 @@ After initiating the operation, a notification is generated to inform you the ac
 ![Example showing the results of the assessment from an Azure VM.](./media/view-updates/update-assessment-results.png)
 
 
-The status of the operation can be viewed at any time from the [Azure Activity log](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log).
+The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log).
 
 ## Next steps
 

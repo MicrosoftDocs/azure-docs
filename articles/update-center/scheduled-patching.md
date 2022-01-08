@@ -4,14 +4,14 @@ description: This article details how to use update management center (private p
 ms.service: update-management-center
 ms.date: 10/28/2021
 ms.topic: conceptual
-author: riyadav
-ms.author: riyadav
+author: riva-yadav
+ms.author: riva-yadav
 ---
 
 # How to schedule recurring updates for machines (private preview)
 
 You can use update management center (private preview) in Azure to save recurring deployment schedules to install operating system updates for your Windows Server and Linux machines in Azure, in on-premises environments, and in other cloud environments connected using Azure Arc-enabled servers. You can create a schedule on a daily, weekly or hourly cadence (as per your requirement), specify the machines that will be updated as part of the schedule, which updates will be installed. This schedule will then automatically install the updates as per what is specified in the schedule that you created.
-Update management center (private preview) uses Maintenance control schedule instead of using creating its own schedules. Maintenance control enables customers to manage platform updates. For more info, refer to [Maintenance control documentation](https://docs.microsoft.com/azure/virtual-machines/maintenance-control).
+Update management center (private preview) uses Maintenance control schedule instead of using creating its own schedules. Maintenance control enables customers to manage platform updates. For more info, refer to [Maintenance control documentation](/azure/virtual-machines/maintenance-control).
 
 ## Regions supported for scheduled patching
 
@@ -27,7 +27,7 @@ Update management center (private preview) **scheduled patching** feature is sup
 
 In addition to the [Prerequisites for Update management center (Private Preview)](./overview.md#prerequisites), scheduled patching as a feature has the below additional prerequisites:
 1. Patch orchestration of the Azure machines should be set to **Azure Orchestrated (Automatic By Platform)**. For Arc machines, this is not a requirement.
-**Please note**: If you set the Patch Orchestration mode to Azure Orchestrated (Automatic By Platform) but do not attach a maintenance configuration to an Azure machine, it will be treated as [Automatic Guest patching](https://docs.microsoft.com/en-us/azure/virtual-machines/automatic-vm-guest-patching) enabled machine and Azure platform will automatically install updates as per its own schedule.
+**Please note**: If you set the Patch Orchestration mode to Azure Orchestrated (Automatic By Platform) but do not attach a maintenance configuration to an Azure machine, it will be treated as [Automatic Guest patching](/azure/virtual-machines/automatic-vm-guest-patching) enabled machine and Azure platform will automatically install updates as per its own schedule.
 2. The maintenance configuration's subscription and the subscriptions of all VMs assigned to the maintenance configuration must be allowlisted with feature flag **Microsoft.Compute/InGuestScheduledPatchVMPreview**
 3. For Azure machine, customer must keep it **running for at least 40 minutes** after enabling **Azure Orchestrated (Automatic By Platform)** patch orchestration mode. For Arc-enabled servers, machine must have been in running state at least for last 40 minutes.
 

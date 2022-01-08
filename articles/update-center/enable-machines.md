@@ -23,9 +23,9 @@ Enabling update management center (private preview) functionality requires regis
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Your account must be a member of the Azure [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) or [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) role in the subscription.
+* Your account must be a member of the Azure [Owner](/azure/role-based-access-control/built-in-roles#owner) or [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role in the subscription.
 
-* One or more [Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines), or physical or virtual machines managed by [Arc-enabled servers](https://docs.microsoft.com/en-us/azure/azure-arc/servers/overview).
+* One or more [Azure virtual machines](/azure/virtual-machines), or physical or virtual machines managed by [Arc-enabled servers](/azure/azure-arc/servers/overview).
 
 * Ensure that you meet all [prerequisites for update management center](https://github.com/Azure/update-center-docs/Docs/overview.md#prerequisites)
 
@@ -33,7 +33,7 @@ Enabling update management center (private preview) functionality requires regis
 
 The following examples describe how to enable various update management center (private preview) features for your subscription using the Azure portal.
 
-### [Azure VM on-demand assessment and on-demand patching](#tab/azurevm)
+### [Azure VM on-demand assessment and on-demand patching](#tab/azure-vm)  
 
 1. Sign in to the Update management center Private Preview portal link: **https://aka.ms/umc-preview**. No onboarding is required for Azure VM On-demand assessment and on-demand patching. 
 
@@ -54,7 +54,7 @@ After the **On-demand Azure Arc for Servers guest patching preview** resource pr
 ### [Periodic assessment for Azure VMs](#tab/azurevm)
 
 For Arc-enabled servers, no onboarding is required for using Periodic assessment feature.
-For Azure machines, your subscription needs to be whitelisted for Preview feature **InGuestAutoAssessmentVMPreview**. Follow the steps below for registering for Preview feature "InGuestAutoAssessmentVMPreview":
+For Azure machines, your subscription needs to be allowlisted for Preview feature **InGuestAutoAssessmentVMPreview**. Follow the steps below for registering for Preview feature "InGuestAutoAssessmentVMPreview":
 
 1. Sign in to the Update management center Private Preview portal link: **https://aka.ms/umc-preview**
 1. On the Azure portal menu, search for **Preview features**. Select it from the available options.
@@ -67,7 +67,7 @@ After registering for the above mentioned features, go to Update management cent
 
 ### [Scheduled patching for both Azure VMs and Arc-enabled servers](#tab/scheduled-patching)
 
-For using scheduled patching functionality for Azure VMs as well as Arc-enabled servers, your subscriptions for both machine and maintenance configurations must be whitelisted for **InGuestScheduledPatchVMPreview**. Follow the steps below for resgistering for Preview feature **InGuestScheduledPatchVMPreview**:
+For using scheduled patching functionality for Azure VMs as well as Arc-enabled servers, your subscriptions for both machine and maintenance configurations must be allowlisted for **InGuestScheduledPatchVMPreview**. Follow the steps below for resgistering for Preview feature **InGuestScheduledPatchVMPreview**:
 
 1. Sign in to the Update management center Private Preview portal link: **https://aka.ms/umc-preview**
 1. On the Azure portal menu, search for **Preview features**. Select it from the available options.
@@ -86,7 +86,7 @@ After registering for the above mentioned features, go to Update management cent
 
 The following examples describe how to enable the update management center (private preview) features for your subscription using Azure PowerShell.
 
-### [Azure VM on-demand assessment and on-demand patching](#tab/azurevm)
+### [Azure VM on-demand assessment and on-demand patching](#tab/azure-vm-asses)
 1. Sign in to the Update management center Private Preview portal link: **https://aka.ms/umc-preview**. No onboarding is required for Azure VM On-demand assessment and on-demand patching. 
 
 
@@ -136,9 +136,9 @@ Register-AzResourceProvider -FeatureName InGuestAutoAssessmentVMPreview -Provide
 
 ## Using the Azure CLI
 
-The following examples describe how to enable the update management center (private preview) features in Azure for your subscription using the Azure CLI [az feature register](https://docs.microsoft.com/cli/azure/feature#az_feature_register) command.
+The following examples describe how to enable the update management center (private preview) features in Azure for your subscription using the Azure CLI [az feature register](/cli/azure/feature#az_feature_register) command.
 
-### [Azure VM on-demand assessment and on-demand patching](#tab/azurevm)
+### [Azure VM on-demand assessment and on-demand patching](#tab/azure-vm-ondemand)
 
 1. Sign in to the Update management center Private Preview portal link: **https://aka.ms/umc-preview**. No onboarding is required for Azure VM On-demand assessment and on-demand patching. 
 
@@ -188,11 +188,11 @@ For detailed steps to start using scheduled patching, refer to [Prerequisites fo
 ## Using the Azure REST API
 
 
-The following examples describe how to enable the update management center (private preview) features in Azure for your subscription using the [Azure REST API](https://docs.microsoft.com/rest/api/azure).
+The following examples describe how to enable the update management center (private preview) features in Azure for your subscription using the [Azure REST API](/rest/api/azure).
 
 **Please note**: Using REST APIs is only applicable for Azure VMs
 
-### [Azure VM on-demand assessment and on-demand patching](#tab/azurevm)
+### [Azure VM on-demand assessment and on-demand patching](#tab/azure-vm-patching)
 
 1. Sign in to the Update management center Private Preview portal link: **https://aka.ms/umc-preview**. No onboarding is required for Azure VM On-demand assessment and on-demand patching.
 
@@ -230,8 +230,8 @@ Replace the value `subscriptionId` with the ID of the target subscription.
 
 ## Next steps
 
-* [View updates for single machine](./Docs/view-updates.md) 
-* [Deploy updates now (on-demand) for single machine](./Docs/deploy-updates.md) 
-* [Schedule recurring updates](./Docs/scheduled-patching.md)
-* [Manage update settings via Portal](./Docs/portal.md)
-* [Manage multiple machines using update management center](./Docs/portal.md)
+* [View updates for single machine](view-updates.md) 
+* [Deploy updates now (on-demand) for single machine](deploy-updates.md) 
+* [Schedule recurring updates](scheduled-patching.md)
+* [Manage update settings via Portal](portal.md)
+* [Manage multiple machines using update management center](portal.md)

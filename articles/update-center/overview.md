@@ -12,18 +12,18 @@ ms.topic: conceptual
 
 You can use update management center (private preview) in Azure to centrally manage operating system updates, update configuration settings, and manage the process of installing required updates for your Windows and Linux virtual machines (VMs) in Azure, physical or VMs in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates and manage the process of installing required updates for your machines reporting to update management center (private preview). 
 
-Microsoft offers other capabilities to help you manage updates for your Azure VMs or Azure virtual machine scale sets that you should consider as part of your overall update management strategy. Review the Azure VM [Update options](https://docs.microsoft.com/azure/virtual-machines/updates-maintenance-overview) to learn more about the options available.
+Microsoft offers other capabilities to help you manage updates for your Azure VMs or Azure virtual machine scale sets that you should consider as part of your overall update management strategy. Review the Azure VM [Update options](/azure/virtual-machines/updates-maintenance-overview) to learn more about the options available.
 
 Before enabling your machines for update management center (private preview), make sure that you understand the information in the following sections.
 
 > [!IMPORTANT]
-> Update management center (private preview) can manage machines currently managed by Azure Automation [Update Management](https://docs.microsoft.com/azure/automation/update-management/overview) feature without interrupting your update management process. However, we don't recommend migrating from Automation Update Management since this preview gives you a chance to evaluate and provide feedback on features before it's generally available (GA). 
+> Update management center (private preview) can manage machines currently managed by Azure Automation [Update Management](/azure/automation/update-management/overview) feature without interrupting your update management process. However, we don't recommend migrating from Automation Update Management since this preview gives you a chance to evaluate and provide feedback on features before it's generally available (GA). 
 >
-> While update management center is in **preview**, the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> While update management center is in **preview**, the [Supplemental Terms of Use for Microsoft Azure Previews](/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## About update management center (private preview)
 
-Update management center (private preview) has been redesigned and doesn't depend on Azure Automation or Azure Monitor Logs, as required by the [Azure Automation Update Management feature](https://docs.microsoft.com/azure/automation/update-management/overview). It offers all of the same functionality as the original version available with Azure Automation, but it is designed to:
+Update management center (private preview) has been redesigned and doesn't depend on Azure Automation or Azure Monitor Logs, as required by the [Azure Automation Update Management feature](azure/automation/update-management/overview). It offers all of the same functionality as the original version available with Azure Automation, but it is designed to:
 
 * Take advantage of newer technology in Azure
 * Deliver a native update capability
@@ -36,17 +36,17 @@ The following diagram illustrates how update management center (private preview)
 
 To support management of your Azure VM or non-Azure machine, update management center (private preview) relies on a new Azure extension designed to provide all the functionality required to interact with the operating system to manage the assessment and application of updates. This extension is installed when you initiate management of your machine, and the extension supports deployment to Azure VMs or Arc enabled servers using the extension framework. The update management center (private preview) extension is installed and managed using the following:
 
-* [Azure virtual machine Windows agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) or [Azure virtual machine Linux agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) for Azure VMs.
-* [Azure arc-enabled servers agent](https://docs.microsoft.com/azure/azure-arc/servers/agent-overview) for non-Azure Linux and Windows machines or physical servers.
+* [Azure virtual machine Windows agent](/azure/virtual-machines/extensions/agent-windows) or [Azure virtual machine Linux agent](/azure/virtual-machines/extensions/agent-linux) for Azure VMs.
+* [Azure arc-enabled servers agent](/azure/azure-arc/servers/agent-overview) for non-Azure Linux and Windows machines or physical servers.
 
 When you initiate management of your Azure VM or non-Azure machine, update management center (private preview) pushes an extension to the Azure VM agent or Arc enabled server agent. The agent installation and configuration is managed by update management center (private preview) and there is no manual intervention required as long as the Azure VM agent or Azure Arc-enabled server agent is functional. The update management center (private preview) extension runs code locally on the machine to interact with the operating system, and this includes:
 
 - Retrieving assessment information about status of system updates for it specified by the Windows Update client or Linux package manager.
 - Initiate download and installation of approved updates with Windows Update client or Linux package manager. 
 
-All assessment information and update installation results is reported to update management center (private preview) from the extension and is available for analysis with [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview). You can view up to the last 7 days of assessment data, and up to the last 30 days of update installation results. 
+All assessment information and update installation results is reported to update management center (private preview) from the extension and is available for analysis with [Azure Resource Graph](/azure/governance/resource-graph/overview). You can view up to the last 7 days of assessment data, and up to the last 30 days of update installation results. 
 
-The machines assigned to update management center (private preview) report how up to date they are based on what source they are configured to synchronize with. Windows Update Agent (WUA) on Windows machines can be configured to report to [Windows Server Update Services](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) or Microsoft Update, and Linux machines can be configured to report to a local or public YUM or APT package repository. If the Windows Update Agent is configured to report to WSUS, depending on when WSUS last synchronized with Microsoft Update, the results in update management center (private preview) might differ from what Microsoft Update shows. This behavior is the same for Linux machines that are configured to report to a local repository instead of a public package repository. 
+The machines assigned to update management center (private preview) report how up to date they are based on what source they are configured to synchronize with. Windows Update Agent (WUA) on Windows machines can be configured to report to [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) or Microsoft Update, and Linux machines can be configured to report to a local or public YUM or APT package repository. If the Windows Update Agent is configured to report to WSUS, depending on when WSUS last synchronized with Microsoft Update, the results in update management center (private preview) might differ from what Microsoft Update shows. This behavior is the same for Linux machines that are configured to report to a local repository instead of a public package repository. 
 
 You can manage your Azure VMs or Arc-enabled servers directly, or at-scale with update management center (private preview).
 
@@ -58,8 +58,8 @@ To create and manage update deployments, you need specific permissions. The foll
 
 |Resource |Role |Description |
 |---------|-----|------------|
-|Azure VM |[Azure Virtual Machine Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) or Azure [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)||
-|Arc enabled server |[Azure Connected Machine Resource Administrator](https://docs.microsoft.com/azure/azure-arc/servers/security-overview#identity-and-access-control)||
+|Azure VM |[Azure Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) or Azure [Owner](/azure/role-based-access-control/built-in-roles#owner)||
+|Arc enabled server |[Azure Connected Machine Resource Administrator](/azure/azure-arc/servers/security-overview#identity-and-access-control)||
 |**Actions** |Permission |Scope |
 |Install update on Azure VMs |*Microsoft.Compute/virtualMachines/installPatches/action* ||
 |Update assessment on Azure VMs |*Microsoft.Compute/virtualMachines/assessPatches/action* ||
@@ -99,7 +99,7 @@ Update management center (private preview) **periodic assessment** and **schedul
 
 Update management center (private preview) supports specific versions of the Windows Server and Linux operating systems running on Azure VMs or machines managed by Arc enabled servers. Before you enable update management center (private preview), confirm that the target machines meet the operating system requirements.
 
- - [Azure VMs](https://docs.microsoft.com/azure/virtual-machines/index) are: 
+ - [Azure VMs](/azure/virtual-machines/index) are: 
  
    | Publisher | Operating System | SKU |
    |----------|-------------|-------------|
@@ -126,7 +126,7 @@ Update management center (private preview) supports specific versions of the Win
    >[!NOTE]
    > Custom images are currently not supported.
 
-- [Azure Arc-enabled servers](https://docs.microsoft.com/azure/azure-arc/servers/overview) are:
+- [Azure Arc-enabled servers](/azure/azure-arc/servers/overview) are:
 
    | Publisher | Operating System
    |----------|-------------|
@@ -156,8 +156,8 @@ For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](http
 
 Update management center (private preview) supports Azure VMs created using Azure Marketplace images, the virtual machine agent is already included in the Azure Marketplace image. If you have created Azure VMs using custom VM images and not an image from the Azure Marketplace, you need to manually install and enable the Azure virtual machine agent. For details see:
 
-* [Manual install of Azure Windows VM agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows#manual-installation)
-* [Manual install of Azure Linux VM agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#installation)
+* [Manual install of Azure Windows VM agent](/azure/virtual-machines/extensions/agent-windows#manual-installation)
+* [Manual install of Azure Linux VM agent](/azure/virtual-machines/extensions/agent-linux#installation)
 
 ## Next steps
 
