@@ -23,8 +23,8 @@ Data collection rules can include one or more of the following:
 
 
 
-## Types of data collection rules
-There are currently three types of data collection rules that each support different workflows.
+## Current workflows
+The following workflows currently support data collection rules.
 
 ### Agent
 Used by [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) to collect telemetry from virtual machines. THe DCR defines the logs and performance data that should be collected and where the collected data should be sent.
@@ -38,22 +38,21 @@ Used by [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) to coll
 :::image type="content" source="media/dcr-custom-log.png" alt-text="Diagram of custom logs data collection rule" lightbox="media/dcr-custom-log.png":::
 
 
-### Default DCR
-Each workspace cam have one default DCR that performs filtering and data transformation for workflows that don't currently use data collection rules.
+## Default data collection rule
+Each workspace can have one default DCR that performs filtering and data transformation for workflows that don't currently use data collection rules. This DCR is applied to all data sent to the workspaces except from workflows that already use a DCR. For example, data sent from Azure Monitor agent uses a data collection rule, so the default DCR is not applied to this data.
 
 :::image type="content" source="media/dcr-default.png" alt-text="Diagram of custom logs data collection rule" lightbox="media/dcr-default.png":::
 
 ## Components of a data collection rule
 Data collection rules include the following components.
 
-| Component | DCR types | Description |
-|:---|:---|:---|
-| Data sources | Agent | Unique source of monitoring data with its own format and method of exposing its data. Examples of a data source include Windows event log, performance counters, and syslog. Each data source matches a particular data source type as described below. |
-| Streams | Agent<br>Custom Logs | Unique handle that describes a set of data sources that will be transformed and schematized as one type. Each data source requires one or more streams, and one stream may be used by multiple data sources. All data sources in a stream share a common schema. Use multiple streams for example, when you want to send a particular data source to multiple tables in the same Log Analytics workspace. |
-| Destinations | Agent<br>Custom Logs | Set of destinations where the data should be sent. Examples include Log Analytics workspace and Azure Monitor Metrics. | 
-| Data flows | Agent<br>Custom Logs | Definition of which streams should be sent to which destinations. |
-| Endpoint | Custom Logs | HTTPS endpoint for the DCR. The DCR is applied to any data sent to that endpoint. |
-| 
+| Component |  Description |
+|:---|:---|
+| Data sources | Unique source of monitoring data with its own format and method of exposing its data. Examples of a data source include Windows event log, performance counters, and syslog. Each data source matches a particular data source type as described below. |
+| Streams |  Unique handle that describes a set of data sources that will be transformed and schematized as one type. Each data source requires one or more streams, and one stream may be used by multiple data sources. All data sources in a stream share a common schema. Use multiple streams for example, when you want to send a particular data source to multiple tables in the same Log Analytics workspace. |
+| Destinations | Set of destinations where the data should be sent. Examples include Log Analytics workspace and Azure Monitor Metrics. | 
+| Data flows | Definition of which streams should be sent to which destinations. |
+| Endpoint | HTTPS endpoint for DCR used for custom logs API. The DCR is applied to any data sent to that endpoint. |
 
 
 
