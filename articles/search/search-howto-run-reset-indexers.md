@@ -39,7 +39,7 @@ Indexer limits vary by the workload. For each workload, the following job limits
 
 <sup>1</sup> For optimum processing, a search service will determine an internal execution environment for the indexer operation. You cannot control or configure the environment, but depending on the number and complexity of tasks, the search service will either run the job itself, or offload computationally-intensive tasks to an internally-managed cluster, leaving more service-specific resources available for routine operations. The multi-tenant environment used for performing computationally-intensive tasks is managed and secured by Microsoft, at no extra cost to the customer.
 
-<sup>2</sup> Search units can be [flexible combinations](search-capacity-planning.md#partition-and-replica-combinations) of partitions and replicas, and maximum indexer jobs are not tied to one or the other. In other words, if you have four units, you can have four text-based indexer jobs running concurrently, no matter how they are deployed.
+<sup>2</sup> Search units can be [flexible combinations](search-capacity-planning.md#partition-and-replica-combinations) of partitions and replicas, and maximum indexer jobs are not tied to one or the other. In other words, if you have four units, you can have four text-based indexer jobs running concurrently, no matter how the search units are deployed.
 
 > [!TIP]
 > If you are [indexing a large data set](search-howto-large-index.md), you can stretch processing out by putting the indexer [on a schedule](search-howto-schedule-indexers.md). For the full list of all indexer-related limits, see [indexer limits](search-limits-quotas-capacity.md#indexer-limits)
@@ -163,7 +163,7 @@ The [Reset Documents API](/rest/api/searchservice/preview-api/reset-documents) a
 
 On a per-document basis, all fields in that search document are refreshed with values from the data source. You cannot pick and choose which fields to refresh. 
 
-If the document is enriched through a skillset and has cached data, the  skillset is invoked for just the specified documents, and the cached is updated for the reprocessed documents.
+If the document is enriched through a skillset and has cached data, the  skillset is invoked for just the specified documents, and the cache is updated for the reprocessed documents.
 
 When testing this API for the first time, the following APIs will help you validate and test the behaviors:
 
