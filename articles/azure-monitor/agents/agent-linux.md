@@ -233,3 +233,5 @@ The default cache size is 10 MB but can be modified in the [omsagent.conf file](
 - Review [Managing and maintaining the Log Analytics agent for Windows and Linux](agent-manage.md) to learn about how to reconfigure, upgrade, or remove the agent from the virtual machine.
 
 - Review [Troubleshooting the Linux agent](agent-linux-troubleshoot.md) if you encounter issues while installing or managing the agent.
+
+- Review [Agent Data Sources](https://docs.microsoft.com/azure/azure-monitor/agents/agent-data-sources) to learn about data source configuration.

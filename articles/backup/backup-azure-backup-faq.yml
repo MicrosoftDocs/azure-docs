@@ -58,7 +58,7 @@ sections:
           
           ![Storage replication type](./media/backup-azure-backup-faq/storage-replication-type.png)
           
-          If you've already configured the backup and must move from GRS to LRS, then see [How to change from GRS to LRS after configuring backup](backup-create-rs-vault.md#how-to-change-from-grs-to-lrs-after-configuring-backup).
+          If you've already configured the backup and must move from GRS to LRS, then see [How to change from GRS to LRS after configuring backup](backup-create-rs-vault.md#modify-default-settings).
           
       - question: |
           Can I do an Item Level Restore (ILR) for VMs backed up to a Recovery Services vault?

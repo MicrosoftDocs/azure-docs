@@ -642,6 +642,8 @@
         href: database/database-advisor-implement-performance-recommendations.md
       - name: Stream data with Stream Analytics
         href: database/stream-data-stream-analytics-integration.md
+      - name: Diagnose and troubleshoot high CPU
+        href: database/high-cpu-diagnose-troubleshoot.md
 
 
     - name: Load and move data 
@@ -807,29 +809,31 @@
       - name: Configure geo-replication
         items:
         - name: Single database
-          href: ../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md
+          href: database/scripts/setup-geodr-failover-database-cli.md
         - name: Pooled database
-          href: ../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md
-      - name: Configure failover
+          href: database/scripts/setup-geodr-failover-pool-cli.md
+      - name: Configure failover group
         items: 
+        - name: Failover group
+          href: database/scripts/setup-geodr-failover-group-cli.md
         - name: Single database
           href: database/scripts/add-database-to-failover-group-cli.md
         - name: Pooled database
-          href: ../sql-database/scripts/sql-database-add-elastic-pool-to-failover-group-cli.md
+          href: database/scripts/add-elastic-pool-to-failover-group-cli.md
       - name: Auditing and threat detection
         items:
         - name: Configure auditing and threat-detection
-          href: ../sql-database/scripts/sql-database-auditing-and-threat-detection-cli.md
-      - name: Back up, restore, copy, and import a database
+          href: database/scripts/auditing-threat-detection-cli.md
+      - name: Database back up, restore, copy, and import
         items:
         - name: Back up a database
-          href: ../sql-database/scripts/sql-database-backup-database-cli.md
+          href: database/scripts/backup-database-cli.md
         - name: Restore a database
-          href: ../sql-database/scripts/sql-database-restore-database-cli.md
+          href: database/scripts/restore-database-cli.md
         - name: Copy a database to a new server
-          href: ../sql-database/scripts/sql-database-copy-database-to-new-server-cli.md
+          href: database/scripts/copy-database-to-new-server-cli.md
         - name: Import a database from a BACPAC file
-          href: ../sql-database/scripts/sql-database-import-from-bacpac-cli.md
+          href: database/scripts/import-from-bacpac-cli.md
     - name: Azure PowerShell
       href: database/powershell-script-content-guide.md?tabs=single-database
     - name: Azure Resource Manager
@@ -1204,10 +1208,12 @@
       items:
       - name: Samples overview
         href: database/az-cli-script-samples-content-guide.md?tabs=managed-instance
-      - name: Create a SQL Managed Instance
-        href: ../sql-database/scripts/sql-database-create-configure-managed-instance-cli.md
+      - name: Create SQL Managed Instance
+        href: managed-instance/scripts/create-configure-managed-instance-cli.md
       - name: Configure Transparent Data Encryption (TDE)
-        href: ../sql-database/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md
+        href: managed-instance/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md
+      - name: Restore geo-backup
+        href: managed-instance/scripts/restore-geo-backup-cli.md  
     - name: Azure PowerShell
       href: database/powershell-script-content-guide.md?tabs=managed-instance
     - name: Azure Resource Manager

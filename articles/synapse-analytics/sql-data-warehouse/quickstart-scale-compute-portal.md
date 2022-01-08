@@ -5,7 +5,7 @@ services: synapse-analytics
 author: jasonwhowell
 ms.author: jasonh
 manager: craigg
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.date: 04/28/2020
 ms.topic: quickstart
 ms.service: synapse-analytics

@@ -158,7 +158,7 @@ When an endpoint can't deliver an event within a certain time period or after tr
 
 You can set up the necessary storage resources using the [Azure portal](https://ms.portal.azure.com/#home) or the [Azure Digital Twins CLI](/cli/azure/dt). However, to create an endpoint with dead-lettering enabled, you'll need use the [Azure Digital Twins CLI](/cli/azure/dt) or [control plane APIs](concepts-apis-sdks.md#overview-control-plane-apis).
 
-To learn more about dead-lettering, see [Event routes](concepts-route-events.md#dead-letter-events). For instructions on how to set up an endpoint with dead-lettering, continue through the rest of this section.
+To learn more about dead-lettering, see [Endpoints and event routes](concepts-route-events.md#dead-letter-events). For instructions on how to set up an endpoint with dead-lettering, continue through the rest of this section.
 
 #### Set up storage resources
 
@@ -294,7 +294,7 @@ Here is an example of a dead-letter message for a [twin create notification](con
 
 ## Create an event route
 
-To actually send data from Azure Digital Twins to an endpoint, you'll need to define an **event route**. These routes let developers wire up event flow, throughout the system and to downstream services. A single route can allow multiple notifications and event types to be selected. Read more about event routes in [Routing Azure Digital Twins events](concepts-route-events.md).
+To actually send data from Azure Digital Twins to an endpoint, you'll need to define an **event route**. These routes let developers wire up event flow, throughout the system and to downstream services. A single route can allow multiple notifications and event types to be selected. Read more about event routes in [Endpoints and event routes](concepts-route-events.md).
 
 **Prerequisite**: You need to create endpoints as described earlier in this article before you can move on to creating a route. You can proceed to creating an event route once your endpoints are finished setting up.
 
