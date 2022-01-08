@@ -49,11 +49,13 @@ This configuration will be different depending on the data source. For example:
 
 For a complete list of data sources that you can configure to send data to Azure Monitor Logs, see [What is monitored by Azure Monitor?](../monitor-reference.md).
 
-## Log Analytics and workspaces
+## Log Analytics 
 Log Analytics is a tool in the Azure portal. Use it to edit and run log queries and interactively analyze their results. You can then use those queries to support other features in Azure Monitor, such as log query alerts and workbooks. Access Log Analytics from the **Logs** option on the Azure Monitor menu or from most other services in the Azure portal.
 
 For a description of Log Analytics, see [Overview of Log Analytics in Azure Monitor](./log-analytics-overview.md). To walk through using Log Analytics features to create a simple log query and analyze its results, see [Log Analytics tutorial](./log-analytics-tutorial.md).
 
+
+## Log Analytics workspaces
 Azure Monitor Logs stores the data that it collects in one or more [Log Analytics workspaces](./design-logs-deployment.md). A workspace defines:
 
 - The geographic location of the data.
@@ -90,6 +92,14 @@ For a detailed comparison of the schema for workspace-based and classic applicat
 > The classic Application Insights experience includes backward compatibility for your resource queries, workbooks, and log-based alerts. To query or view against the [new workspace-based table structure or schema](../app/apm-tables.md), you must first go to your Log Analytics workspace. During the preview, selecting **Logs** from within the Application Insights panes will give you access to the classic Application Insights query experience. For more information, see [Query scope](./scope.md).
 
 [![Diagram that shows the Azure Monitor Logs structure for Application Insights.](media/data-platform-logs/logs-structure-ai.png)](media/data-platform-logs/logs-structure-ai.png#lightbox)
+
+## Types of log data
+
+| Type | Description | Cost |
+|:---|:---|:---|
+| Standard  | Standard log data collected in a workspace. Available for all features of Azure Monitor. | Cost for ingestion. No cost for log queries. |
+| Basic     |  | Lower cost for ingestion. Cost for log queries. |
+| Archive 
 
 ## Relationship to Azure Data Explorer
 Azure Monitor Logs is based on Azure Data Explorer. A Log Analytics workspace is roughly the equivalent of a database in Azure Data Explorer. Tables are structured the same, and both use KQL. 

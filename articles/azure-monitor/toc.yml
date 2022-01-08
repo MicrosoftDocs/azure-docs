@@ -116,7 +116,14 @@ items:
   - name: Data sources
     href: agents/data-sources.md
   - name: Data platform
-    href: data-platform.md
+    items:
+    - name: Overview
+      href: data-platform.md
+    - name: Metrics
+      href: essentials/data-platform-metrics.md
+    - name: Logs
+      displayName: Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries
+      href: logs/data-platform-logs.md
   - name: Data security
     items:
     - name: Log data
@@ -208,9 +215,6 @@ items:
         href: logs/manage-cost-storage.md
   - name: Azure Monitor Metrics
     items:
-    - name: Overview
-      displayName: Metrics
-      href: essentials/data-platform-metrics.md
     - name: Metrics explorer
       items:
       - name: Getting started with Metrics Explorer
@@ -233,9 +237,16 @@ items:
         href: essentials/metrics-store-custom-rest-api.md
   - name: Azure Monitor Logs
     items:
-    - name: Overview
-      displayName: Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries
-      href: logs/data-platform-logs.md
+    - name: Basic logs
+      items:
+      - name: Basic logs
+        href: logs/basic-logs.md
+      - name: Archived logs
+        href: logs/archived-logs.md
+      - name: Search jobs
+        href: logs/search-jobs.md
+      - name: Restore
+        href: logs/restore.md
     - name: Workspaces and clusters
       items:
       - name: Create a workspace
@@ -367,10 +378,18 @@ items:
         href: logs/log-excel.md
     - name: Custom logs
       items: 
-      - name: Log Analytics Data collector API 
-        href: logs/data-collector-api.md
-      - name: Log Analytics Data Collector API Pipeline example
-        href: logs/create-pipeline-datacollector-api.md
+      - name: Overview 
+        href: logs/direct-ingestion.md
+      - name: Walkthrough 
+        href: logs/direct-ingestion-walkthrough.md        
+      - name: Data collector API 
+        items:
+        - name: Overview
+          href: logs/data-collector-api.md
+        - name: Log Analytics Data collector API 
+          href: logs/data-collector-api.md
+        - name: Log Analytics Data Collector API Pipeline example
+          href: logs/create-pipeline-datacollector-api.md
     - name: Logic Apps
       items: 
       - name: Azure Monitor Logs connector
