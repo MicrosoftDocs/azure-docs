@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/12/2021
+ms.date: 01/11/2022
 
 ms.author: justinha
 author: justinha
@@ -18,69 +18,71 @@ ms.custom: contperf-fy20q4
 ---
 # Configure Azure AD Multi-Factor Authentication settings
 
-To customize the end-user experience for Azure AD Multi-Factor Authentication, you can configure options for settings like the account lockout thresholds or fraud alerts and notifications. Some settings are directly in the Azure portal for Azure Active Directory (Azure AD), and some in a separate Azure AD Multi-Factor Authentication portal.
+To customize the end-user experience for Azure AD Multi-Factor Authentication, you can configure options for settings like account lockout thresholds or fraud alerts and notifications. Some settings are available directly in the Azure portal for Azure Active Directory (Azure AD), and some are in a separate Azure AD Multi-Factor Authentication portal.
 
 The following Azure AD Multi-Factor Authentication settings are available in the Azure portal:
 
 | Feature | Description |
 | ------- | ----------- |
-| [Account lockout](#account-lockout) | Temporarily lock accounts from using Azure AD Multi-Factor Authentication if there are too many denied authentication attempts in a row. This feature only applies to users who enter a PIN to authenticate. (MFA Server) |
-| [Block/unblock users](#block-and-unblock-users) | Block specific users from being able to receive Azure AD Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked or they're manually unblocked. |
+| [Account lockout](#account-lockout) | Temporarily lock accounts from using Azure AD Multi-Factor Authentication if there are too many denied authentication attempts in a row. This feature applies only to users who enter a PIN to authenticate. (MFA Server) |
+| [Block/unblock users](#block-and-unblock-users) | Block specific users from being able to receive Azure AD Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked or until they're manually unblocked. |
 | [Fraud alert](#fraud-alert) | Configure settings that allow users to report fraudulent verification requests. |
 | [Notifications](#notifications) | Enable notifications of events from MFA Server. |
-| [OATH tokens](concept-authentication-oath-tokens.md) | Used in cloud-based Azure AD MFA environments to manage OATH tokens for users. |
+| [OATH tokens](concept-authentication-oath-tokens.md) | Used in cloud-based Azure AD Multi-factor Authentication environments to manage OATH tokens for users. |
 | [Phone call settings](#phone-call-settings) | Configure settings related to phone calls and greetings for cloud and on-premises environments. |
-| Providers | This will show any existing authentication providers that you may have associated with your account. New authentication providers may not be created as of September 1, 2018 |
+| Providers | This will show any existing authentication providers that you have associated with your account. Adding new providers is disabled as of September 1, 2018. |
 
 ![Azure portal - Azure AD Multi-Factor Authentication settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
 ## Account lockout
 
-To prevent repeated MFA attempts as part of an attack, the account lockout settings let you specify how many failed attempts to allow before the account becomes locked out for a period of time. The account lockout settings are only applied when a pin code is entered for the MFA prompt.
+To prevent repeated multi-factor authentication attempts as part of an attack, the account lockout settings let you specify how many failed attempts to allow before the account becomes locked out for a period of time. The account lockout settings are  applied only when a pin code is entered for the multi-factor authentication prompt.
 
 The following settings are available:
 
-* Number of MFA denials to trigger account lockout
+* Number of multi-factor authentication denials that trigger account lockout
 * Minutes until account lockout counter is reset
 * Minutes until account is automatically unblocked
 
-To configure account lockout settings, complete the following settings:
+To configure account lockout settings, complete these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Account lockout**.
-1. Enter the require values for your environment, then select **Save**.
+1. Go to **Azure Active Directory** > **Security** > **MFA** > **Account lockout**.
+1. Enter the values for your environment, and then select **Save**.
 
-    ![Screenshot of the account lockout settings in the Azure portal](./media/howto-mfa-mfasettings/account-lockout-settings.png)
+    ![Screenshot that shows the account lockout settings in the Azure portal.](./media/howto-mfa-mfasettings/account-lockout-settings.png)
 
 ## Block and unblock users
 
-If a user's device has been lost or stolen, you can block Azure AD Multi-Factor Authentication attempts for the associated account. Any Azure AD Multi-Factor Authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. We have published a video on [how to block and unblock users in your tenant](https://www.youtube.com/watch?v=WdeE1On4S1o) to show you how to do this.
+If a user's device is lost or stolen, you can block Azure AD Multi-Factor Authentication attempts for the associated account. Any Azure AD Multi-Factor Authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. For a video that explains how to do this, see [how to block and unblock users in your tenant](https://www.youtube.com/watch?v=WdeE1On4S1o).
 
 ### Block a user
 
-To block a user, complete the following steps, or watch [this short video](https://www.youtube.com/watch?v=WdeE1On4S1o&feature=youtu.be)
+To block a user, complete the following steps. 
+
+[Watch a short video that describes this process.](https://www.youtube.com/watch?v=WdeE1On4S1o&feature=youtu.be)
 
 1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Block/unblock users**.
 1. Select **Add** to block a user.
-1. Enter the username for the blocked user as `username@domain.com`, then provide a comment in the *Reason* field.
-1. When ready, select **OK** to block the user.
+1. Enter the user name for the blocked user in the format `username@domain.com`, and then provide a comment in the **Reason** box.
+1. Select **OK** to block the user.
 
 ### Unblock a user
 
 To unblock a user, complete the following steps:
 
-1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Block/unblock users**.
-1. In the *Action* column next to the desired user, select **Unblock**.
-1. Enter a comment in the *Reason for unblocking* field.
-1. When ready, select **OK** to unblock the user.
+1. Go to **Azure Active Directory** > **Security** > **MFA** > **Block/unblock users**.
+1. In the **Action** column next to the desired user, select **Unblock**.
+1. Enter a comment in the **Reason for unblocking** box.
+1. Select **OK** to unblock the user.
 
 ## Fraud alert
 
-The fraud alert feature lets users report fraudulent attempts to access their resources. When an unknown and suspicious MFA prompt is received, users can report the fraud attempt using the Microsoft Authenticator app or through their phone.
+The fraud alert feature lets users report fraudulent attempts to access their resources. When an unknown and suspicious multi-factor authentication prompt is received, users can report the fraud attempt by using the Microsoft Authenticator app or through their phone.
 
 The following fraud alert configuration options are available:
 
-* **Automatically block users who report fraud**: If a user reports fraud, the Azure AD MFA authentication attempts for the user  account are blocked for 90 days or until an administrator unblocks their account. An administrator can review sign-ins by using the sign-in report, and take appropriate action to prevent future fraud. An administrator can then [unblock](#unblock-a-user) the user's account.
+* **Automatically block users who report fraud**: If a user reports fraud, the Azure AD Multi-factor authentication attempts for the user  account are blocked for 90 days or until an administrator unblocks their account. An administrator can review sign-ins by using the sign-in report, and take appropriate action to prevent future fraud. An administrator can then [unblock](#unblock-a-user) the user's account.
 * **Code to report fraud during initial greeting**: When users receive a phone call to perform multi-factor authentication, they normally press **#** to confirm their sign-in. To report fraud, the user enters a code before pressing **#**. This code is **0** by default, but you can customize it.
 
    > [!NOTE]
