@@ -4,7 +4,7 @@ description: This article details how to use update management center (private p
 ms.service: update-management-center
 ms.date: 10/28/2021
 ms.topic: conceptual
-author: riva-yadav
+author: riyadav
 ms.author: riva-yadav
 ---
 

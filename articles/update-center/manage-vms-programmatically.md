@@ -290,7 +290,7 @@ The format of the request body is as follows:
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](https://docs.microsoft.com/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
+To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
 
 ```azurepowershell
 Invoke-AzRestMethod -Path "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Maintenance/maintenanceConfigurations/<maintenanceConfigurationsName>?api-version=2021-09-01-preview"

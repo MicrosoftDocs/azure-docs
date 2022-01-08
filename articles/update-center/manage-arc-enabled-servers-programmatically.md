@@ -117,7 +117,7 @@ POST on 'subscriptions/subscriptionI/resourceGroups/resourceGroupName/providers/
 
 # [Azure CLI](#tab/azurecli)
 
-To specify the POST request, you can use the Azure CLI [az rest](https://docs.microsoft.com/cli/azure/reference-index#az_rest) command.
+To specify the POST request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
 
 ```azurecli
 az rest --method post --url https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/Test/providers/Microsoft.HybridCompute/machines/WIN-8/installPatches?api-version=2020-08-15-preview @body.json
