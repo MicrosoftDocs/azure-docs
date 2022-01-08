@@ -80,7 +80,7 @@ Azure supports multiple types of storage accounts for different storage scenario
 <sup>2 Subject to machine network limits, available bandwidth, IO sizes, queue depth, and other factors. For details see [SMB Multichannel performance](./storage-files-smb-multichannel-performance.md).</sup>
 
 ## Azure File Sync scale targets
-The following table indicates the boundaries of Microsoft's testing and also indicates which targets are hard limits:
+The following table indicates the boundaries of Microsoft's testing (soft limits) and also indicates which targets are hard limits:
 
 | Resource | Target | Hard limit |
 |----------|--------------|------------|

@@ -470,4 +470,4 @@ or settings.configuration.module is specified"
 - Learn about [using virtual machine scale sets with the Azure DSC extension](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
 - Find more details about [DSC's secure credential management](dsc-credentials.md).
 - Get an [introduction to the Azure DSC extension handler](dsc-overview.md).
-- For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/dsc/overview/overview).
+- For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/dsc/overview).

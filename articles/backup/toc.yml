@@ -76,6 +76,8 @@
       href: active-directory-backup-restore.md
     - name: Supported VM SKUs for Azure Policy
       href: backup-azure-policy-supported-skus.md
+    - name: Automation in Azure Backup
+      href: backup-support-automation.md
   - name: Frequently asked questions (FAQ)
     items:
     - name: FAQ-Recovery Services vaults
@@ -556,6 +558,8 @@
         href: soft-delete-sql-saphana-in-azure-vm.md
     - name: Delete protection for Azure file shares
       href: soft-delete-azure-file-share.md
+    - name: Ransomware protection
+      href: /azure/security/fundamentals/backup-plan-to-protect-against-ransomware
     - name: Security for hybrid backups
       href: backup-azure-security-feature.md
     - name: Private Endpoints
