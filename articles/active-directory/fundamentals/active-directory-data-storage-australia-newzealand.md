@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 7/21/2020
+ms.date: 01/10/2022
 ms.custom: "it-pro, seodec18, references_regions"
 ms.collection: M365-identity-device-management
 ---
@@ -27,3 +27,7 @@ Additionally, certain Azure AD features do not yet support storage of Customer D
 
 > [!NOTE]
 > Microsoft products, services, and third-party applications that integrate with Azure AD have access to Customer Data. Evaluate each product, service, and application you use to determine how Customer Data is processed by that specific product, service, and application, and whether they meet your company's data storage requirements. For more information about Microsoft services' data residency, see the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
+
+## Azure role-based access control (Azure RBAC)
+
+Role definitions, role assignments, and deny assignments are stored globally to ensure that you have access to your resources regardless of the region you created the resource. The data stored doesn't contain any personal identifiable information. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md#where-is-azure-rbac-data-stored).

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 01/10/2022
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
@@ -47,6 +47,10 @@ Azure AD B2B stores invitations with redeem link and redirect URL information in
 ## Microsoft Azure Active Directory Domain Services (Azure AD DS)
 
 Azure AD DS stores user data in the same location as the customer-selected Azure Virtual Network. So, if the network is outside Europe, the data is replicated and stored outside Europe.
+
+## Azure role-based access control (Azure RBAC)
+
+Role definitions, role assignments, and deny assignments are stored globally to ensure that you have access to your resources regardless of the region you created the resource. The data stored doesn't contain any personal identifiable information. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md#where-is-azure-rbac-data-stored).
 
 ## Federation in Microsoft Exchange Server 2013
     
