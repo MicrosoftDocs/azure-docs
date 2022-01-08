@@ -181,6 +181,9 @@ module.exports = function (context, input) {
 ```
 
 ::: zone-end   
+::: zone pivot="programming-language-powershell"  
+Code example pending.
+::: zone-end
 ::: zone pivot="programming-language-python"  
 
 The following example shows a RabbitMQ output binding in a *function.json* file and a Python function that uses the binding. The function reads in the message from an HTTP trigger and outputs it to the RabbitMQ queue.
@@ -289,6 +292,7 @@ The following table explains the binding configuration properties for C# script 
 |**passwordSetting**|See the **PasswordSetting** attribute above.|
 |**connectionStringSetting**|See the **ConnectionStringSetting** attribute above.|
 |**port**|See the **Port** attribute above.|
+
 ---
 
 ::: zone-end   
