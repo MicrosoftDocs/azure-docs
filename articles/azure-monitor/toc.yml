@@ -124,6 +124,19 @@ items:
     - name: Logs
       displayName: Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries
       href: logs/data-platform-logs.md
+  - name: Roles permissions and security
+    href: roles-permissions-security.md
+  - name: IP addresses
+    href: app/ip-addresses.md
+    displayName: firewall, firewall exceptions, whitelist
+  - name: Usage and cost
+    items:
+    - name: Usage and estimated costs
+      href: usage-estimated-costs.md
+    - name: Application Insights usage and costs
+      href: app/pricing.md
+    - name: Log data usage and costs
+      href: logs/manage-cost-storage.md
   - name: Data security
     items:
     - name: Log data
@@ -198,21 +211,6 @@ items:
       displayName: VM
     - name: Monitor Kubernetes
       href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
-  - name: Manage and configure
-    items:
-    - name: Roles permissions and security
-      href: roles-permissions-security.md
-    - name: IP addresses
-      href: app/ip-addresses.md
-      displayName: firewall, firewall exceptions, whitelist
-    - name: Usage and cost
-      items:
-      - name: Usage and estimated costs
-        href: usage-estimated-costs.md
-      - name: Application Insights usage and costs
-        href: app/pricing.md
-      - name: Log data usage and costs
-        href: logs/manage-cost-storage.md
   - name: Azure Monitor Metrics
     items:
     - name: Metrics explorer
