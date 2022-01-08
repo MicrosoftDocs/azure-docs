@@ -12,19 +12,17 @@ ms.date: 01/07/2022
 
 # Run or reset indexers, skills, or documents
 
-Indexers can be invoked in three ways: on demand, on a schedule, or when the [indexer is created](/rest/api/searchservice/create-indexer), assuming it's not created as a "disabled" indexer.
+Indexers can be invoked in three ways: on demand, on a schedule, or when the [indexer is created](/rest/api/searchservice/create-indexer), assuming it's not created in "disabled" mode.
 
-After the initial run, an indexer keeps track of which search documents have been indexed through an internal "high-water mark". The marker is never exposed externally in APIs, but internally the indexer knows where indexing stopped so that it can pick up where it left off on the next run.
+After the initial run, an indexer keeps track of which search documents have been indexed through an internal *high-water mark*. The marker is never exposed, but internally the indexer knows where it last stopped, so that it can pick up where it left off on the next run.
 
-If you need to rebuild all or part of an index you can clear the indexer's high-water mark through a reset. Reset APIs are available at decreasing levels in the object hierarchy:
+If you need to rebuild all or part of an index, you can clear the indexer's high-water mark through a reset. Reset APIs are available at decreasing levels in the object hierarchy:
 
 + [Reset Indexers](#reset-indexers) clears the high-water mark and performs a full reindex of all documents
 + [Reset Documents (preview)](#reset-docs) reindexes a specific document or list of documents
 + [Reset Skills (preview)](#reset-skills) invokes skill processing for a specific skill
 
 After reset, follow with a Run command to reprocess new and existing documents. Orphaned search documents having no counterpart in the data source cannot be removed through reset/run. If you need to delete documents, see [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents) instead.
-
-Reset/run operations apply to a search index or a knowledge store, to specific documents or projections, and to cached enrichments if a reset explicitly or implicitly includes skills.
 
 ## Indexer execution
 
@@ -43,20 +41,20 @@ Indexer limits vary by the workload. For each workload, the following job limits
 
 <sup>2</sup> Search units can be [flexible combinations](search-capacity-planning.md#partition-and-replica-combinations) of partitions and replicas, and maximum indexer jobs are not tied to one or the other. In other words, if you have four units, you can have four text-based indexer jobs running concurrently, no matter how they are deployed.
 
-> [!NOTE]
+> [!TIP]
 > If you are [indexing a large data set](search-howto-large-index.md), you can stretch processing out by putting the indexer [on a schedule](search-howto-schedule-indexers.md). For the full list of all indexer-related limits, see [indexer limits](search-limits-quotas-capacity.md#indexer-limits)
 
 ## Run without reset
 
-[Run indexer](/rest/api/searchservice/run-indexer) will detect and process only what it necessary to synchronize the search index with changes in the underlying data source. Incremental indexing starts by locating an internal high-water mark to find the last updated search document, which becomes the starting point for indexer execution over new and updated documents in the data source.
+[Run Indexer](/rest/api/searchservice/run-indexer) will detect and process only what it necessary to synchronize the search index with changes in the underlying data source. Incremental indexing starts by locating an internal high-water mark to find the last updated search document, which becomes the starting point for indexer execution over new and updated documents in the data source.
 
-Change detection is essential for determining what's new or updated in the data source. If the content is unchanged, Run has no effect. Blob storage has built-in change detection. Other data sources, such as Azure SQL or Cosmos DB, have to be configured for change detection before the indexer can read new and updated rows. 
+Change detection is essential for determining what's new or updated in the data source. If the content is unchanged, Run has no effect. Blob storage has built-in change detection through its LastModified property. Other data sources, such as Azure SQL or Cosmos DB, have to be configured for change detection before the indexer can read new and updated rows. 
 
 <a name="reset-indexers"></a>
 
 ## How to reset and run indexers
 
-Reset clears the high-water mark. All documents in the search index will be flagged for full overwrite, without selective updates or merging with existing content. For indexers with a skillset and [enrichment caching](cognitive-search-incremental-indexing-conceptual.md), resetting the index will also implicitly reset the skillset. 
+Reset clears the high-water mark. All documents in the search index will be flagged for full overwrite, without inline updates or merging into existing content. For indexers with a skillset and [enrichment caching](cognitive-search-incremental-indexing-conceptual.md), resetting the index will also implicitly reset the skillset. 
 
 The actual work occurs when you follow a reset with a Run command:
 
@@ -66,7 +64,9 @@ The actual work occurs when you follow a reset with a Run command:
 
 As previously noted, reset is a passive operation: you must follow up a Run request to rebuild the index. 
 
-Reset applies to new and update operations. It will not trigger deletion or clean up of orphaned documents in the search index. For more information about deleting documents, see [Add, Update or Delete Documents](/rest/api/searchservice/AddUpdate-or-Delete-Documents).
+Reset/run operations apply to a search index or a knowledge store, to specific documents or projections, and to cached enrichments if a reset explicitly or implicitly includes skills.
+
+Reset also applies to just new and update operations. It will not trigger deletion or clean up of orphaned documents in the search index. For more information about deleting documents, see [Add, Update or Delete Documents](/rest/api/searchservice/AddUpdate-or-Delete-Documents).
 
 Once you reset an indexer, you cannot undo the action.
 
