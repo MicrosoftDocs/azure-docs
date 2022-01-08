@@ -6,7 +6,7 @@ manager: karenh444
 ms.service: active-directory
 ms.topic: overview
 author: Yvonne-deQ
-ms.date: 12/03/2021
+ms.date: 01/07/2022
 ms.author: v-ydequadros
 ---
 
