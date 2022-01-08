@@ -24,7 +24,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 | --- | --- |
 | No filter | [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.consumption%2Fcreate-budget-simple%2Fazuredeploy.json) |
 | One filter | [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.consumption%2Fcreate-budget-onefilter%2Fazuredeploy.json)  |
-| Two filters | [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.consumption%2Fcreate-budget%2Fazuredeploy.json) |
+| Two or more filters | [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.consumption%2Fcreate-budget%2Fazuredeploy.json) |
 
 ## Prerequisites
 
@@ -70,7 +70,7 @@ Use one of the following templates, based on your needs.
 | --- | --- |
 | No filter | The ARM template doesn't have any filters. |
 | One filter | The ARM template has a filter for resource groups. |
-| Two filters | The ARM template has a filter for resource groups and a filter for meter categories. |
+| Two or more filters | The ARM template has a filter for resource groups and a filter for meter categories. |
 
 ## Review and deploy the template
 
@@ -159,11 +159,11 @@ One Azure resource is defined in the template:
 
 4. If you selected **Review + create**, your template is validated. Select **Create**.  
 
-   ![Resource Manager template, budget two filters, deploy portal notification](./media/quick-create-budget-template/resource-manager-template-portal-deployment-notification.png)
+   ![Resource Manager template, budget one filter, deploy portal notification](./media/quick-create-budget-template/resource-manager-template-portal-deployment-notification.png)
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use Azure PowerShell, Azure CLI, and REST API. To learn about other deployment templates, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
 
-### [Two filters](#tab/two-filters)
+### [Two or more filters](#tab/two-filters)
 
 ### Review the template
 
@@ -207,7 +207,7 @@ One Azure resource is defined in the template:
 
 4. If you selected **Review + create**, your template is validated. Select **Create**.  
 
-   ![Resource Manager template, budget two filters, deploy portal notification](./media/quick-create-budget-template/resource-manager-template-portal-deployment-notification.png)
+   ![Resource Manager template, budget two or more filters, deploy portal notification](./media/quick-create-budget-template/resource-manager-template-portal-deployment-notification.png)
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use Azure PowerShell, Azure CLI, and REST API. To learn about other deployment templates, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
 
