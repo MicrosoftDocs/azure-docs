@@ -66,7 +66,7 @@ Run the following command to check the status of this step.
 az rest --method get --uri "${ASE_ID}?api-version=2018-11-01" --query properties.status
 ```
 
-If it's in progress, you will get a status of "Migrating". Once you get a status of "Ready", run the following command to get your new IPs.
+If it's in progress, you will get a status of "Migrating". Once you get a status of "Ready", run the following command to get your new IPs. If you don't see the new IPs immediately, wait a few minutes and try again.
 
 ```azurecli
 az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2018-11-01"
