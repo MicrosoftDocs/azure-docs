@@ -13,7 +13,7 @@ Do the following steps in the Azure portal to order a device:
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
 2. Select **+ Create a resource** and search for *Azure Data Box*. Select **Azure Data Box**.
 
-   ![Screenshot of New section with Azure Data Box in search field](media/data-box-order-portal/data-box-import-01.png)
+   ![Screenshot of the New section of the Azure portal with Azure Data Box in the search box. The Azure Data Box entry is highlighted.](media/data-box-order-portal/data-box-import-01.png)
 
 3. Select **Create**.  
 
@@ -133,7 +133,7 @@ Do the following steps in the Azure portal to order a device:
 
       Or select **Create new key vault** if you want to create a new key vault. 
     
-      ![Screenshot of Encryption type settings on the Security tab for a Data Box order. The "Create new key vault" link is highlighted.](./media/data-box-order-portal/customer-managed-key-04.png)      
+      ![Screenshot of Encryption type settings on the Security tab for a Data Box order. The "Create new key vault" link is highlighted.](./media/data-box-order-portal/customer-managed-key-04.png)
 
       Then, on the **Create key vault** screen, enter the resource group and a key vault name. Ensure that **Soft delete** and **Purge protection** are enabled. Accept all other defaults, and select **Review + Create**.
 
