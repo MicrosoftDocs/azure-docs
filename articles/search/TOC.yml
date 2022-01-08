@@ -271,12 +271,12 @@
     items:
     - name: Create an index
       href: search-how-to-create-search-index.md
-    - name: Create a multi-language index
-      href: search-language-support.md
-    - name: Drop and rebuild an index
-      href: search-howto-reindex.md
     - name: Load an index
       href: search-import-data-portal.md
+    - name: Drop and rebuild an index
+      href: search-howto-reindex.md
+    - name: Create a multi-language index
+      href: search-language-support.md
     - name: Index large data sets
       href: search-howto-large-index.md
     - name: Synonyms
