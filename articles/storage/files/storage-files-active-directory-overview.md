@@ -73,7 +73,7 @@ The following table summarizes the supported Azure file shares authentication sc
 
 |Azure AD DS authentication  | On-premises AD DS authentication  |
 |---------|---------|
-|Azure AD DS-joined Windows machines can access Azure file shares with Azure AD credentials over SMB.     |On-premises AD DS-joined or Azure AD DS-joined Windows machines can access Azure file shares with on-premises Active Directory credentials that are synched to Azure AD over SMB. Your client must have line of sight to your AD DS.        |
+|Azure AD DS-joined Windows machines can access Azure file shares with Azure AD credentials over SMB.     |On-premises AD DS-joined or Azure AD DS-joined Windows machines can access Azure file shares with on-premises Active Directory credentials that are synced to Azure AD over SMB. Your client must have line of sight to your AD DS.        |
 
 ### Restrictions
 
