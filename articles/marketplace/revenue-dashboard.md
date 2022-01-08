@@ -12,7 +12,9 @@ ms.date: 12/06/2021
 
 # Revenue dashboard in commercial marketplace analytics
 
-This article provides information on the _Revenue dashboard_ in Microsoft Partner Center. The Revenue dashboard shows the summary of _billed sales_ of all offer purchases and consumption through the commercial marketplace. Use this report to understand your revenue information across customers, billing models, offer plans, and so on. It provides a unified view across entities and helps answer queries, such as:
+This article provides information on the _Revenue dashboard_ in Microsoft Partner Center. The Revenue dashboard shows the summary of _billed sales_ of all offer purchases and consumption through the commercial marketplace. It enables you to reconcile billed sales, payouts, and analytic reports in the commercial marketplace.
+
+Use this report to understand your revenue information across customers, billing models, offer plans, and so on. It provides a unified view across entities and helps answer queries, such as:
 
 - How much revenue was invoiced to customers and when can I expect payouts?
 - Which customer transacted the offer and where are they located?
@@ -168,7 +170,7 @@ Details widget with expandable and collapsible view.
 
 [ ![Illustrates the expandable view of the Revenue details section of the Revenue dashboard.](./media/revenue-dashboard/details-widget-1.png) ](./media/revenue-dashboard/details-widget-1.png#lightbox)
 
-[ ![Illustrates the collapsable view of the Revenue details section of the Revenue dashboard.](./media/revenue-dashboard/details-widget-2.png) ](./media/revenue-dashboard/details-widget-2.png#lightbox)
+[ ![Illustrates the collapsible view of the Revenue details section of the Revenue dashboard.](./media/revenue-dashboard/details-widget-2.png) ](./media/revenue-dashboard/details-widget-2.png#lightbox)
 
 Note the following:
 
@@ -237,4 +239,14 @@ In the lower left of most widgets, you’ll see a thumbs up and thumbs down icon
 | Payment sent date | The date on which payment was sent to the partner |
 | Quantity | Indicates billed quantity for transactions. This can represent the seats and site purchase count for subscription-based offers, and usage units for consumption-based offers. |
 | Units | The unit quantity. Represents count of purchased seat/site SaaS orders and core hours for VM-based offers. Units will be displayed as NA for offers with custom meters. |
-|||
+|
+
+## Next steps
+
+- For common questions about the revenue dashboard or commercial marketplace analytics, and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics Frequently Asked Questions](analytics-faq.yml).
+- For information on payout statements, see [Payout statements](/partner-center/payout-statement).
+- For information on Payout schedules, see [Payout schedules and processes](/partner-center/payout-policy-details).
+- For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage dashboard in commercial marketplace analytics](usage-dashboard.md).
+- For information about your orders in a graphical and downloadable format, see [Orders dashboard in commercial marketplace analytics](orders-dashboard.md).
+- For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](downloads-dashboard.md).
+- For an overview of analytics reports available in the commercial marketplace, see [Access analytic reports for the commercial marketplace in Partner Center](analytics.md).

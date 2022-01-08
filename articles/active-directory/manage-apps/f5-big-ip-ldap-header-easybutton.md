@@ -13,9 +13,9 @@ ms.author: v-nisba
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Configure F5 BIG-IP Easy Button for Header-based and LDAP SSO
+# Tutorial: Configure F5 BIG-IP Easy Button for header-based and LDAP SSO
 
-In this tutorial, you'll learn to implement Secure Hybrid Access (SHA) with Single Sign-on (SSO) to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes using F5’s BIG-IP Easy Button guided configuration.
+In this article, you'll learn to implement Secure Hybrid Access (SHA) with single sign-on (SSO) to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes using F5’s BIG-IP Easy Button guided configuration.
 
 Configuring BIG-IP published applications with Azure AD provides many benefits, including:
 
@@ -355,7 +355,7 @@ Enabling SSO allows users to access BIG-IP published services without having to 
 ![Screenshot for SSO and HTTP headers](./media/f5-big-ip-easy-button-ldap/sso-headers.png)
 
 >[!NOTE]
->The APM session variables defined within curly brackets are CASE sensitive. For example, if our queried LDAP attribute was returned as eventroles, then the above variable definition would fail to populate the eventrole header value. In case of any issues, troubleshoot using the session analysis steps to check how the APM has variables defined will avoid any issues.
+>The APM session variables defined within curly brackets are CASE sensitive. For example, if our queried LDAP attribute was returned as eventroles, then the above variable definition would fail to populate the eventrole header value. In case of any issues, troubleshoot using the session analysis steps to check how the APM has variables defined.
 
 ### Session Management
 
@@ -375,7 +375,7 @@ If making a change to the app is a no go, then consider having the BIG-IP listen
 
 Select **Deploy** to commit all settings and verify that the application has appeared in your tenant. This last step provides break down of all applied settings before they’re committed.
 
-Your application should now be published and accessible via Secure Hybrid Access, either directly via its URL or through Microsoft’s application portals. For increased security, organizations using this pattern could also consider blocking all direct access to the application, thereby forcing a strict path through the BIG-IP.
+Your application should now be published and accessible via SHA, either directly via its URL or through Microsoft’s application portals. For increased security, organizations using this pattern could also consider blocking all direct access to the application, thereby forcing a strict path through the BIG-IP.
 
 ## Next steps
 
