@@ -4,8 +4,8 @@ description: This article details how to use update management center (private p
 ms.service: update-management-center
 ms.date: 10/28/2021
 ms.topic: conceptual
-author: riyadav
-ms.author: riva-yadav
+author: riva-yadav
+ms.author: riyadav
 ---
 
 # How to schedule recurring updates for machines (private preview)

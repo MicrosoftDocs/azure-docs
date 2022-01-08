@@ -23,7 +23,7 @@ Before enabling your machines for update management center (private preview), ma
 
 ## About update management center (private preview)
 
-Update management center (private preview) has been redesigned and doesn't depend on Azure Automation or Azure Monitor Logs, as required by the [Azure Automation Update Management feature](azure/automation/update-management/overview). It offers all of the same functionality as the original version available with Azure Automation, but it is designed to:
+Update management center (private preview) has been redesigned and doesn't depend on Azure Automation or Azure Monitor Logs, as required by the [Azure Automation Update Management feature](/azure/automation/update-management/overview). It offers all of the same functionality as the original version available with Azure Automation, but it is designed to:
 
 * Take advantage of newer technology in Azure
 * Deliver a native update capability
