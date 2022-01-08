@@ -6,7 +6,7 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
-### Speech-to-text 2020-August Release
+### 2020-August Release
 
 #### New speech-to-text locales:
 Speech-to-text released 26 new locales in August: 2 European languages `cs-CZ` and `hu-HU`, 5 English locales and 19 Spanish locales that cover most South American countries. Below is a list of the new locales. See the complete language list [here](../../language-support.md).

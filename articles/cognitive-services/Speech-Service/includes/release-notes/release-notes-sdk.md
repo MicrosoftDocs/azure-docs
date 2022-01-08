@@ -6,9 +6,6 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
-Get started with the Speech SDK [here](../../speech-sdk.md#get-the-speech-sdk). The Speech SDK on Windows depends on the shared Microsoft Visual C++ Redistributable for Visual Studio. Download it [here](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads). 
-
-
 ### Speech SDK 1.19.0: 2021-Nov release 
 
 #### Highlights

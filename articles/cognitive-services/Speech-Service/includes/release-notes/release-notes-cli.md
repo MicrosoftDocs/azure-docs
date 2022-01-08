@@ -6,9 +6,7 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
-Get started with the Azure Speech service command line interface (CLI) [here](../../spx-basics.md). The CLI (also known as SPX) enables you to use the Azure Speech service without writing any code.
-
-### Speech CLI: 2021-May release
+### 2021-May release
 
 #### New features
 
@@ -22,7 +20,7 @@ Get started with the Azure Speech service command line interface (CLI) [here](..
 As the ongoing pandemic continues to require our engineers to work from home, pre-pandemic manual verification scripts have been significantly reduced. We test on fewer devices with fewer configurations, and the likelihood of environment-specific bugs slipping through may be increased. We still rigorously validate with a large set of automation. In the unlikely event that we missed something, please let us know on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
 Stay healthy!
 
-### Speech CLI: 2021-March release
+### 2021-March release
 
 #### New features
 
@@ -37,7 +35,7 @@ Stay healthy!
 As the ongoing pandemic continues to require our engineers to work from home, pre-pandemic manual verification scripts have been significantly reduced. We test on fewer devices with fewer configurations, and the likelihood of environment-specific bugs slipping through may be increased. We still rigorously validate with a large set of automation. In the unlikely event that we missed something, please let us know on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
 Stay healthy!
 
-### Speech CLI: 2021-January release
+### 2021-January release
 
 #### New features
 - Speech CLI is now available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.CLI/) and can be installed via .NET CLI as a .NET global tool you can call from the shell/command line.
@@ -47,7 +45,7 @@ Stay healthy!
 As the ongoing pandemic continues to require our engineers to work from home, pre-pandemic manual verification scripts have been significantly reduced. We test on fewer devices with fewer configurations, and the likelihood of environment-specific bugs slipping through may be increased. We still rigorously validate with a large set of automation. In the unlikely event that we missed something, please let us know on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
 Stay healthy!
 
-### Speech CLI: 2020-October release
+### 2020-October release
 SPX is the command line interface to use the Azure Speech service without writing code.
 Download the latest version [here](../../spx-basics.md). <br>
 
@@ -59,7 +57,7 @@ Download the latest version [here](../../spx-basics.md). <br>
 - `spx help` – improved text and back-tick text color coded (blue).
 
 
-### Speech CLI: 2020-June release
+### 2020-June release
 -   Added in-CLI help search features:
     -   `spx help find --text TEXT`
     -   `spx help find --topic NAME`

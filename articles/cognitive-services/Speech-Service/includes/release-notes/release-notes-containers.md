@@ -8,7 +8,7 @@ ms.author: eur
 
 Get started with Speech containers [here](../../speech-container-howto.md). 
 
-### Speech containers: 2022-Jan release
+### 2022-Jan release
 
 #### Speech-to-text Container v2.18.0
 - Regular monthly updates - including security upgrades and vulnerability fixes.
