@@ -61,7 +61,7 @@ Creating security tokens for symmetric key attestation is supported by the Azure
 
 The symmetric keys for group enrollments are not used directly by devices when provisioning. Instead devices that belong to an enrollment group provision using a derived device key. 
 
-First, a unique registration ID is defined for each device attesting with an enrollment group. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The registration ID should be something unique that identifies the device. For example, a legacy device may not support many security features. The legacy device may only have a MAC address or serial number available to uniquely identify that device. In that case, a registration ID can be composed of the MAC address and serial number similar to the following:
+First, a unique registration ID is defined for each device authenticating through an enrollment group. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The registration ID should be something unique that identifies the device. For example, a legacy device may not support many security features. The legacy device may only have a MAC address or serial number available to uniquely identify that device. In that case, a registration ID can be composed of the MAC address and serial number similar to the following:
 
 ```
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
