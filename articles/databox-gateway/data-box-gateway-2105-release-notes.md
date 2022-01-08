@@ -21,14 +21,13 @@ This release corresponds to the software version:
 
 - **Data Box Gateway 2105 (1.6.1588.3220-42623-42265845)** - 4618211
 
-> [!NOTE]
-> Update 2105 can be applied only to Data Box Gateway devices that are running general availability (GA) versions of the software or later. *Is this note needed for 2105?*
+Update 2105 can be applied to all prior releases of Data Box Gateway.
 
 ## What's new
 
 This release contains the following bug fix:
 
-- **Description TBD** - IcM Incident 237917515 -Bug 9809509: Dvfilter/64kB ReFS bugcheck on unghost - MDL buffer read overrun. *NEEDED: Info to describe the bug fix. I don't have access to the incident & bug. Thanks! v-dalc*
+- **Buffer overrun results in abrupt reboot of gateway** - This release fixes a bug that can cause a buffer overrun resulting in access of invalid memory, leading to an abrupt, unexpected reboot of the gateway device. The error can occur when a client accesses the last several bytes of a file whose data needs to be read back by the appliance from Azure, and the file size isn't a multiple of 4096 bytes.
 
 This release also contains the following updates:
 
