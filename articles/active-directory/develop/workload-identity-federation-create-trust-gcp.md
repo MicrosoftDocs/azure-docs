@@ -25,9 +25,13 @@ Software workloads running in Google Cloud need an Azure Active Directory (Azure
 
 ## Create an app registration in Azure AD
 
-[Create an app registration](quickstart-register-app.md) in Azure AD. Grant your app the permissions necessary to access the Azure AD protected resources targeted by your software workload running in Google Cloud.
+[Create an app registration](quickstart-register-app.md) in Azure AD. 
 
 Take note of the *object ID* of the app (not the application (client) ID) which you need in the following steps.  Go to the [list of registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal, select your app registration, and find the **Object ID** in **Overview**->**Essentials**.
+
+## Grant your app permissions to resources
+
+Grant your app the permissions necessary to access the Azure AD protected resources targeted by your software workload running in Google Cloud.  For example, [assign the Storage Blob Data Contributor role](/azure/storage/blobs/assign-azure-role-data-access) to your app if your application needs to read, write, and delete blob data in [Azure Storage](/azure/storage/blobs/storage-blobs-introduction).
 
 ## Set up an identity in Google Cloud
 
