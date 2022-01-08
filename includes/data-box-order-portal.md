@@ -71,7 +71,7 @@ Do the following steps in the Azure portal to order a device:
 
       This quota is used for billing. After your data is uploaded to the datacenter, you should adjust the quota to meet your needs. For more information, see [Understanding billing](../articles/storage/files/understanding-billing.md).
 
-    - If you're using a **General Purpose v1** or **General Purpose v2** storage account, you can enable large file shares to allow data copies of up to 100 TiB per share. If large file shares aren't enabled, a data copy at Azure will fail once the 5 TB standard share limit is reached.
+    - If you're using a **General Purpose v1** or **General Purpose v2** storage account, you can enable large file shares to allow data copies of up to 100 TiB per share. If large file shares aren't enabled, a data copy at Azure will fail once the 5-TB standard share limit is reached.
     
     **To enable large file shares on your storage accounts:** 
 
