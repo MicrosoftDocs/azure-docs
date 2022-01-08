@@ -17,7 +17,7 @@ Do the following steps in the Azure portal to order a device:
 
 3. Select **Create**.  
 
-   ![Screenshot of Azure Data Box section with Create option called out](media/data-box-order-portal/data-box-import-02.png)
+   ![Screenshot of Azure Data Box section of the Azure portal. The Create option is highlighted.](media/data-box-order-portal/data-box-import-02.png)
 
 4. Check whether Data Box service is available in your region. Enter or select the following information, and then select **Apply**.
 
@@ -29,7 +29,7 @@ Do the following steps in the Azure portal to order a device:
     |Source country/region    |    Select the country/region where your data currently resides.         |
     |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, see [region availability for Data Box](../articles/databox/data-box-overview.md#region-availability) or [region availability for Data Box Heavy](../articles/databox/data-box-heavy-overview.md#region-availability).<br>If the selected source and destination regions cross international country borders, Data Box and Data Box Heavy won't be available. |
 
-    [ ![Starting an Azure Data Box import order](media/data-box-order-portal/data-box-import-03.png) ](media/data-box-order-portal/data-box-import-03.png#lightbox)
+    [ ![Screenshot of options to select the Transfer Type, Subscription, Resource Group, and source and destination to start a Data Box order in the Azure portal.](media/data-box-order-portal/data-box-import-03.png) ](media/data-box-order-portal/data-box-import-03.png#lightbox)
 
 5. Select the **Data Box** product to order, either Data Box, as shown below, or Data Box Heavy.
 
