@@ -46,6 +46,11 @@ You can specify your own configuration file path using either
 
 If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.2.4.jar` is located.
 
+## Configuration file content
+
+If needed, instead of using a configuration file, you can specify the entire _content_ of the json configuration
+via the environment variable `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT`.
+
 ## Connection string
 
 Connection string is required. You can find your connection string in your Application Insights resource:
