@@ -258,7 +258,7 @@ Do the following steps in the Azure portal to order a device:
 
     <!--![Screenshot of the Review Plus Order tab for a Data Box order. The validation status, terms checkbox, and Order button are highlighted.](media/data-box-order-portal/data-box-import-10.png)-->
 
-    [ ![Screenshot of the Review Plus Order tab for a Data Box order. The validation status, terms checkbox, and Order button are highlighted.](media/data-box-order-portal/data-box-import-10-inline.png) ](media/data-box-order-portal/data-box-import-10-expanded.png#lightbox)
+    [ ![Screenshot of the Review Plus Order tab for a Data Box order. The validation status, terms checkbox, and Order button are highlighted.](media/data-box-order-portal/data-box-import-10.png) ](media/data-box-order-portal/data-box-import-10.png#lightbox)
 
     The order takes a few minutes to be created. Your completed order will look similar to this one. You can select **Go to resource** to open the order.
 
