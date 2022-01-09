@@ -554,15 +554,11 @@ Learn more about the [Defender for IoT micro agent](../defender-for-iot/device-b
 
 1. Select the :::image type="icon" source="media/how-to-connect-downstream-iot-edge-device/copy-icon.png" border="false"::: button to copy your Connection string (primary key).
 
-1. Paste the Connection string into a word editor such as Notepad, and add the GatewayHostName to the string. For example, `HostName=nested11.azure-devices.net;DeviceId=leaf1;ModuleId=module1;SharedAccessKey=xxx;GatewayHostName=10.16.7.4`.
+1. Paste the Connection string into a text editing application, and add the GatewayHostName to the string. For example, `HostName=nested11.azure-devices.net;DeviceId=leaf1;ModuleId=module1;SharedAccessKey=xxx;GatewayHostName=10.16.7.4`.
 
-1. Save the file as `connection_string.txt`.
+1. Open a terminal on the leaf device.
 
-1. Select the Cloud Shell button.
-
-    :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/cloud-shell.png" alt-text="Screenshot showing where the cloud shell button is located.":::
-
-1. Use the following command to place the `connection_string.txt` file containing the connection string encoded in utf-8 in the Defender for Cloud agent directory `/var/defender_iot_micro_agent`:
+1. Use the following command to place the connection string encoded in utf-8 in the Defender for Cloud agent directory into the file `connection_string.txt` in the following path: `/var/defender_iot_micro_agent/connection_string.txt`:
 
     ```bash
     sudo bash -c 'echo "<connection string>" > /var/defender_iot_micro_agent/connection_string.txt'
