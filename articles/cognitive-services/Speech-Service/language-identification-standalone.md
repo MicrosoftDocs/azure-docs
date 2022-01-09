@@ -17,11 +17,14 @@ zone_pivot_groups: programming-languages-cs-cpp-py
 
 You use standalone language identification when you only want to detect the source language from the audio, and don't need transcriptions or translations. 
 
+## Language identification example
+
 Use the `SourceLanguageRecognizer` for both at-start and continuous recognition. The `SpeechServiceConnection_SingleLanguageIdPriority` property can be set to `"Latency"` or `"Accuracy"` depending on your priority. For more information about these concepts see [Language identification](language-identification.md).  
 
-## [At-start](#tab/at-start)
 
 ::: zone pivot="programming-language-csharp"
+
+### [At-start](#tab/at-start)
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -46,11 +49,21 @@ using (var recognizer = new SourceLanguageRecognizer(speechConfig, autoDetectSou
 }
 ```
 
-See the [sample on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/standalone_language_detection_samples.cs) for more examples of standalone language identification, including an example of continuous identification.
+See more examples of standalone language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/standalone_language_detection_samples.cs).
+
+
+### [Continuous](#tab/continuous)
+
+:::code language="csharp" source="~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/standalone_language_detection_samples.cs" id="languageDetectionContinuousWithFile":::
+
+
+See more examples of standalone language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/standalone_language_detection_samples.cs).
 
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
+
+### [At-start](#tab/at-start)
 
 ```cpp
 using namespace std;
@@ -73,11 +86,22 @@ if (result->Reason == ResultReason::RecognizedSpeech)
 }
 ```
 
-See the [sample on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/standalone_language_detection_samples.cpp) for more examples of standalone language identification, including an example of continuous identification.
+See more examples of standalone language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/standalone_language_detection_samples.cpp).
+
+
+### [Continuous](#tab/continuous)
+
+:::code language="cpp" source="~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/standalone_language_detection_samples.cpp" id="StandaloneLanguageDetectionInContinuousModeWithFileInput":::
+
+See more examples of standalone language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/standalone_language_detection_samples.cpp).
+
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+
+### [At-start](#tab/at-start)
+
 
 ```python
 import azure.cognitiveservices.speech as speechsdk
@@ -104,35 +128,16 @@ elif result.reason == speechsdk.ResultReason.Canceled:
         print("Error details: {}".format(cancellation_details.error_details))
 ```
 
-See the [sample on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_language_detection_sample.py) for more examples of standalone language identification, including an example of continuous identification.
+See more examples of standalone language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_language_detection_sample.py).
 
-::: zone-end
-
-
-
-## [Continuous](#tab/at-start)
-
-
-::: zone pivot="programming-language-csharp"
-
-:::code language="csharp" source="~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/standalone_language_detection_samples.cs" id="languageDetectionContinuousWithFile":::
-
-::: zone-end
-
-::: zone pivot="programming-language-cpp"
-
-:::code language="cpp" source="~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/standalone_language_detection_samples.cpp" id="StandaloneLanguageDetectionInContinuousModeWithFileInput":::
-
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
+### [Continuous](#tab/continuous)
 
 ```python
 
-# TBD
+Need continuous sample
 
-```
+See more examples of standalone language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_language_detection_sample.py).
+
 
 ::: zone-end
 

@@ -13,14 +13,19 @@ ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
 
-## Speech-to-text language identification
+# Speech-to-text language identification
 
 Language identification currently has a limit of **four languages** for at-start recognition, and **10 languages** for continuous recognition. Keep this limitation in mind when constructing your `AutoDetectSourceLanguageConfig` object. In the samples below, you use `AutoDetectSourceLanguageConfig` to define a list of possible languages that you want to identify, and then reference those languages when running speech recognition.
 
 > [!NOTE]
 > Continuous language identification is only supported in C#, C++, and Python.
 
+
+## Language identification example
+
 ::: zone pivot="programming-language-csharp"
+
+### [At-start](#tab/at-start)
 
 The following example runs at-start recognition, prioritizing `Latency`. This property can also be set to `Accuracy` depending on the priority for your use-case. `Latency` is the best option to use if you need a low-latency result (e.g. for live streaming scenarios), but don't know the language in the audio sample. 
 
@@ -52,6 +57,9 @@ using (var recognizer = new SpeechRecognizer(
     var detectedLanguage = autoDetectSourceLanguageResult.Language;
 }
 ```
+
+### [Continuous](#tab/continuous)
+
 
 The following example shows continuous speech recognition set up for a multilingual scenario. This example only uses `en-US` and `ja-JP` in the language config, but you can use up to **ten languages** for this design pattern. Each time speech is detected, the source language is identified and the audio is also converted to text output. This example uses `Latency` mode, which prioritizes response time.
 
@@ -146,6 +154,9 @@ using (var audioInput = AudioConfig.FromWavFileInput(@"path-to-your-audio-file.w
 
 ::: zone pivot="programming-language-cpp"
 
+
+### [At-start](#tab/at-start)
+
 The following example runs at-start recognition, prioritizing `Latency`. This property can also be set to `Accuracy` depending on the priority for your use-case. `Latency` is the best option to use if you need a low-latency result (e.g. for a live streaming case), but don't know the language in the audio sample. 
 
 `Accuracy` should be used in scenarios where the audio quality may be poor, and more latency is acceptable. For example, a voicemail could have background noise, or some silence at the beginning, and allowing the engine more time will improve recognition results.
@@ -173,6 +184,9 @@ auto autoDetectSourceLanguageResult =
     AutoDetectSourceLanguageResult::FromResult(speechRecognitionResult);
 auto detectedLanguage = autoDetectSourceLanguageResult->Language;
 ```
+
+
+### [Continuous](#tab/continuous)
 
 The following example shows continuous speech recognition set up for a multilingual scenario. This example only uses `en-US` and `ja-JP` in the language config, but you can use up to **ten languages** for this design pattern. Each time speech is detected, the source language is identified and the audio is also converted to text output. This example uses `Latency` mode, which prioritizes response time.
 
@@ -279,6 +293,9 @@ result.close();
 
 ::: zone pivot="programming-language-python"
 
+
+### [At-start](#tab/at-start)
+
 ```Python
 auto_detect_source_language_config = \
         speechsdk.languageconfig.AutoDetectSourceLanguageConfig(languages=["en-US", "de-DE"])
@@ -291,7 +308,9 @@ auto_detect_source_language_result = speechsdk.AutoDetectSourceLanguageResult(re
 detected_language = auto_detect_source_language_result.language
 ```
 
-Continuous: 
+
+### [Continuous](#tab/continuous)
+
 
 ```python
 def speech_recognize_continuous_from_file():
@@ -363,7 +382,7 @@ speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) 
 ::: zone-end
 
 
-## Use language detection with a custom Speech-to-Text model
+## Language identification with a custom Speech-to-Text model
 
 In addition to language identification using Speech service base models, you can also specify a custom model for enhanced recognition. If a custom model isn't provided, the service will use the default language model.
 

@@ -19,7 +19,17 @@ keywords: speech translation
 In many scenarios, you may not know which input languages to specify. Using language identification allows you to specify up to ten possible input languages, and automatically translate into your target languages. 
 
 
+## Language identification example
+
 ::: zone pivot="programming-language-csharp"
+
+
+### [At-start](#tab/at-start)
+
+Need at-start sample
+
+### [Continuous](#tab/continuous)
+
 
 The following example uses continuous translation from an audio file, and automatically detects the input language, even if the language being spoken is changing. When you run the sample, `en-US` and `zh-CN` will be automatically detected because they are defined in the `AutoDetectSourceLanguageConfig`. Then, the speech will be translated to `de` and `fr` as specified in the calls to `AddTargetLanguage()`.
 
@@ -133,6 +143,13 @@ public static async Task MultiLingualTranslation()
 
 ::: zone pivot="programming-language-cpp"
 
+
+### [At-start](#tab/at-start)
+
+Need at-start sample
+
+### [Continuous](#tab/continuous)
+
 The following example uses continuous translation from an audio file, and automatically detects the input language, even if the language being spoken is changing. When you run the sample, `en-US` and `zh-CN` will be automatically detected because they are defined in the `AutoDetectSourceLanguageConfig`. Then, the speech will be translated to `de` and `fr` as specified in the calls to `AddTargetLanguage()`.
 
 > [!IMPORTANT]
@@ -231,6 +248,13 @@ void MultiLingualTranslation()
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+
+
+### [At-start](#tab/at-start)
+
+Need at-start sample
+
+### [Continuous](#tab/continuous)
 
 ```python
 def translation_continuous():
