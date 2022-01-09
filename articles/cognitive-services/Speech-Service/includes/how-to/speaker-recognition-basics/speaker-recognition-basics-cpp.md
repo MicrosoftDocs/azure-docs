@@ -2,7 +2,7 @@
 author: v-jaswel
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 01/08/2022
 ms.author: v-jawe
 ms.custom: references_regions, ignite-fall-2021
 ---
@@ -15,9 +15,6 @@ In this quickstart, you learn basic design patterns for Speaker Recognition usin
 
 For a high-level look at Speaker Recognition concepts, see the [overview](../../../speaker-recognition-overview.md) article. See the Reference node on left nav for a list of the supported platforms.
 
-## Skip to samples on GitHub
-
-If you want to skip straight to sample code, see the [C++ quickstart samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows) on GitHub.
 
 ## Prerequisites
 

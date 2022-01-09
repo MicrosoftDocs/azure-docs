@@ -18,7 +18,7 @@ NVIDIA CUDA drivers for NC, NCv2, NCv3, ND, and NDv2-series VMs (optional for NV
 
 > [!NOTE]
 > The latest supported CUDA drivers for NC-series VMs is currently 470.82.01. Later driver versions are not supported on the K80 cards in NC.
-> The latest supported CUDA drivers for NCv3-series VMs is currently 470.82.01. Later driver versions are not supported on the Tesla V100 cards in NCv3.
+> The latest supported CUDA drivers for NCv3-series VMs is currently 470.82.01. 
 
 > [!TIP]
 > As an alternative to manual CUDA driver installation on a Linux VM, you can deploy an Azure [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md) image. The DSVM editions for Ubuntu 16.04 LTS or CentOS 7.4 pre-install NVIDIA CUDA drivers, the CUDA Deep Neural Network Library, and other tools.
@@ -32,7 +32,7 @@ The GRID drivers redistributed by Azure do not work on most non-NV series VMs li
 
 |Distribution|Driver|
 | --- | -- |
-|Ubuntu 16.04 LTS, 18.04 LTS, 20.04 LTS<br/><br/>Red Hat Enterprise Linux 7.7, 7.8, 7.9, 8.0, 8.1<br/><br/>SUSE Linux Enterprise Server 12 SP2+, 15 SP2 | NVIDIA GRID 13, driver branch [R470](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
+|Ubuntu 16.04 LTS, 18.04 LTS, 20.04 LTS<br/><br/>Red Hat Enterprise Linux 7.7, 7.8, 7.9<br/><br/>CentOS 7.6, 7.7<br/><br/>SUSE Linux Enterprise Server 12 SP2+, 15 SP2 | NVIDIA GRID 13.1, driver branch [R470](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
 
 Visit [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json) for the complete list of all previous Nvidia GRID driver links.
 

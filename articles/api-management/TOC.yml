@@ -3,6 +3,7 @@
 - name: Overview
   items:
       - name: About API Management
+        displayName: Overview
         href: api-management-key-concepts.md
       - name: API Management features availability
         href: api-management-features.md
@@ -60,7 +61,7 @@
         href: api-management-terminology.md
       - name: Policies
         items:
-            - name: Overview
+            - name: Policies overview
               href: api-management-howto-policies.md
             - name: Policy reference index
               href: api-management-policies.md
@@ -148,8 +149,10 @@
               href: how-to-deploy-self-hosted-gateway-azure-arc.md
             - name: Deploy a self-hosted gateway to Azure Kubernetes Service
               href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
-            - name: Deploy a self-hosted gateway to Kubernetes
+            - name: Deploy a self-hosted gateway to Kubernetes (YAML)
               href: how-to-deploy-self-hosted-gateway-kubernetes.md
+            - name: Deploy a self-hosted gateway to Kubernetes (Helm)
+              href: how-to-deploy-self-hosted-gateway-kubernetes-helm.md
             - name: Deploy a self-hosted gateway to Docker
               href: how-to-deploy-self-hosted-gateway-docker.md
             - name: Configure custom domain for self-hosted gateway
@@ -331,7 +334,7 @@
               href: api-management-howto-use-managed-service-identity.md
             - name: Integrate with Service Fabric
               items:
-                  - name: Overview
+                  - name: Service Fabric integration overview
                     href: ../service-fabric/service-fabric-api-management-overview.md
                   - name: Tutorial
                     href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
