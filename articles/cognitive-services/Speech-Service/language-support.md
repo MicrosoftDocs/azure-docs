@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 01/07/2022
 ms.author: eur
 ms.custom: references_regions, ignite-fall-2021
 ---
@@ -434,7 +434,7 @@ Below table lists out the prebuilt neural voices supported in each language. You
 > The English (United Kingdom) voice `en-GB-MiaNeural` retired on **30 October 2021**. All service requests to `en-GB-MiaNeural` now will be re-directed to `en-GB-SoniaNeural` automatically since **30 October 2021**.
 > If you are using container Neural TTS, please [download](speech-container-howto.md#get-the-container-image-with-docker-pull) and deploy the latest version, starting from **30 October 2021**, all requests with previous versions will be rejected.
 
-#### Prebuilt neural voices in preview
+### Prebuilt neural voices in preview
 
 Below neural voices are in public preview. 
 
@@ -461,6 +461,32 @@ To learn how you can configure and adjust neural voices, such as Speaking Styles
 
 > [!TIP]
 > You can continue to use the full service name mapping like "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)" in your speech synthesis requests.
+
+### Voice styles and roles
+
+In some cases you can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm, or optimize the voice for different scenarios like customer service, newscast, and voice assistant. With roles the same voice can act as a different age and gender. 
+
+To learn how you can configure and adjust neural voice styles and roles see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
+
+Use this table to determine supported styles and roles for each neural voice.
+
+|Voice|Styles|Style degree|Roles|
+|-----|-----|-----|-----|
+|en-US-AriaNeural|`chat`, `cheerful`, `customerservice`, `empathetic`, `narration-professional`, `newscast-casual`, `newscast-formal`|||
+|en-US-GuyNeural|`newscast`|||
+|en-US-JennyNeural|`assistant`, `chat`,`customerservice`, `newscast`|||
+|en-US-SaraNeural|`angry`, `cheerful`, `sad`|||
+|ja-JP-NanamiNeural|`chat`, `cheerful`, `customerservice`|||
+|pt-BR-FranciscaNeural|`calm`|||
+|zh-CN-XiaohanNeural|`affectionate`, `angry`, `cheerful`, `customerservice`, `disgruntled`, `embarrassed`, `fearful`, `gentle`, `sad`, `serious`|Supported|Supported|
+|zh-CN-XiaomoNeural|`angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `fearful`, `gentle`, `serious`|Supported|Supported|
+|zh-CN-XiaoruiNeural|`angry`, `fearful`, `sad`|Supported||
+|zh-CN-XiaoshuangNeural|`chat`|Supported||
+|zh-CN-XiaoxiaoNeural|`affectionate`, `angry`, `assistant`, `calm`, `chat`, `cheerful`, `customerservice`, `fearful`, `gentle`, `lyrical`, `newscast`, `sad`, `serious`|Supported||
+|zh-CN-XiaoxuanNeural|`angry`, `calm`, `cheerful`, `customerservice`, `depressed`, `disgruntled`, `fearful`, `gentle`, `serious`|Supported||
+|zh-CN-YunxiNeural|`angry`, `assistant`, `cheerful`, `customerservice`, `depressed`, `disgruntled`, `embarrassed`, `fearful`, `sad`, `serious`|Supported|Supported|
+|zh-CN-YunyangNeural|`customerservice`|Supported||
+|zh-CN-YunyeNeural|`angry`, `calm`, `cheerful`, `disgruntled`, `fearful`, `sad`, `serious`|Supported|Supported|
 
 ### Custom neural voice
 
