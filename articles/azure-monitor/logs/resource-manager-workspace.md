@@ -78,8 +78,9 @@ The following sample creates a new empty Log Analytics workspace.
         "heartbeatTableRetention": {
           "type": "int",
           "metadata": {
-            "description": "Number of days to retain data in HeartBeat table."
+            "description": "Number of days to retain data in Heartbeat table."
           }
+        }  
       },
       "resources": [
       {
