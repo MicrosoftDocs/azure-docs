@@ -532,9 +532,11 @@ The API proxy module was designed to be customized to handle most common gateway
 1. Select **Review + create** to go to the final step.
 1. Select **Create** to deploy to your device.
 
-#### Integrate Microsoft Defender for IoT with IoT Edge gateway
+## Integrate Microsoft Defender for IoT with IoT Edge gateway
 
 Leaf devices can be used to integrate the Microsoft Defender for IoT's micro agent with the IoT Edge gateway using leaf device proxying.
+
+Learn more about the [Defender for IoT micro agent](../defender-for-iot/device-builders/overview.md#defender-for-iot-micro-agent).
 
 **To integrate Microsoft Defender for IoT with IoT Edge using leaf device proxying**:
 
@@ -544,19 +546,29 @@ Leaf devices can be used to integrate the Microsoft Defender for IoT's micro age
 
 1. Select your device.
 
+    :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/select-device.png" alt-text="Screenshow showing where your device is located for selection.":::
+
 1. Select the `DefenderIotMicroAgent` module twin that you created from [these instruction](../defender-for-iot/device-builders/quickstart-create-micro-agent-module-twin.md#create-defenderiotmicroagent-module-twin).
+
+    :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/defender-micro-agent.png" alt-text="Screenshot showing the location of the DefenderIotMicroAgent.":::
 
 1. Select the :::image type="icon" source="media/how-to-connect-downstream-iot-edge-device/copy-icon.png" border="false"::: button to copy your Connection string (primary key).
 
 1. Paste the Connection string into a word editor such as Notepad, and add the GatewayHostName to the string. For example, `HostName=nested11.azure-devices.net;DeviceId=leaf1;ModuleId=module1;SharedAccessKey=xxx;GatewayHostName=10.16.7.4`.
 
-1. Place the `connection_string.txt` file containing the connection string encoded in utf-8 in the Defender for Cloud agent directory `/var/defender_iot_micro_agent` path by entering the following command:
+1. Save the file as `connection_string.txt`.
+
+1. Select the Cloud Shell button.
+
+    :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/cloud-shell.png" alt-text="Screenshot showing where the cloud shell button is located.":::
+
+1. Use the following command to place the `connection_string.txt` file containing the connection string encoded in utf-8 in the Defender for Cloud agent directory `/var/defender_iot_micro_agent`:
 
     ```bash
     sudo bash -c 'echo "<connection string>" > /var/defender_iot_micro_agent/connection_string.txt'
     ```
 
-    The `connection_string.txt` should be located in the following path location `/var/defender_iot_micro_agent/connection_string.txt`.
+    The `connection_string.txt` should now be located in the following path location `/var/defender_iot_micro_agent/connection_string.txt`.
 
 1. Restart the service using this command:  
 
@@ -565,6 +577,8 @@ Leaf devices can be used to integrate the Microsoft Defender for IoT's micro age
     ```
 
 1. Navigate back to the device.
+
+    :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/device.png" alt-text="Screenshot showing how to navigate back to your device.":::
 
 1. Enable the connection to the IoT Hub, and select the gear icon.
 
