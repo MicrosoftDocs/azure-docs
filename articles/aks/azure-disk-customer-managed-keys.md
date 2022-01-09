@@ -122,7 +122,7 @@ kind: StorageClass
 apiVersion: storage.k8s.io/v1  
 metadata:
   name: byok
-provisioner: disk.csi.azure.com # replace with "kubernetes.io/azure-disk" if aks version is below than 1.21
+provisioner: disk.csi.azure.com # replace with "kubernetes.io/azure-disk" if aks version is less than 1.21
 parameters:
   skuname: StandardSSD_LRS
   kind: managed
