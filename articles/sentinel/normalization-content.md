@@ -75,7 +75,7 @@ The following built-in file activity content is supported for ASIM normalization
 - [SUNSPOT log file creation ](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/SUNSPOTLogFile.yaml)
 - [Known ZINC Comebacker and Klackring malware hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
 
-## Network Session security content
+## Network session security content
 
 The following built-in network session related content is supported for ASIM normalization.
 
@@ -92,10 +92,10 @@ The following built-in network session related content is supported for ASIM nor
 
 ## Workbooks
 
-- The Threat Intelligence Workbook
+- Threat Intelligence Workbook
 
 
-## Process Activity security content
+## Process activity security content
 
 The following built-in process activity content is supported for ASIM normalization.
 
@@ -127,7 +127,7 @@ The following built-in process activity content is supported for ASIM normalizat
  - [Uncommon processes - bottom 5% (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_uncommon_processes.yaml)
  - [Unicode Obfuscation in Command Line](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/UnicodeObfuscationInCommandLine.yaml)
 
-## Registry Activity security content
+## Registry activity security content
 
 The following built-in registry activity content is supported for ASIM normalization.
 
@@ -135,7 +135,7 @@ The following built-in registry activity content is supported for ASIM normaliza
 
 - [Persisting Via IFEO Registry Key](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/PersistViaIFEORegistryKey.yaml)
 
-## Web Session security content
+## Web session security content
 
 The following built-in web session related content is supported for ASIM normalization.
 
@@ -173,7 +173,7 @@ InfobloxNIOS
 | extend timestamp = TimeGenerated, IPCustomEntity = Client_IP
 ```
 
-The following code is the source-agnostic version, which uses normalization to provide the same detection for any source providing DNS query events. The example uses built-in ASIM parsers:
+The following code is the source-agnostic version, which uses normalization to provide the same detection for any source providing DNS query events. The following example uses built-in ASIM parsers:
 
 ```kusto
 _Im_Dns(responsecodename='NXDOMAIN')
@@ -183,7 +183,7 @@ _Im_Dns(responsecodename='NXDOMAIN')
 | extend timestamp = TimeGenerated, IPCustomEntity = SrcIpAddr```
 ```
 
-To use workspace deployed ASIM parsers, replace the first line with:
+To use workspace deployed ASIM parsers, replace the first line with the following code:
 
 ```kusto
 imDns(responsecodename='NXDOMAIN')
@@ -199,7 +199,7 @@ The normalized, source-agnostic version has the following differences:
 
 - The `SrcIpAddr` field is used instead of `Client_IP`.
  
-- Parser parameter filtering is used for ResponseCodeName, eliminating the need for an explicit where clauses.
+- Parser parameter filtering is used for ResponseCodeName, eliminating the need for an explicit `where` clauses.
 
 
 Apart from supporting any normalized DNS source, the normalized version is shorter and easier to understand. 
