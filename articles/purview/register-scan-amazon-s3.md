@@ -88,7 +88,7 @@ Ensure that you've performed the following prerequisites before adding your Amaz
 > * [Create a new AWS role for use with Purview](#create-a-new-aws-role-for-purview)
 > * [Create a Purview credential for your AWS bucket scan](#create-a-purview-credential-for-your-aws-s3-scan)
 > * [Configure scanning for encrypted Amazon S3 buckets](#configure-scanning-for-encrypted-amazon-s3-buckets), if relevant
-> * Make sure that your bucket policy does not block the connection. For more information, see [Bucket policy requirements](#confrim-your-bucket-policy-access) and [SCP policy requirements](#confirm-your-scp-policy-access). For these items, you may need to consult with an AWS expert to ensure that your policies allow required access.
+> * Make sure that your bucket policy does not block the connection. For more information, see [Bucket policy requirements](#confirm-your-bucket-policy-access) and [SCP policy requirements](#confirm-your-scp-policy-access). For these items, you may need to consult with an AWS expert to ensure that your policies allow required access.
 > * When adding your buckets as Purview resources, you'll need the values of your [AWS ARN](#retrieve-your-new-role-arn), [bucket name](#retrieve-your-amazon-s3-bucket-name), and sometimes your [AWS account ID](#locate-your-aws-account-id).
 
 
@@ -169,8 +169,8 @@ This procedure describes how to create the AWS role, with the required Microsoft
 
 - Make sure that your bucket policy does not block the connection. For more information, see:
 
-    - [Bucket policy requirements](#check-bucket-policy)
-    - [SCP policy requirements](#scp-policy-issues)
+    - [Confirm your bucket policy access](#confirm-your-bucket-policy-access)
+    - [Confirm your SCP policy access](#confirm-your-scp-policy-access)
 
 ### Create a Purview credential for your AWS S3 scan
 
@@ -581,7 +581,7 @@ This is a general error that indicates an issue when using the Role ARN. For exa
 
 - Make sure that the AWS role has the correct Microsoft account ID. In the AWS IAM area, select the **Role > Trust relationships** tab and then follow the steps in [Create a new AWS role for Purview](#create-a-new-aws-role-for-purview) again to verify your details.
 
-For more information, see [Cannot find the specified bucket](#cannot-find-the-specified-bucket), [Check Bucket Policy](#check-bucket-policy), and [SCP policy issues](#scp-policy-issues).
+For more information, see [Cannot find the specified bucket](#cannot-find-the-specified-bucket), 
 
 ### Cannot find the specified bucket
 
