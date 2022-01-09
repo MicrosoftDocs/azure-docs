@@ -144,7 +144,7 @@ The advanced approach provides a more elaborate, yet flexible way of implementin
 
 - [F5 BIG-IP APM and Azure AD SSO to Kerberos applications](f5-big-ip-kerberos-advanced.md)
 
-- [F5 BIG-IP APM and Azure AD SSO to Header-based applications](f5-big-ip-header-advanced.md)
+- [F5 BIG-IP APM and Azure AD SSO to Header-based applications](f5-big-ip-headers-advanced.md)
 
 - [F5 BIG-IP APM and Azure AD SSO to forms-based applications](f5-big-ip-forms-advanced.md)
 
