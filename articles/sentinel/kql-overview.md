@@ -3,23 +3,23 @@ title: Kusto Query Language in Microsoft Sentinel
 description: This article describes how Kusto Query Language is used in Microsoft Sentinel, and provides some basic familiarity with the language.
 author: yelevin
 ms.author: yelevin
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 01/06/2022
 ---
 
 # Kusto Query Language in Microsoft Sentinel
 
-Kusto Query Language is the language you will use to work with and manipulate data in Microsoft Sentinel. The logs you feed into your workspace aren't worth much if you can't analyze them and get the important information hidden in all that data. Kusto Query Language has not only the power and flexibility to get that information, but the simplicity to help you get started quickly. If you have a background in scripting or working with databases, a lot of the content of this article will feel very familiar. If not, don't worry, you will soon be ready to start writing your own queries and driving value for your organization.
+Kusto Query Language is the language you will use to work with and manipulate data in Microsoft Sentinel. The logs you feed into your workspace aren't worth much if you can't analyze them and get the important information hidden in all that data. Kusto Query Language has not only the power and flexibility to get that information, but the simplicity to help you get started quickly. If you have a background in scripting or working with databases, a lot of the content of this article will feel very familiar. If not, don't worry, as the intuitive nature of the language will quickly enable you to start writing your own queries and driving value for your organization.
 
-This article introduces the basics of Kusto Query Language, covering some of the most used functions and operators, which should address 75 to 80 percent of the queries you will write day to day. When you'll need more depth, or to run more advanced queries, you can take advantage of the new **Advanced KQL for Microsoft Sentinel** workbook (see this [introductory blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/advanced-kql-framework-workbook-empowering-you-to-become-kql/ba-p/3033766)). See also the [official Kusto Query Language documentation](/azure/data-explorer/kusto/query/) as well as a variety of online courses ([Pluralsight's](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch) is great).
+This article introduces the basics of Kusto Query Language, covering some of the most used functions and operators, which should address 75 to 80 percent of the queries you will write day to day. When you'll need more depth, or to run more advanced queries, you can take advantage of the new **Advanced KQL for Microsoft Sentinel** workbook (see this [introductory blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/advanced-kql-framework-workbook-empowering-you-to-become-kql/ba-p/3033766)). See also the [official Kusto Query Language documentation](/azure/data-explorer/kusto/query/) as well as a variety of online courses (such as [Pluralsight's](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)).
 
 ## Background - Why Kusto Query Language?
 
 Microsoft Sentinel is built on top of the Azure Monitor service and it uses Azure Monitor’s [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) workspaces to store all of its data. This data includes any of the following:
 - data ingested from external sources into predefined tables using Microsoft Sentinel data connectors.
 - data ingested from external sources into user-defined custom tables, using custom-created data connectors as well as some types of out-of-the-box connectors. 
-- data created by Sentinel itself, resulting from the analyses Sentinel creates and performs - for example, alerts, incidents, and UEBA-related information.
-- data uploaded to Sentinel to assist with detection and analysis - for example, threat intelligence feeds and watchlists.
+- data created by Microsoft Sentinel itself, resulting from the analyses it creates and performs - for example, alerts, incidents, and UEBA-related information.
+- data uploaded to Microsoft Sentinel to assist with detection and analysis - for example, threat intelligence feeds and watchlists.
 
 [Kusto Query Language](/data-explorer/kusto/query/) was developed as part of the [Azure Data Explorer](/data-explorer/) service, and it’s therefore optimized for searching through big-data stores in a cloud environment. Inspired by famed undersea explorer Jacques Cousteau (and pronounced accordingly "koo-STOH"), it’s designed to help you dive deep into your oceans of data and explore their hidden treasures. 
 
@@ -51,7 +51,7 @@ Explore the demo environment. Like Log Analytics in your production environment,
 
     :::image type="content" source="./media/kql-overview/portal-placement.png" alt-text="Shows the Log Analytics demo environment.":::
 
-Like in this demo environment, you can query and filter data in the Microsoft Sentinel console  > **Logs** page. You can select a table and drill down to see columns. You can modify the default columns shown using the **Column chooser**, and you can set the default time range for queries. If the time range is explicitly defined in the query, the time filter will be unavailable (grayed out).
+Like in this demo environment, you can query and filter data in the Microsoft Sentinel **Logs** page. You can select a table and drill down to see columns. You can modify the default columns shown using the **Column chooser**, and you can set the default time range for queries. If the time range is explicitly defined in the query, the time filter will be unavailable (grayed out).
 
 
 ## Query structure
@@ -62,7 +62,7 @@ A good place to start learning Kusto Query Language is to understand the overall
 
 This concept of passing data down the pipeline makes for a very intuitive structure, as it is easy to create a mental picture of your data at each step.
 
-To illustrate this, let's take a look at the following query, which looks at Azure Active Directory (Azure AD) sign-in logs. As you read through each line, you can see the keywords that indicate what's happening to the data (I've included the relevant stage in the pipeline as a comment in each line).
+To illustrate this, let's take a look at the following query, which looks at Azure Active Directory (Azure AD) sign-in logs. As you read through each line, you can see the keywords that indicate what's happening to the data. We've included the relevant stage in the pipeline as a comment in each line.
 
 > [!NOTE]
 > You can add comments to any line in a query by preceding them with a double slash (` // `).
@@ -109,7 +109,7 @@ In Kusto Query Language, most of the data types follow standard conventions and 
 
 While most of the data types are standard, you might be less familiar with types like *dynamic*, *timespan*, and *guid*.
 
-***Dynamic*** has a structure very similar to JSON (JavaScript Object Notation), but with one key difference: It can store Kusto Query Language-specific data types that traditional JSON cannot, such as a nested *dynamic* value, or *timespan*. Here's an example of a dynamic type:
+***Dynamic*** has a structure very similar to JSON, but with one key difference: It can store Kusto Query Language-specific data types that traditional JSON cannot, such as a nested *dynamic* value, or *timespan*. Here's an example of a dynamic type:
 
 ```json
 {
@@ -145,7 +145,7 @@ While most of the data types are standard, you might be less familiar with types
 
 ## Getting, limiting, sorting, and filtering data
 
-The core vocabulary of Kusto Query Language - the foundation that will allow you to accomplish the overwhelming majority of your tasks - is a collection of operators for filtering, sorting, and selecting your data. The remaining tasks you will need to do will require you to stretch your knowledge of the language to meet your more advanced needs. Let's expand a bit on some of the commands we used in our above example and look at `take`, `sort`, and `where`.
+The core vocabulary of Kusto Query Language - the foundation that will allow you to accomplish the overwhelming majority of your tasks - is a collection of operators for filtering, sorting, and selecting your data. The remaining tasks you will need to do will require you to stretch your knowledge of the language to meet your more advanced needs. Let's expand a bit on some of the commands we used [in our above example](#query-structure) and look at `take`, `sort`, and `where`.
 
 For each of these operators, we'll examine its use in our previous *SigninLogs* example, and learn either a useful tip or a best practice.
 
@@ -174,10 +174,10 @@ SigninLogs
 
 ### Sorting data: *sort*
 
-The [*sort*](/azure/data-explorer/kusto/query/sortoperator) operator (the `order` operator is synonymous) is used to sort your data by a specified column. For example, here we ordered the results by *TimeGenerated* and we set the order direction to descending with the *desc* parameter, placing the highest values first; for ascending order we would use *asc*. 
+The [*sort*](/azure/data-explorer/kusto/query/sortoperator) operator (the `order` operator is synonymous) is used to sort your data by a specified column. In the following example, we ordered the results by *TimeGenerated* and set the order direction to descending with the *desc* parameter, placing the highest values first; for ascending order we would use *asc*. 
 
 > [!NOTE]
-> The default direction for sorts is descending, to technically you only have to specify if you want to sort in ascending order. But it will make your query more readable to specify in any case.
+> The default direction for sorts is descending, so technically you only have to specify if you want to sort in ascending order. However, specifying the sort direction in any case will make your query more readable.
 
 ```kusto
 SigninLogs
@@ -211,7 +211,7 @@ Now, if *TimeGenerated* is the same between multiple records, it will then try t
 > [!NOTE]
 > **When to use `sort` and `take`, and when to use `top`**
 >
-> - If you're only sorting on one field, use `top`, as it's more performant than the combination of `sort` and `take`.
+> - If you're only sorting on one field, use `top`, as it provides better performance than the combination of `sort` and `take`.
 >
 > - If you need to sort on more than one field (like in the last example above), `top` can't do that, so you must use `sort` and `take`.
 
@@ -226,7 +226,7 @@ SigninLogs
 | take 5
 ```
 
-The `where` operator specifies a variable, a comparison (*scalar*) operator, and a value. In our case, we used >= to denote that the value in the *TimeGenerated* column needs to be greater than (that is, later than) or equal to seven days ago.
+The `where` operator specifies a variable, a comparison (*scalar*) operator, and a value. In our case, we used `>=` to denote that the value in the *TimeGenerated* column needs to be greater than (that is, later than) or equal to seven days ago.
 
 There are two types of comparison operators in Kusto Query Language: string and numerical. The following table shows the full list of numerical operators:
 
@@ -327,7 +327,9 @@ Perf
 
 :::image type="content" source="media/kql-overview/table-summarize-multiple.png" alt-text="Screenshot of results of summarize operator with multiple aggregations.":::
 
-This seems like a good time to talk about column names for these aggregated columns. At the start of this section, we said the `summarize` operator takes in a table of data and produces a new table, and only the columns you specify in the `summarize` statement will continue down the pipeline. Therefore, if you were to run the above example, the resulting columns for our aggregation would be *count_* and *sum_CounterValue*.
+#### Renaming aggregated columns
+
+This seems like a good time to talk about column names for these aggregated columns. [At the start of this section](#summarizing-data), we said the `summarize` operator takes in a table of data and produces a new table, and only the columns you specify in the `summarize` statement will continue down the pipeline. Therefore, if you were to run the above example, the resulting columns for our aggregation would be *count_* and *sum_CounterValue*.
 
 The Kusto engine will automatically create a column name without us having to be explicit, but often, you will find that you will prefer your new column have a friendlier name. You can easily rename your column in the `summarize` statement by specifying a new name, followed by ` = ` and the aggregation, like so:
 
@@ -346,9 +348,9 @@ There is much more to the `summarize` operator than we can cover here, but you s
 
 ### Aggregation reference
 
-The are many [aggregation functions](/azure/data-explorer/kusto/query/aggregation-functions), but some of the most commonly used are sum(), count(), and avg(). Here's a partial list (see the full list at the link above):
+The are many aggregation functions, but some of the most commonly used are `sum()`, `count()`, and `avg()`. Here's a partial list (see the [full list](/azure/data-explorer/kusto/query/aggregation-functions)):
 
-#### Aggregation Functions
+#### Aggregation functions
 
 | Function        | Description                                                            |
 | --------------- | ---------------------------------------------------------------------- |
@@ -395,7 +397,7 @@ Perf
 ```
 
 > [!TIP]
-> It can be useful to use `project` in two locations in your queries, at the beginning and at the end. Using `project` early in your query can help improve performance by stripping away large chunks of data you don't need to pass down the pipeline. Using it at the end lets you get rid of any columns that may have been created in previous steps and aren't needed in your final output.
+> It can be useful to use `project` in two locations in your queries, at the beginning and again at the end. Using `project` early in your query can help improve performance by stripping away large chunks of data you don't need to pass down the pipeline. Using it again at the end lets you get rid of any columns that may have been created in previous steps and aren't needed in your final output.
 > 
 ### *Extend*
 
@@ -498,7 +500,7 @@ For your reference, the following table shows a list of available types of joins
 
 ## Evaluate
 
-You may remember that back in the first example, we saw the [*evaluate*](/azure/data-explorer/kusto/query/evaluateoperator) operator on one of the lines. The `evaluate` operator is less commonly used than the ones we have touched on previously. However, knowing how the `evaluate` operator works is well worth your time. Once more, here is that first query, where you will see `evaluate` on the second line.
+You may remember that back [in the first example](#query-structure), we saw the [*evaluate*](/azure/data-explorer/kusto/query/evaluateoperator) operator on one of the lines. The `evaluate` operator is less commonly used than the ones we have touched on previously. However, knowing how the `evaluate` operator works is well worth your time. Once more, here is that first query, where you will see `evaluate` on the second line.
 
 ```kusto
 SigninLogs
@@ -510,9 +512,9 @@ SigninLogs
 | take 5
 ```
 
-This operator allows you to invoke available plugins (essentially service-side functions). Many of these plugins are focused around data science, such as *autocluster*, *diffpatterns*, and *sequence_detect*. Some plugins, like *R* and *python*, allow you to run scripts in those languages within your queries.
+This operator allows you to invoke available plugins (basically built-in functions). Many of these plugins are focused around data science, such as [*autocluster*](/azure/data-explorer/kusto/query/autoclusterplugin), [*diffpatterns*](/azure/data-explorer/kusto/query/diffpatternsplugin), and [*sequence_detect*](/azure/data-explorer/kusto/query/sequence-detect-plugin), allowing you to perform advanced analysis and discover statistical anomalies and outliers.
 
-The plugin used in the above example was called *bag_unpack*, and it makes it very easy to take a chunk of dynamic data and convert it to columns. Remember, dynamic data is a data type that looks very similar to JSON, as shown in this example:
+The plugin used in the above example was called [*bag_unpack*](/azure/data-explorer/kusto/query/bag-unpackplugin), and it makes it very easy to take a chunk of dynamic data and convert it to columns. Remember, [dynamic data](#data-type-table) is a data type that looks very similar to JSON, as shown in this example:
 
 ```json
 {
@@ -536,14 +538,14 @@ Now that we've considered the `evaluate` operator, we can see that it represents
 
 `Get Data | `***`Parse`***` | Filter | Summarize | Sort | Select`
 
-There are many other examples of operators and functions that can be used to parse data sources into a more readable and manipulatable format. You can learn about them - and the rest of the Kusto Query Language - in the full documentation and in the workbook.
+There are many other examples of operators and functions that can be used to parse data sources into a more readable and manipulatable format. You can learn about them - and the rest of the Kusto Query Language - in the [full documentation](#more-resources) and in the [workbook](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/advanced-kql-framework-workbook-empowering-you-to-become-kql/ba-p/3033766).
 
 ## Let statements
 
 Now that we've covered many of the major operators and data types, let's wrap up with the [*let* statement](/azure/data-explorer/kusto/query/letstatement), which is a great 
 way to make your queries easier to read, edit, and maintain.
 
-If you're familiar with programming languages and setting variables, *let* works much the same way. *Let* allows you to bind a name to an expression, which could be a single value or a whole query. Here's a simple example:
+*Let* allows you to create and set a variable, or to assign a name to an expression. This expression could be a single value, but it could also be a whole query. Here's a simple example:
 
 ```kusto
 let aWeekAgo = ago(7d);
@@ -553,7 +555,7 @@ SigninLogs
 
 Here, we specified a name of *aWeekAgo* and set it to be equal to the output of a *timespan* function, which returns a *datetime* value. We then terminate the *let* statement with a semicolon. Now we have a new variable called *aWeekAgo* that can be used anywhere in our query.
 
-As mentioned earlier, you can wrap a whole query into a *let* statement as well. Here's a slight modification to our earlier example:
+As we just mentioned, you can use a *let* statement to take a whole query and give the result a name. Since query results, being tabular expressions, can be used as the inputs of queries, you can treat this named result as a table for the purposes of running another query on it. Here's a slight modification to the previous example:
 
 ```kusto
 let aWeekAgo = ago(7d);
@@ -564,15 +566,26 @@ getSignins
 
 In this case, we created a second *let* statement, where we wrapped our whole query into a new variable called *getSignins*. Just like before, we terminate the second *let* statement with a semicolon. Then we call the variable on the final line, which will run the query. Notice that we were able to use *aWeekAgo* in the second *let* statement. This is because we specified it on the previous line; if we were to swap the *let* statements so that *getSignins* came first, we would get an error.
 
-*Let* statements are very easy to use, and they make it much easier to organize your queries. *Let* can define scalar and tabular values as well as create user-defined functions. They truly come in handy when you are organizing more complex queries that may be doing multiple joins.
+Now we can use *getSignins* as the basis of another query (in the same window):
+
+```kusto
+let aWeekAgo = ago(7d);
+let getSignins = SigninLogs
+| where TimeGenerated >= aWeekAgo;
+getSignins
+| where level >= 3
+| project IPAddress, UserDisplayName, Level
+```
+
+*Let* statements give you more power and flexibility in helping to organize your queries. *Let* can define scalar and tabular values as well as create user-defined functions. They truly come in handy when you are organizing more complex queries that may be doing multiple joins.
 
 ## Next steps
 
-In this article, you learned - in keeping with the "80/20 rule" - the "20%" of Kusto Query Language that you'll be using "80%" of the time. Accordingly, we've barely scratched the surface, but hopefully you've now got the foundation necessary to really get to work in Microsoft Sentinel.
+While this article has barely scratched the surface, you've now got the necessary foundation, and we've covered the parts you'll be using most often to get your work done in Microsoft Sentinel.
 
 ### Advanced KQL for Microsoft Sentinel workbook
 
-You can also take advantage of a new workbook right in Microsoft Sentinel itself - the **Advanced KQL for Microsoft Sentinel** workbook. It gives you step-by-step help and examples for many of the situations you're likely to encounter during your day-to-day security operations, and also points you to lots of ready-made, out-of-the-box examples of analytics rules, workbooks, hunting rules, and more elements that use Kusto queries. Just launch this workbook from the **Workbooks** blade in Microsoft Sentinel.
+Take advantage of a Kusto Query Language workbook right in Microsoft Sentinel itself - the **Advanced KQL for Microsoft Sentinel** workbook. It gives you step-by-step help and examples for many of the situations you're likely to encounter during your day-to-day security operations, and also points you to lots of ready-made, out-of-the-box examples of analytics rules, workbooks, hunting rules, and more elements that use Kusto queries. Launch this workbook from the **Workbooks** blade in Microsoft Sentinel.
 
 [Advanced KQL Framework Workbook - Empowering you to become KQL-savvy](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/advanced-kql-framework-workbook-empowering-you-to-become-kql/ba-p/3033766) is an excellent blog post that shows you how to use this workbook.
 
@@ -580,8 +593,16 @@ You can also take advantage of a new workbook right in Microsoft Sentinel itself
 
 Here's a list of some more resources to help you broaden and deepen your knowledge of and expertise with Kusto Query Language:
 
-- [Official Documentation for Kusto Query Language](/azure/data-explorer/kusto/query/)
+- Official Documentation for Kusto Query Language:
+    - [Kusto Query Language overview](/azure/data-explorer/kusto/query/)
+    - [Kusto Query Language tutorial](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor)
+    - [Quick reference guide](/azure/data-explorer/kql-quick-reference)
+    - [Query best practices](/azure/data-explorer/kusto/query/best-practices)
 
-- [Pluralsight Course: KQL From Scratch](https://aka.ms/KQLFromScratch)
+- [Learning path SC-200: Create queries for Microsoft Sentinel using Kusto Query Language (KQL) on Microsoft Learn](/learn/paths/sc-200-utilize-kql-for-azure-sentinel/)
 
-- [KQL Cheat Sheet made by Marcus Bakker](https://aka.ms/KQLCheatSheet)
+- [Learn module: Write your first query with Kusto Query Language](/learn/modules/write-first-query-kusto-query-language/)
+
+- [Pluralsight course: KQL From Scratch](https://aka.ms/KQLFromScratch)
+
+- [Rod Trent's Must Learn KQL Series](https://github.com/rod-trent/MustLearnKQL)
