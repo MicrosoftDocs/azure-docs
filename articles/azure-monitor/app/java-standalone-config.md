@@ -48,7 +48,7 @@ If you specify a relative path, it will be resolved relative to the directory wh
 
 ## Configuration file content
 
-If needed, instead of using a configuration file, you can specify the entire _content_ of the json configuration
+Alternatively, instead of using a configuration file, you can specify the entire _content_ of the json configuration
 via the environment variable `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT`.
 
 ## Connection string
