@@ -499,6 +499,8 @@ A full list of supported alerts is available in the [reference table of all Defe
 
 ## Remove the Defender extension
 
+
+
 You can remove the extension using Azure portal, Azure CLI, or REST API as explained in the tabs below.
 
 ### [**Azure portal - Arc**](#tab/k8s-remove-arc)
