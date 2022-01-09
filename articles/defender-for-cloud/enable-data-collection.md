@@ -2,7 +2,7 @@
 title: Auto-deploy agents for Microsoft Defender for Cloud | Microsoft Docs
 description: This article describes how to set up auto provisioning of the Log Analytics agent and other agents and extensions used by Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 12/26/2021
+ms.date: 01/09/2022
 ms.custom: mode-other
 ---
 # Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud
@@ -16,14 +16,88 @@ To get started with Defender for Cloud, you must have a subscription to Microsof
 
 ## Availability
 
+### [**Auto provisioning**](#tab/autoprovision-feature)
+
 | Aspect                          | Details                                                                                                                                                                                                                      |
 |---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Release state:                  | **Feature**: Auto provisioning is generally available (GA)<br>**Agent and extensions**: Log Analytics agent for Azure VMs is GA, Microsoft Dependency agent is in preview, Policy Add-on for Kubernetes is GA, Guest Configuration agent is preview  |
-| Pricing:                        | Free                                                                                                                                                                                                                         |
+| Pricing:                        | The auto provisioning feature is free to use                                                                                                                                                                                                                         |
 | Required roles and permissions: | [Owner](../role-based-access-control/built-in-roles.md#owner) to enable auto provisioning of the Log Analytics agent|
 | Supported destinations:         | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure machines<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines<br>:::image type="icon" source="./media/icons/no-icon.png"::: Kubernetes nodes<br>:::image type="icon" source="./media/icons/no-icon.png"::: Virtual Machine Scale Sets |
 | Clouds:                         | **Feature**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet<br>**Agent and extensions**:<br>Log Analytics agent for Azure VMs is available on all clouds, Policy Add-on for Kubernetes is available on all clouds, Guest Configuration agent is only available on commercial clouds  |
 |                                 |                                                                                                                                                                                                                              |
+
+
+### [**Log Analytics agent**](#tab/autoprovision-loganalytic)
+
+
+| Aspect                          | Details                                                                                                                                                                                                                      |
+|---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Release state:                  | **Feature**: Auto provisioning is generally available (GA)<br>**Agent and extensions**: Log Analytics agent for Azure VMs is GA, Microsoft Dependency agent is in preview, Policy Add-on for Kubernetes is GA, Guest Configuration agent is preview  |
+| Pricing:                        | The auto provisioning feature is free to use                                                                                                                                                                                                                         |
+| Required roles and permissions: | [Owner](../role-based-access-control/built-in-roles.md#owner) to enable auto provisioning of the Log Analytics agent|
+| Supported destinations:         | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure machines<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines<br>:::image type="icon" source="./media/icons/no-icon.png"::: Kubernetes nodes<br>:::image type="icon" source="./media/icons/no-icon.png"::: Virtual Machine Scale Sets |
+| Clouds:                         | **Feature**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet<br>**Agent and extensions**:<br>Log Analytics agent for Azure VMs is available on all clouds, Policy Add-on for Kubernetes is available on all clouds, Guest Configuration agent is only available on commercial clouds  |
+|                                 |                                                                                                                                                                                                                              |
+
+
+### [**Vulnerability assessment**](#tab/autoprovision-va)
+
+| Aspect                          | Details                                                                                                                                                                                                                      |
+|---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Release state:                  | **Feature**: Auto provisioning is generally available (GA)<br>**Agent and extensions**: Log Analytics agent for Azure VMs is GA, Microsoft Dependency agent is in preview, Policy Add-on for Kubernetes is GA, Guest Configuration agent is preview  |
+| Pricing:                        | The auto provisioning feature is free to use                                                                                                                                                                                                                         |
+| Required roles and permissions: | [Owner](../role-based-access-control/built-in-roles.md#owner) to enable auto provisioning of the Log Analytics agent|
+| Supported destinations:         | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure machines<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines<br>:::image type="icon" source="./media/icons/no-icon.png"::: Kubernetes nodes<br>:::image type="icon" source="./media/icons/no-icon.png"::: Virtual Machine Scale Sets |
+| Clouds:                         | **Feature**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet<br>**Agent and extensions**:<br>Log Analytics agent for Azure VMs is available on all clouds, Policy Add-on for Kubernetes is available on all clouds, Guest Configuration agent is only available on commercial clouds  |
+|                                 |                                                                                                                                                                                                                              |
+
+### [**Defender for Endpoint**](#tab/autoprovision-defendpoint)
+
+| Aspect                          | Details                                                                                                                                                                                                                      |
+|---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Release state:                  | **Feature**: Auto provisioning is generally available (GA)<br>**Agent and extensions**: Log Analytics agent for Azure VMs is GA, Microsoft Dependency agent is in preview, Policy Add-on for Kubernetes is GA, Guest Configuration agent is preview  |
+| Pricing:                        | The auto provisioning feature is free to use                                                                                                                                                                                                                         |
+| Required roles and permissions: | [Owner](../role-based-access-control/built-in-roles.md#owner) to enable auto provisioning of the Log Analytics agent|
+| Supported destinations:         | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure machines<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines<br>:::image type="icon" source="./media/icons/no-icon.png"::: Kubernetes nodes<br>:::image type="icon" source="./media/icons/no-icon.png"::: Virtual Machine Scale Sets |
+| Clouds:                         | **Feature**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet<br>**Agent and extensions**:<br>Log Analytics agent for Azure VMs is available on all clouds, Policy Add-on for Kubernetes is available on all clouds, Guest Configuration agent is only available on commercial clouds  |
+|                                 |                                                                                                                                                                                                                              |
+
+### [**Guest Configuration**](#tab/autoprovision-guestconfig)
+
+| Aspect                          | Details                                                                                                                                                                                                                      |
+|---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Release state:                  | **Feature**: Auto provisioning is generally available (GA)<br>**Agent and extensions**: Log Analytics agent for Azure VMs is GA, Microsoft Dependency agent is in preview, Policy Add-on for Kubernetes is GA, Guest Configuration agent is preview  |
+| Pricing:                        | The auto provisioning feature is free to use                                                                                                                                                                                                                         |
+| Required roles and permissions: | [Owner](../role-based-access-control/built-in-roles.md#owner) to enable auto provisioning of the Log Analytics agent|
+| Supported destinations:         | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure machines<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines<br>:::image type="icon" source="./media/icons/no-icon.png"::: Kubernetes nodes<br>:::image type="icon" source="./media/icons/no-icon.png"::: Virtual Machine Scale Sets |
+| Clouds:                         | **Feature**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet<br>**Agent and extensions**:<br>Log Analytics agent for Azure VMs is available on all clouds, Policy Add-on for Kubernetes is available on all clouds, Guest Configuration agent is only available on commercial clouds  |
+|                                 |                                                                                                                                                                                                                              |
+
+### [**Dependency agent**](#tab/autoprovision-depagent)
+
+| Aspect                          | Details                                                                                                                                                                                                                      |
+|---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Release state:                  | **Feature**: Auto provisioning is generally available (GA)<br>**Agent and extensions**: Log Analytics agent for Azure VMs is GA, Microsoft Dependency agent is in preview, Policy Add-on for Kubernetes is GA, Guest Configuration agent is preview  |
+| Pricing:                        | The auto provisioning feature is free to use                                                                                                                                                                                                                         |
+| Required roles and permissions: | [Owner](../role-based-access-control/built-in-roles.md#owner) to enable auto provisioning of the Log Analytics agent|
+| Supported destinations:         | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure machines<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines<br>:::image type="icon" source="./media/icons/no-icon.png"::: Kubernetes nodes<br>:::image type="icon" source="./media/icons/no-icon.png"::: Virtual Machine Scale Sets |
+| Clouds:                         | **Feature**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet<br>**Agent and extensions**:<br>Log Analytics agent for Azure VMs is available on all clouds, Policy Add-on for Kubernetes is available on all clouds, Guest Configuration agent is only available on commercial clouds  |
+|                                 |                                                                                                                                                                                                                              |
+
+### [**Defender for Containers**](#tab/autoprovision-guestconfig)
+
+| Aspect                          | Details                                                                                                                                                                                                                      |
+|---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Release state:                  | **Feature**: Auto provisioning is generally available (GA)<br>**Agent and extensions**: Log Analytics agent for Azure VMs is GA, Microsoft Dependency agent is in preview, Policy Add-on for Kubernetes is GA, Guest Configuration agent is preview  |
+| Pricing:                        | The auto provisioning feature is free to use                                                                                                                                                                                                                         |
+| Required roles and permissions: | [Owner](../role-based-access-control/built-in-roles.md#owner) to enable auto provisioning of the Log Analytics agent|
+| Supported destinations:         | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure machines<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines<br>:::image type="icon" source="./media/icons/no-icon.png"::: Kubernetes nodes<br>:::image type="icon" source="./media/icons/no-icon.png"::: Virtual Machine Scale Sets |
+| Clouds:                         | **Feature**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet<br>**Agent and extensions**:<br>Log Analytics agent for Azure VMs is available on all clouds, Policy Add-on for Kubernetes is available on all clouds, Guest Configuration agent is only available on commercial clouds  |
+|                                 |                                                                                                                                                                                                                              |
+
+
+---
 
 ## How does Defender for Cloud collect data?
 
