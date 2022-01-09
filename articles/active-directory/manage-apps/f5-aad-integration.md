@@ -136,6 +136,8 @@ The following tutorials provide detailed guidance on implementing some of the mo
 
 The advanced approach provides a more elaborate, yet flexible way of implementing SHA by manually creating all BIG-IP configuration objects. You would use this approach for scenarios not covered by the guided configuration templates. 
 
+Refer to the following advanced configuration guides for your integration requirements:
+
 - [F5 BIG-IP in Azure deployment walk-through](f5-bigip-deployment-guide.md)
 
 - [Securing F5 BIG-IP SSL-VPN with Azure AD SHA](f5-aad-password-less-vpn.md)
@@ -144,7 +146,7 @@ The advanced approach provides a more elaborate, yet flexible way of implementin
 
 - [F5 BIG-IP APM and Azure AD SSO to Kerberos applications](f5-big-ip-kerberos-advanced.md)
 
-- [F5 BIG-IP APM and Azure AD SSO to Header-based applications](f5-big-ip-header-advanced.md)
+- [F5 BIG-IP APM and Azure AD SSO to header-based applications](f5-big-ip-header-advanced.md)
 
 - [F5 BIG-IP APM and Azure AD SSO to forms-based applications](f5-big-ip-forms-advanced.md)
 
@@ -152,7 +154,9 @@ The advanced approach provides a more elaborate, yet flexible way of implementin
 
 The Guided Configuration wizard, available from BIG-IP version 13.1 aims to minimize time and effort implementing common BIG-IP publishing scenarios. Its workflow-based framework provides an intuitive deployment experience tailored to specific access topologies.
 
-The latest version of the Guided Configuration 16.1 now offers an Easy Button feature. With **Easy Button**, admins no longer go back and forth between Azure AD and a BIG-IP to enable services for SHA. The end-to-end deployment and policy management is handled directly between the APM’s Guided Configuration wizard and Microsoft Graph. This rich integration between BIG-IP APM and Azure AD ensures applications can quickly, easily support identity federation, SSO, and Azure AD Conditional Access, without management overhead of having to do so on a per app basis.
+The latest version of the Guided Configuration 16.1 now offers an Easy Button feature. With **Easy Button**, admins no longer go back and forth between Azure AD and a BIG-IP to enable services for SHA. The end-to-end deployment and policy management is handled directly between the APM’s Guided Configuration wizard and Microsoft Graph. This rich integration between BIG-IP APM and Azure AD ensures applications can quickly, easily support identity federation, SSO, and Azure AD Conditional Access, without management overhead of having to do so on a per app basis. 
+
+Refer to the following guided configuration guides using Easy Button templates for your integration requirements:
 
 - [F5 BIG-IP Easy Button for SSO to Kerberos applications](f5-big-ip-kerberos-easy-button.md)
 
