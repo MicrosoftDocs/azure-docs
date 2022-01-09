@@ -61,9 +61,9 @@ imDNS | where SrcIpAddr != "127.0.0.1" and EventSubType == "response"
 
 ### Unifying parsers
 
-To use the unifying parsers that unify all of the out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the filtering parser _Im_Dns or the parameter-less parser _ASim_Dns.
+To use parsers that unify all ASIM out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the `_Im_Dns` filtering parser or the `_ASim_Dns` parameter-less parser.
 
-The use [workspace deployed parsers](normalization-parsers-overview.md#built-in-asim-parsers-and-workspace-deployed-parsers) use the [Microsoft Sentinel GitHub repository](https://aka.ms/azsentinelDNS).
+[Workspace-deployed parsers](normalization-parsers-overview.md#built-in-asim-parsers-and-workspace-deployed-parsers) use the [Microsoft Sentinel GitHub repository](https://aka.ms/azsentinelDNS).
 
 ### Out-of-the-box, source-specific parsers
 
