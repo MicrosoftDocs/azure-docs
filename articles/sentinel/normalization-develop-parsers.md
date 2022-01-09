@@ -1,6 +1,6 @@
 ---
-title: Develop ASIM parsers | Microsoft Docs
-description: This article explains how develop, test and deploy ASIM parsers
+title: Develop Microsoft Sentinel Advanced SIEM Information Model (ASIM) parsers | Microsoft Docs
+description: This article explains how to develop, test, and deploy Microsoft Sentinel Advanced SIEM Information Model (ASIM) parsers.
 author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
@@ -8,30 +8,37 @@ ms.author: ofshezaf
 ms.custom: ignite-fall-2021
 --- 
 
-# Develop ASIM parsers (Public preview)
+# Develop Advanced SIEM Information Model parsers (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-ASIM users use unifying parsers instead of table names in their queries to view data in a normalized format and to include all data relevant to the schema in the query. The unifying parsers use source-specific parsers to handle the specific details of each source. 
+Advanced SIEM Information Model (ASIM) users use unifying parsers instead of table names in their queries, to view data in a normalized format and to include all data relevant to the schema in the query. Unifying parsers in turn use source-specific parsers to handle the specific details of each source. 
 
-Microsoft Sentinel provides source-specific parsers for many sources. However, you may want to develop your source-specific parser in the following situations:
+Microsoft Sentinel provides built-in, source-specific parsers for many data sources. However, you may want to develop your source-specific parser further in the following situations:
 
-- When your device provides events that fit an ASIM schema but a source-specific parser for your device and the relevant schema is not available in Microsoft Sentinel.
+- When your device provides events that fit an ASIM schema, but a source-specific parser for your device and the relevant schema is not available in Microsoft Sentinel.
 
 - When ASIM source-specific parsers are available for your device, but your device sends events in a method or a format different than expected by the ASIM parsers. For example:
+
   - Your source device may be configured to send events in a non-standard way. 
+
   - Your device may have a different version than the one supported by the ASIM parser.
+
   - The events might be collected, modified, and forwarded by an intermediary system.
 
 ## The ASIM custom parser development process
 
-To develop a custom ASIM source-specific parser, use the following workflow:
+Use the following workflow to develop a custom ASIM source-specific parser:
 
-- Identify the schemas or schemas that the events sent from the source represent. Refer to the [Schema overview](normalization-about-schemas.md) for details.
-- Develop one or more ASIM parsers for your source. You need to develop a parser for each schema relevant to the source.
-- Testing your parser.
-- Deploy the parsers into your Microsoft Sentinel workspaces.
-- Update the relevant ASIM unifying parser to reference the new custom parser. Refer to the [Managing ASIM parsers](normalization-manage-parsers.md) document for details. 
+1. Identify the schemas or schemas that the events sent from the source represent. For more information, see [Schema overview](normalization-about-schemas.md).
+
+1. Develop one or more ASIM parsers for your source. You'll need to develop a parser for each schema relevant to the source.
+
+1. Test your parser.
+
+1. Deploy the parsers into your Microsoft Sentinel workspaces.
+
+1. Update the relevant ASIM unifying parser to reference the new custom parser. For more information, see [Managing ASIM parsers](normalization-manage-parsers.md). 
 
 This document guides you through the process's development, testing, and deployment steps.
 
