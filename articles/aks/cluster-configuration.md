@@ -178,7 +178,7 @@ az aks create -n aks -g myResourceGroup --enable-oidc-issuer
 To upgrade a cluster to use OIDC Issuer.
 
 ```azurecli-interactive
-az aks upgrade -n aks -g myResourceGroup --enable-oidc-issuer
+az aks update -n aks -g myResourceGroup --enable-oidc-issuer
 ```
 
 ## Next steps
