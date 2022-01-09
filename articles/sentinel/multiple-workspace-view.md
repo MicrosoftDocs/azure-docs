@@ -27,7 +27,7 @@ When you open Microsoft Sentinel, you are presented with a list of all the works
 
 Note that in the list of workspaces, you can see the directory, subscription, location, and resource group associated with each workspace. The directory corresponds to the tenant.
 
-:::image type="content" source="./media/multiple-workspace-view/workspaces.png" alt-text="Select multiple workspaces." lightbox="./media/multiple-workspace-view/workspaces.png":::
+:::image type="content" source="./media/multiple-workspace-view/workspaces.png" alt-text="Select multiple workspaces.":::
 
 ## Working with incidents
 
