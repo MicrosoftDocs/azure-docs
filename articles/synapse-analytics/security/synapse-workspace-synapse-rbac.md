@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/1/2020
 ms.author: mesrivas
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 # What is Synapse role-based access control (RBAC)?
 

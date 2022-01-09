@@ -8,7 +8,9 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Azure Communication UI [open source library](https://github.com/Azure/azure-communication-ui-library-ios) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-library-quick-start).
+[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
+
+Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-library-quick-start)
 
 ## Prerequisites
 
@@ -223,3 +225,8 @@ class CustomThemeConfiguration: ThemeConfiguration {
 ```swift
 let callCompositeOptions = CallCompositeOptions(themeConfiguration: CustomThemeConfiguration())
 ```
+
+## Add notifications into your mobile app
+
+The push notifications allow you to send information from your application to users' mobile devices. You can use push notifications to show a dialog, play a sound, or display incoming call UI. Azure Communication Services provides integrations with [Azure Event Grid](../../../../../event-grid/overview.md) and [Azure Notification Hubs](../../../../../notification-hubs/notification-hubs-push-notification-overview.md) that enable you to add push notifications to your apps [follow the link.](../../../../concepts/notifications.md)
+

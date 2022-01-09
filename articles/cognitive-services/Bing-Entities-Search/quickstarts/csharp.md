@@ -10,6 +10,7 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 10/19/2020
 ms.author: aahi
+ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-api
 ---
 

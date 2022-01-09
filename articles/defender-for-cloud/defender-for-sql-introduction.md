@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for SQL - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for SQL.
-ms.date: 11/09/2021
+ms.date: 01/06/2022
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -37,6 +37,7 @@ Microsoft Defender for SQL includes two Microsoft Defender plans that extend Mic
         - [Azure Arc-enabled SQL Server (preview)](/sql/sql-server/azure-arc/overview)
         - [SQL Server running on Windows machines without Azure Arc](../azure-monitor/agents/agent-windows.md)
 
+When you enable either of these plans, all supported resources that exist within the subscription are protected. Future resources created on the same subscription will also be protected. 
 
 ## What are the benefits of Microsoft Defender for SQL?
 

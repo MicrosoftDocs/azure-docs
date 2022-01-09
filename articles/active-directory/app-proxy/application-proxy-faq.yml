@@ -4,12 +4,12 @@ metadata:
   description: Learn answers to frequently asked questions (FAQ) about using Azure AD Application Proxy to publish internal, on-premises applications to remote users.  
   services: active-directory
   author: kenwith
-  manager: karenh444
+  manager: karenhoran
   ms.service: active-directory
   ms.subservice: app-proxy
   ms.workload: identity
   ms.topic: reference
-  ms.date: 04/27/2021
+  ms.date: 12/17/2021
   ms.author: kenwith
   ms.reviewer: ashishj
     
@@ -270,11 +270,14 @@ sections:
   - name: WebSocket
     questions:
       - question: |
-         Does WebSocket support work for applications other than QlikSense and Remote Desktop Web Client (HTML5)?
+         Does Azure AD Application Proxy support the WebSocket protocol?
         answer: |
-              Currently, WebSocket protocol support is still in public preview and it may not work for other applications. Some customers have had mixed success using WebSocket protocol with other applications.
-          
-              Features (Eventlogs, PowerShell and Remote Desktop Services) in Windows Admin Center (WAC) do not work through Azure AD Application Proxy presently.
+              Applications that use the WebSocket protocol, for example QlikSense and Remote Desktop Web Client (HTML5), are now supported. The following are known limitations:
+              * Application proxy discards the cookie that is set on the server response while opening the WebSocket connection.
+              * There is no SSO applied to the WebSocket request.
+              * Features (Eventlogs, PowerShell and Remote Desktop Services) in the Windows Admin Center (WAC) do not work through Azure AD Application Proxy.
+              
+              The WebSocket application doesn't have any unique publishing requirements, and can be [published](application-proxy-add-on-premises-application.md) the same way as all your other Application Proxy applications. 
           
   - name: Link translation
     questions:

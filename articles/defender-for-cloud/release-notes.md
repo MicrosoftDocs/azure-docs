@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 12/13/2021
+ms.date: 01/06/2022
 ---
 # What's new in Microsoft Defender for Cloud?
 
@@ -17,6 +17,57 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+
+## January 2022
+
+Updates in January include:
+
+- [Recommendations to enable Microsoft Defender plans on workspaces (in preview)](#recommendations-to-enable-microsoft-defender-plans-on-workspaces-in-preview)
+- [Auto provision Log Analytics agent to Azure Arc-enabled machines (preview)](#auto-provision-log-analytics-agent-to-azure-arc-enabled-machines-preview)
+- [Deprecated the recommendation to classify sensitive data in SQL databases](#deprecated-the-recommendation-to-classify-sensitive-data-in-sql-databases)
+
+
+### Recommendations to enable Microsoft Defender plans on workspaces (in preview)
+
+To benefit from all of the security features available from [Microsoft Defender for servers](defender-for-servers-introduction.md) and [Microsoft Defender for SQL on machines](defender-for-sql-introduction.md), the plans must be enabled on **both** the subscription and workspace levels. 
+
+When a machine is in a subscription with one of these plan enabled, you'll be billed for the full protections. However, if that machine is reporting to a workspace *without* the plan enabled, you won't actually receive those benefits. 
+
+We've added two recommendations that highlight workspaces without these plans enabled, that nevertheless have machines reporting to them from subscriptions that *do* have the plan enabled. 
+
+The two recommendations, which both offer automated remediation (the 'Fix' action), are:
+
+|Recommendation |Description |Severity |
+|---|---|---|
+|[Microsoft Defender for servers should be enabled on workspaces](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1ce68079-b783-4404-b341-d2851d6f0fa2) |Microsoft Defender for servers brings threat detection and advanced defenses for your Windows and Linux machines.<br>With this Defender plan enabled on your subscriptions but not on your workspaces, you're paying for the full capability of Microsoft Defender for servers but missing out on some of the benefits.<br>When you enable Microsoft Defender for servers on a workspace, all machines reporting to that workspace will be billed for Microsoft Defender for servers - even if they're in subscriptions without Defender plans enabled. Unless you also enable Microsoft Defender for servers on the subscription, those machines won't be able to take advantage of just-in-time VM access, adaptive application controls, and network detections for Azure resources.<br>Learn more in <a target="_blank" href="/azure/defender-for-cloud/defender-for-servers-introduction?wt.mc_id=defenderforcloud_inproduct_portal_recoremediation">Introduction to Microsoft Defender for servers</a>.<br />(No related policy) |Medium |
+|[Microsoft Defender for SQL on machines should be enabled on workspaces](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e9c320f1-03a0-4d2b-9a37-84b3bdc2e281) |Microsoft Defender for servers brings threat detection and advanced defenses for your Windows and Linux machines.<br>With this Defender plan enabled on your subscriptions but not on your workspaces, you're paying for the full capability of Microsoft Defender for servers but missing out on some of the benefits.<br>When you enable Microsoft Defender for servers on a workspace, all machines reporting to that workspace will be billed for Microsoft Defender for servers - even if they're in subscriptions without Defender plans enabled. Unless you also enable Microsoft Defender for servers on the subscription, those machines won't be able to take advantage of just-in-time VM access, adaptive application controls, and network detections for Azure resources.<br>Learn more in <a target="_blank" href="/azure/defender-for-cloud/defender-for-servers-introduction?wt.mc_id=defenderforcloud_inproduct_portal_recoremediation">Introduction to Microsoft Defender for servers</a>.<br />(No related policy) |Medium |
+||||
+
+
+### Auto provision Log Analytics agent to Azure Arc-enabled machines (preview)
+
+Defender for Cloud uses the Log Analytics agent to gather security-related data from machines. The agent reads various security-related configurations and event logs and copies the data to your workspace for analysis.
+
+Defender for Cloud's auto provisioning settings have a toggle for each type of supported extension, including the Log Analytics agent. 
+
+In a further expansion of our hybrid cloud features, we've added an option to auto provision the Log Analytics agent to machines connected to Azure Arc. 
+
+As with the other other auto provisioning options, this is configured at the subscription level.
+
+When you enable this option, you'll be prompted for the workspace. 
+
+> [!NOTE]
+> For this preview, you can't select the default workspaces that was created by Defender for Cloud. To ensure you receive the full set of security features available for the Azure Arc-enabled servers, verify that you have the relevant security solution installed on the selected workspace.
+
+:::image type="content" source="media/release-notes/auto-provisioning-agent-toggle.jpg" alt-text="Screenshot of how to auto provision the Log Analytics agent to your Azure Arc-enabled machines." lightbox="./media/release-notes/auto-provisioning-agent-toggle.jpg":::
+
+### Deprecated the recommendation to classify sensitive data in SQL databases
+
+We've removed the recommendation **Sensitive data in your SQL databases should be classified** as part of an overhaul of how Defender for Cloud identifies and protects sensitive date in your cloud resources.
+
+Advance notice of this change appeared for the last six months in the [Important upcoming changes to Microsoft Defender for Cloud](upcoming-changes.md) page.
+
+
 ## December 2021
 
 Updates in December include:
@@ -30,7 +81,7 @@ Updates in December include:
 
 Over two years ago, we introduced [Defender for Kubernetes](defender-for-kubernetes-introduction.md) and [Defender for container registries](defender-for-container-registries-introduction.md) as part of the Azure Defender offering within Microsoft Defender for Cloud.
 
-With the release of [Microsoft Defender for Containers](defender-for-containers-introduction.md), we're merging these two existing Defender plans. 
+With the release of [Microsoft Defender for Containers](defender-for-containers-introduction.md), we've merged these two existing Defender plans. 
 
 The new plan:
 
@@ -38,10 +89,10 @@ The new plan:
 - **Brings new and improved features** - including multi-cloud support, host level threat detection with over **sixty** new Kubernetes-aware analytics, and vulnerability assessment for running images
 - **Introduces Kubernetes-native at-scale onboarding** - by default, when you enable the plan all relevant components are configured to be deployed automatically
 
-With this release, the availability and presentation of Defender for Kubernetes and Defender for container registries will change as follows:
+With this release, the availability and presentation of Defender for Kubernetes and Defender for container registries has changed as follows:
 
-- New subscriptions - The two previous container plans will no longer be offered
-- Existing subscriptions - Wherever they appear in the Azure portal, the plans will be shown as **Deprecated** with instructions for how to upgrade to the newer plan
+- New subscriptions - The two previous container plans are no longer available
+- Existing subscriptions - Wherever they appear in the Azure portal, the plans are shown as **Deprecated** with instructions for how to upgrade to the newer plan
     :::image type="content" source="media/release-notes/defender-plans-deprecated-indicator.png" alt-text="Defender for container registries and Defender for Kubernetes plans showing 'Deprecated' and upgrade information.":::
 
 The new plan is free for the month of December 2021. For the potential changes to the billing from the old plans to Defender for Containers, and for more details on the benefits introduced with this plan, see [Introducing Microsoft Defender for Containers](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/introducing-microsoft-defender-for-containers/ba-p/2952317).
@@ -155,6 +206,7 @@ Other changes in November include:
 - [Snapshot export for recommendations and security findings (in preview)](#snapshot-export-for-recommendations-and-security-findings-in-preview)
 - [Auto provisioning of vulnerability assessment solutions released for general availability (GA)](#auto-provisioning-of-vulnerability-assessment-solutions-released-for-general-availability-ga)
 - [Software inventory filters in asset inventory released for general availability (GA)](#software-inventory-filters-in-asset-inventory-released-for-general-availability-ga)
+- [New AKS security policy added to default initiative – for use by private preview customers only](#new-aks-security-policy-added-to-default-initiative--for-use-by-private-preview-customers-only)
 - [Inventory display of on-premises machines applies different template for resource name](#inventory-display-of-on-premises-machines-applies-different-template-for-resource-name)
 
 
@@ -214,7 +266,7 @@ Learn more in [Introduction to Azure Security Benchmark](/security/benchmark/azu
 
 ### Microsoft Sentinel connector's optional bi-directional alert synchronization released for general availability (GA)
 
-In July, [we announced](#azure-sentinel-connector-now-includes-optional-bi-directional-alert-synchronization-in-preview) a preview feature, **bi-directional alert synchronization**, for the built-in connector in [Microsoft Sentinel](../sentinel/index.yml) (Microsoft's cloud-native SIEM and SOAR solution). This feature is now released for general availability (GA).
+In July, [we announced](release-notes-archive.md#azure-sentinel-connector-now-includes-optional-bi-directional-alert-synchronization-in-preview) a preview feature, **bi-directional alert synchronization**, for the built-in connector in [Microsoft Sentinel](../sentinel/index.yml) (Microsoft's cloud-native SIEM and SOAR solution). This feature is now released for general availability (GA).
 
 When you connect Microsoft Defender for Cloud to Microsoft Sentinel, the status of security alerts is synchronized between the two services. So, for example, when an alert is closed in Defender for Cloud, that alert will display as closed in Microsoft Sentinel as well. Changing the status of an alert in Defender for Cloud won't affect the status of any Microsoft Sentinel **incidents** that contain the synchronized Microsoft Sentinel alert, only that of the synchronized alert itself.
 
@@ -374,7 +426,7 @@ For full details, including sample Kusto queries for Azure Resource Graph, see [
 
 ### Changed prefix of some alert types from "ARM_" to "VM_" 
 
-In July 2021, we announced a [logical reorganization of Azure Defender for Resource Manager alerts](release-notes.md#logical-reorganization-of-azure-defender-for-resource-manager-alerts) 
+In July 2021, we announced a [logical reorganization of Azure Defender for Resource Manager alerts](release-notes-archive.md#logical-reorganization-of-azure-defender-for-resource-manager-alerts) 
 
 As part of a logical reorganization of some of the Azure Defender plans, we moved twenty-one alerts from [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) to [Azure Defender for servers](defender-for-servers-introduction.md).
 
@@ -607,125 +659,3 @@ The recommendations page now has two tabs to provide alternate ways to view the 
 - **All recommendations** - Use this tab to view the list of recommendations as a flat list. This tab is also great for understanding which initiative (including regulatory compliance standards) generated the recommendation. Learn more about initiatives and their relationship to recommendations in [What are security policies, initiatives, and recommendations?](security-policy-concept.md).
 
 :::image type="content" source="media/release-notes/recommendations-tabs.png" alt-text="Tabs to change the view of the recommendations list in Azure Security Center.":::
-
-## July 2021
-
-Updates in July include:
-
-- [Azure Sentinel connector now includes optional bi-directional alert synchronization (in preview)](#azure-sentinel-connector-now-includes-optional-bi-directional-alert-synchronization-in-preview)
-- [Logical reorganization of Azure Defender for Resource Manager alerts](#logical-reorganization-of-azure-defender-for-resource-manager-alerts)                                           
-- [Enhancements to recommendation to enable Azure Disk Encryption (ADE)](#enhancements-to-recommendation-to-enable-azure-disk-encryption-ade)                                     
-- [Continuous export of secure score and regulatory compliance data released for general availability (GA)](#continuous-export-of-secure-score-and-regulatory-compliance-data-released-for-general-availability-ga)
-- [Workflow automations can be triggered by changes to regulatory compliance assessments (GA)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-ga)
-- [Assessments API field 'FirstEvaluationDate' and 'StatusChangeDate' now available in workspace schemas and logic apps](#assessments-api-field-firstevaluationdate-and-statuschangedate-now-available-in-workspace-schemas-and-logic-apps)
-- ['Compliance over time' workbook template added to Azure Monitor Workbooks gallery](#compliance-over-time-workbook-template-added-to-azure-monitor-workbooks-gallery)
-
-### Azure Sentinel connector now includes optional bi-directional alert synchronization (in preview)
-
-Security Center natively integrates with [Azure Sentinel](../sentinel/index.yml), Azure's cloud-native SIEM and SOAR solution. 
-
-Azure Sentinel includes built-in connectors for Azure Security Center at the subscription and tenant levels. Learn more in [Stream alerts to Azure Sentinel](export-to-siem.md#stream-alerts-to-microsoft-sentinel).
-
-When you connect Azure Defender to Azure Sentinel, the status of Azure Defender alerts that get ingested into Azure Sentinel is synchronized between the two services. So, for example, when an alert is closed in Azure Defender, that alert will display as closed in Azure Sentinel as well. Changing the status of an alert in Azure Defender "won't"* affect the status of any Azure Sentinel **incidents** that contain the synchronized Azure Sentinel alert, only that of the synchronized alert itself.
-
-Enabling this preview feature, **bi-directional alert synchronization**, will automatically sync the status of the original Azure Defender alerts with Azure Sentinel incidents that contain the copies of those Azure Defender alerts. So, for example, when an Azure Sentinel incident containing an Azure Defender alert is closed, Azure Defender will automatically close the corresponding original alert.
-
-Learn more in [Connect Azure Defender alerts from Azure Security Center](../sentinel/connect-azure-security-center.md).
-
-### Logical reorganization of Azure Defender for Resource Manager alerts
-
-The alerts listed below were provided as part of the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) plan.
-
-As part of a logical reorganization of some of the Azure Defender plans, we've moved some alerts from **Azure Defender for Resource Manager** to **Azure Defender for servers**.
-
-The alerts are organized according to two main principles:
-
-- Alerts that provide control-plane protection - across many Azure resource types - are part of Azure Defender for Resource Manager
-- Alerts that protect specific workloads are in the Azure Defender plan that relates to the corresponding workload
-
-These are the alerts that were part of Azure Defender for Resource Manager, and which, as a result of this change, are now part of Azure Defender for servers:
-
-- ARM_AmBroadFilesExclusion
-- ARM_AmDisablementAndCodeExecution
-- ARM_AmDisablement
-- ARM_AmFileExclusionAndCodeExecution
-- ARM_AmTempFileExclusionAndCodeExecution
-- ARM_AmTempFileExclusion
-- ARM_AmRealtimeProtectionDisabled
-- ARM_AmTempRealtimeProtectionDisablement
-- ARM_AmRealtimeProtectionDisablementAndCodeExec
-- ARM_AmMalwareCampaignRelatedExclusion
-- ARM_AmTemporarilyDisablement
-- ARM_UnusualAmFileExclusion
-- ARM_CustomScriptExtensionSuspiciousCmd
-- ARM_CustomScriptExtensionSuspiciousEntryPoint
-- ARM_CustomScriptExtensionSuspiciousPayload
-- ARM_CustomScriptExtensionSuspiciousFailure
-- ARM_CustomScriptExtensionUnusualDeletion
-- ARM_CustomScriptExtensionUnusualExecution
-- ARM_VMAccessUnusualConfigReset
-- ARM_VMAccessUnusualPasswordReset
-- ARM_VMAccessUnusualSSHReset
-
-Learn more about the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Azure Defender for servers](defender-for-servers-introduction.md) plans.
-
-
-### Enhancements to recommendation to enable Azure Disk Encryption (ADE)
-
-Following user feedback, we've renamed the recommendation **Disk encryption should be applied on virtual machines**.
-
-The new recommendation uses the same assessment ID and is called **Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources**.
-
-The description has also been updated to better explain the purpose of this hardening recommendation:
-
-| Recommendation                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Severity |
-|--------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------:|
-| **Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources** | By default, a virtual machine’s OS and data disks are encrypted-at-rest using platform-managed keys; temp disks and data caches aren’t encrypted, and data isn’t encrypted when flowing between compute and storage resources. For a comparison of different disk encryption technologies in Azure, see https://aka.ms/diskencryptioncomparison.<br>Use Azure Disk Encryption to encrypt all this data. Disregard this recommendation if: (1) you’re using the encryption-at-host feature, or (2) server-side encryption on Managed Disks meets your security requirements. Learn more in Server-side encryption of Azure Disk Storage. | High     |
-|                                                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |          |
-
-
-### Continuous export of secure score and regulatory compliance data released for general availability (GA)
-
-[Continuous export](continuous-export.md) provides the mechanism for exporting your security alerts and recommendations for tracking with other monitoring tools in your environment.
-
-When you set up your continuous export, you configure what is exported, and where it will go. Learn more in the [overview of continuous export](continuous-export.md).
-
-We've enhanced and expanded this feature over time:
-
-- In November 2020, we added the **preview** option to stream changes to your **secure score**.<br/>For full details, see [Secure score is now available in continuous export (preview)](release-notes-archive.md#secure-score-is-now-available-in-continuous-export-preview).
-
-- In December 2020, we added the **preview** option to stream changes to your **regulatory compliance assessment data**.<br/>For full details, see [Continuous export gets new data types (preview)](release-notes-archive.md#continuous-export-gets-new-data-types-and-improved-deployifnotexist-policies).
-
-With this update, these two options are released for general availability (GA). 
-
-
-### Workflow automations can be triggered by changes to regulatory compliance assessments (GA)
-
-In February 2021, we added a **preview** third data type to the trigger options for your workflow automations: changes to regulatory compliance assessments. Learn more in [Workflow automations can be triggered by changes to regulatory compliance assessments](release-notes-archive.md#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview).
-
-With this update, this trigger option is released for general availability (GA).
-
-Learn how to use the workflow automation tools in [Automate responses to Security Center triggers](workflow-automation.md).
-
-:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Using changes to regulatory compliance assessments to trigger a workflow automation." lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
-
-### Assessments API field 'FirstEvaluationDate' and 'StatusChangeDate' now available in workspace schemas and logic apps
-
-In May 2021, we updated the Assessment API with two new fields, **FirstEvaluationDate** and **StatusChangeDate**. For full details, see [Assessments API expanded with two new fields](release-notes-archive.md#assessments-api-expanded-with-two-new-fields).
-
-Those fields were accessible through the REST API, Azure Resource Graph, continuous export, and in CSV exports.
-
-With this change, we're making the information available in the Log Analytics workspace schema and from logic apps.
-
-
-### 'Compliance over time' workbook template added to Azure Monitor Workbooks gallery
-
-In March, we announced the integrated Azure Monitor Workbooks experience in Security Center (see [Azure Monitor Workbooks integrated into Security Center and three templates provided](release-notes-archive.md#azure-monitor-workbooks-integrated-into-security-center-and-three-templates-provided)).
-
-The initial release included three templates to build dynamic and visual reports about your organization's security posture.
-
-We've now added a workbook dedicated to tracking a subscription's compliance with the regulatory or industry standards applied to it. 
-
-Learn about using these reports or building your own in [Create rich, interactive reports of Security Center data](custom-dashboards-azure-workbooks.md).
-
-:::image type="content" source="media/custom-dashboards-azure-workbooks/compliance-over-time-details.png" alt-text="Azure Security Center's compliance over time workbook":::

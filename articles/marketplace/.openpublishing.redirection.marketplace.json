@@ -1941,6 +1941,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/marketplace/revenue-dashboard-faq.yml",
+            "redirect_url": "/azure/marketplace/analytics-faq",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/marketplace/seller-guide/cloud-partner-portal-seller-guide.md",
             "redirect_url": "/azure/marketplace/overview",
             "redirect_document_id": false

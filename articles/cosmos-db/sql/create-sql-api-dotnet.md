@@ -5,10 +5,10 @@ author: anfeldma-ms
 ms.author: anfeldma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 08/26/2021
-ms.custom: devx-track-dotnet, devx-track-azurecli, mode-api
+ms.custom: devx-track-csharp, devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Build a .NET console app to manage Azure Cosmos DB SQL API resources

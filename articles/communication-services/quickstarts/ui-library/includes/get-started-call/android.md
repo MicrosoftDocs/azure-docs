@@ -8,6 +8,8 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
+[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
+
 Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-library-quick-start)
 
 
@@ -55,7 +57,9 @@ dependencies {
 }
 ```
 
-In your project gradle scripts add following lines to `repositories`. For `Android Studio (2020.*)` the `repositories` are in `settings.gradle` `dependencyResolutionManagement(Gradle version 6.8 or greater)`. If you are using old versions of `Android Studio (4.*)` then the `repositories` will be in project level `build.gradle` `allprojects{}`.
+In your project gradle scripts add following lines to `repositories`.  
+For `Android Studio (2020.*)` the `repositories` are in `settings.gradle` `dependencyResolutionManagement(Gradle version 6.8 or greater)`.  
+If you are using old versions of `Android Studio (4.*)` then the `repositories` will be in project level `build.gradle` `allprojects{}`.  
 
 ```groovy
 repositories {
@@ -408,3 +412,7 @@ CallComposite callComposite =
         .theme(new ThemeConfiguration(R.style.MyCompany_CallComposite))
         .build();
 ```
+
+### Add notifications into your mobile app
+
+The push notifications allow you to send information from your application to users' mobile devices. You can use push notifications to show a dialog, play a sound, or display incoming call UI. Azure Communication Services provides integrations with [Azure Event Grid](../../../../../event-grid/overview.md) and [Azure Notification Hubs](../../../../../notification-hubs/notification-hubs-push-notification-overview.md) that enable you to add push notifications to your apps [follow the link.](../../../../concepts/notifications.md)
