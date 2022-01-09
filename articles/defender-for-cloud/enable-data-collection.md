@@ -11,6 +11,8 @@ ms.custom: mode-other
 
 Microsoft Defender for Cloud collects data from your resources using the relevant agent or extensions for that resource and the type of data collection you've enabled. Use the procedures below to ensure your resources have the necessary agents and extensions used by Defender for Cloud.
 
+:::image type="content" source="media/enable-data-collection/auto-provisioning-list-of-extensions.png" alt-text="Screenshot of Microsoft Defender for Cloud's extensions that can be auto provisioned.":::
+
 ## Prerequisites
 To get started with Defender for Cloud, you must have a subscription to Microsoft Azure. If you don't have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
