@@ -15,7 +15,7 @@ ms.author: v-baolianzou
 # Migrate from custom voice to custom neural voice
 
 > [!IMPORTANT]
-> We are retiring the standard/non-neural training tier of custom voice on **February 29, 2024**. During the retiring period (3/1/2021 - 2/29/2024), existing standard tier users can continue to use their non-neural models created, but all new users/new speech resources should move to the neural tier/custom neural voice. After 2/29/2024, all standard/non-neural custom voices will no longer be supported. 
+> We are retiring the standard/non-neural training tier of custom voice on February 29, 2024. During the retiring period (3/1/2021 - 2/29/2024), existing standard tier users can continue to use their non-neural models created, but all new users who sign up for speech resources from **3/1/2021** should move to the neural tier/custom neural voice. After 2/29/2024, all standard/non-neural custom voices will no longer be supported. 
 
 The custom neural voice lets you build higher-quality voice models while requiring less data. You can develop more realistic, natural, and conversational voices. Your customers and end users will benefit from the latest Text-to-Speech technology, in a responsible way. 
 
