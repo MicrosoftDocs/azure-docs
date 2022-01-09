@@ -39,7 +39,7 @@ Host-level threat detection for your Linux AKS nodes is available if you enable 
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)<br>Protections for EKS clusters are preview. [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
-|Pricing:|**Microsoft Defender for Kubernetes** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).<br>**Containers plan** for EKS clusters in connected AWS accounts is free while it's in preview.|
+|Pricing:|**Microsoft Defender for Kubernetes** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).<br>**Containers plan** for EKS clusters in connected AWS accounts is free while it's in preview.|
 |Required roles and permissions:|**Security admin** can dismiss alerts.<br>**Security reader** can view findings.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts (Preview)|
 |||

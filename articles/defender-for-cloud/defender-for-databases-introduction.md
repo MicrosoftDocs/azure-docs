@@ -22,7 +22,7 @@ Defender for Cloud detects anomalous activities indicating unusual and potential
 | Aspect                             | Details                                                                                                                                    |
 |------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
 | Release state:                     | General availability (GA)                                                     |
-| Pricing:                           | **Microsoft Defender for open-source relational databases** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/security-center/)   |
+| Pricing:                           | **Microsoft Defender for open-source relational databases** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)   |
 | Protected versions of PostgreSQL:  | Single Server - General Purpose and Memory Optimized. Learn more in [PostgreSQL pricing tiers](../postgresql/concepts-pricing-tiers.md).   |
 | Protected versions of MySQL:       | Single Server - General Purpose and Memory Optimized. Learn more in [MySQL pricing tiers](../mysql/concepts-pricing-tiers.md).                        |
 | Protected versions of MariaDB:     | General Purpose and Memory Optimized. Learn more in [MariaDB pricing tiers](../mariadb/concepts-pricing-tiers.md).                      |

@@ -90,7 +90,7 @@ The two **tabs** below show the features of Microsoft Defender for Cloud that ar
 --- 
 
 > [!TIP]
->To experiment with features that are only available with enhanced security features enabled, you can enroll in a 30-day trial. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+>To experiment with features that are only available with enhanced security features enabled, you can enroll in a 30-day trial. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 
 ## Supported endpoint protection solutions <a name="endpoint-supported"></a>

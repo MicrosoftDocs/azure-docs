@@ -28,7 +28,7 @@ sections:
           
           - **All Microsoft Defender for Cloud plans enabled** – Defender for Cloud enables the "Security" solution on the default workspace.
           
-          For pricing details in your local currency or region, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+          For pricing details in your local currency or region, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
           
           > [!NOTE]
           > The log analytics pricing tier of workspaces created by Defender for Cloud does not affect Defender for Cloud billing.
