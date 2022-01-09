@@ -546,9 +546,9 @@ Learn more about the [Defender for IoT micro agent](../defender-for-iot/device-b
 
 1. Select your device.
 
-    :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/select-device.png" alt-text="Screenshow showing where your device is located for selection.":::
+    :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/select-device.png" alt-text="Screenshot showing where your device is located for selection.":::
 
-1. Select the `DefenderIotMicroAgent` module twin that you created from [these instruction](../defender-for-iot/device-builders/quickstart-create-micro-agent-module-twin.md#create-defenderiotmicroagent-module-twin).
+1. Select the `DefenderIotMicroAgent` module twin that you created from [these instructions](../defender-for-iot/device-builders/quickstart-create-micro-agent-module-twin.md#create-defenderiotmicroagent-module-twin).
 
     :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/defender-micro-agent.png" alt-text="Screenshot showing the location of the DefenderIotMicroAgent.":::
 
@@ -582,7 +582,7 @@ Learn more about the [Defender for IoT micro agent](../defender-for-iot/device-b
 
 1. Select the parent device from the displayed list.
 
-1. Ensure that port 8883 (MQTT) between the leaf device, and the IoT Edge device is open.
+1. Ensure that port 8883 (MQTT) between the leaf device and the IoT Edge device is open.
 
 ## Next steps
 
