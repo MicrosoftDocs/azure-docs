@@ -586,7 +586,7 @@ Learn more about the [Defender for IoT micro agent](../defender-for-iot/device-b
 
 1. Select the parent device from the displayed list.
 
-1. Ensure that port 8883 (MQTT) between the leaf device, and the edge device is open.
+1. Ensure that port 8883 (MQTT) between the leaf device, and the IoT Edge device is open.
 
 ## Next steps
 
