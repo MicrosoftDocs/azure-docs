@@ -274,7 +274,7 @@ Make sure that there is no [SCP policy](https://docs.aws.amazon.com/organization
 For example, your SCP policy might block read API calls from the [AWS scanning region](#storage-and-scanning-regions). 
 
 - Required API calls, which must be allowed by your SCP policy, include: `AssumeRole`, `GetBucketLocation`, `GetObject`, `ListBucket`, `GetBucketPublicAccessBlock`. 
-- Your SCP policy must also allow calls to the **us-east-1** AWS scanning region, as this region has global API endpoints that are required for the AssumeRole and API calls.
+- Your SCP policy must also allow calls to the **us-east-1** AWS Region, which is the default Region for API calls. For more information, see the [AWS documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html).
 
 Follow the [SCP documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_create.html), review your organization’s SCP policies, and make sure all the [permissions required for the Purview scanner](#create-a-new-aws-role-for-purview) are available.
 
