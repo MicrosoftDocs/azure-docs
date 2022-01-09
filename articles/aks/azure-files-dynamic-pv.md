@@ -45,7 +45,7 @@ kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
   name: my-azurefile
-provisioner: file.csi.azure.com # replace with "kubernetes.io/azure-file" if aks version is below than 1.21
+provisioner: file.csi.azure.com # replace with "kubernetes.io/azure-file" if aks version is less than 1.21
 mountOptions:
   - dir_mode=0777
   - file_mode=0777
@@ -171,7 +171,7 @@ kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
   name: my-azurefile
-provisioner: file.csi.azure.com # replace with "kubernetes.io/azure-file" if aks version is below than 1.21
+provisioner: file.csi.azure.com # replace with "kubernetes.io/azure-file" if aks version is less than 1.21
 mountOptions:
   - dir_mode=0777
   - file_mode=0777
