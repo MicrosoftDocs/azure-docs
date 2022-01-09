@@ -1,6 +1,6 @@
 ---
-title: Advanced SIEM Information Model (ASIM) content | Microsoft Docs
-description: This article outlines the Microsoft Sentinel content that utilized Advanced SIEM Information Model (ASIM)
+title: Advanced SIEM Information Model (ASIM) security content | Microsoft Docs
+description: This article outlines the Microsoft Sentinel security content that uses the Advanced SIEM Information Model (ASIM).
 author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
