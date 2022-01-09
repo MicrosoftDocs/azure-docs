@@ -3,115 +3,71 @@ title: Language identification - Speech service
 titleSuffix: Azure Cognitive Services
 description: Language identification is used to determine the language being spoken in audio passed to the Speech SDK when compared against a list of provided languages.
 services: cognitive-services
-author: laujan
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/27/2021
-ms.author: lajanuar
+ms.date: 01/09/2022
+ms.author: eur
 zone_pivot_groups: programming-languages-cs-cpp-py
 ---
 
-# Language identification (Preview)
+# Language identification
 
-Language identification is used to determine the language being spoken in audio passed to the Speech SDK when compared against a list of provided languages. 
+Language identification is used to determine the language being spoken in audio when compared against a list of [supported languages](language-support.md). 
 
-Language identification can also be used while doing [speech translation](./get-started-speech-translation.md#multi-lingual-translation-with-language-identification), or by doing [language identification during speech recognition](./how-to-automatic-language-detection.md). 
+Language identification can be used in 3 ways:
+* LID by itself (standalone LID, no SR or Translation coupled): this is the SourceLanguageRecognizer API
+* LID with STT (LID picks the language and automatically calls the correct SR model): This is the SpeechRecognizer API
+* LID with Speech Translation (LID picks the language and automatically calls the correct SR model and then MT model): This is the TranslationRecognizer API
 
-To see which languages are available, see [Language support](language-support.md).
 
-## Prerequisites
 
-This article assumes you have an Azure subscription and speech resource, and also assumes knowledge of speech recognition basics.
+The way LID works is that customers select a few ‘candidate’ languages, i.e. languages that might be in their audio, and we select the correct among those. That limit is 4 languages for At-start LID, and 10 languages for Continuous LID. If the language detected is not among the candidates, we return unknown.
 
-## Standalone language identification
+LID does not differentiate between different locales of the same language (e.g. en-US vs. en-GB). Only the general language is detected (in the example, ‘English’).
 
-In uses cases where you only want to detect the source language being spoken, you can use standalone language identification as shown in the following code sample. `SourceLanguageRecognizer` can also be used in continuous recognition scenarios.
+## At-start and Continuous language identification
 
-::: zone pivot="programming-language-csharp"
+We have 2 types of LID:
 
-```csharp
-using Microsoft.CognitiveServices.Speech;
-using Microsoft.CognitiveServices.Speech.Audio;
+* At-start LID (also known as one-shot, or single-shot): identifies the language within the first few seconds of audio, and makes only one determination per audio
+* Continuous LID: identifies the language(s) throughout the whole audio (can detect language switches, whereas at-start LID cannot)
 
-var speechConfig = SpeechConfig.FromSubscription("<paste-your-subscription-key>","<paste-your-region>");
-// can switch "Latency" to "Accuracy" depending on priority
-speechConfig.SetProperty(PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, "Latency");
+How to choose LID type.
+* For multi-language audio, they should select Continuous LID, since At-start LID can only detect one language. However, if the languages are mixed together, Continuous LID will still not work well (needs a few seconds per language).
+* For single-language audio, they can use At-Start LID.
 
-var autoDetectSourceLanguageConfig =
-    AutoDetectSourceLanguageConfig.FromLanguages(
-        new string[] { "en-US", "de-DE" });
 
-using (var recognizer = new SourceLanguageRecognizer(speechConfig, autoDetectSourceLanguageConfig))
-{
-    var result = await recognizer.RecognizeOnceAsync();
-    if (result.Reason == ResultReason.RecognizedSpeech)
-    {
-        var lang = AutoDetectSourceLanguageResult.FromResult(result).Language;
-        Console.WriteLine($"DETECTED: Language={lang}");
-    }
-}
-```
+## Accuracy and Latency prioritization
 
-See the [sample on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/standalone_language_detection_samples.cs) for more examples of standalone language identification, including an example of continuous identification.
+Accuracy vs. Latency modes are self-explanatory: if they want low latency (e.g. real-time scenario), they should pick latency mode. If they can accept higher latency, they can pick accuracy mode.
 
-::: zone-end
+For each type of LID, we have two options for what to prioritize:
+* Latency: 
+- For at-start, the result is returned in less than 5 seconds
+- For continuous, LID returns the language every 2 seconds for the whole audio
+- `Latency` is the best option to use if you need a low-latency result (e.g. for live streaming scenarios), but don't know the language in the audio sample. 
 
-::: zone pivot="programming-language-cpp"
+* Accuracy:
+- For at-start, the result is returned in 30 seconds
+- For continuous, the result is returned slower / we do not make any commitment
+- `Accuracy` should be used in scenarios where the audio quality may be poor, and more latency is acceptable. For example, a voicemail could have background noise, or some silence at the beginning, and allowing the engine more time will improve recognition results.
 
-```cpp
-using namespace std;
-using namespace Microsoft::CognitiveServices::Speech;
-using namespace Microsoft::CognitiveServices::Speech::Audio;
+In either case, at-start recognition should **not be used** for scenarios where the language may be changing within the same audio sample. 
 
-auto config = SpeechConfig::FromSubscription("<paste-your-subscription-key>","<paste-your-region>");
-config->SetProperty(PropertyId::SpeechServiceConnection_SingleLanguageIdPriority, "Latency");
+LID Latency mode picks one of the languages provided, regardless of if the language is spoken (e.g. if French and English are passed as candidates, but German is spoken, LID would pick one of the two languages). LID Accuracy mode returns ‘unknown’ when the language has low confidence (in the example scenario, it would return “Unknown”).
 
-auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "de-DE" });
 
-auto recognizer = SourceLanguageRecognizer::FromConfig(config, autoDetectSourceLanguageConfig);
-cout << "Say something...\n";
 
-auto result = recognizer->RecognizeOnceAsync().get();
-if (result->Reason == ResultReason::RecognizedSpeech)
-{
-    auto lidResult = AutoDetectSourceLanguageResult::FromResult(result);
-    cout << "DETECTED: Language="<< lidResult->Language << std::endl;
-}
-```
 
-See the [sample on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/standalone_language_detection_samples.cpp) for more examples of standalone language identification, including an example of continuous identification.
+## Sample
 
-::: zone-end
+At-start LID
+- Latency: config.SetProperty(PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, "Latency");
+- Accuracy: config.SetProperty(PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, "Accuracy");
+Continuous LID
+- Latency: config.SetProperty(PropertyId.SpeechServiceConnection_ContinuousLanguageIdPriority, "Latency");
+- Accuracy (not in the sample): config.SetProperty(PropertyId.SpeechServiceConnection_ContinuousLanguageIdPriority, "Accuracy");
 
-::: zone pivot="programming-language-python"
-
-```python
-import azure.cognitiveservices.speech as speechsdk
-
-speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
-    
-speech_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, value='Accuracy')
-
-speech_language_detection = speechsdk.SourceLanguageRecognizer(speech_config=speech_config, auto_detect_source_language_config=auto_detect_source_language_config)
-
-result = speech_language_detection.recognize_once()
-
-# Check the result
-if result.reason == speechsdk.ResultReason.RecognizedSpeech:
-    print("RECOGNIZED: {}".format(result))
-    detectedSrcLang = result.properties[speechsdk.PropertyId.SpeechServiceConnection_AutoDetectSourceLanguageResult]
-    print("Detected Language: {}".format(detectedSrcLang))
-elif result.reason == speechsdk.ResultReason.NoMatch:
-    print("No speech could be recognized")
-elif result.reason == speechsdk.ResultReason.Canceled:
-    cancellation_details = result.cancellation_details
-    print("Speech Recognition canceled: {}".format(cancellation_details.reason))
-    if cancellation_details.reason == speechsdk.CancellationReason.Error:
-        print("Error details: {}".format(cancellation_details.error_details))
-```
-
-See the [sample on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_language_detection_sample.py) for more examples of standalone language identification, including an example of continuous identification.
-
-::: zone-end

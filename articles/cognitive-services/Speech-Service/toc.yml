@@ -34,10 +34,6 @@ items:
           displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
         - name: Select a specific microphone input device
           href: how-to-select-audio-input-devices.md
-        - name: Language identification
-          href: language-identification.md
-        - name: Use language identification
-          href: how-to-automatic-language-detection.md
         - name: Use the batch transcription API
           href: batch-transcription.md
         - name: Use Pronunciation Assessment
@@ -280,6 +276,16 @@ items:
           href: regions.md#speech-to-text-text-to-speech-and-translation
         - name: Speech translation FAQ
           href: https://www.microsoft.com/translator/faq.aspx
+- name: Language identification
+  items:
+    - name: Language identification overview
+      href: language-identification.md
+    - name: Standalone language identification
+      href: language-identification-standalone.md
+    - name: Speech-to-text language identification
+      href: language-identification-speech-to-text.md
+    - name: Speech translation language identification
+      href: language-identification-speech-translation.md
 - name: Intent recognition
   items:
     - name: Intent recognition documentation
