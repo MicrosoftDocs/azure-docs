@@ -27,13 +27,14 @@ When you open Microsoft Sentinel, you are presented with a list of all the works
 
 Note that in the list of workspaces, you can see the directory, subscription, location, and resource group associated with each workspace. The directory corresponds to the tenant.
 
-![Choose multiple workspaces](./media/multiple-workspace-view/workspaces.png)
+:::image type="content" source="./media/multiple-workspace-view/workspaces.png" alt-text="Select multiple workspaces." lightbox="./media/multiple-workspace-view/workspaces.png":::
 
 ## Working with incidents
 
 Multiple workspace view is currently available only for incidents. This page looks and functions in most ways like the regular [Incidents](investigate-cases.md) page, with the following important differences:
 
-![View incidents in multiple workspaces](./media/multiple-workspace-view/incidents.png)
+:::image type="content" source="./media/multiple-workspace-view/incidents.png" alt-text="View incidents across multiple workspaces." lightbox="./media/multiple-workspace-view/incidents.png":::
+
 
 - The counters at the top of the page - *Open incidents*, *New incidents*, *Active incidents*, etc. - show the numbers for all of the selected workspaces collectively.
 
