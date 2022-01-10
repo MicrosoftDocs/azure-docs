@@ -185,50 +185,60 @@ Agent running. [main]
 
 ## Create update group
 
-1. Go to the IoT Hub you previously connected to your Device Update instance.
+1. Go to the Groups and Deployments tab at the top of the page. 
+   :::image type="content" source="media/create-update-group/ungrouped-devices.png" alt-text="Screenshot of ungrouped devices." lightbox="media/create-update-group/ungrouped-devices.png":::
 
-2. Select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
+2. Select the "Add group" button to create a new group.
+   :::image type="content" source="media/create-update-group/add-group.png" alt-text="Screenshot of device group addition." lightbox="media/create-update-group/add-group.png":::
 
-3. Select the Groups tab at the top of the page. 
+3. Select an IoT Hub tag and Device Class from the list and then select Create group.
+   :::image type="content" source="media/create-update-group/select-tag.png" alt-text="Screenshot of tag selection." lightbox="media/create-update-group/select-tag.png":::
 
-4. Select the Add button to create a new group.
+4. Once the group is created, you will see that the update compliance chart and groups list are updated.  Update compliance chart shows the count of devices in various states of compliance: On latest update, New updates available, and Updates in Progress. [Learn  about update compliance.](device-update-compliance.md)
+   :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot of update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
-5. Select the IoT Hub tag you created in the previous step from the list. Select Create update group.
-
-   :::image type="content" source="media/create-update-group/select-tag.PNG" alt-text="Screenshot showing tag selection." lightbox="media/create-update-group/select-tag.PNG":::
+5. You should see your newly created group and any available updates for the devices in the new group. If there are devices that don't meet the device class requirements of the group, they will show up in a corresponding invalid group. You can deploy the best available update to the new user-defined group from this view by clicking on the "Deploy" button next to the group.
 
 [Learn more](create-update-group.md) about adding tags and creating update groups
 
 
 ## Deploy update
 
-1. Once the group is created, you should see a new update available for your device group, with a link to the update under Pending Updates. You may need to Refresh once. 
+1. Once the group is created, you should see a new update available for your device group, with a link to the update under Best Update (you may need to Refresh once). [Learn More about update compliance.](device-update-compliance.md) 
 
-2. Click on the available update.
+2. Select the target group by clicking on the group name. You will be directed to the group details under Group basics.
 
-3. Confirm the correct group is selected as the target group. Schedule your deployment, then select Deploy update.
+  :::image type="content" source="media/deploy-update/group-basics.png" alt-text="Group details" lightbox="media/deploy-update/group-basics.png":::
 
-   :::image type="content" source="media/deploy-update/select-update.png" alt-text="Select update" lightbox="media/deploy-update/select-update.png":::
+3. To initiate the deployment, go to the Current deployment tab. Click the deploy link next to the desired update from the Available updates section. The best, available update for a given group will be denoted with a "Best" highlight. 
 
-4. View the compliance chart. You should see the update is now in progress. 
+  :::image type="content" source="media/deploy-update/select-update.png" alt-text="Select update" lightbox="media/deploy-update/select-update.png":::
 
-   :::image type="content" source="media/deploy-update/update-in-progress.png" alt-text="Update in progress" lightbox="media/deploy-update/update-in-progress.png":::
+4. Schedule your deployment to start immediately or in the future, then select Create.
 
-5. After your device is successfully updated, you should see your compliance chart and deployment details update to reflect the same. 
+ :::image type="content" source="media/deploy-update/create-deployment.png" alt-text="Create deployment" lightbox="media/deploy-update/create-deployment.png":::
+
+5. The Status under Deployment details should turn to Active, and the deployed update should be marked with "(deploying)".
+
+ :::image type="content" source="media/deploy-update/deployment-active.png" alt-text="Deployment active" lightbox="media/deploy-update/deployment-active.png":::
+
+6. View the compliance chart. You should see the update is now in progress. 
+
+7. After your device is successfully updated, you should see your compliance chart and deployment details update to reflect the same. 
 
    :::image type="content" source="media/deploy-update/update-succeeded.png" alt-text="Update succeeded" lightbox="media/deploy-update/update-succeeded.png":::
 
 ## Monitor an update deployment
 
-1. Select the Deployments tab at the top of the page.
+1. Select the Deployment history tab at the top of the page.
 
-   :::image type="content" source="media/deploy-update/deployments-tab.png" alt-text="Deployments tab" lightbox="media/deploy-update/deployments-tab.png":::
+   :::image type="content" source="media/deploy-update/deployments-history.png" alt-text="Deployment History" lightbox="media/deploy-update/deployments-history.png":::
 
-2. Select the deployment you created to view the deployment details.
+2. Select the details link next to the deployment you created.
 
    :::image type="content" source="media/deploy-update/deployment-details.png" alt-text="Deployment details" lightbox="media/deploy-update/deployment-details.png":::
 
-3. Select Refresh to view the latest status details. Continue this process until the status changes to Succeeded.
+3. Select Refresh to view the latest status details.
 
 You have now completed a successful end-to-end image update using Device Update for IoT Hub using the Ubuntu (18.04 x64) Simulator Reference Agent.
 
