@@ -67,6 +67,10 @@ For more information, see [Use Azure Machine Learning studio in an Azure Virtual
 
 See the following sections for information on limitations when using Azure Storage Account with your workspace in a VNet.
 
+### Secure communication with Azure Storage Account 
+
+To secure communication between Azure Machine Learning and Azure Storage Accounts, configure storage to [Grant access to trusted Azure services](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services).
+
 ### Azure Storage firewall
 
 When an Azure Storage account is behind a virtual network, the storage firewall can normally be used to allow your client to directly connect over the internet. However, when using studio it isn't your client that connects to the storage account; it's the Azure Machine Learning service that makes the request. The IP address of the service isn't documented and changes frequently. __Enabling the storage firewall will not allow studio to access the storage account in a VNet configuration__.
@@ -98,27 +102,29 @@ After you create a SQL contained user, grant permissions to it by using the [GRA
 
 ### Secure communication with Azure SQL Database
 
-To secure communication between Azure Machine Learning and Azure SQL Database, there are two options. Both options have drawbacks:
+To secure communication between Azure Machine Learning and Azure SQL Database, there are two options:
 
-# [Allow Azure services and resources](#tab/allowservices)
+> [!IMPORTANT]
+> Both options allow the possibility of services outside your subscription connecting to your SQL Database. Make sure that your SQL login and user permissions limit access to authorized users only.
 
-Setting __Allow Azure services and resources to access this server__ to __ON__ for the SQL server restricts communication to only services and resources within Azure.
+* __Allow Azure services and resources to access the Azure SQL Database server__. Enabling this setting _allows all connections from Azure_, including __connections from the subscriptions of other customers__, to your database server.
 
-> [!WARNING]
-> Enabling this setting __allows all connections from Azure__. Including connections from the subscriptions from other customers. If you enable this option, make sure that your login and user permissions limit access to authorized users only.
+    For information on enabling this setting, see [IP firewall rules - Azure SQL Database and Synapse Analytics](/azure/azure-sql/database/firewall-configure).
 
-For information on enabling this setting, see [IP firewall rules - Azure SQL Database and Synapse Analytics](/azure/azure-sql/database/firewall-configure).
+* __Allow the IP address range of the Azure Machine Learning service in Firewalls and virtual networks__ for the Azure SQL Database. Allowing the IP addresses through the firewall limits __connections to the Azure Machine Learning service for a region__.
+
+    > [!WARNING]
+    > The IP ranges for the Azure Machine Learning service may change over time. There is no built-in way to automatically update the firewall rules when the IPs change.
+
+    To get a list of the IP addresses for Azure Machine Learning, download the [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) and search the file for `AzureMachineLearning.<region>`, where `<region>` is the Azure region that contains your Azure Machine Learning workspace.
+
+    To add the IP addresses to your Azure SQL Database, see [IP firewall rules - Azure SQL Database and Synapse Analytics](/azure/azure-sql/database/firewall-configure).
 
 # [Allow IP address range](#tab/allowiprange)
 
 Add the IP addresses used by Azure Machine Learning service to the __Firewalls and virtual networks__ settings for Azure SQL Database. Adding these IP addresses allows communication directly from the Azure Machine Learning service.
 
-> [!WARNING]
-> The IP ranges for the Azure Machine Learning service may change over time. There is no built-in way to automatically update the firewall rules when the IPs change.
 
-To get a list of the IP addresses for Azure Machine Learning, download the [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) and search the file for `AzureMachineLearning.<region>`, where `<region>` is the Azure region that contains your Azure Machine Learning workspace.
-
-To add the IP addresses to your Azure SQL Database, see [IP firewall rules - Azure SQL Database and Synapse Analytics](/azure/azure-sql/database/firewall-configure).
 
 ---
 
