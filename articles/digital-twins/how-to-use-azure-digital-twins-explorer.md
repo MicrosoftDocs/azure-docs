@@ -151,7 +151,7 @@ Both of these error messages are shown in the screenshot below:
 
 #### View a twin's relationships
 
-You can also quickly view the code of all relationships that involve a certain twin (including incoming and outgoing relationships):
+You can also quickly view the code of all relationships that involve a certain twin (including incoming and outgoing relationships).
 
 Right-click a twin in the graph, and choose **Get relationships**. Doing so brings up a **Relationship Information** modal displaying the [JSON representation](concepts-twins-graph.md#relationship-json-format) of all incoming and outgoing relationships.
 

@@ -235,7 +235,7 @@ The value for the parameter is the **dead letter SAS URI** made up of the storag
 
 Add this parameter to the end of the endpoint creation commands from the [Create the endpoint](#create-the-endpoint) section earlier to create an endpoint of your chosen type that has dead-lettering enabled.
 
-Otherwise, you can also create dead letter endpoints using the [Azure Digital Twins control plane APIs](concepts-apis-sdks.md#overview-control-plane-apis) instead of the CLI. To do so, view the [DigitalTwinsEndpoint documentation](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to see how to structure the request and add the dead letter parameters.
+You can also create dead letter endpoints using the [Azure Digital Twins control plane APIs](concepts-apis-sdks.md#overview-control-plane-apis) instead of the CLI. To do so, view the [DigitalTwinsEndpoint documentation](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to see how to structure the request and add the dead letter parameters.
 
 #### Create a dead-letter endpoint with identity-based authentication
 
@@ -296,7 +296,7 @@ Here's an example of a dead-letter message for a [twin create notification](conc
 
 To actually send data from Azure Digital Twins to an endpoint, you'll need to define an **event route**. These routes let developers wire up event flow, throughout the system and to downstream services. A single route can allow multiple notifications and event types to be selected. Read more about event routes in [Endpoints and event routes](concepts-route-events.md).
 
-**Prerequisite**: Create endpoints as described earlier in this article before you can move on to creating a route. You can continue to creating an event route once your endpoints are finished setting up.
+**Prerequisite**: Create endpoints as described earlier in this article before you continue on to create a route. You can continue to creating an event route once your endpoints are finished setting up.
 
 >[!NOTE]
 >If you have recently deployed your endpoints, validate that they're finished deploying **before** attempting to use them for a new event route. If route deployment fails because the endpoints aren't ready, wait a few minutes and try again.
