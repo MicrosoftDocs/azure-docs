@@ -94,13 +94,13 @@ imNetworkSession (hostname_has_any = torProxies)
 
 The Network Session information model is aligned with the [OSSEM Network entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/network.md).
 
-To conform with industry best practices, the Network Session schema uses the descriptors **Src** and **Dst** to identify the network session source and destination devices, without including the token **Dvc** in the field name.
+To conform with industry best practices, the Network Session schema uses the descriptors `Src` and `Dst` to identify the network session source and destination devices, without including the token `Dvc` in the field name.
 
-So, for example, the source device hostname and IP address are named **SrcHostname** and **SrcIpAddr**, respectively, and not **Src*Dvc*Hostname** and **Src*Dvc*IpAddr**. The prefix **Dvc** is only used for the reporting or intermediary device, as applicable.
+So, for example, the source device hostname and IP address are named `SrcHostname` and `SrcIpAddr`, respectively, and not `Src*Dvc*Hostname` and `Src*Dvc*IpAddr`. The prefix `Dvc` is only used for the reporting or intermediary device, as applicable.
 
-Fields that describe the user and application associated with the source and destination devices also use the **Src** and **Dst** descriptors.
+Fields that describe the user and application associated with the source and destination devices also use the `Src` and `Dst` descriptors.
 
-Other ASIM schemas typically use **Target** instead of **Dst**.
+Other ASIM schemas typically use `Target` instead of `Dst`.
 
 ### Common fields
 
