@@ -133,27 +133,27 @@ An example manifest output is below. For this example, there are two files that 
 
    :::image type="content" source="media/import-update/import-new-update-2.png" alt-text="Import New Update" lightbox="media/import-update/import-new-update-2.png":::
 
-5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you created previously using the PowerShell cmdlet. Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the same update file(s) that you included when you created your import manifest.
+5. Select "+ Select from storage container". The Storage accounts UI will be shown. Select an existing account or create a new account using "+ Storage account". This account will be used for a container to stage your updates for importing.
 
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Select Update Files" lightbox="media/import-update/select-update-files.png":::
 
-6. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account. The storage container is used to stage the update files temporarily.
+6. Once you've selected a Storage account, the Containers UI will be shown. Select an existing container or create a new container using "+ Container". This container will be used to stage your updates for importing. _NOTE: it is recommended to use a new container each time you import an update to avoid accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container before completing this step._
 
    :::image type="content" source="media/import-update/storage-account.png" alt-text="Storage Account" lightbox="media/import-update/storage-account.png":::
 
-7. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
+7. In your container, select "Upload". The Upload UI will be shown.  
 
    :::image type="content" source="media/import-update/container.png" alt-text="Select Container" lightbox="media/import-update/container.png":::
 
-8. Select "Submit" to start the import process.
+8. Select the folder icon on the right side of the Files section under the Upload blob header. A file picker will be shown. Navigate to the location of your update file or files, select all of the files, then select "Open". _Note: you can hold the Shift key and click the uppermost and lowermost files to multi-select._
 
    :::image type="content" source="media/import-update/publish-update.png" alt-text="Publish Update" lightbox="media/import-update/publish-update.png":::
 
-9. The import process begins, and the screen switches to to the "Import History" section. Select "Refresh" to view progress until the import process completes (depending on the size of the update, this may complete in a few minutes but could take longer).
+9. When you've selected all your update files, select "Upload". This will upload your files to the staging container that will be used for importing.
 
    :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Update Import Sequencing" lightbox="media/import-update/update-publishing-sequence-2.png":::
 
-10. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
+10. Select the files you just uploaded to designate them for importing. Then click the "Select" button.
 
    :::image type="content" source="media/import-update/update-ready.png" alt-text="Job Status" lightbox="media/import-update/update-ready.png":::
 
