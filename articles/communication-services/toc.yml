@@ -113,8 +113,10 @@ items:
     items:
       - name: Telephony Concepts
         href: concepts/telephony/telephony-concept.md
-      - name: Phone number types
-        href: concepts/telephony/plan-solution.md
+      - name: Phone Number Types
+        href: concepts/numbers/number-types.md
+      - name: Subscription Eligibility 
+        href: concepts/numbers/sub-eligibility-number-capability.md
       - name: Azure direct routing infrastructure requirements
         href: concepts/telephony/direct-routing-infrastructure.md
       - name: Azure direct routing certified Session Border Controllers
