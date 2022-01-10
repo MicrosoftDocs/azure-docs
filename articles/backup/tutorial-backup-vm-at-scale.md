@@ -1,9 +1,12 @@
 ---
 title: Tutorial - Back up multiple Azure virtual machines
 description: In this tutorial, learn how to create a Recovery Services vault, define a backup policy, and simultaneously back up multiple virtual machines.
-ms.date: 07/26/2020
+ms.date: 01/11/2022
 ms.topic: tutorial
 ms.custom: mvc
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Use Azure portal to back up multiple virtual machines
@@ -21,42 +24,9 @@ When you back up data in Azure, you store that data in an Azure resource called 
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Create a Recovery Services vault
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
-The Recovery Services vault contains the backup data, and the backup policy applied to the protected virtual machines. Backing up virtual machines is a local process. You can't back up a virtual machine from one location to a Recovery Services vault in another location. So, for each Azure location that has virtual machines to be backed up, at least one Recovery Services vault must exist in that location.
-
-1. On the left menu, select **All services**.
-
-    ![Select All services](./media/tutorial-backup-vm-at-scale/click-all-services.png)
-
-1. In the **All services** dialog box, enter *Recovery Services*. The list of resources filters according to your input. In the list of resources, select **Recovery Services vaults**.
-
-    ![Enter and choose Recovery Services vaults](./media/tutorial-backup-vm-at-scale/all-services.png)
-
-    The list of Recovery Services vaults in the subscription appears.
-
-1. On the **Recovery Services vaults** dashboard, select **Add**.
-
-    ![Add a Recovery Services vault](./media/tutorial-backup-vm-at-scale/add-button-create-vault.png)
-
-1. In the Recovery Services vault menu,
-
-    * Type *myRecoveryServicesVault* in **Name**.
-    * The current subscription ID appears in **Subscription**. If you have additional subscriptions, you can choose another subscription for the new vault.
-    * For **Resource group**, select **Use existing** and choose *myResourceGroup*. If *myResourceGroup* doesn't exist, select **Create new** and type *myResourceGroup*.
-    * From the **Location** drop-down menu, choose *West Europe*.
-
-    ![Recovery Services vault values](./media/tutorial-backup-vm-at-scale/review-and-create.png)
-
-    A Recovery Services vault must be in the same location as the virtual machines being protected. If you have virtual machines in multiple regions, create a Recovery Services vault in each region. This tutorial creates a Recovery Services vault in *West Europe* because that's where *myVM* (the virtual machine created with the quickstart) was created.
-
-1. When you're ready to create the Recovery Services vault, select **Create**.
-
-    ![Create the Recovery Services vault](./media/tutorial-backup-vm-at-scale/click-create-button.png)
-
-1. It can take a while to create the Recovery Services vault. Monitor the status notifications in the **Notifications** area at the upper-right corner of the portal. After your vault is created, it's visible in the list of Recovery Services vaults. If you don't see your vault, select **Refresh**.
-
-     ![Refresh the list of backup vaults](./media/tutorial-backup-vm-at-scale/refresh-button.png)
+[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 When you create a Recovery Services vault, by default the vault has geo-redundant storage. To provide data resiliency, geo-redundant storage replicates the data multiple times across two Azure regions.
 
