@@ -19,7 +19,7 @@ sections:
       - question: |
          How do I configure the autoscale feature so I run zero session hosts after working hours?
         answer: |
-         Ramp-down mode always uses the lowest possible number of session hosts. However, if there are existing user sessions, the lowest number of usable session hosts won't be zero. Configure a time limit policy to sign out all disconnected users to avoid having usable session hosts after hours.
+         Ramp-down mode always uses the lowest possible number of session hosts. However, if there are existing user sessions, the lowest number of usable session hosts won't be zero. Configure the following time limit policy to sign out all disconnected users to avoid having usable session hosts after hours: Local Computer Policy > Computer Configuration > Administrative Templates > Windows Components > Remote Desktop Services > Remote Desktop Session Host > Session Time Limits > Set time limit for disconnected sessions.
 
       - question: |
          Does autoscale create or delete virtual machines (VMs) based on service load?
@@ -74,9 +74,14 @@ sections:
       - question: |
          Can the autoscale feature turn off all the VMs in a host pool, or does it need to keep at least a few VMs on to work properly?
         answer: |
-         The autoscale feature can turn off all the VMs in a host pool if the minimum percentage of hosts is set to **0%** and there are no user sessions on the session host.
+         The autoscale feature can turn off all the VMs in a host pool if the minimum percentage of hosts is set to **0%** and there are no user sessions on the session hosts in the host pool.
       
       - question: |
          How many VMs need to be in a host pool for the autoscale feature to work properly?
         answer: |
          At least 1.
+      
+      - question: |
+         In what scenario would a user be force logged off from their session host in the ramp down period?
+        answer: |
+         Consider a scenario where there are 2 session hosts in a host pool, VM1 and VM2, and each session host has 1 user session on it. The max session limit is 2 and the capacity threshold is 80%. This means that the host pool capacity is currently at 2/4 = 50%. In this case, the autoscale feature would not be able to force logoff any of the users, because doing so would make the host pool capacity 2/2 = 100% which exceeds the threshold of 80%. The autoscale feature looks at whether all existing user sessions can be consolidated into fewer session hosts without exceeding the capacity threshold. To trigger a force logoff, the max session limit would have to be 3 or higher. In the same scenario with a max session limit of 3, the host pool capacity would be 2/6 = 33.33%. If the autoscale feature force logged off a user from VM1 and deallocated that VM, in the event that the user logs back in, the host pool capacity would be 2/3 = 66.66% which is less than 80%.
