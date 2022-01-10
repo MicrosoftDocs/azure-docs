@@ -107,7 +107,7 @@ Configure permissions for Policies
 1.	Enter **IAM**.
 1.	Select Access level > List > **ListAttachedRolePolicies** and **ListPolicyVersions** and **ListRoles**.
 1.	Select Access level > Read > **GetPolicyVersion**.
-1.	Select **Resources** > policy, and then select **Any**. These actions allows the validation that only the minimal required set of permissions were granted to the connector.
+1.	Select **Resources** > policy, and then select **Any**. These actions allow verification that only the minimal required set of permissions were granted to the connector.
 1.	Select role - **Add ARN**. The account number should be automatically populated.
 1.	In **Role name with path** enter a role name and note it. You need to use it in the final role creation step.
 1.	Select **Add**.
