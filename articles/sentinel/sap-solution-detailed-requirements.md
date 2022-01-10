@@ -2,12 +2,10 @@
 title: Microsoft Sentinel SAP solution detailed SAP requirements | Microsoft Docs
 description: Learn about the detailed SAP system requirements for the Microsoft Sentinel SAP solution.
 author: batamig
-ms.author: bagold
-ms.service: azure-sentinel
+ms.author: bagol
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.subservice: azure-sentinel
 ---
 
 # Microsoft Sentinel SAP solution detailed SAP requirements (public preview)
@@ -39,12 +37,16 @@ The following table describes the recommended sizing for your virtual machine, d
 |**Multiple connectors**     |A *Standard_B4ms* VM, with: <br>- 4 cores<br>- 16-GB memory         |
 |     |         |
 
+Also, make sure that you have enough disk space for the Docker container runtime environment so that you'll have enough space for your operation agent logs. We recommend that you have 200 GB available. 
+
+For example, in Ubuntu, you can mount a disk to the `/var/lib/docker` directory before installing the container, as by default you may have little space allocated to the `/var` directory.
+
 ## Required SAP log change requests
 
 The following SAP log change requests are required for the SAP solution, depending on your SAP Basis version:
 
-- **SAP Basis versions 7.50 and higher**,  install NPLK900144
-- **For lower versions**,  install NPLK900146
+- **SAP Basis versions 7.50 and higher**,  install NPLK900170
+- **For lower versions**,  install NPLK900169
 - **To create an SAP role with the required authorizations**, for any supported SAP Basis version, install NPLK900163. For more information, see [Configure your SAP system](sap-deploy-solution.md#configure-your-sap-system) and [Required ABAP authorizations](#required-abap-authorizations).
 
 > [!NOTE]

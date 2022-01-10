@@ -29,7 +29,7 @@ This article describes how to test and submit a virtual machine (VM) image in th
 
 Complete these steps before submitting your VM offer:
 
-- Deploy an Azure VM using your generalized image; see [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [create a virtual machine using your own image](azure-vm-create-using-own-image.md).
+- Deploy an Azure VM using your generalized image; see [Create a virtual machine using an approved base](azure-vm-use-approved-base.md) or [create a virtual machine using your own image](azure-vm-use-own-image.md).
 - Run validations.
 
 ## Run validations
@@ -73,7 +73,7 @@ The last screen lets you provide more information, such as SSH access informatio
 
 Finally, select Generate Report to download the test results and log files for the executed test cases along with your answers to the questionnaire.
 > [!Note]
-> Few publishers have scenarios where VMs need to be locked as they have software such as firewalls installed on the VM. In this case, download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) here and submit the report at Partner Center [support](https://aka.ms/marketplacepublishersupport).
+> Few publishers have scenarios where VMs need to be locked as they have software such as firewalls installed on the VM. In this case, download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) here and submit the report at Partner Center [support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 ## How to use PowerShell to consume the Self-Test API
 

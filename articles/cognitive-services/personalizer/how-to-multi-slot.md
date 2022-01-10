@@ -10,6 +10,8 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 05/24/2021
 zone_pivot_groups: programming-languages-set-six
+ms.devlang: csharp, javascript, python
+ms.custom: mode-other
 ---
 
 # Get started with multi-slot for Azure Personalizer

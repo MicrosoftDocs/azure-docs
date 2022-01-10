@@ -1,17 +1,8 @@
 ---
 title: Connect Windows Virtual Desktop to Microsoft Sentinel | Microsoft Docs
 description: Learn to connect your Windows Virtual Desktop data to Microsoft Sentinel.
-services: sentinel
-documentationcenter: na
 author: batamig
-manager: rkarlin
-editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021

@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/12/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, mode-other
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
@@ -24,6 +24,7 @@ The following procedures explain how to use Log Streaming, Log Analytics, Metric
   * [Provision Azure Spring Cloud service](./quickstart-provision-service-instance.md).
   * [Set up Azure Spring Cloud configuration server](./quickstart-setup-config-server.md).
   * [Build and deploy apps](./quickstart-deploy-apps.md).
+  * [Set up Log Analytics workspace](./quickstart-setup-log-analytics.md).
 
 ## Logs
 
@@ -113,6 +114,7 @@ Complete previous steps:
 * [Provision an instance of Azure Spring Cloud](./quickstart-provision-service-instance.md)
 * [Set up the config server](./quickstart-setup-config-server.md)
 * [Build and deploy apps](./quickstart-deploy-apps.md).
+* [Set up Log Analytics workspace](./quickstart-setup-log-analytics.md).
 
 ## Logs
 

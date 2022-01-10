@@ -10,7 +10,7 @@ ms.date: 06/22/2021
 
 ms.author: BaSelden
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management

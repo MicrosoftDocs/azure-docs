@@ -12,7 +12,7 @@ Azure Monitor supports multiple methods to install the Log Analytics agent and c
 The Log Analytics agent is required if you want to:
 
 * Monitor the operating system, any workloads running on the machine or server using [VM insights](../../azure-monitor/vm/vminsights-overview.md). Further analyze and alert using other features of [Azure Monitor](../../azure-monitor/overview.md).
-* Perform security monitoring in Azure by using [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) or [Microsoft Sentinel](../../sentinel/overview.md).
+* Perform security monitoring in Azure by using [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) or [Microsoft Sentinel](../../sentinel/overview.md).
 * Manage operating system updates by using [Azure Automation Update Management](../../automation/update-management/overview.md).
 * Collect inventory and track changes by using [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md).
 * Run Automation runbooks directly on the machine and against resources in the environment by using an [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).

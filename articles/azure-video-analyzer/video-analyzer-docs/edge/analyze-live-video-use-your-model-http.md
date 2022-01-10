@@ -1,14 +1,14 @@
 ---
-title: Analyze live video with your own model - HTTP
-description: This quickstart describes how to analyze live video with your own model (HTTP) with Video Analyzer.
+title: Analyze live video with your own HTTP model
+description: Analyze a live video feed from a (simulated) IP camera; apply a computer vision model to detect objects. Some frames in the feed are sent to an inference service; results are sent to IoT Edge Hub.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 11/04/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-other, contperf-fy22q2 
 ---
 
-# Quickstart: Analyze live video with your own model - HTTP
+# Quickstart: Analyze a live video feed from a (simulated) IP camera using your own HTTP model
 
 [!INCLUDE [header](includes/edge-env.md)]
 
@@ -30,7 +30,7 @@ The quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated l
 
 When you set up the Azure resources, a short video of highway traffic is copied to the Linux VM in Azure that you're using as the IoT Edge device. This quickstart uses the video file to simulate a live stream.
 
-Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the highway intersection sample video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) to start playback. You see the footage of many vehicles moving in highway traffic.
+Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the highway intersection sample video](https://avamedia.blob.core.windows.net/public/camera-300s.mkv) to start playback. You see the footage of many vehicles moving in highway traffic.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LTY4]
 

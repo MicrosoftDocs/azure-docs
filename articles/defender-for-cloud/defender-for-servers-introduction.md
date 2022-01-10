@@ -1,12 +1,8 @@
 ---
 title: Microsoft Defender for servers - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for servers.
-author: memildin
-ms.author: memildin
 ms.date: 11/09/2021
 ms.topic: overview
-ms.service: security-center
-manager: rkarlin
 ---
 # Introduction to Microsoft Defender for servers
 
@@ -31,8 +27,8 @@ The threat detection and protection capabilities provided with Microsoft Defende
 
     > [!IMPORTANT]
     > Defender for Cloud’s integration with Microsoft Defender for Endpoint is enabled by default. So when you enable Microsoft Defender for servers, you give consent for Defender for Cloud to access the Microsoft Defender for Endpoint data related to vulnerabilities, installed software, and alerts for your endpoints.
-    >
-    > We're currently offering the sensor for Linux machines in preview. Learn more in [Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
+    > 
+    > Learn more in [Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
 
 - **Vulnerability assessment tools for machines** - Microsoft Defender for servers includes a choice of  vulnerability discovery and management tools for your machines. From Defender for Cloud's settings pages, you can select which of these tools to deploy to your machines and the discovered vulnerabilities will be shown in a security recommendation.
 

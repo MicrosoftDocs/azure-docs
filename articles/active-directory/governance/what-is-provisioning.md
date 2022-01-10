@@ -3,7 +3,7 @@ title: 'What is provisioning with Azure Active Directory? | Microsoft Docs'
 description: Describes overview of identity provisioning and the ILM scenarios.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
@@ -48,7 +48,7 @@ There are three deployment options for HR-driven provisioning with Azure AD:
 1. For organizations with a single subscription to Workday or SuccessFactors, and have both Active Directory and Azure AD
 1. For organizations with multiple HR systems, or an on-premises HR system such as SAP, Oracle eBusiness or PeopleSoft
 
-For more information, see [What is HR driven provisioning?](what-is-hr-driven-provisioning.md)
+For more information, see [What is HR driven provisioning?](../app-provisioning/what-is-hr-driven-provisioning.md)
 
 ## App provisioning
 
@@ -56,7 +56,7 @@ For more information, see [What is HR driven provisioning?](what-is-hr-driven-pr
 
 In Azure AD, the term **[app provisioning](../app-provisioning/user-provisioning.md)** refers to automatically creating copies of user identities in the applications that users need access to, for applications that have their own data store, distinct from Azure AD or Active Directory. In addition to creating user identities, app provisioning includes the maintenance and removal of user identities from those apps, as the user's status or roles change. Common scenarios include provisioning an Azure AD user into applications like [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), as each of these applications have their own user repository distinct from Azure AD.
 
-For more information, see [What is app provisioning?](what-is-app-provisioning.md)
+For more information, see [What is app provisioning?](../app-provisioning/user-provisioning.md)
 
 ## Inter-directory provisioning
 
@@ -68,11 +68,11 @@ As many organizations historically have deployed HR-driven provisioning on-premi
 
 In addition, organizations may wish to also provision to on-premises systems from Azure AD.  For example, an organization may have brought guests into the Azure AD directory, but those guests will need access to on-premises Windows Integrated Authentication (WIA) based web applications via the app proxy.  This requires the provisioning of on-premises AD accounts for those users in Azure AD.
 
-For more information, see [What is inter-directory provisioning?](what-is-inter-directory-provisioning.md)
+For more information, see [What is inter-directory provisioning?](../hybrid/what-is-inter-directory-provisioning.md)
 
  
 ## Next steps 
 - [What is identity lifecycle management?](what-is-identity-lifecycle-management.md)
-- [What is HR driven provisioning?](what-is-hr-driven-provisioning.md)
-- [What is app provisioning?](what-is-app-provisioning.md)
-- [What is inter-directory provisioning?](what-is-inter-directory-provisioning.md)
+- [What is HR driven provisioning?](../app-provisioning/what-is-hr-driven-provisioning.md)
+- [What is app provisioning?](../app-provisioning/user-provisioning.md)
+- [What is inter-directory provisioning?](../hybrid/what-is-inter-directory-provisioning.md)
