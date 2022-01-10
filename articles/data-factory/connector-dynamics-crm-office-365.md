@@ -1,5 +1,5 @@
 ---
-title: Copy and transform data in Dynamics (Microsoft Dataverse)
+title: Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics.
 ms.service: data-factory
@@ -13,7 +13,7 @@ ms.date: 01/10/2022
 # Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-This article outlines how to use a copy activity in Azure Data Factory or Synapse pipelines to copy data from and to Microsoft Dynamics 365 and Microsoft Dynamics CRM, and use a data flow to transform data in Microsoft Dynamics 365 and Microsoft Dynamics CRM. To learn more, read the [Azure Data Factory](introduction.md) and the [Azure Synapse Analytics](..\synapse-analytics\overview-what-is.md) introduction articles.
+This article outlines how to use a copy activity in Azure Data Factory or Synapse pipelines to copy data from and to Dynamics 365 (Microsoft Dataverse) or Dynamics CRM, and use a data flow to transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM. To learn more, read the [Azure Data Factory](introduction.md) and the [Azure Synapse Analytics](..\synapse-analytics\overview-what-is.md) introduction articles.
 
 ## Supported capabilities
 
@@ -504,17 +504,17 @@ If all of your source records map to the same target entity and your source data
 
 ## Mapping data flow properties
 
-When transforming data in mapping data flow, you can read and write to tables from Dynamics 365 (Microsoft Dataverse) or Dynamics CRM. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows. You can choose to use a Dynamics 365 (Microsoft Dataverse) or Dynamics CRM dataset or an [inline dataset](data-flow-source.md#inline-datasets) as source and sink type.
+When transforming data in mapping data flow, you can read and write to tables from Dynamics. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows. You can choose to use a Dynamics dataset or an [inline dataset](data-flow-source.md#inline-datasets) as source and sink type.
 
 >[!Note]
 > The customer data type is not supported.
 
 >[!Caution]
-> If you delete the non-exist row in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM, the data flow will be failed, and the following step will be blocked. Update/upsert failure will also block the following operations.
+> If you delete the non-exist row in Dynamics, the data flow will be failed, and the following step will be blocked. Update/upsert failure will also block the following operations.
 
 ### Source transformation
 
-The below table lists the properties supported by Dynamics 365 (Microsoft Dataverse) or Dynamics CRM source. You can edit these properties in the **Source options** tab.
+The below table lists the properties supported by Dynamics. You can edit these properties in the **Source options** tab.
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
@@ -522,9 +522,9 @@ The below table lists the properties supported by Dynamics 365 (Microsoft Datave
 | Query |FetchXML is a proprietary query language that is used in Dynamics online and on-premises. See the following example. To learn more, see [Build queries with FetchXML](/previous-versions/dynamicscrm-2016/developers-guide/gg328332(v=crm.8)). | No | String | query |
 | Entity | The logical name of the entity to retrieve. | Yes when use inline mode | - | entity|
 
-#### Dynamics 365 (Microsoft Dataverse) or Dynamics CRM source script example
+#### Dynamics source script example
 
-When you use Dynamics 365 (Microsoft Dataverse) or Dynamics CRM as source type, the associated data flow script is:
+When you use Dynamics as source type, the associated data flow script is:
 
 ```
 source(
@@ -546,7 +546,7 @@ query:' <fetch mapping='logical' count='3 paging-cookie=''><entity name='new_dat
 
 ### Sink transformation
 
-The below table lists the properties supported by Dynamics 365 (Microsoft Dataverse) or Dynamics CRM sink. You can edit these properties in the **Sink options** tab.
+The below table lists the properties supported by Dynamics sink. You can edit these properties in the **Sink options** tab.
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
@@ -555,9 +555,9 @@ The below table lists the properties supported by Dynamics 365 (Microsoft Datave
 | Update method | Specify what operations are allowed on your database destination. The default is to only allow inserts.<br>To update, upsert, or delete rows, an [Alter row transformation](data-flow-alter-row.md) is required to tag rows for those actions. | Yes | `true` or `false` | insertable <br/>updateable<br/>upsertable<br>deletable|
 | Alternate key name | The alternate key name defined on your entity to do an update, upsert or delete.  | No | - | alternateKeyName |
 
-#### Dynamics 365 (Microsoft Dataverse) or Dynamics CRM sink script example
+#### Dynamics sink script example
 
-When you use Dynamics 365 (Microsoft Dataverse) or Dynamics CRM as sink type, the associated data flow script is:
+When you use Dynamics as sink type, the associated data flow script is:
 
 ```
 moviesAltered sink(
