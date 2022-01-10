@@ -90,7 +90,7 @@ The following fraud alert configuration options are available:
 
 To enable and configure fraud alerts, complete the following steps:
 
-1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Fraud alert**.
+1. Go to **Azure Active Directory** > **Security** > **MFA** > **Fraud alert**.
 1. Set **Allow users to submit fraud alerts** to **On**.
 1. Configure the **Automatically block users who report fraud** or **Code to report fraud during initial greeting** setting as needed.
 1. Select **Save**.
@@ -171,17 +171,17 @@ Before you begin, be aware of the following restrictions:
 
 * The supported file formats are .wav and .mp3.
 * The file size limit is 1 MB.
-* Authentication messages should be shorter than 20 seconds. Messages that are longer than 20 seconds can cause the verification to fail. The user might not respond before the message finishes and the verification times out.
+* Authentication messages should be shorter than 20 seconds. Messages that are longer than 20 seconds can cause the verification to fail. If the user doesn't respond before the message finishes, the verification times out.
 
 ### Custom message language behavior
 
 When a custom voice message is played to the user, the language of the message depends on the following factors:
 
-* The language of the current user.
+* The language of the user.
   * The language detected by the user's browser.
   * Other authentication scenarios might behave differently.
 * The language of any available custom messages.
-  * This language is chosen by the administrator, when a custom message is added.
+  * This language is chosen by the administrator when a custom message is added.
 
 For example, if there's only one custom message, and it's in German:
 
@@ -190,7 +190,7 @@ For example, if there's only one custom message, and it's in German:
 
 ### Custom voice message defaults
 
-You can use the following sample scripts to create your own custom messages. These phrases are the defaults if you don't configure your own custom messages:
+You can use the following sample scripts to create your own custom messages. These phrases are the defaults if you don't configure your own custom messages.
 
 | Message name | Script |
 | --- | --- |
@@ -203,9 +203,9 @@ You can use the following sample scripts to create your own custom messages. The
 | Authentication denied retry | Verification denied. |
 | Retry (standard) | Thank you for using the Microsoft sign-in verification system. Please press the pound key to finish your verification. |
 | Greeting (standard) | Thank you for using the Microsoft sign-in verification system. Please press the pound key to finish your verification. |
-| Greeting (PIN) | Thank you for using Microsoft sign-in verification system. Please enter your PIN followed by the pound key to finish your verification. |
+| Greeting (PIN) | Thank you for using Microsoft's sign-in verification system. Please enter your PIN followed by the pound key to finish your verification. |
 | Fraud greeting (PIN) | Thank you for using Microsoft's sign-in verification system.  Please enter your PIN followed by the pound key to finish your verification. If you did not initiate this verification, someone may be trying to access your account. Please press zero pound to submit a fraud alert. This will notify your company's IT team and block further verification attempts. |
-| Retry(PIN) | Thank you for using Microsoft's sign-in verification system. Please enter your PIN followed by the pound key to finish your verification. |
+| Retry (PIN) | Thank you for using Microsoft's sign-in verification system. Please enter your PIN followed by the pound key to finish your verification. |
 | Extension prompt after digits | If already at this extension, press the pound key to continue. |
 | Authentication denied | I'm sorry, we cannot sign you in at this time. Please try again later. |
 | Activation greeting (standard) | Thank you for using the Microsoft sign-in verification system. Please press the pound key to finish your verification. |
@@ -226,7 +226,7 @@ To use your own custom messages, complete the following steps:
 
 ## Multi-factor authentication service settings
 
-Settings for app passwords, trusted IPs, verification options, and remembering multi-factor authentication on trusted devices are available in the service settings. This is a legacy portal. It isn't part of the regular Azure portal.
+Settings for app passwords, trusted IPs, verification options, and remembering multi-factor authentication on trusted devices are available in the service settings. This is a legacy portal. It isn't part of the regular Azure AD portal.
 
 You can access service settings from the Azure portal by going to **Azure Active Directory** > **Security** > **MFA** > **Getting started** > **Configure** > **Additional cloud-based MFA settings**. A window or tab opens with additional service settings options.
 
@@ -248,13 +248,13 @@ If your organization uses the NPS extension to provide multi-factor authenticati
 
 Trusted IP bypass works only from inside the company intranet. If you select the **All Federated Users** option and a user signs in from outside the company intranet, the user has to authenticate by using multi-factor authentication. The process is the same even if the user presents an AD FS claim.
 
-#### End-user experience inside the corporate network
+#### User experience inside the corporate network
 
 When the trusted IPs feature is disabled, multi-factor authentication is required for browser flows. App passwords are required for older rich-client applications.
 
 When trusted IPs are used, multi-factor authentication isn't required for browser flows. App passwords aren't required for older rich-client applications if the user hasn't created an app password. After an app password is in use, the password is required.
 
-#### End-user experience outside the corporate network
+#### User experience outside the corporate network
 
 Regardless of whether trusted IP are defined, multi-factor authentication is required for browser flows. App passwords are required for older rich-client applications.
 
@@ -262,7 +262,7 @@ Regardless of whether trusted IP are defined, multi-factor authentication is req
 
 You can use Conditional Access rules to define named locations by using the following steps:
 
-1. In the Azure portal, search for and select **Azure Active Directory**, and then browse to **Security** > **Conditional Access** > **Named locations**.
+1. In the Azure portal, search for and select **Azure Active Directory**, and then go to **Security** > **Conditional Access** > **Named locations**.
 1. Select **New location**.
 1. Enter a name for the location.
 1. Select **Mark as trusted location**.
@@ -273,17 +273,17 @@ You can use Conditional Access rules to define named locations by using the foll
 
 To enable trusted IPs by using Conditional Access policies, complete the following steps:
 
-1. In the Azure portal, search for and select **Azure Active Directory**, and then browse to **Security** >  **Conditional Access** > **Named locations**.
+1. In the Azure portal, search for and select **Azure Active Directory**, and then go to **Security** >  **Conditional Access** > **Named locations**.
 1. Select **Configure MFA trusted IPs**.
 1. On the **Service Settings** page, under **Trusted IPs**, choose one of these options:
 
-   * **For requests from federated users originating from my intranet**: To choose this option, select the check box. All federated users who sign in from the corporate network bypass multi-factor authentication by using a claim that's issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule doesn't exist, create the following rule in AD FS:
+   * **For requests from federated users originating from my intranet**: To choose this option, select the checkbox. All federated users who sign in from the corporate network bypass multi-factor authentication by using a claim that's issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule doesn't exist, create the following rule in AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
    * **For requests from a specific range of public IPs**: To choose this option, enter the IP addresses in the text box, in CIDR notation.
-      * For IP addresses that are in the range xxx.xxx.xxx.1 through xxx.xxx.xxx.254, use notation like **xxx.xxx.xxx.0/24**.
-      * For a single IP address, use notation like **xxx.xxx.xxx.xxx/32**.
+      * For IP addresses that are in the range *xxx.xxx.xxx*.1 through *xxx.xxx.xxx*.254, use notation like ***xxx.xxx.xxx*.0/24**.
+      * For a single IP address, use notation like ***xxx.xxx.xxx.xxx*/32**.
       * Enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass multi-factor authentication.
 
 1. Select **Save**.
@@ -297,7 +297,7 @@ If you don't want to use Conditional Access policies to enable trusted IPs, you 
 1. Under **multi-factor authentication** at the top of the page, select **service settings**.
 1. On the **service settings** page, under **Trusted IPs**, choose one or both of the following options:
 
-   * **For requests from federated users on my intranet**: To choose this option, select the check box. All federated users who sign in from the corporate network bypass multi-factor authentication by using a claim that's issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule doesn't exist, create the following rule in AD FS:
+   * **For requests from federated users on my intranet**: To choose this option, select the checkbox. All federated users who sign in from the corporate network bypass multi-factor authentication by using a claim that's issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule doesn't exist, create the following rule in AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
@@ -321,7 +321,7 @@ The following verification methods are available:
 | Notification through mobile app |Sends a push notification to the user's phone or registered device. The user views the notification and selects **Verify** to complete verification. The Microsoft Authenticator app is available for [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
 | Verification code from mobile app or hardware token |The Microsoft Authenticator app generates a new OATH verification code every 30 seconds. The user enters the verification code into the sign-in interface. The Microsoft Authenticator app is available for [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
 
-For more information, see [What authentication and verification methods are available in Azure AD?](concept-authentication-methods.md)
+For more information, see [What authentication and verification methods are available in Azure AD?](concept-authentication-methods.md).
 
 #### Enable and disable verification methods
 
@@ -338,7 +338,7 @@ To enable or disable verification methods, complete the following steps:
  The **remember multi-factor authentication** feature lets users bypass subsequent verifications for a specified number of days, after they've successfully signed in to a device by using multi-factor authentication. To enhance usability and minimize the number of times a user has to perform multi-factor authentication on a given device, select a duration of 90 days or more.
 
 > [!IMPORTANT]
-> If an account or device is compromised, remembering multi-factor authentication for trusted devices can affect security. If a corporate account becomes compromised or a trusted device is lost or stolen, you should [Revoke multi-factor authentication sessions](howto-mfa-userdevicesettings.md).
+> If an account or device is compromised, remembering multi-factor authentication for trusted devices can affect security. If a corporate account becomes compromised or a trusted device is lost or stolen, you should [Revoke MFA Sessions](howto-mfa-userdevicesettings.md).
 >
 > The revoke action revokes the trusted status from all devices, and the user is required to perform multi-factor authentication again. You can also instruct your users to restore the original multi-factor authentication status on their own devices as noted in [Manage your settings for multi-factor authentication](https://support.microsoft.com/account-billing/change-your-two-step-verification-method-and-settings-c801d5ad-e0fc-4711-94d5-33ad5d4630f7#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 
@@ -375,4 +375,4 @@ After you enable the **remember multi-factor authentication** feature, users can
 
 ## Next steps
 
-To learn more about the available methods in Azure AD Multi-Factor Authentication, see [What authentication and verification methods are available in Azure Active Directory?](concept-authentication-methods.md)
+To learn more, see [What authentication and verification methods are available in Azure Active Directory?](concept-authentication-methods.md)
