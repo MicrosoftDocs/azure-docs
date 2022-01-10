@@ -105,7 +105,7 @@ The SAS expiration period appears in the console output.
 
 To log the creation of a SAS that is valid over a longer interval than the SAS expiration policy recommends, first create a diagnostic setting that sends logs to an Azure Log Analytics workspace. For more information, see [Send logs to Azure Log Analytics](../blobs/monitor-blob-storage.md#send-logs-to-azure-log-analytics).
 
-Next, use an Azure Monitor log query to determine whether a SAS has expired. Create a new query in your Log Analytics workspace, add the following query text, and press **Run**.
+Next, use an Azure Monitor log query to monitor if policy has been violated. Create a new query in your Log Analytics workspace, add the following query text, and press **Run**.
 
 ```kusto
 StorageBlobLogs | where SasExpiryStatus startswith "Policy Violated" 
