@@ -1,5 +1,5 @@
 ---
-title: Use ASIM parsers | Microsoft Docs
+title: Use Advanced SIEM Information Model (ASIM) parsers | Microsoft Docs
 description: This article explains how to use KQL functions as query-time parsers to implement the Advanced SIEM Information Model (ASIM)
 author: oshezaf
 ms.topic: conceptual
@@ -8,11 +8,11 @@ ms.author: ofshezaf
 ms.custom: ignite-fall-2021
 --- 
 
-# Use ASIM parsers (Public preview)
+# Use Advanced SIEM Information Model (ASIM) parsers (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-As a user, use ASIM parsers instead of table names in your queries to view data in a normalized format and to include all data relevant to the schema in your query. Refer to the table below to find the relevant parser for each schema.
+Use Advanced SIEM Information Model (ASIM) parsers instead of table names in your Microsoft Sentinel queries to view data in a normalized format and to include all data relevant to the schema in your query. Refer to the table below to find the relevant parser for each schema.
 
 > [!IMPORTANT]
 > ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -21,7 +21,7 @@ As a user, use ASIM parsers instead of table names in your queries to view data 
 
 ## Unifying parsers
 
-When using ASIM in your queries, you typically use the **unifying parsers**. A **unifying parser** combines all the sources normalized to the same schema and can be used to query all of them using normalized fields. The unifying parser name is `_Im_<schema>` for built-in parsers and `im<schema>` for workspace deployed parsers, where `<schema>` stands for the specific schema it serves.
+When using ASIM in your queries, use **unifying parsers** to combine all sources, normalized to the same schema, and query them using normalized fields. The unifying parser name is `_Im_<schema>` for built-in parsers and `im<schema>` for workspace deployed parsers, where `<schema>` stands for the specific schema it serves.
 
 For example, the following query uses the built-in unifying DNS parser to query DNS events using the `ResponseCodeName`, `SrcIpAddr`, and `TimeGenerated` normalized fields:
 
@@ -38,7 +38,7 @@ _Im_Dns
 > Alternately, use the parameter-less parsers, which start with `_ASim_` for built-in parsers and `ASim` for workspace deployed parsers. Those parsers do not set the time-range picker to `custom` by default.
 >
 
-The following are the available unifyings parsers you can use:
+The following table lists unifying parsers available:
 
 | Schema | Built-in filtering parser | Built-in parameter-less parser | workspace deployed filtering parser | workspace deployed parameter-less parser |
 | ------ | ------------------------- | ------------------------------ | ----------------------------------- | --------------------------- |
@@ -72,16 +72,16 @@ The previous example is similar to the following query but is much more efficien
 _Im_Dns | where ResponseCodeName == 'NXDOMAIN'
 ```
 
-Each schema has a standard set of filtering parameters documented in the schema doc. Filtering parameters are entirely optional. The following schemas support filtering parameters:
-- Authentication
-- DNS
-- Network Session
-- Web Session
+Each schema has a standard set of filtering parameters documented in the relevant schema documentation. Filtering parameters are entirely optional. The following schemas support filtering parameters:
+- [Authentication](authentication-normalization-schema.md)
+- [DNS](dns-normalization-schema.md#filtering-parser-parameters)
+- [Network Session](network-normalization-schema.md#filtering-parser-parameters)
+- [Web Session](web-normalization-schema.md#filtering-parser-parameters)
 
 
 ## <a name="next-steps"></a>Next steps
 
-This article discusses the Advanced SIEM Information Model (ASIM) parsers. To learn how to develop your own parsers, refer to the article [Develop ASIM parsers](normalization-develop-parsers.md)
+This article discusses the Advanced SIEM Information Model (ASIM) parsers. To learn how to develop your own parsers, see [Develop ASIM parsers](normalization-develop-parsers.md).
 
 For more information, see:
 

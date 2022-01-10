@@ -1,42 +1,48 @@
 ---
-title: Develop ASIM parsers | Microsoft Docs
-description: This article explains how develop, test and deploy ASIM parsers
+title: Develop Microsoft Sentinel Advanced SIEM Information Model (ASIM) parsers | Microsoft Docs
+description: This article explains how to develop, test, and deploy Microsoft Sentinel Advanced SIEM Information Model (ASIM) parsers.
 author: oshezaf
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: ofshezaf
-ms.custom: ignite-fall-2021
 --- 
 
-# Develop ASIM parsers (Public preview)
+# Develop Advanced SIEM Information Model (ASIM) parsers (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-ASIM users use unifying parsers instead of table names in their queries to view data in a normalized format and to include all data relevant to the schema in the query. The unifying parsers use source-specific parsers to handle the specific details of each source. 
+Advanced SIEM Information Model (ASIM) users use *unifying parsers* instead of table names in their queries, to view data in a normalized format and to include all data relevant to the schema in the query. Unifying parsers, in turn, use *source-specific parsers* to handle the specific details of each source. 
 
-Microsoft Sentinel provides source-specific parsers for many sources. However, you may want to develop your source-specific parser in the following situations:
+Microsoft Sentinel provides built-in, source-specific parsers for many data sources. You may want to modify, or *develop*, these source-specific parsers in the following situations:
 
-- When your device provides events that fit an ASIM schema but a source-specific parser for your device and the relevant schema is not available in Microsoft Sentinel.
+- When your device provides events that fit an ASIM schema, but a source-specific parser for your device and the relevant schema is not available in Microsoft Sentinel.
 
 - When ASIM source-specific parsers are available for your device, but your device sends events in a method or a format different than expected by the ASIM parsers. For example:
+
   - Your source device may be configured to send events in a non-standard way. 
+
   - Your device may have a different version than the one supported by the ASIM parser.
+
   - The events might be collected, modified, and forwarded by an intermediary system.
 
 ## The ASIM custom parser development process
 
-To develop a custom ASIM source-specific parser, use the following workflow:
+The following workflow describe the high level steps in developing a custom ASIM, source-specific parser:
 
-- Identify the schemas or schemas that the events sent from the source represent. Refer to the [Schema overview](normalization-about-schemas.md) for details.
-- Develop one or more ASIM parsers for your source. You need to develop a parser for each schema relevant to the source.
-- Testing your parser.
-- Deploy the parsers into your Microsoft Sentinel workspaces.
-- Update the relevant ASIM unifying parser to reference the new custom parser. Refer to the [Managing ASIM parsers](normalization-manage-parsers.md) document for details. 
+1. Identify the schemas or schemas that the events sent from the source represent. For more information, see [Schema overview](normalization-about-schemas.md).
 
-This document guides you through the process's development, testing, and deployment steps.
+1. [Develop](#developing-parsers) one or more ASIM parsers for your source. You'll need to develop a parser for each schema relevant to the source.
+
+1. [Test](#test-parsers) your parser.
+
+1. [Deploy](#deploy-parsers) the parsers into your Microsoft Sentinel workspaces.
+
+1. Update the relevant ASIM unifying parser to reference the new custom parser. For more information, see [Managing ASIM parsers](normalization-manage-parsers.md). 
+
+This article guides you through the process's development, testing, and deployment steps.
 
 > [!TIP]
-> Also watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM). For more information, see [Next steps](#next-steps).
+> Also watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the related [slide deck](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM). For more information, see [Next steps](#next-steps).
 >
 
 > [!IMPORTANT]
@@ -45,27 +51,30 @@ This document guides you through the process's development, testing, and deploym
 
 ## Developing parsers
 
-A custom parser is a KQL query developed in Microsoft Sentinel **Log screen**. Developing a parser requires a workspace that stores relevant events. 
+A custom parser is a KQL query developed in the Microsoft Sentinel **Logs** page. The parser query has three parts:
+
+**Filter** > **Parse** > **Prepare fields**
+
+### Prerequisites
+
+To develop a custom ASIM parser, you must have access to a workspace that stores relevant events.
 
 > [!TIP]
 > Start a new custom parser using an existing parser for the same schema. Using an existing parser is especially important for filtering parsers to make sure they accept all the parameters required by the schema.
 >
 
-The parser query has three parts:
-
-**Filter** > **Parse** > **Prepare fields**
 
 ### Filtering
 
 #### Filtering the relevant records
 
-In many cases, a table includes multiple types of events. For example:
+In many cases, a table in Microsoft Sentinel includes multiple types of events. For example:
 * The Syslog table has data from multiple sources.
 * Custom tables may include information from a single source that provides more than one event type and can fit various schemas.
 
 Therefore, a parser should first filter only the records relevant to the target schema.
 
-Filtering in KQL is done using the `where` operator. For example, **Sysmon event 1** reports process creation and should be normalized to the **ProcessEvent** schema. The **Sysmon event 1** event is part of the `Event` table, and the following filter should be used:
+Filtering in KQL is done using the `where` operator. For example, **Sysmon event 1** reports process creation, and is therefore normalized to the **ProcessEvent** schema. The **Sysmon event 1** event is part of the `Event` table, so you would use the following filter:
 
 ```kusto
 Event | where Source == "Microsoft-Windows-Sysmon" and EventID == 1
@@ -77,7 +86,7 @@ When developing [filtering parsers](normalization-about-parsers.md#optimized-par
 
 When filtering, make sure that you:
 
-- **filter before parsing using physical fields**. If the filtered results are not accurate enough, repeat the test after parsing to fine-tune your results. For more information, see  ["filtering optimization"](#optimization).
+- **Filter before parsing using physical fields**. If the filtered results are not accurate enough, repeat the test after parsing to fine-tune your results. For more information, see [filtering optimization](#optimization).
  - **Do not filter if the parameter is not defined and still has the default value**. 
   
 The following examples show how to implement filtering for a string parameter, where the default value is usually '\*', and for a list parameter, where the default value is usually an empty list.
@@ -92,12 +101,12 @@ array_length(domain_has_any) == 0 or Name has_any (domain_has_any)
 
 To ensure the performance of the parser, note the following filtering recommendations:
 
-- Always filter on built-in rather than parsed fields. While it is sometimes easier to filter using parsed fields, it dramatically impacts performance.
-- Use operators that provide optimized performance. In particular, `==`, `has`, and `startswith`. Using operators such as `contains` or `matches regex` also dramatically impacts performance.
+- **Always filter on built-in rather than parsed fields**. While it is sometimes easier to filter using parsed fields, it dramatically impacts performance.
+- **Use operators that provide optimized performance**. In particular, `==`, `has`, and `startswith`. Using operators such as `contains` or `matches regex` also dramatically impacts performance.
 
-Filtering recommendations for performance may not always be trivial to follow. For example, using `has` is less accurate than `contains`. In other cases, matching the built-in field, such as `SyslogMessage`, is less accurate than comparing an extracted field, such as `DvcAction`. In such cases, we recommend that you still pre-filter using a performance-optimizing operator over a built-in field and repeat the filter using more accurate conditions after parsing.
+Filtering recommendations for performance may not always be easy to follow. For example, using `has` is less accurate than `contains`. In other cases, matching the built-in field, such as `SyslogMessage`, is less accurate than comparing an extracted field, such as `DvcAction`. In such cases, we recommend that you still pre-filter using a performance-optimizing operator over a built-in field and repeat the filter using more accurate conditions after parsing.
 
-For an example, see the following [Infoblox DNS](https://aka.ms/AzSentinelInfobloxParser) parser snippet. The parser first checks that the SyslogMessage field `has` the word `client`. However, the term might be used in a different place in the message. Therefore, after parsing the `Log_Type` field, the parser checks again that the word `client` was indeed the field's value.
+For an example, see the following [Infoblox DNS](https://aka.ms/AzSentinelInfobloxParser) parser snippet. The parser first checks that the SyslogMessage field `has` the word `client`. However, the term might be used in a different place in the message, so after parsing the `Log_Type` field, the parser checks again that the word `client` was indeed the field's value.
 
 ```kusto
 Syslog | where ProcessName == "named" and SyslogMessage has "client"
@@ -118,7 +127,7 @@ The KQL operators that perform parsing are listed below, ordered by their perfor
 
 |Operator  |Description  |
 |---------|---------|
-|[split](/azure/data-explorer/kusto/query/splitfunction)     |    Parse a string of values delimited by a delimiter     |
+|[split](/azure/data-explorer/kusto/query/splitfunction)     |    Parse a string of delimited values.     |
 |[parse_csv](/azure/data-explorer/kusto/query/parsecsvfunction)     |     Parse a string of values formatted as a CSV (comma-separated values) line.    |
 |[parse](/azure/data-explorer/kusto/query/parseoperator)     |    Parse multiple values from an arbitrary string using a pattern, which can be a simplified pattern with better performance, or a regular expression.     |
 |[extract_all](/azure/data-explorer/kusto/query/extractallfunction)     | Parse single values from an arbitrary string using a regular expression. `extract_all` has a similar performance to `parse` if the latter uses a regular expression.        |
@@ -158,16 +167,20 @@ In addition to parsing string, the parsing phase may require more processing of 
 
 ### Prepare fields in the result set
 
-The parser must prepare the results set fields to ensure that the normalized fields are used. As a guideline, original fields that are not normalized should not be removed from the result set unless there is a compelling reason to do so, such as if they create confusion.
+The parser must prepare the fields in the results set to ensure that the normalized fields are used. 
 
-The following KQL operators are used to prepare fields:
+>[!NOTE]
+> We recommend that you do not remove any of the original fields that are not normalized from the result set, unless there is a compelling reason to do so, such as if they create confusion.
+>
+
+The following KQL operators are used to prepare fields in your results set:
 
 |Operator  | Description  | When to use in a parser  |
 |---------|---------|---------|
-|**extend**     | Creates calculated fields and adds them to the record        |  `Extend` is used if the normalized fields are parsed or transformed from the original data. See the example in the [Parsing](#parsing) section above for more information.     |
-|**project-rename**     | Renames fields        |     If a field exists in the actual event and only needs to be renamed, use `project-rename`. <br><br>The renamed field still behaves like a built-in field, and operations on the field have much better performance.   |
+|**extend**     | Creates calculated fields and adds them to the record.        |  `Extend` is used if the normalized fields are parsed or transformed from the original data. <br><br>For more information, see the example in the [Parsing](#parsing) section above. |
+|**project-rename**     | Renames fields.        |     If a field exists in the actual event and only needs to be renamed, use `project-rename`. <br><br>The renamed field still behaves like a built-in field, and operations on the field have much better performance.   |
 |**project-away**     |      Removes fields.   |Use `project-away` for specific fields that you want to remove from the result set.         |
-|**project**     |  Selects fields that existed before or were created as part of the statement and removes all other fields.       | Not recommended for use in a parser, as the parser should not remove any other fields that are not normalized. <br><br>If you need to remove specific fields, such as temporary values used during parsing, use `project-away` to remove them from the results.      |
+|**project**     |  Selects fields that existed before, or were created as part of the statement, and removes all other fields.       | Not recommended for use in a parser, as the parser should not remove any other fields that are not normalized. <br><br>If you need to remove specific fields, such as temporary values used during parsing, use `project-away` to remove them from the results.      |
 | | | |
 
 ### Handle parsing variants
@@ -180,9 +193,9 @@ When handling variants, use the following guidelines:
 
 |Scenario  |Handling  |
 |---------|---------|
-|The different variants represent *different* event types, commonly mapped to different schemas     |  Use separate parsers       |
-|The different variants represent the *same* event type but are structured differently.     |   If the variants are known, such as when there is a method to differentiate between the events before parsing, use the `case` operator to select the correct `extract_all` to run and field mapping, as demonstrated in the [Infoblox DNS parser](https://aka.ms/AzSentinelInfobloxParser).      |
-|If `union` is unavoidable     |  When using `union` is unavoidable, make sure to use the following guidelines:<br><br>-  Pre-filter using built-in fields in each one of the subqueries. <br>- Ensure that the filters are mutually exclusive. <br>- Consider not parsing less critical information, reducing the number of subqueries.       |
+|The different variants represent *different* event types, commonly mapped to different schemas     |  Use separate parsers.      |
+|The different variants represent the *same* event type but are structured differently.     |   If the variants are known, such as when there is a method to differentiate between the events before parsing, use the `case` operator to select the correct `extract_all` to run and field mapping. <br><br>Example: [Infoblox DNS parser](https://aka.ms/AzSentinelInfobloxParser)    |
+|`union` is unavoidable     |  When you must use `union`, make sure to use the following guidelines:<br><br>-  Pre-filter using built-in fields in each one of the subqueries. <br>- Ensure that the filters are mutually exclusive. <br>- Consider not parsing less critical information, reducing the number of subqueries.       |
 | | |
 
 
@@ -190,10 +203,13 @@ When handling variants, use the following guidelines:
 
 Deploy parsers manually by copying them to the Azure Monitor Log page and saving your change. This method is useful for testing. For more information, see [Create a function](../azure-monitor/logs/functions.md).
 
-To deploy a large number of parsers, we recommend using parser ARM templates:
-- Create a YAML file based on the relevant template for each schema and include your query in it. Start with the [YAML template](https://aka.ms/ASimYamlTemplates) relevant for your schema and parser type. (filtering or parameter-less).
-- Use the [ASIM Yaml to ARM template converter](https://aka.ms/ASimYaml2ARM) to convert it to an ARM template. 
-- Deploy your template using the [Azure pPortal](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) or using [PowerShell](/azure/azure-resource-manager/templates/deploy-powershell)
+To deploy a large number of parsers, we recommend using parser ARM templates, as follows:
+
+1. Create a YAML file based on the relevant template for each schema and include your query in it. Start with the [YAML template](https://aka.ms/ASimYamlTemplates) relevant for your schema and parser type, filtering or parameter-less.
+
+1. Use the [ASIM Yaml to ARM template converter](https://aka.ms/ASimYaml2ARM) to convert your YAML file to an ARM template. 
+
+1. Deploy your template using the [Azure portal](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) or [PowerShell](/azure/azure-resource-manager/templates/deploy-powershell).
 
 You can also combine multiple templates to a single deploy process using [linked templates](/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell#linked-template)
 
@@ -206,8 +222,11 @@ You can also combine multiple templates to a single deploy process using [linked
 ### Mandatory tests
 
 The following tests are mandatory. A parser that fails will prevent queries using the schema unifying parsers it is part of from working correctly:
+
 - Make sure that the parser produces all mandatory fields. 
+
 - Make sure that all normalized fields have the correct type.
+
 - Make sure that fields with logical types are populated only with permitted values. For example, an IP address field is always populated with a valid IP address, and that an enumerated field always gets permitted values.
 
 The ASIM parser testing tool tests for mandatory fields and correct field types. 
@@ -237,25 +256,26 @@ Set the time period to the longest that performance will allow.
 ### Using the ASIM parser testing tool
 
 Test the parser using the ASIM parser testing tool to find missing mandatory or recommended fields and fields with an incorrect type:
-- [Deploy the ASIM testing tool]() to a workspace where your parser is deployed and works.
-- Run the following query in a **Log screen**:
 
-```KQL
-<parser name> | getschema | invoke ASimSchemaTester('<schema>')
-```
+1. [Deploy the ASIM testing tool]() to a Microsoft Sentinel workspace where your parser is deployed and works.
+
+1. Run the following query in the Microsoft Sentinel **Logs** page:
+
+  ```KQL
+  <parser name> | getschema | invoke ASimSchemaTester('<schema>')
+  ```
 
 Handle the results as follows:
 
 | Message | Action |
 | ------- | ------ |
-| **(0) Error: Missing mandatory field [\<Field\>]** | Add this field to your parser. In many cases, this would be a derived value or a constant value and not a field already available from the source. |
-| **(0) Error: type mismatch for field [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>]** | Make sure that the type of normalized field is correct, usually by using a [conversion function](/azure/data-explorer/kusto/query/scalarfunctions#conversion-functions) such as tostring. |
+| **(0) Error: Missing mandatory field [\<Field\>]** | Add this field to your parser. In many cases, this would be a derived value or a constant value, and not a field already available from the source. |
+| **(0) Error: type mismatch for field [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>]** | Make sure that the type of normalized field is correct, usually by using a [conversion function](/azure/data-explorer/kusto/query/scalarfunctions#conversion-functions) such as `tostring`. |
 | **(1) Warning: Missing recommended field [\<Field\>]** | Consider adding this field to your parser. |
 | **(1) Warning: Missing alias [\<Field\>]** | Check if the field the alias refers to exists and if so, add the alias. |
 | **(2) Info: Missing optional field [\<Field\>]** | While optional fields are often missing, it is worth reviewing the list to determine if any of the optional fields can be mapped from the source. |
 | **(2) Info: extra unnormalized field [\<Field\>]** | While unnormalized fields are valid, it is worth reviewing the list to determine if any of the unnormalized values can be mapped to an optional field. |
- | |
-||| 
+|||
 
 
 ## <a name="next-steps"></a>Next steps
