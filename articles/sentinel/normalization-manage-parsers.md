@@ -172,9 +172,15 @@ For example, the following code shows a DNS filtering unifying parser, having re
 
 This article discusses managing the Advanced SIEM Information Model (ASIM) parsers.
 
-For more information, see:
+Learn more about ASIM parsers:
+
+- [ASIM parsers overview](normalization-parsers-overview.md)
+- [Use ASIM parsers](normalization-about-parsers.md)
+- [Develop custom ASIM parsers](normalization-develop-parsers.md)
+
+Learn more about the ASIM in general: 
 
 - Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
-- [Advanced SIEM Information Model overview](normalization.md)
-- [Use ASIM parsers](normalization-about-parsers.md)
-- [Develop ASIM parsers](normalization-develop-parsers.md)
+- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
+- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)

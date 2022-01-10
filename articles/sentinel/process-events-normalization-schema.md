@@ -228,9 +228,8 @@ The process event schema references the following entities, which are central to
 
 For more information, see:
 
-- [Normalization in Microsoft Sentinel](normalization.md)
-- [Microsoft Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
-- [Microsoft Sentinel DNS normalization schema reference](dns-normalization-schema.md)
-- [Microsoft Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
-- [Microsoft Sentinel network normalization schema reference](./network-normalization-schema.md)
-- [Microsoft Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
+- Watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
+- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
+- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced SIEM Information Model (ASIM) parsers](normalization-parsers-overview.md)
+- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)

@@ -56,6 +56,7 @@ Learn more about ASIM parsers:
 
 For more about ASIM, in general, see: 
 
-- [Advanced SIEM Information Model overview](normalization.md)
-- [Advanced SIEM Information Model schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model content](normalization-content.md)
+- Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
+- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
+- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)

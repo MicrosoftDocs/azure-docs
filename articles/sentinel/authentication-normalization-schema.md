@@ -178,8 +178,8 @@ An **Actor**, running an *Acting Application* (**ActingApp**) on a *Source Devic
 
 For more information, see:
 
-- [Normalization in Microsoft Sentinel](normalization.md)
-- [Microsoft Sentinel DNS normalization schema reference](dns-normalization-schema.md)
-- [Microsoft Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
-- [Microsoft Sentinel network normalization schema reference](./network-normalization-schema.md)
-- [Microsoft Sentinel process event normalization schema reference (Public preview)](process-events-normalization-schema.md)
+- Watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
+- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
+- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced SIEM Information Model (ASIM) parsers](normalization-parsers-overview.md)
+- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)

@@ -156,6 +156,7 @@ This article discusses the Advanced SIEM Information Model (ASIM) content.
 For more information, see:
 
 - Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
-- [Advanced SIEM Information Model overview](normalization.md)
-- [Advanced SIEM Information Model schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model parsers](normalization-about-parsers.md)
+- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
+- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced SIEM Information Model (ASIM) parsers](normalization-about-parsers.md)
+- [Modifying Microsoft Sentinel content to use the Advanced SIEM Information Model (ASIM) parsers](normalization-modify-content.md)

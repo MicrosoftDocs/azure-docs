@@ -85,9 +85,15 @@ Each schema has a standard set of filtering parameters documented in the relevan
 
 This article discusses the Advanced SIEM Information Model (ASIM) parsers. To learn how to develop your own parsers, see [Develop ASIM parsers](normalization-develop-parsers.md).
 
-For more information, see:
+Learn more about ASIM parsers:
+
+- [ASIM parsers overview](normalization-parsers-overview.md)
+- [Manage ASIM parsers](normalization-manage-parsers.md)
+- [Develop custom ASIM parsers](normalization-develop-parsers.md)
+
+Learn more about the ASIM in general: 
 
 - Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
-- [Advanced SIEM Information Model overview](normalization.md)
-- [Advanced SIEM Information Model schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model content](normalization-content.md)
+- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
+- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)
