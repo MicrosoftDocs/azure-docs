@@ -51,7 +51,7 @@ items:
       expanded: true
       items:
       - name: Configure Private Link
-        href: configure-private-link.md
+        href: healthcare-apis-configure-private-link.md
     - name: Diagnostic logging
       expanded: true
       items:
