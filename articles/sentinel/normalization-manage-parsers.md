@@ -43,7 +43,7 @@ For more information, see [Develop ASIM parsers](normalization-develop-parsers.m
 
 Microsoft Sentinel users cannot edit built-in unifying parsers. Instead, use the following mechanisms to modify the behavior of built-in unifying parsers:
 
--  **To support adding source-specific parsers**, ASIM uses unifiying, custom parsers. These custom parsers are workspace-deployed, and therefore editable. Built-in, unifying parsers automatically pick up these custom parsers, if they exist. 
+-  **To support adding source-specific parsers**, ASIM uses unifying, custom parsers. These custom parsers are workspace-deployed, and therefore editable. Built-in, unifying parsers automatically pick up these custom parsers, if they exist. 
 
     You can deploy initial, empty, unifying custom parsers to your Microsoft Sentinel workspace for all supported schemas, or individually for specific schemas. For more information, see [Deploy initial ASIM empty custom unifying parsers](https://aka.ms/ASimDeployEmptyCustomUnifyingParsers) in the Microsoft Sentinel GitHub repository.
 
@@ -98,7 +98,7 @@ Use the following process to prevent automatic updates for built-in, source-spec
 
 1. Add the built-in parser version you want to use, such as `_Im_Dns_AzureFirewallV02`, to the custom unifying parser. For more information, see above, [Add a custom parser to a built-in unifying parser](#add-a-custom-parser-to-a-built-in-unifying-parser).
 
-1. Add an exception for the built-in parser. For example, when you want to entirely opt out from automatic updates, and therfore exclude a large number of built-in parsers, add:
+1. Add an exception for the built-in parser. For example, when you want to entirely opt out from automatic updates, and therefore exclude a large number of built-in parsers, add:
 
   - A record with `Any` as the `SourceSpecificParser` field, to exclude all parsers for the `CallerContext`.
   - A record for  `Any` in the CallerContext and the `SourceSpecificParser` fields to exclude all built-in parsers.
