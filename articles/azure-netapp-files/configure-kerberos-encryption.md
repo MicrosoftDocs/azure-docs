@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/07/2022
+ms.date: 01/10/2022
 ms.author: anfdocs
 ---
 # Configure NFSv4.1 Kerberos encryption for Azure NetApp Files
