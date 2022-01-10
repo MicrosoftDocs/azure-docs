@@ -95,10 +95,13 @@ The following sections describe current support for administrative unit scenario
 
 | Permissions |   Graph/PowerShell   | Azure portal | Microsoft 365 admin center |
 | --- | --- | --- | --- |
-| Administrative unit-scoped management of group properties and members     |  Supported   |    Supported    |  Not supported |
+| Administrative unit-scoped management of group properties and membership     |  Supported   |    Supported    |  Not supported |
 | Administrative unit-scoped management of group licensing   |    Supported  |    Supported   |   Not supported |
 
 Administrative units apply scope only to management permissions. They don't prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside the administrative unit. In the Microsoft 365 admin center, users outside a scoped admin's administrative units are filtered out. But you can browse other users in the Azure portal, PowerShell, and other Microsoft services.
+
+> [!NOTE]
+> Adding a group to an administrative units does not grant scoped group administrators the ability to manage properties for members of that group. For example, scoped group administrators can't manage authentication methods of users who are members of the group unless those users are directly added as users of the administrative unit and the administrator is assigned a role that can mange authentication methods.
 
 ## Next steps
 
