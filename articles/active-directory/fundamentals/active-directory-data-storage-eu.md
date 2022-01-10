@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Identity data storage for European customers in Azure Active Directory
-Identity data is stored by Azure AD in a geographical location based on the address provided by your organization when it subscribed for a Microsoft Online service such as Microsoft 365 and Azure. For information on where your identity data is stored, you can use the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
+Identity data is stored by Azure AD in a geographical location based on the address provided by your organization when it subscribed for a Microsoft Online service such as Microsoft 365 and Azure. For information on where your identity data is stored, you can use the [Where your data is located](https://www.microsoft.com/trust-center/privacy/data-location) section of the Microsoft Trust Center.
 
 For customers who provided an address in Europe, Azure AD keeps most of the identity data within European datacenters. This document provides information on any data that is stored outside of Europe by Azure AD services.
 
@@ -65,7 +65,7 @@ For more info about federation in Microsoft Exchange server, see the [Federation
 
 Services and applications that integrate with Azure AD have access to identity data. Evaluate each service and application you use to determine how identity data is processed by that specific service and application, and whether they meet your company's data storage requirements.
 
-For more information about Microsoft services' data residency, see the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
+For more information about Microsoft services' data residency, see the [Where your data is located](https://www.microsoft.com/trust-center/privacy/data-location) section of the Microsoft Trust Center.
 
 ## Next steps
 For more information about any of the features and functionality described above, see these articles:
