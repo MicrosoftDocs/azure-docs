@@ -164,7 +164,7 @@ Your custom container may use environment variables that need to be supplied ext
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings DB_HOST="myownserver.mysql.database.azure.com"
 ```
 
-If you have a number of settings to manage, or character escaping could be an issue then the CLI supports loading settings from a disk file. Dont forget the quotes.
+If you have a number of settings to manage, or character escaping could be an issue then the CLI supports loading settings from a disk file. Wrapping the file name with quotes is only required if you are executing the command through PowerShell.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings "@fileName.json"
