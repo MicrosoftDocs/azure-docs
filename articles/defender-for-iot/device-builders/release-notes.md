@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT for device builders
 description: Learn about the latest updates for Defender for IoT device builders.
 ms.topic: conceptual
-ms.date: 12/28/2021
+ms.date: 01/10/2022
 ---
 
 # What's new  
@@ -23,7 +23,7 @@ Listed below are the support, breaking change policies for Defender for IoT, and
 
 - DNS network activity on managed devices is now supported. This extends the Microsoft threat intelligence security graph, to detect suspicious activity based on DNS traffic.
 
-- Leaf Device Proxying: There is now an enhanced integration with IoT Edge. This integration enhances the connectivity between the agent, and the cloud using Leaf Device Proxying.
+- [Leaf device proxying](../../iot-edge/how-to-connect-downstream-iot-edge-device.md#integrate-microsoft-defender-for-iot-with-iot-edge-gateway): There is now an enhanced integration with IoT Edge. This integration enhances the connectivity between the agent, and the cloud using leaf device proxying.
 
 ## October 2021
 
