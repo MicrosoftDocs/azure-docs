@@ -70,9 +70,13 @@ Depending on your setup, the appropriate Microsoft package will need to be insta
     sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
     ```
 
-You will then need to install the Defender for IoT micro agent.
+1. Ensure that you have updated the apt using the following command:
 
-- Use the following command to install the Defender for IoT micro agent package on Debian, or Ubuntu based Linux distributions:
+    ```bash
+    sudo apt-get update
+    ```
+
+1. Use the following command to install the Defender for IoT micro agent package on Debian, or Ubuntu based Linux distributions:
 
     ```bash
     sudo apt-get install defender-iot-micro-agent 
