@@ -277,7 +277,7 @@ The columns in the following table have been deprecated in the updated schema. T
 | OperationName     | OperationNameValue     |
 | ResourceProvider  | ResourceProviderValue  |
 
-> [!IMPORTANT]
+> [!Important]
 > In some cases, the values in these columns may be in all uppercase. If you have a query that includes these columns, you should use the [=~ operator](/azure/kusto/query/datatypes-string-operators) to do a case insensitive comparison.
 
 The following column have been added to *AzureActivity* in the updated schema:
@@ -287,7 +287,8 @@ The following column have been added to *AzureActivity* in the updated schema:
 - Properties_d
 
 ## Activity Log Analytics monitoring solution
-The Azure Log Analytics monitoring solution will be deprecated soon and replaced by a workbook using the updated schema in the Log Analytics workspace. You can still use the solution if you already have it enabled, but it can only be used if you're collecting the Activity log using legacy settings. 
+> [!Note]
+> The Azure Log Analytics monitoring solution will be deprecated soon and replaced by a workbook using the updated schema in the Log Analytics workspace. You can still use the solution if you already have it enabled, but it can only be used if you're collecting the Activity log using legacy settings. 
 
 
 
@@ -303,7 +304,8 @@ Click the **Azure Activity Logs** tile to open the **Azure Activity Logs** view.
 
 
 ### Enable the solution for new subscriptions
-You will soon no longer be able to add the Activity Logs Analytics solution to your subscription using the Azure portal. You can add it using the following procedure with a Resource Manager template. 
+> [!NOTE]
+>You will soon no longer be able to add the Activity Logs Analytics solution to your subscription using the Azure portal. You can add it using the following procedure with a Resource Manager template. 
 
 1. Copy the following json into a file called *ActivityLogTemplate*.json.
 
