@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 In Azure Active Directory (Azure AD), you can add users or groups to an administrative unit to restrict the scope of role permissions.
 
 > [!NOTE]
-> Adding a group to an administrative units does not grant scoped group administrators the ability to manage properties for members of that group. For example, a scoped group administrator can't manage authentication methods of users who are members of the group unless those users are directly added as users of the administrative unit and the administrator is assigned a role that can mange authentication methods.
+> Adding a group to an administrative unit does not grant scoped group administrators the ability to manage properties for individual members of that group. For example, a scoped group administrator can manage group membership but they can't manage authentication methods of users who are members of the group added to an administrative unit. To manage authentication methods of users who are members of the group that is added to an administrative unit, the individual group members must be directly added as users of the administrative unit, and the group administrator must also be assigned a role that can manage user authentication methods.
 
 ## Prerequisites
 
