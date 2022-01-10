@@ -173,12 +173,12 @@ az group create --name myResourceGroup --location eastus
 az aks create -n aks -g myResourceGroup --enable-oidc-issuer
 ```
 
-### Upgrade an AKS cluster with OIDC Issuer
+### Update an AKS cluster with OIDC Issuer
 
-To upgrade a cluster to use OIDC Issuer.
+To update a cluster to use OIDC Issuer.
 
 ```azurecli-interactive
-az aks upgrade -n aks -g myResourceGroup --enable-oidc-issuer
+az aks update -n aks -g myResourceGroup --enable-oidc-issuer
 ```
 
 ## Next steps
