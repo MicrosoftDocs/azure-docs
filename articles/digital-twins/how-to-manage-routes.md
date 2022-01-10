@@ -296,7 +296,7 @@ Here's an example of a dead-letter message for a [twin create notification](conc
 
 To actually send data from Azure Digital Twins to an endpoint, you'll need to define an **event route**. These routes let developers wire up event flow, throughout the system and to downstream services. A single route can allow multiple notifications and event types to be selected. Read more about event routes in [Endpoints and event routes](concepts-route-events.md).
 
-**Prerequisite**: Create endpoints as described earlier in this article before you continue on to create a route. You can continue to creating an event route once your endpoints are finished setting up.
+**Prerequisite**: Create endpoints as described earlier in this article before you move on to creating a route. You can continue to create an event route once your endpoints are finished setting up.
 
 >[!NOTE]
 >If you have recently deployed your endpoints, validate that they're finished deploying **before** attempting to use them for a new event route. If route deployment fails because the endpoints aren't ready, wait a few minutes and try again.
