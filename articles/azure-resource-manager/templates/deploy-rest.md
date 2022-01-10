@@ -11,6 +11,8 @@ This article explains how to use the Azure Resource Manager REST API with Azure 
 
 You can either include your template in the request body or link to a file. When using a file, it can be a local file or an external file that is available through a URI. When your template is in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
 
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
+
 ## Deployment scope
 
 You can target your deployment to a resource group, Azure subscription, management group, or tenant. Depending on the scope of the deployment, you use different commands.

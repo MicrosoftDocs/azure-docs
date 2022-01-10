@@ -21,6 +21,8 @@ You need to install Azure PowerShell and connect to Azure:
 
 If you don't have PowerShell installed, you can use Azure Cloud Shell. For more information, see [Deploy ARM templates from Azure Cloud Shell](deploy-cloud-shell.md).
 
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
+
 ## Deployment scope
 
 You can target your deployment to a resource group, subscription, management group, or tenant. Depending on the scope of the deployment, you use different commands.
@@ -56,8 +58,6 @@ You can target your deployment to a resource group, subscription, management gro
   For more information about tenant level deployments, see [Create resources at the tenant level](deploy-to-tenant.md).
 
 For every scope, the user deploying the template must have the required permissions to create resources.
-
-[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
 
 ## Deployment name
 

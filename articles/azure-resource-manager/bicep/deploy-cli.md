@@ -25,6 +25,8 @@ Samples for the Azure CLI are written for the `bash` shell. To run this sample i
 
 If you don't have Azure CLI installed, you can use Azure Cloud Shell. For more information, see [Deploy Bicep files from Azure Cloud Shell](./deploy-cloud-shell.md).
 
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
+
 ## Deployment scope
 
 You can target your deployment to a resource group, subscription, management group, or tenant. Depending on the scope of the deployment, you use different commands.
@@ -60,8 +62,6 @@ You can target your deployment to a resource group, subscription, management gro
   For more information about tenant level deployments, see [Create resources at the tenant level](deploy-to-tenant.md).
 
 For every scope, the user deploying the Bicep file must have the required permissions to create resources.
-
-[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
 
 ## Deploy local Bicep file
 
