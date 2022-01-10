@@ -10,7 +10,7 @@ ms.date: 01/10/2022
 ms.author: zxue
 ---
 
-# Configure private link
+# Configure private link for Azure Healthcare APIs
 
 Private link enables you to access Azure Healthcare APIs over a private endpoint, which is a network interface that connects you privately and securely using a private IP address from your virtual network. With private link, you can access our services securely from your VNet as a first party service without having to go through a public Domain Name System (DNS). This article describes how to create, test, and manage your private endpoint for Healthcare APIs.
 
