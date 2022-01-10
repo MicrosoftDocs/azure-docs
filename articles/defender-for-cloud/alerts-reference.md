@@ -2,7 +2,7 @@
 title: Reference table for all security alerts in Microsoft Defender for Cloud
 description: This article lists the security alerts visible in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 12/13/2021
+ms.date: 01/10/2022
 ---
 # Security alerts - a reference guide
 
@@ -197,12 +197,12 @@ At the bottom of this page, there's a table describing the Microsoft Defender fo
 |**Possible backdoor detected [seen multiple times]**|Analysis of host data has detected a suspicious file being downloaded then run on %{Compromised Host} in your subscription. This activity has previously been associated with installation of a backdoor. This behavior was seen [x] times today on the following machines: [Machine names]|-|Medium|
 |**Possible credential access tool detected [seen multiple times]**|Machine logs indicate a possible known credential access tool was running on %{Compromised Host} launched by process: '%{Suspicious Process}'. This tool is often associated with attacker attempts to access credentials. This behavior was seen [x] times today on the following machines: [Machine names]|-|Medium|
 |**Possible credential access tool detected**<br>(VM_KnownLinuxCredentialAccessTool)|Machine logs indicate a possible known credential access tool was running on %{Compromised Host} launched by process: '%{Suspicious Process}'. This tool is often associated with attacker attempts to access credentials.|Credential Access|Medium|
+|**Possible data exfiltration [seen multiple times]**|Analysis of host data on %{Compromised Host} detected a possible data egress condition. Attackers will often egress data from machines they have compromised. This behavior was seen [x]] times today on the following machines: [Machine names]|-|Medium|
+|**Possible data exfiltration**<br>(VM_DataEgressArtifacts)|Analysis of host data on %{Compromised Host} detected a possible data egress condition. Attackers will often egress data from machines they have compromised.|Collection, Exfiltration|Medium|
 |**Possible exploitation of Hadoop Yarn**<br>(VM_HadoopYarnExploit)|Analysis of host data on %{Compromised Host} detected the possible exploitation of the Hadoop Yarn service.|Exploitation|Medium|
 |**Possible exploitation of the mailserver detected**<br>(VM_MailserverExploitation )|Analysis of host data on %{Compromised Host} detected an unusual execution under the mail server account|Exploitation|Medium|
 |**Possible Log Tampering Activity Detected [seen multiple times]**|Analysis of host data on %{Compromised Host} detected possible removal of files that tracks user's activity during the course of its operation. Attackers often try to evade detection and leave no trace of malicious activities by deleting such log files. This behavior was seen [x] times today on the following machines: [Machine names]|-|Medium|
 |**Possible Log Tampering Activity Detected**<br>(VM_SystemLogRemoval)|Analysis of host data on %{Compromised Host} detected possible removal of files that tracks user's activity during the course of its operation. Attackers often try to evade detection and leave no trace of malicious activities by deleting such log files.|Defense Evasion|Medium|
-|**Possible loss of data detected [seen multiple times]**|Analysis of host data on %{Compromised Host} detected a possible data egress condition. Attackers will often egress data from machines they have compromised. This behavior was seen [x]] times today on the following machines: [Machine names]|-|Medium|
-|**Possible loss of data detected**<br>(VM_DataEgressArtifacts)|Analysis of host data on %{Compromised Host} detected a possible data egress condition. Attackers will often egress data from machines they have compromised.|Collection, Exfiltration|Medium|
 |**Possible malicious web shell detected [seen multiple times]**<br>(VM_Webshell)|Analysis of host data on %{Compromised Host} detected a possible web shell. Attackers will often upload a web shell to a machine they have compromised to gain persistence or for further exploitation. This behavior was seen [x] times today on the following machines: [Machine names]|Persistence, Exploitation|Medium|
 |**Possible malicious web shell detected**|Analysis of host data on %{Compromised Host} detected a possible web shell. Attackers will often upload a web shell to a machine they have compromised to gain persistence or for further exploitation.|-|Medium|
 |**Possible password change using crypt-method detected [seen multiple times]**|Analysis of host data on %{Compromised Host} detected password change using crypt method. Attackers can make this change to continue access and gaining persistence after compromise. This behavior was seen [x] times today on the following machines: [Machine names]|-|Medium|
