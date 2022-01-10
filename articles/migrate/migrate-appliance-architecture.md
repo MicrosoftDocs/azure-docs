@@ -1,6 +1,6 @@
 ---
 title: Azure Migrate appliance architecture
-description: Provides an overview of the Azure Migrate appliance used in server discovery, assessment and migration.
+description: Provides an overview of the Azure Migrate appliance used in server discovery, assessment, and migration.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
@@ -38,9 +38,9 @@ The appliance can be deployed using a couple of methods:
 
 The appliance has the following services:
 
-- **Appliance configuration manager**: This is a web application which can be configured with source details to start the discovery and assessment of servers.
-- **Discovery agent**: The agent collects server configuration metadata which can be used to create as on-premises assessments.
-- **Assessment agent**: The agent collects server performance metadata which can be used to create performance-based assessments.
+- **Appliance configuration manager**: This is a web application, which can be configured with source details to start the discovery and assessment of servers.
+- **Discovery agent**: The agent collects server configuration metadata, which can be used to create as on-premises assessments.
+- **Assessment agent**: The agent collects server performance metadata, which can be used to create performance-based assessments.
 - **Auto update service**: The service keeps all the agents running on the appliance up-to-date. It automatically runs once every 24 hours.
 - **DRA agent**: Orchestrates server replication, and coordinates communication between replicated servers and Azure. Used only when replicating servers to Azure using agentless migration.
 - **Gateway**: Sends replicated data to Azure. Used only when replicating servers to Azure using agentless migration.
