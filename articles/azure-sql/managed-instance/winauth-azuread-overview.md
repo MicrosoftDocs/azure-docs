@@ -47,6 +47,7 @@ Windows Authentication for Azure Active Directory principals also enables the fo
 - **SharePoint, Reporting Services, Integration Services, and Analysis Services** 
     - Many on-premises SQL Server customers use applications such as SharePoint, SQL Server Reporting Services (SSRS), SQL Server Integration Services (SSIS), and SQL Server Analysis Services (SSAS). Using Windows Authentication is a recommended security best practice for these applications.
     - Azure SQL Managed Instance is certified for SharePoint 2019 and SharePoint 2016.
+
 ### Modernize security infrastructure
 
 Enabling Windows Authentication for Azure Active Directory principals on Azure SQL Managed Instance equips customers to modernize their security practices.

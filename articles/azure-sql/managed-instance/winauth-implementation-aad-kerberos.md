@@ -6,7 +6,7 @@ services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
 ms.devlang: 
-ms.topic: concept
+ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma, bonova, urmilano, wiassaf, kendralittle
@@ -15,7 +15,7 @@ ms.date: 01/31/2022
 
 # How Windows Authentication for Azure SQL Managed Instance is implemented with Azure Active Directory and Kerberos (Preview)
 
-[Windows Authentication for Azure AD principals on Azure SQL Managed Instance](winauth-aad-overview.md) enables customers to move existing services to the cloud while maintaining a seamless user experience and provides the basis for security infrastructure modernization. To enable Windows Authentication for Azure Active Directory (Azure AD) principals, you will turn your Azure AD tenant into an independent Kerberos realm and create an incoming trust in the customer domain. This configuration allows users in the customer domain to access resources in your Azure AD tenant. It will not allow users in the Azure AD tenant to access resources in the customer domain.
+[Windows Authentication for Azure AD principals on Azure SQL Managed Instance](winauth-azuread-overview.md) enables customers to move existing services to the cloud while maintaining a seamless user experience and provides the basis for security infrastructure modernization. To enable Windows Authentication for Azure Active Directory (Azure AD) principals, you will turn your Azure AD tenant into an independent Kerberos realm and create an incoming trust in the customer domain. This configuration allows users in the customer domain to access resources in your Azure AD tenant. It will not allow users in the Azure AD tenant to access resources in the customer domain.
 
 ## How Azure AD provides Kerberos authentication
 
@@ -31,6 +31,10 @@ Kerberos authentication in Azure AD enables:
 
 
 *TODO: Insert the diagram from the Word doc here. Does the diagram apply to both authentication flows? Or is the diagram specific to the incoming trust-based flow? If the latter, it should go into the 'incoming trust-based flow section.*
+
+## How Azure SQL Managed Instance works with Azure AD and Kerberos
+
+Customers use the Azure portal to enable a system assigned service principal on each managed instance. The service principal allows managed instance users to authenticate using the Kerberos protocol.
 
 ## Next steps
 

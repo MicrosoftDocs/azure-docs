@@ -40,4 +40,4 @@ The following steps are only required for Active Directory Joined VMs.
 Learn more about implementing Windows Authentication for Azure AD principals on Azure SQL Managed Instance:
 
 - TODO: add link for announcement blog post
-- TODO: add links related articles in this set after titles and filenames are finalized
+- TODO: add links to related articles in this set after titles and filenames are finalized
