@@ -22,7 +22,7 @@
         },
         {
             "source_path_from_root": "/articles/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2.md",
-            "redirect_url": "/azure/marketplace/partner-center-portal/pc-saas-fulfillment-apis",
+            "redirect_url": "/azure/marketplace/partner-center-portal/pc-saas-fulfillment-life-cycle",
             "redirect_document_id": false
         },
         {
@@ -1187,7 +1187,7 @@
         },
         {
             "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2.md",
-            "redirect_url": "/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2",
+            "redirect_url": "/azure/marketplace/partner-center-portal/pc-saas-fulfillment-life-cycle",
             "redirect_document_id": false
         },
         {

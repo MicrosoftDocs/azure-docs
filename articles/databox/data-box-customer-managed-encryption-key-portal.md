@@ -5,14 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: how-to
-ms.date: 01/06/2022
+ms.date: 01/10/2022
 ms.author: alkohli
 ms.subservice: pod
+ms.custom: contperf-fy22q3
 ---
 
 # Use customer-managed keys in Azure Key Vault for Azure Data Box
 
-Azure Data Box protects the device unlock key (also known as the device password), which is used to lock a device, via an encryption key. By default, this encryption key is a Microsoft managed key. For more control, you can use a customer-managed key.
+Azure Data Box protects the device unlock key (also known as the device password), which is used to lock a device, via an encryption key. By default, this encryption key is a Microsoft managed key. For more control, you can use a customer-managed key. 
 
 Using a customer-managed key doesn't affect how data on the device is encrypted. It only affects how the device unlock key is encrypted.
 

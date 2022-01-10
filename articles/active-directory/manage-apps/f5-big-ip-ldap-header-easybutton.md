@@ -93,7 +93,7 @@ Prior BIG-IP experience isn't necessary, but you'll need:
 
 - A user directory that supports LDAP, including Windows Active Directory Lightweight Directory Services (AD LDS), OpenLDAP etc.
 
-## BIG-IP deployment methods
+## BIG-IP configuration methods
 
 There are many methods to deploy BIG-IP for this scenario including a template-driven Guided Configuration wizard, or the manual advanced configuration. This tutorial covers the latest Guided Configuration 16.1 offering an Easy Button template.
 
