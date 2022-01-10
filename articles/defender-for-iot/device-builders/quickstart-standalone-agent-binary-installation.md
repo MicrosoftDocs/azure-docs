@@ -15,7 +15,7 @@ This tutorial will help you learn how to install and authenticate the Defender f
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An [IoT hub](quickstart-onboard-iot-hub.md).
+- An [IoT hub](../../iot-hub/iot-hub-create-through-portal.md).
 
 - You must have [enabled Microsoft Defender for IoT on your Azure IoT Hub](quickstart-onboard-iot-hub.md).
 
@@ -29,7 +29,8 @@ In this tutorial you will learn how to:
 > - Download and install the micro agent
 > - Authenticate the micro agent
 > - Validate the installation
-> - Test the system end-to-end
+> - Test the system
+> - Install a specific micro agent version
 
 ## Download and install the micro agent
 
@@ -164,9 +165,9 @@ You will need to copy the module identity connection string from the DefenderIoT
 
     :::image type="content" source="media/quickstart-standalone-agent-binary-installation/active-running.png" alt-text="Check to make sure your service is stable and active.":::
 
-## Test the system end-to-end
+## Test the system
 
-You can test the system from end to end by creating a trigger file on the device. The trigger file will cause the baseline scan in the agent to detect the file as a baseline violation.
+You can test the system by creating a trigger file on the device. The trigger file will cause the baseline scan in the agent to detect the file as a baseline violation.
 
 Create a file on the file system with the following command:
 
@@ -190,9 +191,9 @@ In a situation where you want to install a specific version of the micro agent, 
 
 1. Run the following command:
 
-```bash
-sudo apt-get install defender-iot-micro-agent=<version>
-```
+    ```bash
+    sudo apt-get install defender-iot-micro-agent=<version>
+    ```
 
 ## Next steps
 

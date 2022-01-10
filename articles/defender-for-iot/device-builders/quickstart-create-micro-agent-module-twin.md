@@ -18,7 +18,7 @@ Defender for IoT has the ability to fully integrate with your existing IoT devic
 
 Learn more about the concept of [Understand and use device twins in IoT Hub](../../iot-hub/iot-hub-devguide-device-twins.md).
 
-## Defender-IoT-micro-agent twins
+## Defender-IoT-micro-agent twin
 
 Defender for IoT uses a Defender-IoT-micro-agent twin for each device. The Defender-IoT-micro-agent twin holds all of the information that is relevant to device security, for each specific device in your solution. Device security properties are configured through a dedicated Defender-IoT-micro-agent twin for safer communication, to enable updates, and maintenance that requires fewer resources.
 
@@ -44,7 +44,9 @@ In this tutorial you will learn how to:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An [IoT hub](quickstart-onboard-iot-hub.md).
+- Verify you are running one of the following operating systems; Ubuntu 18.04, 20.04, or Debian 9.
+
+- An [IoT hub](../../iot-hub/iot-hub-create-through-portal.md).
 
 - You must have [enabled Microsoft Defender for IoT on your Azure IoT Hub](quickstart-onboard-iot-hub.md).
 

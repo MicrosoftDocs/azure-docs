@@ -27,7 +27,7 @@ In this tutorial you will learn how to:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An IoT hub.
+- An [IoT hub](../../iot-hub/iot-hub-create-through-portal.md).
 
 - You must have [enabled Microsoft Defender for IoT on your Azure IoT Hub](quickstart-onboard-iot-hub.md).
 
