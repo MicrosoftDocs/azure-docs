@@ -26,7 +26,7 @@ The Azure Migrate appliance is used in the following scenarios.
 
 ## Deployment methods
 
-The appliance can be deployed using a couple of methods:
+The appliance can be deployed using the following methods:
 
 - The appliance can be deployed using a template for servers running in VMware or Hyper-V environment ([OVA template for VMware](how-to-set-up-appliance-vmware.md) or [VHD for Hyper-V](how-to-set-up-appliance-hyper-v.md)).
 - If you don't want to use a template, you can deploy the appliance for VMware or Hyper-V environment using a [PowerShell installer script](deploy-appliance-script.md).
