@@ -160,7 +160,7 @@ ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 ### TensorFlow
 
 **Name**: AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu  
-**Description**: An environment for deep learning with Tensorflow containing the AzureML Python SDK and additional python packages.  
+**Description**: An environment for deep learning with TensorFlow containing the AzureML Python SDK and additional python packages.  
 
 The following Dockerfile can be customized for your personal workflows.
 
