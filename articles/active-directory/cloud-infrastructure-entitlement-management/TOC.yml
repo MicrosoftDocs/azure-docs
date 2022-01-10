@@ -3,7 +3,7 @@
   #- name: Overview
     #expanded: true
     #items:
-  - name: Onboarding
+  - name: Onboard CloudKnox on the Azure Active Directory tenant
     expanded: true
     items:
     - name: Enable M-CIEM on your Azure AD tenant 
@@ -11,7 +11,7 @@
   - name: Installation
     expanded: true
     items:
-    - name: Installation overview
+    - name: Install CloudKnox - Overview
       href: cloudknox-installation.md
     - name: Install CloudKnox on GCP
       href: cloudknox-sentry-install-gcp.md
@@ -74,7 +74,7 @@
       href: cloudknox-product-dashboard.md
     - name: View details about identities, resources, and tasks
       href: cloudknox-product-user-management.md
-    - name: Usage Analytics 
+    - name: Usage analytics 
       expanded: true
       items:
       - name: Analyze usage for an identity, a task, or an authorization system
@@ -171,14 +171,14 @@
   - name: Training material
     expanded: true
     items:
-    - name: Training videos
+    - name: Get started with CloudKnox training videos
       href: cloudknox-training-videos.md
   - name: Reference
     expanded: true
     items:
     - name: FAQs
       href: cloudknox-faqs.md
-    - name: Multi-cloud glossary
+    - name: Multi-cloud glossary for CloudKnox
       href: cloudknox-multi-cloud-glossary.md
   #- name: Compliance
     #expanded: true

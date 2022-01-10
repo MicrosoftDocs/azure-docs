@@ -2,7 +2,6 @@
 title: Microsoft CloudKnox Permissions Management - Installation overview
 description: How to install Microsoft CloudKnox Permissions Management.
 author: Yvonne-deQ
-author: Yvonne-deQ
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
@@ -14,11 +13,17 @@ ms.author: v-ydequadros
 
 # Microsoft CloudKnox Permissions Management - Installation overview
 
-Microsoft CloudKnox Permissions Management (CloudKnox) is a multi-cloud, hybrid cloud permissions management platform that provide granular visibility, automated remediation, and continuous monitoring consistently, enforcing least-privilege principles to reduce risk. 
+Microsoft CloudKnox Permissions Management (CloudKnox) is a multi-cloud, hybrid cloud permissions management platform that provides granular visibility, automated remediation, and continuous monitoring consistently, enforcing least-privilege principles to reduce risk. 
 
-CloudKnox offers complete visibility into privileged access. It helps organizations right-size permissions and consistently enforce least-privilege principles to reduce risk, and it employs continuous analytics to help prevent security breaches and ensure compliance. 
+CloudKnox:
 
-CloudKnox provides one platform To manage all permissions across all cloud system authorization:
+- Works with the Microsoft Azure (Azure), Amazon Web Services (AWS), and Google Cloud Platform (GCP) authorization systems. 
+- Offers complete visibility into privileged access. 
+- Helps organizations create right-size permissions.
+- Consistently enforces least-privilege principles to reduce risk. 
+- Uses continuous analytics to help prevent security breaches and ensure compliance. 
+
+CloudKnox provides one platform to manage all permissions across all cloud system authorization:
 
 - **Visibility**: Gain insights into effective permissions of all identities, and their usage.
 - **Remediation**: Provision Just Enough Permissions (JEP) with On Demand and Just in time (JIT) in a single step. 
@@ -30,7 +35,6 @@ CloudKnox enables you to:
 - Identify the areas of greatest risk for mitigation so you know where to focus your resources.
 - Improve your risk posture with actionable insights and prescriptive recommendations.
 
-CloudKnox works with Azure, as well as the AWS and Google public clouds
 
  **Installation takes about 30 minutes.**
 
@@ -64,7 +68,10 @@ The PCI is an indicator of an organization's level of exposure to insider threat
 
 PCI measures the number of unused high-risk privileges that have been granted to all unique identities. It also takes into account the number of resources that an identity has access to but hasn't touched over the last 90 days.
 
-PCI scores of 100 represent the highest risk to the organization. They indicate a high percentage of identities with excessive high-risk privileges and broad access to cloud resources, some of which may be unnecessary to the user.
+PCI scores of 100 represent the highest risk to the organization. They indicate:
+
+- A high percentage of identities with excessive high-risk privileges.
+- Broad access to cloud resources, some of which may be unnecessary to the user.
 
 A zero score represents the lowest risk.
 

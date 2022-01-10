@@ -31,7 +31,7 @@ The **Integrations** dashboard displays the authorization systems available to y
 
     1. To view information about service accounts, select **Integration**:
         - **Email** - Lists the email address of the user who created the integration.
-        - **Created By** - Lists the first and last name of the user who create the integration.
+        - **Created By** - Lists the first and last name of the user who created the integration.
         - **Created On** - Lists the date and time the integration was created.
         - **Recent Activity** - Lists the date and time the integration was last used, or notes if the integration was never used.
         - **Service Account ID** - Lists the service account ID.
@@ -56,7 +56,7 @@ The **Integrations** dashboard displays the authorization systems available to y
    > [!NOTE]
    >  The codes are time sensitive and will regenerate after the box is closed.
 
-4. To re-generate the codes, at the bottom of the column, select **Re-generate**.
+4. To regenerate the codes, at the bottom of the column, select **Regenerate**.
 
 ## Delete a service account
 
@@ -66,7 +66,7 @@ The **Integrations** dashboard displays the authorization systems available to y
  
      On the **Validate OTP To Delete [Service Name] Integration** box, a message displays asking you to check your email for a code sent to the email address on file.
 
-     If you do not receive the code, select **Resend OTP**.
+     If you don't receive the code, select **Resend OTP**.
 
 1. In the **Enter OTP** box, enter the code from the email.
 

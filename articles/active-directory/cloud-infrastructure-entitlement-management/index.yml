@@ -24,11 +24,18 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
+  - title: Onboard Microsoft CloudKnox Permissions Management 
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Enable M-CIEM on the Azure Active Directory tenant 
+            url: cloudknox-installation.md
+  # Card
   - title: Install Microsoft CloudKnox Permissions Management 
     linkLists:
       - linkListType: overview
         links:
-          - text: Install Microsoft CloudKnox Permissions Management 
+          - text: Install M-CIEM in your organization
             url: cloudknox-installation.md
   # Card
   - title: Integrate Microsoft CloudKnox Permissions Management with other systems
@@ -45,11 +52,11 @@ landingContent:
           - text: Use Microsoft CloudKnox Permissions Management Tasks
             url: cloudknox-howto-generate-custom-reports.md
   # Card
-  - title: Use Microsoft CloudKnox Permissions Management Dashboards
+  - title: Use Microsoft CloudKnox Permissions Management dashboards
     linkLists:
       - linkListType: overview
         links:
-          - text: Use Microsoft CloudKnox Permissions Management Dashboards
+          - text: Use the CloudKnox Settings dashboard
             url: cloudknox-ui-product-settings.md
   # Card
   - title: Learn with Microsoft CloudKnox Permissions Management training materials
@@ -77,8 +84,15 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Generate reports with Microsoft CloudKnox Permissions Management Reports
+          - text: Overview of Microsoft CloudKnox Permissions Management reports
             url: cloudknox-all-reports.md
+  # Card
+  - title: Microsoft CloudKnox Permissions Management training videos
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Microsoft CloudKnox Permissions Management training videos
+            url: cloudknox-training-videos.md
   # Card
   - title: Microsoft CloudKnox Permissions Management FAQs
     linkLists:
