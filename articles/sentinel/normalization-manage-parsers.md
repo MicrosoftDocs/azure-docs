@@ -35,13 +35,13 @@ This document will guide you how to perform these tasks, whether using built-in 
 
 The user cannot edit built-in unifying parsers. The following mechanisms enable users to influence the built-in unifying parsers behavior:
 
--  To enable adding source-specific parsers, ASIM uses custom unifying parsers. These parsers are workspace deployed and are picked up automatically by the built-in unifying parsers if they exist. You can [deploy initial empty custom unifying parsers](https://aka.ms/ASimDeployEmptyCustomUnifyingParsers) for all supported schemas, or individually for specific schemas.
+-  To enable adding source-specific parsers, ASIM uses unifying custom parsers. These parsers are workspace deployed and are picked up automatically by the built-in unifying parsers if they exist. You can [deploy initial empty unifying custom parsers](https://aka.ms/ASimDeployEmptyCustomUnifyingParsers) for all supported schemas, or individually for specific schemas.
 
 - To enable excluding built-in source-specific parsers, ASIM uses a watchlist. Deploy the watchlist from [GitHub](https://aka.ms/DeployASimExceptionWatchlist).
 
 ### Adding a custom parser to a built-in unifying parser
 
-To add a custom parser, insert a line to the custom unifying parser referencing the new custom parser. Make sure to add both a filtering custom parser and a parameter-less custom parser. To learn more about how to edit parsers, refer to the document [Functions in Azure Monitor log queries](/azure/azure-monitor/logs/functions#edit-a-function).
+To add a custom parser, insert a line to the unifying custom parser referencing the new custom parser. Make sure to add both a filtering custom parser and a parameter-less custom parser. To learn more about how to edit parsers, refer to the document [Functions in Azure Monitor log queries](/azure/azure-monitor/logs/functions#edit-a-function).
 
 The syntax of the line to add is different for each schema:
 
@@ -50,9 +50,9 @@ The syntax of the line to add is different for each schema:
 | DNS    | Im_DnsCustom | _parser_name_ (starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype) | ASim_DnsCustom | _parser_name_ |
 | | | | |  
 
-When adding an additional parser to a custom unifying parser that already references parsers, make sure you add a comma at the end of the previous line. 
+When adding an additional parser to a unifying custom parser that already references parsers, make sure you add a comma at the end of the previous line. 
 
-For example, the custom unifying parser after adding `added_parser` is:
+For example, the unifying custom parser after adding `added_parser` is:
 
 ```KQL
 union isfuzzy=true
@@ -77,7 +77,7 @@ To modify an existing built-in source-specific parser
 ### Prevent automated update of a built-in parser
 
 To fix the version used for a built-in source-specific parser:
-- Add the built-in parser version you want to use to the custom unifying parser as outlined above for custom parsers, for example, `_Im_Dns_AzureFirewallV02`.
+- Add the built-in parser version you want to use to the unifying custom parser as outlined above for custom parsers, for example, `_Im_Dns_AzureFirewallV02`.
 - Add an exception for the built-in parser as outlined above. When excluding a large number of built-in parsers, for example, to opt out entirely from automatic updates, you can add:
   - A record with `Any` as the SourceSpecificParser field to exclude all parsers for the CallerContext.
   - A record for  `Any` in the CallerContext and the SourceSpecificParser fields to exclude all built-in parsers.
