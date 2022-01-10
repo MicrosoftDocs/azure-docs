@@ -175,11 +175,11 @@ az deployment group create \
 Wait until the template has been deployed successfully, if any resource deployment failed, check the deployment details with CLI `az deployment group list`, and update the template or configurations accordingly.
 
 ### Configure the new Azure Spring Cloud
-Some features are not exported to the template or cannot be imported with template directly, you will have to manually set up the new Azure Spring Cloud after the deploy template finished successfully.
+Some features are not exported to the template or cannot be imported with template directly, please manually setup the new Azure Spring Cloud instance after the deploy template finished successfully.
 
   - The jar files for previous service are not deployed directly to the new service, follow [Quickstart - Build and deploy apps to Azure Spring Cloud](/azure/spring-cloud/quickstart-deploy-apps?tabs=Azure-CLI&pivots=programming-language-java#create-and-deploy-apps-on-azure-spring-cloud) to deploy all apps. If there is no active deployment configured automatically, follow [Set up a staging environment in Azure Spring Cloud](/azure/spring-cloud/how-to-staging-environment#set-the-green-deployment-as-the-production-environment) to configure production deployment.  
-  - Config server will not be automatically imported, follow [Set up your Config Server instance in Azure Spring Cloud](/azure/spring-cloud/how-to-config-server) for configurations.
-  - Managed identity will be automatically created for the new service, but the object ID is different with previous one, to make MSI work in the new service, follow [Enable system-assigned managed identity for applications in Azure Spring Cloud](/azure/spring-cloud/how-to-enable-system-assigned-managed-identity) for configurations.
-  - For Monitoring -> Metrics, follow [Metrics for Azure Spring Cloud](/azure/spring-cloud/concept-metrics) for the configurations, to not mix the data, it's not recommended to reuse previous Log Analytics and so on. to collect data, similar for other monitoring configurations.
-  - For Monitoring -> Diagnostic settings and Logs, follow [Analyze logs and metrics in Azure Spring Cloud](/azure/spring-cloud/diagnostic-services) for configurations.
-  - For Monitoring -> Application Insights, follow [How to use Application Insights Java In-Process Agent in Azure Spring Cloud](/azure/spring-cloud/how-to-application-insights) for configurations.
+  - Config server will not be automatically imported, follow [Set up your Config Server instance in Azure Spring Cloud](/azure/spring-cloud/how-to-config-server).
+  - Managed identity will be automatically created for the new service, but the object ID is different with previous one, to make MSI work in the new service, follow [Enable system-assigned managed identity for applications in Azure Spring Cloud](/azure/spring-cloud/how-to-enable-system-assigned-managed-identity).
+  - For Monitoring -> Metrics, follow [Metrics for Azure Spring Cloud](/azure/spring-cloud/concept-metrics), to not mix the data, it's  recommended to create new Log Analytics to collect data, same for other monitoring configurations.
+  - For Monitoring -> Diagnostic settings and Logs, follow [Analyze logs and metrics in Azure Spring Cloud](/azure/spring-cloud/diagnostic-services).
+  - For Monitoring -> Application Insights, follow [How to use Application Insights Java In-Process Agent in Azure Spring Cloud](/azure/spring-cloud/how-to-application-insights).
