@@ -235,7 +235,9 @@ Finally, let's expand our `LongTap()` method to include finding the anchor. We w
 ## Try it out
 Your app now supports creating anchors and locating them. Build your app in **Unity** and deploy it from **Visual Studio**. Follow [**Using Visual Studio to deploy and debug**](https://docs.microsoft.com/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2) to run your app. 
 
-Make sure your HoloLens is connected to the internet. Once the app started and the _made with Unity_ splash disappears, short tap in your surroundings. A white cube should appear to show the position and rotation of the anchor. The anchor creation process is automatically called in our code. As you slowly look around your surroundings you are capturing environment data which is used to create the anchor. Once the anchor creation process is completed the cube will turn green. Check your debug logs in visual studio to see if everything worked as intended
+Make sure your HoloLens is connected to the internet. Once the app started and the _made with Unity_ splash disappears, short tap in your surroundings. A white cube should appear to show the position and rotation of the anchor. The anchor creation process is automatically called in our code. As you slowly look around your surroundings you are capturing environment data which is used to create the anchor. Once the anchor creation process is completed the cube will turn green. Check your debug logs in visual studio to see if everything worked as intended.
+
+Long tap to remove all game objects from your scene. Once your scene is cleared you can long tap again, which will start a session, look for the anchors you have created and create blue GameObjects at the anchored position and rotation. This anchor-finding process will work on any supported device now as long as they have the correct anchorIDs and access to your spatial anchor resource.
 
 ## Delete Anchor
 Right now our app can create and locate anchors. While it deletes the GameObjects, it does not delete the anchor in the cloud. Let's add the functionality to also delete it in the cloud if i tap on an existing anchor.
