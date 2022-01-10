@@ -394,7 +394,6 @@ Click the **Azure Activity Logs** tile to open the **Azure Activity Logs** view.
     ```
 
 
-
 ## Next steps
 
 * [Read an overview of platform logs](./platform-logs-overview.md)
