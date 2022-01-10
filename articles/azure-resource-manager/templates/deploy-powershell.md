@@ -57,7 +57,7 @@ You can target your deployment to a resource group, subscription, management gro
 
 For every scope, the user deploying the template must have the required permissions to create resources.
 
-[!INCLUDE [permissions](../../includes/template-deploy-permissions.md)]
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
 
 ## Deployment name
 
