@@ -120,14 +120,6 @@ To secure communication between Azure Machine Learning and Azure SQL Database, t
 
     To add the IP addresses to your Azure SQL Database, see [IP firewall rules - Azure SQL Database and Synapse Analytics](/azure/azure-sql/database/firewall-configure).
 
-# [Allow IP address range](#tab/allowiprange)
-
-Add the IP addresses used by Azure Machine Learning service to the __Firewalls and virtual networks__ settings for Azure SQL Database. Adding these IP addresses allows communication directly from the Azure Machine Learning service.
-
-
-
----
-
 ## Next steps
 
 For information on enabling studio in a network, see [Use Azure Machine Learning studio in an Azure Virtual Network](how-to-enable-studio-virtual-network.md).
