@@ -1,7 +1,7 @@
 {
   "redirections": [
     {
-      "source_path": "articles/marketplace/partner-center-portal/pc-saas-fulfillment-life-cycle.md",
+      "source_path": "articles/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2.md",
       "redirect_url": "/marketplace/partner-center-portal/pc-saas-fulfillment-life-cycle",
       "redirect_document_id": false
     },    
