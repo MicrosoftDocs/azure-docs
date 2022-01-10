@@ -495,8 +495,7 @@ A full list of supported alerts is available in the [reference table of all Defe
 
 
 
-::: zone pivot="defender-for-container-arc"
-::: zone pivot="defender-for-container-eks"
+::: zone pivot="defender-for-container-arc,defender-for-container-eks"
 
 ## Remove the Defender extension
 
@@ -570,7 +569,6 @@ The request may take several minutes to complete.
 
 ---
 
-::: zone-end
 ::: zone-end
 
 
@@ -663,7 +661,7 @@ The relevant template and parameters to remove the Defender profile from AKS are
 
 ## Remove the Defender extension
 
-If you've tried the Defender extension and decided not to use it, or you're troubleshooting a problem and need to uninstall then reinstall, follow the procedure described in [Remove the add-on](../governance/policy/concepts/policy-for-kubernetes.md#remove-the-add-on).
+If you've tried the Defender extension and decided not to use it, or you're troubleshooting a problem and need to uninstall then reinstall, follow the procedure described in [Remove the add-on](../governance/policy/concepts/policy-for-kubernetes.md#remove-the-add-on) from the Azure Policy documentation.
 
 
 
