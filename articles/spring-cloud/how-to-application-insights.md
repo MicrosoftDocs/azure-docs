@@ -7,6 +7,7 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2021
 ms.custom: devx-track-java, devx-track-azurecli
+zone_pivot_groups: spring-cloud-tier-selection
 ---
 
 # Use Application Insights Java In-Process Agent in Azure Spring Cloud
@@ -21,7 +22,9 @@ With this feature you can:
 * Monitor real-time live metrics.
 * Check request failures.
 * Check application metrics.
-* Check application logs.
+::: zone pivot="sc-enterprise-tier"
+* Check application logs (Enterprise Tier Only).
+::: zone-end
 
 Application Insights can provide many observable perspectives, including:
 
@@ -31,8 +34,11 @@ Application Insights can provide many observable perspectives, including:
 * Metrics
 * Live Metrics
 * Availability
-* Logs
+::: zone pivot="sc-enterprise-tier"
+* Logs (Enterprise Tier Only)
+::: zone-end
 
+::: zone pivot="sc-standard-tier"
 ## Enable Java In-Process Agent for Application Insights
 
 Enable the Java In-Process Agent by using the following procedure.
@@ -48,13 +54,13 @@ Enable the Java In-Process Agent by using the following procedure.
 
 > [!Note]
 > Do not use the same Applicaiton Insights instance in different Azure Spring Cloud instances, or else you will see mixed data.
+::: zone-end
 
 ## Using the Application Insights feature
 
 When the **Application Insights** feature is enabled, you can:
 
 * In the left navigation pane, select **Application Insights** to view the **Overview** page of Application Insights. The **Overview** page will show you an overview of all running applications.
-
 
 * Select **Application Map** to see the status of calls between applications.
 
@@ -85,10 +91,15 @@ When the **Application Insights** feature is enabled, you can:
 
    [ ![IPA 9](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)
 
+::: zone pivot="sc-enterprise-tier"
+
 * In the left navigation pane, select **Logs** to view all applications' logs, or one application's logs when filtering by `cloud_RoleName`.
 
    ![Example of Application Logs](./media/enterprise/how-to-application-insights/ai-application-logs.png)
 
+::: zone-end
+
+::: zone pivot="sc-standard-tier"
 ## Automation
 
 The following sections describe how to automate your deployment using Azure Resource Manager templates (ARM templates) or Terraform.
@@ -170,10 +181,11 @@ resource "azurerm_spring_cloud_service" "example" {
   }
 }
 ```
+::: zone-end
+
+::: zone pivot="sc-enterprise-tier"
 
 ## Manage Application Insights using the Azure Portal in Enterprise Tier
-
-This section applies to the Enterprise Tier only.
 
 You can use the Portal to check or update the current settings in Application Insights.
 
@@ -208,7 +220,6 @@ To check and update the current settings for the Application Insights buildpack 
 
 Application Insights settings are found in the *ApplicationInsights* item listed under the *Binding type* column.
 
-
 1. Select the **Bound** hyperlink, or select **Edit Binding** under the ellipse, to open and edit the Application Insights buildpack bindings.
 
    ![Where to select editing of bindings in Build Service](./media/enterprise/how-to-application-insights/ai-builder-settings.png)
@@ -217,11 +228,15 @@ Application Insights settings are found in the *ApplicationInsights* item listed
 
    ![e-spring-ipa-8](./media/enterprise/how-to-application-insights/ai-edit-binding.png)
 
+::: zone-end
+
+::: zone pivot="sc-standard-tier"
+
 ## Manage Application Insights using Azure CLI
 
 You can manage Application Insights using Azure CLI commands. In the following commands, be sure to replace the *\<placeholder>* text with the values described. The *\<service-name>* placeholder refers to the name of your Azure Spring Cloud instance.
 
-### Manage Application Insights in the Standard or Enterprise Tier
+### Manage Application Insights in the Standard Tier
 
 To configure Application Insights when creating an Azure Spring Cloud instance, use the following command. For the `app-insights` argument, you can specify an Application Insights name or resource ID.
 
@@ -288,7 +303,9 @@ az spring-cloud app-insights update \
     --name <service-name> \
     --disable
 ```
+::: zone-end
 
+::: zone pivot="sc-enterprise-tier"
 ### Manage Application Insights in the Enterprise Tier
 
 This section applies to the Enterprise Tier only, and provides instructions that that supplement the previous section.
@@ -350,6 +367,31 @@ To delete an Application Insights buildpack binding, use the following command:
        --builder-name <your-builder-name> \
    ```
 
+### Enable Application Insights in Enterprise Tier
+
+To configure Application Insights when creating an Azure Spring Cloud instance, use the following command. For the `app-insights` argument, you can specify an Application Insights name or resource ID.
+
+```azurecli
+az spring-cloud create \
+    --resource-group <resource-group-name> \
+    --name "serviceName" \
+    --app-insights <name-or-resource-ID> \
+    --sampling-rate <sampling-rate>
+```
+
+You can also use an Application Insights connection string (preferred) or instrumentation key, as shown in the following example.
+
+```azurecli
+az spring-cloud create \
+    --resource-group <resource-group-name> \
+    --name <service-name> \
+    --app-insights-key <connection-string-or-instrumentation-key> \
+    --sampling-rate <sampling-rate>
+```
+::: zone-end
+
+::: zone pivot="sc-standard-tier"
+
 ## Java agent update/upgrade
 
 The Java agent will be updated/upgraded regularly with the JDK, which may affect the following scenarios.
@@ -371,6 +413,7 @@ Azure Spring Cloud has enabled a hot-loading mechanism to adjust the settings of
 * When the Java agent has been previously enabled, changes to the Application Insights instance and/or SamplingRate do NOT require applications to be restarted.
 * If you enable the Java agent, then you must restart applications.
 * When you disable the Java agent, applications will stop to send all monitoring data after a delay in minutes. You can restart applications to remove the agent from the Java runtime environment.
+::: zone-end
 
 ## Concept matching between Azure Spring Cloud and Application Insights
 
