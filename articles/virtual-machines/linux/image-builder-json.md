@@ -4,7 +4,7 @@ description: Learn how to create a template to use with Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
-ms.date: 05/24/2021
+ms.date: 01/10/2022
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -682,7 +682,7 @@ az resource invoke-action \
 ### Cancelling an Image Build
 If you are running an image build that you believe is incorrect, waiting for user input, or you feel will never complete successfully, then you can cancel the build.
 
-The build can be cancelled any time. If the distribution phase has started you can still cancel, but you will need to clean up any images that may not be completed. The cancel command does not wait for cancel to complete, please monitor `lastrunstatus.runstate` for cancelling progress, using these status [commands](image-builder-troubleshoot.md#customization-log).
+The build can be canceled any time. If the distribution phase has started you can still cancel, but you will need to clean up any images that may not be completed. The cancel command does not wait for cancel to complete, please monitor `lastrunstatus.runstate` for canceling progress, using these status [commands](image-builder-troubleshoot.md#customization-log).
 
 
 Examples of `cancel` commands:
