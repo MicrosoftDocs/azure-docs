@@ -44,11 +44,11 @@ Ensure the region for the new private endpoint is the same as the region for you
 
 ![Image of the Azure portal Basics Tab.](media/private-link/private-link-portal2.png#lightbox)
 
-For the resource type, search and select **Microsoft.HealthcareApis/services**. For the resource, select the Azure resource. For target sub-resource, select **FHIR**.
+For the resource type, search and select **Microsoft.HealthcareApis/services**. For the resource, select the Azure resource. For the target subresource, select **FHIR**.
 
 ![Screen image of the Azure portal Resource Tab](media/private-link/private-link-portal1.png#lightbox)
 
-If you do not have an existing Private DNS Zone set up, select **(New)privatelink.azurehealthcareapis.com**. If you already have your Private DNS Zone configured, you can select it from the list. It must be in the format of **privatelink.azurehealthcareapis.com**.
+If you don't have an existing Private DNS Zone set up, select **(New)privatelink.azurehealthcareapis.com**. If you already have your Private DNS Zone configured, you can select it from the list. It must be in the format of **privatelink.azurehealthcareapis.com**.
 
 ![Screen image of the Azure portal Configuration Tab.](media/private-link/private-link-portal3.png#lightbox)
 
@@ -56,7 +56,7 @@ After the deployment is complete, you can go back to **Private endpoint connecti
 
 ### Manual Approval
 
-For manual approval, select the second option under Resource, "Connect to an Azure resource by resource ID or alias". For Target sub-resource, enter "FHIR" as in Auto Approval.
+For manual approval, select the second option under Resource, "Connect to an Azure resource by resource ID or alias". For Target subresource, enter "FHIR" as in Auto Approval.
 
 ![Screen image of the Manual Approval Resources tab.](media/private-link/private-link-manual.png#lightbox)
 
