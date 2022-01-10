@@ -8,10 +8,10 @@
   items:
   - name: Create a lab - Portal
     href: devtest-lab-create-lab.md
-  - name: Create a lab - Resource Manager template
-    displayName: Resource Manager
+  - name: Create a lab - ARM template
+    displayName: ARM template
     href: create-lab-windows-vm-template.md
-  - name: Create a lab - REST API
+  - name: Create a lab - PowerShell with REST API
     href: quickstarts/create-lab-rest.md
 - name: Tutorials
   items:
@@ -21,7 +21,7 @@
     href: tutorial-use-custom-lab.md
 - name: Samples
   items:
-  - name: Resource Manager templates
+  - name: ARM quickstart templates
     href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates
   - name: Azure PowerShell
     href: samples-powershell.md
@@ -77,7 +77,7 @@
     items:
     - name: Create a network isolated lab
       href: network-isolation.md
-    - name: Create or modify labs using Resource Manager template
+    - name: Create or modify labs using ARM templates
       href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
     - name: Specify resource group for lab virtual machines
       href: resource-group-control.md
@@ -137,7 +137,7 @@
         href: devtest-lab-vm-powershell.md
       - name: Azure CLI
         href: devtest-lab-vmcli.md
-      - name: Resource Manager template
+      - name: ARM template
         href: devtest-lab-use-resource-manager-template.md
       - name: Create a VM using an image from shared image gallery
         href: add-vm-use-shared-image.md
@@ -173,7 +173,7 @@
       href: enable-managed-identities-lab-vms.md
   - name: Use environments in a lab
     items:
-    - name: Create an environment
+    - name: Create environments from ARM templates
       href: devtest-lab-create-environment-from-arm.md
     - name: Use Platform-as-a-Service (PaaS) services
       href: use-paas-services.md
@@ -304,7 +304,7 @@
     href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library
   - name: REST API
     href: /rest/api/dtl/
-  - name: Resource Manager template
+  - name: ARM templates
     href: /azure/templates/microsoft.devtestlab/allversions
 - name: Resources
   items:
