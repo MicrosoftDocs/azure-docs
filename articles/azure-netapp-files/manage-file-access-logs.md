@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 12/15/2021
-ms.author: b-ahibbard
+ms.author: anfdocs
 ---
 # Manage file access logs in Azure NetApp Files
 
@@ -30,6 +30,7 @@ File access logs provide file access logging for individual volumes, capturing f
 * File access logs provide no explicit or implicit expectations or guarantees around logging for auditing and compliance purposes. 
 
 ## Register the feature
+
 The file access logs feature is currently in preview. If you are using this feature for the first time, you need to register the feature first. 
 1. Register the feature:<br>`Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFileAccessLogs`
 2. Check the status:<br>`Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFileAccessLogs`
@@ -37,6 +38,7 @@ The file access logs feature is currently in preview. If you are using this feat
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
 
 ## Enable file access logs
+
 1. Select the volume you want to enable file access logs for. 
 2. Select **Diagnostic settings** from the left-hand pane.
 ![Azure Diagnostic settings menu showing how to add ANF file access logs](../media/azure-netapp-files/logs-diagnostic-settings-add.jpg)
@@ -50,11 +52,13 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 5. Save the settings
 
 ## Disable file access logs
+
 1. Select the volume on which you want to disable file access logs.
 2. Select the **Diagnostic setting** menu from the left-hand pane. 
 3. In the **Diagnostic settings** page, deselect **ANFFileAccess**.
 4. Save the settings.
  
 ## Next Steps
+
 * [Security FAQs](faq-security.md) 
 * [Azure resource logs](..\azure-monitor\essentials\resource-logs.md)
