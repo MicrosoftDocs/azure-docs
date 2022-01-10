@@ -59,10 +59,10 @@ Make sure to add both a filtering custom parser and a parameter-less custom pars
 
 The syntax of the line to add is different for each schema:
 
-| Schema | Custom source&#8209;agnostic filtering  parser | Format of line to add | Custom source&#8209;agnostic Parameter-less parser |  Format of line to add |
-| ------ | ---------------------------------------- | --------------------- | ---------------- | --------------------- | 
-| DNS    | Im_DnsCustom | _parser_name_ (starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype) | ASim_DnsCustom | _parser_name_ |
-| | | | |  
+| Schema | Filtering  parser | Parameter&#8209;less&nbsp;parser | 
+| ------ | ---------------------------------------- | --------------------- |
+| DNS    | **Name**: `Im_DnsCustom`<br><br> **Line to add**:<br> `_parser_name_ (starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype)` | **Name**: `ASim_DnsCustom`<br><br> **Line to add**:<br> `_parser_name_` |
+| | |
 
 When adding an additional parser to a unifying custom parser that already references parsers, make sure you add a comma at the end of the previous line. 
 
@@ -115,15 +115,15 @@ To add a custom parser, insert a line to the `union` statement in the workspace-
 
 Make sure to add both a filtering custom parser and a parameter-less custom parser. The syntax of the line to add is different for each schema:
 
-| Schema |  Filtering  parser | Parameter-less parser |
+| Schema |  Filtering  parser | Parameter&#8209;less&nbsp;parser |
 | ------ | -------------- | --------------------- |
-| **Authentication**  | **Name:** ImAuthentication<br><br>**Line to add:**<br> _parser_name_ (starttime, endtime, targetusername_has) | **Name:** ASimAuthentication<br><br> **Line to add:** _parser_name_ |
-| **DNS**   |  **Name:** ImDns<br><br>**Line to add:**<br> _parser_name_ (starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype) | **Name:** ASimDns<br><br>**Line to add:** _parser_name_ |
-| **File Event** | | **Name:** imFileEvent<br><br>**Line to add:** _parser_name_ |
-| **Network Session** | **Name:** imNetworkSession<br><br>**Line to add:**<br> _parser_name_ (starttime, endtime, srcipaddr_has_any_prefix, dstipaddr_has_any_prefix, dstportnumber, url_has_any, httpuseragent_has_any, hostname_has_any, dvcaction, eventresult) | **Name:** ASimNetworkSession<br><br>**Line to add:** _parser_name_ |
-| **Process Event** | | **Names:**<br> - imProcess<br> - imProcessCreate<br> - imProcessTerminat<br><br>**Line to add:**  _parser_name_ |
-| **Registry Event** | | **Name:** imRegistry<br><br>**Line to add:** _parser_name_ |
-| **Web Session** | **Name:** imWebSession<br><br>**Line to add:**<br> _parser_name_ parser (starttime, endtime, srcipaddr_has_any, url_has_any, httpuseragent_has_any, eventresultdetails_in, eventresult) | **Name:** ASimWebSession<br><br>**Line to add:**  _parser_name_ | 
+| **Authentication**  | **Name:** `ImAuthentication`<br><br>**Line to add:**<br> `_parser_name_ (starttime, endtime, targetusername_has)` | **Name:** `ASimAuthentication`<br><br> **Line to add:** `_parser_name_` |
+| **DNS**   |  **Name:** `ImDns`<br><br>**Line to add:**<br> `_parser_name_ (starttime, endtime, srcipaddr, domain_has_any,`<br>` responsecodename, response_has_ipv4, response_has_any_prefix,`<br>` eventtype)` | **Name:** `ASimDns`<br><br>**Line to add:** `_parser_name_` |
+| **File Event** | | **Name:** `imFileEvent`<br><br>**Line to add:** `_parser_name_` |
+| **Network Session** | **Name:** `imNetworkSession`<br><br>**Line to add:**<br> `_parser_name_ (starttime, endtime, srcipaddr_has_any_prefix, dstipaddr_has_any_prefix, dstportnumber, url_has_any,`<br>` httpuseragent_has_any, hostname_has_any, dvcaction, eventresult)` | **Name:** `ASimNetworkSession`<br><br>**Line to add:** `_parser_name_` |
+| **Process Event** | | **Names:**<br> - `imProcess`<br> - `imProcessCreate`<br> - `imProcessTerminate`<br><br>**Line to add:**  `_parser_name_` |
+| **Registry Event** | | **Name:** `imRegistry`<br><br>**Line to add:** `_parser_name_` |
+| **Web Session** | **Name:** `imWebSession`<br><br>**Line to add:**<br> `_parser_name_ parser (starttime, endtime, srcipaddr_has_any, url_has_any, httpuseragent_has_any, eventresultdetails_in, eventresult)` | **Name:** `ASimWebSession`<br><br>**Line to add:**  `_parser_name_` | 
 | |  |  
 
 When adding an additional parser to a unifying parser, make sure you add a comma at the end of the previous line.
