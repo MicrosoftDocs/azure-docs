@@ -75,13 +75,13 @@ Next, you choose one the following options to deploy a Hyperscale server group t
 1. Go to the following URL: `https://ms.portal.azure.com/#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/overview`.
 1. From the **Deploy Azure services** tile, select **Deploy**. Then, from the **PostgreSQL Hyperscale (Preview)** tile, select **Deploy**. Alternatively, from the navigation pane on the left of the page, in the **Services** section, select **PostgreSQL Hyperscale (Preview)**. Then select **+ Create** (located at the top left of the pane).
 
-### Important parameters
+### Important considerations
 
 Be aware of the following considerations when you're deploying:
 
 - **The number of worker nodes you want to deploy to scale out and potentially reach better performances.** For more information, see [Concepts for distributing data with Azure Arc-enabled PostgreSQL Hyperscale server group](concepts-distributed-postgres-hyperscale.md). 
 
-  The following table indicates the range of supported values, and what form of deployment you get with them. For example, if you want to deploy a server group with two worker nodes, indicate two. This will create three pods, one for the coordinator node or instance, and two for the worker nodes or instances (one for each of the workers).
+  The following table indicates the range of supported values, and what form of deployment you get with them. For example, if you want to deploy a server group with two worker nodes, indicate *2*. This will create three pods, one for the coordinator node or instance, and two for the worker nodes or instances (one for each of the workers).
 
   |You need   |Shape of the server group you will deploy   |Number of worker nodes to indicate   |Note   |
   |---|---|---|---|
