@@ -125,7 +125,7 @@ Label: ```"admissions.enforcer/disabled": "true"``` or Annotation: ```"admission
 
 ## Is Azure Key Vault integrated with AKS?
 
-AKS isn't currently natively integrated with Azure Key Vault. However, the [Azure Key Vault provider for CSI Secrets Store][csi-driver] enables direct integration from Kubernetes pods to Key Vault secrets.
+[Azure Key Vault Provider for Secrets Store CSI Driver][aks-keyvault-provider] provides native integration of Azure Key Vault into AKS.
 
 ## Can I run Windows Server containers on AKS?
 
@@ -281,7 +281,7 @@ The issue has been resolved by Kubernetes v1.20, refer [Kubernetes 1.20: Granula
 
 ## Can I use FIPS cryptographic libraries with deployments on AKS?
 
-FIPS-enabled nodes are currently available in preview on Linux-based node pools. For more details, see [Add a FIPS-enabled node pool (preview)](use-multiple-node-pools.md#add-a-fips-enabled-node-pool-preview).
+FIPS-enabled nodes are currently are now Generally Available on Linux-based node pools. For more details, see [Add a FIPS-enabled node pool](use-multiple-node-pools.md#add-a-fips-enabled-node-pool).
 
 ## Can I configure NSGs with AKS?
 
@@ -310,6 +310,7 @@ AKS doesn't apply Network Security Groups (NSGs) to its subnet and will not modi
 [availability-zones]: ./availability-zones.md
 [az-regions]: ../availability-zones/az-region.md
 [uptime-sla]: ./uptime-sla.md
+[aks-keyvault-provider]: ./csi-secrets-store-driver.md
 
 <!-- LINKS - external -->
 [aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

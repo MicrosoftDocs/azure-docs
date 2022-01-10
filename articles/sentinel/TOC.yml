@@ -15,18 +15,20 @@
   items:
   - name: Investigate with UEBA
     href: investigate-with-ueba.md
-  - name: Create KQL queries for Microsoft Sentinel (Learn module)
-    href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
   - name: Use automation to respond to threats
     href: tutorial-respond-threats-playbook.md
   - name: Integrate with Microsoft Defender for IoT
     href: iot-solution.md
+  - name: Write your first query with Kusto Query Language (Learn module)
+    href: /learn/modules/write-first-query-kusto-query-language/
   - name: Get started with notebooks and MSTICPy
     href: notebook-get-started.md
   - name: Create a Power BI report from Microsoft Sentinel
     href: powerbi.md
   - name: Deploy and monitor decoy honeytokens
     href: monitor-key-vault-honeytokens.md
+  - name: Build and monitor Zero Trust
+    href: /security/zero-trust/integrate/sentinel-solution
 - name: Concepts
   items:
   - name: Microsoft Sentinel prerequisites
@@ -73,6 +75,20 @@
         href: normalization-content.md
     - name: Classifying data with entities
       href: entities.md
+  - name: Kusto Query Language in Microsoft Sentinel
+    items:
+    - name: Overview
+      href: kusto-overview.md
+    - name: Query best practices
+      href: /azure/data-explorer/kusto/query/best-practices
+    - name: SQL to KQL cheat sheet
+      href: /azure/data-explorer/kusto/query/sqlcheatsheet
+    - name: Splunk to KQL cheat sheet
+      href: /azure/data-explorer/kusto/query/splunk-cheat-sheet
+    - name: KQL quick reference
+      href: /azure/data-explorer/kql-quick-reference
+    - name: Other KQL resources
+      href: kusto-resources.md
   - name: Threat intelligence
     items:
     - name: Understand threat intelligence in Microsoft Sentinel
@@ -340,14 +356,6 @@
       href: fusion-scenario-reference.md
     - name: Watchlist template schemas
       href: watchlist-schemas.md
-    - name: Kusto Query Language
-      items:
-      - name: Kusto query overview
-        href: /azure/data-explorer/kusto/query/
-      - name: Kusto Query Language quick reference
-        href: /azure/data-explorer/kql-quick-reference
-      - name: Azure Monitor log query optimizations
-        href: ../azure-monitor/logs/query-optimization.md
     - name: REST APIs - samples
       items:
       - name: Manage hunting queries with REST-API

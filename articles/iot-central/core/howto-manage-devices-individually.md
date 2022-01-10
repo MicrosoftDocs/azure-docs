@@ -3,7 +3,7 @@ title: Manage devices individually in your Azure IoT Central application | Micro
 description: Learn how to manage devices individually in your Azure IoT Central application. Create, delete, and update devices.
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/20/2021
+ms.date: 12/27/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
