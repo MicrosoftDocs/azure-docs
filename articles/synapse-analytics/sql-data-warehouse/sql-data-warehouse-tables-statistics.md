@@ -85,7 +85,7 @@ However, if your dedicated SQL pool only contains one country/region, and you br
 
 The following are recommendations updating statistics:
 
-|||
+| Statistics attribute | Recommendation|
 |-|-|
 | **Frequency of stats updates**  | Conservative: Daily </br> After loading or transforming your data |
 | **Sampling** |  Less than 1 billion rows, use default sampling (20 percent). </br> With more than 1 billion rows, use sampling of two percent. |
@@ -127,18 +127,17 @@ on objIdsWithStats.object_id = statsRowCounts.object_id
 left join
 (
 	SELECT sm.name [schema] ,
-	tb.name logical_table_name ,
-	tb.object_id object_id ,
-	SUM(rg.row_count) actual_row_count
+		tb.name logical_table_name ,
+		tb.object_id object_id ,
+		SUM(rg.row_count) actual_row_count
 	FROM sys.schemas sm
-	INNER JOIN sys.tables tb ON sm.schema_id = tb.schema_id
-	INNER JOIN sys.pdw_table_mappings mp ON tb.object_id = mp.object_id
-	INNER JOIN sys.pdw_nodes_tables nt ON nt.name = mp.physical_name
-	INNER JOIN sys.dm_pdw_nodes_db_partition_stats rg
-	ON rg.object_id = nt.object_id
-	AND rg.pdw_node_id = nt.pdw_node_id
-	AND rg.distribution_id = nt.distribution_id
-	WHERE 1 = 1
+	     INNER JOIN sys.tables tb ON sm.schema_id = tb.schema_id
+	     INNER JOIN sys.pdw_table_mappings mp ON tb.object_id = mp.object_id
+	     INNER JOIN sys.pdw_nodes_tables nt ON nt.name = mp.physical_name
+	     INNER JOIN sys.dm_pdw_nodes_db_partition_stats rg 	ON rg.object_id = nt.object_id
+			AND rg.pdw_node_id = nt.pdw_node_id
+			AND rg.distribution_id = nt.distribution_id
+	WHERE rg.index_id = 1
 	GROUP BY sm.name, tb.name, tb.object_id
 ) actualRowCounts
 on objIdsWithStats.object_id = actualRowCounts.object_id

@@ -3,19 +3,16 @@ title: Filters and dynamic manifests | Microsoft Docs
 description: This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to archive this selective streaming.
 services: media-services
 documentationcenter: ''
-author: cenkdin
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: ff102765-8cee-4c08-a6da-b603db9e2054
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 # Filters and dynamic manifests
 
@@ -23,7 +20,7 @@ ms.author: juliako
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Version 2](media-services-dynamic-manifest-overview.md)
-> * [Version 3](../latest/filters-dynamic-manifest-overview.md)
+> * [Version 3](../latest/filters-dynamic-manifest-concept.md)
 
 Starting with 2.17 release, Media Services enables you to define filters for your assets. These filters are server-side rules that will allow your customers to choose to do things like: play back only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering of your assets is achieved through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
 

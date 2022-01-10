@@ -4,7 +4,7 @@ description: Extract structured data from an utterance using the machine-learnin
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/08/2020
+ms.date: 04/28/2020
 #Customer intent: As a new user, I want to understand how to extract complex data contained in a user utterance.
 ---
 
@@ -23,8 +23,9 @@ The machine-learning entity supports the [model decomposition concept](luis-conc
 > * Train, Test, Publish app
 > * Get entity prediction from endpoint
 
+<!---
 [!INCLUDE [LUIS Free account](includes/quickstart-tutorial-use-free-starter-key.md)]
-
+-->
 
 ## Why use a machine-learning entity?
 

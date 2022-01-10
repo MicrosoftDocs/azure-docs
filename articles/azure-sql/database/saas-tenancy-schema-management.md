@@ -7,9 +7,9 @@ ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: tutorial
-author: stevestein
-ms.author: sstein
-ms.reviewer: 
+author: LitKnd
+ms.author: kendralittle
+ms.reviewer: mathoma
 ms.date: 09/19/2018
 ---
 # Manage schema in a SaaS application using the database-per-tenant pattern with Azure SQL Database

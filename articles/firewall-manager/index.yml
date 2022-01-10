@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 12/04/2020
+  ms.date: 06/30/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -27,6 +27,10 @@ landingContent:
             url: overview.md
           - text: Deployment overview
             url: deployment-overview.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Firewall Manager
+            url: /learn/modules/intro-to-azure-firewall-manager/
   # Card
   - title: Learn about secured virtual hubs
     linkLists:

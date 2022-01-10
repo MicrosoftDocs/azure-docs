@@ -1,18 +1,18 @@
 ---
-title: Windows Virtual Desktop (classic) management tool - Azure
-description: How to troubleshoot issues with the Windows Virtual Desktop (classic) management tool.
+title: Azure Virtual Desktop (classic) management tool - Azure
+description: How to troubleshoot issues with the Azure Virtual Desktop (classic) management tool.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Troubleshoot the Windows Virtual Desktop (classic) management tool
+# Troubleshoot the Azure Virtual Desktop (classic) management tool
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects.
 
-This article describes issues that can occur while deploying the Windows Virtual Desktop management tool and how to fix them.
+This article describes issues that can occur while deploying the Azure Virtual Desktop management tool and how to fix them.
 
 ## Error: Management tool services configured but automated setup fails
 
@@ -31,7 +31,7 @@ To fix this:
 
 1. Make sure the user you created for the Azure Active Directory User Principal Name has the "Contributor" subscription level.
 2. Sign in to <portal.azure.com> with the UPN account to check the account settings and make sure multi-factor authentication isn't on. If it's turned on, turn it off.
-3. Visit the Windows Virtual Desktop Consent page and make sure the server and client apps have consent.
+3. Visit the Azure Virtual Desktop Consent page and make sure the server and client apps have consent.
 4. Review the [Deploy a management tool](manage-resources-using-ui.md) tutorial if the issue continues and redeploy the tool.
 
 ## Error: Job with specified ID already exists
@@ -53,5 +53,5 @@ To fix this, deploy the management tool in a different region. Redeploying the t
 ## Next steps
 
 - Learn about escalation tracks at [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview-2019.md).
-- Learn how to report issues with Windows Virtual Desktop tools at [ARM Templates for Remote Desktop Services](https://github.com/Azure/RDS-Templates/blob/master/README.md).
+- Learn how to report issues with Azure Virtual Desktop tools at [ARM Templates for Remote Desktop Services](https://github.com/Azure/RDS-Templates/blob/master/README.md).
 - To learn how to deploy the management tool, see [Deploy a management tool](manage-resources-using-ui.md).

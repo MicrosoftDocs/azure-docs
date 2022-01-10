@@ -3,12 +3,12 @@ title: Azure Cognitive Services security
 titleSuffix: Azure Cognitive Services
 description: Learn about the various security considerations for Cognitive Services usage.
 services: cognitive-services
-author: erhopf
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.author: erhopf
+ms.author: pafarley
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
 ---
 
@@ -24,13 +24,13 @@ All of the Cognitive Services endpoints exposed over HTTP enforce TLS 1.2. With 
 * The language (and platform) used to make the HTTP call need to specify TLS 1.2 as part of the request
   * Depending on the language and platform, specifying TLS is done either implicitly or explicitly
 
-For .NET users, consider the <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">Transport Layer Security best practices </a>.
+For .NET users, consider the <a href="/dotnet/framework/network-programming/tls" target="_blank">Transport Layer Security best practices </a>.
 
 ## Authentication
 
 When discussing authentication, there are several common misconceptions. Authentication and authorization are often confused for one another. Identity is also a major component in security. An identity is a collection of information about a <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">principal </a>. Identity providers (IdP) provide identities to authentication services. Authentication is the act of verifying a user's identity. Authorization is the specification of access rights and privileges to resources for a given identity. Several of the Cognitive Services offerings, include Azure role-based access control (Azure RBAC). Azure RBAC could be used to simplify some of the ceremony involved with manually managing principals. For more details, see [Azure role-based access control for Azure resources](../role-based-access-control/overview.md).
 
-For more information on authentication with subscription keys, access tokens and Azure Active Directory (AAD), see <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">authenticate requests to Azure Cognitive Services</a>.
+For more information on authentication with subscription keys, access tokens and Azure Active Directory (AAD), see <a href="/azure/cognitive-services/authentication" target="_blank">authenticate requests to Azure Cognitive Services</a>.
 
 ## Environment variables and application configuration
 
@@ -108,7 +108,7 @@ To get an environment variable, it must be read into memory. Depending on the la
 
 # [C#](#tab/csharp)
 
-For more information, see <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank">`Environment.GetEnvironmentVariable` </a>.
+For more information, see <a href="/dotnet/api/system.environment.getenvironmentvariable" target="_blank">`Environment.GetEnvironmentVariable` </a>.
 
 ```csharp
 using static System.Environment;
@@ -127,7 +127,7 @@ class Program
 
 # [C++](#tab/cpp)
 
-For more information, see <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv` </a>.
+For more information, see <a href="/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv` </a>.
 
 ```cpp
 #include <stdlib.h>
@@ -194,7 +194,7 @@ NSString* value =
 
 [Customer Lockbox for Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md) provides an interface for customers to review, and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data during a support request. For information on how Customer Lockbox requests are initiated, tracked, and stored for later reviews and audits, see [Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md). 
 
-Customer Lockbox is available for this Cognitive Service:
+Customer Lockbox is available for this service:
 
 * Translator
 
@@ -204,9 +204,6 @@ For the following services, Microsoft engineers will not access any customer dat
 * Face
 * Content Moderator
 * Personalizer
-
-> [!IMPORTANT]
-> For **Form Recognizer**, Microsoft engineers will not access any customer data in resources created after July 10, 2020.
 
 To request the ability to use the E0 SKU, fill out and submit this [request Form](https://aka.ms/cogsvc-cmk). It will take approximately 3-5 business days to hear back on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once approved for using the E0 SKU with LUIS, you'll need to create a new resource from the Azure portal and select E0 as the Pricing Tier. Users won't be able to upgrade from the F0 to the new E0 SKU.
 

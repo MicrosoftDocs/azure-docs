@@ -7,6 +7,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
+ms.devlang: javascript
 ---
 
 # React plugin for Application Insights JavaScript SDK
@@ -22,7 +23,7 @@ Install npm package:
 
 ```bash
 
-npm install @microsoft/applicationinsights-react-js
+npm install @microsoft/applicationinsights-react-js @microsoft/applicationinsights-web --save
 
 ```
 
@@ -124,8 +125,13 @@ import { useAppInsightsContext } from "@microsoft/applicationinsights-react-js";
 
 const MyComponent = () => {
     const appInsights = useAppInsightsContext();
-    
-    appInsights.trackMetric("Component 'MyComponent' is in use");
+    const metricData = {
+        average: engagementTime,
+        name: "React Component Engaged Time (seconds)",
+        sampleCount: 1
+      };
+    const additionalProperties = { "Component Name": 'MyComponent' };
+    appInsights.trackMetric(metricData, additionalProperties);
     
     return (
         <h1>My Component</h1>
@@ -167,12 +173,11 @@ The `useTrackEvent` Hook is used to track any custom event that an application m
 import React, { useState, useEffect } from "react";
 import { useAppInsightsContext, useTrackEvent } from "@microsoft/applicationinsights-react-js";
 
-const ProductCart = () => {
+const MyComponent = () => {
     const appInsights = useAppInsightsContext();
-    const trackCheckout = useTrackEvent(appInsights, "Checkout");
-    const trackCartUpdate = useTrackEvent(appInsights, "Cart Updated");
     const [cart, setCart] = useState([]);
-    
+    const trackCheckout = useTrackEvent(appInsights, "Checkout", cart);
+    const trackCartUpdate = useTrackEvent(appInsights, "Cart Updated", cart);
     useEffect(() => {
         trackCartUpdate({ cartCount: cart.length });
     }, [cart]);
@@ -185,15 +190,16 @@ const ProductCart = () => {
     return (
         <div>
             <ul>
-                <li>Product 1 <button onClick={() => setCart([...cart, "Product 1"])}>Add to Cart</button>
-                <li>Product 2 <button onClick={() => setCart([...cart, "Product 2"])}>Add to Cart</button>
-                <li>Product 3 <button onClick={() => setCart([...cart, "Product 3"])}>Add to Cart</button>
-                <li>Product 4 <button onClick={() => setCart([...cart, "Product 4"])}>Add to Cart</button>
+                <li>Product 1 <button onClick={() => setCart([...cart, "Product 1"])}>Add to Cart</button></li>
+                <li>Product 2 <button onClick={() => setCart([...cart, "Product 2"])}>Add to Cart</button></li>
+                <li>Product 3 <button onClick={() => setCart([...cart, "Product 3"])}>Add to Cart</button></li>
+                <li>Product 4 <button onClick={() => setCart([...cart, "Product 4"])}>Add to Cart</button></li>
             </ul>
             <button onClick={performCheckout}>Checkout</button>
         </div>
     );
 }
+
 export default MyComponent;
 ```
 

@@ -4,15 +4,14 @@ description: Learn how to use the My Access portal to request access to an acces
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: mamtakumar
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/23/2021
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
@@ -49,15 +48,13 @@ Once you have found the access package in the My Access portal, you can submit a
 
 **Prerequisite role:** Requestor
 
-1. Find the access package in the list.  If necessary, you can search by typing a search string and then selecting the **Name**, **Catalog**, or **Resources** filter.
+1. Find the access package in the list.  If necessary, you can search by typing a search string and then selecting the **Name** or **Resources** filter.
+ 
+1. To request access you can either:
 
-    ![My Access portal - Resource search](./media/entitlement-management-request-access/my-access-resource-search.png)
+    1. Click the row to see Access package details, and then select Request access.
 
-1. Click the checkmark to select the access package.
-
-1. Click **Request access** to open the Request access pane.
-
-    ![My Access portal - Access packages](./media/entitlement-management-request-access/my-access-request-access-button.png)
+    1. Or click **Request access** directly.
 
 1. If the **Business justification** box is displayed, type a justification for needing access.
 
@@ -84,6 +81,9 @@ If you request access to an access package that has multiple policies that apply
 You may request access to an access package that requires business justification and additional requestor information before granting you access to the access package. Fill out all the requestor information required to access the access package.
 
 ![My Access portal - Request access - Fill out requestor information](./media/entitlement-management-request-access/my-access-requestor-information.png)
+
+> [!NOTE]
+> You may notice that some of the additional requestor information has pre-populated values. This generally occurs if your account already has attribute information set, either from a previous request or other process. These values can be editable or not depending on the settings of the policy selected.
 
 ## Resubmit a request
 

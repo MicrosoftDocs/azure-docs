@@ -1,19 +1,21 @@
 ---
 title: Extend Azure IoT Central with custom rules and notifications | Microsoft Docs
 description: As a solution developer, configure an IoT Central application to send email notifications when a device stops sending telemetry. This solution uses Azure Stream Analytics, Azure Functions, and SendGrid.
-author: TheJasonAndrew
-ms.author: v-anjaso
-ms.date: 02/09/2021
+author: dominicbetts 
+ms.author: dobett 
+ms.date: 12/21/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: "mvc, devx-track-csharp"
-manager: philmea
+
+
+# Solution developer
 ---
 
 # Extend Azure IoT Central with custom rules using Stream Analytics, Azure Functions, and SendGrid
 
-This how-to guide shows you, as a solution developer, how to extend your IoT Central application with custom rules and notifications. The example shows sending a notification to an operator when a device stops sending telemetry. The solution uses an [Azure Stream Analytics](../../stream-analytics/index.yml) query to detect when a device has stopped sending telemetry. The Stream Analytics job uses [Azure Functions](../../azure-functions/index.yml) to send notification emails using [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
+This how-to guide shows you how to extend your IoT Central application with custom rules and notifications. The example shows sending a notification to an operator when a device stops sending telemetry. The solution uses an [Azure Stream Analytics](../../stream-analytics/index.yml) query to detect when a device has stopped sending telemetry. The Stream Analytics job uses [Azure Functions](../../azure-functions/index.yml) to send notification emails using [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
 
 This how-to guide shows you how to extend IoT Central beyond what it can already do with the built-in rules and actions.
 
@@ -114,8 +116,7 @@ You can configure an IoT Central application to continuously export telemetry to
 
 Your Event Hubs namespace looks like the following screenshot: 
 
-:::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Screenshot of Event Hubs namespace." border="false":::
-
+```:::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Screenshot of Event Hubs namespace." border="false":::
 
 ## Define the function
 
@@ -132,8 +133,7 @@ This solution uses an Azure Functions app to send an email notification when the
 
 The portal creates a default function called **HttpTrigger1**:
 
-:::image type="content" source="media/howto-create-custom-rules/default-function.png" alt-text="Screenshot of Edit HTTP trigger function.":::
-
+```:::image type="content" source="media/howto-create-custom-rules/default-function.png" alt-text="Screenshot of Edit HTTP trigger function.":::
 
 1. Replace the C# code with the following code:
 
@@ -225,7 +225,7 @@ To test the function in the portal, first choose **Logs** at the bottom of the c
 
 The function log messages appear in the **Logs** panel:
 
-:::image type="content" source="media/howto-create-custom-rules/function-app-logs.png" alt-text="Function log output":::
+```:::image type="content" source="media/howto-create-custom-rules/function-app-logs.png" alt-text="Function log output":::
 
 After a few minutes, the **To** email address receives an email with the following content:
 

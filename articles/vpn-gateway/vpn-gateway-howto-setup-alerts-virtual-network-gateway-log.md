@@ -1,13 +1,14 @@
 ---
-title: 'Azure VPN Gateway: Configure alerts on diagnostic resource log events'
+title: 'Configure alerts on diagnostic resource log events'
+titleSuffix: Azure VPN Gateway
 description: Learn how to set up alerts based on resource log events from Azure VPN Gateway, using Azure Monitor Log Analytics.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/18/2020
-ms.author: alzam
+ms.date: 12/01/2021
+ms.author: cherylmc
 
 ---
 # Set up alerts on resource log events from VPN Gateway
@@ -18,7 +19,7 @@ The following resource logs are available in Azure:
 
 |***Name*** | ***Description*** |
 |--- | --- |
-|GatewayDiagnosticLog | Contains resource logs for gateway configuration events, primary changes and maintenance events |
+|GatewayDiagnosticLog | Contains resource logs for gateway configuration events, primary changes, and maintenance events |
 |TunnelDiagnosticLog | Contains tunnel state change events. Tunnel connect/disconnect events have a summarized reason for the state change if applicable |
 |RouteDiagnosticLog | Logs changes to static routes and BGP events that occur on the gateway |
 |IKEDiagnosticLog | Logs IKE control messages and events on the gateway |
@@ -26,48 +27,46 @@ The following resource logs are available in Azure:
 
 ## <a name="setup"></a>Set up alerts in the Azure portal
 
-The following example steps creates an alert for a disconnection event that involves a site-to-site VPN tunnel:
-
+The following example steps create an alert for a disconnection event that involves a site-to-site VPN tunnel:
 
 1. In the Azure portal, search for **Log Analytics** under **All services** and select **Log Analytics workspaces**.
 
-   ![Selections for going to Log Analytics workspaces](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Create")
+   :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png" alt-text="Selections for going to Log Analytics workspaces." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png":::
 
 2. Select **Create** on the **Log Analytics** page.
 
-   ![Log Analytics page with Create button](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png  "Select")
+   :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png" alt-text="Log Analytics page with Create button." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png":::
 
 3. Select **Create New** and fill in the details.
 
-   ![Details for creating a Log Analytics workspace](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "Select")
+   :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png" alt-text="Details for creating a Log Analytics workspace." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png":::
 
 4. Find your VPN gateway on the **Monitor** > **Diagnostics settings** blade.
 
-   ![Selections for finding the VPN gateway in Diagnostic settings](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "Select")
+   :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png" alt-text="Selections for finding the VPN gateway in Diagnostic settings." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png":::
 
 5. To turn on diagnostics, double-click the gateway and then select **Turn on diagnostics**.
 
-   ![Selections for turning on diagnostics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert4.png  "Select")
+   :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert4.png " alt-text="Selections for turning on diagnostics." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert4.png":::
 
 6. Fill in the details, and ensure that **Send to Log Analytics** and **TunnelDiagnosticLog** are selected. Choose the Log Analytics Workspace that you created in step 3.
 
-   ![Selected check boxes](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "Select")
+   :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png " alt-text="Selected check boxes." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png":::
 
    > [!NOTE]
    > It may take a few hours for the data to show up initially.
 
 7. Go to the overview for the virtual network gateway resource and select **Alerts** from the **Monitoring** tab. Then create a new alert rule or edit an existing alert rule.
 
-   ![Selections for creating a new alert rule](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Select")
+   :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png " alt-text="Selections for creating a new alert rule." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png":::
 
-   ![point-to-site](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Select")
 8. Select the Log Analytics workspace and the resource.
 
-   ![Selections for workspace and resource](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png  "Select")
+   :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png " alt-text="Selections for workspace and resource." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png":::
 
 9. Select **Custom log search** as the signal logic under **Add condition**.
 
-   ![Selections for a custom log search](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png  "Select")
+   :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png " alt-text="Selections for a custom log search." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png":::
 
 10. Enter the following query in the **Search query** text box. Replace the values in <> and TimeGenerated as appropriate.
 
@@ -84,15 +83,19 @@ The following example steps creates an alert for a disconnection event that invo
 
     Set the threshold value to 0 and select **Done**.
 
-    ![Entering a query and selecting a threshold](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png  "Select")
+     :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png " alt-text="Entering a query and selecting a threshold" lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png":::
+
+    > [!NOTE]
+    > Bringing the tunnel down and back up will generate logs for this query.
+    >
 
 11. On the **Create rule** page, select **Create New** under the **ACTION GROUPS** section. Fill in the details and select **OK**.
 
-    ![Details for a new action group](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert10.png  "Select")
+     :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert10.png " alt-text="Details for a new action group." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert10.png":::
 
 12. On the **Create rule** page, fill in the details for **Customize Actions** and make sure that the correct name appears in the **ACTION GROUP NAME** section. Select **Create alert rule** to create the rule.
 
-    ![Selections for creating a rule](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert11.png  "Select")
+     :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert11.png " alt-text="Selections for creating a rule." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert11.png":::
 
 ## <a name="setuppowershell"></a>Set up alerts by using PowerShell
 

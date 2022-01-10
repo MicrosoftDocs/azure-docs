@@ -27,7 +27,7 @@ Use the Content Moderator REST API to:
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator"  title="Create a Content Moderator resource"  target="_blank">create a Content Moderator resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
     * You will need the key and endpoint from the resource you create to connect your application to Content Moderator. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-* [PowerShell version 6.0+](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7.1), or a similar command-line application.
+* [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
 
 
 ## Moderate text
@@ -51,9 +51,9 @@ You should see the text moderation results displayed as JSON data in the console
 
 ```json
 {
-  "OriginalText": "Is this a crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255,\n1 Microsoft Way, Redmond, WA 98052\n",
-  "NormalizedText": "Is this a crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, \n1 Microsoft Way, Redmond, WA 98052",
-  "AutoCorrectedText": "Is this a crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, \n1 Microsoft Way, Redmond, WA 98052",
+  "OriginalText": "Is this a <offensive word> email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255,\n1 Microsoft Way, Redmond, WA 98052\n",
+  "NormalizedText": "Is this a <offensive word> email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, \n1 Microsoft Way, Redmond, WA 98052",
+  "AutoCorrectedText": "Is this a <offensive word> email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, \n1 Microsoft Way, Redmond, WA 98052",
   "Misrepresentation": null,
   "PII": {
     "Email": [
@@ -106,7 +106,7 @@ You should see the text moderation results displayed as JSON data in the console
       "Index": 10,
       "OriginalIndex": 10,
       "ListId": 0,
-      "Term": "crap"
+      "Term": "<offensive word>"
     }
   ],
   "Status": {
@@ -173,4 +173,3 @@ In this quickstart, you learned how to use the Content Moderator REST API to do 
 
 * [Image moderation concepts](../../image-moderation-api.md)
 * [Text moderation concepts](../../text-moderation-api.md)
-* [What is Azure Content Moderator?](../../overview.md)

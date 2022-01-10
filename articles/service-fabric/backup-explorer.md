@@ -41,4 +41,4 @@ The NuGet for Backup Explorer (Microsoft.ServiceFabric.ReliableCollectionBackup.
 ## Next steps
 
 * Read more about [Reliable Collections in Azure Service Fabric stateful services](service-fabric-reliable-services-reliable-collections.md).
-* Review [Service Fabric best practices](service-fabric-best-practices-overview.md).
+* Review [Service Fabric best practices](./service-fabric-best-practices-security.md).

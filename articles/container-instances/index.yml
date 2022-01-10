@@ -25,7 +25,7 @@ landingContent:
           - text: Container groups
             url: container-instances-container-groups.md
           - text: FAQ
-            url: container-instances-faq.md  
+            url: container-instances-faq.yml  
   - title: Get started
     linkLists:
       - linkListType: quickstart

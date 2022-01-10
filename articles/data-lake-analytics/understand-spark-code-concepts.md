@@ -126,7 +126,7 @@ For more information, see:
 - [org.apache.spark.sql.types](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.types.package)
 - [Spark SQL and DataFrames Types](https://spark.apache.org/docs/latest/sql-ref-datatypes.html)
 - [Scala value types](https://www.scala-lang.org/api/current/scala/AnyVal.html)
-- [pyspark.sql.types](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#module-pyspark.sql.types)
+- [pyspark.sql.types](https://spark.apache.org/docs/2.3.1/api/python/_modules/pyspark/sql/types.html#module-pyspark.sql.types)
 
 ### Treatment of NULL
 

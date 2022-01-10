@@ -11,6 +11,8 @@ ms.author: kgremban
 
 # Confidential computing at the edge
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 Azure IoT Edge supports confidential applications that run within secure enclaves on the device. Encryption provides security for data while in transit or at rest, but enclaves provide security for data and workloads while in use. IoT Edge supports Open Enclave as a standard for developing confidential applications.
 
 Security has always been an important focus of the Internet of Things (IoT) because often IoT devices are often out in the world rather than secured inside a private facility. This exposure puts devices at risk for tampering and forgery because they are physically accessible to bad actors. IoT Edge devices have even more need for trust and integrity because they allow for sensitive workloads to be run at the edge. Unlike common sensors and actuators, these intelligent edge devices are potentially exposing sensitive workloads that were formerly only run within protected cloud or on-premises environments.

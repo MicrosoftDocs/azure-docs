@@ -99,7 +99,7 @@ The following code uses a Content Moderator client to analyze a body of text and
 
 ```
 Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
-Crap is the profanity here. Is this information PII? phone 2065550111
+<offensive word> is the profanity here. Is this information PII? phone 2065550111
 ```
 
 Add a reference to the new folder.
@@ -348,6 +348,3 @@ In this quickstart, you learned how to use the Content Moderator Python library 
 
 > [!div class="nextstepaction"]
 >[Image moderation concepts](../../image-moderation-api.md)
-
-* [What is Azure Content Moderator?](../../overview.md)
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ContentModerator/ContentModeratorQuickstart.py).

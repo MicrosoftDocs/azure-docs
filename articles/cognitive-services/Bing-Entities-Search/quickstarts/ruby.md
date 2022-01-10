@@ -5,12 +5,13 @@ description: Use this quickstart to send a request to the Bing Entity Search RES
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
+ms.devlang: ruby
+ms.custom: mode-api
 ---
 
 # Quickstart: Send a search request to the Bing Entity Search REST API using Ruby
@@ -43,8 +44,8 @@ Although this application is written in Ruby, the API is a RESTful Web service c
 2. Create variables for your API endpoint, News search URL, your subscription key, and search query. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
     
     ```ruby
-    host = 'https://api.cognitive.microsoft.com'
-    path = '/bing/v7.0/entities'
+    host = 'https://api.bing.microsoft.com'
+    path = '/v7.0/search'
     
     mkt = 'en-US'
     query = 'italian restaurants near me'

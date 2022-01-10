@@ -13,6 +13,10 @@
     - name: ARM template
       displayName: Resource Manager
       href: alerts-activity-log-service-notifications-arm.md
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 - name: Concepts
   items:
   - name: Azure status page
@@ -46,7 +50,7 @@
   - name: Resource health types and checks
     href: resource-health-checks-resource-types.md
   - name: Resource Health FAQ
-    href: resource-health-faq.md
+    href: resource-health-faq.yml
 - name: Resources
   items:
   - name: Azure Roadmap

@@ -1,13 +1,11 @@
 ---
 title: Change the style of the Azure Maps Web Map Control
 description: "Learn how to change a map's style and options. See how to add a style picker control to a map in Azure Maps so that users can switch between different styles."
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 07/27/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 04/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-manager: philmea
 ms.custom: devx-track-js
 ---
 
@@ -44,7 +42,7 @@ The following tool shows how the different style options change how the map is r
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="Map style options" src="https://codepen.io/azuremaps/embed/eYNMjPb?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="700" scrolling="no" title="Map style options" src="https://codepen.io/azuremaps/embed/eYNMjPb?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/eYNMjPb'>Map style options</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -67,7 +65,7 @@ var map = new atlas.Map('map', {
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Setting the style on map load' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/WKOQRq/'>Setting the style on map load</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Setting the style on map load' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/WKOQRq/'>Setting the style on map load</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ### Update the base map style
@@ -82,7 +80,7 @@ In the following code, after a map instance is loaded, the map style is updated 
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Updating the style' src='//codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/yqXYzY/'>Updating the style</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Updating the style' src='//codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/yqXYzY/'>Updating the style</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## Add the style picker control
@@ -100,13 +98,13 @@ The image below shows the style picker control displayed in `list` layout.
 :::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Style picker list layout":::
 
 > [!IMPORTANT]
-> By default the style picker control lists all the styles available under the S0 pricing tier of Azure Maps. If you want to reduce the number of styles in this list, pass an array of the styles you want to appear in the list into the `mapStyle` option of the style picker. If you are using S1 and want to show all the available styles, set the `mapStyles` option of the style picker to `"all"`.
+> By default the style picker control lists all the styles available under the S0 pricing tier of Azure Maps. If you want to reduce the number of styles in this list, pass an array of the styles you want to appear in the list into the `mapStyle` option of the style picker. If you are using Gen 1 (S1) or Gen 2 pricing tier and want to show all available styles, set the `mapStyles` option of the style picker to `"all"`.
 
 The following code shows you how to override the default `mapStyles` base style list. In this example, we're setting the `mapStyles` option to list which base styles we want to be displayed by the style picker control.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Adding the style picker' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/OwgyvG/'>Adding the style picker</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adding the style picker' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/OwgyvG/'>Adding the style picker</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## Next steps

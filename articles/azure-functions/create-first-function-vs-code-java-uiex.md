@@ -1,9 +1,11 @@
 ---
 title: Create a Java function using Visual Studio Code - Azure Functions
-description: Learn how to create a Java function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.  
+description: Learn how to create a Java function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/03/2020
+ms.devlang: java
 ROBOTS: NOINDEX,NOFOLLOW
+ms.custom: mode-api
 ---
 
 # Quickstart: Create a Java function in Azure using Visual Studio Code
@@ -22,7 +24,7 @@ Before you get started, make sure you have the following requirements in place:
 
 + An Azure account with an active <abbr title="The basic organizational structure in which you manage resources in Azure, typically associated with an individual or department within an organization.">subscription</abbr>. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8 or 11.
++ The [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8 or 11.
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 

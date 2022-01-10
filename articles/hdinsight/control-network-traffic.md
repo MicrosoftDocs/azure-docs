@@ -16,7 +16,7 @@ Network traffic in an Azure Virtual Networks can be controlled using the followi
 
 As a managed service, HDInsight requires unrestricted access to the HDInsight health and management services both for incoming and outgoing traffic from the VNET. When using NSGs, you must ensure that these services can still communicate with HDInsight cluster.
 
-![Diagram of HDInsight entities created in Azure custom VNET](./media/control-network-traffic/hdinsight-vnet-diagram.png)
+:::image type="content" source="./media/control-network-traffic/hdinsight-vnet-diagram.png" alt-text="Diagram of HDInsight entities created in Azure custom VNET" border="false":::
 
 ## HDInsight with network security groups
 
@@ -26,7 +26,7 @@ If you plan on using **network security groups** to control network traffic, per
 
 2. Identify the service tags required by HDInsight for your region. There are multiple ways to obtain these service tags:
     1. Consult the list of published service tags in [Network security group (NSG) service tags for Azure HDInsight](hdinsight-service-tags.md). 
-    2. If your region is not present in the list, use the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) to find a service tag for your region.
+    2. If your region is not present in the list, use the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) to find a service tag for your region.
     3. If you are unable to use the API, download the [service tag JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) and search for your desired region.
 
 

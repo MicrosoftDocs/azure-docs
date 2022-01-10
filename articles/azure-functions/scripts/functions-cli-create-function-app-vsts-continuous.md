@@ -34,10 +34,10 @@ This script uses the following commands to create a resource group, storage acco
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Creates the storage account required by the function app. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Creates a function app in the serverless [Consumption plan](../consumption-plan.md). |
-| [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config) | Associates a function app with a Git or Mercurial repository. |
+| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Creates the storage account required by the function app. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Creates a function app in the serverless [Consumption plan](../consumption-plan.md). |
+| [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config) | Associates a function app with a Git or Mercurial repository. |
 
 ## Next steps
 

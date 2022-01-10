@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid:
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -47,11 +46,11 @@ The benefits of accelerated networking only apply to the VM that it's enabled on
 
 ## Supported operating systems
 
-The following distributions are supported directly from the Azure Gallery:
+The following versions of Windows are supported:
 
-- **Windows Server 2019 Datacenter**
-- **Windows Server 2016 Datacenter** 
-- **Windows Server 2012 R2 Datacenter**
+- **Windows Server 2019 Standard/Datacenter**
+- **Windows Server 2016 Standard/Datacenter** 
+- **Windows Server 2012 R2 Standard/Datacenter**
 
 ## Limitations and constraints
 
@@ -250,7 +249,7 @@ Once you create the VM in Azure, connect to the VM and confirm that the Ethernet
 
 7. In the **Device Manager** window, expand the **Network adapters** node.
 
-8. Confirm that the **Mellanox ConnectX-3 Virtual Function Ethernet Adapter** appears, as shown in the following image:
+8. Confirm that the **[Mellanox ConnectX-3 Virtual Function Ethernet Adapter](https://www.mellanox.com/products/adapter-software/ethernet/windows/winof-2)** appears, as shown in the following image:
 
     ![Mellanox ConnectX-3 Virtual Function Ethernet Adapter, new network adapter for accelerated networking, Device Manager](./media/create-vm-accelerated-networking/device-manager.png)
 

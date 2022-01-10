@@ -19,7 +19,7 @@ ms.author: amsriva
 
 When you use Azure Front Door Standard/Premium for application delivery, a custom domain is necessary if you would like your own domain name to be visible in your end-user requests. Having a visible domain name can be convenient for your customers and useful for branding purposes.
 
-After you create an Azure Front Door Standard/Premium profile, the default frontend host will have a subdomain of azurefd.net. This subdomain gets included in the URL when Azure Front Door Standard/Premium delivers content from your backend by default. For example, `https://contoso-frontend.azurefd.net/activeusers.htm`. For your convenience, Azure Front Door provides the option of associating a custom domain with the default host. With this option, you deliver your content with a custom domain in your URL instead of an Azure Front Door Standard/Premium owned domain name. For example, https://www.contoso.com/photo.png.
+After you create an Azure Front Door Standard/Premium profile, the default frontend host will have a subdomain of azurefd.net. This subdomain gets included in the URL when Azure Front Door Standard/Premium delivers content from your backend by default. For example, `https://contoso-frontend.azurefd.net/activeusers.htm`. For your convenience, Azure Front Door provides the option of associating a custom domain with the default host. With this option, you deliver your content with a custom domain in your URL instead of an Azure Front Door Standard/Premium owned domain name. For example, 'https://www.contoso.com/photo.png'.
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
@@ -35,6 +35,9 @@ After you create an Azure Front Door Standard/Premium profile, the default front
 
 ## Add a new custom domain
 
+> [!NOTE]
+> While in Public Preview, using Azure DNS to create Apex domains is  not supported on Azure Front Door Standard/Premium. There are other DNS providers that support CNAME flattening or DNS chasing that will allow APEX domains to be used for Azure Front Door Standard/Premium.
+
 A custom domain is managed by Domains section in the portal. A custom domain can be created and validated before association to an endpoint. A custom domain and its subdomains can be associated with only a single endpoint at a time. However, you can use different subdomains from the same custom domain for different Front Doors. You can also map custom domains with different subdomains to the same Front Door endpoint.
 
 1. Under Settings for your Azure Front Door profile, select *Domains*  and then the **Add a domain** button.
@@ -49,7 +52,7 @@ A custom domain is managed by Domains section in the portal. A custom domain can
 
     :::image type="content" source="../media/how-to-add-custom-domain/validation-state-submitting.png" alt-text="Screenshot of domain validation state submitting.":::
 
-    Wait until the validation state changes to **Pending**. This operation could take a few mins.
+    Wait until the validation state changes to **Pending**. This operation could take a few minutes.
 
     :::image type="content" source="../media/how-to-add-custom-domain/validation-state-pending.png" alt-text="Screenshot of domain validation state pending.":::
 

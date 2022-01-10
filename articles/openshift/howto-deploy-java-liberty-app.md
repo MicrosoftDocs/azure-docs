@@ -1,12 +1,14 @@
 ---
 title: Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift 4 cluster
+recommendations: false
 description: Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift 4 cluster.
-author: jiangma
+author: majguo
 ms.author: jiangma
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aro, openshift, red hat
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro
 ---
 
 # Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift 4 cluster
@@ -35,7 +37,7 @@ Complete the following prerequisites to successfully walk through this guide.
 
    If you plan to run memory-intensive applications on the cluster, specify the proper virtual machine size for the worker nodes using the `--worker-vm-size` parameter. For example, `Standard_E4s_v3` is the minimum virtual machine size to install the Elasticsearch Operator on a cluster. For more information, see:
 
-   * [Azure CLI to create a cluster](/cli/azure/aro#az-aro-create)
+   * [Azure CLI to create a cluster](/cli/azure/aro#az_aro_create)
    * [Supported virtual machine sizes for memory optimized](./support-policies-v4.md#memory-optimized)
    * [Prerequisites to install the Elasticsearch Operator](https://docs.openshift.com/container-platform/4.3/logging/cluster-logging-deploying.html#cluster-logging-deploy-eo-cli_cluster-logging-deploying)
 
@@ -90,14 +92,14 @@ Besides image management, the **aad-user** will also be granted administrative p
 After creating and connecting to the cluster, install the Open Liberty Operator.  The main starting page for the Open Liberty Operator is on [GitHub](https://github.com/OpenLiberty/open-liberty-operator).
 
 1. Sign in to the OpenShift web console from your browser using the `kubeadmin` credentials.
-2. Navigate to **Operators** > **OperatorHub** and search for **Open Liberty Operator**.
-3. Select **Open Liberty Operator** from the search results.
+2. Navigate to **Operators** > **OperatorHub** and search for **Open Liberty**.
+3. Select **Open Liberty** from the search results.
 4. Select **Install**.
-5. In the popup **Create Operator Subscription**, check **All namespaces on the cluster (default)** for **Installation Mode**, **beta** for **Update Channel**, and **Automatic** for **Approval Strategy**:
+5. In the page **Install Operator**, check **beta2** for **Update channel**, **All namespaces on the cluster (default)** for **Installation mode**, and **Automatic** for **Update approval**:
 
    ![create operator subscription for Open Liberty Operator](./media/howto-deploy-java-liberty-app/install-operator.png)
-6. Select **Subscribe** and wait a minute or two until the Open Liberty Operator is displayed.
-7. Observe the Open Liberty Operator with status of "Succeeded".  If you don't, diagnose and resolve the problem before continuing.
+6. Select **Install** and wait a minute or two until the installation completes.
+7. Observe the Open Liberty Operator is successfully installed and ready for use.  If you don't, diagnose and resolve the problem before continuing.
    :::image type="content" source="media/howto-deploy-java-liberty-app/open-liberty-operator-installed.png" alt-text="Installed Operators showing Open Liberty is installed.":::
 
 ## Prepare the Liberty application

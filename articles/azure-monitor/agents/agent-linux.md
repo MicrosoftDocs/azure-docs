@@ -37,7 +37,7 @@ Starting with versions released after August 2018, we are making the following c
 * Versions that have passed their manufacturer's end-of-support date are not supported.
 * Only support VM images; containers, even those derived from official distro publishers' images, are not supported.
 * New versions of AMI are not supported.  
-* Only versions that run SSL 1.x by default are supported.
+* Only versions that run OpenSSL 1.x by default are supported.
 
 >[!NOTE]
 >If you are using a distro or version that is not currently supported and doesn't align to our support model, we recommend that you fork this repo, acknowledging that Microsoft support will not provide assistance with forked agent versions.
@@ -46,13 +46,13 @@ Starting with versions released after August 2018, we are making the following c
 
 Starting from Agent version 1.13.27, the Linux Agent will support both Python 2 and 3. We always recommend using the latest agent. 
 
-If you are using an older version of the agent, you must have the Virtual Machine use python 2 by default. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
+If you are using an older version of the agent, you must have the Virtual Machine use Python 2 by default. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
 
  - Red Hat, CentOS, Oracle: `yum install -y python2`
  - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-The python2 executable must be aliased to *python*. Following is one method that you can use to set this alias:
+Again, only if you are using an older version of the agent, the python2 executable must be aliased to *python*. Following is one method that you can use to set this alias:
 
 1. Run the following command to remove any existing aliases.
  
@@ -67,16 +67,17 @@ The python2 executable must be aliased to *python*. Following is one method that
     ```
 
 ## Supported Linux hardening
-The OMS Agent has limited customization support for Linux. 
+The OMS Agent has limited customization and hardening support for Linux.
 
 The following are currently supported: 
 - FIPs
+- SELINUX (Marketplace images for CENTOS and RHEL with their default settings)
 
-The following are in consideration but not yet supported:
+The following are not supported:
 - CIS
-- SELINUX
+- SELINUX (custom hardening like MLS)
 
-Other hardening and customization methods are not supported nor planned for OMS Agent.  
+CIS and SELINUX hardening support is planned for [Azure Monitoring Agent](./azure-monitor-agent-overview.md). Further hardening and customization methods are not supported nor planned for OMS Agent.  
 
 ## Agent prerequisites
 
@@ -87,7 +88,7 @@ The following table highlights the packages required for [supported Linux distro
 |Glibc |    GNU C Library | 2.5-12 
 |Openssl    | OpenSSL Libraries | 1.0.x or 1.1.x |
 |Curl | cURL web client | 7.15.5 |
-|Python | | 2.6+ or 3.3+
+|Python | | 2.7 or 3.6+
 |Python-ctypes | | 
 |PAM | Pluggable Authentication Modules | | 
 
@@ -96,6 +97,12 @@ The following table highlights the packages required for [supported Linux distro
 
 ## Network requirements
 See [Log Analytics agent overview](./log-analytics-agent.md#network-requirements) for the network requirements for the Linux agent.
+
+## Workspace ID and key
+
+Regardless of the installation method used, you will require the workspace ID and key for the Log Analytics workspace that the agent will connect to. Select the workspace from the **Log Analytics workspaces** menu in the Azure portal. Then select **Agents management** in the **Settings** section. 
+
+[![Workspace details](media/log-analytics-agent/workspace-details.png)](media/log-analytics-agent/workspace-details.png#lightbox)
 
 ## Agent install package
 
@@ -226,3 +233,5 @@ The default cache size is 10 MB but can be modified in the [omsagent.conf file](
 - Review [Managing and maintaining the Log Analytics agent for Windows and Linux](agent-manage.md) to learn about how to reconfigure, upgrade, or remove the agent from the virtual machine.
 
 - Review [Troubleshooting the Linux agent](agent-linux-troubleshoot.md) if you encounter issues while installing or managing the agent.
+
+- Review [Agent Data Sources](https://docs.microsoft.com/azure/azure-monitor/agents/agent-data-sources) to learn about data source configuration.

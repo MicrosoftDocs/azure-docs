@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/01/2021
+ms.date: 05/26/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to provision a virtual device for Data Box Gateway in Hyper-V so I can use it to transfer data to Azure.  
 ---
@@ -72,7 +72,7 @@ To create a virtual device, you need:
 * Make sure that the underlying hardware (host system) on which you are creating the virtual device is able to dedicate the following resources to your virtual device:
 
   * A minimum of 4 virtual processors.
-  * At least 8 GB of RAM.
+  * At least 8 GB of RAM. We strongly recommend at least 16 GB of RAM.
   * One network interface connected to the network capable of routing traffic to Internet.
   * A 250-GB OS disk.
   * A 2-TB virtual disk for system data.

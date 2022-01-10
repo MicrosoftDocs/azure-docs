@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
+ms.devlang: python
 ms.custom: devx-track-python
 
 ---
@@ -83,7 +84,10 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
         }
     }
     ```
-
+    
+    > [!NOTE]
+    > To run Flask under uWSGI in a Docker environment, you must first add `lazy-apps = true` to the uWSGI configuration file (uwsgi.ini). For more information, see the [issue description](https://github.com/census-instrumentation/opencensus-python/issues/660). 
+    
 ## Tracking Pyramid applications
 
 1. Download and install `opencensus-ext-django` from [PyPI](https://pypi.org/project/opencensus-ext-pyramid/) and instrument your application with the `pyramid` tween. Incoming requests sent to your `pyramid` application will be tracked.

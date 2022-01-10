@@ -1,19 +1,19 @@
 ---
-author: trevorbye
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
-ms.author: trbye
+ms.author: eur
 ---
 
 :::row:::
     :::column span="3":::
-        When developing for iOS, there are two Speech SDKs available. The Objective-C Speech SDK is available natively as an iOS CocoaPod package. Alternatively, the .NET Speech SDK could be used with Xamarin.iOS as it implements .NET Standard 2.0.
+        When developing for iOS, the following Speech SDKs are available. The Objective-C/Swift Speech SDK is available natively as an iOS CocoaPod package. Alternatively, the .NET Speech SDK could be used with Xamarin.iOS and Unity application frameworks.
     :::column-end:::
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="iOS" src="https://docs.microsoft.com/media/logos/logo_ios.svg" width="60px">
+            <img alt="iOS" src="/media/logos/logo_ios.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
@@ -35,7 +35,7 @@ ms.author: trbye
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Xcode" src="https://docs.microsoft.com/media/logos/logo_xcode.svg" width="60px">
+            <img alt="Xcode" src="/media/logos/logo_xcode.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
@@ -53,14 +53,14 @@ end
 
 :::row:::
     :::column span="3":::
-        Xamarin.iOS exposes the complete iOS SDK for .NET developers. Build fully native iOS apps using C# or F# in Visual Studio. For more information, see <a href="https://docs.microsoft.com/xamarin/ios/" target="_blank">Xamarin.iOS </a>.
+        Xamarin.iOS exposes the complete iOS SDK for .NET developers. Build fully native iOS apps using C# in Visual Studio. For more information, see <a href="/xamarin/ios/" target="_blank">Xamarin.iOS </a>.
     :::column-end:::
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Xamarin" src="https://docs.microsoft.com/media/logos/logo_xamarin.svg" width="60px">
+            <img alt="Xamarin" src="/media/logos/logo_xamarin.svg" width="60px">
             &nbsp; ❤️ &nbsp;
-            <img alt="iOS" src="https://docs.microsoft.com/media/logos/logo_ios.svg" width="60px">
+            <img alt="iOS" src="/media/logos/logo_ios.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::

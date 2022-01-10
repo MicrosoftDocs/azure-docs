@@ -414,4 +414,4 @@ The best scenario is to let in flight data modification transactions complete pr
 
 ## Next steps
 
-See [Transactions in dedicated SQL pool](sql-data-warehouse-develop-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [Dedicated SQL pool best practices](sql-data-warehouse-best-practices.md).
+See [Transactions in dedicated SQL pool](sql-data-warehouse-develop-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [Dedicated SQL pool best practices](../sql/best-practices-dedicated-sql-pool.md).

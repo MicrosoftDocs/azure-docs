@@ -45,7 +45,7 @@ Follow these steps to create a new Device Provisioning Service instance.
    | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
    | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |   
 
-   ![Enter basic information about your Device Provisioning service in the portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
+   ![Enter basic information about your Device Provisioning Service in the portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
 5. Click **Create**. After a few moments, the Device Provisioning Service instance is created and the **Overview** page is displayed.
 
@@ -115,7 +115,7 @@ In this tutorial, you learned how to:
 > * Link the IoT hub to the Device Provisioning Service
 > * Set the allocation policy on the Device Provisioning Service
 
-Advance to the next tutorial to learn how to set up your device for provisioning.
+Advance to the next tutorial to learn how to set up your device for provisioning
 
 > [!div class="nextstepaction"]
 > [Set up device for provisioning](tutorial-set-up-device.md)

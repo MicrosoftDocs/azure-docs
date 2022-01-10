@@ -5,12 +5,14 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.devlang: csharp, javascript
+ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
 ---
 
 
 # Accept active learning suggested questions in the knowledge base
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 <a name="accept-an-active-learning-suggestion-in-the-knowledge-base"></a>
 
@@ -18,7 +20,7 @@ Active Learning alters the Knowledge Base or Search Service after you approve th
 
 ## Turn on active learning
 
-In order to see suggested questions, you must [turn on active learning](../concepts/active-learning-suggestions.md) for your QnA Maker resource.
+In order to see suggested questions, you must [turn on active learning](../How-To/use-active-learning.md#turn-on-active-learning-for-alternate-questions) for your QnA Maker resource.
 
 ## View suggested questions
 
@@ -75,25 +77,24 @@ When you reimport this app, the active learning continues to collect information
 
 A bot or other client application should use the following architectural flow to use active learning:
 
-* Bot [gets the answer from the knowledge base](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) with the GenerateAnswer API, using the `top` property to get a number of answers.
+1. Bot [gets the answer from the knowledge base](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) with the GenerateAnswer API, using the `top` property to get a number of answers.
 
-    #### Use the top property in the GenerateAnswer request to get several matching answers
-
-    When submitting a question to QnA Maker for an answer, the `top` property of the JSON body sets the number of answers to return.
-
-    ```json
-    {
-        "question": "wi-fi",
-        "isTest": false,
-        "top": 3
-    }
-    ```
-
-* Bot determines explicit feedback:
+2. Bot determines explicit feedback:
     * Using your own [custom business logic](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user), filter out low scores.
     * In the bot or client-application, display list of possible answers to the user and get user's selected answer.
-* Bot [sends selected answer back to QnA Maker](#bot-framework-sample-code) with the [Train API](#train-api).
+3. Bot [sends selected answer back to QnA Maker](#bot-framework-sample-code) with the [Train API](#train-api).
 
+### Use the top property in the GenerateAnswer request to get several matching answers
+
+When submitting a question to QnA Maker for an answer, the `top` property of the JSON body sets the number of answers to return.
+
+```json
+{
+    "question": "wi-fi",
+    "isTest": false,
+    "top": 3
+}
+```
 
 ### Use the score property along with business logic to get list of answers to show user
 
@@ -140,7 +141,7 @@ When the client application (such as a chat bot) receives the response, the top 
 
 Your client application displays the questions with an option for the user to select _the single question_ that most represents their intention.
 
-Once the user selects one of the existing questions, the client application sends the user's choice as feedback using QnA Maker's Train API. This feedback completes the active learning feedback loop.
+Once the user selects one of the existing questions, the client application sends the user's choice as feedback using the QnA Maker Train API. This feedback completes the active learning feedback loop.
 
 ## Train API
 
@@ -223,7 +224,7 @@ An example JSON body looks like:
 Your bot framework code needs to call the Train API, if the user's query should be used for active learning. There are two pieces of code to write:
 
 * Determine if query should be used for active learning
-* Send query back to QnA Maker's Train API for active learning
+* Send query back to the QnA Maker Train API for active learning
 
 In the [Azure Bot sample](https://github.com/microsoft/BotBuilder-Samples), both of these activities have been programmed.
 

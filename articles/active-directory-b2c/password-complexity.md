@@ -3,15 +3,15 @@ title: Configure password complexity requirements
 titleSuffix: Azure AD B2C
 description: How to configure complexity requirements for passwords supplied by consumers in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 09/20/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -44,11 +44,12 @@ If you are using custom policies, you can ([configure password complexity in a c
 ## Configure password complexity
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
-3. In the Azure portal, search for and select **Azure AD B2C**.
-4. Select **User flows**.
-2. Select a user flow, and click **Properties**.
-3. Under **Password complexity**, change the password complexity for this user flow to **Simple**, **Strong**, or **Custom**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**..
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. Select **User flows**.
+1. Select a user flow, and click **Properties**.
+1. Under **Password complexity**, change the password complexity for this user flow to **Simple**, **Strong**, or **Custom**.
 
 ### Comparison Chart
 
@@ -98,75 +99,89 @@ To configure the password complexity, override the `newPassword` and `reenterPas
 1. Add the `newPassword` and `reenterPassword` claims to the **ClaimsSchema** element.
 
     ```xml
-    <ClaimType Id="newPassword">
-      <PredicateValidationReference Id="CustomPassword" />
-    </ClaimType>
-    <ClaimType Id="reenterPassword">
-      <PredicateValidationReference Id="CustomPassword" />
-    </ClaimType>
+    <!-- 
+    <BuildingBlocks>
+      <ClaimsSchema> -->
+        <ClaimType Id="newPassword">
+          <PredicateValidationReference Id="CustomPassword" />
+        </ClaimType>
+        <ClaimType Id="reenterPassword">
+          <PredicateValidationReference Id="CustomPassword" />
+        </ClaimType>
+      <!-- 
+      </ClaimsSchema>
+    </BuildingBlocks>-->
     ```
 
 1. [Predicates](predicates.md) defines a basic validation to check the value of a claim type and returns true or false. The validation is done by using a specified method element, and a set of parameters relevant to the method. Add the following predicates to the **BuildingBlocks** element, immediately after the closing of the `</ClaimsSchema>` element:
 
     ```xml
-    <Predicates>
-      <Predicate Id="LengthRange" Method="IsLengthRange">
-        <UserHelpText>The password must be between 6 and 64 characters.</UserHelpText>
-        <Parameters>
-          <Parameter Id="Minimum">6</Parameter>
-          <Parameter Id="Maximum">64</Parameter>
-        </Parameters>
-      </Predicate>
-      <Predicate Id="Lowercase" Method="IncludesCharacters">
-        <UserHelpText>a lowercase letter</UserHelpText>
-        <Parameters>
-          <Parameter Id="CharacterSet">a-z</Parameter>
-        </Parameters>
-      </Predicate>
-      <Predicate Id="Uppercase" Method="IncludesCharacters">
-        <UserHelpText>an uppercase letter</UserHelpText>
-        <Parameters>
-          <Parameter Id="CharacterSet">A-Z</Parameter>
-        </Parameters>
-      </Predicate>
-      <Predicate Id="Number" Method="IncludesCharacters">
-        <UserHelpText>a digit</UserHelpText>
-        <Parameters>
-          <Parameter Id="CharacterSet">0-9</Parameter>
-        </Parameters>
-      </Predicate>
-      <Predicate Id="Symbol" Method="IncludesCharacters">
-        <UserHelpText>a symbol</UserHelpText>
-        <Parameters>
-          <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\\:',.?/`~"();!</Parameter>
-        </Parameters>
-      </Predicate>
-    </Predicates>
+    <!-- 
+    <BuildingBlocks>-->
+      <Predicates>
+        <Predicate Id="LengthRange" Method="IsLengthRange">
+          <UserHelpText>The password must be between 6 and 64 characters.</UserHelpText>
+          <Parameters>
+            <Parameter Id="Minimum">6</Parameter>
+            <Parameter Id="Maximum">64</Parameter>
+          </Parameters>
+        </Predicate>
+        <Predicate Id="Lowercase" Method="IncludesCharacters">
+          <UserHelpText>a lowercase letter</UserHelpText>
+          <Parameters>
+            <Parameter Id="CharacterSet">a-z</Parameter>
+          </Parameters>
+        </Predicate>
+        <Predicate Id="Uppercase" Method="IncludesCharacters">
+          <UserHelpText>an uppercase letter</UserHelpText>
+          <Parameters>
+            <Parameter Id="CharacterSet">A-Z</Parameter>
+          </Parameters>
+        </Predicate>
+        <Predicate Id="Number" Method="IncludesCharacters">
+          <UserHelpText>a digit</UserHelpText>
+          <Parameters>
+            <Parameter Id="CharacterSet">0-9</Parameter>
+          </Parameters>
+        </Predicate>
+        <Predicate Id="Symbol" Method="IncludesCharacters">
+          <UserHelpText>a symbol</UserHelpText>
+          <Parameters>
+            <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\\:',.?/`~"();!</Parameter>
+          </Parameters>
+        </Predicate>
+      </Predicates>
+    <!-- 
+    </BuildingBlocks>-->
     ```
 
 1. Add the following predicate validations to the **BuildingBlocks** element, immediately after the closing of the `</Predicates>` element:
 
     ```xml
-    <PredicateValidations>
-      <PredicateValidation Id="CustomPassword">
-        <PredicateGroups>
-          <PredicateGroup Id="LengthGroup">
-            <PredicateReferences MatchAtLeast="1">
-              <PredicateReference Id="LengthRange" />
-            </PredicateReferences>
-          </PredicateGroup>
-          <PredicateGroup Id="CharacterClasses">
-            <UserHelpText>The password must have at least 3 of the following:</UserHelpText>
-            <PredicateReferences MatchAtLeast="3">
-              <PredicateReference Id="Lowercase" />
-              <PredicateReference Id="Uppercase" />
-              <PredicateReference Id="Number" />
-              <PredicateReference Id="Symbol" />
-            </PredicateReferences>
-          </PredicateGroup>
-        </PredicateGroups>
-      </PredicateValidation>
-    </PredicateValidations>
+    <!-- 
+    <BuildingBlocks>-->
+      <PredicateValidations>
+        <PredicateValidation Id="CustomPassword">
+          <PredicateGroups>
+            <PredicateGroup Id="LengthGroup">
+              <PredicateReferences MatchAtLeast="1">
+                <PredicateReference Id="LengthRange" />
+              </PredicateReferences>
+            </PredicateGroup>
+            <PredicateGroup Id="CharacterClasses">
+              <UserHelpText>The password must have at least 3 of the following:</UserHelpText>
+              <PredicateReferences MatchAtLeast="3">
+                <PredicateReference Id="Lowercase" />
+                <PredicateReference Id="Uppercase" />
+                <PredicateReference Id="Number" />
+                <PredicateReference Id="Symbol" />
+              </PredicateReferences>
+            </PredicateGroup>
+          </PredicateGroups>
+        </PredicateValidation>
+      </PredicateValidations>
+    <!-- 
+    </BuildingBlocks>-->
     ```
 
 ## Disable strong password 
@@ -174,22 +189,28 @@ To configure the password complexity, override the `newPassword` and `reenterPas
 The following technical profiles are [Active Directory technical profiles](active-directory-technical-profile.md), which read and write data to Azure Active Directory. Override these technical profiles in the extension file. Use `PersistedClaims` to disable the strong password policy. Find the **ClaimsProviders** element.  Add the following claim providers as follows:
 
 ```xml
-<ClaimsProvider>
-  <DisplayName>Azure Active Directory</DisplayName>
-  <TechnicalProfiles>
-    <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
-      <PersistedClaims>
-        <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
-      </PersistedClaims>
-    </TechnicalProfile>
-    <TechnicalProfile Id="AAD-UserWritePasswordUsingObjectId">
-      <PersistedClaims>
-        <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
-      </PersistedClaims>
-    </TechnicalProfile>
-  </TechnicalProfiles>
-</ClaimsProvider>
+<!-- 
+<ClaimsProviders>-->
+  <ClaimsProvider>
+    <DisplayName>Azure Active Directory</DisplayName>
+    <TechnicalProfiles>
+      <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
+        <PersistedClaims>
+          <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
+        </PersistedClaims>
+      </TechnicalProfile>
+      <TechnicalProfile Id="AAD-UserWritePasswordUsingObjectId">
+        <PersistedClaims>
+          <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
+        </PersistedClaims>
+      </TechnicalProfile>
+    </TechnicalProfiles>
+  </ClaimsProvider>
+<!-- 
+</ClaimsProviders>-->
 ```
+
+If you use the [username based sign-in](https://github.com/azure-ad-b2c/samples/tree/master/policies/username-signup-or-signin) policy, update the `AAD-UserWriteUsingLogonEmail`, `AAD-UserWritePasswordUsingObjectId`, and `LocalAccountWritePasswordUsingObjectId` technical profiles with the *DisableStrongPassword* policy.
 
 Save the policy file.
 
@@ -198,12 +219,13 @@ Save the policy file.
 ### Upload the files
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. Select **Identity Experience Framework**.
-5. On the Custom Policies page, click **Upload Policy**.
-6. Select **Overwrite the policy if it exists**, and then search for and select the *TrustFrameworkExtensions.xml* file.
-7. Click **Upload**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. Select **Identity Experience Framework**.
+1. On the Custom Policies page, click **Upload Policy**.
+1. Select **Overwrite the policy if it exists**, and then search for and select the *TrustFrameworkExtensions.xml* file.
+1. Click **Upload**.
 
 ### Run the policy
 

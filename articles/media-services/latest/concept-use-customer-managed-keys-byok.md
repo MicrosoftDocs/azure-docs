@@ -16,7 +16,7 @@ Bring Your Own Key (BYOK) is an Azure wide initiative to help customers move the
 
 ## Keys and key management
 
-You can use your own key with Media Services when you use the Media Services 2020-05-01 API. A default account key is created for all accounts which is encrypted by a system key owned by Media Services. When you use your own key, the account key is encrypted with your key. Content keys are encrypted by the account key. JobInputHttp urls and symmetric token validation keys are also encrypted.
+You can use your own key with Media Services when you use the Media Services 2020-05-01 or later API. A default account key is created for all accounts which is encrypted by a system key owned by Media Services. When you use your own key, the account key is encrypted with your key. Content keys are encrypted by the account key. JobInputHttp urls and symmetric token validation keys are also encrypted.
 
 :::image type="content" source="./media/customer-managed-key/customer-managed-key.svg" alt-text="A customer managed key replaces a system managed key":::
 
@@ -37,13 +37,13 @@ You can specify a key name and key version, or just a key name. When you use onl
 Media Services automatically supports double encryption. For data at rest, the first layer of encryption uses a customer managed key or a Microsoft managed key depending on the `AccountEncryption` setting on the account.  The second layer of encryption for data at rest is provided automatically using a separate Microsoft managed key. To learn more about double encryption, see [Azure double encryption](../../security/fundamentals/double-encryption.md).
 
 > [!NOTE]
-> Double encryption is enabled automatically on the Media Services account. However, you need to configure the customer managed key and double encryption on your storage account separately. See, [Storege encryption](../../storage/common/storage-service-encryption.md).
+> Double encryption is enabled automatically on the Media Services account. However, you need to configure the customer managed key and double encryption on your storage account separately. To learn more, see [Storage encryption](../../storage/common/storage-service-encryption.md).
 
 ## Tutorials
 
-- [Use the Azure portal to use customer-managed keys or BYOK with Media Services](tutorial-byok-portal.md)
-- [Use customer-managed keys or BYOK with Media Services REST API](tutorial-byok-postman.md).
+- [Use the Azure portal to use customer-managed keys or BYOK with Media Services](security-customer-managed-keys-portal-tutorial.md)
+- [Use customer-managed keys or BYOK with Media Services REST API](security-customer-managed-keys-rest-postman-tutorial.md).
 
 ## Next steps
 
-[Protect your content with Media Services dynamic encryption](content-protection-overview.md)
+[Protect your content with Media Services dynamic encryption](drm-content-protection-concept.md)

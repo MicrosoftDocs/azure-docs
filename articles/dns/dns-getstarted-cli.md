@@ -7,8 +7,8 @@ author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
 ms.date: 10/20/2020
-ms.author: rohink 
-ms.custom: devx-track-azurecli
+ms.author: rohink
+ms.custom: devx-track-azurecli, mode-api
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using the Azure CLI so I can use Azure DNS for my name resolution.
 ---
 
@@ -17,6 +17,8 @@ ms.custom: devx-track-azurecli
 This article walks you through the steps to create your first DNS zone and record using Azure CLI, which is available for Windows, Mac and Linux. You can also perform these steps using the [Azure portal](dns-getstarted-portal.md) or [Azure PowerShell](dns-getstarted-powershell.md).
 
 A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. Finally, to publish your DNS zone to the Internet, you need to configure the name servers for the domain. Each of these steps is described below.
+
+:::image type="content" source="media/dns-getstarted-portal/environment-diagram.png" alt-text="Diagram of DNS deployment environment using the Azure portal." border="false":::
 
 Azure DNS also supports private DNS zones. To learn more about private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md). For an example on how to create a private DNS zone, see [Get started with Azure DNS private zones using CLI](./private-dns-getstarted-cli.md).
 

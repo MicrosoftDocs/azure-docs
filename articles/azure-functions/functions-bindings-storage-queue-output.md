@@ -6,6 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
+ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, cc996988-fb4f-47, devx-track-python"
 ---
 
@@ -394,9 +395,11 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to `out`. This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | n/a | The name of the variable that represents the queue in function code. Set to `$return` to reference the function return value.|
 |**queueName** |**QueueName** | The name of the queue. |
-|**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here.<br><br>For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "MyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>If you are using [version 5.x or higher of the extension](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher), instead of a connection string, you can provide a reference to a configuration section which defines the connection. See [Connections](./functions-reference.md#connections).|
+|**connection** | **Connection** |The name of an app setting or setting collection that specifies how to connect to Azure Queues. See [Connections](#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+[!INCLUDE [functions-storage-queue-connections](../../includes/functions-storage-queue-connections.md)]
 
 ## Usage
 
@@ -476,7 +479,7 @@ There are two options for outputting an Queue message from a function:
 
 - **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as a Queue storage message.
 
-- **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true) type. The value passed to `set` is persisted as a Queue storage message.
+- **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as a Queue storage message.
 
 ---
 

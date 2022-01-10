@@ -1,8 +1,8 @@
 ---
 title: Azure Monitor view designer to workbooks conversion summary and access
 description: Permissions required for accessing workbooks when transitioning from views in Azure Monitor.
-author: austonli
-ms.author: aul
+author: shijatsu
+ms.author: shijain
 ms.topic: conceptual
 ms.date: 02/07/2020
 
@@ -29,10 +29,7 @@ You may also wish to pin multiple visualizations from the Workbook or the entire
 
 ![Pin all](media/view-designer-conversion-access/pin-all.png)
 
-
-
 ## Sharing and Viewing Permissions 
-Workbooks have the benefit of either being a private or shared document. By default, saved workbooks will be saved under **My Reports**, meaning that only the creator can view this workbook.
 
 You can share your workbooks by selecting the **Share** icon from the top tool bar while in **Edit Mode**. You will be prompted to move your workbook to **Shared Reports**, which will generate a link that provides direct access to the workbook.
 

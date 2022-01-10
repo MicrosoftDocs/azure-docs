@@ -3,12 +3,12 @@ title: Language support
 titleSuffix: Azure Cognitive Services
 description: Azure Cognitive Services enables you to build applications that see, hear, speak with, and understand your users. Between these services, more than three dozen languages are supported, allowing users to communicate with your application in natural ways.
 services: cognitive-services
-author: erhopf
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.author: erhopf
+ms.date: 10/28/2021
+ms.author: pafarley
 ms.custom: seodec18
 ---
 
@@ -26,16 +26,14 @@ These Cognitive Services are language agnostic and don't have limitations based 
 ## Vision
 
 * [Computer Vision](./computer-vision/language-support.md)
-* [Form Recognizer (Preview)](./form-recognizer/language-support.md)
 * [Ink Recognizer (Preview)](/previous-versions/azure/cognitive-services/Ink-Recognizer/language-support)
-* [Video Indexer](../media-services/video-indexer/language-identification-model.md#guidelines-and-limitations)
+* [Video Indexer](../azure-video-analyzer/video-analyzer-for-media-docs/language-identification-model.md#guidelines-and-limitations)
 
 ## Language
 
-* [Immersive Reader](./immersive-reader/language-support.md)
 * [Language Understanding (LUIS)](./luis/luis-language-support.md)
 * [QnA Maker](./qnamaker/overview/language-support.md)
-* [Text Analytics](./text-analytics/language-support.md)
+* [Language service](./text-analytics/language-support.md)
 * [Translator](./translator/language-support.md)
 
 ## Speech
@@ -43,16 +41,6 @@ These Cognitive Services are language agnostic and don't have limitations based 
 * [Speech Service: Speech-to-Text](./speech-service/language-support.md#speech-to-text)
 * [Speech Service:Text-to-Speech](./speech-service/language-support.md#text-to-speech)
 * [Speech Service: Speech Translation](./speech-service/language-support.md#speech-translation)
-
-## Search
-
-* [Bing Custom Search](./bing-custom-search/language-support.md)
-* [Bing Image Search](./bing-image-search/language-support.md)
-* [Bing News Search](./bing-news-search/language-support.md)
-* [Bing Autosuggest](./bing-autosuggest/language-support.md)
-* [Bing Spell Check](./bing-spell-check/language-support.md)
-* [Bing Visual Search](./bing-visual-search/language-support.md)
-* [Bing Web Search](./bing-web-search/language-support.md)
 
 ## Decision
 

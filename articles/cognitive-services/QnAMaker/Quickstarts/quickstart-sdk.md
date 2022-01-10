@@ -5,13 +5,20 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
+ms.devlang: csharp, golang, java, javascript, python, ruby
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, ignite-fall-2021, mode-api
 zone_pivot_groups: qnamaker-quickstart
 ---
 
 # Quickstart: QnA Maker client library
 
 Get started with the QnA Maker client library. Follow these steps to install the package and try out the example code for basic tasks.
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
+::: zone pivot="rest"
+[!INCLUDE [QnA Maker REST quickstart](../includes/quickstart-rest.md)]
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [QnA Maker C# client library quickstart](../includes/quickstart-sdk-csharp.md)]
@@ -37,9 +44,6 @@ Get started with the QnA Maker client library. Follow these steps to install the
 [!INCLUDE [QnA Maker Ruby client library quickstart](../includes/quickstart-sdk-ruby.md)]
 ::: zone-end
 
-::: zone pivot="rest"
-[!INCLUDE [QnA Maker REST quickstart](../includes/quickstart-rest.md)]
-::: zone-end
 
 ## Clean up resources
 

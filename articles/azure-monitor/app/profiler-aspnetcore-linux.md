@@ -2,6 +2,7 @@
 title: Profile ASP.NET Core Azure Linux web apps with Application Insights Profiler | Microsoft Docs
 description: A conceptual overview and step-by-step tutorial on how to use Application Insights Profiler.
 ms.topic: conceptual
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 author: cweining
 ms.author: cweining
@@ -44,20 +45,12 @@ The following instructions apply to all Windows, Linux, and Mac development envi
    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
-1. Enable Application Insights in Program.cs:
-
-    ```csharp
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .UseApplicationInsights() // Add this line of code to Enable Application Insights
-            .UseStartup<Startup>();
-    ```
-
-1. Enable Profiler in Startup.cs:
+1. Enable Application Insights and Profiler in Startup.cs:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddApplicationInsightsTelemetry(); // Add this line of code to enable Application Insights.
         services.AddServiceProfiler(); // Add this line of code to Enable Profiler
         services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
     }

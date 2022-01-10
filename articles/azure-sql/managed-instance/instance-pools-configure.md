@@ -4,13 +4,13 @@ titleSuffix: Azure SQL Managed Instance
 description: This article describes how to create and manage Azure SQL Managed Instance pools (preview).
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
-ms.custom: 
+ms.subservice: deployment-configuration
+ms.custom: devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
-author: bonova
-ms.author: bonova
-ms.reviewer: sstein
+author: urosmil
+ms.author: urmilano
+ms.reviewer: mathoma
 ms.date: 09/05/2019
 ---
 # Deploy Azure SQL Managed Instance to an instance pool
@@ -20,20 +20,24 @@ This article provides details on how to create an [instance pool](instance-pools
 
 ## Instance pool operations
 
-The following table shows the available operations related to instance pools and their availability in the Azure portal and PowerShell.
+The following table shows the available operations related to instance pools and their availability in the Azure portal, PowerShell, and Azure CLI.
 
-|Command|Azure portal|PowerShell|
-|:---|:---|:---|
-|Create an instance pool|No|Yes|
-|Update an instance pool (limited number of properties)|No |Yes |
-|Check an instance pool usage and properties|No|Yes |
-|Delete an instance pool|No|Yes|
-|Create a managed instance inside an instance pool|No|Yes|
-|Update resource usage for a managed instance|Yes |Yes|
-|Check usage and properties for a managed instance|Yes|Yes|
-|Delete a managed instance from the pool|Yes|Yes|
-|Create a database in instance within the pool|Yes|Yes|
-|Delete a database from SQL Managed Instance|Yes|Yes|
+|Command|Azure portal|PowerShell|Azure CLI|
+|:---|:---|:---|:---|
+|Create an instance pool|No|Yes|Yes|
+|Update an instance pool (limited number of properties)|No |Yes | Yes|
+|Check an instance pool usage and properties|No|Yes | Yes |
+|Delete an instance pool|No|Yes|Yes|
+|Create a managed instance inside an instance pool|No|Yes|No|
+|Update resource usage for a managed instance|Yes |Yes|No|
+|Check usage and properties for a managed instance|Yes|Yes|No|
+|Delete a managed instance from the pool|Yes|Yes|No|
+|Create a database in instance within the pool|Yes|Yes|No|
+|Delete a database from SQL Managed Instance|Yes|Yes|No|
+
+# [PowerShell](#tab/powershell)
+
+To use PowerShell, [install the latest version of PowerShell Core](/powershell/scripting/install/installing-powershell#powershell), and follow instructions to [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
 
 Available [PowerShell commands](/powershell/module/az.sql/):
 
@@ -45,10 +49,24 @@ Available [PowerShell commands](/powershell/module/az.sql/):
 |[Remove-AzSqlInstancePool](/powershell/module/az.sql/remove-azsqlinstancepool/) | Removes an instance pool in SQL Managed Instance. |
 |[Get-AzSqlInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | Returns information about SQL Managed Instance pool usage. |
 
-
-To use PowerShell, [install the latest version of PowerShell Core](/powershell/scripting/install/installing-powershell#powershell), and follow instructions to [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
-
 For operations related to instances both inside pools and single instances, use the standard [managed instance commands](api-references-create-manage-instance.md#powershell-create-and-configure-managed-instances), but the *instance pool name* property must be populated when using these commands for an instance in a pool.
+
+# [Azure CLI](#tab/azure-cli)
+
+Prepare your environment for the Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Available [Azure CLI](/cli/azure/sql) commands:
+
+|Cmdlet |Description |
+|:---|:---|
+|[az sql instance-pool create](/cli/azure/sql/instance-pool#az_sql_instance_pool_create) | Creates a SQL Managed Instance pool. |
+|[az sql instance-pool show](/cli/azure/sql/instance-pool#az_sql_instance_pool_show) | Returns information about an instance pool. |
+|[az sql instance-pool update](/cli/azure/sql/instance-pool#az_sql_instance_pool_update) | Sets or updates properties for an instance pool in SQL Managed Instance. |
+|[az sql instance-pool delete](/cli/azure/sql/instance-pool#az_sql_instance_pool_delete) | Removes an instance pool in SQL Managed Instance. |
+
+---
 
 ## Deployment process
 
@@ -79,6 +97,8 @@ The following restrictions apply to instance pools:
 > [!IMPORTANT]
 > Deploying an instance pool is a long running operation that takes approximately 4.5 hours.
 
+# [PowerShell](#tab/powershell)
+
 To get network parameters:
 
 ```powershell
@@ -99,6 +119,37 @@ $instancePool = New-AzSqlInstancePool `
   -ComputeGeneration "Gen5" `
   -Location "westeurope"
 ```
+
+# [Azure CLI](#tab/azure-cli)
+
+To get the virtual network parameters:
+
+```azurecli
+az network vnet show --resource-group MyResourceGroup --name miPoolVirtualNetwork
+```
+
+To get the virtual subnet parameters:
+
+```azurecli
+az network vnet subnet show --resource group MyResourceGroup --name miPoolSubnet --vnet-name miPoolVirtualNetwork
+```
+
+To create an instance pool:
+
+```azurecli
+az sql instance-pool create
+    --license-type LicenseIncluded 
+    --location westeurope
+    --name mi-pool-name
+    --capacity 8
+    --tier GeneralPurpose
+    --family Gen5 
+    --resrouce-group myResourceGroup
+    --subnet miPoolSubnet
+    --vnet-name miPoolVirtualNetwork
+```
+
+---
 
 > [!IMPORTANT]
 > Because deploying an instance pool is a long running operation, you need to wait until it completes before running any of the following steps in this article.
@@ -160,7 +211,7 @@ $databases = Get-AzSqlInstanceDatabase -InstanceName "pool-mi-001" -ResourceGrou
 
 
 > [!NOTE]
-> There is a limit of 100 databases per pool (not per instance).
+> For checking limits on number of databases per instance pool and managed instance deployed inside the pool visit [Instance pool resource limits](instance-pools-overview.md#resource-limitations) section.
 
 
 ## Scale 

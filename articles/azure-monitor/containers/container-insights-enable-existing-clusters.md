@@ -3,7 +3,7 @@ title: Monitor an Azure Kubernetes Service (AKS) cluster deployed | Microsoft Do
 description: Learn how to enable monitoring of an Azure Kubernetes Service (AKS) cluster with Container insights already deployed in your subscription.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: devx-track-terraform, devx-track-azurecli
+ms.custom: devx-track-terraform, devx-track-azurepowershell
 ---
 
 # Enable monitoring of Azure Kubernetes Service (AKS) cluster already deployed
@@ -16,6 +16,8 @@ You can enable monitoring of an AKS cluster that's already deployed using one of
 * Terraform
 * [From Azure Monitor](#enable-from-azure-monitor-in-the-portal) or [directly from the AKS cluster](#enable-directly-from-aks-cluster-in-the-portal) in the Azure portal
 * With the [provided Azure Resource Manager template](#enable-using-an-azure-resource-manager-template) by using the Azure PowerShell cmdlet `New-AzResourceGroupDeployment` or with Azure CLI.
+
+If you're connecting an existing AKS cluster to an Azure Log Analytics workspace in another subscription, the Microsoft.ContainerService resource provider must be registered in the subscription in which the Log Analytics workspace was created. For more information, see [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 ## Sign in to the Azure portal
 
@@ -153,7 +155,7 @@ This method includes two JSON templates. One template specifies the configuratio
 >The template needs to be deployed in the same resource group as the cluster.
 >
 
-The Log Analytics workspace has to be created before you enable monitoring using Azure PowerShell or CLI. To create the workspace, you can set it up through [Azure Resource Manager](../logs/resource-manager-workspace.md), through [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../logs/quick-create-workspace.md).
+The Log Analytics workspace has to be created before you enable monitoring using Azure PowerShell or CLI. To create the workspace, you can set it up through [Azure Resource Manager](../logs/resource-manager-workspace.md), through [PowerShell](../logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../logs/quick-create-workspace.md).
 
 If you are unfamiliar with the concept of deploying resources by using a template, see:
 

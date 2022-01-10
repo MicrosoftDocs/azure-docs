@@ -11,6 +11,8 @@ services: iot-edge
 
 # Create a CI/CD pipeline for IoT Edge with Azure DevOps Starter
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 Configure continuous integration (CI) and continuous delivery (CD) for your IoT Edge application with DevOps Projects. DevOps Starter simplifies the initial configuration of a build and release pipeline in Azure Pipelines.
 
 If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.

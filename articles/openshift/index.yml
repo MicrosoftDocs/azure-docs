@@ -28,11 +28,11 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Create an Azure Red Hat OpenShift 4 cluster
+          - text: Create an Azure Red Hat OpenShift cluster
             url: tutorial-create-cluster.md
-          - text: Connect to an Azure Red Hat OpenShift 4 cluster
+          - text: Connect to an Azure Red Hat OpenShift cluster
             url: tutorial-connect-cluster.md
-          - text: Delete an Azure Red Hat OpenShift 4 cluster
+          - text: Delete an Azure Red Hat OpenShift cluster
             url: tutorial-delete-cluster.md
 
   # Card
@@ -40,13 +40,17 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Create a private Azure Red Hat OpenShift 4 cluster
-            url: ./howto-create-private-cluster-3x.md
-          - text: Configure DNS Forwarding for an Azure Red Hat OpenShift 4 cluster
+          - text: Create a private Azure Red Hat OpenShift cluster
+            url: ./howto-create-private-cluster-4x.md
+          - text: Configure DNS Forwarding for an Azure Red Hat OpenShift cluster
             url: dns-forwarding.md
-          - text: Configure built-in container registry for Azure Red Hat OpenShift 4
+          - text: Configure built-in container registry for Azure Red Hat OpenShift
             url: built-in-container-registry.md
-          - text: Deploy an Open Liberty/WebSphere Liberty application on an Azure Red Hat OpenShift 4 cluster
+          - text: Deploy an application from source
+            url: howto-deploy-with-s2i.md
+          - text: Deploy an application using OpenShift Serverless
+            url: howto-deploy-with-serverless.md
+          - text: Deploy an Open Liberty/WebSphere Liberty application on an Azure Red Hat OpenShift cluster
             url: howto-deploy-java-liberty-app.md
 
   # Card

@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
+ms.custom: devx-track-azurepowershell, mode-other
 ---
 
 # Quickstart: Convert a model for rendering

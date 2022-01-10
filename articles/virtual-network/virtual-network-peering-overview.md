@@ -6,7 +6,6 @@ services: virtual-network
 documentationcenter: na
 author: altambaw
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -20,8 +19,8 @@ Virtual network peering enables you to seamlessly connect two or more [Virtual N
 
 Azure supports the following types of peering:
 
-* Virtual network peering: Connect virtual networks within the same Azure region.
-* Global virtual network peering: Connecting virtual networks across Azure regions.
+* **Virtual network peering**: Connect virtual networks within the same Azure region.
+* **Global virtual network peering**: Connecting virtual networks across Azure regions.
 
 The benefits of using virtual network peering, whether local or global, include:
 

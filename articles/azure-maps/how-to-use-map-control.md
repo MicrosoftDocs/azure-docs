@@ -1,13 +1,13 @@
 ---
-title: Getting started with Microsoft Azure Maps web map control
-description: Find out how to add maps to web and mobile applications by using the Map Control client-side JavaScript library in Azure Maps. See how to localize maps. 
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 07/20/2020
+title: How to use the Azure Maps web map control
+titleSuffix: Microsoft Azure Maps
+description: Learn how to add and localize maps to web and mobile applications by using the Map Control client-side JavaScript library in Azure Maps. 
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 11/29/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
 ms.custom: devx-track-js
 ---
 
@@ -84,7 +84,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
 
     If you're using a subscription key for authentication, copy and paste the following script element inside the `<head>` element, and below the first `<script>` element. Replace `<Your Azure Maps Key>` with your Azure Maps primary subscription key.
 
-     ```HTML
+    ```html
     <script type="text/javascript">
         function InitMap()
         {
@@ -253,10 +253,10 @@ If directly accessing the Azure Maps REST services, change the URL domain to `at
 
 If developing using a JavaScript framework, one of the following open-source projects may be useful:
 
-- [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) - Angular 10 wrapper around Azure maps.
-- [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) - An Azure Maps Blazor component.
-- [Azure Maps React Component](https://github.com/WiredSolutions/react-azure-maps) - A react wrapper for the Azure Maps control.
-- [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - An Azure Maps component for Vue application.
+* [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) - Angular 10 wrapper around Azure maps.
+* [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) - An Azure Maps Blazor component.
+* [Azure Maps React Component](https://github.com/WiredSolutions/react-azure-maps) - A react wrapper for the Azure Maps control.
+* [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - An Azure Maps component for Vue application.
 
 ## Next steps
 
@@ -270,10 +270,10 @@ Learn how to style a map:
 > [!div class="nextstepaction"]
 > [Choose a map style](choose-map-style.md)
 
-To add more data to your map:
+Learn best practices and see samples:
 
 > [!div class="nextstepaction"]
-> [Create a map](map-create.md)
+> [Best practices](web-sdk-best-practices.md)
 
 > [!div class="nextstepaction"]
 > [Code samples](/samples/browse/?products=azure-maps)

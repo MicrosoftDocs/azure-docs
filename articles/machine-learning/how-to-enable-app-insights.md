@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Learn how to collect data from models deployed to web service endpoints in Azure Kubernetes Service (AKS) or Azure Container Instances (ACI).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: larryfr
 author: blackmist
-ms.date: 09/15/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, data4ml
+ms.date: 01/04/2022
+ms.topic: how-to
+ms.custom: devx-track-python, data4ml
 ---
 
 # Monitor and collect data from ML web service endpoints
@@ -25,10 +25,13 @@ In this article, you learn how to collect data from models deployed to web servi
 The [enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) notebook demonstrates concepts in this article.
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
+
+> [!IMPORTANT]
+> The information in this article relies on the Azure Application Insights instance that was created with your workspace. If you deleted this Application Insights instance, there is no way to re-create it other than deleting and recreating the workspace.
  
 ## Prerequisites
 
-* An Azure subscription - try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+* An Azure subscription - try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
 * An Azure Machine Learning workspace, a local directory that contains your scripts, and the Azure Machine Learning SDK for Python installed. To learn more, see [How to configure a development environment](how-to-configure-environment.md).
 

@@ -1,16 +1,15 @@
 ---
-title: Data lineage in Azure Purview (preview)
+title: Data lineage in Azure Purview
 description: Describes the concepts for data lineage. 
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 09/27/2021
 ---
 # Data lineage in Azure Purview Data Catalog client
 
-This article provides an overview of data lineage in Azure Purview Data Catalog. It also details how data systems can integrate with the catalog to capture lineage of data. Purview can capture lineage for data in different parts of your organizations data estate, and at different levels of preparation including:
+This article provides an overview of data lineage in Azure Purview Data Catalog. It also details how data systems can integrate with the catalog to capture lineage of data. Purview can capture lineage for data in different parts of your organization's data estate, and at different levels of preparation including:
 
 - Completely raw data staged from various platforms
 - Transformed and prepared data
@@ -37,7 +36,7 @@ The following example is a typical use case of data moving across multiple syste
 
 ## Lineage granularity
 
-This section covers the details about the granularity of which the lineage information is gathered by a data catalog. This granularity can vary based on the data systems which are being.
+The following section covers the details about the granularity of which the lineage information is gathered by Purview. This granularity can vary based on the data systems supported in Purview.
 
 ###	Entity level lineage: Source(s) > Process > Target(s) 
 
@@ -61,4 +60,4 @@ Lineage is a critical feature of the Purview Data Catalog to support quality, tr
 
 * [Quickstart: Create an Azure Purview account in the Azure portal](create-catalog-portal.md)
 * [Quickstart: Create an Azure Purview account using Azure PowerShell/Azure CLI](create-catalog-powershell.md)
-* [Quickstart: Use Purview Studio](use-purview-studio.md)
+* [Use the Purview Studio](use-purview-studio.md)

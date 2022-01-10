@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: 0433a4f4-b5a0-476d-b398-1506c57eafa2
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -245,7 +244,7 @@ BGP can also enable transit routing among multiple networks by propagating route
 
 To configure a VPN connection that uses BGP, see [How to configure BGP on Azure VPN gateways by using PowerShell](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md).
 
-Enable BGP on the virtual network gateway by creating an autonomous system (AS) number for it. Basic gateways don't support BGP. To check the SKU of the gateway, go to the **Overview** section of the **VPN Gateway** blade in the Azure portal. If your SKU is **Basic**, you have to change the SKU (see [Resizing the gateway](/powershell/module/azurerm.network/resize-azurermvirtualnetworkgateway?viewFallbackFrom=azurermps-4.0.0)) to **VpnGw1**. 
+Enable BGP on the virtual network gateway by creating an autonomous system (AS) number for it. Basic gateways don't support BGP. To check the SKU of the gateway, go to the **Overview** section of the **VPN Gateway** blade in the Azure portal. If your SKU is **Basic**, you have to change the SKU (see [Resizing the gateway](/powershell/module/azurerm.network/resize-azurermvirtualnetworkgateway)) to **VpnGw1**. 
 
 Checking the SKU will cause 20 to 30 minutes of downtime. As soon as the gateway has the correct SKU, you can add the AS number by using the [Set-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway) PowerShell commandlet. After you configure the AS number, a BGP peer IP for the gateway will be provided automatically.
 

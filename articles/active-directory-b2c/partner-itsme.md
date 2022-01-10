@@ -3,14 +3,14 @@ title: itsme OpenID Connect with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with itsme OIDC using client_secret user flow policy. itsme is a digital ID app. It allows you to log in securely without card-readers, passwords, two-factor authentication, and multiple PIN codes.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/30/2020
-ms.author: mimart
+ms.date: 09/20/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -48,18 +48,18 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 |8     |  The itsme environment returns the OAuth authorize code to Azure AD B2C. |
 |9     |  Using the authorize code, the Azure AD B2C does a token request. |
 | 10 | The itsme environment checks the token request, and if still valid, returns the OAuth access token and the ID token containing the requested user information. |
-| 11 | Finally, the user is redirected to the redirect url as an authenticated user.  |
+| 11 | Finally, the user is redirected to the redirect URL as an authenticated user.  |
 |   |   |
 
 ## Onboard with itsme
 
 1. To create an account with itsme, visit itsme at the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace).
 
-2. Activate your itsme account by sending an email to onboarding@itsme.be. You'll receive a **Partner code** and **Service code** that will be needed for your B2C setup.
+1. Activate your itsme account by sending an email to onboarding@itsme.be. You'll receive a **Partner code** and **Service code** that will be needed for your B2C setup.
 
-3. After activation of your itsme partner account, you'll receive an email with a one-time link to the **client secret**.
+1. After activation of your itsme partner account, you'll receive an email with a one-time link to the **client secret**.
 
-4. Follow the instructions at [itsme](https://business.itsme.be/en) to complete the configuration.
+1. Follow the instructions at [itsme](https://business.itsme.be/en) to complete the configuration.
 
 ## Integrate with Azure AD B2C
 
@@ -68,13 +68,11 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 > [!NOTE]
 > If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
-1. Make sure you're using the directory that contains Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure AD B2C tenant.
-
-2. Under **Azure services**, select **Azure AD B2C** (or select **More services** and use the **All services** search box to search for *Azure AD B2C*).
-
-3. Select **Identity providers**, and then select **New OpenID Connect provider**.
-
-4. Fill in the form with the following information:
+1. Make sure you're using the directory that contains Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Under **Azure services**, select **Azure AD B2C** (or select **More services** and use the **All services** search box to search for *Azure AD B2C*).
+1. Select **Identity providers**, and then select **New OpenID Connect provider**.
+1. Fill in the form with the following information:
 
    |Property | Value |
    |------------ |------- |
@@ -92,25 +90,25 @@ Please clarify step 1 in the description below - we don't have steps in this tut
    |Surname | family_name |
    |Email | email|
 
-5. Select **Save**.
+1. Select **Save**.
 
 ### Configure a User Flow
 
 1. In your Azure AD B2C tenant, under **Policies**, select **User flows**.
 
-2. Select **New user flow**.
+1. Select **New user flow**.
 
-3. Select **Sign up and sign in**, select a version, and then select **Create**.
+1. Select **Sign up and sign in**, select a version, and then select **Create**.
 
-4. Enter a **Name**.
+1. Enter a **Name**.
 
-5. In the **Identity providers** section, select **itsme**.
+1. In the **Identity providers** section, select **itsme**.
 
-6. Select **Create**.
+1. Select **Create**.
 
-7. Open the newly created user flow by selecting the user flow name.
+1. Open the newly created user flow by selecting the user flow name.
 
-8. Select **Properties** and adjust the following values:
+1. Select **Properties** and adjust the following values:
 
    * Change **Access & ID token lifetimes (minutes)** to **5**.
    * Change **Refresh token sliding window lifetime** to **No expiry**.
@@ -119,11 +117,11 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 1. In your B2C tenant, under **Manage**, select **App registrations** > **New registration**.
 
-2. Provide a **Name** for the application and enter your **Redirect URI**. For testing purposes, enter `https://jwt.ms`.
+1. Provide a **Name** for the application and enter your **Redirect URI**. For testing purposes, enter `https://jwt.ms`.
 
-3. Make sure multi-factor authentication is **Disabled**.
+1. Make sure multi-factor authentication is **Disabled**.
 
-4. Select **Register**.
+1. Select **Register**.
 
    a. For testing purposes, select **Authentication**, and under **Implicit Grant**, select the **Access Tokens** and **ID Tokens** check boxes.  
 
@@ -133,19 +131,19 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 1. In your B2C tenant, under **Policies** select **User flows**.
 
-2. Select your previously created user flow.
+1. Select your previously created user flow.
 
-3. Select **Run user flow**.
+1. Select **Run user flow**.
 
    a. **Application**: *select the registered app*
 
    b. **Reply URL**: *select the redirect URL*
 
-4. The itsme **Identify yourself** page appears.  
+1. The itsme **Identify yourself** page appears.  
 
-5. Enter your mobile phone number and select **send**.
+1. Enter your mobile phone number and select **send**.
 
-6. Confirm the action in the itsme app.
+1. Confirm the action in the itsme app.
 
 ## Next steps
 
@@ -153,4 +151,4 @@ For additional information, review the following articles:
 
 * [Custom policies in Azure AD B2C](custom-policy-overview.md)
 
-* [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md?tabs=applications)
+* [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

@@ -3,11 +3,11 @@ title: Troubleshoot session affinity issues
 titleSuffix: Azure Application Gateway
 description: This article provides information on how to troubleshoot session affinity issues in Azure Application Gateway
 services: application-gateway
-author: abshamsft
+author: KumudD
 ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
-ms.author: absha
+ms.author: kumud
 ---
 
 # Troubleshoot Azure Application Gateway session affinity issues
@@ -20,6 +20,9 @@ Learn how to diagnose and resolve session affinity issues with Azure Application
 ## Overview
 
 The cookie-based session affinity feature is useful when you want to keep a user session on the same server. By using gateway-managed cookies, the Application Gateway can direct subsequent traffic from a user session to the same server for processing. This is important in cases where session state is saved locally on the server for a user session.
+
+> [!NOTE]
+> Application Gateway v1 issues a cookie called ARRAffinity, which is used to direct traffic to the same backend pool member.  In Application Gateway v2, this cookie has been renamed to ApplicationGatewayAffinity.  For the purposes of this document, ApplicationGatewayAffinity will be used as an example, ARRAffinity can be substituted in where applicable for Application Gateway v1 instances.
 
 ## Possible problem causes
 
@@ -77,7 +80,7 @@ To identify this issue, follow the instructions:
 1. Take a web debugger trace on the “Client” which is connecting to the application behind the Application Gateway(We are using Fiddler in this example).
     **Tip** If you don't know how to use the Fiddler, check the option "**I want to collect network traffic and analyze it using web debugger**" at the bottom.
 
-2. Check and analyze the session logs, to determine whether the cookies provided by the client have the ARRAffinity details. If you don't find the ARRAffinity details, such as "**ARRAffinity=** *ARRAffinityValue*" within the cookie set, that means the client is not replying with the ARRA cookie, which is provided by the Application Gateway.
+2. Check and analyze the session logs, to determine whether the cookies provided by the client have the ApplicationGatewayAffinity details. If you don't find the ApplicationGatewayAffinity details, such as "**ApplicationGatewayAffinity=** *ApplicationGatewayAffinityValue*" within the cookie set, that means the client is not replying with the ApplicationGatewayAffinity cookie, which is provided by the Application Gateway.
     For example:
 
     ![Screenshot shows a session log with a single entry highlighted.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
@@ -185,14 +188,14 @@ Use the web debugger of your choice. In this sample we will use Fiddler to captu
 
     For examples:
 
-- **Example A:** You find a session log that the request is sent from the client, and it goes to the public IP address of the Application Gateway, click this log to view the details.  On the right side, data in the bottom box is what the Application Gateway is returning to the client. Select the “RAW” tab and determine whether the client is receiving a "**Set-Cookie: ARRAffinity=** *ARRAffinityValue*." If there's no cookie, session affinity isn't set, or the Application Gateway isn't applying cookie back to the client.
+- **Example A:** You find a session log that the request is sent from the client, and it goes to the public IP address of the Application Gateway, click this log to view the details.  On the right side, data in the bottom box is what the Application Gateway is returning to the client. Select the “RAW” tab and determine whether the client is receiving a "**Set-Cookie: ApplicationGatewayAffinity=** *ApplicationGatewayAffinityValue*." If there's no cookie, session affinity isn't set, or the Application Gateway isn't applying cookie back to the client.
 
    > [!NOTE]
-   > This ARRAffinity value is the cookie-id, that the Application Gateway sets for the client to be sent to a particular back-end server.
+   > This ApplicationGatewayAffinity value is the cookie-id, that the Application Gateway sets for the client to be sent to a particular back-end server.
 
    ![Screenshot shows an example of details of a log entry with the Set-Cookie value highlighted.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
 
-- **Example B:** The next session log followed by the previous one is the client responding back to the Application Gateway, which has set the ARRAAFFINITY. If the ARRAffinity cookie-id matches, the packet should be sent to the same back-end server that was used previously. Check the next several lines of http communication to see whether the client's ARRAffinity cookie is changing.
+- **Example B:** The next session log followed by the previous one is the client responding back to the Application Gateway, which has set the ApplicationGatewayAffinity. If the ApplicationGatewayAffinity cookie-id matches, the packet should be sent to the same back-end server that was used previously. Check the next several lines of http communication to see whether the client's ApplicationGatewayAffinity cookie is changing.
 
    ![Screenshot shows an example of details of a log entry with a cookie highlighted.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-18.png)
 

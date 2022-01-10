@@ -15,12 +15,14 @@ ms.author: haroldw
 
 # Configure prerequisites
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Before using the Marketplace offer to deploy a self-managed OpenShift Container Platform 3.11 cluster in Azure, a few prerequisites must be configured.  Read the [OpenShift prerequisites](./openshift-container-platform-3x-prerequisites.md) article for instructions to create an ssh key (without a passphrase), Azure key vault, key vault secret, and a service principal.
 
  
 ## Deploy using the Marketplace offer
 
-The simplest way to deploy a self-managed OpenShift Container Platform 3.11 cluster into Azure is to use the [Azure Marketplace offer](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
+The simplest way to deploy a self-managed OpenShift Container Platform 3.11 cluster into Azure is to use the Azure Marketplace offer.
 
 This option is the simplest, but it also has limited customization capabilities. The Marketplace offer deploys OpenShift Container Platform 3.11.82 and includes the following configuration options:
 

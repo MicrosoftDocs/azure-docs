@@ -7,9 +7,9 @@ ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: LitKnd
+ms.author: kendralittle
+ms.reviewer: mathoma
 ms.date: 09/24/2018
 ---
 # Introduction to a multitenant SaaS app that uses the database-per-tenant pattern with Azure SQL Database
