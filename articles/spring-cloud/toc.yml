@@ -108,6 +108,8 @@
           href: how-to-custom-persistent-storage.md
         - name: Identify outbound public IP addresses
           href: how-to-outbound-public-ip.md
+        - name: Move across regions
+          href: how-to-move-across-regions.md
     - name: Scale
       items:
         - name: Manually scale an app
