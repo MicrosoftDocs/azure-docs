@@ -8,6 +8,7 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 11/15/2021
 ms.author: RunCai
+ms.custom: mode-arm
 ---
 
 
@@ -24,7 +25,7 @@ This tutorial covers deployment of a confidential VM with a custom configuration
 ## Prerequisites
 
 - An Azure subscription. Free trial accounts don't have access to the VMs used in this tutorial. One option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/). 
-- If you want to deploy from the Azure Command-Line Interface (Azure CLI), [install PowerShell](/powershell/azure/install-az-ps) and [install the Azure CLI](/cli/azure/install-azure-cli).
+- If you want to deploy from the Azure CLI, [install PowerShell](/powershell/azure/install-az-ps) and [install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Deploy confidential VM template from Azure portal
 

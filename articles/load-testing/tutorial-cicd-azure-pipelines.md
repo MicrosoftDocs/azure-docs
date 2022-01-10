@@ -35,13 +35,19 @@ You'll learn how to:
 ## Prerequisites
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
-* An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up.md?view=azure-devops&preserve-view=true). If you need help with getting started with Azure Pipelines, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline.md?preserve-view=true&view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
+* An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops&preserve-view=true). If you need help with getting started with Azure Pipelines, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
 * A GitHub account, where you can create a repository. If you don't have one, you can [create one for free](https://github.com/).  
 * An existing Azure Load Testing resource. To create a Load Testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md#create_resource).
 
 ## Set up your repository
 
 To get started, you need a GitHub repository with the sample web application. You'll use this repository to configure an Azure Pipelines workflow to run the load test.
+
+The sample application's source repo includes an Apache JMeter script named *SampleApp.jmx*. This script makes three API calls on each test iteration:
+
+* `add`: Carries out a data insert operation on Azure Cosmos DB for the number of visitors on the web app.
+* `get`: Carries out a GET operation from Azure Cosmos DB to retrieve the count.
+* `lasttimestamp`: Updates the time stamp since the last user went to the website.
 
 1. Open a browser and go to the sample application's [source GitHub repository](https://github.com/Azure-Samples/nodejs-appsvc-cosmosdb-bottleneck.git).
 
@@ -50,37 +56,6 @@ To get started, you need a GitHub repository with the sample web application. Yo
 1. Select **Fork** to fork the sample application's repository to your GitHub account.
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/fork-github-repo.png" alt-text="Screenshot that shows the button to fork the sample application's GitHub repo.":::
-
-## Configure the Apache JMeter script
-
-The sample application's source repo includes an Apache JMeter script named *SampleApp.jmx*. This script makes three API calls on each test iteration:
-
-* `add`: Carries out a data insert operation on Azure Cosmos DB for the number of visitors on the web app.
-* `get`: Carries out a GET operation from Azure Cosmos DB to retrieve the count.
-* `lasttimestamp`: Updates the time stamp since the last user went to the website.
-
-Update the Apache JMeter script with the URL of your sample web app:
- 
-1. In your sample application's repository, open *SampleApp.jmx* for editing.
-
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/edit-jmx.png" alt-text="Screenshot that shows the button for editing the Apache JMeter test script.":::
-
-1. Search for `<stringProp name="HTTPSampler.domain">`.
-
-   You'll see three instances of `<stringProp name="HTTPSampler.domain">` in the file.
-
-1. Replace all three instances of the value with the URL of your sample web app: 
-
-   ```xml
-   <stringProp name="HTTPSampler.domain">{your-app-name}.azurewebsites.net</stringProp>
-   ```
-
-    You'll deploy the sample application to an Azure App Service web app by using Azure Pipelines in the subsequent steps. For now, replace the placeholder text `{your-app-name}` in the previous XML snippet with a unique name that you want to provide to the App Service web app. You'll then use this same name to create the web app.
-
-    > [!IMPORTANT]
-    > Don't include `https` or `http` in the sample application's URL.
-
-1. Commit your changes to the main branch.
 
 ## Set up Azure Pipelines access permissions for Azure
 
@@ -130,7 +105,7 @@ To access Azure resources, create a service connection in Azure DevOps and use r
 
 ## Configure the Azure Pipelines workflow to run a load test
 
-In this section, you'll set up an Azure Pipelines workflow that triggers the load test.
+In this section, you'll set up an Azure Pipelines workflow that triggers the load test. The sample application repository contains a pipelines definition file. The pipeline first deploys the sample web application to Azure App Service, and then invokes the load test. The pipeline uses an environment variable to pass the URL of the web application to the Apache JMeter script.
 
 First, you'll install the Azure Load Testing extension from the Azure DevOps Marketplace, create a new pipeline, and then connect it to the sample application's forked repository.
 
@@ -163,9 +138,6 @@ First, you'll install the Azure Load Testing extension from the Azure DevOps Mar
     |`<Azure subscriptionId>`     | Your Azure subscription ID. |
     |`<Name of your load test resource>`     | The name of your Azure Load Testing resource. |
     |`<Name of your load test resource group>`     | The name of the resource group that contains the Azure Load Testing resource. |
-    
-    > [!IMPORTANT]
-    > The name of Azure web app should match the name that you used for the endpoint URL in the *SampleApp.jmx* test script.
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-review.png" alt-text="Screenshot that shows the Azure Pipelines Review tab when you're creating a pipeline.":::
 
@@ -282,25 +254,6 @@ In this tutorial, you'll reconfigure the sample application to accept only secur
     ```
     
 1. Commit the changes to the *config.json* file.
-
-1. Edit the *SampleApp_Secrets.jmx* file.
-
-1. Search for `<stringProp name="HTTPSampler.domain">`.
-
-   You'll see three instances of `<stringProp name="HTTPSampler.domain">` in the file.
-
-1. Replace all three instances of the value with the URL of your sample web app: 
-
-   ```xml
-   <stringProp name="HTTPSampler.domain">{your-app-name}.azurewebsites.net</stringProp>
-   ```
-
-    You'll deploy the sample application to an Azure App Service web app by using the GitHub Actions workflow. In the previous XML snippet, replace the placeholder text `{your-app-name}` with the unique name of the App Service web app.
-
-    > [!IMPORTANT]
-    > Don't include `https` or `http` in the sample application's URL.
-
-1. Save and commit the Apache JMeter script.
 
 1. Go to the **Pipelines** page, select your pipeline definition, and then select **Edit**.
 

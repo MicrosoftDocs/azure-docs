@@ -34,7 +34,7 @@ To trigger a regular restore job in the primary region, see the following sectio
 
 ### Fetch ContainerName and ProtectedItemName
 
-For most of the restore related API calls, you need to pass values for the `{containerName}` and `{protectedItemName}` URI parameters. Use the ID attribute in the response body of the [GET backupprotectableitems](/rest/api/backup/protecteditems/get) operation to retrieve values for these parameters. In our example, the ID of the database we want to protect is:
+For most of the restore related API calls, you need to pass values for the `{containerName}` and `{protectedItemName}` URI parameters. Use the ID attribute in the response body of the [GET backupprotectableitems](/rest/api/backup/protected-items/get) operation to retrieve values for these parameters. In our example, the ID of the database we want to protect is:
 
 ```
 /subscriptions/00000000-0000-0000-0000-0000000000/resourceGroups/SQLServerSelfHost/providers/microsoft.recoveryservices/vaults/SQLServer2012/backupFabrics/Azure/protectionContainers/VMAppContainer;Compute;SQLServerPMDemo;sqlserver-0/protectedItems/sqldatabase;mssqlserver;msdb

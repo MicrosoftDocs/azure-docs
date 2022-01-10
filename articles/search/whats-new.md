@@ -18,7 +18,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with serv
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
 |------------------------------------|--------------|---------------|
-| [Enhanced configuration for semantic search](semantic-how-to-query-request.md) | Semantic configurations are a multi-part specification of the fields used during semantic ranking, captions, and answers. This is a new addition to the 2021-04-30-Preview API, and are now required for semantic queries. | Public preview REST APIs (no portal support at this time).|
+| [Enhanced configuration for semantic search](semantic-how-to-query-request.md#create-a-semantic-configuration) | Semantic configurations are a multi-part specification of the fields used during semantic ranking, captions, and answers. This is a new addition to the 2021-04-30-Preview API, and are now required for semantic queries. | Public preview REST APIs (no portal support at this time).|
 
 ## November 2021
 

@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
+ms.devlang: csharp
 ---
 
 # Use .NET to manage ACLs in Azure Data Lake Storage Gen2

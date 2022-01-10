@@ -1,12 +1,10 @@
 ---
 title: Maintenance and updates 
 description: Overview of maintenance and updates for virtual machines running in Azure.
-author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 10/06/2021
-ms.author: shants
 #pmcontact:shants
 ---
 # Maintenance for virtual machines in Azure

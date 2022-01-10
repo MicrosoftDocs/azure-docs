@@ -55,7 +55,7 @@
     href: concepts-data-ingress-egress.md
   - name: Event notifications
     href: concepts-event-notifications.md
-  - name: Event routes
+  - name: Endpoints and event routes
     href: concepts-route-events.md
   - name: Security for Azure Digital Twins solutions
     href: concepts-security.md  
@@ -115,7 +115,7 @@
     items:
     - name: Ingest telemetry from IoT Hub
       href: how-to-ingest-iot-hub-data.md
-    - name: Auto-manage devices with DPS
+    - name: Automanage devices with DPS
       href: how-to-provision-using-device-provisioning-service.md
     - name: Integrate with Logic Apps
       href: how-to-integrate-logic-apps.md
@@ -176,7 +176,7 @@
         - name: Python SDK
           href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true
   - name: Digital Twins CLI
-    href: /cli/azure/dt?view=azure-cli-latest&preserve-view=true
+    href: /cli/azure/dt
   - name: DTDL v2 spec
     href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
   - name: Query language reference
@@ -271,7 +271,7 @@
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_instance
       - name: Digital Twins instance data source
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/digital_twins_instance
-      - name: Event Hub endpoint resource
+      - name: Event Hubs endpoint resource
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_eventhub
       - name: Event Grid endpoint resource
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_eventgrid

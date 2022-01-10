@@ -17,7 +17,7 @@ Sometimes you need to optionally deploy a resource or module in Bicep. Use the `
 
 ### Microsoft Learn
 
-To learn more about conditions, and for hands-on guidance, see [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/) on **Microsoft Learn**.
+If you would rather learn about conditions through step-by-step guidance, see [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/) on **Microsoft Learn**.
 
 ## Deploy condition
 

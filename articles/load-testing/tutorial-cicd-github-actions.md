@@ -40,6 +40,12 @@ You'll learn how to:
 
 To get started, you need a GitHub repository with the sample web application. You'll use this repository to configure a GitHub Actions workflow to run the load test.
 
+The sample application's source repo includes an Apache JMeter script named *SampleApp.jmx*. This script makes three API calls on each test iteration:
+
+* `add`: Carries out a data insert operation on Azure Cosmos DB for the number of visitors on the web app.
+* `get`: Carries out a GET operation from Azure Cosmos DB to retrieve the count.
+* `lasttimestamp`: Updates the time stamp since the last user went to the website.
+
 1. Open a browser and go to the sample application's [source GitHub repository](https://github.com/Azure-Samples/nodejs-appsvc-cosmosdb-bottleneck.git).
 
     The sample application is a Node.js app that consists of an Azure App Service web component and an Azure Cosmos DB database.
@@ -47,37 +53,6 @@ To get started, you need a GitHub repository with the sample web application. Yo
 1. Select **Fork** to fork the sample application's repository to your GitHub account.
 
     :::image type="content" source="./media/tutorial-cicd-github-actions/fork-github-repo.png" alt-text="Screenshot that shows the button to fork the sample application's GitHub repo.":::
-
-## Configure the Apache JMeter script
-
-The sample application's source repo includes an Apache JMeter script named *SampleApp.jmx*. This script makes three API calls on each test iteration:
-
-* `add`: Carries out a data insert operation on Azure Cosmos DB for the number of visitors on the web app.
-* `get`: Carries out a GET operation from Azure Cosmos DB to retrieve the count.
-* `lasttimestamp`: Updates the time stamp since the last user went to the website.
-
-Update the Apache JMeter script with the URL of your sample web app:
-
-1. In your sample application's repository, open *SampleApp.jmx* for editing.
-
-    :::image type="content" source="./media/tutorial-cicd-github-actions/edit-jmx.png" alt-text="Screenshot that shows the button for editing the Apache JMeter test script.":::
-
-1. Search for `<stringProp name="HTTPSampler.domain">`.
-
-   You'll see three instances of `<stringProp name="HTTPSampler.domain">` in the file.
-
-1. Replace all three instances of the value with the URL of your sample web app: 
-
-   ```xml
-   <stringProp name="HTTPSampler.domain">{your-app-name}.azurewebsites.net</stringProp>
-   ```
-
-    You'll deploy the sample application to an Azure App Service web app by using the GitHub Actions workflow in the subsequent steps. For now, replace the placeholder text `{your-app-name}` in the previous XML snippet with a unique name that you want to provide to the App Service web app. You'll then use this same name to create the web app.
-
-    > [!IMPORTANT]
-    > Don't include `https` or `http` in the sample application's URL.
-
-1. Commit your changes to the main branch.
 
 ## Set up GitHub access permissions for Azure
 
@@ -135,9 +110,9 @@ To access Azure resources, you'll create an Azure Active Directory service princ
 
 ## Configure the GitHub Actions workflow to run a load test
 
-In this section, you'll set up a GitHub Actions workflow that triggers the load test. 
+In this section, you'll set up a GitHub Actions workflow that triggers the load test. The sample application repository contains a workflow file *SampleApp.yaml*. The workflow first deploys the sample web application to Azure App Service, and then invokes the load test. The GitHub action uses an environment variable to pass the URL of the web application to the Apache JMeter script.
 
-To run a load test by using Azure Load Testing from a CI/CD workflow, you need a YAML configuration file. The sample application's repository contains the *SampleApp.yaml* file that contains the parameters for running the test.
+Update the *SampleApp.yaml* GitHub Actions workflow file to configure the parameters for running the load test.
 
 1. Open the *.github/workflows/workflow.yml* GitHub Actions workflow file in your sample application's repository.
  
@@ -148,11 +123,7 @@ To run a load test by using Azure Load Testing from a CI/CD workflow, you need a
     |`<your-azure-web-app>`     | The name of the Azure App Service web app. |
     |`<your-azure-load-testing-resource-name>`     | The name of your Azure Load Testing resource. |
     |`<your-azure-load-testing-resource-group-name>`     | The name of the resource group that contains the Azure Load Testing resource. |
-    
-    
-    > [!IMPORTANT]
-    > The name of Azure web app should match the name that you used for the endpoint URL in the *SampleApp.jmx* test script.
-    
+
     ```yaml
     env:
       AZURE_WEBAPP_NAME: "<your-azure-web-app>"
@@ -161,7 +132,7 @@ To run a load test by using Azure Load Testing from a CI/CD workflow, you need a
     ```
 
 1. Commit your changes directly to the main branch.
-    
+
     :::image type="content" source="./media/tutorial-cicd-github-actions/commit-workflow.png" alt-text="Screenshot that shows selections for committing changes to the GitHub Actions workflow file.":::
 
     The commit will trigger the GitHub Actions workflow in your repository. You can verify that the workflow is running by going to the **Actions** tab.
@@ -269,25 +240,6 @@ In this tutorial, you'll reconfigure the sample application to accept only secur
     ```
     
 1. Commit the changes to the *config.json* file.
-
-1. Edit the *SampleApp_Secrets.jmx* file.
-
-1. Search for `<stringProp name="HTTPSampler.domain">`.
-
-   You'll see three instances of `<stringProp name="HTTPSampler.domain">` in the file.
-
-1. Replace all three instances of the value with the URL of your sample web app: 
-
-   ```xml
-   <stringProp name="HTTPSampler.domain">{your-app-name}.azurewebsites.net</stringProp>
-   ```
-
-    You'll deploy the secure sample application to an Azure App Service web app by using the GitHub Actions workflow in subsequent steps. In the previous XML snippet, replace the placeholder text `{your-app-name}` with the unique name of the App Service web app. You'll then use this same name to create the web app.
-
-    > [!IMPORTANT]
-    > Don't include `https` or `http` in the sample application's URL.
-
-1. Save and commit the Apache JMeter script.
 
 1. Add a new secret to your GitHub repository by selecting **Settings** > **Secrets** > **New repository secret**.
 

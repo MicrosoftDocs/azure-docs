@@ -2,16 +2,15 @@
 title: Secure hybrid access with F5
 titleSuffix: Azure AD
 description: F5 BIG-IP Access Policy Manager and Azure Active Directory integration for Secure Hybrid Access
-author: davidmu1
+author: NishthaBabith-V
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 11/12/2020
-ms.author: davidmu
+ms.author: v-nisba
 ms.collection: M365-identity-device-management
-ms.reviewer: miccohen
 ---
 
 # Integrate F5 BIG-IP with Azure Active Directory
@@ -55,7 +54,7 @@ As an Application Delivery Controller (ADC) and SSL-VPN, a BIG-IP system provide
 
 Its Local Traffic Manager (LTM) allows secure publishing of services through reverse proxy functionality. At the same time, a sophisticated Access Policy Manager (APM) extends the BIG-IP with a richer set of capabilities, enabling federation and Single sign-on (SSO).
 
-The integration is based on a standard federation trust between the APM and Azure AD, common to most SHA use cases that includes the [SSL-VPN scenario](f5-aad-password-less-vpn.md). Security Assertion Markup Language (SAML), OAuth and Open ID Connect (OIDC) resources are no exception either, as they too can be secured for remote access. There could also be scenarios where a BIG-IP becomes a choke point for Zero Trust access to all services, including SaaS apps.
+The integration is based on a standard federation trust between the APM and Azure AD, common to most SHA use cases including the [SSL-VPN scenario](f5-aad-password-less-vpn.md). Security Assertion Markup Language (SAML), OAuth and Open ID Connect (OIDC) resources are no exception either, as they too can be secured for remote access. There could also be scenarios where a BIG-IP becomes a choke point for Zero Trust access to all services, including SaaS apps.
 
 A BIG-IP’s ability to integrate with Azure AD is what enables the protocol transitioning required to secure legacy or non-Azure AD-integrated services with modern controls such as [Password-less authentication](https://www.microsoft.com/security/business/identity/passwordless) and [Conditional Access](../conditional-access/overview.md). In this scenario, a BIG-IP continues to fulfill its role as a reverse proxy, while handing off pre-authentication and authorization to Azure AD, on a per service basis.
 
@@ -128,23 +127,42 @@ Integrating F5 BIG-IP with Azure AD for SHA have the following pre-requisites:
 
 No previous experience or F5 BIG-IP knowledge is necessary to implement SHA, but we do recommend familiarizing yourself with F5 BIG-IP terminology. F5’s rich [knowledge base](https://www.f5.com/services/resources/glossary) is also a good place to start building BIG-IP knowledge.
 
-## Deployment scenarios
+## Configuration scenarios
 
-The following tutorials provide detailed guidance on implementing some of the more common patterns for BIG-IP and Azure AD SHA:
+Configuring a BIG-IP for SHA is achieved using any of the many available methods, including several template based options, or a manual configuration.
+The following tutorials provide detailed guidance on implementing some of the more common patterns for BIG-IP and Azure AD SHA, using these methods.  
+
+**Advanced configuration**
+
+The advanced approach provides a more elaborate, yet flexible way of implementing SHA by manually creating all BIG-IP configuration objects. You would use this approach for scenarios not covered by the guided configuration templates. 
+
+Refer to the following advanced configuration guides for your integration requirements:
 
 - [F5 BIG-IP in Azure deployment walk-through](f5-bigip-deployment-guide.md)
 
-- [F5 BIG-IP APM and Azure AD SSO to Kerberos applications](../saas-apps/kerbf5-tutorial.md#configure-f5-single-sign-on-for-kerberos-application)
-
-- [F5 BIG-IP APM and Azure AD SSO to Header-based applications](f5-big-ip-header-advanced.md)
-
 - [Securing F5 BIG-IP SSL-VPN with Azure AD SHA](f5-aad-password-less-vpn.md)
 
-- [Configure Azure AD B2C with F5 BIG-IP](../../active-directory-b2c/partner-f5.md)
+- [Extend Azure AD B2C to protect applications using F5 BIG-IP](../../active-directory-b2c/partner-f5.md)
+
+- [F5 BIG-IP APM and Azure AD SSO to Kerberos applications](f5-big-ip-kerberos-advanced.md)
+
+- [F5 BIG-IP APM and Azure AD SSO to header-based applications](f5-big-ip-header-advanced.md)
 
 - [F5 BIG-IP APM and Azure AD SSO to forms-based applications](f5-big-ip-forms-advanced.md)
 
-- [F5 BIG-IP for SSO to header-based and LDAP applications](f5-big-ip-ldap-header-easybutton.md)
+**Guided Configuration and Easy Button templates**
+
+The Guided Configuration wizard, available from BIG-IP version 13.1 aims to minimize time and effort implementing common BIG-IP publishing scenarios. Its workflow-based framework provides an intuitive deployment experience tailored to specific access topologies.
+
+The latest version of the Guided Configuration 16.1 now offers an Easy Button feature. With **Easy Button**, admins no longer go back and forth between Azure AD and a BIG-IP to enable services for SHA. The end-to-end deployment and policy management is handled directly between the APM’s Guided Configuration wizard and Microsoft Graph. This rich integration between BIG-IP APM and Azure AD ensures applications can quickly, easily support identity federation, SSO, and Azure AD Conditional Access, without management overhead of having to do so on a per app basis. 
+
+Refer to the following guided configuration guides using Easy Button templates for your integration requirements:
+
+- [F5 BIG-IP Easy Button for SSO to Kerberos applications](f5-big-ip-kerberos-easy-button.md)
+
+- [F5 BIG-IP Easy Button for SSO to header-based applications](f5-big-ip-headers-easy-button.md)
+
+- [F5 BIG-IP Easy Button for SSO to header-based and LDAP applications](f5-big-ip-ldap-header-easybutton.md)
 
 ## Additional resources
 

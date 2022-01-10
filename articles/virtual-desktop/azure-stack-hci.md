@@ -90,7 +90,7 @@ Downloading a Windows VHD without deploying a VM has several extra steps. To dow
 
 ### Requirements to download a VHD without a VM
 
-Before you begin, make sure you're connected to Azure and are running [Azure Cloud Shell](../cloud-shell/quickstart.md) in either a command prompt or in the bash environment. You can also run CLI reference commands on the Azure command-line interface (CLI).
+Before you begin, make sure you're connected to Azure and are running [Azure Cloud Shell](../cloud-shell/quickstart.md) in either a command prompt or in the bash environment. You can also run CLI reference commands via the Azure CLI.
 
 If you're using a local installation, run the [az login](/cli/azure/reference-index#az_login) command to sign into Azure.
 
