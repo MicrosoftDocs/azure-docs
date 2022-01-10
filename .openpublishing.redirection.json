@@ -2434,6 +2434,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/machine-learning/tutorial-train-models-with-aml.md",
+      "redirect_url": "/azure/machine-learning/tutorial-train-deploy-notebook.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/tutorial-deploy-models-with-aml.md",
+      "redirect_url": "/azure/machine-learning/tutorial-train-deploy-notebook.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/reference-yaml-deployment-managed-batch.md",
       "redirect_url": "/azure/machine-learning/reference-yaml-deployment-batch.md",
       "redirect_document_id": false
