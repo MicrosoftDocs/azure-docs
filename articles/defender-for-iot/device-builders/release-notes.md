@@ -21,7 +21,7 @@ Listed below are the support, breaking change policies for Defender for IoT, and
 
 **Version 3.13.1**:
 
-- DNS network activity on managed devices is now supported. This extends the Microsoft threat intelligence security graph, to detect suspicious activity based on DNS traffic.
+- DNS network activity on managed devices is now supported. Microsoft threat intelligence security graph can now detect suspicious activity based on DNS traffic.
 
 - [Leaf device proxying](../../iot-edge/how-to-connect-downstream-iot-edge-device.md#integrate-microsoft-defender-for-iot-with-iot-edge-gateway): There is now an enhanced integration with IoT Edge. This integration enhances the connectivity between the agent, and the cloud using leaf device proxying.
 
@@ -29,7 +29,7 @@ Listed below are the support, breaking change policies for Defender for IoT, and
 
 **Version 3.12.2**:
 
-- Additional CIS benchmark checks are now supported for Debian 9: The additional checks allow you to make sure your network is compliant with the CIS best practices used to protect against pervasive cyber threats.
+- More CIS benchmark checks are now supported for Debian 9: These extra checks allow you to make sure your network is compliant with the CIS best practices used to protect against pervasive cyber threats.
 
 - **[Twin configuration](concept-micro-agent-configuration.md)**: The micro agent’s behavior is configured by a set of module twin properties. You can configure the micro agent to best suit your needs.
 
