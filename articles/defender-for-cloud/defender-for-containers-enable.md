@@ -496,6 +496,7 @@ A full list of supported alerts is available in the [reference table of all Defe
 
 
 ::: zone pivot="defender-for-container-arc"
+::: zone pivot="defender-for-container-eks"
 
 ## Remove the Defender extension
 
@@ -569,6 +570,7 @@ The request may take several minutes to complete.
 
 ---
 
+::: zone-end
 ::: zone-end
 
 
