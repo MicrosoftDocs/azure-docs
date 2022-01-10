@@ -22,6 +22,12 @@ ms.service: digital-twins
 >[!NOTE]
 >This tool is currently in **public preview**.
 
+## How to access
+
+The main way to access Azure Digital Twins Explorer is through the [Azure portal](https://portal.azure.com).
+
+To open Azure Digital Twins Explorer for an Azure Digital Twins instance, first navigate to the instance in the portal, by searching for its name in the portal search bar.
+
 [!INCLUDE [digital-twins-access-explorer.md](../../includes/digital-twins-access-explorer.md)]
 
 ### Switch contexts within the app
@@ -35,7 +41,7 @@ This will bring up the **Azure Digital Twins URL modal**, where you can enter th
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/instance-url-2.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Azure Digital Twins URL modal displays an editable box containing https:// and a host name." lightbox="media/how-to-use-azure-digital-twins-explorer/instance-url-2.png":::
 
 >[!NOTE]
->At this time, the ability to switch contexts within the app is **not** available for personal Microsoft Accounts (MSA). MSA users will need to access the explorer from the correct instance in the Azure portal, or may connect to a certain instance through a [direct link to the environment](#link-to-your-environment).
+>At this time, the ability to switch contexts within the app is **not** available for personal Microsoft Accounts (MSA). MSA users will need to access the explorer from the chosen instance in the Azure portal, or may connect to a certain instance through a [direct link to the environment](#link-to-your-environment).
 
 
 ## Query your digital twin graph

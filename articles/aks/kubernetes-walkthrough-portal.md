@@ -57,7 +57,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 6. On the **Authentication** page, configure the following options:
     - Create a new cluster identity by either:
-        * Leaving the **Authentication** field with **System-assinged managed identity**, or
+        * Leaving the **Authentication** field with **System-assigned managed identity**, or
         * Choosing **Service Principal** to use a service principal. 
             * Select *(new) default service principal* to create a default service principal, or
             * Select *Configure service principal* to use an existing one. You will need to provide the existing principal's SPN client ID and secret.

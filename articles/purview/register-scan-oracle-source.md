@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/28/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -22,9 +22,24 @@ This article outlines how to register Oracle, and how to authenticate and intera
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
-The supported Oracle server versions are 6i to 19c
+The supported Oracle server versions are 6i to 19c. Proxy server is not supported when scanning Oracle source.
 
-Proxy server is not supported when scanning Oracle source.
+When scanning Oracle source, Purview supports:
+
+- Extracting technical metadata including:
+
+    - Server
+    - Schemas
+    - Packages
+    - Tables including the columns, foreign keys, indexes, triggers and unique constraints
+    - Views including the columns and triggers
+    - Stored procedures including the parameter dataset and result set
+    - Functions including the parameter dataset
+    - Sequences
+    - Synonyms
+    - Types including the type attributes
+
+- Fetching static lineage on assets relationships among tables, views and stored procedures.
 
 ## Prerequisites
 

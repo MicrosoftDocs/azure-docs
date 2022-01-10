@@ -3,7 +3,7 @@ title: Azure Video Analyzer for Media (formerly Video Indexer) release notes | M
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Analyzer for Media (formerly Video Indexer).
 ms.topic: article
 ms.custom: references_regions
-ms.date: 08/01/2021
+ms.date: 01/04/2022
 ms.author: juliako
 ---
 
@@ -18,9 +18,35 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
 * Bug fixes
 * Deprecated functionality
 
+## January 2022
+
+### Improved audio effects detection
+
+The audio effects detection capability was improved to have a better detection rate over the following classes: 
+
+* Crowd reactions (cheering, clapping, and booing), 
+* Gunshot or explosion, 
+* Laughter
+
+For more information, see [Audio effects detection](audio-effects-detection.md).
+
+## December 2021 
+ 
+### The projects feature is now GA
+
+The projects feature is now GA and ready for productive use. There is no pricing impact related to the "Preview to GA" transition. See [Add video clips to your projects](use-editor-create-project.md).
+ 
+### New source languages support for STT, translation, and search on API level 
+
+Video Analyzer for Media introduces source languages support for STT (speech-to-text), translation, and search in Hebrew (he-IL), Portuguese (pt-PT), and Persian (fa-IR) on the API level.
+
+### Matched person detection capability
+
+When indexing a video through our advanced video settings, you can view the new matched person detection capability. If there are people observed  in your media file, you can now view the specific person who matched each of them through the media player. 
+
 ## November 2021
  
-### Public preview of Azure Video Analyzer for Media account management based on ARM
+### Public preview of Video Analyzer for Media account management based on ARM
 
 Azure Video Analyzer for Media introduces a public preview of Azure Resource Manager (ARM) based account management. You can leverage ARM-based APIs to create, edit, and delete an account from the Azure portal.
 

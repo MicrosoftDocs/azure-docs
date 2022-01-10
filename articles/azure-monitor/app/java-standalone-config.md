@@ -3,6 +3,7 @@ title: Configuration options - Azure Monitor Application Insights for Java
 description: How to configure Azure Monitor Application Insights for Java
 ms.topic: conceptual
 ms.date: 11/04/2020
+ms.devlang: java
 ms.custom: devx-track-java
 author: mattmccleary
 ms.author: mmcc
@@ -36,14 +37,17 @@ You will find more details and additional configuration options below.
 
 ## Configuration file path
 
-By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.2.3.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.2.4.jar`.
 
 You can specify your own configuration file path using either
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable, or
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.2.3.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.2.4.jar` is located.
+
+Alternatively, instead of using a configuration file, you can specify the entire _content_ of the json configuration
+via the environment variable `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT`.
 
 ## Connection string
 
@@ -508,7 +512,7 @@ and the console, corresponding to this configuration:
 `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 
 `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.2.3.jar` is located.
+`applicationinsights-agent-3.2.4.jar` is located.
 
 `maxSizeMb` is the max size of the log file before it rolls over.
 

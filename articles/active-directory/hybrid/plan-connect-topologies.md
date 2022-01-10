@@ -4,11 +4,10 @@ description: This topic details supported and unsupported topologies for Azure A
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
-ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: conceptual
@@ -137,7 +136,7 @@ It's possible to have more than one staging server when you want to have multipl
 ## Multiple Azure AD tenants
 We recommend having a single tenant in Azure AD for an organization. Before you plan to use multiple Azure AD tenants, see the article [Administrative units management in Azure AD](../roles/administrative-units.md). It covers common scenarios where you can use a single tenant.
 
-### (Public preview) Each object multiple times in an Azure AD tenant
+### (Public preview) Sync AD objects to multiple Azure AD tenants
 
 ![Diagram that shows a topology of multiple Azure A D tenants.](./media/plan-connect-topologies/multi-tenant-1.png)
 

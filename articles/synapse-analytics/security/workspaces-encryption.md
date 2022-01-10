@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.subservice: security
 ms.date: 07/20/2021
 ms.author: mesrivas
-ms.reviewer: jrasnick, wiassaf
+ms.reviewer: sngun, wiassaf
 
 
 ---
