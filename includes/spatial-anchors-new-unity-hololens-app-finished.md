@@ -157,7 +157,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
 
     // <IsAnchorNearby>
     /// <summary>
-    /// Returns true if an Anchor GameObject is within 15cm of position
+    /// Returns true if an Anchor GameObject is within 15cm of the received position
     /// </summary>
     /// <param name="position"></param>
     /// <param name="anchorGameObject"></param>
