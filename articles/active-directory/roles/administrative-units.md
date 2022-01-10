@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: overview
 ms.subservice: roles
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 01/12/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -105,4 +105,4 @@ Administrative units apply scope only to management permissions. They don't prev
 - [Create or delete administrative units](admin-units-manage.md)
 - [Add users or groups to an administrative unit](admin-units-members-add.md)
 - [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
-
+- [Administrative unit limits](../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context)
