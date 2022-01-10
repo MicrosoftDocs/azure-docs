@@ -314,6 +314,9 @@ There is a simple REST protocol for obtaining a token in App Service and Azure F
 
 ### Using the REST protocol
 
+> [!NOTE]
+> An older version of this protocol, using the "2017-09-01" API version, used the `secret` header instead of `X-IDENTITY-HEADER` and only accepted the `clientid` property for user-assigned. It also returned the `expires_on` in a timestamp format. MSI_ENDPOINT can be used as an alias for IDENTITY_ENDPOINT, and MSI_SECRET can be used as an alias for IDENTITY_HEADER.
+
 An app with a managed identity has two environment variables defined:
 
 - IDENTITY_ENDPOINT - the URL to the local token service.
