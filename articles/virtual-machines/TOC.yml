@@ -1621,7 +1621,7 @@
     - name: Azure SDKs
       displayName: Configured managed identies
       href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?context=/azure/virtual-machines/context/context
-  - name: LInux VMs SSH with Azure AD
+  - name: Linux VMs SSH with Azure AD
     displayName: aad, ssh, active directory
     href: ../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md?context=/azure/virtual-machines/context/context
   - name: Windows VMs and Azure AD
