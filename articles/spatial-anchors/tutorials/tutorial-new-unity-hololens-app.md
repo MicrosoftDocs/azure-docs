@@ -213,11 +213,11 @@ And call it after destroying the session in `LongTap()`
 
 
 ## Locate Anchor
-We will now try to find the anchors again with the correct position and rotation that we created them in. To do that we need to start a session and create a `Watcher` that will look for anchors that fit the given criteria. As criteria we will feed it the IDs of the anchors we created. Let's create a method `LocateAnchor()` and use spatial anchor manager to create a `Watcher`.
+We will now try to find the anchors again with the correct position and rotation that we created them in. To do that we need to start a session and create a `Watcher` that will look for anchors that fit the given criteria. As criteria we will feed it the IDs of the anchors we previously created. Let's create a method `LocateAnchor()` and use spatial anchor manager to create a `Watcher`.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=248-262)]
 
-We also have to subscribe to the callback to get notified when an anchor is located. Let's first create our anchor located method called `SpatialAnchorManager_AnchorLocated()`. This method will be called once an anchor is located. The method will then create a visual `GameObject` and attach the native anchor component to it. The native anchor component will make sure the correct position and rotation is set of the GameObject.
+Once a watcher is started it will fire a callback when it found an anchor that fits the given criteria. Let's first create our anchor located method called `SpatialAnchorManager_AnchorLocated()` that we will configure to be called when the watcher has located an anchor. This method will create a visual `GameObject` and attach the native anchor component to it. The native anchor component will make sure the correct position and rotation of the GameObject is set.
 
 Similar to the creation process, the anchor does not have to be visible for spatial anchors to work. If you only use it to have a referenced shared coordinate system there is no need for showing the anchor to the end-user. For the purpose of this tutorial we will visualize the anchors.
 
