@@ -34399,6 +34399,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/documentdb/sql-query-operators.md",
+      "redirect_url": "sql-query-logical-operators",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/search/search-case-studies.md",
       "redirect_url": "https://azure.microsoft.com/case-studies",
       "redirect_document_id": false
