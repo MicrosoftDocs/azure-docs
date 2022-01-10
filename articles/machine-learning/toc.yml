@@ -44,7 +44,7 @@
           href: tutorial-1st-experiment-bring-data.md
     - name: Jupyter Notebooks
       items:
-        - name: Train & deploy image classification model
+        - name: Train & deploy image classification
           displayName: MNIST
           href: tutorial-train-deploy-notebook.md
         - name: Automated ML
