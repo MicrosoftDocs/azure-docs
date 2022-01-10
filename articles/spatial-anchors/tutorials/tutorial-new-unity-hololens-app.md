@@ -102,6 +102,7 @@ TODO : uncomment this-->
 1. Still on the GameObject
     1. Set its position to 0,0,0
     1. Select **Add Component** and search for and add the **AzureSpatialAnchorsScript**
+    1. Select **Add Component** again and search for and add the **AR Anchor Manager**. This will automatically add **AR Session Origin** too.
     1. Select **Add Component** again and search for and add the **SpatialAnchorManager** script
     1. In the added **SpatialAnchorManager** component fill out the **Account ID**, **Account Key** and **Account Domain** which you have copied in the previous step from the spatial anchors resource on the azure portal.
 
@@ -232,7 +233,9 @@ Finally, let's expand our `LongTap()` method to include finding the anchor. We w
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=118-136&highlight=6,7,12-18)]
 
 ## Try it out
-Your app now supports creating anchors and locating them. Build your app in **Unity** and deploy it from **Visual Studio**. Follow [**Using Visual Studio to deploy and debug**](https://docs.microsoft.com/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2) to run your app. Once it started short tap in your surroundings. A white cube should appear to show the position and rotation of the anchor. The anchor creation process is automatically called in our code. As you slowly look around your surroundings you are capturing environment data which is used to create the anchor. Once the anchor creation process is completed the cube will turn green. Check your debug logs in visual studio to see if everything worked as intended
+Your app now supports creating anchors and locating them. Build your app in **Unity** and deploy it from **Visual Studio**. Follow [**Using Visual Studio to deploy and debug**](https://docs.microsoft.com/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2) to run your app. 
+
+Make sure your HoloLens is connected to the internet. Once the app started and the _made with Unity_ splash disappears, short tap in your surroundings. A white cube should appear to show the position and rotation of the anchor. The anchor creation process is automatically called in our code. As you slowly look around your surroundings you are capturing environment data which is used to create the anchor. Once the anchor creation process is completed the cube will turn green. Check your debug logs in visual studio to see if everything worked as intended
 
 ## Delete Anchor
 Right now our app can create and locate anchors. While it deletes the GameObjects, it does not delete the anchor in the cloud. Let's add the functionality to also delete it in the cloud if i tap on an existing anchor.
