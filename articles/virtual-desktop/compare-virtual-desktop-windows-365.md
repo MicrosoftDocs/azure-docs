@@ -1,5 +1,5 @@
 ---
-title: Comparing Azure Virtual Desktop and Windows 365 comparison - Azure
+title: Comparing Azure Virtual Desktop and Windows 365 - Azure
 description: Comparing technical features between Azure virtual Desktop and Windows 365.
 author: Heidilohr
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.author: helohr
 manager: femila
 ---
 
-# Technical guide for Azure Virtual Desktop and Windows 365
+# Comparing Azure Virtual Desktop and Windows 365
 
 Azure Virtual Desktop and Windows 365 are both great solutions for customers who want to have a seamless Windows experience while accessing their virtual desktop and apps remotely. In this article, we'll compare technical features between the two services.
 
