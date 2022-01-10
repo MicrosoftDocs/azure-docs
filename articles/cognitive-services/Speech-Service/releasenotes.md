@@ -3,7 +3,9 @@ title: Release notes - Speech Service
 titleSuffix: Azure Cognitive Services
 description: A running log of Speech Service feature releases, improvements, bug fixes, and known issues.
 services: cognitive-services
-manager: jhakulin
+manager: nitinme
+author: eric-urban
+ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
@@ -12,6 +14,17 @@ ms.custom: ignite-fall-2021
 ---
 
 # Speech Service release notes
+
+
+## OnPrem Speech 2022-Jan release
+
+### Speech-to-text Container v2.18.0
+- Regular monthly updates (including security upgrades and vulnerability fixes).
+
+### Neural-text-to-speech Container v1.12.0
+- Support new locale-voice `am-et-amehaneural` and `am-et-mekdesneural` and `so-so-muuseneural` and `so-so-ubaxneural`.
+- Regular monthly updates (including security upgrades and vulnerability fixes).
+
 
 ## Speech SDK 1.19.0: 2021-Nov release  
 

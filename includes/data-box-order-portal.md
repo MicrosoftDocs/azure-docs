@@ -183,7 +183,11 @@ Do the following steps in the Azure portal to order a device:
 
     ![Screenshot of the Security tab for a Data Box import order. A selected User Identify is highlighted in the Encryption Type settings.](./media/data-box-order-portal/customer-managed-key-14.png)
 
-15. If you don't want to use the system-generated passwords that Azure Data Box uses by default, expand **Bring your own password** on the **Security** screen.
+    > [!IMPORTANT]
+    > If you use a customer-managed key, you must enable the `Get`, `UnwrapKey`, and `WrapKey` permissions on the key. Without these permissions, order creation will fail. They're also needed during data copy. To set the permissions in Azure CLI, see [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az_keyvault_set_policy).
+
+
+16. If you don't want to use the system-generated passwords that Azure Data Box uses by default, expand **Bring your own password** on the **Security** screen.
 
     The system-generated passwords are secure, and are recommended unless your organization requires otherwise.
 
@@ -219,7 +223,7 @@ Do the following steps in the Azure portal to order a device:
 
     On the **Security** screen, you can use **View or change passwords** to change the passwords.
 
-16. In **Security**, if you want to enable software-based double encryption, expand **Double-encryption (for highly secure environments)**, and select **Enable double encryption for the order**.
+17. In **Security**, if you want to enable software-based double encryption, expand **Double-encryption (for highly secure environments)**, and select **Enable double encryption for the order**.
 
     ![Screenshot of Double Encryption options on the Security tab for a Data Box order. The Enable Double Encryption For The Order option and the Next: Contact Details button are highlighted.](media/data-box-order-portal/double-encryption-01.png)
 
@@ -230,19 +234,19 @@ Do the following steps in the Azure portal to order a device:
 
     Select **Next: Contact details>** to continue.
 
-17. In **Contact details**, select **+ Add Address**.
+18. In **Contact details**, select **+ Add Address**.
 
     ![Screenshot of Contact Details tab for a Data Box order. The Contact Details tab and the Plus Add Address option are highlighted.](media/data-box-order-portal/contact-details-01.png)
 
-18. On the **Add address** screen, provide your first and last name, the name and postal address of the company, and a valid phone number. Select **Validate address**. The service validates the address for service availability and notifies you if service is available for that address.
+19. On the **Add address** screen, provide your first and last name, the name and postal address of the company, and a valid phone number. Select **Validate address**. The service validates the address for service availability and notifies you if service is available for that address.
 
     ![Screenshot of the Add Address screen for a Data Box order. The Ship using options and the Add shipping address option called out.](media/data-box-order-portal/contact-details-02.png)
 
     If you selected self-managed shipping, you will receive an email notification after the order is placed successfully. For more information about self-managed shipping, see [Use self-managed shipping](../articles/databox/data-box-portal-customer-managed-shipping.md).
 
-19. Select **Add shipping address** once the shipping details have been validated successfully. You will return to the **Contact details** tab.
+20. Select **Add shipping address** once the shipping details have been validated successfully. You will return to the **Contact details** tab.
 
-20. Beside **Email**, add one or more email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
+21. Beside **Email**, add one or more email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
 
     We recommend that you use a group email so that you continue to receive notifications if an admin in the group leaves.
 

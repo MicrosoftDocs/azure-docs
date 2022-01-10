@@ -6,16 +6,20 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
+<<<<<<< HEAD
 ms.date: 01/07/2022
+=======
+ms.date: 01/10/2022
+>>>>>>> 52b3cd2d62da04e8d3e4d17fb44937fd55b4031b
 ms.author: alkohli 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, contperf-fy22q3
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Order Azure Data Box
 
-Azure Data Box is a hybrid solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to a Microsoft-supplied 80-TB (usable capacity) storage device, and then ship the device back. This data is then uploaded to Azure.
+Azure Data Box is a hybrid solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to a Microsoft-supplied storage device with 80 TB of usable capacity, and then ship the device back. This data is then uploaded to Azure.
 
-This tutorial describes how you can order an Azure Data Box. In this tutorial, you learn about:  
+This tutorial describes how you can order an Azure Data Box. In this tutorial, you learn about:   
 
 > [!div class="checklist"]
 >
@@ -46,7 +50,7 @@ You can sign in to Azure and run Azure CLI commands in one of two ways:
 * You can install the CLI and run CLI commands locally.
 * You can run CLI commands from within the Azure portal, in Azure Cloud Shell.
 
-We use Azure CLI through Windows PowerShell for the tutorial, but you are free to choose either option.
+We use Azure CLI through Windows PowerShell for the tutorial, but you're free to choose either option.
 
 ### For Azure CLI
 
@@ -54,7 +58,11 @@ Before you begin, make sure that:
 
 #### Install the CLI locally
 
+<<<<<<< HEAD
 * Install [Azure CLI](/cli/azure/install-azure-cli) version 2.0.67 or later. If you prefer, you may [install using MSI](https://aka.ms/installazurecliwindows) instead.
+=======
+* Install [Azure CLI](/cli/azure/install-azure-cli) version 2.0.67 or later. Or [install using MSI](https://aka.ms/installazurecliwindows) instead.
+>>>>>>> 52b3cd2d62da04e8d3e4d17fb44937fd55b4031b
 
 **Sign in to Azure**
 
@@ -220,11 +228,11 @@ Do the following steps using Azure CLI to order a device:
    | Setting (parameter) | Description |  Sample value |
    |---|---|---|
    |resource-group| Use an existing or create a new one. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
-   |name| The name of the order you are creating. | "mydataboxorder"|
+   |name| The name of the order you're creating. | "mydataboxorder"|
    |contact-name| The name associated with the shipping address. | "Gus Poland"|
    |phone| The phone number of the person or business that will receive the order.| "14255551234"
    |location| The nearest Azure region to you that will be shipping your device.| "US West"|
-   |sku| The specific Data Box device you are ordering. Valid values are: "DataBox", "DataBoxDisk", and "DataBoxHeavy"| "DataBox" |
+   |sku| The specific Data Box device you're ordering. Valid values are: "DataBox", "DataBoxDisk", and "DataBoxHeavy"| "DataBox" |
    |email-list| The email addresses associated with the order.| "gusp@contoso.com" |
    |street-address1| The street address to where the order will be shipped. | "15700 NE 39th St" |
    |street-address2| The secondary address information, such as apartment number or building number. | "Building 123" |
@@ -569,7 +577,7 @@ To delete a canceled order, go to **Overview** and select **Delete** from the co
 
 ### Cancel an order
 
-To cancel an Azure Data Box order, run [`az databox job cancel`](/cli/azure/databox/job#az_databox_job_cancel). You are required to specify your reason for canceling the order.
+To cancel an Azure Data Box order, run [`az databox job cancel`](/cli/azure/databox/job#az_databox_job_cancel). You're required to specify your reason for canceling the order.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
