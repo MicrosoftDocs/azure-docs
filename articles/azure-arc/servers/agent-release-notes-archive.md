@@ -10,15 +10,57 @@ ms.custom: references_regions
 
 The primary [What's new in Azure Arc-enabled servers agent?](agent-release-notes.md) article contains updates for the last six months, while this article contains all the older information.
 
-The Azure Arc-enabled servers Connected Machine agent receives improvements on an ongoing basis. This article provides you with information about:
+The Azure Connected Machine agent receives improvements on an ongoing basis. This article provides you with information about:
 
 - Previous releases
 - Known issues
 - Bug fixes
 
-## April 2021
+## Version 1.9 - July 2021
 
-Version 1.5
+### New features
+
+Added support for the Indonesian language
+
+### Fixed
+
+Fixed a bug that prevented extension management in the West US 3 region
+
+## Version 1.8 - July 2021
+
+### New features
+
+- Improved reliability when installing the Azure Monitor Agent extension on Red Hat and CentOS systems
+- Added agent-side enforcement of max resource name length (54 characters)
+- Guest Configuration policy improvements:
+  - Added support for PowerShell-based Guest Configuration policies on Linux operating systems
+  - Added support for multiple assignments of the same Guest Configuration policy on the same server
+  - Upgraded PowerShell Core to version 7.1 on Windows operating systems
+
+### Fixed
+
+- The agent will continue running if it is unable to write service start/stop events to the Windows application event log
+
+## Version 1.7 - June 2021
+
+### New features
+
+- Improved reliability during onboarding:
+  - Improved retry logic when HIMDS is unavailable
+  - Onboarding continues instead of aborting if OS information cannot be obtained
+- Improved reliability when installing the Log Analytics agent for Linux extension on Red Hat and CentOS systems
+
+## Version 1.6 - May 2021
+
+### New features
+
+- Added support for SUSE Enterprise Linux 12
+- Updated Guest Configuration agent to version 1.26.12.0 to include:
+  - Policies are executed in a separate process.
+  - Added V2 signature support for extension validation.
+  - Minor update to data logging.
+
+## Version 1.5 - April 2021
 
 ### New features
 
@@ -26,10 +68,8 @@ Version 1.5
 - New `-useStderr` parameter to direct error and verbose output to stderr.
 - New `-json` parameter to direct output results in JSON format (when used with -useStderr).
 - Collect other instance metadata - Manufacturer, model, and cluster resource ID (for Azure Stack HCI nodes).
- 
-## March 2021
 
-Version 1.4
+## Version 1.4 - March 2021
 
 ### New features
 
@@ -42,9 +82,7 @@ Version 1.4
 
 Network endpoint checks are now faster.
 
-## December 2020
-
-Version: 1.3
+## Version 1.3 - December 2020
 
 ### New features
 
@@ -54,17 +92,13 @@ Added support for Windows Server 2008 R2 SP1.
 
 Resolved issue preventing the Custom Script Extension on Linux from installing successfully.
 
-## November 2020
-
-Version: 1.2
+## Version 1.2 - November 2020
 
 ### Fixed
 
 Resolved issue where proxy configuration could be lost after upgrade on RPM-based distributions.
 
-## October 2020
-
-Version: 1.1
+## Version 1.1 - October 2020
 
 ### Fixed
 
@@ -73,9 +107,9 @@ Version: 1.1
 - GuestConfig agent support for US Gov Virginia region.
 - GuestConfig agent extension report messages to be more verbose if there is a failure.
 
-## September 2020
+## Version 1.0 - September 2020
 
-Version: 1.0 (General Availability)
+This version is the first generally available release of the Azure Connected Machine Agent.
 
 ### Plan for change
 
@@ -100,18 +134,6 @@ Version: 1.0 (General Availability)
 - Corrected issue with proxy server settings being lost when upgrading agent on Linux.
 - Resolved issues when attempting to install agent on server running Windows Server 2012 R2.
 - Improvements to extension installation reliability
-
-## August 2020
-
-Version: 0.11
-
-- This release previously announced support for Ubuntu 20.04. Because some Azure VM extensions don't support Ubuntu 20.04, support for this version of Ubuntu is being removed.
-
-- Reliability improvements for extension deployments.
-
-### Known issues
-
-If you are using an older version of the Linux agent and it's configured to use a proxy server, you need to reconfigure the proxy server setting after the upgrade. To do this, run `sudo azcmagent_proxy add http://proxyserver.local:83`.
 
 ## Next steps
 

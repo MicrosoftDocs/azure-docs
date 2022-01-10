@@ -8,16 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 12/03/2021
 ms.author: aahi
 ms.custom: language-service-health, ignite-fall-2021
 ---
 
 # How to use Text Analytics for health
 
-> [!IMPORTANT] 
-> Text Analytics for health is a capability provided “AS IS” and “WITH ALL FAULTS.” Text Analytics for health is not intended or made available for use as a medical device, clinical support, diagnostic tool, or other technology intended to be used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions, and no license or right is granted by Microsoft to use this capability for such purposes. This capability is not designed or intended to be implemented or deployed as a substitute for professional medical advice or healthcare opinion, diagnosis, treatment, or the clinical judgment of a healthcare professional, and should not be used as such. The customer is solely responsible for any use of Text Analytics for health. The customer must separately license any and all source vocabularies it intends to use under the terms set for that [UMLS Metathesaurus License Agreement Appendix](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/license_agreement_appendix.html) or any future equivalent link. The customer is responsible for ensuring compliance with those license terms, including any geographic or other applicable restrictions.
-
+[!INCLUDE [service notice](../includes/service-notice.md)]
 
 Text Analytics for health can be used to extract and label relevant medical information from unstructured texts, such as: doctor's notes, discharge summaries, clinical documents, and electronic health records.  There are two ways to utilize this service: 
 
@@ -71,6 +69,8 @@ Analysis is performed upon receipt of the request. For information on the size a
 
 If you send a request using the REST API or client library, the results will be returned asynchronously. If you're using the Docker container, they will be returned synchronously.  
 
+[!INCLUDE [asynchronous-result-availability](../../includes/async-result-availability.md)]
+
 
 ## Getting results from the feature
 
@@ -78,8 +78,6 @@ Depending on your API request, and the data you submit to the Text Analytics for
 
 [!INCLUDE [Text Analytics for health features](../includes/features.md)]
 
-
-When using this feature asynchronously, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
 
 ## Data limits
 

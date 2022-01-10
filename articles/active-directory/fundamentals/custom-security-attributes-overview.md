@@ -108,7 +108,7 @@ To better understand custom security attributes, you can refer back to the follo
 | Term | Definition |
 | --- | --- |
 | attribute definition | The schema of a custom security attribute or key-value pair. For example, the custom security attribute name, description, data type, and predefined values. |
-| attribute set | A group of related custom security attributes. Attribute sets can be delegated to other users for defining and assigning custom security attributes. |
+| attribute set | A collection of related custom security attributes. Attribute sets can be delegated to other users for defining and assigning custom security attributes. |
 | attribute name | A unique name of a custom security attribute within an attribute set. The combination of attribute set and attribute name forms a unique attribute for your tenant. |
 | attribute assignment | The assignment of a custom security attribute to an Azure AD object, such as users, enterprise applications (service principals), and managed identities. |
 | predefined value | A value that is allowed for a custom security attribute. |
@@ -122,7 +122,7 @@ The following table lists the properties you can specify for attribute sets and 
 | Attribute set name  | :heavy_check_mark: |  | Name of the attribute set. Must be unique within a tenant. Cannot include spaces or special characters. |
 | Attribute set description |  | :heavy_check_mark: | Description of the attribute set. |
 | Maximum number of attributes |  | :heavy_check_mark: | Maximum number of custom security attributes that can be defined in an attribute set. Default value is `null`. If not specified, the administrator can add up to the maximum of 500 active attributes per tenant. |
-| Attribute set | :heavy_check_mark: |  | A group of related custom security attributes. Every custom security attribute must be part of an attribute set. |
+| Attribute set | :heavy_check_mark: |  | A collection of related custom security attributes. Every custom security attribute must be part of an attribute set. |
 | Attribute name  | :heavy_check_mark: |  | Name of the custom security attribute. Must be unique within an attribute set. Cannot include spaces or special characters. |
 | Attribute description |  | :heavy_check_mark: | Description of the custom security attribute. |
 | Data type | :heavy_check_mark: |  | Data type for the custom security attribute values. Supported types are `Boolean`, `Integer`, and `String`. |

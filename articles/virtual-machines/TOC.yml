@@ -161,6 +161,8 @@
         href: av2-series.md
       - name: B-series burstable
         href: sizes-b-series-burstable.md
+      - name: DCasv5 and DCadsv5-series
+        href: dcasv5-dcadsv5-series.md
       - name: DCsv2-series
         href: dcv2-series.md
       - name: DCsv3 and DCdsv3-series
@@ -181,6 +183,8 @@
         href: ddv5-ddsv5-series.md
       - name: Dasv5 and Dadsv5-series
         href: dasv5-dadsv5-series.md
+      - name: DCasv5 and DCadsv5-series
+        href: dcasv5-dcadsv5-series.md
     - name: Compute optimized
       items:
       - name: Overview
@@ -211,6 +215,8 @@
         href: edv5-edsv5-series.md
       - name: Easv5 and Eadsv5-series
         href: easv5-eadsv5-series.md
+      - name: ECasv5 and ECadsv5-series
+        href: ecasv5-ecadsv5-series.md
       - name: M-series
         href: m-series.md
       - name: Msv2 and Mdsv2 Medium Memory series
@@ -601,9 +607,21 @@
     - name: How-to
       displayName: dedicated adh 
       href: dedicated-hosts-how-to.md
-    - name: VM Packing
-      displayName: dedicated, packing, dedicated host
-      href: dedicated-host-packing.md
+    - name: General Purpose SKUs
+      displayName: dedicated, packing, dedicated host, general purpose
+      href: dedicated-host-general-purpose-skus.md
+    - name: Compute Optimized SKUs
+      displayName: dedicated, packing, dedicated host, compute optimized
+      href: dedicated-host-compute-optimized-skus.md
+    - name: Memory Optimized SKUs
+      displayName: dedicated, packing, dedicated host, memory optimized
+      href: dedicated-host-memory-optimized-skus.md
+    - name: Storage Optimized SKUs
+      displayName: dedicated, packing, dedicated host, storage optimized
+      href: dedicated-host-storage-optimized-skus.md
+    - name: GPU Optimized SKUs
+      displayName: dedicated, packing, dedicated host, GPU optimized
+      href: dedicated-host-gpu-optimized-skus.md
   - name: Azure Spot Virtual Machines
     items:
     - name: Overview
@@ -714,6 +732,8 @@
         href: ./windows/ps-template.md
       - name: Secure web server with TLS\SSL
         href: ./windows/tutorial-secure-web-server.md
+  - name: Delete a VM and it's resources
+    item: delete.md
   - name: Connect to Virtual Machines
     items:
     - name: Linux
@@ -722,6 +742,8 @@
         href: ./linux/create-ssh-keys-detailed.md
       - name: Create and manage SSH keys in the portal
         href: ssh-keys-portal.md
+      - name: Create and manage SSH keys with the Azure CLI
+        href: ssh-keys-azure-cli.md
       - name: SSH on Linux or macOS
         href: ./linux/mac-create-ssh-keys.md
       - name: SSH on Windows
@@ -1511,7 +1533,7 @@
     - name: Overview
       href: trusted-launch.md
       DisplayName: Trusted Launch, shielded VM
-    - name: Deploy using the portal
+    - name: Deploy Trusted Launch VM
       href: trusted-launch-portal.md
   - name: Just-in-time access
     href: ../security-center/security-center-just-in-time.md
@@ -1682,8 +1704,11 @@
         href: ./linux/scheduled-events.md
         displayname: Scheduled events
       - name: Windows
-        displayName: Scheduled events
-        href: ./windows/scheduled-events.md
+        items: 
+          - name: Scheduled events
+            href: ./windows/scheduled-events.md
+          - name: Monitor scheduled events
+            href: ./windows/scheduled-event-service.md
     - name: Track and update VMs
       items:
       - name: Linux
@@ -1864,6 +1889,8 @@
     - name: Overview
       href: ../backup/backup-azure-vms-introduction.md?context=/azure/virtual-machines/context/context
       dispayName: backup VMs, Azure Backup, recovery
+    -  name: Creating restore points
+       href: virtual-machines-create-restore-points.md
     - name: Quickstarts
       items:
       - name: CLI

@@ -19,12 +19,16 @@
     href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
   - name: Use automation to respond to threats
     href: tutorial-respond-threats-playbook.md
+  - name: Integrate with Microsoft Defender for IoT
+    href: iot-solution.md
   - name: Get started with notebooks and MSTICPy
     href: notebook-get-started.md
   - name: Create a Power BI report from Microsoft Sentinel
     href: powerbi.md
   - name: Deploy and monitor decoy honeytokens
     href: monitor-key-vault-honeytokens.md
+  - name: Build and monitor Zero Trust
+    href: /security/zero-trust/integrate/sentinel-solution
 - name: Concepts
   items:
   - name: Microsoft Sentinel prerequisites
@@ -37,6 +41,8 @@
       href: best-practices-workspace-architecture.md
     - name: Data collection
       href: best-practices-data.md
+    - name: Partner integrations
+      href: partner-integrations.md
   - name: Architecture
     items:
     - name: Roles and permissions
@@ -318,6 +324,8 @@
         href: process-events-normalization-schema.md
       - name: Registry event normalization schema
         href: registry-event-normalization-schema.md
+      - name: Web normalization schema
+        href: web-normalization-schema.md
       - name: Legacy network normalization schema
         href: normalization-schema-v1.md
     - name: Windows security event sets

@@ -206,6 +206,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/marketplace/azure-vm-sas-failure-messages.md",
+            "redirect_url": "/azure/marketplace/azure-vm-get-sas-uri",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/marketplace/become-publisher.md",
             "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
             "redirect_document_id": false
@@ -1933,6 +1938,11 @@
         {
             "source_path_from_root": "/articles/marketplace/register-dev-center.md",
             "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/revenue-dashboard-faq.yml",
+            "redirect_url": "/azure/marketplace/analytics-faq",
             "redirect_document_id": false
         },
         {

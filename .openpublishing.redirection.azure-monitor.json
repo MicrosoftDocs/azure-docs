@@ -1,0 +1,14 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/app-insights-dashboards.md",
+            "redirect_url": "/azure/azure-monitor/app/overview-dashboard",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-insights/app-insights-performance-counters.md",
+            "redirect_url": "/azure/azure-monitor/app/performance-counters",
+            "redirect_document_id": true
+        }
+    ]
+}

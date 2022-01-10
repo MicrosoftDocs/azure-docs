@@ -110,7 +110,7 @@ This table shows how this feature is supported in your account and the impact on
 
 <sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
 
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and Secure File Transfer protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
 
 ## Next steps
 

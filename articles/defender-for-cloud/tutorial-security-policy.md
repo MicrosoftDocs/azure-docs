@@ -1,12 +1,8 @@
 ---
 title: Working with security policies | Microsoft Docs
 description: Learn how to work with security policies in Microsoft Defender for Cloud.
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 11/16/2021
-ms.author: memildin
 ---
 
 # Manage security policies

@@ -25,6 +25,10 @@ Before you start configuration, confirm the following:
 * Azure private peering is configured on your ExpressRoute circuits.
 * If you want to run PowerShell locally, verify that the latest version of Azure PowerShell is installed on your computer.
 
+> [!NOTE]
+> Global Reach does **not** support configuration updates at this time. This means that if you create a Global Reach connection using the following instructions, you must delete and recreate the connection with any configuration updates. Attempting to update an existing Global Reach connection will put your ExpressRoute circuit in a failed state.
+>
+
 ### Working with Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]

@@ -1,18 +1,8 @@
 ---
 title: File Integrity Monitoring in Microsoft Defender for Cloud
 description: Learn how to compare baselines with File Integrity Monitoring in Microsoft Defender for Cloud.
-services: security-center
-documentationcenter: na
-author: memildin
-manager: rkarlin
-ms.assetid: c8a2a589-b737-46c1-b508-7ea52e301e8f
-ms.service: defender-for-cloud
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
-ms.author: memildin
 ---
 
 # Compare baselines using File Integrity Monitoring (FIM)

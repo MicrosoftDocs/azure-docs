@@ -49,7 +49,7 @@ This article focuses on general guidance for running your Linux distribution on 
 8. All VHDs on Azure must have a virtual size aligned to 1 MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1 MB before conversion, as described in the following steps.
 
 > [!NOTE]
-> Make sure **'udf'** (cloud-init >= 21.2) and **'vfat'** modules are enable. Blacklisting the udf module will cause a provisioning failure and backlisting vfat module will cause both provisioning and boot failures. **_Cloud-init < 21.2 are not affected and does not require this change._**
+> Make sure **'udf'** (cloud-init >= 21.2) and **'vfat'** modules are enable. Blocklisting the udf module will cause a provisioning failure and backlisting vfat module will cause both provisioning and boot failures. **_Cloud-init < 21.2 are not affected and does not require this change._**
 > 
 
 

@@ -62,7 +62,7 @@ In the tables below Parameters without "Adjustable" row are **not** adjustable f
 | Quota | Free (F0)<sup>3</sup> | Standard (S0) |
 |--|--|--|
 | **Max number of Transactions per Second (TPS) per Speech resource** |  |  |
-| Real-time API. Standard, Neural, Custom, and Custom Neural voices | 200<sup>4</sup> | 200<sup>4</sup> |
+| Real-time API. Prebuilt neural voices and custom neural voices | 200<sup>4</sup> | 200<sup>4</sup> |
 | Adjustable | No<sup>4</sup> | Yes<sup>4</sup> |
 | **HTTP-specific quotas** |  |  |
 | Max Audio length produced per request | 10 min | 10 min |
@@ -80,7 +80,7 @@ In the tables below Parameters without "Adjustable" row are **not** adjustable f
 | Max text length | N/A | 10000 paragraphs |
 | Start time | N/A | 10 tasks or 10000 characters accumulated |
 
-#### Custom Neural Voice and Custom Voice<sup>6</sup>
+#### Custom neural voice
 
 | Quota | Free (F0)<sup>3</sup> | Standard (S0) |
 |--|--|--|
@@ -89,19 +89,15 @@ In the tables below Parameters without "Adjustable" row are **not** adjustable f
 | Max number of simultaneous dataset upload per Speech resource | 2 | 5 |
 | Max data file size for data import per dataset | 2 GB | 2 GB |
 | Upload of long audios or audios without script | No | Yes |
-| Max number of simultaneous model trainings per Speech resource | 1 (Custom Voice<sup>6</sup> only) | 3 |
-| Max number of custom endpoints per Speech resource | 1 (Custom Voice<sup>6</sup> only) | 50 |
-| **Concurrent Request limit for Custom Neural voice** |  |  |
+| Max number of simultaneous model trainings per Speech resource | N/A | 3 |
+| Max number of custom endpoints per Speech resource | N/A | 50 |
+| **Concurrent Request limit for custom neural voice** |  |  |
 | Default value | N/A | 10 |
 | Adjustable | N/A | Yes<sup>5</sup> |
-| **Concurrent Request limit for Custom voice<sup>6</sup>** |  |  |
-| Default value | 10 | 10 |
-| Adjustable | No<sup>5</sup> | Yes<sup>5</sup> |
 
 <sup>3</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>4</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices) and [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).<br/>
-<sup>5</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling),  and [adjustment instructions](#text-to-speech-increasing-concurrent-request-limit-for-custom-neural-and-custom-voices).<br/>
-<sup>6</sup> Custom Voice is being deprecated and not available for newly created Speech resources. See [additional information](how-to-custom-voice.md#migrate-to-custom-neural-voice).<br/>
+<sup>5</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling),  and [adjustment instructions](#text-to-speech-increasing-concurrent-request-limit-for-custom-neural-voices).<br/>
 
 ## Detailed description, Quota adjustment, and best practices
 Before requesting a quota increase (where applicable), ensure that it is necessary. Speech service is using autoscaling technologies to bring the required computational resources in "on-demand" mode and at the same time to keep the customer costs low by not maintaining an excessive amount of hardware capacity. Every time your application receives a Response Code 429 ("Too many requests") while your workload is within the defined limits (see [Quotas and Limits quick reference](#quotas-and-limits-quick-reference)) the most likely explanation is that the Service is scaling up to your demand and did not reach the required scale yet, thus does not immediately have enough resources to serve the request. This state is usually transient and should not last long.
@@ -116,7 +112,7 @@ To minimize issues related to throttling (Response Code 429), we recommend using
 - Create additional Speech resources in the same or different Regions and distribute the workload among them using "Round Robin" technique. This is especially important for **Text-to-Speech TPS (transactions per second)** parameter, which is set as 200 per Speech Resource and cannot be adjusted
 
 The next sections describe specific cases of adjusting quotas.<br/>
-Jump to [Text-to-speech: increasing concurrent request limit for Custom Neural and Custom Voices](#text-to-speech-increasing-concurrent-request-limit-for-custom-neural-and-custom-voices)
+Jump to [Text-to-Speech: increasing concurrent request limit for custom neural voices](#text-to-speech-increasing-concurrent-request-limit-for-custom-neural-voices)
 
 ### Speech-to-text: increasing online transcription concurrent request limit
 By default the number of concurrent requests is limited to 100 per Speech resource (Base model) and to 100 per Custom endpoint (Custom model). For the Standard pricing tier, this amount can be increased. Before submitting the request, ensure you are familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).
@@ -190,8 +186,9 @@ Let us suppose that a Speech resource has the Concurrent Request limit set to 30
 
 Generally, it is highly recommended to test the workload and the workload patterns before going to production.
 
-### Text-to-speech: increasing concurrent request limit for Custom Neural and Custom Voices
-By default the number of concurrent requests for Custom Neural Voice and Custom Voice endpoints is limited to 10. For the Standard pricing tier, this amount can be increased. Before submitting the request, ensure you are familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).
+### Text-to-Speech: increasing concurrent request limit for custom neural voices
+
+By default the number of concurrent requests for custom neural voice endpoints is limited to 10. For the Standard pricing tier, this amount can be increased. Before submitting the request, ensure you are familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).
 
 Increasing the Concurrent Request limit does **not** directly affect your costs. Speech service uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
 

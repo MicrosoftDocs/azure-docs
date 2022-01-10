@@ -4,7 +4,7 @@ description: QnA Maker allows you to manage the content of your knowledge base b
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 11/19/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -123,7 +123,7 @@ Add alternate questions to an existing QnA pair to improve the likelihood of a m
 
 ## Linking QnA pairs
 
-Linking QnA pairs is provided with [follow-up prompts](multiturn-conversation.md). This is a logical connection between QnA pairs, managed at the knowledge base level. You can edit follow-up prompts in the QnA Maker portal.
+Linking QnA pairs is provided with [follow-up prompts](multi-turn.md). This is a logical connection between QnA pairs, managed at the knowledge base level. You can edit follow-up prompts in the QnA Maker portal.
 
 You can't link QnA pairs in the answer's metadata.
 

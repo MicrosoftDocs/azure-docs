@@ -1,14 +1,14 @@
 ---
-title: Quickstart - Group enrollment to the Azure Device Provisioning Service using X.509 certificate attestation 
+title: Quickstart - Group enrollment to the Azure Device Provisioning Service using X.509 certificate attestation
 description: This quickstart shows you how to programmatically enroll a group of devices that use intermediate or root CA X.509 certificate attestation.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 08/17/2021
 ms.topic: quickstart
 ms.service: iot-dps
-services: iot-dps 
+services: iot-dps
 ms.devlang: csharp
-ms.custom: mvc
+ms.custom: mvc, mode-other
 zone_pivot_groups: iot-dps-set2
 ---
  
@@ -489,7 +489,7 @@ This section shows you how to create a Python script that adds an enrollment gro
 
 :::zone pivot="programming-language-python"
 
-1. Open a command prompt in Administrator Mode, and run the following command to install the [azure-iot-provisioning-device-client](https://pypi.org/project/azure-iot-provisioning-device-client).
+1. Open a command prompt in Administrator Mode, and run the following command to install the azure-iot-provisioning-device-client.
 
     ```cmd/sh
     pip install azure-iothub-provisioningserviceclient    

@@ -50,7 +50,7 @@ items:
       href: custom-classification/how-to/view-model-evaluation.md
     - name: Improve a model
       href: custom-classification/how-to/improve-model.md
-    - name: Deploy a model and call the runtime API to classify text
+    - name: Deploy a model and classify text
       href: custom-classification/how-to/call-api.md
   - name: Concepts
     items:
@@ -106,7 +106,7 @@ items:
       href: custom-named-entity-recognition/how-to/view-model-evaluation.md 
     - name: Improve a model
       href: custom-named-entity-recognition/how-to/improve-model.md
-    - name: Deploy a model and call the runtime API to extract entities
+    - name: Deploy a model and extract entities from text
       href: custom-named-entity-recognition/how-to/call-api.md
   - name: Tutorials
     items:
@@ -160,7 +160,7 @@ items:
         href: conversational-language-understanding/how-to/tag-utterances.md
       - name: Train a model
         href: conversational-language-understanding/how-to/train-model.md
-      - name: Deploy a model and query the runtime API
+      - name: Deploy a model and get predictions
         href: conversational-language-understanding/how-to/deploy-query-model.md
   - name: Concepts
     items:
@@ -182,12 +182,14 @@ items:
       items:
       - name: Authoring
         href: https://aka.ms/clu-authoring-apis
+      - name: Runtime API
+        href: https://aka.ms/clu-apis
     - name: SDKs
       items:
       - name: .NET
-        href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+        href: /dotnet/api/azure.ai.language.conversations?view=azure-dotnet-preview&preserve-view=true
       - name: Python
-        href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+        href: /python/api/azure-ai-language-conversations/azure.ai.language.conversations?view=azure-python-preview&preserve-view=true
 - name: Entity linking
   items:
   - name: Overview
@@ -531,6 +533,8 @@ items:
       href: question-answering/how-to/manage-knowledge-base.md
     - name: Network isolation and private endpoints
       href: question-answering/how-to/network-isolation.md
+    - name: Authoring API
+      href: question-answering/how-to/authoring.md
     - name: Prebuilt API
       href: question-answering/how-to/prebuilt.md
     - name: Troubleshooting
@@ -565,6 +569,20 @@ items:
       href: question-answering/tutorials/multiple-languages.md
     - name: Multiple domains
       href: question-answering/tutorials/multiple-domains.md
+  - name: Reference
+    items: 
+    - name: REST API
+      items:
+      - name: Prebuilt
+        items:
+        - name: Runtime API
+          href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text
+      - name: Custom
+        items:
+          - name: Authoring API
+            href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering-projects
+          - name: Runtime API 
+            href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers
 - name: Sentiment analysis and Opinion mining
   items:
   - name: Overview
@@ -603,7 +621,7 @@ items:
     - name: Sentiment Analysis on streaming data using Azure Databricks
       href: /azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?context=/azure/cognitive-services/language-service/context/context
     - name: Use Flask to translate text, analyze sentiment, and synthesize speech
-      href: ../translator/tutorial-build-flask-app-translation-synthesis.md?context=%2fazure%2fcognitive-services%2flanguage-service%2fcontext%2fcontext
+      href: /azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language-service/context/context
   - name: Reference
     items:
     - name: REST API
@@ -751,6 +769,12 @@ items:
   items:
   - name: Multilingual and emoji support
     href: concepts/multilingual-emoji-support.md
+  - name: Migrate from LUIS, QnA Maker, and Text Analytics
+    href: concepts/migrate.md
+  - name: Model lifecycle
+    href: concepts/model-lifecycle.md
+  - name: Send requests asynchronously
+    href: concepts/use-asynchronously.md 
 - name: Tutorials
   items:
   - name: Use Cognitive Services in canvas apps
@@ -767,5 +791,5 @@ items:
   items:
     - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/language-service/context/context
-    - name: Migrate from Text Analytics v2
-      href: concepts/migrate-from-text-analytics-v2.md
+    - name: Migrate to the latest version
+      href: concepts/migrate-language-service-latest.md
