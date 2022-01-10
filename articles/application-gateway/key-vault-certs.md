@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 01/10/2022
 ms.author: victorh
 ---
 
@@ -76,7 +76,10 @@ Define access policies to use the user-assigned managed identity with your key v
 
 As of March 15, 2021, Key Vault recognizes Application Gateway as a trusted service by leveraging User Managed Identities for authentication to Azure Key Vault.  With the use of service endpoints and enabling the trusted services option for key vault's firewall, you can build a secure network boundary in Azure. You can deny access to traffic from all networks (including internet traffic) to Key Vault but still make Key Vault accessible for an Application Gateway resource under your subscription.
 
-When you're using a restricted key vault, use the following steps to configure Application Gateway to use firewalls and virtual networks: 
+When you're using a restricted key vault, use the following steps to configure Application Gateway to use firewalls and virtual networks:
+
+> [!TIP]
+> The following steps are not required if your Key Vault has a Private Endpoint enabled. The application gateway can access the Key Vault using the private IP address.
 
 1. In the Azure portal, in your key vault, select **Networking**.
 1. On the **Firewalls and virtual networks** tab, select **Private endpoint and selected networks**.
