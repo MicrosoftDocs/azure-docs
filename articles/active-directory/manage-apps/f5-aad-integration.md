@@ -127,7 +127,7 @@ Integrating F5 BIG-IP with Azure AD for SHA have the following pre-requisites:
 
 No previous experience or F5 BIG-IP knowledge is necessary to implement SHA, but we do recommend familiarizing yourself with F5 BIG-IP terminology. F5’s rich [knowledge base](https://www.f5.com/services/resources/glossary) is also a good place to start building BIG-IP knowledge.
 
-## Deployment scenarios
+## Configuration scenarios
 
 Configuring a BIG-IP for SHA is achieved using any of the many available methods, including several template based options, or a manual configuration.
 The following tutorials provide detailed guidance on implementing some of the more common patterns for BIG-IP and Azure AD SHA, using these methods.  

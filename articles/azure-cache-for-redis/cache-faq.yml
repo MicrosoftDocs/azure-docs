@@ -15,7 +15,7 @@ summary: |
   * [Planning FAQs](cache-planning-faq.yml)
   * [Development FAQs](cache-development-faq.yml)
   * [Management FAQs](cache-management-faq.yml)
-  * [Monitoring and troubleshooting FAQs](cache-monitor-troubleshoot-faq.yml)
+  * [Common monitoring and troubleshooting FAQs](cache-monitor-troubleshoot-faq.yml)
 
 sections:
   - name: Ignored
