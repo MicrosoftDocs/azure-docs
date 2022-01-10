@@ -883,6 +883,7 @@ Video Analyzer for Media makes inference of main topics from transcripts. When p
 },
 ` ` `
 ```
+
 ## Next steps
 
 [Video Analyzer for Media Developer Portal](https://api-portal.videoindexer.ai)
