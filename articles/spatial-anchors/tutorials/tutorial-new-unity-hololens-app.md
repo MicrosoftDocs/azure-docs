@@ -33,7 +33,7 @@ To complete this tutorial, make sure you have:
 4. Select **Create** and wait for Unity to create your project.
 
 ### Import ASA and OpenXR
-1. Launch [Mixed Reality Feature Toolkit](https://docs.microsoft.com/en-us/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool)
+1. Launch [Mixed Reality Feature Toolkit](https://docs.microsoft.com/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool)
 2. Select your project path - This is the folder that contains folders such as *Assets*, *Library*, *Logs*, etc - and click **Discover Features**
 3. Under Azure Mixed Reality Services select both
     1. **Azure Spatial Anchors SDK Core**
@@ -150,10 +150,10 @@ In the `Start()` method, assign the variable to the component we added in a prev
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=46-49,53&highlight=4)]
 
 In order to receive debug and error logs, we need to subscribe to the different callbacks
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=46-53&highlight=5-7)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=46-51,53&highlight=5-6)]
 
 > [!Note]
-> To view the logs make sure after you built the project from Unity and you open the visual studio solution `.sln`, you select Debug --> Run with Debugging and leave your HoloLens connected to your computer while the app is running.
+> To view the logs make sure after you built the project from Unity and you open the visual studio solution `.sln`, select Debug --> Run with Debugging and leave your HoloLens connected to your computer while the app is running.
 
 ## Start Session
 To create and find anchors we first have to start a session. When calling `StartSessionAsync()` SpatialAnchorManager will create a session if necessary and then start it. Let's add this to our `ShortTap()` method 
@@ -161,7 +161,7 @@ To create and find anchors we first have to start a session. When calling `Start
 
 ## Create Anchor
 Now that we have a session running we can create anchors. In this application we'd like to keep track of the created anchor GameObjects and AnchorIds. Let's add two lists to our code.
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=31-44&highlight=6-14)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=14,15,16,19,20,31-44&highlight=2,11-19)]
 
 Let's create a method that receives the **position** of the desired anchor as a parameter
 
@@ -180,58 +180,33 @@ Now let's add and configure the Spatial Anchor components. We are setting the ex
 
 To save an anchor the user must collect environment data. 
 > [!Note]
-> A HoloLens can possibly reuse already captured environment data surrounding the anchor resulting in `IsReadyForCreate` to be true instantly.
+> A HoloLens can possibly reuse already captured environment data surrounding the anchor resulting in `IsReadyForCreate` to be true instantly when called.
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=212-219&highlight=3-8)]
 
 Now that the cloud spatial anchor has been prepared, we can try the actual save here.
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=187-247&highlight=34-60)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=187-247&highlight=35-60)]
 
 Finally let's add the function call to our `ShortTap` method
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=99-105,109,116&highlight=8)]
 
-Our app can now create multiple anchors. Any device can now locate the created anchors (if not expired yet) as long as they have access to the same Spatial Anchors Resource on Azure and know the AnchorIDs.
+Our app can now create multiple anchors. Any device can now locate the created anchors (if not expired yet) as long as they know the AnchorIDs and have access to the same Spatial Anchors Resource on Azure.
 
 ## Stop Session & Destroy GameObjects
 
-To emulate a second device finding all anchors, we will now stop the session and remove all anchor GameObjects. After that we will start a new session and query the anchors using the stored AnchorIDs.
+To emulate a second device finding all anchors, we will now stop the session and remove all anchor GameObjects (we will keep the AnchorIDs). After that we will start a new session and query the anchors using the stored AnchorIDs.
 
-Let's create a method `ASA_StopSession` and use the spatial anchor manager to stop the session
+Spatial anchor manager can take care of the session stopping by simply calling its `DestroySession()` method. Let's add this to our `LongTap()` method
 
-```csharp
-    private void ASA_StopSession()
-    {
-        spatialAnchorManager.StopSession();
-        spatialAnchorManager.DestroySession();
-        //Todo: difference between stop and destroy?
-    }
-```
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=118-122,126,136&highlight=6)]
 
-Let's create a second method to remove all anchor Game objects
+Let's create a method to remove all anchor Game objects
 
-```csharp
-    private void RemoveAllAnchorGameObjects()
-    {
-        foreach (var anchorGameObject in foundOrCreatedAnchorGameObjects)
-        {
-            Destroy(anchorGameObject);
-        }
-        foundOrCreatedAnchorGameObjects = new List<GameObject>();
-    }
-```
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=138-148&)]
 
-And call both methods from the long tap method
-```csharp
-private async void LongTap()
-    {
-        if (spatialAnchorManager.IsSessionStarted)
-        {
-            // Stop Session and remove all GameObjects. This does not delete the Anchors in the cloud
-            ASA_StopSession();
-            RemoveAllAnchorGameObjects();
-            Debug.Log("ASA - Stopped Session and removed all Anchor Objects");
-        }
-```
+And call it after destroying the session in `LongTap()`
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=118-122,125-128,136&highlight=6-9)]
+
 
 ## Locate Anchor
 We will now try to find the anchors again with the correct position and rotation that we  created them in. To do that we need to create a `Watcher` that will look for anchors that fit the given criteria. As criteria we will feed it the IDs of the anchors we created. Let's create a method `ASA_FindAnchor()` and use spatial anchor manager to create a `Watcher`.
