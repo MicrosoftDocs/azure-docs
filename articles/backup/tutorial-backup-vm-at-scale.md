@@ -36,7 +36,7 @@ After creating the Recovery Services vault, the next step is to configure the va
 
 To set a backup policy to your Azure VMs, follow these steps:
 
-1. Navigate to Backup center and click **+Backup** from the **Overview** tab.
+1. Go to **Backup center** and click **+Backup** from the **Overview** tab.
 
    ![Screenshot showing the Backup button.](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
@@ -82,35 +82,15 @@ After enabling backup:
 
 You've enabled backup for the Recovery Services vaults, but an initial backup hasn't been created. It's a disaster recovery best practice to trigger the first backup, so that your data is protected.
 
-To run an on-demand backup job:
+The initial backup will run in accordance with the schedule, but you can run it immediately as follows:
 
 1. Go to **Backup center** and select the **Backup Instances** menu item.
-
-1. On the **Backup Items** menu, select **Azure Virtual Machine** to open the list of virtual machines associated with the vault.
-
-    ![Screenshot showing the list of virtual machines.](./media/tutorial-backup-vm-at-scale/three-virtual-machines.png)
-
-1. The **Backup Items** list opens.
-
-    ![Screenshot showing the backup job triggered.](./media/tutorial-backup-vm-at-scale/initial-backup-context-menu.png)
-
-1. On the **Backup Items** list, select the ellipses **...** to open the Context menu.
-
-1. On the Context menu, select **Backup now**.
-
-    ![Screenshot showing to select Backup now in the Context menu.](./media/tutorial-backup-vm-at-scale/context-menu.png)
-
-    The Backup Now menu opens.
-
-1. On the Backup Now menu, enter the last day to retain the recovery point, and select **OK**.
-
-    ![Screenshot showing to set the last day the Backup Now recovery point is retained.](./media/tutorial-backup-vm-at-scale/backup-now-short.png)
-
-    Deployment notifications let you know the backup job has been triggered, and that you can monitor the progress of the job on the Backup jobs page. Depending on the size of your virtual machine, creating the initial backup may take a while.
-
-    When the initial backup job completes, you can see its status in the Backup job menu. The on-demand backup job created the initial restore point for *myVM*. If you want to back up other virtual machines, repeat these steps for each virtual machine.
-
-    ![Screenshot showing the Backup Jobs tile.](./media/tutorial-backup-vm-at-scale/initial-backup-complete.png)
+1. Select **Azure Virtual machines** as the **Datasource type**. Then search for the VM that you have configured for backup.
+1. Right-click the relevant row or select the more icon (…), and then click **Backup Now**.
+1. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then select **OK**.
+1. Monitor the portal notifications.
+   To  monitor the job progress, go to **Backup center** > **Backup Jobs** and filter the list for **In progress** jobs.
+   Depending on the size of your VM, creating the initial backup may take a while.
 
 ## Clean up resources
 
