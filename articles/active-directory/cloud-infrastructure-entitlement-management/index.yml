@@ -29,7 +29,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Enable M-CIEM on the Azure Active Directory tenant 
-            url: cloudknox-installation.md
+            url: cloudknox-onboard-enable-tenant.md
   # Card
   - title: Install Microsoft CloudKnox Permissions Management 
     linkLists:
@@ -45,7 +45,7 @@ landingContent:
           - text: Integrate Microsoft CloudKnox Permissions Management with other systems
             url: cloudknox-integration-api.md
   # Card
-  - title: Use Microsoft CloudKnox Permissions Management Tasks
+  - title: Use Microsoft CloudKnox Permissions Management tasks
     linkLists:
       - linkListType: overview
         links:
@@ -58,13 +58,6 @@ landingContent:
         links:
           - text: Use the CloudKnox Settings dashboard
             url: cloudknox-ui-product-settings.md
-  # Card
-  - title: Learn with Microsoft CloudKnox Permissions Management training materials
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Learn with Microsoft CloudKnox Permissions Management training materials
-            url: cloudknox-training-videos.md
   # Card
   - title: Manage data with Microsoft CloudKnox Permissions Management
     linkLists:
@@ -87,7 +80,7 @@ landingContent:
           - text: Overview of Microsoft CloudKnox Permissions Management reports
             url: cloudknox-all-reports.md
   # Card
-  - title: Microsoft CloudKnox Permissions Management training videos
+  - title: Learn with Microsoft CloudKnox Permissions Management training materials
     linkLists:
       - linkListType: overview
         links:
