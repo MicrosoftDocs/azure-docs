@@ -105,7 +105,8 @@ The following table provides a high-level features and capabilities comparisons 
 | **Security** | | |
 | Azure Active Directory Support (AAD) | Yes | No |
 | Customer managed encryption key (BYOK) | Yes | No |
-| SCRAM Authentication (SHA-256) | Yes | Yes |
+| SCRAM Authentication (SHA-256) | No | Yes |
+| Secure Sockets Layer support (SSL) | Yes | Yes |
 | **Other features** | | |
 | Customer managed key (BYOK) | Yes | No |
 | Alerts | Yes | Yes |
