@@ -142,6 +142,8 @@
       href: search-what-is-an-index.md
     - name: Import
       href: search-what-is-data-import.md
+    - name: Import Data wizard
+      href: search-import-data-portal.md
     - name: Analyzers
       href: search-analyzers.md
     - name: Indexers
@@ -272,7 +274,7 @@
     - name: Create an index
       href: search-how-to-create-search-index.md
     - name: Load an index
-      href: search-import-data-portal.md
+      href: search-how-to-load-search-index.md
     - name: Drop and rebuild an index
       href: search-howto-reindex.md
     - name: Create a multi-language index
