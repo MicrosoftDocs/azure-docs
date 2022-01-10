@@ -63,18 +63,16 @@
     items:
     - name: Data collection methods
       href: connect-data-sources.md
-    - name: Normalization and the Advanced SIEM Information Model (ASIM)
-      items:
-      - name: ASIM overview
-        href: normalization.md
-      - name: ASIM schemas
-        href: normalization-about-schemas.md
-      - name: ASIM parsers
-        href: normalization-about-parsers.md
-      - name: ASIM content
-        href: normalization-content.md
     - name: Classifying data with entities
       href: entities.md
+  - name: Normalization and the Advanced SIEM Information Model (ASIM)
+    items:
+    - name: ASIM overview
+      href: normalization.md
+    - name: ASIM schemas
+      href: normalization-about-schemas.md
+    - name: ASIM parsers
+      href: normalization-parsers-overview.md
   - name: Threat intelligence
     items:
     - name: Understand threat intelligence in Microsoft Sentinel
@@ -172,6 +170,16 @@
       href: monitor-data-connector-health.md
     - name: Integrate Azure Data Explorer
       href: store-logs-in-azure-data-explorer.md
+  - name: Use the Advanced SIEM Information Model (ASIM)
+    items:
+    - name: Develop ASIM parsers
+      href: normalization-develop-parsers.md
+    - name: Manage ASIM parsers
+      href: normalization-manage-parsers.md
+    - name: Use ASIM parsers
+      href: normalization-about-parsers.md
+    - name: Modify content to use ASIM
+      href: normalization-modify-content.md
   - name: Use threat intelligence
     items:
     - name: Connect threat intelligence platforms
@@ -302,32 +310,36 @@
         href: ../role-based-access-control/built-in-roles.md#all
       - name: Microsoft Sentinel roles
         href: ../role-based-access-control/built-in-roles.md#security
+  - name: Advanced SIEM Information Model (ASIM)
+    items:
+      - name: ASIM content
+        href: normalization-content.md
+      - name: ASIM schemas
+        items:
+        - name: ASIM authentication schema
+          href: authentication-normalization-schema.md
+        - name: ASIM DNS schema
+          href: dns-normalization-schema.md
+        - name: ASIM DHCP schema
+          href: dhcp-normalization-schema.md
+        - name: ASIM file event schema
+          href: file-event-normalization-schema.md
+        - name: ASIM network session schema
+          href: network-normalization-schema.md
+        - name: ASIM process event schema
+          href: process-events-normalization-schema.md
+        - name: ASIM registry event schema
+          href: registry-event-normalization-schema.md
+        - name: ASIM web session schema
+          href: web-normalization-schema.md
+        - name: Legacy network normalization schema
+          href: normalization-schema-v1.md
   - name: Data collection references
     items:
     - name: Data source schema reference
       href: data-source-schema-reference.md
     - name: CEF log field mapping
       href: cef-name-mapping.md
-    - name: Normalization
-      items:
-      - name: Authentication normalization schema
-        href: authentication-normalization-schema.md
-      - name: DNS normalization schema
-        href: dns-normalization-schema.md
-      - name: DHCP normalization schema
-        href: dhcp-normalization-schema.md
-      - name: File event normalization schema
-        href: file-event-normalization-schema.md
-      - name: Network normalization schema
-        href: network-normalization-schema.md
-      - name: Process event normalization schema
-        href: process-events-normalization-schema.md
-      - name: Registry event normalization schema
-        href: registry-event-normalization-schema.md
-      - name: Web normalization schema
-        href: web-normalization-schema.md
-      - name: Legacy network normalization schema
-        href: normalization-schema-v1.md
     - name: Windows security event sets
       href: windows-security-event-id-reference.md
   - name: Detection and analysis references
