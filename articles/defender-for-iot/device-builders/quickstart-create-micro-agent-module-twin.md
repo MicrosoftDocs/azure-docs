@@ -1,14 +1,14 @@
 ---
 title: Create a DefenderforIoTMicroAgent module twin (Preview)
 description: In this tutorial you will learn how to create a DefenderIotMicroAgent module twin for new devices.
-ms.date: 01/06/2022
+ms.date: 01/10/2022
 ms.topic: tutorial
 ms.custom: mode-other
 ---
 
 # Tutorial: Create a DefenderIotMicroAgent module twin (Preview)
 
-You can create individual **DefenderIotMicroAgent** module twins for new devices. You can also batch create module twins for all devices in an IoT Hub.
+This tutorial will help you learn how to create an individual `DefenderIotMicroAgent` module twin for new devices.
 
 ## Device twins
 
@@ -44,7 +44,7 @@ In this tutorial you will learn how to:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An IoT hub.
+- An [IoT hub](quickstart-onboard-iot-hub.md).
 
 - You must have [enabled Microsoft Defender for IoT on your Azure IoT Hub](quickstart-onboard-iot-hub.md).
 
@@ -52,7 +52,7 @@ In this tutorial you will learn how to:
 
 ## Create a DefenderIotMicroAgent module twin
 
-A DefenderIotMicroAgent module twin can be created by manually editing each module twin to include specific configurations for each device.
+A `DefenderIotMicroAgent` module twin can be created by manually editing each module twin to include specific configurations for each device.
 
 **To create a DefenderIotMicroAgent module twin for a device**:
 
@@ -78,9 +78,13 @@ A DefenderIotMicroAgent module twin can be created by manually editing each modu
 
 1. Select your device.
 
-1. Under the Module identities menu, confirm the existence of the **DefenderIotMicroAgent** module in the list of module identities associated with the device.  
+1. Under the Module identities menu, confirm the existence of the `DefenderIotMicroAgent` module in the list of module identities associated with the device.  
 
     :::image type="content" source="media/quickstart-create-micro-agent-module-twin/device-details-module.png" alt-text="Select module identities from the tab.":::
+
+## Clean up resources
+
+There are no resources to clean up.
 
 ## Next steps
 

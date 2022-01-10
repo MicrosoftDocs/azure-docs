@@ -35,7 +35,7 @@
       href: quickstart-create-security-twin.md
 - name: Tutorials
   items:
-  - name: Add a resource group to your IoT solutionv
+  - name: Add a resource group to your IoT solution
     displayName: resources, monitored, resource
     href: quickstart-configure-your-solution.md
   - name: Create a DefenderforIoTMicroAgent module twin (Preview)
