@@ -40,7 +40,7 @@ Learn how to deploy an update to an IoT device using Device Update for IoT Hub.
 
   :::image type="content" source="media/deploy-update/group-basics.png" alt-text="Group details" lightbox="media/deploy-update/group-basics.png":::
 
-6. To initiate the deployment, go to the Current deployment tab. Click the deploy link next to the desired update from the Available udpates section. The best, available update for a given group will be denoted with a "Best" highlight. 
+6. To initiate the deployment, go to the Current deployment tab. Click the deploy link next to the desired update from the Available updates section. The best, available update for a given group will be denoted with a "Best" highlight. 
 
   :::image type="content" source="media/deploy-update/select-update.png" alt-text="Select update" lightbox="media/deploy-update/select-update.png":::
 
