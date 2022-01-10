@@ -44,13 +44,9 @@
           href: tutorial-1st-experiment-bring-data.md
     - name: Jupyter Notebooks
       items:
-        - name: Image classification (MNIST data)
-          items:
-            - name: 1. Train a model
-              displayName: build modeling
-              href: tutorial-train-models-with-aml.md
-            - name: 2. Deploy a model
-              href: tutorial-deploy-models-with-aml.md
+        - name: Train & deploy image classification model
+          displayName: MNIST
+          href: tutorial-train-deploy-notebook.md
         - name: Automated ML
           items: 
             - name: Regression (NYC Taxi data)
