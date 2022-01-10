@@ -3,7 +3,6 @@ title: Overview for Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
 author: stevemunk
 ms.author: v-munksteve
-manager: erikland
 ms.date: 11/29/2021
 ms.topic: overview
 ms.service: azure-maps
@@ -207,7 +206,7 @@ The Azure Maps Power BI visual provides a rich set of data visualizations for sp
 
 :::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Power BI desktop with the Azure Maps Power BI visual displaying business data":::
 
-For more information, see the Getting started with the [Azure Maps Power BI visual](power-bi-visual-getting-started.md) documentation.
+For more information, see the [Get started with Azure Maps Power BI visual](power-bi-visual-get-started.md) article.
 
 ## Usage
 

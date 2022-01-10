@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: how-to
 author: NikaKinska
 ms.author: nnikolic
-ms.reviewer: mathoma, wiassaf
-ms.date: 1/14/2021
+ms.reviewer: kendralittle, mathoma, wiassaf
+ms.date: 12/14/2021
 ---
 # Query Performance Insight for Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -118,8 +118,8 @@ By default, Query Performance Insight shows the top five CPU-consuming queries w
    >
    > For example, a query might have consumed a substantial amount of DTU for a while, although its total consumption in the observed period is less than the other top-consuming queries. In such a case, resource utilization of this query would not appear on the chart.
    >
-   > If you need to understand top query executions beyond the limitations of Query Performance Insight, consider using [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md) for advanced database performance monitoring and troubleshooting.
-   >
+   > If you need to understand top query executions beyond the limitations of Query Performance Insight, consider using [Azure SQL Insights](../../azure-monitor/insights/sql-insights-overview.md) for advanced database performance monitoring and troubleshooting.
+   > 
 
 ## View individual query details
 
@@ -143,6 +143,8 @@ To view query details:
 
    > [!IMPORTANT]
    > Query Performance Insight does not capture any DDL queries. In some cases, it might not capture all ad hoc queries.
+   > 
+   > In case your database is scope locked, query details blade will not be able to load.
    >
 
 ## Review top queries per duration

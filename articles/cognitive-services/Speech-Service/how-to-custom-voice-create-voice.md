@@ -14,7 +14,7 @@ ms.author: eur
 
 # Create and use your voice model
 
-In [Prepare training data](how-to-custom-voice-prepare-data.md), you learned about the different data types you can use to train a custom neural voice and the different format requirements. Once you've prepared your data and the voice talent verbal statement, you can start to upload them to the [Speech Studio](https://aka.ms/custom-voice-portal). In this article, you learn how to train a Custom Neural Voice through the Speech Studio portal. See the [supported languages](language-support.md#customization) for custom neural voice.
+In [Prepare training data](how-to-custom-voice-prepare-data.md), you learned about the different data types you can use to train a custom neural voice and the different format requirements. Once you've prepared your data and the voice talent verbal statement, you can start to upload them to the [Speech Studio](https://aka.ms/custom-voice-portal). In this article, you learn how to train a custom neural voice through the Speech Studio portal. See the [supported languages](language-support.md#custom-neural-voice) for Custom Neural Voice.
 
 ## Prerequisites
 
@@ -25,12 +25,10 @@ In [Prepare training data](how-to-custom-voice-prepare-data.md), you learned abo
 
 A voice talent is an individual or target speaker whose voices are recorded and used to create neural voice models. Before you create a voice, define your voice persona and select a right voice talent. For details on recording voice samples, see [the tutorial](record-custom-voice-samples.md).
 
-To train a neural voice, you must create a voice talent profile with an audio file recorded by the voice talent consenting to the usage of their speech data to train a custom voice model. When preparing your recording script, make sure you include the following sentence:
+To train a neural voice, you must create a voice talent profile with an audio file recorded by the voice talent consenting to the usage of their speech data to train a custom voice model. When preparing your recording script, make sure you include the statement sentence. You can find the statement in multiple languages [here](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice/script/verbal-statement-all-locales.txt). The language of the verbal statement must be the same as your recording. You need to upload this audio file to the Speech Studio as shown below to create a voice talent profile, which is used to verify against your training data when you create a voice model. Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here.
 
-**“I [state your first and last name] am aware that recordings of my voice will be used by [state 
-the name of the company] to create and use a synthetic version of my voice.”**
-This sentence is used to verify if the training data matches the audio in the consent statement. > Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here.
-
+ :::image type="content" source="media/custom-voice/upload-verbal-statement.png" alt-text="Upload voice talent statement":::
+ 
 > [!NOTE]
 > Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext), and then [apply for access](https://aka.ms/customneural). 
 
@@ -78,7 +76,7 @@ Data files are automatically validated once you hit the **Submit** button. Data 
 
 Once the data is uploaded, you can check the details in the training set detail view. On the **Overview** tab, you can further check the pronunciation scores and the noise level for each of your data. The pronunciation score ranges from 0 to 100. A score below 70 normally indicates a speech error or script mismatch. A heavy accent can reduce your pronunciation score and affect the generated digital voice.
 
-A higher signal-to-noise ratio (SNR) indicates lower noise in your audio. You can typically reach a 50+ SNR by recording at professional studios. Audio with an SNR below 20 can result in obvious noise in your generated voice.
+A higher signal-to-noise ratio (SNR) indicates lower noise in your audio. You can typically reach a 35+ SNR by recording at professional studios. Audio with an SNR below 20 can result in obvious noise in your generated voice.
 
 Consider re-recording any utterances with low pronunciation scores or poor signal-to-noise ratios. If you can't re-record, consider excluding those utterances from your data.
 
@@ -106,10 +104,6 @@ The second type of errors listed in the table below will be automatically fixed,
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
-| Audio | Stereo audio auto fixed | Use mono in your audio sample recordings. Stereo audio channels are automatically merged into a mono channel, which can cause content loss.  Download the normalized dataset and review it.|
-| Volume | Volume peak auto fixed |The volume peak should be within the range of -3 dB (70% of max volume) to -6 dB (50%). Control the volume peak during the sample recording or data preparation. This audio is linearly scaled to fit the peak range automatically (-4 dB or 65%). Download the normalized dataset and review it.|
-|Mismatch | Silence auto fixed| The start silence is detected to be longer than 200 ms, and has been trimmed to 200 ms automatically. Download the normalized dataset and review it. |
-| Mismatch |Silence auto fixed | The end silence is detected to be longer than 200 ms, and has been trimmed to 200 ms automatically. Download the normalized dataset and review it. |
 | Mismatch |Silence auto fixed |The start silence is detected to be shorter than 100 ms, and has been extended to 100 ms automatically. Download the normalized dataset and review it. |
 | Mismatch |Silence auto fixed | The end silence is detected to be shorter than 100 ms, and has been extended to 100 ms automatically. Download the normalized dataset and review it.|
 
@@ -140,7 +134,7 @@ After your data files have been validated, you can use them to build your custom
 
 2. Select the neural training method for your model and target language.
 
-By default, your voice model is trained in the same language of your training data. You can also select to create a secondary language (preview) for your voice model.  Check the languages supported for custom neural voice and cross-lingual feature: [language for customization](language-support.md#customization).
+By default, your voice model is trained in the same language of your training data. You can also select to create a secondary language (preview) for your voice model.  Check the languages supported for custom neural voice and cross-lingual feature: [language for custom neural voice](language-support.md#custom-neural-voice).
 
 Training of custom neural voices isn't free. Check the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for details. However, if you have statistical parametric or concatenative voice models deployed before 3/31/2021 with S0 Speech resources, free neural training credits are offered to your Azure subscription, and you can train 5 different versions of neural voices for free.
 
@@ -148,7 +142,7 @@ Training of custom neural voices isn't free. Check the [pricing](https://azure.m
 
 >[!NOTE]
 >- You need to select at least 300 utterances to create a custom neural voice.
->- To train a neural voice, you must specify a voice talent profile with the audio consent file provided of the voice talent acknowledging to use his/her speech data to train a custom voice model. Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply the access here](https://aka.ms/customneural).
+>- To train a neural voice, you must specify a voice talent profile with the audio consent file provided of the voice talent acknowledging to use his/her speech data to train a custom neural voice model. Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply the access here](https://aka.ms/customneural).
 
 4. Then, choose your test script.
 
@@ -198,6 +192,9 @@ After your voice model is successfully built, you can use the generated sample a
 
 The quality of the voice depends on many factors, including the size of the training data, the quality of the recording, the accuracy of the transcript file, how well the recorded voice in the training data matches the personality of the designed voice for your intended use case, and more. [Check here to learn more about the capabilities and limits of our technology and the best practice to improve your model quality](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
 
+> [!NOTE]
+> Custom neural voice training is only available in the three regions: East US, Southeast Asia, and UK South. But you can easily copy a neural voice model from the three regions to other different regions. Check the regions supported for Custom Neural Voice: [regions for Custom Neural Voice](regions.md#text-to-speech).
+
 ## Create and use a custom neural voice endpoint
 
 After you've successfully created and tested your voice model, you deploy it in a custom Text-to-Speech endpoint. You then use this endpoint in place of the usual endpoint when making Text-to-Speech requests through the REST API. Your custom endpoint can be called only by the subscription that you've used to deploy the model.
@@ -221,7 +218,7 @@ You can also update the endpoint to a new model. To change the model, make sure 
 
 After your endpoint is deployed, the endpoint name appears as a link. Click the link to display information specific to your endpoint, such as the endpoint key, endpoint URL, and sample code.
 
-The custom endpoint is functionally identical to the standard endpoint that's used for text-to-speech requests.  For more information, see [Speech SDK](./get-started-text-to-speech.md) or [REST API](rest-text-to-speech.md).
+The custom endpoint is functionally identical to the standard endpoint that's used for Text-to-Speech requests.  For more information, see [Speech SDK](./get-started-text-to-speech.md) or [REST API](rest-text-to-speech.md).
 
 We also provide an online tool, [Audio Content Creation](https://speech.microsoft.com/audiocontentcreation), that allows you to fine-tune their audio output using a friendly UI.
 

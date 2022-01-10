@@ -7,6 +7,7 @@ ms.author: tefa
 ms.date: 09/06/2021
 ms.service: signalr
 ms.topic: conceptual
+ms.devlang: csharp
 ---
 
 # Authorize request to SignalR resources with Azure AD from managed identities

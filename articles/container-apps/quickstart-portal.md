@@ -5,9 +5,9 @@ services: container-apps
 author: cebundy
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 11/09/2021
+ms.date: 12/13/2021
 ms.author: v-bcatherine
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 
 # Quickstart: Deploy your first container app using the Azure portal
@@ -23,9 +23,6 @@ An Azure account with an active subscription is required. If you don't already h
 ## Setup
 
 Begin by signing in to the [Azure portal](https://portal.azure.com).
-<!--
-Do we need to include steps to login?  Probably not..
--->
 
 ## Create a container app
 
@@ -35,7 +32,7 @@ To create your container app, start at the Azure portal home page.
 1. Select **Container Apps** in the search results.
 1. Select the **Create** button.
 
-### Basics Tab
+### Basics tab
 
 In the *Basics* tab, do the following actions.
 
@@ -47,14 +44,14 @@ In the *Basics* tab, do the following actions.
 | Resource group | Select **Create new** and enter **my-container-apps**. |
 | Container app name |  Enter **my-container-app**. |
 
-#### Create an Environment
- 
+#### Create an environment
+
 1. In the *Create Container App environment* field, select **Create new**.
 1. In the *Create Container App Environment* page on the *Basics* tab, enter the following values:
 
     | Setting | Value |
     |---|---|
-    | Environment name | Enter **my-environment**. | 
+    | Environment name | Enter **my-environment**. |
     | Region | Select **Canada Central**. |
 
 1. Select the **Monitoring** tab to create a Log Analytics workspace.
@@ -62,32 +59,11 @@ In the *Basics* tab, do the following actions.
 1. Enter **my-container-apps-logs** in the *Name* field of the *Create new Log Analytics Workspace* dialog.
   
     The *Location* field is pre-filled with *Canada Central* for you.
+
 1. Select **OK**.
 1. Select the **Create** button at the bottom of the *Create Container App Environment* page.
-1. Select the **Next: App settings** button at the bottom of the page.
 
-### App Settings Tab
-
-In the *App settings* tab, do the following actions:
-
-| Setting | Action |
-|---|---|
-| Use quickstart image | **Uncheck** the checkbox. |
-| Name | Enter **my-app**. <!-- I don't know what name to use --> |
-| Image source | Select **Docker Hub or other registries**. |
-| Image type | Select **Public**. |
-| Registry login server | Enter `mcr.microsoft.com`. |  
-| Image and tag | Enter **/azuredocs/containerapps-helloworld:latest**. |
-
-#### Application ingress settings
-
-| Setting | Action |
-|---|---|
-| Ingress | Select **Enabled**. |
-| Ingress visibility | Select **External**. |
-| Target port | Enter **80**. |
-
-### Deploying the Container App
+### Deploy the container app
 
 1. Select the **Review and create** button at the bottom of the page.  
 
@@ -97,9 +73,9 @@ In the *App settings* tab, do the following actions:
 
 1. Select **Create**.
 
-    A page with the message *Deployment is in progress* is displayed.  Once the deployment is successfully completed, you'll see the message *Your deployment is complete*.
+    A page with the message *Deployment is in progress* is displayed.  Once the deployment is successfully completed, you'll see the message: *Your deployment is complete*.
 
-### View Your deployed application
+### Verify deployment
 
 Select **Go to resource** to view your new container app.  Select the link next to *Application URL* to view your application. You'll see the following message in your browser.
 
@@ -114,7 +90,6 @@ If you're not going to continue to use this application, you can delete the Azur
 1. Enter the resource group name **my-container-apps** in the *Are you sure you want to delete "my-container-apps"* confirmation dialog.
 1. Select **Delete**.  
     The process to delete the resource group may take a few minutes to complete.
-
 
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).

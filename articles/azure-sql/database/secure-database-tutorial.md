@@ -7,7 +7,7 @@ ms.subservice: security
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
-ms.reviewer:
+ms.reviewer: kendralittle, mathoma
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
 ---

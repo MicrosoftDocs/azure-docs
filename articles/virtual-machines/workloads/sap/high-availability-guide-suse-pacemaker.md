@@ -51,6 +51,7 @@ In Azure, there are two options to set up stonith in Pacemaker cluster for SLES.
   **Important Consideration for SBD device using Azure shared disk**
 
    - Azure shared disk with Premium SSD is supported as SBD device.
+   - SBD device using Azure shared disk is supported on SLES HA 15 SP01 and above.
    - SBD device using Azure premium shared disk is supported on [locally redundant storage (LRS)](../../disks-redundancy.md#locally-redundant-storage-for-managed-disks) and [zone-redundant storage (ZRS)](../../disks-redundancy.md#zone-redundant-storage-for-managed-disks).
    - Depending on the type of your deployment - availability set or availability zones, choose the appropriate redundant storage for Azure shared disk as your SBD device.
      - SBD device using LRS for Azure premium shared disk (skuName - Premium_LRS) is only supported with deployment in availability set.
@@ -59,7 +60,8 @@ In Azure, there are two options to set up stonith in Pacemaker cluster for SLES.
    - The Azure shared disk used for SBD device doesn’t need to be large. The [maxShares](../../disks-shared-enable.md#disk-sizes) value determines how many cluster nodes can use the shared disk. For example, you can use P1 or P2 disk sizes for your SBD device on two-node cluster like SAP ASCS/ERS, SAP HANA scale-up.
    - For [HANA scale-out with HANA system replication (HSR) and pacemaker](sap-hana-high-availability-scale-out-hsr-suse.md), you can use Azure shared disk for SBD device in clusters with up to four nodes per replication site because of the current limit of [maxShares](../../disks-shared-enable.md#disk-sizes).
    - We don’t recommend to attach Azure shared disk SBD device across Pacemaker clusters.
-   - For further details on limitations for Azure shared disk, please review carefully the [limitations](../../disks-shared.md#limitations) section of Azure Shared Disk documentation.
+   - If multiple Azure shared disk SBD devices are used, check on the limit for maximum number of data disks that can be attached to VM.
+   - For further details on limitations for Azure shared disk, review carefully the [limitations](../../disks-shared.md#limitations) section of Azure Shared Disk documentation.
 
 - Azure fence agent
 

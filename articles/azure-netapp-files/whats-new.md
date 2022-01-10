@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
-ms.date: 11/19/2021
-ms.author: b-hchen
+ms.date: 12/14/2021
+ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
@@ -26,6 +25,24 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Encrypted SMB connection to domain controller](create-active-directory-connections.md#encrypted-smb-connection) (Preview)
 
     You can now enable SMB encryption for communication between the Azure NetApp Files service and the Active Directory Domain Services domain controller (DC). When you enable this functionality, SMB3 protocol will be used for encrypted DC connections.
+
+## December 2021
+
+* [NFS protocol version conversion](convert-nfsv3-nfsv41.md) (Preview) 
+
+    In some cases, you might need to transition from one NFS protocol version to another. For instance, when you want an existing NFS NFSv3 volume to take advantage of NFSv4.1 features, you might want to convert the protocol version from NFSv3 to NFSv4.1. Likewise, you might want to convert an existing NFSv4.1 volume to NFSv3 for performance or simplicity reasons. Azure NetApp Files now provides an option that enables you to convert an NFS volume between NFSv3 and NFSv4.1, without requiring creation of new volumes and performing data copies. The conversion operations preserve the data and update the volume export policies as part of the operation.    
+
+* [Single-file snapshot restore](snapshots-restore-file-single.md) (Preview)
+
+    Azure NetApp Files provides ways to quickly restore data from snapshots (mainly at the volume level). See [How Azure NetApp Files snapshots work](snapshots-introduction.md). Options for user file self-restore are available via client-side data copy from the `~snapshot` (Windows) or `.snapshot` (Linux) folders. These operations require data (files and directories) to traverse the network twice (upon read and write). As such, the operations are not time and resource efficient, especially with large data sets. If you do not want to restore the entire snapshot to a new volume, revert a volume, or copy large files across the network, you now have the option to use the single-file snapshot restore feature to restore individual files directly on the service from a volume snapshot without requiring data copy using an external client. This approach will drastically reduce RTO and network resource usage when restoring large files.
+
+* Features that are now generally available (GA)  
+
+    The following features are now GA. You no longer need to register the features before using them.
+
+    * [Dual-protocol (NFSv4.1 and SMB) volume](create-volumes-dual-protocol.md)
+    * [ADDS LDAP over TLS](configure-ldap-over-tls.md)
+    * [SMB3 Protocol Encryption](azure-netapp-files-create-volumes-smb.md#smb3-encryption)
 
 ## November 2021
 

@@ -162,40 +162,40 @@ For more information, see [Select the right tools for migration to Azure Databas
 
 One advantage of running your workload in Azure is its global reach. The flexible server for Azure Database for MySQL is available today in following Azure regions:
 
-| Region | Availability | Same Zone HA | Zone redundant HA |
-| --- | --- | --- | --- |
-| Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Australia Southeast | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Brazil South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Canada Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Canada East | :heavy_check_mark: | :x: | :x: |
-| Central India | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| East Asia (Hong Kong) | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| East US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| East US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| France Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Japan West | :heavy_check_mark: | :x: | :x: |
-| Korea Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Korea South | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| North Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| North Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Norway East | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| South Africa North | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| UAE North | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UK West | :heavy_check_mark: | :x: | :x: |
-| West Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| West US | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| West US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| West US 3 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Region | Availability | Same Zone HA | Zone redundant HA | Geo-redundant backup |
+| --- | --- | --- | --- | --- |
+| Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Australia Southeast | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Brazil South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Canada Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Canada East | :heavy_check_mark: | :x: | :x: | :heavy_check_mark: |
+| Central India | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| East Asia (Hong Kong) | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| East US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| East US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| France Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Japan West | :heavy_check_mark: | :x: | :x: | :heavy_check_mark: |
+| Korea Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Korea South | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| North Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| North Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Norway East | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| South Africa North | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| UAE North | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| UK West | :heavy_check_mark: | :x: | :x: | :heavy_check_mark: |
+| West Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| West US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| West US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| West US 3 | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 
 ## Contacts
 

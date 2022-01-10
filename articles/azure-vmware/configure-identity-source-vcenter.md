@@ -36,7 +36,7 @@ In this how-to, you learn how to:
 
 - If you use FQDN, enable DNS resolution on your on-premises AD.
 
- 
+ - Enable DNS Forwarder from Azure portal Ref: [Configure DNS forwarder for Azure VMware Solution - Azure VMware Solution | Microsoft Docs](/azure/azure-vmware/configure-identity-source-vcenter)
 
 ## List external identity
 
@@ -83,7 +83,7 @@ You'll run the `New-AvsLDAPSIdentitySource` cmdlet to add an AD over LDAP with S
    | **Name**  | User-friendly name of the external identity source, for example, **avslap.local**.  |
    | **DomainName**  | The FQDN of the domain.   |
    | **DomainAlias**  | For Active Directory identity sources, the domain's NetBIOS name. Add the NetBIOS name of the AD domain as an alias of the identity source if you're using SSPI authentications.     |
-   | **PrimaryUrl**  | Primary URL of the external identity source, for example, **ldap://yourserver:636**.  |
+   | **PrimaryUrl**  | Primary URL of the external identity source, for example, **ldaps://yourserver:636**.  |
    | **SecondaryURL**  | Secondary fall-back URL if there's primary failure.  |
    | **BaseDNUsers**  |  Where to look for valid users, for example, **CN=users,DC=yourserver,DC=internal**.  Base DN is needed to use LDAP Authentication.  |
    | **BaseDNGroups**  | Where to look for groups, for example, **CN=group1, DC=yourserver,DC= internal**. Base DN is needed to use LDAP Authentication.  |

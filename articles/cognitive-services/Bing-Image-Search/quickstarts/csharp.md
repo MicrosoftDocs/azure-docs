@@ -8,27 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 05/08/2020
+ms.date: 01/05/2022
 ms.author: aahi
-ms.custom: devx-track-csharp, mode-other
+ms.devlang: csharp
+ms.custom: devx-track-csharp, mode-api
 ---
 # Quickstart: Search for images using the Bing Image Search REST API and C#
 
-> [!WARNING]
-> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
-> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
 
 Use this quickstart to learn how to send search requests to the Bing Image Search API. This C# application sends a search query to the API, and displays the URL of the first image in the results. Although this application is written in C#, the API is a RESTful web service compatible with most programming languages.
-
-The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) with additional error handling and annotations.
 
 ## Prerequisites
 * Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
 * The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
 * If you're using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
-
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Create and initialize a project
 

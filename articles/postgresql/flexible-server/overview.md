@@ -5,7 +5,7 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: overview
-ms.date: 11/30/2021
+ms.date: 12/06/2021
 ms.custom: "mvc, references_regions"
 ---
 
@@ -36,7 +36,7 @@ Flexible servers are best suited for
   
 ## High availability
 
-The flexible server deployment model is designed to support high availability within single availability zone and across multiple availability zones. The architecture separates compute and storage. The database engine runs on a Linux virtual machine, while data files reside on Azure storage. The storage maintains three locally redundant synchronous copies of the database files ensuring data durability.
+The flexible server deployment model is designed to support high availability within single availability zone and across multiple availability zones. The architecture separates compute and storage. The database engine runs on a container inside a Linux virtual machine, while data files reside on Azure storage. The storage maintains three locally redundant synchronous copies of the database files ensuring data durability.
 
 During planned or unplanned failover events, if the server goes down, the service maintains high availability of the servers using following automated procedure:
 
@@ -48,7 +48,7 @@ Picture below shows transition for VM and storage failure.
 
  :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine.png" alt-text="Flexible server - VM and storage failures":::
 
-If zone redundant high availability is configured, the service provisions and maintains a hot standby server across availability zone within the same Azure region. The data changes on the source server is synchronously replicated to the standby server to ensure zero data loss. With zone redundant high availability, once the planned or unplanned failover event is triggered, the standby server comes online immediately and is available to process incoming transactions. This allows the service resiliency from availability zone failure within an Azure region that supports multiple availability zones as shown in the picture below.
+If zone redundant high availability is configured, the service provisions and maintains a warm standby server across availability zone within the same Azure region. The data changes on the source server is synchronously replicated to the standby server to ensure zero data loss. With zone redundant high availability, once the planned or unplanned failover event is triggered, the standby server comes online immediately and is available to process incoming transactions. This allows the service resiliency from availability zone failure within an Azure region that supports multiple availability zones as shown in the picture below.
 
  :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Zone redundant high availability":::
 
@@ -60,7 +60,7 @@ The service performs automated patching of the underlying hardware, OS, and data
 
 ## Automatic backups
 
-The flexible server service automatically creates server backups and stores them on zone redundant (ZRS) storage within the region. Backups can be used to restore your server to any point-in-time within the backup retention period. The default backup retention period is seven days. The retention can be optionally configured up to 35 days. All backups are encrypted using AES 256-bit encryption. See [Backups](./concepts-backup-restore.md) for more details.
+The flexible server service automatically creates server backups and stores them on zone redundant storage (ZRS) within the region. Backups can be used to restore your server to any point-in-time within the backup retention period. The default backup retention period is seven days. The retention can be optionally configured up to 35 days. All backups are encrypted using AES 256-bit encryption. See [Backups](./concepts-backup-restore.md) for more details.
 
 ## Adjust performance and scale within seconds
 
@@ -98,7 +98,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | East Asia | :heavy_check_mark: | :x: | :x: |
 | East US | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| East US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| East US 2 | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | France Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -110,7 +110,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | Norway East | :heavy_check_mark: | :x: | :x: |
 | South Africa North | :heavy_check_mark: | :x: | :x: |
 | South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Southeast Asia | :heavy_check_mark: | :x: | :x: |
 | Sweden Central | :heavy_check_mark: | :x: | :x: |
 | Switzerland North | :heavy_check_mark: | :x: | :x: |
 | UAE North | :heavy_check_mark: | :x: | :x: |
@@ -122,6 +122,8 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | West US 3 | :heavy_check_mark: | :x: | :x: |
 
 <!-- We continue to add more regions for flexible server. -->
+> [!NOTE]
+> If your application requires Zone redundant HA and it's not available in your preferred Azure region, consider using other regions within the same geography where Zone redundant HA is available, such as US East for US East 2, Central US for North Central US, and so on. 
 
 ## Migration
 

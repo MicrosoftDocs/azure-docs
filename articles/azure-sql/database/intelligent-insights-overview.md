@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: AlainDormehlMSFT
 ms.author: aldorme
-ms.reviewer: mathoma, wiassaf
+ms.reviewer: kendralittle, mathoma, wiassaf
 ms.date: 10/18/2021
 ---
 # Intelligent Insights using AI to monitor and troubleshoot database performance (preview)

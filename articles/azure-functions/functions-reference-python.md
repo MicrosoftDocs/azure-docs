@@ -3,6 +3,7 @@ title: Python developer reference for Azure Functions
 description: Understand how to develop functions with Python
 ms.topic: article
 ms.date: 11/4/2020
+ms.devlang: python
 ms.custom: devx-track-python
 ---
 
@@ -844,6 +845,12 @@ An extension that inherits from [FuncExtensionBase](https://github.com/Azure/azu
 [!INCLUDE [functions-cors](../../includes/functions-cors.md)]
 
 CORS is fully supported for Python function apps.
+
+## <a name="shared-memory"></a>Shared memory (preview)
+
+Functions lets your Python worker use shared memory to improve throughput. When your function app is hitting bottlenecks, you can enable shared memory by adding an application setting named [FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED](functions-app-settings.md#functions_worker_shared_memory_data_transfer_enabled) with a value of `1`. With shared memory enabled, you can then use the [DOCKER_SHM_SIZE](functions-app-settings.md#docker_shm_size) setting to set the shared memory to something like `268435456`, which is equivalent to 256 MB. 
+
+This functionality is available only for function apps running in Premium and Dedicated (App Service) plans.
 
 ## Known issues and FAQ
 
