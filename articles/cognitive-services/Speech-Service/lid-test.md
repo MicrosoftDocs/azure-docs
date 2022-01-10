@@ -20,8 +20,8 @@ Language identification is used to recognize natural languages spoken in audio w
 Language identification scenarios include:
 
 * [Standalone language identification](#standalone-language-identification) when you only need to detect the natural language in an audio source.
-* [Speech-to-text language identification](#speech-to-text-language-identification) when you need to detect the natural language in an audio source and then transcribe it to text. 
-* [Speech translation language identification](#speech-translation-language-identification) when you need to detect the natural language in an audio source and then translate it to another language. 
+* [Speech-to-text language identification](#speech-to-text) when you need to detect the natural language in an audio source and then transcribe it to text. 
+* [Speech translation language identification](#speech-translation) when you need to detect the natural language in an audio source and then translate it to another language. 
 
 Here's how it works:
 
