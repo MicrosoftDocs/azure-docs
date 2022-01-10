@@ -114,8 +114,8 @@ Gesture | Action
 ------|------- 
 Tap anywhere | Start/Continue Session + Create anchor at Hand Position
 Tapping on an anchor | Delete GameObject + Delete Anchor in ASA Cloud Service
-Tap + Hold for 2 sec | Stop the session and remove all GameObjects. Keep anchors in ASA Cloud Service
-Tap + Hold for 2 sec | Start the session and look for all anchors.
+Tap + Hold for 2 sec (+ session is running) | Stop the session and remove all GameObjects. Keep anchors in ASA Cloud Service
+Tap + Hold for 2 sec (+ session is not running)| Start the session and look for all anchors.
 
 
 ## Add Tap recognition
@@ -200,89 +200,37 @@ Spatial anchor manager can take care of the session stopping by simply calling i
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=118-122,126,136&highlight=6)]
 
-Let's create a method to remove all anchor Game objects
+Let's create a method to remove all anchor GameObjects
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=138-148&)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=138-148)]
 
 And call it after destroying the session in `LongTap()`
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=118-122,125-128,136&highlight=6-9)]
 
 
 ## Locate Anchor
-We will now try to find the anchors again with the correct position and rotation that we  created them in. To do that we need to create a `Watcher` that will look for anchors that fit the given criteria. As criteria we will feed it the IDs of the anchors we created. Let's create a method `ASA_FindAnchor()` and use spatial anchor manager to create a `Watcher`.
-```csharp
-    private void ASA_FindAnchor()
-    {
-        if (createdAnchorIDs.Count > 0)
-        {
-            //Create watcher to look for all stored anchor IDs
-            Debug.Log($"ASA - Creating watcher to look for {createdAnchorIDs.Count} spatial anchors");
-            AnchorLocateCriteria anchorLocateCriteria = new AnchorLocateCriteria();
-            anchorLocateCriteria.Identifiers = createdAnchorIDs.ToArray();
-            spatialAnchorManager.Session.CreateWatcher(anchorLocateCriteria);
-            Debug.Log($"ASA - Watcher created!");
-        }
-    }
-```
+We will now try to find the anchors again with the correct position and rotation that we created them in. To do that we need to start a session and create a `Watcher` that will look for anchors that fit the given criteria. As criteria we will feed it the IDs of the anchors we created. Let's create a method `LocateAnchor()` and use spatial anchor manager to create a `Watcher`.
 
-We also have to subscribe to the callback to get notified when an anchor is located. Once an anchor is located we will create a visual `GameObject` with the anchors position and rotation. 
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=249-263)]
+
+We also have to subscribe to the callback to get notified when an anchor is located. Let's first create our anchor located method called `SpatialAnchorManager_AnchorLocated()`
+
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=265-295)]
+
+and subscribe to the AnchorLocated callback from spatial anchor manager
+
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=46-53&highlight=7)]
+
+Once an anchor is located we will create a visual `GameObject` with the anchors position and rotation.
 Similar to the creation process, the anchor does not have to be visible. If you only use it to have a referenced shared coordinate system there is no need for showing the anchor to the end-user. For the purpose of this tutorial we will visualize the anchors.
 
-```csharp
-    void Start()
-    {
-        spatialAnchorManager.AnchorLocated += ASA_SpatialAnchorManagerAnchorLocated;
-    }
-```
 
-```csharp
-    private void ASA_SpatialAnchorManagerAnchorLocated(object sender, AnchorLocatedEventArgs args)
-    {
-        Debug.Log($"ASA - Anchor recognized as a possible anchor {args.Identifier} {args.Status}");
+Finally, let's expand our `LongTap()` method to include finding the anchor. We will use the IsSessionStarted boolean to decide if we are looking for a anchors or destroying all anchors as described in the [App Overview](#app-overview)
 
-        if (args.Status == LocateAnchorStatus.Located)
-        {
-            UnityDispatcher.InvokeOnAppThread(() =>
-            {
-                // Read out Cloud Anchor values
-                CloudSpatialAnchor cloudSpatialAnchor = args.Anchor;
-                Pose anchorPose = cloudSpatialAnchor.GetPose();
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=118-136&highlight=6,7,12-18)]
 
-                //Create GameObject
-                GameObject anchorGameObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                anchorGameObject.transform.localScale = Vector3.one * 0.1f;
-                anchorGameObject.transform.position = anchorPose.position;
-                anchorGameObject.transform.rotation = anchorPose.rotation;
-                anchorGameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Legacy Shaders/Diffuse");
-                UnityDispatcher.InvokeOnAppThread(() => anchorGameObject.GetComponent<MeshRenderer>().material.color = Color.blue);
-
-                // Link to Cloud Anchor (TODO: Explain why this is necessary, since we already set the position. Does it get updated if we set it?)
-                anchorGameObject.AddComponent<CloudNativeAnchor>().CloudToNative(cloudSpatialAnchor);
-                foundOrCreatedAnchorGameObjects.Add(anchorGameObject);
-            });
-        }
-    
-```
-
-All that is left to do is expand our `LongTap` method to include finding the anchor
-```csharp
-    private async void LongTap()
-    {
-        if (spatialAnchorManager.IsSessionStarted)
-        {
-            // Stop Session and remove all GameObjects. This does not delete the Anchors in the cloud
-            ASA_StopSession();
-            RemoveAllAnchorGameObjects();
-            Debug.Log("ASA - Stopped Session and removed all Anchor Objects");
-        } else
-        {
-            //Start session and search for all Anchors previously created
-            await ASA_StartSession();
-            ASA_FindAnchor();
-        }
-    }
-```
 ## Try it out
+Your app now supports creating anchors and locating them. Build your app in **Unity** and deploy it from **Visual Studio**. Follow [**Using Visual Studio to deploy and debug**](https://docs.microsoft.com/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2) to run your app. Once it started short tap in your surroundings. A white cube should appear to show the position and rotation of the anchor. The anchor creation process is automatically called in our code. As you slowly look around your surroundings you are capturing environment data which is used to create the anchor. Once the anchor creation process is completed the cube will turn green. Check your debug logs in visual studio to see if everything worked as intended
 
 ## Delete Anchor
 Right now our app can create and locate anchors. While it deletes the GameObjects, it does not delete the anchor in the cloud. Let's add the functionality to also delete it in the cloud if i tap on an existing anchor.
