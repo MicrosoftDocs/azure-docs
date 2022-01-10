@@ -188,7 +188,6 @@ Log profiles are the legacy method for sending the Activity log to Azure storage
     ![Legacy experience](media/activity-log/legacy-experience.png)
 
 
-
 ### Configure log profile using PowerShell
 
 If a log profile already exists, you first need to remove the existing log profile and then create a new one.
