@@ -81,7 +81,7 @@ When you use a private link, traffic between your data sources and Managed Virtu
 Private endpoint uses a private IP address in the Managed Virtual Network to effectively bring the service into it. Private endpoints are mapped to a specific resource in Azure and not the entire service. Customers can limit connectivity to a specific resource approved by their organization. Learn more about [private links and private endpoints](../private-link/index.yml).
 
 > [!NOTE]
-> to reduce administrative overhead, it's recommended that you create Managed private endpoints to scan all supported Azure data sources. 
+> To reduce administrative overhead, it's recommended that you create managed private endpoints to scan all supported Azure data sources. 
  
 > [!WARNING]
 > If an Azure PaaS data store (Blob, Azure Data Lake Storage Gen2, Azure Synapse Analytics) has a private endpoint already created against it, and even if it allows access from all networks, Purview would only be able to access it using a managed private endpoint. If a private endpoint does not already exist, you must create one in such scenarios. 
