@@ -255,7 +255,7 @@ Example:
     "end":"0:00:17.03"
      }
   ]
-},
+}
 ```
 
 #### ocr
@@ -267,11 +267,11 @@ Example:
 |confidence|The recognition confidence.|
 |language|The OCR language.|
 |instances|A list of time ranges where this OCR appeared (the same OCR can appear multiple times).|
-|height|The height of the OCR rectangle|
-|top|The top location in px|
-|left| The left location in px|
-|width|The width of the  OCR rectangle|
-|angle|The angle of the OCR rectangle, from -180 to 180. 0 means left to right horizontal, 90 means top to bottom vertical, 180 means right to left horizontal and -90 means bottom to top vertical. 30 means from top left to bottom right. |
+|height|The height of the OCR rectangle.|
+|top|The top location in px.|
+|left|The left location in px.|
+|width|The width of the OCR rectangle.|
+|angle|The angle of the OCR rectangle, from -180 to 180. 0 means left to right horizontal, 90 means top to bottom vertical, 180 means right to left horizontal, and -90 means bottom to top vertical. 30 means from top left to bottom right. |
 
 ```json
 "ocr": [
