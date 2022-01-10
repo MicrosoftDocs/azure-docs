@@ -18,10 +18,8 @@ This article lists resources that can help you get more information about workin
 
 Microsoft Sentinel uses Azure Monitor Log Analytics's Kusto Query Language (KQL) to build queries. For more information, see:
 
-- [KQL concepts](/azure/data-explorer/kusto/concepts/)
-- [KQL queries](/azure/data-explorer/kusto/query/)
-- [KQL quick reference guide](/azure/data-explorer/kql-quick-reference).
-- [Get started with KQL queries](../azure-monitor/logs/get-started-queries.md)
+- [Kusto Query Language in Microsoft Sentinel](kql-overview.md)
+- [Useful resources for working with Kusto Query Language in Microsoft Sentinel](kql-resources.md)
 
 ## Microsoft Sentinel templates for data to monitor
 

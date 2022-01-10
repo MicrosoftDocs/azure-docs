@@ -157,9 +157,9 @@ The first line of any basic query specifies which table you want to work with. I
 
 Note that in Kusto Query Language, log names are case sensitive, so `SigninLogs` and `signinLogs` will be interpreted differently. Take care when choosing names for your custom logs, so they are easily identifiable and not too similar to another log.
 
-### Limiting data: *take*
+### Limiting data: *take* / *limit*
 
-The [*take*](/azure/data-explorer/kusto/query/takeoperator) operator (the `limit` operator is synonymous) is used to limit your results by returning only a given number of rows. It's followed by an integer that specifies the number of rows to return. Typically, it's used at the end of a query after you have determined your sort order, and in such a case it will return the given number of rows at the top of the sorted order.
+The [*take*](/azure/data-explorer/kusto/query/takeoperator) operator (and the identical [limit](/azure/data-explorer/kusto/query/limitoperator) operator) is used to limit your results by returning only a given number of rows. It's followed by an integer that specifies the number of rows to return. Typically, it's used at the end of a query after you have determined your sort order, and in such a case it will return the given number of rows at the top of the sorted order.
 
 Using `take` earlier in the query can be useful for testing a query, when you don't want to return large datasets. However, if you place the `take` operation before any `sort` operations, `take` will return rows selected at random - and possibly a different set of rows every time the query is run.  Here's an example of using take:
 
@@ -172,9 +172,9 @@ SigninLogs
 > [!TIP]
 > When working on a brand-new query where you may not know what the query will look like, it can be useful to put a `take` statement at the beginning to artificially limit your dataset for faster processing and experimentation. Once you are happy with the full query, you can remove the initial `take` step.
 
-### Sorting data: *sort*
+### Sorting data: *sort* / *order*
 
-The [*sort*](/azure/data-explorer/kusto/query/sortoperator) operator (the `order` operator is synonymous) is used to sort your data by a specified column. In the following example, we ordered the results by *TimeGenerated* and set the order direction to descending with the *desc* parameter, placing the highest values first; for ascending order we would use *asc*. 
+The [*sort*](/azure/data-explorer/kusto/query/sortoperator) operator (and the identical [order](/azure/data-explorer/kusto/query/orderoperator) operator) is used to sort your data by a specified column. In the following example, we ordered the results by *TimeGenerated* and set the order direction to descending with the *desc* parameter, placing the highest values first; for ascending order we would use *asc*. 
 
 > [!NOTE]
 > The default direction for sorts is descending, so technically you only have to specify if you want to sort in ascending order. However, specifying the sort direction in any case will make your query more readable.
@@ -198,7 +198,7 @@ SigninLogs
 | top 5 by TimeGenerated desc
 ```
 
-In cases where two or more records have the same value in the column you are sorting by, you can be explicit in how the query handles these situations by adding a comma-separated list of variables after the *by* keyword, but before the sort order keyword (*desc*), like so:
+In cases where two or more records have the same value in the column you are sorting by, you can add more columns to sort by. Add extra sorting columns in a comma-separated list, located after the first sorting column, but before the sort order keyword. For example:
 
 ```kusto
 SigninLogs

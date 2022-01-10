@@ -112,8 +112,8 @@ landingContent:
         links:
           - text: Write your first query with Kusto Query Language
             url: /learn/modules/write-first-query-kusto-query-language/
-          - text: Create queries for Microsoft Sentinel using Kusto Query Language (KQL)
-            url: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
+          - text: More KQL learning and skilling resources
+            url: kql-resources.md
       - linkListType: reference
         links:
           - text: KQL quick reference guide

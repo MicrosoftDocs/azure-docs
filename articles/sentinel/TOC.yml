@@ -19,6 +19,8 @@
     href: tutorial-respond-threats-playbook.md
   - name: Integrate with Microsoft Defender for IoT
     href: iot-solution.md
+  - name: Write your first query with Kusto Query Language (Learn module)
+    href: /learn/modules/write-first-query-kusto-query-language/
   - name: Get started with notebooks and MSTICPy
     href: notebook-get-started.md
   - name: Create a Power BI report from Microsoft Sentinel
@@ -71,18 +73,8 @@
         href: normalization-content.md
     - name: Classifying data with entities
       href: entities.md
-  - name: Kusto Query Language
-    items:
-    - name: Kusto Query Language in Microsoft Sentinel
-      href: kql-overview.md
-    - name: Create KQL queries for Microsoft Sentinel (Learn module)
-      href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
-    - name: Kusto query overview
-      href: /azure/data-explorer/kusto/query/
-    - name: Kusto Query Language quick reference
-      href: /azure/data-explorer/kql-quick-reference
-    - name: Azure Monitor log query optimizations
-      href: ../azure-monitor/logs/query-optimization.md
+  - name: Kusto Query Language in Microsoft Sentinel
+    href: kql-overview.md
   - name: Threat intelligence
     items:
     - name: Understand threat intelligence in Microsoft Sentinel
@@ -338,6 +330,16 @@
         href: normalization-schema-v1.md
     - name: Windows security event sets
       href: windows-security-event-id-reference.md
+  - name: Kusto Query Language
+    items:
+    - name: Kusto Query Language quick reference
+      href: /azure/data-explorer/kql-quick-reference
+    - name: Query best practices
+      href: /azure/data-explorer/kusto/query/best-practices
+    - name: SQL to KQL cheat sheet
+      href: /azure/data-explorer/kusto/query/sqlcheatsheet
+    - name: Splunk to KQL cheat sheet
+      href: /azure/data-explorer/kusto/query/splunk-cheat-sheet
   - name: Detection and analysis references
     items:
     - name: Top Microsoft Sentinel workbooks
@@ -366,6 +368,8 @@
   items:
   - name: Useful resources
     href: resources.md
+  - name: Kusto Query Language resources
+    href: kql-resources.md
   - name: Sample workspace architecture
     href: sample-workspace-designs.md
   - name: Microsoft Sentinel blog
