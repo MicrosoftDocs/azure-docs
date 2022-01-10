@@ -152,7 +152,7 @@ Then declare the variable
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=24-34&highlight=8-11)]
 
 In the `Start()` method, assign the variable to the component we added in a previous step
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=46-49,53&highlight=4)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=Start&range=1-4,8&highlight=4)]
 
 In order to receive debug and error logs, we need to subscribe to the different callbacks
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=46-51,53&highlight=5-6)]
@@ -248,62 +248,14 @@ Once your scene is cleared you can long tap again, which will start a session, l
 ## Delete Anchor
 Right now our app can create and locate anchors. While it deletes the `GameObjects`, it does not delete the anchor in the cloud. Let's add the functionality to also delete it in the cloud if i tap on an existing anchor.
 
-Let's add a method `ASA_DeleteAnchor` that receives a `GameObject`. We will then use the spatial anchor manager together with the object's `CloudNativeAnchor` component to request deletion of the anchor in the cloud.
-```csharp
-    private async void ASA_DeleteAnchor(GameObject anchorGameObject)
-    {
-        CloudNativeAnchor cloudNativeAnchor = anchorGameObject.GetComponent<CloudNativeAnchor>();
-        CloudSpatialAnchor cloudSpatialAnchor = cloudNativeAnchor.CloudAnchor;
+Let's add a method `DeleteAnchor` that receives a `GameObject`. We will then use the spatial anchor manager together with the object's `CloudNativeAnchor` component to request deletion of the anchor in the cloud.
 
-        Debug.Log($"ASA - Deleting cloud anchor: {cloudSpatialAnchor.Identifier}");
-
-        //Request Deletion of Cloud Anchor
-        await spatialAnchorManager.DeleteAnchorAsync(cloudSpatialAnchor);
-
-        //Remove local references
-        createdAnchorIDs.Remove(cloudSpatialAnchor.Identifier);
-        foundOrCreatedAnchorGameObjects.Remove(anchorGameObject);
-        Destroy(anchorGameObject);
-
-        Debug.Log($"ASA - Cloud anchor deleted!");
-    }
-```
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=294-314)]
 
 To call this method from `ShortTap` we need to be able to determine if a tap has been near an existing visible anchor. Let's create a helper method that takes care of that
-```csharp
-    /// <summary>
-    /// Returns true if an Anchor GameObject is within 15cm of position
-    /// </summary>
-    /// <param name="position"></param>
-    /// <param name="anchorGameObject"></param>
-    /// <returns></returns>
-    private bool IsAnchorNearby(Vector3 position, out GameObject anchorGameObject)
-    {
-        anchorGameObject = null;
 
-        if (foundOrCreatedAnchorGameObjects.Count <= 0)
-            return false;
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=150-314)]
 
-        //Iterate over existing anchor gameobjects to find the nearest
-        var (distance, closestObject) = foundOrCreatedAnchorGameObjects.Aggregate(
-            new Tuple<float, GameObject>(Mathf.Infinity, null),
-            (minPair, gameobject) =>
-            {
-                Vector3 gameObjectPosition = gameobject.transform.position;
-                float distance = (position - gameObjectPosition).magnitude;
-                return distance < minPair.Item1 ? new Tuple<float, GameObject>(distance, gameobject) : minPair;
-            });
-
-        if (distance <= 0.15f)
-        {
-            //Found an anchor within 15cm
-            anchorGameObject = closestObject;
-            return true;
-        }
-        else
-            return false;
-    }
-```
 We can now extend our `ShortTap` method to include the `ASA_DeleteAnchor` call
 ```csharp
     private async void ShortTap(Vector3 handPosition)

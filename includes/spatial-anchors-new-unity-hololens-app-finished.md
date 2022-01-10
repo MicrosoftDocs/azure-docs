@@ -43,6 +43,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
     /// </summary>
     private List<String> _createdAnchorIDs = new List<String>();
 
+    // <Start>
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +52,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
         _spatialAnchorManager.Error += (sender, args) => Debug.LogError($"ASA - Error: {args.ErrorMessage}");
         _spatialAnchorManager.AnchorLocated += SpatialAnchorManager_AnchorLocated;
     }
+    // </Start>
 
     // <Update>
     // Update is called once per frame
@@ -96,6 +98,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
     // </Update>
 
 
+    // <ShortTap>
     /// <summary>
     /// Called when a user is air tapping for a short time 
     /// </summary>
@@ -114,7 +117,9 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
             DeleteAnchor(anchorGameObject);
         }
     }
+    // </ShortTap>
 
+    // <LongTap>
     /// <summary>
     /// Called when a user is air tapping for a long time (>=2 sec)
     /// </summary>
@@ -134,7 +139,9 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
             LocateAnchor();
         }
     }
+    // </LongTap>
 
+    // <RemoveAllAnchorGameObjects>
     /// <summary>
     /// Destroys all Anchor GameObjects
     /// </summary>
@@ -146,7 +153,9 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
         }
         _foundOrCreatedAnchorGameObjects.Clear();
     }
+    // </RemoveAllAnchorGameObjects>
 
+    // <IsAnchorNearby>
     /// <summary>
     /// Returns true if an Anchor GameObject is within 15cm of position
     /// </summary>
@@ -183,7 +192,10 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
             return false;
         }
     }
+    // </IsAnchorNearby>
   
+    // <CreateAnchor>
+    
     /// <summary>
     /// Creates an Azure Spatial Anchor at the given position rotated towards the user
     /// </summary>
@@ -244,7 +256,9 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
         }
 
     }
+    // </CreateAnchor>
 
+    // <LocateAnchor>
     /// <summary>
     /// Looking for anchors with ID in _createdAnchorIDs
     /// </summary>
@@ -260,7 +274,9 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
             Debug.Log($"ASA - Watcher created!");
         }
     }
+    // </LocateAnchor>
 
+    // <SpatialAnchorManagerAnchorLocated>
     /// <summary>
     /// Callback when an anchor is located
     /// </summary>
@@ -290,7 +306,9 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
             });
         }
     }
+    // </SpatialAnchorManagerAnchorLocated>
 
+    // <DeleteAnchor>
     /// <summary>
     /// Deleting Cloud Anchor attached to the given GameObject and deleting the GameObject
     /// </summary>
@@ -312,6 +330,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
 
         Debug.Log($"ASA - Cloud anchor deleted!");
     }
+    // </DeleteAnchor>
 
 }
 ```
