@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 12/15/2021
+ms.date: 12/28/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -23,10 +23,24 @@ This article outlines how to register Snowflake, and how to authenticate and int
 |---|---|---|---|---|---|---|
 | [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes|
 
-When scanning Snowflake, Purview supports:
+When scanning Snowflake source, Purview supports:
 
-- Extract metadata including Snowflake server, databases, schemas, tables, views, stored procedures, functions, pipes, stages, streams, tasks, sequences, and table/view/stream columns.
-- Fetch static lineage on assets relationships among tables, views, and streams.
+- Extracting technical metadata including:
+
+    - Server
+    - Databases
+    - Schemas
+    - Tables including the columns
+    - Views including the columns
+    - Stored procedures including the parameter dataset and result set
+    - Functions including the parameter dataset
+    - Pipes
+    - Stages
+    - Streams including the columns
+    - Tasks
+    - Sequences
+
+- Fetching static lineage on assets relationships among tables, views, and streams.
 
 ## Prerequisites
 

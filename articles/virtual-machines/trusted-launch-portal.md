@@ -1,5 +1,5 @@
 ---
-title: "Deploy a trusted launch VM"
+title: Deploy a trusted launch VM
 description: Deploy a VM that uses trusted launch.
 author: cynthn
 ms.author: cynthn

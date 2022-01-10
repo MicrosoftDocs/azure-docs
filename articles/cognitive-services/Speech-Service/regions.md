@@ -3,13 +3,13 @@ title: Regions - Speech service
 titleSuffix: Azure Cognitive Services
 description: A list of available regions and endpoints for the Speech service, including speech-to-text, text-to-speech, and speech translation.
 services: cognitive-services
-author: PanosPeriorellis
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/13/2021
-ms.author: panosper
+ms.date: 01/08/2022
+ms.author: eur
 ms.custom: references_regions, ignite-fall-2021
 ---
 

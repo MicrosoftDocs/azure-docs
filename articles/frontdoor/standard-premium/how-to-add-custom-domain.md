@@ -52,7 +52,7 @@ A custom domain is managed by Domains section in the portal. A custom domain can
 
     :::image type="content" source="../media/how-to-add-custom-domain/validation-state-submitting.png" alt-text="Screenshot of domain validation state submitting.":::
 
-    Wait until the validation state changes to **Pending**. This operation could take a few mins.
+    Wait until the validation state changes to **Pending**. This operation could take a few minutes.
 
     :::image type="content" source="../media/how-to-add-custom-domain/validation-state-pending.png" alt-text="Screenshot of domain validation state pending.":::
 

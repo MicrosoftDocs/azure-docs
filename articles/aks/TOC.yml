@@ -293,6 +293,8 @@
           items:
             - name: Use kubenet
               href: configure-kubenet.md
+            - name: Use kubenet with dual-stack networking
+              href: configure-kubenet-dual-stack.md
             - name: Use Azure-CNI
               href: configure-azure-cni.md
         - name: Create an internal load balancer
@@ -328,8 +330,6 @@
               href: limit-egress-traffic.md
             - name: Use a user defined route for egress
               href: egress-outboundtype.md
-            - name: Use a basic load balancer and static IP address
-              href: egress.md
             - name: Managed NAT Gateway (preview)
               href: nat-gateway.md              
         - name: Customize CoreDNS
@@ -399,12 +399,14 @@
           href: spark-job.md
         - name: Use GPUs
           href: gpu-cluster.md
-        - name: Build app with PostgreSQL
+        - name: Build Django app with PostgreSQL
           href: ../postgresql/flexible-server/tutorial-django-aks-database.md
-        - name: Build app with MySQL
+        - name: Build Jakarta EE app with PostgreSQL
+          href: howto-deploy-java-liberty-app-with-postgresql.md
+        - name: Build WordPress app with MySQL
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true
-        - name: Build app with Open Liberty or WebSphere Liberty
+        - name: Build Jakarta EE app with Open Liberty or WebSphere Liberty
           href: howto-deploy-java-liberty-app.md
         - name: Use Azure API Management
           href: ../api-management/api-management-kubernetes.md
