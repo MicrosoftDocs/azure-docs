@@ -7,7 +7,7 @@ ms.date: 11/09/2021
 ms.author: ofshezaf
 --- 
 
-# The Advanced SIEM Information Model parsers (Public preview)
+# The Advanced SIEM Information Model (ASIM) parsers (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
