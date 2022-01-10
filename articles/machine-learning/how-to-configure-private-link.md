@@ -75,7 +75,7 @@ ws = Workspace.create(name='myworkspace',
     show_output=True)
 ```
 
-# [Azure CLI (extension 2.0 preview)](#tab/azure-cli-extension-2.0)
+# [Azure CLI extension 2.0 preview](#tab/azurecliextensionv2)
 
 When using the Azure CLI [extension 2.0 CLI preview for machine learning](how-to-configure-cli.md), a YAML document is used to configure the workspace. The following is an of creating a new workspace using a YAML configuration:
 
@@ -146,7 +146,7 @@ az network private-endpoint dns-zone-group add \
     --zone-name 'privatelink.notebooks.azure.net'
 ```
 
-# [Azure CLI (extension 1.0)](#tab/azure-cli-extension-1.0)
+# [Azure CLI extension 1.0](#tab/azurecliextensionv1)
 
 If you are using the Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md), use the [az ml workspace create](/cli/azure/ml/workspace#az_ml_workspace_create) command. The following parameters for this command can be used to create a workspace with a private network, but it requires an existing virtual network:
 
@@ -196,7 +196,7 @@ ws.add_private_endpoint(private_endpoint_config=pe, private_endpoint_auto_approv
 
 For more information on the classes and methods used in this example, see [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig) and [Workspace.add_private_endpoint](/python/api/azureml-core/azureml.core.workspace(class)#add-private-endpoint-private-endpoint-config--private-endpoint-auto-approval-true--location-none--show-output-true--tags-none-).
 
-# [Azure CLI (extension 2.0 preview)](#tab/azure-cli-extension-2.0)
+# [Azure CLI extension 2.0 preview](#tab/azurecliextensionv2)
 
 When using the Azure CLI [extension 2.0 CLI preview for machine learning](how-to-configure-cli.md), use the [Azure networking CLI commands](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) to create a private link endpoint for the workspace.
 
@@ -252,7 +252,7 @@ az network private-endpoint dns-zone-group add \
     --zone-name 'privatelink.notebooks.azure.net'
 ```
 
-# [Azure CLI (extension 1.0)](#tab/azure-cli-extension-1.0)
+# [Azure CLI extension 1.0](#tab/azurecliextensionv1)
 
 The Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace private-endpoint add](/cli/azure/ml(v1)/workspace/private-endpoint#az_ml_workspace_private_endpoint_add) command.
 
@@ -293,7 +293,7 @@ ws = Workspace.from_config()
 _, _, connection_name = ws.get_details()['privateEndpointConnections'][0]['id'].rpartition('/')
 ws.delete_private_endpoint_connection(private_endpoint_connection_name=connection_name)
 ```
-# [Azure CLI (extension 2.0 preview)](#tab/azure-cli-extension-2.0)
+# [Azure CLI extension 2.0 preview](#tab/azurecliextensionv2)
 
 When using the Azure CLI [extension 2.0 CLI preview for machine learning](how-to-configure-cli.md), use the following command to remove the private endpoint:
 
@@ -303,7 +303,7 @@ az network private-endpoint delete \
     --resource-group <resource-group-name> \
 ```
 
-# [Azure CLI (extension 1.0)](#tab/azure-cli-extension-1.0)
+# [Azure CLI extension 1.0](#tab/azurecliextensionv1)
 
 The Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace private-endpoint delete](/cli/azure/ml(v1)/workspace/private-endpoint#az_ml_workspace_private_endpoint_delete) command.
 
@@ -342,7 +342,7 @@ ws = Workspace.from_config()
 ws.update(allow_public_access_when_behind_vnet=True)
 ```
 
-# [Azure CLI (extension 2.0 preview)](#tab/azure-cli-extension-2.0)
+# [Azure CLI extension 2.0 preview](#tab/azurecliextensionv2)
 
 When using the Azure CLI [extension 2.0 CLI preview for machine learning](how-to-configure-cli.md), create a YAML document that sets the `public_network_access` property to `Enabled`. Then use the `az ml update` command to update the workspace:
 
@@ -365,7 +365,7 @@ az ml workspace update \
     -g <resource-group-name>
 ```
 
-# [Azure CLI (extension 1.0)](#tab/azure-cli-extension-1.0)
+# [Azure CLI extension 1.0](#tab/azurecliextensionv1)
 
 The Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ml/workspace#az_ml_workspace_update) command. To enable public access to the workspace, add the parameter `--allow-public-access true`.
 
