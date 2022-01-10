@@ -75,7 +75,7 @@ ws = Workspace.create(name='myworkspace',
     show_output=True)
 ```
 
-# [Azure CLI](#tab/azure-cli-extension-2.0)
+# [Azure CLI (extension 2.0 preview)](#tab/azure-cli-extension-2.0)
 
 When using the Azure CLI [extension 2.0 CLI preview for machine learning](how-to-configure-cli.md), a YAML document is used to configure the workspace. The following is an of creating a new workspace using a YAML configuration:
 
@@ -146,7 +146,7 @@ az network private-endpoint dns-zone-group add \
     --zone-name 'privatelink.notebooks.azure.net'
 ```
 
-# [Azure CLI](#tab/azure-cli-extension-1.0)
+# [Azure CLI (extension 1.0)](#tab/azure-cli-extension-1.0)
 
 If you are using the Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md), use the [az ml workspace create](/cli/azure/ml/workspace#az_ml_workspace_create) command. The following parameters for this command can be used to create a workspace with a private network, but it requires an existing virtual network:
 
