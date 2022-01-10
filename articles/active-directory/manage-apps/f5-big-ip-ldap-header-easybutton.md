@@ -19,7 +19,7 @@ In this article, you'll learn to implement Secure Hybrid Access (SHA) with singl
 
 Configuring BIG-IP published applications with Azure AD provides many benefits, including:
 
-* Improved zero-trust governance through Azure AD pre-authentication and authorization
+* Improved Zero Trust governance through Azure AD pre-authentication and authorization
 
 * Full SSO between Azure AD and BIG-IP published services
 
