@@ -1,30 +1,30 @@
 ---
-title: Welcome to Microsoft CloudKnox Permissions Management 
-description: Introduction to Microsoft CloudKnox Permissions Management installation.
-services: active-directory
+title: Microsoft CloudKnox Permissions Management - Installation overview
+description: How to install Microsoft CloudKnox Permissions Management.
+author: Yvonne-deQ
 author: Yvonne-deQ
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
-ms.topic: overview
-ms.date: 01/07/2022
+ms.topic: how-to
+ms.date: 01/10/2022
 ms.author: v-ydequadros
 ---
 
-# Welcome to Microsoft CloudKnox Permissions Management 
+# Microsoft CloudKnox Permissions Management - Installation overview
 
- Microsoft CloudKnox Permissions Management (CloudKnox) is a multi-cloud, hybrid cloud permissions management platform that provide granular visibility, automated remediation, and continuous monitoring consistently, enforcing least-privilege principles to reduce risk. 
+Microsoft CloudKnox Permissions Management (CloudKnox) is a multi-cloud, hybrid cloud permissions management platform that provide granular visibility, automated remediation, and continuous monitoring consistently, enforcing least-privilege principles to reduce risk. 
 
 CloudKnox offers complete visibility into privileged access. It helps organizations right-size permissions and consistently enforce least-privilege principles to reduce risk, and it employs continuous analytics to help prevent security breaches and ensure compliance. 
 
-One Platform To Manage All Permissions Across All Clouds
+CloudKnox provides one platform To manage all permissions across all cloud system authorization:
 
 - **Visibility**: Gain insights into effective permissions of all identities, and their usage.
- - **Remediation**: Provision Just Enough Permissions (JEP) with On Demand and JIT with the click of a button 
+- **Remediation**: Provision Just Enough Permissions (JEP) with On Demand and Just in time (JIT) in a single step. 
 - **Monitoring**: Continuously monitor activity, alert on anomalies and measure sprawl with the Privilege Creep Index (PCI).
 
- CloudKnox enables you to:
+CloudKnox enables you to:
 
 - Evaluate where you are today and where you need to be to meet your risk mitigation goals.
 - Identify the areas of greatest risk for mitigation so you know where to focus your resources.
@@ -34,7 +34,7 @@ CloudKnox works with Azure, as well as the AWS and Google public clouds
 
  **Installation takes about 30 minutes.**
 
-## How to install Sentry
+## Install Sentry
 
 - For information on how to install Sentry, select the link for the appropriate cloud service provider.
 
@@ -69,3 +69,7 @@ PCI scores of 100 represent the highest risk to the organization. They indicate 
 A zero score represents the lowest risk.
 
 <!---## Next steps--->
+
+<!---View integrated authorization systems](cloudknox-product-integrations)--->
+<!---[Configure integration with the CloudKnox API](cloudknox-integration-api.md)--->
+<!---[Sign up and deploy FortSentry in your organization](cloudknox-fortsentry-registration.md)--->

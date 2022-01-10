@@ -11,8 +11,8 @@
   - name: Installation
     expanded: true
     items:
-    - name: Install CloudKnox Sentry
-      href: cloudknox-welcome.md
+    - name: Installation overview
+      href: cloudknox-installation.md
     - name: Install CloudKnox on GCP
       href: cloudknox-sentry-install-gcp.md
     - name: Install CloudKnox with an AWS role
@@ -24,10 +24,12 @@
   - name: Integration
     expanded: true
     items:
-    - name: Integration with other systems
+    - name: View integrated authorization systems
       href: cloudknox-product-integrations.md
-    - name: Integration with the CloudKnox API
-      href: cloudknox-api.md
+    - name: Configure integration with the CloudKnox API
+      href: cloudknox-integration-api.md
+    - name: Sign up and deploy FortSentry in your organization
+      href: cloudknox-fortsentry-registration.md
     - name: Integration with HashiCorp Terraform
       href: cloudknox-hashicorp-terraform.md
     - name: Integration with Saviynt
@@ -38,8 +40,6 @@
       href: cloudknox-splunk.md
     - name: Integration with ServiceNow
       href: cloudknox-servicenow.md
-    - name: CloudKnox FortSentry registration
-      href: cloudknox-fortsentry-registration.md
   - name: Configure authorization systems
     expanded: true
     items:

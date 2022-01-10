@@ -1,56 +1,84 @@
 ---
-title: Microsoft CloudKnox Permissions Management integration with CloudKnox API
-description: How to configure the Microsoft CloudKnox Permissions Management API integration.
+title: Microsoft CloudKnox Permissions Management - Configure integration with the CloudKnox API
+description: How to view the Microsoft CloudKnox Permissions Management API integration settings and create service accounts and roles.
 services: active-directory
+author: Yvonne-deQ
 manager: karenh444
 ms.service: active-directory
-ms.topic: overview
-author: Yvonne-deQ
-ms.date: 01/07/2022
+ms.subservice: ciem
+ms.workload: identity
+ms.topic: how-to
+ms.date: 01/10/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management integration with CloudKnox API
+# Microsoft CloudKnox Permissions Management - Configure integration with the CloudKnox API
 
-This topic describes the process of configuring and deleting Microsoft CloudKnox Permissions Management integration with the CloudKnox API.
+This topic describes how to view configuration settings, create and delete a service account, and create a role.
 
-## How to configure a CloudKnox API integration
+## View configuration settings
 
-- On the **Integrations** page, click **CloudKnox API**.
+The **Integrations** dashboard displays the authorization systems available to you.
 
-### How to use the CloudKnox API tab
+1. To display the **Integrations** dashboard, select **User** (your initials) in the upper right of the screen, and then select **Integrations.**
 
-- To read additional documentation, click the link provided on the CloudKnox API tab.
+    The **Integrations** dashboard displays a tile for each available authorization system.
 
-### How to use the Integration tab
+1. Select an authorization system tile to view the following integration information:
 
-1. Click the **Integration** tab, and view the following columns:
+    1. To find out more about the CloudKnox API, select **CloudKnox API**, and then select documentation.
+        <!---Add Link: [documentation](https://developer.cloudknox.io/)--->
 
-    - **Email** - Lists the email address of the user who created the integration.
-    - **Created By** - Lists the first and last name of the user who create the integration.
-    - **Created On** - Lists the date and time the integration was created.
-    - **Recent Activity** - Lists the date and time the integration was last used, or notes if the integration was never used.
-    - **Service Account ID** - Lists the service account ID.
-    - **Access Key** - Lists the access key code.
+    1. To view information about service accounts, select **Integration**:
+        - **Email** - Lists the email address of the user who created the integration.
+        - **Created By** - Lists the first and last name of the user who create the integration.
+        - **Created On** - Lists the date and time the integration was created.
+        - **Recent Activity** - Lists the date and time the integration was last used, or notes if the integration was never used.
+        - **Service Account ID** - Lists the service account ID.
+        - **Access Key** - Lists the access key code.
 
+    1. To view settings information, select **Settings**:
+        - **Roles can create service account** - Lists the type of roles you can create.
+        - **Access Key Rotation Policy** - Lists notifications and actions you can set. 
+        - **Access Key Usage Policy** - Lists notifications and actions you can set.
+
+## Create a service account
+
+1. On the **Integrations** dashboard, select **User**, and then select **Integrations.**
 2. Click **Create Service Account**. The following information is pre-populated on the page:
     - **API Endpoint**
     - **Service Account ID**
     - **Access Key**
     - **Secret Key**
 
-3. To copy the codes, click the **Duplicate** icon next to the respective information. 
+3. To copy the codes, select the **Duplicate** icon next to the respective information.
 
    > [!NOTE]
    >  The codes are time sensitive and will regenerate after the box is closed.
 
-4. To re-generate the codes, at the bottom of the column, click **Re-generate**.
+4. To re-generate the codes, at the bottom of the column, select **Re-generate**.
 
-### How to use the Settings tab
+## Delete a service account
 
-1. Click the **Settings** tab, and then view the following columns.
+1. On the **Integrations** dashboard, select **User**, and then select **Integrations.**
 
-2. Under **Roles can create service account**, select **Super Admin**, **Viewer**, or **Controller**.
+1. On the right of the email address, select **Delete Service Account**.
+ 
+     On the **Validate OTP To Delete [Service Name] Integration** box, a message displays asking you to check your email for a code sent to the email address on file.
+
+     If you do not receive the code, select **Resend OTP**.
+
+1. In the **Enter OTP** box, enter the code from the email.
+
+1. Click **Verify**.
+
+## Create a role
+
+1. On the **Integrations** dashboard, select **User**, and then select **Settings**.
+2. Under **Roles can create service account**, select the role you want: 
+    - **Super Admin**
+    - **Viewer** 
+    - **Controller**
 
 3. In the **Access Key Rotation Policy** column, select options for the following:
 
@@ -66,21 +94,8 @@ This topic describes the process of configuring and deleting Microsoft CloudKnox
 
 5. Click **Save**.
 
-## How to delete a CloudKnox API integration
+<!---## Next steps--->
 
-1. Click **Delete Integration**.
- 
-     On the **Validate OTP To Delete [Service Name] Integration** page, a message displays asking you to check your email for a code sent to the email address on file.
-
-     If you do not receive the code, click **Resend OTP**.
-
-2. In the **Enter OTP** box, enter the code from the email.
-
-3. Click **Verify**.
-
-## Next steps
-
-[Sentry installation - AWS](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203.html)
-
-[CloudKnox FortSentry registration](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/CloudKnox%20FortSentry%20Registration%20f9f85592b2cf48aca0c0effd604a0827.html)
-
+<!---View integrated authorization systems](cloudknox-product-integrations)--->
+<!---[Installation overview](cloudknox-installation.md)--->
+<!---[Sign up and deploy FortSentry registration](cloudknox-fortsentry-registration.md)--->

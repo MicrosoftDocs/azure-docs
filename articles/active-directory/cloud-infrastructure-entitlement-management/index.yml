@@ -13,7 +13,7 @@ metadata:
   ms.subservice: ciem
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 01/07/2022
+  ms.date: 01/10/2022
   ms.author: v-ydequadros
   
   
@@ -29,14 +29,14 @@ landingContent:
       - linkListType: overview
         links:
           - text: Install Microsoft CloudKnox Permissions Management 
-            url: cloudknox-welcome.md
+            url: cloudknox-installation.md
   # Card
   - title: Integrate Microsoft CloudKnox Permissions Management with other systems
     linkLists:
       - linkListType: overview
         links:
           - text: Integrate Microsoft CloudKnox Permissions Management with other systems
-            url: cloudknox-product-integrations.md
+            url: cloudknox-integration-api.md
   # Card
   - title: Use Microsoft CloudKnox Permissions Management Tasks
     linkLists:
