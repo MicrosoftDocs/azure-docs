@@ -121,7 +121,7 @@ An example manifest output is below. For this example, there are two files that 
 
 1. Log in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub with Device Update.
 
-2. On the left-hand side of the page, select "Device Updates" under "Automatic Device Management".
+2. On the left-hand side of the page, select "Updates" under "Device Management".
 
    :::image type="content" source="media/import-update/import-updates-3.png" alt-text="Import Updates" lightbox="media/import-update/import-updates-3.png":::
 
@@ -129,7 +129,7 @@ An example manifest output is below. For this example, there are two files that 
 
    :::image type="content" source="media/import-update/updates-tab.png" alt-text="Updates" lightbox="media/import-update/updates-tab.png":::
 
-4. Select "+ Import New Update" below the "Ready to Deploy" header.
+4. Select "+ Import a new update" below the "Available Updates" header.
 
    :::image type="content" source="media/import-update/import-new-update-2.png" alt-text="Import New Update" lightbox="media/import-update/import-new-update-2.png":::
 
