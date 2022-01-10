@@ -116,27 +116,6 @@ landingContent:
           - text: Video moderation with Content Moderator
             url: https://channel9.msdn.com/Shows/AI-Show/Video-Moderation-with-Content-Moderator?term=content%20moderator&lang-en=true
 
-  - title: Use reviews, workflows, and jobs
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Review tool
-            url: Review-Tool-User-Guide/human-in-the-loop.md
-          - text: Reviews, workflows, and jobs
-            url: review-api.md
-      - linkListType: quickstart
-        links:
-          - text: Create reviews with the Python SDK
-            url: ./client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python
-      - linkListType: how-to-guide
-        links:
-          - text: Define and use reviews (Review tool)
-            url: Review-Tool-User-Guide/review-moderated-images.md
-          - text: Define and use workflows (Review tool)
-            url: Review-Tool-User-Guide/workflows.md
-          - text: Define and use jobs (API console)
-            url: try-review-api-job.md
-
   - title: Reference
     linkLists:
       - linkListType: reference

@@ -41934,6 +41934,76 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Content-Moderator/ecommerce-retail-catalog-moderation.md",
+      "redirect_url": "/azure/cognitive-services/Content-Moderator/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Content-Moderator/facebook-post-moderation.md",
+      "redirect_url": "/azure/cognitive-services/Content-Moderator/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Content-Moderator/moderation-jobs-quickstart-dotnet.md",
+      "redirect_url": "/azure/cognitive-services/Content-Moderator/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Content-Moderator/quick-start.md",
+      "redirect_url": "/azure/cognitive-services/Content-Moderator/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Content-Moderator/review-api.md",
+      "redirect_url": "/azure/cognitive-services/Content-Moderator/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Content-Moderator/try-review-api-job.md",
+      "redirect_url": "/azure/cognitive-services/Content-Moderator/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Content-Moderator/try-review-api-workflow.md",
+      "redirect_url": "/azure/cognitive-services/Content-Moderator/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Content-Moderator/video-moderation-human-review.md",
+      "redirect_url": "/azure/cognitive-services/Content-Moderator/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Content-Moderator/video-reviews-quickstart-dotnet.md",
+      "redirect_url": "/azure/cognitive-services/Content-Moderator/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Content-Moderator/video-transcript-reviews-quickstart-dotnet.md",
+      "redirect_url": "/azure/cognitive-services/Content-Moderator/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Configure.md",
+      "redirect_url": "/azure/cognitive-services/Content-Moderator/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/human-in-the-loop.md",
+      "redirect_url": "/azure/cognitive-services/Content-Moderator/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Review-Moderated-Images.md",
+      "redirect_url": "/azure/cognitive-services/Content-Moderator/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Workflows.md",
+      "redirect_url": "/azure/cognitive-services/Content-Moderator/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/Custom-Vision-Service/custom-vision-encryption-of-data-at-rest.md",
       "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/encrypt-data-at-rest",
       "redirect_document_id": false
