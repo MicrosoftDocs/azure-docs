@@ -19,7 +19,7 @@ We're retiring two features from [Text-to-Speech](index-text-to-speech.yml) capa
 ## Custom voice (non-neural training)
 
 > [!IMPORTANT]
-> We are retiring the standard/non-neural training tier of custom voice on February 29, 2024. During the retiring period (3/1/2021 - 2/29/2024), existing standard tier users can continue to use their non-neural models created, but all new users who sign up for speech resources from **3/1/2021** should move to the neural tier/custom neural voice. After 2/29/2024, all standard/non-neural custom voices will no longer be supported. 
+> We are retiring the standard non-neural training tier of custom voice from March 1, 2021 through February 29, 2024. If you used a non-neural custom voice with your Speech resource prior to March 1, 2021 then you can continue to do so until February 29, 2024. All other Speech resources can only use custom neural voice. After February 29, 2024, the non-neural custom voices won't be supported with any Speech resource. 
 
 Go to [this article](how-to-migrate-to-custom-neural-voice.md) to learn how to migrate to custom neural voice. 
 
@@ -32,7 +32,7 @@ Go to the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-s
 ## Prebuilt standard voice
 
 > [!IMPORTANT]
-> We are retiring the standard voices on August 31, 2024. During the retiring period (9/1/2021 - 8/31/2024), existing standard voice users can continue to use standard voices, but all new users who sign up for speech resources from **9/1/2021** should choose [neural voice names](language-support.md#prebuilt-neural-voices) in your speech synthesis request. After 8/31/2024, the standard voices will no longer be supported in your speech synthesis request. 
+> We are retiring the standard voices from September 1, 2021 through August 31, 2024. If you used a standard voice with your Speech resource prior to September 1, 2021 then you can continue to do so until August 31, 2024. All other Speech resources can only use prebuilt neural voices. You can choose from the supported [neural voice names](language-support.md#prebuilt-neural-voices). After August 31, the standard voices won't be supported with any Speech resource.
 
 Go to [this article](how-to-migrate-to-prebuilt-neural-voice.md) to learn how to migrate to prebuilt neural voice.
 
