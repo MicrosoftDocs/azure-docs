@@ -122,7 +122,7 @@ When adding virtual machines running Windows to the VNet, allow outbound connect
   Commonly, you configure and define your own default route (0.0.0.0/0), forcing all traffic from the API Management subnet to flow through an on-premises firewall or to a network virtual appliance. This traffic flow breaks connectivity with Azure API Management, since outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses no longer working with various Azure endpoints. You can solve this issue via one of the following methods: 
 
   * Enable [service endpoints][ServiceEndpoints] on the subnet in which the API Management service is deployed for:
-      * Azure SQL (required only in the primary region if the API Management service is deployed to [multiple regions](api-management-howto-deploy-multi-region.md)
+      * Azure SQL (required only in the primary region if the API Management service is deployed to [multiple regions](api-management-howto-deploy-multi-region.md))
       * Azure Storage
       * Azure Event Hub
       * Azure Key Vault (required when API Management is deployed on the v2 platform) 
