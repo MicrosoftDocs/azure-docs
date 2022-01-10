@@ -3,7 +3,7 @@ title: Comparing Azure Virtual Desktop and Windows 365 comparison - Azure
 description: Comparing technical features between Azure virtual Desktop and Windows 365.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 12/09/2021
+ms.date: 01/10/2022
 ms.author: helohr
 manager: femila
 ---
@@ -19,17 +19,17 @@ The following table describes high-level differences in the technical features b
 | Feature | Azure Virtual Desktop (single-session)| Azure Virtual Desktop (multisession)| Windows 365 Enterprise | Windows 365 Business |
 |-------|--------|--------|--------|---------|
 |Design|Designed to be flexible.|Designed to be flexible.|Designed to be simple and easy to use.|Designed to be simple and easy to use.|
-|Type of desktop|Pooled (single and multi-session) desktop|Pooled (single and multi-session) desktop|Personal desktop|Personal desktop|
-|Pricing model|Based on your own resource usage|Based on your own resource usage|Fixed per-user pricing|Fixed per-user pricing|
+|Type of desktop|Personal desktop|Pooled (single and multi-session) desktop|Personal desktop|Personal desktop|
+|Pricing model|Based on your own resource usage|Based on your own resource usage|Fixed per-user pricing ([Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/))|Fixed per-user pricing| ([Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/))
 |Subscription|Customer-managed|Customer-managed|Microsoft-managed (except networking)|Fully Microsoft-managed|
 |VM stock keeping units (SKUs)|Any Azure virtual machine (VM) including graphics processing unit (GPU)-enabled SKUs|Any Azure VM including GPU-enabled SKUs|Multiple optimized options for a range of use cases|Multiple optimized options for a range of use cases|
 |Backup|Azure backup services|Azure backup services|Local redundant storage for disaster recovery|Local redundant storage for disaster recovery|
 |Networking|Customer-managed|Microsoft-managed|Customer-managed|Microsoft-managed|
-|Identity|Domain join with Active Directory Domain Services (AD DS) or Azure AD DS, Hybrid Azure AD join or Azure AD join (preview)|Domain join with AD DS or Azure AD DS, Hybrid Azure AD join or Azure AD join (preview)|Hybrid Join, Azure AD join (Preview)|Azure AD join (can't use AD DS)|
+|Identity|Domain join with Active Directory Domain Services (AD DS) or Azure AD DS, Hybrid Azure AD join or Azure AD join |Domain join with AD DS or Azure AD DS, Hybrid Azure AD join or Azure AD join |Hybrid Join, Azure AD join |Azure AD join (can't use AD DS)|
 |User profiles|Azure Files, Azure NetApp Files, or VM-based storage for FSLogix for pooled host pools, and an option for local profiles for personal desktops|Azure Files, Azure NetApp Files, VM-based storage for FSLogix for pooled host pools, and an option for local profiles for personal desktops|Local profiles, offered as software-as-a-service (SaaS)|Local profiles (offered as SaaS)|
-|Operating systems|Windows 10 Enterprise (single session and multi-session) <br>Windows Server 2012 R2, 2016, 2019 (single session and multi-session)<br>Windows 7 Enterprise (single session)|Windows 10 Enterprise (single session and multi-session) <br>Windows Server 2012 R2, 2016, 2019 (single session and multi-session)<br>Windows 7 Enterprise (single session)|Windows 10 Enterprise (single session)|Windows 10 Enterprise (single session)|
+|Operating systems|Windows 10 Enterprise and Windows 11 Enterprise (single session and multi-session) <br>Windows Server 2012 R2, 2016, 2019 (single session and multi-session)<br>Windows 7 Enterprise (single session)|Windows 10 Enterprise and Windows 11 Enterprise (single session and multi-session) <br>Windows Server 2012 R2, 2016, 2019 (single session and multi-session)<br>Windows 7 Enterprise (single session)|Windows 10 Enterprise (single session)|Windows 10 Enterprise (single session)|
 |Base image|Custom and Microsoft-provided|Custom and Microsoft-provided|Custom and Microsoft-provided|Microsoft-provided only|
-|VM location|[Any Azure region](data-locations.md)|[Any Azure region](data-locations.md)|Most geographies|Most geographies|
+|VM location|[Any Azure region](data-locations.md)|[Any Azure region](data-locations.md)|[Most geographies](/windows-365/enterprise/requirements#supported-azure-regions-for-cloud-pc-provisioning)|[Most geographies](/windows-365/enterprise/requirements#supported-azure-regions-for-cloud-pc-provisioning)|
 |Remote app streaming|Supported|Supported|Not supported|Not supported|
 
 ## Deployment and management
