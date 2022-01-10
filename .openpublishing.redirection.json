@@ -45052,6 +45052,11 @@
       "source_path_from_root": "/articles/networking/azure-orbital-overview.md",
       "redirect_url": "/azure/orbital/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
+      "redirect_url": "/azure/advisor/advisor-overview",
+      "redirect_document_id": false
     }
   ]
 }
