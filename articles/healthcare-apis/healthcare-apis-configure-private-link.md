@@ -23,9 +23,9 @@ Private link enables you to access Azure Healthcare APIs over a private endpoint
 
 Before creating a private endpoint, the following Azure resources need to be created first:
 
-- **Resource Group** – The Azure resource group that will contain the virtual network and private endpoint.
+- **Resource Group** – The Azure resource group that'll contain the virtual network and private endpoint.
 - **Healthcare APIs** – The FHIR resource that you want to put behind a private endpoint.
-- **Virtual Network** – The VNet to which your client services and Private Endpoint will be connected.
+- **Virtual Network** – The VNet to which your client services and private endpoint will be connected.
 
 For more information, see [Private Link Documentation](./../private-link/index.yml).
 
@@ -33,7 +33,7 @@ For more information, see [Private Link Documentation](./../private-link/index.y
 
 To create a private endpoint, a developer with Role-based access control (RBAC) permissions on the Azure resource can use the Azure portal, [Azure PowerShell](./../private-link/create-private-endpoint-powershell.md), or [Azure CLI](./../private-link/create-private-endpoint-cli.md). This article will guide you through the steps on using Azure portal. Using the Azure portal is recommended as it automates the creation and configuration of the Private DNS Zone. For more information, see [Private Link Quick Start Guides](./../private-link/create-private-endpoint-portal.md).
 
-There are two ways to create a private endpoint. Auto Approval flow allows a user that has RBAC permissions on the Azure resource to create a private endpoint without a need for approval. Manual Approval flow allows a user without permissions on the FHIR resource to request a private endpoint to be approved by owners of the Azure resource.
+There are two ways to create a private endpoint. Auto approval flow allows a user that has RBAC permissions on the Azure resource to create a private endpoint without a need for approval. Manual approval flow allows a user without permissions on the FHIR resource to request a private endpoint to be approved by owners of the Azure resource.
 
 > [!NOTE]
 > When an approved private endpoint is created for Healthcare APIs, public traffic to it is automatically disabled. 
