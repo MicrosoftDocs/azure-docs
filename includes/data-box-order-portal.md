@@ -5,7 +5,7 @@ ms.subservice: databox
 ms.topic: include
 ms.date: 01/10/2022
 ms.author: alkohli
-ms.custom: contperf-fy22q1
+ms.custom: "contperf-fy22q1"
 ---
 
 Do the following steps in the Azure portal to order a device:
