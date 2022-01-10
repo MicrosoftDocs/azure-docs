@@ -18,7 +18,7 @@ ms.date: 01/31/2022
 
 
 
-# Next steps
+## Next steps
 
 Learn more about implementing Windows Authentication for Azure AD principals on Azure SQL Managed Instance:
 

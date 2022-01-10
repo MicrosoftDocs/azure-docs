@@ -15,7 +15,9 @@ ms.date: 01/31/2022
 
 # How to set up Windows Authentication for Azure AD with the incoming trust-based flow (Preview)
 
-This article describes how to implement the incoming trust-based authentication flow to allow clients running Windows Server 2012 and higher to authenticate to an Azure SQL Managed Instance using Windows Authentication. This step is part of the infrastructure configuration to [set up Windows Authentication for Azure SQL Managed Instance using Azure Active Directory and Kerberos (Preview)](winauth-azuread-setup.md). This article also explains how you can rotate a Kerberos Key for your Azure AD service account and Trusted Domain Object, and how you can remove a Trusted Domain Object and remove all Kerberos settings, if desired.
+This article describes how to implement the incoming trust-based authentication flow to allow clients running Windows Server 2012 and higher to authenticate to an Azure SQL Managed Instance using Windows Authentication. This article also shares steps to rotate a Kerberos Key for your Azure AD service account and Trusted Domain Object, and steps to remove a Trusted Domain Object and all Kerberos settings, if desired.
+
+Enabling the incoming trust-based authentication flow is one step in [setting up Windows Authentication for Azure SQL Managed Instance using Azure Active Directory and Kerberos (Preview)](winauth-azuread-setup.md). 
 
 ## Permissions
 
@@ -100,7 +102,7 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
 
 1. Check the current Kerberos Domain Settings.
 
-    Use the `Get-AzureAdKerberosServer` PowerShell cmdlet to check your domain's current Kerberos settings:
+    Run the following command to check your domain's current Kerberos settings:
 
     ```powershell
     Get-AzureAdKerberosServer -Domain $domain ` 
@@ -126,10 +128,7 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
 
 1. Add the Trusted Domain Object.
 
-    Use the `Set-AzureAdKerberosServer` PowerShell cmdlet to add the Trusted Domain Object. 
-
-        - Be sure to include -SetupCloudTrust parameter.
-        - If there is no Azure AD service account, this command will create a new Azure AD service account. If there is an Azure AD service account already, this command will only create the requested Trusted Domain object.
+    Run the following PowerShell command to add the Trusted Domain Object. Be sure to include -SetupCloudTrust parameter. If there is no Azure AD service account, this command will create a new Azure AD service account. If there is an Azure AD service account already, this command will only create the requested Trusted Domain object.
 
     ```powershell
     Set-AzureAdKerberosServer -Domain $domain ` 
@@ -147,7 +146,7 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
 
 TODO: Clarify if "down-level versions of Windows" is Windows Server 2012+, or something else.
 
-1. Identify your [Azure AD tenant ID](azure/active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+1. Identify your [Azure AD tenant ID](/azure/active-directory/fundamentals/active-directory-how-to-find-tenant.md).
 
 1. Deploy the following Group Policy setting to down-level versions of Windows. 
 
