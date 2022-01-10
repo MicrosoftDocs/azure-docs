@@ -39,11 +39,11 @@ For more information, see [Develop ASIM parsers](normalization-develop-parsers.m
 
 ## Manage built-in unifying parsers
 
-### Setup your workspace
+### Set up your workspace
 
-Microsoft Sentinel users cannot edit built-in unifying parsers. Instead, use the mechanisms to the behavior of built-in unifying parsers:
+Microsoft Sentinel users cannot edit built-in unifying parsers. Instead, use the following mechanisms to modify the behavior of built-in unifying parsers:
 
--  **To support adding source-specific parsers**, ASIM uses custom unifying parsers. Custom unifying parsers are workspace-deployed, and are picked up automatically by the built-in unifying parsers if they exist. [Deploy initial empty custom unifying parsers](https://aka.ms/ASimDeployEmptyCustomUnifyingParsers) to your Microsoft Sentinel workspace for all supported schemas, or individually for specific schemas.
+-  **To support adding source-specific parsers**, ASIM uses unifiying, custom parsers. These custom parsers are workspace-deployed, and therefore editable. Built-in, unifying parsers automatically pick up these custom parsers, if they exist. You can [deploy initial, empty, unifying custom parsers](https://aka.ms/ASimDeployEmptyCustomUnifyingParsers) to your Microsoft Sentinel workspace for all supported schemas, or individually for specific schemas.
 
 - **To support excluding built-in source-specific parsers**, ASIM uses a watchlist. Deploy the watchlist to your Microsoft Sentinel workspace from the Microsoft Sentinel [GitHub](https://aka.ms/DeployASimExceptionWatchlist) repository.
 
@@ -60,7 +60,7 @@ The syntax of the line to add is different for each schema:
 | DNS    | Im_DnsCustom | _parser_name_ (starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype) | ASim_DnsCustom | _parser_name_ |
 | | | | |  
 
-When adding an additional parser to a custom unifying parser that already references parsers, make sure you add a comma at the end of the previous line. 
+When adding an additional parser to a unifying custom parser that already references parsers, make sure you add a comma at the end of the previous line. 
 
 For example, the following code shows a custom unifying parser after having added the `added_parser`:
 
@@ -89,7 +89,6 @@ For example, to exclude the Azure Firewall DNS parser, add the following records
 | `_Im_Dns` | `_Im_Dns_AzureFirewall` |
 | `_ASim_Dns` | `_ASim_Dns_AzureFirewall` | 
 | | |
- 
 
 ### Prevent an automated update of a built-in parser
 
@@ -97,7 +96,7 @@ To prevent automatic updates for built-in, source-specific parsers, modify the v
 
 1. Add the built-in parser version you want to use, such as `_Im_Dns_AzureFirewallV02`, to the custom unifying parser. For more information, see above, [Add a custom parser to a built-in unifying parser](#add-a-custom-parser-to-a-built-in-unifying-parser).
 
-1. Add an exception for the built-in parser. For example, when excluding a large number of built-in parsers, you may want to opt out entirely from automatic updates. In this case, add:
+1. Add an exception for the built-in parser. For example, when you want to entirely opt out from automatic updates, and therfore exclude a large number of built-in parsers, add:
 
   - A record with `Any` as the `SourceSpecificParser` field, to exclude all parsers for the `CallerContext`.
   - A record for  `Any` in the CallerContext and the `SourceSpecificParser` fields to exclude all built-in parsers.
