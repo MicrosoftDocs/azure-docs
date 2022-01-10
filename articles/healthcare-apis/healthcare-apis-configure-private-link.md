@@ -21,11 +21,11 @@ Private link enables you to access Azure Healthcare APIs over a private endpoint
 
 ## Prerequisites
 
-Before creating a private endpoint, there are some Azure resources that you'll need to create first:
+Before creating a private endpoint, the following Azure resources need to be created first:
 
-- Resource Group – The Azure resource group that will contain the virtual network and private endpoint.
-- Healthcare APIs – The FHIR resource that you want to put behind a private endpoint.
-- Virtual Network – The VNet to which your client services and Private Endpoint will be connected.
+- **Resource Group** – The Azure resource group that will contain the virtual network and private endpoint.
+- **Healthcare APIs** – The FHIR resource that you want to put behind a private endpoint.
+- **Virtual Network** – The VNet to which your client services and Private Endpoint will be connected.
 
 For more information, see [Private Link Documentation](./../private-link/index.yml).
 
