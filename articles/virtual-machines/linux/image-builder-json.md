@@ -36,7 +36,10 @@ This is the basic template format:
         "osDiskSizeGB": <sizeInGB>,
         "vnetConfig": {
           "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
-        }
+        },
+	"userAssignedIdentities": [
+        "/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName>"
+      ]
       },
       "source": {}, 
       "customize": {}, 
@@ -121,6 +124,10 @@ These are key/value pairs you can specify for the image that's generated.
 
 ## Identity
 
+There are two ways to add user assigned identities explained below.
+
+### User Assigned Identity for the Image Builder service
+
 Required - For Image Builder to have permissions to read/write images, read in scripts from Azure Storage you must create an Azure User-Assigned Identity, that has permissions to the individual resources. For details on how Image Builder permissions work, and relevant steps, please review the [documentation](image-builder-user-assigned-identity.md).
 
 
@@ -134,12 +141,33 @@ Required - For Image Builder to have permissions to read/write images, read in s
 ```
 
 
-Image Builder support for a User-Assigned Identity:
+The Image Builder service User Assigned Identity:
 * Supports a single identity only
 * Does not support custom domain names
 
 To learn more, see [What is managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
 For more information on deploying this feature, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity).
+
+### User Assigned Identity for the Image Builder Build VM
+
+Optional - The Image Builder Build VM is responsible for building your image to your specifications, including running customization scripts and accessing resources. For the Image Builder Build VM to have permissions to authenticate with other services like Azure Key Vault, you must create an Azure User-Assigned Identity that has permissions to the individual resources.
+
+```json
+    "properties": { 
+      "vmProfile": {
+	"userAssignedIdentities": [
+        "/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName>"
+      ]
+      },
+    },
+```
+
+The Image Builder Build VM User Assigned Identity:
+* Supports a list of one or more user assigned managed identities to be configured on the VM
+* Supports cross subscription scenarios (identity created in one subscription while the image template is created in another subscription under the same tenant)
+* Does not support cross tenant scenarios (identity created in one tenant while the image template is created in another tenant)
+
+To learn more, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token) and [How to use managed identities for Azure resources on an Azure VM for sign-in](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in).
 
 ## Properties: source
 
