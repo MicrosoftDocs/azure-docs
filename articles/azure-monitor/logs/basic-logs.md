@@ -11,32 +11,7 @@ ms.date: 10/31/2021
 ---
 
 # Azure Monitor Basic Logs (Preview)
-Basic Logs is a feature of Azure Monitor that reduces the cost for high-value verbose logs that don’t require analytics and alerts.
-
-provide a different variant of the log service that is adjusted to support  Logs will be ingested at a much lower cost, while queries will be limited and will incur cost. Log alerts will not be supported based on Basic Logs.
-
-The workspace admin shall configure specific tables to use Basic Logs instead of the default analytics logs.
-Basic Logs includes eight days of data retention. After this initial retention, data can be sent to archive where it can be stored for up to seven years. **TODO:** add link to archived logs.
-
-
-### When to use Basic Logs
-Azure Monitor Logs has hundreds of table definitions that cover lots of different components. These logs usually have scalar fields that enable powerful and efficient analysis. 
-Azure Monitor is making use of these logs to provide rich set of insights solution on various aspects of your environment. But even in the most structured and well-defined environment, there are still logs coming from other sources that are verbose and textual.
-
-There are two strategies to handle the textual logs:
-1.	Parse them and extract the scalars from the text. Once parsed, these logs can be used for analytics and every mechanism that Azure Monitor supports. This pattern is usually used for high-value logs.
-2.	Store them as-is and use them not for analytics but for compliancy and troubleshooting. Usually, these logs are fetched based on simple text search. This pattern is usually used for low-value and highly verbose logs.
-
-Azure Monitor Logs provides tools for both strategies and the ability to apply both on the same data stream. Custom transforms (**TODO:** add link to transform documentation) can be used to parse logs as they are ingested to filter unnecessary logs. 
-
-Basic Logs are designed to support high-volume non-analytics logs.
-Most data types are used by various insights modules and thus can be used only as Analytics Logs. It will not be possible to configure them as Basic Logs. Other types will be Analytics Logs by default and will allow the workspace admin to set them as Basic Logs:
-
-1.	All custom log V2 data types. Custom Logs gives the admin full flexibility to set the type of usage. Basic Logs are supported only on custom logs V2.
-2.	ContainerLog and ContainerLogV2: Container Insights collects inventory, performance, and events data using various tables. ContainerLog and ContainerLogV2 include in many cases verbose text-based log records that are omitted by various pods. ContainerLogV2 adds more meta-data to the log record to ease the consumption and remove the need to join it to other tables.
-3.	AppTraces: On top of the structured AppRequest / AppDependancy tables, Application Insights enable developer to omit their own freeform log records. 
-
-More types may be added in the future.
+Basic Logs is a feature of Azure Monitor that reduces the cost for high-value verbose logs that don’t require analytics and alerts. Basic logs have a reduced cost for ingestion but incur a cost for log queries. 
 
 
 ## Difference from standard logs
@@ -45,11 +20,39 @@ Basic logs have the following differences from standard logs.
 | Category | Description |
 |:---|:---|
 | Ingestion | Basic logs have a reduced cost for ingestion. |
-| Log queries | Log queries against basic logs have a cost, while log queries against standard logs have no cost. |
+| Log queries | Log queries with basic logs have a cost and support a subset of the query language. Log queries with standard logs have no cost and support the full query language. |
 | Retention |  Basic logs are retained for 8 days. Standard log retention can be configured. |
+| Alerts | Basic logs cannot be used for alerts. |
 
 
-### Log queries with Basic Logs tables
+## Tables supporting basic logs
+To use basic logs, you configure particular tables yourLog Analytics workspace. Not all tables can be configured for basic logs since other Azure Monitor features may rely on these tables.
+
+The following tables can currently be configured as basic logs.
+
+- All custom logs created with [direct ingestion](). Basic logs are not supported for tables craete with [Data Collector API](data-collector-api.md).
+-	[ContainerLog](/azure/azure-monitor/reference/tables/containerlog) and [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2), which are tables used by [Container Insights](../containers/container-insights-overview.md) and include cases verbose text-based log records.
+- [AppTraces](/azure/azure-monitor/reference/tables/apptraces), which contains freeform log records for application traces in Application Insights.
+
+## When to use Basic Logs
+Basic logs are intended to support data that you need to collect but only require infrequent access to. These are typically high value logs that you may need to retain for purposes such as compliance or infrequent troubleshooting.
+
+
+These logs usually have scalar fields that enable powerful and efficient analysis. 
+
+There are two strategies to handle the textual logs:
+1.	Parse them and extract the scalars from the text. Once parsed, these logs can be used for analytics and every mechanism that Azure Monitor supports. This pattern is usually used for high-value logs.
+2.	Store them as-is and use them not for analytics but for compliancy and troubleshooting. Usually, these logs are fetched based on simple text search. This pattern is usually used for low-value and highly verbose logs.
+
+Azure Monitor Logs provides tools for both strategies and the ability to apply both on the same data stream. Custom transforms (**TODO:** add link to transform documentation) can be used to parse logs as they are ingested to filter unnecessary logs. 
+
+
+
+
+
+
+
+## Log queries with Basic Logs tables
 Log queries using Basic Logs are expected to be infrequent and relatively simple.
 
 

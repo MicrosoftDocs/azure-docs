@@ -124,11 +124,12 @@ items:
     - name: Logs
       displayName: Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries
       href: logs/data-platform-logs.md
-  - name: Roles permissions and security
-    href: roles-permissions-security.md
-  - name: IP addresses
-    href: app/ip-addresses.md
-    displayName: firewall, firewall exceptions, whitelist
+    - name: Basic logs
+      href: logs/basic-logs.md
+    - name: Archived logs
+      href: logs/archived-logs.md
+  - name: Data collection rules
+    href: platform/data-collection-rule-create.md
   - name: Usage and cost
     items:
     - name: Usage and estimated costs
@@ -139,6 +140,8 @@ items:
       href: logs/manage-cost-storage.md
   - name: Data security
     items:
+    - name: Roles permissions and security
+      href: roles-permissions-security.md
     - name: Log data
       href: logs/data-security.md
     - name: Azure AD Authentication for Logs
@@ -178,6 +181,9 @@ items:
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: .//security-controls-policy.md
+  - name: IP addresses
+    href: app/ip-addresses.md
+    displayName: firewall, firewall exceptions, whitelist
 - name: How-to guides
   items:
   - name: Scenarios
@@ -237,10 +243,7 @@ items:
     items:
     - name: Basic logs
       items:
-      - name: Basic logs
-        href: logs/basic-logs.md
-      - name: Archived logs
-        href: logs/archived-logs.md
+
       - name: Search jobs
         href: logs/search-jobs.md
       - name: Restore
@@ -408,10 +411,14 @@ items:
       href: essentials/diagnostic-settings.md
   - name: Data collection rules
     items:
-    - name: Overview
+    - name: Create
       displayName: Data collection rules
-      href: platform/data-collection-rule-overview.md
+      href: platform/data-collection-rule-create.md
     - name: Transformations
+      displayName: Data collection rules
+      href: agents/data-collection-rule-azure-monitor-agent.md
+    - name: Transformations
+      displayName: Data collection rules
       href: platform/data-collection-rule-transformations.md
   - name: Agents
     items:

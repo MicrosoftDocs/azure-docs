@@ -11,7 +11,12 @@ ms.author: bwren
 # Azure Monitor Logs types
 
 ## Types of log data
-Most data stored in Logs is available to all Azure Monitor features and log queries using the fell KQL language. You 
+Most data stored in Logs is available to all Azure Monitor features and log queries using the full KQL language. You can configure your workspace for other types of data in order to reduce costs and meet your particular requirements for data retention.
+
+
+| Type | Description |
+|:---|:---|
+| Basic logs | 
 
 ## Basic logs
 
