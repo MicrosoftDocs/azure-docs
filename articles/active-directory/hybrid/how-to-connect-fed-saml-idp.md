@@ -3,12 +3,11 @@ title: 'Azure AD Connect: Use a SAML 2.0 Identity Provider for Single Sign On - 
 description: This document describes using a SAML 2.0 compliant Idp for single sign on.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.custom: it-pro
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 07/13/2017
 ms.subservice: hybrid
@@ -201,7 +200,7 @@ The following procedure walks you through converting an existing standard domain
 
   ```powershell
   $dom = "contoso.com" 
-  $BrandName - "Sample SAML 2.0 IDP" 
+  $BrandName = "Sample SAML 2.0 IDP" 
   $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" 
   $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" 
   $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" 

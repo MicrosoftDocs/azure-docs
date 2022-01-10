@@ -1,20 +1,13 @@
 ---
 title: Run Custom Script Extension on Linux VMs in Azure
 description: Automate Linux VM configuration tasks by using the Custom Script Extension v2
-services: virtual-machines-linux
-documentationcenter: ''
-author: amjads1
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: cf17ab2b-8d7e-4078-b6df-955c6d5071c2
-ms.service: virtual-machines-linux
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
-ms.date: 04/25/2018
+ms.service: virtual-machines
+ms.subservice: extensions
 ms.author: amjads
+author: amjads1
+ms.collection: linux
+ms.date: 04/25/2018
 
 ---
 # Use the Azure Custom Script Extension Version 2 with Linux virtual machines
@@ -59,7 +52,6 @@ If your script is on a local server, then you may still need additional firewall
 * When the script is running, you will only see a 'transitioning' extension status from the Azure portal or CLI. If you want more frequent status updates of a running script, you will need to create your own solution.
 * Custom Script extension does not natively support proxy servers, however you can use a file transfer tool that supports proxy servers within your script, such as *Curl*. 
 * Be aware of non default directory locations that your scripts or commands may rely on, have logic to handle this.
-*  When deploying custom script to production VMSS instances it is suggested to deploy via json template and store your script storage account where you have control over the SAS token. 
 
 
 ## Extension schema
@@ -111,7 +103,7 @@ These items should be treated as sensitive data and specified in the extensions 
 | Name | Value / Example | Data Type | 
 | ---- | ---- | ---- |
 | apiVersion | 2019-03-01 | date |
-| publisher | Microsoft.Compute.Extensions | string |
+| publisher | Microsoft.Azure.Extensions | string |
 | type | CustomScript | string |
 | typeHandlerVersion | 2.1 | int |
 | fileUris (e.g) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
@@ -379,6 +371,12 @@ az vm extension set \
   --settings ./script-config.json \
   --protected-settings ./protected-config.json
 ```
+
+## Virtual machine scale sets
+
+If you deploy the Custom Script Extension from the Azure portal, you don't have control over the expiration of the shared access signature token for accessing the script in your storage account. The result is that the initial deployment works, but when the storage account shared access signature token expires, any subsequent scaling operation fails because the Custom Script Extension can no longer access the storage account.
+
+We recommend that you use [PowerShell](/powershell/module/az.Compute/Add-azVmssExtension?view=azps-7.0.0), the [Azure CLI](/cli/azure/vmss/extension?view=azure-cli-latest), or an Azure Resource Manager template when you deploy the Custom Script Extension on a virtual machine scale set. This way, you can choose to use a managed identity or have direct control of the expiration of the shared access signature token for accessing the script in your storage account for as long as you need.
 
 ## Troubleshooting
 When the Custom Script Extension runs, the script is created or downloaded into a directory that's similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` files.

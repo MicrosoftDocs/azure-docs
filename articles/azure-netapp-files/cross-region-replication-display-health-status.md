@@ -3,7 +3,7 @@ title: Display health status of Azure NetApp Files replication relationship | Mi
 description: Describes how to view replication status on the source volume or the destination volume of Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
-ms.author: b-juche
+ms.date: 12/03/2021
+ms.author: anfdocs
 ---
 # Display health status of replication relationship 
 
@@ -41,7 +40,7 @@ You can view replication status on the source volume or the destination volume.
             A transfer operation is in progress and future transfers are not disabled.
     * **Replication schedule** – Shows how frequently incremental mirroring updates will be performed when the initialization (baseline copy) is complete.
 
-    * **Total progress** -- Shows the total amount of data in bytes transferred for the current transfer operation. This amount is the actual bits transferred, and it might differ from the logical space that the source and destination volumes report.  
+    * **Total progress** -- Shows the total amount of cumulative bytes transferred over the lifetime of the relationship. This amount is the actual bytes transferred, and it might differ from the logical space that the source and destination volumes report.  
 
     ![Replication health status](../media/azure-netapp-files/cross-region-replication-health-status.png)
 
@@ -52,6 +51,7 @@ You can view replication status on the source volume or the destination volume.
 
 * [Cross-region replication](cross-region-replication-introduction.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
+* [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)

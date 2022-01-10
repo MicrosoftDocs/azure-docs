@@ -30,7 +30,7 @@ This template works for deploying storage accounts and app service plans, but yo
 
 1. Open [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/)
 1. In **Search**, enter _deploy linux web app_.
-1. Select the tile with the title **Deploy a basic Linux web app**. If you have trouble finding it, here's the [direct link](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
+1. Select the tile with the title **Deploy a basic Linux web app**. If you have trouble finding it, here's the [direct link](https://azure.microsoft.com/resources/templates/webapp-basic-linux/).
 1. Select **Browse on GitHub**.
 1. Select _azuredeploy.json_.
 1. Review the template. In particular, look for the `Microsoft.Web/sites` resource.

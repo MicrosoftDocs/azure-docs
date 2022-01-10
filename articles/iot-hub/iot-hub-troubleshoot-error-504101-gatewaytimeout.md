@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: amqp
-# As a developer or operator for Azure IoT Hub, I want to resolve 504101 GatewayTimeout errors.
+#Customer intent: As a developer or operator for Azure IoT Hub, I want to resolve 504101 GatewayTimeout errors.
 ---
 
 # 504101 GatewayTimeout

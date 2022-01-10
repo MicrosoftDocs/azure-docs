@@ -90,7 +90,7 @@ Generally, the method of acquiring a token depends on whether it's a public clie
 For public client applications (desktop or mobile app), you:
 
 - Often acquire tokens interactively, having the user sign in through a UI or pop-up window.
-- Can [get a token silently for the signed-in user](msal-authentication-flows.md#integrated-windows-authentication) using Integrated Windows Authentication (IWA/Kerberos) if the desktop application is running on a Windows computer joined to a domain or to Azure.
+- Can [get a token silently for the signed-in user](msal-authentication-flows.md#integrated-windows-authentication) using integrated Windows authentication (IWA/Kerberos) if the desktop application is running on a Windows computer joined to a domain or to Azure.
 - Can [get a token with a username and password](msal-authentication-flows.md#usernamepassword) in .NET framework desktop client applications (not recommended). Do not use username/password in confidential client applications.
 - Can acquire a token through the [device code flow](msal-authentication-flows.md#device-code) in applications running on devices that don't have a web browser. The user is provided with a URL and a code, who then goes to a web browser on another device and enters the code and signs in. Azure AD then sends a token back to the browser-less device.
 

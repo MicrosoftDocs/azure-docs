@@ -28,7 +28,7 @@ For example, the Enterprise Integration Pack includes these capabilities:
 
 ## Sample
 
-[Deploy a fully operational logic app](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) (GitHub sample) by using the XML features in Azure Logic Apps.
+[Deploy a fully operational logic app](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logic-app-veter-pipeline) (GitHub sample) by using the XML features in Azure Logic Apps.
 
 ## Next steps
 

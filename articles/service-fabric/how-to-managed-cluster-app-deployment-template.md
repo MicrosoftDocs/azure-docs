@@ -1,12 +1,13 @@
 ---
-title: Deploy a Service Fabric managed cluster (preview) application using ARM template
-description: Deploy an application to a Azure Service Fabric managed cluster (preview) using an Azure Resource Manager template.
+title: Deploy an application to a managed cluster using Azure Resource Manager
+description: Learn how to deploy, upgrade, or delete a Service Fabric application on an Azure Service Fabric managed cluster using Azure Resource Manager
 ms.topic: how-to
-ms.date: 02/15/2021
+ms.date: 8/23/2021 
+ms.custom: devx-track-azurepowershell
 ---
-# Deploy a Service Fabric managed cluster (preview) application using ARM template
+# Manage application lifecycle on a managed cluster using Azure Resource Manager
 
-You have multiple options for deploying Azure Service Fabric applications on your Service Fabric managed cluster. We recommend using Azure Resource Manager. If you use Resource Manager, you can describe applications and services in JSON, and then deploy them in the same Resource Manager template as your cluster. Unlike using PowerShell or Azure CLI to deploy and manage applications, if you use Resource Manager, you don't have to wait for the cluster to be ready; application registration, provisioning, and deployment can all happen in one step. Using Resource Manager is the best way to manage the application life cycle in your cluster. For more information, see [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources).
+You have multiple options for deploying Azure Service Fabric applications on your Service Fabric managed cluster. We recommend using Azure Resource Manager. If you use Resource Manager, you can describe applications and services in JSON, and then deploy them in the same Resource Manager template as your cluster. Unlike using PowerShell or Azure CLI to deploy and manage applications, if you use Resource Manager, you don't have to wait for the cluster to be ready; application registration, provisioning, and deployment can all happen in one step. Using Resource Manager is the best way to manage the application life cycle in your cluster. For more information, see [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#service-fabric-resources).
 
 Managing your applications as resources in Resource Manager can help you gain improvements in these areas:
 
@@ -18,11 +19,11 @@ In this document, you will learn how to:
 
 > [!div class="checklist"]
 >
-> * Deploy application resources by using Resource Manager.
-> * Upgrade application resources by using Resource Manager.
-> * Delete application resources.
+> * Deploy service fabric application resources by using Resource Manager.
+> * Upgrade service fabric application resources by using Resource Manager.
+> * Delete service fabric application resources.
 
-## Deploy application resources
+## Deploy Service Fabric application resources
 
 The high-level steps you take to deploy an application and its services by using the Resource Manager application resource model are:
 1. Package the application code.
@@ -31,7 +32,7 @@ The high-level steps you take to deploy an application and its services by using
 
 For more information, view [Package an application](service-fabric-package-apps.md#create-an-sfpkg).
 
-Then, you create a Resource Manager template, update the parameters file with application details, and deploy the template on the Service Fabric cluster. [Explore samples](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/voting-sample-no-reverse-proxy/ARM-Managed-Cluster).
+Then, you create a Resource Manager template, update the parameters file with application details, and deploy the template on the Service Fabric managed cluster. [Explore samples](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/voting-sample-no-reverse-proxy/ARM-Managed-Cluster).
 
 ### Create a storage account
 
@@ -48,7 +49,7 @@ After the storage account is created, you create a blob container where the appl
 Resources in your cluster can be secured by setting the public access level to **private**. You can grant access in multiple ways:
 
 * Authorize access to blobs and queues by using [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
-* Grant access to Azure blob and queue data by using [Azure RBAC in the Azure portal](../storage/common/storage-auth-aad-rbac-portal.md).
+* Grant access to Azure blob and queue data by using [Azure RBAC in the Azure portal](../storage/blobs/assign-azure-role-data-access.md).
 * Delegate access by using a [shared access signature](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
 The example in the following screenshot uses anonymous read access for blobs.
@@ -77,7 +78,7 @@ Now, the application is now staged and you can create the Resource Manager templ
 
 ### Create the Resource Manager template
 
-The sample application contains [Azure Resource Manager templates](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM) you can use to deploy the application. The template file names are *UserApp.json* and *UserApp.Parameters.json*.
+The sample application contains [Azure Resource Manager templates](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM-Managed-Cluster) you can use to deploy the application. The template file names are *UserApp.json* and *UserApp.Parameters.json*.
 
 > [!NOTE]
 > The *UserApp.Parameters.json* file must be updated with the name of your cluster.
@@ -88,39 +89,39 @@ The sample application contains [Azure Resource Manager templates](https://githu
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | The name of the cluster you're deploying to | sf-cluster123                                                |                                                              |
 | application            | The name of the application                 | Voting                                                       |
-| version    | The resource ID, application type, and version of the app.       | /providers/Microsoft.ServiceFabric/managedClusters/sf-cluster-123/applicationTypes/VotingType/versions/1.0.0                                               | Must match ApplicationManifest.xml                 |              |
+| version    | The resource ID, application type, and version of the app.       | /providers/Microsoft.ServiceFabric/managedClusters/sf-cluster-123/applicationTypes/VotingType/versions/1.0.0                                               | Must match ApplicationManifest.xml                 |
 | serviceName            | The name of the service         | VotingWeb                                             | Must be in the format ServiceType            |
 | serviceTypeName        | The type name of the service                | VotingWebType                                                    | Must match ServiceManifest.xml                 |
 | appPackageUrl          | The blob storage URL of the application     | https:\//servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | The URL of the application package in blob storage (the procedure to set the URL is described later in the article) |
 
 ```json
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applications",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applicationTypes",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applicationTypes/versions",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'), '/', parameters('applicationTypeVersion'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applications/services",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
     "location": "[variables('clusterLocation')]"
 }
 ```
 
-### Deploy the application
+### Deploy the Service Fabric application
 
 Run the **New-AzResourceGroupDeployment** cmdlet to deploy the application to the resource group that contains your cluster:
 
@@ -131,12 +132,12 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 ## Upgrade the Service Fabric application by using Resource Manager
 
 > [!IMPORTANT]
-> Any service being deployed via ARM JSON definition must be removed from the DefaultServices section of the corresponding ApplicationManifest.xml file.
+> Any service being deployed via Azure Resource Manager (ARM) template must be removed from the DefaultServices section of the corresponding ApplicationManifest.xml file.
 
 
 You might upgrade an application that's already deployed to a Service Fabric cluster for one of these reasons:
 
-* A new service is added to the application. A service definition must be added to *service-manifest.xml* and *application-manifest.xml* files when a service is added to the application. To reflect a new version of an application, you also must change the application type version from 1.0.0 to 1.0.1 in [UserApp.Parameters.json](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json):
+* A new service is added to the application. A service definition must be added to *service-manifest.xml* and *application-manifest.xml* files when a service is added to the application. To reflect a new version of an application, you also must change the application type version from 1.0.0 to 1.0.1 in [UserApp.Parameters.json](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM-Managed-Cluster/UserApp.Parameters.json):
 
     ```json
     "applicationTypeVersion": {
@@ -155,11 +156,13 @@ You might upgrade an application that's already deployed to a Service Fabric clu
     ```json
      "applicationTypeVersion": {
         "value": "1.0.1"
-    },
+    }
     ```
-## Delete application resources
+## Delete Service Fabric application resources
+> [!NOTE]
+> Applications should not be deleted via Azure Resource Manager (ARM) template as there is no declarative way to cleanup individual resources
 
-To delete an application that was deployed by using the application resource model in Resource Manager:
+To delete a service fabric application that was deployed by using the application resource model in Resource Manager:
 
 1. Use the [Get-AzResource](/powershell/module/az.resources/get-azresource) cmdlet to get the resource ID for the application:
 
@@ -173,14 +176,23 @@ To delete an application that was deployed by using the application resource mod
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
     ```
 
+
+## Migration from classic to managed clusters
+
+If you are migrating application(s) from classic to managed clusters you will need to make sure to validate types are correctly specified or you will encounter errors. 
+
+The following items are called out specifically due to frequency of usage, but not not meant to be an exclusive list of differences. 
+
+* upgradeReplicaSetCheckTimeout is now an integer for managed, but a string on classic SFRP. 
+
+See [managed clusters applications resource types](/azure/templates/microsoft.servicefabric/managedclusters/applications?tabs=json) for full list of properties and types
+
 ## Next steps
 
-Get information about the application resource model:
+Learn more about managed cluster application deployment:
 
-* [Model an application in Service Fabric](service-fabric-application-model.md)
-* [Service Fabric application and service manifests](service-fabric-application-and-service-manifests.md)
-* [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources)
-* [Manage applications and services as Azure resources](service-fabric-best-practices-infrastructure-as-code.md)
+* [Deploy managed cluster application secrets](how-to-managed-cluster-application-secrets.md)
+* [Deploy managed cluster applications with managed identity](how-to-managed-cluster-application-managed-identity.md)
 
 
 <!--Image references-->

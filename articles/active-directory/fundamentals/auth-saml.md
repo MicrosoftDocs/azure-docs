@@ -3,7 +3,7 @@ title: SAML authentication with Azure Active Directory
 description: Architectural guidance on achieving SAML authentication with Azure Active Directory
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 
 ms.service: active-directory
 ms.workload: identity
@@ -29,7 +29,7 @@ The SAML specification defines three roles:
 
 ## Use when
 
-There's a need to provide an single sign-on (SSO) experience for an enterprise SAML application.
+There's a need to provide a single sign-on (SSO) experience for an enterprise SAML application.
 
 While one of most important use cases that SAML addresses is SSO, especially by extending SSO across security domains, there are other use cases (called profiles) as well. 
 

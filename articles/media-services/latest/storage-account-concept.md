@@ -68,4 +68,4 @@ The following are the primary scenarios that would result in a Media Services ac
 
 ## Next steps
 
-To learn how to attach a storage account to your Media Services account, see [Create an account](./create-account-howto.md).
+To learn how to attach a storage account to your Media Services account, see [Create an account](./account-create-how-to.md).

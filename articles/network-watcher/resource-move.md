@@ -7,7 +7,6 @@ author: damendo
 manager:
 editor:
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
@@ -27,4 +26,4 @@ Moving resources across regions is currently not supported for any child resourc
 
 ## Next Steps
 * Read the [Network Watcher overview](./network-watcher-monitoring-overview.md)
-* See the [Network Watcher FAQ](./frequently-asked-questions.md)
+* See the [Network Watcher FAQ](./frequently-asked-questions.yml)

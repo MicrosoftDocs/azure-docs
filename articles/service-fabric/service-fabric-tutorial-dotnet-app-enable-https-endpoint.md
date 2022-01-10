@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to add an HTTPS endpoint to an ASP.
 
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: "mvc, devx-track-csharp"
+ms.custom: "mvc, devx-track-csharp, devx-track-azurepowershell"
 ---
 # Tutorial: Add an HTTPS endpoint to an ASP.NET Core Web API front-end service using Kestrel
 

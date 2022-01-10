@@ -8,14 +8,23 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 06/25/2021
 ---
 
-# Create and manage API keys for an Azure Cognitive Search service
+# Use API keys for Azure Cognitive Search authentication
 
-All requests to a search service need a read-only API key that was generated specifically for your service. The API key is the sole mechanism for authenticating inbound requests to your search service endpoint and is required on every request. 
+Cognitive Search uses API keys as its primary authentication methodology. For inbound requests to the search services, such as requests that create or query an index, API keys are the only authentication option you have. A few outbound request scenarios, particularly those involving indexers, can use Azure Active Directory identities and roles.
 
-+ In [REST solutions](search-get-started-rest.md), the `api-key` is typically specified in a request header
+API keys are generated when the service created. Passing a valid API key on the request is considered proof that the request is from an authorized client. There are two kinds of keys. *Admin keys* convey write permissions on the service and also grant rights to query system information. *Query keys* convey read permissions and can be used by apps to query a specific index. 
+
+> [!NOTE]
+> Authorization for data plane operations using Azure role-based access control (RBAC) is now in preview. You can use this preview capability to supplement or replace API keys [with Azure roles for Search](search-security-rbac.md). 
+
+## Using API keys in search
+
+When connecting to a search service, all requests must include an API key that was generated specifically for your service.
+
++ In [REST solutions](search-get-started-rest.md), the API key is typically specified in a request header
 
 + In [.NET solutions](search-howto-dotnet-sdk.md), a key is often specified as a configuration setting and then passed as an [AzureKeyCredential](/dotnet/api/azure.azurekeycredential)
 
@@ -25,7 +34,7 @@ You can view and manage API keys in the [Azure portal](https://portal.azure.com)
 
 ## What is an API key?
 
-An API key is a unique string composed of randomly generated numbers and letters that is passed on every request to the search service. The service will accept the request, if both the request itself and the key are valid. 
+An API key is a unique string composed of randomly generated numbers and letters that are passed on every request to the search service. The service will accept the request, if both the request itself and the key are valid. 
 
 Two types of keys are used to access your search service: admin (read-write) and query (read-only).
 
@@ -85,13 +94,13 @@ After you create new keys via portal or management layer, access is restored to 
 
 ## Secure API keys
 
-Through [role-based permissions](search-security-rbac.md), you can delete or read the keys, but you can't replace a key with a user-defined password or use Active Directory as the primary authentication methodology for accessing search operations. 
+[Role assignments](search-security-rbac.md) determine who can read and manage keys. Members of the following roles can view and regenerate keys: Owner, Contributor, [Search Service Contributors](../role-based-access-control/built-in-roles.md#search-service-contributor). The Reader role does not have access to API keys.
 
-Key security is ensured by restricting access via the portal or Resource Manager interfaces (PowerShell or command-line interface). As noted, subscription administrators can view and regenerate all API keys. As a precaution, review role assignments to understand who has access to the admin keys.
+Subscription administrators can view and regenerate all API keys. As a precaution, review role assignments to understand who has access to the admin keys.
 
-+ In the service dashboard, click **Access control (IAM)** and then the **Role assignments** tab to view role assignments for your service.
-
-Members of the following roles can view and regenerate keys: Owner, Contributor, [Search Service Contributors](../role-based-access-control/built-in-roles.md#search-service-contributor)
+1. Navigate to your search service page in Azure portal.
+1. On the left navigation pane, select **Access control (IAM)**, and then select the **Role assignments** tab.
+1. Set **Scope** to **This resource** to view role assignments for your service.
 
 ## See also
 

@@ -1,17 +1,17 @@
 ---
 title: "Quickstart: Call your Bing Custom Search endpoint using C# | Microsoft Docs"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to begin requesting search results from your Bing Custom Search instance in C#. 
+description: "Use this quickstart to begin requesting search results from your Bing Custom Search instance in C#. "
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.custom: devx-track-csharp
+ms.devlang: csharp
+ms.custom: devx-track-csharp, mode-other
 ---
 
 # Quickstart: Call your Bing Custom Search endpoint using C# 
@@ -26,7 +26,7 @@ Use this quickstart to learn how to request search results from your Bing Custom
 ## Prerequisites
 
 - A Bing Custom Search instance. For more information, see [Quickstart: Create your first Bing Custom Search instance](quick-start.md).
-- [Microsoft .NET Core](https://www.microsoft.com/net/download/core).
+- [Microsoft .NET Core](https://dotnet.microsoft.com/download).
 - Any edition of [Visual Studio 2019 or later](https://www.visualstudio.com/downloads/).
 - If you're using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 - The [Bing Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/2.0.0) NuGet package. 

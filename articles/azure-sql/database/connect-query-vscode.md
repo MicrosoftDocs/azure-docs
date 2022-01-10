@@ -1,17 +1,17 @@
 ---
 title: Use Visual Studio Code to connect and query
-titleSuffix: Azure SQL Database & SQL Managed Instance 
+titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Learn how to connect to Azure SQL Database or SQL Managed Instance on Azure by using Visual Studio Code. Then, run Transact-SQL (T-SQL) statements to query and edit data.
 keywords: connect to sql database
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
-ms.custom: sqldbrb=2
+ms.subservice: connect
+ms.custom: sqldbrb=2, mode-ui
 ms.devlang: 
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: kendralittle, mathoma
 ms.date: 05/29/2020
 ---
 # Quickstart: Use Visual Studio Code to connect and query 

@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Learn what responsible machine learning is and how to use it with Azure Machine Learning to understand models, protect data and control the model lifecycle.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 02/25/2021
+ms.date: 10/21/2021
 ms.custom: responsible-ml
-#intent: As a data scientist, I want to know learn what responsible machine learning is and how I can use it in Azure Machine Learning
+#Customer intent: As a data scientist, I want to know learn what responsible machine learning is and how I can use it in Azure Machine Learning.
 ---
 
 # What is responsible machine learning? (preview)

@@ -1,27 +1,24 @@
 ---
 title: 'Tutorial: Demand forecasting & AutoML'
 titleSuffix: Azure Machine Learning
-description: Learn how to train and deploy a demand forecasting model with automated machine learning in Azure Machine Learning studio.
+description: Train and deploy a demand forecasting model without writing code, using Azure Machine Learning's automated machine learning (automated ML) interface.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 12/21/2020
+ms.date: 10/21/2021
 ms.custom: automl
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
 ---
 
 # Tutorial: Forecast demand with automated machine learning
 
+Learn how to create a [time-series forecasting model](concept-automated-ml.md#time-series-forecasting) without writing a single line of code using automated machine learning in the Azure Machine Learning studio. This model will predict rental demand for a bike sharing service.  
 
-In this tutorial, you use automated machine learning, or automated ML, in the Azure Machine Learning studio to create a time-series forecasting model to predict rental demand for a bike sharing service.
-
-For a classification model example, see [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
-
-In this tutorial, you learn how to do the following tasks:
+You won't write any code in this tutorial, you'll use the studio interface to perform training.  You'll learn how to do the following tasks:
 
 > [!div class="checklist"]
 > * Create and load a dataset.
@@ -30,13 +27,18 @@ In this tutorial, you learn how to do the following tasks:
 > * Explore the experiment results.
 > * Deploy the best model.
 
+Also try automated machine learning for these other model types:
+
+* For a no-code example of a classification model, see [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
+* For a code first example of a regression model, see the [Tutorial: Use automated machine learning to predict taxi fares](tutorial-auto-train-models.md).
+
 ## Prerequisites
 
 * An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). 
 
-* Download the [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv) data file
+* Download the [bike-no.csv](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv) data file
 
-## Get started in Azure Machine Learning studio
+## Sign in to the studio
 
 For this tutorial, you create your automated ML experiment run in Azure Machine Learning studio, a consolidated web interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The studio is not supported on Internet Explorer browsers.
 
@@ -64,7 +66,7 @@ Before you configure your experiment, upload your data file to your workspace in
 
     1. Select **Browse**. 
     
-    1. Choose the **bike-no.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv).
+    1. Choose the **bike-no.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv).
 
     1. Select **Next**
 
@@ -105,9 +107,11 @@ After you load and configure your data, set up your remote compute target and se
 
     1. Select **cnt** as the target column, what you want to predict. This column indicates the number of total bike share rentals.
 
-    1. Select **Create a new compute** and configure your compute target. Automated ML only supports Azure Machine Learning compute. 
+    1. Select **compute cluster** as your compute type. 
 
-        1. Populate the **Virtual Machine** form to set up your compute.
+    1. Select **+New** to configure your compute target. Automated ML only supports Azure Machine Learning compute. 
+
+        1. Populate the **Select virtual machine** form to set up your compute.
 
             Field | Description | Value for tutorial
             ----|---|---

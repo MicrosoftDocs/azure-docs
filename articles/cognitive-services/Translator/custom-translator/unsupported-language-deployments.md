@@ -23,7 +23,7 @@ We now have a process that allows you to deploy your unsupported models through 
 ## Prerequisites
 
 In order for your models to be candidates for deployment, they must meet the following criteria:
-* The project containing the model must have been migrated from the Hub to the Custom Translator using the Migration Tool.  The process for migrating projects and workspaces can be found [here](how-to-migrate.md).
+* The project containing the model must have been migrated from the Hub to the Custom Translator using the Migration Tool.  
 * The model must be in the deployed state when the migration happens.  
 * The language pair of the model must be an unsupported language pair in Custom Translator.  Language pairs in which a language is supported to or from English, but the pair itself does not include English, are candidates for unsupported language deployments.  For example, a Hub model for a French to German language pair is considered an unsupported language pair even though French to English and English to German are supported language pair.
 

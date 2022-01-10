@@ -4,7 +4,7 @@ description: Describes Azure Analysis Services PowerShell cmdlets for common adm
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 04/27/2021
 ms.author: owend
 ms.reviewer: minewiskan
 

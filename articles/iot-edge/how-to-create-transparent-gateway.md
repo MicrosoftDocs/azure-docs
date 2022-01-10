@@ -2,7 +2,7 @@
 title: Create transparent gateway device - Azure IoT Edge | Microsoft Docs
 description: Use an Azure IoT Edge device as a transparent gateway that can process information from downstream devices
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 03/01/2021
 ms.topic: conceptual
@@ -12,6 +12,8 @@ ms.custom:  [amqp, mqtt]
 ---
 
 # Configure an IoT Edge device to act as a transparent gateway
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 This article provides detailed instructions for configuring an IoT Edge device to function as a transparent gateway for other devices to communicate with IoT Hub. This article uses the term *IoT Edge gateway* to refer to an IoT Edge device configured as a transparent gateway. For more information, see [How an IoT Edge device can be used as a gateway](./iot-edge-as-gateway.md).
 
@@ -91,8 +93,8 @@ If you don't have your own certificate authority and want to use demo certificat
    2. Create a root CA certificate. At the end of those instructions, you'll have a root CA certificate file:
       * `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
    3. Create IoT Edge device CA certificates. At the end of those instructions, you'll have a device CA certificate and its private key:
-      * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem` and
-      * `<path>/private/iot-edge-device-<cert name>.key.pem`
+      * `<path>/certs/iot-edge-device-ca-<cert name>-full-chain.cert.pem` and
+      * `<path>/private/iot-edge-device-ca-<cert name>.key.pem`
 
 If you created the certificates on a different machine, copy them over to your IoT Edge device then proceed with the next steps.
 
@@ -135,10 +137,10 @@ If you created the certificates on a different machine, copy them over to your I
 
 1. Save and close the file.
 
-1. Restart IoT Edge.
+1. Apply your changes.
 
    ```bash
-   sudo iotedge system restart
+   sudo iotedge config apply
    ```
 
 :::moniker-end

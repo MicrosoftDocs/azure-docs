@@ -4,15 +4,14 @@ description: Azure Active Directory Identity Governance allows you to balance yo
 services: active-directory
 documentationcenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/22/2021
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -77,7 +76,7 @@ In addition to the features listed above, additional Azure AD features frequentl
 |Access requests|End users can request group membership or application access. End users, including guests from other organizations, can request access to access packages.|[Entitlement management](entitlement-management-overview.md)|
 |Workflow|Resource owners can define the approvers and escalation approvers for access requests and approvers for role activation requests.  |[Entitlement management](entitlement-management-overview.md) and [PIM](../privileged-identity-management/pim-configure.md)|
 |Policy and role management|Admin can define conditional access policies for run-time access to applications.  Resource owners can define policies for user's access via access packages.|[Conditional access](../conditional-access/overview.md) and [Entitlement management](entitlement-management-overview.md) policies|
-|Access certification|Admins can enable recurring access re-certification for: SaaS apps or cloud group memberships, Azure AD or Azure Resource role assignments. Automatically remove resource access, block guest access and delete guest accounts.|[Access reviews](access-reviews-overview.md), also surfaced in [PIM](../privileged-identity-management/pim-how-to-start-security-review.md)|
+|Access certification|Admins can enable recurring access re-certification for: SaaS apps or cloud group memberships, Azure AD or Azure Resource role assignments. Automatically remove resource access, block guest access and delete guest accounts.|[Access reviews](access-reviews-overview.md), also surfaced in [PIM](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md)|
 |Fulfillment and provisioning|Automatic provisioning and deprovisioning into Azure AD connected apps, including via SCIM and into SharePoint Online sites. |[user provisioning](../app-provisioning/user-provisioning.md)|
 |Reporting and analytics|Admins can retrieve audit logs of recent user provisioning and sign on activity. Integration with Azure Monitor and 'who has access' via access packages.|[Azure AD reports](../reports-monitoring/overview-reports.md) and [monitoring](../reports-monitoring/overview-monitoring.md)|
 |Privileged access|Just-in-time and scheduled access, alerting, approval workflows for Azure AD roles (including custom roles) and Azure Resource roles.|[Azure AD PIM](../privileged-identity-management/pim-configure.md)|
@@ -103,10 +102,13 @@ It's a best practice to use the least privileged role to perform administrative 
 
 | Feature | Least privileged role |
 | ------- | --------------------- |
-| Entitlement management | User administrator (with the exception of adding SharePoint Online sites to catalogs, which requires Global administrator) |
+| Entitlement management | Identity Governance Administrator |
 | Access reviews | User administrator (with the exception of access reviews of Azure or Azure AD roles, which requires Privileged role administrator) |
 |Privileged Identity Management | Privileged role administrator |
 | Terms of use | Security administrator or Conditional access administrator |
+
+>[!NOTE]
+>The least privileged role for Entitlement management has changed from the User Administrator role to the Identity Governance Administrator role.
 
 ## Next steps
 

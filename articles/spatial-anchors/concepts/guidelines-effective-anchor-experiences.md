@@ -15,13 +15,9 @@ ms.service: azure-spatial-anchors
 
 This article provides guidelines and considerations to help you effectively create and locate anchors by using Azure Spatial Anchors.
 
-## Anchor improvement over time
-
-With Azure Spatial Anchors, each time you locate anchors, we attempt to improve the quality of future locate operations. We do this by using the environment data collected to augment the visual information on the anchors we are looking for. This process runs under the hood and is an offline optimization run by the Azure Spatial Anchors service to optimize for your environment. The additional data gathered during each operation builds a stronger understanding of the environment. This improves quality and allows you to better locate anchors through environment change, time passing, and for users looking at anchors from different angles and perspectives.
-
 ## Good anchors
 
-While Azure Spatial Anchors does attempt to improve the quality of anchors over time, it is also important to invest time in either educating or guiding users in your user experience (UX) to create good anchors. By investing in creating good anchors up front, you help end users to reliably find anchors:
+It is important to invest time in either educating or guiding users in your user experience (UX) to create good anchors. By investing in creating good anchors up front, you help end users to reliably find anchors:
 
 - Across different devices.
 - At various times.
@@ -100,7 +96,7 @@ Visual tracking systems rely on the visual features in an environment. The more 
 
 Follow the general guidelines in this section to build a UX that encourages a useful scan of the environment.
 
-First, if the user doesn't locate an anchor within a few seconds, the app should encourage users to move the device to capture more perspectives. The app can also encourage users to move themselves around the environment to scan for the anchor from more perspectives. The more feature perspectives that the device sees, the better, as it will increase the likelihood that an anchor is located, and it will also collect more environment data that will be used to improve the quality of the anchor.
+First, if the user doesn't locate an anchor within a few seconds, the app should encourage users to move the device to capture more perspectives. The app can also encourage users to move themselves around the environment to scan for the anchor from more perspectives. The more feature perspectives that the device sees, the better, as it will increase the likelihood that an anchor is located.
 
 For target scenarios, ask the user to move around the target to view it from different perspectives. In other words, ask the user to capture the target from new perspectives until the anchor is located.
 

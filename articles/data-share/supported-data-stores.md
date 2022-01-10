@@ -5,7 +5,7 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 09/10/2021
 ---
 # Supported data stores in Azure Data Share
 
@@ -17,8 +17,8 @@ In this article, you'll learn about the rich set of Azure data stores that Azure
 
 The following table explains the data stores that Azure Data Share supports. 
 
-| Data store | Sharing based on full snapshots | Sharing based on incremental snapshots | Sharing in place 
-|:--- |:--- |:--- |:--- |:--- |:--- |:--- |
+| Data store | Sharing based on full snapshots | Sharing based on incremental snapshots | Sharing in place |
+|:--- |:--- |:--- |:--- |
 | Azure Blob Storage |✓ |✓ | |
 | Azure Data Lake Storage Gen1 |✓ |✓ | |
 | Azure Data Lake Storage Gen2 |✓ |✓ ||
@@ -44,11 +44,13 @@ The following table explains the combinations and options that data consumers ca
 | Data Explorer ||||||| ✓ |
 
 ## Share from a storage account
-Azure Data Share supports the sharing of files, folders, and file systems from Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2. It also supports the sharing of blobs, folders, and containers from Azure Blob Storage. Only block blobs are currently supported. 
+Azure Data Share supports the sharing of files, folders, and file systems from Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2. It also supports the sharing of blobs, folders, and containers from Azure Blob Storage. You can share block, append, or page blobs, and they are received as block blobs.
 
 When file systems, containers, or folders are shared in snapshot-based sharing, data consumers can choose to make a full copy of the shared data. Or they can use the incremental snapshot capability to copy only new files or updated files. 
 
 An incremental snapshot is based on the last-modified time of the files. Existing files that have the same name as files in the received data are overwritten in a snapshot. Files that are deleted from the source aren't deleted on the target. 
+
+If a snapshot is interrupted and fails, for example, due to a cancel action, networking issue, or disaster, the next incremental snapshot copies files that have a last-modified time greater than the time of the last successful snapshot.
 
 For more information, see [Share and receive data from Azure Blob Storage and Azure Data Lake Storage](how-to-share-from-storage.md).
 
@@ -59,10 +61,12 @@ Data consumers can choose to accept the data into Azure Data Lake Storage Gen2 o
 
 When consumers accept data into Azure Data Lake Storage Gen2 or Azure Blob Storage, full snapshots overwrite the contents of the target file if the file already exists. When data is received into a table and the target table doesn't already exist, Azure Data Share creates an SQL table by using the source schema. If a target table already exists and it has the same name, it's dropped and overwritten with the latest full snapshot. Incremental snapshots aren't currently supported.
 
+If a snapshot is interrupted and fails, for example, due to a cancel action, networking issue, or disaster, the next snapshot copies the entire table or view again.
+
 For more information, see [Share and receive data from Azure SQL Database and Azure Synapse Analytics](how-to-share-from-sql.md).
 
 ## Share from Data Explorer
-Azure Data Share supports the ability to share databases in-place from Azure Data Explorer clusters. A data provider can share at the level of the database or the cluster. 
+Azure Data Share supports the ability to share databases in-place from Azure Data Explorer clusters. A data provider can share at the level of the database or the cluster. If you are using Data Share API to share data, you can also share specific tables.  
 
 When data is shared at the database level, data consumers can access only the databases that the data provider shared. When a provider shares data at the cluster level, data consumers can access all of the databases from the provider's cluster, including any future databases that the data provider creates.
 

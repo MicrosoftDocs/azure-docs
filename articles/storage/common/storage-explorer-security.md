@@ -93,7 +93,7 @@ Storage Explorer allows you to modify the access level of your Azure Blob Storag
 When enabling public access for a blob container, we recommend the following guidelines:
 
 - **Don't enable public access to a blob container that may contain any potentially sensitive data.** Make sure your blob container is free of all private data.
-- **Don't upload any potentially sensitive data to a blob container with Blob or Container access.** 
+- **Don't upload any potentially sensitive data to a blob container with Blob or Container access.**
 
 ## Next steps
 

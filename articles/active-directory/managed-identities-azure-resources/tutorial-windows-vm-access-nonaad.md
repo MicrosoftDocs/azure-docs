@@ -1,22 +1,21 @@
 ---
-title: Tutorial`:` Use a managed identity to access Azure Key Vault - Windows - Azure AD
+title: "Tutorial: Use a managed identity to access Azure Key Vault - Windows - Azure AD"
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure Key Vault. 
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: daveba
 
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-#Customer intent: As a developer or administrator I want to configure a windows virtual machine to retrieve a secret from key vault using a managed identity and have a simple way to validate my configuration before using it for development
+#Customer intent: As a developer or administrator I want to configure a Windows virtual machine to retrieve a secret from key vault using a managed identity and have a simple way to validate my configuration before using it for development
 ---
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure Key Vault 

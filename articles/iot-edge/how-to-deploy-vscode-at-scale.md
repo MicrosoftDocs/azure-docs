@@ -3,7 +3,7 @@ title: Deploy modules at scale using Visual Studio Code - Azure IoT Edge
 description: Use the IoT extension for Visual Studio Code to create automatic deployments for groups of IoT Edge devices.
 keywords: 
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 1/8/2020
 ms.topic: conceptual
@@ -12,6 +12,8 @@ services: iot-edge
 ---
 
 # Deploy IoT Edge modules at scale using Visual Studio Code
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 You can create an **IoT Edge automatic deployment** using Visual Studio Code to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [automatic device management](../iot-hub/iot-hub-automatic-device-management.md) feature of IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices. You can also track the status and health of the modules, and make changes when necessary.
 

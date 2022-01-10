@@ -90,7 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| Name | Source Attribute|
 	| ---------------| --------------- |
 	| firstName | user.givenname |
-	| lastName | user.surname ||
+	| lastName | user.surname |
 	| email | user.mail |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
@@ -143,7 +143,7 @@ In this section, you create a user called B.Simon in Yuhu Property Management Pl
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Yuhu Property Management Platform tile in the Access Panel, you should be automatically signed in to the Yuhu Property Management Platform for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the Yuhu Property Management Platform tile in the Access Panel, you should be automatically signed in to the Yuhu Property Management Platform for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 

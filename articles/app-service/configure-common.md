@@ -14,7 +14,7 @@ This article explains how to configure common settings for web apps, mobile back
 
 ## Configure app settings
 
-In App Service, app settings are variables passed as environment variables to the application code. For Linux apps and custom containers, App Service passes app settings to the container using the `--env` flag to set the environment variable in the container.
+In App Service, app settings are variables passed as environment variables to the application code. For Linux apps and custom containers, App Service passes app settings to the container using the `--env` flag to set the environment variable in the container. In either case, they're injected into your app environment at app startup. When you add, remove, or edit app settings, App Service triggers an app restart. App setting names can't contain periods (`.`). If an app setting contains a period, the period is replaced with an underscore in the container.
 
 In the [Azure portal], search for and select **App Services**, and then select your app. 
 
@@ -54,7 +54,7 @@ To edit a setting, click the **Edit** button on the right side.
 When finished, click **Update**. Don't forget to click **Save** back in the **Configuration** page.
 
 > [!NOTE]
-> In a default Linux container or a custom Linux container, any nested JSON key structure in the app setting name like `ApplicationInsights:InstrumentationKey` needs to be configured in App Service as `ApplicationInsights__InstrumentationKey` for the key name. In other words, any `:` should be replaced by `__` (double underscore).
+> In a default Linux app service or a custom Linux container, any nested JSON key structure in the app setting name like `ApplicationInsights:InstrumentationKey` needs to be configured in App Service as `ApplicationInsights__InstrumentationKey` for the key name. In other words, any `:` should be replaced by `__` (double underscore).
 >
 
 ### Edit in bulk
@@ -190,16 +190,16 @@ Here, you can configure some common settings for the app. Some settings require 
 
 - **Stack settings**: The software stack to run the app, including the language and SDK versions.
 
-    For Linux apps and custom container apps, you can select the language runtime version and set an optional **Startup command** or a startup command file.
+    For Linux apps and custom containers, you can select the language runtime version and set an optional **Startup command** or a startup command file.
 
     ![General settings for Linux containers](./media/configure-common/open-general-linux.png)
 
 - **Platform settings**: Lets you configure settings for the hosting platform, including:
-    - **Bitness**: 32-bit or 64-bit.
+    - **Bitness**: 32-bit or 64-bit. (Defaults to 32-bit for App Service created in the portal.)
     - **WebSocket protocol**: For [ASP.NET SignalR] or [socket.io](https://socket.io/), for example.
-    - **Always On**: Keeps the app loaded even when there's no traffic. It's required for continuous WebJobs or for WebJobs that are triggered using a CRON expression.
-      > [!NOTE]
-      > With the Always On feature, the front end load balancer sends a request to the application root. This application endpoint of the App Service can't be configured.
+    - **Always On**: Keeps the app loaded even when there's no traffic. When **Always On** is not turned on (default), the app is unloaded after 20 minutes without any incoming requests. The unloaded app can cause high latency for new requests because of its warm-up time. When **Always On** is turned on, the front-end load balancer sends a GET request to the application root every five minutes. The continuous ping prevents the app from being unloaded.
+    
+        Always On is required for continuous WebJobs or for WebJobs that are triggered using a CRON expression.
     - **Managed pipeline version**: The IIS [pipeline mode]. Set it to **Classic** if you have a legacy app that requires an older version of IIS.
     - **HTTP version**: Set to **2.0** to enable support for [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) protocol.
     > [!NOTE]
@@ -239,6 +239,13 @@ Handler mappings let you add custom script processors to handle requests for spe
 - **Script processor**. The absolute path of the script processor to you. Requests to files that match the file extension are processed by the script processor. Use the path `D:\home\site\wwwroot` to refer to your app's root directory.
 - **Arguments**. Optional command-line arguments for the script processor.
 
+<a name="redirect-to-custom-directory" aria-hidden="true"></a>
+
+### Redirect to a custom directory
+
+> [!NOTE]
+> By default, App Service directs web requests to the root directory of your app code. But certain web frameworks don't start in the root directory. For example, [Laravel](https://laravel.com/) starts in the `public` subdirectory. To continue the `contoso.com` DNS example, such an app is accessible at `http://contoso.com/public`, but you typically want to direct `http://contoso.com` to the `public` directory instead.
+
 Each app has the default root path (`/`) mapped to `D:\home\site\wwwroot`, where your code is deployed by default. If your app root is in a different folder, or if your repository has more than one application, you can edit or add virtual applications and directories here. 
 
 From the **Path mappings** tab, click **New virtual application or directory**. 
@@ -257,7 +264,7 @@ You can [add custom storage for your containerized app](configure-connect-to-azu
 - **Storage accounts**: The storage account with the container you want.
 - **Storage type**: **Azure Blobs** or **Azure Files**.
   > [!NOTE]
-  > Windows container apps only support Azure Files.
+  > Windows custom containers only support Azure Files.
 - **Storage container**: For basic configuration, the container you want.
 - **Share name**: For advanced configuration, the file share name.
 - **Access key**: For advanced configuration, the access key.
@@ -280,6 +287,7 @@ See [Configure a custom Linux container for Azure App Service](configure-custom-
 
 ## Next steps
 
+- [Environment variables and app settings reference](reference-app-settings.md)
 - [Configure a custom domain name in Azure App Service]
 - [Set up staging environments in Azure App Service]
 - [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)

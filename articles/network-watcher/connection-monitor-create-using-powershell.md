@@ -6,12 +6,12 @@ services: network-watcher
 documentationcenter: na
 author: vinigam
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 01/07/2021
-ms.author: vinigam
+ms.author: vinigam 
+ms.custom: devx-track-azurepowershell
 #Customer intent: I need to create a connection monitor by using PowerShell to monitor communication between one VM and another.
 ---
 # Create a connection monitor by using PowerShell

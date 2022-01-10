@@ -5,7 +5,6 @@ services: network-watcher
 documentationcenter: na
 author: damendo
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
@@ -35,5 +34,5 @@ For a given flow, the NCD tool runs a simulation of the flow and returns whether
 
 Use Network Configuration Diagnostic through other interfaces
  - [REST API](/rest/api/network-watcher/networkwatchers/getnetworkconfigurationdiagnostic)
- - [PowerShell](/powershell/module/az.network/invoke-aznetworkwatchernetworkconfigurationdiagnostic?view=azps-4.6.1)
+ - [PowerShell](/powershell/module/az.network/invoke-aznetworkwatchernetworkconfigurationdiagnostic)
  - [Azure CLI](/cli/azure/network/watcher#az_network_watcher_run_configuration_diagnostic)

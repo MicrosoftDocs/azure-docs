@@ -10,8 +10,10 @@ ms.subservice: bing-news-search
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: aahi
+ms.devlang: javascript
 ms.custom: seodec2018, devx-track-js
 ---
+
 # Tutorial: Create a single-page web app
 
 > [!WARNING]
@@ -425,4 +427,4 @@ Leave the command window open while you use the tutorial app; closing the window
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Bing News Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)
+> [Bing News Search API reference](/rest/api/cognitiveservices/bing-news-api-v7-reference)

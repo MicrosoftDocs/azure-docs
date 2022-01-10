@@ -1,15 +1,14 @@
 ---
 title: Tutorial - Configure message routing for Azure IoT Hub using Azure CLI
 description: Tutorial - Configure message routing for Azure IoT Hub using the Azure CLI and the Azure portal
-author: robinsh
-manager: philmea
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 03/12/2019
-ms.author: robinsh
+ms.date: 08/16/2021
+ms.author: lizross
 ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
-#Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. This step of the tutorial needs to show me how to set up my base resources using PowerShell.
+#Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. This step of the tutorial needs to show me how to set up my base resources using CLI and the Azure Portal.
 ---
 
 # Tutorial: Use the Azure CLI and Azure portal to configure IoT Hub message routing
@@ -128,91 +127,96 @@ Now set up the routing for the storage account. You go to the Message Routing pa
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
+Now you set up the configuration for the message routing to Azure Storage.
+
 1. In the [Azure portal](https://portal.azure.com), select **Resource Groups**, then select your resource group. This tutorial uses **ContosoResources**.
 
 2. Select the IoT hub under the list of resources. This tutorial uses **ContosoTestHub**.
 
-3. Select **Message Routing**. In the **Message Routing** pane, select +**Add**. On the **Add a Route** pane, select +**Add endpoint** next to the Endpoint field to show the supported endpoints, as displayed in the following picture:
+3. Select **Message Routing** in the middle column that says ***Messaging**. Select +**Add** to see the **Add a Route** pane. Select +**Add endpoint** next to the Endpoint field, then select **Storage**. You see the **Add a storage endpoint** pane.
 
-   ![Start adding an endpoint for a route](./media/tutorial-routing/message-routing-add-a-route-with-storage-endpoint-ver2.png)
+   ![Start adding an endpoint for a route](./media/tutorial-routing/01-add-a-route-to-storage.png)
 
-4. Select **Storage**. You see the **Add a storage endpoint** pane.
+4. Enter a name for the endpoint. This tutorial uses **ContosoStorageEndpoint**.
 
-   ![Adding an endpoint](./media/tutorial-routing/message-routing-add-storage-endpoint-ver2.png)
+   ![Name the endpoint](./media/tutorial-routing/02-add-a-storage-endpoint.png)
 
-5. Enter a name for the endpoint. This tutorial uses **ContosoStorageEndpoint**.
+5. Select **Pick a container**. This takes you to a list of your storage accounts. Select the one you set up in the preparation steps; this tutorial uses **contosostorage**. It shows a list of containers in that storage account. **Select** the container you set up in the preparation steps. This tutorial uses **contosoresults**. Then click **Select** at the bottom of the screen. It returns to a different **Add a storage endpoint** pane. You see the URL for the selected container. 
 
-6. Select **Pick a container**. This takes you to a list of your storage accounts. Select the one you set up in the preparation steps. This tutorial uses **contosostorage**. It shows a list of containers in that storage account. **Select** the container you set up in the preparation steps. This tutorial uses **contosoresults**. You return to the **Add a storage endpoint** pane and see the selections you made.
-
-7. Set the encoding to AVRO or JSON. For the purpose of this tutorial, use the defaults for the rest of the fields. This field will be greyed out if the region selected does not support JSON encoding.,
+6. Set the encoding to AVRO or JSON. For the purpose of this tutorial, use the defaults for the rest of the fields. This field will be greyed out if the region selected does not support JSON encoding. Set the file name format. 
 
    > [!NOTE]
-   > You can set the format of the blob name using the **Blob file name format**. The default is `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. The format must contain {iothub}, {partition}, {YYYY}, {MM}, {DD}, {HH}, and {mm} in any order.
+   > Set the format of the blob name using the **Blob file name format**. The default is `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. The format must contain {iothub}, {partition}, {YYYY}, {MM}, {DD}, {HH}, and {mm} in any order.
    >
    > For example, using the default blob file name format, if the hub name is ContosoTestHub, and the date/time is October 30, 2018 at 10:56 a.m., the blob name will look like this: `ContosoTestHub/0/2018/10/30/10/56`.
    > 
-   > The blobs are written in the Avro format.
+   > The blobs are written in the AVRO format by default.
    >
 
-8. Select **Create** to create the storage endpoint and add it to the route. You return to the **Add a route** pane.
+7. Select **Create** at the bottom of the page to create the storage endpoint and add it to the route. You are returned to the **Add a Route** pane. 
 
-9. Now complete the rest of the routing query information. This query specifies the criteria for sending messages to the storage container you just added as an endpoint. Fill in the fields on the screen.
+8. Complete the rest of the routing query information. This query specifies the criteria for sending messages to the storage container you just added as an endpoint. Fill in the fields on the screen.
 
-   **Name**: Enter a name for your routing query. This tutorial uses **ContosoStorageRoute**.
+9. Fill in the rest of the fields.
 
-   **Endpoint**: This shows the endpoint you just set up.
-
-   **Data source**: Select **Device Telemetry Messages** from the dropdown list.
-
-   **Enable route**: Be sure this field is set to `enabled`.
+   - **Name**: Enter a name for your route. This tutorial uses **ContosoStorageRoute**. Next, specify the endpoint for  storage. This tutorial uses ContosoStorageEndpoint.
    
-   **Routing query**: Enter `level="storage"` as the query string.
+   - Specify **Data source**: Select **Device Telemetry Messages** from the dropdown list.   
 
-   ![Creating a routing query for the storage account](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
+   - Select **Enable route**: Be sure this field is set to `enabled`.
 
-   Select **Save**. When it finishes, it returns to the Message Routing pane, where you can see your new routing query for storage. Close the Routes pane, which returns you to the Resource group page.
+   - **Routing query**: Enter `level="storage"` as the query string.
+
+   ![Save the routing query information](./media/tutorial-routing/04-save-storage-route.png)
+  
+10.  Select **Save**. When it finishes, it returns to the Message Routing pane, where you can see your new routing query for storage. Close the Message Routing pane, which returns you to the Resource group page.
+
 
 ### Route to a Service Bus queue
 
-Now set up the routing for the Service Bus queue. You go to the Message Routing pane, then add a route. When adding the route, define a new endpoint for the route. After this route is set up, messages where the **level** property is set to **critical** are written to the Service Bus queue, which triggers a Logic App, which then sends an e-mail with the information.
+Now set up the routing for the Service Bus queue. You go to the Message Routing pane, then add a route. When adding the route, define a Service Bus Queue as the endpoint for the route. After this route is set up, messages where the **level** property is set to **critical** are written to the Service Bus queue, which triggers a Logic App, which then sends an e-mail with the information.
 
 1. On the Resource group page, select your IoT hub, then select **Message Routing**.
 
-2. In the **Message Routing** pane, select +**Add**.
+2. On the **Message Routing** pane, select +**Add**.
 
-3. On the **Add a Route** pane, Select +**Add** next to the Endpoint field. Select **Service Bus Queue**. You see the **Add Service Bus Endpoint** pane.
+3. On the **Add a Route** pane, Select +**Add** near **+endpoint**. Select **Service Bus Queue**. You see the **Add Service Bus Endpoint** pane.
 
-   ![Adding a service bus endpoint](./media/tutorial-routing/message-routing-add-sbqueue-ep.png)
+   ![Adding a 1st service bus endpoint](./media/tutorial-routing/05-setup-sbq-endpoint.png)
 
-4. Fill in the fields:
+4. Fill in the rest of the fields:
 
-   **Endpoint Name**: Enter a name for the endpoint. This tutorial uses **ContosoSBQueueEndpoint**.
+   **Endpoint Name**: Enter a name for the endpoint. This tutorial uses **ContosoSBQEndpoint**.
    
    **Service Bus Namespace**: Use the dropdown list to select the service bus namespace you set up in the preparation steps. This tutorial uses **ContosoSBNamespace**.
 
    **Service Bus queue**: Use the dropdown list to select the Service Bus queue. This tutorial uses **contososbqueue**.
 
-5. Select **Create** to add the Service Bus queue endpoint. You return to the **Add a route** pane.
+5. Select **Create** to add the 1st Service Bus queue endpoint. You return to the **Add a route** pane.
 
-6. Now you complete the rest of the routing query information. This query specifies the criteria for sending messages  to the Service Bus queue you just added as an endpoint. Fill in the fields on the screen. 
+   ![Adding 2nd service bus endpoint](./media/tutorial-routing/06-save-sbq-endpoint.png)
 
-   **Name**: Enter a name for your routing query. This tutorial uses **ContosoSBQueueRoute**. 
+6. Now complete the rest of the routing query information. This query specifies the criteria for sending messages to the Service Bus queue you just added as an endpoint. Fill in the fields on the screen. 
+
+   **Name**: Enter a name for your route. This tutorial uses **ContosoSBQueueRoute**. 
 
    **Endpoint**: This shows the endpoint you just set up.
 
    **Data source**: Select **Device Telemetry Messages** from the dropdown list.
 
-   **Routing query**: Enter `level="critical"` as the query string. 
+   **Enable route**: Set this field to `enable`."
 
-   ![Create a routing query for the Service Bus queue](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
+   **Routing query**: Enter `level="critical"` as the routing query. 
 
-7. Select **Save**. When it returns to the Routes pane, you see both of your new routes, as displayed here.
+   ![Create a routing query for the Service Bus queue](./media/tutorial-routing/07-save-servicebusqueue-route.png)
 
-   ![The routes you just set up](./media/tutorial-routing/message-routing-show-both-routes.png)
+7. Select **Save**. When it returns to the Routes pane, you see both of your new routes.
 
-8. You can see the custom endpoints you set up by selecting the **Custom Endpoints** tab.
+   ![The routes you just set up](./media/tutorial-routing/08-show-both-routes.png)
 
-   ![The custom endpoint you just set up](./media/tutorial-routing/message-routing-show-custom-endpoints.png)
+8. You can see the custom endpoints that you set up by selecting the **Custom Endpoints** tab.
+
+   ![The custom endpoints you just set up](./media/tutorial-routing/09-show-custom-endpoints.png)
 
 9. Close the Message Routing pane, which returns you to the Resource group pane.
 

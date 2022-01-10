@@ -2,7 +2,7 @@
 title: 'Tutorial: Create and deploy custom modules - Machine Learning on Azure IoT Edge'
 description: 'This tutorial shows how to create and deploy IoT Edge modules that process data from leaf devices through a machine learning model and then send the insights to IoT Hub.'
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 6/30/2020
 ms.topic: tutorial
@@ -11,6 +11,8 @@ services: iot-edge
 ms.custom: devx-track-csharp
 ---
 # Tutorial: Create and deploy custom IoT Edge modules
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 In this article, we create three IoT Edge modules that receive messages from leaf IoT devices, run the data through your machine learning model, and then forward insights to IoT Hub.
 
@@ -140,6 +142,9 @@ In this step, we are going to create an Azure IoT Edge solution using the “Azu
       CONTAINER_REGISTRY_USERNAME_<your registry name>=<ACR username>
       CONTAINER_REGISTRY_PASSWORD_<your registry name>=<ACR password>
       ```
+
+      >[!NOTE]
+      >This tutorial uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
 1. Right click on the deployment.template.json file in Visual Studio Code explorer and select **Build IoT Edge Solution**.
 
@@ -347,7 +352,7 @@ As mentioned previously, the writer module relies on the presence of a bind moun
    sudo mkdir -p /data/avrofiles
    ```
 
-1. Update directory permissions to make it writeable by the container.
+1. Update directory permissions to make it writable by the container.
 
    ```bash
    sudo chmod ugo+rw /data/avrofiles

@@ -1,13 +1,12 @@
 ---
 title: Add a Bubble layer to Android maps | Microsoft Azure Maps
 description: Learn how to render points on maps as circles with fixed sizes. See how to use the Azure Maps Android SDK to add and customize bubble layers for this purpose.
-author: rbrundritt
-ms.author: richbrun
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
 zone_pivot_groups: azure-maps-android
 ---
 
@@ -164,7 +163,7 @@ map.layers.add(
 
 ::: zone-end
 
-The following screenshot shows the above code rending a point in a bubble layer and a text label for the point with a symbol layer.
+The following screenshot shows the above code rendering a point in a bubble layer and a text label for the point with a symbol layer.
 
 ![Map with point rendered using a bubble layer and a text label with symbol layer](media/map-add-bubble-layer-android/android-bubble-symbol-layer.png)
 
@@ -174,6 +173,9 @@ See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
 > [Create a data source](create-data-source-android-sdk.md)
+
+> [!div class="nextstepaction"]
+> [Cluster point data](clustering-point-data-android-sdk.md)
 
 > [!div class="nextstepaction"]
 > [Add a symbol layer](how-to-add-symbol-to-android-map.md)

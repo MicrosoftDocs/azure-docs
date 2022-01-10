@@ -1,14 +1,14 @@
 ---
-title: 'Quickstart: Create an Android app with Azure Maps | Microsoft Azure '
+title: 'Quickstart: Create an Android app with Azure Maps'
+titleSuffix:  Microsoft Azure Maps
 description: 'Quickstart: Learn how to create an Android app using the Azure Maps Android SDK.'
-author: rbrundritt
-ms.author: richbrun
-ms.date: 12/10/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 12/21/2021
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
-ms.custom: mvc
+ms.custom: mvc, mode-other
 zone_pivot_groups: azure-maps-android
 ---
 
@@ -33,18 +33,18 @@ This article shows you how to add the Azure Maps to an Android app. It walks you
 
 Create a new Azure Maps account with the following steps:
 
-1. In the upper left-hand corner of the [Azure portal](https://portal.azure.com), click **Create a resource**.
-2. In the *Search the Marketplace* box, type **Azure Maps**.
-3. From the *Results*, select **Azure Maps**. Click **Create** button that appears below the map.
+1. In the upper left-hand corner of the [Azure portal](https://portal.azure.com), select **Create a resource**.
+2. In the *Search the Marketplace* box, type **Azure Maps**, then select **Azure Maps** from the search results.
+3. Select the **Create** button that appears below the map.
 4. On the **Create Maps Account** page, enter the following values:
     * The *Subscription* that you want to use for this account.
     * The *Resource group* name for this account. You may choose to *Create new* or *Use existing* resource group.
     * The *Name* of your new account.
     * The *Pricing tier* for this account.
     * Read the *License* and *Privacy Statement*, and check the checkbox to accept the terms.
-    * Click the **Create** button.
+    * Select the **Create** button.
 
-    ![Create Maps account in portal](media/quick-android-map/create-account.png)
+    :::image type="content" source="./media/quick-demo-map-app/create-account.png" alt-text="A screen shot that shows the Create Maps account pane in the Azure portal":::
 
 ## Get the primary key for your account
 
@@ -57,20 +57,20 @@ Once your Maps account is successfully created, retrieve the primary key that en
 >[!NOTE]
 > If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](../key-vault/secrets/tutorial-rotation-dual.md)
 
-![Get Primary Key Azure Maps key in Azure portal](media/quick-android-map/get-key.png)
+![A screen shot showing the Azure Maps Primary key in the Azure portal](media/quick-android-map/get-key.png)
 
 ## Create a project in Android Studio
 
 First, create a new project with an empty activity. Complete these steps to create an Android Studio project:
 
 1. Under **Choose your project**, select **Phone and Tablet**. Your application will run on this form factor.
-2. On the **Phone and Tablet** tab, select **Empty  Activity**, and then select **Next**.
+2. On the **Phone and Tablet** tab, select **Empty Activity**, and then select **Next**.
 3. Under **Configure your project**, select `API 21: Android 5.0.0 (Lollipop)` as the minimum SDK. This is the earliest version supported by the Azure Maps Android SDK.
 4. Accept the default `Activity Name` and `Layout Name` and select **Finish**.
 
 See the [Android Studio documentation](https://developer.android.com/studio/intro/) for more help with installing Android Studio and creating a new project.
 
-![Create a project in Android studio](media/quick-android-map/form-factor-android.png)
+![A Create new project screen shot in Android studio](media/quick-android-map/form-factor-android.png)
 
 ## Set up a virtual device
 
@@ -78,7 +78,7 @@ Android Studio lets you set up a virtual Android device on your computer. Doing 
 
 You can learn more about setting up an AVD in the [Android Studio documentation](https://developer.android.com/studio/run/managing-avds).
 
-![Android Emulator](media/quick-android-map/android-emulator.png)
+![A screen shot of the Android Emulator in Android Studio](media/quick-android-map/android-emulator.png)
 
 ## Install the Azure Maps Android SDK
 
@@ -108,17 +108,17 @@ The next step in building your application is to install the Azure Maps Android 
     3. Update your dependencies block and add a new implementation dependency line for the latest Azure Maps Android SDK:
 
         ```gradle
-        implementation "com.microsoft.azure.maps:mapcontrol:0.7"
+        implementation "com.azure.android:azure-maps-control:1.0.0"
         ```
 
         > [!Note]
         > You can set the version number to "0+" to have your code always point to the latest version.
 
-    4. Go to **File** in the toolbar and then click on **Sync Project with Gradle Files**.
+    4. Go to **File** in the toolbar and then select **Sync Project with Gradle Files**.
 3. Add a map fragment to the main activity (res \> layout \> activity\_main.xml):
 
     ```xml
-    <com.microsoft.azure.maps.mapcontrol.MapControl
+    <com.azure.android.maps.control.MapControl
         android:id="@+id/mapcontrol"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -152,11 +152,11 @@ The next step in building your application is to install the Azure Maps Android 
     package com.example.myapplication;
     
     import androidx.appcompat.app.AppCompatActivity;
-    import com.microsoft.azure.maps.mapcontrol.AzureMaps;
-    import com.microsoft.azure.maps.mapcontrol.MapControl;
-    import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
-    import com.microsoft.azure.maps.mapcontrol.options.MapStyle;
-    import com.microsoft.azure.maps.mapcontrol.source.DataSource;
+    import com.azure.android.maps.control.AzureMaps;
+    import com.azure.android.maps.control.MapControl;
+    import com.azure.android.maps.control.layer.SymbolLayer;
+    import com.azure.android.maps.control.options.MapStyle;
+    import com.azure.android.maps.control.source.DataSource;
     
     public class MainActivity extends AppCompatActivity {
         
@@ -262,10 +262,10 @@ The next step in building your application is to install the Azure Maps Android 
 
     import androidx.appcompat.app.AppCompatActivity
     import android.os.Bundle
-    import com.microsoft.azure.maps.mapcontrol.AzureMap
-    import com.microsoft.azure.maps.mapcontrol.AzureMaps
-    import com.microsoft.azure.maps.mapcontrol.MapControl
-    import com.microsoft.azure.maps.mapcontrol.events.OnReady
+    import com.azure.android.maps.control.AzureMap
+    import com.azure.android.maps.control.AzureMaps
+    import com.azure.android.maps.control.MapControl
+    import com.azure.android.maps.control.events.OnReady
     
     class MainActivity : AppCompatActivity() {
     
@@ -337,11 +337,11 @@ The next step in building your application is to install the Azure Maps Android 
 
 5. Select the run button, as shown in the following graphic (or press `Control` + `R` on a Mac), to build your application.
 
-    ![Click Run](media/quick-android-map/run-app.png)
+    ![A screen shot showing the run button in Android Studio.](media/quick-android-map/run-app.png)
 
 Android Studio will take a few seconds to build the application. After the build is complete, you can test your application in the emulated Android device. You should see a map like this one:
 
-![Azure Maps in Android application](media/quick-android-map/quickstart-android-map.png)
+![A screen shot showing Azure Maps in an Android application](media/quick-android-map/quickstart-android-map.png)
 
 ## Clean up resources
 
@@ -355,8 +355,8 @@ If you don't plan to continue to the tutorials, take these steps to clean up the
 
 If you don't plan on continuing to develop with the Azure Maps Android SDK:
 
-1. Navigate to the Azure portal page. Select **All resources** from the main portal page. Or, click on the menu icon in the upper left-hand corner. Select **All resources**.
-2. Click on your Azure Maps account. At the top of the page, click **Delete**.
+1. Navigate to the Azure portal page. Select **All resources** from the main portal page.
+2. Select your Azure Maps account. At the top of the page, select **Delete**.
 3. Optionally, if you don't plan to continue developing Android apps, uninstall Android Studio.
 
 For more code examples, see these guides:

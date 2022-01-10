@@ -18,7 +18,7 @@ When pulling from the IoT Hub, you use a __source__ connector. When pushing to I
 
 The following diagram shows the data flow between Azure IoT Hub and Kafka on HDInsight when using the connector.
 
-![Image showing data flowing from IoT Hub to Kafka through the connector](./media/apache-kafka-connector-iot-hub/iot-hub-kafka-connector-hdinsight.png)
+:::image type="content" source="./media/apache-kafka-connector-iot-hub/iot-hub-kafka-connector-hdinsight.png" alt-text="Image showing data flowing from IoT Hub to Kafka through the connector" border="false":::
 
 For more information on the Connect API, see [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect).
 
@@ -95,7 +95,7 @@ From your SSH connection to the edge node, use the following steps to configure 
 
     Copy the values for later use. The value returned is similar to the following text:
 
-    `wn0-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092,wn1-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092`
+    `<brokername1>.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092,<brokername2>.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092`
 
 1. Get the address of the Apache Zookeeper nodes. There are several Zookeeper nodes in the cluster, but you only need to reference one or two. Use the following command to the store the addresses in the variable `KAFKAZKHOSTS`:
 

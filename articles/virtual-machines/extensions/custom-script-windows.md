@@ -1,16 +1,14 @@
 ---
 title: Azure Custom Script Extension for Windows 
 description: Automate Windows VM configuration tasks by using the Custom Script extension
-services: virtual-machines-windows
-manager: gwallace
-author: amjads1
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
-ms.date: 08/31/2020
+ms.service: virtual-machines
+ms.subservice: extensions
 ms.author: amjads
+author: amjads1
+ms.collection: windows
+ms.date: 08/31/2020 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Custom Script Extension for Windows
@@ -72,7 +70,7 @@ If your script is on a local server, then you may still need additional firewall
 
 The Custom Script Extension configuration specifies things like script location and the command to be run. You can store this configuration in configuration files, specify it on the command line, or specify it in an Azure Resource Manager template.
 
-You can store sensitive data in a protected configuration, which is encrypted and only decrypted inside the virtual machine. The protected configuration is useful when the execution command includes secrets such as a password.
+You can store sensitive data in a protected configuration, which is encrypted and only decrypted inside the virtual machine. The protected configuration is useful when the execution command includes secrets such as a password or a shared access signature (SAS) file reference, which should be protected.
 
 These items should be treated as sensitive data and specified in the extensions protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine.
 
@@ -95,16 +93,16 @@ These items should be treated as sensitive data and specified in the extensions 
         "typeHandlerVersion": "1.10",
         "autoUpgradeMinorVersion": true,
         "settings": {
-            "fileUris": [
-                "script location"
-            ],
             "timestamp":123456789
         },
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
             "storageAccountName": "myStorageAccountName",
             "storageAccountKey": "myStorageAccountKey",
-            "managedIdentity" : {}
+            "managedIdentity" : {},
+            "fileUris": [
+                "script location"
+            ]
         }
     }
 }
@@ -140,7 +138,7 @@ These items should be treated as sensitive data and specified in the extensions 
 #### Property value details
 
 * `commandToExecute`: (**required**, string)  the entry point script to execute. Use this field instead if your command contains secrets such as passwords, or your fileUris are sensitive.
-* `fileUris`: (optional, string array) the URLs for file(s) to be downloaded.
+* `fileUris`: (optional, string array) the URLs for file(s) to be downloaded. If URLs are sensitive (such as URLs containing keys), this field should be specified in protectedSettings
 * `timestamp` (optional, 32-bit integer) use this field only to trigger a rerun of the
 script by changing value of this field.  Any integer value is acceptable; it must only be different than the previous value.
 * `storageAccountName`: (optional, string) the name of storage account. If you specify storage credentials, all `fileUris` must be URLs for Azure Blobs.
@@ -152,6 +150,7 @@ script by changing value of this field.  Any integer value is acceptable; it mus
 The following values can be set in either public or protected settings, the extension will reject any configuration where the values below are set in both public and protected settings.
 
 * `commandToExecute`
+* `fileUris`
 
 Using public settings maybe useful for debugging, but it's recommended that you use protected settings.
 
@@ -268,10 +267,16 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 
 ### How to run custom script more than once with CLI
 
+The custom script extension handler will prevent re-executing a script if the *exact* same settings have been passed. This is to prevent accidental re-execution which might cause unexpected behaviors in case the script is not idempotent. You can confirm if the handler has blocked the re-execution by looking at the C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension\<HandlerVersion>\CustomScriptHandler.log, and search for a warning like below:
+
+```warning
+Current sequence number, <SequenceNumber>, is not greater than the sequence number of the most recently executed configuration. Exiting...
+```
+
 If you want to run the custom script extension more than once, you can only do this action under these conditions:
 
 * The extension **Name** parameter is the same as the previous deployment of the extension.
-* Update the configuration otherwise the command won't be re-executed. You can add in a dynamic property into the command, such as a timestamp.
+* Update the configuration otherwise the command won't be re-executed. You can add in a dynamic property into the command, such as a timestamp. If the handler detects a change in the configuration settings, then it will consider it as an explicit desire to re-execute the script.
 
 Alternatively, you can set the [ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) property to **true**.
 
@@ -282,9 +287,12 @@ If you are using [Invoke-WebRequest](/powershell/module/microsoft.powershell.uti
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
 ```
-## Virtual Machine Scale Sets
 
-To deploy the Custom Script Extension on a Scale Set, see [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension)
+## Virtual machine scale sets
+
+If you deploy the Custom Script Extension from the Azure portal, you don't have control over the expiration of the shared access signature token for accessing the script in your storage account. The result is that the initial deployment works, but when the storage account shared access signature token expires, any subsequent scaling operation fails because the Custom Script Extension can no longer access the storage account.
+
+We recommend that you use [PowerShell](/powershell/module/az.Compute/Add-azVmssExtension?view=azps-7.0.0), the [Azure CLI](/cli/azure/vmss/extension?view=azure-cli-latest), or an Azure Resource Manager template when you deploy the Custom Script Extension on a virtual machine scale set. This way, you can choose to use a managed identity or have direct control of the expiration of the shared access signature token for accessing the script in your storage account for as long as you need.
 
 ## Classic VMs
 

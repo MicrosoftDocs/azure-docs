@@ -1,9 +1,9 @@
 ---
-author: trevorbye
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
-ms.author: trbye
+ms.author: eur
 ---
 
 :::row:::
@@ -13,7 +13,7 @@ ms.author: trbye
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Android" src="https://docs.microsoft.com/media/logos/logo_android.svg" width="60px">
+            <img alt="Android" src="/media/logos/logo_android.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
@@ -26,14 +26,14 @@ ms.author: trbye
 
 :::row:::
     :::column span="3":::
-        Xamarin.Android exposes the complete Android SDK for .NET developers. Build fully native Android apps using C# or F# in Visual Studio. For more information, see <a href="https://docs.microsoft.com/xamarin/android/" target="_blank">Xamarin.Android </a>
+        Xamarin.Android exposes the complete Android SDK for .NET developers. Build fully native Android apps using C# or F# in Visual Studio. For more information, see <a href="/xamarin/android/" target="_blank">Xamarin.Android </a>
     :::column-end:::
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Xamarin" src="https://docs.microsoft.com/media/logos/logo_xamarin.svg" width="60px">
+            <img alt="Xamarin" src="/media/logos/logo_xamarin.svg" width="60px">
             &nbsp; ❤️ &nbsp;
-            <img alt="Android" src="https://docs.microsoft.com/media/logos/logo_android.svg" width="60px">
+            <img alt="Android" src="/media/logos/logo_android.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::

@@ -1,11 +1,12 @@
 ---
-title: Connect Azure Functions to Azure Storage using Visual Studio Code 
-description: Learn how to connect Azure Functions to an Azure Storage queue by adding an output binding to your Visual Studio Code project. 
+title: Connect Azure Functions to Azure Storage using Visual Studio Code
+description: Learn how to connect Azure Functions to a Azure Queue Storage by adding an output binding to your Visual Studio Code project.
 ms.date: 02/07/2020
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-js
-#Customer intent: As an Azure Functions developer, I want to connect my function to Azure Storage so that I can easily write data to a storage queue.
+ms.devlang: csharp, java, javascript, powershell, python, typescript
+ms.custom: devx-track-python, devx-track-js, mode-ui
 zone_pivot_groups: programming-languages-set-functions
+#Customer intent: As an Azure Functions developer, I want to connect my function to Azure Storage so that I can easily write data to a storage queue.
 ---
 
 # Connect Azure Functions to Azure Storage using Visual Studio Code
@@ -74,19 +75,15 @@ Extension bundles usage is enabled in the host.json file at the root of the proj
 
 :::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
 
+Now, you can add the storage output binding to your project.
+
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
-With the exception of HTTP and timer triggers, bindings are implemented as extension packages. Run the following [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to add the Storage extension package to your project.
-
-```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage
-```
+[!INCLUDE [functions-register-storage-binding-extension-csharp](../../includes/functions-register-storage-binding-extension-csharp.md)]
 
 ::: zone-end
-
-Now, you can add the storage output binding to your project.
 
 ## Add an output binding
 
@@ -150,6 +147,12 @@ After the binding is defined, you can use the `name` of the binding to access it
 
 ::: zone-end  
 
+::: zone pivot="programming-language-csharp"  
+
+[!INCLUDE [functions-run-function-test-local-vs-code-csharp](../../includes/functions-run-function-test-local-vs-code-csharp.md)]
+
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"  
 ## Run the function locally
 
 1. As in the previous article, press <kbd>F5</kbd> to start the function app project and Core Tools. 
@@ -164,11 +167,13 @@ After the binding is defined, you can use the `name` of the binding to access it
 
 Because you are using the storage connection string, your function connects to the Azure storage account when running locally. A new queue named **outqueue** is created in your storage account by the Functions runtime when the output binding is first used. You'll use Storage Explorer to verify that the queue was created along with the new message.
 
+::: zone-end
+
 ### Connect Storage Explorer to your account
 
 Skip this section if you have already installed Azure Storage Explorer and connected it to your Azure account.
 
-1. Run the [Azure Storage Explorer] tool, select the connect icon on the left, and select **Add an account**.
+1. Run the [Azure Storage Explorer](https://storageexplorer.com/) tool, select the connect icon on the left, and select **Add an account**.
 
     ![Add an Azure account to Microsoft Azure Storage Explorer](./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-add-account.png)
 

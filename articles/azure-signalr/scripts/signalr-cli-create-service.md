@@ -5,7 +5,7 @@ author: sffamily
 ms.service: signalr
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 11/13/2018
+ms.date: 12/08/2021
 ms.author: zhshang
 ms.custom: mvc, devx-track-azurecli
 ---
@@ -33,7 +33,7 @@ let randomNum=$RANDOM*$RANDOM
 # Generate a unique service and group name with the suffix
 SignalRName=SignalRTestSvc$randomNum
 #resource name must be lowercase
-mySignalRSvcName=${SignalRName,,}
+mySignalRSvcName=${SignalRName}
 myResourceGroupName=$SignalRName"Group"
 
 # Create resource group 
@@ -64,9 +64,9 @@ Each command in the table links to command specific documentation. This script u
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az signalr create](/cli/azure/signalr#az-signalr-create) | Creates an Azure SignalR Service resource. |
-| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | List the keys, which will be used by your application when pushing real-time content updates with SignalR. |
+| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az signalr create](/cli/azure/signalr#az_signalr_create) | Creates an Azure SignalR Service resource. |
+| [az signalr key list](/cli/azure/signalr/key#az_signalr_key_list) | List the keys, which will be used by your application when pushing real-time content updates with SignalR. |
 
 
 ## Next steps

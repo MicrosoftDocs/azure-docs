@@ -5,7 +5,7 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 04/19/2021
 ms.author: rohink
 #Customer intent: As an experienced network administrator, I want to configure Azure an DNS alias record to refer to an Azure public IP address.
 ---
@@ -32,8 +32,8 @@ The example domain used for this tutorial is contoso.com, but use your own domai
 
 ## Create the network infrastructure
 First, create a virtual network and a subnet to place your web servers in.
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-2. In the upper left in the portal, select **Create a resource**. Enter *resource group* in the search box, and create a resource group named **RG-DNS-Alias-pip**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select **Create a resource** from the left panel of the Azure portal. Enter *resource group* in the search box, and create a resource group named **RG-DNS-Alias-pip**.
 3. Select **Create a resource** > **Networking** > **Virtual network**.
 4. Create a virtual network named **VNet-Server**. Place it in the **RG-DNS-Alias-pip** resource group, and name the subnet **SN-Web**.
 
@@ -41,10 +41,10 @@ First, create a virtual network and a subnet to place your web servers in.
 1. Select **Create a resource** > **Windows Server 2016 VM**.
 2. Enter **Web-01** for the name, and place the VM in the **RG-DNS-Alias-TM** resource group. Enter a username and password, and select **OK**.
 3. For **Size**, select an SKU with 8-GB RAM.
-4. For **Settings**, select the **VNet-Servers** virtual network and the **SN-Web** subnet. For public inbound ports, select **HTTP** > **HTTPS** > **RDP (3389)**, and then select **OK**.
+4. For **Settings**, select the **VNet-Servers** virtual network and the **SN-Web** subnet. For public inbound ports, select **HTTP (80)** > **HTTPS (443)** > **RDP (3389)**, and then select **OK**.
 5. On the **Summary** page, select **Create**.
 
-This procedure takes a few minutes to finish. The virtual machine will have an attached NIC, which will have a basic dynamic public IP called Web-01-ip. The public IP will change every time the virtual machine is restarted.
+This deployment takes a few minutes to complete. The virtual machine will have an attached NIC with a basic dynamic public IP called Web-01-ip. The public IP will change every time the virtual machine is restarted.
 
 ### Install IIS
 
