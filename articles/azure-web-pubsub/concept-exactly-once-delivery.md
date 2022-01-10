@@ -1,6 +1,6 @@
 ---
-title: Exactly Once Message Delivery
-description: The concept of exactly once message delivery
+title: Build reliable Websocket clients
+description: How to build reliable Websocket clients
 author: chenyl
 ms.author: chenyl
 ms.service: azure-web-pubsub
@@ -8,13 +8,9 @@ ms.topic: reference
 ms.date: 12/15/2021
 ---
 
-# Azure Web PubSub Service supports exactly once message delivery guarantees 
+# Build reliable Websocket clients to overcome intermittent network issue
 
-Exactly once message delivery guarantees are desirable in a real-time pub-sub service. The service supports exactly once message delivery when using subprotocol within a connection-id.The connection-id works like a session and it can cross WebSockets connections. Once a message is published to the service and received a success ack, the message can be delivered to desired connections exactly once.
-
-## How to achieve exactly once message delivery
-
-If everything including network works very well, it's very easy to achieve exactly once message delivery. The problem is how to overcome publishers and subscribers' network issue or service's transient error. It's crucial to mention that exactly once needs the whole system including publisher, service, and subscriber play their roles correctly.
+Websocket client connections may drop due to intermittent network issue and when connections drop, messages will also be lost. In a pubsub system, publishers are decoupled from subscribers, so publishers hard to detect subscribers' drop or message loss. It's crucial for clients to overcome intermittent network issue and keep the reliability of message delivery. To achieve that, you can build a reliable Websocket client with the help of reliable sub-protocols.
 
 ## Reliable Protocol
 
