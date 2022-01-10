@@ -34395,7 +34395,7 @@
     },
     {
       "source_path_from_root": "/articles/documentdb/sql-query-operators.md",
-      "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/sql/sql-query-logical-operators",
+      "redirect_url": "sql-query-logical-operators",
       "redirect_document_id": false
     },
     {
