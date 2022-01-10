@@ -74,7 +74,7 @@ Before we jump into creating the Logic App, we have to set up a OneDrive folder.
 
 :::image border="true" type="content" source="media/logic-apps-tutorial/onedrive-setup.gif" alt-text="GIF showing steps to create a folder in OneDrive.":::
 
-### Create a Logic App resource
+## Create a Logic App resource
 
 At this point, you should have a Form Recognizer resource and a OneDrive folder all set. Now, it's time to create a Logic App resource.
 
@@ -113,7 +113,7 @@ At this point, you should have a Form Recognizer resource and a OneDrive folder 
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-nine.png" alt-text="Image of the Logic App Designer.":::
 
-### Create automation flow
+## Create automation flow
 
 Now that you have the Logic App connector resource set up and configured, the only thing left to do is to create the automation flow and test it out!
 
@@ -189,7 +189,7 @@ Now that you have the Logic App connector resource set up and configured, the on
 > * The Logic App designer will automatically add a "for each loop" around the send email action. This is normal due to output format that may return more than one invoice from PDFs in the future.
 > * The current version only returns a single invoice per PDF.
 
-### Test automation flow
+## Test automation flow
 
 Let's quickly review what we've done before we test our flow:
 
