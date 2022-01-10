@@ -1,8 +1,10 @@
 ---
 title: Application Insights overview
 description: Learn how Application Insights in Azure Monitor provides performance management and usage tracking of your live web application.
+author: bwren
+ms.author: bwren
 ms.topic: overview
-ms.date: 01/06/2022
+ms.date: 01/10/2022
 ms.custom: mvc
 ---
 
@@ -17,7 +19,7 @@ Application Insights is a feature of [Azure Monitor](../overview.md) that provid
 
 Application Insights:
 
-- Works on a wide variety of platforms, including .NET, Node.js, Java, and Python.
+- Supports a wide variety of platforms, including .NET, Node.js, Java, and Python.
 - Works for apps hosted on-premises, hybrid, or on any public cloud.
 - Integrates with DevOps processes.
 - Has connection points to many development tools.
@@ -30,11 +32,11 @@ To use Application Insights, you either install a small instrumentation package 
 
 The instrumentation monitors your app and directs the telemetry data to an Application Insights resource by using a unique instrumentation key. The impact on your app's performance is small. Tracking calls are non-blocking, and are batched and sent in a separate thread. 
 
-The app and its components don't have to be hosted in Azure. You can pull in telemetry like performance counters, Azure diagnostics, or Docker logs from host environments. You can also set up web tests that periodically send synthetic requests to your web service.
+You don't have to host the app and its components in Azure. You can pull in telemetry like performance counters, Azure diagnostics, or Docker logs from host environments. You can also set up web tests that periodically send synthetic requests to your web service.
 
 All these telemetry streams are integrated into Azure Monitor. In the Azure portal, you can apply powerful analytic and search tools to the raw data.
 
-The following diagram shows how Application Insights instrumentation in an app sends telemetry to an Application Insights resource:
+The following diagram shows how Application Insights instrumentation in an app sends telemetry to an Application Insights resource.
 
 ![Diagram that shows Application Insights instrumentation in an app sending telemetry to an Application Insights resource.](./media/app-insights-overview/diagram.png)
 
@@ -166,7 +168,7 @@ For all supported languages, platforms, and frameworks, see [Supported languages
 After you set up Application Insights, monitor your app.
 
 - Set up [availability web tests](./monitor-web-app-availability.md).
-- Use the default [application dashboard](./overview-dashboard.md) for your team room, to monitor load, responsiveness, and the performance of your dependencies, page loads, and AJAX calls.
+- Use the default [application dashboard](./overview-dashboard.md) for your team room, to track load, responsiveness, and performance. Monitor your dependencies, page loads, and AJAX calls.
 - Discover which requests are the slowest and fail most often.
 - Watch [Live Stream](./live-stream.md) when you deploy a new release, to know immediately about any degradation.
 
