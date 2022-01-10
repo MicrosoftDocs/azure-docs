@@ -21,7 +21,7 @@ Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefi
 
 * Improved zero-trust governance through Azure AD pre-authentication and authorization
 
-* End-to-end SSO between Azure AD and BIG-IP published services
+* Full SSO between Azure AD and BIG-IP published services
 
 * Manage identities and access from a single control plane, [The Azure portal](https://portal.azure.com/)
 
