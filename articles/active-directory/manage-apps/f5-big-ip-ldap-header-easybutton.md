@@ -21,9 +21,9 @@ Configuring BIG-IP published applications with Azure AD provides many benefits, 
 
 * Improved zero-trust governance through Azure AD pre-authentication and authorization
 
-* Full Single Sign-on (SSO) between Azure AD and BIG-IP published services
+* Full SSO between Azure AD and BIG-IP published services
 
-* Manage Identities and access from a single control plane - [The Azure portal](https://portal.azure.com/)
+* Manage identities and access from a single control plane, [The Azure portal](https://portal.azure.com/)
 
 To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -49,7 +49,7 @@ The secure hybrid access solution for this scenario is made up of:
 
 **BIG-IP:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the backend application.
 
-Secure hybrid access for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
+SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
 
 ![Secure hybrid access - SP initiated flow](./media/f5-big-ip-easy-button-ldap/sp-initiated-flow.png)
 
@@ -160,13 +160,13 @@ Next, step through the Easy Button configurations, and complete the trust to sta
 
     ![Screenshot for Configure Easy Button- Import SSL certificates and keys](./media/f5-big-ip-easy-button-ldap/configure-easy-button.png)
 
-1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select  **Azure AD Application**
+4. Navigate to **Access > Guided Configuration > Microsoft Integration** and select  **Azure AD Application**
    
    You can now access the Easy Button functionality that provides quick configuration steps to set up the APM as a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
 
     ![Screenshot for Configure Easy Button- Install the template](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
 
-2. Review the list of configuration steps and select **Next**
+5. Review the list of configuration steps and select **Next**
 
     ![Screenshot for Configure Easy Button - List configuration steps](./media/f5-big-ip-easy-button-ldap/config-steps.png)
 
@@ -426,10 +426,9 @@ If you don’t see a BIG-IP error page, then the issue is probably more related 
 For more information, visit this F5 knowledge article [Configuring LDAP remote authentication for Active Directory](https://support.f5.com/csp/article/K11072). There’s also a great BIG-IP reference table to help diagnose LDAP-related issues in this F5 knowledge article on [LDAP Query](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/5.html).
 
  
-
 ## Additional resources
 
-* [The end of passwords, go password-less](https://www.microsoft.com/en-gb/security/business/identity/passwordless)
+* [The end of passwords, go password-less](https://www.microsoft.com/security/business/identity/passwordless)
 
 * [What is Conditional Access?](../conditional-access/overview.md)
 
