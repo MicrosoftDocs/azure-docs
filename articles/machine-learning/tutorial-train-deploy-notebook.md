@@ -168,7 +168,7 @@ for i in np.random.permutation(X_train.shape[0])[:sample_size]:
     plt.imshow(X_train[i].reshape(28, 28), cmap=plt.cm.Greys)
 plt.show()
 ```
-The code above displays random set of images with their labels, similar to this:
+The code above displays a random set of images with their labels, similar to this:
 
 :::image type="content" source="media/tutorial-train-deploy-notebook/image-data-with-labels.png" alt-text="Sample images with their labels.":::
 
