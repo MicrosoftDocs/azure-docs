@@ -20,10 +20,6 @@ To publish a consulting service offer, you must meet certain eligibility require
 
 ## Create a consulting service offer
 
-[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
-
-#### [Workspaces view](#tab/workspaces-view)
-
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Marketplace offers** tile.
 
@@ -41,25 +37,6 @@ To publish a consulting service offer, you must meet certain eligibility require
 
 1. Enter an **Offer alias**. This is the name used for the offer in Partner Center. It isn't visible in the online stores and is different from the offer name shown to customers.
 1. To generate the offer and continue, select **Create**.
-
-#### [Current view](#tab/current-view)
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
-1. On the Overview tab, select **+ New offer** > **Consulting service**.
-
-    ![Illustrates the left-navigation menu.](./media/new-offer-consulting-service.png)
-
-1. In the **New offer** dialog box, enter an **Offer ID**. This ID is visible in the URL of the commercial marketplace listing. For example, if you enter test-offer-1 in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-
-    * Each offer in your account must have a unique offer ID.
-    * Use only lowercase letters and numbers. The offer ID can include hyphens and underscores, but no spaces, and is limited to 50 characters.
-    * The offer ID can't be changed after you select **Create**.
-
-1. Enter an **Offer alias**. This is the name used for the offer in Partner Center. It isn't visible in the online stores and is different from the offer name shown to customers.
-1. To generate the offer and continue, select **Create**.
-
----
 
 ## Configure lead management
 
