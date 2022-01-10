@@ -284,9 +284,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
                 anchorGameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Legacy Shaders/Diffuse");
                 anchorGameObject.GetComponent<MeshRenderer>().material.color = Color.blue;
 
-                // Link to Cloud Anchor. Use CloudToNative instead of position + rotation.
-                // TODO: Check if it works
-                // TODO: Comment about this setting position + rotation
+                // Link to Cloud Anchor
                 anchorGameObject.AddComponent<CloudNativeAnchor>().CloudToNative(cloudSpatialAnchor);
                 _foundOrCreatedAnchorGameObjects.Add(anchorGameObject);
             });

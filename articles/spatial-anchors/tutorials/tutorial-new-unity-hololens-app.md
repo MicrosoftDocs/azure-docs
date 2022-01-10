@@ -188,7 +188,7 @@ To save an anchor the user must collect environment data.
 > A HoloLens can possibly reuse already captured environment data surrounding the anchor resulting in `IsReadyForCreate` to be true instantly when called.
 
 Now that the cloud spatial anchor has been prepared, we can try the actual save here.
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=187-246&highlight=35-60)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=187-246&highlight=35-59)]
 
 Finally let's add the function call to our `ShortTap` method
 
@@ -209,7 +209,7 @@ Let's create a method to remove all anchor GameObjects
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=138-148)]
 
 And call it after destroying the session in `LongTap()`
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=118-122,125-128,136&highlight=6-9)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=118-122,125-128,136&highlight=6,8-9)]
 
 
 ## Locate Anchor
@@ -217,17 +217,15 @@ We will now try to find the anchors again with the correct position and rotation
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=248-262)]
 
-We also have to subscribe to the callback to get notified when an anchor is located. Let's first create our anchor located method called `SpatialAnchorManager_AnchorLocated()`
+We also have to subscribe to the callback to get notified when an anchor is located. Let's first create our anchor located method called `SpatialAnchorManager_AnchorLocated()`. This method will be called once an anchor is located. The method will then create a visual `GameObject` and attach the native anchor component to it. The native anchor component will make sure the correct position and rotation is set of the GameObject.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=264-294)]
+Similar to the creation process, the anchor does not have to be visible for spatial anchors to work. If you only use it to have a referenced shared coordinate system there is no need for showing the anchor to the end-user. For the purpose of this tutorial we will visualize the anchors.
 
-and subscribe to the AnchorLocated callback from spatial anchor manager
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=264-292)]
+
+Let's now subscribe to the AnchorLocated callback from spatial anchor manager to make sure our `SpatialAnchorManager_AnchorLocated()` method is called once the watcher finds an anchor.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=46-53&highlight=7)]
-
-Once an anchor is located we will create a visual `GameObject` with the anchors position and rotation.
-Similar to the creation process, the anchor does not have to be visible. If you only use it to have a referenced shared coordinate system there is no need for showing the anchor to the end-user. For the purpose of this tutorial we will visualize the anchors.
-
 
 Finally, let's expand our `LongTap()` method to include finding the anchor. We will use the IsSessionStarted boolean to decide if we are looking for a anchors or destroying all anchors as described in the [App Overview](#app-overview)
 
