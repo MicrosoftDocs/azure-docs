@@ -135,7 +135,7 @@ Following is sample output data from Event Hubs for an Activity log:
 ```
 
 
-## Send to  Azure storage
+## Send to Azure storage
 Send the Activity Log to an Azure Storage Account if you want to retain your log data longer than 90 days for audit, static analysis, or backup. If you only need to retain your events for 90 days or less you do not need to set up archival to a Storage Account, since Activity Log events are retained in the Azure platform for 90 days.
 
 When you send the Activity log to Azure, a storage container is created in the Storage Account as soon as an event occurs. The blobs in the container use the following naming convention:
