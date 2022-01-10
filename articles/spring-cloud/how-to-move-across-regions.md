@@ -143,7 +143,7 @@ Below will suppose the new service name for Azure Spring Cloud is new-service, p
         }
     }
     ```
-## Deploy the template
+### Deploy the template
 ### [Portal](#tab/azure-portal)
 After modifying the template, the new resource can be created by **Deploy a custom template** with portal.
 
