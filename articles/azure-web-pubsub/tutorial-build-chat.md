@@ -76,7 +76,7 @@ First let's create an empty ASP.NET Core app.
 
     ```bash
     dotnet new web
-    dotnet add package Microsoft.Azure.WebPubSub.AspNetCore
+    dotnet add package Microsoft.Azure.WebPubSub.AspNetCore --version 1.0.0-beta.3
     ```
 
 2.  Then add `app.UseStaticFiles();` before `app.UseRouting();` in `Startup.cs` to support static files. Remove the default `endpoints.MapGet` inside `app.UseEndpoints`.
