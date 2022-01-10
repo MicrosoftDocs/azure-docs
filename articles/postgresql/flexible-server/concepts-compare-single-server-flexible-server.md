@@ -108,7 +108,6 @@ The following table provides a high-level features and capabilities comparisons 
 | SCRAM Authentication (SHA-256) | No | Yes |
 | Secure Sockets Layer support (SSL) | Yes | Yes |
 | **Other features** | | |
-| Customer managed key (BYOK) | Yes | No |
 | Alerts | Yes | Yes |
 | Microsoft Defender for Cloud | Yes | No |
 | Resource health | Yes | No |
