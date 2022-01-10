@@ -10,7 +10,6 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/09/2022
 ms.author: eur
-zone_pivot_groups: programming-languages-cs-cpp-py
 ---
 
 # Language identification
