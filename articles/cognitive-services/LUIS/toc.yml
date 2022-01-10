@@ -40,13 +40,11 @@ items:
     displayName: import, export, container
   - name: Use intents
     href: how-to/intents.md
-  - name: Label entities
-    href: how-to/labelling.md
   - name: Use entities
     href: how-to/entities.md
     displayName: roles, import
   - name: Label example utterances
-    href: how-to/labelling.md
+    href: how-to/label-example-utterances.md
   - name: Train and test your app
     items:
     - name: Train and test your app
@@ -112,7 +110,7 @@ items:
     - name: Install and run containers
       displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, export to container
       href: luis-container-howto.md
-    - name: Configure containersendpoint
+    - name: Configure containers
       href: luis-container-configuration.md
     - name: Use container instances
       href: ../containers/azure-container-instance-recipe.md
