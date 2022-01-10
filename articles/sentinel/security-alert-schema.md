@@ -31,7 +31,7 @@ This article lists supported Azure and third-party data source schemas, with lin
 | **Description** | string | The description of the alert. |  |
 | **DisplayName** | string | Display name of the alert. For scheduled rules   it will be taken from the rule name. | ASC wanted to deprecate one (display and alert name) but left the 2 |
 | **EndTime** | datetime | The end time of the impact of the alert (the time of the last event or activity included in the alert). For scheduled rule alerts, this is the value of the TimeGenerated field for the last event captured by the query. |  |
-| **Entities** | string | A list of entities related to the alert. This list can include a combination of entities of different types. The entities' types can be any of those defined in the documentation (link - https://docs.microsoft.com/en-us/azure/sentinel/entities-reference). |  |
+| **Entities** | string | A list of entities related to the alert. This list can include a combination of entities of different types. The entities' types can be any of those defined in the [documentation](entities-reference.md). |  |
 | **ExtendedLinks** | string | A bag (a collection) for all links related to the alert. This bag can include a combination of links of different types. |  |
 | **ExtendedProperties** | string | A collection of other properties of the alert, including user-defined properties. Any custom details defined in the alert, and any dynamic content in the alert details, are stored here. |  |
 | **IsIncident** | boolean | DEPRECATED. Will always be set to *false*. | was used before for ASC they had Alert (incident) and alert  |
