@@ -95,7 +95,7 @@ items:
     href: concepts/sdk-options.md
   - name: Client and server architecture
     href: concepts/client-and-server-architecture.md
-  - name: Identity, Access, and Privacy
+  - name: Identity, Authentication, and Privacy
     items:
     - name: Identity 
       href: concepts/identity-model.md
