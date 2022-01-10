@@ -15,7 +15,7 @@ ms.service: azure-spatial-anchors
 [X] Make sure you have internet on your Hl2
 [X] User Debug - ARM64 - Device, Debug -> Start Debugging to see logs 
 [X] "After closing session you could have a different device on a different day (depending on your anchor expiration), as long as you still have the IDs"
-[ ] Tapping will be middle of the hand, not your fingers
+[X] Tapping will be middle of the hand, not your fingers
 [X] Using Legacy shader since it's included in a default Unity build. Default shaders are only included if part of the scene.
 -->
 
@@ -97,9 +97,7 @@ We'll now set some Unity project settings that help us target the Windows Hologr
 ## Try it out #1
 You should now have an empty scene that is ready to be deployed to your HoloLens device. To test out that everything is working, build your app in **Unity** and deploy it from **Visual Studio**. Follow [**Using Visual Studio to deploy and debug**](https://docs.microsoft.com/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2) to do so. You should see the Unity start screen, and then a clear display.
 
-<!-- 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
-TODO : uncomment this-->
 
 ## Creating & Adding Scripts
 
@@ -239,7 +237,7 @@ Finally, let's expand our `LongTap()` method to include finding the anchor. We w
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=LongTap&highlight=6,7,12-18)]
 
 ## Try it out #2
-Your app now supports creating anchors and locating them. Build your app in **Unity** and deploy it from **Visual Studio**. Follow [**Using Visual Studio to deploy and debug**](https://docs.microsoft.com/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2) to run your app. 
+Your app now supports creating anchors and locating them. Build your app in **Unity** and deploy it from **Visual Studio**. Follow [**Using Visual Studio to deploy and debug**](https://docs.microsoft.com/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2) to run your app.
 
 Make sure your HoloLens is connected to the internet. Once the app started and the _made with Unity_ message disappears, short tap in your surroundings. A white cube should appear to show the position and rotation of the anchor. The anchor creation process is automatically called in our code. As you slowly look around your surroundings you are capturing environment data which is used to create the anchor. Once the anchor creation process is completed the cube will turn green. Check your debug logs in visual studio to see if everything worked as intended.
 
@@ -262,151 +260,21 @@ We can now extend our `ShortTap` method to include the `ASA_DeleteAnchor` call
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=ShortTap&highlight=8,9,11-13,15-20)]
 
 ## Try it #3
+Build your app in **Unity** and deploy it from **Visual Studio**. Follow [**Using Visual Studio to deploy and debug**](https://docs.microsoft.com/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2) to run your app. 
 
-------------------------------
-# Archive
-## Place an object in the real world
-Let's create & place an object using your app. Open the Visual Studio solution that we created when we [deployed our app](#trying-it-out).
+Note that the location of your hand tapping gesture is the **center of your hand** in this app. 
 
-First, add the following imports into your `Assembly-CSharp (Universal Windows)\Scripts\AzureSpatialAnchorsScript.cs`:
-
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=19-24)]
-
-Then, add the following members variables into your `AzureSpatialAnchorsScript` class:
-
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-47,53-57,65-84)]
-
-Before we continue, we need to set the sphere prefab we created on our spherePrefab member variable. Go back to **Unity**.
-1. In **Unity**, select the **MixedRealityCloud** object in the **Hierarchy** pane.
-2. Click on the **Sphere** prefab that you saved in the **Project** pane. Drag the **Sphere** you clicked on into the **Sphere Prefab** area under **Azure Spatial Anchors Script (Script)** in the **Inspector** pane.
-
-You should now have the **Sphere** set as the prefab on your script. Build from **Unity** and then open the resulting **Visual Studio** solution again, like you just did in [Trying it out](#trying-it-out).
-
-In **Visual Studio**, open up `AzureSpatialAnchorsScript.cs` again. Add the following code into your `Start()` method. This code will hook up `GestureRecognizer`, which will call `HandleTap` when it detects an air tap.
-
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=86-95,98&highlight=4-10)]
-
-We now have to add the following `HandleTap()` method below `Update()`. It will do a ray cast and get a hit point at which to place a sphere.
-
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=273-283,305-306,310-318)]
-
-We now need to create the sphere. The sphere will initially be white, but this value will be adjusted later on. Add the following `CreateAndSaveSphere()` method:
-
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-331,396)]
-
-Run your app from **Visual Studio** to validate it once more. This time, tap the screen to create & place your white sphere over the surface of your choice.
-
-## Set up the dispatcher pattern
-
-When working with Unity, all Unity APIs (for example, APIs you use to do UI updates) need to happen on the main thread. In the code we'll write however, we get callbacks on other threads. We want to update UI in these callbacks, so we need a way to go from a side thread onto the main thread. To execute code on the main thread from a side thread, we'll use the dispatcher pattern.
-
-Let's add a member variable, `dispatchQueue`, which is a Queue of Actions. We will push Actions onto the queue, and then dequeue and run the Actions on the main thread.
-
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=43-56&highlight=6-9)]
-
-Next, let's add a way to add an Action to the Queue. Add `QueueOnUpdate()` right after `Update()` :
-
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=112-122)]
-
-We can use the Update() loop to check if there is an Action queued. If so, we will dequeue the Action and run it.
-
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=100-110&highlight=4-10)]
-
-## Get the Azure Spatial Anchors SDK
-
-### Choose ASA version
-[!INCLUDE [Choose SDK Version](../../../includes/spatial-anchors-unity-choose-sdk-version.md)]
-
-### Download packages
-[!INCLUDE [Download Unity Packages](../../../includes/spatial-anchors-unity-download-packages.md)]
-
-### Import packages
-[!INCLUDE [Import Unity Packages](../../../includes/spatial-anchors-unity-import-packages.md)]
-
-### Prepare code
-In your **Visual Studio** solution, add the following import into your `<ProjectName>\Assets\Scripts\AzureSpatialAnchorsScript.cs`:
-
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=18-21&highlight=1)]
-
-Then, add the following member variables into your `AzureSpatialAnchorsScript` class:
-
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=53-68&highlight=6-11)]
-
-## Attach a local Azure Spatial Anchor to the local anchor
-
-Let's set up Azure Spatial Anchor's CloudSpatialAnchorSession. We'll start by adding the following `InitializeSession()` method inside your `AzureSpatialAnchorsScript` class. Once called, it will ensure an Azure Spatial Anchors session is created and properly initialized during the startup of your app.
-
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=179-208,211-215)]
-
-We now need to write code to handle delegate calls. We'll add more to them as we continue.
-
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=217-232)]
-
-Now, let's hook your `initializeSession()` method into your `Start()` method.
-
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=86-98&highlight=12)]
-
-Finally, add the following code into your `CreateAndSaveSphere()` method. It will attach a local Azure Spatial Anchor to the sphere that we're placing in the real world.
-
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-344,396&highlight=14-25)]
-
-Before proceeding any further, you'll need to create an Azure Spatial Anchors account to get the account Identifier, Key, and Domain. If you don't already have those values, follow the next section to obtain them.
-
-[!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
-
-## Upload your local anchor into the cloud
-
-Once you have your Azure Spatial Anchors account Identifier, Key, and Domain, go and paste the `Account Id` into `SpatialAnchorsAccountId`, the `Account Key` into `SpatialAnchorsAccountKey`, and the `Account Domain` into `SpatialAnchorsAccountDomain`.
-
-Finally, let's hook everything together. In your `CreateAndSaveSphere()` method, add the following code. It will invoke the `CreateAnchorAsync()` method as soon as your sphere is created. Once the method returns, the code below will update your sphere one last time, changing its color to blue.
-
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-397&highlight=26-77)]
-
-Run your app from **Visual Studio** once more. Move around your head and then air tap to place your sphere. Once we have
-enough frames, the sphere will turn yellow, and the cloud upload will start. Once the upload finishes, your sphere will
-turn blue. Optionally, you can also use the [Output window](/visualstudio/ide/reference/output-window)
-while debugging inside **Visual Studio** to monitor the log messages your app is sending. Make sure you deploy the `Debug`
-configuration of your app from Visual Studio to see the log messages. You can watch the `RecommendedForCreateProgress`,
-and once the upload is complete, you'll be able to see the anchor identifier returned from the cloud.
-
-> [!NOTE]
-> If you get "DllNotFoundException: Unable to load DLL 'AzureSpatialAnchors': The specified module could not be found.", you should **Clean** and **Build** your solution again.
-
-## Locate your cloud spatial anchor
-
-One your anchor is uploaded to the cloud, we're ready to attempt locating it again. Let's add the following code into your `HandleTap()` method. This code will:
-
-* Call `ResetSession()`, which will stop the `CloudSpatialAnchorSession` and remove our existing blue sphere from the screen.
-* Initialize `CloudSpatialAnchorSession` again. We do this so we're sure the anchor we're going to locate comes from the cloud instead of being the local anchor we created.
-* Create a **Watcher** that will look for the anchor we uploaded to Azure Spatial Anchors.
-
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=273-311&highlight=13-31,35-36)]
-
-Let's now add our `ResetSession()` and `CleanupObjects()` methods. You can put them below `QueueOnUpdate()`
-
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=124-177)]
-
-We now need to hook up the code that will be invoked when the anchor we're querying for is located. Inside `InitializeSession()`, add the following callbacks:
-
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=206-212&highlight=4-5)]
-
-
-Now lets add code that will create & place a green sphere once the CloudSpatialAnchor is located. It will also enable screen tapping again, so you can repeat the whole scenario once more: create another local anchor, upload it, and locate it again.
-
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=234-271)]
-
-That's it! Run your app from **Visual Studio** one last time to try out the whole scenario end to end. Move around your device, and place your white sphere. Then, keep moving your head to capture environment data until the sphere turns yellow. Your local anchor will be uploaded, and your sphere will turn blue. Finally, tap your screen once more to remove your local anchor and begin a query for its cloud counterpart. Continue moving your device around until your cloud spatial anchor is located. A green sphere should appear in the correct location, and you can repeat the whole scenario again.
+When you tap into an anchor, either created (green) or located (blue) a request is sent to the spatial anchor service to remove this anchor from the account.
 
 ## Putting everything together
 
 Here is how the complete `AzureSpatialAnchorsScript` class file should look like, after all the different elements have been put together. You can use it as a reference to compare against your own file, and spot if you may have any differences left.
 
-
 [!INCLUDE [AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md)]
 
 ## Next steps
 
-In this tutorial, you've learn more about how to use Azure Spatial Anchors in a new Unity HoloLens app. To learn more about how to use Azure Spatial Anchors in a new Android app, continue to the next tutorial.
+In this tutorial, you've learnt how to implement a basic Spatial Anchors application for HoloLens using Unity. To learn more about how to use Azure Spatial Anchors in a new Android app, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Starting a new Android app](../articles/spatial-anchors/tutorials/tutorial-new-android-app.md)
