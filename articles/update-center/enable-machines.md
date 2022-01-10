@@ -138,7 +138,7 @@ Register-AzResourceProvider -FeatureName InGuestAutoAssessmentVMPreview -Provide
 
 The following examples describe how to enable the update management center (private preview) features in Azure for your subscription using the Azure CLI [az feature register](/cli/azure/feature#az_feature_register) command.
 
-### [Azure VM on-demand assessment and on-demand patching](#tab/azure-cli-vm)
+### [Azure VM on-demand assessment and on-demand patching](#tab/azure-ondemand-assessment)
 
 1. Sign in to the Update management center Private Preview portal link: **https://aka.ms/umc-preview**. No onboarding is required for Azure VM On-demand assessment and on-demand patching. 
 
@@ -192,7 +192,7 @@ The following examples describe how to enable the update management center (priv
 
 **Please note**: Using REST APIs is only applicable for Azure VMs
 
-### [Azure VM on-demand assessment and on-demand patching](#tab/azure-rest-api-vm)
+### [Azure VM on-demand assessment and on-demand patching](#tab/ondemand-assessment)
 
 1. Sign in to the Update management center Private Preview portal link: **https://aka.ms/umc-preview**. No onboarding is required for Azure VM On-demand assessment and on-demand patching.
 
