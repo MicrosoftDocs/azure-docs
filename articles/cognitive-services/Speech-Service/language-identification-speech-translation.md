@@ -45,10 +45,6 @@ Need at-start sample
 
 ### [Continuous](#tab/continuous)
 
-
-The following example uses continuous translation from an audio file, and automatically detects the input language, even if the language being spoken is changing. When you run the sample, `en-US` and `zh-CN` will be automatically detected because they are defined in the `AutoDetectSourceLanguageConfig`. Then, the speech will be translated to `de` and `fr` as specified in the calls to `AddTargetLanguage()`.
-
-
 ```csharp
 using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
@@ -163,7 +159,6 @@ Need at-start sample
 
 ### [Continuous](#tab/continuous)
 
-The following example uses continuous translation from an audio file, and automatically detects the input language, even if the language being spoken is changing. When you run the sample, `en-US` and `zh-CN` will be automatically detected because they are defined in the `AutoDetectSourceLanguageConfig`. Then, the speech will be translated to `de` and `fr` as specified in the calls to `AddTargetLanguage()`.
 
 ```cpp
 using namespace std;
@@ -269,7 +264,7 @@ Need at-start sample
 ```python
 def translation_continuous():
     """performs continuous speech translation from input from an audio file"""
-    # <TranslationContinuous>
+
     # set up translation parameters: source language and target languages
     translation_config = speechsdk.translation.SpeechTranslationConfig(
         subscription=speech_key, region=service_region,
