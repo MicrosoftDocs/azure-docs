@@ -134,7 +134,7 @@ Tap + Hold for 2 sec (+ session is not running)| Start the session and look for 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=24-29&highlight=3-6)]
 
 3. Add the following two methods below the Update() method. We will add implementation at a later stage
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=57-59,95,99-104,116-122,136&highlight=5-18)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=58-60,97,99,102-107,119,121,123-127,141&highlight=5-18)]
 
 4. Add the following import
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=20)]
@@ -152,32 +152,33 @@ Then declare the variable
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=24-34&highlight=8-11)]
 
 In the `Start()` method, assign the variable to the component we added in a previous step
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=Start&range=1-4,8&highlight=4)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=47-50,54&highlight=4)]
 
 In order to receive debug and error logs, we need to subscribe to the different callbacks
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=46-51,53&highlight=5-6)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=47-52,54&highlight=5-6)]
 
 > [!Note]
 > To view the logs make sure after you built the project from Unity and you open the visual studio solution `.sln`, select Debug --> Run with Debugging and leave your HoloLens connected to your computer while the app is running.
 
 ## Start Session
 To create and find anchors we first have to start a session. When calling `StartSessionAsync()` SpatialAnchorManager will create a session if necessary and then start it. Let's add this to our `ShortTap()` method 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=99-105,116&highlight=7)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=102-108,119&highlight=7)]
 
 ## Create Anchor
 Now that we have a session running we can create anchors. In this application we'd like to keep track of the created anchor `GameObjects` and AnchorIds. Let's add two lists to our code.
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=14,15,16,19,20,31-44&highlight=2,11-19)]
 
-Let's create a method that creates an anchor at a **position** defined by its parameter.
+Let's create a method `CreateAnchor` that creates an anchor at a **position** defined by its parameter.
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=18,21,198-205,256)]
 
 Since spatial anchors not only have a **position** but also a **rotation** let's set the **rotation** to always orient towards the HoloLens on creation.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=18,21,187-200,247)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=198-212,256&highlight=9-14)]
 
 Now that we have the **position** and the **rotation** of the desired anchor, let's create a visible `GameObject`. ASA does not require the `GameObject` to be visible to the end-user, but for the purpose of this tutorial it will make the process easier to follow.
 
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=198-218,256&highlight=17-21)]
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=200-206&highlight=3-7)]
 > [!Note]
 > We are using a legacy shader, since it's included in a default Unity build. Other shaders like the default shader are only included if manually specified or they are directly part of the scene. If a shader is not included and the application is trying to render it, it will result in a pink material.
 
@@ -185,19 +186,19 @@ Now let's add and configure the Spatial Anchor components. We are setting the ex
 Remember to add the import
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=13)]
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=206-212&highlight=3-7)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=198-224,256&highlight=23-27)]
 
-To save an anchor the user must collect environment data. 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=212-219&highlight=3-8)]
+To save an anchor the user must collect environment data.
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=198-231,256&highlight=29-34)]
 > [!Note]
 > A HoloLens can possibly reuse already captured environment data surrounding the anchor resulting in `IsReadyForCreate` to be true instantly when called.
 
 Now that the cloud spatial anchor has been prepared, we can try the actual save here.
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=187-246&highlight=35-59)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=CreateAnchor&highlight=36-59)]
 
 Finally let's add the function call to our `ShortTap` method
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=99-105,109,116&highlight=8)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=102-108,112,119&highlight=8)]
 
 Our app can now create multiple anchors. Any device can now locate the created anchors (if not expired yet) as long as they know the AnchorIDs and have access to the same Spatial Anchors Resource on Azure.
 
@@ -207,34 +208,35 @@ To emulate a second device finding all anchors, we will now stop the session and
 
 Spatial anchor manager can take care of the session stopping by simply calling its `DestroySession()` method. Let's add this to our `LongTap()` method
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=118-122,126,136&highlight=6)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=123-127,131,141&highlight=6)]
 
 Let's create a method to remove all anchor `GameObjects`
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=138-148)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=RemoveAllAnchorGameObjects)]
 
 And call it after destroying the session in `LongTap()`
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=118-122,125-128,136&highlight=6,8-9)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=123-127,131,141&highlight=6)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=123-127,130-133,141&highlight=6,8-9)]
 
 
 ## Locate Anchor
 We will now try to find the anchors again with the correct position and rotation that we created them in. To do that we need to start a session and create a `Watcher` that will look for anchors that fit the given criteria. As criteria we will feed it the IDs of the anchors we previously created. Let's create a method `LocateAnchor()` and use spatial anchor manager to create a `Watcher`.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=248-262)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=LocateAnchor)]
 
 Once a watcher is started it will fire a callback when it found an anchor that fits the given criteria. Let's first create our anchor located method called `SpatialAnchorManager_AnchorLocated()` that we will configure to be called when the watcher has located an anchor. This method will create a visual `GameObject` and attach the native anchor component to it. The native anchor component will make sure the correct position and rotation of the `GameObject` is set.
 
 Similar to the creation process, the anchor does not have to be visible for spatial anchors to work. If you only use it to have a referenced shared coordinate system there is no need for showing the anchor to the end-user. For the purpose of this tutorial we will visualize the anchors.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=264-292)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=SpatialAnchorManagerAnchorLocated)]
 
 Let's now subscribe to the AnchorLocated callback from spatial anchor manager to make sure our `SpatialAnchorManager_AnchorLocated()` method is called once the watcher finds an anchor.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=46-53&highlight=7)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=Start&highlight=7)]
 
 Finally, let's expand our `LongTap()` method to include finding the anchor. We will use the IsSessionStarted boolean to decide if we are looking for a anchors or destroying all anchors as described in the [App Overview](#app-overview)
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=118-136&highlight=6,7,12-18)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=LongTap&highlight=6,7,12-18)]
 
 ## Try it out #2
 Your app now supports creating anchors and locating them. Build your app in **Unity** and deploy it from **Visual Studio**. Follow [**Using Visual Studio to deploy and debug**](https://docs.microsoft.com/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2) to run your app. 

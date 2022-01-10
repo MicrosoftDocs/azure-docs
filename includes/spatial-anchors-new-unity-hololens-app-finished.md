@@ -195,7 +195,6 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
     // </IsAnchorNearby>
   
     // <CreateAnchor>
-    
     /// <summary>
     /// Creates an Azure Spatial Anchor at the given position rotated towards the user
     /// </summary>
@@ -254,7 +253,6 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
             Debug.Log("ASA - Failed to save anchor: " + exception.ToString());
             Debug.LogException(exception);
         }
-
     }
     // </CreateAnchor>
 
