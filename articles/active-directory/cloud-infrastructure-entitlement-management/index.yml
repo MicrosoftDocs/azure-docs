@@ -45,12 +45,12 @@ landingContent:
           - text: Integrate Microsoft CloudKnox Permissions Management with other systems
             url: cloudknox-integration-api.md
   # Card
-  - title: Use Microsoft CloudKnox Permissions Management tasks
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Use Microsoft CloudKnox Permissions Management Tasks
-            url: cloudknox-howto-generate-custom-reports.md
+  # - title: Use Microsoft CloudKnox Permissions Management tasks
+    # linkLists:
+      # - linkListType: overview
+        # links:
+          # - text: Use Microsoft CloudKnox Permissions Management Tasks
+            # url: cloudknox-howto-generate-custom-reports.md
   # Card
   - title: Use Microsoft CloudKnox Permissions Management dashboards
     linkLists:
@@ -66,11 +66,11 @@ landingContent:
           - text: Manage data with Microsoft CloudKnox Permissions Management
             url: cloudknox-product-data-sources.md
   # Card
-  - title: Manage users with Microsoft CloudKnox Permissions Management
+  - title: View usage analytics with Microsoft CloudKnox Permissions Management
     linkLists:
       - linkListType: overview
         links:
-          - text: Manage users with Microsoft CloudKnox Permissions Management
+          - text: View usage details about users, groups, active resources, active tasks, access keys, and serverless functions
             url: cloudknox-usage-analytics-home.md
   # Card
   - title: Generate reports with Microsoft CloudKnox Permissions Management

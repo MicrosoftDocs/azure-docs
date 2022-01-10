@@ -15,7 +15,7 @@ ms.author: v-ydequadros
 # Microsoft CloudKnox Permissions Management product integrations - View integrated authorization systems 
 
 The **Integrations** dashboard in the Microsoft CloudKnox Permissions Management application allows you to view all your authorization systems in one place, and to ensure all applications are functioning as one. This information helps improve quality and performance as a whole.
-S
+
 1. To display the **Integrations** dashboard, select **User** (your initials) in the upper right of the screen, and then select **Integrations.**
 
     The **Integrations** dashboard displays a tile for each available authorization system.
