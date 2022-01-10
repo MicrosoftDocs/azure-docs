@@ -2,7 +2,7 @@
 title: Develop Microsoft Sentinel Advanced SIEM Information Model (ASIM) parsers | Microsoft Docs
 description: This article explains how to develop, test, and deploy Microsoft Sentinel Advanced SIEM Information Model (ASIM) parsers.
 author: oshezaf
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: ofshezaf
 --- 
