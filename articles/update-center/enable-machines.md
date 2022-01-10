@@ -33,11 +33,11 @@ Enabling update management center (private preview) functionality requires regis
 
 The following examples describe how to enable various update management center (private preview) features for your subscription using the Azure portal.
 
-### [Azure VM on-demand assessment and on-demand patching](#tab/azure-vm)  
+### [Azure VM on-demand assessment and on-demand patching](#tab/portal-azure-vm)  
 
 1. Sign in to the Update management center Private Preview portal link: **https://aka.ms/umc-preview**. No onboarding is required for Azure VM On-demand assessment and on-demand patching. 
 
-### [Arc-enabled server on-demand assessment and on-demand patching](#tab/arc-enabled-server)
+### [Arc-enabled server on-demand assessment and on-demand patching](#tab/portal-arc-enabled-server)
 
 1. Sign in to the Update management center Private Preview portal link: **https://aka.ms/umc-preview**
 1. On the Azure portal menu, search for **Preview features**. Select it from the available options.
@@ -51,7 +51,7 @@ After the **On-demand Azure Arc for Servers guest patching preview** resource pr
 1. On the left menu, under **Settings**, select **Resource providers**.
 1. Search for the **Microsoft.HybridCompute** provider, select it from the list of available options and then select **Re-register**. 
 
-### [Periodic assessment for Azure VMs](#tab/azurevm)
+### [Periodic assessment for Azure VMs](#tab/portal-azurevm)
 
 For Arc-enabled servers, no onboarding is required for using Periodic assessment feature.
 For Azure machines, your subscription needs to be allowlisted for Preview feature **InGuestAutoAssessmentVMPreview**. Follow the steps below for registering for Preview feature "InGuestAutoAssessmentVMPreview":
@@ -65,7 +65,7 @@ For Azure machines, your subscription needs to be allowlisted for Preview featur
 
 After registering for the above mentioned features, go to Update management center Private Preview portal link: **https://aka.ms/umc-preview**. For more details on
 
-### [Scheduled patching for both Azure VMs and Arc-enabled servers](#tab/scheduled-patching)
+### [Scheduled patching for both Azure VMs and Arc-enabled servers](#tab/portal-scheduled-patching)
 
 For using scheduled patching functionality for Azure VMs as well as Arc-enabled servers, your subscriptions for both machine and maintenance configurations must be allowlisted for **InGuestScheduledPatchVMPreview**. Follow the steps below for resgistering for Preview feature **InGuestScheduledPatchVMPreview**:
 
@@ -86,11 +86,11 @@ After registering for the above mentioned features, go to Update management cent
 
 The following examples describe how to enable the update management center (private preview) features for your subscription using Azure PowerShell.
 
-### [Azure VM on-demand assessment and on-demand patching](#tab/azure-powershell-vm)
+### [Azure VM on-demand assessment and on-demand patching](#tab/powershell-azurevm)
 1. Sign in to the Update management center Private Preview portal link: **https://aka.ms/umc-preview**. No onboarding is required for Azure VM On-demand assessment and on-demand patching. 
 
 
-### [Arc-enabled server on-demand assessment and on-demand patching](#tab/arc-enabled-server)
+### [Arc-enabled server on-demand assessment and on-demand patching](#tab/powershell-arc-enabled-server)
 
 To register the resource provider, use:
 
@@ -110,7 +110,7 @@ After the feature is registered in your subscription, complete the process by re
 Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
 ```
 
-### [Scheduled patching for both Azure VMs and Arc-enabled servers](#tab/scheduled-patching)
+### [Scheduled patching for both Azure VMs and Arc-enabled servers](#tab/powershell-scheduled-patching)
 
 To register the resource provider, use:
 
@@ -122,7 +122,7 @@ Register-AzResourceProvider -FeatureName InGuestScheduledPatchVMPreview -Provide
 
 For detailed steps to start using scheduled patching, refer to [Prerequisites for scheduled patching](scheduled-patching.md#prerequisites-for-scheduled-patching)
 
-### [Periodic assessment for Azure VMs](#tab/periodic-assessment)
+### [Periodic assessment for Azure VMs](#tab/powershell-periodic-assessment)
 
 For Arc-enabled servers, no onboarding is required for using Periodic assessment feature. For Azure VMs, to register the resource provider, use:
 
@@ -138,11 +138,11 @@ Register-AzResourceProvider -FeatureName InGuestAutoAssessmentVMPreview -Provide
 
 The following examples describe how to enable the update management center (private preview) features in Azure for your subscription using the Azure CLI [az feature register](/cli/azure/feature#az_feature_register) command.
 
-### [Azure VM on-demand assessment and on-demand patching](#tab/azure-ondemand-assessment)
+### [Azure VM on-demand assessment and on-demand patching](#tab/cli-azurevm)
 
 1. Sign in to the Update management center Private Preview portal link: **https://aka.ms/umc-preview**. No onboarding is required for Azure VM On-demand assessment and on-demand patching. 
 
-### [Arc-enabled server on-demand assessment and on-demand patching](#tab/arc-enabled-server)
+### [Arc-enabled server on-demand assessment and on-demand patching](#tab/cli-arc-enabled-server)
 
 To register a resource provider, use:
 
@@ -162,7 +162,7 @@ After the feature is registered in your subscription, complete the process by re
 az provider register --namespace Microsoft.HybridCompute
 ```
 
-### [Periodic assessment for Azure VMs](#tab/scheduled-patching)
+### [Periodic assessment for Azure VMs](#tab/cli-periodic-assessment)
 For Arc-enabled servers, no onboarding is required for using Periodic assessment feature. For Azure machines, to register the resource provider, use:
 
 ```azurecli
@@ -171,7 +171,7 @@ az feature register --namespace Microsoft.Compute --name InGuestAutoAssessmentVM
 
 **Please note**: This Preview feature is currently not auto-approved. It will be approved within 1-2 business day(s).
 
-### [Scheduled patching for both Azure VMs and Arc-enabled servers](#tab/scheduled-patching)
+### [Scheduled patching for both Azure VMs and Arc-enabled servers](#tab/cli-scheduled-patching)
 To register a resource provider, use:
 
 ```azurecli
@@ -192,11 +192,11 @@ The following examples describe how to enable the update management center (priv
 
 **Please note**: Using REST APIs is only applicable for Azure VMs
 
-### [Azure VM on-demand assessment and on-demand patching](#tab/ondemand-assessment)
+### [Azure VM on-demand assessment and on-demand patching](#tab/restapi-azurevm)
 
 1. Sign in to the Update management center Private Preview portal link: **https://aka.ms/umc-preview**. No onboarding is required for Azure VM On-demand assessment and on-demand patching.
 
-### [Scheduled patching for Azure VMs](#tab/scheduled-patching)
+### [Scheduled patching for Azure VMs](#tab/restapi-scheduled-patching)
 
 >[!NOTE]
 > This option is only applicable to Azure VMs.
@@ -213,7 +213,7 @@ Replace the value `subscriptionId` with the ID of the target subscription.
 
 For detailed steps to start using scheduled patching, refer to [Prerequisites for scheduled patching](scheduled-patching.md#prerequisites-for-scheduled-patching)
 
-### [Periodic Assessment for Azure VMs](#tab/periodic-assessment)
+### [Periodic Assessment for Azure VMs](#tab/restapi-periodic-assessment)
 
 >[!NOTE]
 > This option is only applicable to Azure VMs.
