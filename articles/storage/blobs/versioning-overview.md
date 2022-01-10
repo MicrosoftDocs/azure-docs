@@ -218,7 +218,7 @@ For more information about billing details for blob snapshots, see [Blob snapsho
 
 ### Billing when the blob tier has not been explicitly set
 
-If you have not explicitly set the blob tier for any blob versions, then you are charged for unique blocks or pages across all versions, and any snapshots it may have. Data that is shared across blob versions is charged only once. When a blob is updated, then data in a new version diverges from the data stored in previuos versions, and the unique data is charged per block or page.
+If you have not explicitly set the blob tier for any versions of a blob, then you are charged for unique blocks or pages across all versions, and any snapshots it may have. Data that is shared across blob versions is charged only once. When a blob is updated, then data in the new current version diverges from the data stored in previous versions, and the unique data is charged per block or page.
 
 When you replace a block within a block blob, that block is subsequently charged as a unique block. This is true even if the block has the same block ID and the same data as it has in the previous version. After the block is committed again, it diverges from its counterpart in the previous version, and you will be charged for its data. The same holds true for a page in a page blob that's updated with identical data.
 
