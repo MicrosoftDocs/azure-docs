@@ -23,7 +23,7 @@ Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefi
 
 * End-to-end SSO between Azure AD and BIG-IP published services
 
-* Manage identities and access from a single control plane - [The Azure portal](https://portal.azure.com/)
+* Manage identities and access from a single control plane, [The Azure portal](https://portal.azure.com/)
 
 To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
