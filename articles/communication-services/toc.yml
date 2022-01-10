@@ -33,7 +33,7 @@ items:
         href: quickstarts/chat/meeting-interop.md
       - name: Using Chat SDK with React Native
         href: quickstarts/chat/react-native.md
-  - name: Telephony and Phone Numbers
+  - name: Telephony and phone numbers
     items:
       - name: Get and manage phone numbers
         href: quickstarts/telephony/get-phone-number.md
@@ -95,11 +95,11 @@ items:
     href: concepts/sdk-options.md
   - name: Client and server architecture
     href: concepts/client-and-server-architecture.md
-  - name: Identity, Authentication, and Privacy
+  - name: Identity, authentication, and privacy
     items:
     - name: Identity 
       href: concepts/identity-model.md
-    - name: Authenticating Services
+    - name: Authenticating services
       href: concepts/authentication.md
     - name: End-user privacy
       href: concepts/privacy.md
@@ -109,13 +109,13 @@ items:
         href: concepts/chat/sdk-features.md
       - name: Chat concepts
         href: concepts/chat/concepts.md
-  - name: Telephony and Phone Numbers
+  - name: Telephony and phone numbers
     items:
       - name: Telephony Concepts
         href: concepts/telephony/telephony-concept.md
-      - name: Phone Number Types
+      - name: Phone number types
         href: concepts/numbers/number-types.md
-      - name: Subscription Eligibility 
+      - name: Subscription eligibility 
         href: concepts/numbers/sub-eligibility-number-capability.md
       - name: Azure direct routing infrastructure requirements
         href: concepts/telephony/direct-routing-infrastructure.md
@@ -206,7 +206,7 @@ items:
         href: concepts/teams-interop.md
       - name: Join a Teams meeting
         href: concepts/join-teams-meeting.md
-      - name: Custom Teams Endpoint
+      - name: Custom Teams endpoint
         items:
           - name: Custom Teams endpoint overview
             href: concepts/teams-endpoint.md 
