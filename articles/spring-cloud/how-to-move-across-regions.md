@@ -28,8 +28,8 @@ Azure Spring Cloud itself cannot be moved from one region to another directly. B
   - When moving a [VNet instance](/azure/spring-cloud/how-to-deploy-in-azure-virtual-network), new network resources may need to be created, depending on the network capacity.
 
 ## How to move an Azure Spring Cloud instance with template
-## [Portal](#tab/azure-portal)
-### Export the template
+## Export the template
+### [Portal](#tab/azure-portal)
 Template can be exported with Azure portal.
 
 1. Sign in to Azure portal
@@ -38,8 +38,7 @@ Template can be exported with Azure portal.
 4. Choose **Download** in the **Export template** blade
 5. Locate the zip file, unzip it and get the template.json file, which contains the resource template
 
-## [Azure CLI](#tab/azure-cli)
-### Export the template
+### [Azure CLI](#tab/azure-cli)
 Template can be exported with Azure CLI.
 
 ```bash
@@ -139,9 +138,8 @@ Below will suppose the new service name for Azure Spring Cloud is new-service, p
         }
     }
     ```
-
-## [Portal](#tab/azure-portal)
-### Deploy the template
+## Deploy the template
+### [Portal](#tab/azure-portal)
 After modifying the template, the new resource can be created by **Deploy a custom template** with portal.
 
 1. Sign in to Azure portal
@@ -163,8 +161,7 @@ After modifying the template, the new resource can be created by **Deploy a cust
 7. Click the **Review + create**  button to create the target service
 8. Wait until the template has been deployed successfully, if any resource deployment failed, check the **Deployment details -> Operation details** for the detailed reason, and update the template or configurations accordingly.
 
-## [Azure CLI](#tab/azure-cli)
-### Deploy the template
+### [Azure CLI](#tab/azure-cli)
 After modifying the template, the new resource can be created by Deploy a custom template with CLI.
 ```bash
 az login
