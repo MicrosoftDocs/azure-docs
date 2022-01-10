@@ -14,7 +14,7 @@ ms.custom: devdivchpfy22
 
 # Tutorial: Debug your APIs using request tracing
 
-This tutorial describes how to inspect (trace) request processing in Azure API Management. The inspect (trace) request processing helps you debug and troubleshoot your API.
+This tutorial describes how to inspect (trace) request processing in Azure API Management. Tracing helps you debug and troubleshoot your API.
 
 In this tutorial, you learn how to:
 
@@ -43,7 +43,7 @@ The **Allow tracing** setting for the subscription used for your API must be ena
 1. Select  **Demo Conference API** from your API list.
 1. Select the **Test** tab.
 1. Select the **GetSpeakers** operation.
-1. Confirm that the HTTP request header includes **Ocp-Apim-Trace: True** and a valid value for **Ocp-Apim-Subscription-Key**. If it isn't, select **+ Add header** to add the header.
+1. Confirm that the HTTP request header includes **Ocp-Apim-Trace: True** and a valid value for **Ocp-Apim-Subscription-Key**. If it doesn't, select **+ Add header** to add the header.
 1. Select **Send** to make an API call.
 
   :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call-1.png" alt-text="Configure API tracing":::
