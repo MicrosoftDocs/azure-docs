@@ -13,6 +13,8 @@ ms.author: ofshezaf
 
 Advanced SIEM Information Model (ASIM) users use *unifying parsers* instead of table names in their queries, to view data in a normalized format and get all the data relevant to the schema in a single query. Each unifying parser uses multiple source-specific parsers that handle each source's specific details. 
 
+To understand how parsers fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
+
 You may need to manage the source-specific parsers used by each unifying parser to:
 
 - **Add a custom, source-specific parser** to a unifying parser.

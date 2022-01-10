@@ -14,6 +14,8 @@ ms.custom: ignite-fall-2021
 
 An Advanced SIEM Information Model ([ASIM](normalization.md)) schema is a set of fields that represent an activity. Using the fields from a normalized schema in a query ensures that the query will work with every normalized source.
 
+To understand how schemas fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
+
 Schema references outline the fields that comprise each schema. ASIM currently defines the following schemas:
 
  - [Network Session](normalization-schema.md)
