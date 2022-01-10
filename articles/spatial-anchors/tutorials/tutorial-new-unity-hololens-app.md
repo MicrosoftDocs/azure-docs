@@ -252,30 +252,16 @@ Right now our app can create and locate anchors. While it deletes the `GameObjec
 
 Let's add a method `DeleteAnchor` that receives a `GameObject`. We will then use the spatial anchor manager together with the object's `CloudNativeAnchor` component to request deletion of the anchor in the cloud.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=294-314)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=DeleteAnchor)]
 
 To call this method from `ShortTap` we need to be able to determine if a tap has been near an existing visible anchor. Let's create a helper method that takes care of that
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=150-314)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=IsAnchorNearby)]
 
 We can now extend our `ShortTap` method to include the `ASA_DeleteAnchor` call
-```csharp
-    private async void ShortTap(Vector3 handPosition)
-    {
-        await ASA_StartSession();
-        if (!IsAnchorNearby(handPosition, out GameObject anchorGameObject))
-        {
-            //No Anchor Nearby, start session and create an anchor
-            await ASA_CreateAnchor(handPosition);
-        } else
-        {
-            //Delete nearby Anchor
-            ASA_DeleteAnchor(anchorGameObject);
-        }
-    }
-```
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=ShortTap&highlight=8,9,11-13,15-20)]
 
-## Try it
+## Try it #3
 
 ------------------------------
 # Archive
