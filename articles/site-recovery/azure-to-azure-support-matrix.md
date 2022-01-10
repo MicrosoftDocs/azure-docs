@@ -282,7 +282,7 @@ DRBD | Disks that are part of a DRBD setup are not supported. |
 LRS | Supported |
 GRS | Supported |
 RA-GRS | Supported |
-ZRS | Supported | ZRS Managed disks are supported. If the source VM has one or more ZRS managed disks, Site Recovery ensures the target VM also has the same configuration of disks. If the source managed disks are of a different type, they cannot be converted to ZRS managed disks at target, and vice versa. 
+ZRS | Not supported | 
 Cool and Hot Storage | Not supported | Virtual machine disks are not supported on cool and hot storage
 Azure Storage firewalls for virtual networks  | Supported | If restrict virtual network access to storage accounts, enable [Allow trusted Microsoft services](../storage/common/storage-network-security.md#exceptions).
 General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Transaction costs increase substantially compared to General purpose V1 storage accounts
