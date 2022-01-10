@@ -166,6 +166,8 @@ landingContent:
             url: cassandra/cassandra-partitioning.md                  
       - linkListType: how-to-guide
         links:
+          - text: From Apache Cassandra to Cassandra API
+            url: cassandra/cassandra-adoption.md         
           - text: Connect to Cassandra API from Spark
             url: cassandra/connect-spark-configuration.md 
           - text: Change feed support with query predicates

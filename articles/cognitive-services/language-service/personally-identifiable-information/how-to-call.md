@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 12/03/2021
 ms.author: aahi
 ms.custom: language-service-pii, ignite-fall-2021
 ---
@@ -22,11 +22,7 @@ The PII feature can evaluate unstructured text, extract extract sensitive inform
 
 ### Specify the PII detection model
 
-By default, this feature will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform NER and PII operations.
-
-| Supported Versions | latest version |
-|--|--|
-| `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`, `2021-01-15`  | `2021-01-15`   |
+By default, this feature will use the latest available AI model on your text. You can also configure your API requests to use a specific [model version](../concepts/model-lifecycle.md).
 
 ### Input languages
 
@@ -38,7 +34,7 @@ Analysis is performed upon receipt of the request. For information on the size a
 
 Using the PII detection feature synchronously is stateless. No data is stored in your account, and results are returned immediately in the response.
 
-When using these features asynchronously, the API results are available for 48 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
+[!INCLUDE [asynchronous-result-availability](../includes/async-result-availability.md)]
 
 The API will attempt to detect the [defined entity categories](concepts/entity-categories.md) for a given document language. If you want to specify which entities will be detected and returned, use the optional `piiCategories` parameter with the appropriate entity categories. This parameter can also let you detect entities that aren't enabled by default for your document language. The following URL example would detect a French driver's license number that might occur in English text, along with the default English entities.
 

@@ -43,6 +43,7 @@ It is strongly recommended to update to GA+ versions listed below instead of usi
 | July 2021 | <ul><li>Support for direct proxies</li><li>Support for Log Analytics gateway</li></ul> [Learn more](https://azure.microsoft.com/updates/general-availability-azure-monitor-agent-and-data-collection-rules-now-support-direct-proxies-and-log-analytics-gateway/) | 1.1.1.0 | 1.10.5.0 |
 | August 2021 | Fixed issue allowing Azure Monitor Metrics as the only destination | 1.1.2.0 | 1.10.9.0<sup>1</sup> |
 | September 2021 | <ul><li>Fixed issue causing data loss on restarting the agent</li><li>Addressed regression introduced in 1.1.3.1<sup>2</sup> for Arc Windows servers</li></ul> | 1.1.3.2 | 1.12.2.0 <sup>2</sup> |  
+| December 2021 | Fixed issues impacting Linux Arc-enabled servers | N/A | 1.14.7.0 |
 
 <sup>1</sup> Do not use AMA Linux version 1.10.7.0 
 <sup>2</sup> Known regression where it's not working on Arc-enabled servers
@@ -57,7 +58,7 @@ You can use Resource Manager templates to install the Azure Monitor agent on Azu
 
 Get sample templates for installing the agent and creating the association from the following: 
 
-- [Template to install Azure Monitor agent (Azure and Azure Arc)](../agents/resource-manager-agent.md#azure-monitor-agent-preview) 
+- [Template to install Azure Monitor agent (Azure and Azure Arc)](../agents/resource-manager-agent.md#azure-monitor-agent) 
 - [Template to create association with data collection rule](./resource-manager-data-collection-rules.md)
 
 Install the templates using [any deployment method for Resource Manager templates](../../azure-resource-manager/templates/deploy-powershell.md) such as the following commands.
@@ -88,7 +89,7 @@ Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publishe
 ---
 
 ### Azure Arc-enabled servers
-Use the following PowerShell commands to install the Azure Monitor agent onAzure Azure Arc-enabled servers.
+Use the following PowerShell commands to install the Azure Monitor agent on Azure Arc-enabled servers.
 # [Windows](#tab/PowerShellWindowsArc)
 ```powershell
 New-AzConnectedMachineExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location>
@@ -99,7 +100,7 @@ New-AzConnectedMachineExtension -Name AMALinux -ExtensionType AzureMonitorLinuxA
 ```
 ---
 ## Install with Azure CLI
-You can install the Azure Monitor agent on Azure virtual machines and on Azure Arc enabled servers using the Azure CLI command for adding a virtual machine extension. 
+You can install the Azure Monitor agent on Azure virtual machines and on Azure Arc-enabled servers using the Azure CLI command for adding a virtual machine extension. 
 
 ### Azure virtual machines
 Use the following CLI commands to install the Azure Monitor agent on Azure virtual machines.

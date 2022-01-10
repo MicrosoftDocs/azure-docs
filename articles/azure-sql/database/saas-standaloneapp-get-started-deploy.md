@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: tutorial
 author: LitKnd
 ms.author: kendralittle
-ms.reviewer: 
+ms.reviewer: mathoma
 ms.date: 11/07/2018
 ---
 # Deploy and explore a standalone single-tenant application that uses Azure SQL Database

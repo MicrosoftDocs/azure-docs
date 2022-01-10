@@ -103,7 +103,7 @@ For more information, see:
 
 - **Alternate deployment / management options**:
 
-    - [Deploy Microsoft Sentinel via ARM template](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-all-in-one-accelerator/ba-p/1807933)
+    - [Deploy Microsoft Sentinel via ARM template](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/Sentinel-All-In-One)
     - [Manage Microsoft Sentinel via API](/rest/api/securityinsights/)
     - [Manage Microsoft Sentinel via PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0)
 

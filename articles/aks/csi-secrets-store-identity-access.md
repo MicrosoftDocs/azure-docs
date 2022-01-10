@@ -206,7 +206,9 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
 
 ### Prerequisites
 
-- Before you begin this step, [enable system-assigned managed identity][enable-system-assigned-identity] in your AKS cluster's VMs or scale sets.
+>[!IMPORTANT]
+> Before you begin this step, [enable system-assigned managed identity][enable-system-assigned-identity] in your AKS cluster's VMs or scale sets.
+>
 
 ### Usage
 
@@ -217,8 +219,11 @@ Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to a
     az vm identity show -g <resource group> -n <vm name> -o yaml
     ```
 
-    The output should contain `type: SystemAssigned`. Make a note of the `principalId`.
-
+    >[!NOTE]
+    > The output should contain `type: SystemAssigned`. Make a note of the `principalId`.
+    > 
+    > IMDS is looking for a System Assigned Identity on VMSS first, then it will look for a User Assigned Identity and pull that if there is only 1. If there are multiple User Assigned Identities IMDS will throw an error as it does not know which identity to pull.
+    > 
 1. To grant your identity permissions that enable it to read your key vault and view its contents, run the following commands:
 
     ```azurecli-interactive

@@ -3,15 +3,15 @@ title: "Quickstart: Azure Blob storage for JavaScript v10 in the browser"
 description: Learn to upload, list, and delete blobs using JavaScript v10 SDK in an HTML page.
 services: storage
 author: normesta
-ms.custom: mvc, devx-track-js, mode-other
+ms.custom: mvc, devx-track-js, mode-api
 ms.service: storage
 ms.author: normesta
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
+ms.devlang: javascript
+#Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage.
 ---
-
-<!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
 # Quickstart: Manage blobs with JavaScript v10 SDK in browser
 
@@ -26,7 +26,7 @@ In this quickstart, you learn to manage blobs by using JavaScript code running e
 - An Azure Storage account. [Create a storage account](../common/storage-account-create.md).
 - A local web server. This article uses [Node.js](https://nodejs.org) to open a basic server.
 - [Visual Studio Code](https://code.visualstudio.com).
-- A VS Code extension for browser debugging, such as [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) or [Debugger for Microsoft Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge).
+- A VS Code extension for browser debugging, such as [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) or [Debugger for Microsoft Edge](https://devblogs.microsoft.com/visualstudio/debug-javascript-in-microsoft-edge-from-visual-studio/).
 
 ## Setting up storage account CORS rules
 
