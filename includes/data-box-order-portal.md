@@ -39,9 +39,9 @@ Do the following steps in the Azure portal to order a device:
 
     - If the source and destination regions that you selected cross international country boundaries.
 
-      To transfer your data across country/region borders, you can import your data to a destination in the same country/region and then use Azure Import/Export to transfer the data in Azure.<!--Verify the method. Expenses associated?-->
+      To transfer your data across country/region borders, you can import your data to a destination in the same country/region and then use Azure Import/Export to transfer the data in Azure.
 
-    - If your Azure subscription doesn't support the Data Box product. In some cases, your subscription might not support a Data Box product in a specific country.<!--Verify: This seems like a Data Box Heavy limitation.-->
+    - If your Azure subscription doesn't support the Data Box product. In some cases, your subscription might not support a Data Box product in a specific country.
     
     If you select **Data Box Heavy**, the Data Box team checks device availability in your region. They'll notify you when you can continue with the order.
 
