@@ -65,7 +65,7 @@ The following are the logical steps, in troubleshooting ExpressRoute circuit:
   
 * [Confirm the traffic flow](#confirm-the-traffic-flow)
 
-* [Use DebugACL to confirm connectivity](#test-private-peering-connectivity)
+* [Test private peering connectivity](#test-private-peering-connectivity)
 
 
 ## Verify circuit provisioning and state
@@ -348,8 +348,8 @@ Test your private peering connectivity by **counting** packets arriving and leav
 ### Interpreting results
 Your test results for each MSEE device will look like the example below. You'll have two sets of results for the primary and secondary MSEE devices. Review the number of matches in and out and use the following scenarios to interpret the results:
 * **You see packet matches sent and received on both MSEEs:** This indicates healthy traffic inbound to and outbound from the MSEE on your circuit. If loss is occurring either on-premises or in Azure, it is happening downstream from the MSEE.
-* **(If testing PsPing from On-prem to Azure) *(received)* results show matches, but *sent* results show NO matches:** This indicates that traffic is getting inbound to Azure, but isn't returning to on-prem. Check for return-path routing issues (are you advertising the appropriate prefixes to Azure? Is there a UDR overriding prefixes? etc).
-* **(If testing PsPing from Azure to On-prem) *(sent)* results show NO matches, but *(received)* results show matches:** This indicates that traffic is getting to on-premises, but isn't getting back. You should work with your provider to find out why traffic isn't being routed to Azure via your ExpressRoute circuit.
+* **If testing PsPing from on-premises to Azure *(received)* results show matches, but *sent* results show NO matches:** This indicates that traffic is getting inbound to Azure, but isn't returning to on-prem. Check for return-path routing issues (are you advertising the appropriate prefixes to Azure? Is there a UDR overriding prefixes? etc).
+* **If testing PsPing from Azure to on-premises *(sent)* results show NO matches, but *(received)* results show matches:** This indicates that traffic is getting to on-premises, but isn't getting back. You should work with your provider to find out why traffic isn't being routed to Azure via your ExpressRoute circuit.
 * **One MSEE shows NO matches, while the other shows good matches:** This indicates that one MSEE isn't receiving or passing any traffic. It could be offline (BGP/ARP down, etc).
 
 #### Example
