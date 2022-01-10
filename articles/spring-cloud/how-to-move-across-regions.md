@@ -1,6 +1,6 @@
 Sometimes you may want to move your Azure Spring Cloud instance from one region to another with different reasons, for example, you may want to create an Azure Spring Cloud instance in another region with same configuration as part of disaster recovery planning, or you want a similar environment for testing.
 
-Azure Spring Cloud itself cannot be moved from one region to another directly. But you can leverage the Azure Resource Manager template to export existing configuration of Azure Spring Cloud, modify the exported template with necessary changes, and then deploy the template to the new region. For more information about Azure Resource Manager and templates, see 
+Azure Spring Cloud itself cannot be moved from one region to another directly. But you can use the Azure Resource Manager template deploy to a new region. For more information about Azure Resource Manager and templates, see 
 [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
 
 # Prerequisites
@@ -8,8 +8,8 @@ Azure Spring Cloud itself cannot be moved from one region to another directly. B
   - The target region already supports Azure Spring Cloud and related features.
 
 # Limitations
-  - As different feature set is supported by different pricing tiers(Sku), change the Sku may need to change the template accordingly, i.e., only supported features can show up in the template for the target Sku.
-  - Not all sub resources in Azure Spring Cloud can be moved with template only, some extra set up is still required after the template is deployed, check [Configure the new Azure Spring Cloud](#configure-the-new-azure-spring-cloud).
+  - As different feature set is supported by different pricing tiers(Sku), change the Sku may need to change the template, that is, only supported features can show up in the template for the target Sku.
+  - Not all sub resources in Azure Spring Cloud can be moved with template only, some extra setup is still required after the template is deployed, check [Configure the new Azure Spring Cloud](#configure-the-new-azure-spring-cloud).
   - When moving a [VNet instance](https://docs.microsoft.com/en-us/azure/spring-cloud/how-to-deploy-in-azure-virtual-network), new network resources may need to be created, depending on the network capacity.
 
 # How to move an Azure Spring Cloud instance with template
@@ -17,7 +17,7 @@ Azure Spring Cloud itself cannot be moved from one region to another directly. B
 ## Export the template
 Template can be exported with Azure portal.
 
-1. Sign in to Azure Portal
+1. Sign in to Azure portal
 2. Select **All resources** and then select your Azure Spring Cloud instance
 3. Go to menu **Automation -> Export template**
 4. Choose **Download** in the **Export template** blade
@@ -37,7 +37,7 @@ az group export --resource-group <resource-group> --resource-ids <resource-id>
 Before deploying the template, the template.json file needs to be modified.
 Below will suppose the new service name for Azure Spring Cloud is new-service, previous service name is old-service.
 
-1. Replace all service name in template from old-service-name to new-service-name, e.g.,
+1. Replace all service name in template from old-service-name to new-service-name, for example,
     ```json
     {
         "type": "Microsoft.AppPlatform/Spring",
@@ -47,7 +47,7 @@ Below will suppose the new service name for Azure Spring Cloud is new-service, p
     }
     ```
 
-2. Change the location in the template to new target location, e.g.,
+2. Change the location in the template to new target location, for example,
     ```json
         {
             "type": "Microsoft.AppPlatform/Spring",
@@ -58,7 +58,7 @@ Below will suppose the new service name for Azure Spring Cloud is new-service, p
         }
     ```
 
- 3. If the instance being moved is a VNet instance, you can also change the VNet to a new one, e.g., change the parameters:
+ 3. If the instance being moved is a VNet instance, you can also change the VNet to a new one, for example, change the parameters:
     ```json
     "parameters": {
         …
@@ -88,7 +88,7 @@ Below will suppose the new service name for Azure Spring Cloud is new-service, p
 	
 4. If any custom domain resources are configured, create the CNAME record ahead following [Tutorial: Map an existing custom domain to Azure Spring Cloud](https://docs.microsoft.com/en-us/azure/spring-cloud/tutorial-custom-domain). Make sure the record name is expected for the new service name.
 
-5. Change all `relativePath` property for all app resource to `<default>`, e.g.,
+5. Change all `relativePath` property for all app resource to `<default>`, for example,
     ```json
     {
         "type": "Microsoft.AppPlatform/Spring/apps/deployments",
@@ -105,9 +105,9 @@ Below will suppose the new service name for Azure Spring Cloud is new-service, p
         }
     }
     ```
-    After the app is created, it uses a default banner application, you have to deploy the jar files again using CLI, check Configure the new Azure Spring Cloud. 
+    After the app is created, it uses a default banner application, you have to deploy the jar files again using CLI, check [Configure the new Azure Spring Cloud](#configure-the-new-azure-spring-cloud). 
 
-6. If service binding was used and is preferred to be imported to new service, add `key` property for the target bound resource, given a bound mysql as example,
+6. If service binding was used and you are preferred to import to new service, add `key` property for the target bound resource, given a bound mysql as example,
     ```json
     {
         "type": "Microsoft.AppPlatform/Spring/apps/bindings",
@@ -129,7 +129,7 @@ Below will suppose the new service name for Azure Spring Cloud is new-service, p
 ## Deploy the template
 After modifying the template, the new resource can be created by **Deploy a custom template** with portal.
 
-1. Sign in to Azure Portal
+1. Sign in to Azure portal
 2. In the top search box, search **Deploy a custom template**
 
     :::image type="content" source="media/move-across-regions/search-deploy-template.png" alt-text="Azure portal screenshot showing how to search the deploy a custom template service":::
@@ -167,7 +167,7 @@ Some features are not exported to the template or cannot be imported with templa
 
   - The jar files for previous service are not deployed directly to the new service, follow [Quickstart - Build and deploy apps to Azure Spring Cloud](https://docs.microsoft.com/en-us/azure/spring-cloud/quickstart-deploy-apps?tabs=Azure-CLI&pivots=programming-language-java#create-and-deploy-apps-on-azure-spring-cloud) to deploy all apps. If there is no active deployment configured automatically, follow [Set up a staging environment in Azure Spring Cloud](https://docs.microsoft.com/en-us/azure/spring-cloud/how-to-staging-environment#set-the-green-deployment-as-the-production-environment) to configure production deployment.  
   - Config server will not be automatically imported, follow [Set up your Config Server instance in Azure Spring Cloud](https://docs.microsoft.com/en-us/azure/spring-cloud/how-to-config-server) for configurations.
-  - Managed identity will be automatically created for the new service, but the object id is different with previous one, in order to make MSI work in the new service, follow [Enable system-assigned managed identity for applications in Azure Spring Cloud](https://docs.microsoft.com/en-us/azure/spring-cloud/how-to-enable-system-assigned-managed-identity) for configurations.
-  - For Monitoring -> Metrics, follow [Metrics for Azure Spring Cloud](https://docs.microsoft.com/en-us/azure/spring-cloud/concept-metrics) for the configurations, in order to not mix the data, it's not recommended to reuse previous Log Analytics etc. to collect data, similar for other monitoring configurations.
+  - Managed identity will be automatically created for the new service, but the object ID is different with previous one, to make MSI work in the new service, follow [Enable system-assigned managed identity for applications in Azure Spring Cloud](https://docs.microsoft.com/en-us/azure/spring-cloud/how-to-enable-system-assigned-managed-identity) for configurations.
+  - For Monitoring -> Metrics, follow [Metrics for Azure Spring Cloud](https://docs.microsoft.com/en-us/azure/spring-cloud/concept-metrics) for the configurations, to not mix the data, it's not recommended to reuse previous Log Analytics and so on. to collect data, similar for other monitoring configurations.
   - For Monitoring -> Diagnostic settings and Logs, follow [Analyze logs and metrics in Azure Spring Cloud](https://docs.microsoft.com/en-us/azure/spring-cloud/diagnostic-services) for configurations.
   - For Monitoring -> Application Insights, follow [How to use Application Insights Java In-Process Agent in Azure Spring Cloud](https://docs.microsoft.com/en-us/azure/spring-cloud/how-to-application-insights) for configurations.
