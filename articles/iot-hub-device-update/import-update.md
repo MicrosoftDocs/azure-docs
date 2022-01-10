@@ -153,7 +153,11 @@ An example manifest output is below. For this example, there are two files that 
 
    :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Update Import Sequencing" lightbox="media/import-update/update-publishing-sequence-2.png":::
 
-10. Select the files you just uploaded to designate them for importing. Then click the "Select" button.
+10. Select the files you just uploaded to designate them for importing. Then click the "Select" button to return to the Import update page.
+
+   :::image type="content" source="media/import-update/update-ready.png" alt-text="Job Status" lightbox="media/import-update/update-ready.png":::
+
+11. On the Import update page, review the files to be imported. Then select "Import update". You can use the [Proxy Update Troubleshooting](device-update-proxy-update-troubleshooting.md) page to resolve any errors.
 
    :::image type="content" source="media/import-update/update-ready.png" alt-text="Job Status" lightbox="media/import-update/update-ready.png":::
 
