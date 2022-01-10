@@ -77,8 +77,8 @@ To complete this tutorial, you need to:
     > [!NOTE]
     > Azure Database Migration Service does not support using an account level SAS token when configuring the Storage Account settings during the [Configure Migration Settings](#configure-migration-settings) step.
 
-    > **[!NOTE]
-    >  Azure Storage Account with Private endpoint is not supported by Azure Database Migration service.** 
+   
+    >- Azure Storage Account with Private endpoint is not supported by Azure Database Migration service.
     
 [!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
 
