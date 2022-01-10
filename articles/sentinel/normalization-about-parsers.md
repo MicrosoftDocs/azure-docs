@@ -8,7 +8,7 @@ ms.author: ofshezaf
 ms.custom: ignite-fall-2021
 --- 
 
-# Use Advanced SIEM Information Model parsers (Public preview)
+# Use Advanced SIEM Information Model (ASIM) parsers (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
