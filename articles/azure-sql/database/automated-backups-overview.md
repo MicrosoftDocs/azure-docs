@@ -228,11 +228,11 @@ For more details about backup storage pricing visit [Azure SQL Database pricing 
 
 To understand backup storage costs, go to **Cost Management + Billing** in the Azure portal, select **Cost Management**, and then select **Cost analysis**. Select the desired subscription as the **Scope**, and then filter for the time period and service that you're interested in as follows:
 
-1. Add a filter for **Service name**
+1. Add a filter for **Service name**.
 2. In the drop-down list select **sql database** for a single database or an elastic database pool, or select **sql managed instance** for managed instance.
-3. Add another filter for **Meter subcategory**
-4. To monitor PITR costs, in the drop-down list select **single/elastic pool pitr backup storage** for a single database or an elastic database pool, or select **managed instance pitr backup storage** for managed instance. Meters will only show up if there exists consumption.
-5. To monitor LTR costs, in the drop-down list select **ltr backup storage** for a single database or an elastic database pool, or select **sql managed instance - ltr backup storage** for managed instance. Meters will only show up if there exists consumption.
+3. Add another filter for **Meter subcategory**.
+4. To monitor PITR backup costs, in the drop-down list select **single/elastic pool pitr backup storage** for a single database or an elastic database pool, or select **managed instance pitr backup storage** for managed instance. Meters will only show up if there exists consumption.
+5. To monitor LTR backup costs, in the drop-down list select **ltr backup storage** for a single database or an elastic database pool, or select **sql managed instance - ltr backup storage** for managed instance. Meters will only show up if there exists consumption.
 
 The **Storage** and **compute** subcategories might interest you as well, but they're not associated with backup storage costs.
 
