@@ -63,6 +63,12 @@ This preview is available in the following Azure Regions.
 - West US 2
 - West US 3
 
+This preview supports connectivity to the following Azure Services:
+- Azure Cosmos DB
+- Azure Key Vault
+- Azure Storage
+- Third Party Private Link Services
+
 > [!NOTE]
 > Private Link pricing will not apply to traffic sent over ExpressRoute FastPath during Public preview. For more information about pricing, check out the [Private Link pricing page](https://azure.microsoft.com/pricing/details/private-link/).
 > 
