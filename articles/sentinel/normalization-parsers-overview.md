@@ -26,7 +26,7 @@ Many ASIM parsers are built in and available out-of-the-box in every Microsoft S
 
 Each method has advantages over the other: 
 
-| - | Built-in | Workspace-deployed |
+| Compare | Built-in | Workspace-deployed |
 | --- | --- | --- |
 | **Advantages** | Exist in every Microsoft Sentinel instance. <br><br>Usable with other built-in content. | New parsers are often delivered first as workspace-deployed parsers.|
 | **Disadvantages** |Cannot be directly modified by users. <br><br>Fewer parsers available. | Not used by built-in content. |
