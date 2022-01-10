@@ -100,30 +100,32 @@ You can copy the sample configuration files to start testing the deployment auto
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
+cp -R sap-automation/samples/WORKSPACES WORKSPACES
 
 ```
 
 
 ```bash
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE
 
-export subscriptionID=<subscriptionID>
-export appId=<appID>
-export spn_secret=<password>
-export tenant_id=<tenant>
-export keyvault=<keyvaultName>
-export storageaccount=<storageaccountName>
-export statefile_subscription=<statefile_subscription>
+export subscriptionID="<subscriptionID>"
+export spn_id="<appID>"
+export spn_secret="<password>"
+export tenant_id="<tenant>"
+export region_code="WEEU"
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
-        --parameterfile DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars   \
-        --keyvault $keyvault                                   \
-        --state_subscription $statefile_subscription           \
-        --subscription $subscriptionID                         \
-        --spn_id $appID                                        \
-        --spn_secret $spn_secret                               \
-        --tenant_id $tenant_id
+export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+export ARM_SUBSCRIPTION_ID="${subscriptionID}"
+
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-${region_code}-SAP01-INFRASTRUCTURE
+
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                        \
+    --parameterfile ./DEV-${region_code}-SAP01-INFRASTRUCTURE.tfvars                  \
+    --deployer_environment MGMT                                                       \
+    --deployer_tfstate_key MGMT-${region_code}-DEP00-INFRASTRUCTURE.terraform.tfstate \
+    --subscription "${subscriptionID}"                                                \
+    --spn_id "${spn_id}"                                                              \
+    --spn_secret "${spn_secret}"                                                      \
+    --tenant_id "${tenant_id}"
 ```
 # [Windows](#tab/windows)
 
@@ -133,24 +135,25 @@ You can copy the sample configuration files to start testing the deployment auto
 
 cd C:\Azure_SAP_Automated_Deployment
 
-xcopy sap-automation\deploy\samples\WORKSPACES WORKSPACES
+xcopy sap-automation\samples\WORKSPACES WORKSPACES
 
 ```
 
 
 ```powershell
 $subscription="<subscriptionID>"
-$appId="<appID>"
+$spn_id="<appID>"
 $spn_secret="<password>"
 $tenant_id="<tenant>"
 $keyvault=<keyvaultName>
 $storageaccount=<storageaccountName>
 $statefile_subscription=<statefile_subscription>
+$region_code="WEEU"
 
-cd C:\Azure_SAP_Automated_Deployment\WORKSPACES\LANDSCAPE\DEV-WEEU-SAP01-INFRASTRUCTURE
+cd C:\Azure_SAP_Automated_Deployment\WORKSPACES\LANDSCAPE\DEV-$region_code-SAP01-INFRASTRUCTURE
 
-New-SAPWorkloadZone -Parameterfile DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars 
--Subscription $subscription -SPN_id $appId -SPN_password $spn_secret -Tenant_id $tenant_id
+New-SAPWorkloadZone -Parameterfile DEV-$region_code-SAP01-INFRASTRUCTURE.tfvars 
+-Subscription $subscription -SPN_id $spn_id -SPN_password $spn_secret -Tenant_id $tenant_id
 -State_subscription $statefile_subscription -Vault $keyvault -$StorageAccountName $storageaccount
 ```
 

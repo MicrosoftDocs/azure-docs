@@ -8,6 +8,7 @@ ms.date: 10/10/2019
 ms.topic: overview
 ms.service: storage
 ms.subservice: queues
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

@@ -3,7 +3,7 @@ title: Custom role permissions for app registration - Azure AD | Microsoft Docs
 description: Delegate custom administrator role permissions for managing app registrations. 
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
@@ -164,5 +164,5 @@ Grants the same permissions as microsoft.directory/applications/permissions/upda
 
 ## Next steps
 
-- Create custom roles using [the Azure portal, Azure AD PowerShell, and Graph API](custom-create.md)
+- Create custom roles using [the Azure portal, Azure AD PowerShell, and Microsoft Graph API](custom-create.md)
 - [List role assignments](view-assignments.md)

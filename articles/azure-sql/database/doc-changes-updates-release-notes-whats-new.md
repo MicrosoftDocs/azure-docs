@@ -21,10 +21,6 @@ ms.date: 12/15/2021
 
 This article summarizes the documentation changes associated with new features and improvements in the recent releases of [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/). To learn more about Azure SQL Database, see the [overview](sql-database-paas-overview.md). 
 
-> [!div class="nextstepaction"]
-> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
-
-
 
 ## Preview 
 

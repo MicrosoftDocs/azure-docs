@@ -3,7 +3,7 @@ title: RequestDisallowedByPolicy error
 description: Describes the cause of the RequestDisallowedByPolicy error when deploying resources with an Azure Resource Manager template (ARM template) or Bicep file.
 author: genlin
 ms.topic: troubleshooting
-ms.date: 12/07/2021
+ms.date: 12/08/2021
 ms.author: genli
 ms.custom: devx-track-azurepowershell
 ---
@@ -14,11 +14,7 @@ This article describes the cause of the `RequestDisallowedByPolicy` error and pr
 
 ## Symptom
 
-During a deployment, you might receive a `RequestDisallowedByPolicy` error that prevents you from creating a resource. Azure CLI, Azure PowerShell, and the Azure portal's activity log output similar information about the error. The key elements are the error code, policy assignment, and policy definition.
-
-In this example, the error occurred when an administrator attempted to create a network interface with a public IP address. A policy assignment is enabled for a built-in policy definition that prevents public IPs on network interfaces.
-
-The following output is an example of the error message:
+During a deployment, you might receive a `RequestDisallowedByPolicy` error that prevents you from creating a resource. Azure CLI, Azure PowerShell, and the Azure portal's activity log show similar information about the error. The key elements are the error code, policy assignment, and policy definition.
 
 ```Output
 "statusMessage": "{"error":{"code":"RequestDisallowedByPolicy", "target":"examplenic1207",
@@ -31,13 +27,13 @@ The following output is an example of the error message:
   "id":"/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/83a86a26-fd1f-447c-b59d-e51f44264114"}
 ```
 
-The name of the assignment or definition is the last segment of the `id` string for `policyAssignment` and `policyDefinition`. You can use the name in Azure CLI or Azure PowerShell commands to get more information. The `{guid}` is a placeholder that represents your Azure subscription ID.
+The name of a `policyAssignment` or `policyDefinition` is the last segment of the `id` string. The `{guid}` placeholder represents an Azure subscription ID.
 
-## Troubleshooting
+## Cause
 
-To get details about a policy definition or policy assignment that blocked your deployment, use  Azure CLI or Azure PowerShell. You can also find the information in the portal's activity log.
+In this example, the error occurred when an administrator attempted to create a network interface with a public IP address. A policy assignment enables enforcement of a built-in policy definition that prevents public IPs on network interfaces.
 
-The example commands use placeholders for input. For example, replace `<policy definition name>` including the angle brackets, with the name from your error message.
+You can use the name of a policy assignment or policy definition to get more details about a policy that caused the error. The example commands use placeholders for input. For example, replace `<policy definition name>` including the angle brackets, with the definition name from your error message.
 
 # [Azure CLI](#tab/azure-cli)
 

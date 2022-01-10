@@ -150,7 +150,7 @@
         - name: Managed application plan
           href: azure-app-managed.md
     - name: Test and publish
-      href: azure-app-test-publish.md
+      href: azure-app-test-publish.md   
     - name: Market your offer
       href: azure-app-marketing.md
     - name: Managed app metered billing
@@ -193,6 +193,8 @@
           href: azure-container-plan-availability.md
         - name: Plan technical configuration
           href: azure-container-plan-technical-configuration.md
+        - name: Private plan troubleshooting
+          href: azure-private-plan-troubleshooting.md           
   - name: Azure virtual machine offer
     items:
     - name: Plan the offer
@@ -433,12 +435,12 @@
       href: lead-management-faq.yml
 - name: Data and analytics
   items:
-  - name: Commercial marketplace analytics 
+  - name: Commercial marketplace insights 
     href: analytics.md
   - name: Summary dashboard
     href: summary-dashboard.md
   - name: Revenue dashboard
-    href: revenue-dashboard.md
+    href: revenue-dashboard.md  
   - name: Orders dashboard
     href: orders-dashboard.md
   - name: Usage dashboard
@@ -499,7 +501,7 @@
         href: analytics-api-resume-report-executions.md
   - name: Manage metered billing anomalies
     href: anomaly-detection.md
-  - name: Analytics common questions
+  - name: Analytics FAQ
     href: analytics-faq.yml
 - name: Policies and terms
   items:    
@@ -510,11 +512,11 @@
   - name: Commercial marketplace review policies
     href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
   - name: Commercial Marketplace terms
-    href: /legal/marketplace/marketplace-terms
+    href: /legal/marketplace/marketplace-terms?context=/azure/marketplace/context/context
   - name: Microsoft Publisher Agreement
-    href: /legal/marketplace/msft-publisher-agreement
+    href: /legal/marketplace/msft-publisher-agreement?context=/azure/marketplace/context/context
   - name: Change history for Microsoft Publisher Agreement
-    href: /legal/marketplace/mpa-change-history
+    href: /legal/marketplace/mpa-change-history?context=/azure/marketplace/context/context
 - name: Reference
   items:
   - name: Guide to Marketplace APIs

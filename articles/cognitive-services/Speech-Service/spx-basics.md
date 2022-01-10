@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/28/2021
 ms.author: eur
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Get started with the Azure Speech CLI

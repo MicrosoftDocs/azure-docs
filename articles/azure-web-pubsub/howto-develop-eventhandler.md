@@ -22,11 +22,11 @@ The data sending from the service to the server is always in CloudEvents `binary
 
 ## Upstream and Validation
 
-When configuring the webhook endpoint, the URL can use `{event}` parameter to define a URL template. The service calculates the value of the webhook URL dynamically when the client request comes in. For example, when a request `/client/hubs/chat` comes in, with a configured event handler URL pattern `http://host.com/api/{event}` for hub `chat`, when the client connects, it will first POST to this URL: `http://host.com/api/connect`. This can be useful when a PubSub WebSocket client sends custom events, that the event handler helps dispatch different events to different upstream. Note that the `{event}` parameter is not allowed in the URL domain name.
+When configuring the webhook endpoint, the URL can use `{event}` parameter to define a URL template. The service calculates the value of the webhook URL dynamically when the client request comes in. For example, when a request `/client/hubs/chat` comes in, with a configured event handler URL pattern `http://host.com/api/{event}` for hub `chat`, when the client connects, it will first POST to this URL: `http://host.com/api/connect`. The parameter can be useful when a PubSub WebSocket client sends custom events, that the event handler helps dispatch different events to different upstream. Note that the `{event}` parameter is not allowed in the URL domain name.
 
-When setting up the event handler upstream through Azure portal or CLI, the service follows the [CloudEvents Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection) to validate the upstream webhook. Every registered upstream webhook URL will be validated by this mechanism. The `WebHook-Request-Origin` request header is set to the service domain name `xxx.webpubsub.azure.com`, and it expects the response having header `WebHook-Allowed-Origin` to contain this domain name or `*`.
+When setting up the event handler upstream through Azure portal or CLI, the service follows the [CloudEvents Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection) to validate the upstream webhook. Every registered upstream webhook URL will be validated by this mechanism. The `WebHook-Request-Origin` request header is set to the service domain name `xxx.webpubsub.azure.com`, and it expects the response to have a header `WebHook-Allowed-Origin` to contain this domain name or `*`.
 
-When doing the validation, the `{event}` parameter is resolved to `validate`. For example, when trying to set the URL to `http://host.com/api/{event}`, the service tries to **OPTIONS** a request to `http://host.com/api/validate` and only when the response is valid the configure can be set successfully.
+When doing the validation, the `{event}` parameter is resolved to `validate`. For example, when trying to set the URL to `http://host.com/api/{event}`, the service will try to **OPTIONS** a request to `http://host.com/api/validate`. And only when the response is valid, the configuration can be set successfully.
 
 For now, we do not support [WebHook-Request-Rate](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#414-webhook-request-rate) and [WebHook-Request-Callback](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#413-webhook-request-callback).
 
@@ -34,7 +34,7 @@ For now, we do not support [WebHook-Request-Rate](https://github.com/cloudevents
 
 - Anonymous mode
 - Simple Auth with `?code=<code>` is provided through the configured Webhook URL as query parameter.
-- Use AAD Auth, check [here](howto-use-managed-identity.md) for details.
+- Use Azure Active Directory(Azure AD) authentication, check [here](howto-use-managed-identity.md) for details.
    - Step1: Enable Identity for the Web PubSub service
    - Step2: Select from existing AAD application that stands for your webhook web app
 
@@ -42,9 +42,13 @@ For now, we do not support [WebHook-Request-Rate](https://github.com/cloudevents
 
 ### Configure through Azure portal
 
-Find your Azure Web PubSub service from **Azure portal**. Navigate to **Settings** and enter your hub-name. Then click **Add** to configure your server side webhook URL. Don't forget to click **Save** when finish.
+Find your Azure Web PubSub service from **Azure portal**. Navigate to **Settings**. Then select **Add** to configure your server-side webhook URL. For an existing hub configuration, select **...** on right side will navigate to the same editing page.
 
 :::image type="content" source="media/quickstart-serverless/set-event-handler.png" alt-text="Screenshot of setting the event handler.":::
+
+Then in the below editing page, you'd need to configure hub name, server webhook URL, and select `user` and `system` events you'd like to subscribe. Finally select **Save** when everything is done. 
+
+:::image type="content" source="media/quickstart-serverless/edit-event-handler.png" alt-text="Screenshot of editing the event handler.":::
 
 ### Configure through Azure CLI
 

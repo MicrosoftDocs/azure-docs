@@ -264,6 +264,7 @@ The **Provision-EflowVm** command adds the provisioning information for your IoT
 | registrationId | The registration ID of an existing IoT Edge device | Registration ID for provisioning an IoT Edge device (**DpsSymmetricKey**). |
 | identityCertPath | Directory path | Absolute destination path of the identity certificate on your Windows host machine (**ManualX509**, **DpsX509**). |
 | identityPrivKeyPath | Directory path | Absolute source path of the identity private key on your Windows host machine (**ManualX509**, **DpsX509**). |
+| globalEndpoint | Device Endpoint URL | URL for Global Endpoint to be used for DPS provisioning. |
 
 For more information, use the command `Get-Help Provision-EflowVm -full`.
 

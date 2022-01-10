@@ -26,7 +26,6 @@ In this tutorial you will learn how to:
 > * Create a device group
 > * Deploy a package update
 > * Monitor the update deployment
-
 ## Prerequisites
 
 * If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
@@ -45,7 +44,6 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
 
     > [!div class="mx-imgBorder"]
     > [![Screenshot showing the iotedge-vm-deploy template](../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)](../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)
-
     **Subscription**: The active Azure subscription to deploy the virtual machine into.
 
     **Resource group**: An existing or newly created Resource Group to contain the virtual machine and it's associated resources.
@@ -76,11 +74,9 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
 
     > [!div class="mx-imgBorder"]
     > [![Screenshot showing the dns name of the iotedge vm](../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
-
    > [!TIP]
    > If you want to SSH into this VM after setup, use the associated **DNS Name** with the command:
     `ssh <adminUsername>@<DNS_Name>`
-
 ### (Optional) Manually prepare a device
 Similar to the steps automated by the [cloud-init script](https://github.com/Azure/iotedge-vm-deploy/blob/1.2.0-rc4/cloud-init.txt), following are manual steps to install and configure the device. These steps can be used to prepare a physical device.
 
@@ -89,7 +85,6 @@ Similar to the steps automated by the [cloud-init script](https://github.com/Azu
    > The Device Update package agent doesn't depend on IoT Edge. But, it does rely on the IoT Identity Service daemon that is installed with IoT Edge (1.2.0 and higher) to obtain an identity and connect to IoT Hub.
    >
    > Although not covered in this tutorial, the [IoT Identity Service daemon can be installed standalone on Linux-based IoT devices](https://azure.github.io/iot-identity-service/installation.html). The sequence of installation matters. The Device Update package agent must be installed _after_ the IoT Identity Service. Otherwise, the package agent will not be registered as an authorized component to establish a connection to IoT Hub.
-
 1. Then, install the Device Update agent .deb packages.
 
    ```bash
@@ -181,7 +176,6 @@ This update will update the `aziot-identity-service` and the `aziot-edge` packag
 
    > [!TIP]
    > By default the Start date/time is 24 hrs from your current time. Be sure to select a different date/time if you want the deployment to begin earlier.
-
 1. Select Deploy update.
 
 1. View the compliance chart. You should see the update is now in progress. 

@@ -10,7 +10,6 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -34,7 +33,7 @@ A virtual network peering can't be created between two virtual networks deployed
 
 This tutorial peers virtual networks in the same region. You can also peer virtual networks in different [supported regions](virtual-network-manage-peering.md#cross-region). It's recommended that you familiarize yourself with the [peering requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints) before peering virtual networks.
 
-You can use the Azure portal, the Azure [command-line interface](#cli) (CLI), Azure [PowerShell](#powershell), or an Azure Resource Manager template to create a virtual network peering. Click any of the previous tool links to go directly to the steps for creating a virtual network peering using your tool of choice.
+You can use the Azure portal, the [Azure CLI](#cli), [Azure PowerShell](#powershell), or an Azure Resource Manager template to create a virtual network peering. Click any of the previous tool links to go directly to the steps for creating a virtual network peering using your tool of choice.
 
 ## Create peering - Azure portal
 

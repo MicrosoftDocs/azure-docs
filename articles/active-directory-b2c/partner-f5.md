@@ -44,14 +44,11 @@ To get started, you'll need:
 - [SSL certificate](../active-directory/manage-apps/f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS or use default while testing.
 
 ## Scenario description
+**The following scenario is header-based but you can also use these methods to achieve Kerberos SSO.**
 
-For this scenario, we have an internal application whose access relies on receiving HTTP authorization headers from a legacy broker system, enabling sales agents to be directed to their respective areas of content.
+For this scenario, we have an internal application whose access relies on receiving HTTP authorization headers from a legacy broker system, enabling sales agents to be directed to their respective areas of content. The service needs expanding to a broader consumer base, so the application either needs upgrading to offer a choice of consumer authentication options or replacing altogether with more suitable solution.
 
-The service needs expanding to a broader consumer base, so the application either needs upgrading to offer a choice of consumer authentication options or replacing altogether with more suitable solution.
-
-In an ideal world, the application would be upgraded to support being directly managed and governed through a modern control plane. But as it lacks any form of modern interop, it would take considerable effort and time to modernize, introducing inevitable costs and risks of potential downtime.
-
-Instead, a BIG-IP Virtual Edition (VE) deployed between the public internet and the internal Azure VNet our application is connected to will be used to gate access with Azure AD B2C for its extensive choice of sign-in and sign-up capabilities.
+In an ideal world, the application would be upgraded to support being directly managed and governed through a modern control plane. But as it lacks any form of modern interop, it would take considerable effort and time to modernize, introducing inevitable costs and risks of potential downtime. Instead, a BIG-IP Virtual Edition (VE) deployed between the public internet and the internal Azure VNet our application is connected to will be used to gate access with Azure AD B2C for its extensive choice of sign-in and sign-up capabilities.
 
 Having a BIG-IP in front of the application enables us to overlay the service with Azure AD B2C pre-authentication and header-based SSO, significantly improving the overall security posture of the application, allowing the business to continue growing at pace, without interruption.
 

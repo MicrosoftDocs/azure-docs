@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 11/10/2021
 ms.author: jasteppe
-ms.custom: mode-portal
+ms.custom: mode-api
 ---
 
 # Deploy IoT connector in the Azure portal

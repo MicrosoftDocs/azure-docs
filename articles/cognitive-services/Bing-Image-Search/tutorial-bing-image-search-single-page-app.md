@@ -10,15 +10,13 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
+ms.devlang: javascript
 ms.custom: devx-track-js
 ---
 
 # Tutorial: Create a single-page app using the Bing Image Search API
 
-> [!WARNING]
-> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
-> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
 
 The Bing Image Search API enables you to search the web for high-quality, relevant images. Use this tutorial to build a single-page web application that can send search queries to the API, and display the results within the webpage. This tutorial is similar to the [corresponding tutorial](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) for Bing Web Search.
 
@@ -30,14 +28,10 @@ The tutorial app illustrates how to:
 > * Display and page through search results
 > * Request and handle an API subscription key, and Bing client ID.
 
-The full source code for this tutorial is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search).
-
 ## Prerequisites
 
 * The latest version of [Node.js](https://nodejs.org/).
 * The [Express.js](https://expressjs.com/) framework for Node.js. Installation instructions for the source code are available in the GitHub sample readme file.
-
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Manage and store user subscription keys
 
