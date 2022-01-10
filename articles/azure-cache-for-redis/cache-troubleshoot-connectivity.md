@@ -67,6 +67,8 @@ You can confirm the number of sent packets is equal to the received packets. Con
 
 ### Virtual network configuration
 
+Steps to check your virtual network configuration:
+
 1. Check if a virtual network is assigned to your cache from the "**Virtual Network**" section under the **Settings** on the Resource menu of the Azure portal.
 1. Ensure that the client host machine is in the same virtual network as the Azure Cache For Redis.
 1. When the client application is in a different VNet than your Azure Cache For Redis, both VNets must have VNet peering enabled within the same Azure region.
@@ -74,6 +76,8 @@ You can confirm the number of sent packets is equal to the received packets. Con
 1. For more information, see [Configure a virtual network - Premium-tier Azure Cache for Redis instance](cache-how-to-premium-vnet.md#how-can-i-verify-that-my-cache-is-working-in-a-virtual-network).
 
 ### Private endpoint configuration
+
+Steps to check your private endpoint configurtation:
 
 1. `Public Network Access` flag is disabled by default on creating a private endpoint. Ensure that you have set the `Public Network Access` correctly. When you have your cache in Azure portal, look under **Private Endpoint** in the Resource menu on the left for this setting.
 1. If you're trying to connect to your cache private endpoint from outside your virtual network of your cache, `Public Network Access` needs to be enabled.
