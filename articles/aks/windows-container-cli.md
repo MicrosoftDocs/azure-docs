@@ -152,7 +152,7 @@ az aks nodepool add \
 
 The above command creates a new Windows Server node pool using `containerd` as the runtime named *npwcd* and adds it to the *myAKSCluster*. The above command also uses the default subnet in the default vnet created when running `az aks create`.
 
-### Upgrade an existing Windows Server node pool to `containerd` (preview)
+### Upgrade an existing Windows Server node pool to `containerd`
 
 Use the `az aks nodepool upgrade` command to upgrade a specific node pool from Docker to `containerd`.
 
