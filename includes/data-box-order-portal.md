@@ -5,7 +5,7 @@ ms.subservice: databox
 ms.topic: include
 ms.date: 01/10/2022
 ms.author: alkohli
-ms.custom: "contperf-fy22q1"
+ms.custom: "contperf-fy22q3"
 ---
 
 Do the following steps in the Azure portal to order a device:
@@ -13,7 +13,7 @@ Do the following steps in the Azure portal to order a device:
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
 2. Select **+ Create a resource** and search for *Azure Data Box*. Select **Azure Data Box**.
 
-   ![Screenshot of the New section of the Azure portal with Azure Data Box in the search box. The Azure Data Box entry is highlighted.](media/data-box-order-portal/data-box-import-01.png)
+   ![Screenshot of the New section of the Azure portal with Azure Data Box in the search box. The Azure Data Box entry is highlighted.](media/data-box-order-portal/data-box-import-01.png) 
 
 3. Select **Create**.  
 
