@@ -36,11 +36,11 @@ In this tutorial you will learn how to:
 1. Sign in to the [LUIS portal](https://www.luis.ai/)
 2. Create a new application by selecting **+New app**.
 
-:::image type="content" source="../media/build-decomposable-app/Create-LUIS-APP.png" alt-text="Create a new application" lightbox="../media/build-decomposable-app/Create-LUIS-APP.png":::
+    :::image type="content" source="../media/build-decomposable-app/create-luis-app.png" alt-text="A screenshot of the application creation screen." lightbox="../media/build-decomposable-app/create-luis-app.png":::
 
 3. In the window that appears, enter the name "Telecom Tutorial", keeping the default culture, **English**. The other fields are optional, do not set them. Select **Done**.
 
-:::image type="content" source="../media/build-decomposable-app/Create-New-App.png" alt-text="Create a new application" lightbox="../media/build-decomposable-app/Create-New-App.png":::
+    :::image type="content" source="../media/build-decomposable-app/create-new-app.png" alt-text="A screenshot of the LUIS application's creation fields." lightbox="../media/build-decomposable-app/create-new-app.png":::
 
 
 ## User intentions as intents
@@ -69,19 +69,17 @@ To classify an utterance, the intent needs examples of user utterances that shou
 
 1. Select  **Build**  from the top navigation menu, then select **Intents**  on the left side of the screen. Select  **+ Create**  to create a new intent. Enter the new intent name, "UserAction", then select  **Done**
 
-UserAction could be one of many intents. For example, some users might want to sign up for a new line, while others might ask to retrieve information.
+    UserAction could be one of many intents. For example, some users might want to sign up for a new line, while others might ask to retrieve information.
 
 2. Add several example utterances to this intent that you expect a user to ask:
 
-UserAction example utterances:**
+    * Hi! I want to sign up for a new line
+    * Can I Sign up for a new line?
+    * Hello, I want a new line
+    * I forgot my line number!
+    * I would like a new line number
 
-* Hi! I want to sign up for a new line
-* Can I Sign up for a new line?
-* Hello, I want a new line
-* I forgot my line number!
-* I would like a new line number
-
-:::image type="content" source="../media/build-decomposable-app/User-Actions.png" alt-text="Create a new intent" lightbox="../media/build-decomposable-app/User-Actions.png":::
+    :::image type="content" source="../media/build-decomposable-app/user-actions.png" alt-text="A screenshot showing example utterances for the UserAction intent." lightbox="../media/build-decomposable-app/user-actions.png":::
 
 For the **PayBill** intent, some utterances could be:
 
@@ -97,21 +95,23 @@ These few utterances are for demonstration purposes only. A real-world app shoul
 
 ## Creating the remaining intents
 
-**Help** :
+Perform the above steps to add the following intents to the app:
 
-* I need help
-* I need assistance
-* Help please
-* Can someone support me?
-* I'm stuck, can you help me
-* Can I get help?
+**"Help"** 
 
-**UpdateTier** :
+* "I need help"
+* "I need assistance"
+* "Help please"
+* "Can someone support me?"
+* "I'm stuck, can you help me"
+* "Can I get help?"
 
-* I want to update my tier
-* Update my tier
-* I want to change to VIP tier
-* Change my subscription to standard tier
+**"UpdateTier"**
+
+* "I want to update my tier"
+* "Update my tier"
+* "I want to change to VIP tier"
+* "Change my subscription to standard tier"
 
 ## Example utterances for the None intent
 
@@ -124,10 +124,10 @@ If you leave the "None" intent empty, an utterance that should be predicted outs
 1. Select  **Intents**  from the left panel.
 2. Select the  **None**  intent. Add three utterances that your user might enter but are not relevant to your Telecom app. These examples shouldn't use words you expect in your subject domain such as Tier, upgrade, signup, bill.
 
-* When is my flight?
-* I need to change my pizza order please
-* What is the weather like for today?
-
+    * "When is my flight?"
+    * "I need to change my pizza order please"
+    * "What is the weather like for today?"
+    
 ## Add entities
 
 An entity is an item or element that is relevant to the user's intent. Entities define data that can be extracted from the utterance and is essential to complete a user's required action.
@@ -135,35 +135,35 @@ An entity is an item or element that is relevant to the user's intent. Entities 
 1. In the build section, select **Entities.**
 2. To add a new entity, select **+Create**
 
-In this example, we will be creating two entities, "**UpdateTierInfo**" as a machine-learned entity type, and "Tier" as a list entity type. Luis also lets you create [different entity types](/azure/cognitive-services/luis/luis-concept-entity-types).
+    In this example, we will be creating two entities, "**UpdateTierInfo**" as a machine-learned entity type, and "Tier" as a list entity type. Luis also lets you create [different entity types](/azure/cognitive-services/luis/luis-concept-entity-types).
 
 3. In the window that appears, enter "**UpdateTierInfo**", and select Machine learned from the available types. Select the **Add structure** box to be able to add a structure to this entity.
 
-:::image type="content" source="../media/build-decomposable-app/Create-entity.png" alt-text="Adding entities" lightbox="../media/build-decomposable-app/Create-entity.png":::
+    :::image type="content" source="../media/build-decomposable-app/create-entity.png" alt-text="A screenshot showing an entity." lightbox="../media/build-decomposable-app/create-entity.png":::
 
 4. Select **Next**.
 5. To add a child subentity, click on the "**+**" symbol and start adding the child. For our entity example, "**UpdateTierInfo**", we require three things:
-  * OriginalTier
-  * NewTier
-  * PhoneNumber
+    * **OriginalTier**
+    * **NewTier**
+    * **PhoneNumber**
 
-:::image type="content" source="../media/build-decomposable-app/Add-subentities.png" alt-text="Adding subentities" lightbox="../media/build-decomposable-app/Add-subentities.png":::
+    :::image type="content" source="../media/build-decomposable-app/add-subentities.png" alt-text="A screenshot of subentities in the app." lightbox="../media/build-decomposable-app/add-subentities.png":::
 
-6. Click **Create** after adding all subentities
+6. Click **Create** after adding all THE subentities.
 
-We will create another entity named "**Tier**", but this time it will be a list entity, and it will include all the tiers that we might provide: Standard tier, Premium tier, and VIP tier.
+    We will create another entity named "**Tier**", but this time it will be a list entity, and it will include all the tiers that we might provide: Standard tier, Premium tier, and VIP tier.
 
 1. To do this, go to the entities tab, and press on **+create** and select **list** from the types in the screen that appears.
 
 2. Add the items to your list, and optionally, you can add synonyms to make sure that all cases of that mention will be understood.
 
-:::image type="content" source="../media/build-decomposable-app/list-entities.png" alt-text="Create a list entity" lightbox="../media/build-decomposable-app/list-entities.png":::
+    :::image type="content" source="../media/build-decomposable-app/list-entities.png" alt-text="A screenshot of a list entity." lightbox="../media/build-decomposable-app/list-entities.png":::
 
 3. Now go back to the "**UpdateTierInfo**" entity and add the "tier" entity as a feature for the "**OriginalTier**" and "**newTier**" entities we created earlier. It should look something like this:
 
-:::image type="content" source="../media/build-decomposable-app/update-tier-info.png" alt-text="Adding features" lightbox="../media/build-decomposable-app/update-tier-info.png":::
+    :::image type="content" source="../media/build-decomposable-app/update-tier-info.png" alt-text="A screenshot of an entity's features." lightbox="../media/build-decomposable-app/update-tier-info.png":::
 
-We added tier as a feature for both "**originalTier**" and "**newTier**", and we added the "**Phonenumber**" entity, which is a Regex type. It can be created the same way we created an ML and a list entity.
+    We added tier as a feature for both "**originalTier**" and "**newTier**", and we added the "**Phonenumber**" entity, which is a Regex type. It can be created the same way we created an ML and a list entity.
 
 Now we have successfully created intents, added example utterances, and added entities. We created four intents (other than the "none" intent), and three entities.
 
@@ -174,12 +174,11 @@ The machine learned entity is created and the subentities have features. To comp
 There are two ways to label utterances:
 
 1. Using the labeling tool
-  * Open the  **Entity Palette** , and select the "**@**"  symbol in the contextual toolbar.
-  * Select each entity row in the palette, then use the palette cursor to select the entity in each example utterance.
-2. Highlight the text by dragging your cursor.
-  * Using the cursor, highlight over the text you want to label. In the following image, we highlighted "VIP - tier" and select the "**NewTier**" entity.
+    1. Open the  **Entity Palette** , and select the "**@**"  symbol in the contextual toolbar.
+    2. Select each entity row in the palette, then use the palette cursor to select the entity in each example utterance.
+2. Highlight the text by dragging your cursor. Using the cursor, highlight over the text you want to label. In the following image, we highlighted "vip - tier" and select the "**NewTier**" entity.
  
-:::image type="content" source="../media/build-decomposable-app/label-example-utterance.png" alt-text="Labeling utterances" lightbox="../media/build-decomposable-app/label-example-utterance.png":::
+    :::image type="content" source="../media/build-decomposable-app/label-example-utterance.png" alt-text="A screenshot showing how to label utterances." lightbox="../media/build-decomposable-app/label-example-utterance.png":::
 
 
 ## Train the app
@@ -187,7 +186,8 @@ There are two ways to label utterances:
 In the top-right side of the LUIS website, select the  **Train**  button.
 
 Before training, make sure there is at least one utterance for each intent.
-:::image type="content" source="../media/build-decomposable-app/train-app.png" alt-text="Train application" lightbox="../media/build-decomposable-app/train-app.png":::
+
+:::image type="content" source="../media/build-decomposable-app/train-app.png" alt-text="A screenshot showing the but for training an app." lightbox="../media/build-decomposable-app/train-app.png":::
 
 ## Publish the app
 
@@ -195,16 +195,16 @@ In order to receive a LUIS prediction in a chat bot or other client application,
 
 1. Select  **Publish**  in the top-right navigation.
 
-:::image type="content" source="../media/build-decomposable-app/publish-app.png" alt-text="Publish application" lightbox="../media/build-decomposable-app/publish-app.png":::
+    :::image type="content" source="../media/build-decomposable-app/publish-app.png" alt-text="A screenshot showing the button for publishing an app." lightbox="../media/build-decomposable-app/publish-app.png":::
 
 2. Select the  **Production**  slot, then select  **Done**.
 
-:::image type="content" source="../media/build-decomposable-app/production-slot.png" alt-text="Choosing publishing to production" lightbox="../media/build-decomposable-app/production-slot.png":::
+    :::image type="content" source="../media/build-decomposable-app/production-slot.png" alt-text="A screenshot showing the production slot selector." lightbox="../media/build-decomposable-app/production-slot.png":::
 
 
 3. Select  **Access your endpoint URLs**  in the notification to go to the  **Azure Resources**  page. You will only be able to see the URLs if you have a prediction resource associated with the app. You can also find the  **Azure Resources**  page by clicking  **Manage** on the left of the screen.
 
-:::image type="content" source="../media/build-decomposable-app/access-endpoint.png" alt-text="Access endpoint urls" lightbox="../media/build-decomposable-app/access-endpoint.png":::
+    :::image type="content" source="../media/build-decomposable-app/access-endpoint.png" alt-text="A screenshot showing the endpoint access notification." lightbox="../media/build-decomposable-app/access-endpoint.png":::
 
 
 ## Get intent prediction
@@ -212,36 +212,40 @@ In order to receive a LUIS prediction in a chat bot or other client application,
 1. Select **Manage**  in the top-right menu, then select **Azure Resources** on the left.
 2. Copy the  **Example Query**  URL and paste it into a new web browser tab.
 
-The endpoint URL will have the following format.
+    The endpoint URL will have the following format.
+    
+    ```http
+    https://YOUR-CUSTOM-SUBDOMAIN.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/YOUR-APP-ID/slots/production/predict?subscription-key=YOUR-KEY-ID&amp;verbose=true&amp;show-all-intents=true&amp;log=true&amp;query=YOUR\_QUERY\_HERE
+    ```
 
-https://YOUR-CUSTOM-SUBDOMAIN.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/YOUR-APP-ID/slots/production/predict?subscription-key=YOUR-KEY-ID&amp;verbose=true&amp;show-all-intents=true&amp;log=true&amp;query=YOUR\_QUERY\_HERE
+3. Go to the end of the URL in the address bar and replace the `query=` string parameter with:
 
-1. Go to the end of the URL in the address bar and enter
+    "Hello! I am looking for a new number please." 
 
-"Hello! I am looking for a new number please." into the 'query=' query string parameter. The utterance  **query**  is passed in the URI. This utterance is not the same as any of the example utterances, and should be a good test to check if LUIS predicts the UserAction intent as the top scoring intent.
-```JSON
-{
-    "query": "hello! i am looking for a new number please",
-    "prediction": 
+    The utterance  **query**  is passed in the URI. This utterance is not the same as any of the example utterances, and should be a good test to check if LUIS predicts the UserAction intent as the top scoring intent.
+    ```JSON
     {
-        "topIntent": "UserAction",
-        "intents": 
+        "query": "hello! i am looking for a new number please",
+        "prediction": 
         {
-            "UserAction": {
-            "score": 0.8607431},
-            "Help":{
-            "score": 0.031376917},
-            "PayBill": {
-            "score": 0.01989629},
-            "None": {
-            "score": 0.013738701},
-            "UpdateTier": {
-            "score": 0.012313577}
-        },
-    "entities": {}
+            "topIntent": "UserAction",
+            "intents": 
+            {
+                "UserAction": {
+                "score": 0.8607431},
+                "Help":{
+                "score": 0.031376917},
+                "PayBill": {
+                "score": 0.01989629},
+                "None": {
+                "score": 0.013738701},
+                "UpdateTier": {
+                "score": 0.012313577}
+            },
+        "entities": {}
+        }
     }
-}
-```
+    ```
 The JSON result identifies the top scoring intent as  **prediction.topIntent**  property. All scores are between 1 and 0, with the better score being closer to 1.
 
 ## Client-application next steps

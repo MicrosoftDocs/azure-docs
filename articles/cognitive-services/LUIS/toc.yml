@@ -44,7 +44,7 @@ items:
     href: how-to/entities.md
     displayName: roles, import
   - name: Label example utterances
-    href: how-to/label-example-utterances.md
+    href: how-to/label-utterances.md
   - name: Train and test your app
     items:
     - name: Train and test your app
