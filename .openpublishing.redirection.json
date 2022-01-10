@@ -7664,6 +7664,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-how-to-train.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/how-to/train-test",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-interactive-test.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/how-to/train-test",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-how-plan-your-app.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/concepts/application-design",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-concept-app-iteration.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/concepts/application-design",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/artificial-intelligence.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/concepts/application-design",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/tutorial-intents-only.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial/build-decomposable-application",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/tutorial-machine-learned-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial/build-decomposable-application",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/LUIS/luis-how-to-publish-app.md",
       "redirect_url": "/azure/cognitive-services/LUIS/how-to/publish",
       "redirect_document_id": true
