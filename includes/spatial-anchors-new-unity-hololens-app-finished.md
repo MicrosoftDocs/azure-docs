@@ -235,7 +235,6 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
             Debug.Log($"ASA - Saved cloud anchor with ID: {cloudSpatialAnchor.Identifier}");
             _foundOrCreatedAnchorGameObjects.Add(anchorGameObject);
             _createdAnchorIDs.Add(cloudSpatialAnchor.Identifier);
-            Debug.Log("Here 1");
             anchorGameObject.GetComponent<MeshRenderer>().material.color = Color.green;
         }
         catch (Exception exception)
