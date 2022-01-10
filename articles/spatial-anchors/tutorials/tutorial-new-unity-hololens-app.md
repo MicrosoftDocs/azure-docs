@@ -10,6 +10,14 @@ ms.date: 2/3/2021
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ---
+<!-- 
+   
+[X] Make sure you have internet on your Hl2
+[X] User Debug - ARM64 - Device, Debug -> Start Debugging to see logs 
+[X] "After closing session you could have a different device on a different day (depending on your anchor expiration), as long as you still have the IDs"
+[ ] Tapping will be middle of the hand, not your fingers
+[X] Using Legacy shader since it's included in a default Unity build. Default shaders are only included if part of the scene.
+-->
 
 # Tutorial: Step-by-step instructions to create a new HoloLens Unity app using Azure Spatial Anchors
 
@@ -86,7 +94,7 @@ We'll now set some Unity project settings that help us target the Windows Hologr
 6. Click **Add Component** and add the **Tracked Pose Driver** Component to the camera
 ![Unity - Camera Setup](../../../includes/media/spatial-anchors-unity/unity-camera-setup.png)
 
-## Trying it out
+## Try it out #1
 You should now have an empty scene that is ready to be deployed to your HoloLens device. To test out that everything is working, build your app in **Unity** and deploy it from **Visual Studio**. Follow [**Using Visual Studio to deploy and debug**](https://docs.microsoft.com/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2) to do so. You should see the Unity start screen, and then a clear display.
 
 <!-- 
@@ -99,7 +107,7 @@ TODO : uncomment this-->
 2. In the folder right-click -> **Create** -> **C# Script**. Title it **AzureSpatialAnchorsScript**
 3. Go to **GameObject** -> **Create Empty**.
 4. Select it, and in the **Inspector** rename it from **GameObject** to **AzureSpatialAnchors**. 
-1. Still on the GameObject
+1. Still on the `GameObject`
     1. Set its position to 0,0,0
     1. Select **Add Component** and search for and add the **AzureSpatialAnchorsScript**
     1. Select **Add Component** again and search for and add the **AR Anchor Manager**. This will automatically add **AR Session Origin** too.
@@ -114,18 +122,14 @@ Our app will support the following interactions:
 Gesture | Action
 ------|------- 
 Tap anywhere | Start/Continue Session + Create anchor at Hand Position
-Tapping on an anchor | Delete GameObject + Delete Anchor in ASA Cloud Service
-Tap + Hold for 2 sec (+ session is running) | Stop the session and remove all GameObjects. Keep anchors in ASA Cloud Service
+Tapping on an anchor | Delete `GameObject` + Delete Anchor in ASA Cloud Service
+Tap + Hold for 2 sec (+ session is running) | Stop the session and remove all `GameObjects`. Keep anchors in ASA Cloud Service
 Tap + Hold for 2 sec (+ session is not running)| Start the session and look for all anchors.
 
 
 ## Add Tap recognition
 1. Open `AzureSpatialAnchorsScript.cs` in Visual Studio. 
 2. Add the following array to your class
-
-<!-- 
-[!code-csharp][MainActivity](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-29&highlight=3-6)] 
--->
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=24-29&highlight=3-6)]
 
@@ -161,7 +165,7 @@ To create and find anchors we first have to start a session. When calling `Start
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=99-105,116&highlight=7)]
 
 ## Create Anchor
-Now that we have a session running we can create anchors. In this application we'd like to keep track of the created anchor GameObjects and AnchorIds. Let's add two lists to our code.
+Now that we have a session running we can create anchors. In this application we'd like to keep track of the created anchor `GameObjects` and AnchorIds. Let's add two lists to our code.
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=14,15,16,19,20,31-44&highlight=2,11-19)]
 
 Let's create a method that creates an anchor at a **position** defined by its parameter.
@@ -170,7 +174,7 @@ Since spatial anchors not only have a **position** but also a **rotation** let's
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=18,21,187-200,247)]
 
-Now that we have the **position** and the **rotation** of the desired anchor, let's create a visible GameObject. ASA does not require the GameObject to be visible to the end-user, but for the purpose of this tutorial it will make the process easier to follow.
+Now that we have the **position** and the **rotation** of the desired anchor, let's create a visible `GameObject`. ASA does not require the `GameObject` to be visible to the end-user, but for the purpose of this tutorial it will make the process easier to follow.
 
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=200-206&highlight=3-7)]
@@ -205,7 +209,7 @@ Spatial anchor manager can take care of the session stopping by simply calling i
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=118-122,126,136&highlight=6)]
 
-Let's create a method to remove all anchor GameObjects
+Let's create a method to remove all anchor `GameObjects`
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=138-148)]
 
@@ -218,7 +222,7 @@ We will now try to find the anchors again with the correct position and rotation
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=248-262)]
 
-Once a watcher is started it will fire a callback when it found an anchor that fits the given criteria. Let's first create our anchor located method called `SpatialAnchorManager_AnchorLocated()` that we will configure to be called when the watcher has located an anchor. This method will create a visual `GameObject` and attach the native anchor component to it. The native anchor component will make sure the correct position and rotation of the GameObject is set.
+Once a watcher is started it will fire a callback when it found an anchor that fits the given criteria. Let's first create our anchor located method called `SpatialAnchorManager_AnchorLocated()` that we will configure to be called when the watcher has located an anchor. This method will create a visual `GameObject` and attach the native anchor component to it. The native anchor component will make sure the correct position and rotation of the `GameObject` is set.
 
 Similar to the creation process, the anchor does not have to be visible for spatial anchors to work. If you only use it to have a referenced shared coordinate system there is no need for showing the anchor to the end-user. For the purpose of this tutorial we will visualize the anchors.
 
@@ -232,17 +236,19 @@ Finally, let's expand our `LongTap()` method to include finding the anchor. We w
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=118-136&highlight=6,7,12-18)]
 
-## Try it out
+## Try it out #2
 Your app now supports creating anchors and locating them. Build your app in **Unity** and deploy it from **Visual Studio**. Follow [**Using Visual Studio to deploy and debug**](https://docs.microsoft.com/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2) to run your app. 
 
-Make sure your HoloLens is connected to the internet. Once the app started and the _made with Unity_ splash disappears, short tap in your surroundings. A white cube should appear to show the position and rotation of the anchor. The anchor creation process is automatically called in our code. As you slowly look around your surroundings you are capturing environment data which is used to create the anchor. Once the anchor creation process is completed the cube will turn green. Check your debug logs in visual studio to see if everything worked as intended.
+Make sure your HoloLens is connected to the internet. Once the app started and the _made with Unity_ message disappears, short tap in your surroundings. A white cube should appear to show the position and rotation of the anchor. The anchor creation process is automatically called in our code. As you slowly look around your surroundings you are capturing environment data which is used to create the anchor. Once the anchor creation process is completed the cube will turn green. Check your debug logs in visual studio to see if everything worked as intended.
 
-Long tap to remove all game objects from your scene. Once your scene is cleared you can long tap again, which will start a session, look for the anchors you have created and create blue GameObjects at the anchored position and rotation. This anchor-finding process will work on any supported device now as long as they have the correct anchorIDs and access to your spatial anchor resource.
+Long tap to remove all `GameObjects` from your scene and stop the spatial anchor session.
+
+Once your scene is cleared you can long tap again, which will start a session, look for the anchors you have created and create blue `GameObjects` at the anchored position and rotation. This anchor-finding process will work on any supported device now as long as they have the correct anchorIDs and access to your spatial anchor resource.
 
 ## Delete Anchor
-Right now our app can create and locate anchors. While it deletes the GameObjects, it does not delete the anchor in the cloud. Let's add the functionality to also delete it in the cloud if i tap on an existing anchor.
+Right now our app can create and locate anchors. While it deletes the `GameObjects`, it does not delete the anchor in the cloud. Let's add the functionality to also delete it in the cloud if i tap on an existing anchor.
 
-Let's add a method `ASA_DeleteAnchor` that receives a GameObject. We will then use the spatial anchor manager together with the object's `CloudNativeAnchor` component to request deletion of the anchor in the cloud.
+Let's add a method `ASA_DeleteAnchor` that receives a `GameObject`. We will then use the spatial anchor manager together with the object's `CloudNativeAnchor` component to request deletion of the anchor in the cloud.
 ```csharp
     private async void ASA_DeleteAnchor(GameObject anchorGameObject)
     {
