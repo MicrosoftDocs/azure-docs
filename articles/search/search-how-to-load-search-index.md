@@ -15,7 +15,7 @@ ms.date: 01/10/2022
 
 This article explains how to import and refresh content in a predefined search index. In Azure Cognitive Search, a [search index is created first](search-how-to-create-search-index.md), with data import following as a second step. The exception is Import Data wizard, which creates and loads an index in one workflow.
 
-A search service imports and indexes text in JSON, used in full text search or knowledge mining scenarios. Text content is obtainable from verbatim content in fields in the external data source, metadata that's useful in search, or enriched content created by a skillset. Skills can extract or infer textual descriptions from images and unstructured content.
+A search service imports and indexes text in JSON, used in full text search or knowledge mining scenarios. Text content is obtainable from alphanumeric fields in the external data source, metadata that's useful in search scenarios, or enriched content created by a [skillset](cognitive-search-working-with-skillsets.md) (skills can extract or infer textual descriptions from images and unstructured content).
 
 Once data is indexed, the physical data structures of the index are locked in. For guidance on what can and cannot be changed, see [Drop and rebuild an index](search-howto-reindex.md).
 
@@ -25,15 +25,25 @@ Indexing is not a background process. A search service will balance indexing and
 
 A search service accepts JSON documents that conform to the index schema.
 
-You can prepare these documents yourself, but if content resides in a [supported data source](search-indexer-overview.md#supported-data-sources), an [indexer](earch-indexer-overview.md) can automate the process of document retrieval, JSON serialization, and indexing.
+You can prepare these documents yourself, but if content resides in a [supported data source](search-indexer-overview.md#supported-data-sources), an [indexer](search-indexer-overview.md) can automate the process of document retrieval, JSON serialization, and indexing.
 
 ### [**Azure portal**](#tab/import-portal)
 
-Using Azure portal, the sole means for loading an index is the [Import Data wizard](search-import-data-portal.md).
+Using Azure portal, the sole means for loading an index is the [Import Data wizard](search-import-data-portal.md). It requires that you specify a data source and define the index, skillset (optional), and indexer as you go. Except for the data source, you cannot use a pre-built index or skillset in the wizard.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
+
+1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to create and populate a search index.
+
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
+
+1. Follow these steps to learn more about the workflow: [Quickstart: Create an Azure Cognitive Search index in the Azure portal](search-get-started-portal.md).
 
 ### [**REST**](#tab/import-rest)
 
 [Add, Update or Delete Documents (REST)](/rest/api/searchservice/addupdate-or-delete-documents) is the means by which you can import data into a search index.
+
+[**REST Quickstart: Create, load, and query an index**](search-get-started-rest.md) explains the steps.
 
 ### [**.NET SDK (C#)**](#tab/importcsharp)
 
