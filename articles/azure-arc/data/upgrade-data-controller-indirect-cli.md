@@ -1,6 +1,6 @@
 ---
-title: Upgrade indirect mode Azure Arc data controller using the CLI
-description: Upgrade indirect mode Azure Arc data controller using the CLI
+title: Upgrade indirectly connected Azure Arc data controller using the CLI
+description: Article describes how to upgrade an indirectly connected Azure Arc data controller using the CLI
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,16 +11,15 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Upgrade indirect mode Azure Arc data controller using the CLI
+# Upgrade an indirectly connected Azure Arc data controller using the CLI
 
 This article describes how to upgrade an indirectly connected Azure Arc-enabled data controller using the Azure CLI (`az`).
 
-> [!IMPORTANT]
-> This article does not apply to a directly connected Azure Arc-enabled data controller. For the latest information about how to upgrade a directly connected data controller, see the [release notes](./release-notes.md#data-controller-upgrade).
+During a data controller upgrade, portions of the data control plane such as Custom Resource Definitions (CRDs) and containers may be upgraded. An upgrade of the data controller will not cause downtime for the data services (SQL Managed Instance or PostgreSQL Hyperscale server).
 
 ## Prerequisites
 
-You will need an indirect mode data controller with the imageTag v1.0.0_2021-07-30 or later.
+You will need an indirectly connected data controller with the imageTag v1.0.0_2021-07-30 or later.
 
 To check the version, run:
 
@@ -55,7 +54,7 @@ v1.0.0_2021-07-30
 
 ## Upgrade data controller
 
-This section shows how to upgrade a data controller in indirect mode.
+This section shows how to upgrade an indirectly connected data controller.
 
 > [!NOTE]
 > Some of the data services tiers and modes are generally available and some are in preview.
@@ -63,7 +62,7 @@ This section shows how to upgrade a data controller in indirect mode.
 > To upgrade, delete all non-GA database instances. You can find the list of generally available 
 > and preview services in the [Release Notes](./release-notes.md).
 
-### Indirect mode
+### Upgrade
 
 You will need to connect and authenticate to a Kubernetes cluster and have an existing Kubernetes context selected prior to beginning the upgrade of the Azure Arc data controller.
 
