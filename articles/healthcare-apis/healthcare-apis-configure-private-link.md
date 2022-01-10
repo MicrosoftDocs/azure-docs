@@ -12,10 +12,10 @@ ms.author: zxue
 
 # Configure private link for Azure Healthcare APIs
 
-Private link enables you to access Azure Healthcare APIs over a private endpoint, which is a network interface that connects you privately and securely using a private IP address from your virtual network. With private link, you can access our services securely from your VNet as a first party service without having to go through a public Domain Name System (DNS). This article describes how to create, test, and manage your private endpoint for Healthcare APIs.
+Private link enables you to access Azure Healthcare APIs over a private endpoint. A private link is a network interface that connects you privately and securely using a private IP address from your virtual network. With private link, you can access our services securely from your VNet as a first party service without having to go through a public Domain Name System (DNS). This article describes how to create, test, and manage your private endpoint for Healthcare APIs.
 
 >[!Note]
->Neither Private Link nor Healthcare APIs can be moved from one resource group or subscription to another once Private Link is enabled. To make a move, delete the private link first, and then move Healthcare APIs. Create a new private link after the move is complete. Next, assess potential security ramifications before deleting the private link.
+>Neither private link nor Healthcare APIs can be moved from one resource group or subscription to another once private link is enabled. To make a move, delete the private link first, and then move Healthcare APIs. Create a new private link after the move is complete. Next, assess potential security ramifications before deleting the private link.
 >
 >If you're exporting audit logs and metrics that are enabled, update the export setting through **Diagnostic Settings** from the portal.
 
@@ -44,7 +44,7 @@ Ensure the region for the new private endpoint is the same as the region for you
 
 ![Image of the Azure portal Basics Tab.](media/private-link/private-link-portal2.png#lightbox)
 
-For the resource type, search and select **Microsoft.HealthcareApis/services**. For the resource, select the Azure resource. For the target subresource, select **FHIR**.
+For the resource type, search and select **Microsoft.HealthcareApis/services**. For the resource, select the Azure resource. For the target sub resource, select **FHIR**.
 
 ![Screen image of the Azure portal Resource Tab](media/private-link/private-link-portal1.png#lightbox)
 
@@ -56,7 +56,7 @@ After the deployment is complete, you can go back to **Private endpoint connecti
 
 ### Manual Approval
 
-For manual approval, select the second option under Resource, "Connect to an Azure resource by resource ID or alias". For Target subresource, enter "FHIR" as in Auto Approval.
+For manual approval, select the second option under Resource, "Connect to an Azure resource by resource ID or alias". For Target sub resource, enter "FHIR" as in Auto Approval.
 
 ![Screen image of the Manual Approval Resources tab.](media/private-link/private-link-manual.png#lightbox)
 
