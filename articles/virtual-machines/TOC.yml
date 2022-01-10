@@ -283,7 +283,7 @@
       - name: NCv2-series retirement
         href: ncv2-series-retirement.md
       - name: ND-series retirement
-        href: nd-series-retirement.md 
+        href: nd-series-retirement.md
       - name: GPU compute migration guide
         displayName: GPU compute migration guide
         href: ./n-series-migration.md
@@ -366,7 +366,7 @@
       href: create-gallery.md
     - name: Share a gallery
       href: share-gallery.md
-    - name: Images 
+    - name: Images
       items:
       - name: Capture a VM in the portal
         href: capture-image-portal.md
@@ -410,7 +410,7 @@
         href: managed-disk-from-image-version.md
       - name: Purchase plan information
         href: marketplace-images.md
-    - name: VM Applications 
+    - name: VM Applications
       items:
       - name: Overview
         href: vm-applications.md
@@ -605,7 +605,7 @@
       displayName: Dedicated hosts, ADH
       href: dedicated-hosts.md
     - name: How-to
-      displayName: dedicated adh 
+      displayName: dedicated adh
       href: dedicated-hosts-how-to.md
     - name: General Purpose SKUs
       displayName: dedicated, packing, dedicated host, general purpose
@@ -667,7 +667,7 @@
   - name: Capacity reservation (preview)
     items:
     - name: Overview
-      displayName: on-demand capacity reservation 
+      displayName: on-demand capacity reservation
       href: capacity-reservation-overview.md
     - name: Create a capacity reservation
       displayName: on-demand capacity reservation
@@ -764,10 +764,10 @@
     - name: Windows
       displayName: Time sync
       href: ./windows/time-sync.md
-  - name: Run Command 
+  - name: Run Command
     items:
-    - name: Overview 
-      displayName: Run command 
+    - name: Overview
+      displayName: Run command
       href: run-command-overview.md
     - name: Action Run Commands for Linux
       href: ./linux/run-command.md
@@ -991,29 +991,29 @@
     - name: Portal
       displayName: proximity placement groups, ppg
       href: ./windows/proximity-placement-groups-portal.md
-  - name: Virtual machine scale sets 
+  - name: Virtual machine scale sets
     items:
-    - name: Overview 
-      displayName: Flexible orchestration mode for virtual machine scale sets 
+    - name: Overview
+      displayName: Flexible orchestration mode for virtual machine scale sets
       href: flexible-virtual-machine-scale-sets.md
-    - name: Portal 
-      displayName: Flexible orchestration mode for virtual machine scale sets 
-      href: flexible-virtual-machine-scale-sets-portal.md 
-    - name: CLI  
-      displayName: Flexible orchestration mode for virtual machine scale sets 
-      href: flexible-virtual-machine-scale-sets-cli.md 
-    - name: PowerShell 
-      displayName: Flexible orchestration mode for virtual machine scale sets 
-      href: flexible-virtual-machine-scale-sets-powershell.md 
-    - name: ARM template 
-      displayName: Flexible orchestration mode for virtual machine scale sets 
-      href: flexible-virtual-machine-scale-sets-rest-api.md  
+    - name: Portal
+      displayName: Flexible orchestration mode for virtual machine scale sets
+      href: flexible-virtual-machine-scale-sets-portal.md
+    - name: CLI
+      displayName: Flexible orchestration mode for virtual machine scale sets
+      href: flexible-virtual-machine-scale-sets-cli.md
+    - name: PowerShell
+      displayName: Flexible orchestration mode for virtual machine scale sets
+      href: flexible-virtual-machine-scale-sets-powershell.md
+    - name: ARM template
+      displayName: Flexible orchestration mode for virtual machine scale sets
+      href: flexible-virtual-machine-scale-sets-rest-api.md
     - name: Autoscale
-      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context 
-    - name: Orchestration modes 
+      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
+    - name: Orchestration modes
       displayName: VMSS, flex, scale set, scale, virtual machine scale set
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
-    - name: Migration and considerations 
+    - name: Migration and considerations
       displayName: VMSS, flex, scale set, scale, virtual machine scale set
       href: flexible-virtual-machine-scale-sets-migration-resources.md
   - name: Understand VM reboots
@@ -1626,9 +1626,6 @@
     items:
     - name: SSH with Azure Active Directory
       href: ../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md
-      items:
-      - name: Previous version being deprecated August 15, 2021
-        href: ./linux/login-using-aad.md
 - name: Updates and maintenance
   items:
   - name: Overview
@@ -1704,11 +1701,11 @@
         href: ./linux/scheduled-events.md
         displayname: Scheduled events
       - name: Windows
-        items: 
-          - name: Scheduled events
-            href: ./windows/scheduled-events.md
-          - name: Monitor scheduled events
-            href: ./windows/scheduled-event-service.md
+        items:
+        - name: Scheduled events
+          href: ./windows/scheduled-events.md
+        - name: Monitor scheduled events
+          href: ./windows/scheduled-event-service.md
     - name: Track and update VMs
       items:
       - name: Linux
@@ -1741,20 +1738,20 @@
     - name: Azure Monitor Agent
       items:
       - name: Overview
-        displayname: Azure Monitor agent
         href: ../azure-monitor/agents/azure-monitor-agent-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
-      - name: Install
         displayname: Azure Monitor agent
+      - name: Install
         href: ../azure-monitor/agents/azure-monitor-agent-install.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+        displayname: Azure Monitor agent
       - name: Data collection
-        displayname: data collection rule,Azure Monitor agent
         href: ../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+        displayname: data collection rule,Azure Monitor agent
       - name: Migrate from legacy agents
-        displayname: Migrate to Azure Monitor agent
         href: ../azure-monitor/agents/azure-monitor-agent-migration.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+        displayname: Migrate to Azure Monitor agent
       - name: FAQ
-        displayname: Azure Monitor agent FAQ
         href: ../azure-monitor/faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+        displayname: Azure Monitor agent FAQ
     - name: Log Analytics agent
       items:
       - name: Overview
@@ -1889,8 +1886,8 @@
     - name: Overview
       href: ../backup/backup-azure-vms-introduction.md?context=/azure/virtual-machines/context/context
       dispayName: backup VMs, Azure Backup, recovery
-    -  name: Creating restore points
-       href: virtual-machines-create-restore-points.md
+    - name: Creating restore points
+      href: virtual-machines-create-restore-points.md
     - name: Quickstarts
       items:
       - name: CLI
