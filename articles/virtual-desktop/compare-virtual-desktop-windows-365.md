@@ -17,7 +17,7 @@ Azure Virtual Desktop and Windows 365 are both great solutions for customers who
 The following table describes high-level differences in the technical features between Azure Virtual Desktop and Windows 365.
 
 | Feature | Azure Virtual Desktop (single-session)| Azure Virtual Desktop (multisession)| Windows 365 Enterprise | Windows 365 Business |
-|-------|--------|--------|--------|---------|
+|-------|--------|--------|--------|
 |Design|Designed to be flexible.|Designed to be flexible.|Designed to be simple and easy to use.|Designed to be simple and easy to use.|
 |Type of desktop|Personal desktop|Pooled (single and multi-session) desktop|Personal desktop|Personal desktop|
 |Pricing model|Based on your own resource usage|Based on your own resource usage|Fixed per-user pricing ([Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/))|Fixed per-user pricing| ([Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/))
