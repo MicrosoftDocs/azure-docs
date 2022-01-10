@@ -5,7 +5,6 @@ author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
-ms.custom: ignite-fall-2021
 --- 
 
 # The Advanced SIEM Information Model parsers (Public preview)
