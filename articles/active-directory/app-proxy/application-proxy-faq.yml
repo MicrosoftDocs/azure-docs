@@ -62,8 +62,8 @@ sections:
         answer: |
           No, this scenario isn't supported. The default settings are:
           
-          - Microsoft AAD Application Proxy Connector - WAPCSvc - Network Service
-          - Microsoft AAD Application Proxy Connector Updater - WAPCUpdaterSvc - NT Authority\System
+          - Microsoft Azure Active Directory Application Proxy Connector - WAPCSvc - Network Service
+          - Microsoft Azure Active Directory Application Proxy Connector Updater - WAPCUpdaterSvc - NT Authority\System
           
       - question: |
          Can a guest user with the Global Administrator or the Application Administrator role register the connector for the (guest) tenant?
@@ -102,7 +102,7 @@ sections:
           
           1. Select **Start**, type "Perfmon", and press ENTER.
           2. Select **Performance Monitor** and click the green **+** icon.
-          3. Add the **Microsoft AAD Application Proxy Connector** counters you want to monitor.
+          3. Add the **Microsoft Azure Active Directory Application Proxy Connector** counters you want to monitor.
           
       - question: |
          Does the Azure AD Application Proxy connector have to be on the same subnet as the resource?
