@@ -23,7 +23,7 @@ Within a Conditional Access policy, an administrator can make use of session con
 
 ## Application enforced restrictions
 
-Organizations can use this control to require Azure AD to pass device information to the selected cloud apps. The device information enables the cloud apps to know whether a connection is started from a compliant or domain-joined device and alter the session experience. This control only supports SharePoint Online and Exchange Online as selected cloud apps. When selected, the cloud app uses the device information to provide users, depending on the device state, with a limited (when the device isn't managed) or full experience (when the device is managed and compliant).
+Organizations can use this control to require Azure AD to pass device information to the selected cloud apps. The device information allows cloud apps to know if a connection is from a compliant or domain-joined device and update the session experience. This control only supports SharePoint Online and Exchange Online as selected cloud apps. When selected, the cloud app uses the device information to provide users with a limited or full experience. Limited when the device isn't managed or compliant and full when the device is managed and compliant.
 
 For more information on the use and configuration of app-enforced restrictions, see the following articles:
 
@@ -32,9 +32,9 @@ For more information on the use and configuration of app-enforced restrictions, 
 
 ## Conditional Access application control
 
-Conditional Access App Control uses a reverse proxy architecture and is uniquely integrated with Azure AD Conditional Access. Azure AD Conditional Access allows you to enforce access controls on your organization’s apps based on certain conditions. The conditions define who (user or group of users) and what (which cloud apps) and where (which locations and networks) a Conditional Access policy is applied to. After you’ve determined the conditions, you can route users to [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) where you can protect data with Conditional Access App Control by applying access and session controls.
+Conditional Access App Control uses a reverse proxy architecture and is uniquely integrated with Azure AD Conditional Access. Azure AD Conditional Access allows you to enforce access controls on your organization’s apps based on certain conditions. The conditions define what user or group of users, cloud apps, and locations and networks a Conditional Access policy applies to. After you’ve determined the conditions, you can route users to [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) where you can protect data with Conditional Access App Control by applying access and session controls.
 
-Conditional Access App Control enables user app access and sessions to be monitored and controlled in real time based on access and session policies. Access and session policies are used within the Defender for Cloud Apps portal to further refine filters and set actions to be taken on a user. With the access and session policies, you can:
+Conditional Access App Control enables user app access and sessions to be monitored and controlled in real time based on access and session policies. Access and session policies are used within the Defender for Cloud Apps portal to refine filters and set actions to take. With the access and session policies, you can:
 
 - Prevent data exfiltration: You can block the download, cut, copy, and print of sensitive documents on, for example, unmanaged devices.
 - Protect on download: Instead of blocking the download of sensitive documents, you can require documents to be labeled and protected with Azure Information Protection. This action ensures the document is protected and user access is restricted in a potentially risky session.
