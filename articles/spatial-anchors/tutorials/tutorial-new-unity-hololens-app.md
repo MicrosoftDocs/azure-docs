@@ -257,12 +257,12 @@ To call this method from `ShortTap` we need to be able to determine if a tap has
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=IsAnchorNearby)]
 
 We can now extend our `ShortTap` method to include the `ASA_DeleteAnchor` call
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=ShortTap&highlight=8,9,11-13,15-20)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=ShortTap&highlight=8-10,12-17)]
 
 ## Try it #3
-Build your app in **Unity** and deploy it from **Visual Studio**. Follow [**Using Visual Studio to deploy and debug**](https://docs.microsoft.com/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2) to run your app. 
+Build your app in **Unity** and deploy it from **Visual Studio** by following [**Using Visual Studio to deploy and debug**](https://docs.microsoft.com/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2).
 
-Note that the location of your hand tapping gesture is the **center of your hand** in this app. 
+Note that the location of your hand tapping gesture is the **center of your hand** in this app and not the tip of your fingers.
 
 When you tap into an anchor, either created (green) or located (blue) a request is sent to the spatial anchor service to remove this anchor from the account.
 
