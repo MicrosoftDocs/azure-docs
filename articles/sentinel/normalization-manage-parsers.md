@@ -35,7 +35,7 @@ This document will guide you how to perform these tasks, whether using built-in 
 
 The user cannot edit built-in unifying parsers. The following mechanisms enable users to influence the built-in unifying parsers behavior:
 
--  To enable adding source-specific parsers, ASIM uses unifying custom parsers. These parsers are workspace deployed and are picked up automatically by the built-in unifying parsers if they exist. You can [deploy initial empty unifying custom parsers](https://aka.ms/ASimDeployEmptyCustomUnifyingParsers) for all supported schemas, or individually for specific schemas.
+-  To enable adding source-specific parsers, ASIM uses unifying custom parsers. These parsers are workspace deployed, and therefore editable. The built-in unifying parsers pick up those custom parsers automatically if they exist. You can [deploy initial empty unifying custom parsers](https://aka.ms/ASimDeployEmptyCustomUnifyingParsers) for all supported schemas, or individually for specific schemas.
 
 - To enable excluding built-in source-specific parsers, ASIM uses a watchlist. Deploy the watchlist from [GitHub](https://aka.ms/DeployASimExceptionWatchlist).
 
@@ -64,15 +64,18 @@ added_parser(starttime, endtime, srcipaddr, domain_has_any, responsecodename, re
 
 To modify an existing built-in source-specific parser
 - Create a custom parser based on the original parser and add it as outlined above. 
- 
-- Add a record to the watchlist `ASim Disabled Parsers`. Set the CallerContext field based on the table below and the SourceSpecificParser field with the name of the original parser name without the version specifier. For example, to exclude the Azure Firewall DNS parser, add the following records to the watchlist
+- Add a record to the watchlist `ASim Disabled Parsers`. 
+- Set CallerContext to the name of the unifying parsers you want to exclude the parser from.
+- Set SourceSpecificParser to the name of the parser you want to exclude, without a version specifier. 
+
+For example, to exclude the Azure Firewall DNS parser, add the following records to the watchlist:
 
 | CallerContext | SourceSpecificParser | 
 | ------------- | ------------- |
 | _Im_Dns | _Im_Dns_AzureFirewall |
-| _ASim_Dns | _ASim_Dns_AzureFilewall | 
-|||
- 
+| _ASim_Dns | _ASim_Dns_AzureFirewall | 
+| | |
+
 
 ### Prevent automated update of a built-in parser
 
