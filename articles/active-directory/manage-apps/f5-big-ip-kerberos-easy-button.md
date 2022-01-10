@@ -88,7 +88,7 @@ Prior BIG-IP experience isn’t necessary, but you will need:
 
 * An existing Kerberos application or [setup an IIS (Internet Information Services) app](https://active-directory-wp.com/docs/Networking/Single_Sign_On/SSO_with_IIS_on_Windows.html) for KCD SSO
 
-## BIG-IP deployment methods
+## BIG-IP configuration methods
 
 There are many methods to configure BIG-IP for this scenario, including two template-based options and an advanced configuration. This tutorial covers latest Guided Configuration 16.1 offering an Easy button template.
 
@@ -435,6 +435,8 @@ SHA also supports [Azure AD B2B guest access](../external-identities/hybrid-clou
 There may be cases where the Guided Configuration templates lack the flexibility to achieve a particular set of requirements. Or even a need to fast track a proof of concept. For those scenarios, the BIG-IP offers the ability to disable the Guided Configuration’s strict management mode. That way the bulk of your configurations can be deployed through the wizard-based templates, and any tweaks or additional settings applied manually.
 
 For those scenarios, go ahead and deploy using the Guided Configuration. Then navigate to **Access > Guided Configuration** and select the small padlock icon on the far right of the row for your applications’ configs. At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
+
+For more information, see [Advanced Configuration for kerberos-based SSO](./f5-big-ip-kerberos-advanced.md).
 
 >[!NOTE]
 >Re-enabling strict mode and deploying a configuration will overwrite any settings performed outside of the Guided Configuration UI, therefore we recommend the manual approach for production services. 
