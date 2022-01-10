@@ -40,7 +40,6 @@ The vCore-based purchasing model lets you independently choose compute and stora
 
 > [!IMPORTANT]
 > Compute resources, I/O, and data and log storage are charged per database or elastic pool. Backup storage is charged per each database.
-> **Region limitations:** For the current list of supported regions, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). 
 
 
 ## DTU purchasing model
@@ -89,11 +88,11 @@ Storage costs are calculated differently based on each purchasing model.
 
 ### DTU storage costs
 
-Since storage is included in the price of the DTU, the price of the DTU reflects the storage costs as is calculated by reads and writes. It's possible to add extra storage in the standard and premium tiers. See the [Azure SQL Database pricing options](https://azure.microsoft.com/pricing/details/sql-database/single/) for details on provisioning extra storage. [Long-term backup retention](long-term-retention-overview.md) is not included, and is billed separately. 
+Storage is included in the price of the DTU. It's possible to add extra storage in the standard and premium tiers. See the [Azure SQL Database pricing options](https://azure.microsoft.com/pricing/details/sql-database/single/) for details on provisioning extra storage. [Long-term backup retention](long-term-retention-overview.md) is not included, and is billed separately. 
 
 ## vCore storage costs 
 
-Different types of storage are billed differently. For data storage, you're charged for the provisioned storage based upon the maximum database or pool size you select. The cost doesn't change unless you reduce or increase that maximum. Backup storage is associated with automated backups of your instance and is allocated dynamically. Increasing your backup-retention period increases the backup storage that's consumed by your instance.
+Different types of storage are billed differently. For data storage, you're charged for the provisioned storage based upon the maximum database or pool size you select. The cost doesn't change unless you reduce or increase that maximum. Backup storage is associated with automated backups of your databases and is allocated dynamically. Increasing your backup retention period may increase the backup storage that's consumed by your databases.
 
 By default, seven days of automated backups of your databases are copied to a storage account. This storage is used by full backups, differential backups, and transaction log backups. The size of differential and transaction log backups depends on the rate of change of the database. A minimum storage amount equal to 100 percent of the maximum data size for the database is provided at no extra charge. Additional consumption of backup storage is charged in GB per month.
 
