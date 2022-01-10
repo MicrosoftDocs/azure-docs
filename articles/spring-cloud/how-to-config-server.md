@@ -15,7 +15,7 @@ ms.custom: devx-track-java
 
 This article shows you how to connect a Spring Cloud Config Server instance to your Azure Spring Cloud service.
 
-Spring Cloud Config provides server and client-side support for an externalized configuration in a distributed system. With the Config Server instance, you've a central place to manage external properties for applications across all environments. For more information, see the [Spring Cloud Config Server reference](https://spring.io/projects/spring-cloud-config).
+Spring Cloud Config provides server and client-side support for an externalized configuration in a distributed system. The Config Server instance provides a central place to manage external properties for applications across all environments. For more information, see the [Spring Cloud Config Server reference](https://spring.io/projects/spring-cloud-config).
 
 ## Prerequisites
 
@@ -81,7 +81,7 @@ All configurable properties used to set up private Git repository with SSH are l
 | `strict-host-key-checking` | No     | Indicates whether the Config Server instance will fail to start when using the private `host-key`. Should be *true* (default value) or *false*. |
 
 > [!NOTE]
-> Config Server takes `master` (om Git itself) as default label if not specified. But GitHub has changed the default branch from `master` to `main` recently. To avoid Azure Spring Cloud Config Server failure, please pay attention for the default label when setting up Config Server with GitHub, especially for new created repositories.
+> Config Server takes `master` (om Git itself) as the default label if you don't specify one. But GitHub has changed the default branch from `master` to `main` recently. To avoid Azure Spring Cloud Config Server failure, be sure to pay attention to the default label when setting up Config Server with GitHub, especially for newly-created repositories.
 
 -----
 
@@ -268,19 +268,19 @@ When properties are changed, services consuming those properties need to be noti
     @AutoConfigureAfter({RefreshAutoConfiguration.class, RefreshEndpointAutoConfiguration.class})
     @EnableScheduling
     public class ConfigClientAutoRefreshConfiguration implements SchedulingConfigurer {
-  
+
         @Value("${spring.cloud.config.refresh-interval:60}")
         private long refreshInterval;
-  
+
         @Value("${spring.cloud.config.auto-refresh:false}")
         private boolean autoRefresh;
-  
+
         private RefreshEndpoint refreshEndpoint;
-  
+
         public ConfigClientAutoRefreshConfiguration(RefreshEndpoint refreshEndpoint) {
             this.refreshEndpoint = refreshEndpoint;
         }
-  
+
         @Override
         public void configureTasks(ScheduledTaskRegistrar scheduledTaskRegistrar) {
             if (autoRefresh) {

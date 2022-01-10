@@ -13,7 +13,7 @@ zone_pivot_groups: programming-languages-spring-cloud
 # Prepare an application for deployment in Azure Spring Cloud
 
 ::: zone pivot="programming-language-csharp"
-Azure Spring Cloud provides robust services to host, monitor, scale, and update a Steeltoe app. This article shows how to prepare an existing Steeltoe application for deployment to Azure Spring Cloud.
+This article shows how to prepare an existing Steeltoe application for deployment to Azure Spring Cloud. Azure Spring Cloud provides robust services to host, monitor, scale, and update a Steeltoe app.
 
 This article explains the dependencies, configuration, and code that are required to run a .NET Core Steeltoe app in Azure Spring Cloud. For information about how to deploy an application to Azure Spring Cloud, see [Deploy your first Spring Boot app in Azure Spring Cloud](./quickstart.md).
 
@@ -84,7 +84,8 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 ## Enable Eureka Server service discovery
 
-> Eureka is not applicable to enterprise tier. Please see [how to Service Registry](how-to-enterprise-service-registry.md) if you are using enterprise tier.
+> [!NOTE]
+> Eureka is not applicable to enterprise tier. If you're using enterprise tier, see [Use Service Registry](how-to-enterprise-service-registry.md).
 
 In the configuration source that will be used when the app runs in Azure Spring Cloud, set `spring.application.name` to the same name as the Azure Spring Cloud app to which the project will be deployed.
 
@@ -120,7 +121,7 @@ using (var client = new HttpClient(discoveryHandler, false))
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-This topic shows how to prepare an existing Java Spring application for deployment to Azure Spring Cloud. If configured properly, Azure Spring Cloud provides robust services to monitor, scale, and update your Java Spring Cloud application.
+This article shows how to prepare an existing Java Spring application for deployment to Azure Spring Cloud. If configured properly, Azure Spring Cloud provides robust services to monitor, scale, and update your Java Spring Cloud application.
 
 Before running this example, you can try the [basic quickstart](./quickstart.md).
 
@@ -139,7 +140,7 @@ Azure Spring Cloud supports both Java 8 and Java 11. In general, Azure PaaS only
 
 To prepare an existing Spring Boot application for deployment to Azure Spring Cloud include the Spring Boot and Spring Cloud dependencies in the application POM file as shown in the following sections.
 
-Azure Spring Cloud will support the latest Spring Boot or Spring Cloud release within one month after it’s been released. You can get supported Spring Boot versions from [Spring Boot Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases) and Spring Cloud versions from [Spring Cloud Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases). 
+Azure Spring Cloud will support the latest Spring Boot or Spring Cloud release within one month after it’s been released. You can get supported Spring Boot versions from [Spring Boot Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases) and Spring Cloud versions from [Spring Cloud Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases).
 
 The following table lists the supported Spring Boot and Spring Cloud combinations:
 
@@ -149,8 +150,8 @@ Spring Boot version | Spring Cloud version
 2.6.x | 2021.0.0+
 
 > [!NOTE]
-> - Please upgrade Spring Boot to 2.5.2 or 2.4.8 to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you are using Spring Security, please upgrade it to 5.5.1, 5.4.7, 5.3.10 or 5.2.11.
-> - An issue was identified with Spring Boot 2.4.0 on TLS authentication between apps and Spring Cloud Service Registry, please use 2.4.1 or above. Please refer to [FAQ](./faq.md?pivots=programming-language-java#development) for the workaround if you insist on using 2.4.0.
+> - Upgrade Spring Boot to 2.5.2 or 2.4.8 to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you're using Spring Security, upgrade it to 5.5.1, 5.4.7, 5.3.10 or 5.2.11.
+> - An issue was identified with Spring Boot 2.4.0 on TLS authentication between apps and Spring Cloud Service Registry. Use version 2.4.1 or above. If you must use version 2.4.0, see the [FAQ](./faq.md?pivots=programming-language-java#development) for a workaround.
 
 ### Dependencies for Spring Boot version 2.4/2.5/2.6
 
@@ -203,7 +204,7 @@ For Spring Boot version 2.6 add the following dependencies to the application PO
 ```
 
 > [!WARNING]
-> Don't specify `server.port` in your configuration. Azure Spring Cloud will overide this setting to a fixed port number. Please also respect this setting and not specify server port in your code.
+> Don't specify `server.port` in your configuration. Azure Spring Cloud will override this setting to a fixed port number. You must also respect this setting and not specify a server port in your code.
 
 ## Other recommended dependencies to enable Azure Spring Cloud features
 
@@ -283,7 +284,7 @@ Include the `spring-boot-starter-actuator` dependency in the dependencies sectio
  Metrics are periodically pulled from the JMX endpoints. You can visualize the metrics by using the Azure portal.
 
  > [!WARNING]
- > Please specify `spring.jmx.enabled=true` in your configuration property. Otherwise, metrics can't be visualized in Azure portal.
+ > You must specify `spring.jmx.enabled=true` in your configuration property. Otherwise, metrics can't be visualized in the Azure portal.
 
 ## See also
 
@@ -294,7 +295,7 @@ Include the `spring-boot-starter-actuator` dependency in the dependencies sectio
 
 ## Next steps
 
-In this topic, you learned how to configure your Java Spring application for deployment to Azure Spring Cloud. To learn how to set up a Config Server instance, see [Set up a Config Server instance](./how-to-config-server.md).
+In this article, you learned how to configure your Java Spring application for deployment to Azure Spring Cloud. To learn how to set up a Config Server instance, see [Set up a Config Server instance](./how-to-config-server.md).
 
 More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
 ::: zone-end

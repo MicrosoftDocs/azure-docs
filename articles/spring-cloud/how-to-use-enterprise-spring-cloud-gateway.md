@@ -13,28 +13,29 @@ zone_pivot_groups: spring-cloud-tier-selection
 
 # Use Spring Cloud Gateway
 
-This article describes how to use Spring Cloud Gateway with Azure Spring Cloud Enterprise Tier.
+This article shows you how to use Spring Cloud Gateway with Azure Spring Cloud Enterprise Tier.
 
 [Spring Cloud Gateway](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is one of the proprietary VMware Tanzu components. It's based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway handles cross-cutting concerns for API development teams, such as: Single Sign-On (SSO), access control, rate-limiting, resiliency, security, and more. Accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
 
-Spring Cloud Gateway also has other commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services, client certificate authorization, rate-limiting approaches, circuit breaker configuration, and support for accessing application services via HTTP Basic Authentication credentials. 
+Spring Cloud Gateway also has other commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services, client certificate authorization, rate-limiting approaches, circuit breaker configuration, and support for accessing application services via HTTP Basic Authentication credentials.
 
 To integrate with [API portal](./how-to-use-enterprise-api-portal.md), Spring Cloud Gateway automatically generates OpenAPI version 3 documentation once the routes configuration gets changed.
 
 ## How Spring Cloud Gateway works
 
-Spring Cloud Gateway has two components: Spring Cloud Gateway operator and Spring Cloud Gateway instance.
-The operator is responsible for the lifecycle of Spring Cloud Gateway instances and routing rules. It's transparent to the developer and Azure Spring Cloud will manage it.
+Spring Cloud Gateway has two components: Spring Cloud Gateway operator and Spring Cloud Gateway instance. The operator is responsible for the lifecycle of Spring Cloud Gateway instances and routing rules. It's transparent to the developer and Azure Spring Cloud will manage it.
 
 Spring Cloud Gateway instance routes traffic according to rules. It supports rich features and can be customized using the sections below. Both scale in/out and up/down are supported to meet dynamic traffic load.
 
-Default resource usage
-| Component name | Instance count | vCPU per instance | Memory per instance |
-| - | - | - | - |
-| Spring Cloud Gateway | 2 | 1 core | 2Gi |
-| Spring Cloud Gateway operator | 2 | 1 core | 2Gi |
+Default resource usage:
+
+| Component name                | Instance count | vCPU per instance | Memory per instance |
+|-------------------------------|----------------|-------------------|---------------------|
+| Spring Cloud Gateway          | 2              | 1 core            | 2Gi                 |
+| Spring Cloud Gateway operator | 2              | 1 core            | 2Gi                 |
 
 ## Prerequisites
+
 - An already provisioned Azure Spring Cloud Enterprise tier service instance. For more information, see [Get started with Enterprise Tier](./get-started-enterprise.md)
 - Spring Cloud Gateway installed and enabled. For more information, see [Installing Spring Cloud Gateway for VMware Tanzu](https://docs.vmware.com/Spring-Cloud-Gateway-for-VMware-Tanzu/1.1/spring-cloud-gateway/GUID-installing.html)
 - [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
@@ -58,7 +59,8 @@ Spring Cloud Gateway metadata is used to automatically generate OpenAPI version 
 | version | Version of APIs available on this Gateway instance (default: `unspecified`) |
 | serverUrl | Base URL that API consumers will use to access APIs on the Gateway instance |
 
-> Note: `serverUrl` is mandatory if you want to integrate with [API portal](./how-to-use-enterprise-api-portal.md)
+> [!NOTE]
+> `serverUrl` is mandatory if you want to integrate with [API portal](./how-to-use-enterprise-api-portal.md).
 
 ### Configure Cross-origin resource sharing (CORS)
 
@@ -73,7 +75,8 @@ Cross-origin resource sharing (CORS) allows restricted resources on a web page t
 | allowCredentials | Whether user credentials are supported on cross-site requests |
 | exposedHeaders | HTTP response headers to expose for cross-site requests |
 
-> Note: Be sure you have the correct CORS configuration if you want to integrated with the [API portal](./how-to-use-enterprise-api-portal.md). See [Get started](./get-started-enterprise.md) for an example.
+> [!NOTE]
+> Be sure you have the correct CORS configuration if you want to integrated with the [API portal](./how-to-use-enterprise-api-portal.md). For an example, see [Get started with Enterprise Tier](./get-started-enterprise.md).
 
 ### Configure Single Sign-On (SSO)
 
@@ -86,16 +89,17 @@ Spring Cloud Gateway supports authentication and authorization using Single Sign
 | clientSecret | Yes | The OpenID Connect client secret provided by your IdP |
 | scope | Yes | A list of scopes to include in JWT identity tokens. This list should be based on the scopes allowed by your identity provider |
 
-> Note that only authorization servers supporting OpenID Connect Discovery protocol are supported.
-Also configure the external authorization server to allow redirects back to the gateway. Refer to your authorization server's documentation and add `https://<gateway-external-url>/login/oauth2/code/sso` to the list of allowed redirect URIs.
-
-> Note: If you configure the wrong SSO property, such as the wrong password, you should remove the entire SSO property and re-add the correct configuration. 
+> [!NOTE]
+> Only authorization servers supporting OpenID Connect Discovery protocol are supported. Also, be sure to configure the external authorization server to allow redirects back to the gateway. Refer to your authorization server's documentation and add `https://<gateway-external-url>/login/oauth2/code/sso` to the list of allowed redirect URIs.
+>
+> If you configure the wrong SSO property, such as the wrong password, you should remove the entire SSO property and re-add the correct configuration.
 
 ### Requested resource
 
 Customization of the resource usage for Spring Cloud Gateway instances is supported, including vCpu, memory, and instance count.
 
-> Note: For high available consideration, single replica is not recommended.
+> [!NOTE]
+> For high available consideration, single replica is not recommended.
 
 ## Configure routes
 
@@ -104,10 +108,11 @@ This section describes how to add, update, and manage API routes for apps that u
 ### Define route config
 
 The route definition includes the following parts:
+
 - appResourceId: The full app resource id to route traffic to
 - routes: A list of route rules about how the traffic goes to one app
 
-Below is the route definitions. All the properties are optional.
+The followint tables list the route definitions. All the properties are optional.
 
 | Property | Description |
 | - | - |
@@ -122,13 +127,14 @@ Below is the route definitions. All the properties are optional.
 | tags | Classification tags, will be applied to methods in the generated OpenAPI documentation |
 
 Not all the filters/predicates are supported in Azure Spring Cloud because of security/compatible reasons. The following are not supported:
+
 - BasicAuth
-- JWTKey  
+- JWTKey
 
 ## A quick start example
 
 1. See [Create and configure apps](get-started-enterprise.md#create-and-configure-apps) to create an app in Azure Spring Cloud which the Spring Cloud Gateway would route traffic to. Select `customers-service` in this example.
-    
+
 1. See [Build and deploy applications](get-started-enterprise.md#build-and-deploy-applications) to deploy the `customers-service` app. The app has an API `owners` to which routing rule will be created.
 
 1. Assign a public endpoint to the gateway to access it.
@@ -159,7 +165,8 @@ Not all the filters/predicates are supported in Azure Spring Cloud because of se
 
    Create rules to access apps deployed in the above step through Spring Cloud Gateway.
 
-  Save the following content to the file `customers-service.json`.
+   Save the following content to the file `customers-service.json`.
+
    ```json
       [
             {
@@ -189,11 +196,13 @@ Not all the filters/predicates are supported in Azure Spring Cloud because of se
    ![Routes for gateway](./media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png)
 
 1. Access to app `customers service` and `owners` APIs through gateway endpoint.
-   ```
+
+   ```bash
    curl https://<endpoint-url>/api/customers-service/owners
    ```
-   
+
 1. Query routing rules from CLI.
+
    ```azurecli
    az configure --defaults group=<resource group name> spring-cloud=<service name>
    az spring-cloud gateway route-config show -n customers-service-rule --query '{appResourceId:properties.appResourceId, routes:properties.routes}'

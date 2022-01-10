@@ -11,6 +11,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # How to Deploy Non-Java Applications in Azure Spring Cloud
+
 This article shows you how to deploy your non-java application to Azure Spring Cloud Enterprise tier.
 
 ## Prerequisites

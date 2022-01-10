@@ -23,14 +23,15 @@ Build Service in the Enterprise tier is the entry point to containerize user app
 ![Where to allocate resources to Build Service](./media/enterprise/how-to-enterprise-build-service/agent-pool.png)
 
 The Build Agent Pool scale set sizes available are:
-  | Scale Set | CPU/Gi |
-   | - | - |
-   | S1 | 2 vCPU, 4 Gi |
-   | S2 | 3 vCPU, 6 Gi |
-   | S3 | 4 vCPU, 8 Gi |
-   | S4 | 5 vCPU, 10 Gi |
-   | S5 | 6 vCPU, 12 Gi |
- 
+
+   | Scale Set | CPU/Gi        |
+   |-----------|---------------|
+   | S1        | 2 vCPU, 4 Gi  |
+   | S2        | 3 vCPU, 6 Gi  |
+   | S3        | 4 vCPU, 8 Gi  |
+   | S4        | 5 vCPU, 10 Gi |
+   | S5        | 6 vCPU, 12 Gi |
+
 The image below shows the resources allocated to the Build Service Agent Pool after the service instance is provisioned successfully.
 
 ![Finding resources allocated to Build Service](./media/enterprise/how-to-enterprise-build-service/agent-pool-size.png)
@@ -53,7 +54,7 @@ For details about buildpacks, see [Using the Tanzu Partner Buildpacks](https://d
 
 ## Create a Customized Builder to build apps
 
-Besides the `default` builder, you can also create custom builders with the provided buildpacks. 
+Besides the `default` builder, you can also create custom builders with the provided buildpacks.
 
 All the builders configured in a Spring Cloud Service instance are listed in the **Build Service** section under **VMware Tanzu components**.
 
@@ -75,7 +76,7 @@ When you deploy an app, you can build the app by specifying a specific builder i
 az spring-cloud app deploy --name <app_name> --builder <builder_name> --artifact-path <path_to_your_JAR_file>
 ```
 
-If the builder isn't specified, the `default` builder will be used. 
+If the builder isn't specified, the `default` builder will be used.
 
 ## Real time build logs
 

@@ -197,7 +197,7 @@ You can use the Portal to check or update the current settings in Application In
 ### Disable Application Insights
 
 1. Select **Application Insights**.
-1. Select **Unbind binding** to disable Application Insights. 
+1. Select **Unbind binding** to disable Application Insights.
 
    ![Where to disable Application Insights](./media/enterprise/how-to-application-insights/ai-unbind-binding.png)
 

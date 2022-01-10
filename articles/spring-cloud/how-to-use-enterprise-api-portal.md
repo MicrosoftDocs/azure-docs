@@ -13,7 +13,7 @@ zone_pivot_groups: spring-cloud-tier-selection
 
 # Use API Portal
 
-This article describes the use of the API portal with Azure Spring Cloud Enterprise Tier.
+This article shows you how to use the API portal with Azure Spring Cloud Enterprise Tier.
 
 [API portal](https://docs.vmware.com/en/API-portal-for-VMware-Tanzu/1.0/api-portal/GUID-index.html) is one of the proprietary VMware Tanzu components. The API portal supports viewing API definitions from [Spring Cloud Gateway](./how-to-use-enterprise-spring-cloud-gateway.md) and testing of specific API routes from the browser. It also supports enabling Single Sign-On authentication via configuration.
 
@@ -37,7 +37,8 @@ The API portal supports authentication and authorization using Single Sign-On (S
 > Note that only authorization servers supporting OpenID Connect Discovery protocol are supported.
 Also configure the external authorization server to allow redirects back to the gateway. Refer to your authorization server's documentation and add `https://<gateway-external-url>/login/oauth2/code/sso` to the list of allowed redirect URIs.
 
-> Note: If you configure the wrong SSO property, such as the wrong password, you should remove the entire SSO property and re-add the correct configuration. 
+> [!NOTE]
+> If you configure the wrong SSO property, such as the wrong password, you should remove the entire SSO property and re-add the correct configuration.
 
 > Important: If you are using the SSO feature, only one instance count is supported.
 
@@ -55,7 +56,7 @@ To access the API portal, use the following steps to assign a public endpoint:
 
   ![Assign public endpoint for API portal](./media/enterprise/how-to-use-enterprise-api-portal/api-portal-overview.png)
 
-1. Save the URL for use later. 
+1. Save the URL for use later.
 
 You can also use the CLI to assign a public endpoint with the following command:
 
@@ -65,15 +66,17 @@ az spring-cloud api-portal update --assign-endpoint
 
 ## View the route information through the API portal
 
-> Note: It takes several minutes to sync between Spring Cloud Gateway and the API portal.
-   
+> [!NOTE]
+> It takes several minutes to sync between Spring Cloud Gateway and the API portal.
+
 Select the `endpoint URL` to go to API portal. You will see all the routes configured in Spring Cloud Gateway.
 
 ![API portal routes image](./media/enterprise/how-to-use-enterprise-api-portal/api-portal-portal.png)
 
 ## Try APIs using the API portal.
 
-> Note: Only `GET` operations are supported in the public preview.
+> [!NOTE]
+> Only `GET` operations are supported in the public preview.
 
 1. Select the API you would like to try.
 1. Select **EXECUTE** and the response will be shown.
@@ -81,3 +84,5 @@ Select the `endpoint URL` to go to API portal. You will see all the routes confi
    ![Try out API portal](./media/enterprise/how-to-use-enterprise-api-portal/api-portal-tryout.png)
 
 ## Next Steps
+
+* [Azure Spring Cloud](.)

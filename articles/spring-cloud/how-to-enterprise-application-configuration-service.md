@@ -12,7 +12,7 @@ ms.custom: devx-track-java
 
 # Use Application Configuration Service
 
-This article describes the use of Application Configuration Service with Azure Spring Cloud Enterprise Tier.
+This article shows you how to use Application Configuration Service with Azure Spring Cloud Enterprise Tier.
 
 [Application Configuration Service](https://docs.pivotal.io/tcs-k8s/0-1/) is one of the proprietary VMware Tanzu components. It enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
 

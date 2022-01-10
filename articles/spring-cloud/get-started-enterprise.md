@@ -53,7 +53,7 @@ Use the following steps to provision an Azure Spring Cloud service instance:
 1. To configure VMware Tanzu components, select **Next: VMware Tanzu settings** at the bottom right of the page.
 
    > [!NOTE]
-   > All Tanzu components are enabled by default. Please carefully consider which Tanzu components you want to use or enable during the provisioning phase. After provisioning the Azure Spring Cloud instance, you can't enable or disable Tanzu components.
+   > All Tanzu components are enabled by default. You should carefully consider which Tanzu components you want to use or enable during the provisioning phase. After provisioning the Azure Spring Cloud instance, you can't enable or disable Tanzu components.
 
    ![VMware Tanzu Settings screen](./media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png)
 
@@ -262,7 +262,7 @@ To use API portal, follow these steps to assign a public endpoint to the API por
 > [!NOTE]
 > To use the API portal, you must enable it when you provision your Azure Spring Cloud service instance. You cannot enable the API portal after provisioning, at this time.
 
-1. Select **API portal**. 
+1. Select **API portal**.
 1. Select **Overview** to view the running state and resources allocated to the API portal.
 1. Select **Yes** next to *Assign endpoint* to assign a public endpoint. A URL will be generated for you after a few minutes.
 
@@ -270,7 +270,8 @@ To use API portal, follow these steps to assign a public endpoint to the API por
 
 1. Visit the routes information through the API portal.
 
-   > Note: It usually take several minutes to sync between Spring Cloud Gateway and API portal.
+   > [!NOTE]
+   > It usually take several minutes to sync between Spring Cloud Gateway and API portal.
 
    Select the assigned endpoint URL to go to API portal. You can see all the routes configured in Spring Cloud Gateway.
 
@@ -278,7 +279,8 @@ To use API portal, follow these steps to assign a public endpoint to the API por
 
 1. Try out APIs through the API portal.
 
-   > Note: Only the `GET` operation is supported in the public preview.
+   > [!NOTE]
+   > Only the `GET` operation is supported in the public preview.
 
    Select the API you would like to try out, then select `EXECUTE`. The response from the API will be shown.
 
