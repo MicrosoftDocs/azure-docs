@@ -33,9 +33,9 @@ Microsoft Sentinel uses Azure Monitor's Log Analytics environment and the Kusto 
 - [Write your first query with Kusto Query Language](/learn/modules/write-first-query-kusto-query-language/)
 - [Learning path SC-200: Create queries for Microsoft Sentinel using Kusto Query Language (KQL)](/learn/paths/sc-200-utilize-kql-for-azure-sentinel/)
 
-## Other Microsoft resources
+## Other resources
 
-### TechCommunity blogs
+### Microsoft TechCommunity blogs
 - [Advanced KQL Framework Workbook - Empowering you to become KQL-savvy](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/advanced-kql-framework-workbook-empowering-you-to-become-kql/ba-p/3033766) (includes webinar)
 - [Using KQL functions to speed up analysis in Azure Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/using-kql-functions-to-speed-up-analysis-in-azure-sentinel/ba-p/712381) (advanced level)
 - Ofer Shezaf's blog series on correlation rules using KQL operators:
