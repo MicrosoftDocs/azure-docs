@@ -12,7 +12,7 @@ ms.date: 04/25/2018
 ---
 # Use the Azure Custom Script Extension Version 2 with Linux virtual machines
 
-The Custom Script Extension Version 2 downloads and runs scripts on Azure virtual machines (VMs). This extension is useful for post-deployment configuration, software installation, or any other configuration/management task. You can download scripts from Azure Storage or another accessible internet location, or you can provide them to the extension runtime. 
+The Custom Script Extension Version 2 downloads and runs scripts on Azure virtual machines (VMs). This extension is useful for post-deployment configuration, software installation, or any other configuration or management task. You can download scripts from Azure Storage or another accessible internet location, or you can provide them to the extension runtime. 
 
 The Custom Script Extension integrates with Azure Resource Manager templates. You can also run it by using the Azure CLI, PowerShell, or the Azure Virtual Machines REST API.
 
@@ -32,7 +32,7 @@ The Custom Script Extension for Linux will run on supported operating systems. F
 
 ### Script location
 
-You can set the extension to use your Azure Blob Storage credentials so that it can access Azure Blob Storage. Alternatively, the script location can be anywhere, as long as the VM can route to that endpoint (for example, GitHub or an internal file server).
+You can set the extension to use your Azure Blob Storage credentials so that it can access Azure Blob Storage. The script location can be anywhere, as long as the VM can route to that endpoint (for example, GitHub or an internal file server).
 
 ### Internet connectivity
 
@@ -46,15 +46,15 @@ If your script is on a local server, you might still need to open additional fir
 * Write scripts that are idempotent, so running them more than once accidentally won't cause system changes.
 * Ensure that the scripts don't require user input when they run.
 * The script is allowed 90 minutes to run. Anything longer will result in a failed provision of the extension.
-* Don't put restarts inside the script. This will cause problems with other extensions that are being installed, and the extension won't continue after the restart. 
+* Don't put restarts inside the script. This action will cause problems with other extensions that are being installed, and the extension won't continue after the restart. 
+* If you have a script that will cause a restart before installing applications and running scripts, schedule the restart by using a Cron job or by using tools such as DSC, Chef, or Puppet extensions.
 * Don't run a script that will cause a stop or update of the VM agent. It might leave the extension in a transitioning state and lead to a timeout.
-* If you have a script that will cause a restart before doing tasks like installing applications and running scripts, schedule the restart by using a Cron job, or by using tools such as DSC or Chef/Puppet extensions.
 * The extension will run a script only once. If you want to run a script on every startup, you can use a [cloud-init image](../linux/using-cloud-init.md) and use a [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) module. Alternatively, you can use the script to create a [systemd](https://systemd.io/) service unit.
 * You can have only one version of an extension applied to the VM. To run a second custom script, you can update the existing extension with a new configuration. Alternatively, you can remove the custom script extension and reapply it with the updated script.
 * If you want to schedule when a script will run, you should use the extension to create a Cron job. 
 * When the script is running, you'll only see a "transitioning" extension status from the Azure portal or CLI. If you want more frequent status updates for a running script, you'll need to create your own solution.
 * The Custom Script Extension doesn't natively support proxy servers. However, you can use a file transfer tool that supports proxy servers within your script, such as *Curl*. 
-* Be aware of non-default directory locations that your scripts or commands might rely on. Have logic to handle this.
+* Be aware of non-default directory locations that your scripts or commands might rely on. Have logic to handle this situation.
 
 ## Extension schema
 
@@ -135,7 +135,7 @@ You can set the following values in either public or protected settings. The ext
 * `script`
 * `fileUris`
 
-Using public settings may be useful for debugging, but we strongly recommend that you use protected settings.
+Using public settings might be useful for debugging, but we strongly recommend that you use protected settings.
 
 Public settings are sent in clear text to the VM where the script will be run. Protected settings are encrypted through a key known only to Azure and the VM. The settings are saved to the VM as they were sent. That is, if the settings were encrypted, they're saved encrypted on the VM. The certificate that's used to decrypt the encrypted values is stored on the VM. The certificate is also used to decrypt settings (if necessary) at runtime.
 
@@ -210,7 +210,7 @@ The Custom Script Extension uses the following algorithm to run a script:
 > [!NOTE]
 > This property *must* be specified in protected settings only.
 
-The Custom Script Extension (version 2.1 and later) supports [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) for downloading files from URLs provided in the `fileUris` setting. It allows the Custom Script Extension to access Azure Storage private blobs or containers without the user having to pass secrets like shared access signature tokens or storage account keys.
+The Custom Script Extension (version 2.1 and later) supports [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) for downloading files from URLs provided in the `fileUris` setting. It allows the Custom Script Extension to access Azure Storage private blobs or containers without the user having to pass secrets like shared access signature (SAS) tokens or storage account keys.
 
 To use this feature, the user must add a [system-assigned](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) or [user-assigned](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-user-assigned-identity) identity to the VM or virtual machine scale set where the Custom Script Extension is expected to run. The user must then [grant the managed identity access to the Azure Storage container or blob](../../active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage.md#grant-access).
 
@@ -377,9 +377,9 @@ az vm extension set \
 
 ## Virtual machine scale sets
 
-If you deploy the Custom Script Extension from the Azure portal, you don't have control over the expiration of the shared access signature token for accessing the script in your storage account. The result is that the initial deployment works, but when the storage account's shared access signature token expires, any subsequent scaling operation fails because the Custom Script Extension can no longer access the storage account.
+If you deploy the Custom Script Extension from the Azure portal, you don't have control over the expiration of the SAS token for accessing the script in your storage account. The result is that the initial deployment works, but when the storage account's SAS token expires, any subsequent scaling operation fails because the Custom Script Extension can no longer access the storage account.
 
-We recommend that you use [PowerShell](/powershell/module/az.Compute/Add-azVmssExtension?view=azps-7.0.0), the [Azure CLI](/cli/azure/vmss/extension?view=azure-cli-latest), or an Azure Resource Manager template when you deploy the Custom Script Extension on a virtual machine scale set. This way, you can choose to use a managed identity or have direct control of the expiration of the shared access signature token for accessing the script in your storage account for as long as you need.
+We recommend that you use [PowerShell](/powershell/module/az.Compute/Add-azVmssExtension?view=azps-7.0.0), the [Azure CLI](/cli/azure/vmss/extension?view=azure-cli-latest), or an Azure Resource Manager template when you deploy the Custom Script Extension on a virtual machine scale set. This way, you can choose to use a managed identity or have direct control of the expiration of the SAS token for accessing the script in your storage account for as long as you need.
 
 ## Troubleshooting
 When the Custom Script Extension runs, the script is created or downloaded into a directory that's similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` files.
