@@ -42,7 +42,7 @@ The preview of Multivariate Anomaly Detector is currently available in 26 Azure 
 | Africa         | South Africa North  | 
 | Asia Pacific         | Southeast Asia, East Asia| 
 | Australia    | Australia East |
-| Brazil |Brazil South, Brazil South |
+| Brazil |Brazil South|
 |Canada    |  Canada Central    |
 | Europe         | North Europe, West Europe, Switzerland North | 
 |France    |France Central |
