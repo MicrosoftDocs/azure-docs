@@ -592,7 +592,7 @@ Then we need to set the Webhook URL in the service so it can know where to call 
     ngrok http 8080
     ```
 
-Ngrok will print a URL (`https://<domain-name>.ngrok.io`) that can be accessed from internet. In above step we listens the `/eventhandler` path, so next we'd like the service to send events to `https://<domain-name>.ngrok.io/eventhandler`.
+Ngrok will print a URL (`https://<domain-name>.ngrok.io`) that can be accessed from internet. In above step we listen the `/eventhandler` path, so next we'd like the service to send events to `https://<domain-name>.ngrok.io/eventhandler`.
 
 ### Set event handler
 
