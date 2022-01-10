@@ -10,33 +10,33 @@ ms.date: 01/10/2022
 ms.author: zxue
 ---
 
-# Configure private link for Azure Healthcare APIs
+# Configure Private Link for Azure Healthcare APIs
 
-Private link enables you to access Azure Healthcare APIs over a private endpoint. A private link is a network interface that connects you privately and securely using a private IP address from your virtual network. With private link, you can access our services securely from your VNet as a first party service without having to go through a public Domain Name System (DNS). This article describes how to create, test, and manage your private endpoint for Healthcare APIs.
+Private Link enables you to access Azure Healthcare APIs over a private endpoint. Private Link is a network interface that connects you privately and securely using a private IP address from your virtual network. With Private Link, you can access our services securely from your VNet as a first party service without having to go through a public Domain Name System (DNS). This article describes how to create, test, and manage your Private Endpoint for Healthcare APIs.
 
 >[!Note]
->Neither private link nor Healthcare APIs can be moved from one resource group or subscription to another once private link is enabled. To make a move, delete the private link first, and then move Healthcare APIs. Create a new private link after the move is complete. Next, assess potential security ramifications before deleting the private link.
+>Neither Private Link nor Healthcare APIs can be moved from one resource group or subscription to another once Private Link is enabled. To make a move, delete the Private Link first, and then move Healthcare APIs. Create a new Private Link after the move is complete. Next, assess potential security ramifications before deleting the Private Link.
 >
 >If you're exporting audit logs and metrics that are enabled, update the export setting through **Diagnostic Settings** from the portal.
 
 ## Prerequisites
 
-Before creating a private endpoint, the following Azure resources need to be created first:
+Before creating a Private Endpoint, the following Azure resources need to be created first:
 
-- **Resource Group** – The Azure resource group that'll contain the virtual network and private endpoint.
-- **Healthcare APIs** – The FHIR resource that you want to put behind a private endpoint.
-- **Virtual Network** – The VNet to which your client services and private endpoint will be connected.
+- **Resource Group** – The Azure resource group that'll contain the virtual network and Private Endpoint.
+- **Healthcare APIs** – The FHIR resource that you want to put behind a Private Endpoint.
+- **Virtual Network** – The VNet to which your client services and Private Endpoint will be connected.
 
 For more information, see [Private Link Documentation](./../private-link/index.yml).
 
-## Create private endpoint
+## Create Private Endpoint
 
-To create a private endpoint, a developer with Role-based access control (RBAC) permissions on the Azure resource can use the Azure portal, [Azure PowerShell](./../private-link/create-private-endpoint-powershell.md), or [Azure CLI](./../private-link/create-private-endpoint-cli.md). This article will guide you through the steps on using Azure portal. Using the Azure portal is recommended as it automates the creation and configuration of the Private DNS Zone. For more information, see [Private Link Quick Start Guides](./../private-link/create-private-endpoint-portal.md).
+To create a Private Endpoint, a developer with Role-based access control (RBAC) permissions on the Azure resource can use the Azure portal, [Azure PowerShell](./../private-link/create-private-endpoint-powershell.md), or [Azure CLI](./../private-link/create-private-endpoint-cli.md). This article will guide you through the steps on using Azure portal. Using the Azure portal is recommended as it automates the creation and configuration of the Private DNS Zone. For more information, see [Private Link Quick Start Guides](./../private-link/create-private-endpoint-portal.md).
 
-There are two ways to create a private endpoint. Auto approval flow allows a user that has RBAC permissions on the Azure resource to create a private endpoint without a need for approval. Manual approval flow allows a user without permissions on the FHIR resource to request a private endpoint to be approved by owners of the Azure resource.
+There are two ways to create a Private Endpoint. Auto approval flow allows a user that has RBAC permissions on the Azure resource to create a private endpoint without a need for approval. Manual approval flow allows a user without permissions on the FHIR resource to request a Private Endpoint to be approved by owners of the Azure resource.
 
 > [!NOTE]
-> When an approved private endpoint is created for Healthcare APIs, public traffic to it is automatically disabled. 
+> When an approved Private Endpoint is created for Healthcare APIs, public traffic to it is automatically disabled. 
 
 ### Auto approval
 
@@ -72,9 +72,9 @@ To ensure that your FHIR server is not receiving public traffic after disabling 
 > [!NOTE]
 > It can take up to 5 minutes after updating the public network access flag before public traffic is blocked.
 
-To ensure your private endpoint can send traffic to your server:
+To ensure your Private Endpoint can send traffic to your server:
 
-1. Create a virtual machine (VM) that is connected to the virtual network and subnet your private endpoint is configured on. To ensure your traffic from the VM is only using the private network, disable the outbound internet traffic using the network security group (NSG) rule.
+1. Create a virtual machine (VM) that is connected to the virtual network and subnet your Private Endpoint is configured on. To ensure your traffic from the VM is only using the private network, disable the outbound internet traffic using the network security group (NSG) rule.
 2. Remote Desktop Protocols (RDP) into the VM.
 3. Access your FHIR server’s `/metadata` endpoint from the VM. You should receive the capability statement as a response.
 
@@ -88,13 +88,13 @@ Private endpoints and the associated network interface controller (NIC) are visi
 
 ### Delete
 
-Private endpoints can only be deleted from the Azure portal from the **Overview** blade or by selecting the **Remove** option under the **Networking Private endpoint connections** tab. Selecting **Remove** will delete the private endpoint and the associated NIC. If you delete all private endpoints to the FHIR resource and the public network, access is disabled and no request will make it to your FHIR server.
+Private endpoints can only be deleted from the Azure portal from the **Overview** blade or by selecting the **Remove** option under the **Networking Private endpoint connections** tab. Selecting **Remove** will delete the Private Endpoint and the associated NIC. If you delete all private endpoints to the FHIR resource and the public network, access is disabled and no request will make it to your FHIR server.
 
 ![Screen image of the Delete Private Endpoint.](media/private-link/private-link-delete.png#lightbox)
 
 ## Next steps
 
-In this article, you learned how to create, test, and manage your private endpoint for Azure Healthcare APIs. For more information about Healthcare APIs, see
+In this article, you learned how to create, test, and manage your Private Endpoint for Azure Healthcare APIs. For more information about Healthcare APIs, see
 
 >[!div class="nextstepaction"]
 >[Overview of Healthcare APIs](healthcare-apis-overview.md)
