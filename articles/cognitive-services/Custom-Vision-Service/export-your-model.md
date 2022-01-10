@@ -21,8 +21,8 @@ Custom Vision Service allows classifiers to be exported to run offline. You can 
 
 Custom Vision Service supports the following exports:
 
-* __Tensorflow__ for __Android__.
-* **TensorflowJS** for JavaScript frameworks like React, Angular, and Vue. This will run on both **Android** and **iOS** devices.
+* __TensorFlow__ for __Android__.
+* **TensorFlow.js** for JavaScript frameworks like React, Angular, and Vue. This will run on both **Android** and **iOS** devices.
 * __CoreML__ for __iOS11__.
 * __ONNX__ for __Windows ML__, **Android**, and **iOS**.
 * __[Vision AI Developer Kit](https://azure.github.io/Vision-AI-DevKit-Pages/)__.
@@ -74,8 +74,8 @@ To export the model after retraining, use the following steps:
 
 Integrate your exported model into an application by exploring one of the following articles or samples:
 
-* [Use your Tensorflow model with Python](export-model-python.md)
+* [Use your TensorFlow model with Python](export-model-python.md)
 * [Use your ONNX model with Windows Machine Learning](custom-vision-onnx-windows-ml.md)
 * See the sample for [CoreML model in an iOS application](https://go.microsoft.com/fwlink/?linkid=857726) for real-time image classification with Swift.
-* See the sample for [Tensorflow model in an Android application](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) for real-time image classification on Android.
+* See the sample for [TensorFlow model in an Android application](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) for real-time image classification on Android.
 * See the sample for [CoreML model with Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) for real-time image classification in a Xamarin iOS app.
