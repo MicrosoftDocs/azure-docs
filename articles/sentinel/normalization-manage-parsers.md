@@ -1,41 +1,49 @@
 ---
-title: Manage ASIM parsers | Microsoft Docs
-description: This article explains how to manage ASIM parsers, add a customer parser, and replace a built-in parser.
+title: Manage Advanced SIEM Information Model (ASIM) parsers | Microsoft Docs
+description: This article explains how to manage Advanced SIEM Information Model (ASIM) parsers, add a customer parser, and replace a built-in parser.
 author: oshezaf
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: ofshezaf
-ms.custom: ignite-fall-2021
 --- 
 
-# Manage ASIM parsers (Public preview)
+# Manage Advanced SIEM Information Model parsers (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-ASIM users use unifying parsers instead of table names in their queries. Using unifying parsers enables viewing data in a normalized format and getting all the data relevant to the schema in a single query. Each unifying parser uses multiple source-specific parsers that handle each source's specific details. 
+Advanced SIEM Information Model (ASIM) users use *unifying parsers* instead of table names in their queries, to view data in a normalized format and get all the data relevant to the schema in a single query. Each unifying parser uses multiple source-specific parsers that handle each source's specific details. 
 
 You may need to manage the source-specific parsers used by each unifying parser to:
 
-- Add a custom source-specific parser to a unifying parser.
+- **Add a custom, source-specific parser** to a unifying parser.
 
-- Replace a built-in source-specific parser used by a unifying parser with a custom source-specific parser to:
+- **Replace a built-in, source-specific parser** that's used by a unifying parser with a custom, source-specific parser. Replace built-in parsers when you want to:
+
   - Use a version of the built-in parser other than the one used by default in the unifying parser. 
-  - Fix the version of the source-specific parser used by the unifying parser to prevent automated updates.
-  - Use a modified version of the built-in parser.
 
-This document will guide you how to perform these tasks, whether using built-in unifying ASIM parsers or workspace deployed unifying parsers. The procedures below assume that all source-specific parsers have already been deployed to the workspace as outlined in the document [Develop ASIM parsers](normalization-develop-parsers.md#deploy-parsers).
+  - Prevent automated updates by modifying the version of the source-specific parser used by the unifying parser.
+
+  - Use a modified version of a built-in parser.
+
+This article guides you through managing your parsers, whether using built-in, unifying ASIM parsers or workspace-deployed unifying parsers. 
 
 > [!IMPORTANT]
 > ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## Prerequisites
+
+The procedures in this article assume that all source-specific parsers have already been deployed to your Microsoft Sentinel workspace. 
+
+For more information, see [Develop ASIM parsers](normalization-develop-parsers.md#deploy-parsers).
+
 ## Managing built-in unifying parsers
 
 ### Setup
 
-The user cannot edit built-in unifying parsers. The following mechanisms enable users to influence the built-in unifying parsers behavior:
+Microsoft Sentinel users cannot edit built-in unifying parsers. Instead, use the mechanisms to the behavior of built-in unifying parsers:
 
--  To enable adding source-specific parsers, ASIM uses custom unifying parsers. These parsers are workspace deployed and are picked up automatically by the built-in unifying parsers if they exist. You can [deploy initial empty custom unifying parsers](https://aka.ms/ASimDeployEmptyCustomUnifyingParsers) for all supported schemas, or individually for specific schemas.
+-  **To support adding source-specific parsers**, ASIM uses custom unifying parsers. Custom unifying parsers are workspace-deployed, and are picked up automatically by the built-in unifying parsers if they exist. You can [deploy initial empty custom unifying parsers](https://aka.ms/ASimDeployEmptyCustomUnifyingParsers) for all supported schemas, or individually for specific schemas.
 
 - To enable excluding built-in source-specific parsers, ASIM uses a watchlist. Deploy the watchlist from [GitHub](https://aka.ms/DeployASimExceptionWatchlist).
 
