@@ -51,7 +51,7 @@ If your source SQL Server instance is located on an Azure virtual network that i
 
 To simplify authentication between your source and target SQL Server instance, join both servers to the same domain, preferably with the domain being on the source side and apply domain-based authentication. Since this is the recommended approach, the steps in this tutorial series assume both source and target SQL Server instance are part of the same domain. 
 
-If the source and target servers are part of different domains, configure [federation](../../../active-directory/hybrid/whatis-fed.md) between the two domains, or configure a [domainless availability group](../../virtual-machines/windows/availability-group-clusterless-workgroup-configure.md). 
+If the source and target servers are part of different domains, configure [federation](../../../active-directory/hybrid/whatis-fed.md) between the two domains, or configure a [domain-independent availability group](../../virtual-machines/windows/availability-group-clusterless-workgroup-configure.md). 
 
 
 ## Next steps
