@@ -26,12 +26,14 @@ If you're unfamiliar with managed identities for Azure resources, see the [Manag
 - An already provisioned Azure Spring Cloud Enterprise tier instance. For more information, see [Get started with Enterprise Tier](./get-started-enterprise.md).
 - [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
 - The preview version (3.0.0 or later) of the Azure Spring Cloud extension for Enterprise tier. Use the following command to install:
+
    ```azurecli
    az extension remove --name spring-cloud
    az extension add \
        --source https://ascprivatecli.blob.core.windows.net/enterprise/spring_cloud-3.0.0-py3-none-any.whl \
        --yes
    ```
+
 ::: zone-end
 
 ::: zone pivot="sc-standard-tier"
@@ -64,7 +66,11 @@ You can enable system-assigned managed identity during app creation or on an exi
 The following example creates an app named *app_name* with a system-assigned managed identity, as requested by the `--assign-identity` parameter.
 
 ```azurecli
-az spring-cloud app create -n app_name -s service_name -g resource_group_name --assign-identity
+az spring-cloud app create \
+    --resource-group <resource-group-name> \
+    --name <app-name> \
+    --service <service-instance-name> \
+    --assign-identity
 ```
 
 **Enable system-assigned managed identity on an existing app**
@@ -72,7 +78,10 @@ az spring-cloud app create -n app_name -s service_name -g resource_group_name --
 Use `az spring-cloud app identity assign` command to enable the system-assigned identity on an existing app.
 
 ```azurecli
-az spring-cloud app identity assign -n app_name -s service_name -g resource_group_name
+az spring-cloud app identity assign \
+    --resource-group <resource-group-name> \
+    --name <app-name> \
+    --service <service-instance-name>
 ```
 
 ---
@@ -104,8 +113,12 @@ To remove system-assigned managed identity from an app that no longer needs it:
 To remove system-assigned managed identity from an app that no longer needs it, use the following command:
 
 ```azurecli
-az spring-cloud app identity remove -n app_name -s service_name -g resource_group_name
+az spring-cloud app identity remove \
+    --resource-group <resource-group-name> \
+    --name <app-name> \
+    --service <service-instance-name>
 ```
+
 ---
 
 ## Next steps

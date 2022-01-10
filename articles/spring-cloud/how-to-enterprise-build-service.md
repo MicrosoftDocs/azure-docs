@@ -73,7 +73,10 @@ You can delete any custom builder, but the `default` builder is read only.
 When you deploy an app, you can build the app by specifying a specific builder in the command:
 
 ```azurecli
-az spring-cloud app deploy --name <app_name> --builder <builder_name> --artifact-path <path_to_your_JAR_file>
+az spring-cloud app deploy \
+    --name <app-name> \
+    --builder <builder-name> \
+    --artifact-path <path-to-your-JAR-file>
 ```
 
 If the builder isn't specified, the `default` builder will be used.
@@ -140,9 +143,9 @@ View the current Buildpack Bindings using the following command:
 
 ```azurecli
 az spring-cloud build-service builder buildpack-binding list \
-       --resource-group <your-resource-group-name> \
-       --service <your-service-name> \
-       --builder-name <your-builder-name>
+    --resource-group <your-resource-group-name> \
+    --service <your-service-instance-name> \
+    --builder-name <your-builder-name>
 ```
 
 ## Create a Binding
@@ -151,13 +154,13 @@ Use this command to change the binding from *Unbound* to *Bound* status:
 
 ```azurecli
 az spring-cloud build-service builder buildpack-binding create \
-       --resource-group <your-resource-group-name> \
-       --service <your-service-name> \
-       --name <your-buildpack-binding-name> \
-       --builder-name <your-builder-name> \
-       --type <your-binding-type> \
-       --properties a=b c=d \
-       --secrets e=f g=h
+    --resource-group <your-resource-group-name> \
+    --service <your-service-instance-name> \
+    --name <your-buildpack-binding-name> \
+    --builder-name <your-builder-name> \
+    --type <your-binding-type> \
+    --properties a=b c=d \
+    --secrets e=f g=h
 ```
 
 For more information, see the [Buildpack Bindings](#buildpack-bindings) section for information on the `properties` and `secrets` parameters for your buildpack.
@@ -167,10 +170,10 @@ The details of a specific binding can be viewed using the following command:
 
 ```azurecli
 az spring-cloud build-service builder buildpack-binding show \
-       --resource-group <your-resource-group-name> \
-       --service <your-service-name> \
-       --name <your-buildpack-binding-name> \
-       --builder-name <your-builder-name>
+    --resource-group <your-resource-group-name> \
+    --service <your-service-instance-name> \
+    --name <your-buildpack-binding-name> \
+    --builder-name <your-builder-name>
 ```
 
 ## Edit the properties of a binding
@@ -179,13 +182,13 @@ A binding's properties can be changed using the following command:
 
 ```azurecli
 az spring-cloud build-service builder buildpack-binding set \
-       --resource-group <your-resource-group-name> \
-       --service <your-service-name> \
-       --name <your-buildpack-binding-name> \
-       --builder-name <your-builder-name> \
-       --type <your-binding-type> \
-       --properties a=b c=d \
-       --secrets e=f2 g=h
+    --resource-group <your-resource-group-name> \
+    --service <your-service-instance-name> \
+    --name <your-buildpack-binding-name> \
+    --builder-name <your-builder-name> \
+    --type <your-binding-type> \
+    --properties a=b c=d \
+    --secrets e=f2 g=h
 ```
 
 For more information, see the [Buildpack Bindings](#buildpack-bindings) section for information on the `properties` and `secrets` parameters for your buildpack.
@@ -195,12 +198,14 @@ Use the following command to change the binding status from *Bound* to *Unbound*
 
 ```azurecli
 az spring-cloud build-service builder buildpack-binding delete \
-       --resource-group <your-resource-group-name> \
-       --service <your-service-name> \
-       --name <your-buildpack-binding-name> \
-       --builder-name <your-builder-name>
+    --resource-group <your-resource-group-name> \
+    --service <your-service-instance-name> \
+    --name <your-buildpack-binding-name> \
+    --builder-name <your-builder-name>
 ```
 
 ---
 
 ## Next Steps
+
+* [Azure Spring Cloud](.)

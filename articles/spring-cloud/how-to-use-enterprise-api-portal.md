@@ -73,7 +73,7 @@ Select the `endpoint URL` to go to API portal. You will see all the routes confi
 
 ![API portal routes image](./media/enterprise/how-to-use-enterprise-api-portal/api-portal-portal.png)
 
-## Try APIs using the API portal.
+## Try APIs using the API portal
 
 > [!NOTE]
 > Only `GET` operations are supported in the public preview.

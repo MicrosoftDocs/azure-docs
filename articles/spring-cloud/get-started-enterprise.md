@@ -215,7 +215,12 @@ Assign a public endpoint for the gateway to access to it, using the following st
 Configure the Spring Cloud Gateway properties using the following command:
 
 ```azurecli
-az spring-cloud gateway update --api-description "api description" --api-title "api title" --api-version "v0.1" --server-url "<endpoint-in-the-previous-step>" --allowed-origins "*"
+az spring-cloud gateway update \
+    --api-description "<api-description>" \
+    --api-title "<api-title>" \
+    --api-version "v0.1" \
+    --server-url "<endpoint-in-the-previous-step>" \
+    --allowed-origins "*"
 ```
 
 The Spring Cloud Gateway properties will be used to integrate with the API portal in the [Use the API portal](#use-the-api-portal) section.
@@ -247,11 +252,15 @@ The Spring Cloud Gateway properties will be used to integrate with the API porta
 1. Use the following command to apply the rule to the app `customers-service`
 
    ```azurecli
-   az spring-cloud gateway route-config create -n customers-service-rule --app-name customers-service --routes-file customers-service.json
+   az spring-cloud gateway route-config create \
+       --name customers-service-rule \
+       --app-name customers-service \
+       --routes-file customers-service.json
    ```
 
 1. Access the apps `customers service` and `owners` API through the gateway endpoint.
-   ```azurecli
+
+   ```bash
    curl https://<endpoint-url>/api/customers-service/owners
    ```
 

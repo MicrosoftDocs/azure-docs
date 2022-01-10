@@ -19,7 +19,7 @@ This article shows you how to use Spring Cloud Gateway with Azure Spring Cloud E
 
 Spring Cloud Gateway also has other commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services, client certificate authorization, rate-limiting approaches, circuit breaker configuration, and support for accessing application services via HTTP Basic Authentication credentials.
 
-To integrate with [API portal](./how-to-use-enterprise-api-portal.md), Spring Cloud Gateway automatically generates OpenAPI version 3 documentation once the routes configuration gets changed.
+To integrate with [API portal](./how-to-use-enterprise-api-portal.md), Spring Cloud Gateway automatically generates OpenAPI version 3 documentation once the route configuration gets changed.
 
 ## How Spring Cloud Gateway works
 
@@ -62,7 +62,7 @@ Spring Cloud Gateway metadata is used to automatically generate OpenAPI version 
 > [!NOTE]
 > `serverUrl` is mandatory if you want to integrate with [API portal](./how-to-use-enterprise-api-portal.md).
 
-### Configure Cross-origin resource sharing (CORS)
+### Configure cross-origin resource sharing (CORS)
 
 Cross-origin resource sharing (CORS) allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served.
 
@@ -78,7 +78,7 @@ Cross-origin resource sharing (CORS) allows restricted resources on a web page t
 > [!NOTE]
 > Be sure you have the correct CORS configuration if you want to integrated with the [API portal](./how-to-use-enterprise-api-portal.md). For an example, see [Get started with Enterprise Tier](./get-started-enterprise.md).
 
-### Configure Single Sign-On (SSO)
+### Configure single sign-on (SSO)
 
 Spring Cloud Gateway supports authentication and authorization using Single Sign-On (SSO) with an OpenID identity provider (IdP) which supports OpenID Connect Discovery protocol.
 
@@ -145,16 +145,21 @@ Not all the filters/predicates are supported in Azure Spring Cloud because of se
 
    ![Assign public endpoint for gateway](./media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-overview.png)
 
-   You can also use CLI to do it.
+   You can also use CLI to do it, as shown in the following command:
 
    ```azurecli
    az spring-cloud gateway update --assign-endpoint
    ```
 
-1. Configure Spring Cloud Gateway properties.
+1. Use the following command to configure Spring Cloud Gateway properties:
 
    ```azurecli
-   az spring-cloud gateway update --api-description "api description" --api-title "api title" --api-version "v0.1" --server-url "<endpoint-in-the-previous-step>" --allowed-origins "*"
+   az spring-cloud gateway update \
+       --api-description "<api-description>" \
+       --api-title "<api-title>" \
+       --api-version "v0.1" \
+       --server-url "<endpoint-in-the-previous-step>" \
+       --allowed-origins "*"
    ```
 
    You can also view those properties in the portal.
@@ -185,28 +190,36 @@ Not all the filters/predicates are supported in Azure Spring Cloud because of se
       ]
    ```
 
-   Use the below command to apply the rule to the app `customers-service`
+   Use the following command to apply the rule to the app `customers-service`:
 
    ```azurecli
-   az spring-cloud gateway route-config create -n customers-service-rule --app-name customers-service --routes-file customers-service.json
+   az spring-cloud gateway route-config create \
+       --name customers-service-rule \
+       --app-name customers-service \
+       --routes-file customers-service.json
    ```
 
    You can also view the routes in the portal.
 
    ![Routes for gateway](./media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png)
 
-1. Access to app `customers service` and `owners` APIs through gateway endpoint.
+1. Use the following command to access the `customers service` and `owners` APIs through the gateway endpoint:
 
    ```bash
    curl https://<endpoint-url>/api/customers-service/owners
    ```
 
-1. Query routing rules from CLI.
+1. Use the following command to query the routing rules:
 
    ```azurecli
    az configure --defaults group=<resource group name> spring-cloud=<service name>
-   az spring-cloud gateway route-config show -n customers-service-rule --query '{appResourceId:properties.appResourceId, routes:properties.routes}'
-   az spring-cloud gateway route-config list --query '[].{name:name, appResourceId:properties.appResourceId, routes:properties.routes}'
+   az spring-cloud gateway route-config show \
+       --name customers-service-rule \
+       --query '{appResourceId:properties.appResourceId, routes:properties.routes}'
+   az spring-cloud gateway route-config list \
+       --query '[].{name:name, appResourceId:properties.appResourceId, routes:properties.routes}'
    ```
 
 ## Next Steps
+
+* [Azure Spring Cloud](.)

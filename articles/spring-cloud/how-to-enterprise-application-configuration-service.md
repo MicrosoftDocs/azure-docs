@@ -151,5 +151,7 @@ To use the centralized configurations, you must bind the app to Application Conf
    :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-pattern.png" alt-text="Screenshot of pattern selection screen":::
 
    e. Select **Save**
+
 ## Next Steps
 
+* [Azure Spring Cloud](.)

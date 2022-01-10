@@ -230,7 +230,7 @@ Application Insights settings are found in the *ApplicationInsights* item listed
 
 ## Manage Application Insights using Azure CLI
 
-You can manage Application Insights using Azure CLI commands. In the following commands, be sure to replace the *\<placeholder>* text with the values described. The *\<service-name>* placeholder refers to the name of your Azure Spring Cloud instance.
+You can manage Application Insights using Azure CLI commands. In the following commands, be sure to replace the *\<placeholder>* text with the values described. The *\<service-instance-name>* placeholder refers to the name of your Azure Spring Cloud instance.
 
 ### Manage Application Insights
 
@@ -239,7 +239,7 @@ To configure Application Insights when creating an Azure Spring Cloud instance, 
 ```azurecli
 az spring-cloud create \
     --resource-group <resource-group-name> \
-    --name "serviceName" \
+    --name <service-instance-name> \
     --app-insights <name-or-resource-ID> \
     --sampling-rate <sampling-rate>
 ```
@@ -249,7 +249,7 @@ You can also use an Application Insights connection string (preferred) or instru
 ```azurecli
 az spring-cloud create \
     --resource-group <resource-group-name> \
-    --name <service-name> \
+    --name <service-instance-name> \
     --app-insights-key <connection-string-or-instrumentation-key> \
     --sampling-rate <sampling-rate>
 ```
@@ -259,7 +259,7 @@ To disable Application Insights when creating an Azure Spring Cloud instance, us
 ```azurecli
 az spring-cloud create \
     --resource-group <resource-group-name> \
-    --name <service-name> \
+    --name <service-instance-name> \
     --disable-app-insights
 ```
 
@@ -268,7 +268,7 @@ To check the Application Insights settings of an existing Azure Spring Cloud ins
 ```azurecli
 az spring-cloud app-insights show \
     --resource-group <resource-group-name> \
-    --name <service-name>
+    --name <service-instance-name>
 ```
 
 To enable Application Insights using a connection string (preferred) or instrumentation key, use the following command:
@@ -276,7 +276,7 @@ To enable Application Insights using a connection string (preferred) or instrume
 ```azurecli
 az spring-cloud app-insights update \
     --resource-group <resource-group-name> \
-    --name <service-name> \
+    --name <service-instance-name> \
     --app-insights-key <connection-string-or-instrumentation-key> \
     --sampling-rate <sampling-rate>
 ```
@@ -286,7 +286,7 @@ To enable Application Insights using the resource name or ID, use the following 
 ```azurecli
 az spring-cloud app-insights update \
     --resource-group <resource-group-name> \
-    --name <service-name> \
+    --name <service-instance-name> \
     --app-insights <name-or-resource-ID> \
     --sampling-rate <sampling-rate>
 ```
@@ -296,9 +296,10 @@ To disable Application Insights on an existing Azure Spring Cloud instance, use 
 ```azurecli
 az spring-cloud app-insights update \
     --resource-group <resource-group-name> \
-    --name <service-name> \
+    --name <service-instance-name> \
     --disable
 ```
+
 ::: zone-end
 
 ::: zone pivot="sc-enterprise-tier"
@@ -313,7 +314,7 @@ To create an Application Insights buildpack binding, use the following command:
    ```azurecli
    az spring-cloud build-service builder buildpack-binding create \
        --resource-group <your-resource-group-name> \
-       --service <your-service-name> \
+       --service <your-service-instance-name> \
        --name <your-binding-name> \
        --builder-name <your-builder-name> \
        --type ApplicationInsights \
@@ -335,7 +336,7 @@ To replace an Application Insights buildpack binding, use the following command:
    ```azurecli
    az spring-cloud build-service builder buildpack-binding set \
        --resource-group <your-resource-group-name> \
-       --service <your-service-name> \
+       --service <your-service-instance-name> \
        --name <your-binding-name> \
        --builder-name <your-builder-name> \
        --type ApplicationInsights \
@@ -348,7 +349,7 @@ To get an Application Insights buildpack binding, use the following command:
    ```azurecli
    az spring-cloud build-service builder buildpack-binding show \
        --resource-group <your-resource-group-name> \
-       --service <your-service-name> \
+       --service <your-service-instance-name> \
        --name <your-binding-name> \
        --builder-name <your-builder-name> \
    ```
@@ -358,7 +359,7 @@ To delete an Application Insights buildpack binding, use the following command:
    ```azurecli
    az spring-cloud build-service builder buildpack-binding delete \
        --resource-group <your-resource-group-name> \
-       --service <your-service-name> \
+       --service <your-service-instance-name> \
        --name <your-binding-name> \
        --builder-name <your-builder-name> \
    ```
@@ -380,10 +381,11 @@ You can also use an Application Insights connection string (preferred) or instru
 ```azurecli
 az spring-cloud create \
     --resource-group <resource-group-name> \
-    --name <service-name> \
+    --name <service-instance-name> \
     --app-insights-key <connection-string-or-instrumentation-key> \
     --sampling-rate <sampling-rate>
 ```
+
 ::: zone-end
 
 ::: zone pivot="sc-standard-tier"
