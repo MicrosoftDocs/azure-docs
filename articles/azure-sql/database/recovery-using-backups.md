@@ -141,7 +141,8 @@ For a sample PowerShell script showing how to restore a deleted instance databas
 ## Geo-restore
 
 > [!IMPORTANT]
-> Geo-restore is available only for SQL databases or managed instances configured with geo-redundant [backup storage](automated-backups-overview.md#backup-storage-redundancy).
+> - Geo-restore is available only for SQL databases or managed instances configured with geo-redundant [backup storage](automated-backups-overview.md#backup-storage-redundancy).
+> - Geo-restore can be performed on SQL databases or managed instances residing in the same subscription only.
 
 You can restore a database on any SQL Database server or an instance database on any managed instance in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. You can request geo-restore even if the database or datacenter is inaccessible due to an outage.
 
