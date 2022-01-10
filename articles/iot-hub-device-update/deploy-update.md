@@ -45,7 +45,8 @@ Learn how to deploy an update to an IoT device using Device Update for IoT Hub.
   :::image type="content" source="media/deploy-update/select-update.png" alt-text="Select update" lightbox="media/deploy-update/select-update.png":::
 
 7. Schedule your deployment to start immediately or in the future, then select Create.
-
+   > [!TIP]
+   > By default the Start date/time is 24 hrs from your current time. Be sure to select a different date/time if you want the deployment to begin earlier.
  :::image type="content" source="media/deploy-update/create-deployment.png" alt-text="Create deployment" lightbox="media/deploy-update/create-deployment.png":::
 
 8. The Status under Deployment details should turn to Active, and the deployed update should be marked with "(deploying)".
