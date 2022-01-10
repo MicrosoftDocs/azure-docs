@@ -31,15 +31,15 @@ This page is updated monthly, so revisit it regularly.
 <tr><td>Native change data capture (CDC) now natively supported</td><td>CDC is now natively supported in Azure Data Factory for CosmosDB, Blob Store, Azure Data Lake Storage Gen1 and Gen2, and CRM.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/cosmosdb-change-feed-is-supported-in-adf-now/ba-p/3037011">Learn more</a></td></tr>
 <tr><td>Flowlets public preview</td><td>The flowlets public preview allows data flow developers to build reusable components to easily build composable data transformation logic.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-the-flowlets-preview-for-adf-and-synapse/ba-p/3030699">Learn more</a></td></tr>
   
-<tr><td>Map Data public preview</td><td>The Map Data preview enables business users to define column mapping and transformations to load Synapse Lake Databases<br><a href="https://docs.microsoft.com/en-us/azure/synapse-analytics/database-designer/overview-map-data">Learn more</a></td></tr>
+<tr><td>Map Data public preview</td><td>The Map Data preview enables business users to define column mapping and transformations to load Synapse Lake Databases<br><a href="../synapse-analytics/database-designer/overview-map-data.md">Learn more</a></td></tr>
   
-<tr><td>Multiple output destinations from Power Query</td><td>You can now map multiple output desintations from Power Query in Azure Data Factory for flexible ETL patterns for citizen data integrators.<br><a href="https://docs.microsoft.com/en-us/azure/data-factory/control-flow-power-query-activity#sink">Learn more</a></td></tr>
+<tr><td>Multiple output destinations from Power Query</td><td>You can now map multiple output desintations from Power Query in Azure Data Factory for flexible ETL patterns for citizen data integrators.<br><a href="control-flow-power-query-activity.md#sink">Learn more</a></td></tr>
   
-<tr><td>External Call transformation support</td><td>Extend the functionality of Mapping Data Flows by using the External Call transformation.  You can now add your own custom code as a REST endpoint or call a curated third party service row-by-row.<br><a href="https://docs.microsoft.com/en-us/azure/data-factory/data-flow-external-call">Learn more</a></td></tr>
+<tr><td>External Call transformation support</td><td>Extend the functionality of Mapping Data Flows by using the External Call transformation.  You can now add your own custom code as a REST endpoint or call a curated third party service row-by-row.<br><a href="data-flow-external-call.md">Learn more</a></td></tr>
   
-<tr><td>Enable quick re-use by Synapse Mapping Data Flows with TTL support</td><td>Synapse Mapping Data Flows now support quick re-use by setting a TTL in the Azure Integration Runtime.  This will enable your subsequent data flow activities to execute in under 5 seconds.<br><a href="https://docs.microsoft.com/en-us/azure/data-factory/control-flow-execute-data-flow-activity#data-flow-integration-runtime">Learn more</a></td></tr>
+<tr><td>Enable quick re-use by Synapse Mapping Data Flows with TTL support</td><td>Synapse Mapping Data Flows now support quick re-use by setting a TTL in the Azure Integration Runtime.  This will enable your subsequent data flow activities to execute in under 5 seconds.<br><a href="control-flow-execute-data-flow-activity.md#data-flow-integration-runtime">Learn more</a></td></tr>
   
-<tr><td>Assert transformation</td><td>Easily add data quality, data domain validation, and metadata checks to your Azure Data Factory pipelines by using the Assert transformation in Mapping Data Flows.<br><a href="https://docs.microsoft.com/en-us/azure/data-factory/data-flow-assert">Learn more</a></td></tr>
+<tr><td>Assert transformation</td><td>Easily add data quality, data domain validation, and metadata checks to your Azure Data Factory pipelines by using the Assert transformation in Mapping Data Flows.<br><a href="data-flow-assert.md">Learn more</a></td></tr>
 
 </table>
 
