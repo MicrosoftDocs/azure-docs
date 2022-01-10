@@ -28,7 +28,10 @@ Azure Spring Cloud itself cannot be moved from one region to another directly. B
   - When moving a [VNet instance](/azure/spring-cloud/how-to-deploy-in-azure-virtual-network), new network resources may need to be created, depending on the network capacity.
 
 ## How to move an Azure Spring Cloud instance with template
-## Export the template
+
+In order to move an Azure Spring Cloud instance with template, follow below steps.
+
+### Export the template
 ### [Portal](#tab/azure-portal)
 Template can be exported with Azure portal.
 
@@ -147,7 +150,7 @@ After modifying the template, the new resource can be created by **Deploy a cust
 1. Sign in to Azure portal
 2. In the top search box, search **Deploy a custom template**
 
-    :::image type="content" source="media/move-across-regions/search-deploy-template.png" alt-text="Azure portal screenshot showing how to search the deploy a custom template service":::
+    :::image type="content" source="media/move-across-regions/search-deploy-template.png" alt-text="Azure portal screenshot showing how to search the deploy a custom template service.":::
 
 3. Select **Services -> Deploy a custom template**
 4. Go to **Select a template -> Build your own template in the editor**
@@ -158,7 +161,7 @@ After modifying the template, the new resource can be created by **Deploy a cust
     - Select target region
     - Fill any other parameters required for the template
 
-    :::image type="content" source="media/move-across-regions/deploy-template.png" alt-text="Azure portal screenshot showing how deploy template basic tab can be filled":::
+    :::image type="content" source="media/move-across-regions/deploy-template.png" alt-text="Azure portal screenshot showing how deploy template basic tab can be filled.":::
 
 7. Click the **Review + create**  button to create the target service
 8. Wait until the template has been deployed successfully, if any resource deployment failed, check the **Deployment details -> Operation details** for the detailed reason, and update the template or configurations accordingly.
@@ -187,3 +190,9 @@ Some features are not exported to the template or cannot be imported with templa
   - For Monitoring -> Metrics, follow [Metrics for Azure Spring Cloud](/azure/spring-cloud/concept-metrics), to not mix the data, it's  recommended to create new Log Analytics to collect data, same for other monitoring configurations.
   - For Monitoring -> Diagnostic settings and Logs, follow [Analyze logs and metrics in Azure Spring Cloud](/azure/spring-cloud/diagnostic-services).
   - For Monitoring -> Application Insights, follow [How to use Application Insights Java In-Process Agent in Azure Spring Cloud](/azure/spring-cloud/how-to-application-insights).
+
+  ## Next steps
+
+* [Quickstart - Build and deploy apps to Azure Spring Cloud](./quickstart-deploy-apps.md)
+* [Quickstart - Set up Azure Spring Cloud Config Server](./quickstart-setup-config-server.md)
+* [Quickstart - Set up a Log Analytics workspace in Azure Spring Cloud](./quickstart-setup-log-analytics.md)
