@@ -78,7 +78,7 @@
   - name: Kusto Query Language in Microsoft Sentinel
     items:
     - name: Overview
-      href: kql-overview.md
+      href: kusto-overview.md
     - name: Query best practices
       href: /azure/data-explorer/kusto/query/best-practices
     - name: SQL to KQL cheat sheet
@@ -88,7 +88,7 @@
     - name: KQL quick reference
       href: /azure/data-explorer/kql-quick-reference
     - name: Other KQL resources
-      href: kql-resources.md
+      href: kusto-resources.md
   - name: Threat intelligence
     items:
     - name: Understand threat intelligence in Microsoft Sentinel
