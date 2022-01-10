@@ -43,7 +43,9 @@ For more information, see [Develop ASIM parsers](normalization-develop-parsers.m
 
 Microsoft Sentinel users cannot edit built-in unifying parsers. Instead, use the following mechanisms to modify the behavior of built-in unifying parsers:
 
--  **To support adding source-specific parsers**, ASIM uses unifiying, custom parsers. These custom parsers are workspace-deployed, and therefore editable. Built-in, unifying parsers automatically pick up these custom parsers, if they exist. You can [deploy initial, empty, unifying custom parsers](https://aka.ms/ASimDeployEmptyCustomUnifyingParsers) to your Microsoft Sentinel workspace for all supported schemas, or individually for specific schemas.
+-  **To support adding source-specific parsers**, ASIM uses unifiying, custom parsers. These custom parsers are workspace-deployed, and therefore editable. Built-in, unifying parsers automatically pick up these custom parsers, if they exist. 
+
+    You can deploy initial, empty, unifying custom parsers to your Microsoft Sentinel workspace for all supported schemas, or individually for specific schemas. For more information, see [Deploy initial ASIM empty custom unifying parsers](https://aka.ms/ASimDeployEmptyCustomUnifyingParsers) in the Microsoft Sentinel GitHub repository.
 
 - **To support excluding built-in source-specific parsers**, ASIM uses a watchlist. Deploy the watchlist to your Microsoft Sentinel workspace from the Microsoft Sentinel [GitHub](https://aka.ms/DeployASimExceptionWatchlist) repository.
 
@@ -92,7 +94,7 @@ For example, to exclude the Azure Firewall DNS parser, add the following records
 
 ### Prevent an automated update of a built-in parser
 
-To prevent automatic updates for built-in, source-specific parsers, modify the version used for the parser:
+Use the following process to prevent automatic updates for built-in, source-specific parsers:
 
 1. Add the built-in parser version you want to use, such as `_Im_Dns_AzureFirewallV02`, to the custom unifying parser. For more information, see above, [Add a custom parser to a built-in unifying parser](#add-a-custom-parser-to-a-built-in-unifying-parser).
 
