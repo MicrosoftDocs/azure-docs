@@ -16,13 +16,13 @@ Exactly once message delivery guarantees are desirable in a real-time pub-sub se
 
 If everything including network works very well, it's very easy to achieve exactly once message delivery. The problem is how to overcome publishers and subscribers' network issue or service's transient error. It's crucial to mention that exactly once needs the whole system including publisher, service, and subscriber play their roles correctly.
 
-### Service
+## Reliable Protocol
 
-Service provides a message delivery option to control the type of messaging semantics per hub. By default, it's `AtMostOnce`. Select to `ExactlyOnce` to enable exactly once message delivery support in service side.
+Service supports reliable sub-protocols designed for exactly once message delivery: `json.reliable.webpubsub.azure.v1` and `protobuf.reliable.webpubsub.azure.v1`. Clients must follow the protocol, mainly including the part of reconnection, publisher and subscriber. If the client violate the protocol spec, the service may terminate the client and the exactly once message delivery can't be achieved.
 
 ### Reconnection
 
-Websockets connections relay on TCP, so if the connection doesn't drop, all messages should be lossless and in order. When connections drop, all the status such as which message has been sent to the service need to be kept and wait for reconnection to recover. A Websockets connection owns a session in the service and the identifier is `connectionId`. Reconnection is the basis of exactly once message delivery and all connections what to achieve exactly once message delivery must implement reconnection. When a new connection connect to service, as long as the hub enabled `ExactlyOnce`, the connection will receive a `Connected` message contains `connectionId` and `reconnectionToken`.
+Websockets connections relay on TCP, so if the connection doesn't drop, all messages should be lossless and in order. When connections drop, all the status such as which message has been sent to the service need to be kept and wait for reconnection to recover. A Websocket connection owns a session in the service and the identifier is `connectionId`. Reconnection is the basis of exactly once message delivery and must be implemented. When a new connection connects to service using reliable sub-protocol, the connection will receive a `Connected` message contains `connectionId` and `reconnectionToken`.
 
 ```json
 {
@@ -39,10 +39,9 @@ Once the WebSockets connections dropped, clients should first try to reconnect w
 wss://<service-endpoint>/client/hubs/<hub>?awps_connection_id=<connection_id>&awps_reconnection_token=<reconnection_token>
 ```
 
-The reconnection can be success or failure. If it's failed, client should keep retrying reconnection or giving up and make a new connection depend on the http response code:
-
-- 404: Giving up keep reconnecting and make a new connection. The response means the connection-id has been deleted from the service.
-- 5XX or socket error: Keep retrying reconnecting.
+Reconnection may be failed as network issue hasn't been recovered yet. Client should keep retrying reconnecting until
+1. Websocket connection closed with status code 1008. The status code means the connectionId has been removed from the service.
+2. Reconnection failure keeps more then 1 minute.
 
 ### Publisher
 
@@ -84,7 +83,7 @@ In the following cases, the ack will contains `success: false`:
 
 ### Subscriber
 
-Clients who receive messages from event handlers or publishers are called subscriber in the document. When connections drop, the service doesn't know how many messages are actually sent to subscribers. So subscribers should tell the service which message has been received. Messages send to subscribers contains `sequenceId` and subscribers must ack the sequence-id with sequence ack message:
+Clients who receive messages sent from event handlers or publishers are called subscriber in the document. When connections drop, the service doesn't know how many messages are actually sent to subscribers. So subscribers should tell the service which message has been received. Messages send to subscribers contains `sequenceId` and subscribers must ack the sequence-id with sequence ack message:
 
 A sample sequence ack:
 ```json
@@ -94,6 +93,6 @@ A sample sequence ack:
 }
 ```
 
-The sequence-id is a uint64 incremental number with-in a connection-id session. Subscribers should record the largest sequence-id it ever received and accept all messages with larger sequence-id and drop all messages with smaller or equal sequence-id. The sequence ack supports quick ack, which means if you ack `sequence-id=5`, the service will treat all messages with sequence-id smaller than 5 have already been received by subscribers. Subscribers should ack with the largest sequence-id it recorded, so that the service can skip redelivering messages that subscribers have already received.
+The sequence-id is a uint64 incremental number with-in a connection-id session. And don't expect the number must be consecutive. Subscribers should record the largest sequence-id it ever received and accept all messages with larger sequence-id and drop all messages with smaller or equal sequence-id. The sequence ack supports quick ack, which means if you ack `sequence-id=5`, the service will treat all messages with sequence-id smaller than 5 have already been received by subscribers. Subscribers should ack with the largest sequence-id it recorded, so that the service can skip redelivering messages that subscribers have already received.
 
-All messages are delivered to subscribers in order until the WebSockets connection drops. With sequence-id, the service can have the knowledge about how many messages subscribers have actually received across WebSockets connections with-in a connection-id session. After a WebSockets connection drop, the service will redelivery messages it should deliver but not ack-ed by the subscriber. The service hold messages that are not ack-ed with limit, if messages exceed the limit, the service will close the WebSockets connection and remove the connection-id session. Thus, subscribers should ack the sequence-id as soon as possible.
+All messages are delivered to subscribers in order until the WebSockets connection drops. With sequence-id, the service can have the knowledge about how many messages subscribers have actually received across WebSockets connections with-in a connection-id session. After a WebSockets connection drop, the service will redeliver messages it should deliver but not ack-ed by the subscriber. The service hold messages that are not ack-ed with limit, if messages exceed the limit, the service will close the WebSockets connection and remove the connection-id session. Thus, subscribers should ack the sequence-id as soon as possible.
