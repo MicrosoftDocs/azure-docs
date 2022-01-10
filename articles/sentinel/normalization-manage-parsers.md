@@ -7,7 +7,7 @@ ms.date: 11/09/2021
 ms.author: ofshezaf
 --- 
 
-# Manage Advanced SIEM Information Model parsers (Public preview)
+# Manage Advanced SIEM Information Model (ASIM) parsers (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -21,7 +21,7 @@ You may need to manage the source-specific parsers used by each unifying parser 
 
   - Use a version of the built-in parser other than the one used by default in the unifying parser. 
 
-  - Prevent automated updates by modifying the version of the source-specific parser used by the unifying parser.
+  - Prevent automated updates by preserving the version of the source-specific parser used by the unifying parser.
 
   - Use a modified version of a built-in parser.
 
