@@ -22,7 +22,7 @@ You can remove the extension using Azure portal, Azure CLI, or REST API as expla
 1. Open the extensions page. The extensions on the cluster are listed.
 1. Select the cluster and select **Uninstall**.
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-uninstall-clusters-page.png" alt-text="Removing an extension from your Arc-enabled Kubernetes cluster." lightbox="media/defender-for-kubernetes-azure-arc/extension-uninstall-clusters-page.png":::
+    :::image type="content" source="../media/defender-for-kubernetes-azure-arc/extension-uninstall-clusters-page.png" alt-text="Removing an extension from your Arc-enabled Kubernetes cluster." lightbox="../media/defender-for-kubernetes-azure-arc/extension-uninstall-clusters-page.png":::
 
 ### [**Azure CLI**](#tab/k8s-remove-cli)
 

@@ -55,10 +55,10 @@ Request body parameters:
 
 ### Use Azure Resource Manager to remove the Defender profile from AKS
 
-To use Azure Resource Manager to remove the Defender profile, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces).
+To use Azure Resource Manager to remove the Defender profile, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces).
 
 > [!TIP]
-> If you're new to Resource Manager templates, start here: [What are Azure Resource Manager templates?](../azure-resource-manager/templates/overview.md)
+> If you're new to Resource Manager templates, start here: [What are Azure Resource Manager templates?](../../azure-resource-manager/templates/overview.md)
 
 The relevant template and parameters to remove the Defender profile from AKS are:
 
@@ -83,4 +83,4 @@ The relevant template and parameters to remove the Defender profile from AKS are
 
 ## Remove the Defender extension
 
-If you've tried the Defender extension and decided not to use it, or you're troubleshooting a problem and need to uninstall then reinstall, follow the procedure described in [Remove the add-on](../governance/policy/concepts/policy-for-kubernetes.md#remove-the-add-on) from the Azure Policy documentation.
+If you've tried the Defender extension and decided not to use it, or you're troubleshooting a problem and need to uninstall then reinstall, follow the procedure described in [Remove the add-on](../../governance/policy/concepts/policy-for-kubernetes.md#remove-the-add-on) from the Azure Policy documentation.
