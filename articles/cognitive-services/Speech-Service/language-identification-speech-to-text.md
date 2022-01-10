@@ -20,11 +20,18 @@ You use Speech-to-text language identification when you need to detect the natur
 For other language identification scenarios see [Standalone language identification](language-identification-standalone.md) or [Speech translation language identification](language-identification-speech-translation.md).
 
 > [!NOTE]
-> Speech-to-text at-start language identification is supported with Speech SDKs in C#, C++, Python, Java, JavaScript, and Objective-C. Continuous language identification is only supported with Speech SDKs in C#, C++, and Python.
+> Speech-to-text at-start language identification is supported with Speech SDKs in C#, C++, Python, Java, JavaScript, and Objective-C. Continuous recognition is only supported with Speech SDKs in C#, C++, and Python.
 
-## Language identification example
+## Speech recognizer example
 
-You use `AutoDetectSourceLanguageConfig` to define a list of candidate languages that you want to identify, and then reference those languages when running speech recognition. Use the `SpeechRecognizer` for both at-start and continuous recognition. The `SpeechServiceConnection_SingleLanguageIdPriority` property can be set to `"Latency"` or `"Accuracy"` depending on your priority. For more information about these concepts see [Language identification](language-identification.md).  
+Here's how it works:
+
+* Set your priority to `"Latency"` or `"Accuracy"`. If neither is set, then latency is prioritized by default. 
+* Define a list of candidate languages that you want to identify.
+* Use the speech recognizer with your configured languages and audio source.
+* Await the results
+
+The returned results for at-start and continuous recognition will vary by priority. For more information see [Accuracy and Latency prioritization](language-identification.md#accuracy-and-latency-prioritization).  
 
 ::: zone pivot="programming-language-csharp"
 
@@ -363,11 +370,11 @@ speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) 
 ::: zone-end
 
 
-## Language identification with a custom Speech-to-Text model
+## Using a Speech-to-Text custom model
 
 In addition to language identification using Speech service base models, you can also specify a custom model for enhanced recognition. If a custom model isn't provided, the service will use the default language model.
 
-The snippets below illustrate how to specify a custom model in your call to the Speech service. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the endpoint for the custom model is used:
+The sample below illustrates how to specify a custom model in your call to the Speech service. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used.
 
 ::: zone pivot="programming-language-csharp"
 

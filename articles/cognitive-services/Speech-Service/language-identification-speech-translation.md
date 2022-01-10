@@ -25,9 +25,16 @@ For other language identification scenarios see [Standalone language identificat
 > Speech translation language identification is only supported with Speech SDKs in C#, C++, and Python. 
 
 
-## Language identification example
+## Translation recognizer example
 
-You use `AutoDetectSourceLanguageConfig` to define a list of candidate languages that you want to identify, and then reference those languages when running speech recognition. Use the `TranslationRecognizer` for both at-start and continuous recognition. The `SpeechServiceConnection_SingleLanguageIdPriority` property can be set to `"Latency"` or `"Accuracy"` depending on your priority. For more information about these concepts see [Language identification](language-identification.md).  
+Here's how it works:
+
+* Set your priority to `"Latency"` or `"Accuracy"`. If neither is set, then latency is prioritized by default. 
+* Define a list of candidate languages that you want to identify.
+* Use the translation recognizer with your configured languages and audio source.
+* Await the results
+
+The returned results for at-start and continuous recognition will vary by priority. For more information see [Accuracy and Latency prioritization](language-identification.md#accuracy-and-latency-prioritization).  
 
 ::: zone pivot="programming-language-csharp"
 

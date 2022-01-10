@@ -20,7 +20,7 @@ Language identification is used to recognize natural languages spoken in audio w
 You provide candidate languages, at least one of which is expected be in the audio. You can include up to 4 languages for at-start recognition or up to 10 languages for continuous recognition. 
 
 > [!NOTE]
-> Different locales of the same language are not differentiated.  (e.g. en-US vs. en-GB). Only the general language is detected (in the example, ‘English’).
+> You must set the full 4-letter locale, but the Speech service only uses the base language. For example, if you include both "en-US" and "en-GB", the Speech service only uses the Speech-to-text model for English. Do not include multiple locales for the same language. 
 
 Language identification scenarios include:
 
@@ -33,7 +33,7 @@ Language identification scenarios include:
 Speech supports both at-start and continuous recognition for language identification. 
 
 > [!NOTE]
-> Continuous language identification is only supported with Speech SDKs in C#, C++, and Python.
+> Continuous recognition is only supported with Speech SDKs in C#, C++, and Python.
 
 At-start recognition identifies the language within the first few seconds of audio, and makes only one determination per audio. Use at-start recognition if the language in the audio won't change.
 
@@ -55,4 +55,4 @@ Set the priority to `Latency` if you need a low-latency result such as during li
 
 If none of the candidate languages are present in the audio or if the recognition confidence is low, the returned result can vary by mode. 
 * In `Latency` mode the Speech service returns one of the candidate languages provided, even if those languages were not in the audio. For example, if `fr-FR` (French) and `en-US` (English) are provided as candidates, but German is spoken, either "French" or "English" would be returned. 
-* In `Accuracy` mode the Speech service returns "Unknown" if none of the candidate languages are detected or if the recognition confidence is low. 
+* In `Accuracy` mode the Speech service returns null or empty if none of the candidate languages are detected or if the recognition confidence is low. 
