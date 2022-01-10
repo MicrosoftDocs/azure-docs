@@ -7,7 +7,7 @@ author: aahill
 ms.manager: nitinme
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2021
+ms.date: 01/10/2022
 ---
 
 # Train and test your LUIS app
@@ -156,7 +156,7 @@ If you have several LUIS endpoints, use the  **Additional Settings**  link under
 
 ## Next steps
 
-If testing require testing a batch of utternaces, See [batch testing](/azure/cognitive-services/luis/luis-how-to-batch-test).
+If testing requires testing a batch of utterances, See [batch testing](/azure/cognitive-services/luis/luis-how-to-batch-test).
 
 If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's accuracy by labeling more utterances or adding features.
 

@@ -7,7 +7,7 @@ author: aahill
 ms.manager: nitinme
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 01/10/2022
 ---
 
 # Build a decomposable LUIS application
@@ -177,7 +177,7 @@ There are two ways to label utterances:
   * Open the  **Entity Palette** , and select the "**@**"  symbol in the contextual toolbar.
   * Select each entity row in the palette, then use the palette cursor to select the entity in each example utterance.
 2. Highlight the text by dragging your cursor.
-  * Using the cursor, highlight over the text you want to label. In the following image, we highlighted "vip - tier" and select the "**NewTier**" entity.
+  * Using the cursor, highlight over the text you want to label. In the following image, we highlighted "VIP - tier" and select the "**NewTier**" entity.
  
 :::image type="content" source="../media/build-decomposable-app/label-example-utterance.png" alt-text="Labeling utterances" lightbox="../media/build-decomposable-app/label-example-utterance.png":::
 

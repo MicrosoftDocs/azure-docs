@@ -10,13 +10,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/07/2021
+ms.date: 01/10/2022
 
 ---
 
 # Plan your LUIS app
 
-A Language Understanding (LUIS) app schema contains and [entities](../luis-glossary.md#entity) relevant to your subject [domain](../luis-glossary.md#domain). The intents classify user [utterances](../luis-glossary.md#utterance), and the entities extract data from the user utterances. intents and [entities](../luis-glossary.md#entity) relevant to your subject [domain](/azure/cognitive-services/luis/luis-glossary#domain). The intents classify user [utterances](../luis-glossary.md#utterance), and the entities extract data from the user utterances.
+A Language Understanding (LUIS) app schema contains and [entities](../luis-glossary.md#entity) relevant to your subject [domain](../luis-glossary.md#domain). The intents classify user [utterances](../luis-glossary.md#utterance), and the entities extract data from the user utterances. Intents and [entities](../luis-glossary.md#entity) relevant to your subject [domain](/azure/cognitive-services/luis/luis-glossary#domain). The intents classify user [utterances](../luis-glossary.md#utterance), and the entities extract data from the user utterances.
 
 A LUIS app learns and performs most efficiently when you iteratively develop it. Here's a typical iteration cycle:
 
@@ -87,12 +87,12 @@ This utterance may have several entities:
 
 In many cases, especially when working with natural conversation, users provide an utterance that can contain more than one function or intent. To address this, a general strategy is to understand that output can be represented by both intents and entities. This representation should be mappable to your client application's actions, and doesn't need to be limited to intents.
 
-**Int-ent-ties**  is the concept that actions (usually understood as intents) might also be captured as entities in the app's output, and mapped to specific actions. _Negation,_ _for example, commonly_  relies on intent and entity for full extraction. Consider the following two utterances which are similar in word choice, but have different results:
+**Int-ent-ties**  is the concept that actions (usually understood as intents) might also be captured as entities in the app's output, and mapped to specific actions. _Negation,_ _for example, commonly_  relies on intent and entity for full extraction. Consider the following two utterances, which are similar in word choice, but have different results:
 
 * "*Please schedule my flight from Cairo to Seattle*"
 * "*Cancel my flight from Cairo to Seattle*"
 
-Instead of having two separate intents, you should create a single intent with a FlightAction machine learning entity. This machine learning entity should extract the details of the action for both scheduling and cancelling requests, andeither an origin or destination location.
+Instead of having two separate intents, you should create a single intent with a FlightAction machine learning entity. This machine learning entity should extract the details of the action for both scheduling and canceling requests, and either an origin or destination location.
 
 This FlightAction entity would be structured with the following top-level machine learning entity, and subentities:
 
