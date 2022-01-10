@@ -169,17 +169,23 @@ You will need to copy the module identity connection string from the DefenderIoT
 
 You can test the system by creating a trigger file on the device. The trigger file will cause the baseline scan in the agent to detect the file as a baseline violation.
 
-Create a file on the file system with the following command:
+1. Create a file on the file system with the following command:
 
-```bash
-sudo touch /tmp/DefenderForIoTOSBaselineTrigger.txt 
-```
+    ```bash
+    sudo touch /tmp/DefenderForIoTOSBaselineTrigger.txt 
+    ```
+
+1. Restart the agent using the command:
+
+    ```bash
+    sudo systemctl restart defender-iot-micro-agent.service
+    ```
+
+Allow up to one hour for the recommendation to appear in the hub.
 
 A baseline validation failure recommendation will occur in the hub, with a `CceId` of CIS-debian-9-DEFENDER_FOR_IOT_TEST_CHECKS-0.0:
 
 :::image type="content" source="media/quickstart-standalone-agent-binary-installation/validation-failure.png" alt-text="The baseline validation failure recommendation that occurs in the hub." lightbox="media/quickstart-standalone-agent-binary-installation/validation-failure-expanded.png":::
-
-Allow up to one hour for the recommendation to appear in the hub.
 
 ## Install a specific micro agent version
 
