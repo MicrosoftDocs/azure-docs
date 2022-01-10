@@ -6,7 +6,7 @@ services: cognitive-services
 author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: language-service
+ms.subservice: computer-vision
 ms.topic: how-to
 ms.date: 01/10/2022
 ms.author: marhamil
