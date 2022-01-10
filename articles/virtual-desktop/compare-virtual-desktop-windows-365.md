@@ -34,7 +34,7 @@ The following table describes high-level differences in the technical features b
 
 ## Deployment and management
 
-The following table describes differences deploying and managing Azure Virtual Desktop and Windows 365.
+The following table describes differences when deploying and managing Azure Virtual Desktop and Windows 365.
 
 | Feature | Azure Virtual Desktop (single-session)| Azure Virtual Desktop (multisession)| Windows 365 Enterprise | Windows 365 Business |
 |-------|--------|--------|--------|---------|
