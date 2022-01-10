@@ -28,13 +28,13 @@ Application Insights:
 <a name="how-does-application-insights-work"></a>
 ## How Application Insights works
 
-To use Application Insights, you either install a small instrumentation package (SDK) in your app, or enable Application Insights by using the Application Insights agent. For languages and platforms that support the Application Insights agent, see [Supported languages](./platforms.md). You can instrument the web app, any background components, and the JavaScript in the web pages themselves.
+To use Application Insights, you either install a small instrumentation package (SDK) in your app, or enable Application Insights by using the Application Insights agent. For languages and platforms that support the Application Insights agent, see [Supported languages](./platforms.md).
+
+You can instrument the web app, any background components, and the JavaScript in the web pages themselves. The app and its components don't have to be hosted in Azure.
 
 The instrumentation monitors your app and directs the telemetry data to an Application Insights resource by using a unique instrumentation key. The impact on your app's performance is small. Tracking calls are non-blocking, and are batched and sent in a separate thread. 
 
-You don't have to host the app and its components in Azure. You can pull in telemetry like performance counters, Azure diagnostics, or Docker logs from host environments. You can also set up web tests that periodically send synthetic requests to your web service.
-
-All these telemetry streams are integrated into Azure Monitor. In the Azure portal, you can apply powerful analytic and search tools to the raw data.
+You can pull in telemetry like performance counters, Azure diagnostics, or Docker logs from host environments. You can also set up web tests that periodically send synthetic requests to your web service. All these telemetry streams are integrated into Azure Monitor. In the Azure portal, you can apply powerful analytics and search tools to the raw data.
 
 The following diagram shows how Application Insights instrumentation in an app sends telemetry to an Application Insights resource.
 
