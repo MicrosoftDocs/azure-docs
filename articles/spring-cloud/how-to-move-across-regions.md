@@ -47,6 +47,8 @@ az account set -s <resource-subscription-id>
 az group export --resource-group <resource-group> --resource-ids <resource-id>
 ```
 
+---
+
 ### Modify the template
 Before deploying the template, the template.json file needs to be modified.
 Below will suppose the new service name for Azure Spring Cloud is new-service, previous service name is old-service.
@@ -173,6 +175,8 @@ az deployment group create \
   --parameters <param-name-1>=<param-value-1>
 ```
 Wait until the template has been deployed successfully, if any resource deployment failed, check the deployment details with CLI `az deployment group list`, and update the template or configurations accordingly.
+
+---
 
 ### Configure the new Azure Spring Cloud
 Some features are not exported to the template or cannot be imported with template directly, please manually setup the new Azure Spring Cloud instance after the deploy template finished successfully.
