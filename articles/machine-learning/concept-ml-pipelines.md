@@ -72,7 +72,7 @@ When you create and run a `Pipeline` object, the following high-level steps occu
 
 Azure Machine Learning pipelines are a powerful facility that begins delivering value in the early development stages. 
 
-+ [Define pipelines with the Azure CLI](./how-to-train-cli.md#hello-pipelines)
++ [Define pipelines with the Azure CLI](./how-to-train-cli#hello-pipelines)
 + [Define pipelines with the Azure SDK](./how-to-create-machine-learning-pipelines.md)
 + [Define pipelines with Designer](./tutorial-designer-automobile-price-train-score.md)
 + See the SDK reference docs for [pipeline core](/python/api/azureml-pipeline-core/) and [pipeline steps](/python/api/azureml-pipeline-steps/).
