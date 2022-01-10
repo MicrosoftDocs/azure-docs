@@ -91,6 +91,8 @@
         displayName: assign role
     - name: Deployment script
       href: deployment-script-bicep.md
+    - name: Template specs
+      href: template-specs.md
     - name: Linter
       items:
       - name: Linter
