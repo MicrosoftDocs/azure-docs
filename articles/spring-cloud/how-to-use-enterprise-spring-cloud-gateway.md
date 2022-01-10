@@ -39,6 +39,9 @@ Default resource usage
 - Spring Cloud Gateway installed and enabled. For more information, see [Installing Spring Cloud Gateway for VMware Tanzu](https://docs.vmware.com/Spring-Cloud-Gateway-for-VMware-Tanzu/1.1/spring-cloud-gateway/GUID-installing.html)
 - [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
 
+> [!NOTE]
+> To use Spring Cloud Gateway, you must enable it when you provision your Azure Spring Cloud service instance. You cannot enable it after provisioning at this time.
+
 ## Configure Spring Cloud Gateway
 
 Spring Cloud Gateway is configured using the following sections and steps.

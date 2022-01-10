@@ -16,7 +16,7 @@ This article shows you how to deploy your non-java application to Azure Spring C
 ## Prerequisites
 
 - An provisioned Azure Spring Cloud Enterprise Tier instance. For more information, see [Get started with Enterprise Tier](./get-started-enterprise.md).
-- Application(s) running in Azure Spring Cloud. For more information on creating apps, see [App and deployment management in Azure Spring Cloud](./07-app.md)
+- Application(s) running in Azure Spring Cloud. For more information on creating apps, see [Launch your Spring Cloud application from source code](./how-to-launch-from-source.md)
 - [Azure CLI](/cli/azure/install-azure-cli), version 2.0.67 or higher.
 - Your application source code.
 

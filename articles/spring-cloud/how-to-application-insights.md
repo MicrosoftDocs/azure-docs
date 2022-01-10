@@ -22,9 +22,7 @@ With this feature you can:
 * Monitor real-time live metrics.
 * Check request failures.
 * Check application metrics.
-::: zone pivot="sc-enterprise-tier"
 * Check application logs (Enterprise Tier Only).
-::: zone-end
 
 Application Insights can provide many observable perspectives, including:
 
@@ -34,9 +32,7 @@ Application Insights can provide many observable perspectives, including:
 * Metrics
 * Live Metrics
 * Availability
-::: zone pivot="sc-enterprise-tier"
 * Logs (Enterprise Tier Only)
-::: zone-end
 
 ::: zone pivot="sc-standard-tier"
 ## Enable Java In-Process Agent for Application Insights
@@ -185,7 +181,7 @@ resource "azurerm_spring_cloud_service" "example" {
 
 ::: zone pivot="sc-enterprise-tier"
 
-## Manage Application Insights using the Azure Portal in Enterprise Tier
+## Manage Application Insights using the Azure Portal
 
 You can use the Portal to check or update the current settings in Application Insights.
 
@@ -236,7 +232,7 @@ Application Insights settings are found in the *ApplicationInsights* item listed
 
 You can manage Application Insights using Azure CLI commands. In the following commands, be sure to replace the *\<placeholder>* text with the values described. The *\<service-name>* placeholder refers to the name of your Azure Spring Cloud instance.
 
-### Manage Application Insights in the Standard Tier
+### Manage Application Insights
 
 To configure Application Insights when creating an Azure Spring Cloud instance, use the following command. For the `app-insights` argument, you can specify an Application Insights name or resource ID.
 
@@ -306,7 +302,7 @@ az spring-cloud app-insights update \
 ::: zone-end
 
 ::: zone pivot="sc-enterprise-tier"
-### Manage Application Insights in the Enterprise Tier
+### Manage Application Insights Buildpack Bindings
 
 This section applies to the Enterprise Tier only, and provides instructions that that supplement the previous section.
 
@@ -367,7 +363,7 @@ To delete an Application Insights buildpack binding, use the following command:
        --builder-name <your-builder-name> \
    ```
 
-### Enable Application Insights in Enterprise Tier
+### Enable Application Insights
 
 To configure Application Insights when creating an Azure Spring Cloud instance, use the following command. For the `app-insights` argument, you can specify an Application Insights name or resource ID.
 
