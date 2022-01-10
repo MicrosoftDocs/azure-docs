@@ -61,10 +61,6 @@ If you want to manually configure your application and code sample, use the foll
 [!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
 
 
-#### Step 3: Your app is configured and ready to run
-We've configured your project with values of your app's properties.
-
-
 #### Step 3: Run your Visual Studio project
 
 1. Extract the .zip file to a local folder that's close to the root folder. For example, extract to *C:\Azure-Samples*.
