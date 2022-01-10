@@ -1,11 +1,6 @@
 {
   "redirections": [
     {
-      "source_path": "articles/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/pc-saas-fulfillment-life-cycle",
-      "redirect_document_id": false
-    },    
-    {
       "source_path": "articles/virtual-machines/linux/login-using-aad.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/login-using-aad",
       "redirect_document_id": false
