@@ -5,7 +5,7 @@ ms.subservice: databox
 ms.topic: include
 ms.date: 01/10/2022
 ms.author: alkohli
-ms.custom: "contperf-fy22q3"
+ms.custom: contperf-fy22q3
 ---
 
 Do the following steps in the Azure portal to order a device:
@@ -58,8 +58,8 @@ Do the following steps in the Azure portal to order a device:
     ![Screenshot showing the Basics screen for a Data Box order with example entries. The Basics tab and "Next: Data destination" button are highlighted.](media/data-box-order-portal/data-box-import-05.png)
 
 7. On the **Data destination** screen, select the **Data destination** - either storage accounts or managed disks.
-1. 
-    See the steps below to [use storage accounts](#use-storage-accounts) or [use managed disks](#use-managed-disks). The **Data destination** screen changes based on your selection.
+
+    See the steps below to [use storage accounts](#to-use-storage-accounts) or [use managed disks](#to-use-managed-disks). The **Data destination** screen changes based on your selection.
 
     #### To use storage accounts
 
