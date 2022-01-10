@@ -15,7 +15,7 @@ This article shows you how to deploy your non-java application to Azure Spring C
 
 ## Prerequisites
 
-- An provisioned Azure Spring Cloud Enterprise Tier instance. For more information, see [Get started with Enterprise Tier](./get-started-enterprise.md).
+- A provisioned Azure Spring Cloud Enterprise Tier instance. For more information, see [Get started with Enterprise Tier](./get-started-enterprise.md).
 - Application(s) running in Azure Spring Cloud. For more information on creating apps, see [Launch your Spring Cloud application from source code](./how-to-launch-from-source.md)
 - [Azure CLI](/cli/azure/install-azure-cli), version 2.0.67 or higher.
 - Your application source code.
@@ -35,7 +35,7 @@ az spring-cloud app deploy
 
 ## Application Restriction
 - Your application must listen on port 8080, the service checks the port on TCP for readiness and liveness.
-- If your source code contains a package management folder (ie: "node_modules"), ensure the folder contains all the dependencies. Otherwise, remove it and let Azure Spring Cloud install it.
+- If your source code contains a package management folder, such as "node_modules", ensure the folder contains all the dependencies. Otherwise, remove it and let Azure Spring Cloud install it.
 - See [Support Matrix](#support-matrix) to see whether your source code language is supported and the feature is provided.
 
 ## Support Matrix
@@ -48,14 +48,14 @@ az spring-cloud app deploy
 | Access App public endpoint                                      |      |        |      |         |    |
 | Test endpoint                                                   |      |        |      |         |    |
 | Log to LA                                                       |      |        |      |         |    |
-| 3rd Part  APM Integration (New relic, Dynatrace, AI, etc.)      |      | N      | N    | N       | N  |
+| Third Party  APM Integration (New relic, Dynatrace, AI, etc.)   |      | N      | N    | N       | N  |
 | Blue/green deployment                                           |      |        |      |         |    |
 | Custom domain                                                   |      |        |      |         |    |
 | Scaling - auto scaling                                          |      |        |      |         |    |
 | Scaling - manual scaling (In/out, up/down)                      |      |        |      |         |    |
-| Managed Identit                                                 |      |        |      |         |    |
+| Managed Identity                                                |      |        |      |         |    |
 | Configuration Service                                           |      | N      | N    | N       | N  |
-| Service Registr                                                 |      | N      | N    | N       | N  |
+| Service Registry                                                |      | N      | N    | N       | N  |
 | VNET                                                            |      |        |      |         |    |
 | Outgoing IP Address                                             |      |        |      |         |    |
 | TLS - e2e TLS (ngix2app, app2app)                               |      |        |      |         |    |
