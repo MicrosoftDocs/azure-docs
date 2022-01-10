@@ -40,8 +40,8 @@ Check if the Max aggregate for `Connected Clients` metric is close or higher tha
 
 ### Kubernetes hosted applications
 
-1. If your client application is hosted on Kubernetes, check that the pod running the client application or the cluster nodes aren't under memory/CPU/Network pressure. A pod running the client application can be affected by other pods running on the same node and throttle Redis connections or IO operations.
-1. If you're using *Istio* or any other service mesh, check that your service mesh proxy reserves port 13000-13019 or 15000-15019. These ports are used by clients to communicate with a clustered Azure Cache For Redis nodes and could cause connectivity issues on those ports.
+- If your client application is hosted on Kubernetes, check that the pod running the client application or the cluster nodes aren't under memory/CPU/Network pressure. A pod running the client application can be affected by other pods running on the same node and throttle Redis connections or IO operations.
+- If you're using *Istio* or any other service mesh, check that your service mesh proxy reserves port 13000-13019 or 15000-15019. These ports are used by clients to communicate with a clustered Azure Cache For Redis nodes and could cause connectivity issues on those ports.
 
 ### Linux-based client application
 
