@@ -37,19 +37,21 @@ The procedures in this article assume that all source-specific parsers have alre
 
 For more information, see [Develop ASIM parsers](normalization-develop-parsers.md#deploy-parsers).
 
-## Managing built-in unifying parsers
+## Manage built-in unifying parsers
 
-### Setup
+### Setup your workspace
 
 Microsoft Sentinel users cannot edit built-in unifying parsers. Instead, use the mechanisms to the behavior of built-in unifying parsers:
 
--  **To support adding source-specific parsers**, ASIM uses custom unifying parsers. Custom unifying parsers are workspace-deployed, and are picked up automatically by the built-in unifying parsers if they exist. You can [deploy initial empty custom unifying parsers](https://aka.ms/ASimDeployEmptyCustomUnifyingParsers) for all supported schemas, or individually for specific schemas.
+-  **To support adding source-specific parsers**, ASIM uses custom unifying parsers. Custom unifying parsers are workspace-deployed, and are picked up automatically by the built-in unifying parsers if they exist. [Deploy initial empty custom unifying parsers](https://aka.ms/ASimDeployEmptyCustomUnifyingParsers) to your Microsoft Sentinel workspace for all supported schemas, or individually for specific schemas.
 
-- To enable excluding built-in source-specific parsers, ASIM uses a watchlist. Deploy the watchlist from [GitHub](https://aka.ms/DeployASimExceptionWatchlist).
+- **To support excluding built-in source-specific parsers**, ASIM uses a watchlist. Deploy the watchlist to your Microsoft Sentinel workspace from the Microsoft Sentinel [GitHub](https://aka.ms/DeployASimExceptionWatchlist) repository.
 
-### Adding a custom parser to a built-in unifying parser
+### Add a custom parser to a built-in unifying parser
 
-To add a custom parser, insert a line to the custom unifying parser referencing the new custom parser. Make sure to add both a filtering custom parser and a parameter-less custom parser. To learn more about how to edit parsers, refer to the document [Functions in Azure Monitor log queries](/azure/azure-monitor/logs/functions#edit-a-function).
+To add a custom parser, insert a line to the custom unifying parser to reference the new, custom parser. 
+
+Make sure to add both a filtering custom parser and a parameter-less custom parser. To learn more about how to edit parsers, refer to the document [Functions in Azure Monitor log queries](/azure/azure-monitor/logs/functions#edit-a-function).
 
 The syntax of the line to add is different for each schema:
 
@@ -60,7 +62,7 @@ The syntax of the line to add is different for each schema:
 
 When adding an additional parser to a custom unifying parser that already references parsers, make sure you add a comma at the end of the previous line. 
 
-For example, the custom unifying parser after adding `added_parser` is:
+For example, the following code shows a custom unifying parser after having added the `added_parser`:
 
 ```KQL
 union isfuzzy=true
@@ -70,32 +72,45 @@ added_parser(starttime, endtime, srcipaddr, domain_has_any, responsecodename, re
 
 ### Use a modified version of a built-in parser
 
-To modify an existing built-in source-specific parser
-- Create a custom parser based on the original parser and add it as outlined above. 
- 
-- Add a record to the watchlist `ASim Disabled Parsers`. Set the CallerContext field based on the table below and the SourceSpecificParser field with the name of the original parser name without the version specifier. For example, to exclude the Azure Firewall DNS parser, add the following records to the watchlist
+To modify an existing, built-in source-specific parser:
+
+1. Create a custom parser based on the original parser and [add it](#add-a-custom-parser-to-a-built-in-unifying-parser) to the built-in parser. 
+
+1. Add a record to the `ASim Disabled Parsers` watchlist.
+
+1. Define the `CallerContext` value with the names of any unifying parsers you want to exclude the parser from.
+
+1. Define the `SourceSpecificParser` value with the name of the parser you want to exclude, without a version specifier. 
+
+For example, to exclude the Azure Firewall DNS parser, add the following records to the watchlist:
 
 | CallerContext | SourceSpecificParser | 
 | ------------- | ------------- |
-| _Im_Dns | _Im_Dns_AzureFirewall |
-| _ASim_Dns | _ASim_Dns_AzureFilewall | 
-|||
+| `_Im_Dns` | `_Im_Dns_AzureFirewall` |
+| `_ASim_Dns` | `_ASim_Dns_AzureFirewall` | 
+| | |
  
 
-### Prevent automated update of a built-in parser
+### Prevent an automated update of a built-in parser
 
-To fix the version used for a built-in source-specific parser:
-- Add the built-in parser version you want to use to the custom unifying parser as outlined above for custom parsers, for example, `_Im_Dns_AzureFirewallV02`.
-- Add an exception for the built-in parser as outlined above. When excluding a large number of built-in parsers, for example, to opt out entirely from automatic updates, you can add:
-  - A record with `Any` as the SourceSpecificParser field to exclude all parsers for the CallerContext.
-  - A record for  `Any` in the CallerContext and the SourceSpecificParser fields to exclude all built-in parsers.
+To prevent automatic updates for built-in, source-specific parsers, modify the version used for the parser:
+
+1. Add the built-in parser version you want to use, such as `_Im_Dns_AzureFirewallV02`, to the custom unifying parser. For more information, see above, [Add a custom parser to a built-in unifying parser](#add-a-custom-parser-to-a-built-in-unifying-parser).
+
+1. Add an exception for the built-in parser. For example, when excluding a large number of built-in parsers, you may want to opt out entirely from automatic updates. In this case, add:
+
+  - A record with `Any` as the `SourceSpecificParser` field, to exclude all parsers for the `CallerContext`.
+  - A record for  `Any` in the CallerContext and the `SourceSpecificParser` fields to exclude all built-in parsers.
  
+  For more information, see [Use a modified version of a built-in parser](#use-a-modified-version-of-a-built-in-parser).
 
-## Managing workspace-deployed unifying parsers
+## Manage workspace-deployed unifying parsers
 
-### Adding a custom parser to a workspace-deployed unifying parser
+### Add a custom parser to a workspace-deployed unifying parser
 
-To add a custom parser, insert a line to the union statement in the workspace-deployed unifying parser referencing the new custom parser. Make sure to add both a filtering custom parser and a parameter-less custom parser. The syntax of the line to add is different for each schema:
+To add a custom parser, insert a line to the `union` statement in the workspace-deployed unifying parser that references the new custom parser. 
+
+Make sure to add both a filtering custom parser and a parameter-less custom parser. The syntax of the line to add is different for each schema:
 
 | Schema |  Filtering  parser | Parameter-less parser |
 | ------ | -------------- | --------------------- |
@@ -110,7 +125,7 @@ To add a custom parser, insert a line to the union statement in the workspace-de
 
 When adding an additional parser to a unifying parser, make sure you add a comma at the end of the previous line.
 
-For example, the DNS filtering unifying parser after adding `added_parser` is:
+For example, the following example shows the DNS filtering unifying parser, after having added the custom `added_parser`:
 
 ```KQL
   let Generic=(starttime:datetime=datetime(null), endtime:datetime=datetime(null) , srcipaddr:string='*' , domain_has_any:dynamic=dynamic([]) , responsecodename:string='*', response_has_ipv4:string='*' , response_has_any_prefix:dynamic=dynamic([]) , eventtype:string='lookup' ){
@@ -130,9 +145,9 @@ For example, the DNS filtering unifying parser after adding `added_parser` is:
 
 ### Use a modified version of a workspace-deployed parser
 
-Since workspace-deployed parsers can be edited, you can directly modify the parser. Instead, you can create a parser based on the original, comment out the original, and add your modified version to the workspace-deployed unifying parser.
+Microsoft Sentinel users can directly modify workspace-deployed parsers. Create a parser based on the original, comment out the original, and then add your modified version to the workspace-deployed unifying parser.
 
-For example, the DNS filtering unifying parser after adding replacing the vimDnsAzureFirewall with a modified version:
+For example, the following code shows a DNS filtering unifying parser, having replaced the `vimDnsAzureFirewall` parser with a modified version:
 
 ```KQL
   let Generic=(starttime:datetime=datetime(null), endtime:datetime=datetime(null) , srcipaddr:string='*' , domain_has_any:dynamic=dynamic([]) , responsecodename:string='*', response_has_ipv4:string='*' , response_has_any_prefix:dynamic=dynamic([]) , eventtype:string='lookup' ){
