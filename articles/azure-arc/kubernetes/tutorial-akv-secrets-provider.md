@@ -20,7 +20,7 @@ The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integra
 ### Support limitations for Azure Key Vault (AKV) secrets provider extension
 - Following Kubernetes distributions are currently supported
     - Cluster API Azure
-    - AKS-HCI
+    - Azure Kubernetes Service on Azure Stack HCI (AKS-HCI)
     - Google Kubernetes Engine
     - OpenShift Kubernetes Distribution
     - Canonical Kubernetes Distribution
