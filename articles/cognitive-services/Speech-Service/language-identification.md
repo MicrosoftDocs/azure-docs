@@ -15,59 +15,44 @@ zone_pivot_groups: programming-languages-cs-cpp-py
 
 # Language identification
 
-Language identification is used to determine the language being spoken in audio when compared against a list of [supported languages](language-support.md). 
+Language identification is used to recognize natural languages spoken in audio when compared against a list of [supported languages](language-support.md). 
 
-Language identification can be used in 3 ways:
-* LID by itself (standalone LID, no SR or Translation coupled): this is the SourceLanguageRecognizer API
-* LID with STT (LID picks the language and automatically calls the correct SR model): This is the SpeechRecognizer API
-* LID with Speech Translation (LID picks the language and automatically calls the correct SR model and then MT model): This is the TranslationRecognizer API
+You provide candidate languages, at least one of which is expected be in the audio. You can include up to 4 languages for at-start recognition or up to 10 languages for continuous recognition. 
 
+> [!NOTE]
+> Different locales of the same language are not differentiated.  (e.g. en-US vs. en-GB). Only the general language is detected (in the example, ‘English’).
 
+Language identification scenarios include:
 
-The way LID works is that customers select a few ‘candidate’ languages, i.e. languages that might be in their audio, and we select the correct among those. That limit is 4 languages for At-start LID, and 10 languages for Continuous LID. If the language detected is not among the candidates, we return unknown.
+* [Standalone language identification](language-identification-standalone.md) when you only need to detect the natural language in an audio source.
+* [Speech-to-text language identification](language-identification-speech-to-text.md) when you need to detect the natural language in an audio source and then transcribe it to text. 
+* [Speech translation language identification](language-identification-speech-translation.md) when you need to detect the natural language in an audio source and then translate it to another language. 
 
-LID does not differentiate between different locales of the same language (e.g. en-US vs. en-GB). Only the general language is detected (in the example, ‘English’).
+## At-start and Continuous recognition
 
-## At-start and Continuous language identification
+Speech supports both at-start and continuous recognition for language identification. 
 
-We have 2 types of LID:
+> [!NOTE]
+> Continuous language identification is only supported with Speech SDKs in C#, C++, and Python.
 
-* At-start LID (also known as one-shot, or single-shot): identifies the language within the first few seconds of audio, and makes only one determination per audio
-* Continuous LID: identifies the language(s) throughout the whole audio (can detect language switches, whereas at-start LID cannot)
+At-start recognition identifies the language within the first few seconds of audio, and makes only one determination per audio. Use at-start recognition if the language in the audio won't change.
 
-How to choose LID type.
-* For multi-language audio, they should select Continuous LID, since At-start LID can only detect one language. However, if the languages are mixed together, Continuous LID will still not work well (needs a few seconds per language).
-* For single-language audio, they can use At-Start LID.
+Continuous recognition can identify multiple languages for the duration of the audio. Use continuous recognition if the language in the audio could change. However, continuous recognition accuracy is limited if multiple languages are used within the same utterance. 
 
 
 ## Accuracy and Latency prioritization
 
-Accuracy vs. Latency modes are self-explanatory: if they want low latency (e.g. real-time scenario), they should pick latency mode. If they can accept higher latency, they can pick accuracy mode.
+You can choose to prioritize accuracy or latency during speech recognition. 
 
-For each type of LID, we have two options for what to prioritize:
-* Latency: 
-- For at-start, the result is returned in less than 5 seconds
-- For continuous, LID returns the language every 2 seconds for the whole audio
-- `Latency` is the best option to use if you need a low-latency result (e.g. for live streaming scenarios), but don't know the language in the audio sample. 
+> [!NOTE]
+> The `Accuracy` and `Latency` prioritization modes are only supported with Speech SDKs in C#, C++, and Python.
 
-* Accuracy:
-- For at-start, the result is returned in 30 seconds
-- For continuous, the result is returned slower / we do not make any commitment
-- `Accuracy` should be used in scenarios where the audio quality may be poor, and more latency is acceptable. For example, a voicemail could have background noise, or some silence at the beginning, and allowing the engine more time will improve recognition results.
+Set the priority to `Latency` if you need a low-latency result such as during live streaming. Set the priority to `Accuracy` if the audio quality may be poor, and more latency is acceptable. For example, a voicemail could have background noise, or some silence at the beginning. Allowing the engine more time will improve recognition results.
 
-In either case, at-start recognition should **not be used** for scenarios where the language may be changing within the same audio sample. 
+* **At-start:** With at-start recognition in `Latency` mode the result is returned in less than 5 seconds. With at-start recognition in `Accuracy` mode the result is returned in 30 seconds. 
 
-LID Latency mode picks one of the languages provided, regardless of if the language is spoken (e.g. if French and English are passed as candidates, but German is spoken, LID would pick one of the two languages). LID Accuracy mode returns ‘unknown’ when the language has low confidence (in the example scenario, it would return “Unknown”).
+* **Continuous:** With continuous recognition in `Latency` mode the results are returned every 2 seconds for the duration of the audio. With continuous recognition in `Accuracy` mode the results are returned within no set time frame for the duration of the audio.
 
-
-
-
-## Sample
-
-At-start LID
-- Latency: config.SetProperty(PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, "Latency");
-- Accuracy: config.SetProperty(PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, "Accuracy");
-Continuous LID
-- Latency: config.SetProperty(PropertyId.SpeechServiceConnection_ContinuousLanguageIdPriority, "Latency");
-- Accuracy (not in the sample): config.SetProperty(PropertyId.SpeechServiceConnection_ContinuousLanguageIdPriority, "Accuracy");
-
+If none of the candidate languages are present in the audio or if the recognition confidence is low, the returned result can vary by mode. 
+* In `Latency` mode the Speech service returns one of the candidate languages provided, even if those languages were not in the audio. For example, if `fr-FR` (French) and `en-US` (English) are provided as candidates, but German is spoken, either "French" or "English" would be returned. 
+* In `Accuracy` mode the Speech service returns "Unknown" if none of the candidate languages are detected or if the recognition confidence is low. 

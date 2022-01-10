@@ -15,30 +15,27 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 
 # Speech-to-text language identification
 
-Language identification currently has a limit of **four languages** for at-start recognition, and **10 languages** for continuous recognition. Keep this limitation in mind when constructing your `AutoDetectSourceLanguageConfig` object. In the samples below, you use `AutoDetectSourceLanguageConfig` to define a list of possible languages that you want to identify, and then reference those languages when running speech recognition.
+You use Speech-to-text language identification when you need to detect the natural language in an audio source and then transcribe it to text. 
+
+For other language identification scenarios see [Standalone language identification](language-identification-standalone.md) or [Speech translation language identification](language-identification-speech-translation.md).
 
 > [!NOTE]
-> Continuous language identification is only supported in C#, C++, and Python.
-
+> Speech-to-text at-start language identification is supported with Speech SDKs in C#, C++, Python, Java, JavaScript, and Objective-C. Continuous language identification is only supported with Speech SDKs in C#, C++, and Python.
 
 ## Language identification example
+
+You use `AutoDetectSourceLanguageConfig` to define a list of candidate languages that you want to identify, and then reference those languages when running speech recognition. Use the `SpeechRecognizer` for both at-start and continuous recognition. The `SpeechServiceConnection_SingleLanguageIdPriority` property can be set to `"Latency"` or `"Accuracy"` depending on your priority. For more information about these concepts see [Language identification](language-identification.md).  
 
 ::: zone pivot="programming-language-csharp"
 
 ### [At-start](#tab/at-start)
-
-The following example runs at-start recognition, prioritizing `Latency`. This property can also be set to `Accuracy` depending on the priority for your use-case. `Latency` is the best option to use if you need a low-latency result (e.g. for live streaming scenarios), but don't know the language in the audio sample. 
-
-`Accuracy` should be used in scenarios where the audio quality may be poor, and more latency is acceptable. For example, a voicemail could have background noise, or some silence at the beginning, and allowing the engine more time will improve recognition results.
-
-In either case, at-start recognition as shown below should **not be used** for scenarios where the language may be changing within the same audio sample. See below for continuous recognition for these types of scenarios.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 
 var speechConfig = SpeechConfig.FromSubscription("<paste-your-subscription-key>","<paste-your-region>");
-// can switch "Latency" to "Accuracy" depending on priority
+
 speechConfig.SetProperty(PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, "Latency");
 
 var autoDetectSourceLanguageConfig =
@@ -60,8 +57,6 @@ using (var recognizer = new SpeechRecognizer(
 
 ### [Continuous](#tab/continuous)
 
-
-The following example shows continuous speech recognition set up for a multilingual scenario. This example only uses `en-US` and `ja-JP` in the language config, but you can use up to **ten languages** for this design pattern. Each time speech is detected, the source language is identified and the audio is also converted to text output. This example uses `Latency` mode, which prioritizes response time.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -146,9 +141,6 @@ using (var audioInput = AudioConfig.FromWavFileInput(@"path-to-your-audio-file.w
     }
 }
 ```
-
-> [!NOTE]
-> `Latency` and `Accuracy` modes, and multilingual continuous recognition, are currently only supported in C#, C++, and Python.
  
 ::: zone-end
 
@@ -156,12 +148,6 @@ using (var audioInput = AudioConfig.FromWavFileInput(@"path-to-your-audio-file.w
 
 
 ### [At-start](#tab/at-start)
-
-The following example runs at-start recognition, prioritizing `Latency`. This property can also be set to `Accuracy` depending on the priority for your use-case. `Latency` is the best option to use if you need a low-latency result (e.g. for a live streaming case), but don't know the language in the audio sample. 
-
-`Accuracy` should be used in scenarios where the audio quality may be poor, and more latency is acceptable. For example, a voicemail could have background noise, or some silence at the beginning, and allowing the engine more time will improve recognition results.
-
-In either case, at-start recognition as shown below should **not be used** for scenarios where the language may be changing within the same audio sample. See below for continuous recognition for these types of scenarios.
 
 ```cpp
 using namespace std;
@@ -188,7 +174,6 @@ auto detectedLanguage = autoDetectSourceLanguageResult->Language;
 
 ### [Continuous](#tab/continuous)
 
-The following example shows continuous speech recognition set up for a multilingual scenario. This example only uses `en-US` and `ja-JP` in the language config, but you can use up to **ten languages** for this design pattern. Each time speech is detected, the source language is identified and the audio is also converted to text output. This example uses `Latency` mode, which prioritizes response time.
 
 ```cpp
 using namespace std;
@@ -260,9 +245,6 @@ recognitionEnd.get_future().get();
 recognizer->StopContinuousRecognitionAsync().get();
 ```
 
-> [!NOTE]
-> `Latency` and `Accuracy` modes, and multilingual continuous recognition, are currently only supported in C#, C++, and Python.
-
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -315,7 +297,7 @@ detected_language = auto_detect_source_language_result.language
 ```python
 def speech_recognize_continuous_from_file():
     """performs continuous speech recognition with input from an audio file"""
-    # <SpeechContinuousRecognitionWithFile>
+    
     speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
     audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
 
@@ -345,7 +327,6 @@ def speech_recognize_continuous_from_file():
         time.sleep(.5)
 
     speech_recognizer.stop_continuous_recognition()
-    # </SpeechContinuousRecognitionWithFile>
 ```
 
 ::: zone-end

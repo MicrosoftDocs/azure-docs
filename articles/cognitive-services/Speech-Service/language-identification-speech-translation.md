@@ -16,10 +16,18 @@ keywords: speech translation
 
 # Speech translation language identification
 
-In many scenarios, you may not know which input languages to specify. Using language identification allows you to specify up to ten possible input languages, and automatically translate into your target languages. 
+You use Speech translation language identification when you need to detect the natural language in an audio source and then translate it to another language. 
+
+For other language identification scenarios see [Standalone language identification](language-identification-standalone.md) or [Speech-to-text language identification](language-identification-speech-to-text.md).
+
+
+> [!NOTE]
+> Speech translation language identification is only supported with Speech SDKs in C#, C++, and Python. 
 
 
 ## Language identification example
+
+You use `AutoDetectSourceLanguageConfig` to define a list of candidate languages that you want to identify, and then reference those languages when running speech recognition. Use the `TranslationRecognizer` for both at-start and continuous recognition. The `SpeechServiceConnection_SingleLanguageIdPriority` property can be set to `"Latency"` or `"Accuracy"` depending on your priority. For more information about these concepts see [Language identification](language-identification.md).  
 
 ::: zone pivot="programming-language-csharp"
 
@@ -33,8 +41,6 @@ Need at-start sample
 
 The following example uses continuous translation from an audio file, and automatically detects the input language, even if the language being spoken is changing. When you run the sample, `en-US` and `zh-CN` will be automatically detected because they are defined in the `AutoDetectSourceLanguageConfig`. Then, the speech will be translated to `de` and `fr` as specified in the calls to `AddTargetLanguage()`.
 
-> [!IMPORTANT]
-> This feature is currently in **preview**.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -151,9 +157,6 @@ Need at-start sample
 ### [Continuous](#tab/continuous)
 
 The following example uses continuous translation from an audio file, and automatically detects the input language, even if the language being spoken is changing. When you run the sample, `en-US` and `zh-CN` will be automatically detected because they are defined in the `AutoDetectSourceLanguageConfig`. Then, the speech will be translated to `de` and `fr` as specified in the calls to `AddTargetLanguage()`.
-
-> [!IMPORTANT]
-> This feature is currently in **preview**.
 
 ```cpp
 using namespace std;
