@@ -13,7 +13,7 @@ ms.author: ofshezaf
 
 Advanced SIEM Information Model (ASIM) users use *unifying parsers* instead of table names in their queries, to view data in a normalized format and to include all data relevant to the schema in the query. Unifying parsers, in turn, use *source-specific parsers* to handle the specific details of each source. 
 
-Microsoft Sentinel provides built-in, source-specific parsers for many data sources. However, you may want to develop your source-specific parser further in the following situations:
+Microsoft Sentinel provides built-in, source-specific parsers for many data sources. You may want to modify, or *develop*, these source-specific parsers in the following situations:
 
 - When your device provides events that fit an ASIM schema, but a source-specific parser for your device and the relevant schema is not available in Microsoft Sentinel.
 
