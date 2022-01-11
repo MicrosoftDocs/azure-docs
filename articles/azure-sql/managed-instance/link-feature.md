@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma, danil
-ms.date: 11/02/2021
+ms.date: 11/05/2021
 ---
 # Link feature for Azure SQL Managed Instance (limited preview)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -79,7 +79,7 @@ To use the link feature, you will need:
 - Network connectivity between your SQL Server and managed instance is required. If your SQL Server is running on-premises, use a VPN link or Express route. If your SQL Server is running on an Azure VM, either deploy your VM to the same subnet as your managed instance, or use global VNet peering to connect two separate subnets. 
 - Azure SQL Managed Instance provisioned on any service tier.
 
-Use the following link to sign-up for the limited preview of the link feature. Customers are on-boarded on a rolling basis as there are a limited number of seats currently available. You will be on-boarded at the first available opportunity. Managed instances deployed starting on 11/02/2021 are given priority, and though managed instances deployed before this date are supported, the onboarding may take longer. 
+Use the following link to sign-up for the limited preview of the link feature. 
 
 > [!div class="nextstepaction"]
 > [Sign up for link feature preview](https://aka.ms/mi-link-signup)

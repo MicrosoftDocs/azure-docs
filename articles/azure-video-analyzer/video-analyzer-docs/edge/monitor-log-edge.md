@@ -1,13 +1,16 @@
 ---
-title: Monitoring and logging - Azure
+title: Monitoring and logging
 description: This article provides an overview of monitoring and logging in Azure Video Analyzer.
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 # Monitor and log on IoT Edge
 
-[!INCLUDE [header](includes/edge-env.md)]
+![edge icon](media/env-icon/edge.png)  
+Alternatively, check out [monitor and log in the service](../cloud/monitor-log-cloud.md).
+
+---
 
 In this article, you'll learn how to receive events for remote monitoring from the Azure Video Analyzer IoT Edge module. 
 

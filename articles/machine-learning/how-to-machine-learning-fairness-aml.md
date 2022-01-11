@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 11/16/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, responsible-ml
 ---

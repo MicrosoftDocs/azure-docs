@@ -3,7 +3,7 @@ title: Use the Video Analyzer player widget
 description: This article explains how to add a Video Analyzer player widget to your application.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 11/12/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -26,7 +26,7 @@ The following are required for this tutorial:
 
 * An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
 * [Visual Studio Code](https://code.visualstudio.com/) or another editor for the HTML file.
-* Run topologies from either [Continuous video recording and playback](edge/use-continuous-video-recording.md) or [Detect motion and record video on edge devices](./detect-motion-record-video-clips-cloud.md)
+* Run topologies from either [Continuous video recording and playback](edge/use-continuous-video-recording.md) or [Quickstart: Detect motion in a (simulated) live video, record the video on edge devices](./detect-motion-record-video-clips-cloud.md)
 * Create a [token](./access-policies.md#creating-a-token)
 * Create an [access policy](./access-policies.md#creating-an-access-policy)
 
@@ -137,6 +137,10 @@ The Zone Drawer component allows you to draw lines and polygons on top of the Vi
    ```javascript
    zoneDrawer.load();
    ```
+1. Configure the zone drawer:
+   ```javascript
+   zoneDrawer.configure();
+   ```
 1. To create and save zones, you have to add event listeners here:
    ```javascript
    zoneDrawer.addEventListener('ZONE_DRAWER_ADDED_ZONE', (event) => {
@@ -190,6 +194,7 @@ Combining the preceding web elements, you get the following static HTML page. Th
     
         const zoneDrawer = document.getElementById("zoneDrawer");
         zoneDrawer.load();
+        zoneDrawer.configure();
 
         zoneDrawer.addEventListener('ZONE_DRAWER_ADDED_ZONE', (event) => {
             console.log(event);

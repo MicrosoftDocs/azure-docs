@@ -1,11 +1,8 @@
 ---
 title: Get support for Datadog resource - Azure partner solutions
 description: This article describes how to contact support for a Datadog resource.
-ms.service: partner-services
 ms.topic: conceptual
 ms.date: 05/28/2021
-author: tfitzmac
-ms.author: tomfitz
 ---
 
 # Get support for Datadog resource

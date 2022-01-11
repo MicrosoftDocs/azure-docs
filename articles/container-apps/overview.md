@@ -1,9 +1,9 @@
 ---
 title: Azure Container Apps Preview overview
 description: Learn about common scenarios and uses for Azure Container Apps
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: overview
 ms.date: 11/02/2021
 ms.author: cshoe

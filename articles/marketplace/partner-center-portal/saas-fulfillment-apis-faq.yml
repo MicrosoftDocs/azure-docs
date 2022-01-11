@@ -6,8 +6,8 @@ metadata:
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: conceptual
   ms.date: 03/19/2021
-  author: saasguide
-  ms.author: souchak
+  author: arifgani
+  ms.author: argani
     
 title: Common questions about SaaS fulfillment APIs
 summary: This article describes several of the integration requirements for the Microsoft commercial marketplace to enable Azure customers to subscribe to SaaS offers.
@@ -52,7 +52,7 @@ sections:
           
           ![Customer subscription flow](media/saas-metering-service-integration-flow-a.png)
           
-          For more information about the API contract for handling transact scenarios in the life cycle of a SaaS offer, see [SaaS fulfillment API](pc-saas-fulfillment-api-v2.md).
+          For more information about the API contract for handling transact scenarios in the life cycle of a SaaS offer, see [SaaS fulfillment API](pc-saas-fulfillment-apis.md).
           
       - question: |
           How do you know the SaaS offer to which the user subscribes in Azure?

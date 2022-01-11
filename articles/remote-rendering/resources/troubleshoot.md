@@ -176,7 +176,7 @@ We have seen spurious failures when trying to compile Unity samples (quickstart,
 * Make sure the projects are located in a directory on disk with reasonably short path, since the copy step sometimes seems to run into problems with long filenames.
 * If that does not help, it could be that MS Sense interferes with the copy step. To set up an exception, run this registry command from command line (requires admin rights):
     ```cmd
-    reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
+    reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity"
     ```
     
 ### Arm64 builds for Unity projects fail because AudioPluginMsHRTF.dll is missing
@@ -198,6 +198,10 @@ Another reason for unstable holograms (wobbling, warping, jittering, or jumping 
 Another value to look at is `ServiceStatistics.LatencyPoseToReceiveAvg`. It should consistently be below 100 ms. Seeing higher values could indicate that you are connected to a data center that is too far away.
 
 For a list of potential mitigations, see the [guidelines for network connectivity](../reference/network-requirements.md#guidelines-for-network-connectivity).
+
+## Local content (UIs, ...) on HoloLens 2 renders with significantly more distortion artifacts than without ARR
+
+This is a default setting that trades local content projection quality for runtime performance. Refer to the chapter about the [reprojection pose modes](../overview/features/late-stage-reprojection.md#reprojection-pose-modes) to see how the projection mode can be changed so that local content is rendered at the same reprojection quality level as without ARR.
 
 ## Z-fighting
 
@@ -253,7 +257,13 @@ In some cases, custom native C++ apps that use a multi-pass stereo rendering mod
 
 ## Conversion File Download Errors
 
-The Conversion service may encounter errors downloading files from blob storage because of path length limits imposed by Windows and the service. File paths and file names in your blob storage must not exceed 178 characters. For example given a `blobPrefix` of `models/Assets` which is 13 characters:
+The Conversion service may encounter errors downloading files from blob storage because of file system limitations. Specific failure cases are listed below. Comprehensive information on Windows file system limitations can be found in the [Naming Files, Paths, and Namespaces](/windows/win32/fileio/naming-a-file) documentation.
+
+### Colliding path and file name
+In blob storage it is possible to create a file and a folder of the exact same name as sibling entries. In Windows file system this is not possible. Accordingly, the service will emit a download error in that case.
+
+### Path length
+There are path length limits imposed by Windows and the service. File paths and file names in your blob storage must not exceed 178 characters. For example given a `blobPrefix` of `models/Assets` which is 13 characters:
 
 `models/Assets/<any file or folder path greater than 164 characters will fail the conversion>`
 

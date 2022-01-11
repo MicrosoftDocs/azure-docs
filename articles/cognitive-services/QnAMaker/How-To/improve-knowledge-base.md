@@ -5,6 +5,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
+ms.devlang: csharp, javascript
 ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
 ---
 
@@ -19,7 +20,7 @@ Active Learning alters the Knowledge Base or Search Service after you approve th
 
 ## Turn on active learning
 
-In order to see suggested questions, you must [turn on active learning](../index.yml) for your QnA Maker resource.
+In order to see suggested questions, you must [turn on active learning](../How-To/use-active-learning.md#turn-on-active-learning-for-alternate-questions) for your QnA Maker resource.
 
 ## View suggested questions
 

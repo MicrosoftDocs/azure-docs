@@ -23,12 +23,12 @@ This table shows the VM SKUs that are supported for Azure Machine Learning manag
 
 * For more information on configuration details such as CPU and RAM, see [Azure Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
 
-| Size | General Purpose | Compute Optimized |  GPU |
-| --- | --- | --- | --- | --- | 
-| V.Small | DS2 v2 | F2s v2 | NC4as_T4_v3 |
-| Small | DS3 v2 | F4s v2 | NC6s v2 <br/> NC6s v3 <br/> NC8as_T4_v3 |
-| Medium | DS4 v2 | F8s v2 | NC12s v2 <br/> NC12s v3 <br/> NC16as_T4_v3 |
-| Large | DS5 v2 | F16s v2 | NC24s v2 <br/> NC24s v3 <br/> NC64as_T4_v3 |
-| X-Large| - | F32s v2 <br/> F48s v2 <br/> F64s v2 <br/> F72s v2 | - |
+| Size | General Purpose | Compute Optimized | Memory Optimized | GPU |
+| --- | --- | --- | --- | --- | --- | 
+| V.Small | DS2 v2 | F2s v2 | E2s v3 | NC4as_T4_v3 |
+| Small | DS3 v2 | F4s v2 |  E4s v3 | NC6s v2 <br/> NC6s v3 <br/> NC8as_T4_v3 |
+| Medium | DS4 v2 | F8s v2 | E8s v3 | NC12s v2 <br/> NC12s v3 <br/> NC16as_T4_v3 |
+| Large | DS5 v2 | F16s v2 | E16s v3 | NC24s v2 <br/> NC24s v3 <br/> NC64as_T4_v3 |
+| X-Large| - | F32s v2 <br/> F48s v2 <br/> F64s v2 <br/> F72s v2 | E32s v3 <br/> E48s v3 <br/> E64s v3 | - |
 
 

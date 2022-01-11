@@ -31,7 +31,7 @@ Administrators will have the opportunity to monitor user sign-ins where CAE is a
 
 From here, admins will be presented with information about their user’s sign-in events. Select any sign-in to see details about the session, like which Conditional Access policies were applied and is CAE enabled. 
 
-A given sign-in attempt may display on either the interactive or non-interactive tab. Administrators may need to check both tabs as they track their user’s sign-ins.
+There are multiple sign-in requests for each authentication. Some will be shown on the interactive tab, while others will be shown on the non-interactive tab. CAE will only be displayed as true for one of the requests, and it can be on the interactive tab or non-interactive tab. Admins need to check both tabs to confirm whether the user's authentication is CAE enabled or not. 
 
 ### Searching for specific sign-in attempts
 

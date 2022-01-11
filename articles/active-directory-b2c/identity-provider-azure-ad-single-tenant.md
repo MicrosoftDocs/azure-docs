@@ -76,7 +76,7 @@ If you want to get the `family_name` and `given_name` claims from Azure AD, you 
 1. Select **Add optional claim**.
 1. For the **Token type**, select **ID**.
 1. Select the optional claims to add, `family_name` and `given_name`.
-1. Click **Add**.
+1. Select **Add**. If **Turn on the Microsoft Graph email permission (required for claims to appear in token)** appears, enable it, and then select **Add** again.
 
 ## [Optional] Verify your app authenticity
 
@@ -97,8 +97,7 @@ If you want to get the `family_name` and `given_name` claims from Azure AD, you 
     https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
     ```
 
-    For example, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`.
-    For example, `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`.
+ For example, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`. If you use a custom domain, replace `contoso.com` with your custom domain in `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`.
 
 1. For **Client ID**, enter the application ID that you previously recorded.
 1. For **Client secret**, enter the client secret that you previously recorded.
@@ -121,7 +120,8 @@ At this point, the Azure AD identity provider has been set up, but it's not yet 
 
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Click the user flow that you want to add the Azure AD identity provider.
-1. Under the **Social identity providers**, select **Contoso Azure AD**.
+1. Under **Settings**, select **Identity providers**
+1. Under **Custom identity providers**, select **Contoso Azure AD**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
 1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`. 

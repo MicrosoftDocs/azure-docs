@@ -122,7 +122,7 @@ The following example downloads the agent and installs it:
 # Download the installation package.
 wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-# Install the connected machine agent.
+# Install the Azure Connected Machine agent.
 bash ~/Install_linux_azcmagent.sh
 ```
 
@@ -132,7 +132,7 @@ bash ~/Install_linux_azcmagent.sh
     # Download the installation package.
     wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-    # Install the connected machine agent.
+    # Install the AZure Connected Machine agent.
     bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
     ```
 

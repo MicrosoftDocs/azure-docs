@@ -3,7 +3,7 @@ title: What is Azure Virtual Desktop remote app streaming? - Azure
 description: An overview of Azure Virtual Desktop remote app streaming.
 author: Heidilohr
 ms.topic: overview
-ms.date: 08/06/2021
+ms.date: 11/12/2021
 ms.author: helohr
 manager: femila
 ---
@@ -63,6 +63,7 @@ Once you've set up Azure Virtual Desktop, you have lots of options to customize 
 - [Scale session hosts using Azure Automation](../set-up-scaling-script.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [Set up Universal Print](/universal-print/fundamentals/universal-print-getting-started)
 - [Set up the Start VM on Connect feature](../start-virtual-machine-connect.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [Tag Azure Virtual Desktop resources to manage costs](../tag-virtual-desktop-resources.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## Get to know your Azure Virtual Desktop deployment
 

@@ -110,6 +110,18 @@ Actual cached images in your workspace ACR will have names like `azureml/azureml
 > [!WARNING]
 >  The [`Environment.build`](/python/api/azureml-core/azureml.core.environment.environment#build-workspace--image-build-compute-none-) method will rebuild the cached image, with the possible side-effect of updating unpinned packages and breaking reproducibility for all environment definitions corresponding to that cached image.
 
+### Image patching
+
+Microsoft is responsible for patching the base images for known security vulnerabilities. Updates for supported images are released every two weeks, with a commitment of no unpatched vulnerabilities older than 30 days in the the latest version of the image. Patched images are released with a new immutable tag and the `:latest` tag is updated to the latest version of the patched image. 
+
+If you provide your own images, you are responsible for updating them.
+
+For more information on the base images, see the following links:
+
+* [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers) GitHub repository.
+* [Train a model using a custom image](how-to-train-with-custom-image.md).
+* [Deploy a TensorFlow model using a custom container](how-to-deploy-custom-container.md)
+
 ## Next steps
 
 * Learn how to [create and use environments](how-to-use-environments.md) in Azure Machine Learning.

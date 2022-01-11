@@ -59,6 +59,8 @@ Individual enrollments take the public portion of a device's identity certificat
 
 1. Select **Save**.
 
+Under **Manage Enrollments**, you can see the **Registration ID** for the enrollment you just created. Make note of it, as it can be used when you provision your device.
+
 Now that an enrollment exists for this device, the IoT Edge runtime can automatically provision the device during installation.
 
 # [Group enrollment](#tab/group-enrollment)
@@ -136,6 +138,8 @@ For more information about enrollments in the device provisioning service, see [
       ```
 
 1. Select **Save**.
+
+Under **Manage Enrollments**, you can see the **Registration ID** for the enrollment you just created. Make note of it, as it can be used when you provision your devices.
 
 Now that an enrollment exists for these devices, the IoT Edge runtime can automatically provision the devices during installation.
 

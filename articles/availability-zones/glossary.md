@@ -1,11 +1,11 @@
 ---
 title: Azure resiliency terminology
 description: Understanding terms
-author: prsandhu
+author: mamccrea
 ms.service: azure
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.author: prsandhu
+ms.author: mamccrea
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
 ---

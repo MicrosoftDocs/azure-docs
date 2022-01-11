@@ -80,6 +80,13 @@ Then, run `docker login`, passing `00000000-0000-0000-0000-000000000000` as the 
 ```console
 docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password $TOKEN
 ```
+Likewise, you can use the token returned by `az acr login` with the `helm registry login` command to authenticate with the registry:
+
+```console
+echo $TOKEN | helm registry login myregistry.azurecr.io \
+            --username 00000000-0000-0000-0000-000000000000 \
+            --password-stdin
+```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 

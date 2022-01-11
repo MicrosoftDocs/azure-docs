@@ -6,7 +6,7 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-other
 ---
 # Quickstart: Configure a hybrid cluster with Azure Managed Instance for Apache Cassandra
 
@@ -16,10 +16,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-* This article requires the Azure CLI version 2.12.1 or higher. If you are using Azure Cloud Shell, the latest version is already installed.
-
-  > [!NOTE]
-  > Please ensure that you have version **0.9.0** (or higher) of the CLI module `cosmosdb-preview` running in your cloud shell. This is required for all the commands listed below to function properly. You can check extension versions by running `az --version`. If necessary, upgrade using `az extension update --name cosmosdb-preview`.
+* This article requires the Azure CLI version 2.30.0 or higher. If you are using Azure Cloud Shell, the latest version is already installed.
 
 * [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with connectivity to your self-hosted or on-premise environment. For more information on connecting on premises environments to Azure, see the [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/) article.
 
@@ -134,6 +131,8 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    clusterName='cassandra-hybrid-cluster'
    dataCenterName='dc1'
    dataCenterLocation='eastus2'
+   virtualMachineSKU='Standard_D8s_v4'
+   noOfDisksPerNode=4
     
    az managed-cassandra datacenter create \
      --resource-group $resourceGroupName \
@@ -142,7 +141,28 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
      --data-center-location $dataCenterLocation \
      --delegated-subnet-id $delegatedManagementSubnetId \
      --node-count 9 
+     --sku $virtualMachineSKU \
+     --disk-capacity $noOfDisksPerNode \
+     --availability-zone false
    ```
+
+   > [!NOTE]
+   > The value for `--sku` can be chosen from the following available SKUs:
+   >
+   > - Standard_E8s_v4
+   > - Standard_E16s_v4 
+   > - Standard_E20s_v4
+   > - Standard_E32s_v4 
+   > - Standard_DS13_v2
+   > - Standard_DS14_v2
+   > - Standard_D8s_v4
+   > - Standard_D16s_v4
+   > - Standard_D32s_v4 
+   > 
+   > Note also that `--availability-zone` is set to `false`. To enable availability zones, set this to `true`. Availability zones increase the availability SLA of the service. For more details, review the full SLA details [here](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/).
+
+   > [!WARNING]
+   > Availability zones are not supported in all regions. Deployments will fail if you select a region where Availability zones are not supported. See [here](../availability-zones/az-overview.md#azure-regions-with-availability-zones) for supported regions. The successful deployment of availability zones is also subject to the availability of compute resources in all of the zones in the given region. Deployments may fail if the SKU you have selected, or capacity, is not available across all zones. 
 
 1. Now that the new datacenter is created, run the show datacenter command to view its details:
 
@@ -185,9 +205,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
 
 ## Troubleshooting
 
-If you encounter an error when applying permissions to your Virtual Network, such as *Cannot find user or service principal in graph database for 'e5007d2c-4b13-4a74-9b6a-605d99f03501'*, you can apply the same permission manually from the Azure portal. To apply permissions from the portal, go to the **Access control (IAM)** pane of your existing virtual network and add a role assignment for "Azure Cosmos DB" to the "Network Administrator" role. If two entries appear when you search for "Azure Cosmos DB", add both the entries as shown in the following image: 
-
-   :::image type="content" source="./media/create-cluster-cli/apply-permissions.png" alt-text="Apply permissions" lightbox="./media/create-cluster-cli/apply-permissions.png" border="true":::
+If you encounter an error when applying permissions to your Virtual Network using Azure CLI, such as *Cannot find user or service principal in graph database for 'e5007d2c-4b13-4a74-9b6a-605d99f03501'*, you can apply the same permission manually from the Azure portal. Learn how to do this [here](add-service-principal.md).
 
 > [!NOTE] 
 > The Azure Cosmos DB role assignment is used for deployment purposes only. Azure Managed Instanced for Apache Cassandra has no backend dependencies on Azure Cosmos DB.  

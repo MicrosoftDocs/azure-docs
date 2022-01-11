@@ -5,7 +5,7 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: overview 
-ms.date: 01/27/2021
+ms.date: 11/08/2021
 ---
 
 # What is Azure Web PubSub service? 

@@ -32,12 +32,14 @@ You will use Service Connector to create a new service connection in App Service
     | Setting      | Suggested value  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Subscription** | One of your subscriptions | The subscription where your target service (the service you want to connect to) is. The default value is the subscription that this App Service is in. |
-    | **Service Type** | Storage Blob container | Target service type. If you don't have a Storage Blob container, you can [create one](../storage/blobs/storage-quickstart-blobs-portal.md) or use an other service type. |
+    | **Service Type** | Blob Storage | Target service type. If you don't have a Storage Blob container, you can [create one](../storage/blobs/storage-quickstart-blobs-portal.md) or use an other service type. |
     | **Connection Name** | Generated unique name | The connection name that identifies the connection between your App Service and target service  |
-    | **Storage account** | Your storage server | The target database service you want to connect to. If you choose a different service type, select the corresponding target service instance. |
+    | **Storage account** | Your storage account | The target storage account you want to connect to. If you choose a different service type, select the corresponding target service instance. |
     | **Client Type** | The same app stack on this App Service | Your application stack that works with the target service you selected. The default value comes from the App Service runtime stack. |
 
-4. Select **Review + Create** to review the connection settings. Then select **Create** to create start creating the service connection.
+4. Select **Next: Authentication** to select the authentication type. Then select **Connection string** to use access key to connect your Blob storage account.
+
+5. Then select **Next: Review + Create**  to review the provided information. Then select **Create** to create the service connection. It might take 1 minute to complete the operation.
 
 ## View service connections in App Service
 

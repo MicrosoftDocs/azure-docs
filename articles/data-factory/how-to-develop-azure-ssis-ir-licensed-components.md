@@ -7,7 +7,7 @@ author: swinarko
 ms.author: sawinark
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
+ms.date: 10/22/2021
 ---
 
 # Install paid or licensed custom components for the Azure-SSIS integration runtime

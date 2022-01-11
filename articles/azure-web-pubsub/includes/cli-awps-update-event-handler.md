@@ -13,5 +13,5 @@ Use the Azure CLI [az webpubsub hub create](/cli/azure/webpubsub/hub#az_webpubsu
   > Replace &lt;domain-name&gt; with the name ngrok printed.
 
 ```azurecli-interactive
-az webpubsub hub create -n "<your-unique-resource-name>" -g "myResourceGroup" --hub-name myHub1 --event-handler url-template="https://<domain-name>.ngrok.io/eventHandler" user-event-pattern="*" system-event="connected"
+az webpubsub hub create -n "<your-unique-resource-name>" -g "myResourceGroup" --hub-name "myHub1" --event-handler url-template="https://<domain-name>.ngrok.io/eventHandler" user-event-pattern="*" system-event="connected"
 ```

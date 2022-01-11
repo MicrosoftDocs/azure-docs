@@ -20,7 +20,11 @@ Azure Virtual Network Manager provides two different types of configurations you
 
 ## Security admin rules
 
-A security admin rule allows you to enforce security policy criteria that matches the conditions set. You can only define security administrative rules for resources within the scope of the Azure Virtual Network Manager instance. These security rules have a higher priority than network security group (NSG) rules and will get evaluated before NSG rules. For example, an administrator can deny all high risk ports or protocol from the Internet with security admin rules, and these rules will override allowed NSG rules created at the VM or subnet level.
+A security admin rule allows you to enforce security policy criteria that matches the conditions set. You can only define security administrative rules for resources within the scope of the Azure Virtual Network Manager instance. These security rules have a higher priority than network security group (NSG) rules and will get evaluated before NSG rules. Also note that security admin rules don't change your NSG rules. See the below illustration.
+
+:::image type="content" source="./media/concept-security-admins/traffic-evaluation.png" alt-text="Diagram of how traffic is evaluated with security admin rules and NSG.":::
+
+Security admin rules can be used to enforce security rules. For example, an administrator can deny all high-risk ports or protocol from the Internet with security admin rules because these security admin rules will be evaluated prior to all NSG rules.
 
 > [!IMPORTANT]
 > Some services have network intent policies to ensure the network traffic is working as needed for their services. When you use security admin rules, you could break the network intent policies created for those services. For example, creating a deny admin rule can block some traffic allowed by the *SQL managed instance* service, which is defined by their network intent policy. Make sure to review your environment before applying a security admin configuration. For more information, see [How can I explicitly allow SQLMI traffic before having deny rules](faq.md#how-can-i-explicitly-allow-sqlmi-traffic-before-having-deny-rules).

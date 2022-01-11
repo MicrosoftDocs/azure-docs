@@ -24,7 +24,11 @@ Key Vault also supports a contentType field for secrets. Clients may specify the
 
 ## Encryption
 
-All secrets in your Key Vault are stored encrypted. This encryption is transparent, and requires no action from the user. The Azure Key Vault service encrypts your secrets when you add them, and decrypts them automatically when you read them. The encryption key is unique to each key vault.
+All secrets in your Key Vault are stored encrypted. Key Vault encrypts secrets at rest with a hierarchy of encryption keys, with all keys in that hierarchy are protected by modules that are FIPS 140-2 compliant. This encryption is transparent, and requires no action from the user. The Azure Key Vault service encrypts your secrets when you add them, and decrypts them automatically when you read them.
+
+The encryption leaf key of the key hierarchy is unique to each key vault. The encryption root key of the key hierarchy is unique to the security world, and its protection level varies between regions:
+- China:  root key is protected by a module that is validated for FIPS 140-2 Level 1. 
+- Other regions: root key is protected by a module that is validated for FIPS 140-2 Level 2 or higher. 
 
 ## Secret attributes
 

@@ -2,7 +2,6 @@
 title: Create and provision an IoT Edge for Linux on Windows device using X.509 certificates - Azure IoT Edge | Microsoft Docs
 description: Create and provision a single IoT Edge for Linux on Windows device in IoT Hub using manual provisioning with X.509 certificates
 author: kgremban
-ms.reviewer: v-tcassi
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
@@ -72,7 +71,7 @@ Have the device identity certificate and its matching private key ready on your 
 Run the following command in an elevated PowerShell session on your target device. Replace the placeholder text with your own values.
 
 ```powershell
-Provision-EflowVm -provisioningType ManualX509 -iotHubHostname "<HUB HOSTNAME>" -deviceId "<DEVICE ID>" -identityCertPath "<ABSOLUTE PATH TO IDENTITY CERT>" -identityPrivKeyPath "<ABSOLUTE PATH TO PRIVATE KEY>"
+Provision-EflowVm -provisioningType ManualX509 -iotHubHostname "HUB_HOSTNAME_HERE" -deviceId "DEVICE_ID_HERE" -identityCertPath "ABSOLUTE_PATH_TO_IDENTITY_CERT_HERE" -identityPrivKeyPath "ABSOLUTE_PATH_TO_PRIVATE_KEY_HERE"
 ```
 
 For more information about the `Provision-EflowVM` command, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md#provision-eflowvm).

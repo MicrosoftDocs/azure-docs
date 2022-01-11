@@ -2,8 +2,11 @@
 title: Create and use private endpoints for Azure Backup
 description: Understand the process to creating private endpoints for Azure Backup where using private endpoints helps maintain the security of your resources. 
 ms.topic: conceptual
-ms.date: 09/24/2021 
+ms.date: 11/09/2021
 ms.custom: devx-track-azurepowershell
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Create and use private endpoints for Azure Backup
@@ -543,7 +546,7 @@ To configure a proxy server for Azure VM or on-premises machine, follow these st
    >- [US Gov](../azure-government/documentation-government-developer-guide.md)
    >- [Geo-code list - sample XML](scripts/geo-code-list.md)
 
-The following diagram shows a setup (while using the Azure Private DNS zones) with a proxy server, whose VNet is linked to a private DNS zone with required DNS entries. The proxy server can also have its own custom DNS server, and the above domains can be conditionally forwarded to 169.63.129.16. If you're using a custom DNS server/host file for DNS resolution, see the sections on [managing DNS entries](#manage-dns-records) and [configuring protection](#configure-backup).
+The following diagram shows a setup (while using the Azure Private DNS zones) with a proxy server, whose VNet is linked to a private DNS zone with required DNS entries. The proxy server can also have its own custom DNS server, and the above domains can be conditionally forwarded to 168.63.129.16. If you're using a custom DNS server/host file for DNS resolution, see the sections on [managing DNS entries](#manage-dns-records) and [configuring protection](#configure-backup).
 
 :::image type="content" source="./media/private-endpoints/setup-with-proxy-server-inline.png" alt-text="Diagram showing a setup with a proxy server." lightbox="./media/private-endpoints/setup-with-proxy-server-expanded.png":::
 

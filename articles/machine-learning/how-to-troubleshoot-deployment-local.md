@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.reviewer: luquinta
-ms.date: 11/25/2020
+ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
 #Customer intent: As a data scientist, I want to try a local deployment so that I can troubleshoot my model deployment problems.

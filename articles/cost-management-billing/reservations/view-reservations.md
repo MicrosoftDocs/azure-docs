@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 11/18/2021
 ms.author: banders
 ---
 
@@ -27,6 +27,8 @@ By default, the following users can view and manage reservations:
 - A Reservation reader has read-only access to reservations in their Azure Active Directory tenant (directory)
 
 Currently, the reservation administrator and reservation reader roles are are only available to assign using PowerShell. They can't be viewed or assigned in the Azure portal. For more information, see [Grant access with PowerShell](#grant-access-with-powershell).
+
+The reservation administrator and reservation reader roles provide access to only reservations and not to reservation orders, hence any operation that requires to have access to reservation order is not permitted with these roles. For providing access to reservation orders, see [Grant access to individual reservations](#grant-access-to-individual-reservations).
 
 The reservation lifecycle is independent of an Azure subscription, so the reservation isn't a resource under the Azure subscription. Instead, it's a tenant-level resource with its own Azure RBAC permission separate from subscriptions. Reservations don't inherit permissions from subscriptions after the purchase.
 
@@ -114,11 +116,7 @@ foreach ($reservation in $reservationObjects)
 }
 ```
 
-When you use the PowerShell script to assign the ownership role and it runs successfully, a success message isn’t returned. However, you can verify that the role was assigned with:
-
-```azurepowershell
-get-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" |?{$_.RoleDefinitionName -Like "Reservations*"}
-```
+When you use the PowerShell script to assign the ownership role and it runs successfully, a success message isn’t returned.
 
 ### Parameters
 

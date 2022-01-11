@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 07/01/2021
+ms.date: 10/21/2021
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
 
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
@@ -141,7 +141,7 @@ After you load and configure your data, you can set up your experiment. This set
             ----|---|---
             Compute name |	A unique name that identifies your compute context. | automl-compute
             Min / Max nodes| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
-            Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|1800 (default)
+            Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|120 (default)
             Advanced settings | Settings to configure and authorize a virtual network for your experiment.| None               
 
         1. Select **Create** to create your compute target. 

@@ -11,28 +11,31 @@ ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 02/06/2019
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.custom: "seo-lt-2019, devx-track-azurepowershell"
 ms.reviewer: mathoma
 ---
-# Configure one or more Always On availability group listeners - Resource Manager
+# Configure one or more Always On availability group listeners
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
+> [!TIP]
+> Eliminate the need for an Azure Load Balancer for your Always On availability (AG) group by creating your SQL Server VMs in [multiple subnets](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) within the same Azure virtual network.
 
 This document shows you how to use PowerShell to do one of the following tasks:
 - create a load balancer
 - add IP addresses to an existing load balancer for SQL Server availability groups.
 
-An availability group listener is a virtual network name that clients connect to for database access. On Azure Virtual Machines, a load balancer holds the IP address for the listener. The load balancer routes traffic to the instance of SQL Server that is listening on the probe port. Usually, an availability group uses an internal load balancer. An Azure internal load balancer can host one or many IP addresses. Each IP address uses a specific probe port. 
+An availability group listener is a virtual network name that clients connect to for database access. On Azure Virtual Machines in a single subnet, a load balancer holds the IP address for the listener. The load balancer routes traffic to the instance of SQL Server that is listening on the probe port. Usually, an availability group uses an internal load balancer. An Azure internal load balancer can host one or many IP addresses. Each IP address uses a specific probe port. 
 
-The ability to assign multiple IP addresses to an internal load balancer is new to Azure and is only available in the Resource Manager model. To complete this task, you need to have a SQL Server availability group deployed on Azure Virtual Machines in the Resource Manager model. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](./availability-group-quickstart-template-configure.md) to automatically create the availability group in Azure Resource Manager. This template automatically creates the availability group, including the internal load balancer for you. If you prefer, you can [manually configure an Always On availability group](availability-group-manually-configure-tutorial.md).
+The ability to assign multiple IP addresses to an internal load balancer is new to Azure and is only available in the Resource Manager model. To complete this task, you need to have a SQL Server availability group deployed on Azure Virtual Machines in the Resource Manager model. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](./availability-group-quickstart-template-configure.md) to automatically create the availability group in Azure Resource Manager. This template automatically creates the availability group, including the internal load balancer for you. If you prefer, you can [manually configure an Always On availability group](availability-group-manually-configure-tutorial-single-subnet.md).
 
 To complete the steps in this article, your availability groups need to be already configured.  
 
 Related topics include:
 
-* [Configure AlwaysOn Availability Groups in Azure VM (GUI)](availability-group-manually-configure-tutorial.md)   
+* [Configure AlwaysOn Availability Groups in Azure VM (GUI)](availability-group-manually-configure-tutorial-single-subnet.md)   
 * [Configure a VNet-to-VNet connection by using Azure Resource Manager and PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]

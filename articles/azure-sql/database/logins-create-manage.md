@@ -11,7 +11,7 @@ ms.devlang:
 ms.topic: conceptual
 author: AndreasWolter
 ms.author: anwolter
-ms.reviewer: vanto, mathoma
+ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 03/23/2020
 ---
 # Authorize database access to SQL Database, SQL Managed Instance, and Azure Synapse Analytics

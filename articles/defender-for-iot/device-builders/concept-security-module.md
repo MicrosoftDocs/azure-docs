@@ -2,7 +2,7 @@
 title: Defender-IoT-micro-agent and device twins
 description: Learn about the concept of Defender-IoT-micro-agent twins and how they are used in Defender for IoT.
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 11/09/2021
 ---
 
 # Defender-IoT-micro-agent

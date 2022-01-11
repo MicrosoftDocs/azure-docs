@@ -74,13 +74,15 @@
       href: quickstart-app-registration-limits.md
   - name: Administrative units
     items:
-    - name: Add and manage
+    - name: Create or delete
       href: admin-units-manage.md
-    - name: Add and manage users
-      href: admin-units-add-manage-users.md
-    - name: Add and manage groups
-      href: admin-units-add-manage-groups.md
-    - name: Assign a role with scope
+    - name: Add members
+      href: admin-units-members-add.md
+    - name: List members
+      href: admin-units-members-list.md
+    - name: Remove members
+      href: admin-units-members-remove.md
+    - name: Assign roles with scope
       href: admin-units-assign-roles.md
   - name: Delegate
     items:
@@ -100,7 +102,7 @@
   items:
   - name: Built-in roles
     href: permissions-reference.md
-  - name: Least-privileged roles by task   
+  - name: Least privileged roles by task   
     href: delegate-by-task.md
   - name: Default user permissions    
     href: ../fundamentals/users-default-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context

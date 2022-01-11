@@ -11,7 +11,7 @@ ms.subservice: content-moderator
 ms.topic: sample
 ms.date: 10/27/2021
 ms.author: pafarley
-
+ms.devlang: csharp
 ---
 # Content Moderator .NET SDK samples
 

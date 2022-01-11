@@ -7,6 +7,7 @@ ms.service: purview
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/27/2021
+ms.custom: mode-api
 ---
 
 # Quickstart: Create a Purview account using Python

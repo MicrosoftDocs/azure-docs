@@ -145,6 +145,7 @@ Scenario | v1 | v2 |
 | --- | --- | --- |
 | SNI (server_name) header during the TLS handshake as FQDN | Set as FQDN from the backend pool. As per [RFC 6066](https://tools.ietf.org/html/rfc6066), literal IPv4 and IPv6 addresses are not permitted in SNI hostname. <br> **Note:** FQDN in the backend pool should DNS resolve to backend server’s IP address (public or private) | SNI header (server_name) is set as the hostname from the HTTP settings, otherwise, if *PickHostnameFromBackendAddress* option is chosen or if no hostname is mentioned, then it'll be set as the FQDN in the backend pool configuration
 | If the backend pool address is an IP address or hostname is not set in HTTP settings | SNI won't be set as per [RFC 6066](https://tools.ietf.org/html/rfc6066) if the backend pool entry is not an FQDN | SNI will be set as the hostname from the input FQDN from the client and the backend certificate's CN has to match with this hostname.
+| Hostname is not provided in HTTP Settings, but a FQDN is specified as the Target for a backend pool member | SNI will be set as the hostname from the input FQDN from the client and the backend certificate's CN has to match with this hostname. | SNI will be set as the hostname from the input FQDN from the client and the backend certificate's CN has to match with this hostname.
 
 ## Next steps
 

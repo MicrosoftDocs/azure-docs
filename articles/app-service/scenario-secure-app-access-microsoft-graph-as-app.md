@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 11/02/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
+ms.devlang: csharp, javascript
 ms.custom: azureday1, devx-track-azurepowershell
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph by using managed identities.
 ---

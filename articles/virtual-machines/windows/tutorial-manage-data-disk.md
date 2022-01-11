@@ -328,8 +328,8 @@ Before you can take advantage of the new disk size, you need to expand the volum
 1. Open PowerShell and run the following script. Change the value of the `-DriveLetter` variable as appropriate. For example, to resize the partition on the **F:** drive, use `$driveLetter = "F"`.
 
     ```powershell
-    $driveLetter = "[Drive Letter]" `
-    $size = (Get-PartitionSupportedSize -DriveLetter $driveLetter) `
+    $driveLetter = "[Drive Letter]" 
+    $size = (Get-PartitionSupportedSize -DriveLetter $driveLetter) 
     Resize-Partition `
         -DriveLetter $driveLetter `
         -Size $size.SizeMax
@@ -446,14 +446,6 @@ You can detach a data disk from a VM when you want to attach it to a different V
 1. First, select the VM to which the disk is attached with the `Get-AzVM` cmdlet.
 
     ```azurepowershell-interactive
-    $vm = Get-AzVM `
-       -ResourceGroupName $azResourceGroup `
-       -Name $azVMName
-    ```
-
-1. Select the disk you want to remove with the `Get-AzDisk` cmdlet.
-
-     ```azurepowershell-interactive
     $vm = Get-AzVM `
        -ResourceGroupName $azResourceGroup `
        -Name $azVMName

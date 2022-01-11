@@ -4,7 +4,7 @@ description: Learn how to create a template to use with Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
-ms.date: 05/24/2021
+ms.date: 01/10/2022
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -21,14 +21,13 @@ This is the basic template format:
 ```json
   { 
     "type": "Microsoft.VirtualMachineImages/imageTemplates", 
-    "apiVersion": "2020-02-14", 
+    "apiVersion": "2021-10-01", 
     "location": "<region>", 
     "tags": {
       "<name>": "<value>",
       "<name>": "<value>"
     },
     "identity": {},			 
-    "dependsOn": [], 
     "properties": { 
       "buildTimeoutInMinutes": <minutes>, 
       "vmProfile": {
@@ -50,11 +49,11 @@ This is the basic template format:
 
 ## Type and API version
 
-The `type` is the resource type, which must be `"Microsoft.VirtualMachineImages/imageTemplates"`. The `apiVersion` will change over time as the API changes, but should be `"2020-02-14"` for now.
+The `type` is the resource type, which must be `"Microsoft.VirtualMachineImages/imageTemplates"`. The `apiVersion` will change over time as the API changes, but should be `"2021-10-01"` for now.
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
-    "apiVersion": "2020-02-14",
+    "apiVersion": "2021-10-01",
 ```
 
 ## Location
@@ -66,6 +65,7 @@ The location is the region where the custom image will be created. The following
 - West Central US
 - West US
 - West US 2
+- West US 3
 - South Central US
 - North Europe
 - West Europe
@@ -87,7 +87,7 @@ Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant 
  
 ## vmProfile
 ## buildVM
-By default Image Builder will use a "Standard_D1_v2" build VM, this is built from the image you specify in the `source`. You can override this and may wish to do this for these reasons:
+By default Image Builder will use a "Standard_D1_v2" build VM for Gen1 images and a "Standard_D2ds_v4" build VM for Gen2 images, this is built from the image you specify in the `source`. You can override this and may wish to do this for these reasons:
 1. Performing customizations that require increased memory, CPU and handling large files (GBs).
 2. Running Windows builds, you should use "Standard_D2_v2" or equivalent VM size.
 3. Require [VM isolation](../isolation.md).
@@ -118,16 +118,6 @@ If you do not specify any VNET properties, then Image Builder will create its ow
 ## Tags
 
 These are key/value pairs you can specify for the image that's generated.
-
-## Depends on (optional)
-
-This optional section can be used to ensure that dependencies are completed before proceeding. 
-
-```json
-    "dependsOn": [],
-```
-
-For more information, see [Define resource dependencies](../../azure-resource-manager/templates/resource-dependency.md#dependson).
 
 ## Identity
 
@@ -174,7 +164,7 @@ Azure Image Builder supports Windows Server and client, and Linux  Azure Marketp
             "offer": "UbuntuServer",
             "sku": "18.04-LTS",
             "version": "latest"
-        },
+        },	
 ```
 
 
@@ -538,7 +528,7 @@ runOutputName=<runOutputName>
 
 az resource show \
         --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/$runOutputName"  \
-        --api-version=2020-02-14
+        --api-version=2021-10-01
 ```
 
 Output:
@@ -646,7 +636,7 @@ You can output to a VHD. You can then copy the VHD, and use it to publish to Azu
 { 
     "type": "VHD",
     "runOutputName": "<VHD name>",
-    "tags": {
+    "artifactTags": {
         "<name>": "<value>",
         "<name>": "<value>"
     }
@@ -677,7 +667,7 @@ az resource show \
 To start a build, you need to invoke 'Run' on the Image Template resource, examples of `run` commands:
 
 ```PowerShell
-Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14" -Action Run -Force
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2021-10-01" -Action Run -Force
 ```
 
 
@@ -692,13 +682,13 @@ az resource invoke-action \
 ### Cancelling an Image Build
 If you are running an image build that you believe is incorrect, waiting for user input, or you feel will never complete successfully, then you can cancel the build.
 
-The build can be cancelled any time. If the distribution phase has started you can still cancel, but you will need to clean up any images that may not be completed. The cancel command does not wait for cancel to complete, please monitor `lastrunstatus.runstate` for cancelling progress, using these status [commands](image-builder-troubleshoot.md#customization-log).
+The build can be canceled any time. If the distribution phase has started you can still cancel, but you will need to clean up any images that may not be completed. The cancel command does not wait for cancel to complete, please monitor `lastrunstatus.runstate` for canceling progress, using these status [commands](image-builder-troubleshoot.md#customization-log).
 
 
 Examples of `cancel` commands:
 
 ```powerShell
-Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14" -Action Cancel -Force
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2021-10-01" -Action Cancel -Force
 ```
 
 ```bash

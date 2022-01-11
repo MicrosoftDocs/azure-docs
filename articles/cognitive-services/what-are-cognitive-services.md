@@ -8,7 +8,7 @@ manager: nitinme
 keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services, cognitive understanding, cognitive features
 ms.service: cognitive-services
 ms.topic: overview
-ms.date: 10/08/2021
+ms.date: 01/05/2022
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 ---
@@ -25,7 +25,6 @@ The catalog of cognitive services that provide cognitive understanding is catego
 * Speech
 * Language
 * Decision
-* Search
 
 The following sections in this article provide a list of services that are part of these five pillars.
 
@@ -63,24 +62,6 @@ The following sections in this article provide a list of services that are part 
 |[Anomaly Detector](./anomaly-detector/index.yml "Anomaly Detector") |Anomaly Detector allows you to monitor and detect abnormalities in your time series data. See [Anomaly Detector quickstart](./anomaly-detector/quickstarts/client-libraries.md) to get started with the service.|
 |[Content Moderator](./content-moderator/overview.md "Content Moderator")|Content Moderator provides monitoring for possible offensive, undesirable, and risky content. See [Content Moderator quickstart](./content-moderator/client-libraries.md) to get started with the service.|
 |[Personalizer](./personalizer/index.yml "Personalizer")|Personalizer allows you to choose the best experience to show to your users, learning from their real-time behavior. See [Personalizer quickstart](./personalizer/quickstart-personalizer-sdk.md) to get started with the service.|
-
-## Search APIs
-
-> [!NOTE]
-> Looking for [Azure Cognitive Search](../search/index.yml)? Although it uses Cognitive Services for some tasks, it's a different search technology that supports other scenarios.
-
-|Service Name|Service Description|
-|:-----------|:------------------|
-|[Bing News Search](/azure/cognitive-services/bing-news-search/ "Bing News Search")|Bing News Search returns a list of news articles determined to be relevant to the user's query.|
-|[Bing Video Search](/azure/cognitive-services/Bing-Video-Search/ "Bing Video Search")|Bing Video Search returns a list of videos determined to be relevant to the user's query.|
-|[Bing Web Search](./bing-web-search/index.yml "Bing Web Search")|Bing Web Search returns a list of search results determined to be relevant to the user's query.|
-|[Bing Autosuggest](/azure/cognitive-services/Bing-Autosuggest "Bing Autosuggest")|Bing Autosuggest allows you to send a partial search query term to Bing and get back a list of suggested queries.|
-|[Bing Custom Search](/azure/cognitive-services/bing-custom-search "Bing Custom Search")|Bing Custom Search allows you to create tailored search experiences for topics that you care about.|
-|[Bing Entity Search](/azure/cognitive-services/bing-entities-search/ "Bing Entity Search")|Bing Entity Search returns information about entities that Bing determines are relevant to a user's query.|
-|[Bing Image Search](/azure/cognitive-services/bing-image-search "Bing Image Search")|Bing Image Search returns a display of images determined to be relevant to the user's query.|
-|[Bing Visual Search](/azure/cognitive-services/bing-visual-search "Bing Visual Search")|Bing Visual Search returns insights about an image such as visually similar images, shopping sources for products found in the image, and related searches.|
-|[Bing Local Business Search](/azure/cognitive-services/bing-local-business-search/ "Bing Local Business Search")| Bing Local Business Search API enables your applications to find contact and location information about local businesses based on search queries.|
-|[Bing Spell Check](/azure/cognitive-services/bing-spell-check/ "Bing Spell Check")|Bing Spell Check allows you to perform contextual grammar and spell checking.|
 
 ## Get started with Cognitive Services
 

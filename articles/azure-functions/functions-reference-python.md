@@ -3,6 +3,7 @@ title: Python developer reference for Azure Functions
 description: Understand how to develop functions with Python
 ms.topic: article
 ms.date: 11/4/2020
+ms.devlang: python
 ms.custom: devx-track-python
 ---
 
@@ -302,6 +303,8 @@ def main(req, context):
         'ctx_invocation_id': context.invocation_id,
         'ctx_trace_context_Traceparent': context.trace_context.Traceparent,
         'ctx_trace_context_Tracestate': context.trace_context.Tracestate,
+        'ctx_retry_context_RetryCount': context.retry_context.retry_count,
+        'ctx_retry_context_MaxRetryCount': context.retry_context.max_retry_count,
     })
 ```
 
@@ -370,6 +373,12 @@ Name of the function.
 `invocation_id`
 ID of the current function invocation.
 
+`trace_context`
+Context for distributed tracing. Please refer to  [`Trace Context`](https://www.w3.org/TR/trace-context/) for more information..
+
+`retry_context`
+Context for retries to the function. Please refer to [`retry-policies`](./functions-bindings-errors.md#retry-policies-preview) for more information.
+
 ## Global variables
 
 It is not guaranteed that the state of your app will be preserved for future executions. However, the Azure Functions runtime often reuses the same process for multiple executions of the same app. In order to cache the results of an expensive computation, declare it as a global variable.
@@ -419,7 +428,8 @@ Azure Functions supports the following Python versions:
 
 | Functions version | Python<sup>*</sup> versions |
 | ----- | ----- |
-| 3.x | 3.9 (Preview) <br/> 3.8<br/>3.7<br/>3.6 |
+| 4.x | 3.9<br/> 3.8<br/>3.7 |
+| 3.x | 3.9<br/> 3.8<br/>3.7<br/>3.6 |
 | 2.x | 3.7<br/>3.6 |
 
 <sup>*</sup>Official CPython distributions
@@ -835,6 +845,12 @@ An extension that inherits from [FuncExtensionBase](https://github.com/Azure/azu
 [!INCLUDE [functions-cors](../../includes/functions-cors.md)]
 
 CORS is fully supported for Python function apps.
+
+## <a name="shared-memory"></a>Shared memory (preview)
+
+Functions lets your Python worker use shared memory to improve throughput. When your function app is hitting bottlenecks, you can enable shared memory by adding an application setting named [FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED](functions-app-settings.md#functions_worker_shared_memory_data_transfer_enabled) with a value of `1`. With shared memory enabled, you can then use the [DOCKER_SHM_SIZE](functions-app-settings.md#docker_shm_size) setting to set the shared memory to something like `268435456`, which is equivalent to 256 MB. 
+
+This functionality is available only for function apps running in Premium and Dedicated (App Service) plans.
 
 ## Known issues and FAQ
 

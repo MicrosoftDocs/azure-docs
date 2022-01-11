@@ -4,7 +4,7 @@ description: This article describes how to clean up SSIS project deployment and 
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 08/28/2021
+ms.date: 10/22/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell

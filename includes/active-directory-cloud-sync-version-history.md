@@ -5,6 +5,15 @@ Microsoft provides direct support for the latest agent version and one version b
 ## Download link
 You can download the latest version of the agent using [this link](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller).
 
+## 1.1.587.0
+
+November 2nd, 2021 - released for download
+
+New features and improvements
+
+- Cmdlet to configure Password Writeback
+
+
 ## 1.1.584.0 
 
 August 20th, 2021 - released for download

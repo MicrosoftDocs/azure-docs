@@ -2,8 +2,11 @@
 title: Indexer connection to SQL Server on Azure VMs
 titleSuffix: Azure Cognitive Search
 description: Enable encrypted connections and configure the firewall to allow connections to SQL Server on an Azure virtual machine (VM) from an indexer on Azure Cognitive Search.
-author: nitinme
-ms.author: nitinme
+
+author: gmndrg
+ms.author: gimondra
+manager: nitinme
+
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/19/2021
@@ -37,7 +40,7 @@ Azure Cognitive Search requires an encrypted channel for all indexer requests ov
 
      The `[MSSQL13.MSSQLSERVER]` part varies based on version and instance name. 
 
-   + Set the value of the **Certificate** key to the **thumbprint** of the TLS/SSL certificate you imported to the VM.
+   + Set the value of the **Certificate** key to the **thumbprint** (without spaces) of the TLS/SSL certificate you imported to the VM.
 
      There are several ways to get the thumbprint, some better than others. If you copy it from the **Certificates** snap-in in MMC, you will probably pick up an invisible leading character [as described in this support article](https://support.microsoft.com/kb/2023869/), which results in an error when you attempt a connection. Several workarounds exist for correcting this problem. The easiest is to backspace over and then retype the first character of the thumbprint to remove the leading character in the key value field in regedit. Alternatively, you can use a different tool to copy the thumbprint.
 

@@ -163,7 +163,7 @@ To configure Data in replication, perform the following steps:
         iii. To configure Data in replication, run the following command:
 
         ```sql
-        CALL mysql.az_replication_change_master('<Primary_server>.mysql.database.azure.com', '=<username>@<primary_server>', '<Password>, 3306, '<File_Name>', <Position>, @cert);
+        CALL mysql.az_replication_change_master('<Primary_server>.mysql.database.azure.com', '<username>@<primary_server>', '<Password>', 3306, '<File_Name>', <Position>, @cert);
         ```
 
         > [!Note]
@@ -172,7 +172,7 @@ To configure Data in replication, perform the following steps:
     * If SSL enforcement isn't enabled, then run the following command:
 
         ```sql
-        CALL mysql.az_replication_change_master('<Primary_server>.mysql.database.azure.com', '=<username>@<primary_server>', '<Password>, 3306, '<File_Name>', <Position>, ‘’);
+        CALL mysql.az_replication_change_master('<Primary_server>.mysql.database.azure.com', '<username>@<primary_server>', '<Password>', 3306, '<File_Name>', <Position>, ‘’);
         ```
 
 9. To start replication from the replica server, call the below stored procedure.

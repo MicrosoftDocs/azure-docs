@@ -3,7 +3,8 @@ title: Create a Python function from the command line - Azure Functions
 description: Learn how to create a Python function from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 11/03/2020
 ms.topic: quickstart
-ms.custom: [devx-track-python, devx-track-azurecli, devx-track-azurepowershell]
+ms.devlang: python
+ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell, mode-api
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
@@ -26,7 +27,7 @@ Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
++ The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.x.
 
 + One of the following tools for creating Azure resources:
 
@@ -42,23 +43,23 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 # [Azure CLI](#tab/azure-cli)
 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
++ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
 
 + Run `az --version` to check that the Azure CLI version is 2.4 or later.
 
 + Run `az login` to sign in to Azure and verify an active subscription.
 
-+ Run `python --version` (Linux/macOS) or `py --version` (Windows) to check your Python version reports 3.8.x, 3.7.x or 3.6.x.
++ Run `python --version` (Linux/macOS) or `py --version` (Windows) to check your Python version reports 3.9.x, 3.8.x, or 3.7.x.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
++ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
 
 + Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later.
 
 + Run `Connect-AzAccount` to sign in to Azure and verify an active subscription.
 
-+ Run `python --version` (Linux/macOS) or `py --version` (Windows) to check your Python version reports 3.8.x, 3.7.x or 3.6.x.
++ Run `python --version` (Linux/macOS) or `py --version` (Windows) to check your Python version reports 3.9.x, 3.8.x, or 3.7.x.
 
 ---
 
@@ -129,8 +130,14 @@ In Azure Functions, a function project is a container for one or more individual
     ```console
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
     ```
-
     `func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
+    
+   Get the list of templates by using the following command.
+   
+    ```console
+    func templates list -l python
+    ```
+    
 
 ### (Optional) Examine the file contents
 

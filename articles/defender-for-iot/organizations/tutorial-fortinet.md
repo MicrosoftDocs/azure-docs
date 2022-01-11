@@ -1,22 +1,22 @@
 ---
-title: Integrate Fortinet with Azure Defender for IoT
-description: In this tutorial, you will learn how to integrate Azure Defender for IoT with Fortinet.
+title: Integrate Fortinet with Microsoft Defender for IoT
+description: In this tutorial, you will learn how to integrate Microsoft Defender for IoT with Fortinet.
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 10/25/2021
+ms.date: 11/09/2021
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Integrate Fortinet with Azure Defender for IoT
+# Tutorial: Integrate Fortinet with Microsoft Defender for IoT
 
-This tutorial will help you learn how to integrate, and use Fortinet with Azure Defender for IoT.
+This tutorial will help you learn how to integrate, and use Fortinet with Microsoft Defender for IoT.
 
-Azure Defender for IoT mitigates IIoT and ICS and SCADA risk with ICS-aware self-learning engines that deliver immediate insights about ICS devices, vulnerabilities, and threats.  Defender for IoT accomplishes this without relying on agents, rules, signatures, specialized skills, or prior knowledge of the environment.
+Microsoft Defender for IoT mitigates IIoT and ICS and SCADA risk with ICS-aware self-learning engines that deliver immediate insights about ICS devices, vulnerabilities, and threats.  Defender for IoT accomplishes this without relying on agents, rules, signatures, specialized skills, or prior knowledge of the environment.
 
-Defenders for IoT, and Fortinet have established a technological partnership that detects, and stop attacks on IoT, and ICS networks.
+Defender for IoT, and Fortinet have established a technological partnership that detects, and stop attacks on IoT, and ICS networks.
 
-Fortinet, and Azure Defender for IoT prevent:
+Fortinet, and Microsoft Defender for IoT prevent:
 
 - Unauthorized changes to programmable logic controllers (PLC).
 
@@ -53,7 +53,7 @@ There are no prerequisites for this tutorial.
 
 ## Create an API key in Fortinet
 
-An application programming interface (API) key is a uniquely generated code that allows an API to identify the application or user requesting access to it. An API key is needed for Azure Defender for Iot and Fortinet to communicate correctly.
+An application programming interface (API) key is a uniquely generated code that allows an API to identify the application or user requesting access to it. An API key is needed for Microsoft Defender for IoT and Fortinet to communicate correctly.
 
 **To create an API key in Fortinet**:
 
@@ -100,7 +100,7 @@ The FortiGate firewall can be used to block suspicious traffic.
 
 **To set a forwarding rule to block malware-related alerts**:
 
-1. Sign in to the Azure Defender for IoT Management Console.
+1. Sign in to the Microsoft Defender for IoT Management Console.
 
 1. In the left pane, select **Forwarding**.
 
@@ -152,7 +152,7 @@ The source of suspicious alerts can be blocked in order to prevent further occur
 
 ## Send Defender for IoT alerts to FortiSIEM
 
-Defenders for IoT alerts provide information about an extensive range of security events, including:
+Defender for IoT alerts provide information about an extensive range of security events, including:
 
 - Deviations from learned baseline network activity
 
@@ -178,7 +178,7 @@ You can then use Defender for IoT's Forwarding Rules to send alert information t
 
 1. From the sensor, or management console left pane, select **Forwarding**.
 
-    [:::image type="content" source="media/tutorial-fortinet/forwarding-view.png" alt-text="Screenshot of the the view of your forwarding rules in the Forwarding window.":::](media/tutorial-fortinet/forwarding-view.png#lightbox)
+    [:::image type="content" source="media/tutorial-fortinet/forwarding-view.png" alt-text="Screenshot of the view of your forwarding rules in the Forwarding window.":::](media/tutorial-fortinet/forwarding-view.png#lightbox)
 
 2. Select **Create Forwarding Rules**, and define the rule's parameters.
 
@@ -214,7 +214,7 @@ You can set policies to automatically block malicious sources in the FortiGate f
 
 For example, the following alert can block the malicious source:
 
-:::image type="content" source="media/tutorial-fortinet/suspicion.png" alt-text="Screenshot of the the NotPetya Malware suspicion window.":::
+:::image type="content" source="media/tutorial-fortinet/suspicion.png" alt-text="Screenshot of the NotPetya Malware suspicion window.":::
 
 **To set a FortiGate firewall rule that blocks a malicious source**:
 
@@ -232,7 +232,7 @@ For example, the following alert can block the malicious source:
 
    :::image type="content" source="media/tutorial-fortinet/policy.png" alt-text="Screenshot of the FortiGate IPv4 Policy window view.":::
 
-1. Select the policy and ensure that Enable this policy is toggled to the on position.
+1. Select the policy and ensure that Enable this policy is toggled to on position.
 
    :::image type="content" source="media/tutorial-fortinet/edit.png" alt-text="Screenshot of the FortiGate IPv4 Policy Edit view.":::
 

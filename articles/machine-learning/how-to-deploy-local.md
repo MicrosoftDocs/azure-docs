@@ -36,6 +36,9 @@ The most reliable way to locally run an Azure Machine Learning model is with a D
 
 It's possible to attach a debugger to a process running in Docker. (See [Attach to a running container](https://code.visualstudio.com/docs/remote/attach-container).) But you might prefer to debug and iterate your Python code without involving Docker. In this scenario, it's important that your local machine uses the same libraries that are used when you run your experiment in Azure Machine Learning. To manage Python dependencies, Azure uses [conda](https://docs.conda.io/). You can re-create the environment by using other package managers, but installing and configuring conda on your local machine is the easiest way to synchronize. 
 
+> [!IMPORTANT]
+> GPU base images can't be used for local deployment, unless the local deployment is on an Azure Machine Learning compute instance.  GPU base images are supported only on Microsoft Azure Services such as Azure Machine Learning compute clusters and instances, Azure Container Instance (ACI), Azure VMs, or Azure Kubernetes Service (AKS).
+
 ## Prepare your entry script
 
 Even if you use Docker to manage the model and dependencies, the Python scoring script must be local. The script must have two methods:
@@ -122,6 +125,7 @@ print(f"Scoring URI is : {local_service.scoring_uri}")
 
 The call to `Model.deploy()` can take a few minutes. After you've initially deployed the web service, it's more efficient to use the `update()` method rather than starting from scratch. See [Update a deployed web service](how-to-deploy-update-web-service.md).
 
+
 ### Test your local deployment
 
 When you run the previous deployment script, it will output the URI to which you can POST data for scoring (for example, `http://localhost:6789/score`). The following sample shows a script that scores sample data by using the `"sklearn-mnist-local"` locally deployed model. The model, if properly trained, infers that `normalized_pixel_values` should be interpreted as a "2". 
@@ -183,7 +187,7 @@ You can download the model:
 - From the command line, by using `az ml model download`. (See [model download.](/cli/azure/ml/model#az_ml_model_download))
 - By using the Python SDK `Model.download()` method. (See [Model class.](/python/api/azureml-core/azureml.core.model.model#download-target-dir------exist-ok-false--exists-ok-none-))
 
-An Azure model is one or more serialized Python objects, packaged as a Python pickle file (.pkl extension). The contents of the pickle file depend on the machine learning library or technique used to train the model. For example, if you're using the model from the tutorial, you might load the model with:
+An Azure model may be in whatever form your framework uses but is generally one or more serialized Python objects, packaged as a Python pickle file (.pkl extension). The contents of the pickle file depend on the machine learning library or technique used to train the model. For example, if you're using the model from the tutorial, you might load the model with:
 
 ```python
 import pickle
@@ -245,5 +249,6 @@ For more information on uploading and updating models and environments, see [Reg
 
 ## Next steps
 
+- For information on using VS Code with Azure Machine Learning, see [Connect to compute instance in Visual Studio Code (preview)](how-to-set-up-vs-code-remote.md)
 - For more information on managing environments, see [Create & use software environments in Azure Machine Learning](how-to-use-environments.md).
 - To learn about accessing data from your datastore, see [Connect to storage services on Azure](how-to-access-data.md).

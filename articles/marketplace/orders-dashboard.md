@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 09/27/2021
+ms.date: 11/22/2021
 ---
 
 # Orders dashboard in commercial marketplace analytics
@@ -33,10 +33,6 @@ The [Orders dashboard](https://go.microsoft.com/fwlink/?linkid=2165914) displays
 
 ## Access the Orders dashboard
 
-[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
-
-#### [Workspaces view](#tab/workspaces-view)
-
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
 
@@ -44,32 +40,15 @@ The [Orders dashboard](https://go.microsoft.com/fwlink/?linkid=2165914) displays
 
 1. In the left menu, select **Orders**.
 
-#### [Current view](#tab/current-view)
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. In the left-nav, select **Commercial Marketplace** > **Analyze** > **Orders**.
-
----
-
 ## Elements of the Orders dashboard
 
 The following sections describe how to use the Orders dashboard and how to read the data.
 
 ### Month range
 
-#### [Workspaces view](#tab/workspaces-view)
-
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Orders** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
 [ ![Illustrates the month filters on the Orders dashboard.](./media/orders-dashboard/order-workspace-filters.png) ](./media/orders-dashboard/order-workspace-filters.png#lightbox)
-
-#### [Current view](#tab/current-view)
-
-You can find a month range selection at the top-right corner of each page. Customize the output of the **Orders** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
-
-:::image type="content" source="./media/orders-dashboard/month-filters.png" alt-text="Illustrates the month filters on the Orders dashboard.":::
-
----
 
 > [!NOTE]
 > All metrics in the visualization widgets and export reports honor the computation period selected by the user.

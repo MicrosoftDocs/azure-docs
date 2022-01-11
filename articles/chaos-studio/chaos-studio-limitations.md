@@ -27,6 +27,7 @@ During the public preview of Azure Chaos Studio, there are a few limitations and
     * **MacOS:** Safari, Google Chrome, Firefox
 
 ## Known issues
+* The **Enable agent-based target** experience in the Azure portal does not also assign the user-assigned managed identity to the virtual machine or virtual machine scale set. This must be done manually or an agent-based fault in an experiment will fail with the error: "Verify that the target is correctly onboarded and proper read permissions are provided to the experiment msi." This can be done after enabling the agent-based target, but may require a reboot.
 * Onboarding a target in the Azure portal may fail if you navigate away from the Targets view before onboarding completes.
 * When creating an experiment, after clicking **Review + create** there is a delay before the created experiment appears in the experiment list and users must refresh to see the experiment in the list.
 * When picking target resources for an agent-based fault in the experiment designer, it is possible to select virtual machines or virtual machine scale sets with an operating system not supported by the fault selected.
@@ -34,5 +35,5 @@ During the public preview of Azure Chaos Studio, there are a few limitations and
 
 ## Next steps
 Get started creating and running chaos experiments to improve application resilience with Chaos Studio using the links below.
-- [Create and run your first experiment](chaos-studio-tutorial-service-direct.md)
+- [Create and run your first experiment](chaos-studio-tutorial-service-direct-portal.md)
 - [Learn more about chaos engineering](chaos-studio-chaos-engineering-overview.md)

@@ -1,27 +1,26 @@
 ---
-title: Get fine-tuning recommendations for your analytics rules in Azure Sentinel
-description: Learn how to fine-tune your threat detection rules in Azure Sentinel, using automatically generated recommendations, to reduce false positives while maintaining threat detection coverage.
+title: Get fine-tuning recommendations for your analytics rules in Microsoft Sentinel
+description: Learn how to fine-tune your threat detection rules in Microsoft Sentinel, using automatically generated recommendations, to reduce false positives while maintaining threat detection coverage.
 author: yelevin
 ms.author: yelevin
-ms.service: azure-sentinel
 ms.topic: how-to
-ms.date: 10/13/2021
+ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
 ---
 
-# Get fine-tuning recommendations for your analytics rules in Azure Sentinel
+# Get fine-tuning recommendations for your analytics rules in Microsoft Sentinel
 
 > [!IMPORTANT]
 >
 > Detection tuning is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Fine-tuning threat detection rules in your SIEM can be a difficult, delicate, and continuous process of balancing between maximizing your threat detection coverage and minimizing false positive rates. Azure Sentinel simplifies and streamlines this process by using machine learning to analyze billions of signals from your data sources as well as your responses to incidents over time, deducing patterns and providing you with actionable recommendations and insights that can significantly lower your tuning overhead and allow you to focus on detecting and responding to actual threats.
+Fine-tuning threat detection rules in your SIEM can be a difficult, delicate, and continuous process of balancing between maximizing your threat detection coverage and minimizing false positive rates. Microsoft Sentinel simplifies and streamlines this process by using machine learning to analyze billions of signals from your data sources as well as your responses to incidents over time, deducing patterns and providing you with actionable recommendations and insights that can significantly lower your tuning overhead and allow you to focus on detecting and responding to actual threats.
 
 Tuning recommendations and insights are now built in to your analytics rules. This article will explain what these insights show, and how you can implement the recommendations.
 
 ## View rule insights and tuning recommendations
 
-To see if Azure Sentinel has any tuning recommendations for any of your analytics rules, select **Analytics** from the Azure Sentinel navigation menu.
+To see if Microsoft Sentinel has any tuning recommendations for any of your analytics rules, select **Analytics** from the Microsoft Sentinel navigation menu.
 
 Any rules that have recommendations will display a lightbulb icon, as shown here:
 
@@ -41,7 +40,7 @@ The **Tuning insights** display consists of several panes that you can scroll or
 
     This insight is the result of a Log Analytics query. Selecting **Average alerts per incident** will take you to the query in Log Analytics that produced the insight. Selecting **Open incidents** will take you to the **Incidents** blade.
 
-1. The second insight pane recommends for you a list of [entities](entities-in-azure-sentinel.md) to be excluded. These entities are highly correlated with incidents that you closed and classified as **false positive**. Select the plus-sign next to each listed entity to exclude it from the query in future executions of this rule. 
+1. The second insight pane recommends for you a list of [entities](entities.md) to be excluded. These entities are highly correlated with incidents that you closed and classified as **false positive**. Select the plus-sign next to each listed entity to exclude it from the query in future executions of this rule. 
 
     :::image type="content" source="media/detection-tuning/entity-exclusion.png" alt-text="Screenshot of entity exclusion recommendation.":::
 
@@ -56,6 +55,6 @@ The **Tuning insights** display consists of several panes that you can scroll or
 ## Next steps
 
 For more information, see:
-- [Handle false positives in Azure Sentinel](false-positives.md)
+- [Handle false positives in Microsoft Sentinel](false-positives.md)
 - [Use UEBA data to analyze false positives](investigate-with-ueba.md#use-ueba-data-to-analyze-false-positives)
 - [Create custom analytics rules to detect threats](detect-threats-custom.md)

@@ -10,7 +10,7 @@ ms.date: 06/25/2021
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
@@ -127,6 +127,7 @@ After the module is installed, use the following steps to complete each task as 
 ### Check the expiration policy for a password
 
 1. Open a PowerShell prompt and [connect to your Azure AD tenant](/powershell/module/azuread/connect-azuread#examples) using a *global administrator* or *user administrator* account.
+
 1. Run one of the following commands for either an individual user or for all users:
 
    * To see if a single user's password is set to never expire, run the following cmdlet. Replace `<user ID>` with the user ID of the user you want to check, such as *driley\@contoso.onmicrosoft.com*:
@@ -144,6 +145,7 @@ After the module is installed, use the following steps to complete each task as 
 ### Set a password to expire
 
 1. Open a PowerShell prompt and [connect to your Azure AD tenant](/powershell/module/azuread/connect-azuread#examples) using a *global administrator* or *user administrator* account.
+
 1. Run one of the following commands for either an individual user or for all users:
 
    * To set the password of one user so that the password expires, run the following cmdlet. Replace `<user ID>` with the user ID of the user you want to check, such as *driley\@contoso.onmicrosoft.com*

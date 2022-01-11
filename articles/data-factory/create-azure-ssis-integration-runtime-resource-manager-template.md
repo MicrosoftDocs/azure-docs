@@ -4,7 +4,7 @@ description: Learn how to use an Azure Resource Manager template to create an Az
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 10/22/2021
 author: swinarko
 ms.author: sawinark 
 ms.custom: devx-track-azurepowershell

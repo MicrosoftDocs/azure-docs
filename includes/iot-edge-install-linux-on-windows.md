@@ -13,7 +13,7 @@ Deploy Azure IoT Edge for Linux on Windows on your target device.
 
 # [PowerShell](#tab/powershell)
 
-Install IoT Edge for Linux on Windows onto your target device.
+Install IoT Edge for Linux on Windows on your target device.
 
 > [!NOTE]
 > The following PowerShell process outlines how to deploy IoT Edge for Linux on Windows onto the local device. To deploy to a remote target device using PowerShell, you can use [Remote PowerShell](/powershell/module/microsoft.powershell.core/about/about_remote) to establish a connection to a remote device and run these commands remotely on that device.
@@ -47,7 +47,7 @@ Install IoT Edge for Linux on Windows onto your target device.
    >
    >You can customize the virtual machine's available resources using the `Deploy-Eflow` command's optional parameters.
    >
-   >For example, the command below creates a virtual machine with 4 vCPU cores, 4 GB of RAM, and 20 GB of disk space:
+   >For example, the command below creates a virtual machine with 4 vCPU cores, 4 GB of RAM (represented in MB), and 20 GB of disk space:
    >
    >   ```powershell
    >   Deploy-Eflow -cpuCount 4 -memoryInMB 4096 -vmDiskSize 20
@@ -70,7 +70,7 @@ Install IoT Edge for Linux on Windows onto your target device.
 
    ![A successful deployment will say 'Deployment successful' at the end of the messages, PNG.](./media/iot-edge-install-linux-on-windows/successful-powershell-deployment.png)
 
-Once your deployment is complete, you are ready to provision your device.
+   After a successful deployment, you are ready to provision your device.
 
 # [Windows Admin Center](#tab/windowsadmincenter)
 

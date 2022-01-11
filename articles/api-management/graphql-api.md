@@ -49,7 +49,7 @@ In this article, you'll:
     |----------------|-------|
     | Display name | The name by which your GraphQL API will be displayed. |
     | Name | Raw name of the GraphQL API. Automatically populates as you type the display name. |
-    | GraphQL API endpoint | The base URL with your GraphQL API endpoint name. <br /> For example: *https://example.com/your-GraphQL-name*. You can also use the common ["Star Wars" GraphQL endpoint](https://swapi-graphql.netlify.app/.netlify/functions/index) as a demo. |
+    | GraphQL API endpoint | The base URL with your GraphQL API endpoint name. <br /> For example: *`https://example.com/your-GraphQL-name`*. You can also use the common ["Star Wars" GraphQL endpoint](https://swapi-graphql.netlify.app/.netlify/functions/index) as a demo. |
     | Upload schema file | Select to browse and upload your schema file. |
     | Description | Add a description of your API. |
     | URL scheme | Select HTTP, HTTPS, or Both. Default selection: *Both*. |

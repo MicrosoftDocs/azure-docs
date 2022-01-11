@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: laobri
 author: lobrien
-ms.date: 01/29/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python
 

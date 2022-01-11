@@ -4,9 +4,10 @@ description: Create an Azure Purview Account using .NET SDK.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 09/27/2021
+ms.custom: mode-api
 ---
 # Quickstart: Create a Purview account using .NET SDK
 

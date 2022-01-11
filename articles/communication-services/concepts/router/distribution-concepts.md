@@ -1,8 +1,8 @@
----	
+---
 title: Job distribution concepts for Azure Communication Services
-titleSuffix: An Azure Communication Services concept document	
-description: Learn about the Azure Communication Services Job Router distribution concepts.	
-author: jasonshave	
+titleSuffix: An Azure Communication Services concept document
+description: Learn about the Azure Communication Services Job Router distribution concepts.
+author: jasonshave
 manager: phans
 services: azure-communication-services
 
@@ -10,7 +10,7 @@ ms.author: jassha
 ms.date: 10/14/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
----	
+---
 
 # Job distribution concepts
 
@@ -201,7 +201,19 @@ When the distribution process locates a suitable Worker who has an open channel 
 
 **OfferTTL -** The time-to-live for each offer generated
 
-**Mode -** The **distribution modes** which contain both `minConcurrentOffers` and `maxConcurrentOffers` properties.
+**Mode -** The **distribution modes** which contain both `minConcurrentOffers` and `maxConcurrentOffers` properties. Set two integers for these two variables to control the concurrent numbers of active workers that job offer will be distributed. For example:
+
+```csharp
+  "mode": {
+        "kind": "longest-idle",
+        "minConcurrentOffers": 1,
+        "maxConcurrentOffers": 5,
+        "bypassSelectors": false
+   }
+}
+```
+
+In the above example, minConcurrentOffers and maxConcurrentOffers will distribute at least one offer and up to a maximum of five offers to active Workers who match the requirements of the Job.
 
 > [!Important]
 > When a Job offer is generated for a Worker it consumes one of the channel configurations matching the channel ID of the Job. The consumption of this channel means the Worker will not receive another offer unless additional capacity for that channel is available on the Worker. If the Worker declines the offer or the offer expires, the channel is released.

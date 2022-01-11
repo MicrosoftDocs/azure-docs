@@ -85,7 +85,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Manage Azure Sentinel workspaces
+          - text: Manage Microsoft Sentinel workspaces
             url: ./how-to/manage-sentinel-workspaces.md
           - text: Use Azure Monitor Logs
             url: ./how-to/monitor-at-scale.md

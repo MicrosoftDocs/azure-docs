@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: swinner95
 ms.author: shwinne
 ms.reviewer: sgilley
-ms.date: 04/19/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -50,7 +50,7 @@ You'll need the following items:
     print(azureml.core.VERSION)
     ```
 
-* The [Azure CLI](/cli/azure/?preserve-view=true&view=azure-cli-latest) and [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* The [Azure CLI](/cli/azure/) and [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
 
 ## Monitor run performance
@@ -302,7 +302,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
     ```
     
-    For more information on querying Azure CLI results, see [Query Azure CLI command output](/cli/azure/query-azure-cli?preserve-view=true&view=azure-cli-latest).
+    For more information on querying Azure CLI results, see [Query Azure CLI command output](/cli/azure/query-azure-cli).
     
     # [Studio](#tab/azure-studio)
     

@@ -4,13 +4,13 @@ description: Change default subdomain authentication settings inherited from roo
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 11/05/2021
 ms.author: curtand
 ms.reviewer: sumitp
 
@@ -37,7 +37,7 @@ Because subdomains inherit the authentication type of the root domain by default
    New-MsolDomain -Name "child.mydomain.com" -Authentication Federated
    ```
 
-1. Use [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net) to GET the domain. Because the domain isn't a root domain, it inherits the root domain authentication type. Your command and results might look as follows, using your own tenant ID:
+1. Use the following example to GET the domain. Because the domain isn't a root domain, it inherits the root domain authentication type. Your command and results might look as follows, using your own tenant ID:
 
    ```http
    GET https://graph.windows.net/{tenant_id}/domains?api-version=1.6
@@ -61,7 +61,7 @@ Because subdomains inherit the authentication type of the root domain by default
      },
    ```
 
-### Use Azure AD Graph Explorer API to make this a root domain
+### Use Microsoft Graph API to make this a root domain
 
 Use the following command to promote the subdomain:
 
@@ -77,7 +77,7 @@ POST https://graph.windows.net/{tenant_id}/domains/child.mydomain.com/promote?ap
    Set-MsolDomainAuthentication -DomainName child.mydomain.com -Authentication Managed
    ```
 
-1. Verify via GET in Azure AD Graph Explorer that subdomain authentication type is now managed:
+1. Verify via GET in Microsoft Graph API that subdomain authentication type is now managed:
 
    ```http
    GET https://graph.windows.net/{{tenant_id} }/domains?api-version=1.6
@@ -108,4 +108,4 @@ POST https://graph.windows.net/{tenant_id}/domains/child.mydomain.com/promote?ap
 
 - [Add custom domain names](../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
 - [Manage domain names](domains-manage.md)
-- [ForceDelete a custom domain name with Microsoft Graph API](/graph/api/domain-forcedelete?view=graph-rest-beta&preserve-view=true)
+- [ForceDelete a custom domain name with Microsoft Graph API](/graph/api/domain-forcedelete)

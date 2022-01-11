@@ -3,7 +3,7 @@ title: Add branding to your organization's sign-in page - Azure AD
 description: Instructions about how to add your organization's branding to the Azure Active Directory sign-in page.
 services: active-directory
 author: ajburnle
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.workload: identity
@@ -30,7 +30,7 @@ Your custom branding won't immediately appear when your users go to sites such a
 > [!NOTE]
 > **All branding elements are optional and will remain default when unchanged.** For example, if you specify a banner logo with no background image, the sign-in page will show your logo with a default background image from the destination site such as Microsoft 365.<br><br>Additionally, sign-in page branding doesn't carry over to personal Microsoft accounts. If your users or business guests sign in using a personal Microsoft account, the sign-in page won't reflect the branding of your organization.
 
-### To customize your branding
+### To configure your branding for the first time
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
 2. Select **Azure Active Directory**, and then select **Company branding**, and then select **Configure**.
@@ -98,7 +98,7 @@ Your custom branding won't immediately appear when your users go to sites such a
 
 3. After you've finished adding your branding, select **Save**.
 
-    If this process creates your first custom branding configuration, it becomes the default for your tenant. If you have additional configurations, you'll be able to choose your default configuration.
+    This process creates your first custom branding configuration, and it becomes the default for your tenant. The default custom branding configuration serves as a fallback option for all language-specific branding configurations. The configuration can't be removed after you create it.
     
     >[!IMPORTANT]
     >To add more corporate branding configurations to your tenant, you must choose **New language** on the **Contoso - Company branding** page. This opens the **Configure company branding** page, where you can follow the same steps as above.

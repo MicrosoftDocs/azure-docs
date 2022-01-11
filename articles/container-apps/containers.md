@@ -1,11 +1,11 @@
 ---
 title: Containers in Azure Container Apps Preview
 description: Learn how containers are managed and configured in Azure Container Apps
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
@@ -26,6 +26,9 @@ Additional features include:
 - There is no required base container image.
 - Changes to the `template` ARM configuration section triggers a new [container app revision](application-lifecycle-management.md).
 - If a container crashes, it automatically restarts.
+
+> [!NOTE]
+> The only supported protocols for a container app's fully qualified domain name (FQDN) are HTTP and HTTPS through ports 80 and 443 respectively.
 
 ## Configuration
 

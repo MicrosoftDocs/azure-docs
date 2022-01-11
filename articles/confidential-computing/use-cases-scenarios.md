@@ -2,18 +2,18 @@
 title: Common Azure confidential computing scenarios and use cases
 description: Understand how to use confidential computing in your scenario.
 services: virtual-machines
-author: JBCook
+author: stempesta
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: overview
-ms.date: 11/01/2021
-ms.author: jencook
+ms.date: 11/04/2021
+ms.author: stempesta
 ms.custom: ignite-fall-2021
 ---
 # Use cases and scenarios
 Confidential computing applies to various use cases for protecting data in regulated industries such as government, financial services, and healthcare institutes. For example, preventing access to sensitive data helps protect the digital identity of citizens from all parties involved, including the cloud provider that stores it. The same sensitive data may contain biometric data that is used for finding and removing known images of child exploitation, preventing human trafficking, and aiding digital forensics investigations.
 
-![Confidential computing use cases](media/use-cases-scenarios/use_cases.jpg)
+:::image type="content" source="media/use-cases-scenarios/use-cases.png" alt-text="Screenshot of use cases for Azure confidential computing, including government, financial services, and health care scenarios.":::
 
 This article provides an overview of several common scenarios for Azure confidential computing. The recommendations in this article serve as a starting point as you develop your application using confidential computing services and frameworks.
 
@@ -51,7 +51,7 @@ In this secure multi-party computation example, multiple banks share data with e
 
 Through confidential computing, these financial institutions can increase fraud detection rates, address money laundering scenarios, reduce false positives, and continue learning from larger data sets.
 
-![Multiparty data sharing for banks](media/use-cases-scenarios/mpc_banks.jpg)
+:::image type="content" source="media/use-cases-scenarios/mpc-banks.png" alt-text="Graphic of multiparty data sharing for banks, showing the data movement that confidential computing enables.":::
 
 ### Drug development in healthcare
 

@@ -4,9 +4,9 @@ description: The usage event API allows you to emit usage events for SaaS offers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/15/2021
-author: saasguide
-ms.author: souchak
+ms.date: 12/06/2021
+author: arifgani
+ms.author: argani
 ---
 
 # Marketplace metered billing APIs
@@ -36,7 +36,7 @@ Only one usage event can be emitted for each hour of a calendar day per resource
 
 *Query parameters:*
 
-| Paramter | Recommendation          |
+| Parameter | Recommendation          |
 | ---------- | ---------------------- |
 | `ApiVersion` | Use 2018-08-31. |
 | | |
@@ -55,7 +55,7 @@ Only one usage event can be emitted for each hour of a calendar day per resource
 ```json
 {
   "resourceId": <guid>, // unique identifier of the resource against which usage is emitted. 
-  "quantity": 5.0, // how many units were consumed for the date and hour specified in effectiveStartTime, must be greater than 0, can be integer or float value
+  "quantity": 5.0, // how many units were consumed for the date and hour specified in effectiveStartTime, must be greater than 0 or a double integer
   "dimension": "dim1", // custom dimension identifier
   "effectiveStartTime": "2018-12-01T08:30:14", // time in UTC when the usage event occurred, from now and until 24 hours back
   "planId": "plan1", // id of the plan purchased for the offer
@@ -67,14 +67,14 @@ Only one usage event can be emitted for each hour of a calendar day per resource
 
 For Azure Application Managed Apps plans, the `resourceId` is the Managed App `resource group Id`. An example script for fetching it can be found in [using the Azure-managed identities token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
-For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details on SaaS subscriptions, see [list subscriptions](partner-center-portal/pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
+For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details on SaaS subscriptions, see [list subscriptions](partner-center-portal/pc-saas-fulfillment-subscription-api.md#get-list-of-all-subscriptions).
 
 ### Responses
 
 Code: 200<br>
 OK. The usage emission was accepted and recorded on Microsoft side for further processing and billing.
 
-Response payload example: 
+Response payload example:
 
 ```json
 {
@@ -165,7 +165,7 @@ The batch usage event API allows you to emit usage events for more than one purc
 >[!NOTE]
 >In the request body, the resource identifier has different meanings for SaaS app and for Azure Managed app emitting custom meter. The resource identifier for SaaS App is `resourceID`. The resource identifier for Azure Application Managed Apps plans is `resourceUri`.
 
-For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details on SaaS subscriptions, see [list subscriptions](partner-center-portal/pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
+For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details on SaaS subscriptions, see [list subscriptions](partner-center-portal/pc-saas-fulfillment-subscription-api.md#get-list-of-all-subscriptions).
 
 *Request body example for SaaS apps:*
 
@@ -174,7 +174,7 @@ For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details 
   "request": [ // list of usage events for the same or different resources of the publisher
     { // first event
       "resourceId": "<guid1>", // Unique identifier of the resource against which usage is emitted. 
-      "quantity": 5.0, // how many units were consumed for the date and hour specified in effectiveStartTime, must be greater than 0, can be integer or float value
+      "quantity": 5.0, // how many units were consumed for the date and hour specified in effectiveStartTime, must be greater than 0 or a double integer
       "dimension": "dim1", //Custom dimension identifier
       "effectiveStartTime": "2018-12-01T08:30:14",//Time in UTC when the usage event occurred, from now and until 24 hours back
       "planId": "plan1", // id of the plan purchased for the offer
@@ -199,7 +199,7 @@ For Azure Application Managed Apps plans, the `resourceUri` is the Managed App `
   "request": [ // list of usage events for the same or different resources of the publisher
     { // first event
       "resourceUri": "<guid1>", // Unique identifier of the resource against which usage is emitted. 
-      "quantity": 5.0, // how many units were consumed for the date and hour specified in effectiveStartTime, must be greater than 0, can be integer or float value
+      "quantity": 5.0, // how many units were consumed for the date and hour specified in effectiveStartTime, must be greater than 0 or a double integer
       "dimension": "dim1", //Custom dimension identifier
       "effectiveStartTime": "2018-12-01T08:30:14",//Time in UTC when the usage event occurred, from now and until 24 hours back
       "planId": "plan1", // id of the plan purchased for the offer

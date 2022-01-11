@@ -2,7 +2,7 @@
 title: Create a lab tutorial
 description: In this tutorial, you create a lab in Azure DevTest Labs by using the Azure portal. A lab admin sets up a lab, creates VMs in the lab, and configures policies.
 ms.topic: tutorial
-ms.date: 10/26/2021
+ms.date: 11/03/2021
 ---
 
 # Tutorial: Set up a lab in DevTest Labs using the Azure portal
@@ -58,7 +58,7 @@ These steps illustrate how to use the Azure portal to create a lab in Azure DevT
 
     :::image type="content" source="./media/tutorial-create-custom-lab/add-vm-to-lab-button.png" alt-text="Screenshot of DevTest Labs overview page and add button.":::
 
-1. On the **Choose a base** page, select a marketplace image for the VM. This guide use **Windows 11 Pro**. Certain options may differ if you use a different image.
+1. On the **Choose a base** page, select a marketplace image for the VM. This guide use **Windows Server 2019 Datacenter**. Certain options may differ if you use a different image.
 
 1. From the **Basics Settings** tab, provide the following information:
 
@@ -69,7 +69,7 @@ These steps illustrate how to use the Azure portal to create a lab in Azure DevT
     |Use a saved secret| For this walk-through, leave the box unchecked. You can save secrets in Azure Key Vault first and then use it here. For more information, see [Store secrets in a key vault](devtest-lab-store-secrets-in-key-vault.md). If you prefer to use a saved secret, check the box and then select the secret from the **Secret** drop-down list.|
     |Password|Enter a password between 8 and 123 characters long.|
     |Save as default password| Select the checkbox to save the password in the Azure Key Vault associated with the lab.|
-    |Virtual machine size| Keep the default value or select **Change Size** to select different physical components. This walk-through uses **Standard_B2**.|
+    |Virtual machine size| Keep the default value or select **Change Size** to select different physical components. This walk-through uses **Standard_D4_v3**.|
     |OS disk type|Keep the default value or select a different option from the drop-down list.|
     |Artifacts| Not used for this tutorial.|
 
@@ -83,7 +83,7 @@ These steps illustrate how to use the Azure portal to create a lab in Azure DevT
     |Subnet&nbsp;Selector| Leave as-is or select a different subnet from the drop-down list.|
     |IP address| For this walk-through, leave the default value **Shared**. When **Shared** is selected, Azure DevTest Labs automatically enables RDP for Windows VMs and SSH for Linux VMs. If you select **Public**, RDP and SSH are enabled without any changes from DevTest Labs.  |
     |Expiration date| Leave as is for no expiration date, or select the calendar icon to set an expiration date.|
-    |Make this machine claimable| To make the VM claimable by a lab user, select **Yes**. Marking the machine as claimable means that it won't  be assigned ownership at the time of creation. This walk-through selects **Yes**.|
+    |Make this machine claimable| Leave as is at **No**. To make the VM claimable by a lab user, select **Yes**. Marking the machine as claimable means that it won't be assigned ownership at the time of creation. |
     |Number of instances| Leave as-is at **1**. The number of virtual machine instances to be created.|
     |Automation | Optional. Selecting **View ARM Template** will open the template in a new page. You can copy and save the template to create the same virtual machine later. Once saved, you can use the Azure Resource Manager template to [deploy new VMs with Azure PowerShell](../azure-resource-manager/templates/overview.md).|
 
@@ -95,7 +95,7 @@ These steps illustrate how to use the Azure portal to create a lab in Azure DevT
 
    :::image type="content" source="./media/tutorial-create-custom-lab/portal-lab-vm-creation-status.png" alt-text="Screenshot of lab VM creation status page.":::
 
-1. After a few minutes, select **Refresh** if your virtual machines don't appear. Installation times will vary based on the selected hardware, base image, and artifact(s). The installation for the configurations used in this walk-through was approximately 20 minutes.
+1. After a few minutes, select **Refresh** if your virtual machines don't appear. Installation times will vary based on the selected hardware, base image, and artifact(s). The installation for the configurations used in this walk-through was approximately 12 minutes.
 
 ## Add a user to the DevTest Labs User role
 
@@ -127,17 +127,9 @@ Delete resources to avoid charges for running the lab and VM on Azure. If you pl
 
 1. On the **Are you sure you want to delete it** page, enter the lab name in the text box and then select **Delete**.
 
-1. During the deletion, you can select **Notifications** at the top of your screen to view progress. Deleting the lab takes a while. 
+1. During the deletion, you can select **Notifications** at the top of your screen to view progress. Deleting the lab takes a while. Continue to the next step once the lab is deleted.
 
-1. Once the lab is deleted, navigate to the list of resource groups for the same lab subscription. Identify a resource group with the syntax of the lab name + random numbers. For example, this tutorial used a resource group named `groupContoso` and a lab named `myOtherLab`. You can see a resource group named `myotherlab3956280435000` in the picture below. Select this autogenerated resource group.
-
-   :::image type="content" source="./media/tutorial-create-custom-lab/portal-list-of-resource-groups.png" alt-text="Screenshot of resource group list.":::
-
-1. Select **Delete resource group**. Then enter the name in the confirmation text box, and then select **Delete**. The VMs are created in this resource group rather than in the resource group in which the lab exists.
-
-   :::image type="content" source="./media/tutorial-create-custom-lab/portal-delete-generated-resource.png" alt-text="Screenshot of deleting resource group.":::
-
-1. If you created the lab in an existing resource group, then all of the lab resources have been removed. If you created a new resource group for this tutorial, it's now empty and can be deleted using the same steps as for the autogenerated resource group. It wouldn't have been possible to have deleted the resource group earlier while the lab was still in it.
+1. If you created the lab in an existing resource group, then all of the lab resources have been removed. If you created a new resource group for this tutorial, it's now empty and can be deleted. It wouldn't have been possible to have deleted the resource group earlier while the lab was still in it.
 
 ## Next steps
 

@@ -9,6 +9,7 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-js
+ms.devlang: javascript
 ---
 
 # Azure Storage samples using v12 JavaScript client libraries

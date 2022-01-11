@@ -130,18 +130,18 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 To enable Azure AD authentication over SMB with Azure CLI, install the latest CLI version (Version 2.0.70 or newer). For more information about installing Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-To create a new storage account, call [az storage account create](/cli/azure/storage/account#az_storage_account_create), and set the `--enable-files-aadds` property to **true**. In the following example, remember to replace the placeholder values with your own values. (If you were using the previous preview module, the parameter for feature enablement is **file-aad**.)
+To create a new storage account, call [az storage account create](/cli/azure/storage/account#az_storage_account_create), and set the `--enable-files-aadds` argument. In the following example, remember to replace the placeholder values with your own values. (If you were using the previous preview module, the parameter for feature enablement is **file-aad**.)
 
 ```azurecli-interactive
 # Create a new storage account
-az storage account create -n <storage-account-name> -g <resource-group-name> --enable-files-aadds $true
+az storage account create -n <storage-account-name> -g <resource-group-name> --enable-files-aadds
 ```
 
 To enable this feature on existing storage accounts, use the following command:
 
 ```azurecli-interactive
 # Update a new storage account
-az storage account update -n <storage-account-name> -g <resource-group-name> --enable-files-aadds $true
+az storage account update -n <storage-account-name> -g <resource-group-name> --enable-files-aadds
 ```
 ---
 

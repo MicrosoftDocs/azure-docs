@@ -314,7 +314,7 @@ sections:
           
           Additional data associated with a Media Services account (including content encryption keys, token verification keys, JobInputHttp URLs, and other entity metadata) is stored in Microsoft-owned storage within the region selected for the Media Services account. 
           
-          Due to [data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brazil South and Southeast Asia, additional account data is stored in a zone-redundant fashion and is contained in a single region. For Southeast Asia, all the additional account data is stored in Singapore. For Brazil South, the data is stored in Brazil. In regions other than Brazil South and Southeast Asia, additional account data might also be stored in Microsoft-owned storage in the [paired region](../../best-practices-availability-paired-regions.md).
+          Due to [data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brazil South and Southeast Asia, additional account data is stored in a zone-redundant fashion and is contained in a single region. For Southeast Asia, all the additional account data is stored in Singapore. For Brazil South, the data is stored in Brazil. In regions other than Brazil South and Southeast Asia, additional account data might also be stored in Microsoft-owned storage in the [paired region](../../availability-zones/cross-region-replication-azure.md).
                     
       - question: Does Media Services provide high availability or data replication? 
         answer: |

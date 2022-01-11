@@ -99,7 +99,7 @@ The following code uses a Content Moderator client to analyze a body of text and
 
 ```
 Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
-Crap is the profanity here. Is this information PII? phone 2065550111
+<offensive word> is the profanity here. Is this information PII? phone 2065550111
 ```
 
 Add a reference to the new folder.

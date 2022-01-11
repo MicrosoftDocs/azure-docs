@@ -1,13 +1,13 @@
 ---
-title: "Deploy a trusted launch VM"
+title: Deploy a trusted launch VM
 description: Deploy a VM that uses trusted launch.
-author: khyewei
-ms.author: khwei
+author: cynthn
+ms.author: cynthn
 ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 12/07/2021
 ms.custom: template-how-to
 ---
 
@@ -19,7 +19,7 @@ ms.custom: template-how-to
 
 ## Prerequisites 
 
-- You need to [onboard your subscription to Azure Security Center](https://azure.microsoft.com/services/security-center/?&ef_id=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&OCID=AID2200277_SEM_CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&gclid=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE#overview) if it isn't already. Azure Security Center (ASC) has a free tier, which offers very useful insights for various Azure and Hybrid resources. Trusted launch leverages ASC to surface multiple recommendations regarding VM health. 
+- You need to [onboard your subscription to Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/?&ef_id=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&OCID=AID2200277_SEM_CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&gclid=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE#overview) if it isn't already. Microsoft Defender for Cloud has a free tier, which offers very useful insights for various Azure and Hybrid resources. Trusted launch leverages Defender for Cloud to surface multiple recommendations regarding VM health. 
 
 - Assign Azure policies initiatives to your subscription. These policy initiatives  need to be assigned  only once per subscription. This will  automatically install all required extensions on all supported VMs. 
     - Configure prerequisites to enable Guest Attestation on Trusted Launch enabled VMs 
@@ -68,25 +68,25 @@ Create a virtual machine with Trusted Launch.
 
 ```azurecli-interactive
 az group create -n myresourceGroup -l eastus 
-az vm create \ 
-   --resource-group myResourceGroup \ 
-   --name myVM \ 
-   --image UbuntuLTS \ 
-   --admin-username azureuser \ 
-   --generate-ssh-keys \ 
-   --SecurityType trustedLaunch \ 
-   --EnableSecureBoot true \  
-   --EnableVtpm true \
+az vm create \
+   --resource-group myResourceGroup \
+   --name myVM \
+   --image Canonical:UbuntuServer:18_04-lts-gen2:latest \
+   --admin-username azureuser \
+   --generate-ssh-keys \
+   --security-type TrustedLaunch \
+   --enable-secure-boot true \ 
+   --enable-vtpm true 
 ```
  
 For existing VMs, you can enable or disable secure boot and vTPM settings. Updating the virtual machine with secure boot and vTPM settings will trigger auto-reboot.
 
 ```azurecli-interactive
-az vm update \  
-   --resource-group myResourceGroup \ 
-   --name myVM \ 
-   --EnableSecureBoot \  
-   --EnableVtpm 
+az vm update \
+   --resource-group myResourceGroup \
+   --name myVM \
+   --enable-secure-boot true \
+   --enable-vtpm true 
 ```  
 
 ### [PowerShell](#tab/powershell)
@@ -101,7 +101,7 @@ $vmName = "myTrustedVM"
 $vmSize = Standard_B2s
 $publisher = "MicrosoftWindowsServer"
 $offer = "WindowsServer"
-$sku = "2019-Datacenter"
+$sku = "2019-datacenter-gensecond"
 $version = latest
 $cred = Get-Credential `
    -Message "Enter a username and password for the virtual machine."
@@ -153,9 +153,6 @@ You can deploy trusted launch VMs using a quickstart template:
 [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2FcreateUiDefinition.json)
 
 ---
-
-
-
 
 ## Verify or update your settings
 

@@ -7,8 +7,7 @@ ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: iot-develop
 services: iot-develop
-
-# Setup IoT Hub and DPS one time before completing any quickstart, tutorial,or how-to
+ms.custom: mode-other
 ---
 
 # Tutorial: Set up your environment for the IoT Plug and Play quickstarts and tutorials

@@ -4,10 +4,10 @@ titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot issues with environment image builds and package installations.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 author: saachigopal
 ms.author:  sagopal
-ms.date: 07/27/2021
+ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-python
 ---

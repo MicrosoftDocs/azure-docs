@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.author: jhirono
 author: jhirono
-ms.date: 07/07/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 
 ---

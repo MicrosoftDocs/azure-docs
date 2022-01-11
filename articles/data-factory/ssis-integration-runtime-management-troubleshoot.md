@@ -8,7 +8,7 @@ author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
 ms.custom: seo-lt-2019
-ms.date: 07/08/2019
+ms.date: 10/22/2021
 ---
 
 # Troubleshoot SSIS Integration Runtime management in Azure Data Factory

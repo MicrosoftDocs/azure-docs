@@ -28,6 +28,9 @@ When you use the managed storage account key feature, consider the following poi
 - Only a single Key Vault object should manage storage account keys. Don't allow key management from multiple objects.
 - Regenerate keys by using Key Vault only. Don't manually regenerate your storage account keys.
 
+> [!IMPORTANT]
+> Regenerating key directly in storage account breaks managed storage account setup and can invalidate SAS tokens in use and cause an outage.
+
 ## Service principal application ID
 
 An Azure AD tenant provides each registered application with a [service principal](../../active-directory/develop/developer-glossary.md#service-principal-object). The service principal serves as the Application ID, which is used during authorization setup for access to other Azure resources via Azure RBAC.

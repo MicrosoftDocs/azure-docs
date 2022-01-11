@@ -15,7 +15,7 @@ Query Performance Insight proposes to provide intelligent query analysis for dat
 
 Query Performance Insight is designed to help you spend less time troubleshooting database performance by providing such information as:
 * Top *N* long-running queries and their trends.
-* The query details: view the query text as well as the history of execution with minimum, maximum, average, and standard deviation query time.
+* The query details: view the history of execution with minimum, maximum, average, and standard deviation query time.
 * The resource utilizations (CPU, memory, and storage).
  
 This article discusses how to use MySQL slow query logs, the Log Analytics tool, and workbooks templates to visualize Query Performance Insight for Azure Database for MySQL Flexible Server.

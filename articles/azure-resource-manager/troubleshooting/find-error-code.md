@@ -3,7 +3,7 @@ title: Find error codes
 description: Describes how to find error codes to troubleshoot Azure resources deployed with Azure Resource Manager templates (ARM templates) or Bicep files.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 11/02/2021
+ms.date: 11/04/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -13,17 +13,19 @@ When an Azure resource deployment fails using Azure Resource Manager templates (
 
 ## Error types
 
-There are three types of errors you can receive:
+There are three types of errors that are related to a deployment:
 
-- **Validation errors** occur before a deployment begins and are caused by syntax errors. To identify validation errors, use [Visual Studio Code](https://code.visualstudio.com) with the latest [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) or [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools).
-- **Preflight validation errors** occur when the deployment begins but resources aren't deployed. For example, an incorrect parameter value or invalid resource name.
-- **Deployment errors** occur during deployment and troubleshooting is needed to find the cause.
+- **Validation errors** occur before a deployment begins and are caused by syntax errors in your file. Your editor can identify these errors.
+- **Preflight validation errors** occur when a deployment command is run but resources aren't deployed. These errors are found without starting the deployment. For example, if a parameter value is incorrect, the error is found in preflight validation.
+- **Deployment errors** occur during the deployment process and can only be found by assessing the deployment's progress.
 
-Validation and preflight error codes are reported in a resource group's activity log, and the subscription's [activity log](../../azure-monitor/essentials/activity-log.md). An exception is Bicep syntax validation that's only shown in the editor or deployment command's output. Deployment error codes are shown in a resource group's deployment history and activity log.
+All types of errors return an error code that you use to troubleshoot the deployment. Validation and preflight errors are shown in the activity log but don't appear in your deployment history. A Bicep file with syntax errors doesn't compile into JSON and isn't shown in the activity log.
+
+To identify syntax errors, you can use [Visual Studio Code](https://code.visualstudio.com) with the latest [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) or [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools).
 
 ## Validation errors
 
-Templates are validated during the deployment process and error codes are displayed. Before you run a deployment, you can run validation tests with Azure PowerShell or Azure CLI.
+Templates are validated during the deployment process and error codes are displayed. Before you run a deployment, you can run validation tests with Azure PowerShell or Azure CLI to identify validation and preflight errors.
 
 # [Portal](#tab/azure-portal)
 
@@ -39,7 +41,7 @@ Select the message for more details. The template has a syntax error with error 
 
 # [PowerShell](#tab/azure-powershell)
 
-To validate an ARM template before deployment run [Test-AzResourceGroupDeployment](/powershell/module/az.resources/test-azresourcegroupdeployment). The same error is shown when you run a deployment.
+To validate an ARM template before deployment run [Test-AzResourceGroupDeployment](/powershell/module/az.resources/test-azresourcegroupdeployment).
 
 ```azurepowershell
 Test-AzResourceGroupDeployment `
@@ -76,7 +78,7 @@ There are more PowerShell cmdlets available to validate deployment templates:
 
 # [Azure CLI](#tab/azure-cli)
 
-To validate an ARM template before deployment, run [az deployment group validate](/cli/azure/deployment/group#az_deployment_group_validate). The same error is shown when you run a deployment.
+To validate an ARM template before deployment, run [az deployment group validate](/cli/azure/deployment/group#az_deployment_group_validate).
 
 ```azurecli
 az deployment group validate \

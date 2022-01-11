@@ -5,13 +5,12 @@ description: In this quickstart, you'll use the online Content Moderator Review 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 09/28/2021
 ms.author: pafarley
-ms.custom: cog-serv-seo-aug-2020
+ms.custom: cog-serv-seo-aug-2020, mode-other
 keywords: content moderator, content moderation
 ---
 
@@ -56,7 +55,7 @@ Submit your content for moderation. You can use the following sample text conten
 
 ```
 Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
-Crap is the profanity here. Is this information PII? phone 4255550111
+<offensive word> is the profanity here. Is this information PII? phone 4255550111
 ```
 
 Internally, the review tool will call the moderation APIs to scan your content. Once the scanning is complete, you'll see a message informing you that there are results waiting for your review.

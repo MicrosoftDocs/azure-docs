@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/29/2021
+ms.date: 12/01/2021
 ms.author: radeltch
 
 ---
@@ -24,6 +24,7 @@ ms.author: radeltch
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 [high-availability-guide]:high-availability-guide.md
+[dfs-n-reference]:high-availability-guide-windows-dfs.md
 
 [anf-azure-doc]:../../../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
@@ -89,7 +90,7 @@ Both [Azure Active Directory (AD) Domain Services](../../../active-directory-dom
 High availability(HA) for SAP Netweaver central services requires shared storage. To achieve that on Windows, so far it was necessary to build either SOFS cluster or use cluster shared disk s/w like SIOS. Now it is possible to achieve SAP Netweaver HA by using shared storage, deployed on Azure NetApp Files. Using Azure NetApp Files for the shared storage eliminates the need for either SOFS or SIOS.  
 
 > [!NOTE]
-> Clustering SAP ASCS/SCS instances by using a file share is supported for SAP NetWeaver 7.40 (and later), with SAP Kernel 7.49 (and later).  
+> Clustering SAP ASCS/SCS instances by using a file share is supported for SAP systems with SAP Kernel 7.22 (and later). For details see SAP note [2698948](https://launchpad.support.sap.com/#/notes/2698948)    
 
 ![SAP ASCS/SCS HA Architecture with SMB share](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb.png)
 
@@ -241,6 +242,8 @@ While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction 
 > [!NOTE]
 > The picture shows the use of additional local disks. This is optional for customers who will not install application software on the OS drive (C:\)
 >
+### Using Windows DFS-N to support flexible SAPMNT share creation for SMB based file share
+Using DFS-N allows you to utilize individual sapmnt volumes for SAP systems deployed within the same Azure region and subscription. [Using Windows DFS-N to support flexible SAPMNT share creation for SMB-based file share][dfs-n-reference] shows how to set this up.
 
 ## Next steps
 

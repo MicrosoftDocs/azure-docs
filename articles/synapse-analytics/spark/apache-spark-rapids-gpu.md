@@ -11,12 +11,12 @@ ms.author: nidutta
 ms.custom: ignite-fall-2021
 ---
 
-# Apache Spark GPU-enabled Pool in Azure Synapse Analytics
+# Apache Spark GPU-accelerated pools in Azure Synapse Analytics
 
 Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. 
 
-Azure Synapse now offers the ability to create Azure Synapse GPU-enabled pools to run Spark workloads using underlying [RAPIDS libraries](https://nvidia.github.io/spark-rapids/) that leverage the massive parallel processing power of GPUs to accelerate processing. The RAPIDS Accelerator for Apache Spark allows you to run your existing Spark applications **without any code change** by just enabling a configuration setting, which comes pre-configured for a GPU-enabled pool.
-You can choose to turn on/off the RAPIDS based GPU acceleration for your workload or parts of your workload by setting this configuration:
+Azure Synapse now offers the ability to create Azure Synapse GPU-enabled pools to run Spark workloads using underlying [RAPIDS libraries](https://nvidia.github.io/spark-rapids/) that use the massive parallel processing power of GPUs to accelerate processing. The RAPIDS Accelerator for Apache Spark allows you to run your existing Spark applications **without any code change** by just enabling a configuration setting, which comes pre-configured for a GPU-enabled pool.
+You can choose to turn on/off the RAPIDS-based GPU acceleration for your workload or parts of your workload by setting this configuration:
 
 ```
 spark.conf.set('spark.rapids.sql.enabled','true/false')
@@ -45,7 +45,7 @@ The RAPIDS Accelerator plugin only supports a one-to-one mapping between GPUs an
 Any workload that does not meet one of the above configurations will not be accepted. This is done to make sure Spark jobs are being run with the most efficient and performant configuration utilizing all available resources on the pool.
 
 The user can set the above configuration through their workload. For notebooks, the user can use the `%%configure` magic command to set one of the above configurations as shown below.
-For example, using a Large pool with 3 nodes:
+For example, using a large pool with three nodes:
 
 ```
 %%configure -f
@@ -58,9 +58,9 @@ For example, using a Large pool with 3 nodes:
 }
 ```
 
-## Run a sample Spark job through notebook on an Azure Synapse GPU-enabled pool
+## Run a sample Spark job through notebook on an Azure Synapse GPU-accelerated pool
 
-It would be good to be familiar with the [basic concepts of how to use a notebook](apache-spark-development-using-notebooks.md) in Azure Synapse Analytics before proceeding with this section. Let's walk through the steps to run a simple Spark application utilizing GPU acceleration. You can write a Spark application in all the four languages supported inside Synapse, PySpark (Python), Spark (Scala), SparkSQL and .NET for Spark (C#).
+It would be good to be familiar with the [basic concepts of how to use a notebook](apache-spark-development-using-notebooks.md) in Azure Synapse Analytics before proceeding with this section. Let's walk through the steps to run a Spark application utilizing GPU acceleration. You can write a Spark application in all the four languages supported inside Synapse, PySpark (Python), Spark (Scala), SparkSQL, and .NET for Spark (C#).
 
 1. Create a GPU-enabled pool as described in [this quickstart](../quickstart-create-apache-gpu-pool-portal.md).
 
@@ -137,7 +137,7 @@ DataFrame empDF = spark.CreateDataFrame(emp, schema);
 ```
 ---
 
-5. Now let's do a simple aggregate by getting the maximum salary per department id and display the result:
+5. Now let's do an aggregate by getting the maximum salary per department ID and display the result:
 
 ### [Scala](#tab/scala1)
 
@@ -172,4 +172,7 @@ Most Spark jobs can see improved performance through tuning configuration settin
 
 ### Workspace level
 
-Every Azure Synapse workspace comes with a default quota of 0 GPU vCores. In order to increase your quota of GPU cores, please send an email to AzureSynapseGPU@microsoft.com with your workspace name, the region and the total GPU quota required for your workload.
+Every Azure Synapse workspace comes with a default quota of 50 GPU vCores. In order to increase your quota of GPU cores, send an email to AzureSynapseGPU@microsoft.com with your workspace name, the region, and the total GPU quota required for your workload.
+
+## Next steps
+- [Azure Synapse Analytics](../overview-what-is.md)

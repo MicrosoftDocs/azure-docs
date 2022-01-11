@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: spark
 ms.date: 05/01/2020 
 ms.author: luquinta 
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Use .NET for Apache Spark with Azure Synapse Analytics

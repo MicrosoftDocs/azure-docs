@@ -1,5 +1,5 @@
 ---
-title: CLI script - Restart/stop/start an Azure Database for MySQL - Flexible Server (Preview)
+title: CLI script - Restart/stop/start an Azure Database for MySQL - Flexible Server
 description: This Azure CLI sample script shows how to Restart/Stop/Start an Azure Database for MySQL - Flexible Server.
 author: shreyaaithal
 ms.author: shaithal
@@ -10,7 +10,7 @@ ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2021
 ---
 
-# Restart/stop/start an Azure Database for MySQL - Flexible Server (Preview) using Azure CLI
+# Restart/stop/start an Azure Database for MySQL - Flexible Server using Azure CLI
 
 This sample CLI script performs restart, start and stop operations on an Azure Database for MySQL - Flexible Server. 
 
@@ -57,5 +57,5 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-- Try additional scripts: [Azure CLI samples for Azure Database for MySQL - Flexible Server (Preview)](../sample-scripts-azure-cli.md)
+- Try additional scripts: [Azure CLI samples for Azure Database for MySQL - Flexible Server](../sample-scripts-azure-cli.md)
 - For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).

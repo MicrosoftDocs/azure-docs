@@ -15,7 +15,7 @@ ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
 ---
 
-# Problems signing in to a Microsoft application in Azure Active Directory
+# Problems signing in to a Microsoft application
 
 Microsoft Applications (like Exchange, SharePoint, Yammer, etc.) are assigned and managed a bit differently than 3rd party SaaS applications or other applications you integrate with Azure AD for single sign on.
 

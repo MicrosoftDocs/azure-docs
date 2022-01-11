@@ -129,7 +129,7 @@ A snapshot doesn't have awareness of any disk except the one it contains. This m
 
 The following diagram depicts real-time allocation of bandwidth and IOPS for disks, with three different paths an IO can take: 
 
-![Three level provisioning system showing bandwidth and IOPS allocation](media/virtual-machines-managed-disks-overview/real-time-disk-allocation.png)
+![Diagram of a three level provisioning system showing bandwidth and IOPS allocation.](media/virtual-machines-managed-disks-overview/real-time-disk-allocation.png)
 
 The first IO path is the uncached managed disk path. This path is taken if you are using a managed disk and set the host caching to none. An IO using this path will execute based on disk-level provisioning and then VM network-level provisioning for IOPs and throughput.   
 
@@ -139,7 +139,7 @@ Finally, the third path is for the local/temp disk. This is available only on VM
 
 As an example of these limitations, a Standard_DS1v1 VM is prevented from achieving the 5,000 IOPS potential of a P30 disk, whether it is cached or not, because of limits at the SSD and network levels:
 
-![Standard_DS1v1 example allocation](media/virtual-machines-managed-disks-overview/example-vm-allocation.png)
+![Diagram of three level provisioning system with Standard_DS1v1 example allocation.](media/virtual-machines-managed-disks-overview/example-vm-allocation.png)
 
 Azure uses prioritized network channel for disk traffic, which gets the precedence over other low priority of network traffic. This helps disks maintain their expected performance in case of network contentions. Similarly, Azure Storage handles resource contentions and other issues in the background with automatic load balancing. Azure Storage allocates required resources when you create a disk, and applies proactive and reactive balancing of resources to handle the traffic level. This further ensures disks can sustain their expected IOPS and throughput targets. You can use the VM-level and Disk-level metrics to track the performance and setup alerts as needed.
 
