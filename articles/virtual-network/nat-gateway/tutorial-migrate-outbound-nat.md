@@ -162,6 +162,8 @@ In this article, you learned how to:
 
 * Migrate an outbound rule and outbound frontend IP address to a NAT gateway.
 
+For more information about NAT gateway and the connectivity benefits it provides, see [Design virtual networks with NAT gateway](nat-gateway-resource.md).
+
 Advance to the next article to learn how to integrate a NAT gateway with a public load balancer:
 > [!div class="nextstepaction"]
 > [Integrate a NAT gateway with a public load balancer using the Azure portal](tutorial-nat-gateway-load-balancer-public-portal.md)
