@@ -41,7 +41,7 @@ To complete this tutorial, make sure you have:
 4. Select **Create** and wait for Unity to create your project.
 
 ### Import ASA and OpenXR
-1. Launch [Mixed Reality Feature Toolkit](https://docs.microsoft.com/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool)
+1. Launch [Mixed Reality Feature Toolkit](/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool)
 2. Select your project path - This is the folder that contains folders such as *Assets*, *Library*, *Logs*, etc - and click **Discover Features**
 3. Under Azure Mixed Reality Services select both
     1. **Azure Spatial Anchors SDK Core**
@@ -95,7 +95,7 @@ We'll now set some Unity project settings that help us target the Windows Hologr
 ![Unity - Camera Setup](../../../includes/media/spatial-anchors-unity/unity-camera-setup.png)
 
 ## Try it out #1
-You should now have an empty scene that is ready to be deployed to your HoloLens device. To test out that everything is working, build your app in **Unity** and deploy it from **Visual Studio**. Follow [**Using Visual Studio to deploy and debug**](https://docs.microsoft.com/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2) to do so. You should see the Unity start screen, and then a clear display.
+You should now have an empty scene that is ready to be deployed to your HoloLens device. To test out that everything is working, build your app in **Unity** and deploy it from **Visual Studio**. Follow [**Using Visual Studio to deploy and debug**](/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2) to do so. You should see the Unity start screen, and then a clear display.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -237,7 +237,7 @@ Finally, let's expand our `LongTap()` method to include finding the anchor. We w
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=LongTap&highlight=6,7,12-18)]
 
 ## Try it out #2
-Your app now supports creating anchors and locating them. Build your app in **Unity** and deploy it from **Visual Studio** by following [**Using Visual Studio to deploy and debug**](https://docs.microsoft.com/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2).
+Your app now supports creating anchors and locating them. Build your app in **Unity** and deploy it from **Visual Studio** by following [**Using Visual Studio to deploy and debug**](/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2).
 
 Make sure your HoloLens is connected to the internet. Once the app started and the _made with Unity_ message disappears, short tap in your surroundings. A white cube should appear to show the position and rotation of the to-be-created anchor. The anchor creation process is automatically called. As you slowly look around your surroundings you are capturing environment data which is used to create the anchor. Once the anchor creation process is completed the cube will turn green. Check your debug logs in visual studio to see if everything worked as intended.
 
@@ -260,11 +260,11 @@ We can now extend our `ShortTap` method to include the `ASA_DeleteAnchor` call
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=ShortTap&highlight=8-10,12-17)]
 
 ## Try it #3
-Build your app in **Unity** and deploy it from **Visual Studio** by following [**Using Visual Studio to deploy and debug**](https://docs.microsoft.com/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2).
+Build your app in **Unity** and deploy it from **Visual Studio** by following [**Using Visual Studio to deploy and debug**](/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2).
 
 Note that the location of your hand tapping gesture is the **center of your hand** in this app and not the tip of your fingers.
 
-When you tap into an anchor, either created (green) or located (blue) a request is sent to the spatial anchor service to remove this anchor from the account.
+When you tap into an anchor, either created (green) or located (blue) a request is sent to the spatial anchor service to remove this anchor from the account. Stop the session (long tap) and start the session again (long tap) to search for all anchors. The deleted anchors will no longer show up.
 
 ## Putting everything together
 
@@ -277,4 +277,4 @@ Here is how the complete `AzureSpatialAnchorsScript` class file should look like
 In this tutorial, you've learnt how to implement a basic Spatial Anchors application for HoloLens using Unity. To learn more about how to use Azure Spatial Anchors in a new Android app, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Starting a new Android app](../articles/spatial-anchors/tutorials/tutorial-new-android-app.md)
+> [Starting a new Android app](tutorial-new-android-app.md)
