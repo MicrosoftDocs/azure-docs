@@ -1,0 +1,47 @@
+metadata:
+  title: Form Recognizer frequently asked questions
+  titleSuffix: Azure Cognitive Services
+  description: Frequently asked questions about the Form Recognizer service.
+  services: cognitive-services
+  author: laujan
+  manager: nitinme
+  ms.service: applied-ai-services
+  ms.subservice: forms-recognizer
+  ms.topic: conceptual
+  ms.date: 01/07/2022
+  ms.author: lajanuar
+    
+title: Form Recognizer frequently asked questions
+summary: |
+
+sections:
+  - name: Overview
+    questions:
+  - name: Quickstarts
+    questions:
+      - question: |
+          Where can I find the supported API version for the latest programming language SDK?
+        answer:   |
+          "The table below provides links to the latest SDK versions and shows the relationship between supported Form Recognizer SDK and API versions:"
+             
+            | Supported Language | Azure SDK package| Supported API version: 2.0, 2.1, 2021-09-30-preview |
+            | ----------- | ----------------|--------------------- |
+            | C#/.NET| [4.0.0-beta.2](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.1/index.html)||
+            | Java | 4.0.0-beta.2](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.2/index.html)||
+            | JavaScript| [4.0.0-beta.2](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.2/index.html)
+            | Python |3.2.0b2](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b2/index.html) ||
+ 
+  - name: How-to guides
+    questions: 
+      - question: |
+           "Version Migration: How do I migrate to the latest version of Form Recognizer?"
+        answer: It's very easy. Updating the API version using the API URL is sufficient. There is no need to retrain your custom models.
+      - question: |
+          "SAS token: I was able to access my storage account a few days ago, but now, I'm receiving the following error: Check if you have unexpired read/write/list/delete permission to blob container/blob. What could this be?"
+        answer:  When you create a shared access signature (SAS), the default duration is two days. After two day, you'll need to create a new token. Consider setting a longer duration period for the time you'll be using your storage account with Form Recognizer.
+  - name: Custom models
+    questions:
+  - name: Containers
+    questions:
+  - name: Concepts
+    questions:
