@@ -107,7 +107,7 @@ Colonial Pipeline paid about $4.4 Million in ransom to have their data released.
 See the white paper: [Azure defenses for ransomware attack whitepaper](https://azure.microsoft.com/resources/azure-defenses-for-ransomware-attack).
 
 Other articles in this series:
-- [Prepare for a ransomware attack](ransomware-prepare.md) (link)
+- [Prepare for a ransomware attack](ransomware-prepare.md)
 - [Detect and respond to ransomware attack](ransomware-detect-respond.md)
 - [Azure features and resources that help you protect, detect, and respond](ransomware-features-resources.md)
 

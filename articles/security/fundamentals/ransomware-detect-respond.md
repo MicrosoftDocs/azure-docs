@@ -81,7 +81,7 @@ See the white paper: [Azure defenses for ransomware attack whitepaper](https://a
 Other articles in this series:
 
 - [Ransomware protection in Azure](ransomware-protection.md)
-- [Prepare for a ransomware attack](ransomware-prepare.md) (link)
+- [Prepare for a ransomware attack](ransomware-prepare.md)
 - [Azure features and resources that help you protect, detect, and respond](ransomware-features-resources.md)
 
 
