@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Move instance to a different Azure region
 titleSuffix: Azure Digital Twins
-description: See how to move an Azure Digital Twins instance from one Azure region to another.
+description: Learn how to move an Azure Digital Twins instance from one Azure region to another.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 12/15/2021
+ms.date: 1/5/2022
 ms.topic: how-to
 ms.custom: subject-moving-resources, contperf-fy22q2
 ms.service: digital-twins
@@ -18,9 +18,9 @@ ms.service: digital-twins
 
 # Move an Azure Digital Twins instance to a different Azure region
 
-If you need to move your Azure Digital Twins instance from one region to another, the current process is to recreate your resources in the new region. Once the resources have been recreated in the new region, the original resources are deleted. At the end of this process, you'll be working with a new Azure Digital Twins instance that's identical to the first, except for the updated location.
+This article provides guidance on how to do a complete move of an Azure Digital Twins instance to a different Azure region and copy over everything you'll need to make the new instance match the original.
 
-This article provides guidance on how to do a complete move and copy over everything you'll need to make the new instance match the original.
+If you need to move your Azure Digital Twins instance from one region to another, the current process is to recreate your resources in the new region. Once the resources have been recreated in the new region, the original resources are deleted. At the end of this process, you'll be working with a new Azure Digital Twins instance that's identical to the first, except for the updated location.
 
 ## Prerequisites
 
@@ -95,7 +95,7 @@ You should see your graph with all its twins and relationships displayed in the 
 
 :::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Screenshot of the Azure Digital Twins Explorer showing two models highlighted in the Models box and a graph highlighted in the Twin Graph box." lightbox="media/how-to-move-regions/post-upload.png":::
 
-These views confirm that your models, twins, and graph were re-uploaded to the new instance in the target region.
+These views confirm that your models, twins, and graph were reuploaded to the new instance in the target region.
 
 #### Recreate endpoints and routes
 
