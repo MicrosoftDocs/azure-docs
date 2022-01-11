@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 12/02/2021
+ms.date: 01/11/2022
 ms.author: victorh
 ---
 
@@ -30,7 +30,7 @@ Before deploying Azure Firewall, the performance needs to be tested and evaluate
 
 ## Performance data
 
-The following set of performance results demonstrates the maximal Azure Firewall throughout in various use cases. All use cases were measured while Threat intelligence mode was set to alert/deny.
+The following set of performance results demonstrates the maximal Azure Firewall throughput in various use cases. All use cases were measured while Threat intelligence mode was set to alert/deny.
 
 
 |Firewall type and use case  |TCP/UDP bandwidth (Gbps)  |HTTP/S bandwidth (Gbps)  |
@@ -51,8 +51,34 @@ Azure Firewall Premium’s new performance boost functionality is now in public 
 |---------|---------|---------|
 |Standard<br>Max bandwidth for single TCP connection     |1.3|-|
 |Premium<br>Max bandwidth for single TCP connection     |2.6|9.5|
+|Premium max bandwidth with TLS/IDS|30|100|
 
 Performance values are calculated with Azure Firewall at full scale and with Premium performance boost enabled. Actual performance may vary depending on your rule complexity and network configuration. These metrics are updated periodically as performance continuously evolves with each release.
+
+## How to configure Premium performance boost (preview)
+
+As more applications are moved to the cloud, the network element performance becomes a bottleneck. As a result, Premium performance boost (preview) for Azure Firewall Premium is available to allow more scalability for those deployments.
+
+To enable the Azure Firewall Premium performance boost, run the following Azure PowerShell commands. This feature is applied at the **subscription** level for all Firewalls (VNet Firewalls and SecureHub Firewalls). Currently, Azure Firewall Premium Performance boost is not recommended SecureHub Firewalls. Check back here for the latest updates as we work to change this recommendation. Also, this setting does not have any effect on standard Firewalls.
+
+After you run the Azure PowerShell commands, an update operation needs to be run on the Azure Firewall for the feature to immediately take effect. This update operation can be a rule change (least intrusive), a setting configuration, or a Stop/Start operation. Otherwise, the firewall/s will update with the feature within several days.
+
+Run the following Azure PowerShell to configure the Azure Firewall Premium performance boost:
+
+```azurepowershell
+Connect-AzAccount  
+
+Select-AzSubscription -Subscription "subscription_id or subscription_name"
+
+Register-AzProviderFeature -FeatureName AFWEnableAccelnet  -ProviderNamespace Microsoft.Network  
+```
+
+Run the following Azure PowerShell to turn it off:
+
+```azurepowershell
+Unregister-AzProviderFeature -FeatureName AFWEnableAccelnet  -ProviderNamespace Microsoft.Network 
+```
+
 
 
 ## Next steps
