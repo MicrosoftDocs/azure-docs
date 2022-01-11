@@ -2,7 +2,7 @@
 title: Monitor Azure Backup protected workloads
 description: In this article, learn about the monitoring and notification capabilities for Azure Backup workloads using the Azure portal.
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 01/07/2022
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 author: v-amallick
 ms.service: backup
@@ -58,7 +58,7 @@ The following scenarios are defined by service as alertable scenarios.
 - Backup succeeded with warnings for Microsoft Azure Recovery Services (MARS) agent
 - Stop protection with retain data/Stop protection with delete data
 - Soft-delete functionality disabled for vault
-- Unsupported backup type for database workloads
+- [Unsupported backup type for database workloads](/azure/backup/backup-sql-server-azure-troubleshoot#backup-type-unsupported)
 
 ### Alerts from the following Azure Backup solutions are shown here
 

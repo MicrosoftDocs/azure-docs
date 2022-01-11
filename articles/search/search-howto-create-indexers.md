@@ -8,27 +8,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 01/07/2022
 ---
 
 # Creating indexers in Azure Cognitive Search
 
 A search indexer provides an automated workflow for reading content from an external data source, and ingesting that content into a search index on your search service. Indexers support two workflows: 
 
-+ Extracting text and metadata for full text search
-+ Analyzing images and large undifferentiated text for text and structure, adding [AI enrichment](cognitive-search-concept-intro.md) to the pipeline for deeper content processing. 
++ Extract text and metadata during indexing for full text search scenarios
++ Apply integrated machine learning and AI models to analyze content that is *not* intrinsically searchable, such as images and large undifferentiated text. This extended workflow is called [AI enrichment](cognitive-search-concept-intro.md) and it's indexer-driven.
 
 Using indexers significantly reduces the quantity and complexity of the code you need to write. This article focuses on the mechanics of creating an indexer as preparation for more advanced work with source-specific indexers and [skillsets](cognitive-search-working-with-skillsets.md).
 
 ## Indexer structure
 
-The following index definitions are typical of what you might create for text-based and AI enrichment scenarios.
+The following indexer definitions are typical of what you might create for text-based and AI enrichment scenarios.
 
 ### Indexing for full text search
 
 The original purpose of an indexer was to simplify the complex process of loading an index by providing a mechanism for connecting to and reading text and numeric content from fields in a data source, serialize that content as JSON documents, and hand off those documents to the search engine for indexing. This is still a primary use case, and for this operation, you'll need to create an indexer with the properties defined in the following example.
 
-```json
+```http
+POST /indexers?api-version=[api-version]
 {
   "name": (required) String that uniquely identifies the indexer,
   "dataSourceName": (required) String indicated which existing data source to use,
@@ -52,9 +53,10 @@ The **`field mappings`** property is used to explicitly map source-to-destinatio
 
 Because indexers are the mechanism by which a search service makes outbound requests, indexers were extended to support AI enrichments, adding infrastructure and objects to implement this use case.
 
-All of the above properties and parameters apply to indexers that perform AI enrichment. The following properties are specific to AI enrichment: **`skillSets`**, **`outputFieldMappings`**, **`cache`** (preview and REST only). 
+All of the above properties and parameters apply to indexers that perform AI enrichment. The following properties are specific to AI enrichment: **`skillSetName`**, **`outputFieldMappings`**, **`cache`** (preview and REST only). 
 
-```json
+```http
+POST /indexers?api-version=[api-version]
 {
   "name": (required) String that uniquely identifies the indexer,
   "dataSourceName": (required) String, name of an existing data source,
@@ -90,7 +92,7 @@ When you are ready to create an indexer on a remote search service, you will nee
 
 ### [**Azure portal**](#tab/indexer-portal)
 
-The portal provides two options for creating an indexer: [**Import data wizard**](search-import-data-portal.md) and **New Indexer** that provides fields for specifying an indexer definition. The wizard is unique in that it creates all of the required elements. Other approaches require that you have predefined a data source and index.
+The portal provides two options for creating an indexer: [**Import data wizard**](search-import-data-portal.md) and **New Indexer** that provides a visual editor for specifying an indexer definition. The wizard is unique in that it creates all of the required elements. Other approaches require that you have predefined a data source and index.
 
 The following screenshot shows where you can find these features in the portal. 
 
@@ -128,13 +130,13 @@ There are several ways to run an indexer:
 
 + Send an HTTP request for [Create Indexer](/rest/api/searchservice/create-indexer) or [Update indexer](/rest/api/searchservice/update-indexer) to add or change the definition, and run the indexer.
 
-+ Send an HTTP request for [Run Indexer](/rest/api/searchservice/run-indexer) to execute an indexer with no changes to the definition.
++ Send an HTTP request for [Run Indexer](/rest/api/searchservice/run-indexer) to execute an indexer with no changes to the definition. For more information, see [Run or reset indexers](search-howto-run-reset-indexers.md).
 
 + Run a program that calls SearchIndexerClient methods for create, update, or run.
 
 Alternatively, put the indexer [on a schedule](search-howto-schedule-indexers.md) to invoke processing at regular intervals. 
 
-Scheduled processing usually coincides with a need for incremental indexing of changed content. Change detection logic is a capability that's built into source platforms. Changes in a blob container are detected by the indexer automatically. For guidance on leveraging change detection in other data sources, refer to the indexer docs for specific data sources:
+Scheduled execution is usually implemented when you have a need for incremental indexing so that you can pick up the latest changes. As such, scheduling has a dependency on change detection. Change detection logic is a capability that's built into source platforms. If you're using a blob data source, changes in a blob container are detected automatically because Azure Storage exposes a LastModified property. Other data sources require explicit configuration. For guidance on leveraging change detection in other data sources, refer to the indexer docs for those sources:
 
 + [Azure SQL database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 + [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
@@ -147,7 +149,7 @@ Indexers can detect changes in the underlying data and only process new or updat
 
 How an indexer supports change detection varies by data source:
 
-+ Azure Blob Storage, Azure Table Storage, and Azure Data Lake Storage Gen2 stamp each blob or row update with a date and time. The various indexers use this information to determine which documents to update in the index. Built-in change detection means that an indexer can recognize new and updated documents, with no additional configuration required on your part.
++ Azure Blob Storage, Azure Table Storage, and Azure Data Lake Storage Gen2 stamp each blob or row update with a date and time. The various indexers use this information to determine which documents to update in the index. Built-in change detection means that an indexer can recognize new and updated documents automatically.
 
 + Azure SQL and Cosmos DB provide change detection features in their platforms. You can specify the change detection policy in your data source definition.
 
@@ -159,7 +161,7 @@ If you need to clear the high water mark to re-index in full, you can use [Reset
 
 Indexers expect a tabular row set, where each row becomes a full or partial search document in the index. Often, there is a one-to-one correspondence between a row in a database and the resulting search document, where all the fields in the row set fully populate each document. But you can use indexers to generate a subset of a document's fields, and fill in the remaining fields using a different indexer or methodology. 
 
-To flatten relational data into a row set, you should create a SQL view, or build a query that returns parent and child records in the same row. For example, the built-in hotels sample dataset is a SQL database that has 50 records (one for each hotel), linked to room records in a related table. The query that flattens the collective data into a row set embeds all of the room information in JSON documents in each hotel record. The embedded room information is a generated by a query that uses a **FOR JSON AUTO** clause. You can learn more about this technique in [define a query that returns embedded JSON](index-sql-relational-data.md#define-a-query-that-returns-embedded-json). This is just one example; you can find other approaches that will produce the same effect.
+To flatten relational data into a row set, you should create a SQL view, or build a query that returns parent and child records in the same row. For example, the built-in hotels sample dataset is a SQL database that has 50 records (one for each hotel), linked to room records in a related table. The query that flattens the collective data into a row set embeds all of the room information in JSON documents in each hotel record. The embedded room information is a generated by a query that uses a **FOR JSON AUTO** clause. You can learn more about this technique in [define a query that returns embedded JSON](index-sql-relational-data.md#define-a-query-that-returns-embedded-json). This is just one example; you can find other approaches that will produce the same result.
 
 In addition to flattened data, it's important to pull in only searchable data. Searchable data is alphanumeric. Cognitive Search cannot search over binary data in any format, although it can extract and infer text descriptions of image files (see [AI enrichment](cognitive-search-concept-intro.md)) to create searchable content. Likewise, using AI enrichment, large text can be analyzed by natural language models to find structure or relevant information, generating new content that you can add to a search document.
 
