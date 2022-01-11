@@ -76,17 +76,21 @@ By default, the graph displays changes from within the past 24 hours help with i
 :::image type="content" source="./media/change-analysis/change-view.png" alt-text="Screenshot of the "Screenshot of the change diff view":::   
 
 ## Diagnose and Solve Problems tool
-Change Analysis is also available as an insight card in a virtual machine's **Diagnose and solve problems** tool. If a resource experiences issues and changes are discovered from within the past 72 hours, the insights card will display the number of changes. Select **View change details** to view the filtered view from Change Analysis standalone UI.
+Change Analysis displays as an insight card in a virtual machine's **Diagnose and solve problems** tool. The insight card displays the number of changes or issues a resource experiences within the past 72 hours. 
+
+Under **Common problems**, select **View change details** to view the filtered view from Change Analysis standalone UI.
 
 :::image type="content" source="./media/change-analysis/change-insight-diagnose-and-solve.png" alt-text="Screenshot of viewing change insight in Diagnose and Solve Problems tool.":::   
 
 ## Virtual Machine Diagnose and Solve Problems
 
-Go to Diagnose and Solve Problems tool for a Virtual Machine.  Go to **Troubleshooting Tools**, browse down the page and select **Analyze recent changes** to view changes on the Virtual Machine.
+1. Within your virtual machine, select **Diagnose and solve problems** from the left menu. 
+1. Go to **Troubleshooting tools**.
+1. Scroll to the end of the troubleshooting options and select **Analyze recent changes** to view changes on the virtual machine.
 
-![Screenshot of the VM Diagnose and Solve Problems](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
+:::image type="content" source="./media/change-analysis/vm-dnsp-troubleshootingtools.png" alt-text="Screenshot of the VM Diagnose and Solve Problems":::   
 
-![Change analyzer in troubleshooting tools](./media/change-analysis/analyze-recent-changes.png)
+:::image type="content" source="./media/change-analysis/analyze-recent-changes.png" alt-text="Change analyzer in troubleshooting tools":::   
 
 ## Activity Log Change History
 
