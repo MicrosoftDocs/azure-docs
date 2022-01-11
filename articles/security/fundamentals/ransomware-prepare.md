@@ -24,18 +24,18 @@ Ultimately, the Framework is aimed at reducing and better managing cybersecurity
 
 | Azure Security Benchmark stack | 
 |--|
-| [Network&nbsp;security&nbsp;(NS)](../benchmarks/security-controls-v3-network-security.md) | 
-| [Identity&nbsp;Management&nbsp;(IM)](../benchmarks/security-controls-v3-identity-management.md) | 
-| [Privileged&nbsp;Access&nbsp;(PA)](../benchmarks/security-controls-v3-privileged-access.md) | 
-| [Data&nbsp;Protection&nbsp;(DP)](../benchmarks/security-controls-v3-data-protection.md) | 
-| [Asset&nbsp;Management&nbsp;(AM)](../benchmarks/security-controls-v3-asset-management.md) | 
-| [Logging&nbsp;and&nbsp;Threat&nbsp;Detection (LT)](../benchmarks/security-controls-v2-logging-threat-detection.md) | 
-| [Incident&nbsp;Response&nbsp;(IR)](../benchmarks/security-controls-v3-incident-response.md) | 
-| [Posture&nbsp;and&nbsp;Vulnerability&nbsp;Management&nbsp;(PV)](../benchmarks/security-controls-v3-posture-vulnerability-management.md) | 
-| [Endpoint&nbsp;Security&nbsp;(ES)](../benchmarks/security-controls-v3-endpoint-security.md) | 
-| [Backup&nbsp;and&nbsp;Recovery&nbsp;(BR)](../benchmarks/security-controls-v3-backup-recovery.md) | 
-| [DevOps&nbsp;Security&nbsp;(DS)](../benchmarks/security-controls-v3-devops-security.md) |
-| [Governance&nbsp;and&nbsp;Strategy&nbsp;(GS)](../benchmarks/security-controls-v3-governance-strategy.md) | 
+| [Network&nbsp;security&nbsp;(NS)](/security/benchmark/azure/security-controls-v3-network-security) | 
+| [Identity&nbsp;Management&nbsp;(IM)](/security/benchmark/azure/security-controls-v3-identity-management) | 
+| [Privileged&nbsp;Access&nbsp;(PA)](/security/benchmark/azure/security-controls-v3-privileged-access) | 
+| [Data&nbsp;Protection&nbsp;(DP)](/security/benchmark/azure/security-controls-v3-data-protection) | 
+| [Asset&nbsp;Management&nbsp;(AM)](/security/benchmark/azure/security-controls-v3-asset-management) | 
+| [Logging&nbsp;and&nbsp;Threat&nbsp;Detection (LT)](/security/benchmark/azure/security-controls-v2-logging-threat-detection) | 
+| [Incident&nbsp;Response&nbsp;(IR)](/security/benchmark/azure/security-controls-v3-incident-response) | 
+| [Posture&nbsp;and&nbsp;Vulnerability&nbsp;Management&nbsp;(PV)](/security/benchmark/azure/security-controls-v3-posture-vulnerability-management) | 
+| [Endpoint&nbsp;Security&nbsp;(ES)](/security/benchmark/azure/security-controls-v3-endpoint-security) | 
+| [Backup&nbsp;and&nbsp;Recovery&nbsp;(BR)](/security/benchmark/azure/security-controls-v3-backup-recovery) | 
+| [DevOps&nbsp;Security&nbsp;(DS)](/security/benchmark/azure/security-controls-v3-devops-security) |
+| [Governance&nbsp;and&nbsp;Strategy&nbsp;(GS)](/security/benchmark/azure/security-controls-v3-governance-strategy) | 
 
 ### Prioritized Mitigation
 
