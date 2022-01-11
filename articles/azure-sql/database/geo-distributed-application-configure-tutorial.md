@@ -202,11 +202,11 @@ Geo-replication settings can also be changed in the Azure portal, by selecting y
 
       private static final String READ_WRITE_URL = String.format("jdbc:" +
          "sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;" +
-         "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", +
+         "hostNameInCertificate=*.database.windows.net;loginTimeout=30;",
          FAILOVER_GROUP_NAME, DB_NAME, USER, PASSWORD);
       private static final String READ_ONLY_URL = String.format("jdbc:" +
          "sqlserver://%s.secondary.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;" +
-         "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", +
+         "hostNameInCertificate=*.database.windows.net;loginTimeout=30;",
          FAILOVER_GROUP_NAME, DB_NAME, USER, PASSWORD);
 
       public static void main(String[] args) {
