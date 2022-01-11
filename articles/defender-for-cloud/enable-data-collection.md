@@ -45,7 +45,6 @@ This table shows the availability details for the auto provisioning **feature** 
 | Policy-based:                                        | :::image type="icon" source="./media/icons/no-icon.png"::: No                                                                                                                       | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes                                                                                                                    |
 | Clouds:                                              | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet |
 
-
 ### [**Vulnerability assessment**](#tab/autoprovision-va)
 
 | Aspect                                               | Details                                                                                                                                                                            |
@@ -56,7 +55,6 @@ This table shows the availability details for the auto provisioning **feature** 
 | Supported destinations:                              | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure virtual machines<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines       |
 | Policy-based:                                        | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes                                                                                                                    |
 | Clouds:                                              | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet |
-|                                                      |                                                                                                                                                                                    |
 
 ### [**Defender for Endpoint**](#tab/autoprovision-defendpoint)
 
@@ -89,7 +87,7 @@ This table shows the availability details for the various components that can be
 | Release state:                                       | • Defender profile is in preview<br> • Azure Policy add-on is generally available (GA) | • Defender extension is in preview<br> • Azure Policy extension for Azure Arc is in preview |
 | Relevant Defender plan:                              | [Microsoft Defender for Containers](defender-for-containers-introduction.md)           | [Microsoft Defender for Containers](defender-for-containers-introduction.md)                |
 | Required roles and permissions (subscription-level): | [Owner](../role-based-access-control/built-in-roles.md#owner)                          | [Owner](../role-based-access-control/built-in-roles.md#owner)                               |
-| Supported destinations:                              | Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters             | Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters                  |
+| Supported destinations:                              | Any [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) applied to your nodes *might* disrupt the configuration of Defender for Containers                                                                                       | Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters             |
 | Policy-based:                                        | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes                        | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes                             |
 | Clouds:                                              | **Defender profile**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet<br>**Azure Policy add-on**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet|**Defender extension**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet<br>**Azure Policy extension for Azure Arc**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet|
 
