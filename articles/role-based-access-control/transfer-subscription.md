@@ -3,9 +3,8 @@ title: Transfer an Azure subscription to a different Azure AD directory
 description: Learn how to transfer an Azure subscription and known related resources to a different Azure Active Directory (Azure AD) directory.
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
 ms.date: 09/04/2021

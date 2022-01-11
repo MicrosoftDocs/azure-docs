@@ -9,11 +9,11 @@ ms.date: 11/11/2021
 
 This article provides step-by-step instructions for enabling diagnostic settings for Event Grid resources. These settings allow you to capture and view diagnostic information so that you can troubleshoot any failures. The following table shows the settings available for different types of Event Grid resources - custom topics, system topics, and domains.
 
-| Diagnostic setting |  Event Grid topics | Event Grid system topics | Event Grid domains |
-| ------------- |  --------- | ----------- | ----------- |
-| [DeliveryFailures](diagnostic-logs.md#schema-for-publishdelivery-failure-logs)  | Yes | Yes | Yes |
-| [PublishFailures](diagnostic-logs.md#schema-for-publishdelivery-failure-logs)  | Yes | No | Yes |
-| [DataPlaneRequests](diagnostic-logs.md#schema-for-data-plane-requests) | Yes | No | Yes |
+| Diagnostic setting |  Event Grid topics | Event Grid system topics | Event domains | Event Grid partner namespaces |
+| ------------- |  --------- | ----------- | ----------- | ----------- |
+| [DeliveryFailures](diagnostic-logs.md#schema-for-publishdelivery-failure-logs)  | Yes | Yes | Yes | No |
+| [PublishFailures](diagnostic-logs.md#schema-for-publishdelivery-failure-logs)  | Yes | No | Yes | Yes |
+| [DataPlaneRequests](diagnostic-logs.md#schema-for-data-plane-requests) | Yes | No | Yes | Yes |
 
 > [!IMPORTANT]
 > For schemas of delivery failures, publish failures, and data plane requests, see [Diagnostic logs](diagnostic-logs.md). 
@@ -202,7 +202,7 @@ Then, it creates a diagnostic setting on the topic to send diagnostic informatio
 
 Event Grid can publish audit traces for data plane operations. To enable the feature, select **audit** in the **Category groups** section or select **DataPlaneRequests** in the **Categories** section.
 
-The audit trace can be used to ensure that data access is allowed only for authorized purposes. It collects information about security control such as resource name, operation type, network access, level, region and more. For more information about how to enable the diagnostic setting, see [Diagnostic logs in Event Grid topics and Event Grid domains](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-event-grid-topics-and-domains).
+The audit trace can be used to ensure that data access is allowed only for authorized purposes. It collects information about security control such as resource name, operation type, network access, level, region and more. For more information about how to enable the diagnostic setting, see [Diagnostic logs in Event Grid topics and Event domains](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-event-grid-topics-and-domains).
 ![Select the audit traces](./media/enable-diagnostic-logs-topic/enable-audit-logs.png)
 
 > [!IMPORTANT]

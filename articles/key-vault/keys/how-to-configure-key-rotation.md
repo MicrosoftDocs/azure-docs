@@ -12,6 +12,8 @@ ms.date: 11/24/2021
 ms.author: mbaldwin
 ---
 # Configure key auto-rotation in Azure Key Vault (preview)
+> [!WARNING]
+> This feature is currently disabled due to an issue with the service. 
 
 ## Overview
 
@@ -143,7 +145,7 @@ Key rotation policy can also be configured using ARM templates.
                 "description": "The name of the key to be created."
             }
         },
-        "rotateTimeAfterCreation": {
+        "rotatationTimeAfterCreate": {
             "defaultValue": "P18M",
             "type": "String",
             "metadata": {
@@ -179,7 +181,7 @@ Key rotation policy can also be configured using ARM templates.
                     "lifetimeActions": [
                         {
                             "trigger": {
-                                "timeAfterCreate": "[parameters('rotateTimeAfterCreation')]",
+                                "timeAfterCreate": "[parameters('rotatationTimeAfterCreate')]",
                                 "timeBeforeExpiry": ""
                             },
                             "action": {

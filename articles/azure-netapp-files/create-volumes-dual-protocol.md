@@ -11,9 +11,8 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 12/09/2021
+ms.date: 01/07/2022
 ms.author: anfdocs
 ---
 # Create a dual-protocol volume for Azure NetApp Files
@@ -34,7 +33,7 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 * Ensure that you meet the [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections). 
 * Create a `pcuser` account in your Active Directory (AD) and ensure that the account is enabled. This account will serve as the default user. It will be used for mapping UNIX users for accessing a dual-protocol volume configured with NTFS security style. The `pcuser` account is used only when there is no user present in the AD. If a user has an account in the AD with the POSIX attributes set, then that account will be the one used for authentication, and it will not map to the `pcuser` account. 
 * Create a reverse lookup zone on the DNS server and then add a pointer (PTR) record of the AD host machine in that reverse lookup zone. Otherwise, the dual-protocol volume creation will fail.
-* The **Allow local NFS users with LDAP** option in Active Directory connections intends to provide occasional and temporary access to local users. When this option is enabled, user authentication and lookup from the LDAP server stop working. As such, you should keep this option *disabled* on Active Directory connections, except for the occasion when a local user needs to access LDAP-enabled volumes. In that case, you should disable this option as soon as local user access is no longer required for the volume. See [Allow local NFS users with LDAP to access a dual-protocol volume](#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume) about managing local user access.
+* The **Allow local NFS users with LDAP** option in Active Directory connections intends to provide occasional and temporary access to local users. When this option is enabled, user authentication and lookup from the LDAP server stop working, and the number of group memberships that Azure NetApp Files will support will be limited to 16.  As such, you should keep this option *disabled* on Active Directory connections, except for the occasion when a local user needs to access LDAP-enabled volumes. In that case, you should disable this option as soon as local user access is no longer required for the volume. See [Allow local NFS users with LDAP to access a dual-protocol volume](#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume) about managing local user access.
 * Ensure that the NFS client is up to date and running the latest updates for the operating system.
 * Dual-protocol volumes support both Active Directory Domain Services (ADDS) and Azure Active Directory Domain Services (AADDS). 
 * Dual-protocol volumes do not support the use of LDAP over TLS with AADDS. See [LDAP over TLS considerations](configure-ldap-over-tls.md#considerations).
