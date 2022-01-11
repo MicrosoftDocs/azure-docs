@@ -54,9 +54,9 @@ Multiple Azure resources are defined in the template:
 * [**Microsoft.Network/expressroutegateways**](/azure/templates/microsoft.network/expressroutegateways)
 * [**Microsoft.Network/vpnserverconfigurations**](/azure/templates/microsoft.network/vpnserverconfigurations)
 
->[NOTE!]
+> [NOTE!]
 > This ARM template doesn't create the customer-side resources required for hybrid connectivity. After you deploy the template, you still need to create and configure the P2S VPN clients, the VPN branches (Local Sites), and connect the ExpressRoute circuits.
->
+
 
 To find more templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
