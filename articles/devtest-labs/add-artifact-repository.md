@@ -2,17 +2,19 @@
 title: Add an artifact repository to your lab
 description: Learn how to add a private artifact repository to your lab to store your custom artifacts.
 ms.topic: how-to
-ms.date: 01/04/2022
+ms.date: 01/11/2022
 ms.custom: devx-track-azurepowershell
 ---
 
 # Add an artifact repository to a lab
 
-You can add *artifacts* to Azure DevTest Labs virtual machines (VMs). Artifacts are tools or applications to install on the VM. You define artifacts in a JSON file that you load from a GitHub or Azure Repos Git repository.
+This article tells you how to add an *artifact* repository to your lab in Azure DevTest Labs. Artifacts are tools or applications to install on virtual machines (VMs). You define artifacts in a JSON file that you load from a GitHub or Azure Repos Git repository.
 
-The public [DevTest Labs GitHub artifact repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) provides many common artifacts for Windows and Linux. The artifacts in this repository are available by default in DevTest Labs. You can also create custom artifacts that aren't available in the public artifact repository. To learn about creating custom artifacts, see [Create custom artifacts](devtest-lab-artifact-author.md).
+The public [DevTest Labs GitHub artifact repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) provides many common artifacts for Windows and Linux. The artifacts in this public repository are available by default in DevTest Labs. For information about adding artifacts to VMs, see [Add artifacts to DevTest Labs VMs](add-artifact-vm.md).
 
-You can add your custom artifacts to your own artifact repository, and add the repository to your lab so all lab users can access the artifacts. This article tells you how to add an artifact repository to your lab by using the Azure portal, an Azure Resource Management (ARM) template, or Azure PowerShell. You can also use an Azure PowerShell or Azure CLI script to automate adding an artifact repository to a lab.
+You can also create custom artifacts that aren't available in the public artifact repository.  To learn about creating custom artifacts, see [Create custom artifacts](devtest-lab-artifact-author.md). You can add your custom artifacts to your own artifact repository, and add the repository to your lab so all lab users can use the artifacts.
+
+This article shows you how to add an artifact repository to your lab by using the Azure portal, an Azure Resource Management (ARM) template, or Azure PowerShell. You can also use an Azure PowerShell or Azure CLI script to automate adding an artifact repository to a lab.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -48,7 +50,7 @@ To add an artifact repository to a lab, you need to know the Git HTTPS clone URL
 
    ![Screenshot that shows the Repositories configuration screen.](media/devtest-lab-add-repo/devtestlab-add-repo.png)
 
-1. In the **Repositories** pane, enter the following information:
+1. In the **Repository** pane, enter the following information:
 
    - **Name**: A repository name to use in the lab.
    - **Git clone URL**: The Git HTTPS clone URL from GitHub or Azure Repos.
@@ -367,6 +369,5 @@ Set-AzContext -SubscriptionId <Your Azure subscription ID>
 ```
 
 ## Next steps
-- [Specify mandatory artifacts for your lab in Azure DevTest Labs](devtest-lab-mandatory-artifacts.md)
-- [Create custom artifacts for your DevTest Labs virtual machine](devtest-lab-artifact-author.md)
+- [Specify mandatory artifacts for DevTest Labs VMs](devtest-lab-mandatory-artifacts.md)
 - [Diagnose artifact failures in the lab](devtest-lab-troubleshoot-artifact-failure.md)

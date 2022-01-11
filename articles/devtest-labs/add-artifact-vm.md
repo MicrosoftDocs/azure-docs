@@ -2,48 +2,51 @@
 title: Add an artifact to a VM
 description: Learn how to add an artifact to a virtual machine in a lab in Azure DevTest Labs.
 ms.topic: how-to
-ms.date: 01/04/2022
+ms.date: 01/11/2022
 ms.custom: devx-track-azurepowershell
 ---
 
 # Add artifacts to DevTest Labs VMs
 
-You can add *artifacts* to Azure DevTest Labs virtual machines (VMs). DevTest Labs artifacts specify actions to take to provision a VM, such as running Windows PowerShell scripts, running Bash commands, or installing software. You can use parameters to customize the artifacts for your own needs.
+This article describes how to add *artifacts* to Azure DevTest Labs virtual machines (VMs). Artifacts specify actions to take to provision a VM, such as running Windows PowerShell scripts, running Bash commands, or installing software. You can use parameters to customize the artifacts for your own needs.
 
 DevTest Labs artifacts can come from the [public DevTest Labs Git repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) or from private Git repositories. To create your own custom artifacts and store them in a repository, see [Create custom artifacts](devtest-lab-artifact-author.md). To add your artifact repository to a lab so lab users can access the custom artifacts, see [Add an artifact repository to your lab](add-artifact-repository.md).
 
-This article describes how to add available artifacts to VMs by using the Azure portal or Azure PowerShell.
+DevTest Labs lab owners can specify mandatory artifacts to be installed on all lab VMs at creation. For more information, see [Specify mandatory artifacts for DevTest Labs VMs](devtest-lab-mandatory-artifacts). You can't change or remove mandatory artifacts at VM creation time, but you can add any available individual artifacts. This article describes how to add available artifacts to VMs by using the Azure portal or Azure PowerShell.
 
 ## Add artifacts to VMs from the Azure portal
 
-1. In the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), go to the lab that has the VM you want to add artifacts to.
-1. On the lab **Overview** page, under **My virtual machines**, select the VM you want to add artifacts to.
-1. On the VM page, select **Artifacts** in the top menu bar or left navigation.
-1. On the **Artifacts** page, select **Apply artifacts**.
-1. On the **Add artifacts** page, select the arrow next to each artifact you want to add to the VM. Artifact actions execute in the order you add them to the VM.
-1. On each **Add artifact** pane, enter any required and optional parameter values, and then select **OK**.
-1. When you're done adding artifacts, select **Install**.
+You can add artifacts during VM creation, or add artifacts to existing lab VMs.
 
-After the artifacts install, they appear on the VM's **Artifacts** page.
+To add artifacts during VM creation:
 
-<!-- After you add artifacts, you can modify them or change the order they run in.
+1. On the lab's home page, select **Add**.
+1. On the **Choose a base** page, select the type of VM you want.
+1. On the **Create lab resource** screen, select **Add or Remove Artifacts**.
+1. On the **Add artifacts** page, select the arrow next to each artifact you want to add to the VM.
+1. On each **Add artifact** pane, enter any required and optional parameter values, and then select **OK**. The artifact appears under **Selected artifacts**, and the number of configured artifacts updates.
 
-### View or modify artifacts
+   ![Screenshot that shows adding artifacts on the Add artifacts screen.](media/add-artifact-vm/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
-To view installed artifacts, select **Artifacts** from the top menu bar on the VM's **Overview** page.
+1. You can change the artifact after adding them.
 
-To modify an artifact, select it from the list on the **Artifacts** page. 
-1. On the **Add artifact** pane, make any needed changes, and select **OK** to close the **Add artifact** pane.
+   - By default, artifacts install in the order you add them. To rearrange the order, select the ellipsis **...** next to the artifact in the **Selected artifacts** list, and select **Move up**, **Move down**, **Move to top**, or **Move to bottom**.
+   - To edit the artifact's parameters, select **Edit** to reopen the **Add artifact** pane.
+   - To delete the artifact from the **Selected artifacts** list, select **Delete**.
 
-### Change the order to run artifacts
+1. When you're done adding and arranging artifacts, select **OK**.
+1. The **Create lab resource** screen shows the number of artifacts added. To add, edit, rearrange, or delete the artifacts before you create the VM, select **Add or Remove Artifacts** again.
 
-By default, artifact actions execute in the order you added them to the VM. To change the order in which the artifacts are run.
+After you create the VM, the installed artifacts appear on the VM's **Artifacts** page. To see details about each artifact's installation, select the artifact name.
 
-1. At the top of the **Apply artifacts** pane, select the link indicating the number of artifacts that have been added to the VM.
-   
-    ![Number of artifacts added to VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. On the **Selected artifacts** pane, drag and drop the artifacts into the desired order. If you have trouble dragging the artifact, make sure that you are dragging from the left side of the artifact. 
-1. Select **OK** when done.  -->
+To install more artifacts on the existing VM:
+
+1. From the VM's **Artifacts** page, select **Apply artifacts**.
+
+   ![Screenshot that shows the Artifacts screen for an existing V M.](media/add-artifact-vm/artifacts.png)
+
+1. On the **Add artifacts** page, select and configure artifacts the same as for a new VM.
+1. When you're done adding artifacts, select **Install**. The artifacts install on the VM immediately.
 
 ## Add artifacts to VMs by using Azure PowerShell
 
@@ -149,7 +152,7 @@ if ($virtualMachine -ne $null) {
 
 ## Next steps
 
-- [Specify mandatory artifacts for your lab](devtest-lab-mandatory-artifacts.md)
+- [Specify mandatory artifacts](devtest-lab-mandatory-artifacts.md)
 - [Create custom artifacts](devtest-lab-artifact-author.md)
 - [Add an artifact repository to a lab](devtest-lab-artifact-author.md)
 - [Diagnose artifact failures](devtest-lab-troubleshoot-artifact-failure.md)

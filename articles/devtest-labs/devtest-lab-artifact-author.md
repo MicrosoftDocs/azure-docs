@@ -1,15 +1,17 @@
 ---
-title: Create custom artifacts for Azure DevTest Labs virtual machines
+title: Create custom artifacts for virtual machines
 description: Learn how to create and use artifacts to deploy and set up applications on DevTest Labs virtual machines.
 ms.topic: how-to
-ms.date: 01/04/2022
+ms.date: 01/11/2022
 ---
 
-# Create custom artifacts for DevTest Labs VMs
+# Create custom artifacts for DevTest Labs
 
-You can add *artifacts* to Azure DevTest Labs virtual machines (VMs). DevTest Labs artifacts specify actions to take to provision a VM. An artifact consists of an artifact definition file and other script files that you store in a folder in a Git repository.
+This article describes how to create custom artifact files for Azure DevTest Labs virtual machines (VMs). DevTest Labs artifacts specify actions to take to provision a VM. An artifact consists of an artifact definition file and other script files that you store in a folder in a Git repository.
 
-This article describes how to create custom artifact files. For information about adding artifacts to VMs, see [Add artifacts to DevTest Labs VMs](add-artifact-vm.md). For information about adding artifact repositories to labs, see [Add an artifact repository to your lab](add-artifact-repository.md).
+- For information about adding the artifacts you create to VMs, see [Add artifacts to DevTest Labs VMs](add-artifact-vm.md).
+- For information about adding artifact repositories to labs, see [Add an artifact repository to your lab](add-artifact-repository.md).
+- For information about specifying mandatory artifacts to be added to all lab VMs, see [Specify mandatory artifacts for DevTest Labs VMs](devtest-lab-mandatory-artifacts.md).
 
 ## Artifact definition files
 
