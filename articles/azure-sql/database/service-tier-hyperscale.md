@@ -1,6 +1,6 @@
 ---
 title: What is the hyperscale service tier? 
-description: This article describes the hyperscale service tier in the vCore-based purchasing model in Azure SQL Database and explains how it's different from the General Purpose and Business Critical service tiers.
+description: This article describes the hyperscale service tier in the vCore-based purchasing model in Azure SQL Database and explains how it's different from the general purpose and business critical service tiers.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service-overview
@@ -10,16 +10,16 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 9/9/2021
+ms.date: 01/20/2022
 ---
 
-# hyperscale service tier
+# Hyperscale service tier
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Azure SQL Database is based on SQL Server Database Engine architecture that is adjusted for the cloud environment in order to ensure 99.99% availability even in the cases of infrastructure failures. There are three architectural models that are used in Azure SQL Database:
 
 - General Purpose/Standard
-- hyperscale
+- Hyperscale
 - Business Critical/Premium
 
 The hyperscale service tier in Azure SQL Database is the newest service tier in the vCore-based purchasing model. This service tier is a highly scalable storage and compute performance tier that leverages the Azure architecture to scale out the storage and compute resources for an Azure SQL Database substantially beyond the limits available for the General Purpose and Business Critical service tiers.
@@ -59,13 +59,13 @@ The hyperscale service tier supports a broad range of SQL Server workloads, from
 > [!IMPORTANT]
 > Elastic pools do not support the hyperscale service tier.
 
-## hyperscale pricing model
+## Hyperscale pricing model
 
 hyperscale service tier is only available in [vCore model](service-tiers-vcore.md). To align with the new architecture, the pricing model is slightly different from General Purpose or Business Critical service tiers:
 
 - **Compute**:
 
-  The hyperscale compute unit price is per replica. The [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) price is applied to high-availabilty and named replicas automatically. We create a primary replica and one secondary [high-availability replica](service-tier-hyperscale-replicas.md) per hyperscale database by default.  Users may adjust the total number of high-availability replicas from 0-4, depending on the needed [SLA](https://azure.microsoft.com/support/legal/sla/azure-sql-database/). 
+  The hyperscale compute unit price is per replica. The [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) price is applied to high-availabilty and named replicas automatically. Users may adjust the total number of high-availability secondary replicas from 0 to 4, depending on [SLA](https://azure.microsoft.com/support/legal/sla/azure-sql-database/) requirements.
 
 - **Storage**:
 
