@@ -574,7 +574,7 @@ After creating your [JSON configuration file](#connector-json-configuration-synt
 
     1. Authenticate to the Azure API. For more information, see [Getting started with REST](/rest/api/azure/).
 
-    1. Invoke an [UPSERT](#upsert) API call to Microsoft Sentinel to deploy your new connector. Your data connector is deployed to your Microsoft Sentinel workspace, and is available on the **Data connectors** page.
+    1. Invoke an UPSERT API call to Microsoft Sentinel to deploy your new connector. Your data connector is deployed to your Microsoft Sentinel workspace, and is available on the **Data connectors** page.
 
     ---
 
@@ -590,7 +590,7 @@ After creating your [JSON configuration file](#connector-json-configuration-synt
 
     # [Connect via API](#tab/connect-via-api)
 
-    Use the [CONNECT](#connect) endpoint to send a PUT method and pass the JSON configuration directly in the body of the message. For more information, see [auth configuration](#auth-configuration).
+    Use the CONNECT endpoint to send a PUT method and pass the JSON configuration directly in the body of the message. For more information, see [auth configuration](#auth-configuration).
 
     Use the following API attributes, depending on the [authType](#authtype) defined. For each `authType` parameter, all listed attributes are mandatory and are string values.
 
@@ -627,7 +627,7 @@ Use one of the following methods:
 
 - **Azure portal**: In your Microsoft Sentinel data connector page, select **Disconnect**.
 
-- **API**: Use the [DISCONNECT](#disconnect) API to send a PUT call with an empty body to the following URL:
+- **API**: Use the DISCONNECT API to send a PUT call with an empty body to the following URL:
 
     ```rest
     https://management.azure.com /subscriptions/{{SUB}}/resourceGroups/{{RG}}/providers/Microsoft.OperationalInsights/workspaces/{{WS-NAME}}/providers/Microsoft.SecurityInsights/dataConnectors/{{Connector_Id}}/disconnect?api-version=2021-03-01-preview
