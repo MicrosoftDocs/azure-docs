@@ -6,7 +6,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/10/2022
+ms.date: 01/11/2022
 ms.author: alkohli 
 ms.custom: devx-track-azurepowershell, contperf-fy22q3
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
@@ -54,11 +54,7 @@ Before you begin, make sure that:
 
 #### Install the CLI locally
 
-<<<<<<< HEAD
-* Install [Azure CLI](/cli/azure/install-azure-cli) version 2.0.67 or later. If you prefer, you may [install using MSI](https://aka.ms/installazurecliwindows) instead.
-=======
 * Install [Azure CLI](/cli/azure/install-azure-cli) version 2.0.67 or later. Or [install using MSI](https://aka.ms/installazurecliwindows) instead.
->>>>>>> 52b3cd2d62da04e8d3e4d17fb44937fd55b4031b
 
 **Sign in to Azure**
 
