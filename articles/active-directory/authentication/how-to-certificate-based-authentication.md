@@ -96,7 +96,7 @@ Only one crlDistributionPoint is supported per CA and it needs to be an http url
   
 ### Remove
 
-To remove a trusted certificate authority, use the [Remove-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/remove-azureadtrustedcertificateauthority) cmdlet:
+To remove a trusted certificate authority, use the [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority.md) cmdlet:
     
 ```powershell
 $c=Get-AzureADTrustedCertificateAuthority    Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2]
