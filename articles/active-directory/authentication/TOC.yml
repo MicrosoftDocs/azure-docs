@@ -186,11 +186,22 @@
     href: howto-password-smart-lockout.md
   - name: Certificate-based authentication
     items:
-    - name: Configure certificate-based authentication
-      href: how-to-certificate-based-authentication.md
-    - name: Get started with certificate auth
-      href: active-directory-certificate-based-authentication-get-started.md
+    - name: Cloud native certificate auth
       items:
+      - name: Overview
+        href: concept-cloud-native-certificate-based-authentication.md
+      - name: Limitations
+        href: concept-cloud-native-certificate-based-authentication-limitations.md
+      - name: Get started
+        href: how-to-certificate-based-authentication.md
+      - name: FAQ
+        href: cloud-native-certificate-based-authentication-faq.yml
+      - name: Troubleshoot
+        href: troubleshoot-cloud-native-certificate-based-authentication.md
+    - name: Certificate auth with federation
+      items:
+      - name: Get started 
+        href: active-directory-certificate-based-authentication-get-started.md
       - name: Use on Android Devices
         href: active-directory-certificate-based-authentication-android.md
       - name: Use on iOS Devices
