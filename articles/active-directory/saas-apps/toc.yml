@@ -185,6 +185,8 @@
         href: askyourteam-tutorial.md
       - name: Asset Bank
         href: assetbank-tutorial.md
+      - name: Asset Planner
+        href: asset-planner-tutorial.md  
       - name: AssetSonar
         href: assetsonar-tutorial.md
       - name: Astra Schedule
@@ -279,6 +281,8 @@
         href: blue-access-for-members-tutorial.md
       - name: BlueJeans
         href: bluejeans-tutorial.md
+      - name: Blue Ocean Brain
+        href: blue-ocean-brain-tutorial.md  
       - name: BeyondTrust Remote Support
         href: bomgarremotesupport-tutorial.md
       - name: Bonusly
@@ -723,6 +727,8 @@
         href: exceed-ai-tutorial.md
       - name: ExcelityGlobal
         href: excelityglobal-tutorial.md
+      - name: Excelity HCM
+        href: excelity-hcm-tutorial.md  
       - name: ExpenseIn
         href: expensein-tutorial.md
       - name: Expensify
@@ -790,6 +796,8 @@
         href: fivetran-tutorial.md  
       - name: Flatter Files
         href: flatter-files-tutorial.md
+      - name: Flexera One
+        href: flexera-one-tutorial.md  
       - name: Float
         href: float-tutorial.md
       - name: Flock
@@ -1136,6 +1144,8 @@
         href: joinme-tutorial.md
       - name: JoinedUp
         href: joinedup-tutorial.md  
+      - name: Jooto
+        href: jooto-tutorial.md  
       - name: JOSA
         href: josa-tutorial.md
       - name: Jostle
