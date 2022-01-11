@@ -51,12 +51,7 @@ To achieve this, organizations should identify and execute quick wins to strengt
 - Improving security hygiene by focusing efforts on attack surface reduction and threat and vulnerability management for assets in their estate. 
 - Implementing Protection, Detection and Response controls for their digital assets that can protect against commodity and advanced threats, provide visibility and alerting on attacker activity and respond to active threats. 
 
-:::image type="content" source="./media/ransomware/ransomware14.png" alt-text="Placeholder Text X":::
-
-
 ## Limit scope of damage
-
-: Protect Privileged Roles (starting with IT Admins)
 
 Ensure you have strong controls (prevent, detect, respond) for privileged accounts like IT Admins and other roles with control of business-critical systems. This slows and/or blocks attackers from gaining complete access to your resources to steal and encrypt them. Taking away the attackers' ability to use IT Admin accounts as a shortcut to resources will drastically lower the chances they are successful at attacking you and demanding payment / profiting.
 
@@ -65,8 +60,6 @@ Organizations should have elevated security for privileged accounts (tightly pro
 - Protect and Monitor Identity Systems
 - Mitigate Lateral Traversal
 - Rapid Threat Response
-
-:::image type="content" source="./media/ransomware/ransomware15.png" alt-text="Placeholder Text X":::
 
 ## Prepare for the worst
 
@@ -84,8 +77,6 @@ Protect backups against deliberate erasure and encryption with offline storage, 
 - Test 'Recover from Zero' Scenario – test to ensure your business continuity / disaster recovery (BC/DR) can rapidly bring critical business operations online from zero functionality (all systems down). Conduct practice exercise(s) to validate cross-team processes and technical procedures, including out-of-band employee and customer communications (assume all email/chat/etc. is down).  
   - IMPORTANT: Protect (or print) supporting documents and systems required for recovery including restoration procedure documents, CMDBs, network diagrams, SolarWinds instances, etc. Attackers destroy these regularly.
 - Reduce on-premises exposure – by moving data to cloud services with automatic backup & self-service rollback.
-
-:::image type="content" source="./media/ransomware/ransomware16.png" alt-text="Placeholder Text X":::
 
 ## Promote awareness and ensure there is no knowledge gap
 
@@ -177,7 +168,7 @@ Built-in backups from Azure services
 
 ## What's Next
 
-See the white paper: [Azure defenses for ransomware attack whitepaper](https://azure.microsoft.com/en-us/resources/azure-defenses-for-ransomware-attack).
+See the white paper: [Azure defenses for ransomware attack whitepaper](https://azure.microsoft.com/resources/azure-defenses-for-ransomware-attack).
 
 Other articles in this series:
 

@@ -144,7 +144,7 @@ For detailed information on how Microsoft secures our cloud, visit the [service 
 
 ## What's Next
 
-See the white paper: [Azure defenses for ransomware attack whitepaper](https://azure.microsoft.com/en-us/resources/azure-defenses-for-ransomware-attack).
+See the white paper: [Azure defenses for ransomware attack whitepaper](https://azure.microsoft.com/resources/azure-defenses-for-ransomware-attack).
 
 Other articles in this series:
 

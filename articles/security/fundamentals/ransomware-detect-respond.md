@@ -78,7 +78,7 @@ Our Rapid Ransomware Recovery services are treated as "Confidential" for the dur
 
 ## What's next
 
-See the white paper: [Azure defenses for ransomware attack whitepaper](https://azure.microsoft.com/en-us/resources/azure-defenses-for-ransomware-attack).
+See the white paper: [Azure defenses for ransomware attack whitepaper](https://azure.microsoft.com/resources/azure-defenses-for-ransomware-attack).
 
 Other articles in this series:
 
