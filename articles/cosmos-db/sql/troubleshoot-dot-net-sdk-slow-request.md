@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix slow requests when using Azure Cosmos
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 06/15/2021
+ms.date: 01/10/2022
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
