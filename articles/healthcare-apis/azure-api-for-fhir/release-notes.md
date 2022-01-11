@@ -29,8 +29,10 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 |Bug fixes |Related information |
 | :----------------------------------- | ---------------: |
 |Fixed 500 error when `SearchParameter` Code is null |Fixed an issue with `SearchParameter` if it had a null value for Code, the result would be a 500. Now it will result in an  `InvalidResourceException` like the other values do. [#2343](https://github.com/microsoft/fhir-server/pull/2343) |
-|`_sort` can cause `ChainedSearch` to return incorrect results |Previously, the sort options from the chained search's `SearchOption` object was not cleared, causing the sorting options to be passed through to the chained sub-search, which are not valid. This could result in no results when there should be results. This bug is now fixed. [#2347](https://github.com/microsoft/fhir-server/pull/2347) |
-|Addresses GitHub bug| [2344](https://github.com/microsoft/fhir-server/issues/2344). |
+|`_sort` can cause `ChainedSearch` to return incorrect results |Previously, the sort options from the chained search's `SearchOption` object was not cleared, causing the sorting options to be passed through to the chained sub-search, which are not valid. This could result in no results when there should be results. This bug is now fixed  [#2347](https://github.com/microsoft/fhir-server/pull/2347), and it is
+addressed in GitHub bug [#2344](https://github.com/microsoft/fhir-server/issues/2344). |
+
+
 
 ## November 2021
 
