@@ -54,7 +54,7 @@ To configure your certificate authorities in Azure Active Directory, for each ce
     class TrustedCAsForPasswordlessAuth    {       CertificateAuthorityInformation[] certificateAuthorities;    }     class CertificateAuthorityInformation     {        CertAuthorityType authorityType;        X509Certificate trustedCertificate;        string crlDistributionPoint;        string deltaCrlDistributionPoint;        string trustedIssuer;        string trustedIssuerSKI;    }     enum CertAuthorityType    {        RootAuthority = 0,        IntermediateAuthority = 1    } 
     ```
 
-For the configuration, you can use the [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2):
+For the configuration, you can use the [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2md):
 
 1. Start Windows PowerShell with administrator privileges.
 1. Install the Azure AD module version [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) or higher:
@@ -67,7 +67,7 @@ As a first configuration step, you need to establish a connection with your tena
 
 ### Connect 
 
-To establish a connection with your tenant, use the [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread) cmdlet:
+To establish a connection with your tenant, use the [Connect-AzureAD](/powershell/module/azuread/connect-azuread.md) cmdlet:
 
 ```powershell
 Connect-AzureAD
@@ -75,7 +75,7 @@ Connect-AzureAD
 
 ### Retrieve
 
-To retrieve the trusted certificate authorities that are defined in your directory, use the [Get-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/get-azureadtrustedcertificateauthority) cmdlet:
+To retrieve the trusted certificate authorities that are defined in your directory, use the [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority.md) cmdlet:
 
 ```powershell
 Get-AzureADTrustedCertificateAuthority
@@ -83,7 +83,7 @@ Get-AzureADTrustedCertificateAuthority
 
 ### Add
 
-To create a trusted certificate authority, use the [New-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/new-azureadtrustedcertificateauthority) cmdlet and set the crlDistributionPoint attribute to a correct value:
+To create a trusted certificate authority, use the [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority.md) cmdlet and set the crlDistributionPoint attribute to a correct value:
 
 ```powershell
 $certificate=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"    $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation    $new_ca.AuthorityType=0    $new_ca.TrustedCertificate=$certificate    $new_ca.crlDistributionPoint="<CRL Distribution URL>"    New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca  
@@ -273,37 +273,14 @@ The date you set must be in the future. If the date is not in the future, the St
 
 ## Confirm certificate revocation checks
 
-Run the [Get-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/get-azureadtrustedcertificateauthority) cmdlet and make sure the CA has a valid http url set in the certificateDistributionPoint attribute.
+Run the [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority.md) cmdlet and make sure the CA has a valid http url set in the certificateDistributionPoint attribute.
 
 ## Turn certificate revocation checking on or off for a particular CA
 
 We highly recommend not to disable CRL checking as you will not have the revocation ability for the certificates. 
 
-However, to disable CRL checking if there are issues with CRL for a particular CA you can modify a trusted certificate authority, use the [Set-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/set-azureadtrustedcertificateauthority) cmdlet:
+However, to disable CRL checking if there are issues with CRL for a particular CA you can modify a trusted certificate authority, use the [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority.md) cmdlet:
 
 ```powershell
 $c=Get-AzureADTrustedCertificateAuthority    	$c[0]. crlDistributionPoint =””   	 Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0] 
 ```
-
-## Frequently asked questions
-
-**Can I have more than one CertificateDistributionPoint for a CA?**
-
-No, only one CDP is supported per CA.
-
-**Can I have non-http URLs for CDP?**
-
-No, CDP supports only http URLs.
-
-**Why do I get an error dialog “Your account or password is incorrect” when I try to do Certificate-based authentication?**
-
-This error happens when we are not able to find a unique user from the certificate fields. Make sure user bindings are set correctly.
-
-**Why do I get an error dialog “Sign-in was blocked due to User Credential Policy” when I use the correct certificate?**
-
-This error happens when the target user is not in scope for the policy. The authentication policy needs to be reviewed to make sure the user is within scope for the policy.
-
-**Will my policy change take effect immediately?**
-
-The policy is cached. After a policy update, it may take up to an hour for the changes to be effective.
- 
