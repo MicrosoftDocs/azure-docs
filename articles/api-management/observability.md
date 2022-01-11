@@ -24,13 +24,13 @@ Azure API Management helps organizations centralize the management of all APIs. 
 
 ## Overview
 
-The table below summarizes all the tools supported by API Management to observe APIs, each is useful for one or more scenarios:
+The table below summarizes all the observability capabilities supported by API Management to operate APIs, each is useful for one or more scenarios:
 
 | Tool        | Useful for    | Data lag | Retention | Sampling | Data kind | Managed Gateway Support | Self-hosted Gateway Support |
 |:------------- |:-------------|:---- |:----|:---- |:--- |:---- |:---- 
 | **[API Inspector](api-management-howto-api-inspector.md)** | Testing and debugging | Instant | Last 100 traces | Turned on per request | Request traces | ✔️, always enabled | ❌ |
 | **Built-in Analytics** | Reporting and monitoring | Minutes | Lifetime | 100% | Reports and logs | ✔️, always enabled | ❌ |
-| **[Azure Monitor Metrics](api-management-howto-use-azure-monitor.md)** | Reporting and monitoring | Minutes | 93 days (upgrade to extend) | 100% | Metrics | ✔️, always enabled | ✔️, optional |
+| **[Azure Monitor Metrics](api-management-howto-use-azure-monitor.md)** | Reporting and monitoring | Minutes | 90 days (upgrade to extend) | 100% | Metrics | ✔️, always enabled | ✔️, optional |
 | **[Azure Monitor Logs](api-management-howto-use-azure-monitor.md)** | Reporting, monitoring, and debugging | Minutes | 31 days/5GB (upgrade to extend) | 100% (adjustable) | Logs | ✔️, optional | ❌ <sup>1</sup> |
 | **[Azure Application Insights](api-management-howto-app-insights.md)** | Reporting, monitoring, and debugging | Seconds | 90 days/5GB (upgrade to extend) | Custom | Logs, metrics | ✔️, optional | ✔️, optional |
 | **[Logging through Azure Event Hub](api-management-howto-log-event-hubs.md)** | Custom scenarios | Seconds | User managed | Custom | Custom | ✔️, optional | ✔️, optional |
