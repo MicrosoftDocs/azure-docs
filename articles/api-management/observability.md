@@ -46,15 +46,17 @@ Here is an overview of what capabilities are supported by every scenario:
 |:----------- |:----------------|:------------------- |:----------|
 | **[API Inspector](api-management-howto-api-inspector.md)** | ✔️ | ❌ | ❌ |
 | **Built-in Analytics** | ✔️ | ❌ | ❌ |
-| **[Azure Monitor Metrics](api-management-howto-use-azure-monitor.md)** | ✔️ | ✔️ <sup>1</sup> |✔️ | ✔️ |
-| **[Azure Monitor Logs](api-management-howto-use-azure-monitor.md)** |✔️<sup>1</sup> | ❌ <sup>2</sup> | ❌ <sup>2</sup> |
+| **[Azure Monitor Metrics](api-management-howto-use-azure-monitor.md)** | ✔️ | ✔️ <sup>2</sup> | ✔️ |
+| **[Azure Monitor Logs](api-management-howto-use-azure-monitor.md)** |✔️<sup>1</sup> | ❌ <sup>3</sup> | ❌ <sup>3</sup> |
 | **[Azure Application Insights](api-management-howto-app-insights.md)** | ✔️<sup>1</sup> | ✔️<sup>1</sup> | ✔️<sup>1</sup> |
 | **[Logging through Azure Event Hub](api-management-howto-log-event-hubs.md)** | ✔️<sup>1</sup> | ✔️<sup>1</sup> | ✔️<sup>1</sup> |
-| **[OpenTelemetry](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md#Introduction-to-OpenTelemetry)** | ❌ | ✔️<sup>1</sup> | ❌ |
+| **[OpenTelemetry](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md#Introduction-to-OpenTelemetry)** | ❌ | ✔️<sup>2</sup> | ❌ |
 
 *1. Optional, depending on the configuration of feature in Azure API Management*
 
-*2. The [self-hosted gateway](self-hosted-gateway-overview.md) currently does not send diagnostic logs to Azure Monitor. However, it is possible to configure and persist logs locally where the self-hosted gateway is deployed. For more information, please see [configuring local metrics and logs for self-hosted gateway](how-to-configure-local-metrics-logs.md)*
+*2. Optional, depending on the configuration of feature in Azure API Management*
+
+*3. The [self-hosted gateway](self-hosted-gateway-overview.md) currently does not send diagnostic logs to Azure Monitor. However, it is possible to configure and persist logs locally where the self-hosted gateway is deployed. For more information, please see [configuring local metrics and logs for self-hosted gateway](how-to-configure-local-metrics-logs.md)*
 
 ## Next Steps
 
