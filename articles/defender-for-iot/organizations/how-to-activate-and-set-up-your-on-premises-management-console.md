@@ -160,7 +160,9 @@ After connecting, you must set up a site with these sensors.
 
 Enable a secured tunneling connection between organizational sensors and the on-premises management console. This setup circumvents interaction with the organizational firewall, and as a result reduces the attack surface.
 
-Using tunneling allows you to connect to the on-premises management console from its IP address and a single port (that is, 9000) to any sensor.
+Using tunneling allows you to connect to the on-premises management console from its IP address and a single port (9000 by default) to any sensor.
+
+:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/tunneling-diagram.png" alt-text="Tunneling diagram for connecting sensors to the on-premises management console":::
 
 **To set up tunneling at the on-premises management console:**
 
@@ -168,26 +170,43 @@ Using tunneling allows you to connect to the on-premises management console from
 
   ```bash
   cyberx-management-tunnel-enable
-  service apache2 reload
-  sudo cyberx-management-tunnel-add-xsense --xsenseuid <sensorIPAddress> --xsenseport 9000
-  service apache2 reload
+  
   ```
 
-**To set up tunneling on the sensor:**
+Allow a few minutes for the connection to initiate.
 
-1. Open TCP port 9000 on the sensor (network.properties) manually. If the port is not open, the sensor will reject the connection from the on-premises management console.
+You can also customize the port range to a number other than 9000 for example. 10000.
 
-2. Sign in to each sensor and run the following commands:
+**To use a new port:**
 
-   ```bash
-   sudo cyberx-xsense-management-connect -ip <on-premises management console IP Address> -token < Copy the string that appears after the IP colon (:) from the Connection String field, Management Console Connection dialog box>
-   sudo cyberx-xsense-management-tunnel
-   sudo vi /var/cyberx/properties/network.properties
-   opened_tcp_incoming_ports=22,80,443,9000
-   sudo cyberx-xsense-network-validation
-   sudo /etc/network/if-up.d/iptables-recover
-   sudo iptables -nvL
-   ```
+- Sign in to the on-premises management console and run the following command:
+
+  ```bash
+  sudo cyberx-management-tunnel-enable --port 10000
+  
+  ```
+
+Disable th connection, when required.
+
+**To disable:**
+
+- Sign in to the on-premises management console and run the following command:
+
+  ```bash
+  cyberx-management-tunnel-disable
+  
+  ```
+
+No configuration is needed on the sensor.
+
+**Log files**
+
+Review log information in the log files.
+
+**To access log files:**
+
+1. Log into the On-premises management console and go to: /var/log/apache2.log
+1. Log into the the sensor and go to: /var/cyberx/logs/tunnel.log
 
 ## Set up a site
 
