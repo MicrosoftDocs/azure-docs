@@ -2,10 +2,10 @@
 title: Purview Asset Management Processes 
 description: This article provides process and best practice guidance to effectively manage the lifecycle of assets in the Purview catalog
 author: Jubairp
-ms.author: Jubairp
+ms.author: jubairpatel
 ms.service: purview
 ms.topic: conceptual
-ms.date: 06/01/2022
+ms.date: 01/06/2022
 ---
 
 # Business processes for managing data effectively
@@ -64,7 +64,7 @@ This process describes the high-level steps and suggested roles to capture and m
 | 2 | [How to create and manage collections](how-to-create-and-manage-collections.md)
 | 3 & 4 | [Understand Purview access and permissions](catalog-permissions.md)
 | 5 | [Purview connector overview](purview-connector-overview.md) <br> [Purview private endpoint networking](catalog-private-link.md) |
-| 6 | [How to manage multi-cloud data sources](manage-data-source.md)
+| 6 | [How to manage multi-cloud data sources](manage-data-sources.md)
 | 7 | [Best practices for scanning data sources in Purview](concept-best-practices-scanning.md)
 | 8, 9 & 10 | [Search the data catalog](how-to-search-catalog.md)  <br>   [Browse the data catalog](how-to-browse-catalog.md)
 
@@ -124,7 +124,7 @@ Asset Metadata may need to be deleted manually for many reasons:
 > [!Note]
 > Before deleting assets, please refer to the how-to guide to review considerations: [How to delete assets](catalog-asset-details.md#deleting-assets)
 
-:::image type="content" source="media/concept-best-practices/assets-deleting-asset-metadata.png" alt-text="Business Process 2 - Maintaining glossary and classifications"lightbox="media/concept-best-practices/assets-deleting-asset-metadata.png" border="true":::
+:::image type="content" source="media/concept-best-practices/assets-deleting-asset-metadata.png" alt-text="Business Process 4 - Deleting Assets in Purview"lightbox="media/concept-best-practices/assets-deleting-asset-metadata.png" border="true":::
 
 ### Process Guidance
 
@@ -136,7 +136,8 @@ Asset Metadata may need to be deleted manually for many reasons:
 | 5 | [How to view, edit and delete assets](catalog-asset-details.md#deleting-assets) 
 | 6 | [Scanning best practices](concept-best-practices-scanning.md)
 
-> [!Note] <li>	Deleting a collection, registered source or scan from Purview does not delete all associated asset metadata. <li>  It is not possible to bulk delete asset metadata using the Purview Portal <li>	Deleting the asset metadata does not delete all associated lineage or other relationship data (for example, glossary or classification assignments) about the asset from the data map. The asset information and relationships will no longer be visible in the portal. 
+> [!Note] 
+> <li> Deleting a collection, registered source or scan from Purview does not delete all associated asset metadata. <li>  It is not possible to bulk delete asset metadata using the Purview Portal <li>	Deleting the asset metadata does not delete all associated lineage or other relationship data (for example, glossary or classification assignments) about the asset from the data map. The asset information and relationships will no longer be visible in the portal. 
 
 ## Next steps
 - [Azure Purview accounts architectures and best practices](concept-best-practices-accounts.md)
