@@ -53,4 +53,4 @@ You can use any combination of plain text, Markdown syntax, and HTML content on 
 ## Next steps
 
 - Learn more about [creating dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md).
-- Learn how to [share a dashboard by using Azure role-based access control](../azure-portal/azure-portal-dashbaord-share-access.md).
+- Learn how to [share a dashboard by using Azure role-based access control](azure-portal-dashboard-share-access.md).
