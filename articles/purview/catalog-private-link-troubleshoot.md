@@ -12,6 +12,7 @@ ms.date: 01/10/2022
 
 # Troubleshooting private endpoint configuration for Purview accounts
 
+
 This guide summarizes known limitations related to using private endpoints for Azure Purview and provides a list of steps and solutions for troubleshooting some of the most common relevant issues. 
 
 ## Known limitations
