@@ -3,7 +3,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: databox   
 ms.topic: include
-ms.date: 01/10/2022
+ms.date: 01/11/2022
 ms.author: alkohli
 ms.custom: contperf-fy22q3
 ---
@@ -59,13 +59,13 @@ Do the following steps in the Azure portal to order a device:
 
 7. On the **Data destination** screen, select the **Data destination** - either storage accounts or managed disks.
 
-    See the steps below to [use storage accounts](#to-use-storage-accounts) or [use managed disks](#to-use-managed-disks). The **Data destination** screen changes based on your selection.
+    The **Data destination** tab changes based on the destination you select. See either [To use storage accounts](#to-use-storage-accounts) or [To use managed disks](#to-use-managed-disks), below, for instructions.
 
     #### To use storage accounts
 
     If using **storage account(s)** as the storage destination, you see the following screen.
 
-    ![Screenshot of the Data Destination screen for a Data Box order with a Storage Accounts destination. The Storage Accounts destination and the Enable button are highlighted.](media/data-box-order-portal/data-box-import-06.png)
+    ![Screenshot of the Data Destination screen for a Data Box order with a Storage Accounts destination. The Storage Accounts destination and the Enable button are highlighted.](media/data-box-order-portal/data-box-import-06.png)<!--New or edit? Crop to storage accounts.-->
 
     Based on the specified Azure region, select one or more storage accounts from the filtered list of existing storage accounts. Your Data Box can be linked with up to 10 storage accounts. You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**.
 
@@ -73,20 +73,15 @@ Do the following steps in the Azure portal to order a device:
 
       This quota is used for billing. After your data is uploaded to the datacenter, you should adjust the quota to meet your needs. For more information, see [Understanding billing](../articles/storage/files/understanding-billing.md).
 
-    - If you're using a **General Purpose v1** or **General Purpose v2** storage account, you can enable large file shares to allow data copies of up to 100 TiB per share. If large file shares aren't enabled, a data copy at Azure will fail once the 5-TB standard share limit is reached.
-    
-    **To enable large file shares on your storage accounts:** 
+    - If you're using a **General Purpose v1** or **General Purpose v2** storage account, you can enable large file shares to allow data copies of up to 100 TiB per share. If large file shares aren't enabled, a data copy at Azure will fail once the 5-TiB standard share limit is reached.
 
-    Select **Enable**. Then, on the **Enable large file shares** screen:
+      If you select a General Purpose v1 or v2 storage account that supports Azure file shares and doesn't have large file shares enabled, you'll see the following option. If you want to enable large file shares, select **Enable large file shares**, and then enable large file shares on that storage account. Enabling large file shares is a storage account upgrade. You can't reverse the upgrade after you place your order. The **Enable large file shares** screen links to more information.
 
-    1. Select the **Enabled** button for each storage account that you want to enable large file shares enabled on.
-    1. Select the checkbox indicating that you agree to enable large file shares on the selected storage accounts. The storage account upgrade can't be reversed after you place your order.
-    1. Select **Apply**.
-
-    ![Screenshot of the Enable Large File Shares screen for a Data Box order using storage accounts. The Enabled button, terms checkbox, and Apply button are highlighted.](media/data-box-order-portal/data-box-import-07.png)
+      ![Screenshot of the Enable option for for a Data Box order that will import files to storage accounts. The Enabled button is highlighted.](media/data-box-order-portal/data-box-import-07.png)
 
     > [!NOTE]
     > Storage accounts with virtual networks are supported. To allow the Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings. For more information, see how to [Add Azure Data Box as a trusted service](../articles/storage/common/storage-network-security.md#exceptions).
+
 
     #### To use managed disks
 
