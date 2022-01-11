@@ -60,7 +60,7 @@ Example: `vimNetworkSessionSysmonLinux`
 - Update a source-specific parser to resolve parsing and normalization issues.
 - Use a source-specific parser for source-specific analytics.
 
-#### ASimNetworkSession\<vendor\>\<product\>>
+#### ASimNetworkSession\<vendor\>\<product\>
 
 Source-specific parsers implement normalization for a specific source.
 
