@@ -51,7 +51,8 @@ Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.mi
 > Windows Server 2008 R2 requires the .NET Framework 4.5 to be installed for encryption; install it from Windows Update with the optional update Microsoft .NET Framework 4.5.2 for Windows Server 2008 R2 x64-based systems ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  
 >  
 > Windows Server 2012 R2 Core and Windows Server 2016 Core requires the bdehdcfg component to be installed on the VM for encryption.
-
+> 
+> Windows Multi-Session images using FxLogix or other profile data managment tools are not supported
 
 ## Networking requirements
 To enable Azure Disk Encryption, the VMs must meet the following network endpoint configuration requirements:
