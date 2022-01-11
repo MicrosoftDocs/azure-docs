@@ -50,7 +50,7 @@ Additionally, choose the appropriate **Platform Type** which specifies the type 
 
 In the **Resources** tab, add the resources (virtual machines, virtual machine scale sets, Arc for servers) that should have the Data Collection Rule applied. The Azure Monitor Agent will be installed on resources that don't already have it installed, and will enable Azure Managed Identity as well.
 
-### Private link configuration using data collection endpoints
+### Private link configuration using data collection endpoints (preview)
 If you need network isolation using private links for collecting data using agents from your resources, simply select existing endpoints (or create a new endpoint) from the same region for the respective resource(s) as shown below. See [how to create data collection endpoint](./data-collection-endpoint-overview.md).
 
 [![Data Collection Rule virtual machines](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-dce.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-dce.png#lightbox)

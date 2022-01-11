@@ -1,5 +1,5 @@
 ---
-title: Data Collection Endpoints in Azure Monitor 
+title: Data Collection Endpoints in Azure Monitor (preview)
 description: Overview of data collection endpoints (DCEs) in Azure Monitor including their contents and structure and how you can create and work with them.
 ms.topic: conceptual
 author: shseth
@@ -9,7 +9,7 @@ ms.custom: references_region
 
 ---
 
-# Data collection endpoints in Azure Monitor 
+# Data collection endpoints in Azure Monitor (preview)
 Data Collection Endpoints (DCEs) allow you to uniquely configure ingestion settings for your machines, giving you greater control over your networking requirements. This article provides an overview of data collection endpoints including their contents and structure and how you can create and work with them.
 
 ## Components of a data collection endpoint
