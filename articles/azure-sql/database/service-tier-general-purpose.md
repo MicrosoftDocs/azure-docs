@@ -51,7 +51,7 @@ The following table shows resource limits for both Azure SQL Database and Azure 
 | **Storage size** | 1 GB - 4 TB | 2 GB - 16 TB| 
 | **Tempdb size** | [32 GB per vCore](resource-limits-vcore-single-databases.md) | [24 GB per vCore](../managed-instance/resource-limits.md#service-tier-characteristics) |
 | **Log write throughput** | Single databases: [4.5 MB/s per vCore (max 50 MB/s)](resource-limits-vcore-single-databases.md) <br> Elastic pools: [6 MB/s per vCore (max 62.5 MB/s)](resource-limits-vcore-elastic-pools.md) | [3 MB/s per vCore (max 22 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics)|
-| **Availability** | [Default SLA](https://azure.microsoft.com/en-us/support/legal/sla/azure-sql-database/)  | [Default SLA](https://azure.microsoft.com/en-us/support/legal/sla/azure-sql-sql-managed-instance/)|
+| **Availability** | [Default SLA](https://azure.microsoft.com/support/legal/sla/azure-sql-database/)  | [Default SLA](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance/)|
 | **Backups** | 1-35 days (7 days by default) | 1-35 days (7 days by default)| 
 | **Read-only replicas** | 0 built-in </br> 0 - 4 using [geo-replication](active-geo-replication-overview.md) | 0 built-in </br> 0 - 1 using [auto-failover groups](auto-failover-group-overview.md#best-practices-for-sql-managed-instance) | 
 | **Pricing/Billing** | [vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/single/) are charged. <br/>IOPS is not charged.| [vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/managed/) is charged. <br/>IOPS is not charged. | 

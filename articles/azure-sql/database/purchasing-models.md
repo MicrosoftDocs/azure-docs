@@ -21,59 +21,35 @@ Azure SQL Database lets you easily purchase a fully managed platform as a servic
 - [Virtual core (vCore)-based purchasing model](service-tiers-sql-database-vcore.md) (recommended). This purchasing model provides a choice between a provisioned compute tier and a serverless compute tier. With the provisioned compute tier, you choose the exact amount of compute resources that are always provisioned for your workload. With the serverless compute tier, you specify the autoscaling of the compute resources over a configurable compute range. The serverless compute tier automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns. The vCore unit price per unit of time is lower in the provisioned compute tier than it is in the serverless compute tier. The [hyperscale service tier](service-tier-hyperscale.md) is available for single databases that are using the [vCore-based purchasing model](service-tiers-vcore.md).
 - [Database transaction unit (DTU)-based purchasing model](service-tiers-dtu.md). This purchasing model provides bundled compute and storage packages balanced for common workloads.
 
-## vCore purchasing model
+## Purchasing models
 
 There are two purchasing models:
 
 - [vCore-based purchasing model](service-tiers-vcore.md) is available for both [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). The [hyperscale service tier](service-tier-hyperscale.md) is available for single databases that are using the [vCore-based purchasing model](service-tiers-vcore.md).
 - [DTU-based purchasing model](service-tiers-dtu.md) is available for [Azure SQL Database](single-database-manage.md).
 
-The following table and chart compare and contrast the vCore-based and the DTU-based purchasing models:
+The following table and chart compares and contrasts the vCore-based and the DTU-based purchasing models:
 
 |**Purchasing model**|**Description**|**Best for**|
 |---|---|---|
-|DTU-based|This model is based on a bundled measure of compute, storage, and I/O resources. Compute sizes are expressed in DTUs for single databases and in elastic database transaction units (eDTUs) for elastic pools. For more information about DTUs and eDTUs, see [What are DTUs and eDTUs?](purchasing-models.md#dtu-based-purchasing-model).|Customers who want simple, preconfigured resource options|
+|DTU-based|This model is based on a bundled measure of compute, storage, and I/O resources. Compute sizes are expressed in DTUs for single databases and in elastic database transaction units (eDTUs) for elastic pools. For more information about DTUs and eDTUs, see [What are DTUs and eDTUs?](purchasing-models.md#dtu-purchasing-model).|Customers who want simple, preconfigured resource options|
 |vCore-based|This model allows you to independently choose compute and storage resources. The vCore-based purchasing model also allows you to use [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) for SQL Server to save costs.|Customers who value flexibility, control, and transparency|
 ||||  
 
-![Pricing model comparison](./media/purchasing-models/pricing-model.png)
+:::image type="content" source="./media/purchasing-models/pricing-model.png" alt-text="Pricing model comparison" lightbox="./media/purchasing-models/pricing-model.png":::
 
-## Compute costs
 
-### Provisioned compute costs
-
-In the provisioned compute tier, the compute cost reflects the total compute capacity that is provisioned for the application.
-
-In the Business Critical service tier, we automatically allocate at least three replicas. To reflect this additional allocation of compute resources, the price in the vCore-based purchasing model is approximately 2.7 times higher in the Business Critical service tier than it is in the General Purpose service tier. Likewise, the higher storage price per GB in the Business Critical service tier reflects the higher IO limits and lower latency of the SSD storage.
-
-The cost of backup storage is the same for the Business Critical service tier and the General Purpose service tier because both tiers use standard storage for backups.
-
-### Serverless compute costs
-
-For a description of how compute capacity is defined and costs are calculated for the serverless compute tier, see [SQL Database serverless tier](serverless-tier-overview.md).
-
-## Storage costs
-
-Different types of storage are billed differently. For data storage, you're charged for the provisioned storage based upon the maximum database or pool size you select. The cost doesn't change unless you reduce or increase that maximum. Backup storage is associated with automated backups of your instance and is allocated dynamically. Increasing your backup-retention period increases the backup storage that's consumed by your instance.
-
-By default, seven days of automated backups of your databases are copied to a read-access geo-redundant storage (RA-GRS) standard Blob storage account. This storage is used by weekly full backups, daily differential backups, and transaction log backups, which are copied every five minutes. The size of the transaction logs depends on the rate of change of the database. A minimum storage amount equal to 100 percent of the database size is provided at no extra charge. Additional consumption of backup storage is charged in GB per month.
-
-For more information about storage prices, see the [pricing](https://azure.microsoft.com/pricing/details/sql-database/single/) page.
-
-## vCore-based purchasing model
+## vCore purchasing model
 
 A virtual core (vCore) represents a logical CPU and offers you the option to choose between generations of hardware and the physical characteristics of the hardware (for example, the number of cores, the memory, and the storage size). The vCore-based purchasing model gives you flexibility, control, transparency of individual resource consumption, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to choose compute, memory, and storage resources based on your workload needs.
 
 In the vCore-based purchasing model for SQL Database, you can choose between the general purpose and business critical service tiers. Review [service tiers](service-tiers-sql-database-vcore.md#service-tiers) to learn more.  For single databases, you can also choose the [hyperscale service tier](service-tier-hyperscale.md).
 
-The vCore-based purchasing model lets you independently choose compute and storage resources, match on-premises performance, and optimize price. In the vCore-based purchasing model, you pay for:
+In the vCore-based purchasing model, you pay for:
 
 - Compute resources (the service tier + the number of vCores and the amount of memory + the generation of hardware).
 - The type and amount of data and log storage.
 - Backup storage.
-
-> [!IMPORTANT]
-> For single databases, compute resources, I/O, and data and log storage are charged per database. For elastic pools, these resources are charged per pool. However, backup storage is always charged per database.
 
 
 ## DTU purchasing model
@@ -84,20 +60,6 @@ In the DTU-based purchasing model, you can choose between the basic, standard, a
 
 
 To convert from the DTU-based purchasing model to the vCore-based purchasing model, see [Migrate from DTU to vCore](migrate-dtu-to-vcore.md).
-
-## Compare purchasing models
-
-
-The following table and chart compare and contrast the vCore-based and the DTU-based purchasing models:
-
-|**Purchasing model**|**Description**|**Best for**|
-|---|---|---|
-|DTU-based|This model is based on a bundled measure of compute, storage, and I/O resources. Compute sizes are expressed in DTUs for single databases and in elastic database transaction units (eDTUs) for elastic pools. For more information about DTUs and eDTUs, see [What are DTUs and eDTUs?](purchasing-models.md#dtu-purchasing-model).|Customers who want simple, preconfigured resource options|
-|vCore-based|This model allows you to independently choose compute and storage resources. The vCore-based purchasing model also allows you to use [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) for SQL Server to save costs.|Customers who value flexibility, control, and transparency|
-||||  
-
-:::image type="content" source="./media/purchasing-models/pricing-model.png" alt-text="Pricing model comparison" lightbox="./media/purchasing-models/pricing-model.png":::
-
 
 
 ## Compute costs
@@ -110,11 +72,11 @@ In the DTU purchasing model, DTUs are offered in preconfigured bundles of comput
 
 ### vCore compute costs 
 
-In the vCore-based purchasing model, the compute cost reflects the total compute capacity that is provisioned for the application. Choose the resource allocation that suits your application, and scale up and down as your workload requires. 
+In the vCore-based purchasing model, choose between the provisioned compute tier, or the [serverless compute tier](serverless-tier-overview.md). In the provisioned compute tier, the compute cost reflects the total compute capacity that is provisioned for the application. In the serverless compute tier, compute resources are auto-scaled based on workload capacity and billed for the amount of compute used, per second. 
 
-Since three additional replicas are automatically allocated in the business critical service tier, the price is approximately 2.7 times higher than it is in the general purpose service tier. Likewise, the higher storage price per GB in the business critical service tier reflects the higher IO limits and lower latency of the SSD storage.
+For single databases, compute resources, I/O, and data and log storage are charged per database. For elastic pools, these resources are charged per pool. However, backup storage is always charged per database.
 
-The vCore purchasing model also offers a serverless option, which calculates compute costs differently. For a description of how compute capacity is defined and costs are calculated for the serverless compute tier, see [SQL Database serverless tier](serverless-tier-overview.md).
+Since three additional replicas are automatically allocated in the business critical service tier, the price is approximately 2.7 times higher than it is in the general purpose service tier. Likewise, the higher storage price per GB in the business critical service tier reflects the higher IO limits and lower latency of the local SSD storage.
 
 ## Storage costs
 

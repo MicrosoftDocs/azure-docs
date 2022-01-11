@@ -22,7 +22,9 @@ This article provides a brief overview of the vCore purchasing model used by bot
 [!INCLUDE [vcore-overview](../includes/vcore-overview.md)]
 
 
-In the case of Azure SQL Database, vCore purchasing model provides higher compute, memory, I/O, and storage limits than the DTU model.
+The vCore purchasing model provides transparency in the hardware details that power compute, control over the hardware generation, higher scaling granularity, and pricing discounts with the [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md) and [Reserved Instance (RI)](../database/reserved-capacity-overview.md).
+
+In the case of Azure SQL Database, the vCore purchasing model provides higher compute, memory, I/O, and storage limits than the DTU model.
 
 ## Service tiers
 
@@ -58,10 +60,8 @@ The following factors affect the amount of storage used for data and log files, 
 - When you configure maximum data size, an additional 30 percent of billable storage is automatically added for the log file.
 - In the general purpose service tier, `tempdb` uses local SSD storage, and this storage cost is included in the vCore price.
 - In the business critical service tier, `tempdb` shares local SSD storage with data and log files, and `tempdb` storage cost is included in the vCore price.
+- In the general purpose and business critical tiers, you are charged for the maximum storage size configured for a database, elastic pool, or managed instance.
 - For SQL Database, you can select any maximum data size between 1 GB and the supported storage size maximum, in 1 GB increments. For SQL Managed Instance, select data sizes in multiples of 32 GB up to the supported storage size maximum. 
-
-> [!IMPORTANT]
-> In the general purpose and business critical tiers, you are charged for the maximum storage size configured for a database, elastic pool, or managed instance. In the hyperscale tier, you are charged for the allocated data storage.
 
 To monitor the current allocated and used data storage size in SQL Database, use the *allocated_data_storage* and *storage* Azure Monitor [metrics](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases) respectively. 
 

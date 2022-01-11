@@ -18,18 +18,19 @@ ms.custom: ignite-fall-2021
 > * [Azure SQL Database](../database/service-tiers-sql-database-vcore.md)
 > * [Azure SQL Managed Instance](service-tiers-managed-instance-vcore.md)
 
-This article reviews the [vCore purchasing model](service-tiers-vcore.md) for [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). 
+This article reviews the [vCore purchasing model](../database/service-tiers-vcore.md) for [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). 
 
 ## Overview
 
 [!INCLUDE [vcore-overview](../includes/vcore-overview.md)]
 
-The virtual core (vCore) purchasing model used by Azure SQL Managed Instance has the following characteristics:
+The virtual core (vCore) purchasing model used by Azure SQL Managed Instance provides the following benefits: 
 
 - Control over the hardware generation to better match the compute and memory requirements of the workload.
 - Pricing discounts for [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md) and [Reserved Instance (RI)](../database/reserved-capacity-overview.md).
-- Greater transparency in the hardware details that power the compute, that facilitates planning for migrations from on-premises deployments.
-- [Reserved instance pricing](../database/reserved-capacity-overview.md) is only available for vCore purchasing model. 
+- Greater transparency in the hardware details that power compute, helping facilitate planning for migrations from on-premises deployments.
+- Higher scaling granularity with multiple compute sizes available.
+
 
 ## <a id="compute-tiers"></a>Service tiers
 
@@ -47,7 +48,7 @@ For more details, review [resource limits](resource-limits.md).
 |||
 
 > [!NOTE]
-> For more information on the Service Level Agreement (SLA), see [SLA for Azure SQL Managed Instance](https://azure.microsoft.com/en-us/support/legal/sla/azure-sql-sql-managed-instance/). 
+> For more information on the Service Level Agreement (SLA), see [SLA for Azure SQL Managed Instance](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance/). 
 
 ### Choosing a service tier
 
