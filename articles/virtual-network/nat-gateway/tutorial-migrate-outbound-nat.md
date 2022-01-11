@@ -159,7 +159,7 @@ In this article, you learned how to:
 
 * Migrate default outbound access to a NAT gateway.
 
-* Migrate an outbound rule and outbound frontend IP address to a NAT gateway.
+* Migrate load balancer outbound connectivity and IP address to a NAT gateway.
 
 For more information about NAT gateway and the connectivity benefits it provides, see [Design virtual networks with NAT gateway](nat-gateway-resource.md).
 
