@@ -623,6 +623,8 @@
         href: drift-tutorial.md
       - name: Dropbox Business
         href: dropboxforbusiness-tutorial.md
+      - name: DRTrack
+        href: drtrack-tutorial.md  
       - name: Druva
         href: druva-tutorial.md
       - name: Dynamic Signal
@@ -796,6 +798,8 @@
         href: fivetran-tutorial.md  
       - name: Flatter Files
         href: flatter-files-tutorial.md
+      - name: Flexera One
+        href: flexera-one-tutorial.md  
       - name: Float
         href: float-tutorial.md
       - name: Flock
