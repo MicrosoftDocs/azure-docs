@@ -55,34 +55,28 @@ There are several API Management service endpoints to which you can assign a cus
 
 ## Domain certificate options
 
-The following table lists the options to add domain certificates in API Management:
-
-|Option|Description|
-|-|-|
-| Upload a [custom certificate](#custom-certificate) | If you already have a private certificate from a third-party provider, you can upload it to your API Management instance.  |
-| Import a [certificate from Key Vault](#key-vault-certificate) | Useful if you use [Azure Key Vault](../key-vault/index.yml) to manage your PKCS12 certificates. |
-| Enable a free [managed TLS certificate](#managed-tls-certificate) (preview) | API Management can configure and manage a certificate free of charge if you just need to secure your Gateway domain in your API Management service. |
+API Management supports custom TLS certificates or certificates imported from Azure Key Vault. You can also enable a free, managed certificate.
 
 > [!WARNING]
-> If you wish to improve the security of your applications with certificate pinning, you should use a custom domain name and a certificate that you manage, not the default certificate or the free managed certificate. We don't recommend taking a hard dependency on a certificate that you don't manage.
+> If you wish to improve the security of your applications with certificate pinning, you should use a custom domain name and either a custom or Key Vault certificate, not the default certificate or the free, managed certificate. We don't recommend taking a hard dependency on a certificate that you don't manage.
 
-# <a name="Custom certificate"></a>[Custom](#tab/custom)
+# [Custom](#tab/custom)
 
-If you choose to upload or import a private certificate to API Management, your certificate must meet the following requirements. If you use a free certificate managed by API Management, it already meets these requirements.
+If you already have a private certificate from a third-party provider, you can upload it to your API Management instance. It must meet the following requirements. (If you enable the free certificate managed by API Management, it already meets these requirements.)
 
 * Exported as a PFX file, encrypted using triple DES, and optionally password protected.
 * Contains private key at least 2048 bits long
 * Contains all intermediate certificates and the root certificate in the certificate chain.
 
-# <a name="Key vault certificate"></a>[Key Vault](#tab/key-vault)
+# [Key Vault](#tab/key-vault)
 
-We recommend using [Azure Key Vault for managing certificates](../key-vault/certificates/about-certificates.md) and setting them to `autorenew`.
+We recommend using Azure Key Vault to [manage your certificates](../key-vault/certificates/about-certificates.md) and setting them to `autorenew`.
 
-If you use Azure Key Vault to manage a custom domain TLS/SSL certificate, make sure the certificate is inserted into Key Vault [as a _certificate_](/rest/api/keyvault/createcertificate/createcertificate), not a _secret_.
+If you use Azure Key Vault to manage a custom domain TLS certificate, make sure the certificate is inserted into Key Vault [as a _certificate_](/rest/api/keyvault/createcertificate/createcertificate), not a _secret_.
 
 To fetch a TLS/SSL certificate, API Management must have the list and get secrets permissions on the Azure Key Vault containing the certificate. 
-* When using the Azure portal to import the certificate, all the necessary configuration steps are completed automatically. 
-* When using command-line tools or management API, these permissions must be granted manually, in two steps:
+* When you use the Azure portal to import the certificate, all the necessary configuration steps are completed automatically. 
+* When you use command-line tools or management API, these permissions must be granted manually, in two steps:
     1. On the **Managed identities** page of your API Management instance, enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md). Note the principal Id on that page. 
     1. Give the list and get secrets permissions to this principal Id on the Azure Key Vault containing the certificate.
 
@@ -90,7 +84,7 @@ If the certificate is set to `autorenew` and your API Management tier has an SLA
 
 For more information, see [Use managed identities in Azure API Management](api-management-howto-use-managed-service-identity.md).    
 
-# <a name="Managed TLS certificate"></a>[Managed](#tab/managed)
+# [Managed](#tab/managed)
 
 API Management offers a free, managed TLS certificate for your domain, if you don't wish to purchase and manage your own certificate. The certificate is autorenewed automatically.
 
@@ -103,6 +97,7 @@ API Management offers a free, managed TLS certificate for your domain, if you do
 * Not supported in the following Azure regions: France South and South Africa West
 * Currently available only in the Azure cloud
 * Does not support root domain names (for example, `contoso.com`). Requires a fully qualified name such as `api.contoso.com`.
+---
 
 ## Set a custom domain name - portal
 
