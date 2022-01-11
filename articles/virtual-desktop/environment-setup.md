@@ -36,13 +36,13 @@ By default, a desktop app group (named "Desktop Application Group") is automatic
 
 To publish resources to users, you must assign them to app groups. When assigning users to app groups, consider the following things:
 
-- You should not assign both RemoteApp and desktop app groups published to a single host pool to the same user. Doing so will cause a single user to have 2 user sessions in a single host pool which is not supported and may have any one or more of the following consequences:
-    - Session hosts will become overloaded
-    - Logon hang
-    - Connection failure
-    - Black screen
-    - Application crashes
-    - Bad end user experience and session performance
+- We don't recommend assigning both the RemoteApp and desktop app groups in a single host pool to the same user. Doing so will cause a single user to have two user sessions in a single host pool. Users aren't supposed to have two active user sessions at the same time, as this can cause the following things to happen:
+    - The session hosts become overloaded
+    - Users get stuck when trying to login
+    - Connections won't work
+    - The screen turns black
+    - The application crashes
+    - Other negative effects on end-user experience and session performance
 - A user can be assigned to multiple app groups within the same host pool, and their feed will be an accumulation of both app groups.
 
 ## Workspaces
