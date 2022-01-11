@@ -36,6 +36,7 @@ Person Name bloom filter has been prepared using the below two datasets.
 
 > [!NOTE]
 > Azure Purview classifies columns only when the data contains first/last names. Azure Purview doesn't classify columns that contain full names.
+
 -------------------------------------
 
 ## RegEx Classifications
@@ -157,6 +158,7 @@ No
 -------------------------------------
 
 ## Australia business number
+
 This sensitive information type is only available for use in:
 - data loss prevention policies
 - communication compliance policies
@@ -12474,7 +12476,7 @@ Not applicable
 
 -------------------------------------
 
-## U.S. zipCode
+## U.S. zipcode
 
 ### Format
 Five digit U.S. Zip code and an optional 4 digit code separated by a hyphen (-).
