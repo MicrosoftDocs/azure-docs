@@ -796,6 +796,8 @@
         href: fivetran-tutorial.md  
       - name: Flatter Files
         href: flatter-files-tutorial.md
+      - name: Flexera One
+        href: flexera-one-tutorial.md  
       - name: Float
         href: float-tutorial.md
       - name: Flock
