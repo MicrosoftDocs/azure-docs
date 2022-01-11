@@ -11,5 +11,5 @@ ms.date: 06/11/2021
 ms.author: pafarley
 ---
 
-> [!CAUTION]
+> [!IMPORTANT]
 > The Content Moderator Review Tool was retired on 12/31/2021.
