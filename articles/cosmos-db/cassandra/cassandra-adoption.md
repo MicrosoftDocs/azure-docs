@@ -11,49 +11,47 @@ ms.date: 11/30/2021
 ---
 
 # From Apache Cassandra to Cassandra API
+
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
-Azure Cosmos DB Cassandra API provides wire protocol level compatibility with existing Cassandra SDKs and tools. This compatibility makes it possible to run applications designed to connect to Apache Cassandra with Cassandra API, with minimal changes. However, there are some important differences between Apache Cassandra and Azure Cosmos DB. 
+The Azure Cosmos DB Cassandra API provides wire protocol compatibility with existing Cassandra SDKs and tools. API compatibility means you can run applications that are designed to connect to Apache Cassandra by using the Cassandra API with minimal changes. However, when you use the Cassandra API, it's important to be aware of some key differences between Apache Cassandra and Azure Cosmos DB.
 
-This article is aimed at users who are familiar with native [Apache Cassandra](https://cassandra.apache.org/), and are considering moving to Azure Cosmos DB Cassandra API. Consider this article a checklist to help you adopt Cassandra API successfully.  
-
+This article is a checklist to help users who are familiar with native [Apache Cassandra](https://cassandra.apache.org/) successfully begin using the Azure Cosmos DB Cassandra API.
 
 ## Feature support
 
-While Cassandra API supports a large surface area of Apache Cassandra features, there are some features which are not supported (or have limitations). Review our article [features supported by Azure Cosmos DB Cassandra API](cassandra-support.md) to ensure the features you need are supported. 
+Although Cassandra API supports a large surface area of Apache Cassandra features, some features aren't supported or have limitations. Before you migrate, be sure that the [Azure Cosmos DB Cassandra API features](cassandra-support.md) you need are supported.
 
 ## Replication (migration)
 
-Although you can communicate with Cassandra API through the CQL Binary Protocol v4 wire protocol, Cosmos DB implements its own internal replication protocol. This means that live migration/replication cannot be achieved through the Cassandra gossip protocol. Review our article on how to [live migrate from Apache Cassandra to Cassandra API using dual-writes](migrate-data-dual-write-proxy.md). For offline migration, review our article: [Migrate data from Cassandra to an Azure Cosmos DB Cassandra API account by using Azure Databricks](migrate-data-databricks.md).
+Although you can communicate with the Cassandra API through the Cassandra Query Language (CQL) binary protocol v4 wire protocol, Cosmos DB implements its own internal replication protocol. Live migration and replication can't be achieved through the Cassandra gossip protocol. For more information, see [live-migrate from Apache Cassandra to Cassandra API using dual-writes](migrate-data-dual-write-proxy.md). 
+
+For information about offline migration, see [Migrate data from Cassandra to an Azure Cosmos DB Cassandra API account by using Azure Databricks](migrate-data-databricks.md).
 
 ## Replication (consistency)
 
- Although there are many similarities between Apache Cassandra's approach to replication consistency, there are also important differences. We have provided a [mapping document](apache-cassandra-consistency-mapping.md), which attempts to draw analogs between the two. However, we highly recommend that you take time to review and understand Azure Cosmos DB consistency settings in our [documentation](../consistency-levels.md) from scratch, or watch this short [video](https://www.youtube.com/watch?v=t1--kZjrG-o) guide to understanding consistency settings in the Azure Cosmos DB platform.
-
+Although the approaches to replication consistency in Apache Cassandra and Azure Cosmos DB are similar, it's important to understand how they are different. A [mapping document](apache-cassandra-consistency-mapping.md) compares the two approaches. However, we highly recommend that you review [Azure Cosmos DB consistency settings](../consistency-levels.md) or watch a brief [video guide to understanding consistency settings in the Azure Cosmos DB platform](https://www.youtube.com/watch?v=t1--kZjrG-o).
 
 ## Recommended client configurations
 
-While you should not need to make any substantial code changes to existing apps using Apache Cassandra, there are some approaches and configuration settings that we recommend for Cassandra API in Cosmos DB that may improve the experience. We highly recommend reviewing our blog post [Cassandra API Recommendations for Java](https://devblogs.microsoft.com/cosmosdb/cassandra-api-java/) for more details. 
+You shouldn't need to make any substantial code changes to existing applications that use Apache Cassandra. But, for the best experience, we recommend some approaches and configuration settings for the Cassandra API in Cosmos DB. For details, we recommend that you review the blog post [Cassandra API recommendations for Java](https://devblogs.microsoft.com/cosmosdb/cassandra-api-java/).
 
 ## Code samples
 
-Your existing application code should work with Cassandra API. However, if you encounter any connectivity related errors, we highly recommend referring to our [Quick Start samples](manage-data-java-v4-sdk.md) as a starting point to determine any minor differences in setup with your existing code. In addition, we have more in-depth samples for [Java v3](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample) and [Java v4](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4) drivers. These code samples implement custom [extensions](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.0), which in turn implement the recommended client configurations mentioned above. We also have samples for Java [Spring Boot (v3 driver)](https://github.com/Azure-Samples/spring-data-cassandra-on-azure-extension-v3) and [Spring Boot (v4 driver)](https://github.com/Azure-Samples/spring-data-cassandra-on-azure-extension-v4.git).  
-
+Your existing application code should work with the Cassandra API. However, if you encounter any connectivity-related errors, use the [Quick Start samples](manage-data-java-v4-sdk.md) as a starting point to discover any minor differences in setup with your existing code. We also have more in-depth samples for [Java v3](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample) and [Java v4](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4) drivers. These code samples implement custom [extensions](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.0), which in turn implement recommended client configurations. We also have samples for [Java Spring Boot (v3 driver)](https://github.com/Azure-Samples/spring-data-cassandra-on-azure-extension-v3) and [Java Spring Boot (v4 driver)](https://github.com/Azure-Samples/spring-data-cassandra-on-azure-extension-v4.git).  
 
 ## Storage
 
-Cassandra API is ultimately backed by Azure Cosmos DB, which is a document-oriented NoSQL engine. Cosmos DB maintains metadata, which may result in a difference between the amount of physical storage for a given workload between native Apache Cassandra and Cassandra API. The difference is most noticeable in the case of small row sizes. In some cases, this may be offset by the fact that Cosmos DB does not implement compaction or tombstones. However, this will depend significantly on the workload. We recommend carrying out a POC if you are uncertain about storage requirements. 
+The Cassandra API ultimately is backed by Azure Cosmos DB, which is a document-oriented NoSQL engine. Cosmos DB maintains metadata, which might result in a difference in the amount of physical storage required for a specific workload between native Apache Cassandra and the Cassandra API. The difference is most noticeable in small row sizes. In some cases, the difference in storage requirements might be offset because Cosmos DB doesn't implement compaction or tombstones. However, this factor depends significantly on the workload. If you are uncertain about storage requirements, we recommend that you do a proof of concept.
 
 ## Multi-region deployments
 
-Native Apache Cassandra is a multi-master system by default, and does not provide an option for single-master with multi-region replication for reads only. The concept of application-level failover to another region for writes is therefore redundant in Apache Cassandra as all nodes are independent and there is no single point of failure. However, Azure Cosmos DB provides the out-of-box ability to configure either single master, or multi-master regions for writes. One of the advantages of having a single master region for writes is the avoidance of cross-region conflict scenarios, and the option of maintaining strong consistency across multiple regions, while still maintaining a level of high availability. 
+Native Apache Cassandra is a multi-master system by default. Apache Cassandra doesn't have an option for single-master with multi-region replication for reads only. The concept of application-level failover to another region for writes, therefore, is redundant in Apache Cassandra. All nodes are independent and there is no single point of failure. However, Azure Cosmos DB provides the out-of-box ability to configure either single master, or multi-master regions for writes. One of the advantages of having a single master region for writes is the avoidance of cross-region conflict scenarios, and the option of maintaining strong consistency across multiple regions, while still maintaining a level of high availability. 
 
 > [!NOTE]
-> Strong consistency across regions (RPO of zero) is not possible for native Apache Cassandra as all nodes are capable of serving writes. Cosmos DB can be configured for strong consistency across regions in *single write region* configuration. However, as with native Apache Cassandra, Cosmos DB accounts configured with multiple write regions cannot be configured for strong consistency as it is not possible for a distributed system to provide an RPO of zero and an RTO of zero.
+> Strong consistency across regions and a Recovery Point Objective (RPO) of zero isn't possible for native Apache Cassandra because all nodes are capable of serving writes. You can configure Cosmos DB for strong consistency across regions in a *single write region* configuration. However, as with native Apache Cassandra, you can't configure a Cosmos DB account that's configured with multiple write regions for strong consistency. A distributed system can't provide an RPO of zero *and* a Recovery Time Objective (RTO) of zero.
 
-We recommend reviewing the [Load balancing policy section](https://devblogs.microsoft.com/cosmosdb/cassandra-api-java/#load-balancing-policy) from our blog [Cassandra API Recommendations for Java](https://devblogs.microsoft.com/cosmosdb/cassandra-api-java), and [failover scenarios](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4#failover-scenarios) in our official [code sample for the Cassandra Java v4 driver](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4), for more detail. 
-
-
+For more information, we recommend that you review [Load balancing policy](https://devblogs.microsoft.com/cosmosdb/cassandra-api-java/#load-balancing-policy) in our [Cassandra API recommendations for Java blog](https://devblogs.microsoft.com/cosmosdb/cassandra-api-java) and [failover scenarios](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4#failover-scenarios) in our official [code sample for the Cassandra Java v4 driver](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4).
 
 ## Request Units
 
@@ -64,9 +62,8 @@ The benefit of this is that database capacity can be provisioned deterministical
 We highly recommend profiling your requests and using this information to help you to accurately estimate the number of request units you will need to provision. Here are some useful articles to help:
 
 - [Request Units in Azure Cosmos DB](../request-units.md)
-- [Find the request unit charge for operations executed in Azure Cosmos DB Cassandra API](find-request-unit-charge-cassandra.md). 
+- [Find the request unit charge for operations executed in Azure Cosmos DB Cassandra API](find-request-unit-charge-cassandra.md)
 - [Optimize provisioned throughput cost in Azure Cosmos DB](../optimize-cost-throughput.md)
-
 
 ## Capacity provisioning models
 
@@ -96,10 +93,9 @@ One of the challenges of provisioning [request units](../request-units.md), part
 
 Many Apache Cassandra users also use the Apache Spark Cassandra connector to query their data for analytical and data movement needs. You can connect to Cassandra API in the same way, using the same connector. However, we highly recommend reviewing our article on how to [Connect to Azure Cosmos DB Cassandra API from Spark](connect-spark-configuration.md), and in particular the section for [Optimizing Spark connector throughput configuration](connect-spark-configuration.md#optimizing-spark-connector-throughput-configuration), before doing so.  
 
-## Troubleshooting common issues
+## Troubleshoot common issues
 
-Review our [trouble shooting](troubleshoot-common-issues.md) article, which documents solutions to common problems faced with the service. 
-
+For solutions to common issues, see [Troubleshoot common issues in the Azure Cosmos DB Cassandra API](troubleshoot-common-issues.md).
 
 ## Next steps
 
