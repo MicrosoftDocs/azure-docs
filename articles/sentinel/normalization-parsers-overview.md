@@ -1,5 +1,5 @@
 ---
-title: Microsot Sentinel Advanced SIEM Inforation Model (ASIM) parsers overview | Microsoft Docs
+title: Microsoft Sentinel Advanced SIEM Information Model (ASIM) parsers overview | Microsoft Docs
 description: This article provides an overview of Advanced SIEM Information Model (ASIM) parsers and a link to more detailed ASIM parsers documents.
 author: oshezaf
 ms.topic: conceptual

@@ -16,7 +16,7 @@ Normalized security content in Microsoft Sentinel includes analytics rules, hunt
 
 <a name="builtin"></a>You can find normalized, out-of-the-box content in Microsoft Sentinel galleries and [solutions](sentinel-solutions-catalog.md), create your own normalized content, or modify existing, custom content to use normalized data.
 
-This article explains how to convert existing Microsoft Sentinel analytics rules to use [normalizated data](normalization.md) with the Advanced SIEM Information Model (ASIM).
+This article explains how to convert existing Microsoft Sentinel analytics rules to use [normalized data](normalization.md) with the Advanced SIEM Information Model (ASIM).
 
 To understand how normalized content fits within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
 
