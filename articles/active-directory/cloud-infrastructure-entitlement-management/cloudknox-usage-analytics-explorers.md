@@ -154,9 +154,9 @@ The CloudKnox explorers provide more information about an identity, including en
         - **Graph View**
             - Displays a graph view of how many tasks have been granted, how many tasks have been executed, how many tasks are scheduled, and how many tasks are alarm tasks.
         - **Table View - Scheduled Tasks**
-            -  Displays a detailed view of tasks that have been scheduled.
+            - Displays a detailed view of tasks that have been scheduled.
         - **Table View - Alarms**
-            -  Displays a detailed view of tasks that are considered alarm tasks.
+            - Displays a detailed view of tasks that are considered alarm tasks.
 
 9. To view all the policies the user has access to across all accounts with the following details, select the **All Permissions** tab:
 
@@ -341,13 +341,13 @@ The CloudKnox explorers provide more information about an identity, including en
 
 ## The Account Explorer
 
-The **Account Explorer** displays all the identities - users, roles, EC2 instances, and Lambda Functions - that can access the selected account from an external account.
+The **Account Explorer** displays all the identities that can access the selected account from an external account: users, roles, EC2 instances, and Lambda Functions.
 
 1. To access the **Account Explorer**:
 
-    - To choose an authorization system from the left-side panel, select the **Lock** icon. Then select an AWS account. 
+    - Choose an authorization system from the left-side panel, select the **Lock** icon. Then select an AWS account. 
       - Under the **Domain/Account** column, select the domain or account name to access **Account Explorer**. The default view is the **Cross Account** **Users** tab.
-       - Or, select the **Data Collectors** icon on the top menu. Choose the **Authorization Systems** tab and select the **Name** of any AWS accounts.
+      - Or, select the **Data Collectors** icon on the top menu. Choose the **Authorization Systems** tab and select the **Name** of any AWS accounts.
 2. The **Cross Account** **Users** tab displays which identities can access the specified account, with the following details:
  
       The **Account Explorer** displays identities that aren't part of the  specified AWS account, but have permission to access the account through various roles.

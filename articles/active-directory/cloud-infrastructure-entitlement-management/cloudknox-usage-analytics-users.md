@@ -83,7 +83,7 @@ On the **Usage Analytics** dashboard:
 
 ## Apply filters for users
 
-There are many filter options on the **Users** screen, including filters by **Authorization systems**, filters by **User** types and filters by **Task** types. You can apply filters in one, two, or all three categories, depending on what information the system administrator wants. 
+There are many filter options on the **Users** screen, including filters by **Authorization systems**, **User** types, and **Task** types. You can apply filters in one, two, or all three categories, depending on the information you want. 
 
 - **Filtering by Authorization systems**
     1. To expand the **Authorization systems** menu, select the icon on the left side of the page. Then select all applicable systems. 
@@ -163,9 +163,9 @@ There are many filter options on the **Users** screen, including filters by **Au
       - **Search**: In the **Search** box, type a specific task name and find how many of those tasks have been unused or used.
       - **All Tasks**: Use the **Tasks** drop-down list to filter by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
 
-          A **High-Risk task** can cause data leakage, service disruption, or service degradation. 
+          - A **High-Risk task** causes data leakage, service disruption, or service degradation. 
 
-          A **Delete Task** is considered a high-risk task that allows a user to permanently delete a resource.
+          - A **Delete Task** is considered a high-risk task that allows a user to permanently delete a resource.
 
   - When you select **User** from the **Users** filter section, the following side panels display:
 
