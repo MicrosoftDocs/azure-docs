@@ -31,17 +31,17 @@ Closed captions allow participants to be on the call in loud or sound-sensitive 
 
 ## Feature Highlights
 
--Supported on multiple platform with cross platform support.
--Async processing with client subscribing to events and callbacks.
--Offers multiple languages to choose from for recognition.
--Supports existing SkypeToken for auth
+- Supported on multiple platform with cross platform support.
+- Async processing with client subscribing to events and callbacks.
+- Offers multiple languages to choose from for recognition.
+- Supports existing SkypeToken for auth
 
 
 ## Availability
 The Private Preview will be available on all platforms. 
--Android
--iOS
--Web
+- Android
+- iOS
+- Web
 
 ## Next steps
 
