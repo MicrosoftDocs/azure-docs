@@ -44,24 +44,4 @@ sections:
       - question: |
           "SAS token: I was able to access my storage account a few days ago, but now, I'm receiving the following error: Check if you have unexpired read/write/list/delete permission to blob container/blob. What could this be?"
         answer:  When you create a shared access signature (SAS), the default duration is two days. After two day, you'll need to create a new token. Consider setting a longer duration period for the time you'll be using your storage account with Form Recognizer.
-  - name: Custom models
-    questions:
-      questions:
-      - question: |
-          TODO
-        answer: |
-          TODO
-  - name: Containers
-    questions:
-      questions:
-      - question: |
-          TODO
-        answer: |
-          TODO
-  - name: Concepts
-    questions:
-      questions:
-      - question: |
-          TODO
-        answer: |
-          TODO
+  
