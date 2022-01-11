@@ -145,7 +145,7 @@ An example manifest output is below. For this example, there are two files that 
 
    :::image type="content" source="media/import-update/container-ppr.png" alt-text="Select Container" lightbox="media/import-update/container-ppr.png":::
 
-8. Select the folder icon on the right side of the Files section under the Upload blob header. A file picker will be shown. Navigate to the location of your update file or files, select all of the files, then select "Open". _Note: you can hold the Shift key and click the uppermost and lowermost files to multi-select._
+8. Select the folder icon on the right side of the Files section under the Upload blob header. A file picker will be shown. Navigate to the location of your update file or files, select all of the files, then select "Open". _You can hold the Shift key and click the uppermost and lowermost files to multi-select._
 
    :::image type="content" source="media/import-update/container-picker-ppr.png" alt-text="Publish Update" lightbox="media/import-update/container-picker-ppr.png":::
 
@@ -157,9 +157,9 @@ An example manifest output is below. For this example, there are two files that 
 
        :::image type="content" source="media/import-update/import-select-ppr.png" alt-text="Select Uploaded Files" lightbox="media/import-update/import-select-ppr.png":::
 
-11. On the Import update page, review the files to be imported. Then select "Import update" to start the import process. _Note: see the [Proxy Update Troubleshooting](device-update-proxy-update-troubleshooting.md) page to resolve any errors._
+11. On the Import update page, review the files to be imported. Then select "Import update" to start the import process. _See the [Proxy Update Troubleshooting](device-update-proxy-update-troubleshooting.md) page to resolve any errors._
 
-       :::image type="content" source="media/import-update/import-start-ppr.png" alt-text="Import Start" lightbox="media/import-update/import-start-ppr.png":::
+       :::image type="content" source="media/import-update/import-start-2-ppr.png" alt-text="Import Start" lightbox="media/import-update/import-start-2-ppr.png":::
 
 12. The import process begins, and the screen switches to to the "Import History" section. Select "Refresh" to view progress until the import process completes (depending on the size of the update, this may complete in a few minutes but could take longer).
 
