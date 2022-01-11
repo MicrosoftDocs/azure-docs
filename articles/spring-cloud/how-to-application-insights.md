@@ -308,7 +308,7 @@ az spring-cloud app-insights update \
 
 ::: zone pivot="sc-enterprise-tier"
 
-### Manage Application Insights Buildpack Bindings
+### Manage Application Insights buildpack bindings
 
 This section applies to the Enterprise Tier only, and provides instructions that that supplement the previous section.
 

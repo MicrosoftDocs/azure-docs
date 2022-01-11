@@ -10,7 +10,7 @@ ms.date: 12/31/2021
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# How to Deploy Non-Java Applications in Azure Spring Cloud
+# How to deploy non-Java applications in Azure Spring Cloud
 
 This article shows you how to deploy your non-java application to Azure Spring Cloud Enterprise tier.
 
@@ -41,7 +41,7 @@ az spring-cloud app deploy
 - If your source code contains a package management folder, such as "node_modules", ensure the folder contains all the dependencies. Otherwise, remove it and let Azure Spring Cloud install it.
 - To see whether your source code language is supported and the feature is provided, see the [Support Matrix](#support-matrix) section.
 
-## Support Matrix
+## Support matrix
 
 <!--Seems there should be some icon to show the supported or not supported. I left the supported as empty for a better viewer for content writer-->
 
@@ -74,6 +74,6 @@ az spring-cloud app deploy
 | interactive diagnostic experience (AppLens-based)                  |      |        |      |         |    |
 | SLA                                                                |      |        |      |         |    |
 
-## Next Steps
+## Next steps
 
 * [Azure Spring Cloud](.)

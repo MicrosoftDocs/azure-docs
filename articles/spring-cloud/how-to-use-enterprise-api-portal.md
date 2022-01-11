@@ -10,7 +10,7 @@ ms.date: 12/15/2021
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Use API Portal
+# Use API portal
 
 This article shows you how to use the API portal with Azure Spring Cloud Enterprise Tier.
 
@@ -23,9 +23,9 @@ This article shows you how to use the API portal with Azure Spring Cloud Enterpr
 
 ## Configure the API portal
 
-### Configure Single Sign-On (SSO)
+### Configure single sign-on (SSO)
 
-The API portal supports authentication and authorization using Single Sign-On (SSO) with an OpenID identity provider (IdP) which supports OpenID Connect Discovery protocol.
+The API portal supports authentication and authorization using single sign-on (SSO) with an OpenID identity provider (IdP) which supports OpenID Connect Discovery protocol.
 
 | Property | Required? | Description |
 | - | - | - |
@@ -83,6 +83,6 @@ Select the `endpoint URL` to go to API portal. You will see all the routes confi
 
    ![Try out API portal](./media/enterprise/how-to-use-enterprise-api-portal/api-portal-tryout.png)
 
-## Next Steps
+## Next steps
 
 * [Azure Spring Cloud](.)

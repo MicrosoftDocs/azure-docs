@@ -252,7 +252,7 @@ public class GatewayApplication {
 }
 ```
 
-### Distributed Configuration
+### Distributed configuration
 
 To enable Distributed Configuration, include the following `spring-cloud-config-client` dependency in the dependencies section of your pom.xml file:
 

@@ -219,6 +219,6 @@ Not all the filters/predicates are supported in Azure Spring Cloud because of se
        --query '[].{name:name, appResourceId:properties.appResourceId, routes:properties.routes}'
    ```
 
-## Next Steps
+## Next steps
 
 * [Azure Spring Cloud](.)

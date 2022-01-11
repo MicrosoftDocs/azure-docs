@@ -16,10 +16,10 @@ This article shows you how to get started with Enterprise Tier in Azure Spring C
 
 ## Prerequisites
 
-- [Sign up for an Azure subscription](https://azure.microsoft.com/)
-- Purchase a license for Azure Spring Cloud Enterprise Tier. [View Azure Spring Cloud Enterprise Tier Offer from Azure Marketplace](./how-to-enterprise-marketplace-offer.md)
-- [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli)
-- Install the preview version of the Azure Spring Cloud extension for Enterprise tier using the steps below.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A license for Azure Spring Cloud Enterprise Tier. For more information, see [View Azure Spring Cloud Enterprise Tier offering from Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- [Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
+- [Apache Maven](https://maven.apache.org/download.cgi)
 
 ## Install the preview version of the Azure Spring Cloud Extension for Enterprise Tier
 
@@ -227,7 +227,7 @@ The Spring Cloud Gateway properties will be used to integrate with the API porta
 
 ### Configure routing rules for the applications
 
-   Create rules to access apps deployed in the above steps through Spring Cloud Gateway.
+Use the following steps to create rules to access apps previously deployed through Spring Cloud Gateway.
 
 1. Save the following JSON to the file `customers-service.json`.
 
@@ -247,9 +247,9 @@ The Spring Cloud Gateway properties will be used to integrate with the API porta
           ]
        }
     ]
-```
+   ```
 
-1. Use the following command to apply the rule to the app `customers-service`
+1. Use the following command to apply the rule to the `customers-service` app:
 
    ```azurecli
    az spring-cloud gateway route-config create \
@@ -258,7 +258,7 @@ The Spring Cloud Gateway properties will be used to integrate with the API porta
        --routes-file customers-service.json
    ```
 
-1. Access the apps `customers service` and `owners` API through the gateway endpoint.
+1. Access the `owners` API of the `customers-service` app through the gateway endpoint.
 
    ```bash
    curl https://<endpoint-url>/api/customers-service/owners

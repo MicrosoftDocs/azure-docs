@@ -40,7 +40,7 @@ The image below shows the resources allocated to the Build Service Agent Pool af
 
 In the Enterprise Tier, a default builder is provided within Build Service with a list of proprietary Tanzu Buildpacks.
 
-Tanzu Buildpacks make it easier to integrate with other software like New Relic. They're configured as optional and will only run with proper configuration. For more information, see the [Buildpack Bindings](#buildpack-bindings) section.
+Tanzu Buildpacks make it easier to integrate with other software like New Relic. They're configured as optional and will only run with proper configuration. For more information, see the [Buildpack bindings](#buildpack-bindings) section.
 
 The following list shows the Tanzu Buildpacks available in Azure Spring Cloud Enterprise edition:
 
@@ -85,11 +85,11 @@ If the builder isn't specified, the `default` builder will be used.
 
 A build task will be triggered when an app is deployed from an Azure CLI command. Build logs are streamed in real-time as part of the CLI command output. See [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md) to diagnose build logs.
 
-## Buildpack Bindings
+## Buildpack bindings
 
 You can configure Kpack Images with Service Bindings as described in the [Cloud Native Buildpacks Bindings specification](https://github.com/buildpacks/spec/blob/adbc70f5672e474e984b77921c708e1475e163c1/extensions/bindings.md). Azure Spring Cloud Enterprise tier uses Service Bindings to integrate with [Tanzu Partner Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html). For example, we use Binding to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) using the [Paketo Azure Application Insights Buildpack](https://github.com/paketo-buildpacks/azure-application-insights).
 
-Currently, Buildpack Binding only supports binding the buildpacks listed below. Follow the documentation links listed under each type to configure the properties and secrets for Buildpack Binding.
+Currently, buildpack binding only supports binding the buildpacks listed below. Follow the documentation links listed under each type to configure the properties and secrets for buildpack binding.
 
 1. ApplicationInsights
 
@@ -115,31 +115,31 @@ Currently, Buildpack Binding only supports binding the buildpacks listed below. 
    - [ElasticAPM Partner Buildpack](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html#elastic-apm).
    - [Elastic Configuration](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html).
 
-## Manage Buildpack Bindings
+## Manage buildpack bindings
 
 Buildpack bindings can be managed with the Azure portal, or the Azure CLI.
 
 # [Portal](#tab/azure-portal)
 
-## View Buildpack Bindings
+## View buildpack bindings using the Azure portal
 
-Follow these steps to view the current Buildpack Bindings:
+Follow these steps to view the current buildpack bindings:
 
 1. Open the [Azure portal](https://ms.portal.azure.com/?AppPlatformExtension=entdf#home).
 1. Select **Build Service**.
 1. Select **Edit** under the *Bindings* column to view the bindings configured under a builder.
 
-## Unbind a Buildpack Binding
+## Unbind a buildpack binding
 
-There are two ways to unbind a Buildpack Binding. You can either select the **Bound** hyperlink, then **Unbind binding**, or select **Edit Binding** and then select **Unbind**.
+There are two ways to unbind a buildpack binding. You can either select the **Bound** hyperlink, then **Unbind binding**, or select **Edit Binding** and then select **Unbind**.
 
 If you unbind a binding, the bind status will change from *Bound* to *Unbound*.
 
 # [Azure CLI](#tab/azure-cli)
 
-## View Buildpack Bindings
+## View buildpack bindings using the Azure CLI
 
-View the current Buildpack Bindings using the following command:
+View the current buildpack bindings using the following command:
 
 ```azurecli
 az spring-cloud build-service builder buildpack-binding list \
@@ -148,7 +148,7 @@ az spring-cloud build-service builder buildpack-binding list \
     --builder-name <your-builder-name>
 ```
 
-## Create a Binding
+## Create a binding
 
 Use this command to change the binding from *Unbound* to *Bound* status:
 
@@ -163,7 +163,8 @@ az spring-cloud build-service builder buildpack-binding create \
     --secrets e=f g=h
 ```
 
-For more information, see the [Buildpack Bindings](#buildpack-bindings) section for information on the `properties` and `secrets` parameters for your buildpack.
+For more information, see the [Buildpack bindings](#buildpack-bindings) section for information on the `properties` and `secrets` parameters for your buildpack.
+
 ## Show the details for a specific binding
 
 The details of a specific binding can be viewed using the following command:
@@ -191,7 +192,8 @@ az spring-cloud build-service builder buildpack-binding set \
     --secrets e=f2 g=h
 ```
 
-For more information, see the [Buildpack Bindings](#buildpack-bindings) section for information on the `properties` and `secrets` parameters for your buildpack.
+For more information on the `properties` and `secrets` parameters for your buildpack, see the [Buildpack bindings](#buildpack-bindings) section.
+
 #### Delete a binding
 
 Use the following command to change the binding status from *Bound* to *Unbound*.
@@ -206,6 +208,6 @@ az spring-cloud build-service builder buildpack-binding delete \
 
 ---
 
-## Next Steps
+## Next steps
 
 * [Azure Spring Cloud](.)

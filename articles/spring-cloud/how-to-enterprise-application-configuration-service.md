@@ -153,6 +153,6 @@ To use the centralized configurations, you must bind the app to Application Conf
 
    e. Select **Save**
 
-## Next Steps
+## Next steps
 
 * [Azure Spring Cloud](.)
