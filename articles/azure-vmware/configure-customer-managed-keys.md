@@ -328,9 +328,9 @@ Below is the JSON file used to create an ARM template and enable CMK on SDDC.
 ```
 ---
 
-## Change from CMK to MMK and back to CMK 
+## Change from Customer Managed Key to Microsoft Managed Key 
 
-<!--  intro paragraph here  what are they doing and why -->
+If a customer wants to change from Customer managed key (CMK) to Microsoft managed key (MMK), it won't interrupt virtual machine (VM) workload. To do this, follow the steps below.
 
 1. From your Azure VMware Solution private cloud, under **Manage**, select **Encryption**.
 
