@@ -27,7 +27,7 @@ To learn more about template specs, and for hands-on guidance, see [Publish libr
 
 Template specs provide the following benefits:
 
-* You use standard ARM templates for your template spec.
+* You use standard ARM templates or Bicep file for your template spec.
 * You manage access through Azure RBAC, rather than SAS tokens.
 * Users can deploy the template spec without having write access to the template.
 * You can integrate the template spec into existing deployment process, such as PowerShell script or DevOps pipeline.
@@ -142,8 +142,8 @@ The JSON template embedded in the Bicep file needs to make these changes:
 
 * Remove the commas at the end of the lines.
 * Change double quote to single quotes.
-* Escape the single quotes. For example **'name': '[parameters(\'storageAccountType\')]'**.
-* To access the parameters and variables defined in the Bicep file, you can directly use the parameter names and the variable names. To access the parameters and variables defined in `mainTemplate`, you still need to use the ARM JSON template syntax.  For example,  **'name': '[parameters(\'storageAccountType\')]'**.
+* Escape the single quotes. For example **'name': '[parameters(&#92;'storageAccountType&#92;')]'**.
+* To access the parameters and variables defined in the Bicep file, you can directly use the parameter names and the variable names. To access the parameters and variables defined in `mainTemplate`, you still need to use the ARM JSON template syntax.  For example,  **'name': '[parameters(&#92;'storageAccountType&#92;')]'**.
 * Use the Bicep syntax to call Bicep functions.  For example: **'location': resourceGroup().location**.
 
 You can view all template specs in your subscription by using:
@@ -185,7 +185,7 @@ az ts show \
 
 After you've created the template spec, users with **read** access to the template spec can deploy it. For information about granting access, see [Tutorial: Grant a group access to Azure resources using Azure PowerShell](../../role-based-access-control/tutorial-role-assignments-group-powershell.md).
 
-Template specs can be deployed through the portal, PowerShell, Azure CLI, or as a linked template in a larger template deployment. Users in an organization can deploy a template spec to any scope in Azure (resource group, subscription, management group, or tenant).
+Template specs can be deployed through the portal, PowerShell, Azure CLI, or as a Bicep module in a larger template deployment. Users in an organization can deploy a template spec to any scope in Azure (resource group, subscription, management group, or tenant).
 
 Instead of passing in a path or URI for a template, you deploy a template spec by providing its resource ID. The resource ID has the following format:
 
@@ -381,96 +381,10 @@ When creating or modifying a template spec with both the tag/tags parameter and 
 
 When modifying a template with the tag/tags parameter specified but without the version parameter specified, the tags is only added to the template spec.
 
-## Create a template spec with linked templates
+## Link to template specs
 
-If the main template for your template spec references linked templates, the PowerShell and CLI commands can automatically find and package the linked templates from your local drive. You don't need to manually configure storage accounts or repositories to host the template specs - everything is self-contained in the template spec resource.
-
-The following example consists of a main template with two linked templates. The example is only an excerpt of the template. Notice that it uses a property named `relativePath` to link to the other templates. You must use `apiVersion` of `2020-06-01` or later for the deployments resource.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  ...
-  "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
-      ...
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "relativePath": "artifacts/webapp.json"
-        }
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
-      ...
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "relativePath": "artifacts/database.json"
-        }
-      }
-    }
-  ],
-  "outputs": {}
-}
-```
-
-When the PowerShell or CLI command to create the template spec is executed for the preceding example, the command finds three files - the main template, the web app template (`webapp.json`), and the database template (`database.json`) - and packages them into the template spec.
-
-For more information, see [Tutorial: Create a template spec with linked templates](template-specs-create-linked.md).
-
-## Deploy template spec as a linked template
-
-Once you've created a template spec, it's easy to reuse it from an ARM template or another template spec. You link to a template spec by adding its resource ID to your template. The linked template spec is automatically deployed when you deploy the main template. This behavior lets you develop modular template specs, and reuse them as needed.
-
-For example, you can create a template spec that deploys networking resources, and another template spec that deploys storage resources. In ARM templates, you link to these two template specs anytime you need to configure networking or storage resources.
-
-The following example is similar to the earlier example, but you use the `id` property to link to a template spec rather than the `relativePath` property to link to a local template. Use `2020-06-01` for API version for the deployments resource. In the example, the template specs are in a resource group named **templateSpecsRG**.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  ...
-  "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
-      "name": "networkingDeployment",
-      ...
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'networkingSpec', '1.0a')]"
-        }
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
-      "name": "storageDeployment",
-      ...
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0a')]"
-        }
-      }
-    }
-  ],
-  "outputs": {}
-}
-```
-
-For more information about linking template specs, see [Tutorial: Deploy a template spec as a linked template](template-specs-deploy-linked-template.md).
+After creating a template spec, you can link to that template spec in a Bicep module. For more information, see [File in template spec](./module.md#path-to-module).
 
 ## Next steps
 
 * To create and deploy a template spec, see [Quickstart: Create and deploy template spec](quickstart-create-template-specs.md).
-
-* For more information about linking templates in template specs, see [Tutorial: Create a template spec with linked templates](template-specs-create-linked.md).
-
-* For more information about deploying a template spec as a linked template, see [Tutorial: Deploy a template spec as a linked template](template-specs-deploy-linked-template.md).
