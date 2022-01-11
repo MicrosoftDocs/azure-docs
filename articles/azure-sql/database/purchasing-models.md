@@ -1,7 +1,7 @@
 ---
 title: Purchasing models
 titleSuffix: Azure SQL Database 
-description: Learn about the purchasing models that are available for Azure SQL Database: the vCore purchasing model and the DTU purchasing model.  
+description: "Learn about the purchasing models that are available for Azure SQL Database: the vCore purchasing model and the DTU purchasing model."
 services: sql-database
 ms.service: sql-database
 ms.subservice: service-overview
@@ -11,20 +11,21 @@ ms.topic: conceptual
 author: LitKnd
 ms.author: kendralittle
 ms.reviewer: mathoma
-ms.date: 12/15/2021
+ms.date: 01/20/2022
 ---
-# Compare vCore and DTU purchasing models of Azure SQL Database
+# Compare vCore and DTU-based purchasing models of Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Azure SQL Database lets you easily purchase a fully managed platform as a service (PaaS) database engine that fits your performance and cost needs. Depending on the deployment model you've chosen for Azure SQL Database, you can select the purchasing model that works for you:
 
-- [Virtual core (vCore)-based purchasing model](service-tiers-sql-database-vcore.md) (recommended). This purchasing model provides a choice between a provisioned compute tier and a serverless compute tier. With the provisioned compute tier, you choose the exact amount of compute resources that are always provisioned for your workload. With the serverless compute tier, you specify the autoscaling of the compute resources over a configurable compute range. The serverless compute tier automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns. The vCore unit price per unit of time is lower in the provisioned compute tier than it is in the serverless compute tier. The [Hyperscale service tier](service-tier-hyperscale.md) is available for single databases that are using the [vCore-based purchasing model](service-tiers-vcore.md).
+- [Virtual core (vCore)-based purchasing model](service-tiers-sql-database-vcore.md) (recommended). This purchasing model provides a choice between a provisioned compute tier and a serverless compute tier. With the provisioned compute tier, you choose the exact amount of compute resources that are always provisioned for your workload. With the serverless compute tier, you specify the autoscaling of the compute resources over a configurable compute range. The serverless compute tier automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns. The vCore unit price per unit of time is lower in the provisioned compute tier than it is in the serverless compute tier. The [hyperscale service tier](service-tier-hyperscale.md) is available for single databases that are using the [vCore-based purchasing model](service-tiers-vcore.md).
 - [Database transaction unit (DTU)-based purchasing model](service-tiers-dtu.md). This purchasing model provides bundled compute and storage packages balanced for common workloads.
 
 ## vCore purchasing model
+
 There are two purchasing models:
 
-- [vCore-based purchasing model](service-tiers-vcore.md) is available for both [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). The [Hyperscale service tier](service-tier-hyperscale.md) is available for single databases that are using the [vCore-based purchasing model](service-tiers-vcore.md).
+- [vCore-based purchasing model](service-tiers-vcore.md) is available for both [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). The [hyperscale service tier](service-tier-hyperscale.md) is available for single databases that are using the [vCore-based purchasing model](service-tiers-vcore.md).
 - [DTU-based purchasing model](service-tiers-dtu.md) is available for [Azure SQL Database](single-database-manage.md).
 
 The following table and chart compare and contrast the vCore-based and the DTU-based purchasing models:
@@ -36,10 +37,6 @@ The following table and chart compare and contrast the vCore-based and the DTU-b
 ||||  
 
 ![Pricing model comparison](./media/purchasing-models/pricing-model.png)
-
-Want to optimize and save on your cloud spending?
-
-[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## Compute costs
 
@@ -67,16 +64,16 @@ For more information about storage prices, see the [pricing](https://azure.micro
 
 A virtual core (vCore) represents a logical CPU and offers you the option to choose between generations of hardware and the physical characteristics of the hardware (for example, the number of cores, the memory, and the storage size). The vCore-based purchasing model gives you flexibility, control, transparency of individual resource consumption, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to choose compute, memory, and storage resources based on your workload needs.
 
-In the vCore-based purchasing model for SQL Database, you can choose between the general purpose and business critical service tiers. Review [service tiers](service-tiers-sql-database-vcore.md#service-tiers) to learn more.  For single databases, you can also choose the [Hyperscale service tier](service-tier-hyperscale.md).
+In the vCore-based purchasing model for SQL Database, you can choose between the general purpose and business critical service tiers. Review [service tiers](service-tiers-sql-database-vcore.md#service-tiers) to learn more.  For single databases, you can also choose the [hyperscale service tier](service-tier-hyperscale.md).
 
 The vCore-based purchasing model lets you independently choose compute and storage resources, match on-premises performance, and optimize price. In the vCore-based purchasing model, you pay for:
 
 - Compute resources (the service tier + the number of vCores and the amount of memory + the generation of hardware).
 - The type and amount of data and log storage.
-- Backup storage (RA-GRS).
+- Backup storage.
 
 > [!IMPORTANT]
-> Compute resources, I/O, and data and log storage are charged per database or elastic pool. Backup storage is charged per each database.
+> For single databases, compute resources, I/O, and data and log storage are charged per database. For elastic pools, these resources are charged per pool. However, backup storage is always charged per database.
 
 
 ## DTU purchasing model

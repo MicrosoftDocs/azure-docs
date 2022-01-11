@@ -11,7 +11,7 @@ ms.topic: reference
 author: vladai78
 ms.author: vladiv
 ms.reviewer: mathoma, vladiv, sachinp, wiassaf
-ms.date: 12/15/2021
+ms.date: 01/20/2022
 ---
 # Overview of Azure SQL Managed Instance resource limits
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -88,7 +88,7 @@ The amount of in-memory OLTP space in [business critical](../database/service-ti
 SQL Managed Instance has two service tiers: [general purpose](../database/service-tier-general-purpose.md) and [business critical](../database/service-tier-business-critical.md). 
 
 > [!Important]
-> business critical service-tier provides an additional built-in copy of the SQL Managed Instance (secondary replica) that can be used for read-only workload. If you can separate read-write queries and read-only/analytic/reporting queries, you are getting twice the vCores and memory for the same price. The secondary replica might lag a few seconds behind the primary instance, so it is designed to offload reporting/analytic workloads that don't need exact current state of data. In the table below, **read-only queries** are the queries that are executed on secondary replica.
+> The business critical service tier provides an additional built-in copy of the SQL Managed Instance (secondary replica) that can be used for read-only workload. If you can separate read-write queries and read-only/analytic/reporting queries, you are getting twice the vCores and memory for the same price. The secondary replica might lag a few seconds behind the primary instance, so it is designed to offload reporting/analytic workloads that don't need exact current state of data. In the table below, **read-only queries** are the queries that are executed on secondary replica.
 
 | **Feature** | **General purpose** | **Business critical** |
 | --- | --- | --- |

@@ -1,5 +1,5 @@
 ---
-title: vCore purchase model
+title: vCore purchasing model
 description: The vCore purchasing model lets you independently scale compute and storage resources, match on-premises performance, and optimize price for Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
@@ -8,28 +8,34 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sashan, moslake
-ms.date: 12/15/2021
+ms.date: 01/20/2022
 ms.custom: ignite-fall-2021
 ---
-# Azure SQL Managed Instance - Compute Hardware in the vCore Service Tier
+# vCore purchasing model - Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 > [!div class="op_single_selector"]
 > * [Azure SQL Database](../database/service-tiers-sql-database-vcore.md)
 > * [Azure SQL Managed Instance](service-tiers-managed-instance-vcore.md)
 
-This article reviews the vCore purchase model for [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). 
+This article reviews the [vCore purchasing model](service-tiers-vcore.md) for [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). 
 
-The virtual core (vCore) purchase model used by Azure SQL Managed Instance has following characteristics:
+## Overview
+
+[!INCLUDE [vcore-overview](../includes/vcore-overview.md)]
+
+The virtual core (vCore) purchasing model used by Azure SQL Managed Instance has the following characteristics:
 
 - Control over the hardware generation to better match the compute and memory requirements of the workload.
 - Pricing discounts for [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md) and [Reserved Instance (RI)](../database/reserved-capacity-overview.md).
 - Greater transparency in the hardware details that power the compute, that facilitates planning for migrations from on-premises deployments.
-- [Reserved instance pricing](../database/reserved-capacity-overview.md) is only available for vCore purchase model. 
+- [Reserved instance pricing](../database/reserved-capacity-overview.md) is only available for vCore purchasing model. 
 
 ## <a id="compute-tiers"></a>Service tiers
 
-Service tier options in the vCore purchase model include general purpose and business critical. The service tier generally defines the storage architecture, space and I/O limits, and business continuity options related to availability and disaster recovery. For more details, review [resource limits](resource-limits.md). 
+Service tier options in the vCore purchasing model include general purpose and business critical. The service tier generally defines the storage architecture, space and I/O limits, and business continuity options related to availability and disaster recovery. 
+
+For more details, review [resource limits](resource-limits.md). 
 
 |**Category**|**General purpose**|**Business critical**|
 |---|---|---|
@@ -39,6 +45,9 @@ Service tier options in the vCore purchase model include general purpose and bus
 |**Pricing/billing**| [vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/managed/) is charged. <br/>IOPS is not charged| [vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/managed/) is charged. <br/>IOPS is not charged.
 |**Discount models**| [Reserved instances](../database/reserved-capacity-overview.md)<br/>[Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions|[Reserved instances](../database/reserved-capacity-overview.md)<br/>[Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions|
 |||
+
+> [!NOTE]
+> For more information on the Service Level Agreement (SLA), see [SLA for Azure SQL Managed Instance](https://azure.microsoft.com/en-us/support/legal/sla/azure-sql-sql-managed-instance/). 
 
 ### Choosing a service tier
 

@@ -1,5 +1,5 @@
 ---
-title: vCore purchase model
+title: vCore purchasing model
 description: The vCore purchasing model lets you independently scale compute and storage resources, match on-premises performance, and optimize price for Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -8,45 +8,37 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: kendralittle, sashan, moslake, mathoma
-ms.date: 12/15/2021
+ms.date: 01/20/2022
 ms.custom: references_regions, ignite-fall-2021
 ---
-# vCore purchasing model overview - Azure SQL Database 
+# vCore purchasing model - Azure SQL Database 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!div class="op_single_selector"]
 > * [Azure SQL Database](service-tiers-sql-database-vcore.md)
 > * [Azure SQL Managed Instance](../managed-instance/service-tiers-managed-instance-vcore.md)
 
-This article reviews the vCore purchase model for [Azure SQL Database](sql-database-paas-overview.md). For more information on choosing between the vCore and DTU purchase models, see [Choose between the vCore and DTU purchasing models](purchasing-models.md).
+This article reviews the [vCore purchasing model](service-tiers-vcore.md) for [Azure SQL Database](sql-database-paas-overview.md). For help choosing between the vCore and DTU purchasing models, see the [differences between the vCore and DTU purchasing models](purchasing-models.md).
 
-The virtual core (vCore) purchase model used by Azure SQL Database provides several benefits over the DTU purchase model:
+## Overview
+
+[!INCLUDE [vcore-overview](../includes/vcore-overview.md)]
+
+The vCore purchasing model used by Azure SQL Database provides several benefits over the DTU purchasing model:
 
 - Higher compute, memory, I/O, and storage limits.
 - Control over the hardware generation to better match compute and memory requirements of the workload.
 - Pricing discounts for [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md).
 - Greater transparency in the hardware details that power the compute, that facilitates planning for migrations from on-premises deployments.
-- [Reserved instance pricing](reserved-capacity-overview.md) is only available for vCore purchase model. 
+- [Reserved instance pricing](reserved-capacity-overview.md) is only available for vCore purchasing model. 
+- Higher scaling granularity with multiple compute sizes available.
 
-## Overview
-
-A virtual core (vCore) represents a logical CPU and offers you the option to choose between generations of hardware and the physical characteristics of the hardware (for example, the number of cores, the memory, and the storage size). The vCore-based purchasing model gives you flexibility, control, transparency of individual resource consumption, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to choose compute, memory, and storage resources based on your workload needs.
-
-In the vCore-based purchasing model for SQL Database, you can choose between the general purpose and business critical service tiers. Review [service tiers](service-tiers-sql-database-vcore.md#service-tiers) to learn more.  For single databases, you can also choose the [Hyperscale service tier](service-tier-hyperscale.md).
-
-The vCore-based purchasing model lets you independently choose compute and storage resources, match on-premises performance, and optimize price. In the vCore-based purchasing model, you pay for:
-
-- Compute resources (the service tier + the number of vCores and the amount of memory + the generation of hardware).
-- The type and amount of data and log storage.
-- Backup storage (RA-GRS).
-
-> [!IMPORTANT]
-> Compute resources, I/O, and data and log storage are charged per database or elastic pool. Backup storage is charged per each database.
-> **Region limitations:** For the current list of supported regions, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). 
 
 ## Service tiers
 
-Service tier options in the vCore purchase model include general purpose, business critical, and Hyperscale. The service tier generally defines the storage architecture, space and I/O limits, and business continuity options related to availability and disaster recovery. For greater detail, review [resource limits](resource-limits-vcore-single-databases.md). 
+Service tier options in the vCore purchasing model include general purpose, business critical, and hyperscale. The service tier generally service tier defines hardware, storage type and IOPS, high availability and disaster recovery options, and other features like memory-optimized object types.
+
+For greater details, review resource limits for [logical server](resource-limits-logical-server.md), [single databases](resource-limits-vcore-single-databases.md), and [pooled databases](resource-limits-vcore-elastic-pools.md). 
 
 |**Use case**|**General purpose**|**Business critical**|**Hyperscale**|
 |---|---|---|---|
@@ -66,15 +58,17 @@ For information on selecting a service tier for your particular workload, see th
 
 - [When to choose the general purpose service tier](service-tier-general-purpose.md#when-to-choose-this-service-tier)
 - [When to choose the business critical service tier](service-tier-business-critical.md#when-to-choose-this-service-tier)
-- [When to choose the Hyperscale service tier](service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
+- [When to choose the hyperscale service tier](service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
 
+## Resource limits
+
+For vCore resource limits, see [logical servers](resource-limits-logical-server.md), [single databases](resource-limits-vcore-single-databases.md), [pooled databases](resource-limits-vcore-elastic-pools.md). 
 
 ## Compute tiers
 
-Compute tier options in the vCore model include the provisioned and serverless compute tiers.
+Compute tier options in the vCore model include the provisioned and [serverless](serverless-tier-overview.md) compute tiers.
 
 - While the **provisioned compute tier** provides a specific amount of compute resources that are continuously provisioned independent of workload activity, the **serverless compute tier** auto-scales compute resources based on workload activity. 
-
 - While the **provisioned compute tier** bills for the amount of compute provisioned at a fixed price per hour, the **serverless compute tier** bills for the amount of compute used, per second.
 
 
@@ -223,7 +217,7 @@ The following table compares compute and memory between the different generation
 
 \* In the [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamic management view, hardware generation for databases using Intel&reg; SP-8160 (Skylake) processors appears as Gen6, while hardware generation for databases using Intel&reg; 8272CL (Cascade Lake) appears as Gen7. Resource limits for all Gen5 databases are the same regardless of processor type (Broadwell, Skylake, or Cascade Lake).
 
-For more information on resource limits, see [Resource limits for single databases (vCore)](resource-limits-vcore-single-databases.md), or [Resource limits for elastic pools (vCore)](resource-limits-vcore-elastic-pools.md).
+For more information on vCore resource limits, review [single databases](resource-limits-vcore-single-databases.md), or [pooled databases](resource-limits-vcore-elastic-pools.md).
 
 
 ## Next steps

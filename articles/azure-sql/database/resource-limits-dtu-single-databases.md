@@ -10,7 +10,7 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 04/16/2021
+ms.date: 01/20/2022
 ---
 # Resource limits for single databases using the DTU purchasing model - Azure SQL Database
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: kendralittle, mathoma, urmilano
-ms.date: 12/15/2021
+ms.date: 01/20/2022
 ---
 # General purpose service tier - Azure SQL Database and Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Azure SQL Database and Azure SQL Managed Instance are based on the SQL Server database engine architecture adapted for the cloud environment in order to ensure 99.99% availability even in the cases of infrastructure failures. 
+Azure SQL Database and Azure SQL Managed Instance are based on the SQL Server database engine architecture adapted for the cloud environment in order to ensure default availability even in the cases of infrastructure failures. 
 
 This article describes and compares the general purpose service tier used by Azure SQL Database and Azure SQL Managed instance. The general purpose service tier is best used for budget-oriented, balanced compute and storage options. 
 
@@ -38,7 +38,7 @@ Whenever the database engine or operating system is upgraded, some part of under
 
 ## When to choose this service tier
 
-The general purpose service tier is a default service tier in Azure SQL Database and Azure SQL Managed Instance that is designed for most of generic workloads. If you need a fully managed database engine with 99.99% SLA with storage latency between 5 and 10 ms that match SQL Server on an Azure virtual machine in most cases, the general purpose tier is the option for you.
+The general purpose service tier is a default service tier in Azure SQL Database and Azure SQL Managed Instance that is designed for most of generic workloads. If you need a fully managed database engine with a default SLA and storage latency between 5 and 10 ms, the general purpose tier is the option for you.
 
 ## Compare products
 
@@ -51,18 +51,21 @@ The following table shows resource limits for both Azure SQL Database and Azure 
 | **Storage size** | 1 GB - 4 TB | 2 GB - 16 TB| 
 | **Tempdb size** | [32 GB per vCore](resource-limits-vcore-single-databases.md) | [24 GB per vCore](../managed-instance/resource-limits.md#service-tier-characteristics) |
 | **Log write throughput** | Single databases: [4.5 MB/s per vCore (max 50 MB/s)](resource-limits-vcore-single-databases.md) <br> Elastic pools: [6 MB/s per vCore (max 62.5 MB/s)](resource-limits-vcore-elastic-pools.md) | [3 MB/s per vCore (max 22 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics)|
-| **Availability** | 99.99% | 99.99% |
+| **Availability** | [Default SLA](https://azure.microsoft.com/en-us/support/legal/sla/azure-sql-database/)  | [Default SLA](https://azure.microsoft.com/en-us/support/legal/sla/azure-sql-sql-managed-instance/)|
 | **Backups** | 1-35 days (7 days by default) | 1-35 days (7 days by default)| 
-| **Read-only replicas** | 0 built-in </br> 0 - 4 using [geo-replication](active-geo-replication-overview.md) | 0 built-in </br> 0 - 4 using [geo-replication](active-geo-replication-overview.md) | 
+| **Read-only replicas** | 0 built-in </br> 0 - 4 using [geo-replication](active-geo-replication-overview.md) | 0 built-in </br> 0 - 1 using [auto-failover groups](auto-failover-group-overview.md#best-practices-for-sql-managed-instance) | 
 | **Pricing/Billing** | [vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/single/) are charged. <br/>IOPS is not charged.| [vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/managed/) is charged. <br/>IOPS is not charged. | 
 | **Discount models** |[Reserved instances](reserved-capacity-overview.md)<br/>[Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions | [Reserved instances](reserved-capacity-overview.md)<br/>[Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions| 
 | | |
  
-To learn more, review [SQL Database resource limits](resource-limits-vcore-single-databases.md) and [SQL Managed Instance resource limits](../managed-instance/resource-limits.md).
+To learn more, review [single database resource limits](resource-limits-vcore-single-databases.md), [pooled database resource limits](resource-limits-vcore-elastic-pools.md) and [SQL Managed Instance resource limits](../managed-instance/resource-limits.md).
+
+
+
 
 ## Next steps
 
-- Find resource characteristics (number of cores, I/O, memory) of the general purpose/standard tier in [SQL Managed Instance](../managed-instance/resource-limits.md#service-tier-characteristics), single database in [vCore model](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) or [DTU model](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes), or elastic pool in [vCore model](resource-limits-vcore-elastic-pools.md#general-purpose---provisioned-compute---gen4) and [DTU model](resource-limits-dtu-elastic-pools.md#standard-elastic-pool-limits).
-- Learn about [Business Critical](service-tier-business-critical.md) and [Hyperscale](service-tier-hyperscale.md) tiers.
+- Find resource characteristics (number of cores, I/O, memory) of the general purpose/standard tier in [SQL Managed Instance](../managed-instance/resource-limits.md#service-tier-characteristics), single database in [vCore model](resource-limits-vcore-single-databases.md) or [DTU model](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes), or elastic pool in [vCore model](resource-limits-vcore-elastic-pools.md) and [DTU model](resource-limits-dtu-elastic-pools.md#standard-elastic-pool-limits).
+- Learn about [business critical](service-tier-business-critical.md) and [hyperscale](service-tier-hyperscale.md) service tiers.
 - Learn about [Service Fabric](../../service-fabric/service-fabric-overview.md).
 - For more options for high availability and disaster recovery, see [Business Continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md).

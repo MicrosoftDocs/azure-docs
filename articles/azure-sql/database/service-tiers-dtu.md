@@ -1,6 +1,6 @@
 ---
-title: Service tiers - DTU-based purchase model
-description: Learn about service tiers in the DTU-based purchase model for Azure SQL Database to provide compute and storage sizes.  
+title: DTU-based purchasing model
+description: Learn about the DTU-based purchasing model for Azure SQL Database and compare compute and storage sizes based on service tiers.  
 services: sql-database
 ms.service: sql-database
 ms.subservice: service-overview
@@ -10,19 +10,19 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 12/15/2021
+ms.date: 01/20/2022
 ---
 # DTU-based purchasing model overview 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-A database [transaction unit (DTU)](purchasing-models#database-transaction-units-dtus) represents a blended measure of CPU, memory, reads, and writes. Service tiers in the DTU-based purchasing model are differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers in the DTU-based purchasing model provide flexibility of changing compute sizes with minimal [downtime](https://azure.microsoft.com/support/legal/sla/azure-sql-database); however, there is a switch over period where connectivity is lost to the database for a short amount of time, which can be mitigated using retry logic. Single databases and elastic pools are billed hourly based on service tier and compute size.
+In this article, learn about the DTU-based purchasing model for Azure SQL Database. 
 
-
-> [!NOTE]
-> For information about vCore-based service tiers, see [vCore-based service tiers](service-tiers-vcore.md). For information about differentiating DTU-based service tiers and vCore-based service tiers, see [purchasing models](purchasing-models.md).
+To learn more, review [vCore-based purchasing model](service-tiers-vcore.md) and [compare purchasing models](purchasing-models.md). 
 
 
 ## Database transaction units (DTUs)
+
+A database [transaction unit (DTU)](purchasing-models.md#database-transaction-units-dtus) represents a blended measure of CPU, memory, reads, and writes. Service tiers in the DTU-based purchasing model are differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers in the DTU-based purchasing model provide flexibility of changing compute sizes with minimal [downtime](https://azure.microsoft.com/support/legal/sla/azure-sql-database); however, there is a switch over period where connectivity is lost to the database for a short amount of time, which can be mitigated using retry logic. Single databases and elastic pools are billed hourly based on service tier and compute size.
 
 For a single database at a specific compute size within a [service tier](single-database-scale.md), Azure SQL Database guarantees a certain level of resources for that database (independent of any other database). This guarantee provides a predictable level of performance. The amount of resources allocated for a database is calculated as a number of DTUs and is a bundled measure of compute, storage, and I/O resources.
 
