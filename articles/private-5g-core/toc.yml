@@ -1,0 +1,9 @@
+items:
+- name: Overview
+  items:
+  - name: What is Azure Private 5G Core Preview?
+    href: private-5g-core-overview.md
+- name: How-to
+  items:
+  - name: Complete the prerequisite tasks for deploying a private mobile network
+    href: complete-private-mobile-network-prerequisites.md
