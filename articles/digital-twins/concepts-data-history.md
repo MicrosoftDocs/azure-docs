@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Data History (integrating with ADX)
+title: Data history (integrating with ADX)
 titleSuffix: Azure Digital Twins
 description: Understand data history for Azure Digital Twins.
 author: baanders
@@ -15,15 +15,15 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Azure Digital Twins Data History
+# Azure Digital Twins data history
 
-**Data History** is an integration feature of Azure Digital Twins. It allows you to connect an Azure Digital Twins instance to an [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster so that digital twin property updates are automatically historized to Azure Data Explorer.
+**Data history** is an integration feature of Azure Digital Twins. It allows you to connect an Azure Digital Twins instance to an [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster so that digital twin property updates are automatically historized to Azure Data Explorer.
 
 Once twin property values are historized to Azure Data Explorer, you can run joint queries using the [Azure Digital Twins plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to reason across digital twins, their relationships, and time series data to gain insights into the behavior of modeled environments. You can also use these queries to power operational dashboards, enrich 2D and 3D web applications, and drive immersive augmented/mixed reality experiences to convey the current and historical state of assets, processes, and people modeled in Azure Digital Twins. 
 
 ## Required resources and data flow
 
-Data History requires the following resources:
+Data history requires the following resources:
 * Azure Digital Twins instance
 * [Event Hubs](../event-hubs/event-hubs-about.md) namespace containing an Event Hub
 * Azure Data Explorer cluster containing a database 
@@ -34,15 +34,15 @@ These resources are connected into the following flow:
 
 Data moves through these resources in this order:
 1. A property of a digital twin in Azure Digital Twins is updated.
-1. Data History forwards a message containing the twin's updated property value and metadata to Event Hub. 
+1. Data history forwards a message containing the twin's updated property value and metadata to Event Hub. 
 1. The Event Hub forwards the message to the target Azure Data Explorer cluster. 
-1. The Azure Data Explorer cluster maps the message fields to the Data History schema, and stores the data as a timestamped record in a Data History table.
+1. The Azure Data Explorer cluster maps the message fields to the data history schema, and stores the data as a timestamped record in a data history table.
 
-## Creating a Data History connection
+## Creating a data history connection
 
-Once all the [required resources](#required-resources-and-data-flow) are set up, you can use the [Azure CLI](/cli/azure/what-is-azure-cli) to create the Data History connection between them. The CLI command is part of the [az iot](/cli/azure/iot?view=azure-cli-latest&preserve-view=true) extension.
+Once all the [required resources](#required-resources-and-data-flow) are set up, you can use the [Azure CLI](/cli/azure/what-is-azure-cli) to create the data history connection between them. The CLI command is part of the [az iot](/cli/azure/iot?view=azure-cli-latest&preserve-view=true) extension.
 
-The command to create a Data History connection is shown below. You'll need to fill in placeholders to identify your resources. On the event hub, it uses the $Default consumer group.
+The command to create a data history connection is shown below. You'll need to fill in placeholders to identify your resources. On the event hub, it uses the $Default consumer group.
 
 ```azurecli-interactive
 az dt data-history create adx -n <Azure-Digital-Twins-instance-name>
@@ -60,7 +60,7 @@ az dt data-history create adx -n <Azure-Digital-Twins-instance-name>
 >`az dt data-history create adx -h`
 >```
 >
->For help on other Data History CLI commands, run:
+>For help on other data history CLI commands, run:
 >
 >```azurecli-interactive
 >az dt data-history -h
@@ -94,11 +94,11 @@ Below is an example table of twin property updates stored to Azure Data Explorer
 
 You may need to store a property with multiple fields. These properties are represented with a JSON object in the `Value` attribute of the schema.
 
-For instance, if you're representing a property with three fields for roll, pitch, and yaw, Data History will store the following JSON object as the `Value`: `{"roll": 20, "pitch": 15, "yaw": 45}`.
+For instance, if you're representing a property with three fields for roll, pitch, and yaw, data history will store the following JSON object as the `Value`: `{"roll": 20, "pitch": 15, "yaw": 45}`.
 
 ## End-to-end ingestion latency
 
-Azure Digital Twins Data History builds on the existing ingestion mechanism provided by Azure Data Explorer. Azure Digital Twins will ensure that property updates are made available to Azure Data Explorer within less than two seconds. Extra latency may be introduced by Azure Data Explorer ingesting the data. 
+Azure Digital Twins data history builds on the existing ingestion mechanism provided by Azure Data Explorer. Azure Digital Twins will ensure that property updates are made available to Azure Data Explorer within less than two seconds. Extra latency may be introduced by Azure Data Explorer ingesting the data. 
 
 There are two methods in Azure Data Explorer for ingesting data: [batch ingestion](#batch-ingestion-default) and [streaming ingestion](#streaming-ingestion). You can configure these ingestion methods for individual tables according to your needs and the specific data ingestion scenario.
 
@@ -139,4 +139,4 @@ Ensure that `<table_name>` is replaced with the name of the table that was set u
 
 Once twin data has been historized to Azure Data Explorer, you can use the Azure Digital Twins query plugin for Azure Data Explorer to run queries across the data. Read more about the plugin here: [Querying historized data](concepts-data-explorer-plugin.md).
 
-Or, dive deeper into Data History with an example scenario in this how-to: [Use Data History feature](how-to-use-data-history.md).
+Or, dive deeper into data history with an example scenario in this how-to: [Use data history feature](how-to-use-data-history.md).

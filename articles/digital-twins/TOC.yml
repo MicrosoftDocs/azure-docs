@@ -43,7 +43,7 @@
     href: concepts-query-units.md 
   - name: Querying historized data
     items:
-      - name: Data History (integrating with ADX)
+      - name: Data history (integrating with ADX)
         href: concepts-data-history.md
       - name: Querying with the ADX plugin
         href: concepts-data-explorer-plugin.md
@@ -131,7 +131,7 @@
       href: how-to-manage-routes.md
     - name: Route events with a managed identity
       href: how-to-route-with-managed-identity.md
-    - name: Use Data History feature
+    - name: Use data history feature
       href: how-to-use-data-history.md
     - name: Integrate with Azure Time Series Insights
       href: how-to-integrate-time-series-insights.md

@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Use Data History feature
+title: Use data history feature
 titleSuffix: Azure Digital Twins
-description: See how to set up and use Data History for Azure Digital Twins.
+description: See how to set up and use data history for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 08/23/2021
@@ -15,11 +15,11 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Use Azure Digital Twins Data History
+# Use Azure Digital Twins data history
 
-[Data History](concepts-data-history.md) is an Azure Digital Twins feature for automatically historizing twin data to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). This data can be queried using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to gain insights about your environment over time.
+[Data history](concepts-data-history.md) is an Azure Digital Twins feature for automatically historizing twin data to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). This data can be queried using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to gain insights about your environment over time.
 
-This article shows how to set up a working Data History connection between Azure Digital Twins and Azure Data Explorer. It uses the [Azure CLI](/cli/azure/what-is-azure-cli) to set up and connect the required Data History resources, including:
+This article shows how to set up a working data history connection between Azure Digital Twins and Azure Data Explorer. It uses the [Azure CLI](/cli/azure/what-is-azure-cli) to set up and connect the required data history resources, including:
 * an Azure Digital Twins instance
 * an [Event Hubs](../event-hubs/event-hubs-about.md) namespace containing an Event Hub
 * an Azure Data Explorer cluster containing a database
@@ -37,7 +37,7 @@ This article also uses the **Azure CLI**. You can either [install the CLI locall
 
 ## Create an Event Hubs namespace and Event Hub
 
-The first step in setting up a Data History connection is creating an Event Hubs namespace and an event hub. This hub will be used to receive digital twin property update notifications from Azure Digital Twins, and forward the messages along to the target Azure Data Explorer cluster. For more information about Event Hubs and their capabilities, see the [Event Hubs documentation](../event-hubs/event-hubs-about.md).
+The first step in setting up a data history connection is creating an Event Hubs namespace and an event hub. This hub will be used to receive digital twin property update notifications from Azure Digital Twins, and forward the messages along to the target Azure Data Explorer cluster. For more information about Event Hubs and their capabilities, see the [Event Hubs documentation](../event-hubs/event-hubs-about.md).
 
 Use the following CLI commands to create the required resources, replacing placeholder values with the names of your own resources.
 
@@ -78,9 +78,9 @@ Finally, create a database in your new Kusto cluster (using the cluster name fro
 az kusto database create --cluster-name <cluster-name-from-above> --database-name <name-for-your-database> --resource-group <your-resource-group> --read-write-database soft-delete-period=P365D hot-cache-period=P31D location=<region>
 ```
 
-## Create a Data History connection
+## Create a data history connection
 
-Now that you've created the required resources, use the command below to create a Data History connection between the Azure Digital Twins instance, the Event Hub, and the Azure Data Explorer cluster. By default, this command assumes all resources are in the same resource group as the Azure Digital Twins instance. You can also specify resources that are in different resource groups using the parameter options for this command, which can be displayed by running `az dt data-history create adx -h`.
+Now that you've created the required resources, use the command below to create a data history connection between the Azure Digital Twins instance, the Event Hub, and the Azure Data Explorer cluster. By default, this command assumes all resources are in the same resource group as the Azure Digital Twins instance. You can also specify resources that are in different resource groups using the parameter options for this command, which can be displayed by running `az dt data-history create adx -h`.
 
 ```azurecli-interactive
 az dt data-history create adx --cn <name-for-your-connection> --dt-name <Azure-Digital-Twins-instance-name> --adx-cluster-name <name-of-your-cluster> --adx-database-name <name-of-your-database> --eventhub <name-of-your-event-hub> --eventhub-namespace <name-of-your-Event-Hubs-namespace>
@@ -95,7 +95,7 @@ Once the connection is set up, the default settings on your Azure Data Explorer 
 
 ## Create a twin graph and send telemetry to it
 
-Now that your Data History connection is set up, you can test it with data from your digital twins.
+Now that your data history connection is set up, you can test it with data from your digital twins.
 
 If you already have twins in your Azure Digital Twins instance that are receiving telemetry updates, you can skip this section and visualize the results using your own resources. 
 
@@ -166,7 +166,7 @@ Next, create a digital twin (**pump_01**) based on the pump model.
 az dt twin create --dt-name <Azure-Digital-Twins-instance> --dtmi "dtmi:example:Pump;1" --twin-id pump_01 --properties '{"Flow_Rate":100, "RPM":1000}'
 ```
 
-Now, apply several updates to the twin, in order to trigger Data History to historize the changes to Azure Data Explorer.
+Now, apply several updates to the twin, in order to trigger data history to historize the changes to Azure Data Explorer.
 
 ```azurecli-interactive
 az dt twin update -n <Azure-Digital-Twins-instance> --twin-id pump_01 --json-patch '[{"op":"replace", "path":"/Flow_Rate", "value": 110}, {"op":"replace", "path":"/RPM", "value": 1100}]'
@@ -180,7 +180,7 @@ az dt twin update -n <Azure-Digital-Twins-instance> --twin-id pump_01 --json-pat
 
 ---
 
-To verify that data is flowing through the Data History pipeline, navigate to the [Azure portal](https://portal.azure.com) and open the Event Hubs namespace resource you created. You should see charts showing the flow of messages into and out of the namespace, indicating the flow of incoming messages from Azure Digital Twins and outgoing messages to Azure Data Explorer.
+To verify that data is flowing through the data history pipeline, navigate to the [Azure portal](https://portal.azure.com) and open the Event Hubs namespace resource you created. You should see charts showing the flow of messages into and out of the namespace, indicating the flow of incoming messages from Azure Digital Twins and outgoing messages to Azure Data Explorer.
 
 :::image type="content" source="media/how-to-use-data-history/simulated-environment-portal.png" alt-text="Screenshot of the Azure portal showing an Event Hubs namespace for the simulated environment." lightbox="media/how-to-use-data-history/simulated-environment-portal.png":::
 
@@ -194,7 +194,7 @@ Start in the [Azure portal](https://portal.azure.com) and navigate to the Azure 
 
 Next, expand the cluster and database in the left pane to see the name of the table. You'll use this name to run queries on the table.
 
-:::image type="content" source="media/how-to-use-data-history/data-history-table.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The name of the Data History table is highlighted." lightbox="media/how-to-use-data-history/data-history-table.png":::
+:::image type="content" source="media/how-to-use-data-history/data-history-table.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The name of the data history table is highlighted." lightbox="media/how-to-use-data-history/data-history-table.png":::
 
 Copy the command below. The command will change the ingestion to [batched mode](concepts-data-history.md#batch-ingestion-default) and ingest every 10 seconds.
 
@@ -227,7 +227,7 @@ You can also add and run the following command to view 100 records in the table:
 
 Next, run a query based on the data of your twins to see the contextualized time series data. 
 
-If you used the Azure Digital Twins Data Simulator earlier to set up the [sample dairy scenario](#create-a-twin-graph-and-send-telemetry-to-it), you can use the query below to chart the **outflow** of all salt machine twins in the Oslo dairy. This Kusto query uses the Azure Digital Twins plugin to select the twins of interest, joins those twins against the Data History time series in Azure Data Explorer, and then charts the results. Make sure to replace the `<ADT-instance>` placeholder with the URL of your instance, in the format `https://<instance-host-name>`.
+If you used the Azure Digital Twins Data Simulator earlier to set up the [sample dairy scenario](#create-a-twin-graph-and-send-telemetry-to-it), you can use the query below to chart the **outflow** of all salt machine twins in the Oslo dairy. This Kusto query uses the Azure Digital Twins plugin to select the twins of interest, joins those twins against the data history time series in Azure Data Explorer, and then charts the results. Make sure to replace the `<ADT-instance>` placeholder with the URL of your instance, in the format `https://<instance-host-name>`.
 
 ```kusto
 let ADTendpoint = "<ADT-instance>";
