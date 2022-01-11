@@ -40,6 +40,9 @@
   - name: Install the Microsoft Defender for IoT micro agent (Preview)
     displayName: package, authentication, methods, certificate, authenticate, version
     href: quickstart-standalone-agent-binary-installation.md
+  - name: Configure Microsoft Defender for IoT agent-based solution
+    displayName: data, collection, geolocation, log analytics, raw events
+    href: how-to-configure-agent-based-solution.md
   - name: Configure a micro agent twin
     href: tutorial-configure-micro-agent-twin.md
 - name: Concepts
@@ -107,9 +110,6 @@
   - name: Connect to Microsoft Sentinel
     displayName: log analytics, service notes
     href: how-to-configure-with-sentinel.md
-  - name: Configure Microsoft Defender for IoT agent-based solution
-    displayName: data, collection, geolocation, log analytics, raw events
-    href: how-to-configure-agent-based-solution.md
   - name: Investigate CIS benchmark recommendation
     href: how-to-investigate-cis-benchmark.md
   - name: Create custom alerts
