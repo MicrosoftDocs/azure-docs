@@ -11,7 +11,7 @@ Azure Video Analyzer provides several built-in [Azure Policy](../../governance/p
 
 Video Analyzer provides several common use case definitions for Azure Policy that are built-in to help you get started. This article explains how to assign policies for a Video Analyzer account using the Azure portal. 
 
-## Built-in Azure Policy definitions for Video Analyzer 
+## Built-in Azure Policy definitions 
 
 The following built-in policy definitions are available for use with Video Analyzer. 
 
@@ -22,6 +22,9 @@ The following built-in policy definitions are available for use with Video Analy
 ## Create a policy assignment 
 
 Use the Azure portal to [create a policy assignment](../../governance/policy/assign-policy-portal.md) for your Video Analyzer account using the built-in policy definition. 
+
+> [!NOTE]
+>  Follow the [quickstart to create a policy assignment](../../governance/policy/assign-policy-portal.md) but use the policy definition applicable for Video Analyzer by selecting **Type = Built-in** and typing "Video Analyzer" in the Search tab. 
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/security-policy/built-in-policy.png" alt-text="Screenshot to assign a built-in policy for Video Analyzer.":::
