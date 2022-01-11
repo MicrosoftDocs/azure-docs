@@ -1,46 +1,82 @@
 ---
-title: "Quickstart: Investigate security alerts"
-description: Understand, drill down, and investigate Defender for IoT security alerts on your IoT devices.
-ms.topic: quickstart
-ms.date: 11/09/2021
-ms.custom: mode-other
+title: Investigate security alerts
+description: Learn how to investigate Defender for IoT security alerts on your IoT devices.
+ms.topic: tutorial
+ms.date: 01/11/2022
 ---
 
-# Quickstart: Investigate security alerts
+# Tutorial: Investigate security alerts
 
-Scheduled investigation and remediation of the alerts issued by Defender for IoT is the best way to ensure compliance, and protection across your IoT solution.
+This tutorial will help you learn how to investigate, and remediate the alerts issued by Defender for IoT. Remediating alerts is the best way to ensure compliance, and protection across your IoT solution.
 
-## Investigate new security alerts
+In this tutorial you will learn how to:
 
-The IoT Hub security alert list displays all of the aggregated security alerts for your IoT Hub. 
+> [!div class="checklist"]
+> -
 
-1. In the Azure portal, open the **IoT Hub** you want to investigate for new alerts.
+## Prerequisites
 
-1. From the **Security** menu, select **Alerts**. All of the security alerts for the IoT Hub will display, and the alerts with a **New** flag, mark your alerts from the past 24 hours.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-    :::image type="content" source="media/quickstart/investigate-new-security-alerts.png" alt-text="Investigate new IoT security alerts by using the new alert flag":::
+- An [IoT hub](../../iot-hub/iot-hub-create-through-portal.md).
 
-1. Select an alert from the list to open the alert details, and understand the alert specifics. 
+- You must have [enabled Microsoft Defender for IoT on your Azure IoT Hub](quickstart-onboard-iot-hub.md).
+
+- You must have [added a resource group to your IoT solution](quickstart-configure-your-solution.md)
+
+- You must have [created a Defender for IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
+
+- You must have [installed the Defender for IoT micro agent (Preview)](quickstart-standalone-agent-binary-installation.md)
+
+- You must have [configured the Microsoft Defender for IoT agent-based solution](how-to-configure-agent-based-solution.md)
+
+- Learned how to [investigate security recommendations](quickstart-investigate-security-recommendations.md)
+
+## Investigate security alerts
+
+The Defender for IoT security alert list displays all of the aggregated security alerts for your IoT Hub.
+
+**To investigate security alerts**:
+
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+
+1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Security Alerts**.
+
+1. Select an alert from the list to open the alert's details.
 
 ## Security alert details
 
-Opening each aggregated alert displays the detailed alert description, remediation steps, and device ID for each device that triggered an alert. The alert severity, and direct investigation is accessible using Log Analytics. 
+Opening each aggregated alert displays the detailed alert description, remediation steps, and device ID for each device that triggered an alert. The alert severity, and direct investigation is accessible using Log Analytics.
 
-1. Navigate to **IoT Hub** > **Security** > **Alerts**. 
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
 
-1. Select any security alert from the list to open it. 
+1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Security Alerts**.
+
+1. Select any security alert from the list to open it.
 
 1. Review the alert **description**, **severity**, **source of the detection**, **device details** of all devices that issued this alert in the aggregation period.
 
-    :::image type="content" source="media/quickstart/drill-down-iot-alert-details.png" alt-text="Investigate and review the details of each device in an aggregated alert "::: 
+    :::image type="content" source="media/quickstart/drill-down-iot-alert-details.png" alt-text="Investigate and review the details of each device in an aggregated alert ":::
 
 1. After reviewing the alert specifics, use the **manual remediation step** instructions to help remediate, and resolve the issue that caused the alert.
 
     :::image type="content" source="media/quickstart/iot-alert-manual-remediation-steps.png" alt-text="Follow the manual remediation steps to help resolve or remediate your device security alerts":::
 
-1. If further investigation is required, **Investigate the alerts in Log Analytics** using the link.
- 
-    :::image type="content" source="media/quickstart/investigate-iot-alert-log-analytics.png" alt-text="To further investigate an alert, use the investigate using log analytics link provided on screen":::
+## Investigate alerts in Log Analytics workspace
+
+You can access your alerts and investigate them with the Log Analytics workspace.
+
+**To access your alerts in your Log Analytics workspace after configuration**:
+
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+
+1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Security Alerts**.
+
+1. Select an alert.
+
+1. Select **Investigate alerts in Log Analytics workspace**.
+
+    :::image type="content" source="media/how-to-configure-agent-based-solution/log-analytic.png" alt-text="Screenshot that shows where to click to investigate in the log anayltics workspace.":::
 
 ## Next steps
 

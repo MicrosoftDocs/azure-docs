@@ -1,6 +1,6 @@
 ---
 title: Investigate security recommendations
-description: Investigate security recommendations with the Defender for IoT security service.
+description: Learn how to investigate security recommendations with the Defender for IoT.
 ms.topic: tutorial
 ms.date: 01/11/2022
 ---
@@ -42,7 +42,7 @@ The IoT Hub recommendations list displays all of the aggregated security recomme
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Recommendations**.
 
-1. Select a recommendation from the list to open the recommendation details.
+1. Select a recommendation from the list to open the recommendation's details.
 
 ## Investigate security recommendation details
 

@@ -97,22 +97,6 @@ In order to secure your IoT solution, the IP addresses of the incoming, and outg
 
 1. Select **Save**.
 
-## Investigate alerts in Log Analytics workspace
-
-You can access your alerts and investigate them with the Log Analytics workspace.
-
-**To access your alerts in your Log Analytics workspace after configuration**:
-
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
-
-1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Security Alerts**.
-
-1. Select an alert.
-
-1. Select **Investigate alerts in Log Analytics workspace**.
-
-    :::image type="content" source="media/how-to-configure-agent-based-solution/log-analytic.png" alt-text="Screenshot that shows where to click to investigate in the log anayltics workspace.":::
-
 ## Clean up resources
 
 There are no resources to clean up.
