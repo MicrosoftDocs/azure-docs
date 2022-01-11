@@ -31,10 +31,10 @@ Closed Captions allow participants to be on the call in loud or sound-sensitive 
 
 ## Feature Highlights
 
-- Supported on multiple platform with cross platform support.
-- Async processing with client subscribing to events and callbacks.
-- Offers multiple languages to choose from for recognition.
-- Supports existing SkypeToken for auth
+- Support for multiple platforms with cross-platform support.
+- Async processing with client subscription to events and callbacks.
+- Multiple languages to choose from for recognition.
+- Support for existing SkypeToken Authentication
 
 
 ## Availability
