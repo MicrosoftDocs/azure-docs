@@ -61,6 +61,10 @@ The App Service platform will review your App Service Environment to confirm mig
 
 Migration consists of a series of steps that must be followed in order. Key points are given below for a subset of the steps. It's important to understand what will happen during these steps and how your environment and apps will be impacted. After reviewing the following information and when you're ready to migrate, follow the [step-by-step guide](how-to-migrate.md).
 
+> [!NOTE]
+> For this version of the preview, migration must be done using Azure REST API calls. An Azure portal experience will be available in early February, 2022.
+>
+
 ### Delegate your App Service Environment subnet
 
 App Service Environment v3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. If the App Service Environment's subnet isn't delegated or it's delegated to a different resource, migration will fail.
@@ -119,6 +123,8 @@ The migration tool doesn't plan on supporting App Service Environment v1 within 
   If there's an unexpected issue, support teams will be on hand. It's recommended to migrate dev environments before touching any production environments.
 - **What happens to my old App Service Environment?**  
   If you decide to migrate an App Service Environment, the old environment gets shut down and deleted and all of your apps are migrated to a new environment. Your old environment will no longer be accessible.
+- **Will I be able to migrate from the Azure portal?**  
+  Yes, the portal experience is expected to be available by early February, 2022.
 
 ## Next steps
 
