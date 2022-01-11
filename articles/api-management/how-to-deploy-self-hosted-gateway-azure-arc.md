@@ -111,3 +111,4 @@ To enable monitoring of the self-hosted gateway, configure the following Log Ana
 * Learn more about the [observability capabilities of the Azure API Management gateways](observability.md).
 * Discover all [Azure Arc-enabled Kubernetes extensions](../azure-arc/kubernetes/extensions.md). 
 * Learn more about [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md).
+* Learn more about guidance to [run the self-hosted gateway on Kubernetes in production](how-to-self-hosted-gateway-on-kubernetes-in-production.md).
