@@ -71,6 +71,7 @@ We'll now set some Unity project settings that help us target the Windows Hologr
 1. Click on the yellow warning sign next to **OpenXR** to display all OpenXR issues.
 1. Select **Fix all**
 1. To fix the issue "_At least one interaction profile must be added_", click on *Edit* to open the OpenXR Project settings. Then under **Interaction Profiles** select the **+** symbol and select **Microsoft Hand Interaction Profile**
+![Unity - OpenXR Setup](../../../includes/media/spatial-anchors-unity/unity-HL2-OpenXRSetup.png)
 
 #### Change Quality Settings
 1. Select **Edit** > **Project Settings** > **Quality**
