@@ -90,6 +90,23 @@ documentation.
 > [!NOTE]
 > Azure App Service Environment for PowerApps or API management in a virtual network with a public IP are both not natively supported.
 
+
+## Hub-and-spoke network topology with Azure Firewall and  Bastion
+This reference architecture details a hub-and-spoke topology with Azure Firewall inside the hub as a DMZ, for the scenarios that require central control over security aspects. Azure Firewall is a managed firewall as a service and it is placed in its own subnet. There is also Azure Bastion inside the hub, also placed inside its own subnet.
+
+There are 2 spokes that are connected to the hub using VNet peering and there is no spoke-to-spoke connectivity. If you require spoke-to-spoke connectivity, then you need to create routes to forward traffic from one spoke to the firewall, which can then route it to the other spoke.
+
+![Hub-and-spoke architecture with Firewall and Bastion and DDoS Protection Standard](./media/ddos-best-practices/image-14.png)
+
+Azure DDoS Protection Standard is enabled on the hub virtual network,  therefore all the Public IPs that are inside the hub are protected by the DDoS Standard plan. In this scenario, the firewall in the hub helps control the ingress traffic from the internet, while the firewall's Public IP is being protected. Azure DDoS Protection Standard also protects the Public IP of the Bastion. 
+
+DDoS Protection Standard is designed for [services that are deployed in a virtual network.](/azure/virtual-network/virtual-network-for-azure-services#services-that-can-be-deployed-into-a-virtual-network)
+
+> [!NOTE]
+> DDoS Protection Standard protects the Public IPs of Azure resource. The DDoS Protection Basic, which requires no configuration and it's enabled by default, only protects the Azure underlying platform infrastructure (e.g. Azure DNS). See more details [here](/azure/ddos-protection/ddos-protection-overview).
+
+For more information about the hub-and-spoke network topology, please see [this article](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli)
+
 ## Next steps
 
 - Learn how to [create a DDoS protection plan](manage-ddos-protection.md).
