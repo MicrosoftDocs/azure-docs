@@ -12,7 +12,9 @@ This tutorial will help you learn how to investigate, and remediate the alerts i
 In this tutorial you will learn how to:
 
 > [!div class="checklist"]
-> -
+> - Investigate security alerts
+> - Investigate security alert details
+> - Investigate alerts in Log Analytics workspace
 
 ## Prerequisites
 
@@ -44,9 +46,11 @@ The Defender for IoT security alert list displays all of the aggregated security
 
 1. Select an alert from the list to open the alert's details.
 
-## Security alert details
+## Investigate security alert details
 
 Opening each aggregated alert displays the detailed alert description, remediation steps, and device ID for each device that triggered an alert. The alert severity, and direct investigation is accessible using Log Analytics.
+
+**To investigate security alert details**:
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
 
@@ -78,9 +82,12 @@ You can access your alerts and investigate them with the Log Analytics workspace
 
     :::image type="content" source="media/how-to-configure-agent-based-solution/log-analytic.png" alt-text="Screenshot that shows where to click to investigate in the log anayltics workspace.":::
 
+## Clean up resources
+
+There are no resources to clean up.
+
 ## Next steps
 
-Advance to the next article to learn more about security alerts types and possible customizations.
 
 > [!div class="nextstepaction"]
-> [Understanding IoT security alerts](concept-security-alerts.md)
+> [Quickstart: Defender-IoT-micro-agent for Azure RTOS](quickstart-azure-rtos-security-module.md)

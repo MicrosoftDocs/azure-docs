@@ -16,8 +16,6 @@
   - name: Enable Microsoft Defender for IoT on Azure IoT Hub
     displayName: IoT Hub, existing, enable, enable, onboard
     href: quickstart-onboard-iot-hub.md
-  - name: Configure Defender-IoT-micro-agent for Azure RTOS
-    href: quickstart-azure-rtos-security-module.md
   - name: Classic
     items:
     - name: Security agent overview
@@ -129,6 +127,8 @@
     displayNAme: device inventory, device, inventory, EIoT, eiot
   - name: Move a resource to a different region
     href: how-to-region-move.md
+  - name: Configure Defender-IoT-micro-agent for Azure RTOS
+    href: quickstart-azure-rtos-security-module.md
   - name: Classic
     items:
       - name: Which agent should I deploy?
