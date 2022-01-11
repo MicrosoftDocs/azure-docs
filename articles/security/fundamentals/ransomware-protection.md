@@ -1,6 +1,6 @@
 ---
-title: Azure defenses against ransomware -- title TBD
-description: Azure defenses against ransomware -- description TBD
+title: Preparing for a ransomware attack
+description: Preparing for a ransomware attack
 author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
@@ -10,15 +10,14 @@ ms.date: 01/10/2022
 
 ---
 
-# Azure defenses against ransomware
+# Ransomware protection in Azure
+Ransomware and extortion are a high profit, low-cost business which has a debilitating impact on targeted organizations, national security, economic security, and public health and safety. What started as simple single-PC ransomware has grown to include a variety of extortion techniques directed at all types of corporate networks and cloud platforms.​
 
-Ransomware and extortion are a high profit, low-cost business which has a debilitating impact on targeted organizations, national security, economic security, and public health and safety. What started as simple single-PC ransomware has grown to include a variety of extortion techniques directed at all types of corporate networks and cloud platforms.
+To ensure customers running on Azure are protected against ransomware attacks, Microsoft has invested heavily on the security of our cloud platforms and has provided you the security controls you need to protect your Azure cloud workloads.​
 
-To ensure customers running on Azure are protected against ransomware attacks, Microsoft has invested heavily on the security of our cloud platforms and has provided you the security controls you need to protect your Azure cloud workloads.
+By leveraging Azure native ransomware protections and implementing the best practices recommended in this article, you are taking measures that ensures your organization is optimally positioned to prevent, protect and detect potential ransomware attacks on your Azure assets.  ​
 
-By leveraging Azure native ransomware protections and implementing the best practices recommended in this article, you are taking measures that ensures your organization is optimally positioned to prevent, protect and detect potential ransomware attacks on your Azure assets.
-
-This article lays out key Azure native capabilities and defenses for ransomware attacks and guidance on how to proactively leverage these to protect your assets on Azure cloud.
+This article lays out key Azure native capabilities and defenses for ransomware attacks and guidance on how to proactively leverage these to protect your assets on Azure cloud. ​
 
 ## A growing threat
 
@@ -32,13 +31,13 @@ Ransomware's economic model capitalizes on the misperception that a ransomware a
 
 For many organizations, the cost to rebuild from scratch after a ransomware incident far outweighs the original ransom demanded. With a limited understanding of the threat landscape and how ransomware operates, paying the ransom seems like the better business decision to return to operations. However, the real damage is often done when the cybercriminal exfiltrates files for release or sale, while leaving backdoors in the network for future criminal activity—and these risks persist whether or not the ransom is paid. 
 
-Ransomware attacks have become one of the biggest security challenges facing businesses today. When successful, ransomware attacks can cripple a business core IT infrastructure, incapacity and cause destruction that could have a debilitating impact on the physical, economic security or safety of a business. Ransomware attacks are targeted to businesses of all types. This requires that all businesses take preventive measures to ensure protection.
+Ransomware attacks have become one of the biggest security challenges facing businesses today. When successful, ransomware attacks can cripple a business core IT infrastructure, incapacity and cause destruction that could have a debilitating impact on the physical, economic security or safety of a business. Ransomware attacks are targeted to businesses of all types. This requires that all businesses take preventive measures to ensure protection. ​
 
-Recent trends on the number of attacks are quite alarming. While 2020 was not a good year for ransomware attacks on businesses, 2021 started on a bad trajectory.  On May 7, the Colonial pipeline (Colonial) attack shutdown services such as pipeline transportation of diesel and gasoline, and jet fuel were temporary halted. Colonial shut the critical fuel network supplying the populous eastern states.
+Recent trends on the number of attacks are quite alarming. While 2020 was not a good year for ransomware attacks on businesses, 2021 started on a bad trajectory.  On May 7, the Colonial pipeline (Colonial) attack shutdown services such as pipeline transportation of diesel and gasoline, and jet fuel were temporary halted. Colonial shut the critical fuel network supplying the populous eastern states.​
 
-Historically, cyberattacks were seen as a sophisticated set of actions targeting particular industries, which left the remaining industries believing they were outside the scope of cybercrime, and without context about which cybersecurity threats they should prepare for. Ransomware represents a major shift in this threat landscape, and it's made cyberattacks a very real and omnipresent danger for everyone. Encrypted and lost files and threatening ransom notes have now become the top-of-mind fear for most executive teams.
+Historically, cyberattacks were seen as a sophisticated set of actions targeting particular industries, which left the remaining industries believing they were outside the scope of cybercrime, and without context about which cybersecurity threats they should prepare for. Ransomware represents a major shift in this threat landscape, and it's made cyberattacks a very real and omnipresent danger for everyone. Encrypted and lost files and threatening ransom notes have now become the top-of-mind fear for most executive teams.​
 
-### Ransomware explained
+### ​Ransomware explained
 
 Ransomware is a type of malware that infects a computer and restricts a user's access to the infected system or specific files in order to extort them for money. After the target system has been compromised, it typically locks out most interaction and displays an on-screen alert, typically stating that the system has been locked or that all of their files have been encrypted.  It then demands a substantial ransom be paid before the system is released or files decrypted.  
 
@@ -104,16 +103,12 @@ Colonial Pipeline paid about $4.4 Million in ransom to have their data released.
 
 :::image type="content" source="./media/ransomware/ransomware4.png" alt-text="Placeholder Text 4":::
 
-## Ransomware evolution
+## Next steps
 
-Since the first known ransomware attack was disclosed in 1989, much of the industry has significantly changed not just with the number of attacks occurring every year and the sophistication of those attacks, but the emergence and evolution of new ransomware business models.  The two common types are "Commodity Ransomware" and "Human Operated Ransomware." Each has its distinctive attributes. 
+In this article series, you learn:
+•	How to [prepare for a ransomware attack](ransomware-prepare.md) (link)
+•	How to [detect and respond to ransomware attack](ransomware-detect-respond.md)
+•	About [Azure features and resources that help you protect, detect, and respond](ransomware-features-resources.md)
 
-Commodity ransomware attacks target individuals, are pre-programmed, opportunistic and are unlikely to cause business disruption. Human-operated ransomware is sometimes referred to as "big game ransomware," a term that implies cybercriminals select specific networks for their value proposition and then hunt for entry vectors. This approach has been the exception, not the rule, in most major ransomware attacks in the past year. Cybercriminals perform massive wide-ranging sweeps of the internet, searching for vulnerable entry points. Or they enter networks via "commodity" trojans and then "bank" this access for a time and purpose that's advantageous to them. 
 
-While ransomware existed in small pockets before, the business model didn't take off at scale until the introduction of cryptolocker in 2013, which kicked off a surge in this opportunistic, single device way of monetizing cybercrime. 
 
-The most recent phase in ransomware evolution, as illustrated in Figure 5, can be traced to WannaCry and (Not)Petya that fused large scale compromise techniques with an encryption payload that demanded a ransom payment in exchange for the decryption key.  
-
-This fusion inspired the new generation of human operated ransomware that started popping up around June 2019, and vastly expanded the ransomware business model into an enterprise scale operation blending targeted attack techniques and the extortion business model (threatening disclosure of data and/or encryption in exchange for payment).
-
-:::image type="content" source="./media/ransomware/ransomware5.png" alt-text="Placeholder Text 5":::
