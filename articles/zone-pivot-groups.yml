@@ -1551,8 +1551,8 @@ groups:
   prompt: Choose a migration method
   pivots:
   - id: agentlessvmware
-    title: Agentless VMware
+    title: Agentless VMware migrations
   - id: hyperv
-    title: Agentless Hyper-V
+    title: Agentless Hyper-V migrations
   - id: agentbased
-    title: Agent-based
+    title: Agent-based migrations

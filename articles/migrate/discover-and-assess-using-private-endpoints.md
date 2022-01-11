@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.date: 12/29/2021
 ---
  
-# Discover and assess servers for migration by using Private Link
+# Discover and assess servers for migration using Private Link
 
-This article describes how to create an Azure Migrate project, set up the Azure Migrate appliance, and use it to discover and assess servers for migration.
+This article describes how to create an Azure Migrate project, set up the Azure Migrate appliance, and use it to discover and assess servers for migration using [Azure Private Link](../private-link/private-endpoint-overview).  You can use the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link.
 
 ## Create a project with private endpoint connectivity
 
@@ -30,7 +30,10 @@ In the **Advanced** configuration section, provide the following details to crea
 
 1. Select **Create** to create a migration project and attach a private endpoint to it. Wait a few minutes for the Azure Migrate project to deploy. Don't close this page while the project creation is in progress.
 
-### Set up the Azure Migrate appliance
+> [!Note]
+> If you've already created a project, you can use that project to register more appliances to discover and assess more servers. Learn how to [manage projects](create-manage-projects.md#find-a-project). 
+
+## Set up the Azure Migrate appliance
 
 1. In **Discover machines** > **Are your machines virtualized?**, select the virtualization server type.
 1. In **Generate Azure Migrate project key**, provide a name for the Azure Migrate appliance.
@@ -44,7 +47,7 @@ In the **Advanced** configuration section, provide the following details to crea
 
 1. After the key is successfully generated, copy the key details to configure and register the appliance.
 
-#### Download the appliance installer file
+### Download the appliance installer file
 
 Azure Migrate: Discovery and assessment use a lightweight Azure Migrate appliance. The appliance performs server discovery and sends server configuration and performance metadata to Azure Migrate.
 
@@ -57,7 +60,7 @@ To set up the appliance:
   1. After you download the zipped file, verify the file security.
   1. Run the installer script to deploy the appliance.
 
-#### Verify security
+### Verify security
 
 Check that the zipped file is secure, before you deploy it.
 
@@ -76,7 +79,7 @@ Check that the zipped file is secure, before you deploy it.
 
 Make sure the server meets the [hardware requirements](./migrate-appliance.md) for the chosen scenario, such as VMware, Hyper-V, physical or other, and can connect to the [required URLs](./migrate-appliance.md#public-cloud-urls-for-private-link-connectivity).
 
-#### Run the Azure Migrate installer script
+### Run the Azure Migrate installer script
 
 1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server with an existing Azure Migrate appliance.
 
@@ -97,11 +100,11 @@ After the script has executed successfully, the appliance configuration manager 
 > [!NOTE]
 > If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
 
-### Configure the appliance and start continuous discovery
+## Configure the appliance and start continuous discovery
 
 Open a browser on any machine that can connect to the appliance server. Open the URL of the appliance configuration manager, `https://appliance name or IP address: 44368`. Or, you can open the configuration manager from the appliance server desktop by selecting the shortcut for the configuration manager.
 
-#### Set up prerequisites
+### Set up prerequisites
 
 1. Read the third-party information, and accept the **license terms**.
 
@@ -122,7 +125,7 @@ Open a browser on any machine that can connect to the appliance server. Open the
         > If you disabled auto-update on the appliance, you can update the appliance services manually to get the latest versions of the services. Follow the steps in [Manually update an older version](./migrate-appliance.md#manually-update-an-older-version).
    - **Install VDDK**: _(Needed only for VMware appliance.)_ The appliance checks that the VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If it isn't installed, download VDDK 6.7 from VMware. Extract the downloaded zipped contents to the specified location on the appliance, as provided in the installation instructions.
 
-#### Register the appliance and start continuous discovery
+### Register the appliance and start continuous discovery
 
 After the prerequisites check has completed, follow the steps to register the appliance and start continuous discovery for the respective scenarios:
 - [VMware VMs](./tutorial-discover-vmware.md#register-the-appliance-with-azure-migrate)
@@ -134,7 +137,7 @@ After the prerequisites check has completed, follow the steps to register the ap
 >[!Note]
 > If you get DNS resolution issues during appliance registration or at the time of starting discovery, ensure that Azure Migrate resources created during the **Generate key** step in the portal are reachable from the on-premises server that hosts the Azure Migrate appliance. Learn more about how to verify [network connectivity](./troubleshoot-network-connectivity.md).
 
-### Assess your servers for migration to Azure
+## Assess your servers for migration to Azure
 After the discovery is complete, assess your servers, such as [VMware VMs](./tutorial-assess-vmware-azure-vm.md), [Hyper-V VMs](./tutorial-assess-hyper-v.md), [physical servers](./tutorial-assess-vmware-azure-vm.md), [AWS VMs](./tutorial-assess-aws.md), and [GCP VMs](./tutorial-assess-gcp.md), for migration to Azure VMs or Azure VMware Solution by using the Azure Migrate: Discovery and assessment tool.
 
 You can also [assess your on-premises machines](./tutorial-discover-import.md#prepare-the-csv) with the Azure Migrate: Discovery and assessment tool by using an imported CSV file.

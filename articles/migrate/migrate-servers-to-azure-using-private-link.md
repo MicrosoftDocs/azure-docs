@@ -11,6 +11,8 @@ ms.date: 12/29/2021
 
 # Migrate servers to Azure by using Private Link
 
+This article describes how to use Azure Migrate to migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview). You can use the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link. 
+
 ::: zone pivot="agentlessvmware"
 
 
@@ -19,12 +21,12 @@ This article shows you how to [migrate on-premises VMware VMs to Azure](./tutori
 
 ## Set up the Azure Migrate appliance
 
-Azure Migrate Server Migration runs a lightweight VMware VM appliance that's used for the discovery, assessment, and agentless migration of VMware VMs. If you followed the [assessment tutorial](tutorial-assess-vmware-azure-vm.md), you've already set the appliance up. If you didn't, set it up now using one of these methods: 
+Azure Migrate Server Migration runs a lightweight VMware VM appliance that's used for the discovery, assessment, and agentless migration of VMware VMs. If you followed the [Discovery and assessment tutorial](discover-and-assess-using-private-endpoints.md), you've already set the appliance up. If you didn't, set it up now using one of these methods: 
 - **OVA template**: [Set up](how-to-set-up-appliance-vmware.md) on a VMware VM using a downloaded OVA template. 
 - **Script**: [Set up](deploy-appliance-script.md) on a VMware VM or physical machine, using a PowerShell installer script. This method should be used if you can't set up a VM using an OVA template or if you're in Azure Government. 
 After creating the appliance, check that it can connect to Azure Migrate: Server Assessment, configure it for the first time, and register it with the Azure Migrate project. 
 
-## Replicate VMs to Azure by using Private Link
+## Replicate VMs
 
 The following diagram illustrates the agentless replication workflow with private endpoints by using the Azure Migrate: Server Migration tool.
 
@@ -58,7 +60,7 @@ Enable replication as follows:
 
     ![Screenshot of the Target settings screen.](./media/how-to-use-azure-migrate-with-private-endpoints/target-settings-agentless-vmware.png)
 
-1. In **Replication storage account**, use the dropdown list to select a storage account to replicate over a private link.  
+1. In **Replication storage account**, use the dropdown list to select a storage account to replicate over a private link.  Only the storage accounts in the selected target region and Azure Migrate project subscription.
     Next, [create a private endpoint for the storage account](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account) to enable replications over a private link.   
 1. Select the **Subscription** and **Resource group** in which the Azure VMs reside after migration. 
 1. In **Virtual network**, select the Azure VNet/subnet which the Azure VMs join after migration. 
@@ -78,7 +80,7 @@ Enable replication as follows:
     - Double encryption with platform-managed and customer-managed keys 
 
     >[!Note] 
-    > To replicate VMs with CMK, you'll need to [create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set)under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE. 
+    > To replicate VMs with CMK, you'll need to [create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE. 
 1. In **Azure Hybrid Benefit**: 
 
     - Select **No** if you don't want to apply Azure Hybrid Benefit and click **Next**. 
@@ -126,11 +128,13 @@ Ensure that the on-premises replication appliance has network connectivity to th
 
 ## Next steps 
 
+ - [Migrate VMs](tutorial-migrate-vmware#migrate-vms)
  - Complete the [migration process](./tutorial-migrate-physical-virtual-machines.md#complete-the-migration).
  - Review the [post-migration best practices](./tutorial-migrate-physical-virtual-machines.md#post-migration-best-practices). 
 
 ::: zone-end
 
+This article describes how to use Azure Migrate to migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview). You can use the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link.
 
 ::: zone pivot="hyperv"
 
@@ -236,7 +240,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 >[!Note]
 > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts. 
 
-Next, follow the instructions to [perform migrations](tutorial-migrate-physical-virtual-machines.md#run-a-test-migration). 
+Next, follow the instructions to [perform migrations](tutorial-migrate-hyper-v?tabs=UI.md#migrate-vms). 
 
 ### Grant access permissions to the Recovery Services vault
 
@@ -306,11 +310,13 @@ Ensure that the on-premises replication appliance has network connectivity to th
 > For Hyper-V VM migrations to Azure, if the replication storage account is of _Premium_ type, you must select another storage account of _Standard_ type for the cache storage account. In this case, you must create private endpoints for both the replication and cache storage account.
 
 ## Next steps
- - Complete the [migration process](./tutorial-migrate-physical-virtual-machines.md#complete-the-migration).
+ - [Migrate VMs](tutorial-migrate-vmware#migrate-vms)
+ - Complete the [migration process](tutorial-migrate-hyper-v?tabs=UI.md#migrate-vms).
  - Review the [post-migration best practices](./tutorial-migrate-physical-virtual-machines.md#post-migration-best-practices).
 
 ::: zone-end
 
+This article describes how to use Azure Migrate to migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview). You can use the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link.
 
 ::: zone pivot="agentbased"
 
@@ -475,6 +481,7 @@ After you've created the private endpoint, use the dropdown list in **Replicate*
 Ensure that the on-premises replication appliance has network connectivity to the storage account on its private endpoint. Learn more about how to verify [network connectivity](./troubleshoot-network-connectivity.md).
 
 ## Next steps
+- [Migrate VMs](tutorial-migrate-vmware-agent.md#migrate-vms)
 - Complete the [migration process](tutorial-migrate-physical-virtual-machines.md#complete-the-migration). 
 - Review the [post-migration best practices](tutorial-migrate-physical-virtual-machines.md#post-migration-best-practices).
 
