@@ -18,7 +18,7 @@ Format:
 }
 ```
 
-* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](./concept-client-protocols.md#ackid-and-ack-response)
+* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](../concept-client-protocols.md#ackid-and-ack-response)
 
 ### Leave groups
 
@@ -32,7 +32,7 @@ Format:
 }
 ```
 
-* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](./concept-client-protocols.md#ackid-and-ack-response)
+* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](../concept-client-protocols.md#ackid-and-ack-response)
 
 ### Publish messages
 
@@ -49,7 +49,7 @@ Format:
 }
 ```
 
-* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](./concept-client-protocols.md#ackid-and-ack-response)
+* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](../concept-client-protocols.md#ackid-and-ack-response)
 * `noEcho` is optional. If set to true, this message is not echoed back to the same connection. If not set, the default value is false.
 * `dataType` can be one of `json`, `text`, or `binary`:
      * `json`: `data` can be any type that JSON supports and will be published as what it is; If `dataType` isn't specified, it defaults to `json`.
@@ -143,7 +143,7 @@ Format:
 }
 ```
 
-* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](./concept-client-protocols.md#ackid-and-ack-response)
+* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](../concept-client-protocols.md#ackid-and-ack-response)
 
 `dataType` can be one of `text`, `binary`, or `json`:
 * `json`: data can be any type json supports and will be published as what it is; If `dataType` is not specified, it defaults to `json`.

@@ -23,7 +23,7 @@ For example, in JS, a Reliable PubSub WebSocket client can be created using:
 var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'json.reliable.webpubsub.azure.v1');
 ```
 
-When using `json.reliable.webpubsub.azure.v1` subprotocol, the client must follow the [How to create reliable clients](howto-develop-reliable-clients) to implement reconnection, publisher and subscriber.
+When using `json.reliable.webpubsub.azure.v1` subprotocol, the client must follow the [How to create reliable clients](./howto-develop-reliable-clients) to implement reconnection, publisher and subscriber.
 
 [!INCLUDE [reference-permission](includes/reference-permission.md)]
 
