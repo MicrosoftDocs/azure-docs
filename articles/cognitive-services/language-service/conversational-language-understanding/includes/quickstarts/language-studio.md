@@ -3,9 +3,9 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: text-analytics
+ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 01/10/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---

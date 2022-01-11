@@ -62,8 +62,6 @@ If one of the following cases applies, you can adjust the usage amount in Partne
 
 To submit a support ticket related to metered billing anomalies:
 
-#### [Workspaces view](#tab/workspaces-view)
-
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) with your work account.
 1. On the Home page, select the **Help + support** tile.
 
@@ -78,23 +76,6 @@ To submit a support ticket related to metered billing anomalies:
 1. Review the recommended documents, if any or select **Provide issue details** to submit a support ticket.
 
 For more publisher support options, see [Support for the commercial marketplace program in Partner Center](../support.md).
-
-#### [Current view](#tab/current-view)
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) with your work account.
-1. In the menu on the upper-right of the page, select the **Support** icon. The **Help and support** pane appears on the right side of the page.
-1. For help with the commercial marketplace, select **Commercial Marketplace**.
-   ![Illustrates the support pane.](../media/support/commercial-marketplace-support-pane.png)
-1. In the **Problem summary** box, enter **commercial marketplace > metered billing**.
-1. In the **Problem type** box, select one of the following:
-    - **Commercial Marketplace > Metered Billing > Wrong usage sent for Azure Applications offer**
-    - **Commercial Marketplace > Metered Billing > Wrong usage sent for SaaS offer**
-1. Under **Next step**, select **Review solutions**.
-1. Review the recommended documents, if any or select **Provide issue details** to submit a support ticket.
-
-For more publisher support options, see [Support for the commercial marketplace program in Partner Center](../support.md).
-
----
 
 ## Next steps
 

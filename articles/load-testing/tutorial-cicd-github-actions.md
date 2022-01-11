@@ -56,11 +56,11 @@ The sample application's source repo includes an Apache JMeter script named *Sam
 
 ## Set up GitHub access permissions for Azure
 
-In this section, you'll configure your GitHub repository to have permissions for accessing the Azure Load Testing resource.
+The GitHub Actions workflow needs to authenticate with Azure to access Azure resources. In the sample application, you use the [Azure Login](https://github.com/Azure/login) action and an Azure Active Directory service principal to authenticate with Azure.
 
-To access Azure resources, you'll create an Azure Active Directory service principal and use role-based access control to assign the necessary permissions.
+In this section, you'll configure your GitHub repository to have permissions to access your Azure load testing resource:
 
-1. Run the following Azure CLI command to create a service principal:
+1. Run the following Azure CLI command to create a service principal and assign the Contributor role:
 
     ```azurecli
     az ad sp create-for-rbac --name "my-load-test-cicd" --role contributor \
@@ -82,7 +82,12 @@ To access Azure resources, you'll create an Azure Active Directory service princ
     }
     ```
 
+    > [!NOTE]
+    > Azure Login supports multiple ways to authenticate with Azure. For other authentication options, see the [Azure and GitHub integration site](/azure/developer/github).
+
 1. Go to your forked GitHub repository for the sample application.
+
+    You'll add a GitHub secret to your repository for the service principal you created in the previous step. The Azure Login action uses this secret to authenticate with Azure.
 
 1. Add a new secret to your GitHub repository by selecting **Settings** > **Secrets** > **New repository secret**.
 
@@ -107,6 +112,27 @@ To access Azure resources, you'll create an Azure Active Directory service princ
         --role "Load Test Contributor" \
         --subscription "<subscription-name-or-id>"
     ```
+
+You can now use the `AZURE_CREDENTIALS` secret with the Azure Login action in your CI/CD workflow. The following code snippet describes how this works for the sample application:
+
+```yml
+jobs:
+  build-and-deploy:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout GitHub Actions 
+        uses: actions/checkout@v2
+        
+      - name: Login to Azure
+        uses: azure/login@v1
+        continue-on-error: false
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+```
 
 ## Configure the GitHub Actions workflow to run a load test
 
