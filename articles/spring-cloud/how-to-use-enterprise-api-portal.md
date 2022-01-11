@@ -17,6 +17,7 @@ This article shows you how to use the API portal with Azure Spring Cloud Enterpr
 [API portal](https://docs.vmware.com/en/API-portal-for-VMware-Tanzu/1.0/api-portal/GUID-index.html) is one of the proprietary VMware Tanzu components. The API portal supports viewing API definitions from [Spring Cloud Gateway](./how-to-use-enterprise-spring-cloud-gateway.md) and testing of specific API routes from the browser. It also supports enabling Single Sign-On authentication via configuration.
 
 ## Prerequisites
+
 - An already provisioned Azure Spring Cloud Enterprise tier service instance with the API portal enabled. For more information, see [Get started with Enterprise Tier](./get-started-enterprise.md)
 - [Spring Cloud Gateway](./how-to-use-enterprise-spring-cloud-gateway.md) is enabled during provisioning and the corresponding API metadata is configured.
 

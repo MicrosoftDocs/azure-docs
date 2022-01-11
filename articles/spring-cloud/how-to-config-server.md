@@ -166,17 +166,17 @@ Now that your configuration files are saved in a repository, you need to connect
 
 * **Private repository**: Azure Spring Cloud supports basic password/token-based authentication and SSH.
 
-    * **Basic Authentication**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the **Authentication** ("pencil" icon) button. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **HTTP Basic**, and then enter your username and password/token to grant access to Azure Spring Cloud. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
+   * **Basic Authentication**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the **Authentication** ("pencil" icon) button. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **HTTP Basic**, and then enter your username and password/token to grant access to Azure Spring Cloud. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
 
-    ![The Edit Authentication pane basic auth](media/spring-cloud-tutorial-config-server/basic-auth.png)
+   ![The Edit Authentication pane basic auth](media/spring-cloud-tutorial-config-server/basic-auth.png)
 
-    > [!CAUTION]
-    > Some Git repository servers use a *personal-token* or an *access-token*, such as a password, for **Basic Authentication**. You can use that kind of token as a password in Azure Spring Cloud, because it will never expire. But for other Git repository servers, such as Bitbucket and Azure DevOps Server, the *access-token* expires in one or two hours. This means that the option isn't viable when you use those repository servers with Azure Spring Cloud.
-    > GitHub has removed support for password authentication, so you'll need to use a personal access token instead of password authentication for GitHub. For more information, see [Token authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
+   > [!CAUTION]
+   > Some Git repository servers use a *personal-token* or an *access-token*, such as a password, for **Basic Authentication**. You can use that kind of token as a password in Azure Spring Cloud, because it will never expire. But for other Git repository servers, such as Bitbucket and Azure DevOps Server, the *access-token* expires in one or two hours. This means that the option isn't viable when you use those repository servers with Azure Spring Cloud.
+   > GitHub has removed support for password authentication, so you'll need to use a personal access token instead of password authentication for Github. For more information, see [Token authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 
-    * **SSH**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the **Authentication** ("pencil" icon) button. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **SSH**, and then enter your **Private key**. Optionally, specify your **Host key** and **Host key algorithm**. Be sure to include your public key in your Config Server repository. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
+   * **SSH**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the **Authentication** ("pencil" icon) button. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **SSH**, and then enter your **Private key**. Optionally, specify your **Host key** and **Host key algorithm**. Be sure to include your public key in your Config Server repository. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
 
-    ![The Edit Authentication pane ssh auth](media/spring-cloud-tutorial-config-server/ssh-auth.png)
+   ![The Edit Authentication pane ssh auth](media/spring-cloud-tutorial-config-server/ssh-auth.png)
 
 #### Additional repositories
 
@@ -212,21 +212,21 @@ Azure Spring Cloud can access Git repositories that are public, secured by SSH, 
 
 1. In the Azure Repos portal for your project, select the **Clone** button:
 
-    ![Picture of Clone Button](media/spring-cloud-tutorial-config-server/clone-button.png)
+   ![Picture of Clone Button](media/spring-cloud-tutorial-config-server/clone-button.png)
 
 1. Copy the clone URL from the textbox. This URL will typically be in the form:
 
-    ```text
-    https://<organization name>@dev.azure.com/<organization name>/<project name>/_git/<repository name>
-    ```
+   ```text
+   https://<organization name>@dev.azure.com/<organization name>/<project name>/_git/<repository name>
+   ```
 
-    Remove everything after `https://` and before `dev.azure.com`, including the `@`. The resulting URL should be in the form:
+   Remove everything after `https://` and before `dev.azure.com`, including the `@`. The resulting URL should be in the form:
 
-    ```text
-    https://dev.azure.com/<organization name>/<project name>/_git/<repository name>
-    ```
+   ```text
+   https://dev.azure.com/<organization name>/<project name>/_git/<repository name>
+   ```
 
-    Save this URL for use in the next section.
+   Save this URL for use in the next section.
 
 1. Select **Generate Git Credentials**. A username and password will appear and should be saved for use in the next section.
 
@@ -240,11 +240,11 @@ Azure Spring Cloud can access Git repositories that are public, secured by SSH, 
 
 1. In the left pane of the service page, under **Settings**, select the **Config Server** tab. Configure the repository we previously created:
 
-   - Add the repository URL that you've saved from the previous section.
-   - Select **Authentication** and then select **HTTP Basic**.
-   - The __username__ is the username saved from the previous section.
-   - The __password__ is the password saved from the previous section.
-   - Select **Apply** and then wait for the operation to succeed.
+   * Add the repository URL that you've saved from the previous section.
+   * Select **Authentication** and then select **HTTP Basic**.
+   * The __username__ is the username saved from the previous section.
+   * The __password__ is the password saved from the previous section.
+   * Select **Apply** and then wait for the operation to succeed.
 
    ![Spring Cloud config server](media/spring-cloud-tutorial-config-server/config-server-azure-repos.png)
 
@@ -258,36 +258,30 @@ When properties are changed, services consuming those properties need to be noti
 
 1. Register a scheduled task to refresh the context in a given interval.
 
-    ```java
-    @ConditionalOnBean({RefreshEndpoint.class})
-    @Configuration
-    @AutoConfigureAfter({RefreshAutoConfiguration.class, RefreshEndpointAutoConfiguration.class})
-    @EnableScheduling
-    public class ConfigClientAutoRefreshConfiguration implements SchedulingConfigurer {
-
-        @Value("${spring.cloud.config.refresh-interval:60}")
-        private long refreshInterval;
-
-        @Value("${spring.cloud.config.auto-refresh:false}")
-        private boolean autoRefresh;
-
-        private RefreshEndpoint refreshEndpoint;
-
-        public ConfigClientAutoRefreshConfiguration(RefreshEndpoint refreshEndpoint) {
-            this.refreshEndpoint = refreshEndpoint;
-        }
-
-        @Override
-        public void configureTasks(ScheduledTaskRegistrar scheduledTaskRegistrar) {
-            if (autoRefresh) {
-                // set minimal refresh interval to 5 seconds
-                refreshInterval = Math.max(refreshInterval, 5);
-                scheduledTaskRegistrar.addFixedRateTask(() -> refreshEndpoint.refresh(), refreshInterval * 1000);
-            }
-        }
-
-    }
-    ```
+   ```java
+   @ConditionalOnBean({RefreshEndpoint.class})
+   @Configuration
+   @AutoConfigureAfter({RefreshAutoConfiguration.class, RefreshEndpointAutoConfiguration.class})
+   @EnableScheduling
+   public class ConfigClientAutoRefreshConfiguration implements SchedulingConfigurer {
+       @Value("${spring.cloud.config.refresh-interval:60}")
+       private long refreshInterval;
+       @Value("${spring.cloud.config.auto-refresh:false}")
+       private boolean autoRefresh;
+       private RefreshEndpoint refreshEndpoint;
+       public ConfigClientAutoRefreshConfiguration(RefreshEndpoint refreshEndpoint) {
+           this.refreshEndpoint = refreshEndpoint;
+       }
+       @Override
+       public void configureTasks(ScheduledTaskRegistrar scheduledTaskRegistrar) {
+           if (autoRefresh) {
+               // set minimal refresh interval to 5 seconds
+               refreshInterval = Math.max(refreshInterval, 5);
+               scheduledTaskRegistrar.addFixedRateTask(() -> refreshEndpoint.refresh(), refreshInterval * 1000);
+           }
+       }
+   }
+   ```
 
 2. Enable auto-refresh and set the appropriate refresh interval in your application.yml. In this example, the client will poll for config changes every 60 seconds, which is the minimum value you can set for refresh interval.
 
@@ -309,14 +303,14 @@ When properties are changed, services consuming those properties need to be noti
 
 3. Add @RefreshScope in your code. In this example, the variable connectTimeout will be automatically refreshed every 60 seconds.
 
-    ```java
-    @RestController
-    @RefreshScope
-    public class HelloController {
-        @Value("${timeout:4000}")
-        private String connectTimeout;
-    }
-    ```
+   ```java
+   @RestController
+   @RefreshScope
+   public class HelloController {
+       @Value("${timeout:4000}")
+       private String connectTimeout;
+   }
+   ```
 
 > [!TIP]
 > For more information, see this [sample project](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/config-client-polling) for more information.

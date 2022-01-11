@@ -122,6 +122,7 @@ A Spring application holds the properties as the beans of the Spring Application
    ```
 
    Next, curl the application endpoint to refresh the new configuration.
+
    ``` bash
    curl -X POST http://{app-endpoint}/actuator/refresh
    ```
