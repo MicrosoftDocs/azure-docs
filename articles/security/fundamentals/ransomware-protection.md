@@ -44,8 +44,6 @@ Ransomware is a type of malware that infects a computer and restricts a user's a
 
 Ransomware will typically exploit the weaknesses or vulnerabilities in your organization's IT systems or infrastructures to succeed. The attacks are so obvious that it does not take much investigation to confirm that your business has been attacked or that an incident should be declared.  The exception would be a spam email that demands ransom in exchange for supposedly compromising materials.  In this case, these types of incidents should be dealt with as spam unless the email contains highly specific information.
 
-Who can be targeted by ransomware bad actors?
-
 Any business or organization that operates an IT system with data in it can be attacked.   Although individuals can be targeted in a ransomware attack,  most attacks are targeted at businesses. While the Colonial ransomware attack of May 2021 drew considerable public attention, our Detection and Response team (DART)'s ransomware engagement data shows that the energy sector
 
 represents one of the most targeted sectors, along with the financial, healthcare, and entertainment sectors.  And despite continued promises not to attack hospitals or healthcare companies during a pandemic, as shown in Figure 1, healthcare remains the number one target of human operated ransomware.
