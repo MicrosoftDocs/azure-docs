@@ -30,6 +30,32 @@ You learn how to:
 - [Create an Azure Kubernetes cluster](../aks/kubernetes-walkthrough-portal.md)
 - [Provision a self-hosted gateway resource in your API Management instance](api-management-howto-provision-self-hosted-gateway.md).
 
+
+## Introduction to OpenTelemetry
+
+[OpenTelemetry](https://opentelemetry.io/) is a set of open-source tools and frameworks for logging, metrics, and tracing in a vendor-neutral way.
+
+[!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-opentelemetry.md)]
+
+The self-hosted gateway can be configured to automatically collect and send metrics to an [OpenTelemetry Collector](https://opentelemetry.io/docs/concepts/components/#collector). This allows you to bring your own metrics collection and reporting solution for the self-hosted gateway.
+
+![API traffic flow without self-hosted gateways](media/self-hosted-gateway-observability/opentelemetry-collector.png)
+
+> [!NOTE]
+> OpenTelemetry is an incubating project of the [Cloud Native Computing Foundation (CNCF) ecosystem](https://www.cncf.io/).
+
+### Metrics
+
+The self-hosted gateway will automatically start measuring the following metrics:
+
+- Requests
+- DurationInMs
+- BackendDurationInMs
+- ClientDurationInMs
+- GatewayDurationInMs
+
+They are automatically exported to the configured OpenTelemetry Collector every 1 minute with additional dimensions.
+
 ## Deploy the OpenTelemetry Collector
 
 We will start by deploying a standalone OpenTelemetry Collector on Kubernetes by using Helm.

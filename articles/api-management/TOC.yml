@@ -87,12 +87,8 @@
         href: api-management-api-import-restrictions.md
       - name: Virtual network overview
         href: virtual-network-concepts.md
-      - name: Self-hosted gateway
-        items:
-            - name: Overview
-              href: self-hosted-gateway-overview.md
-            - name: Observability
-              href: self-hosted-gateway-observability.md
+      - name: Self-hosted gateway overview
+        href: self-hosted-gateway-overview.md
       - name: Observability
         href: observability.md
       - name: CI/CD using ARM templates
