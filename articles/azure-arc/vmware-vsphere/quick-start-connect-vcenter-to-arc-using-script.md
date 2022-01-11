@@ -12,7 +12,7 @@ ms.date: 11/10/2021
 
 Before using the Azure Arc-enabled VMware vSphere features, you'll need to connect your VMware vCenter Server to Azure Arc. This quickstart shows you how to connect your VMware vCenter Server to Azure Arc using a helper script.
 
-First, the script deploys a lightweight Azure Arc appliance, called Azure Arc resource bridge (preview), as a virtual machine running in your vCenter environment. Then, it installs a VMware cluster extension to provide a continuous connection between your vCenter Server and Azure Arc.
+First, the script deploys a lightweight Azure Arc appliance, called [Azure Arc resource bridge](../resource-bridge/overview.md) (preview), as a virtual machine running in your vCenter environment. Then, it installs a VMware cluster extension to provide a continuous connection between your vCenter Server and Azure Arc.
 
 ## Prerequisites
 
