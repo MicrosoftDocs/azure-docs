@@ -158,7 +158,7 @@
         href: datawiza-with-azure-ad.md 
     - name: F5
       items:
-      - name: Deploy F5 BIG-IP on Azure
+      - name: Deploy F5 BIG-IP in Azure
         href: f5-bigip-deployment-guide.md
       - name: F5 BIG-IP and Azure AD integration
         items:
@@ -168,11 +168,13 @@
           items:
           - name: Kerberos
             href: f5-big-ip-kerberos-easy-button.md
+          - name: Headers
+            href: f5-big-ip-headers-easy-button.md
           - name: Headers and LDAP
             href: f5-big-ip-ldap-header-easybutton.md
         - name: Advanced configuration
           items:
-            - name: Header
+            - name: Headers
               href: f5-big-ip-header-advanced.md
             - name: Kerberos
               href: f5-big-ip-kerberos-advanced.md
@@ -182,8 +184,8 @@
               href: f5-aad-password-less-vpn.md  
             - name: B2C
               href: https://docs.microsoft.com/azure/active-directory-b2c/partner-f5
-      - name: Silverfort
-        href: silverfort-azure-ad-integration.md
+    - name: Silverfort
+      href: silverfort-azure-ad-integration.md
     - name: Single sign-on
       items:
       - name: Linked

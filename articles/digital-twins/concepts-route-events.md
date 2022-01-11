@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Event routes
+title: Endpoints and event routes
 titleSuffix: Azure Digital Twins
 description: Learn how to route events within Azure Digital Twins and to other Azure Services.
 author: baanders

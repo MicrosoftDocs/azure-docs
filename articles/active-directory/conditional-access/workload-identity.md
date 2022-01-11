@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 01/10/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -27,10 +27,11 @@ A workload identity is an identity that allows an application or service princip
  
 These differences make workload identities difficult to manage, puts them at higher risk for leaks, and reduces the potential for securing access.
 
+> [!IMPORTANT]
+> In public preview, you can scope Conditional Access policies to service principals in Azure AD with an Azure Active Directory Premium P2 edition active in your tenant. After general availability, additional licenses might be required.
+
 > [!NOTE]
-> Policy can be applied to single tenant service principals that have been registered in your tenant. 
-> Third party SaaS and multi-tenanted apps are out of scope. 
-> Managed identities are not covered by policy. 
+> Policy can be applied to single tenant service principals that have been registered in your tenant. Third party SaaS and multi-tenanted apps are out of scope. Managed identities are not covered by policy. 
 
 This preview enables blocking service principals from outside of trusted IP ranges, such as a corporate network public IP ranges. 
 
