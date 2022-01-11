@@ -111,6 +111,7 @@ Follow the instructions on how to [add the Azure Remote Rendering and OpenXR pac
 1. Select **Player** from the left list menu
     1. Select the **Universal Windows Platform settings** tab, represented as a Windows icon.
     1. Expand **Other Settings**
+    1. Under **Rendering** change **Color Space** to **Linear** and restart Unity when it asks you to.
     1. Under **Configuration** change **Active Input Handling** to **Both** and restart Unity when it asks you to.
         ![player settings](./media/player-settings-other-settings.png)
     1. Expand **Publishing Settings**
