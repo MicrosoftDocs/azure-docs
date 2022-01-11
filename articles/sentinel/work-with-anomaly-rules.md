@@ -16,9 +16,9 @@ ms.custom: ignite-fall-2021
 >
 > - Anomaly rules are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## View SOC-ML anomaly rule templates
+## View customizable anomaly rule templates
 
-Microsoft Sentinel’s [SOC-ML anomalies feature](soc-ml-anomalies.md) provides [built-in anomaly templates](detect-threats-built-in.md#anomaly) for immediate value out-of-the-box. These anomaly templates were developed to be robust by using thousands of data sources and millions of events, but this feature also enables you to change thresholds and parameters for the anomalies easily within the user interface. Anomaly rules must be activated before they will generate anomalies, which you can find in the **Anomalies** table in the **Logs** section.
+Microsoft Sentinel’s [customizable anomalies feature](soc-ml-anomalies.md) provides [built-in anomaly templates](detect-threats-built-in.md#anomaly) for immediate value out-of-the-box. These anomaly templates were developed to be robust by using thousands of data sources and millions of events, but this feature also enables you to change thresholds and parameters for the anomalies easily within the user interface. Anomaly rules must be activated before they will generate anomalies, which you can find in the **Anomalies** table in the **Logs** section.
 
 1. From the Microsoft Sentinel navigation menu, select **Analytics**.
 
@@ -34,7 +34,7 @@ Microsoft Sentinel’s [SOC-ML anomalies feature](soc-ml-anomalies.md) provides 
 
 ## Activate anomaly rules
 
-When you click on one of the rule templates, you will see the following information in the details pane, along with a **Create rule** button:
+When you select one of the rule templates, you will see the following information in the details pane, along with a **Create rule** button:
 
 - **Description** explains how the anomaly works and the data it requires.
 
@@ -135,7 +135,7 @@ This is by design, to give you the opportunity to compare the results generated 
 
 ## Next steps
 
-In this document, you learned how to work with SOC-ML anomaly detection analytics rules in Microsoft Sentinel.
+In this document, you learned how to work with customizable anomaly detection analytics rules in Microsoft Sentinel.
 
-- Get some background information about [SOC-ML](soc-ml-anomalies.md).
+- Get some background information about [customizable anomalies](soc-ml-anomalies.md).
 - Explore other [analytics rule types](detect-threats-built-in.md).
