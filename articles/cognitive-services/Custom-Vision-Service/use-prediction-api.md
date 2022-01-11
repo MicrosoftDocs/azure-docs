@@ -9,6 +9,7 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 10/27/2021
 ms.author: pafarley
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

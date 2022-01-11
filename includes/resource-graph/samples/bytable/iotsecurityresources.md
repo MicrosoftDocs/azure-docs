@@ -2,14 +2,14 @@
 author: georgewallace
 ms.service: resource-graph
 ms.topic: include
-ms.date: 10/12/2021
+ms.date: 12/20/2021
 ms.author: gwallace
 ms.custom: generated
 ---
 
 ### Count all sensors by type
 
-This query summarizes all sensors by their type (OT, EIoT).
+This query summarize all sensors by their type (OT, EIoT).
 
 ```kusto
 iotsecurityresources
@@ -41,7 +41,7 @@ Search-AzGraph -Query "iotsecurityresources | where type == 'microsoft.iotsecuri
 
 ### Count how many IoT Devices there are in your network, by operation system
 
-This query summarizes all IoT Devices by their operation system's platform.
+This query summarize all IoT Devices by their operation system's platform.
 
 ```kusto
 iotsecurityresources

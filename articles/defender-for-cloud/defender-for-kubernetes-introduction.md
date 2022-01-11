@@ -5,11 +5,11 @@ ms.date: 11/23/2021
 ms.topic: overview
 ---
 
-# Introduction to Microsoft Defender for Kubernetes
+# Introduction to Microsoft Defender for Kubernetes (deprecated)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Microsoft Defender for Cloud provides environment hardening, workload protection, and run-time protections as outlined in [Container security in Defender for Cloud](container-security.md).
+Microsoft Defender for Cloud provides environment hardening, workload protection, and run-time protections as outlined in [Container security in Defender for Cloud](defender-for-containers-introduction.md).
 
 Defender for Kubernetes protects your Kubernetes clusters whether they're running in:
 
@@ -24,9 +24,21 @@ Host-level threat detection for your Linux AKS nodes is available if you enable 
 
 ## Availability
 
+> [!IMPORTANT]
+> Microsoft Defender for Kubernetes has been replaced with **Microsoft Defender for Containers**. If you've already enabled Defender for Kubernetes on a subscription, you can continue to use it. However, you won't get Defender for Containers' improvements and new features.
+>
+> This plan is no longer available for subscriptions where it isn't already enabled.
+>
+> To upgrade to Microsoft Defender for Containers, open the Defender plans page in the portal and enable the new plan:
+>
+> :::image type="content" source="media/defender-for-containers/enable-defender-for-containers.png" alt-text="Enable Microsoft Defender for Containers from the Defender plans page.":::
+>
+> Learn more about this change in [the release note](release-notes.md#microsoft-defender-for-containers-plan-released-for-general-availability-ga).
+
+
 |Aspect|Details|
 |----|:----|
-|Release state:|General availability (GA)<br>Protections for EKS clusters are preview. [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
+|Release state:|General availability (GA)<br>Protections for EKS clusters are preview. [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
 |Pricing:|**Microsoft Defender for Kubernetes** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).<br>**Containers plan** for EKS clusters in connected AWS accounts is free while it's in preview.|
 |Required roles and permissions:|**Security admin** can dismiss alerts.<br>**Security reader** can view findings.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts (Preview)|

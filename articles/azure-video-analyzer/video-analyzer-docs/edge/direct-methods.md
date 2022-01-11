@@ -1,5 +1,5 @@
 ---
-title: Use direct methods in Azure Video Analyzer - Azure
+title: Use direct methods
 description: Azure Video Analyzer edge module exposes several direct methods which are described in this topic.
 ms.topic: conceptual
 ms.date: 11/04/2021

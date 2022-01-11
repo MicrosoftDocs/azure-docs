@@ -2,7 +2,7 @@
 title: Auto-deploy agents for Microsoft Defender for Cloud | Microsoft Docs
 description: This article describes how to set up auto provisioning of the Log Analytics agent and other agents and extensions used by Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 11/09/2021
+ms.date: 12/26/2021
 ms.custom: mode-other
 ---
 # Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud
@@ -16,13 +16,14 @@ To get started with Defender for Cloud, you must have a subscription to Microsof
 
 ## Availability
 
-| Aspect                  | Details                                                                                                                                                                                                                      |
-|-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Release state:          | **Feature**: Auto provisioning is generally available (GA)<br>**Agent and extensions**: Log Analytics agent for Azure VMs is GA, Microsoft Dependency agent is in preview, Policy Add-on for Kubernetes is GA, Guest Configuration agent is preview  |
-| Pricing:                | Free                                                                                                                                                                                                                         |
-| Supported destinations: | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure machines<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc machines<br>:::image type="icon" source="./media/icons/no-icon.png"::: Kubernetes nodes<br>:::image type="icon" source="./media/icons/no-icon.png"::: Virtual Machine Scale Sets |
-| Clouds:                 | **Feature**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet<br>**Agent and extensions**:<br>Log Analytics agent for Azure VMs is available on all clouds, Policy Add-on for Kubernetes is available on all clouds, Guest Configuration agent is only available on commercial clouds  |
-|                         |                                                                                                                                                                                                                              |
+| Aspect                          | Details                                                                                                                                                                                                                      |
+|---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Release state:                  | **Feature**: Auto provisioning is generally available (GA)<br>**Agent and extensions**: Log Analytics agent for Azure VMs is GA, Microsoft Dependency agent is in preview, Policy Add-on for Kubernetes is GA, Guest Configuration agent is preview  |
+| Pricing:                        | Free                                                                                                                                                                                                                         |
+| Required roles and permissions: | [Owner](../role-based-access-control/built-in-roles.md#owner) to enable auto provisioning of the Log Analytics agent|
+| Supported destinations:         | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure machines<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines<br>:::image type="icon" source="./media/icons/no-icon.png"::: Kubernetes nodes<br>:::image type="icon" source="./media/icons/no-icon.png"::: Virtual Machine Scale Sets |
+| Clouds:                         | **Feature**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet<br>**Agent and extensions**:<br>Log Analytics agent for Azure VMs is available on all clouds, Policy Add-on for Kubernetes is available on all clouds, Guest Configuration agent is only available on commercial clouds  |
+|                                 |                                                                                                                                                                                                                              |
 
 ## How does Defender for Cloud collect data?
 
@@ -270,7 +271,6 @@ To turn off automatic provisioning of an agent:
 
 ## Troubleshooting
 
--	To identify auto provision installation issues, see [Monitoring agent health issues](troubleshooting-guide.md#mon-agent).
 -  To identify monitoring agent network requirements, see [Troubleshooting monitoring agent network requirements](troubleshooting-guide.md#mon-network-req).
 -	To identify manual onboarding issues, see [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 

@@ -25,6 +25,8 @@ To create datastores that use credential-based authentication, like access keys 
 ## Identity-based data access in Azure Machine Learning
 
 There are two scenarios in which you can apply identity-based data access in Azure Machine Learning. These scenarios are a good fit for identity-based access when you're working with confidential data and need more granular data access management:
+> [!IMPORTANT]
+> Identity-based data access is not supported for [automated ML experiments](how-to-configure-auto-train.md).
 
 - Accessing storage services
 - Training machine learning models with private data
@@ -54,7 +56,7 @@ Certain machine learning scenarios involve training models with private data. In
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-- An Azure storage account with a supported storage type. These storage types are supported in preview: 
+- An Azure storage account with a supported storage type. These storage types are supported: 
     - [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md)
     - [Azure Data Lake Storage Gen1](../data-lake-store/index.yml)
     - [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
@@ -157,7 +159,7 @@ sqldb_dstore = Datastore.register_azure_sql_database(workspace=ws,
 We recommend that you use [Azure Machine Learning datasets](how-to-create-register-datasets.md) when you interact with your data in storage with Azure Machine Learning.  
 
 > [!IMPORTANT]
-> Datasets using identity-based data access is not supported for [automated ML experiments](how-to-configure-auto-train.md).
+> Datasets using identity-based data access are not supported for [automated ML experiments](how-to-configure-auto-train.md).
 
 Datasets package your data into a lazily evaluated consumable object for machine learning tasks like training. Also, with datasets you can [download or mount](how-to-train-with-datasets.md#mount-vs-download) files of any format from Azure storage services like Azure Blob Storage and Azure Data Lake Storage to a compute target.
 

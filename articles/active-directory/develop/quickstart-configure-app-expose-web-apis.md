@@ -11,9 +11,9 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, contperf-fy21q1, mode-other
+ms.custom: aaddev, contperf-fy21q1, mode-api
 ms.reviewer: aragra, lenalepa, sureshja
-# Customer intent: As an application developer, I need learn to how to register my web API with the Microsoft identity platform and expose permissions (scopes) to make the API's resources available to users of my client application.
+#Customer intent: As an application developer, I need learn to how to register my web API with the Microsoft identity platform and expose permissions (scopes) to make the API's resources available to users of my client application.
 ---
 
 # Quickstart: Configure an application to expose a web API

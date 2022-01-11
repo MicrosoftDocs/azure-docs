@@ -13,7 +13,7 @@ ms.author: eur
 
 ## Reference docs
 
-The Speech service provides two SDKs. The first SDK is the primary [Speech SDK](../speech-sdk.md) and provides most of the functionalities needed to interact with the Speech service. The second SDK is specific to devices, appropriately named the [Speech Devices SDK](../speech-devices-sdk.md). Both SDKs are available in many languages.
+The [Speech SDK](../speech-sdk.md) provides most of the functionalities needed to interact with the Speech service. For scenarios such as model development and batch transcription you can use the REST API.
 
 ### Speech SDK reference docs
 
@@ -28,10 +28,6 @@ Use the following list to find the appropriate Speech SDK reference docs:
 
 > [!TIP]
 > The Speech service SDK is actively maintained and updated. To track changes, updates and feature additions refer to the [Speech SDK release notes](../releasenotes.md).
-
-### Speech Devices SDK reference docs
-
-The [Speech Devices SDK](../speech-devices-sdk.md) is a superset of the Speech SDK, with extended functionality for specific devices. To download the Speech Devices SDK, you must first [choose a development kit](../get-speech-devices-sdk.md#choose-a-development-kit).
 
 ### REST API references
 

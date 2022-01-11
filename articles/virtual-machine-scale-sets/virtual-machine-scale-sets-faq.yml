@@ -498,7 +498,7 @@ sections:
               $publicConfig = @{"UserName" = "newuser"}
               $privateConfig = @{"Password" = "********"}
 
-              $extName = "VMAccessForAgent"
+              $extName = "VMAccessForLinux"
               $publisher = "Microsoft.OSTCExtensions"
               $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
               $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "1.4" -AutoUpgradeMinorVersion $true

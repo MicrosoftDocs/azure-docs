@@ -19,4 +19,7 @@ Connect-AzAccount -Subscription <SubscriptionID>
 # Register the feature
 Register-AzProviderFeature -FeatureName AllowPurviewPolicyEnforcement -ProviderNamespace Microsoft.Storage
 ```
-If the output of the last command shows value of *RegistrationState* as *Registered*, then your subscription is enabled for this functionality. In case the output is *Registering*, wait 15 minutes and issue the last command again.
+If the output of the last command shows value of *RegistrationState* as *Registered*, then your subscription is enabled for this functionality. In case the output is *Registering*, retry the last command after waiting at least 10 minutes.
+
+> [!Warning]
+> Only **new** Storage accounts, created in the subscription  after the feature *AllowPurviewPolicyEnforcement* is registered, will comply with access policies published from Purview. 

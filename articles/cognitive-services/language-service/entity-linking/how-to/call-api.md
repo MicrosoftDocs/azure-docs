@@ -24,11 +24,7 @@ The entity linking feature can be used to identify and disambiguate the identity
 
 ### Specify the entity linking model
 
-By default, entity linking will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform entity linking operations.
-
-| Supported Versions | latest version |
-|--|--|
-| `2019-10-01`, `2020-02-01` | `2020-02-01` |
+By default, entity linking will use the latest available AI model on your text. You can also configure your API requests to use a specific [model version](../../concepts/model-lifecycle.md).
 
 ### Input languages
 

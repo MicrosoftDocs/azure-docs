@@ -7,7 +7,6 @@ documentationcenter: na
 author: asudbring
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: how-to
 ms.custom: seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na

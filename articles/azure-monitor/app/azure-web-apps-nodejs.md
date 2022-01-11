@@ -3,6 +3,7 @@ title: Monitor Azure app services performance Node.js | Microsoft Docs
 description: Application performance monitoring for Azure app services using Node.js. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
 ms.date: 08/05/2021
+ms.devlang: javascript
 ms.custom: "devx-track-js"
 ---
 

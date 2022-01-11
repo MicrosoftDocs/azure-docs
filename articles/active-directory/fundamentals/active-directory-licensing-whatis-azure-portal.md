@@ -4,7 +4,7 @@ description: Learn about Azure Active Directory group-based licensing, including
 services: active-directory
 keywords: Azure AD licensing
 author: ajburnle
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: fundamentals

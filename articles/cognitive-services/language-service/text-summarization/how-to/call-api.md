@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 12/03/2021
+ms.date: 12/10/2021
 ms.author: aahi
 ms.custom: language-service-summarization, ignite-fall-2021
 ---
@@ -43,11 +43,7 @@ There is another feature in Azure Cognitive Service for Language, [key phrases e
 
 ### Specify the text summarization model
 
-By default, text summarization will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform text summarization operations.
-
-| Supported Versions | latest version |
-|--|--|
-| `2021-08-01` | `2021-08-01` |
+By default, text summarization will use the latest available AI model on your text. You can also configure your API requests to use a specific [model version](../../concepts/model-lifecycle.md).
 
 ### Input languages
 

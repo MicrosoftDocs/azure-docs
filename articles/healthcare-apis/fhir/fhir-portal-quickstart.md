@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.topic: quickstart
 ms.date: 09/10/2021
 ms.author: ginle
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Deploy a FHIR service within Azure Healthcare APIs - using portal

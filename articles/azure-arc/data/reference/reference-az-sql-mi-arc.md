@@ -150,7 +150,7 @@ az sql mi-arc upgrade
 ### Examples
 Upgrade SQL managed instance.
 ```bash
-az sql mi-arc upgrade -n sqlmi1 -k arc --desired-version v1.1.0 --use-k8s
+az sql mi-arc upgrade -n sqlmi1 --k8s-namespace arc --desired-version v1.1.0 --use-k8s
 ```
 ### Global Arguments
 #### `--debug`
