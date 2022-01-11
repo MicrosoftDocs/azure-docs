@@ -179,50 +179,6 @@ Navigate to your **Azure Key vault** and provide access to the SDDC on Azure Key
 
 <!--    :::image type="content" source="media/configure-customer-managed-key-encryption-at-rest/enable-system-assigned-identity4.png" alt-text="Screenshot of the System-assigned identity enabled."::: -->
 
-
-# [Azure CLI](#tab/azure-cli)
-
-Below is the command used to enable CMK on SDDC using the JSON file provided.
-
-`az deployment group create --name <deployment name> --resource-group <RG Name> --template-file ./filename.json`
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "variables": {
-            "name": "<SDDC Name>",
-            "location": "<Location of SDDC>",
-            "sku": "av36"
-    },
-    "resources": [{
-            "type": "Microsoft.AVS/privateClouds",
-            "apiVersion": "2021-12-01",
-            "name": "[variables('name')]",
-            "location": "[variables('location')]",
-            "sku": {
-                    "name": "[variables('sku')]"
-            },
-            "properties": {
-                    "managementCluster": {
-                            "clusterSize": <Size of Cluster>
-                    },
-                    "internet": "enabled",
-                    "encryption": {
-                            "status": "enabled",
-            "keyVaultProperties": {
-                                    "keyVaultUrl": "<KeyVault URl>",
-                                    "keyName": "<Key Name>",
-                                    "keyVersion": ""
-                            }
-                            }
-                    }
-
-            }]
-
-}
-
-```
 # [Template](#tab/azure-resource-manager)
 
 Below is the JSON file used to create an ARM template and enable CMK on SDDC.
