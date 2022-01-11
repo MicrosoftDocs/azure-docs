@@ -286,8 +286,6 @@ items:
       href: language-identification-speech-to-text.md
     - name: Speech translation language identification
       href: language-identification-speech-translation.md
-- name: LID test
-  href: lid-test.md
 - name: Intent recognition
   items:
     - name: Intent recognition documentation
@@ -549,6 +547,8 @@ items:
                   href: windows-voice-assistants-faq.yml
 - name: How-to guides
   items:
+    - name: Language identification
+      href: lid-test.md
     - name: Logs and diagnostics
       items:
         - name: Enable logging in SDK
