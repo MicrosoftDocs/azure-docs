@@ -90,7 +90,6 @@ First let's create an empty ASP.NET Core app.
         }
 
         app.UseStaticFiles();
-
         app.UseRouting();
 
         app.UseEndpoints(endpoints =>
@@ -120,27 +119,36 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     dotnet add package Microsoft.Extensions.Azure
     ```
 
-2.  Add a `SampleChatHub` class to handle hub events. And DI the service middleware and service client inside `ConfigureServices`. Don't forget to replace `<connection_string>` with the one of your services.
+2.  Add a `SampleChatHub` class to handle hub events. And DI the service middleware and service client inside `ConfigureServices()`. Don't forget to replace `<connection_string>` with the one of your services.
 
     ```csharp
-    private sealed class SampleChatHub : WebPubSubHub
-    {
-        private readonly WebPubSubServiceClient<SampleChatHub> _serviceClient;
-
-        public SampleChatHub(WebPubSubServiceClient<SampleChatHub> serviceClient)
-        {
-            _serviceClient = serviceClient;
-        }
-    }
-    
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddWebPubSub(o => o.ServiceEndpoint = new ServiceEndpoint("<connection_string>"))
                 .AddWebPubSubServiceClient<SampleChatHub>();
     }
+
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
+
+        app.UseStaticFiles();
+        app.UseRouting();
+
+        app.UseEndpoints(endpoints =>
+        {
+        });
+    }
+
+    private sealed class SampleChatHub : WebPubSubHub
+    {
+    }
     ```
 
-    `AddWebPubSubServiceClient<THub>` is used to inject the service client, with which we can generate client connection token and invoke service REST APIs when hub events are triggered.
+    `AddWebPubSubServiceClient<THub>()` is used to inject the service client `WebPubSubServiceClient<THub>`, with which we can use in negotiation step to generate client connection token and in hub methods to invoke service REST APIs when hub events are triggered.
 
 3.  Add a `/negotiate` API to the server inside `app.UseEndpoints` to generate the token.
 
@@ -491,7 +499,7 @@ Here we're using Web PubSub middleware SDK, there is already an implementation t
     });
     ```
 
-2. Go the `SampleChatHub` we created in previous step and override `OnConnectedAsync()` method we'd like server to invoke service when `connected` event is triggered.
+2. Go the `SampleChatHub` we created in previous step. Add a constructor to work with `WebPubSubServiceClient<SampleChatHub>` so we can use to invoke service. And override `OnConnectedAsync()` method to respond when `connected` event is triggered.
     ```csharp
     private sealed class SampleChatHub : WebPubSubHub
     {
@@ -509,7 +517,7 @@ Here we're using Web PubSub middleware SDK, there is already an implementation t
     }
     ```
 
-In the above code, we use the service client to broadcast a notification message to all and indicate whom is joined.
+In the above code, we use the service client to broadcast a notification message to all of whom is joined.
 
 # [JavaScript](#tab/javascript)
 
