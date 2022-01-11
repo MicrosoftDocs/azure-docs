@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/linux/login-using-aad.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/login-using-aad",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/classic/ai-gallery-control-personal-data-dsr.md",
       "redirect_url": "/previous-versions/azure/machine-learning/classic/ai-gallery-control-personal-data-dsr",
       "redirect_document_id": false
@@ -34523,6 +34528,11 @@
     {
       "source_path_from_root": "/articles/documentdb/index.md",
       "redirect_url": "https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/documentdb/sql-query-operators.md",
+      "redirect_url": "sql-query-logical-operators",
       "redirect_document_id": false
     },
     {
