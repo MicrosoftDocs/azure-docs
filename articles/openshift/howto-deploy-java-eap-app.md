@@ -1,9 +1,11 @@
 ---
 title: Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster
 description: Deploy a Java application with Red Hat JBoss Enterprise Application Platform on an Azure Red Hat OpenShift 4 cluster.
-author: yborgess
-ms.date: {@date}
+author: yersan
+ms.author: edburns    
+ms.date: 01/11/2022
 ms.topic: article
+ms-prod-or-service: ms.service
 keywords: java, jakartaee, microprofile, EAP, JBoss EAP, ARO, OpenShift, JBoss Enterprise Application Platform
 ---
 
@@ -26,7 +28,7 @@ The application is a stateful application that stores information in a HTTP Sess
 > This article deploys an application by using JBoss EAP Helm Charts. At the time of writing, this feature is still offered as a [Technology Preview](https://access.redhat.com/articles/6290611). Before choosing to deploy applications with JBoss EAP Helm Charts on production environments, ensure that this feature is a supported feature for your JBoss EAP/XP product version.
 
 > [!IMPORTANT]
-> While ARO is jointly engineered, operated, and supported by Red Hat and Microsoft to provide an integrated support experience, the software you run on top of ARO, including that described in this article, is subject to its own support and license terms. For details about support of ARO, see [Support lifecycle for Azure Red Hat OpenShift 4](../support-lifecycle.md). For details about support of the software described in this article, see the main pages for that software as listed in the article.
+> While ARO is jointly engineered, operated, and supported by Red Hat and Microsoft to provide an integrated support experience, the software you run on top of ARO, including that described in this article, is subject to its own support and license terms. For details about support of ARO, see [Support lifecycle for Azure Red Hat OpenShift 4](./support-lifecycle.md). For details about support of the software described in this article, see the main pages for that software as listed in the article.
 > * For support for JBoss Enterprise Application Platform, please go to [Red Hat JBoss Enterprise Application Platform](https://www.redhat.com/en/technologies/jboss-middleware/application-platform).
 
 ## Prerequisites
@@ -105,7 +107,7 @@ Before deploying the application on OpenShift, we are going to run it locally to
 
 Follow the next steps to get the database server running on Docker and configured for the demo application:
 
-1. Start a Docker container running the Microsoft SQL Server. For more information, see [Run SQL Server container images with Docker](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker) quickstart.
+1. Start a Docker container running the Microsoft SQL Server. For more information, see [Run SQL Server container images with Docker](/sql/linux/quickstart-install-connect-docker) quickstart.
 
     ```bash
     $ sudo docker run \
