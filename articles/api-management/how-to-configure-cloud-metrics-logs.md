@@ -60,6 +60,6 @@ If a gateway is deployed in [Azure Kubernetes Service](https://azure.microsoft.c
 
 ## Next steps
 
-* To learn more about the observability capabilities of the self-hosted gateway, see [Observability in the self-hosted gateway](self-hosted-gateway-observability.md).
+* To learn more about the [observability capabilities of the Azure API Management gateways](observability.md).
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md)
 * Learn about [configuring and persisting logs locally](how-to-configure-local-metrics-logs.md)

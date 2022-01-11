@@ -272,5 +272,5 @@ Now that the tutorial is over, you can easily clean up your cluster as following
 ## Next steps
 
 - To learn more about the self-hosted gateway, see [Self-hosted gateway overview](self-hosted-gateway-overview.md).
-- To learn more about the observability capabilities of the self-hosted gateway, see [Observability in the self-hosted gateway](self-hosted-gateway-observability.md).
+* To learn more about the [observability capabilities of the Azure API Management gateways](observability.md).
 - [Deploy self-hosted gateway to Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md)
