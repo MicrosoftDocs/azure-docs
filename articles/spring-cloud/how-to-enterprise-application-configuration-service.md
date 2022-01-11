@@ -127,7 +127,9 @@ A Spring application holds the properties as the beans of the Spring Application
    curl -X POST http://{app-endpoint}/actuator/refresh
    ```
 
-## Configure Application Configuration Service settings by portal
+## Configure Application Configuration Service settings using the portal
+
+You can configure Application Configuration Service using the portal, by following these steps:
 
 1. Select **Application Configuration Service**.
 1. Select **Overview** to view the running state and resources allocated to Application Configuration Service.
@@ -140,13 +142,16 @@ A Spring application holds the properties as the beans of the Spring Application
 
    ![Application Configuration Service Settings overview](./media/enterprise/getting-started-enterprise/config-service-settings.png)
 
-## Configure Application Configuration Service settings by CLI
+## Configure Application Configuration Service settings using the CLI
+
+You can configure Application Configuration Service using the CLI, by following these steps:
+
 
 ```azurecli
 az spring-cloud application-configuration-service git repo add --name <entry-name> --patterns <patterns> --uri <git-backend-uri> --label <git-branch-name>
 ```
 
-## Use Application Configuration Service with apps by portal
+## Use Application Configuration Service with applications using the portal
 
 When you use Application Configuration Service with a Git back end, keep the following items in mind.
 
@@ -163,7 +168,7 @@ To use the centralized configurations, you must bind the app to Application Conf
 
 1. Select **Apps**, then select the [pattern(s)](./how-to-enterprise-application-configuration-service.md#pattern) to be used by the apps.
 
-   a. In the left navigation pane, select **Apps** to view the list all the apps.
+   a. In the left navigation menu, select **Apps** to view the list all the apps.
    b. Select the target app to configure patterns for from the `name` column.
    c. In the left navigation pane, select **Configuration**, then select **General settings**.
    d. In the **Config file patterns** dropdown, choose one or more patterns from the list.
@@ -172,7 +177,10 @@ To use the centralized configurations, you must bind the app to Application Conf
 
    e. Select **Save**
 
-## Use Application Configuration Service with apps by CLI
+## Use Application Configuration Service with applications using the CLI
+
+You can use Application Configuration Service with applications, by using this command:
+
 ```azurecli
 az spring-cloud application-configuration-service bind --app <app-name>
 az spring-cloud app deploy -n <app-name> --artifact-path <app.jar> --config-file-pattern <config-file-pattern>
