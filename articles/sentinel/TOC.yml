@@ -184,7 +184,7 @@
       href: monitor-data-connector-health.md
     - name: Integrate Azure Data Explorer
       href: store-logs-in-azure-data-explorer.md
-  - name: Use the Advanced SIEM Information Model (ASIM)
+  - name: Use ASIM to normalize data
     items:
     - name: Develop ASIM parsers
       href: normalization-develop-parsers.md
