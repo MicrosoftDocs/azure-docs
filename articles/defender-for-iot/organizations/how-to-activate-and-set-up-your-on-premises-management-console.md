@@ -19,12 +19,11 @@ Activation and setup of the on-premises management console ensures that:
 
 ## Sign in for the first time
 
-**To sign in to the management console:**
+**To sign in to the On-premises management console:**
 
 1. Navigate to the IP address you received for the on-premises management console during the system installation.
- 
-1. Enter the username and password you received for the on-premises management console during the system installation. 
 
+1. Enter the username and password you received for the on-premises management console during the system installation. 
 
 If you forgot your password, select the **Recover Password**  option, and see [Password recovery](how-to-manage-the-on-premises-management-console.md#password-recovery) for instructions on how to recover your password.
 
