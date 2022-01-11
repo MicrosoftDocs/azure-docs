@@ -76,8 +76,10 @@ Now you have an event hub, you can configure your **In-store analytics - checkou
 
 1. Sign in to your **In-store analytics - checkout** IoT Central application.
 1. Select **Data export** in the left pane.
-1. Select **New > Azure Event Hubs**.
-1. Enter _Telemetry export_ as the **Display Name**.
+1. Enter _Telemetry export_ as the **export Name**.
+1. Select **Telemetry** as type of data to export.
+1. Select **create new one** under Destinations.
+1. Enter **Destination name**
 1. Select your **Event Hubs namespace**.
 1. Select the **store-telemetry** event hub.
 1. Switch off **Devices** and **Device Templates** in the **Data to export** section.

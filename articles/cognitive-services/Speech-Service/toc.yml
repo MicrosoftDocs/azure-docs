@@ -601,9 +601,9 @@ items:
   items:
     - name: Overview
       href: speech-devices.md
-    - name: Audio processing overview
+    - name: Audio processing
       href: audio-processing-overview.md
-    - name: Speech SDK integration
+    - name: Using the Microsoft Audio Stack (MAS)
       href: audio-processing-speech-sdk.md
     - name: Microphone array recommendations
       href: speech-sdk-microphone.md

@@ -1,6 +1,6 @@
 ---
-title: Upgrade indirect mode Azure Arc-enabled Managed Instance - Kubernetes
-description: Describes how to upgrade indirect mode Azure Arc-enabled Managed Instance using Kubernetes
+title: Upgrade an indirectly connected Azure Arc-enabled Managed Instance using Kubernetes tools
+description: Article describes how to upgrade an indirectly connected Azure Arc-enabled Managed Instance using Kubernetes tools
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,10 +11,9 @@ ms.date: 11/08/2021
 ms.topic: how-to
 ---
 
-# Upgrade an indirect mode Azure Arc-enabled Managed Instance using Kubernetes tools
+# Upgrade an an indirectly connected Azure Arc-enabled Managed Instance using Kubernetes tools
 
-This article describes how to upgrade a SQL Managed Instance deployed on a directly connected Azure Arc-enabled data controller using Kubernetes tools.
-
+This article describes how to upgrade a SQL Managed Instance deployed on an indirectly connected Azure Arc-enabled data controller using Kubernetes tools.
 
 ## Prerequisites
 
@@ -25,7 +24,7 @@ Before you can proceed with the tasks in this article you need:
 - To connect and authenticate to a Kubernetes cluster
 - An existing Kubernetes context selected
 
-You need an indirect mode data controller with the `imageTag v1.0.0_2021-07-30` or greater.
+You need an an indirectly connected data controller with the `imageTag v1.0.0_2021-07-30` or greater.
 
 ## Limitations
 

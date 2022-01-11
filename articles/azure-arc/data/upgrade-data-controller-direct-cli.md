@@ -1,5 +1,5 @@
 ---
-title: Upgrade direct mode Azure Arc data controller using the CLI
+title: Upgrade directly connected Azure Arc data controller using the CLI
 description: Article describes how to upgrade a directly connected Azure Arc data controller using the CLI
 services: azure-arc
 ms.service: azure-arc
@@ -11,13 +11,15 @@ ms.date: 12/10/2021
 ms.topic: how-to
 ---
 
-# Upgrade direct mode Azure Arc data controller using the CLI
+# Upgrade a directly connected Azure Arc data controller using the CLI
 
 This article describes how to upgrade a directly connected Azure Arc-enabled data controller using the Azure CLI (`az`).
 
+During a data controller upgrade, portions of the data control plane such as Custom Resource Definitions (CRDs) and containers may be upgraded. An upgrade of the data controller will not cause downtime for the data services (SQL Managed Instance or PostgreSQL Hyperscale server).
+
 ## Prerequisites
 
-You will need a direct mode data controller with the imageTag v1.0.0_2021-07-30 or later.
+You will need a directly connected data controller with the imageTag v1.0.0_2021-07-30 or later.
 
 To check the version, run:
 
@@ -52,7 +54,7 @@ v1.0.0_2021-07-30
 
 ## Upgrade data controller
 
-This section shows how to upgrade a data controller in direct mode.
+This section shows how to upgrade a directly connected data controller.
 
 > [!NOTE]
 > Some of the data services tiers and modes are generally available and some are in preview.
@@ -60,7 +62,7 @@ This section shows how to upgrade a data controller in direct mode.
 > To upgrade, delete all non-GA database instances. You can find the list of generally available 
 > and preview services in the [Release Notes](./release-notes.md).
 
-### Direct mode
+### Upgrade  
 
 You will need to connect and authenticate to a Kubernetes cluster and have an existing Kubernetes context selected prior to beginning the upgrade of the Azure Arc data controller.
 
