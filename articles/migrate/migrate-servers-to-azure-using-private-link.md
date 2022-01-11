@@ -60,7 +60,7 @@ Enable replication as follows:
 
     ![Screenshot of the Target settings screen.](./media/how-to-use-azure-migrate-with-private-endpoints/target-settings-agentless-vmware.png)
 
-1. In **Replication storage account**, use the dropdown list to select a storage account to replicate over a private link.  Only the storage accounts in the selected target region and Azure Migrate project subscription.
+1. In **Replication storage account**, use the dropdown list to select a storage account to replicate over a private link.  Only the storage accounts in the selected target region and Azure Migrate project subscription are listed.
     Next, [create a private endpoint for the storage account](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account) to enable replications over a private link.   
 1. Select the **Subscription** and **Resource group** in which the Azure VMs reside after migration. 
 1. In **Virtual network**, select the Azure VNet/subnet which the Azure VMs join after migration. 
@@ -129,8 +129,8 @@ Ensure that the on-premises replication appliance has network connectivity to th
 ## Next steps 
 
  - [Migrate VMs](tutorial-migrate-vmware.md#migrate-vms)
- - Complete the [migration process](./tutorial-migrate-physical-virtual-machines.md#complete-the-migration).
- - Review the [post-migration best practices](./tutorial-migrate-physical-virtual-machines.md#post-migration-best-practices). 
+ - Complete the [migration process](tutorial-migrate-vmware.md#complete-the-migration).
+ - Review the [post-migration best practices](tutorial-migrate-vmware.md#post-migration-best-practices). 
 
 ::: zone-end
 
@@ -310,9 +310,9 @@ Ensure that the on-premises replication appliance has network connectivity to th
 > For Hyper-V VM migrations to Azure, if the replication storage account is of _Premium_ type, you must select another storage account of _Standard_ type for the cache storage account. In this case, you must create private endpoints for both the replication and cache storage account.
 
 ## Next steps
- - [Migrate VMs](tutorial-migrate-vmware.md#migrate-vms)
- - Complete the [migration process](tutorial-migrate-hyper-v.md#migrate-vms).
- - Review the [post-migration best practices](./tutorial-migrate-physical-virtual-machines.md#post-migration-best-practices).
+ - [Migrate VMs](tutorial-migrate-hyper-v.md#migrate-vms)
+ - Complete the [migration process](tutorial-migrate-hyper-v.md#complete-the-migration).
+ - Review the [post-migration best practices](tutorial-migrate-hyper-v.md#post-migration-best-practices).
 
 ::: zone-end
 
@@ -481,7 +481,7 @@ After you've created the private endpoint, use the dropdown list in **Replicate*
 Ensure that the on-premises replication appliance has network connectivity to the storage account on its private endpoint. Learn more about how to verify [network connectivity](./troubleshoot-network-connectivity.md).
 
 ## Next steps
-- [Migrate VMs](tutorial-migrate-vmware-agent.md#migrate-vms)
+- [Migrate VMs](tutorial-migrate-physical-virtual-machines.md#migrate-vms)
 - Complete the [migration process](tutorial-migrate-physical-virtual-machines.md#complete-the-migration). 
 - Review the [post-migration best practices](tutorial-migrate-physical-virtual-machines.md#post-migration-best-practices).
 
