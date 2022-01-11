@@ -6,7 +6,7 @@ ms.service: load-testing
 ms.topic: quickstart
 author: ntrogh
 ms.author: nicktrog
-ms.date: 11/30/2021
+ms.date: 01/11/2022
 ms.custom: template-quickstart, mode-other
 adobe-target: true
 ---
