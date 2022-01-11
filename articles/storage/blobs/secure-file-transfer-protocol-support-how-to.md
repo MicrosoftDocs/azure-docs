@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Blob Storage using SFTP (preview) | Microsoft Docs
-description: Learn how to enable SFTP support for your Azure Blob Storage account so that you can directly connect to your Azure Storage account by using an SFTP client.
+description: Learn how to enable SFTP support in your Azure Blob Storage account so that you can directly connect to your Azure Storage account by using an SFTP client.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
@@ -47,7 +47,7 @@ Before you can enable SFTP support, you must register the SFTP feature with your
    > [!div class="mx-imgBorder"]
    > ![Preview setting](./media/secure-file-transfer-protocol-support-how-to/preview-features-setting.png)
 
-4. In the **Preview features** page, select the **SFTP support for Azure Blob Storage** feature, and then select **Register**.
+4. In the **Preview features** page, select the **SFTP support in Azure Blob Storage** feature, and then select **Register**.
 
 ### Verify feature registration
 
@@ -55,7 +55,7 @@ Verify that the feature is registered before continuing with the other steps in 
 
 1. Open the **Preview features** page of your subscription. 
 
-2. Locate the **SFTP support for Azure Blob Storage** feature and make sure that **Registered** appears in the **State** column.
+2. Locate the **SFTP support in Azure Blob Storage** feature and make sure that **Registered** appears in the **State** column.
 
 ## Enable SFTP support
 

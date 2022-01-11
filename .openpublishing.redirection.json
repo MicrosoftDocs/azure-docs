@@ -2464,6 +2464,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/machine-learning/tutorial-train-models-with-aml.md",
+      "redirect_url": "/azure/machine-learning/tutorial-train-deploy-notebook",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/tutorial-deploy-models-with-aml.md",
+      "redirect_url": "/azure/machine-learning/tutorial-train-deploy-notebook",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/how-to-create-labeling-projects.md",
       "redirect_url": "/azure/machine-learning/how-to-create-image-labeling-projects",
       "redirect_document_id": true
@@ -34396,6 +34406,11 @@
     {
       "source_path_from_root": "/articles/documentdb/index.md",
       "redirect_url": "https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/documentdb/sql-query-operators.md",
+      "redirect_url": "sql-query-logical-operators",
       "redirect_document_id": false
     },
     {
