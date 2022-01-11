@@ -57,8 +57,8 @@ represents one of the most targeted sectors, along with the financial, healthcar
 When attacking cloud infrastructure, adversaries often attack multiple resources to try to obtain access to customer data or company secrets. The cloud kill chain model (Figure 2) explains how attackers attempt to gain access to any of your resources running in the public cloud through a four-step process: exposure, access, lateral movement, and actions.
 
 1. Exposure is where attackers look for opportunities to gain access to your infrastructure. For example, attackers know customer-facing applications must be open for legitimate users to access them. Those applications are exposed to the Internet and therefore susceptible to attacks. 
-1. Attackers will try to exploit an exposure to gain access to your public cloud infrastructure. This can be done through compromised user credentials, compromised instances, or misconfigured resources. 
-1. During the lateral movement stage, attackers discover what resources they have access to and what the scope of that access is. Successful attacks on instances give attackers access to databases and other sensitive information. The attacker then searches for additional credentials. Our Microsoft Defender for Cloud data shows that without a security tool to quickly notify you of the attack, it takes organizations on average 101 days to discover a breach. Meanwhile, in just 24-48 hours after a breach, the attacker will usually have complete control of the network. 
+1. Attackers will try to exploit an exposure to gain access to your public cloud infrastructure. This can be done through compromised user credentials, compromised instances, or misconfigured resources. 
+1. During the lateral movement stage, attackers discover what resources they have access to and what the scope of that access is. Successful attacks on instances give attackers access to databases and other sensitive information. The attacker then searches for additional credentials. Our Microsoft Defender for Cloud data shows that without a security tool to quickly notify you of the attack, it takes organizations on average 101 days to discover a breach. Meanwhile, in just 24-48 hours after a breach, the attacker will usually have complete control of the network. 
 1. The actions an attacker takes after lateral movement are largely dependent on the resources they were able to gain access to during the lateral movement phase. Attackers can take actions that cause data exfiltration, data loss or launch other attacks. For enterprises, the average financial impact of data loss is now reaching $1.23 million.
 
 :::image type="content" source="./media/ransomware/ransomware2.png" alt-text="Placeholder Text 2":::
@@ -69,7 +69,7 @@ There are several reasons why ransomware attacks succeed. Businesses that are vu
 
 - The attack surface has increased as more and more businesses offer more services through digital outlets
 - There is a considerable ease of obtaining off-the-shelf malware, Ransomware-as-a-Service (RaaS)
-- With the above, the option to use cryptocurrency for blackmail payments has opened new avenues for exploit 
+- With the above, the option to use cryptocurrency for blackmail payments has opened new avenues for exploit 
 - Expansion of computers and their usage in different workplaces (local school districts, police departments, police squad cars, etc.) each of which is a potential access point for malware, resulting in potential attack surface
 - Prevalence of old, outdated, and antiquated infrastructure systems and software 
 - Poor patch management regimen
@@ -85,9 +85,9 @@ As illustrated in Figure 3, attackers use different techniques, such as RDP brut
 
 ### Should you pay ransom if attacked?
 
-There are varying opinions on what the best option is when confronted with this vexing demand.  The Federal Bureau of Investigation (FBI) advises victims not to pay ransom but to instead be vigilant and take proactive measures to secure their data before an attack.  They contend that paying doesn't guarantee that locked systems and encrypted data will be released again. The FBI says  another reason not to pay is that payments to cyber criminals incentivizes them to continue to attack organizations. 
+There are varying opinions on what the best option is when confronted with this vexing demand.  The Federal Bureau of Investigation (FBI) advises victims not to pay ransom but to instead be vigilant and take proactive measures to secure their data before an attack.  They contend that paying doesn't guarantee that locked systems and encrypted data will be released again. The FBI says  another reason not to pay is that payments to cyber criminals incentivizes them to continue to attack organizations. 
 
-Nevertheless, some victims elect to pay the ransom demand even though system and data access is not guaranteed after paying the ransom. By paying, such organizations take the calculated risk to pay in hopes of getting back their system and data and quickly resuming normal operations.  Part of the calculation is reduction in collateral costs such as lost productivity, decreased revenue over time, exposure of sensitive data, and potential reputational damage.
+Nevertheless, some victims elect to pay the ransom demand even though system and data access is not guaranteed after paying the ransom. By paying, such organizations take the calculated risk to pay in hopes of getting back their system and data and quickly resuming normal operations.  Part of the calculation is reduction in collateral costs such as lost productivity, decreased revenue over time, exposure of sensitive data, and potential reputational damage.
 
 In the end, the best way to prevent paying ransom is not to fall victim by implementing preventive measures and having tool saturation to protect your organization from every step that attacker takes wholly or incrementally to hack into your system. In addition, having the ability to recover impacted assets will ensure restoration of business operations in a timely fashion. Azure Cloud has a robust set of tools to guide you all the way.
 
@@ -133,13 +133,13 @@ Key capabilities include:
 
 ### Microsoft Defender for Cloud
 
-Microsoft Defender for Cloud is a built-in tool that provides threat protection for workloads running in Azure, on-premises, and in other clouds. It protects your hybrid data, cloud native services and servers from ransomware and other threats; and integrates with your existing security workflows like your SIEM solution and Microsoft's vast threat intelligence to streamline threat mitigation. ​​
+Microsoft Defender for Cloud is a built-in tool that provides threat protection for workloads running in Azure, on-premises, and in other clouds. It protects your hybrid data, cloud native services and servers from ransomware and other threats; and integrates with your existing security workflows like your SIEM solution and Microsoft's vast threat intelligence to streamline threat mitigation. ​​
 
 Microsoft Defender for Cloud delivers protection for all resources from directly within the Azure experience and extends protection to on-premises and multi-cloud virtual machines and SQL databases using Azure Arc:
 - Protects Azure services​
 - Protects hybrid workloads​
 - Streamline security with AI and automation​
-​- Detects and blocks advanced malware and threats for Linux and Windows servers on any cloud​
+​- Detects and blocks advanced malware and threats for Linux and Windows servers on any cloud​
 - Protects cloud-native services from threats​
 - Protects data services against ransomware attacks​
 - Protects your managed and unmanaged IoT / OT devices with continuous asset discovery, vulnerability management and threat monitoring​
@@ -159,15 +159,15 @@ Microsoft Defender for Cloud's threat protection enables you to detect and preve
 Security Center's threat protection includes fusion kill-chain analysis, which automatically correlates alerts in your environment based on cyber kill-chain analysis, to help you better understand the full story of an attack campaign, where it started and what kind of impact it had on your resources.
 
 Key Features:
-- Continuous security assessment: Identify Windows and Linux machines with missing security updates or insecure OS settings and vulnerable Azure configurations. Add optional watchlists or events you want to monitor. 
-- Actionable recommendations: Remediate security vulnerabilities quickly with prioritized, actionable security recommendations. 
+- Continuous security assessment: Identify Windows and Linux machines with missing security updates or insecure OS settings and vulnerable Azure configurations. Add optional watchlists or events you want to monitor. 
+- Actionable recommendations: Remediate security vulnerabilities quickly with prioritized, actionable security recommendations. 
 - Centralized policy management: Ensure compliance with company or regulatory security requirements by centrally managing security policies across all your hybrid cloud workloads.
-- Industry's most extensive threat intelligence: Tap into the Microsoft Intelligent Security Graph, which uses trillions of signals from Microsoft services and systems around the globe to identify new and evolving threats. 
+- Industry's most extensive threat intelligence: Tap into the Microsoft Intelligent Security Graph, which uses trillions of signals from Microsoft services and systems around the globe to identify new and evolving threats. 
 - Advanced analytics and machine learning: Use built-in behavioral analytics and machine learning to identify known attack patterns and post-breach activity.
 - Adaptive application control: Block malware and other unwanted applications by applying allowlist recommendations adapted to your specific workloads and powered by machine learning.
 - Prioritized alerts and attack timelines: Focus on the most critical threats first with prioritized alerts and incidents that are mapped into a single attack campaign.
-- Streamlined investigation: Quickly investigate the scope and impact of an attack with a visual, interactive experience. Use ad hoc queries for deeper exploration of security data. 
-- Automation and orchestration: Automate common security workflows to address threats quickly using built-in integration with Azure Logic Apps. Create security playbooks that can route alerts to existing ticketing system or trigger incident response actions. 
+- Streamlined investigation: Quickly investigate the scope and impact of an attack with a visual, interactive experience. Use ad hoc queries for deeper exploration of security data. 
+- Automation and orchestration: Automate common security workflows to address threats quickly using built-in integration with Azure Logic Apps. Create security playbooks that can route alerts to existing ticketing system or trigger incident response actions. 
 
 :::image type="content" source="./media/ransomware/ransomware8.png" alt-text="Placeholder Text 8":::
 :::image type="content" source="./media/ransomware/ransomware9.png" alt-text="Placeholder Text 9":::
@@ -180,13 +180,13 @@ With Sentinel you can connect to any of your security sources using built-in con
 
 Microsoft Sentinel is your birds-eye view across the enterprise alleviating the stress of increasingly sophisticated attacks, increasing volumes of alerts, and long resolution time frames.
 
-Collect data at cloud scale across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds. 
+Collect data at cloud scale across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds. 
 
-Detect previously undetected threats, and minimize false positives using Microsoft's analytics and unparalleled threat intelligence. 
+Detect previously undetected threats, and minimize false positives using Microsoft's analytics and unparalleled threat intelligence. 
 
-Investigate threats with artificial intelligence, and hunt for suspicious activities at scale, tapping into years of Cyber security work at Microsoft. 
+Investigate threats with artificial intelligence, and hunt for suspicious activities at scale, tapping into years of Cyber security work at Microsoft. 
 
-Respond to incidents rapidly with built-in orchestration and automation of common tasks.
+Respond to incidents rapidly with built-in orchestration and automation of common tasks.
 
 ### Native threat prevention with Microsoft Defender for Cloud
 
@@ -206,19 +206,19 @@ The alert below is an example of a detected Petya ransomware alert:
 
 One important way that organizations can help protect against losses in a ransomware attack is to have a backup of business-critical information in case other defenses fail. Since ransomware attackers have invested heavily into neutralizing backup applications and operating system features like volume shadow copy, it is critical to have backups that are inaccessible to a malicious attacker. With a flexible business continuity and disaster recovery solution, industry-leading data protection and security tools, Azure cloud offers secure services to protect your data:
 
-- **Azure Backup**: Azure Backup service provides simple, secure, and cost-effective solution to back up your Azure VM.  Currently, Azure Backup supports backing up of all the disks (OS and Data disks) in a VM using backup solution for Azure Virtual machine.
-- **Azure Disaster Recovery**: With disaster recovery from on-prem to the cloud, or from one cloud to another, you can avoid downtime and keep your applications up and running. 
+- **Azure Backup**: Azure Backup service provides simple, secure, and cost-effective solution to back up your Azure VM.  Currently, Azure Backup supports backing up of all the disks (OS and Data disks) in a VM using backup solution for Azure Virtual machine.
+- **Azure Disaster Recovery**: With disaster recovery from on-prem to the cloud, or from one cloud to another, you can avoid downtime and keep your applications up and running. 
 - **Built-in Security and Management in Azure**: To be successful in the Cloud era, enterprises must have visibility/metrics and controls on every component to pinpoint issues efficiently, optimize and scale effectively, while having the assurance the security, compliance and polices are in place to ensure the velocity.
 
 #### Guaranteed and Protected Access to Your Data
 
-Azure has a lengthy period of experience managing global data centers, which are backed by Microsoft's $15 billion infrastructure investment that is under continuous evaluation and improvement – with ongoing investments and improvements, of course.
+Azure has a lengthy period of experience managing global data centers, which are backed by Microsoft's $15 billion infrastructure investment that is under continuous evaluation and improvement – with ongoing investments and improvements, of course.
 
 Key Features:
 - Azure comes with Locally Redundant Storage (LRS), where data is stored locally, as well as Geo Redundant Storage (GRS) in a second region
 - All data stored on Azure is protected by an advanced encryption process, and all Microsoft's data centers have two-tier authentication, proxy card access readers, biometric scanners
 - Azure has more certifications than any other public cloud provider on the market, including ISO 27001, HIPAA, FedRAMP, SOC 1, SOC 2, and many international specifications
-- Guaranteed: - Microsoft offers 99.5-99.9% uptime on their services. Read the full SLA for more details.
+- Guaranteed: - Microsoft offers 99.5-99.9% uptime on their services. Read the full SLA for more details.
 
 All of the above are some very good reasons to trust Microsoft—and Azure—with your data.
 
@@ -226,28 +226,28 @@ All of the above are some very good reasons to trust Microsoft—and Azure—wit
 
 ### Adopt a Cybersecurity framework
 
-A good place to start is to adopt the [Azure Security Benchmark](/security/benchmark/azure/) to secure the Azure environment. The Azure Security Benchmark is Azure's own security control framework based on industry-based security control frameworks such as NIST SP800-53, CIS Controls v7.1. 
+A good place to start is to adopt the [Azure Security Benchmark](/security/benchmark/azure/) to secure the Azure environment. The Azure Security Benchmark is Azure's own security control framework based on industry-based security control frameworks such as NIST SP800-53, CIS Controls v7.1. 
 
 :::image type="content" source="./media/ransomware/ransomware13.png" alt-text="Placeholder Text 13":::
 
-The Azure Security Benchmark provides organizations guidance on how to configure Azure and Azure Services and implement the security controls. Organizations can use Microsoft Defender for Cloud to monitor their live Azure environment status with all the Azure Security Benchmark controls. 
+The Azure Security Benchmark provides organizations guidance on how to configure Azure and Azure Services and implement the security controls. Organizations can use Microsoft Defender for Cloud to monitor their live Azure environment status with all the Azure Security Benchmark controls.
 
 Ultimately, the Framework is aimed at reducing and better managing cybersecurity risks. 
 
 | Azure Security Benchmark stack | 
 |--|
-| [Network&nbsp;security&nbsp;(NS)](security-controls-v3-network-security.md) | 
-| [Identity&nbsp;Management&nbsp;(IM)](security-controls-v3-identity-management.md) | 
-| [Privileged&nbsp;Access&nbsp;(PA)](security-controls-v3-privileged-access.md) | 
-| [Data&nbsp;Protection&nbsp;(DP)](security-controls-v3-data-protection.md) | 
-| [Asset&nbsp;Management&nbsp;(AM)](security-controls-v3-asset-management.md) | 
-| [Logging&nbsp;and&nbsp;Threat&nbsp;Detection (LT)](security-controls-v2-logging-threat-detection.md) | 
-| [Incident&nbsp;Response&nbsp;(IR)](security-controls-v3-incident-response.md) | 
-| [Posture&nbsp;and&nbsp;Vulnerability&nbsp;Management&nbsp;(PV)](security-controls-v3-posture-vulnerability-management.md) | 
-| [Endpoint&nbsp;Security&nbsp;(ES)](security-controls-v3-endpoint-security.md) | 
-| [Backup&nbsp;and&nbsp;Recovery&nbsp;(BR)](security-controls-v3-backup-recovery.md) | 
-| [DevOps&nbsp;Security&nbsp;(DS)](security-controls-v3-devops-security.md) |
-| [Governance&nbsp;and&nbsp;Strategy&nbsp;(GS)](security-controls-v3-governance-strategy.md) | 
+| [Network&nbsp;security&nbsp;(NS)](../benchmarks/security-controls-v3-network-security.md) | 
+| [Identity&nbsp;Management&nbsp;(IM)](../benchmarks/security-controls-v3-identity-management.md) | 
+| [Privileged&nbsp;Access&nbsp;(PA)](../benchmarks/security-controls-v3-privileged-access.md) | 
+| [Data&nbsp;Protection&nbsp;(DP)](../benchmarks/security-controls-v3-data-protection.md) | 
+| [Asset&nbsp;Management&nbsp;(AM)](../benchmarks/security-controls-v3-asset-management.md) | 
+| [Logging&nbsp;and&nbsp;Threat&nbsp;Detection (LT)](../benchmarks/security-controls-v2-logging-threat-detection.md) | 
+| [Incident&nbsp;Response&nbsp;(IR)](../benchmarks/security-controls-v3-incident-response.md) | 
+| [Posture&nbsp;and&nbsp;Vulnerability&nbsp;Management&nbsp;(PV)](../benchmarks/security-controls-v3-posture-vulnerability-management.md) | 
+| [Endpoint&nbsp;Security&nbsp;(ES)](../benchmarks/security-controls-v3-endpoint-security.md) | 
+| [Backup&nbsp;and&nbsp;Recovery&nbsp;(BR)](../benchmarks/security-controls-v3-backup-recovery.md) | 
+| [DevOps&nbsp;Security&nbsp;(DS)](../benchmarks/security-controls-v3-devops-security.md) |
+| [Governance&nbsp;and&nbsp;Strategy&nbsp;(GS)](../benchmarks/security-controls-v3-governance-strategy.md) | 
 
 ### Prioritized Mitigation
 
@@ -257,11 +257,11 @@ While these priorities should govern what to do first, we encourage organization
 
 #### Make it harder to get in: incrementally remove risks
 
-Prevent a ransomware attacker from entering your environment and rapidly respond to incidents to remove attacker access before they can steal and encrypt data. This will cause attackers to fail earlier and more often, undermining the profit of their attacks. While prevention is the preferred outcome, it is a continuous journey and may not be possible to achieve 100% prevention  and rapid response across a real-world organizations (complex multi-platform and multi-cloud estate with distributed IT responsibilities).
+Prevent a ransomware attacker from entering your environment and rapidly respond to incidents to remove attacker access before they can steal and encrypt data. This will cause attackers to fail earlier and more often, undermining the profit of their attacks. While prevention is the preferred outcome, it is a continuous journey and may not be possible to achieve 100% prevention  and rapid response across a real-world organizations (complex multi-platform and multi-cloud estate with distributed IT responsibilities).
 
-To achieve this, organizations should identify and execute quick wins to strengthen  security controls to prevent entry and rapidly detect/evict attackers while implementing a sustained program that helps them stay secure. Microsoft recommends organizations follow the principles outlined in the Zero Trust strategy here . Specifically, against Ransomware, organizations should prioritize: 
-- Improving security hygiene by focusing efforts on attack surface reduction and threat and vulnerability management for assets in their estate.  
-- Implementing Protection, Detection and Response controls for their digital assets that can protect against commodity and advanced threats, provide visibility and alerting on attacker activity and respond to active threats. 
+To achieve this, organizations should identify and execute quick wins to strengthen  security controls to prevent entry and rapidly detect/evict attackers while implementing a sustained program that helps them stay secure. Microsoft recommends organizations follow the principles outlined in the Zero Trust strategy here . Specifically, against Ransomware, organizations should prioritize: 
+- Improving security hygiene by focusing efforts on attack surface reduction and threat and vulnerability management for assets in their estate. 
+- Implementing Protection, Detection and Response controls for their digital assets that can protect against commodity and advanced threats, provide visibility and alerting on attacker activity and respond to active threats. 
 
 :::image type="content" source="./media/ransomware/ransomware14.png" alt-text="Placeholder Text X":::
 
@@ -300,19 +300,19 @@ Protect backups against deliberate erasure and encryption with offline storage, 
 ### Promote awareness and ensure there is no knowledge gap
 
 There are a number of activities that may be undertaken to prepare for potential ransomware incidents.
- 
+ 
 #### Educate end-users on the dangers of ransomware
- 
+ 
 As most ransomware variants rely on end-users to install the ransomware or connect to compromised Web sites, all end-users should be educated about the dangers.  This would typically be part of annual security awareness training as well as ad hoc training available through the company's learning management systems.  The awareness training should also extend to the company's customers via the company's portals or other appropriate channels.
- 
+ 
 #### Educate security operations center (SOC) analysts and others on how to respond to ransomware incidents
- 
+ 
 SOC analysts and others involved in ransomware incidents should know the fundamentals of malicious software and ransomware specifically.  They should be aware of major variants/families of ransomware, along with some of their typical characteristics.  Customer call center staff should also be aware of how to handle ransomware reports from the company's end-users and customers.
 
 ### Ensure that you have appropriate technical controls in place
 
 There are a wide variety of technical controls that should be in place to protect, detect and respond to ransomware incidents with a strong emphasis on prevention.  At a minimum, SOC analysts should have access to the telemetry generated by antimalware systems in the company, understand what preventive measures are in place, understand the infrastructure targeted by ransomware, and be able to assist the company teams to take appropriate action.
- 
+ 
 This should include some or all of the following essential tools: 
 
 - Detective and preventive tools
@@ -387,9 +387,9 @@ Built-in backups from Azure services
 
 ## Detecting ransomware attacks
 
-There are several potential triggers that may indicate a ransomware incident.  Unlike many other types of malware, most will be higher-confidence triggers (where little additional investigation or analysis should be required prior to the declaration of an incident) rather than lower-confidence triggers (where more investigation or analysis would likely be required before an incident should be declared).  
+There are several potential triggers that may indicate a ransomware incident.  Unlike many other types of malware, most will be higher-confidence triggers (where little additional investigation or analysis should be required prior to the declaration of an incident) rather than lower-confidence triggers (where more investigation or analysis would likely be required before an incident should be declared).  
 
-In general, such infections obvious from basic system behavior, the absence of key system or user files and the demand for ransom.  In this case, the analyst should consider whether to immediately declare and escalate the incident, including taking any automated actions to mitigate the attack. 
+In general, such infections obvious from basic system behavior, the absence of key system or user files and the demand for ransom.  In this case, the analyst should consider whether to immediately declare and escalate the incident, including taking any automated actions to mitigate the attack. 
 
 Microsoft Defender for Cloud provides high quality threat detection and response capabilities, also called Extended Detection and Response – XDR.
 
@@ -416,7 +416,7 @@ Once a successful ransomware infection has been confirmed, the analyst should ve
 ### Containment/Mitigation
 
 In general, various server/endpoint antimalware, email antimalware and network protection solutions should be configured to automatically contain and mitigate known ransomware.  There may be cases, however, where the specific ransomware variant has been able to bypass such protections and successfully infect target systems.
- 
+ 
 Microsoft provides extensive resources to help update your incident response processes on the Top Azure Security Best Practices.
 
 The following are recommended actions to contain or mitigate a declared incident involving ransomware where automated actions taken by antimalware systems have been unsuccessful:
@@ -439,14 +439,14 @@ Understanding and fixing the fundamental security issues that led to the comprom
 
 Integrate outside experts – into processes to supplement expertise, such as Microsoft Detection and Response Team (DART). The DART engages with customers around the world, helping to protect and harden against attacks before they occur, as well as investigating and remediating when an attack has occurred. 
 
-Customers can engage our security experts directly from within the Microsoft 365 Defender portal for timely and accurate response. Experts provide insights needed to better understand the complex threats affecting your organization, from alert inquiries, potentially compromised devices, root cause of a suspicious network connection, to additional threat intelligence regarding ongoing advanced persistent threat campaigns. 
+Customers can engage our security experts directly from within the Microsoft 365 Defender portal for timely and accurate response. Experts provide insights needed to better understand the complex threats affecting your organization, from alert inquiries, potentially compromised devices, root cause of a suspicious network connection, to additional threat intelligence regarding ongoing advanced persistent threat campaigns. 
 
 Microsoft is ready to assist your company in returning to safe operations.
 Microsoft performs hundreds of compromise recoveries and has a tried-and-true methodology. Not only will it get you to a more secure position, it affords you the opportunity to consider your long-term strategy rather than reacting to the situation. 
 
 Microsoft provides Rapid Ransomware Recovery services. Under this, assistance is provided in all areas such as restoration of identity services, remediation and hardening and with monitoring deployment to help victims of ransomware attacks to return to normal business in the shortest possible timeframe. 
 
-Our Rapid Ransomware Recovery services are treated as "Confidential" for the duration of the engagement. Rapid Ransomware Recovery engagements are exclusively delivered by the WW Compromise Recovery Security Practice (CRSP), part of the Azure Cloud & AI Domain. For more information you can contact CRSP at Request contact about Azure security. 
+Our Rapid Ransomware Recovery services are treated as "Confidential" for the duration of the engagement. Rapid Ransomware Recovery engagements are exclusively delivered by the WW Compromise Recovery Security Practice (CRSP), part of the Azure Cloud & AI Domain. For more information you can contact CRSP at Request contact about Azure security. 
 
 ## Conclusion
 
@@ -461,7 +461,7 @@ We look forward to partnering with you in addressing ransomware protection, dete
 - [Build great solutions with the Microsoft Azure Well-Architected Framework](/learn/paths/azure-well-architected-framework/)
 - [Azure Top Security Best Practices](/azure/cloud-adoption-framework/get-started/security#step-1-establish-essential-security-practices)
 - [Security Baselines](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines)
-- [Microsoft Azure Resource Center](https://azure.microsoft.com/en-us/resources/)
+- [Microsoft Azure Resource Center](https://azure.microsoft.com/resources/)
 - [Azure Migration Guide](/azure/cloud-adoption-framework/migrate/azure-migration-guide/)
 - [Security Compliance Management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management) 
 - [Azure Security Control – Incident Response](/security/benchmark/azure/security-controls-v3-incident-response)
