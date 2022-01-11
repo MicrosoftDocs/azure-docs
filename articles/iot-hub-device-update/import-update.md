@@ -123,43 +123,51 @@ An example manifest output is below. For this example, there are two files that 
 
 2. On the left-hand side of the page, select "Updates" under "Device Management".
 
-   :::image type="content" source="media/import-update/import-updates-3.png" alt-text="Import Updates" lightbox="media/import-update/import-updates-3.png":::
+   :::image type="content" source="media/import-update/import-updates-3-ppr.png" alt-text="Import Updates" lightbox="media/import-update/import-updates-3.png":::
 
 3. You'll see several tabs across the top of the screen. Select the Updates tab.
 
-   :::image type="content" source="media/import-update/updates-tab.png" alt-text="Updates" lightbox="media/import-update/updates-tab.png":::
+   :::image type="content" source="media/import-update/updates-tab-ppr.png" alt-text="Updates" lightbox="media/import-update/updates-tab.png":::
 
 4. Select "+ Import a new update" below the "Available Updates" header.
 
-   :::image type="content" source="media/import-update/import-new-update-2.png" alt-text="Import New Update" lightbox="media/import-update/import-new-update-2.png":::
+   :::image type="content" source="media/import-update/import-new-update-2-ppr.png" alt-text="Import New Update" lightbox="media/import-update/import-new-update-2.png":::
 
 5. Select "+ Select from storage container". The Storage accounts UI will be shown. Select an existing account or create a new account using "+ Storage account". This account will be used for a container to stage your updates for importing.
 
-   :::image type="content" source="media/import-update/select-update-files.png" alt-text="Select Update Files" lightbox="media/import-update/select-update-files.png":::
+   :::image type="content" source="media/import-update/select-update-files-ppr.png" alt-text="Select Update Files" lightbox="media/import-update/select-update-files.png":::
 
 6. Once you've selected a Storage account, the Containers UI will be shown. Select an existing container or create a new container using "+ Container". This container will be used to stage your updates for importing. _Recommendation: use a new container each time you import an update to avoid accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container before completing this step._
 
-   :::image type="content" source="media/import-update/storage-account.png" alt-text="Storage Account" lightbox="media/import-update/storage-account.png":::
+   :::image type="content" source="media/import-update/storage-account-ppr.png" alt-text="Storage Account" lightbox="media/import-update/storage-account.png":::
 
 7. In your container, select "Upload". The Upload UI will be shown.  
 
-   :::image type="content" source="media/import-update/container.png" alt-text="Select Container" lightbox="media/import-update/container.png":::
+   :::image type="content" source="media/import-update/container-ppr.png" alt-text="Select Container" lightbox="media/import-update/container.png":::
 
 8. Select the folder icon on the right side of the Files section under the Upload blob header. A file picker will be shown. Navigate to the location of your update file or files, select all of the files, then select "Open". _Note: you can hold the Shift key and click the uppermost and lowermost files to multi-select._
 
-   :::image type="content" source="media/import-update/publish-update.png" alt-text="Publish Update" lightbox="media/import-update/publish-update.png":::
+   :::image type="content" source="media/import-update/container-picker-ppr.png" alt-text="Publish Update" lightbox="media/import-update/publish-update.png":::
 
 9. When you've selected all your update files, select "Upload". This will upload your files to the staging container that will be used for importing.
 
-   :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Update Import Sequencing" lightbox="media/import-update/update-publishing-sequence-2.png":::
+   :::image type="content" source="media/import-update/container-upload-ppr.png" alt-text="Update Import Sequencing" lightbox="media/import-update/update-publishing-sequence-2.png":::
 
 10. Select the files you just uploaded to designate them for importing. Then click the "Select" button to return to the Import update page.
 
-   :::image type="content" source="media/import-update/update-ready.png" alt-text="Job Status" lightbox="media/import-update/update-ready.png":::
+   :::image type="content" source="media/import-update/import-select-ppr.png" alt-text="Job Status" lightbox="media/import-update/update-ready.png":::
 
-11. On the Import update page, review the files to be imported. Then select "Import update". You can use the [Proxy Update Troubleshooting](device-update-proxy-update-troubleshooting.md) page to resolve any errors.
+11. On the Import update page, review the files to be imported. Then select "Import update" to start the import process. _Note: see the [Proxy Update Troubleshooting](device-update-proxy-update-troubleshooting.md) page to resolve any errors._
 
-   :::image type="content" source="media/import-update/update-ready.png" alt-text="Job Status" lightbox="media/import-update/update-ready.png":::
+   :::image type="content" source="media/import-update/Import-start-ppr.png" alt-text="Job Status" lightbox="media/import-update/update-ready.png":::
+
+12. The import process begins, and the screen switches to to the "Import History" section. Select "Refresh" to view progress until the import process completes (depending on the size of the update, this may complete in a few minutes but could take longer).
+
+   :::image type="content" source="media/import-update/update-publishing-sequence-2-ppr.png" alt-text="Update Import Sequencing" lightbox="media/import-update/update-publishing-sequence-2.png":::
+
+13. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
+
+   :::image type="content" source="media/import-update/update-ready-ppr.png" alt-text="Job Status" lightbox="media/import-update/update-ready.png":::
 
 ## Next Steps
 
