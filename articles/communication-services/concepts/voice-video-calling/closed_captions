@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Closed Captions overview
+# Overview
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
 Azure Communication Services allows one to enable Closed Captions for the VoIP calls in Private Preview.
-Closed Captions – is the conversion of a voice or video call audio track into written words which are showing in real-time. Closed Captions are never saved and only visible to the user that has enabled it.
+Closed Captions is the conversion of a voice or video call audio track into written words which appear in real-time. Closed Captions are never saved and only visible to the user that has enabled it.
 Here are main scenarios where Closed Captions are useful:
 
 - **Accessibility**. In the workplace or consumer apps, Closed Captioning for meetings, conference calls, and training videos can make a huge difference. When audio can't be heard, either because of a noisy environment, such as an airport, or because of an environment that must be kept quiet, such as a hospital. 
@@ -43,7 +43,6 @@ The Private Preview will be available on all platforms.
 - iOS
 - Web
 
-## Next steps
 
 
 
