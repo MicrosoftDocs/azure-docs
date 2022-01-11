@@ -284,3 +284,10 @@ However, to disable CRL checking if there are issues with CRL for a particular C
 ```powershell
 $c=Get-AzureADTrustedCertificateAuthority    	$c[0]. crlDistributionPoint =””   	 Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0] 
 ```
+## Next steps 
+
+[Overview of cloud native certificate-based authentication](concept-cloud-native-certificate-based-authentication.md)
+[Limitations with cloud native certificate-based authentication](concept-cloud-native-certificate-based-authentication-limitations.md)
+[FAQ](cloud-native-certificate-based-authentication-faq.yml)
+[Troubleshoot cloud native certificate-based authentication](troubleshoot-cloud-native-certificate-based-authentication.md)
+

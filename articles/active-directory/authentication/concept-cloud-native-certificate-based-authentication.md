@@ -78,10 +78,8 @@ The following diagram illustrates all the components and the steps involved:
 
 ## Next steps
 
-•	Getting started with Cloud native Certificate-based authentication - Get up and running Cloud-native Certificate-based Authentication against Azure AD.
-•	Current limitations - Learn which scenarios are supported and which ones are not.
-•	Technical Deep Dive - Understand how this feature works.
-•	Frequently Asked Questions - Answers to frequently asked questions.
-•	Troubleshoot - Learn how to resolve common issues with the feature.
-
+[Limitations with cloud native certificate-based authentication](concept-cloud-native-certificate-based-authentication-limitations.md)
+[Get started with cloud native certificate-based authentication](how-to-certificate-based-authentication.md)
+[FAQ](cloud-native-certificate-based-authentication-faq.yml)
+[Troubleshoot cloud native certificate-based authentication](troubleshoot-cloud-native-certificate-based-authentication.md)
 
