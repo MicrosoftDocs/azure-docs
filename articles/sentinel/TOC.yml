@@ -107,6 +107,8 @@
       href: soc-ml-anomalies.md
     - name: Multistage attacks (Fusion)
       href: fusion.md
+    - name: Watchlists
+      href: watchlists.md
   - name: Threat hunting
     href: hunting.md
   - name: SOAR
@@ -235,7 +237,13 @@
     - name: Create incidents from Microsoft Security alerts
       href: create-incidents-from-alerts.md
     - name: Use watchlists
-      href: watchlists.md
+      items:
+      - name: Create watchlists
+        href: watchlists-create.md
+      - name: Build queries or rules
+        href: watchlists-queries.md
+      - name: Manage watchlists
+        href: watchlists-manage.md
   - name: Hunt for threats
     items:
     - name: Hunt with Jupyter notebooks

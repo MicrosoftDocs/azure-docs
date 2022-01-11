@@ -30,6 +30,11 @@ The audio effects detection capability was improved to have a better detection r
 
 For more information, see [Audio effects detection](audio-effects-detection.md).
 
+### New source languages support for STT, translation, and search on the website
+ 
+Video Analyzer for Media introduces source languages support for STT (speech-to-text), translation, and search in Hebrew (he-IL), Portuguese (pt-PT), and Persian (fa-IR) on the [Video Analyzer for Media](https://www.videoindexer.ai/) website.   
+It means transcription, translation, and search features are also supported for these languages in Video Analyzer for Media web applications and widgets.
+
 ## December 2021 
  
 ### The projects feature is now GA
