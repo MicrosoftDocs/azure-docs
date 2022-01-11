@@ -56,15 +56,9 @@ The sample application's source repo includes an Apache JMeter script named *Sam
 
 ## Set up GitHub access permissions for Azure
 
-The GitHub Actions workflow needs to authenticate with Azure to access Azure resources. In the sample application, you use the [Azure Login](https://github.com/Azure/login) action and an Azure Active Directory service principal to authenticate with Azure. For other options to authenticate to Azure, see the [Azure and GitHub integration site](/azure/developer/github).
+The GitHub Actions workflow needs to authenticate with Azure to access Azure resources. In the sample application, you use the [Azure Login](https://github.com/Azure/login) action and an Azure Active Directory service principal to authenticate with Azure.
 
-In this section, you'll go through the following steps:
-
-- Create an Azure Active Directory service principal with the Contributor role.
-- Add the service principal as a GitHub secret to the sample application repository.
-- Assign the Load Test Contributor role to the service principal.
-
-Set up your GitHub repository to have permissions to access your Azure load testing resource:
+In this section, you'll configure your GitHub repository to have permissions to access your Azure load testing resource:
 
 1. Run the following Azure CLI command to create a service principal and assign the Contributor role:
 
@@ -88,7 +82,12 @@ Set up your GitHub repository to have permissions to access your Azure load test
     }
     ```
 
+    > [!NOTE]
+    > Azure Login supports multiple ways to authenticate with Azure. For other authentication options, see the [Azure and GitHub integration site](/azure/developer/github).
+
 1. Go to your forked GitHub repository for the sample application.
+
+    You'll add a GitHub secret to your repository for the service principal you created in the previous step. The Azure Login action uses this secret to authenticate with Azure.
 
 1. Add a new secret to your GitHub repository by selecting **Settings** > **Secrets** > **New repository secret**.
 
@@ -114,7 +113,7 @@ Set up your GitHub repository to have permissions to access your Azure load test
         --subscription "<subscription-name-or-id>"
     ```
 
-You can now use the `AZURE_CREDENTIALS` secret with the Azure Login action in your CI/CD workflow. The following code snippet describes how this for the sample application:
+You can now use the `AZURE_CREDENTIALS` secret with the Azure Login action in your CI/CD workflow. The following code snippet describes how this works for the sample application:
 
 ```yml
 jobs:
