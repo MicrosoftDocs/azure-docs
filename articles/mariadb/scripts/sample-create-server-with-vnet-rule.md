@@ -1,6 +1,6 @@
 ---
-title: CLI script - Download slow query logs - Azure Database for MariaDB
-description: This sample Azure CLI script shows how to enable and download the slow query logs of an Azure Database for MariaDB server.
+title: CLI script - Create server - Azure Database for MariaDB
+description: This sample CLI script creates an Azure Database for MariaDB server and configures a vNet rule.
 author: savjani
 ms.author: pariks
 ms.service: mariadb
@@ -10,9 +10,9 @@ ms.custom: mvc, devx-track-azurecli
 ms.date: 01/11/2022
 ---
 
-# Enable and download server slow query logs of an Azure Database for MariaDB server using Azure CLI
+# Create a MariaDB server and configure a vNet rule using the Azure CLI
 
-This sample CLI script enables and downloads the slow query logs of a single Azure Database for MariaDB server.
+This sample CLI script creates an Azure Database for MariaDB server and configures a vNet rule.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -22,7 +22,7 @@ This sample CLI script enables and downloads the slow query logs of a single Azu
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mariadb/server-logs/server-logs.sh" range="4-50":::
+:::code language="azurecli" source="~/azure_cli_scripts/mariadb/create-mariadb-server-vnet/create-mariadb-server-with-vnet-rule.sh" range="4-47":::
 
 ## Clean up resources
 
@@ -40,10 +40,11 @@ This script uses the commands outlined in the following table:
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
 | [az mariadb server create](/cli/azure/mariadb/server#az_mariadb_server_create) | Creates a MariaDB server that hosts the databases. |
-| [az mariadb server configuration list](/cli/azure/mariadb/server/configuration#az_mariadb_server_configuration_list) | List the configuration values for a server. |
-| [az mariadb server configuration set](/cli/azure/mariadb/server/configuration#az_mariadb_server_configuration_set) | Update the configuration of a server. |
-| [az mariadb server-logs list](/cli/azure/mariadb/server-logs#az_mariadb_server_logs_list) | List log files for a server. |
-| [az mariadb server-logs download](/cli/azure/mariadb/server-logs#az_mariadb_server_logs_download) | Download log files. |
+| [az network vnet list-endpoint-services](/cli/cli/azure/network/vnet#az-network-vnet-list-endpoint-services) | List which services support VNET service tunneling in a given region. |
+| [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) | Creates a virtual network. |
+| [az network vnet subnet create](/cli/azure/network/vnet#az-network-vnet-subnet-create) | Create a subnet and associate an existing NSG and route table. |
+| [az network vnet subnet show](/cli/azure/network/vnet#az-network-vnet-subnet-show)
+| [az mariadb server vnet-rule create](/cli/azure/mariadb/server/vnet-rule#az-mariadb-server-vnet-rule-create) | Create a virtual network rule to allows access to a MariaDB server. |
 | [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps

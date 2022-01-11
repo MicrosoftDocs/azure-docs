@@ -63,10 +63,22 @@
       href: tutorial-design-database-cli.md
     - name: Azure PowerShell
       href: tutorial-design-database-using-powershell.md
-  - name: Samples
+  - name: Azure CLI Samples
     items:
-    - name: Azure CLI
+    - name: Samples overview
       href: sample-scripts-azure-cli.md
+    - name: Create a server
+      href: ./scripts/sample-create-server-and-firewall-rule.md
+    - name: Create script with vNet rules
+      href: ./scripts/sample-create-server-with-vnet-rule.md
+    - name: Scale a server
+      href: ./scripts/sample-scale-server.md
+    - name: Change server configurations
+      href: ./scripts/sample-change-server-configuration.md
+    - name: Restore a server
+      href: ./scripts/sample-point-in-time-restore.md
+    - name: Manipulate with server logs
+      href: ./scripts/sample-server-logs.md
   - name: Drivers and tools compatibility
     href: concepts-compatibility.md
   - name: Connection resiliency
