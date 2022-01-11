@@ -40,7 +40,7 @@ Each method has advantages over the other:
 
 ## Parser hierarchy
 
-ASIM includes two levels of parsers: **source-specific** and **source-specific** parsers. The user usually uses the **source-specific parser** for the relevant schema, ensuring all data relevant to the schema is queried. The **source-specific parser** in turn calls **source-specific** parsers to perform the actual parsing and normalization, which is specific for each source.
+ASIM includes two levels of parsers: **unifying** and **source-specific** parsers. The user usually uses the **unifying** for the relevant schema, ensuring all data relevant to the schema is queried. The **unifying** parser in turn calls **source-specific** parsers to perform the actual parsing and normalization, which is specific for each source.
 
 >[!TIP]
 > The built-in parser hierarchy adds a layer to support customization. For more information, see [Managing ASIM parsers](normalization-develop-parsers.md).
