@@ -4,7 +4,7 @@ description: Learn how to migrate outbound access in your virtual network to a V
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
-ms.sudbservice: nat
+ms.subservice: nat
 ms.topic: tutorial
 ms.date: 1/11/2022
 ms.custom: template-tutorial 
