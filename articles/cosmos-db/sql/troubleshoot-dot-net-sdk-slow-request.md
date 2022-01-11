@@ -45,7 +45,8 @@ try
         // Log the diagnostics and add any additional info necessary to correlate to other logs 
         Console.Write(response.Diagnostics.ToString());
     }
-} catch(CosmosException cosmosException)
+}
+catch (CosmosException cosmosException)
 {
     // Log the full exception including the stack trace 
     Console.Write(cosmosException.ToString());
@@ -55,7 +56,7 @@ try
 
 // When using Stream APIs
 ResponseMessage response = await this.Container.CreateItemStreamAsync(partitionKey, stream);
-if (response.Diagnostics.GetClientElapsedTime() > ConfigurableSlowRequestTimeSpan || IsFailureStatusCode(response.StatusCode))
+if (response.Diagnostics.GetClientElapsedTime() > ConfigurableSlowRequestTimeSpan || !response.IsSuccessStatusCode)
 {
     // Log the diagnostics and add any additional info necessary to correlate to other logs 
     Console.Write(response.Diagnostics.ToString());
