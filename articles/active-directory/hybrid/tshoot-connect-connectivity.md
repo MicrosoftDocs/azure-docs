@@ -47,7 +47,7 @@ Of these URLs, the following table is the absolute bare minimum to be able to co
 | mscrl.microsoft.com |HTTP/80 |Used to download CRL lists. |
 | \*.verisign.com |HTTP/80 |Used to download CRL lists. |
 | \*.entrust.net |HTTP/80 |Used to download CRL lists for MFA. |
-| \*management.core.windows.net (Azure Storage)</br>\*.graph.windows.net (Azure AD Graph)|
+| \*.management.core.windows.net (Azure Storage)</br>\*.graph.windows.net (Azure AD Graph)|
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Used for MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Used to configure your Azure AD directory and import/export data. |
 | \*.crl3.digicert.com |HTTP/80 |Used to verify certificates. |
