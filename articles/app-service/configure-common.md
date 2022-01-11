@@ -10,7 +10,7 @@ ms.custom: "devx-track-csharp, seodec18"
 ---
 # Configure an App Service app
 
-This article explains how to configure common settings for web apps, mobile back end, or API app using the [Azure portal].
+This article explains how to configure common settings for web apps, mobile back end, or API app.
 
 ## Configure app settings
 
@@ -455,7 +455,7 @@ You can set many of the common configurable options using [Set-AzWebApp](/powers
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -Use32BitWorkerProcess [True|False] -WebSocketsEnabled [True|False] -AlwaysOn [True|False] -NumberOfWorkers
 ```
 
-To show the existing settings, use the [az webapp config show](/cli/azure/webapp/config#az_webapp_config_show) command.
+To show the existing settings, use the [Get-AzWebApp](/powershell/module/az.websites/get-azwebapp) command.
 
 -----
 ## Configure default documents
@@ -495,11 +495,9 @@ Set-AzWebApp $webapp
 
 <a name="redirect-to-a-custom-directory" aria-hidden="true"></a>
 
-## Map a URL path
+## Map a URL path to a directory
 
-By default, App Service directs web requests to the root directory of your app code. But certain web frameworks don't start in the root directory. For example, [Laravel](https://laravel.com/) starts in the `public` subdirectory. Such an app would be accessible at `http://contoso.com/public`, for example, but you typically want to direct `http://contoso.com` to the `public` directory instead.
-
-Each app has the default root path (`/`) mapped to `D:\home\site\wwwroot`, where your code is deployed by default. If your app root is in a different folder, or if your repository has more than one application, you can edit or add virtual applications and directories here. 
+By default, App Service starts your app from the root directory of your app code. But certain web frameworks don't start in the root directory. For example, [Laravel](https://laravel.com/) starts in the `public` subdirectory. Such an app would be accessible at `http://contoso.com/public`, for example, but you typically want to direct `http://contoso.com` to the `public` directory instead. If your app's startup file is in a different folder, or if your repository has more than one application, you can edit or add virtual applications and directories.
 
 # [Azure Portal](#tab/portal)
 
