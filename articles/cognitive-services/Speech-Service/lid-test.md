@@ -17,24 +17,18 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 
 Language identification is used to recognize natural languages spoken in audio when compared against a list of [supported languages](language-support.md). 
 
-Language identification scenarios include:
+Language identification use cases include:
 
 * [Standalone language identification](#standalone-language-identification) when you only need to detect the natural language in an audio source.
 * [Speech-to-text language identification](#speech-to-text) when you need to detect the natural language in an audio source and then transcribe it to text. 
 * [Speech translation language identification](#speech-translation) when you need to detect the natural language in an audio source and then translate it to another language. 
 
-Here's how it works:
-
-* Set your priority to `"Latency"` or `"Accuracy"`. If neither is set, then latency is prioritized by default. 
-* You provide candidate languages, at least one of which is expected be in the audio. You can include up to 4 languages for at-start recognition or up to 10 languages for continuous recognition. 
-* Use the translation recognizer with your configured languages and audio source.
-* Await the results
+You provide candidate languages, at least one of which is expected be in the audio. You can include up to 4 languages for at-start recognition or up to 10 languages for continuous recognition. 
 
 > [!NOTE]
 > You must provide the full 4-letter locale, but the Speech service only uses the base language. For example, if you include both "en-US" and "en-GB", the Speech service only uses the Speech-to-text model for English. Do not include multiple locales for the same language. 
 
-The returned results for at-start and continuous recognition will vary by priority. For more information see [Accuracy and Latency prioritization](#accuracy-and-latency-prioritization).  
-
+The returned results for at-start and continuous recognition also depend upon your [Accuracy and Latency prioritization](#accuracy-and-latency-prioritization). 
 
 ## At-start and Continuous recognition
 
@@ -46,7 +40,6 @@ Speech supports both at-start and continuous recognition for language identifica
 At-start recognition identifies the language within the first few seconds of audio, and makes only one determination per audio. Use at-start recognition if the language in the audio won't change.
 
 Continuous recognition can identify multiple languages for the duration of the audio. Use continuous recognition if the language in the audio could change. However, continuous recognition accuracy is limited if multiple languages are used within the same utterance. 
-
 
 ## Accuracy and Latency prioritization
 
@@ -63,7 +56,7 @@ Set the priority to `Latency` if you need a low-latency result such as during li
 
 If none of the candidate languages are present in the audio or if the recognition confidence is low, the returned result can vary by mode. 
 * In `Latency` mode the Speech service returns one of the candidate languages provided, even if those languages were not in the audio. For example, if `fr-FR` (French) and `en-US` (English) are provided as candidates, but German is spoken, either "French" or "English" would be returned. 
-* In `Accuracy` mode the Speech service returns null or empty if none of the candidate languages are detected or if the recognition confidence is low. 
+* In `Accuracy` mode the Speech service returns "Unknown" if none of the candidate languages are detected or if the recognition confidence is low. 
 
 ## Standalone language identification
 
