@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/10/2022
+ms.date: 01/11/2022
 ms.author: v-ydequadros
 ---
 
@@ -169,9 +169,9 @@ There are many filter options on the **Users** screen, including filters by **Au
 
   - When you select **User** from the **Users** filter section, the following side panels display:
 
-      - **User Groups** (Local Users Only) (All Authorization Systems) -  Displays the specific groups the user belongs to, if applicable.
+      - **User Groups** (Local Users only) (All Authorization Systems) -  Displays the specific groups the user belongs to, if applicable.
 
-      - **Roles Available** (AWS Only) - Lists all the roles the user can assume within the authorization system, including **Type**, **Name**, and **Domain**.
+      - **Roles Available** (AWS only) - Lists all the roles the user can assume within the authorization system, including **Type**, **Name**, and **Domain**.
 
         1. In the **Name** column, select **View json.** 
 
@@ -189,7 +189,7 @@ There are many filter options on the **Users** screen, including filters by **Au
 
         4. To view details on who can assume the role being viewed, select the **Trusted Entities** tab.
         
-             - **Roles Accessed** (SAML Users Only) (AWS Only) - Lists all the roles the user has assumed within the authorization system, including **Type**, **Name**, and **Domain**.
+             - **Roles Accessed** (SAML users only) (AWS only) - Lists all the roles the user has assumed within the authorization system, including **Type**, **Name**, and **Domain**.
              - **Roles** (Azure) - Lists all the roles the user can assume within the authorization system, including **Name**, **Resource**, **Type**, and **Status**.
              - **Roles** (GCP) - Lists all the roles the user can assume within the authorization system, including **Source**, **Resource**, and **Current Role**.
 
@@ -197,14 +197,14 @@ There are many filter options on the **Users** screen, including filters by **Au
 
        **Role** is specific to AWS, **Application (App)** is specific to Azure, and **Service Account (a/c)** is specific to GCP.
 
-    - **Role (AWS Only)**
+    - **Role (AWS only)**
         - **Identities with access**:  Displays which identities can assume this specific role, including **Type**, **Name**, and **Domain** information.
-        - **Identities accessed** (AWS Only) -  Displays how many identities have assumed the role, including **Type**, **Name**, and **Domain** information.
+        - **Identities accessed** (AWS only) -  Displays how many identities have assumed the role, including **Type**, **Name**, and **Domain** information.
 
              > [!IMPORTANT]
-             >  The identity still appears in the **Identities accessed** section if the user accessed the identity in the past 90 days prior to the identity being removed, or if the role is no longer allowed to assume the identity. </p>The identity doesn't display in the **Identities accessed** section when the 90 day period has passed.
+             >  The identity appears in the **Identities accessed** section if the user has accessed the identity up to 90 days prior to the identity being removed, or if the role is no longer allowed to assume the identity. </p>The identity doesn't display in the **Identities accessed** section after the 90 day period has passed.
 
-    - **Application (Azure Only)**
+    - **Application (Azure only)**
         - **Secrets**: Applications can authenticate using secrets. The **Secrets** panel displays the following options:
             - **Key Id**: The ID number for the secret key.
             - **Start Date**: The day the key was generated.
@@ -221,7 +221,7 @@ There are many filter options on the **Users** screen, including filters by **Au
                 - **Active**: The user is using a role that is available in Microsoft PIM.
                 - **Expired**: The Microsoft PIM role is no longer available for the user.
 
-    - **Service Account (GCP Only)**
+    - **Service Account (GCP only)**
         - **Service Account Usage -**  Displays the usage pattern for the service account over the last 90 days
         - **Roles -** Lists all the roles that are assigned to a user. The following fields display more information about the role:
             - **Source**: The scope where the role is assigned.

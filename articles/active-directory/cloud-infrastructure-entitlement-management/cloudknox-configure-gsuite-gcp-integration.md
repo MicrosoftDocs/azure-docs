@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/10/2022
+ms.date: 01/11/2022
 ms.author: v-ydequadros
 ---
 
-# Configure G Suite integration for Google Cloud Platform (GCP)
+# Microsoft CloudKnox Permissions Management - Configure G Suite integration for Google Cloud Platform (GCP)
 
 You can configure the G Suite Domain-Wide Delegation of Authority to programmatically access a user's data without any manual authorization on the user's part. You can also delegate domain-wide authority to a service account and delegate Admin API access to a user.
 

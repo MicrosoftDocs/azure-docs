@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/10/2022
+ms.date: 01/11/2022
 ms.author: v-ydequadros
 ---
 
@@ -69,6 +69,7 @@ This topic describes the process of configuring and collecting data for VCenter.
 
 4. In the table, select the ellipses (**...**) on the right of the account information.
 5. To collect and view the data currently being collected by CloudKnox Sentry, select **Collect Data**. 
+
     CloudKnox displays the following message: **Data collection restarted successfully.**
 
 ## Delete a VCenter account

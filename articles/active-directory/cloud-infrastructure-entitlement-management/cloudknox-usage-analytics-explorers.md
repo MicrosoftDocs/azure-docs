@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/10/2022
+ms.date: 01/11/2022
 ms.author: v-ydequadros
 ---
 
@@ -179,7 +179,7 @@ The CloudKnox explorers provide more information about an identity, including en
         - **Source Name**: Displays the name of the source.
         - **Source Type**: Displays the type of source applied to the identity.
 
-## The Role Explorer (Available in AWS Only)
+## The Role Explorer (AWS only)
 
 1. To access the **Role Explorer**, choose an authorization system. 
 2. Select **Groups**, and then select **Role / App / Service a/c**. 
@@ -230,7 +230,7 @@ The CloudKnox explorers provide more information about an identity, including en
     - **All Tasks** – Displays the number of tasks available to the role total.
     - **High Risk Tasks** – Displays the number of high risk tasks the role has access to total.
 
-      -  To view the names of the tasks and high risk tasks used on the specific resource listed, select the icon to expand details.
+      - To view the names of the tasks and high risk tasks used on the specific resource listed, select the icon to expand details.
 
 8. To view the tasks the role has executed with the following details, select the **Tasks** tab:
 
