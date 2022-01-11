@@ -142,8 +142,8 @@ Use the steps below to guide you through the process to onboard in Arc for Azure
 
 When Arc appliance is successfully deployed on your private cloud, you can do the following actions.
 
-- View the status from within the private cloud under **Operations > Arc**. 
-- View the Aware infrastructure resources from the private cloud under **Private cloud** then select **Azure Arc vCenter resources**.
+- View the status from within the private cloud under **Operations > Azure Arc**, located in the left sidebar. 
+- View the VMware infrastructure resources from the private cloud left sidebar under **Private cloud** then select **Azure Arc vCenter resources**.
 - Discover your VMware infrastructure resources and  Project them to Azure using the same browser experience, **Private cloud > Arc vCenter resources > Virtual Machines**.
 - Similar to VMs, customers can enable networks, templates, resource pools, and data-stores in Azure.
 
@@ -205,13 +205,13 @@ We recommend assigning this role at the subscription level or resource group you
     1. Navigate to the resource group and select the **Show hidden types** checkbox.
     1. Search for "Azure VMware Solution".
 1. Select **Access control (IAM)** in the table of contents located on the left sidebar.
-1. Select **Add role assignments** from the **Grant access to this resource**. 
-1. Select the custom role you want to assign (Azure Arc VMware Solution: **Administrator**, **private cloud User**, or **Contributor**).
+1. Select **Add role assignment** from the **Grant access to this resource**. 
+   :::image type="content" source="media/deploy-arc-for-avs/assign-custom-role-user-groups.png" alt-text="Image showing navigation to access control IAM and add role assignment."lightbox="media/deploy-arc-for-avs/assign-custom-role-user-groups.png":::
+1. Select the custom role you want to assign (Azure Arc VMware Solution: **Administrator**, **Private Cloud User**, or **VM Contributor**).
 1. Search for **AAD user** or **group name** that you want to assign this role to.
 1. Select the **AAD user** or **group name**. Repeat this step for each user or group you want to give permission to.
 1. Repeat the above steps for each scope and role.
 
-    :::image type="content" source="media/deploy-arc-for-avs/assign-custom-role-user-groups.png" alt-text="Image showing navigation to access control IAM and add role assignment."lightbox="media/deploy-arc-for-avs/assign-custom-role-user-groups.png":::
 
 ## Create Arc enabled Azure VMware Solution virtual machine
 
