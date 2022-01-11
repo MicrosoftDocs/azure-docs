@@ -8,7 +8,12 @@ ms.author: memildin
 ## Remove the Defender extension
 
 ::: zone pivot="defender-for-container-arc"
-To remove this - or any - Defender for Cloud extension, it's not enough to turn off auto provisioning. When you enable auto provisioning, you'll potentially impact *existing* and *future* machines. But when you **disable** auto provisioning for an extension, you'll only affect the *future* machines: nothing is uninstalled by disabling auto provisioning.
+To remove this - or any - Defender for Cloud extension, it's not enough to turn off auto provisioning:
+
+- **Enabling** auto provisioning, potentially impacts *existing* and *future* machines. 
+- **Disabling** auto provisioning for an extension, only affects the *future* machines - nothing is uninstalled by disabling auto provisioning.
+
+Nevertheless, to ensure the Defender for Containers components aren't automatically provisioned to your resources from now on, disable auto provisioning of both the **Azure Arc-enabled Kubernetes extension** and the **Azure Kubernetes Service profile** as explained in [Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud](../enable-data-collection.md).
 ::: zone-end
 
 You can remove the extension using Azure portal, Azure CLI, or REST API as explained in the tabs below.
