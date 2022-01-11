@@ -271,7 +271,7 @@ Make sure that the S3 bucket [policy](https://docs.aws.amazon.com/AmazonS3/lates
 
 Make sure that there is no [SCP policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) that blocks the connection to the S3 bucket. 
 
-For example, your SCP policy might block read API calls from the [AWS scanning region](#storage-and-scanning-regions). 
+For example, your SCP policy might block read API calls to the [AWS Region](#storage-and-scanning-regions) where your S3 bucket is hosted.
 
 - Required API calls, which must be allowed by your SCP policy, include: `AssumeRole`, `GetBucketLocation`, `GetObject`, `ListBucket`, `GetBucketPublicAccessBlock`. 
 - Your SCP policy must also allow calls to the **us-east-1** AWS Region, which is the default Region for API calls. For more information, see the [AWS documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html).

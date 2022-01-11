@@ -7,6 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/07/2021
+ms.custom: contperf-fy22q3
 #Customer intent: As a developer new to IoT Hub, learn the basic concepts.
 ---
 
@@ -42,6 +43,8 @@ You can integrate IoT Hub with other Azure services to build complete, end-to-en
 * [Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md) to add machine learning and AI models to your solution.
 
 * [Azure Stream Analytics](../stream-analytics/index.yml) to run real-time analytic computations on the data streaming from your devices.
+
+[IoT Central](../iot-central/core/overview-iot-central.md) applications use multiple IoT hubs as part of their scalable and resilient infrastructure.
 
 IoT Hub has a 99.9% [Service Level Agreement for IoT Hub](https://azure.microsoft.com/support/legal/sla/iot-hub/). The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
 
