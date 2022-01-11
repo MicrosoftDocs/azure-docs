@@ -14,7 +14,7 @@ ms.date: 01/11/2022
 
 This sample CLI script creates an Azure Database for MariaDB server and configures a vNet rule.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
