@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 01/11/2022
 ms.author: alkohli
 ---
 
@@ -18,6 +18,9 @@ Azure Data Box lets you preserve access control lists (ACLs), timestamps, and fi
 Specific steps are provided to copy metadata with Windows and Linux data copy tools. Metadata isn't preserved when transferring data to blob storage.
 
 In this article, the ACLs, timestamps, and file attributes that are transferred are referred to collectively as *metadata*.
+
+> [!NOTE]
+> Transfer of metadata from Linux to Azure during a data copy is not supported. After you upload the files to Azure, you'll need to use a tool such as `smbcacls` or `cifsacl` to transfer the metadata. For more information, see [Linux data copy tools](#linux-data-copy-tools).
 
 ## Transferred metadata
 
@@ -138,9 +141,9 @@ Here are some of the common scenarios you'll use when copying data using `roboco
 
 For more information, see [Using robocopy commands](/windows-server/administration/windows-commands/robocopy).
 
-### Linux data copy tool
+### Linux data copy tools
 
-Transferring metadata in Linux is a two-step process. First, you copy the source data using a tool such as `rsync`, which does not copy metadata. After you copy the data, you can copy the metadata using a tool such as `smbcacls` or `cifsacl`. 
+Transferring metadata in Linux is a two-step process. First, you copy the source data using a tool such as `rsync`, which does not copy metadata. After you copy the data, you can copy the metadata using a tool such as `smbcacls` or `cifsacl`.
 
 The following sample commands do the first step, copying the data using `rsync`. 
 
