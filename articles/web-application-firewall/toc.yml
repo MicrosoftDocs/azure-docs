@@ -153,9 +153,9 @@
   items:
   - name: Managed rules
     items:
-     - name: WAF on Front Door DRS
+     - name: Front Door
        href: ./afds/waf-front-door-drs.md
-     - name: WAF on Application Gateway CRS
+     - name: Application Gateway
        href: ./ag/application-gateway-crs-rulegroups-rules.md
   - name: Azure CLI
     items:
