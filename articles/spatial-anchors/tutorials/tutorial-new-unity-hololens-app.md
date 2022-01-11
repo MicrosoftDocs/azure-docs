@@ -132,7 +132,7 @@ Tap + Hold for 2 sec (+ session is not running)| Start the session and look for 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=24-29&highlight=3-6)]
 
 3. Add the following two methods below the Update() method. We will add implementation at a later stage
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=58-60,97,99,102-107,119,121,123-127,141&highlight=5-18)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=58-60,97,99,102-107,119,121,123-127,141&highlight=6-12,14-19)]
 
 4. Add the following import
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=20)]
@@ -176,7 +176,7 @@ Since spatial anchors not only have a **position** but also a **rotation** let's
 
 Now that we have the **position** and the **rotation** of the desired anchor, let's create a visible `GameObject`. Note that Spatial Anchors does not require the anchor `GameObject` to be visible to the end-user since the main purpose of Spatial Anchors is to provide a common and persistent reference frame. For the purpose of this tutorial we will visualize the anchors as cubes. Each anchor will be initialized as a **white** cube which will turn into a **green** cube once the creation process succeeded.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=198-218,256&highlight=17-21)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=198-218,256&highlight=16-20)]
 
 > [!Note]
 > We are using a legacy shader, since it's included in a default Unity build. Other shaders like the default shader are only included if manually specified or they are directly part of the scene. If a shader is not included and the application is trying to render it, it will result in a pink material.
@@ -185,10 +185,10 @@ Now let's add and configure the Spatial Anchor components. We are setting the ex
 Remember to add the import
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=13)]
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=198-224,256&highlight=23-27)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=198-224,256&highlight=22-26)]
 
 To save an anchor the user must collect environment data.
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=198-231,256&highlight=29-34)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=198-231,256&highlight=28-33)]
 > [!Note]
 > A HoloLens can possibly reuse already captured environment data surrounding the anchor resulting in `IsReadyForCreate` to be true instantly when called.
 
@@ -224,7 +224,7 @@ We will now try to find the anchors again with the correct position and rotation
 
 Once a watcher is started it will fire a callback when it found an anchor that fits the given criteria. Let's first create our anchor located method called `SpatialAnchorManager_AnchorLocated()` that we will configure to be called when the watcher has located an anchor. This method will create a visual `GameObject` and attach the native anchor component to it. The native anchor component will make sure the correct position and rotation of the `GameObject` is set.
 
-Similar to the creation process, the anchor does not have to be visible for spatial anchors to work. If you only use it to have a referenced shared coordinate system there is no need to visually show he anchor to the end-user. For the purpose of this tutorial we will visualize the anchors as a **blue cube** once they have been located.
+Similar to the creation process, the anchor does not have to be visible for spatial anchors to work. If you only use it to have a referenced shared coordinate system there is no need to visually show he anchor to the end-user. For the purpose of this tutorial we will visualize each anchor as a **blue** cube once they have been located.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=SpatialAnchorManagerAnchorLocated)]
 
