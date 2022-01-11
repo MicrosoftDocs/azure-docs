@@ -53,7 +53,7 @@ Let's get started:
 
 1. After you select create, you'll be redirected to a new page that says **Deployment in progress**. After a few seconds, you'll see a message that says, **Your deployment is complete**.
 
-:::image border="true type="content" source="media/logic-apps-tutorial/form-recognizer-validation.gif" alt-text="GIF showing the Azure portal validation process.":::
+:::image type="content" source="media/logic-apps-tutorial/form-recognizer-validation.gif" alt-text="GIF showing the Azure portal validation process.":::
 
 ## Get Endpoint URL and API keys
 
