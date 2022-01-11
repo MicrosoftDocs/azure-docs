@@ -25,6 +25,8 @@ Azure Purview classifies data by [RegEx](https://wikipedia.org/wiki/Regular_expr
 
 The City, Country, and Place filters have been prepared using best datasets available for preparing the data.
 
+-------------------------------------
+
 ## Person Name
 
 Person Name bloom filter has been prepared using the below two datasets.
@@ -34,6 +36,7 @@ Person Name bloom filter has been prepared using the below two datasets.
 
 > [!NOTE]
 > Azure Purview classifies columns only when the data contains first/last names. Azure Purview doesn't classify columns that contain full names.
+-------------------------------------
 
 ## RegEx Classifications
 
@@ -51,7 +54,6 @@ Nine digits that can be in a formatted or unformatted pattern.
 - four digits
 - an optional hyphen
 - a digit
-
 
 ### Checksum
 
@@ -77,6 +79,8 @@ Yes
 - routing#
 - RTN
 
+-------------------------------------
+
 ## Argentina national identity (DNI) number
 
 ### Format
@@ -86,6 +90,7 @@ Eight digits with or without periods
 ### Pattern
 
 Eight digits:
+
 - two digits
 - an optional period
 - three digits
@@ -109,6 +114,8 @@ No
 - documento numero
 - registro nacional de las personas
 - rnp
+
+-------------------------------------
 
 ## Australia bank account number
 
@@ -146,6 +153,8 @@ No
 - banking information
 - full names
 - iaea
+
+-------------------------------------
 
 ## Australia business number
 This sensitive information type is only available for use in:
@@ -188,13 +197,9 @@ Yes
 - abn
 - businessno#
 
+-------------------------------------
+
 ## Australia company number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -209,7 +214,6 @@ nine digits with delimiters:
 - three digits
 - a space
 - three digits
-
 
 ### Checksum
 
@@ -226,6 +230,8 @@ Yes
 - australian company no
 - australian company no#
 - australian company number
+
+-------------------------------------
 
 ## Australia driver's license number
 
@@ -358,6 +364,8 @@ No
 - Driver's License#
 - Driver's Licenses#
 
+-------------------------------------
+
 ## Australia medical account number
 
 ### Format
@@ -390,6 +398,7 @@ Yes
 - local service
 - medicare
 
+-------------------------------------
 
 ## Australia passport number
 
@@ -431,6 +440,7 @@ No
 - travel document
 - issuing authority
 
+-------------------------------------
 
 ## Australia tax file number
 
@@ -464,6 +474,8 @@ Yes
 - individual tax return
 - tax file number
 - tfn
+
+-------------------------------------
 
 ## Austria driver's license number
 
@@ -602,7 +614,6 @@ No
 - dlno
 - dl number
 
-
 #### Keywords_austria_eu_driver's_license_number
 
 - fuhrerschein
@@ -610,6 +621,8 @@ No
 - Führerscheine
 - Führerscheinnummer
 - Führerscheinnummern
+
+-------------------------------------
 
 ## Austria identity card
 This sensitive information type is only available for use in:
@@ -627,7 +640,7 @@ A 24-character combination of letters, digits, and special characters
 
 24 characters:
 
--  22 letters (not case-sensitive), digits, backslashes, forward slashes, or plus signs
+- 22 letters (not case-sensitive), digits, backslashes, forward slashes, or plus signs
 
 - two letters (not case-sensitive), digits, backslashes, forward slashes, plus signs, or equal signs
 
@@ -642,6 +655,8 @@ Not applicable
 - identity number
 - national id
 - personalausweis republik österreich
+
+-------------------------------------
 
 ## Austria passport number
 
@@ -691,6 +706,8 @@ not applicable
 - date of issue
 - date of expiry
 
+-------------------------------------
+
 ## Austria social security number
 
 ### Format
@@ -737,6 +754,8 @@ Yes
 - versicherungsnummer
 - zdravstveno zavarovanje
 
+-------------------------------------
+
 ## Austria tax identification number
 
 ### Format
@@ -782,13 +801,9 @@ Yes
 - tin#
 - tax number
 
+-------------------------------------
+
 ## Austria value added tax
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -832,6 +847,8 @@ Yes
 - vat identification number
 - atu number
 - uid number
+
+-------------------------------------
 
 ## Belgium driver's license number
 
@@ -984,6 +1001,7 @@ No
 - permis de conduire
 - numéro permis conduire
 
+-------------------------------------
 
 ## Belgium national number
 
@@ -1066,6 +1084,8 @@ Yes
 - tin no
 - tin#
 
+-------------------------------------
+
 ## Belgium passport number
 
 ### Format
@@ -1113,13 +1133,9 @@ not applicable
 - date of issue
 - date of expiry
 
+-------------------------------------
+
 ## Belgium value added tax number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -1157,6 +1173,7 @@ Yes
 - btw#
 - vat#
 
+-------------------------------------
 
 ## Brazil CPF number
 
@@ -1196,6 +1213,7 @@ Yes
 - Inscrição
 - Receita
 
+-------------------------------------
 
 ## Brazil legal entity number (CNPJ)
 
@@ -1245,6 +1263,7 @@ Yes
 - Inscrição
 - Empresa
 
+-------------------------------------
 
 ## Brazil national identification card (RG)
 
@@ -1287,6 +1306,7 @@ Yes
 - RG (this keyword is case-sensitive)
 - RIC (this keyword is case-sensitive)
 
+-------------------------------------
 
 ## Bulgaria driver's license number
 
@@ -1434,13 +1454,9 @@ No
 - шофьорска книжка
 - шофьорски книжки
 
+-------------------------------------
+
 ## Bulgaria uniform civil number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -1506,6 +1522,7 @@ Yes
 - униформгражданскиid#
 - униформгражданскине.#
 
+-------------------------------------
 
 ## Bulgaria passport number
 
@@ -1546,6 +1563,8 @@ No
 
 - date of issue
 - date of expiry
+
+-------------------------------------
 
 ## Canada bank account number
 
@@ -1598,6 +1617,7 @@ No
 - banking information
 - direct deposit
 
+-------------------------------------
 
 ## Canada driver's license number
 
@@ -1763,6 +1783,7 @@ No
 - identification cards#
 - identification#
 
+-------------------------------------
 
 ## Canada health service number
 
@@ -1792,6 +1813,7 @@ No
 - workers compensation
 - disability
 
+-------------------------------------
 
 ## Canada passport number
 
@@ -1841,6 +1863,7 @@ No
 - PasseportNon
 - Passeportn °
 
+-------------------------------------
 
 ## Canada personal health identification number (PHIN)
 
@@ -1893,6 +1916,7 @@ No
 - Prince Edward Island
 - Canada
 
+-------------------------------------
 
 ## Canada social insurance number
 
@@ -1943,6 +1967,8 @@ Yes
 - Birthdate
 - Birthday
 - Date of Birth
+
+-------------------------------------
 
 ## Chile identity card number
 
@@ -2005,6 +2031,8 @@ Yes
 - Chile identity #
 
 
+-------------------------------------
+
 ## China resident identity card (PRC) number
 
 ### Format
@@ -2038,6 +2066,8 @@ Yes
 - 居民 身份證
 - 鑑定
 
+
+-------------------------------------
 
 ## Credit card number
 
@@ -2314,6 +2344,8 @@ Yes, the Luhn checksum
 
 
 
+-------------------------------------
+
 ## Croatia driver's license number
 
 ### Format
@@ -2458,7 +2490,10 @@ No
 - vozačke dozvole
 
 
+-------------------------------------
+
 ## Croatia identity card number
+
 This entity is included in the EU National Identification Number sensitive information type. It's available as a stand-alone sensitive information type entity.
 
 ### Format
@@ -2507,6 +2542,8 @@ No
 - tin#
 
 
+-------------------------------------
+
 ## Croatia passport number
 
 ### Format
@@ -2541,6 +2578,8 @@ No
 - broj putovnice
 - br. Putovnice
 - br putovnice
+
+-------------------------------------
 
 ## Croatia personal identification (OIB) number
 
@@ -2590,6 +2629,8 @@ Yes
 - tin id
 - tin no
 - tin#
+
+-------------------------------------
 
 ## Cyprus drivers license number
 
@@ -2735,7 +2776,10 @@ No
 - άδειες οδήγησης
 
 
+-------------------------------------
+
 ## Cyprus identity card
+
 This sensitive information type is only available for use in:
 - data loss prevention policies
 - communication compliance policies
@@ -2766,6 +2810,8 @@ not applicable
 - personal id number
 - ταυτοτητασ
 
+
+-------------------------------------
 
 ## Cyprus passport number
 
@@ -2815,8 +2861,10 @@ No
 - expires on
 - issued on
 
+-------------------------------------
 
 ## Cyprus tax identification number
+
 This sensitive information type is only available for use in:
 - data loss prevention policies
 - communication compliance policies
@@ -2870,6 +2918,7 @@ not applicable
 - φορολογική ταυτότητα
 - φορολογικού κωδικού
 
+-------------------------------------
 
 ## Czech Republic Driver's License Number
 
@@ -3021,6 +3070,8 @@ No
 - čísla řidičských průkazů
 
 
+-------------------------------------
+
 ## Czech passport number
 
 ### Format
@@ -3063,6 +3114,8 @@ No
 - date of issue
 - date of expiry
 
+
+-------------------------------------
 
 ## Czech National Identity Card Number
 
@@ -3136,6 +3189,26 @@ Yes
 - tin#
 - unique identification number
 
+-------------------------------------
+
+## Date Of Birth
+
+### Format
+Any valid date
+
+### Checksum
+Not applicable
+
+### Keywords
+
+#### Keywords_date_of_birth
+
+- dob
+- birth day
+- natal day
+- any word containing the string *birth*
+
+-------------------------------------
 
 ## Denmark driver's license number
 
@@ -3279,6 +3352,7 @@ No
 - kørekort
 - kørekortnummer
 
+-------------------------------------
 
 ## Denmark passport number
 
@@ -3320,6 +3394,7 @@ No
 - date of issue
 - date of expiry
 
+-------------------------------------
 
 ## Denmark personal identification number
 
@@ -3412,6 +3487,30 @@ Yes
 - sygesikringsnr
 - sygesikringsnummer
 
+-------------------------------------
+
+## Email
+
+### Format
+Any valid email address that abides by [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt)
+
+### Checksum
+Not applicable
+
+### Keywords
+
+#### Keywords_email
+
+- contact
+- email
+- electronic
+- login
+- mail
+- online
+- user
+- webmail
+
+-------------------------------------
 
 ## Estonia driver's license number
 
@@ -3555,19 +3654,14 @@ No
 
 #### Keywords_estonia_eu_driver's_license_number
 
--- permis de conduire
+- permis de conduire
 - juhilubade numbrid
 - juhiloa number
 - juhiluba
 
+-------------------------------------
 
 ## Estonia Personal Identification Code
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -3621,6 +3715,7 @@ Yes
 - tin no
 - tin#
 
+-------------------------------------
 
 ## Estonia passport number
 
@@ -3665,6 +3760,29 @@ No
 - date of issue
 - date of expiry
 
+-------------------------------------
+
+## Ethnic groups
+
+### Format
+
+Most common ethnic groups. For a reference list see this [article](https://en.wikipedia.org/wiki/List_of_contemporary_ethnic_groups).
+
+### Checksum
+Not applicable
+
+### Keywords
+
+#### Keywords_ethnic_group
+
+- ethnic
+- ethnic groups
+- ethnicity
+- ethnicities
+- nationality
+- race
+
+-------------------------------------
 
 ## EU debit card number
 
@@ -3987,6 +4105,7 @@ Yes
 - vto
 - válido hasta
 
+-------------------------------------
 
 ## EU driver's license number
 
@@ -4021,6 +4140,7 @@ These entities are in the EU Driver's License Number and are sensitive informati
 - [Sweden](#sweden-drivers-license-number)
 - [U.K.](#uk-drivers-license-number)
 
+-------------------------------------
 
 ## EU passport number
 
@@ -4055,6 +4175,7 @@ These entities are in the EU passport number and are sensitive information types
 - [Sweden](#sweden-passport-number)
 - [U.K.](#us--uk-passport-number)
 
+-------------------------------------
 
 ## Finland driver's license number
 
@@ -4212,13 +4333,9 @@ No
 - ajokortin numerot
 
 
+-------------------------------------
+
 ## Finland european health insurance number
-This sensitive information type is only available for use in:
-- data loss prevention policies
-- communication compliance policies
-- information governance
-- records management
-- Microsoft Defender for Cloud Apps
 
 ### Format
 
@@ -4256,6 +4373,8 @@ No
 - suomen sairausvakuutuskortti
 - terveyskortti
 
+
+-------------------------------------
 
 ## Finland national ID
 
@@ -4326,6 +4445,8 @@ Yes
 - verotunnus
 
 
+-------------------------------------
+
 ## Finland passport number
 
 This entity is available in the EU Passport Number sensitive information type and is available as a stand-alone sensitive information type entity.
@@ -4371,6 +4492,8 @@ No
 
 - date of issue
 - date of expiry
+
+-------------------------------------
 
 ## France driver's license number
 
@@ -4518,6 +4641,8 @@ No
 - numéros de licence
 
 
+-------------------------------------
+
 ## France health insurance number
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -4554,6 +4679,8 @@ No
 - carte d'assuré social
 
 
+-------------------------------------
+
 ## France national id card (CNI)
 
 ### Format
@@ -4584,6 +4711,8 @@ No
 - numéro d'assurance maladie
 - numéro de carte vitale
 
+
+-------------------------------------
 
 ## France passport number
 This entity is available in the EU Passport Number sensitive information type. It's also available as a stand-alone sensitive information type entity.
@@ -4641,6 +4770,8 @@ No
 - date of expiry
 
 
+-------------------------------------
+
 ## France social security number (INSEE)
 
 ### Format
@@ -4689,6 +4820,8 @@ Yes
 - social security code
 - social insurance number
 
+
+-------------------------------------
 
 ## France tax identification number
 
@@ -4739,6 +4872,8 @@ Yes
 - tin#
 
 
+-------------------------------------
+
 ## France value added tax number
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -4784,6 +4919,8 @@ Yes
 - numéro de tva
 - numéro d'identification siren
 
+
+-------------------------------------
 
 ## Germany driver's license number
 
@@ -4958,6 +5095,8 @@ Yes
 - dlno
 
 
+-------------------------------------
+
 ## Germany identity card number
 
 ### Format
@@ -4997,6 +5136,8 @@ No
 - persönliche identifikationsnummer
 - persönliche-id-nummer
 
+
+-------------------------------------
 
 ## Germany passport number
 
@@ -5045,6 +5186,8 @@ Yes
 - passportnumbers
 - passport numbers
 
+
+-------------------------------------
 
 ## Germany tax identification number
 
@@ -5098,6 +5241,8 @@ Yes
 - zinnnummer
 
 
+-------------------------------------
+
 ## Germany value added tax number
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -5139,6 +5284,8 @@ Yes
 - mehrwertsteuer identifikationsnummer
 - mehrwertsteuer nummer
 
+
+-------------------------------------
 
 ## Greece driver's license number
 
@@ -5288,6 +5435,8 @@ No
 - Δίπλωμα οδήγησης
 
 
+-------------------------------------
+
 ## Greece national ID card
 
 ### Format
@@ -5323,6 +5472,8 @@ No
 - ταυτότητα
 - ταυτότητας
 
+
+-------------------------------------
 
 ## Greece passport number
 
@@ -5360,6 +5511,8 @@ No
 - αριθμός διαβατηριο
 
 
+-------------------------------------
+
 ## Greece Social Security Number (AMKA)
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -5395,6 +5548,8 @@ Yes
 - a.m.k.a.
 - Αριθμού Μητρώου Κοινωνικής Ασφάλισης
 
+
+-------------------------------------
 
 ## Greece tax identification number
 This sensitive information type is only available for use in:
@@ -5447,6 +5602,8 @@ Not applicable
 - τον αριθμό φορολογικού μητρώου
 - φορολογικού μητρώου νο
 
+
+-------------------------------------
 
 ## Hong Kong identity card (HKID) number
 
@@ -5507,6 +5664,8 @@ Yes
 - 香港特別行政區非永久性居民身分證
 - 香港特別行政區非永久性居民身分証
 
+
+-------------------------------------
 
 ## Hungary driver's license number
 
@@ -5656,6 +5815,8 @@ No
 - vezetői engedélyek
 
 
+-------------------------------------
+
 ## Hungary personal identification number
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -5693,6 +5854,8 @@ Yes
 - személyazonosító igazolvány
 - személyi igazolvány
 
+
+-------------------------------------
 
 ## Hungary passport number
 
@@ -5735,6 +5898,8 @@ No
 - date of expiry
 
 
+-------------------------------------
+
 ## Hungary social security number (TAJ)
 
 ### Format
@@ -5771,6 +5936,8 @@ Yes
 - áfa szám
 - magyar áfa szám
 
+
+-------------------------------------
 
 ## Hungary tax identification number
 This sensitive information type is only available for use in:
@@ -5825,6 +5992,8 @@ Yes
 - vat number
 
 
+-------------------------------------
+
 ## Hungary value added tax number
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -5865,6 +6034,8 @@ Yes
 - hozzáadottérték adó
 - áfa szám
 
+-------------------------------------
+
 ## India permanent account number (PAN)
 
 ### Format
@@ -5890,6 +6061,8 @@ No
 
 - Permanent Account Number
 - PAN
+
+-------------------------------------
 
 ## India unique identification (Aadhaar) number
 
@@ -5921,6 +6094,8 @@ Yes
 - आधार
 - uidai
 
+-------------------------------------
+
 ## Indonesia identity card (KTP) number
 
 ### Format
@@ -5950,6 +6125,8 @@ No
 - KTP
 - Kartu Tanda Penduduk
 - Nomor Induk Kependudukan
+
+-------------------------------------
 
 ## International banking account number (IBAN)
 
@@ -6037,6 +6214,8 @@ Yes
 
 None
 
+-------------------------------------
+
 ## IP address
 
 ### Format
@@ -6064,6 +6243,8 @@ No
 - IP-כתובת ה
 
 
+-------------------------------------
+
 ## IP Address v4
 
 ### Format
@@ -6088,6 +6269,8 @@ No
 - IP-כתובת ה
 
 
+-------------------------------------
+
 ## IP Address v6
 
 ### Format
@@ -6111,6 +6294,8 @@ No
 - internet protocol
 - IP-כתובת ה
 
+
+-------------------------------------
 
 ## Ireland driver's license number
 
@@ -6258,6 +6443,8 @@ No
 - ceadúnas tiomána
 - ceadúnais tiomána
 
+-------------------------------------
+
 ## Ireland passport number
 
 ### Format
@@ -6305,6 +6492,8 @@ No
 - date of issue
 - date of expiry
 
+
+-------------------------------------
 
 ## Ireland personal public service (PPS) number
 
@@ -6379,6 +6568,8 @@ Yes
 - tin#
 
 
+-------------------------------------
+
 ## Israel bank account number
 
 ### Format
@@ -6409,6 +6600,8 @@ No
 - Bank Account
 - Account Number
 - מספר חשבון בנק
+
+-------------------------------------
 
 ## Israel national identification number
 
@@ -6445,6 +6638,8 @@ Yes
 -   personal id
 -   unique id  
 
+
+-------------------------------------
 
 ## Italy driver's license number
 
@@ -6598,6 +6793,8 @@ No
 - patenti guida
 
 
+-------------------------------------
+
 ## Italy fiscal code
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -6663,6 +6860,8 @@ Yes
 - tin#
 
 
+-------------------------------------
+
 ## Italy passport number
 
 ### Format
@@ -6711,6 +6910,8 @@ not applicable
 - date of expiry
 
 
+-------------------------------------
+
 ## Italy value added tax number
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -6746,6 +6947,8 @@ Yes
 - iva
 - iva#
 
+
+-------------------------------------
 
 ## Japan bank account number
 
@@ -6817,6 +7020,8 @@ No
 - 支店コード
 - 店番号
 
+-------------------------------------
+
 ## Japan driver's license number
 
 ### Format
@@ -6872,6 +7077,8 @@ No
 - 免許#
 
 
+-------------------------------------
+
 ## Japan My Number - Corporate
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -6910,6 +7117,8 @@ Yes
 - 法人番号
 - 指定通知書
 
+
+-------------------------------------
 
 ## Japan My Number - Personal
 This sensitive information type is only available for use in:
@@ -6953,6 +7162,8 @@ Yes
 - 通知カード
 
 
+-------------------------------------
+
 ## Japan passport number
 
 ### Format
@@ -6987,6 +7198,8 @@ No
 - 旅券ナンバー
 
 
+-------------------------------------
+
 ## Japan residence card number
 
 ### Format
@@ -7014,6 +7227,8 @@ No
 - 在留カード番号
 - 在留カード
 - 在留番号
+
+-------------------------------------
 
 ## Japan resident registration number
 
@@ -7044,6 +7259,8 @@ No
 - 登録番号
 - 外国人登録証
 
+
+-------------------------------------
 
 ## Japan social insurance number (SIN)
 
@@ -7090,6 +7307,8 @@ No
 - 厚生年金
 - 厚生年金被保険者整理番号
 
+
+-------------------------------------
 
 ## Latvia driver's license number
 
@@ -7238,6 +7457,8 @@ No
 - autovadītāja apliecības
 - vadītāja apliecība
 
+-------------------------------------
+
 ## Latvia Personal Code
 
 ### Format
@@ -7331,6 +7552,8 @@ Yes
 - tin#
 - voter’s number
 
+-------------------------------------
+
 ## Latvia passport number
 
 ### Format
@@ -7377,6 +7600,8 @@ No
 - date of issue
 - date of expiry
 
+
+-------------------------------------
 
 ## Lithuania driver's license number
 
@@ -7522,6 +7747,8 @@ No
 - vairuotojo pažymėjimo numeris
 - vairuotojo pažymėjimo numeriai
 
+-------------------------------------
+
 ## Lithuania Personal Code
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -7584,6 +7811,8 @@ Yes
 - unique identity number
 - uniqueidentityno#
 
+-------------------------------------
+
 ## Lithuania passport number
 
 ### Format
@@ -7624,6 +7853,8 @@ not applicable
 - date of issue
 - date of expiry
 
+-------------------------------------
+
 ## Location
 
 ### Format
@@ -7645,6 +7876,8 @@ Not applicable
 - loc
 - location
 - position
+
+-------------------------------------
 
 ## Luxemburg driver's license number
 
@@ -7789,6 +8022,8 @@ No
 - fahrerlaubnis
 - Führerschäin
 
+-------------------------------------
+
 ## Luxemburg national identification number natural persons
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -7836,6 +8071,8 @@ yes
 - unique id
 - unique identity
 - uniqueidkey#
+
+-------------------------------------
 
 ## Luxemburg national identification number non-natural persons
 
@@ -7902,6 +8139,8 @@ Yes
 - zinn
 - zinnzahl
 
+-------------------------------------
+
 ## Luxemburg passport number
 
 ### Format
@@ -7954,6 +8193,8 @@ No
 - date of expiry
 
 
+-------------------------------------
+
 ## Malaysia identification card number
 
 ### Format
@@ -8002,6 +8243,8 @@ No
 - malaysian identity card
 - nric
 - personal identification card
+
+-------------------------------------
 
 ## Malta driver's license number
 
@@ -8153,6 +8396,8 @@ No
 - liċenzji tas-sewwieq
 
 
+-------------------------------------
+
 ## Malta identity card number
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -8196,6 +8441,8 @@ Not applicable
 - uniqueidentityno#
 
 
+-------------------------------------
+
 ## Malta passport number
 
 ### Format
@@ -8236,6 +8483,8 @@ No
 - date of issue
 - date of expiry
 
+
+-------------------------------------
 
 ## Malta tax identification number
 
@@ -8297,6 +8546,8 @@ Not applicable
 - unique identity number
 - uniqueidentityno#
 
+-------------------------------------
+
 ## Netherlands citizen's service (BSN) number
 
 ### Format
@@ -8341,6 +8592,8 @@ Yes
 - unique identification number
 - unique identity number
 - uniqueidentityno#
+
+-------------------------------------
 
 ## Netherlands driver's license number
 
@@ -8490,6 +8743,8 @@ No
 - rijbewijsnummers
 
 
+-------------------------------------
+
 ## Netherlands passport number
 
 ### Format
@@ -8525,6 +8780,8 @@ not applicable
 - paspoortnummers
 - paspoortnummer
 - paspoort nr
+
+-------------------------------------
 
 ## Netherlands tax identification number
 This sensitive information type is only available for use in:
@@ -8587,6 +8844,8 @@ Yes
 - tin#
 
 
+-------------------------------------
+
 ## Netherlands value added tax number
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -8627,6 +8886,8 @@ Yes
 - btw-nummer
 
 
+-------------------------------------
+
 ## New Zealand bank account number
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -8666,6 +8927,8 @@ Yes
 - bank_acct_branch
 - bank_acct_nbr
 
+
+-------------------------------------
 
 ## New Zealand driver's license number
 This sensitive information type is only available for use in:
@@ -8760,6 +9023,8 @@ Yes
 - new zealand automobile association
 
 
+-------------------------------------
+
 ## New Zealand inland revenue number
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -8798,6 +9063,8 @@ Yes
 - inland revenue number
 
 
+-------------------------------------
+
 ## New Zealand ministry of health number
 
 ### Format
@@ -8829,6 +9096,8 @@ Yes
 - National Health Index No.
 - National Health Index Id
 - National Health Index #
+
+-------------------------------------
 
 ## New Zealand social welfare number
 
@@ -8868,6 +9137,8 @@ Yes
 - swn#
 
 
+-------------------------------------
+
 ## Norway identification number
 
 ### Format
@@ -8897,6 +9168,8 @@ Yes
 - Fødselsnummer
 
 
+-------------------------------------
+
 ## Philippines unified multi-purpose identification number
 
 ### Format
@@ -8924,6 +9197,8 @@ No
 - UMID
 - Identity Card
 - Pinag-isang Multi-Layunin ID
+
+-------------------------------------
 
 ## Poland driver's license number
 
@@ -9074,6 +9349,8 @@ No
 - prawo jazdy
 - prawa jazdy
 
+-------------------------------------
+
 ## Poland identity card
 
 ### Format
@@ -9100,6 +9377,8 @@ Yes
 - Dowód Tożsamości
 - dow. os.
 
+
+-------------------------------------
 
 ## Poland national ID (PESEL)
 
@@ -9131,6 +9410,8 @@ Yes
 - pesel
 - tożsamości narodowej
 
+
+-------------------------------------
 
 ## Poland passport number
 This sensitive information type entity is included in the EU Passport Number sensitive information type. It's also available as a stand-alone sensitive information type entity.
@@ -9179,6 +9460,8 @@ Yes
 - date of expiry
 
 
+-------------------------------------
+
 ## Poland REGON number
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -9226,6 +9509,8 @@ Yes
 - numerstatystyczny#
 - numeruregon#
 
+
+-------------------------------------
 
 ## Poland tax identification number
 This sensitive information type is only available for use in:
@@ -9280,6 +9565,8 @@ Yes
 - vatno#
 
 
+-------------------------------------
+
 ## Portugal citizen card number
 
 ### Format
@@ -9316,6 +9603,8 @@ No
 - número do documento
 - portugal bi number
 
+
+-------------------------------------
 
 ## Portugal driver's license number
 
@@ -9483,6 +9772,8 @@ No
 - Licença condução Portugal
 - carta de condução
 
+-------------------------------------
+
 ## Portugal passport number
 
 ### Format
@@ -9534,6 +9825,8 @@ No
 - date of expiry
 
 
+-------------------------------------
+
 ## Portugal tax identification number
 
 ### Format
@@ -9579,6 +9872,8 @@ Yes
 - tin no
 - tin#
 
+
+-------------------------------------
 
 ## Romania driver's license number
 
@@ -9729,6 +10024,8 @@ No
 - permisele conducere
 - permis conducere
 
+-------------------------------------
+
 ## Romania personal numeric code (CNP)
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -9805,6 +10102,8 @@ Yes
 - uniqueidentityno#
 - uniqueidentityno
 
+-------------------------------------
+
 ## Romania passport number
 
 ### Format
@@ -9846,6 +10145,8 @@ No
 - date of issue
 - date of expiry
 
+
+-------------------------------------
 
 ## Russia passport number domestic
 This sensitive information type is only available for use in:
@@ -9893,6 +10194,8 @@ No
 - номерпаспорта#
 
 
+-------------------------------------
+
 ## Russia passport number international
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -9937,6 +10240,8 @@ No
 - номерпаспорта#
 
 
+-------------------------------------
+
 ## Saudi Arabia National ID
 
 ### Format
@@ -9960,6 +10265,8 @@ No
 - ID number
 - الوطنية الهوية بطاقة رقم
 
+
+-------------------------------------
 
 ## Singapore national registration identity card (NRIC) number
 
@@ -9990,6 +10297,8 @@ Yes
 - FIN
 - 身份证
 - 身份證
+
+-------------------------------------
 
 ## Slovakia driver's license number
 
@@ -10139,6 +10448,8 @@ No
 - vodičského preukazu
 - vodičských preukazov
 
+-------------------------------------
+
 ## Slovakia personal number
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -10211,6 +10522,8 @@ Yes
 - tin no
 - tin#
 
+-------------------------------------
+
 ## Slovakia passport number
 
 ### Format
@@ -10253,6 +10566,8 @@ No
 - date of issue
 - date of expiry
 
+
+-------------------------------------
 
 ## Slovenia driver's license number
 
@@ -10400,6 +10715,8 @@ No
 - številka vozniškega dovoljenja
 - številke vozniških dovoljenj
 
+-------------------------------------
+
 ## Slovenia Unique Master Citizen Number
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -10455,6 +10772,8 @@ Yes
 - uniqueidentityno #
 - uniqueidentityno#
 
+-------------------------------------
+
 ## Slovenia passport number
 
 ### Format
@@ -10502,6 +10821,8 @@ No
 - date of issue
 - date of expiry
 
+
+-------------------------------------
 
 ## Slovenia tax identification number
 This sensitive information type is only available for use in:
@@ -10552,6 +10873,8 @@ Yes
 - tin#
 
 
+-------------------------------------
+
 ## South Africa identification number
 
 ### Format
@@ -10578,6 +10901,8 @@ Yes
 - Identity card
 - ID
 - Identification
+
+-------------------------------------
 
 ## South Korea resident registration number
 
@@ -10608,6 +10933,8 @@ Yes
 - Jumin deungnok beonho
 - RRN
 - 주민등록번호
+
+-------------------------------------
 
 ## Spain driver's license number
 
@@ -10765,6 +11092,8 @@ Yes
 - licencia de manejo
 - licencia manejo
 
+-------------------------------------
+
 ## Spain DNI
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -10814,6 +11143,8 @@ Yes
 - personal identity no
 - unique identity number
 - uniqueid#
+
+-------------------------------------
 
 ## Spain passport number
 
@@ -10869,6 +11200,8 @@ Not applicable
 - date of expiry
 
 
+-------------------------------------
+
 ## Spain social security number (SSN)
 
 
@@ -10899,6 +11232,8 @@ Yes
 - social security no
 - social security number
 - número de la seguridad social
+
+-------------------------------------
 
 ## Spain tax identification number
 This sensitive information type is only available for use in:
@@ -10979,6 +11314,8 @@ Yes
 - tin id
 - tin no
 - tin#
+
+-------------------------------------
 
 ## Sweden driver's license number
 
@@ -11136,6 +11473,8 @@ No
 -  דריווערס דערלויבעניש
 - körkortsnummer
 
+-------------------------------------
+
 ## Sweden national ID
 
 ### Format
@@ -11174,6 +11513,8 @@ Yes
 - personnummer#
 - personnummer
 - skatteidentifikationsnummer
+
+-------------------------------------
 
 ## Sweden passport number
 
@@ -11232,6 +11573,8 @@ No
 - date of expiry
 
 
+-------------------------------------
+
 ## Sweden tax identification number
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -11287,6 +11630,8 @@ Yes
 - tin no
 - tin#
 
+
+-------------------------------------
 
 ## SWIFT code
 
@@ -11346,6 +11691,8 @@ No
 - 金融機関コード
 - 銀行コード
 
+-------------------------------------
+
 ## Switzerland SSN AHV number
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -11398,6 +11745,8 @@ Yes
 - numéro de sécurité sociale
 
 
+-------------------------------------
+
 ## Taiwan national identification number
 
 ### Format
@@ -11434,6 +11783,8 @@ Yes
 - 簽名或蓋章
 - 簽章
 
+-------------------------------------
+
 ## Taiwan passport number
 
 ### Format
@@ -11466,6 +11817,8 @@ No
 - 中華民國護照
 - Zhōnghuá Mínguó hùzhào
 
+-------------------------------------
+
 ## Taiwan-resident certificate (ARC/TARC) number
 
 ### Format
@@ -11497,6 +11850,8 @@ No
 - 居留證
 - 外僑居留證
 - 台灣地區居留證
+
+-------------------------------------
 
 ## U.K. driver's license number
 
@@ -11641,6 +11996,8 @@ Yes
 - dl number
 
 
+-------------------------------------
+
 ## U.K. electoral roll number
 
 ### Format
@@ -11664,6 +12021,8 @@ No
 - electoral register
 - electoral roll
 
+
+-------------------------------------
 
 ## U.K. national health service number
 
@@ -11707,6 +12066,8 @@ Yes
 - D.O.B
 - Date of Birth
 - Birth Date
+
+-------------------------------------
 
 ## U.K. national insurance number (NINO)
 This sensitive information type entity is included in the EU National Identification Number sensitive information type. It's also available as a stand-alone sensitive information type entity.
@@ -11764,6 +12125,8 @@ No
 - nationalinsurancenumber
 
 
+-------------------------------------
+
 ## U.K. Unique Taxpayer Reference Number
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -11806,6 +12169,8 @@ No
 - tin id
 - tin no
 - tin#
+
+-------------------------------------
 
 ## U.S. bank account number
 
@@ -11852,6 +12217,8 @@ No
 - Debit Acct #
 - Debit Acct No.
 - Debit Account No.
+
+-------------------------------------
 
 ## U.S. driver's license number
 
@@ -11974,6 +12341,8 @@ No
 - state abbreviation (for example, "NY")
 - state name (for example, "New York")
 
+-------------------------------------
+
 ## U.S. individual taxpayer identification number (ITIN)
 
 ### Format
@@ -12017,7 +12386,38 @@ No
 - itins
 - taxid
 - individual taxpayer
+-------------------------------------
 
+## U.S. phone number
+
+### Pattern
+- 10 digit number, for e.g., +1 nxx-nxx-xxxx
+- Optional area code: +1
+- n can be any digit between 2-9
+- x can be any digit between 0-9
+- Optional paranthesis around the area code
+- Optional space or - between area code, exchange code, and the last four digits
+- Optional 4 digit extension
+
+### Checksum
+Not applicable
+
+### Keywords
+
+#### Keywords_us_phone_number
+- cell
+- cellphone
+- contact
+- landline
+- mobile
+- mob
+- mob#
+- ph#
+- phone
+- telephone
+- tel#
+
+-------------------------------------
 
 ## U.S. social security number (SSN)
 
@@ -12057,6 +12457,41 @@ No
 - SS#
 - SSID
 
+-------------------------------------
+
+## U.S. states
+
+### Format
+Includes all 50 U.S. state names and the two digit short codes.
+
+### Checksum
+Not applicable
+
+### Keywords
+
+#### Keywords_us_states
+- State
+
+-------------------------------------
+
+## U.S. zipCode
+
+### Format
+Five digit U.S. Zip code and an optional 4 digit code separated by a hyphen (-).
+
+### Checksum
+Not applicable
+
+### Keywords
+
+#### Keywords_us_zip_code
+- zip
+- zipcode
+- postal
+- postalcode
+
+-------------------------------------
+
 ## U.S. / U.K. passport number
 
 ### Format
@@ -12092,6 +12527,8 @@ No
 - uk passport
 
 
+-------------------------------------
+
 ## Ukraine passport domestic
 This sensitive information type is only available for use in:
 - data loss prevention policies
@@ -12123,6 +12560,8 @@ No
 - номер паспорта
 - персональний
 
+
+-------------------------------------
 
 ## Ukraine passport international
 This sensitive information type is only available for use in:
