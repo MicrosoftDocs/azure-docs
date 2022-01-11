@@ -493,7 +493,7 @@ Set-AzWebApp $webapp
 
 -----
 
-<a name="redirect-to-custom-directory" aria-hidden="true"></a>
+<a name="redirect-to-a-custom-directory" aria-hidden="true"></a>
 
 ## Map a URL path
 
