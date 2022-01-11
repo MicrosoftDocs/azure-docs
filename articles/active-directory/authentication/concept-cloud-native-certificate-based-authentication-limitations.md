@@ -26,9 +26,9 @@ The following scenarios are supported:
 
 - User sign-ins to web browser-based applications.
 - User sign-ins to Outlook clients.
-- User sign-ins on mobile Native browsers for managed accounts.
-- User sign-ins on Office 365 apps <Which ones should we list as Peter tested some and it worked>
-- Support for strong authentication with Multi-Factor Authentication.
+- User sign-ins on mobile native browsers for managed accounts.
+- User sign-ins on Office 365 apps <!---Which ones should we list as Peter tested some and it worked--->
+- Support for strong authentication with multifactor authentication.
 - Certificate to user account binding configurations using the subject field and issuer is supported.
 
 ## Unsupported scenarios
