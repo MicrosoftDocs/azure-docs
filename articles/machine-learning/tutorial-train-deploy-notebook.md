@@ -22,9 +22,9 @@ This tutorial trains a simple logistic regression by using the [MNIST](http://ya
 Learn how to take the following actions:
 
 > [!div class="checklist"]
-> * Download a dataset and look at the data
-> * Train an image classification model and log metrics using MLflow
-> * Deploy the model to do real-time inference
+> * Download a dataset and look at the data.
+> * Train an image classification model and log metrics using MLflow.
+> * Deploy the model to do real-time inference.
 
 
 ## Prerequisites
@@ -87,7 +87,7 @@ This tutorial and accompanying **utils.py** file is also available on [GitHub](h
 > Switch to the Jupyter Notebook now if you want to run the code while you read along.
 > To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Run all** from the top toolbar.
 
-## Import Data
+## Import data
 
 Before you train a model, you need to understand the data you're using to train it. In this section, learn how to:
 
@@ -211,7 +211,7 @@ with mlflow.start_run() as run:
     clf.fit(X_train, y_train)
 ```
 
-## View Experiment
+## View experiment
 
 In the left-hand menu in Azure Machine Learning Studio, select __Experiments__ and then select your experiment (__azure-ml-in10-mins-tutorial__). An experiment is a grouping of many runs from a specified script or piece of code. Information for the run is stored under that experiment. If the name doesn't exist when you submit an experiment, if you select your run you will see various tabs containing metrics, logs, explanations, etc.
 
@@ -259,7 +259,7 @@ aciconfig = AciWebservice.deploy_configuration(
 
 ### Deploy model
 
-This next code cell deploys the model to Azure Container Instance (ACI).
+This next code cell deploys the model to Azure Container Instance.
 
 > [!NOTE]
 > The deployment takes approximately 3 minutes to complete.**
@@ -293,10 +293,10 @@ service.wait_for_deployment(show_output=True)
 
 The scoring script file referenced in the code above can be found in the same folder as this notebook, and has two functions:
 
-1. an `init` function that executes once when the service starts - in this function you normally get the model from the registry and set global variables
-1. a `run(data)` function that executes each time a call is made to the service. In this function, you normally format the input data, run a prediction, and output the predicted result.
+1. An `init` function that executes once when the service starts - in this function you normally get the model from the registry and set global variables
+1. A `run(data)` function that executes each time a call is made to the service. In this function, you normally format the input data, run a prediction, and output the predicted result.
 
-### View Endpoint
+### View endpoint
 
 Once the model has been successfully deployed, you can view the endpoint by navigating to __Endpoints__ in the left-hand menu in Azure Machine Learning Studio. You will be able to see the state of the endpoint (healthy/unhealthy), logs, and consume (how applications can consume the model).
 
