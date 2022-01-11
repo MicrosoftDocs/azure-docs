@@ -16,7 +16,7 @@ ms.date: 01/10/2022
 
 # Plan your LUIS app
 
-A Language Understanding (LUIS) app schema contains and [entities](../luis-glossary.md#entity) relevant to your subject [domain](../luis-glossary.md#domain). The intents classify user [utterances](../luis-glossary.md#utterance), and the entities extract data from the user utterances. Intents and [entities](../luis-glossary.md#entity) relevant to your subject [domain](/azure/cognitive-services/luis/luis-glossary#domain). The intents classify user [utterances](../luis-glossary.md#utterance), and the entities extract data from the user utterances.
+A Language Understanding (LUIS) app schema contains intents and [entities](../luis-glossary.md#entity) relevant to your subject [domain](../luis-glossary.md#domain). The intents classify user [utterances](../luis-glossary.md#utterance), and the entities extract data from the user utterances. Intents and [entities](../luis-glossary.md#entity) relevant to your subject [domain](/azure/cognitive-services/luis/luis-glossary#domain). The intents classify user [utterances](../luis-glossary.md#utterance), and the entities extract data from the user utterances.
 
 A LUIS app learns and performs most efficiently when you iteratively develop it. Here's a typical iteration cycle:
 
