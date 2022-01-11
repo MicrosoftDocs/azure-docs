@@ -45,10 +45,9 @@ In this example, we'll assume the project is being created in a folder called **
 
 :::image type="content" source="./media/unity-new-project.PNG" alt-text="New Unity Project":::
 
-## Include the Azure Remote Rendering package
+## Include the Azure Remote Rendering and OpenXR packages
 
-[Follow the instructions](../../../how-tos/unity/install-remote-rendering-unity-package.md) on how to add the Azure Remote Rendering package to a Unity Project.
-
+Follow the instructions on how to [add the Azure Remote Rendering and OpenXR packages](../../../how-tos/unity/install-remote-rendering-unity-package.md) to your Unity Project.
 
 ## Configure the camera
 
@@ -72,44 +71,63 @@ In this example, we'll assume the project is being created in a folder called **
 
 1. Open *Edit > Project Settings...*
 1. Select **Quality** from the left list menu
-1. Change the **Default Quality Level** of all platforms to *Low*. This setting will enable more efficient rendering of local content and doesn't affect the quality of remotely rendered content.
+    1. Change the **Default Quality Level** of all platforms to *Low*. This setting will enable more efficient rendering of local content and doesn't affect the quality of remotely rendered content.
 
-    ![change project quality settings](./media/settings-quality.png)
+        ![change project quality settings](./media/settings-quality.png)
 
 1. Select **Graphics** from the left list menu
-1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*.\
-    ![Screenshot that points out where you change the Scriptable Rendering Pipeline setting to HybridRenderingPipeline.](./media/settings-graphics-render-pipeline.png)\
-    Sometimes the UI does not populate the list of available pipeline types from the packages. If this occurs, the *HybridRenderingPipeline* asset must be dragged onto the field manually:\
-    ![changing project graphics settings](./media/hybrid-rendering-pipeline.png)
+    1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*.\
+        ![Screenshot that points out where you change the Scriptable Rendering Pipeline setting to HybridRenderingPipeline.](./media/settings-graphics-render-pipeline.png)\
+        Sometimes the UI does not populate the list of available pipeline types from the packages. If this occurs, the *HybridRenderingPipeline* asset must be dragged onto the field manually:\
+        ![changing project graphics settings](./media/hybrid-rendering-pipeline.png)
+
+        > [!NOTE]
+        > If you're unable to drag and drop the *HybridRenderingPipeline* asset into the Render Pipeline Asset field (possibly because the field doesn't exist!), ensure your package configuration contains the `com.unity.render-pipelines.universal` package.
+
+1. Select **XR Plugin Management** from the left list menu
+    1. Click the **Install XR Plugin Management** button.
+    1. Select the **Universal Windows Platform settings** tab, represented as a Windows icon.
+    1. Click the **Open XR** checkbox under **Plug-In Providers**
+    1. If a dialog opens that asks you to enable the native platform backends for the new input system click **No**.
+
+    ![XR Plugin management settings](./media/xr-plugin-management-settings.png)
 
     > [!NOTE]
-    > If you're unable to drag and drop the *HybridRenderingPipeline* asset into the Render Pipeline Asset field (possibly because the field doesn't exist!), ensure your package configuration contains the `com.unity.render-pipelines.universal` package.
+    > If the **Microsoft HoloLens feature group** is disabled the Windows Mixed Reality OpenXR Plugin is missing from your project. Follow the instructions on how to [add the Azure Remote Rendering and OpenXR packages](../../../how-tos/unity/install-remote-rendering-unity-package.md) to install it.
+
+1. Select **OpenXR** from the left list menu
+    1. Set **Depth Submission Mode** to *Depth 16 Bit*
+    1. Add the **Microsoft Hand Interaction Profile** to **Interaction Profiles**.
+    1. Enable these OpenXR feaures:
+        * **Hand Tracking**
+        * **Mixed Reality Features**
+        * **Motion Controller Model**
+
+    ![OpenXR settings](./media/xr-plugin-management-openXR-settings.png)
+
+    > [!NOTE]
+    > If you don't see the required OpenXR features listed the Windows Mixed Reality OpenXR Plugin is missing from your project. Follow the instructions on how to [add the Azure Remote Rendering and OpenXR packages](../../../how-tos/unity/install-remote-rendering-unity-package.md) to install it.
 
 1. Select **Player** from the left list menu
-1. Select the **Universal Windows Platform settings** tab, represented as a Windows icon.
-1. Change the **XR Settings** to support Windows Mixed Reality as shown below:
-    1. Enable **Virtual Reality Supported**
-    1. Press the '+' button and add **Windows Mixed Reality**
-    1. Set **Depth Format** to *16-Bit Depth*
-    1. Ensure **Depth Buffer Sharing** is enabled
-    1. Set **Stereo Rendering Mode** to *Single Pass Instanced*
+    1. Select the **Universal Windows Platform settings** tab, represented as a Windows icon.
+    1. Expand **Other Settings**
+    1. Under **Configuration** change **Active Input Handling** to **Both** and restart Unity when it asks you to.
+        ![player settings](./media/player-settings-other-settings.png)
+    1. Expand **Publishing Settings**
+    1. Scroll down to **Capabilities** and select:
+        * **InternetClient**
+        * **InternetClientServer**
+        * **SpatialPerception**
+        * **PrivateNetworkClientServer** (*optional*). Select this option if you want to connect the Unity remote debugger to your device.
+    1. Under **Supported Device Families**, enable **Holographic** and **Desktop**
+        ![player settings](./media/player-settings-publishing-settings.png)
 
-    ![player settings](./media/xr-player-settings.png)
-
-1. In the same window, above **XR Settings**, expand **Publishing Settings**
-1. Scroll down to **Capabilities** and select:
-    * **InternetClient**
-    * **InternetClientServer**
-    * **SpatialPerception**
-    * **PrivateNetworkClientServer** (*optional*). Select this option if you want to connect the Unity remote debugger to your device.
-
-1. Under **Supported Device Families**, enable **Holographic** and **Desktop**
 1. Close or dock the **Project Settings** panel
 1. Open *File->Build Settings*
-1. Select **Universal Windows Platform**
-1. Configure your settings to match those found below
-1. Press the **Switch Platform** button.\
-![build settings](./media/build-settings.png)
+    1. Select **Universal Windows Platform**
+    1. Configure your settings to match those found below
+    1. Press the **Switch Platform** button.\
+    ![build settings](./media/build-settings.png)
 1. After Unity changes platforms, close the build panel.
 
 ## Validate project setup
