@@ -173,7 +173,6 @@
       href: enable-managed-identities-lab-vms.md
   - name: Use environments in a lab
     items:
-<<<<<<< HEAD
     - name: Create environments from ARM templates
       href: devtest-lab-create-environment-from-arm.md
     - name: Use Platform-as-a-Service (PaaS) services
