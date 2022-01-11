@@ -35,6 +35,7 @@ Application Insights can provide many observable perspectives, including:
 * Logs (Enterprise Tier Only)
 
 ::: zone pivot="sc-standard-tier"
+
 ## Enable Java In-Process Agent for Application Insights
 
 Enable the Java In-Process Agent by using the following procedure.
@@ -96,10 +97,11 @@ When the **Application Insights** feature is enabled, you can:
 ::: zone-end
 
 ::: zone pivot="sc-standard-tier"
+
 ## Automation
 
 The following sections describe how to automate your deployment using Azure Resource Manager templates (ARM templates) or Terraform.
-	
+
 ### ARM templates
 
 To deploy using an ARM template, copy the following content into an *azuredeploy.json* file. For more information, see [Microsoft.AppPlatform Spring/monitoringSettings](/azure/templates/microsoft.appplatform/spring/monitoringsettings).
@@ -177,15 +179,16 @@ resource "azurerm_spring_cloud_service" "example" {
   }
 }
 ```
+
 ::: zone-end
 
 ::: zone pivot="sc-enterprise-tier"
 
-## Manage Application Insights using the Azure Portal
+## Manage Application Insights using the Azure portal
 
 You can use the Portal to check or update the current settings in Application Insights.
 
-### Enable Application Insights
+### Enable Application Insights using the Azure portal
 
 1. Select **Application Insights**.
 1. Enable Application Insights by selecting **Edit binding**, or the **Unbound** hyperlink.
@@ -210,6 +213,7 @@ Select the name under the *Application Insights* column to open the Application 
 ### Edit Application Insights buildpack bindings in Build Service
 
 To check and update the current settings for the Application Insights buildpack bindings in Build Service, follow these steps:
+
 1. Select **Build Service**.
 1. Choose your builder.
 1. Select **Edit** under the Bindings column.
@@ -303,6 +307,7 @@ az spring-cloud app-insights update \
 ::: zone-end
 
 ::: zone pivot="sc-enterprise-tier"
+
 ### Manage Application Insights Buildpack Bindings
 
 This section applies to the Enterprise Tier only, and provides instructions that that supplement the previous section.

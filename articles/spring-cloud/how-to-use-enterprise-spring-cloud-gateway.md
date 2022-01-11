@@ -8,7 +8,6 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/17/2021
 ms.custom: devx-track-java, devx-track-azurecli
-zone_pivot_groups: spring-cloud-tier-selection
 ---
 
 # Use Spring Cloud Gateway

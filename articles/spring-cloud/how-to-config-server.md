@@ -61,8 +61,6 @@ All configurable properties that are used to set up the public Git repository ar
 | `default-label` | No     | The default label of the Git repository, should be the *branch name*, *tag name*, or *commit-id* of the repository. |
 | `search-paths`  | No     | An array of strings that are used to search subdirectories of the Git repository. |
 
-------
-
 ### Private repository with SSH authentication
 
 All configurable properties used to set up private Git repository with SSH are listed in the following table:
@@ -82,8 +80,6 @@ All configurable properties used to set up private Git repository with SSH are l
 
 > [!NOTE]
 > Config Server takes `master` (om Git itself) as the default label if you don't specify one. But GitHub has changed the default branch from `master` to `main` recently. To avoid Azure Spring Cloud Config Server failure, be sure to pay attention to the default label when setting up Config Server with GitHub, especially for newly-created repositories.
-
------
 
 ### Private repository with basic authentication
 
