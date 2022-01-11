@@ -113,7 +113,7 @@ To deploy this template properly, you must use **Deploy to Azure** button in the
 
 ## <a name="complete"></a>Complete the hybrid configuration
 
-The template does not configure all of the settings necessary for a hybrid network. You need to complete the following configurations and settings, depending on your requirements.
+The template does not configure all of the settings necessary for a hybrid network. Complete the following configurations and settings, depending on your requirements:
 
 * [Configure the VPN branches - local sites](virtual-wan-site-to-site-portal.md#site)
 * [Complete the P2S VPN configuration](virtual-wan-point-to-site-portal.md)
