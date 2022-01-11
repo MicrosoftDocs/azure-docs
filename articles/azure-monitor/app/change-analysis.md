@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 
 # Use Application Change Analysis in Azure Monitor (preview)
 
-While standard monitoring solutions might alert you to a a live site issue, outage, or component failure, they often don't explain the cause. All you know is your site worked five minutes ago, and now it's broken. What changed in the last five minutes? 
+While standard monitoring solutions might alert you to a live site issue, outage, or component failure, they often don't explain the cause. For example, your site worked five minutes ago, and now it's broken. What changed in the last five minutes? 
 
 We've designed Application Change Analysis to answer that question in Azure Monitor.
 
@@ -68,18 +68,14 @@ Change Analysis also tracks resource dependency changes to diagnose and monitor 
 
 ### Azure Resource Manager tracked properties changes
 
-Using [Azure Resource Graph](../../governance/resource-graph/overview.md), Change Analysis provides a historical record of how the Azure resources that host your application have changed over time. Tracked settings like the following can be detected:
+Using [Azure Resource Graph](../../governance/resource-graph/overview.md), Change Analysis provides a historical record of how the Azure resources that host your application have changed over time. The following tracked settings can be detected:
 - Managed identities
 - Platform OS upgrade
 - Hostnames
 
 ### Azure Resource Manager proxied setting changes
 
-While the following settings are not yet available in Azure Resource Graph, Change Analysis securely queries and computes them to provide more change details in the app.
-
-- IP Configuration rule
-- TLS settings
-- Extension versions
+Unlike Azure Resource Graph, Change Analysis securely queries and computes IP Configuration rules, TLS settings, and extension versions to provide more change details in the app.
 
 ### Changes in web app deployment and configuration (in-guest changes)
 
@@ -129,7 +125,7 @@ Change Analysis detects related resources. Common examples are:
 - Application Gateway
 - Load Balancer related to a Virtual Machine.
 
-Usually, network resources are automatically provisioned in the same resource group as the resources using it. Filtering changes by resource group will show all changes for the virtual machine and related networking resources.
+Network resources are usually provisioned in the same resource group as the resources using it. Filter the changes by resource group to show all changes for the virtual machine and its related networking resources.
 
 :::image type="content" source="./media/change-analysis/network-changes.png" alt-text="Screenshot of Networking changes":::   
 
@@ -148,13 +144,13 @@ You'll need to register the `Microsoft.ChangeAnalysis` resource provider with an
 For web app in-guest changes, separate enablement is required for scanning code files within a web app. For more information, see [Change Analysis in the Diagnose and solve problems tool](change-analysis-visualizations.md#application-change-analysis-in-the-diagnose-and-solve-problems-tool) section.
 
 ## Cost
-Application Change Analysis is a free service. Once enabled, Change Analysis for web app in-guest file changes (or the Diagnose and Solve problems tool) does not:
+Application Change Analysis is a free service. Once enabled, the Change Analysis **Diagnose and solve problems** tool does not:
 - Incur any billing cost to subscriptions. 
 - Have any performance impact for scanning Azure Resource properties changes. 
 
 ## Enable Change Analysis at scale for Web App in-guest file and environment variable changes
 
-If your subscription includes numerous web apps, enabling the service at the web app level would be inefficient. Instead, run the following script to enable all web apps in your subscription.
+If your subscription includes several web apps, enabling the service at the web app level would be inefficient. Instead, run the following script to enable all web apps in your subscription.
 
 ### Pre-requisites
 

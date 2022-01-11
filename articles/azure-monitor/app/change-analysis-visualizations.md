@@ -18,7 +18,9 @@ In the Azure portal, search for Change Analysis to launch the experience.
 
 :::image type="content" source="./media/change-analysis/search-change-analysis.png" alt-text="Screenshot of searching Change Analysis in Azure portal":::
 
-Select a subscription to view all of its resources' changes from the past 24 hours. All changes are displayed with old value and new value to provide insights at one glance.
+Select a subscription to view:
+- All of its resources' changes from the past 24 hours. 
+- Old and new values to provide insights at one glance.
 
 :::image type="content" source="./media/change-analysis/change-analysis-standalone-blade.png" alt-text="Screenshot of Change Analysis blade in Azure portal":::
 
@@ -39,7 +41,7 @@ The UI supports selecting multiple subscriptions to view resource changes. Use t
 ## Application Change Analysis in the Diagnose and solve problems tool
 
 Application Change Analysis is:
-- A standalone detector in the Web App diagnose and solve problems tools. 
+- A standalone detector in the Web App **Diagnose and solve problems** tool. 
 - Aggregated in **Application Crashes** and **Web App Down detectors**. 
 
 From your app service's overview page in Azure portal, select **Diagnose and solve problems** the left menu. As you enter the Diagnose and Solve Problems tool, the **Microsoft.ChangeAnalysis** resource provider will automatically be registered. Enable web app in-guest change tracking with the following instructions:
@@ -54,7 +56,7 @@ From your app service's overview page in Azure portal, select **Diagnose and sol
 
    The link leads to Application Change Analysis UI scoped to the web app. 
 
-3. If web app in-guest change tracking is not enabled, follow the banner to get file and app settings changes.
+3. Enable web app in-guest change tracking if you haven't already.
 
    :::image type="content" source="./media/change-analysis/enable-changeanalysis.png" alt-text="Screenshot of the Application Crashes options":::   
 
@@ -110,7 +112,7 @@ Use the [View change history](../essentials/activity-log.md#view-change-history)
 
 ## VM Insights integration
 
-If you've enabled [VM Insights](../vm/vminsights-overview.md), you can view changes in your virtual machines that may have caused any spikes in a metrics chart such as CPU or Memory.
+If you've enabled [VM Insights](../vm/vminsights-overview.md), you can view changes in your virtual machines that may have caused any spikes in a metric chart, such as CPU or Memory.
 
 1. Within your virtual machine, select **Insights** from under **Monitoring** in the left menu.
 1. Select the **Performance** tab.
