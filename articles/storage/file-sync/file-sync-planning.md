@@ -255,6 +255,7 @@ For Azure File Sync and DFS-R to work side by side:
 
 1. Azure File Sync cloud tiering must be disabled on volumes with DFS-R replicated folders.
 2. Server endpoints should not be configured on DFS-R read-only replication folders.
+3. Only a single server endpoint can overlap with a DFS-R location. Multiple server endpoints overlapping with other active DFS-R locations may lead to conflicts.
 
 For more information, see [DFS Replication overview](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127250(v=ws.11)).
 
@@ -263,6 +264,9 @@ Using sysprep on a server that has the Azure File Sync agent installed is not su
 
 ### Windows Search
 If cloud tiering is enabled on a server endpoint, files that are tiered are skipped and not indexed by Windows Search. Non-tiered files are indexed properly.
+
+> [!Note]  
+> Windows clients will cause recalls when searching the file share if the **Always search file names and contents** setting is enabled on the client machine. This setting is disabled by default.
 
 ### Other Hierarchical Storage Management (HSM) solutions
 No other HSM solutions should be used with Azure File Sync.

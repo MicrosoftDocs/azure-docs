@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Advisor?
     href: advisor-overview.md
+  - name: What's new?
+    href: advisor-release-notes.md
 - name: Quickstarts
   items:
   - name: Configure alerts for new recommendations

@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 11/30/2021
+ms.date: 01/05/2022
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -70,6 +70,29 @@ Here's what's changed in the Azure Virtual Desktop Agent:
 ## FSLogix updates
 
 Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new).
+
+## December 2021
+
+Here's what changed in December 2021:
+
+### Azure portal updates
+
+You can now automatically create trusted launch virtual machines through the host pool creation process instead of having to manually create and add them to a host pool after deployment. To access this feature, select the **Virtual machines** tab while creating a host pool. Learn more at [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
+ 
+### Azure Active Directory Join VMs with FSLogix profiles on Azure Files
+
+Azure Active Directory (Azure AD)-joined session hosts for FSLogix profiles on Azure Files in Windows 10 and 11 multi-session is now in public preview. We've updated Azure Files to use a Kerberos protocol for Azure AD that lets you secure folders in the file share to individual users. This new feature also allows FSLogix to function within your deployment without an Active Directory Domain Controller. For more information, check out [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-public-preview-of-fslogix-profiles-for-azure-ad/ba-p/3019855).
+
+### Azure Virtual Desktop pricing calculator updates
+
+We've made some significant updates to improve the Azure Virtual Desktop pricing experience on the Azure pricing calculator, including the following:
+
+- You can now calculate costs for any number of users greater than zero.
+- The calculator now includes storage and networking or bandwidth costs.
+- We've added new info messages for clarity.
+- Fixed bugs that affected storage configuration.
+
+For more information, see the [pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## November 2021
 
