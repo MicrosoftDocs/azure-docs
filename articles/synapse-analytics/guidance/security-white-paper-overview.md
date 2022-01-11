@@ -31,18 +31,18 @@ Azure Synapse data security and privacy are non-negotiable. The purpose of this 
 
 This white paper targets all enterprise security stakeholders. They include security administrators, network administrations, Azure administrators, workspace administrators, and database administrators.
 
-**Writers:** Vengatesh Parasuraman, Fretz Nuson, Ron Dunn, Khendr'a Reid, John Hoang, Nithesh Krishnappa, Mykola Kovalenko, Brad Schacht, Pedro Matinez, Mark Pryce-Maher
+**Writers:** Vengatesh Parasuraman, Fretz Nuson, Ron Dunn, Khendr'a Reid, John Hoang, Nithesh Krishnappa, Mykola Kovalenko, Brad Schacht, Pedro Matinez, and Mark Pryce-Maher.
 
-**Technical Reviewers:** Nandita Valsan, Rony Thomas, Daniel Crawford, Tammy Richter Jones
+**Technical Reviewers:** Nandita Valsan, Rony Thomas, Daniel Crawford, and Tammy Richter Jones.
 
-**Applies to:** Azure Synapse Analytics, dedicated SQL pool (formerly SQL DW), serverless SQL pool, Apache Spark pool
+**Applies to:** Azure Synapse Analytics, dedicated SQL pool (formerly SQL DW), serverless SQL pool, and Apache Spark pool.
 
 > [!IMPORTANT]
 > This white paper does not apply to Azure SQL Database, Azure SQL Managed Instance, Azure Machine Learning, or Azure Databricks.
 
 ## Introduction
 
-Frequent headlines of data breaches, malware infections, and malicious code injection are among an extensive list of security concerns for companies looking to cloud modernization. The enterprise customer requires a cloud provider or service solution that can address their concerns as they cannot afford to get it wrong.
+Frequent headlines of data breaches, malware infections, and malicious code injection are among an extensive list of security concerns for companies looking to cloud modernization. The enterprise customer requires a cloud provider or service solution that can address their concerns as they can't afford to get it wrong.
 
 Some common security questions include:
 
@@ -56,15 +56,15 @@ The purpose of this white paper is to provide answers to these common security q
 
 ## Security layers
 
-Synapse implements a multi-layered security architecture for end-to-end protection of your data. There are five layers:
+Synapse Analytics implements a multi-layered security architecture for end-to-end protection of your data. There are five layers:
 
-- [**Data protection**](security-white-paper-data-protection.md) to identify and classify sensitive data, encryption of data at rest and in motion.
+- [**Data protection**](security-white-paper-data-protection.md) to identify and classify sensitive data, and encrypt data at rest and in motion.
 - [**Access control**](security-white-paper-access-control.md) to determine a user's right to interact with data.
-- [**Authentication**](security-white-paper-authentication.md) to prove the identity of your users and applications.
-- [**Network security**](security-white-paper-network-security.md) to isolate your network traffic with private endpoints and virtual private networks.
+- [**Authentication**](security-white-paper-authentication.md) to prove the identity of users and applications.
+- [**Network security**](security-white-paper-network-security.md) to isolate network traffic with private endpoints and virtual private networks.
 - [**Threat protection**](security-white-paper-threat-protection.md) to identify potential security threats, such as unusual access locations, SQL injection attacks, authentication attacks, and more.
 
-:::image type="content" source="./media/security-white-paper-overview/azure-synapse-security-layers.png" alt-text="Image shows the five layers of Synapse security architecture: Data protection, Access control, Authentication, Network security, and Threat protection.":::
+:::image type="content" source="media/security-white-paper-overview/azure-synapse-security-layers.png" alt-text="Image shows the five layers of Synapse security architecture: Data protection, Access control, Authentication, Network security, and Threat protection.":::
 
 ## Next steps
 
