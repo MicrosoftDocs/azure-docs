@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Azure Policy definitions for Azure NetApp Files  
 
