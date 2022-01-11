@@ -490,19 +490,16 @@ sections:
               Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
               ```
 
-              Use the following PowerShell example for a Linux virtual machine scale set:
+              Use the following Azure CLI example for a Linux virtual machine scale set:
 
-              ```powershell
-              $vmssName = "myvmss"
-              $vmssResourceGroup = "myvmssrg"
-              $publicConfig = @{"UserName" = "newuser"}
-              $privateConfig = @{"Password" = "********"}
-
-              $extName = "VMAccessForLinux"
-              $publisher = "Microsoft.OSTCExtensions"
-              $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
-              $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "1.4" -AutoUpgradeMinorVersion $true
-              Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+              ```azurecli
+              az vmss extension set \
+                --resource-group myResouceGroup \ 
+                --vmss-name myScaleSet \
+                --publisher Microsoft.OSTCExtensions \
+                --name VMAccessForLinux \
+                --version 1.5 \
+                --protected-settings "{'username': 'newUser', 'password': 'newPassword'}"
               ```
 
   - name: Networking
