@@ -2,7 +2,7 @@
 title: Azure Communication Services Closed Caption overview
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the Azure Communication Services Closed Captions.
-author: ektrishi
+author: RinaRish
 manager: visho
 services: azure-communication-services
 
