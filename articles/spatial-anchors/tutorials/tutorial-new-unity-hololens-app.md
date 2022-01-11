@@ -42,11 +42,11 @@ To complete this tutorial, make sure you have:
 
 ### Import ASA and OpenXR
 1. Launch [Mixed Reality Feature Toolkit](/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool)
-2. Select your project path - This is the folder that contains folders such as *Assets*, *Library*, *Logs*, etc - and click **Discover Features**
-3. Under Azure Mixed Reality Services select both
+2. Select your project path - This is the folder that contains folders such as *Assets*, *Library*, *Logs* and so on - and click **Discover Features**
+3. Under _Azure Mixed Reality Services_ select both
     1. **Azure Spatial Anchors SDK Core**
     1. **Azure Spatial Anchors SDK for Windows**
-1. Under Platform Support select 
+1. Under _Platform Support_ select 
     1. **Mixed Reality OpenXR Plugin**
 > [!NOTE]
 > Make sure you have refreshed the catalog and the newest version is selected for each
@@ -55,7 +55,7 @@ To complete this tutorial, make sure you have:
 
 5. Press **Get Features** --> **Import** --> **Approve** --> **Exit**
 6. When refocussing your Unity window, Unity will start importing the modules
-7. If you get a message about using the new input system click **Yes** to restart Unity and enable the backends.
+7. If you get a message about using the new input system, click **Yes** to restart Unity and enable the backends.
 
 
 ### Set up the project settings
@@ -70,7 +70,7 @@ We'll now set some Unity project settings that help us target the Windows Hologr
 1. Make sure the **Universal Windows Platform Settings** tab is selected and check the box next to **OpenXR** and next to **Microsoft HoloLens feature group**
 1. Click on the yellow warning sign next to **OpenXR** to display all OpenXR issues.
 1. Select **Fix all**
-1. To fix the issue *At least one interaction profile must be added* click on *Edit* to open the OpenXR Project settings. Then under **Interaction Profiles** select the **+** symbol and select **Microsoft Hand Interaction Profile**
+1. To fix the issue "_At least one interaction profile must be added_", click on *Edit* to open the OpenXR Project settings. Then under **Interaction Profiles** select the **+** symbol and select **Microsoft Hand Interaction Profile**
 
 #### Change Quality Settings
 1. Select **Edit** > **Project Settings** > **Quality**
@@ -110,7 +110,7 @@ You should now have an empty scene that is ready to be deployed to your HoloLens
     1. Select **Add Component** and search for and add the **AzureSpatialAnchorsScript**
     1. Select **Add Component** again and search for and add the **AR Anchor Manager**. This will automatically add **AR Session Origin** too.
     1. Select **Add Component** again and search for and add the **SpatialAnchorManager** script
-    1. In the added **SpatialAnchorManager** component fill out the **Account ID**, **Account Key** and **Account Domain** which you have copied in the previous step from the spatial anchors resource on the azure portal.
+    1. In the added **SpatialAnchorManager** component fill out the **Account ID**, **Account Key** and **Account Domain** which you have copied in the previous step from the spatial anchors resource in the Azure portal.
 
 ![Unity - ASA GameObject](../../../includes/media/spatial-anchors-unity/unity-ASA-gameobject.png)
 
@@ -137,7 +137,7 @@ Tap + Hold for 2 sec (+ session is not running)| Start the session and look for 
 4. Add the following import
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=20)]
  
-5. Add the following code top the `Update()` method. This will allow the app to recognize short and long (2s) hand tapping gestures
+5. Add the following code top the `Update()` method. This will allow the app to recognize short and long (2 sec) hand-tapping gestures
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=Update&highlight=4-39)]
 
 ## Add & Configure SpatialAnchorManager
@@ -159,22 +159,22 @@ In order to receive debug and error logs, we need to subscribe to the different 
 > To view the logs make sure after you built the project from Unity and you open the visual studio solution `.sln`, select Debug --> Run with Debugging and leave your HoloLens connected to your computer while the app is running.
 
 ## Start Session
-To create and find anchors we first have to start a session. When calling `StartSessionAsync()` SpatialAnchorManager will create a session if necessary and then start it. Let's add this to our `ShortTap()` method 
+To create and find anchors, we first have to start a session. When calling `StartSessionAsync()`, SpatialAnchorManager will create a session if necessary and then start it. Let's add this to our `ShortTap()` method.
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=102-108,119&highlight=7)]
 
 ## Create Anchor
-Now that we have a session running we can create anchors. In this application we'd like to keep track of the created anchor `GameObjects` and AnchorIds. Let's add two lists to our code.
+Now that we have a session running we can create anchors. In this application, we'd like to keep track of the created anchor `GameObjects` and AnchorIds. Let's add two lists to our code.
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=14,15,16,19,20,31-44&highlight=2,11-19)]
 
 Let's create a method `CreateAnchor` that creates an anchor at a **position** defined by its parameter.
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=18)]
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=198-205,256)]
 
-Since spatial anchors not only have a **position** but also a **rotation** let's set the **rotation** to always orient towards the HoloLens on creation.
+Since spatial anchors not only have a **position** but also a **rotation**, let's set the **rotation** to always orient towards the HoloLens on creation.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=198-212,256&highlight=9-14)]
 
-Now that we have the **position** and the **rotation** of the desired anchor, let's create a visible `GameObject`. Note that Spatial Anchors does not require the anchor `GameObject` to be visible to the end-user since the main purpose of Spatial Anchors is to provide a common and persistent reference frame. For the purpose of this tutorial we will visualize the anchors as cubes. Each anchor will be initialized as a **white** cube which will turn into a **green** cube once the creation process succeeded.
+Now that we have the **position** and the **rotation** of the desired anchor, let's create a visible `GameObject`. Note that Spatial Anchors does not require the anchor `GameObject` to be visible to the end user since the main purpose of Spatial Anchors is to provide a common and persistent reference frame. For the purpose of this tutorial, we will visualize the anchors as cubes. Each anchor will be initialized as a **white** cube, which will turn into a **green** cube once the creation process succeeded.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=198-218,256&highlight=16-20)]
 
@@ -187,7 +187,7 @@ Remember to add the import
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=13)]
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=198-224,256&highlight=22-26)]
 
-To save an anchor the user must collect environment data.
+To save an anchor, the user must collect environment data.
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=198-231,256&highlight=28-33)]
 > [!Note]
 > A HoloLens can possibly reuse already captured environment data surrounding the anchor resulting in `IsReadyForCreate` to be true instantly when called.
@@ -222,9 +222,9 @@ We will now try to find the anchors again with the correct position and rotation
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=LocateAnchor)]
 
-Once a watcher is started it will fire a callback when it found an anchor that fits the given criteria. Let's first create our anchor located method called `SpatialAnchorManager_AnchorLocated()` that we will configure to be called when the watcher has located an anchor. This method will create a visual `GameObject` and attach the native anchor component to it. The native anchor component will make sure the correct position and rotation of the `GameObject` is set.
+Once a watcher is started it will fire a callback when it found an anchor that fits the given criteria. Let's first create our anchor-located method called `SpatialAnchorManager_AnchorLocated()` that we will configure to be called when the watcher has located an anchor. This method will create a visual `GameObject` and attach the native anchor component to it. The native anchor component will make sure the correct position and rotation of the `GameObject` is set.
 
-Similar to the creation process, the anchor does not have to be visible for spatial anchors to work. If you only use it to have a referenced shared coordinate system there is no need to visually show he anchor to the end-user. For the purpose of this tutorial we will visualize each anchor as a **blue** cube once they have been located.
+Similar to the creation process, the anchor does not have to be visible for spatial anchors to work. If you only use it to have a referenced shared coordinate system, there is no need to visually show anchors to the end user. For the purpose of this tutorial, we will visualize each anchor as a **blue** cube once they have been located.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=SpatialAnchorManagerAnchorLocated)]
 
@@ -232,27 +232,27 @@ Let's now subscribe to the AnchorLocated callback from spatial anchor manager to
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=Start&highlight=7)]
 
-Finally, let's expand our `LongTap()` method to include finding the anchor. We will use the `IsSessionStarted` boolean to decide if we are looking for all anchors or destroying all anchors as described in the [App Overview](#app-overview)
+Finally, let's expand our `LongTap()` method to include finding the anchor. We'll use the `IsSessionStarted` boolean to decide if we are looking for all anchors or destroying all anchors as described in the [App Overview](#app-overview)
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=LongTap&highlight=6,7,12-18)]
 
 ## Try it out #2
 Your app now supports creating anchors and locating them. Build your app in **Unity** and deploy it from **Visual Studio** by following [**Using Visual Studio to deploy and debug**](/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2).
 
-Make sure your HoloLens is connected to the internet. Once the app started and the _made with Unity_ message disappears, short tap in your surroundings. A **white** cube should appear to show the position and rotation of the to-be-created anchor. The anchor creation process is automatically called. As you slowly look around your surroundings you are capturing environment data which is used to create the anchor. Once the anchor creation process is completed the cube will turn **green**. Check your debug logs in visual studio to see if everything worked as intended.
+Make sure your HoloLens is connected to the internet. Once the app started and the _made with Unity_ message disappears, short tap in your surroundings. A **white** cube should appear to show the position and rotation of the to-be-created anchor. The anchor creation process is automatically called. As you slowly look around your surroundings, you are capturing environment data, which is used to create the anchor. Once the anchor creation process is completed, the cube will turn **green**. Check your debug logs in visual studio to see if everything worked as intended.
 
 Long tap to remove all `GameObjects` from your scene and stop the spatial anchor session.
 
-Once your scene is cleared you can long tap again, which will start a session and look for the anchors you have previously created. Once they are found they are visualized by **blue** cubes at the anchored position and rotation. These anchors (as long as they are not expired) can be found by any supported device as long as they have the correct anchorIDs and have access to your spatial anchor resource.
+Once your scene is cleared, you can long tap again, which will start a session and look for the anchors you have previously created. Once they are found, they are visualized by **blue** cubes at the anchored position and rotation. These anchors (as long as they are not expired) can be found by any supported device as long as they have the correct anchorIDs and have access to your spatial anchor resource.
 
 ## Delete Anchor
-Right now our app can create and locate anchors. While it deletes the `GameObjects`, it does not delete the anchor in the cloud. Let's add the functionality to also delete it in the cloud if you tap on an existing anchor.
+Right now our app can create and locate anchors. While it deletes the `GameObjects`, it doesn't delete the anchor in the cloud. Let's add the functionality to also delete it in the cloud if you tap on an existing anchor.
 
 Let's add a method `DeleteAnchor` that receives a `GameObject`. We will then use the spatial anchor manager together with the object's `CloudNativeAnchor` component to request deletion of the anchor in the cloud.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=DeleteAnchor)]
 
-To call this method from `ShortTap` we need to be able to determine if a tap has been near an existing visible anchor. Let's create a helper method that takes care of that
+To call this method from `ShortTap`, we need to be able to determine if a tap has been near an existing visible anchor. Let's create a helper method that takes care of that
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=17)]
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=IsAnchorNearby)]
@@ -263,7 +263,7 @@ We can now extend our `ShortTap` method to include the `ASA_DeleteAnchor` call
 ## Try it #3
 Build your app in **Unity** and deploy it from **Visual Studio** by following [**Using Visual Studio to deploy and debug**](/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2).
 
-Note that the location of your hand tapping gesture is the **center of your hand** in this app and not the tip of your fingers.
+Note that the location of your hand-tapping gesture is the **center of your hand** in this app and not the tip of your fingers.
 
 When you tap into an anchor, either created (green) or located (blue) a request is sent to the spatial anchor service to remove this anchor from the account. Stop the session (long tap) and start the session again (long tap) to search for all anchors. The deleted anchors will no longer be located.
 
