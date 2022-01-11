@@ -64,7 +64,7 @@ From your app service's overview page in Azure portal, select **Diagnose and sol
   
     - The tool displays all web apps under an App Service plan, which you can toggle on and off individually. 
 
-      :::image type="content" source="./media/change-analysis/change-analysis-on-2.png" alt-text="Screenshot of the Enable Change Analysis user interface":::   
+      :::image type="content" source="./media/change-analysis/change-analysis-on-2.png" alt-text="Screenshot of the Enable Change Analysis user interface expanded":::   
 
 
 You can also view change data via the **Web App Down** and **Application Crashes** detectors. The graph summarizes:
