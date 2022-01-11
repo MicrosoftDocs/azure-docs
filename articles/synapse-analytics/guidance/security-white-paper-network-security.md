@@ -3,9 +3,8 @@ title: "Synapse Analytics security white paper: Network security"
 description: Manage secure network access with Azure Synapse Analytics.
 author: peter-myers
 ms.author: v-petermyers
-ms.reviewer: todo
+ms.reviewer: sngun
 ms.service: synapse-analytics
-ms.subservice: 
 ms.topic: conceptual
 ms.date: 01/14/2022
 ---
@@ -16,7 +15,7 @@ ms.date: 01/14/2022
 
 To secure Synapse Analytics, there are a range of network security options to consider.
 
-## Terminology
+## Network security terminology
 
 This opening section provides an overview and definitions of some of key Synapse Analytics terms related to network security. Keep these definitions in mind while reading this article.
 
@@ -154,7 +153,7 @@ In addition, Synapse Spark pools operate as a job cluster. It means each user ge
 
 ## Data exfiltration protection
 
-Synapse workspaces with Managed VNet have an additional security feature called *[data exfiltration protection](../security/workspace-data-exfiltration-protection.md)*. It protects all egress traffic going out from Synapse Analytics from all services, including dedicated SQL pools, serverless SQL pools, Apache spark pools, and pipelines. It's configured by enabling data exfiltration protection at the workspace level (at workspace creation time) to restrict the outbound connections to an allowed list of Azure Active Directory (AAD) tenants. By default, only the home tenant of the workspace is added to the list, but it's possible to add or modify the list of AAD tenants any time after the workspace is created. Adding additional tenants is a highly privileged operation that requires the elevated role of [Synapse Administrator](../security/synapse-workspace-synapse-rbac-roles.md). It effectively controls exfiltration of data from Synapse Analytics to other organizations and tenants, without the need to have complicated network security policies in place.
+Synapse workspaces with Managed VNet have an additional security feature called *[data exfiltration protection](../security/workspace-data-exfiltration-protection.md)*. It protects all egress traffic going out from Synapse Analytics from all services, including dedicated SQL pools, serverless SQL pools, Apache spark pools, and pipelines. It's configured by enabling data exfiltration protection at the workspace level (at workspace creation time) to restrict the outbound connections to an allowed list of Azure Active Directory (Azure AD) tenants. By default, only the home tenant of the workspace is added to the list, but it's possible to add or modify the list of Azure AD tenants any time after the workspace is created. Adding additional tenants is a highly privileged operation that requires the elevated role of [Synapse Administrator](../security/synapse-workspace-synapse-rbac-roles.md). It effectively controls exfiltration of data from Synapse Analytics to other organizations and tenants, without the need to have complicated network security policies in place.
 
 For workspaces with data exfiltration protection enabled, Synapse pipelines and Apache Spark pools must use managed private endpoint connections for all their outbound connections.
 

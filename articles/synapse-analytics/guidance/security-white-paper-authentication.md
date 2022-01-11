@@ -3,9 +3,8 @@ title: "Synapse Analytics security white paper: Authentication"
 description: Implement authentication mechanisms with Azure Synapse Analytics.
 author: peter-myers
 ms.author: v-petermyers
-ms.reviewer: todo
+ms.reviewer: sngun
 ms.service: synapse-analytics
-ms.subservice: 
 ms.topic: conceptual
 ms.date: 01/14/2022
 ---
@@ -15,6 +14,8 @@ ms.date: 01/14/2022
 [!INCLUDE [security-white-paper-context](includes/security-white-paper-context.md)]
 
 Authentication is the process of proving the user is who they claim to be. Authentication activities can be logged with [Azure SQL Auditing](../../azure-sql/database/auditing-overview.md), and an IT administrator can configure reports and alerts whenever a login from a suspicious location is attempted.
+
+## Benefits
 
 Some of the benefits of these robust authentication mechanisms include:
 

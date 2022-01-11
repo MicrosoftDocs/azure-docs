@@ -3,14 +3,13 @@ title: Azure Synapse Analytics security white paper
 description: Overview of the Azure Synapse Analytics security white paper series of articles.
 author: peter-myers
 ms.author: v-petermyers
-ms.reviewer: todo
+ms.reviewer: sngun
 ms.service: synapse-analytics
-ms.subservice: 
 ms.topic: overview
 ms.date: 01/14/2022
 ---
 
-# Azure Synapse Analytics security white paper
+# Azure Synapse Analytics security white paper: Introduction
 
 **Summary:** [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) is a Microsoft limitless analytics platform that integrates enterprise data warehousing and big data processing into a single managed environment with no system integration required. Azure Synapse provides the end-to-end tools for your analytic life cycle with:
 
