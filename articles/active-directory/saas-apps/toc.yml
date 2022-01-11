@@ -185,6 +185,8 @@
         href: askyourteam-tutorial.md
       - name: Asset Bank
         href: assetbank-tutorial.md
+      - name: Asset Planner
+        href: asset-planner-tutorial.md  
       - name: AssetSonar
         href: assetsonar-tutorial.md
       - name: Astra Schedule
