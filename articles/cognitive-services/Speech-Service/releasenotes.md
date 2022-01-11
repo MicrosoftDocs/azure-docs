@@ -3,7 +3,9 @@ title: Release notes - Speech Service
 titleSuffix: Azure Cognitive Services
 description: A running log of Speech Service feature releases, improvements, bug fixes, and known issues.
 services: cognitive-services
-manager: jhakulin
+manager: nitinme
+author: eric-urban
+ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual

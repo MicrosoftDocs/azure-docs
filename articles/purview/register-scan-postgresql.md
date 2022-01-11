@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 12/28/2021
+ms.date: 01/11/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -21,7 +21,8 @@ This article outlines how to register PostgreSQL, and how to authenticate and in
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Share**|
 |---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes| No |
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| Yes| No |
+
 
 The supported PostgreSQL server versions are 8.4 to 12.x.
 
