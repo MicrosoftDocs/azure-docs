@@ -29,7 +29,7 @@ You can prepare these documents yourself, but if content resides in a [supported
 
 ### [**Azure portal**](#tab/import-portal)
 
-Using Azure portal, the sole means for loading an index is the [Import Data wizard](search-import-data-portal.md). It requires that you specify a data source and define the index, skillset (optional), and indexer as you go. Except for the data source, you cannot use a pre-built index or skillset in the wizard.
+Using Azure portal, the sole means for loading an index is the [Import Data wizard](search-import-data-portal.md). The wizard creates objects. If you want to load an existing index, you will need to use an alternative approach.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
@@ -41,9 +41,9 @@ Using Azure portal, the sole means for loading an index is the [Import Data wiza
 
 ### [**REST**](#tab/import-rest)
 
-[Add, Update or Delete Documents (REST)](/rest/api/searchservice/addupdate-or-delete-documents) is the means by which you can import data into a search index. The @search.action parameter determines whether documents are added fully or partially in terms of new or replacement values for specific fields.
+[Add, Update or Delete Documents (REST)](/rest/api/searchservice/addupdate-or-delete-documents) is the means by which you can import data into a search index. The @search.action parameter determines whether documents are added in full, or partially in terms of new or replacement values for specific fields.
 
-[**REST Quickstart: Create, load, and query an index**](search-get-started-rest.md) explains the steps. The following example is a modified version of the example. It's been trimmed for brevity and some HotelId values have been altered to avoid overwriting an existing document.
+[**REST Quickstart: Create, load, and query an index**](search-get-started-rest.md) explains the steps. The following example is a modified version of the example. It's been trimmed for brevity and the first HotelId value has been altered to avoid overwriting an existing document.
 
 1. Formulate a POST call specifying the index name, the "docs/index" endpoint, and a request body that includes the @search.action parameter.
 
@@ -106,10 +106,10 @@ Azure Cognitive Search supports document-level operations so that you can look u
 
 1. Check the values of the document key field: `search=*&$select=HotelId`. A simple string is straightforward, but if the index uses a base-64 encoded field, or if search documents were generated from a `parsingMode` setting, you might be working with values that you aren't familiar with.
 
-1. [Look up the document](/rest/api/searchservice/lookup-document) to verify the value of the document ID and to review it's content before deleting it. Specify the key or document ID in the request. The following examples illustrate a simple string for the [Hotels sample index](search-get-started-portal.md) and a base-64 encoded string for the metadata_storage_path key of the [cog-search-demo index](cognitive-search-tutorial-blob.md).
+1. [Look up the document](/rest/api/searchservice/lookup-document) to verify the value of the document ID and to review its content before deleting it. Specify the key or document ID in the request. The following examples illustrate a simple string for the [Hotels sample index](search-get-started-portal.md) and a base-64 encoded string for the metadata_storage_path key of the [cog-search-demo index](cognitive-search-tutorial-blob.md).
 
     ```http
-    GET https://[service name].search.windows.net/indexes/hotel-sample-index/docs/45?api-version=2020-06-30
+    GET https://[service name].search.windows.net/indexes/hotel-sample-index/docs/1111?api-version=2020-06-30
     ```
 
     ```http
@@ -126,7 +126,7 @@ Azure Cognitive Search supports document-level operations so that you can look u
       "value": [  
         {  
           "@search.action": "delete",  
-          "id": "45"  
+          "id": "1111"  
         }  
       ]  
     }
@@ -134,5 +134,7 @@ Azure Cognitive Search supports document-level operations so that you can look u
 
 ## See also
 
-+ [Indexer overview](search-indexer-overview.md)
-+ [Portal quickstart: create, load, query an index](search-get-started-portal.md)
++ [Search indexes overview](search-what-is-an-index.md)
++ [Data import overview](search-what-is-data-import.md)
++ [Import data wizard overview](search-import-data-portal.md)
++ [Indexers overview](search-indexer-overview.md)
