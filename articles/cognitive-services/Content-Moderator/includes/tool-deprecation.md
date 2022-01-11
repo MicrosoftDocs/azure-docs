@@ -12,4 +12,4 @@ ms.author: pafarley
 ---
 
 > [!IMPORTANT]
-> The Content Moderator Review Tool was retired on 12/31/2021.
+> The Content Moderator Review APIs and online Review Tool were retired on 12/31/2021. The Moderation APIs are still available.
