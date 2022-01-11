@@ -27,8 +27,21 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
-## January 2022
+## January 2021
 
+- [More workspaces supported for Multiple Workspace View](#more-workspaces-supported-for-multiple-workspace-view)
+- [Kusto Query Language workbook and tutorial](#kusto-query-language-workbook-and-tutorial)
+### More workspaces supported for Multiple Workspace View
+
+Now, instead of being limited to 10 workspaces in Microsoft Sentinel's [Multiple Workspace View](multiple-workspace-view.md), you can view data from up to 30 workspaces simultaneously.
+
+While we often recommend a single-workspace environment, some use cases require multiple use cases, such as for Managed Security Service Providers (MSSPs) and their customers. **Multiple Workspace View** lets you see and work with security incidents across several workspaces at the same time, even across tenants, allowing you to maintain full visibility and control of your organization’s security responsiveness.
+
+For more information, see:
+
+- [The need to use multiple Microsoft Sentinel workspaces](extend-sentinel-across-workspaces-tenants.md#the-need-to-use-multiple-microsoft-sentinel-workspaces)
+- [Work with incidents in many workspaces at once](multiple-workspace-view.md)
+- [Manage multiple tenants in Microsoft Sentinel as an MSSP](multiple-tenants-service-providers.md)
 ### Kusto Query Language workbook and tutorial
 
 Kusto Query Language is used in Microsoft Sentinel to search, analyze, and visualize data, as the basis for detection rules, workbooks, hunting, and more.
