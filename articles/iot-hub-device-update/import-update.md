@@ -159,7 +159,7 @@ An example manifest output is below. For this example, there are two files that 
 
 11. On the Import update page, review the files to be imported. Then select "Import update" to start the import process. _Note: see the [Proxy Update Troubleshooting](device-update-proxy-update-troubleshooting.md) page to resolve any errors._
 
-   :::image type="content" source="media/import-update/Import-start-ppr.png" alt-text="Import Start" lightbox="media/import-update/Import-start-ppr.png":::
+   :::image type="content" source="media/import-update/import-start-ppr.png" alt-text="Import Start" lightbox="media/import-update/import-start-ppr.png":::
 
 12. The import process begins, and the screen switches to to the "Import History" section. Select "Refresh" to view progress until the import process completes (depending on the size of the update, this may complete in a few minutes but could take longer).
 
