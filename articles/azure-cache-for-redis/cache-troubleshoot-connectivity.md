@@ -77,7 +77,7 @@ Steps to check your virtual network configuration:
 
 ### Private endpoint configuration
 
-Steps to check your private endpoint configurtation:
+Steps to check your private endpoint configuration:
 
 1. `Public Network Access` flag is disabled by default on creating a private endpoint. Ensure that you have set the `Public Network Access` correctly. When you have your cache in Azure portal, look under **Private Endpoint** in the Resource menu on the left for this setting.
 1. If you're trying to connect to your cache private endpoint from outside your virtual network of your cache, `Public Network Access` needs to be enabled.
