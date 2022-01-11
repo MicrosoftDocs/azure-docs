@@ -4,7 +4,7 @@ description: Learn how to use visualizations in Application Change Analysis in A
 ms.topic: conceptual
 author: cawams
 ms.author: cawa
-ms.date: 01/10/2022
+ms.date: 01/11/2022
 
 ---
 
@@ -92,18 +92,36 @@ Under **Common problems**, select **View change details** to view the filtered v
 
 :::image type="content" source="./media/change-analysis/analyze-recent-changes.png" alt-text="Change analyzer in troubleshooting tools":::   
 
-## Activity Log Change History
+## Activity Log change history
 
-The [View change history](../essentials/activity-log.md#view-change-history) feature in Activity Log calls Application Change Analysis service backend to get changes associated with an operation. **Change history** used to call [Azure Resource Graph](../../governance/resource-graph/overview.md) directly, but swapped the backend to call Application Change Analysis so changes returned will include resource level changes from [Azure Resource Graph](../../governance/resource-graph/overview.md), resource properties from [Azure Resource Manager](../../azure-resource-manager/management/overview.md), and in-guest changes from PaaS services such as App Services web app. 
-In order for the Application Change Analysis service to be able to scan for changes in users' subscriptions, a resource provider needs to be registered. The first time entering **Change History** tab, the tool will automatically start to register **Microsoft.ChangeAnalysis** resource provider. After registered, changes from **Azure Resource Graph** will be available immediately and cover the past 14 days. Changes from other sources will be available after ~4 hours after subscription is onboard.
+Use the [View change history](../essentials/activity-log.md#view-change-history) feature to call the Application Change Analysis service backend to view changes associated with an operation. Changes returned include:
+- Resource level changes from [Azure Resource Graph](../../governance/resource-graph/overview.md).
+- Resource properties from [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
+- In-guest changes from PaaS services, such as App Services web app.
 
-![Activity Log change history integration](./media/change-analysis/activity-log-change-history.png)
+1. From within your resource, select **Activity Log** from the side menu.
+1. Select a change from the list.
+1. Select the **Change history (Preview)** tab. 
+1. For the Application Change Analysis service to scan for changes in users' subscriptions, a resource provider needs to be registered. Upon selecting the **Change history (Preview)** tab, the tool will automatically register **Microsoft.ChangeAnalysis** resource provider.
+1. Once registered, you can view changes from **Azure Resource Graph** immediately from the past 14 days.
+   - Changes from other sources will be available after ~4 hours after subscription is onboard.
+
+:::image type="content" source="./media/change-analysis/activity-log-change-history.png" alt-text="Activity Log change history integration":::   
 
 ## VM Insights integration
 
-Users having [VM Insights](../vm/vminsights-overview.md) enabled can view what changed in their virtual machines that might of caused any spikes in a metrics chart such as CPU or Memory. Change data is integrated in the VM Insights side navigation bar. User can view if any changes happened in the VM and select **Investigate Changes** to view change details in Application Change Analysis standalone UI.
+If you've enabled [VM Insights](../vm/vminsights-overview.md), you can view changes in your virtual machines that may have caused any spikes in a metrics chart such as CPU or Memory.
 
-[![VM insights integration](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
+1. Within your virtual machine, select **Insights** from under **Monitoring** in the left menu.
+1. Select the **Performance** tab.
+1. Expand the property panel.
+
+    :::image type="content" source="./media/change-analysis/vm-insights.png" alt-text="Virtual machine insights performance and property panel.":::   
+
+1. Select the **Changes** tab.
+1. Select the **Investigate Changes** button to view change details in the Application Change Analysis standalone UI.
+
+    :::image type="content" source="./media/change-analysis/vm-insights-2.png" alt-text="View of the property panel, selecting Investigate Changes button.":::   
 
 ## Next steps
 

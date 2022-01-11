@@ -4,14 +4,14 @@ description: Use Application Change Analysis in Azure Monitor to troubleshoot ap
 ms.topic: conceptual
 author: cawams
 ms.author: cawa
-ms.date: 01/07/2022 
+ms.date: 01/11/2022 
 ms.custom: devx-track-azurepowershell
 
 ---
 
 # Use Application Change Analysis in Azure Monitor (preview)
 
-Quickly determining the root cause of a live site issue or outage is critical to you and your team. While standard monitoring solutions might alert you to a problem or component failure, they often don't explain the cause. All you know is your site worked five minutes ago, and now it's broken. What changed in the last five minutes? 
+While standard monitoring solutions might alert you to a a live site issue, outage, or component failure, they often don't explain the cause. All you know is your site worked five minutes ago, and now it's broken. What changed in the last five minutes? 
 
 We've designed Application Change Analysis to answer that question in Azure Monitor.
 
@@ -87,7 +87,7 @@ Every 4 hours, Change Analysis captures the deployment and configuration state o
 
 Unlike Azure Resource Manager changes, code deployment change information might not be available immediately in the Change Analysis tool. To view the latest changes in Change Analysis, select **Refresh**.
 
-![Screenshot of the "Scan changes now" button](./media/change-analysis/scan-changes.png)
+:::image type="content" source="./media/change-analysis/scan-changes.png" alt-text="Screenshot of the "Scan changes now" button":::   
 
 Currently all text-based files under site root **wwwroot** with the following extensions are supported:
 - *.json
@@ -131,7 +131,7 @@ Change Analysis detects related resources. Common examples are:
 
 Usually, network resources are automatically provisioned in the same resource group as the resources using it. Filtering changes by resource group will show all changes for the virtual machine and related networking resources.
 
-![Screenshot of Networking changes](./media/change-analysis/network-changes.png)
+:::image type="content" source="./media/change-analysis/network-changes.png" alt-text="Screenshot of Networking changes":::   
 
 ## Application Change Analysis service enablement
 
