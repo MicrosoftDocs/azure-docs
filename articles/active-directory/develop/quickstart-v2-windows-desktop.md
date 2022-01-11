@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, mode-other
+ms.custom: aaddev, identityplatformtop40, mode-api
 #Customer intent: As an application developer, I want to learn how my Windows desktop .NET application can get an access token and call an API that's protected by the Microsoft identity platform.
 ---
 

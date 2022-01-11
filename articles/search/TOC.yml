@@ -98,7 +98,7 @@
       href: tutorial-multiple-data-sources.md
   - name: Index any data
     href: tutorial-optimize-indexing-push-api.md
-  - name: Use AI to create content
+  - name: Enrich with AI (skills)
     items:
     - name: C#
       href: cognitive-search-tutorial-blob-dotnet.md
@@ -140,6 +140,8 @@
     items:
     - name: Search indexes
       href: search-what-is-an-index.md
+    - name: Import
+      href: search-what-is-data-import.md
     - name: Analyzers
       href: search-analyzers.md
     - name: Indexers
@@ -148,6 +150,8 @@
     items:
     - name: Enrichment overview
       href: cognitive-search-concept-intro.md
+    - name: Enrichment cache
+      href: cognitive-search-incremental-indexing-conceptual.md
     - name: Skillsets
       href: cognitive-search-working-with-skillsets.md
     - name: Debug sessions
@@ -156,8 +160,6 @@
       href: knowledge-store-concept-intro.md
     - name: Projections
       href: knowledge-store-projection-overview.md
-    - name: Enrichment cache
-      href: cognitive-search-incremental-indexing-conceptual.md
   - name: Security
     items:
     - name: Security overview
@@ -237,6 +239,8 @@
       href: search-api-versions.md
     - name: Preview features
       href: search-api-preview.md
+    - name: Handle concurrent updates
+      href: search-howto-concurrency.md
     - name: Develop in .NET
       items:
       - name: Use Azure.Search.Documents
@@ -267,8 +271,14 @@
     items:
     - name: Create an index
       href: search-how-to-create-search-index.md
+    - name: Load an index
+      href: search-import-data-portal.md
+    - name: Drop and rebuild an index
+      href: search-howto-reindex.md
     - name: Create a multi-language index
       href: search-language-support.md
+    - name: Index large data sets
+      href: search-howto-large-index.md
     - name: Synonyms
       items:
       - name: Add synonyms
@@ -285,18 +295,6 @@
       href: index-add-language-analyzers.md
     - name: Add a custom analyzer
       href: index-add-custom-analyzers.md
-  - name: Data import
-    items:
-    - name: Data import overview
-      href: search-what-is-data-import.md
-    - name: Import data (portal)
-      href: search-import-data-portal.md
-    - name: Rebuild an index
-      href: search-howto-reindex.md
-    - name: Index large data sets
-      href: search-howto-large-index.md
-    - name: Handle concurrent updates
-      href: search-howto-concurrency.md
   - name: Indexers
     items:
     - name: Create an indexer
@@ -379,6 +377,8 @@
       href: cognitive-search-attach-cognitive-services.md
     - name: Create a skillset
       href: cognitive-search-defining-skillset.md
+    - name: Debug a skillset
+      href: cognitive-search-how-to-debug-skillset.md
     - name: Reference an annotation    
       href: cognitive-search-concept-annotations-syntax.md
     - name: Map to index fields

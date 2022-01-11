@@ -7,6 +7,7 @@ ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
+ms.devlang: php
 ms.custom: mode-other
 ---
 

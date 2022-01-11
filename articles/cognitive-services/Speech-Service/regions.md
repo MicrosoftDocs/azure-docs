@@ -3,13 +3,13 @@ title: Regions - Speech service
 titleSuffix: Azure Cognitive Services
 description: A list of available regions and endpoints for the Speech service, including speech-to-text, text-to-speech, and speech translation.
 services: cognitive-services
-author: PanosPeriorellis
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/13/2021
-ms.author: panosper
+ms.date: 01/08/2022
+ms.author: eur
 ms.custom: references_regions, ignite-fall-2021
 ---
 
@@ -32,9 +32,9 @@ Keep in mind the following points when considering regions:
 
 In the [Speech SDK](speech-sdk.md), the region is specified as a parameter (for example, as a parameter to `SpeechConfig.FromSubscription` in the Speech SDK for C#).
 
-### Speech-to-text, text-to-speech, and translation
+### Speech-to-Text, Text-to-Speech, and translation
 
-The Speech service is available in these regions for **speech recognition**, **text-to-speech**, and **translation**:
+The Speech service is available in these regions for **Speech-to-Text**, **Text-to-Speech**, and **translation**:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
@@ -101,11 +101,11 @@ Available regions for **Speaker Recognition** are the following:
 
 ## REST APIs
 
-The Speech service also exposes REST endpoints for speech-to-text, text-to-speech and speaker recognition requests.
+The Speech service also exposes REST endpoints for Speech-to-Text, Text-to-Speech and speaker recognition requests.
 
-### Speech-to-text
+### Speech-to-Text
 
-For speech-to-text reference documentation, see [Speech-to-text REST API](rest-speech-to-text.md).
+For Speech-to-Text reference documentation, see [Speech-to-Text REST API](rest-speech-to-text.md).
 
 The endpoint for the REST API has this format:
 
@@ -120,11 +120,11 @@ Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your su
 > [!NOTE]
 > The language parameter must be appended to the URL to avoid receiving an 4xx HTTP error. For example, the language set to US English using the West US endpoint is: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
 
-### Text-to-speech
+### Text-to-Speech
 
-For text-to-speech reference documentation, see [Text-to-speech REST API](rest-text-to-speech.md).
+For Text-to-Speech reference documentation, see [Text-to-Speech REST API](rest-text-to-speech.md).
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+[!INCLUDE [](includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 ### Speaker Recognition
 

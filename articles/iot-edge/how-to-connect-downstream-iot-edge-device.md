@@ -4,7 +4,7 @@ description: How to configure an IoT Edge device to connect to Azure IoT Edge ga
 author: kgremban
 
 ms.author: kgremban
-ms.date: 03/01/2021
+ms.date: 01/09/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -356,7 +356,7 @@ The API proxy module was designed to be customized to handle most common gateway
                        },
                        "IoTEdgeAPIProxy": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-api-proxy:1.0",
+                               "image": "mcr.microsoft.com/azureiotedge-api-proxy:1.1",
                                "createOptions": "{\"HostConfig\": {\"PortBindings\": {\"443/tcp\": [{\"HostPort\":\"443\"}]}}}"
                            },
                            "type": "docker",
@@ -436,7 +436,7 @@ Before discussing the required proxy module for IoT Edge devices in gateway hier
 
 If your lower layer devices can't connect to the cloud, but you want them to pull module images as usual, then the top layer device of the gateway hierarchy must be configured to handle these requests. The top layer device needs to run a Docker **registry** module that is mapped to your container registry. Then, configure the API proxy module to route container requests to it. Those details are discussed in the earlier sections of this article. In this configuration, the lower layer devices should not point to cloud container registries, but to the registry running in the top layer.
 
-For example, instead of calling `mcr.microsoft.com/azureiotedge-api-proxy:1.0`, lower layer devices should call `$upstream:443/azureiotedge-api-proxy:1.0`.
+For example, instead of calling `mcr.microsoft.com/azureiotedge-api-proxy:1.1`, lower layer devices should call `$upstream:443/azureiotedge-api-proxy:1.1`.
 
 The **$upstream** parameter points to the parent of a lower layer device, so the request will route through all the layers until it reaches the top layer which has a proxy environment routing container requests to the registry module. The `:443` port in this example should be replaced with whichever port the API proxy module on the parent device is listening on.
 
@@ -531,6 +531,58 @@ The API proxy module was designed to be customized to handle most common gateway
     1. **Value**: `FROM /messages/* INTO $upstream`
 1. Select **Review + create** to go to the final step.
 1. Select **Create** to deploy to your device.
+
+## Integrate Microsoft Defender for IoT with IoT Edge gateway
+
+Leaf devices can be used to integrate the Microsoft Defender for IoT's micro agent with the IoT Edge gateway using leaf device proxying.
+
+Learn more about the [Defender for IoT micro agent](../defender-for-iot/device-builders/overview.md#defender-for-iot-micro-agent).
+
+**To integrate Microsoft Defender for IoT with IoT Edge using leaf device proxying**:
+
+1. Sign in to the Azure portal.
+
+1. Navigate to **IoT Hub** > **`Your Hub`** > **Device management** > **Devices**
+
+1. Select your device.
+
+    :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/select-device.png" alt-text="Screenshot showing where your device is located for selection.":::
+
+1. Select the `DefenderIotMicroAgent` module twin that you created from [these instructions](../defender-for-iot/device-builders/quickstart-create-micro-agent-module-twin.md#create-defenderiotmicroagent-module-twin).
+
+    :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/defender-micro-agent.png" alt-text="Screenshot showing the location of the DefenderIotMicroAgent.":::
+
+1. Select the :::image type="icon" source="media/how-to-connect-downstream-iot-edge-device/copy-icon.png" border="false"::: button to copy your Connection string (primary key).
+
+1. Paste the Connection string into a text editing application, and add the GatewayHostName to the string. For example, `HostName=nested11.azure-devices.net;DeviceId=leaf1;ModuleId=module1;SharedAccessKey=xxx;GatewayHostName=10.16.7.4`.
+
+1. Open a terminal on the leaf device.
+
+1. Use the following command to place the connection string encoded in utf-8 in the Defender for Cloud agent directory into the file `connection_string.txt` in the following path: `/var/defender_iot_micro_agent/connection_string.txt`:
+
+    ```bash
+    sudo bash -c 'echo "<connection string>" > /var/defender_iot_micro_agent/connection_string.txt'
+    ```
+
+    The `connection_string.txt` should now be located in the following path location `/var/defender_iot_micro_agent/connection_string.txt`.
+
+1. Restart the service using this command:  
+
+    ```bash
+    sudo systemctl restart defender-iot-micro-agent.service 
+    ```
+
+1. Navigate back to the device.
+
+    :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/device.png" alt-text="Screenshot showing how to navigate back to your device.":::
+
+1. Enable the connection to the IoT Hub, and select the gear icon.
+
+    :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/gear-icon.png" alt-text="Screenshot showing what to select to set a parent device.":::
+
+1. Select the parent device from the displayed list.
+
+1. Ensure that port 8883 (MQTT) between the leaf device and the IoT Edge device is open.
 
 ## Next steps
 

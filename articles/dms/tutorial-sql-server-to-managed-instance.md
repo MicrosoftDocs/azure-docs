@@ -76,43 +76,16 @@ To complete this tutorial, you need to:
 
     > [!NOTE]
     > Azure Database Migration Service does not support using an account level SAS token when configuring the Storage Account settings during the [Configure Migration Settings](#configure-migration-settings) step.
+
+   
+    >- Azure Storage Account with Private endpoint is not supported by Azure Database Migration service.
     
 [!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
 
-## Create an Azure Database Migration Service instance
-
-1. In the Azure portal menu or on the **Home** page, select **Create a resource**. Search for and select **Azure Database Migration Service**.
-
-    ![Azure Marketplace](media/tutorial-sql-server-to-managed-instance/portal-marketplace.png)
-
-2. On the **Azure Database Migration Service** screen, select **Create**.
-
-    ![Create Azure Database Migration Service instance](media/tutorial-sql-server-to-managed-instance/dms-create-service-1.png)
-
-3. On the **Create Migration Service** basics screen:
-
-     - Select the subscription.
-     - Create a new resource group or choose an existing one.
-     - Specify a name for the instance of the Azure Database Migration Service.
-     - Select the location in which you want to create the instance of Azure Database Migration Service.
-     - Choose **Azure** as the service mode.
-     - Select a pricing tier. For more information on costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing).
-
-    ![Configure Azure Database Migration Service instance basics settings](media/tutorial-sql-server-to-managed-instance/dms-create-service-2.png)
-
-     - Select **Next: Networking**.
-
-4. On the **Create Migration Service** networking screen:
-
-    - Select an existing virtual network or create a new one. The virtual network provides Azure Database Migration Service with access to the source SQL Server and the target Azure SQL Managed Instance.
-     
-    - For more information about how to create a virtual network in the Azure portal, see the article [Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
+[!INCLUDE [instance-create](../../includes/database-migration-service-instance-create.md)]   
     
-    - For additional detail, see the article [Network topologies for Azure SQL Managed Instance migrations using Azure Database Migration Service](./resource-network-topologies.md).
-
-    ![Configure Azure Database Migration Service instance networking settings](media/tutorial-sql-server-to-managed-instance/dms-create-service-3.png)
-
-    - Select **Review + Create** to review the details and then select **Create** to create the service.
+> [!NOTE] 
+> For additional detail, see the article [Network topologies for Azure SQL Managed Instance migrations using Azure Database Migration Service](./resource-network-topologies.md).
 
 ## Create a migration project
 

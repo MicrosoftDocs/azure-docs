@@ -6,22 +6,8 @@
     href: core/overview-iot-central.md
   - name: Tour of the UI
     href: core/overview-iot-central-tour.md
-  - name: Recent updates
-    items:
-    - name: September 2021 new and updated features
-      href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-september-2021/
-    - name: August 2021 new and updated features
-      href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-august-2021/
-    - name: July 2021 new and updated features
-      href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-july-2021/
-    - name: June 2021 new and updated features
-      href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-june-2021/
-    - name: May 2021 new and updated features
-      href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-may-2021/
-    - name: April 2021 new and updated features
-      href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-april-2021/
-    - name: Update history
-      href: https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central
+  - name: What's new?
+    href: https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central
 - name: Quickstarts
   expanded: true
   items:
@@ -69,26 +55,6 @@
           href: retail/tutorial-iot-central-digital-distribution-center.md 
         - name: Create a micro-fulfillment center application
           href: retail/tutorial-micro-fulfillment-center.md 
-        - name: Video analytics - object and motion detection
-          items:
-          - name: 0 - Deploy object and motion detection application
-            href: retail/tutorial-video-analytics-deploy.md
-          - name: 1 - Create a video analytics application
-            items:
-            - name: Object and motion detection (YOLO v3)
-              href: retail/tutorial-video-analytics-create-app-yolo-v3.md
-            - name: Object and motion detection (OpenVINO)
-              href: retail/tutorial-video-analytics-create-app-openvino.md
-          - name: 2 - Configure an IoT Edge device
-            items:
-            - name: Create video analytics device on the edge (Linux VM)
-              href: retail/tutorial-video-analytics-iot-edge-vm.md
-            - name: Create video analytics device on the edge (Intel NUC)
-              href: retail/tutorial-video-analytics-iot-edge-nuc.md
-          - name: 3 -Monitor and manage a video analytics application
-            href: retail/tutorial-video-analytics-manage.md
-          - name: 4 - Modify and build the live video analytics gateway modules
-            href: retail/tutorial-video-analytics-build-module.md
       - name: Energy
         items:
         - name: Create a smart meter monitoring app
@@ -181,6 +147,8 @@
           href: core/howto-export-data.md
         - name: Export data to cloud destinations (legacy)
           href: core/howto-export-data-legacy.md
+        - name: Transform data internally on ingress
+          href: core/howto-map-data.md
         - name: Transform data internally for export
           href: core/howto-transform-data-internally.md
         - name: Transform data externally
@@ -205,6 +173,8 @@
           href: core/howto-manage-data-export-with-rest-api.md
         - name: Manage device templates
           href: core/howto-manage-device-templates-with-rest-api.md
+        - name: Manage devices
+          href: core/howto-manage-devices-with-rest-api.md
         - name: Control devices
           href: core/howto-control-devices-with-rest-api.md
         - name: Manage jobs
@@ -273,12 +243,12 @@
       href: ../iot-dps/index.yml
     - name: IoT Edge
       href: ../iot-edge/index.yml
-    - name: IoT Plug and Play
-      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
     - name: Time Series Insights
       href: ../time-series-insights/index.yml
+  - name: IoT device developer
+    href: ../iot-develop/index.yml
   - name: Azure IoT SDKs
     items:
     - name: IoT Service SDKs

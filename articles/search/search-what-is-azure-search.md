@@ -8,14 +8,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 09/28/2021
+ms.date: 01/03/2022
 ms.custom: contperf-fy21q1
 ---
 # What is Azure Cognitive Search?
 
 Azure Cognitive Search ([formerly known as "Azure Search"](whats-new.md#new-service-name)) is a cloud search service that gives developers infrastructure, APIs, and tools for building a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications.
 
-Search is foundational to any app that surfaces text content to users, with common scenarios including catalog or document search, online retail, or knowledge mining for data science.
+Search is foundational to any app that surfaces text content to users, with common scenarios including catalog or document search, online retail, or data exploration.
 
 When you create a search service, you'll work with the following capabilities:
 
@@ -53,7 +53,7 @@ Azure Cognitive Search is well suited for the following application scenarios:
 
 + Easily implement search-related features: relevance tuning, faceted navigation, filters (including geo-spatial search), synonym mapping, and autocomplete.
 
-+ Transform large undifferentiated text or image files, or application files stored in Azure Blob Storage or Cosmos DB, into searchable JSON documents. This is achieved during index through [cognitive skills](cognitive-search-concept-intro.md) that add external processing.
++ Transform large undifferentiated text or image files, or application files stored in Azure Blob Storage or Cosmos DB, into searchable JSON documents. This is achieved during indexing through [cognitive skills](cognitive-search-concept-intro.md) that add external processing.
 
 + Add linguistic or custom text analysis. If you have non-English content, Azure Cognitive Search supports both Lucene analyzers and Microsoft's natural language processors. You can also configure analyzers to achieve specialized processing of raw content, such as filtering out diacritics, or recognizing and preserving patterns in strings.
 
@@ -61,19 +61,26 @@ For more information about specific functionality, see [Features of Azure Cognit
 
 ## How to get started
 
-An end-to-end exploration of core search features can be achieved in four steps:
+An end-to-end exploration of core search features can be accomplished in four steps:
 
-1. [**Create a search service**](search-create-service-portal.md) at the shared Free tier or a [billable tier](https://azure.microsoft.com/pricing/details/search/) for dedicated resources used only by your service. All quickstarts and tutorials can be completed on a shared service.
+1. [**Decide on a tier**](search-sku-tier.md). One free search service is allowed per subscription. All quickstarts can be completed on the free tier. For more capacity and capabilities, you will need a [billable tier](https://azure.microsoft.com/pricing/details/search/).
+
+1. [**Create a search service**](search-create-service-portal.md) in the Azure portal.
+
+1. [**Start with Import data wizard**](search-get-started-portal.md). Choose a built-in sample or a supported data source to create, load, and query an index in minutes.
+
+1. [**Finish with Search Explorer**](search-explorer.md), using a portal client to query the search index you just created.
+
+Alternatively, you can create, load, and query a search index in atomically:
 
 1. [**Create a search index**](search-what-is-an-index.md) using the portal, [REST API](/rest/api/searchservice/create-index), [.NET SDK](search-howto-dotnet-sdk.md), or another SDK. The index schema defines the structure of searchable content.
 
-1. [**Upload content**](search-what-is-data-import.md) using the ["push" model](tutorial-optimize-indexing-push-api.md) to push JSON documents from any source, or use the ["pull" model (indexers)](search-indexer-overview.md) if your source data is on Azure.
+1. [**Upload content**](search-what-is-data-import.md) using the ["push" model](tutorial-optimize-indexing-push-api.md) to push JSON documents from any source, or use the ["pull" model (indexers)](search-indexer-overview.md) if your source data is of a [supported type](search-indexer-overview.md#supported-data-sources).
 
 1. [**Query an index**](search-query-overview.md) using [Search explorer](search-explorer.md) in the portal, [REST API](search-get-started-rest.md), [.NET SDK](/dotnet/api/azure.search.documents.searchclient.search), or another SDK.
 
-For initial exploration, start with the [**Import data wizard**](search-get-started-portal.md) and a built-in Azure data source to create, load, and query an index in minutes.
-
-For help with complex or custom solutions, [**contact a partner**](resource-partners-knowledge-mining.md) with deep expertise in Cognitive Search technology.
+> [!TIP]
+> For help with complex or custom solutions, [**contact a partner**](resource-partners-knowledge-mining.md) with deep expertise in Cognitive Search technology.
 
 ## Compare search options
 
@@ -84,18 +91,18 @@ Customers often ask how Azure Cognitive Search compares with other search-relate
 | Microsoft Search | [Microsoft Search](/microsoftsearch/overview-microsoft-search) is for Microsoft 365 authenticated users who need to query over content in SharePoint. It's offered as a ready-to-use search experience, enabled and configured by administrators, with the ability to accept external content through connectors from Microsoft and other sources. If this describes your scenario, then Microsoft Search with Microsoft 365 is an attractive option to explore.<br/><br/>In contrast, Azure Cognitive Search executes queries over an index that you define, populated with data and documents you own, often from diverse sources. Azure Cognitive Search has crawler capabilities for some Azure data sources through [indexers](search-indexer-overview.md), but you can push any JSON document that conforms to your index schema into a single, consolidated searchable resource. You can also customize the indexing pipeline to include machine learning and lexical analyzers. Because Cognitive Search is built to be a plug-in component in larger solutions, you can integrate search into almost any app, on any platform.|
 |Bing | [Bing Web Search API](../cognitive-services/bing-web-search/index.yml) searches the indexes on Bing.com for matching terms you submit. Indexes are built from HTML, XML, and other web content on public sites. Built on the same foundation, [Bing Custom Search](/azure/cognitive-services/bing-custom-search/) offers the same crawler technology for web content types, scoped to individual web sites.<br/><br/>In Cognitive Search, you can define and populate the index. You can use [indexers](search-indexer-overview.md) to crawl data on Azure data sources, or push any index-conforming JSON document to your search service. |
 |Database search | Many database platforms include a built-in search experience. SQL Server has [full text search](/sql/relational-databases/search/full-text-search). Cosmos DB and similar technologies have queryable indexes. When evaluating products that combine search and storage, it can be challenging to determine which way to go. Many solutions use both: DBMS for storage, and Azure Cognitive Search for specialized search features.<br/><br/>Compared to DBMS search, Azure Cognitive Search stores content from heterogeneous sources and offers specialized text processing features such as linguistic-aware text processing (stemming, lemmatization, word forms) in [56 languages](/rest/api/searchservice/language-support). It also supports autocorrection of misspelled words, [synonyms](/rest/api/searchservice/synonym-map-operations), [suggestions](/rest/api/searchservice/suggestions), [scoring controls](/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [facets](search-faceted-navigation.md),  and [custom tokenization](/rest/api/searchservice/custom-analyzers-in-azure-search). The [full text search engine](search-lucene-query-architecture.md) in Azure Cognitive Search is built on Apache Lucene, an industry standard in information retrieval. However, while Azure Cognitive Search persists data in the form of an inverted index, it is not a replacement for true data storage and we don't recommend using it in that capacity. For more information, see this [forum post](https://stackoverflow.com/questions/40101159/can-azure-search-be-used-as-a-primary-database-for-some-data). <br/><br/>Resource utilization is another inflection point in this category. Indexing and some query operations are often computationally intensive. Offloading search from the DBMS to a dedicated solution in the cloud preserves system resources for transaction processing. Furthermore, by externalizing search, you can easily adjust scale to match query volume.|
-|Dedicated search solution | Assuming you have decided on dedicated search with full spectrum functionality, a final categorical comparison is between on premises solutions or a cloud service. Many search technologies offer controls over indexing and query pipelines, access to richer query and filtering syntax, control over rank and relevance, and features for self-directed and intelligent search. <br/><br/>A cloud service is the right choice if you want a turn-key solution with minimal overhead and maintenance, and adjustable scale. <br/><br/>Within the cloud paradigm, several providers offer comparable baseline features, with full-text search, geo-search, and the ability to handle a certain level of ambiguity in search inputs. Typically, it's a [specialized feature](search-features-list.md), or the ease and overall simplicity of APIs, tools, and management that determines the best fit. |
+|Dedicated search solution | Assuming you have decided on dedicated search with full spectrum functionality, a final categorical comparison is between on premises solutions or a cloud service. Many search technologies offer controls over indexing and query pipelines, access to richer query and filtering syntax, control over rank and relevance, and features for self-directed and intelligent search. <br/><br/>A cloud service is the right choice if you want a turn-key solution with minimal overhead and maintenance, and adjustable scale. <br/><br/>Within the cloud paradigm, several providers offer comparable baseline features, with full-text search, geospatial search, and the ability to handle a certain level of ambiguity in search inputs. Typically, it's a [specialized feature](search-features-list.md), or the ease and overall simplicity of APIs, tools, and management that determines the best fit. |
 
 Among cloud providers, Azure Cognitive Search is strongest for full text search workloads over content stores and databases on Azure, for apps that rely primarily on search for both information retrieval and content navigation. 
 
 Key strengths include:
 
-+ Azure data integration (crawlers) at the indexing layer
-+ Azure Private Link integration to support off-internet security requirements
-+ Integration with AI processing to make unsearchable content types text-searchable.
-+ Linguistic and custom analysis, with analyzers for solid full text search in 56 languages
-+ [Critical features](search-features-list.md): rich query language, relevance tuning, faceting, autocomplete, synonyms, geo-search, and result composition.
-+ Azure scale, reliability, and world-class availability
++ Data integration (crawlers) at the indexing layer.
++ Security integration with Azure Active Directory for trusted connections, and with Azure Private Link integration to support private connections to a search index in no-internet scenarios.
++ Machine learning and AI integration with Azure Cognitive Services, useful if you need to make unsearchable content types full text-searchable.
++ Linguistic and custom text analysis in 56 languages.
++ [Full search experience](search-features-list.md): rich query language, relevance tuning and semantic ranking, faceting, autocomplete queries and suggested results, and synonyms.
++ Azure scale, reliability, and world-class availability.
 
 Among our customers, those able to leverage the widest range of features in Azure Cognitive Search include online catalogs, line-of-business programs, and document discovery applications.
 

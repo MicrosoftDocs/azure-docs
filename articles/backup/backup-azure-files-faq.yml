@@ -2,7 +2,7 @@
 metadata:
   title: Back up Azure Files FAQ
   description: In this article, discover answers to common questions about how to protect your Azure file shares with the Azure Backup service.
-  ms.date: 10/08/2021
+  ms.date: 12/10/2021
   ms.topic: article
   ms.service: backup
     
@@ -253,6 +253,28 @@ sections:
 
             - If daily retention is extended, the expiration date of the existing daily recovery points is updated according to the daily retention value configured in the new policy.
             - If daily retention is reduced, the existing daily recovery points and snapshots are marked for deletion in the next cleanup run job according to the daily retention value configured in the new policy, and then deleted.
+
+  - name: Lease snapshots
+    questions:
+      - question: |
+          Will the storage account deletion be blocked if there’s an active lease on the snapshots?
+        answer: |
+          No, the storage account deletion isn’t blocked by a lease on snapshots.
+
+      - question: |
+          What’s the recommended way to delete a backed-up file share with a lease on snapshots?
+        answer: |
+          We recommend you to perform the _stop protection with delete data_ operation on the backed-up file share.   <br><br>   After this operation, Azure Backup will release the lease and delete all snapshots. Then you can delete the file share.
+
+      - question: |
+          Does Azure Backup take the lease retroactively?
+        answer: |
+          No, Azure Backup only takes a lease on the snapshots that are taken after the release of this capability.
+
+      - question: |
+          Is the lease effective on snapshots in a file share undeleted from the soft delete state?
+        answer: |
+          No. If you delete a file share containing leased snapshots, the lease won’t be in place when the file share is undeleted.
 
 additionalContent: |
 

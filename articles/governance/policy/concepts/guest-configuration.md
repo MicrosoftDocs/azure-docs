@@ -107,8 +107,8 @@ these tools automatically.
 
 |Operating system|Validation tool|Notes|
 |-|-|-|
-|Windows|[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v3| Side-loaded to a folder only used by Azure Policy. Won't conflict with Windows PowerShell DSC. PowerShell Core isn't added to system path.|
-|Linux|[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v3| Side-loaded to a folder only used by Azure Policy. PowerShell Core isn't added to system path.|
+|Windows|[PowerShell Desired State Configuration](/powershell/dsc/overview) v3| Side-loaded to a folder only used by Azure Policy. Won't conflict with Windows PowerShell DSC. PowerShell Core isn't added to system path.|
+|Linux|[PowerShell Desired State Configuration](/powershell/dsc/overview) v3| Side-loaded to a folder only used by Azure Policy. PowerShell Core isn't added to system path.|
 |Linux|[Chef InSpec](https://www.chef.io/inspec/) | Installs Chef InSpec version 2.2.61 in default location and added to system path. Dependencies for the InSpec package including Ruby and Python are installed as well. |
 
 ### Validation frequency
@@ -142,7 +142,7 @@ The ".x" text is symbolic to represent new minor versions of Linux distributions
 |Amazon|Linux|2|
 |Canonical|Ubuntu Server|14.04 - 20.x|
 |Credativ|Debian|8 - 10.x|
-|Microsoft|Windows Server|2012 - 2019|
+|Microsoft|Windows Server|2012 - 2022|
 |Microsoft|Windows Client|Windows 10|
 |Oracle|Oracle-Linux|7.x-8.x|
 |OpenLogic|CentOS|7.3 -8.x|

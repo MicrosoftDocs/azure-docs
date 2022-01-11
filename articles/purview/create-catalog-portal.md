@@ -6,8 +6,8 @@ ms.author: nayenama
 ms.date: 11/15/2021
 ms.topic: quickstart
 ms.service: purview
-ms.custom: mode-other
-# Customer intent: As a data steward, I want create a new Azure Purview Account so that I can scan and classify my data.
+ms.custom: mode-ui
+#Customer intent: As a data steward, I want create a new Azure Purview Account so that I can scan and classify my data.
 ---
 # Quickstart: Create an Azure Purview account in the Azure portal
 

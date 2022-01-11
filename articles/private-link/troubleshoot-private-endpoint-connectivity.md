@@ -8,7 +8,6 @@ manager: narayan
 editor: ''
 
 ms.service: private-link
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -55,7 +54,7 @@ Review these steps to make sure all the usual configurations are as expected to 
     
 1. Use [Azure Monitor](../azure-monitor/overview.md) to see if data is flowing.
 
-    a. On the private endpoint resource, select **Monitor**.
+    a. On the private endpoint resource, select **Metrics**.
      - Select **Bytes In** or **Bytes Out**. 
      - See if data is flowing when you attempt to connect to the private endpoint. Expect a delay of approximately 10 minutes.
     

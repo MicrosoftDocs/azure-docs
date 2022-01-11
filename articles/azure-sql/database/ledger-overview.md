@@ -4,7 +4,7 @@ description: Learn the basics of the Azure SQL Database ledger feature.
 ms.date: "09/09/2021"
 ms.service: sql-database
 ms.subservice: security
-ms.reviewer: vanto
+ms.reviewer: kendralittle, mathoma
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto

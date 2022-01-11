@@ -29,7 +29,7 @@ ms.author: danlep
 
 Plain values or secrets can contain [policy expressions](./api-management-policy-expressions.md). For example, the expression `@(DateTime.Now.ToString())` returns a string containing the current date and time.
 
-For details about the named value attributes, see the API Management [REST API reference](/rest/api/apimanagement/2021-04-01-preview/named-value/create-or-update).
+For details about the named value attributes, see the API Management [REST API reference](/rest/api/apimanagement/current-ga/named-value/create-or-update).
 
 ## Key vault secrets
 

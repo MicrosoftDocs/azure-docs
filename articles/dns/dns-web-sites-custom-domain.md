@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: rohink 
 ms.custom: devx-track-azurepowershell
-#Customer intent: As an experienced network administrator I want to create DNS records in Azure DNS, so I can host a web app in a custom domain.
+#Customer intent: As an experienced network administrator, I want to create DNS records in Azure DNS, so I can host a web app in a custom domain.
 ---
 
 # Tutorial: Create DNS records in a custom domain for a web app 

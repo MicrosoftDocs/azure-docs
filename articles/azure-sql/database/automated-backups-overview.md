@@ -9,17 +9,14 @@ ms.custom: references_regions, devx-track-azurepowershell
 ms.topic: conceptual
 author: SQLSourabh 
 ms.author: sourabha
-ms.reviewer: mathoma, wiassaf, danil
-ms.date: 08/28/2021
+ms.reviewer: kendralittle, mathoma, wiassaf, danil
+ms.date: 01/10/2022
 ---
 # Automated backups - Azure SQL Database & Azure SQL Managed Instance
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
-
-> [!div class="nextstepaction"]
-> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## What is a database backup?
 
@@ -47,7 +44,7 @@ For SQL Database, the backup storage redundancy can be configured at the time of
 > Zone-redundant storage is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> Backup storage redundancy for SQL Database and Hyperscale is currently in preview. 
+> Backup storage redundancy for Hyperscale is currently in preview. 
 
 ### Backup usage
 
@@ -225,18 +222,24 @@ For more details about backup storage pricing visit [Azure SQL Database pricing 
 > Backup storage redundancy for Hyperscale and SQL Managed Instance can only be set during database creation. This setting cannot be modified once the resource is provisioned. [Database copy](database-copy.md) process can be used to update the backup storage redundancy settings for an existing Hyperscale database. 
 
 > [!NOTE]
-> Backup storage redundancy for SQL Database and Hyperscale is currently in preview. 
+> Backup storage redundancy for Hyperscale is currently in preview. 
 
 ### Monitor costs
 
-To understand backup storage costs, go to **Cost Management + Billing** in the Azure portal, select **Cost Management**, and then select **Cost analysis**. Select the desired subscription as the **Scope**, and then filter for the time period and service that you're interested in.
+To understand backup storage costs, go to **Cost Management + Billing** in the Azure portal, select **Cost Management**, and then select **Cost analysis**. Select the desired subscription as the **Scope**, and then filter for the time period and service that you're interested in as follows:
 
-Add a filter for **Service name**, and then select **sql database** in the drop-down list. Use the **meter subcategory** filter to choose the billing counter for your service. For a single database or an elastic database pool, select **single/elastic pool PITR backup storage**. For a managed instance, select **mi PITR backup storage**. The **Storage** and **compute** subcategories might interest you as well, but they're not associated with backup storage costs.
+1. Add a filter for **Service name**.
+2. In the drop-down list select **sql database** for a single database or an elastic database pool, or select **sql managed instance** for managed instance.
+3. Add another filter for **Meter subcategory**.
+4. To monitor PITR backup costs, in the drop-down list select **single/elastic pool pitr backup storage** for a single database or an elastic database pool, or select **managed instance pitr backup storage** for managed instance. Meters will only show up if there exists consumption.
+5. To monitor LTR backup costs, in the drop-down list select **ltr backup storage** for a single database or an elastic database pool, or select **sql managed instance - ltr backup storage** for managed instance. Meters will only show up if there exists consumption.
+
+The **Storage** and **compute** subcategories might interest you as well, but they're not associated with backup storage costs.
 
 ![Backup storage cost analysis](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
 
-  >[!NOTE]
-  > Meters are only visible for counters that are currently in use. If a counter is not available, it is likely that the category is not currently being used. For example, managed instance counters will not be present for customers who do not have a managed instance deployed. Likewise, storage counters will not be visible for resources that are not consuming storage. 
+  >[!IMPORTANT]
+  > Meters are only visible for counters that are currently in use. If a counter is not available, it is likely that the category is not currently being used. For example, managed instance counters will not be present for customers who do not have a managed instance deployed. Likewise, storage counters will not be visible for resources that are not consuming storage. For example, if there is no PITR or LTR backup storage consumption, these meters won't be shown.
 
 For more information, see [Azure SQL Database cost management](cost-management.md).
 
@@ -306,7 +309,7 @@ az sql db str-policy set \
     --diffbackup-hours 24
 ```
 
-#### [SQL Database](#tab/managed-instance)
+#### [SQL Managed Instance](#tab/managed-instance)
 
 Use the following example to change the PITR backup retention of a **single active** database in a SQL Managed Instance.
 

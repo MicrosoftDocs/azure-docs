@@ -2,7 +2,7 @@
 title: Complete mode deletion
 description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 12/02/2021
 ---
 
 # Deletion of Azure resources for complete mode deployments
@@ -139,6 +139,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.HybridNetwork](#microsofthybridnetwork)
 > - [Microsoft.Hydra](#microsofthydra)
 > - [Microsoft.ImportExport](#microsoftimportexport)
+> - [Microsoft.Insights](#microsoftinsights)
 > - [Microsoft.Intune](#microsoftintune)
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
 > - [Microsoft.IoTSecurity](#microsoftiotsecurity)
@@ -1387,7 +1388,6 @@ Jump to a resource provider namespace:
 > | servers / virtualNetworkRules | No |
 > | servers / waitStatistics | No |
 > | serversv2 | Yes |
-> | singleServers | Yes |
 
 ## Microsoft.DelegatedNetwork
 
@@ -1818,6 +1818,32 @@ Jump to a resource provider namespace:
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | jobs | Yes |
+## Microsoft.Insights
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | actionGroups | Yes |
+> | activityLogAlerts | Yes |
+> | alertrules | Yes |
+> | autoscalesettings | Yes |
+> | components | Yes |
+> | components / linkedStorageAccounts | No |
+> | components / ProactiveDetectionConfigs | No |
+> | diagnosticSettings | No |
+> | guestDiagnosticSettings | Yes |
+> | guestDiagnosticSettingsAssociation | Yes |
+> | logprofiles | Yes |
+> | metricAlerts | Yes |
+> | privateLinkScopes | Yes |
+> | privateLinkScopes / privateEndpointConnections | No |
+> | privateLinkScopes / scopedResources | No |
+> | queryPacks | Yes |
+> | queryPacks / queries | No |
+> | scheduledQueryRules | Yes |
+> | webtests | Yes |
+> | workbooks | Yes |
+> | workbooktemplates | Yes |
 
 ## Microsoft.Intune
 

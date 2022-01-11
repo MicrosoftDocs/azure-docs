@@ -3,7 +3,7 @@ title: Microsoft Teams on Azure Virtual Desktop - Azure
 description: How to use Microsoft Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/15/2021
+ms.date: 01/07/2021
 ms.author: helohr
 manager: femila
 ---
@@ -13,7 +13,12 @@ manager: femila
 >Media optimization for Teams is supported for Microsoft 365 Government (GCC) and GCC-High environments. Media optimization for Teams is not supported for Microsoft 365 DoD.
 
 >[!NOTE]
->Media optimization for Microsoft Teams is only available for the Windows Desktop client on Windows 10 machines. Media optimizations require Windows Desktop client version 1.2.1026.0 or later.
+>Media optimization for Microsoft Teams is only available for the following two Windows 10 clients:
+>
+> - Windows Desktop client, version 1.2.1026.0 or later
+> - macOS Remote Desktop client, version 10.7.2 or later
+> 
+> Teams for the macOS Remote Desktop client is currently in public preview. In order for the macOS client version of Teams to work properly, you must go to **App Preferences** > **General** and enable Teams optimizations.
 
 Microsoft Teams on Azure Virtual Desktop supports chat and collaboration. With media optimizations, it also supports calling and meeting functionality. To learn more about how to use Microsoft Teams in Virtual Desktop Infrastructure (VDI) environments, see [Teams for Virtualized Desktop Infrastructure](/microsoftteams/teams-for-vdi/).
 
@@ -45,7 +50,7 @@ To enable media optimization for Teams, set the following registry key on the ho
 
 ### Install the Teams WebSocket Service
 
-Install the latest version of the [Remote Desktop WebRTC Redirector Service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWNg9F) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
+Install the latest version of the [Remote Desktop WebRTC Redirector Service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWQ1UW) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
 
 #### Latest WebSocket Service versions
 
@@ -53,10 +58,18 @@ The following table lists the latest versions of the WebSocket Service:
 
 |Version        |Release date  |
 |---------------|--------------|
+|1.4.2111.18001 |12/02/2021    |
 |1.1.2110.16001 |10/15/2021    |
 |1.0.2106.14001 |07/29/2021    |
 |1.0.2006.11001 |07/28/2020    |
 |0.11.0         |05/29/2020    |
+
+#### Updates for version 1.4.2111.18001
+
+- Fixed a mute notification problem.
+- Multiple z-ordering fixes in Teams on Azure Virtual Desktop and Teams on Microsoft 365.
+- Removed timeout that prevented the WebRTC redirector service from starting when the user connects.
+- Fixed setup problems that prevented side-by-side installation from working.
 
 #### Updates for version 1.1.2110.16001
 
