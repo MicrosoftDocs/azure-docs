@@ -21,6 +21,8 @@
   - name: Use loops
     displayName: multiple
     href: quickstart-loops.md
+  - name: Use private module registry
+    href: quickstart-private-module-registry.md
   - name: CI/CD
     items:
     - name: Bicep with pipelines
@@ -66,9 +68,10 @@
       items:
       - name: Module definition
         href: modules.md
-        displayName: scopes,consume
+        displayName: scopes,consume,registry,module registry,private module registry
       - name: Create private registry
         href: private-module-registry.md
+        displayName: module registry,private module registry
     - name: Loops
       displayName: multiple
       href: loops.md
@@ -128,6 +131,13 @@
         href: patterns-name-generation.md
       - name: Shared variable file
         href: patterns-shared-variable-file.md
+  - name: Provide parameters
+    items:
+    - name: Create parameter file
+      href: parameter-files.md
+    - name: Pass sensitive values
+      displayName: key vault
+      href: key-vault-parameter.md
   - name: Scenarios
     items:
     - name: Access control
@@ -151,13 +161,6 @@
         href: deploy-powershell.md
       - name: Deploy - Cloud Shell
         href: deploy-cloud-shell.md
-    - name: Parameters
-      items:
-      - name: Create parameter file
-        href: parameter-files.md
-      - name: Pass sensitive values
-        displayName: key vault
-        href: key-vault-parameter.md
   - name: Configure settings
     items:
     - name: Bicep config file

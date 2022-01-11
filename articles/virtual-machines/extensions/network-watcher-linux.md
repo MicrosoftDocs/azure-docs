@@ -38,7 +38,7 @@ The Network Watcher Agent extension can be configured for the following Linux di
 
 ### Internet connectivity
 
-Some of the Network Watcher Agent functionality requires that a VM is connected to the Internet. Without the ability to establish outgoing connections, some of the Network Watcher Agent features may malfunction, or become unavailable. For more information about Network Watcher functionality that requires the agent, see the[Network Watcher documentation](../../network-watcher/index.yml).
+Some of the Network Watcher Agent functionality requires that a VM is connected to the Internet. Without the ability to establish outgoing connections, some of the Network Watcher Agent features may malfunction, or become unavailable. For more information about Network Watcher functionality that requires the agent, see the [Network Watcher documentation](../../network-watcher/index.yml).
 
 ## Extension schema
 

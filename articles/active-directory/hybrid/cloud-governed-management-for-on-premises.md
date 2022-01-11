@@ -3,13 +3,12 @@ title: 'Azure AD Cloud Governed Management for On-Premises Workloads - Azure'
 description: This topic describes cloud governed management for on-premises workloads.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 01/05/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management

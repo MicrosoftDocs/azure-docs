@@ -115,7 +115,7 @@ The deployment process to Azure App Service will use your Azure credentials from
 Run the Maven command below to configure the deployment. This command will help you to set up the App Service operating system, Java version, and Tomcat version.
 
 ```azurecli-interactive
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.2.3:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.3.0:config
 ```
 
 ::: zone pivot="platform-windows"
@@ -229,7 +229,7 @@ JBoss EAP is only available on the Linux version of App Service. Select the **Li
 1. When prompted with **Web App** option, select the default option, `<create>`, by pressing enter.
 1. When prompted with **OS** option, select **Linux** by pressing enter.
 1. When prompted with **javaVersion** option, select **Java 11** by entering `2`.
-1. When prompted with **webcontainer** option, select **Tomcat 8.5** by entering `3`.
+1. When prompted with **webcontainer** option, select **Tomcat 8.5** by entering `2`.
 1. When prompted with **Pricing Tier** option, select **P1v2** by entering `9`.
 1. Finally, press enter on the last prompt to confirm your selections.
 

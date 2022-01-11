@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/04/2021
-ms.author: b-hchen
+ms.date: 01/06/2022
+ms.author: anfdocs
 ---
 # Troubleshoot volume errors for Azure NetApp Files
 
@@ -75,6 +74,12 @@ This section explains the causes of some of the common allocation failures and s
 |Error when creating new volumes or resizing existing volumes. <br> Error message: `There was a problem locating [or extending] storage  for the volume. Please retry the operation. If the problem persists, contact Support.` | The error indicates that the service ran into an error when attempting to allocate resources for this request. <br> Retry the operation after some time. Contact Support if the issue persists.|
 |Out of storage or networking capacity in a region for regular volumes. <br> Error message: `There are currently insufficient resources available to create [or extend] a volume in this region. Please retry the operation. If the problem persists, contact Support.` | The error indicates that there are insufficient resources available in the region to create or resize volumes. <br> Try one of the following workarounds: <ul><li>Create the volume under a new VNet. Doing so will avoid hitting networking-related resource limits.</li> <li>Retry after some time. Resources may have been freed in the cluster, region, or zone in the interim.</li></ul> |
 |Out of storage capacity when creating a volume with network features set to `Standard`. <br> Error message: `No storage available with Standard network features, for the provided VNet.` | The error indicates that there are insufficient resources available in the region to create volumes with `Standard` networking features. <br> Try one of the following workarounds: <ul><li>If `Standard` network features are not required, create the volume with `Basic` network features.</li> <li>Try creating the volume under a new VNet. Doing so will avoid hitting networking-related resource limits</li><li>Retry after some time.  Resources may have been freed in the cluster, region, or zone in the interim.</li></ul> |
+
+## Activity log warnings for volumes 
+
+|     Warnings    |     Resolutions    |
+|-|-|
+| The `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/ScaleUp` operation displays a warning: <br> `Percentage Volume Consumed Size reached 90%`  | The used size of an Azure NetApp Files volume has reached 90% of the volume quota. You should [resize the volume](azure-netapp-files-resize-capacity-pools-or-volumes.md) soon. | 
 
 ## Next steps  
 

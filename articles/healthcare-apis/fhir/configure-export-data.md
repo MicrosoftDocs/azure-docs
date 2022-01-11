@@ -5,7 +5,7 @@ author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 12/02/2021
+ms.date: 12/16/2021
 ms.author: cavoeg
 ---
 
@@ -36,7 +36,7 @@ For more information about assigning roles in the Azure portal, see [Azure built
 
 Add the role [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) to the FHIR service, and then select **Save**.
 
-[![Add role assignment page](../../../includes/role-based-access-control/media/add-role-assignment-page.png) ](../../../includes/role-based-access-control/media/add-role-assignment-page.png#lightbox)
+[![Screen shot showing user interface of Add role assignment page.](../../../includes/role-based-access-control/media/add-role-assignment-page.png) ](../../../includes/role-based-access-control/media/add-role-assignment-page.png#lightbox)
 
 Now you're ready to select the storage account in the FHIR service as a default storage account for export.
 
@@ -49,7 +49,7 @@ The final step is to assign the Azure storage account that the FHIR service will
 
 To do this, select the  **Export** blade in FHIR service service and select the storage account. To search for the storage account, enter its name in the text field. You can also search for your storage account by using the available filters **Name**, **Resource group**, or **Region**. 
 
-[![FHIR Export Storage](media/export-data/fhir-export-storage.png) ](media/export-data/fhir-export-storage.png#lightbox)
+[![Screen shot showing user interface of FHIR Export Storage.](media/export-data/fhir-export-storage.png) ](media/export-data/fhir-export-storage.png#lightbox)
 
 After you've completed this final step, you're ready to export the data using $export command.
 

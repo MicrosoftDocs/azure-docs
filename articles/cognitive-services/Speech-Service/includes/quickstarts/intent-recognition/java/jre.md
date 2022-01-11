@@ -27,7 +27,8 @@ Before you get started:
 
 Let's add some code that works as a skeleton for our project.
 
-[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-20,68-75)]
+:::code language="java" source="~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java" id="skeleton_1":::
+:::code language="java" source="~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java" id="skeleton_2":::
 
 ## Create a Speech configuration
 
@@ -41,7 +42,7 @@ Insert this code in the try / catch block in `main()`. Make sure you update thes
 >[!TIP]
 > If you need help finding these values, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
 
-[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=27)]
+:::code language="java" source="~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java" id="create_speech_configuration":::
 
 This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig).
 
@@ -51,7 +52,7 @@ The Speech SDK will default to recognizing using en-us for the language, see [Sp
 
 Now, let's create an `IntentRecognizer`. Insert this code right below your Speech configuration.
 
-[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=30)]
+:::code language="java" source="~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java" id="create_intent_recognizer":::
 
 ## Add a LanguageUnderstandingModel and Intents
 
@@ -62,7 +63,7 @@ Insert this code below your `IntentRecognizer`. Make sure that you replace `"You
 >[!TIP]
 > If you need help finding this value, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
 
-[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=33-35)]
+:::code language="java" source="~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java" id="add_intents":::
 
 This example uses the `addIntent()` function to individually add intents. If you want to add all intents from a model, use `addAllIntents(model)` and pass the model.
 
@@ -79,7 +80,7 @@ From the `IntentRecognizer` object, you're going to call the `recognizeOnceAsync
 
 Insert this code below your model:
 
-[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=40)]
+:::code language="java" source="~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java" id="recognize_intent":::
 
 ## Display the recognition results (or errors)
 
@@ -87,13 +88,7 @@ When the recognition result is returned by the Speech service, you'll want to do
 
 Insert this code below your call to `recognizeOnceAsync()`.
 
-[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=43-64)]
-
-## Release Resources
-
-It's important to release the speech resources when you're done using them. Insert this code at the end of the try / catch block:
-
-[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=66-67)]
+:::code language="java" source="~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java" id="print_result":::
 
 ## Check your code
 
@@ -102,7 +97,7 @@ At this point, your code should look like this:
 > [!NOTE]
 > We've added some comments to this version.
 
-[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-75)]
+:::code language="java" source="~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java" id="code":::
 
 ## Build and run your app
 

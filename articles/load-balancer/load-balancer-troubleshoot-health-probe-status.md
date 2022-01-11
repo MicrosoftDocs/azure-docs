@@ -7,7 +7,6 @@ author: asudbring
 manager: dcscontentpm
 ms.custom: seodoc18
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

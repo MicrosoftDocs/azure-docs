@@ -1,9 +1,9 @@
 ---
-author: SnehaGunda
+author: WilliamDAssafMSFT
 ms.service: cosmos-db
 ms.topic: include
 ms.date: 8/12/2020
-ms.author: sngun
+ms.author: wiassaf
 ---
 **How will I be notified of the retiring SDK?**
 

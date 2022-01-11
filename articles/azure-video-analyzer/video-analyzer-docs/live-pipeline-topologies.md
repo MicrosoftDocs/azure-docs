@@ -1,11 +1,11 @@
 ---
-title: Live pipeline topologies
-description: This article describes the supported by Azure Video Analyzer live pipeline topologies in detail. 
+title: List of pipeline topologies
+description: This article lists the live pipeline topologies supported by Azure Video Analyzer. 
 ms.topic: conceptual
-ms.date: 12/13/2021
+ms.date: 12/15/2021
 ---
 
-# Live pipeline topologies
+# List of pipeline topologies
 
 The tables that follow list the [live pipeline topologies](terminology.md#pipeline-topology) supported by Azure Video Analyzer. The tables also provide 
 
@@ -15,9 +15,9 @@ The tables that follow list the [live pipeline topologies](terminology.md#pipeli
 
 Clicking on a topology name redirects to the corresponding JSON file located in [this GitHub folder](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/), clicking on a sample redirects to the corresponding sample document.
 
-## Pipeline topology tables
+## Live pipeline topologies
 
-## Continuous video recording
+### Continuous video recording
 
 Name | Description | Samples | VSCode Name
 :----- | :----  | :---- | :---
@@ -28,7 +28,7 @@ Name | Description | Samples | VSCode Name
 [cvr-with-motion](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/cvr-with-motion/topology.json) | Perform CVR. When motion is detected from a live video feed, relevant inferencing events are published to the IoT Edge Hub. | | Continuous Video Recording > Record on motion detection
 [audio-video](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/audio-video/topology.json) | Perform CVR and record audio using the outputSelectors property. | | Continuous Video Recording > Record audio with video
 
-## Event-based video recording
+### Event-based video recording
 
 Name | Description | Samples | VSCode Name
 :----- | :----  | :---- | :---
@@ -40,7 +40,7 @@ Name | Description | Samples | VSCode Name
 [evr-motion-video-sink](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/evr-motion-video-sink/topology.json) | When motion is detected, those events are published to the IoT Edge Hub. In addition, the motion events are used to trigger the signal gate processor node that will send frames to the video sink node when motion is detected. As a result, new video clips are appended to the Azure Video Analyzer video, corresponding to when motion was detected. | [Detect motion, record video to Video Analyzer](edge/detect-motion-record-video-clips-cloud.md) | Event-based Video Recording > Record motion events to Video Analyzer video
 [evr-motion-file-sink](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/evr-motion-file-sink/topology.json) | When motion is detected from a live video feed, events are sent to a signal gate processor node that opens, sending frames to a file sink node. As a result, new files are created on the local file system of the edge device, containing the frames where motion was detected. | [Detect motion and record video on edge devices](edge/detect-motion-record-video-edge-devices.md) | Event-based Video Recording > Record motion events to local files 
 
-## Motion detection
+### Motion detection
 
 Name | Description | Samples | VSCode Name
 :----- | :----  | :---- | :---
@@ -48,7 +48,7 @@ Name | Description | Samples | VSCode Name
 [motion-with-grpcExtension](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/motion-with-grpcExtension/topology.json) | Perform event-based recording in the presence of motion. When motion is detected from a live video feed, those events are published to the IoT Edge Hub. In addition, the motion events are used to trigger a signal gate processor node that will send frames to a video sink node only when motion is present. As a result, new video clips are appended to the Azure Video Analyzer video, corresponding to when motion was detected. Additionally, run video analytics only when motion is detected. Upon detecting motion, a subset of the video frames is sent to an external AI inference engine via the gRPC extension. The results are then published to the IoT Edge Hub. | [Analyze live video with your own model - gRPC](analyze-live-video-use-your-model-grpc.md) | Motion Detection > Publish motion events using gRPC Extension
 [motion-with-httpExtension](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/motion-with-httpExtension/topology.json) | Perform event-based recording in the presence of motion. When motion is detected in a live video feed, those events are published to the IoT Edge Hub. In addition, the motion events are used to trigger a signal gate processor node that will send frames to a video sink node only when motion is present. As a result, new video clips are appended to the Azure Video Analyzer video, corresponding to when motion was detected. Additionally, run video analytics only when motion is detected. Upon detecting motion, a subset of the video frames is sent to an external AI inference engine via the HTTP extension. The results are then published to the IoT Edge Hub. | [Analyze live video with your own model - HTTP](edge/analyze-live-video-use-your-model-http.md#generate-and-deploy-the-iot-edge-deployment-manifest) | Motion Detection > Publish motion events using HTTP Extension
 
-## Extensions
+### Extensions
 
 Name | Description | Samples | VSCode Name
 :----- | :----  | :---- | :---
@@ -56,23 +56,23 @@ Name | Description | Samples | VSCode Name
 [httpExtension](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/httpExtension/topology.json) | Run video analytics on a live video feed. A subset of the video frames from the camera are converted to images, and sent to an external AI inference engine. The results are then published to the IoT Edge Hub. | [Analyze live video with your own model - HTTP](analyze-live-video-use-your-model-http.md), [Analyze live video with Azure Video Analyzer on IoT Edge and Azure Custom Vision](edge/analyze-live-video-custom-vision.md) | Extensions > Analyzer video using HTTP Extension
 [httpExtensionOpenVINO](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/httpExtensionOpenVINO/topology.json) | Run video analytics on a live video feed. A subset of the video frames from the camera are converted to images, and sent to the [OpenVINO™ Model Server – AI Extension module](https://aka.ms/ava-intel-ovms) provided by Intel. The results are then published to the IoT Edge Hub. | [Analyze live video using OpenVINO™ Model Server – AI Extension from Intel](https://aka.ms/ava-intel-ovms-tutorial) | Extensions > Analyzer video with Intel OpenVINO Model Server
 
-## Computer vision
+### Computer vision
 
 Name | Description | Samples | VSCode Name
 :----- | :----  | :---- | :---
 [spatial-analysis/person-count-operation-topology](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json) | Live video is sent to an external [spatialAnalysis](../../cognitive-services/computer-vision/spatial-analysis-operations.md) module that counts people in a designated zone. When the criteria defined by the AI operation is met, events are sent to a signal gate processor that opens, sending the frames to a video sink node. As a result, a new clip is appended to the Azure Video Analyzer video resource. | | Computer Vision > Person count operation with Computer Vision for Spatial Analysis
-[spatial-analysis/person-line-crossing-operation-topology](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/spatial-analysisperson-line-crossing-operation-topology.json) | Live video is sent to an external [spatialAnalysis](../../cognitive-services/computer-vision/spatial-analysis-operations.md) module that tracks when a person crosses a designated line. When the criteria defined by the AI operation is met, events are sent to a signal gate processor that opens, sending the frames to a video sink node. As a result, a new clip is appended to the Azure Video Analyzer video resource. | | Computer Vision > Person crossing line operation with Computer Vision for Spatial Analysis
+[spatial-analysis/person-line-crossing-operation-topology](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/spatial-analysis/person-line-crossing-operation-topology.json) | Live video is sent to an external [spatialAnalysis](../../cognitive-services/computer-vision/spatial-analysis-operations.md) module that tracks when a person crosses a designated line. When the criteria defined by the AI operation is met, events are sent to a signal gate processor that opens, sending the frames to a video sink node. As a result, a new clip is appended to the Azure Video Analyzer video resource. | | Computer Vision > Person crossing line operation with Computer Vision for Spatial Analysis
 [spatial-analysis/person-zone-crossing-operation-topology](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/spatial-analysis\person-zone-crossing-operation-topology.json) | Live video is sent to an external [spatialAnalysis](../../cognitive-services/computer-vision/spatial-analysis-operations.md) module that emits an event when a person enters or exists a zone. When the criteria defined by the AI operation is met, events are sent to a signal gate processor that opens, sending the frames to a video sink node. As a result, a new clip is appended to the Azure Video Analyzer video resource. | [Live Video with Computer Vision for Spatial Analysis](https://aka.ms/ava-spatial-analysis) | Computer Vision > Person crossing zone operation with Computer Vision for Spatial Analysis
 [spatial-analysis/person-distance-operation-topology](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/spatial-analysis/person-distance-operation-topology.json) | Live video is sent to an external [spatialAnalysis](../../cognitive-services/computer-vision/spatial-analysis-operations.md) module that tracks when people violate a distance rule. When the criteria defined by the AI operation is met, events are sent to a signal gate processor that opens, sending the frames to a video sink node. As a result, a new clip is appended to the Azure Video Analyzer video resource. | | Computer Vision > Person distance operation with Computer Vision for Spatial Analysis
 [spatial-analysis/custom-operation-topology](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/spatial-analysis\custom-operation-topology.json) | Live video is sent to an external [spatialAnalysis](../../cognitive-services/computer-vision/spatial-analysis-operations.md) module that carries out a supported AI operation. When the criteria defined by the AI operation is met, events are sent to a signal gate processor that opens, sending the frames to a video sink node. As a result, a new clip is appended to the Azure Video Analyzer video resource. | | Computer Vision > Custom operation with Computer Vision for Spatial Analysis
 
-## AI composition
+### AI composition
 
 Name | Description | Samples | VSCode Name
 :----- | :----  | :---- | :---
 [ai-composition](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/ai-composition/topology.json) | Run 2 AI inferencing models of your choice. In this example, classified video frames are sent from an AI inference engine using the [Tiny YOLOv3 model](https://github.com/Azure/video-analyzer/tree/main/edge-modules/extensions/yolo/tinyyolov3/grpc-cpu) to another engine using the [YOLOv3 model](https://github.com/Azure/video-analyzer/tree/main/edge-modules/extensions/yolo/yolov3/grpc-cpu). Having such a topology enables you to trigger a heavy AI module, only when a light AI module indicates a need to do so. | [Analyze live video streams with multiple AI models using AI composition](edge/analyze-ai-composition.md) | AI composition > Record to the Video Analyzer service using multiple AI models
 
-## Miscellaneous
+### Miscellaneous
 
 Name | Description | Samples | VSCode Name
 :----- | :----  | :---- | :---

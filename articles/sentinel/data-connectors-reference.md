@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: batamig
 ms.topic: reference
-ms.date: 12/01/2021
+ms.date: 01/04/2022
 ms.author: bagol
 ms.custom: ignite-fall-2021
 ---
@@ -49,6 +49,10 @@ This article describes how to deploy data connectors in Microsoft Sentinel, list
 
 > [!IMPORTANT]
 > Noted Microsoft Sentinel data connectors are currently in **Preview**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+### Data connector prerequisites
+
+[!INCLUDE [data-connector-prereq](includes/data-connector-prereq.md)]
 
 ## Agari Phishing Defense and Brand Protection (Preview)
 
@@ -330,25 +334,9 @@ Before setting up the new Azure Activity log connector, you must disconnect the 
 | **Supported by** | Microsoft |
 | | |
 
-## Microsoft Defender for Cloud
+## Azure Defender
 
-| Connector attribute | Description |
-| --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration:<br>[Connect security alerts from Microsoft Defender for Cloud](connect-defender-for-cloud.md)** (Top connector article) |
-| **Log Analytics table(s)** | SecurityAlert |
-| **Supported by** | Microsoft |
-| | |
-
-<a name="azure-defender-for-iot"></a>
-
-## Microsoft Defender for IoT
-
-| Connector attribute | Description |
-| --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
-| **Log Analytics table(s)** | SecurityAlert |
-| **Supported by** | Microsoft |
-| | |
+See [Microsoft Defender for Cloud](#microsoft-defender-for-cloud).
 
 ## Azure Firewall
 
@@ -445,11 +433,13 @@ You will only see the storage types that you actually have defined resources for
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Log Analytics agent - custom logs**](connect-custom-logs.md) |
-| **Log Analytics table(s)** | Syslog |
+| **Data ingestion method** | [**Syslog**](connect-syslog.md) |
+| **Log Analytics table(s)** | CommonSecurityLog (Barracuda)<br>Barracuda_CL |
 | **Vendor documentation/<br>installation instructions** | https://aka.ms/asi-barracuda-connector |
 | **Supported by** | [Barracuda](https://www.barracuda.com/support) |
 | | |
+
+See Barracuda instructions - note the assigned facilities for the different types of logs and be sure to add them to the default Syslog configuration.
 
 ## BETTER Mobile Threat Defense (MTD) (Preview)
 
@@ -1063,6 +1053,15 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Supported by** | Microsoft |
 | | |
 
+## Microsoft Defender for Cloud
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration:<br>[Connect security alerts from Microsoft Defender for Cloud](connect-defender-for-cloud.md)** (Top connector article) |
+| **Log Analytics table(s)** | SecurityAlert |
+| **Supported by** | Microsoft |
+| | |
+
 <a name="microsoft-cloud-app-security-mcas"></a>
 
 ## Microsoft Defender for Cloud Apps
@@ -1093,6 +1092,17 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Supported by** | Microsoft |
 | | |
 
+<a name="azure-defender-for-iot"></a>
+
+## Microsoft Defender for IoT
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **Log Analytics table(s)** | SecurityAlert |
+| **Supported by** | Microsoft |
+| | |
+
 ## Microsoft Defender for Office 365
 
 | Connector attribute | Description |
@@ -1113,6 +1123,14 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Supported by** | Microsoft |
 | | |
 
+## Microsoft Sysmon for Linux (Preview)
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | [**Syslog**](connect-syslog.md), with, [ASIM parsers](normalization-about-parsers.md) based on Kusto functons |
+| **Log Analytics table(s)** | Syslog |
+| **Supported by** | Microsoft |
+| | |
 
 
 ## Morphisec UTPP (Preview)
@@ -1423,7 +1441,7 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections) (Legacy)** |
 | **Log Analytics table(s)** | SecurityEvents |
 | **Supported by** | Microsoft |
 | | |
@@ -1665,10 +1683,21 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections) (Legacy)** |
 | **Log Analytics table(s)** | DnsEvents<br>DnsInventory |
 | **Supported by** | Microsoft |
 | | |
+
+### Troubleshooting your Windows DNS Server data connector
+
+If your DNS events don't show up in Microsoft Sentinel:
+
+1. Make sure that DNS analytics logs on your servers are [enabled](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn800669(v=ws.11)#to-enable-dns-diagnostic-logging).
+1. Go to Azure DNS Analytics.
+1. In the **Configuration** area, change any of the settings and save your changes. Change your settings back if you need to, and then save your changes again.
+1. Check your Azure DNS Analytics to make sure that your events and queries display properly.
+
+For more information, see [Gather insights about your DNS infrastructure with the DNS Analytics Preview solution](/azure/azure-monitor/insights/dns-analytics).
 
 ## Windows Forwarded Events (Preview)
 
@@ -1689,7 +1718,7 @@ We recommend installing the [Advanced SIEM Information Model (ASIM)](normalizati
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections) (Legacy)** |
 | **Log Analytics table(s)** | WindowsFirewall |
 | **Supported by** | Microsoft |
 | | |
