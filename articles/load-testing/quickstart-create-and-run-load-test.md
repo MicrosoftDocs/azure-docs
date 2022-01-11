@@ -132,7 +132,7 @@ To create a load test by using an existing Apache JMeter script:
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab." :::
     
     > [!NOTE]
-    > You can select and upload additional Apache JMeter configuration files.
+    > You can select and upload additional Apache JMeter configuration files or other files that are referenced in the JMX file. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s).
 
 1. (Optional) On the **Parameters** tab, configure input parameters for your Apache JMeter script.
 

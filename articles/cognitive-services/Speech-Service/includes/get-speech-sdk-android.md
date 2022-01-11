@@ -13,7 +13,7 @@ ms.author: eur
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Android" src="https://docs.microsoft.com/media/logos/logo_android.svg" width="60px">
+            <img alt="Android" src="/media/logos/logo_android.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
@@ -31,9 +31,9 @@ ms.author: eur
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Xamarin" src="https://docs.microsoft.com/media/logos/logo_xamarin.svg" width="60px">
+            <img alt="Xamarin" src="/media/logos/logo_xamarin.svg" width="60px">
             &nbsp; ❤️ &nbsp;
-            <img alt="Android" src="https://docs.microsoft.com/media/logos/logo_android.svg" width="60px">
+            <img alt="Android" src="/media/logos/logo_android.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::

@@ -1,3 +1,4 @@
+items:  
   - name: Application and HR provisioning documentation
     href: index.yml
   - name: Overview
@@ -5,6 +6,8 @@
     items:
      - name: What is application provisioning?
        href: user-provisioning.md
+     - name: What is HR-driven provisioning?
+       href: what-is-hr-driven-provisioning.md
      - name: What's new in docs?
        href: whats-new-docs.md
   - name: Tutorials

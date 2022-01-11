@@ -8,8 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 09/02/2020
+ms.date: 01/08/2022
 ms.author: eur
+ms.devlang: cpp, csharp, javascript
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020, ignite-fall-2021, mode-other
 zone_pivot_groups: programming-languages-set-twenty-five
 keywords: speaker recognition, voice biometry
@@ -35,6 +36,5 @@ keywords: speaker recognition, voice biometry
 
 ## Next steps
 
-* See the Speaker Recognition [reference documentation](/rest/api/speakerrecognition/) for detail on classes and functions.
-
-* See [C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/speaker-recognition) and [C++](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows/speaker-recognition) samples on GitHub.
+> [!div class="nextstepaction"]
+> [See the quickstart samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart)

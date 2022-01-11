@@ -2,7 +2,7 @@
 author: memildin
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 12/08/2021
+ms.date: 01/08/2022
 ms.author: memildin
 ms.custom: generated
 ---
@@ -34,7 +34,7 @@ ms.custom: generated
   <tr>
     <td class="tg-lboi"><strong>6</strong></td>
     <td class="tg-lboi"><strong>Remediate vulnerabilities</strong> - Defender for Cloud includes multiple vulnerability assessment scanners to check your machines, databases, and container registries for weaknesses that threat actors might leverage. Use these recommendations to enable these scanners and review their findings.<br>Learn more about scanning <a href="/azure/defender-for-cloud/deploy-vulnerability-assessment-vm">machines</a>, <a href="/azure/defender-for-cloud/defender-for-sql-on-machines-vulnerability-assessment">SQL servers</a>, and <a href="/azure/defender-for-cloud/defender-for-container-registries-usage">container registries</a>.</td>
-    <td class="tg-lboi" width=55%>- Azure Kubernetes Service clusters should have the Azure Policy Add-on for Kubernetes installed<br />- Container images should be deployed from trusted registries only<br />- Container registry images should have vulnerability findings resolved<br />- Kubernetes clusters should gate deployment of vulnerable images<br />- Machines should have a vulnerability assessment solution<br />- Machines should have vulnerability findings resolved<br />- Vulnerabilities in running images should be remediated (powered by Qualys)</td>
+    <td class="tg-lboi" width=55%>- [Preview] Kubernetes clusters should gate deployment of vulnerable images<br />- Azure Kubernetes Service clusters should have the Azure Policy Add-on for Kubernetes installed<br />- Container images should be deployed from trusted registries only<br />- Container registry images should have vulnerability findings resolved<br />- Machines should have a vulnerability assessment solution<br />- Machines should have vulnerability findings resolved<br />- Vulnerabilities in running container images should be remediated (powered by Qualys)</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong>4</strong></td>
@@ -89,7 +89,7 @@ ms.custom: generated
   <tr>
     <td class="tg-lboi"><strong>0</strong></td>
     <td class="tg-lboi"><strong>Enable enhanced security features</strong> - Use these recommendations to enable any of the <a href="/azure/defender-for-cloud/enhanced-security-features-overview">enhanced security features plans</a>.</td>
-    <td class="tg-lboi" width=55%>- Azure Arc-enabled Kubernetes clusters should have the Defender extension installed<br />- Azure Kubernetes Service clusters should have Defender profile enabled<br />- Microsoft Defender for App Service should be enabled<br />- Microsoft Defender for Azure SQL Database servers should be enabled<br />- Microsoft Defender for DNS should be enabled<br />- Microsoft Defender for Key Vault should be enabled<br />- Microsoft Defender for open-source relational databases should be enabled<br />- Microsoft Defender for Resource Manager should be enabled<br />- Microsoft Defender for servers should be enabled<br />- Microsoft Defender for servers should be enabled on workspaces<br />- Microsoft Defender for SQL on machines should be enabled on workspaces<br />- Microsoft Defender for SQL servers on machines should be enabled<br />- Microsoft Defender for Storage should be enabled</td>
+    <td class="tg-lboi" width=55%>- Azure Arc-enabled Kubernetes clusters should have the Defender extension installed<br />- Azure Kubernetes Service clusters should have Defender profile enabled<br />- Microsoft Defender for App Service should be enabled<br />- Microsoft Defender for Azure SQL Database servers should be enabled<br />- Microsoft Defender for Containers should be enabled<br />- Microsoft Defender for DNS should be enabled<br />- Microsoft Defender for Key Vault should be enabled<br />- Microsoft Defender for open-source relational databases should be enabled<br />- Microsoft Defender for Resource Manager should be enabled<br />- Microsoft Defender for servers should be enabled<br />- Microsoft Defender for servers should be enabled on workspaces<br />- Microsoft Defender for SQL on machines should be enabled on workspaces<br />- Microsoft Defender for SQL servers on machines should be enabled<br />- Microsoft Defender for Storage should be enabled</td>
   </tr>
 </tbody>
 </table>
