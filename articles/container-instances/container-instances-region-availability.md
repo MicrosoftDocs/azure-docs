@@ -33,7 +33,7 @@ The following regions and maximum resources are available to container groups wi
 | Australia Southeast | 4 | 14 | N/A | N/A | 50 | N/A | N |
 | Brazil South | 4 | 16 | 2 | 8 | 50 | N/A | Y |
 | Canada Central | 4 | 16 | 4 | 16 | 50 | N/A | N |
-| Canada East | 4 | 16 | 4 | 16 | 50 | N/A | N |
+| Canada East | 4 | 16 | N/A | N/A | 50 | N/A | N |
 | Central India | 4 | 16 | 4 | 4 | 50 | V100 | N |
 | Central US | 4 | 16 | 4 | 16 | 50 | N/A | Y |
 | East Asia | 4 | 16 | 4 | 16 | 50 | N/A | N |

@@ -173,9 +173,9 @@ az group create --name myResourceGroup --location eastus
 az aks create -n aks -g myResourceGroup --enable-oidc-issuer
 ```
 
-### Upgrade an AKS cluster with OIDC Issuer
+### Update an AKS cluster with OIDC Issuer
 
-To upgrade a cluster to use OIDC Issuer.
+To update a cluster to use OIDC Issuer.
 
 ```azurecli-interactive
 az aks update -n aks -g myResourceGroup --enable-oidc-issuer
@@ -200,4 +200,4 @@ az aks update -n aks -g myResourceGroup --enable-oidc-issuer
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
-[aks-add-np-containerd]: windows-container-cli.md#add-a-windows-server-node-pool-with-containerd-preview
+[aks-add-np-containerd]: windows-container-cli.md#add-a-windows-server-node-pool-with-containerd
