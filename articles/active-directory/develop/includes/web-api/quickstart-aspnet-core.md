@@ -23,7 +23,7 @@ In this quickstart, you download an ASP.NET Core web API code sample and review 
 > ## Prerequisites
 >
 > - Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-> - [Azure Active Directory tenant](quickstart-create-new-tenant.md)
+> - [Azure Active Directory tenant](../../quickstart-create-new-tenant.md)
 > - [.NET Core SDK 3.1+](https://dotnet.microsoft.com/)
 > - [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
 >
@@ -32,7 +32,7 @@ In this quickstart, you download an ASP.NET Core web API code sample and review 
 > First, register the web API in your Azure AD tenant and add a scope by following these steps:
 >
 > 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. For **Name**, enter a name for your application. For example, enter **AspNetCoreWebApi-Quickstart**. Users of your app will see this name, and you can change it later.
@@ -52,7 +52,7 @@ In this quickstart, you download an ASP.NET Core web API code sample and review 
 > [!div renderon="docs"]
 > [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/archive/aspnetcore3-1.zip) from GitHub.
 
-[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+[!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
 
 > [!div renderon="docs"]
 > ## Step 3: Configure the ASP.NET Core project
@@ -81,7 +81,7 @@ In this quickstart, you download an ASP.NET Core web API code sample and review 
 
 ## How the sample works
 
-The web API receives a token from a client application, and the code in the web API validates the token. This scenario is explained in more detail in [Scenario: Protected web API](scenario-protected-web-api-overview.md).
+The web API receives a token from a client application, and the code in the web API validates the token. This scenario is explained in more detail in [Scenario: Protected web API](../../scenario-protected-web-api-overview.md).
 
 ### Startup class
 
@@ -157,7 +157,7 @@ namespace webapi.Controllers
 }
 ```
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
 
 ## Next steps
 

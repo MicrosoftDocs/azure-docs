@@ -16,8 +16,6 @@ zone_pivot_groups: web-api-quickstart
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform so that my web app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
-# Quickstart: Add sign-in with Microsoft to a web api
-
 ::: zone pivot="devlang-aspnet"
 [!INCLUDE [asp.net](./includes/web-api/quickstart-dotnet-native-aspnet.md)]
 ::: zone-end
