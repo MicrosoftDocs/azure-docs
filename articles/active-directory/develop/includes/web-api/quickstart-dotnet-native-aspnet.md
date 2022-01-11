@@ -7,7 +7,7 @@ author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: quickstart
 ms.workload: identity
 ms.date: 01/11/2022
 ms.author: jmprieur
