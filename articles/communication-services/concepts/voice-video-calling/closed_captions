@@ -16,18 +16,18 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-Azure Communication Services allow to enable Closed Captions for the VoIP calls in Private Preview.
+Azure Communication Services allows one to enable Closed Captions for the VoIP calls in Private Preview.
 Closed Captions – is the conversion of a voice or video call audio track into written words which are showing in real-time. Closed Captions are never saved and only visible to the user that has enabled it.
 Here are main scenarios where Closed Captions are useful:
 
 - **Accessibility**. In the workplace or consumer apps, Closed Captioning for meetings, conference calls, and training videos can make a huge difference. When audio can't be heard, either because of a noisy environment, such as an airport, or because of an environment that must be kept quiet, such as a hospital. 
 
-- **Inclusivity**. Closed captioning was developed to aid hearing-impaired people, but it could be useful for a language proficiency as well. 
+- **Inclusivity**. Closed Captioning was developed to aid hearing-impaired people, but it could be useful for a language proficiency as well. 
 
 ## When to use Closed Captions
 
-Closed captions help maintain concentration and engagement, which can provide a better experience for viewers with learning disabilities, language barrier, attention deficit disorder, or hearing-impared people. 
-Closed captions allow participants to be on the call in loud or sound-sensitive environments.
+Closed Captions help maintain concentration and engagement, which can provide a better experience for viewers with learning disabilities, language barrier, attention deficit disorder, or hearing-impared people. 
+Closed Captions allow participants to be on the call in loud or sound-sensitive environments.
 
 ## Feature Highlights
 
