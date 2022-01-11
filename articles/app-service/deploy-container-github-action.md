@@ -106,19 +106,19 @@ OpenID Connect is an authentication method that uses short-lived tokens. Setting
 
 1. Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your active directory application.
 
-* Replace `APPLICATION-OBJECT-ID` with the **objectId (generated while creating app)** for your Active Directory application.
-* Set a value for `CREDENTIAL-NAME` to reference later.
-* Set the `subject`. The value of this is defined by GitHub depending on your workflow:
-  * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
-  * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
-  * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
-
-```azurecli
-az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-OBJECT-ID>/federatedIdentityCredentials' --body '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com","subject":"repo:organization/repository:ref:refs/heads/main","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
-```
-
-To learn how to create a Create an active directory application, service principal, and federated credentials in Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
-
+    * Replace `APPLICATION-OBJECT-ID` with the **objectId (generated while creating app)** for your Active Directory application.
+    * Set a value for `CREDENTIAL-NAME` to reference later.
+    * Set the `subject`. The value of this is defined by GitHub depending on your workflow:
+      * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
+      * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
+      * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
+    
+    ```azurecli
+    az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-OBJECT-ID>/federatedIdentityCredentials' --body '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com","subject":"repo:organization/repository:ref:refs/heads/main","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
+    ```
+    
+    To learn how to create a Create an active directory application, service principal, and federated credentials in Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
+    
 
 ---
 ## Configure the GitHub secret for authentication
