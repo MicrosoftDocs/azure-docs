@@ -45,7 +45,8 @@ try
         // Log the diagnostics and add any additional info necessary to correlate to other logs 
         Console.Write(response.Diagnostics.ToString());
     }
-}catch(CosmosException cosmosException){
+} catch(CosmosException cosmosException)
+{
     // Log the full exception including the stack trace 
     Console.Write(cosmosException.ToString());
     // The Diagnostics can be logged separately if required.
