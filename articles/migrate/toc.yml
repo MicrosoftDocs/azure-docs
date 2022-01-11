@@ -151,7 +151,7 @@
     href: create-manage-projects.md
   - name: Use Azure Migrate with private endpoints
     items:
-      - name: Support requirements and considerations
+      - name: Use Azure Migrate with private endpoints
         href: how-to-use-azure-migrate-with-private-endpoints.md
       - name: Discover and assess using Azure Private Link
         href: discover-and-assess-using-private-endpoints.md
