@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 11/19/2021
+ms.date: 01/11/2022
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
 
@@ -82,6 +82,11 @@ When ACR is behind a virtual network, Azure Machine Learning cannot use it to di
 
 > [!WARNING]
 > If your Azure Container Registry uses a private endpoint to communicate with the virtual network, you cannot use a managed identity with an Azure Machine Learning compute cluster. To use a managed identity with a compute cluster, use a service endpoint with the Azure Container Registry for the workspace.
+
+### Azure Monitor
+
+> [!WARNING]
+> Azure Monitor supports using Azure Private Link to connect to a VNet. However, Azure Machine Learning does not support using a private link-enabled Azure Monitor (including Azure Application Insights). Do __not_ configure private link for the Azure Monitor or Azure Application Insights you plan to use with Azure Machine Learning.
 
 ## Required public internet access
 
