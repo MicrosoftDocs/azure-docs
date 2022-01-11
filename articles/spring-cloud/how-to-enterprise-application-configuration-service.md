@@ -127,7 +127,26 @@ A Spring application holds the properties as the beans of the Spring Application
    curl -X POST http://{app-endpoint}/actuator/refresh
    ```
 
-## Important information on using Application Configuration Service with apps
+## Configure Application Configuration Service settings by portal
+
+1. Select **Application Configuration Service**.
+1. Select **Overview** to view the running state and resources allocated to Application Configuration Service.
+
+   ![Application Configuration Service Overview screen](./media/enterprise/getting-started-enterprise/config-service-overview.png)
+
+1. Select **Settings** and add a new entry in the **Repositories** section with the git backend information:
+
+1. Select **Validate** to validate access to the target URI. After validation completes successfully, select **Apply** to update the configuration settings.
+
+   ![Application Configuration Service Settings overview](./media/enterprise/getting-started-enterprise/config-service-settings.png)
+
+## Configure Application Configuration Service settings by CLI
+
+```azurecli
+az spring-cloud application-configuration-service git repo add --name <entry-name> --patterns <patterns> --uri <git-backend-uri> --label <git-branch-name>
+```
+
+## Use Application Configuration Service with apps by portal
 
 When you use Application Configuration Service with a Git back end, keep the following items in mind.
 
@@ -152,6 +171,12 @@ To use the centralized configurations, you must bind the app to Application Conf
    :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-pattern.png" alt-text="Screenshot of pattern selection screen":::
 
    e. Select **Save**
+
+## Use Application Configuration Service with apps by CLI
+```azurecli
+az spring-cloud application-configuration-service bind --app <app-name>
+az spring-cloud app deploy -n <app-name> --artifact-path <app.jar> --config-file-pattern <config-file-pattern>
+```
 
 ## Next steps
 
