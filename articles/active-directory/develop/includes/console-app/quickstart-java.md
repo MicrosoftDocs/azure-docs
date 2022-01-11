@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 12/06/2021
+ms.date: 01/10/2022
 ms.author: marsma
 ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-java, mode-other
 #Customer intent: As an application developer, I want to learn how my Java app can get an access token and call an API that's protected by Microsoft identity platform endpoint using client credentials flow.
@@ -56,54 +56,35 @@ To register your application and add the app's registration information to your 
 1. Under **User** node, select **User.Read.All**, then select **Add permissions**.
 
 #### Step 2: Download the Java project
+[Download the Java daemon project](https://github.com/Azure-Samples/ms-identity-java-daemon/archive/master.zip)
 
-> [!div renderon="docs"]
-> [Download the Java daemon project](https://github.com/Azure-Samples/ms-identity-java-daemon/archive/master.zip)
+#### Step 3: Configure the Java project
 
-> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
-> [Download the code sample](https://github.com/Azure-Samples/ms-identity-java-daemon/archive/master.zip)
+1. Extract the zip file to a local folder close to the root of the disk, for example, *C:\Azure-Samples*.
+1. Navigate to the sub folder **msal-client-credential-secret**.
+1. Edit *src\main\resources\application.properties* and replace the values of the fields `AUTHORITY`, `CLIENT_ID`, and `SECRET` with the following snippet:
 
-> [!div class="sxs-lookup" renderon="portal"]
-> > [!NOTE]
-> > `Enter_the_Supported_Account_Info_Here`
+ ```
+   AUTHORITY=https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/
+   CLIENT_ID=Enter_the_Application_Id_Here
+   SECRET=Enter_the_Client_Secret_Here
+ ```
+  Where:
+   - `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
+   - `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com).
+   - `Enter_the_Client_Secret_Here` - replace this value with the client secret created on step 1.
 
-> [!div renderon="docs"]
-> #### Step 3: Configure the Java project
->
-> 1. Extract the zip file to a local folder close to the root of the disk, for example, *C:\Azure-Samples*.
-> 1. Navigate to the sub folder **msal-client-credential-secret**.
-> 1. Edit *src\main\resources\application.properties* and replace the values of the fields `AUTHORITY`, `CLIENT_ID`, and `SECRET` with the following snippet:
->
->    ```
->    AUTHORITY=https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/
->    CLIENT_ID=Enter_the_Application_Id_Here
->    SECRET=Enter_the_Client_Secret_Here
->    ```
->    Where:
->    - `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
->    - `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com).
->    - `Enter_the_Client_Secret_Here` - replace this value with the client secret created on step 1.
->
-> > [!TIP]
-> > To find the values of **Application (client) ID**, **Directory (tenant) ID**, go to the app's **Overview** page in the Azure portal. To generate a new key, go to **Certificates & secrets** page.
+>[!TIP]
+>To find the values of **Application (client) ID**, **Directory (tenant) ID**, go to the app's **Overview** page in the Azure portal. To generate a new key, go to **Certificates & secrets** page.
 
-> [!div class="sxs-lookup" renderon="portal"]
-> #### Step 3: Admin consent
-
-> [!div renderon="docs"]
-> #### Step 4: Admin consent
+#### Step 4: Admin consent
 
 If you try to run the application at this point, you'll receive *HTTP 403 - Forbidden* error: `Insufficient privileges to complete the operation`. This error happens because any *app-only permission* requires Admin consent: a global administrator of your directory must give consent to your application. Select one of the options below depending on your role:
 
 ##### Global tenant administrator
 
-> [!div renderon="docs"]
-> If you are a global tenant administrator, go to **API Permissions** page in **App registrations** in the Azure portal and select **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
 
-> [!div renderon="portal" class="sxs-lookup"]
-> If you are a global administrator, go to **API Permissions** page select **Grant admin consent for Enter_the_Tenant_Name_Here**.
-> > [!div id="apipermissionspage"]
-> > [Go to the API Permissions page]()
+If you are a global tenant administrator, go to **API Permissions** page in **App registrations** in the Azure portal and select **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
 
 ##### Standard user
 
@@ -113,16 +94,12 @@ If you're a standard user of your tenant, then you need to ask a global administ
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here
 ```
 
-> [!div renderon="docs"]
-> > Where:
-> > * `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
-> > * `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
+ Where:
+ * `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
+ * `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
 
-> [!div class="sxs-lookup" renderon="portal"]
-> #### Step 4: Run the application
 
-> [!div renderon="docs"]
-> #### Step 5: Run the application
+#### Step 5: Run the application
 
 You can test the sample directly by running the main method of ClientCredentialGrant.java from your IDE.
 
