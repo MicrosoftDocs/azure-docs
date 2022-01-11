@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/06/2022
+ms.date: 01/12/2022
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
@@ -50,7 +50,7 @@ Azure AD DS stores user data in the same location as the customer-selected Azure
 
 ## Azure role-based access control (Azure RBAC)
 
-Role definitions, role assignments, and deny assignments are stored globally to ensure that you have access to your resources regardless of the region you created the resource. The data stored doesn't contain any personal identifiable information. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md#where-is-azure-rbac-data-stored).
+Role definitions, role assignments, and deny assignments are stored globally to ensure that you have access to your resources regardless of the region you created the resource. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md#where-is-azure-rbac-data-stored).
 
 ## Federation in Microsoft Exchange Server 2013
     
