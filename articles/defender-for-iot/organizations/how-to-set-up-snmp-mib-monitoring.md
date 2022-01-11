@@ -27,15 +27,15 @@ Before you begin configuring SNMP monitoring, you need to open the port UDP 161 
 | Memory usage | 1.3.6.1.4.1.53313.3.3 | GAUGE32 | Indication for zero to 100 |
 | Disk Usage | 1.3.6.1.4.1.53313.3.4 | GAUGE32 | Indication for zero to 100 |
 | Service Status | 1.3.6.1.4.1.53313.5  |STRING | Online or offline if one of the four crucial components is down |
-| Service Status | 1.3.6.1.4.1.53313.5  |STRING | Online or offline if one of the four crucial components is down |
-| Locally/cloud connected | 1.3.6.1.4.1.53313.6   |STRING | Indicates if the sensor is connected to Defender for IoT in Azure or managed on-premises only |
-| License status | 1.3.6.1.4.1.53313.5  |STRING | Indicates if activation file expired or not |
+| Locally/cloud connected | 1.3.6.1.4.1.53313.6   |STRING | Activation mode of this appliance: Cloud Connected / Locally Connected |
+| License status | 1.3.6.1.4.1.53313.7  |STRING | Activation period of this appliance: Active / Expiration Date / Expired |
 
-   - Non-existing keys respond with null, HTTP 200, based on [Stack Overflow](https://stackoverflow.com/questions/51419026/querying-for-non-existing-record-returns-null-with-http-200).
+
+   - Non-existing keys respond with null, HTTP 200.
     
    - Hardware-related MIBs (CPU usage, CPU temperature, memory usage, disk usage) should be tested on all architectures and physical sensors. CPU temperature on virtual machines is expected to be not applicable.
 
-You can download the log that contains all the SNMP queries that the sensor receives, including the connection data and raw data from the packet.
+You can download the log that contains all the SNMP queries that the sensor receives, including the connection data and raw data.
 
 To define SNMP v2 health monitoring:
 

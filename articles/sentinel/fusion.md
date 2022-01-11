@@ -1,15 +1,8 @@
 ---
 title: Advanced multistage attack detection in Microsoft Sentinel
 description: Use Fusion technology in Microsoft Sentinel to reduce alert fatigue and create actionable incidents that are based on advanced multistage attack detection.
-services: sentinel
-documentationcenter: na
 author: yelevin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
@@ -28,7 +21,7 @@ Microsoft Sentinel uses Fusion, a correlation engine based on scalable machine l
 
 Customized for your environment, this detection technology not only reduces [false positive](false-positives.md) rates but can also detect attacks with limited or missing information.
 
-Since Fusion correlates multiple signals from various products to detect advanced multistage attacks, successful Fusion detections are presented as **Fusion incidents** on the Microsoft Sentinel **Incidents** page and not as **alerts**, and are stored in the *Incidents* table in **Logs** and not in the *SecurityAlerts* table.
+Since Fusion correlates multiple signals from various products to detect advanced multistage attacks, successful Fusion detections are presented as **Fusion incidents** on the Microsoft Sentinel **Incidents** page and not as **alerts**, and are stored in the *SecurityIncident* table in **Logs** and not in the *SecurityAlert* table.
 
 ### Configure Fusion
 
@@ -71,7 +64,7 @@ When the Fusion engine's correlations result in the detection of an emerging thr
 
 Microsoft Sentinel's Fusion engine generates an incident when it detects multiple alerts of different types from the following data sources, and determines that they may be related to ransomware activity:
 
-- [Microsoft Defender for Cloud](connect-azure-security-center.md)
+- [Microsoft Defender for Cloud](connect-defender-for-cloud.md)
 - [Microsoft Defender for Endpoint](./data-connectors-reference.md#microsoft-defender-for-endpoint)
 - [Microsoft Defender for Identity](./data-connectors-reference.md#microsoft-defender-for-identity)
 - [Microsoft Defender for Cloud Apps](./data-connectors-reference.md#microsoft-defender-for-cloud-apps)

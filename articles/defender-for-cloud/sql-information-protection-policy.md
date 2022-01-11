@@ -1,19 +1,8 @@
 ---
 title: SQL information protection policy in Microsoft Defender for Cloud
 description: Learn how to customize information protection policies in Microsoft Defender for Cloud.
-services: security-center
-documentationcenter: na
-author: memildin
-manager: rkarlin
-ms.assetid: 2ebf2bc7-232a-45c4-a06a-b3d32aaf2500
-ms.service: defender-for-cloud
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
-ms.author: memildin
-
 ---
 # SQL information protection policy in Microsoft Defender for Cloud
 
@@ -54,7 +43,7 @@ From Defender for Cloud's **Environment settings** page, select **SQL informatio
 > [!NOTE]
 > This option only appears for users with tenant-level permissions. [Grant tenant-wide permissions to yourself](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself).
 
-:::image type="content" source="./media/sql-information-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Accessing the SQL Information Protection policy from the pricing and settings page of Microsoft Defender for Cloud.":::
+:::image type="content" source="./media/sql-information-protection-policy/environment-settings-link-to-information-protection.png" alt-text="Accessing the SQL Information Protection policy from the environment settings page of Microsoft Defender for Cloud.":::
 
 
 

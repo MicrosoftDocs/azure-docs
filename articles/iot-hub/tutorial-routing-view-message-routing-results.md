@@ -1,12 +1,12 @@
 ---
 title: Tutorial - View Azure IoT Hub message routing results (.NET) | Microsoft Docs
 description: Tutorial - After setting up all of the resources using Part 1 of the tutorial, add the ability to route messages to Azure Stream Analytics and view the results in Power BI.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 09/21/2021
-ms.author: robinsh
+ms.author: lizross
 ms.custom: "mvc, devx-track-csharp, devx-track-azurepowershell"
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message.
 ---

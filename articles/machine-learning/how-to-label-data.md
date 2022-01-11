@@ -22,7 +22,7 @@ After your project administrator creates an [image data labeling project](./how-
 
 ## Prerequisites
 
-* A [Microsoft account](https://account.microsoft.com/account) or an Azure Active Directory account for the organization and project
+* A [Microsoft account](https://account.microsoft.com/account) or an Azure Active Directory account for the organization and project.
 * Contributor level access to the workspace that contains the labeling project.
 
 ## Sign in to the studio
@@ -31,7 +31,7 @@ After your project administrator creates an [image data labeling project](./how-
 
 1. Select the subscription and the workspace that contains the labeling project.  Get this information from your project administrator.
 
-1. Select **Data labeling** on the left-hand side to find the project.  
+1. Depending on your access level, you may see multiple sections on the left.  If so, select **Data labeling** on the left-hand side to find the project.  
 
 ## Understand the labeling task
 

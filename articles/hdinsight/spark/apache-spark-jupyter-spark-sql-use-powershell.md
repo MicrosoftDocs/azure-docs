@@ -4,7 +4,7 @@ description: This quickstart shows how to use Azure PowerShell to create an Apac
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.custom: mvc, devx-track-azurepowershell
+ms.custom: mvc, devx-track-azurepowershell, mode-api
 #Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a spark cluster and query some data.
 ---
 

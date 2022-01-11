@@ -3,11 +3,9 @@ title: Microsoft Sentinel SAP data connector expert configuration options, on-pr
 description: Learn how to deploy the Microsoft Sentinel data connector for SAP environments using expert configuration options and an on-premises machine. Also learn more about SAPControl log sources.
 author: batamig
 ms.author: bagol
-ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.subservice: microsoft-sentinel
 ---
 
 # Expert configuration options, on-premises deployment, and SAPControl log sources
@@ -46,7 +44,7 @@ spname=<sp-name>
 
 kvname=<keyvaultname>
 # Optional when Azure MI not enabled - Create sp user for AZ cli connection, save details for env.list file
-az ad sp create-for-rbac –name $spname 
+az ad sp create-for-rbac –name $spname --role Contributor
 
 SpID=$(az ad sp list –display-name $spname –query “[].appId” --output tsv
 
@@ -177,6 +175,8 @@ We recommend that you perform this procedure after you have a key vault ready wi
     # env.list template for Credentials
     SAPADMUSER=<SET_SAPCONTROL_USER>
     SAPADMPASSWORD=<SET_SAPCONTROL_PASS>
+    LOGWSID=<SET SENTINEL WORKSPACE id>
+    LOGWSPUBLICKEY=<SET SENTINEL WORKSPACE KEY>
     ABAPUSER=SET_ABAP_USER>
     ABAPPASS=<SET_ABAP_PASS>
     JAVAUSER=<SET_JAVA_OS_USER>

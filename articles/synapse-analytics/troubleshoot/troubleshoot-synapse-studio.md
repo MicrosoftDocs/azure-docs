@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot Synapse Studio
 description: Troubleshoot Synapse Studio
-author: julieMSFT 
+author: WilliamDAssafMSFT
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: troubleshooting
 ms.date: 04/15/2020 
-ms.author: jrasnick 
-ms.reviewer: jrasnick
+ms.author: wiassaf
+ms.reviewer: sngun
 ---
 
 # Synapse Studio troubleshooting

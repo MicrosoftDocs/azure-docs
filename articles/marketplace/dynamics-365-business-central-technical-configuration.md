@@ -1,15 +1,15 @@
 ---
-title: Set up Dynamics 365 for Business Central offer technical configuration on Microsoft AppSource (Azure Marketplace)
-description: Set up Dynamics 365 for Business Central offer technical configuration on Microsoft AppSource (Azure Marketplace).
+title: Set up Dynamics 365 Business Central offer technical configuration on Microsoft AppSource (Azure Marketplace)
+description: Set up Dynamics 365 Business Central offer technical configuration on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/19/2021
+ms.date: 12/03/2021
 ---
 
-# Set up Dynamics 365 for Business Central offer technical configuration
+# Set up Dynamics 365 Business Central offer technical configuration
 
 This page defines the technical details used to connect to your offer. This connection lets us provision your offer for the end customer if they choose to acquire it.
 

@@ -4,7 +4,7 @@ description: Enable SQL insights in Azure Monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/5/2021
+ms.date: 1/6/2022
 ---
 
 # Enable SQL insights (preview)
@@ -116,7 +116,7 @@ The Azure virtual machines has the following requirements.
 
 - Operating system: Ubuntu 18.04 
 - Recommended minimum Azure virtual machine sizes: Standard_B2s (2 cpus, 4 GiB memory) 
-- Supported regions: Any [region supported by the Azure Monitor agent](../agents/azure-monitor-agent-overview.md#supported-regions)
+- Deployed in any Azure region [supported](../agents/azure-monitor-agent-overview.md#supported-regions) by the Azure Monitor agent, and meeting all Azure Monitor agent [prerequisites](../agents/azure-monitor-agent-install.md#prerequisites).
 
 > [!NOTE]
 > The Standard_B2s (2 cpus, 4 GiB memory) virtual machine size will support up to 100 connection strings. You shouldn't allocate more than 100 connections to a single virtual machine.
@@ -154,7 +154,7 @@ When settings up your profile for SQL monitoring, you will need one of the follo
 If you have these permissions, a new Key Vault access policy will be automatically created as part of creating your SQL Monitoring profile that uses the Key Vault you specified. 
 
 > [!IMPORTANT]
-> You need to ensure that network and security configuration allows the monitoring VM to access Key Vault. For more information, see [Access Azure Key Vault behind a firewall](/key-vault/general/access-behind-firewall.md) and [Configure Azure Key Vault networking settings](/key-vault/general/how-to-azure-key-vault-network-security.md).
+> You need to ensure that network and security configuration allows the monitoring VM to access Key Vault. For more information, see [Access Azure Key Vault behind a firewall](/azure/key-vault/general/access-behind-firewall) and [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
 ## Create SQL monitoring profile
 Open SQL insights by selecting **SQL (preview)** from the **Insights** section of the **Azure Monitor** menu in the Azure portal. Click **Create new profile**. 

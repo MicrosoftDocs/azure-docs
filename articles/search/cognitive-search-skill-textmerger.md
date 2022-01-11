@@ -6,7 +6,7 @@ description: Merge text from a collection of fields into one consolidated field.
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
 ---
 
@@ -28,6 +28,19 @@ Parameters are case-sensitive.
 |--------------------|-------------|
 | `insertPreTag`	| String to be included before every insertion. The default value is `" "`. To omit the space, set the value to `""`.  |
 | `insertPostTag`	| String to be included after every insertion. The default value is `" "`. To omit the space, set the value to `""`.  |
+
+## Skill inputs
+| Input name | Description |
+|------------|-------------|
+| `itemsToInsert` | Array of strings to be merged. |
+| `text`          | (optional) Main text body to be inserted into. If `text` is not provided, elements of `itemsToInsert` will be concatencated. |
+| `offsets`       | (optional) Array of positions within `text` where `itemsToInsert` should be inserted. If provided, the number of elements of `text` must equal the number of elements of `textToInsert`. Otherwise all items will be appended at the end of `text`. |
+
+## Skill outputs
+| Output name | Description |
+|-------------|-------------|
+| `mergedText`    | The resulting merged text. |
+| `mergedOffsets` | Array of positions within `mergedText` where elements of `itemsToInsert` were inserted. |
 
 
 ##	Sample input

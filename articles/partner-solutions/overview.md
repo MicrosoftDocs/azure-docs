@@ -1,11 +1,8 @@
 ---
 title: Offerings from partners - Azure partner solutions
 description: Learn about solutions offered by partners on Azure.
-author: tfitzmac
 ms.topic: conceptual
-ms.service: partner-services
 ms.date: 05/25/2021
-ms.author: tomfitz
 ---
 
 # Extend Azure with solutions from partners

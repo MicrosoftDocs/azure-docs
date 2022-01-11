@@ -175,7 +175,7 @@ Reliance on API key-based authentication means that you should have a plan for r
 
 Cognitive Search does not log user identities so you cannot refer to logs for information about a specific user. However, the service does log create-read-update-delete operations, which you might be able to correlate with other logs to understand the agency of specific actions.
 
-Using alerts and the logging infrastructure in Azure, you can pick up on query volume spikes or other actions that deviate from expected workloads. For more information about setting up logs, see [Collect and analyze log data](search-monitor-logs.md) and [Monitor query requests](search-monitor-queries.md).
+Using alerts and the logging infrastructure in Azure, you can pick up on query volume spikes or other actions that deviate from expected workloads. For more information about setting up logs, see [Collect and analyze log data](monitor-azure-cognitive-search.md) and [Monitor query requests](search-monitor-queries.md).
 
 ### Certifications and compliance
 

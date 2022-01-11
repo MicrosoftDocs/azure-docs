@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-custom-ner, ignite-fall-2021
+ms.custom: language-service-custom-ner, ignite-fall-2021, mode-other
 zone_pivot_groups: usage-custom-language-features
 ---
 
@@ -32,11 +32,11 @@ In this article, we use the Language studio to demonstrate key concepts of custo
 
 ## Next steps
 
-After you've created a text classification model, you can:
+After you've created entity extraction model, you can:
 
-* [Use the runtime API to classify text](how-to/call-api.md)
+* [Use the runtime API to extract entities](how-to/call-api.md)
 
-When you start to create your own text classification projects, use the how-to articles to learn more about developing your model in greater detail:
+When you start to create your own entity classification projects, use the how-to articles to learn more about developing your model in greater detail:
 
 * [Data selection and schema design](how-to/design-schema.md)
 * [Tag data](how-to/tag-data.md)

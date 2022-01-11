@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 01/25/2019
 ---
 # Disaster recovery strategies for applications using Azure SQL Database elastic pools

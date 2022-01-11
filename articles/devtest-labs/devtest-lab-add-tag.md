@@ -31,7 +31,7 @@ Every tag is made up of a **name**/**value** pair. For example, you might create
 
     ![Configuration and policies button](./media/devtest-lab-add-tag/devtestlab-config-and-policies.png)
 
-1. On the left under **MANAGE**, select **Tags**.
+1. On the left under **General**, select **Tags**.
 1. To create a new tag for this lab, enter a **Name**/**Value** pair and select **Save**. You can also select an existing tag from the list to view or manage the resources associated with that tag.
 
     ![Manage tags](./media/devtest-lab-add-tag/devtestlab-manage-tags.png)

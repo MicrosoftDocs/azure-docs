@@ -2,8 +2,7 @@
 title: Automanage for Windows Server 
 description: Overview of Azure Automanage for Windows Server capabilities with Windows Server Azure Edition 
 author: nwashburn-ms
-ms.service: virtual-machines
-ms.subservice: automanage
+ms.service: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 07/09/2021
@@ -50,7 +49,7 @@ SMB over QUIC offers an "SMB VPN" for telecommuters, mobile device users, and br
 
 SMB over QUIC is also integrated with [Automanage machine best practices for Windows Server](automanage-windows-server.md) to help make SMB over QUIC management easier. QUIC uses certificates to provide its encryption and organizations often struggle to maintain complex public key infrastructures. Automanage machine best practices ensure that certificates do not expire without warning and that SMB over QUIC stays enabled for maximum continuity of service.
 
-To learn more, see [SMB over QUIC](https://aka.ms/smboverquic) and [SMB over QUIC management with Automanage machine best practices](automanage-smb-over-quic.md).
+To learn more, see [SMB over QUIC](/windows-server/storage/file-server/smb-over-quic) and [SMB over QUIC management with Automanage machine best practices](automanage-smb-over-quic.md).
  
 
 ### Extended network for Azure

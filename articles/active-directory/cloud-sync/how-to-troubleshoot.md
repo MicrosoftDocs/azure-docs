@@ -3,7 +3,7 @@ title: Azure AD Connect cloud sync troubleshooting
 description: This article describes how to troubleshoot problems that might arise with the cloud provisioning agent.
 author: billmath
 ms.author: billmath
-manager: daveba
+manager: karenhoran
 ms.date: 10/13/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
@@ -49,13 +49,38 @@ To verify that the agent is seen by Azure and is healthy, follow these steps.
 
    ![On-premises provisioning agents screen](media/how-to-install/install-8.png)</br>
 
-### Verify the port
+### Verify the required open ports
 
-Verify that Azure is listening on port 443 and that your agent can communicate with it. 
+Verify that Azure AD Connect Provisioning agent is able to communicate successfully with Azure data centers. If there's a firewall in the path, make sure that the following ports to outbound traffic are open.
 
-This test verifies that your agents can communicate with Azure over port 443. Open a browser, and go to the previous URL from the server where the agent is installed.
+Open the following ports to **outbound** traffic.
 
-![Verification of port reachability](media/how-to-install/verify-2.png)
+| Port number | How it's used |
+| ----------- | ------------------------------------------------------------ |
+| 80          | Downloading certificate revocation lists (CRLs) while validating the TLS/SSL certificate |
+| 443         | All outbound communication with the Application Proxy service |
+
+If your firewall enforces traffic according to originating users, also open ports 80 and 443 for traffic from Windows services that run as a Network Service.
+
+### Allow access to URLs
+
+Allow access to the following URLs:
+
+| URL | Port | How it's used |
+| --- | --- | --- |
+| `*.msappproxy.net` <br> `*.servicebus.windows.net` | 443/HTTPS | Communication between the connector and the Application Proxy cloud service |
+| `crl3.digicert.com` <br> `crl4.digicert.com` <br> `ocsp.digicert.com` <br> `crl.microsoft.com` <br> `oneocsp.microsoft.com` <br> `ocsp.msocsp.com`<br> | 80/HTTP   | The connector uses these URLs to verify certificates.        |
+| `login.windows.net` <br> `secure.aadcdn.microsoftonline-p.com` <br> `*.microsoftonline.com` <br> `*.microsoftonline-p.com` <br> `*.msauth.net` <br> `*.msauthimages.net` <br> `*.msecnd.net` <br> `*.msftauth.net` <br> `*.msftauthimages.net` <br> `*.phonefactor.net` <br> `enterpriseregistration.windows.net` <br> `management.azure.com` <br> `policykeyservice.dc.ad.msft.net` <br> `ctldl.windowsupdate.com` <br> `www.microsoft.com/pkiops` | 443/HTTPS | The connector uses these URLs during the registration process. |
+| `ctldl.windowsupdate.com` | 80/HTTP | The connector uses this URL during the registration process. |
+
+You can allow connections to `*.msappproxy.net`, `*.servicebus.windows.net`, and other URLs above if your firewall or proxy lets you configure access rules based on domain suffixes. If not, you need to allow access to the [Azure IP ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). The IP ranges are updated each week.
+
+> [!IMPORTANT]
+> Avoid all forms of inline inspection and termination on outbound TLS communications between Azure AD Application Proxy connectors and Azure AD Application Proxy Cloud services.
+
+### DNS name resolution for Azure AD Application Proxy endpoints
+
+Public DNS records for Azure AD Application Proxy endpoints are chained CNAME records pointing to an A record. This ensures fault tolerance and flexibility. It’s guaranteed that the Azure AD Application Proxy Connector always accesses host names with the domain suffixes `*.msappproxy.net` or `*.servicebus.windows.net`. However, during the name resolution the CNAME records might contain DNS records with different host names and suffixes. Due to this, you must ensure that the device (depending on your setup - connector server, firewall, outbound proxy) can resolve all the records in the chain and allows connection to the resolved IP addresses. Since the DNS records in the chain might be changed from time to time, we cannot provide you with any list DNS records.
 
 ### On the local server
 

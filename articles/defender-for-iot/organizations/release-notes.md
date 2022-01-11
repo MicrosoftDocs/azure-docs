@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 11/09/2021
+ms.date: 12/19/2021
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -15,11 +15,11 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 ## Versioning and support for Defender for IoT
 
-Listed below are the support, breaking change policies for Defender for IoT, and the versions of Defender for IoT that are currently available.
+Listed below are the support, breaking change policies for Microsoft Defender for IoT, and the versions of Microsoft Defender for IoT that are currently available.
 
 ### Servicing information and timelines
 
-Microsoft plans to release updates for Defender for IoT no less than once per quarter. Each general availability (GA) version of the Defender for IoT sensor, and on premises management console is supported for up to nine months after its release. Fixes, and new functionality will be applied to the current GA version that are currently in support, and will not be applied to older GA versions.
+Microsoft plans to release updates for Defender for IoT no less than once per quarter. Each general availability (GA) version of the Defender for IoT sensor, and on-premises management console is supported for nine months after release. Fixes, and new functionality will be applied to the current GA version that are currently in support, and will not be applied to older GA versions.
 
 ### Versions and support dates
 
@@ -27,7 +27,97 @@ Microsoft plans to release updates for Defender for IoT no less than once per qu
 |--|--|--|
 | 10.0 | 01/2021 | 10/2021 |
 | 10.3 | 04/2021 | 01/2022 |
-| 10.5.2 | 11/2021 | 07/2022 |
+| 10.5.2 | 10/2021 | 07/2022 |
+| 10.5.3 | 10/2021 | 07/2022 |
+| 10.5.4 | 12/2021 | 09/2022 |
+
+## December 2021
+
+- [Enhanced integration with Microsoft Sentinel (Preview)](#enhanced-integration-with-microsoft-sentinel-preview)
+- [Apache Log4j vulnerability](#apache-log4j-vulnerability)
+- [Alerting](#alerting)
+
+### Enhanced integration with Microsoft Sentinel (Preview)
+
+The new **IoT OT Threat Monitoring with Defender for IoT solution** is available and provides enhanced capabilities for Microsoft Defender for IoT integration with Microsoft Sentinel. The **IoT OT Threat Monitoring with Defender for IoT solution** is a set of bundled content, including analytics rules, workbooks, and playbooks, configured specifically for Defender for IoT data. This solution currently supports only Operational Networks (OT/ICS). 
+
+For information on integrating with Microsoft Sentinel, see [Tutorial: Integrate Defender for Iot and Sentinel](/azure/sentinel/iot-solution?tabs=use-out-of-the-box-analytics-rules-recommended)
+
+### Apache Log4j vulnerability
+
+Version 10.5.4 of Microsoft Defender for IoT mitigates the Apache Log4j vulnerability. For details, see [the security advisory update](https://techcommunity.microsoft.com/t5/microsoft-defender-for-iot/updated-15-dec-defender-for-iot-security-advisory-apache-log4j/m-p/3036844).
+
+### Alerting
+
+Version 10.5.4 of Microsoft Defender for IoT delivers important alert enhancements:
+
+- Alerts for certain minor events or edge-cases are now disabled.
+- For certain scenarios, similar alert are minimized in a single alert message.
+
+These changes reduce alert volume and enable more efficient targeting and analysis of security and operational events.
+
+#### Alerts permanently disabled
+
+The alerts listed below are permanently disabled with version 10.5.4. Detection and monitoring are still supported for traffic associated with the alerts.
+
+**Policy engine alerts**
+
+- RPC Procedure Invocations
+- Unauthorized HTTP Server
+- Abnormal usage of MAC Addresses
+
+#### Alerts disabled by default
+
+The alerts listed below are disabled by default with version 10.5.4. You can re-enable the alerts from the Support page of the sensor console, if required.
+
+**Anomaly engine alert**
+- Abnormal Number of Parameters in HTTP Header
+- Abnormal HTTP Header Length
+- Illegal HTTP Header Content
+
+**Operational engine alerts**
+- HTTP Client Error
+- RPC Operation Failed
+
+**Policy engine alerts**
+
+Disabling these alerts also disables monitoring of related traffic. Specifically, this traffic will not be reported in Data Mining reports.
+
+- Illegal HTTP Communication alert and HTTP Connections Data Mining traffic
+- Unauthorized HTTP User Agent alert and HTTP User Agents Data Mining traffic
+- Unauthorized HTTP SOAP Action and HTTP SOAP Actions Data Mining traffic
+
+#### Updated alert functionality
+
+**Unauthorized Database Operation alert**
+Previously, this alert covered DDL and DML alerting and Data Mining reporting. Now:
+- DDL traffic: alerting and monitoring are supported. 
+- DML traffic: Monitoring is supported.  Alerting is not supported.
+
+**New Asset Detected alert**
+This alert is disabled for new devices detected in IT subnets. The New Asset Detected alert is still triggered for new devices discovered in OT subnets. OT subnets are detected automatically and can be updated by users if required.
+
+### Minimized alerting
+
+Alert triggering for specific scenarios has been minimized to help reduce alert volume and simplify alert investigation. In these scenarios, if a device performs repeated activity on targets, an alert is triggered once.  Previously, a new alert was triggered each time the same activity was carried out.
+
+This new functionality is available on the following alerts:
+
+- Port Scan Detected alerts, based on activity of the source device (generated by the Anomaly engine)
+- Malware alerts, based on activity of the source device. (generated by the Malware engine). 
+- Suspicion of Denial of Service Attack alerts, based on activity of the destination device (generated by the Malware engine)
+
+## November 2021
+
+The following feature enhancements are available with version 10.5.3 of Microsoft Defender for IoT.
+
+- The on-premises management console, has a new [ServiceNow Integration API - “/external/v3/integration/ (Preview)](references-work-with-defender-for-iot-apis.md#servicenow-integration-api---externalv3integration-preview).
+
+- Enhancements have been made to the network traffic analysis of multiple OT and ICS protocol dissectors.
+
+- As part of our automated maintenance, archived alerts that are over 90 days old will now be automatically deleted.
+
+- A number of enhancements have been made to the exporting of alert metadata based on customer feedback.
 
 ## October 2021
 
@@ -41,11 +131,12 @@ The following feature enhancements are available with version 10.5.2 of Azure De
 
 - [Webhook Extended](#webhook-extended)
 
-- [Unicode support for certificate passphrases](#unicode-support-for-certificate-passphrases) 
+- [Unicode support for certificate passphrases](#unicode-support-for-certificate-passphrases)
 
 ### PLC operating mode detections (Public Preview)
 
 Users can now view PLC operating mode states, changes, and risks. The PLC Operating mode consists of the PLC logical Run state and the physical Key state, if a physical key switch exists on the PLC.
+
 This new capability helps improve security by detecting *unsecure* PLCs, and as a result prevents malicious attacks such as PLC Program Downloads. The 2017 Triton attack on a petrochemical plant illustrates the impact of such risks.
 This information also provides operational engineers with critical visibility into the operational mode of enterprise PLCs.
 

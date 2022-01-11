@@ -13,7 +13,7 @@ ms.topic: overview
 
 #  Create Azure Arc data controller from Azure portal - Direct connectivity mode
 
-This article describes how to deploy the Azure Arc data controller in direct connect mode during the current preview of this feature. 
+This article describes how to deploy the Azure Arc data controller in direct connect mode from the Azure portal. 
 
 ## Complete prerequisites
 

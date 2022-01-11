@@ -56,7 +56,7 @@ You'll now deploy a new Application Gateway, to simulate having an existing Appl
 When using an AKS cluster and Application Gateway in separate virtual networks, the address spaces of the two virtual networks must not overlap. The default address space that an AKS cluster deploys in is 10.0.0.0/8, so we set the Application Gateway virtual network address prefix to 11.0.0.0/8. 
 
 ```azurecli-interactive
-az network public-ip create -n myPublicIp -g MyResourceGroup --allocation-method Static --sku Standard
+az network public-ip create -n myPublicIp -g myResourceGroup --allocation-method Static --sku Standard
 az network vnet create -n myVnet -g myResourceGroup --address-prefix 11.0.0.0/8 --subnet-name mySubnet --subnet-prefix 11.1.0.0/16 
 az network application-gateway create -n myApplicationGateway -l canadacentral -g myResourceGroup --sku Standard_v2 --public-ip-address myPublicIp --vnet-name myVnet --subnet mySubnet
 ```

@@ -38,7 +38,7 @@ When you enable Private Link to your origin in Azure Front Door Premium configur
 
 ## Limitations
 
-Azure Front Door private endpoints are available in the following regions during public preview: East US, West 2 US, South Central US, and UK South.
+Azure Front Door private endpoints are available in the following regions during public preview: East US, West 2 US, South Central US, UK South, and Japan East.
 
 For the best latency, you should always pick an Azure region closest to your origin when choosing to enable Front Door private link endpoint.
 

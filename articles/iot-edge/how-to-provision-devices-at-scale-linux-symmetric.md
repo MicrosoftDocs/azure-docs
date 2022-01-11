@@ -3,7 +3,6 @@ title: Create and provision IoT Edge devices using symmetric keys on Linux - Azu
 description: Use symmetric key attestation to test provisioning Linux devices at scale for Azure IoT Edge with device provisioning service
 author: kgremban
 ms.author: kgremban
-ms.reviewer: v-tcassi
 ms.date: 10/29/2021
 ms.topic: conceptual
 ms.service: iot-edge
@@ -32,7 +31,7 @@ Symmetric key attestation is a simple approach to authenticating a device with a
 <!-- Cloud resources prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
 
-### IoT Edge installation
+### Device requirements
 
 A physical or virtual Linux device to be the IoT Edge device.
 

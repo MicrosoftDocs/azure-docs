@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/28/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -22,6 +22,25 @@ This article outlines how to register SAP S/4HANA, and how to authenticate and i
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
+When scanning SAP S/4HANA source, Purview supports:
+
+- Extracting technical metadata including:
+
+    - Instance
+    - Application components
+    - Packages
+    - Tables including the fields, foreign keys, indexes, and index members
+    - Views including the fields
+    - Transactions
+    - Programs
+    - Classes
+    - Function groups
+    - Function modules
+    - Domains including the domain values
+    - Data elements
+
+- Fetching static lineage on assets relationships among tables and views.
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -30,10 +49,10 @@ This article outlines how to register SAP S/4HANA, and how to authenticate and i
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
-* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
     >[!NOTE]
-    >Scanning SAP S/4HANA is a memory intensive operation, you are recommended to install Self-hosted Integration Runtime on a machine with large memory e.g. 128 GB.
+    >Scanning SAP S/4HANA is a memory intensive operation, you are recommended to install Self-hosted Integration Runtime on a machine with at least 128GB RAM.
 
 * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
 

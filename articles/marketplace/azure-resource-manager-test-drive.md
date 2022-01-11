@@ -6,7 +6,8 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.author: trkeya
 author: trkeya
-ms.date: 10/26/2021
+ms.date: 12/06/2021
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure Resource Manager test drive
@@ -309,8 +310,8 @@ The final section to complete is to be able to deploy the test drives automatica
 3. Provision the Microsoft Test-Drive application to your tenant. We will use this application to perform operations on your test drive resources.
     1. If you don't have it yet, install the [Azure Az PowerShell module](/powershell/azure/install-az-ps).
     1. Add the Service Principal for Microsoft Test-Drive application.
-        1. Run `Connect-AzAccount` and provide credentials to sign in to your Azure account, which requires the Azure active directory **Global Administrator** [built-in role](../active-directory/roles/permissions-reference.md#global-administrator). 
-        1. Create a new service principal: `New-AzADServicePrincipal -ApplicationId d7e39695-0b24-441c-a140-047800a05ede -DisplayName 'Microsoft TestDrive' -SkipAssignment`.
+        1. Run `Connect-AzAccount` and provide credentials to sign in to your Azure account, which requires the Azure active directory **Global Administrator** [built-in role](../active-directory/roles/permissions-reference.md#global-administrator).
+        1. Create a new service principal: `New-AzADServicePrincipal -ApplicationId d7e39695-0b24-441c-a140-047800a05ede -DisplayName 'Microsoft TestDrive'`.
         1. Ensure the service principal has been created: `Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive'`.
       ![Shows the code to verify service principal](media/test-drive/commands-to-verify-service-principal.png)
 

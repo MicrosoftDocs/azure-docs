@@ -80,12 +80,12 @@ In this tutorial, you learn how to:
         builder.AddAzureAppConfiguration(options =>
         {
             options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                    // Load all keys that start with `TestApp:`.
+                    // Load all keys that start with `TestApp:` and have no label.
                     .Select("TestApp:*")
                     // Configure to reload configuration if the registered key 'TestApp:Settings:Sentinel' is modified.
                     .ConfigureRefresh(refresh => 
                     {
-                        refresh.Register("TestApp:Settings:Sentinel", refreshAll:true);
+                        refresh.Register("TestApp:Settings:Sentinel", refreshAll:true)
                                .SetCacheExpiration(new TimeSpan(0, 5, 0));
                     });
             _configurationRefresher = options.GetRefresher();

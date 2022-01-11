@@ -4,9 +4,7 @@ description: Learn how to quickly create a Kubernetes cluster, deploy an applica
 services: container-service
 ms.topic: quickstart
 ms.date: 02/26/2021
-
-ms.custom: [H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, devx-track-azurecli, contperf-fy21q1]
-
+ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, devx-track-azurecli, contperf-fy21q1, mode-api
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
 
@@ -291,7 +289,7 @@ Pre-existing container images were used in this quickstart to create a Kubernete
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and then deployed a multi-container application to it. [Access the Kubernetes web dashboard][kubernetes-dashboard] for your AKS cluster.
+In this quickstart, you deployed a Kubernetes cluster and then deployed a multi-container application to it.
 
 To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
@@ -321,5 +319,4 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [azure-portal]: https://portal.azure.com
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: concepts-network.md#services
-[kubernetes-dashboard]: kubernetes-dashboard.md
 [windows-container-cli]: windows-container-cli.md

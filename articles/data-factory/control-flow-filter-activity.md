@@ -28,6 +28,29 @@ You can use a Filter activity in a pipeline to apply a filter expression to an i
     }
 }
 ```
+## Create a Filter activity with UI
+
+To use a Filter activity in a pipeline, complete the following steps:
+
+1. You can use any array type variable or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions) as the input for your filter condition.  To create an array variable, select the background of the pipeline canvas and then select the **Variables** tab to add an array type variable as shown below.
+
+   :::image type="content" source="media/control-flow-activities-common/pipeline-array-variable.png" alt-text="Shows an empty pipeline canvas with an array type variable added to the pipeline.":::
+
+1. Search for _Filter_ in the pipeline Activities pane, and drag a Filter activity to the pipeline canvas.
+1. Select the new Filter activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+   :::image type="content" source="media/control-flow-filter-activity/filter-activity.png" alt-text="Shows the UI for a Filter activity.":::
+
+1. Select the **Items** field and then select the **Add dynamic content** link to open the dynamic content editor pane.
+
+   :::image type="content" source="media/control-flow-filter-activity/add-dynamic-content-link.png" alt-text="Shows the &nbsp;Add dynamic content&nbsp; link for the Items property.":::
+
+1. Select your input array to be filtered in the dynamic content editor.  In this example, we select the variable created in the first step.
+
+   :::image type="content" source="media/control-flow-activities-common/add-dynamic-content-pane.png" alt-text="Shows the dynamic content editor with the variable created in the first step selected":::
+
+1. Use the dynamic content editor again to specify a filter condition for the Condition property, as shown above.
+1. You can use the output from the Filter activity as an input to other activities like the [ForEach activity](control-flow-for-each-activity.md).
 
 ## Type properties
 

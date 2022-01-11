@@ -1,17 +1,8 @@
 ---
 title: Use Azure Functions to connect Microsoft Sentinel to your data source | Microsoft Docs
 description: Learn how to configure data connectors that use Azure Functions to get data from data sources into Microsoft Sentinel.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
@@ -41,7 +32,7 @@ Make sure that you have the following permissions and credentials before using A
 
 - You must have read and write permissions on the Microsoft Sentinel workspace.
 
-- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
+- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/agent-windows.md#workspace-id-and-key).
 
 - You must have read and write permissions on Azure Functions to create a Function App. [Learn more about Azure Functions](../azure-functions/index.yml).
 

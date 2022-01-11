@@ -4,12 +4,11 @@ description: Step-by-step instructions for viewing the activities made to manage
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity

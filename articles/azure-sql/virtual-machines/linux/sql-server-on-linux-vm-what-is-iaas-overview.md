@@ -12,7 +12,6 @@ ms.topic: overview
 ms.workload: iaas-sql-server
 ms.date: 10/26/2021
 ms.author: mathoma
-ms.reviewer: jroth
 ---
 # Overview of SQL Server on Linux Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

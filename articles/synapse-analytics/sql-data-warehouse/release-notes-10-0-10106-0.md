@@ -6,9 +6,9 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 4/30/2020
-author: rothja
-ms.author: jroth
-ms.reviewer: jrasnick
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sngun
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse

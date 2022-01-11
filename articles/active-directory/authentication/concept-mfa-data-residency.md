@@ -10,7 +10,7 @@ ms.date: 06/03/2021
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: inbarc
 ms.custom: references_regions
 

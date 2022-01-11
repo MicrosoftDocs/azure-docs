@@ -84,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://cincom.okta.com/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [CPQSync by Cincom Client support team](https://cpqsupport.cincomcpq.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [CPQSync by Cincom Client support team](https://supportweb.cincom.com/default.aspx) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
 
@@ -126,11 +126,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure CPQSync by Cincom SSO
 
-To configure single sign-on on **CPQSync by Cincom** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [CPQSync by Cincom support team](https://cpqsupport.cincomcpq.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **CPQSync by Cincom** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [CPQSync by Cincom support team](https://supportweb.cincom.com/default.aspx). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create CPQSync by Cincom test user
 
-In this section, you create a user called B.Simon in CPQSync by Cincom. Work with [CPQSync by Cincom support team](https://cpqsupport.cincomcpq.com) to add the users in the CPQSync by Cincom platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in CPQSync by Cincom. Work with [CPQSync by Cincom support team](https://supportweb.cincom.com/default.aspx) to add the users in the CPQSync by Cincom platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 

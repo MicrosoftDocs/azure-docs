@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/13/2021
+ms.date: 11/16/2021
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
@@ -28,7 +28,7 @@ For more information about the Azure Identity client library for your language, 
 - [Azure Identity client library for Java](/java/api/overview/azure/identity-readme)
 - [Azure Identity client library for Python](/python/api/overview/azure/identity-readme)
 - [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme)
-- [Azure Identity client library for Go](/javascript/api/overview/azure/identity-readme)
+- [Azure Identity client library for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity)
 
 ## Assign Azure roles for access to data
 

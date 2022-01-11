@@ -3,7 +3,7 @@ title: Azure AD built-in roles - Azure Active Directory
 description: Describes the Azure Active Directory built-in roles and permissions.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 In Azure Active Directory (Azure AD), if another administrator or non-administrator needs to manage Azure AD resources, you assign them an Azure AD role that provides the permissions they need. For example, you can assign roles to allow adding or changing users, resetting user passwords, managing user licenses, or managing domain names.
 
-This article lists the Azure AD built-in roles you can assign to allow management of Azure AD resources. For information about how to assign roles, see [Assign Azure AD roles to users](manage-roles-portal.md).
+This article lists the Azure AD built-in roles you can assign to allow management of Azure AD resources. For information about how to assign roles, see [Assign Azure AD roles to users](manage-roles-portal.md). If you are looking for roles to manage Azure resources, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 ## All roles
 
@@ -31,10 +31,14 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Application Developer](#application-developer) | Can create application registrations independent of the 'Users can register applications' setting. | cf1c38e5-3621-4004-a7cb-879624dced7c |
 > | [Attack Payload Author](#attack-payload-author) | Can create attack payloads that an administrator can initiate later. | 9c6df0f2-1e7c-4dc3-b195-66dfbd24aa8f |
 > | [Attack Simulation Administrator](#attack-simulation-administrator) | Can create and manage all aspects of attack simulation campaigns. | c430b396-e693-46cc-96f3-db01bf8bb62a |
+> | [Attribute Assignment Administrator](#attribute-assignment-administrator) | Assign custom security attribute keys and values to supported Azure AD objects. | 58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d |
+> | [Attribute Assignment Reader](#attribute-assignment-reader) | Read custom security attribute keys and values for supported Azure AD objects. | ffd52fa5-98dc-465c-991d-fc073eb59f8f |
+> | [Attribute Definition Administrator](#attribute-definition-administrator) | Define and manage the definition of custom security attributes. | 8424c6f0-a189-499e-bbd0-26c1753c96d4 |
+> | [Attribute Definition Reader](#attribute-definition-reader) | Read the definition of custom security attributes. | 1d336d2c-4ae8-42ef-9711-b3604ce3fc2c |
 > | [Authentication Administrator](#authentication-administrator) | Can access to view, set and reset authentication method information for any non-admin user. | c4e39bd9-1100-46d3-8c65-fb160da0071f |
 > | [Authentication Policy Administrator](#authentication-policy-administrator) | Can create and manage the authentication methods policy, tenant-wide MFA settings, password protection policy, and verifiable credentials. | 0526716b-113d-4c15-b2c8-68e3c22b9f80 |
 > | [Azure AD Joined Device Local Administrator](#azure-ad-joined-device-local-administrator) | Users assigned to this role are added to the local administrators group on Azure AD-joined devices. | 9f06204d-73c1-4d4c-880a-6edb90606fd8 |
-> | [Azure DevOps Administrator](#azure-devops-administrator) | Can manage Azure DevOps organization policy and settings. | e3973bdf-4987-49ae-837a-ba8e231c7286 |
+> | [Azure DevOps Administrator](#azure-devops-administrator) | Can manage Azure DevOps policies and settings. | e3973bdf-4987-49ae-837a-ba8e231c7286 |
 > | [Azure Information Protection Administrator](#azure-information-protection-administrator) | Can manage all aspects of the Azure Information Protection product. | 7495fdc4-34c4-4d15-a289-98788ce399fd |
 > | [B2C IEF Keyset Administrator](#b2c-ief-keyset-administrator) | Can manage secrets for federation and encryption in the Identity Experience Framework (IEF). | aaf43236-0c0d-4d5f-883a-6955382ac081 |
 > | [B2C IEF Policy Administrator](#b2c-ief-policy-administrator) | Can create and manage trust framework policies in the Identity Experience Framework (IEF). | 3edaf663-341e-4475-9f94-5c398ef6c070 |
@@ -109,7 +113,7 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 
 Users in this role can create and manage all aspects of enterprise applications, application registrations, and application proxy settings. Note that users assigned to this role are not added as owners when creating new application registrations or enterprise applications.
 
-This role also grants the ability to consent for delegated permissions and application permissions, with the exception of application permissions for both Microsoft Graph and Azure AD Graph.
+This role also grants the ability to consent for delegated permissions and application permissions, with the exception of application permissions for Microsoft Graph.
 
 > [!IMPORTANT]
 > This exception means that you can still consent to application permissions for _other_ apps (for example, non-Microsoft apps or apps that you have registered). You can still _request_ these permissions as part of the app registration, but _granting_ (that is, consenting to) these permissions requires a more privileged administrator, such as Global Administrator.
@@ -167,7 +171,7 @@ This role also grants the ability to consent for delegated permissions and appli
 > | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning syncronization jobs |
 > | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning syncronization jobs and schema |
 > | microsoft.directory/servicePrincipals/managePasswordSingleSignOnCredentials | Read password single sign-on credentials on service principals |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-application-admin | Grant consent for application permissions and delegated permissions on behalf of any user or all users, except for application permissions for Microsoft Graph and Azure AD Graph |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-application-admin | Grant consent for application permissions and delegated permissions on behalf of any user or all users, except for application permissions for Microsoft Graph |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
 > | microsoft.directory/servicePrincipals/audience/update | Update audience properties on service principals |
 > | microsoft.directory/servicePrincipals/authentication/update | Update authentication properties on service principals |
@@ -217,6 +221,71 @@ Users in this role can create and manage all aspects of attack simulation creati
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Create and manage attack payloads in Attack Simulator |
 > | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation responses and associated training |
 > | microsoft.office365.protectionCenter/attackSimulator/simulation/allProperties/allTasks | Create and manage attack simulation templates in Attack Simulator |
+
+## Attribute Assignment Administrator
+
+Users with this role can assign and remove custom security attribute keys and values for supported Azure AD objects such as users, service principals, and devices.
+
+By default, [Global Administrator](#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
+
+For more information, see [Manage access to custom security attributes in Azure AD](../fundamentals/custom-security-attributes-manage.md).
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/attributeSets/allProperties/read | Read all properties of attribute sets |
+> | microsoft.directory/customSecurityAttributeDefinitions/allProperties/read | Read all properties of custom security attribute definitions |
+> | microsoft.directory/devices/customSecurityAttributes/read | Read custom security attribute values for devices |
+> | microsoft.directory/devices/customSecurityAttributes/update | Update custom security attribute values for devices |
+> | microsoft.directory/servicePrincipals/customSecurityAttributes/read | Read custom security attribute values for service principals |
+> | microsoft.directory/servicePrincipals/customSecurityAttributes/update | Update custom security attribute values for service principals |
+> | microsoft.directory/users/customSecurityAttributes/read | Read custom security attribute values for users |
+> | microsoft.directory/users/customSecurityAttributes/update | Update custom security attribute values for users |
+
+## Attribute Assignment Reader
+
+Users with this role can read custom security attribute keys and values for supported Azure AD objects.
+
+By default, [Global Administrator](#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
+
+For more information, see [Manage access to custom security attributes in Azure AD](../fundamentals/custom-security-attributes-manage.md).
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/attributeSets/allProperties/read | Read all properties of attribute sets |
+> | microsoft.directory/customSecurityAttributeDefinitions/allProperties/read | Read all properties of custom security attribute definitions |
+> | microsoft.directory/devices/customSecurityAttributes/read | Read custom security attribute values for devices |
+> | microsoft.directory/servicePrincipals/customSecurityAttributes/read | Read custom security attribute values for service principals |
+> | microsoft.directory/users/customSecurityAttributes/read | Read custom security attribute values for users |
+
+## Attribute Definition Administrator
+
+Users with this role can define a valid set of custom security attributes that can be assigned to supported Azure AD objects. This role can also activate and deactivate custom security attributes.
+
+By default, [Global Administrator](#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
+
+For more information, see [Manage access to custom security attributes in Azure AD](../fundamentals/custom-security-attributes-manage.md).
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/attributeSets/allProperties/allTasks | Manage all aspects of attribute sets |
+> | microsoft.directory/customSecurityAttributeDefinitions/allProperties/allTasks | Manage all aspects of custom security attribute definitions |
+
+## Attribute Definition Reader
+
+Users with this role can read the definition of custom security attributes.
+
+By default, [Global Administrator](#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
+
+For more information, see [Manage access to custom security attributes in Azure AD](../fundamentals/custom-security-attributes-manage.md).
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/attributeSets/allProperties/read | Read all properties of attribute sets |
+> | microsoft.directory/customSecurityAttributeDefinitions/allProperties/read | Read all properties of custom security attribute definitions |
 
 ## Authentication Administrator
 
@@ -309,9 +378,8 @@ This role is available for assignment only as an additional local administrator 
 
 ## Azure DevOps Administrator
 
-Users with this role can manage the Azure DevOps policy to restrict new Azure DevOps organization creation to a set of configurable users or groups. Users in this role can manage this policy through any Azure DevOps organization that is backed by the company's Azure AD organization. This role grants no other Azure DevOps-specific permissions (for example, Project Collection Administrators) inside any of the Azure DevOps organizations backed by the company's Azure AD organization.
+Users with this role can manage all enterprise Azure DevOps policies, applicable to all Azure DevOps organizations backed by the Azure AD. Users in this role can manage these policies by navigating to any Azure DevOps organization that is backed by the company's Azure AD. Additionally, users in this role can claim ownership of orphaned Azure DevOps organizations. This role grants no other Azure DevOps-specific permissions (for example, Project Collection Administrators) inside any of the Azure DevOps organizations backed by the company's Azure AD organization.
 
-All enterprise Azure DevOps policies can be managed by users in this role.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -386,7 +454,7 @@ Users with this role have full permissions in Cloud App Security. They can add a
 
 Users in this role have the same permissions as the Application Administrator role, excluding the ability to manage application proxy. This role grants the ability to create and manage all aspects of enterprise applications and application registrations. Users assigned to this role are not added as owners when creating new application registrations or enterprise applications.
 
-This role also grants the ability to consent for delegated permissions and application permissions, with the exception of application permissions for both Microsoft Graph and Azure AD Graph.
+This role also grants the ability to consent for delegated permissions and application permissions, with the exception of application permissions for Microsoft Graph.
 
 > [!IMPORTANT]
 > This exception means that you can still consent to application permissions for _other_ apps (for example, non-Microsoft apps or apps that you have registered). You can still _request_ these permissions as part of the app registration, but _granting_ (that is, consenting to) these permissions requires a more privileged administrator, such as Global Administrator.
@@ -433,7 +501,7 @@ This role also grants the ability to consent for delegated permissions and appli
 > | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning syncronization jobs |
 > | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning syncronization jobs and schema |
 > | microsoft.directory/servicePrincipals/managePasswordSingleSignOnCredentials | Read password single sign-on credentials on service principals |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-application-admin | Grant consent for application permissions and delegated permissions on behalf of any user or all users, except for application permissions for Microsoft Graph and Azure AD Graph |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-application-admin | Grant consent for application permissions and delegated permissions on behalf of any user or all users, except for application permissions for Microsoft Graph |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
 > | microsoft.directory/servicePrincipals/audience/update | Update audience properties on service principals |
 > | microsoft.directory/servicePrincipals/authentication/update | Update authentication properties on service principals |
@@ -590,7 +658,7 @@ Users in this role can read basic directory information. This role should be use
 > | microsoft.directory/devices/memberOf/read | Read device memberships |
 > | microsoft.directory/devices/registeredOwners/read | Read registered owners of devices |
 > | microsoft.directory/devices/registeredUsers/read | Read registered users of devices |
-> | microsoft.directory/directoryRoles/standard/read | Update basic properties in Azure AD roles |
+> | microsoft.directory/directoryRoles/standard/read | Read basic properties in Azure AD roles |
 > | microsoft.directory/directoryRoles/eligibleMembers/read | Read the eligible members of Azure AD roles |
 > | microsoft.directory/directoryRoles/members/read | Read all members of Azure AD roles |
 > | microsoft.directory/domains/standard/read | Read basic properties on domains |
@@ -1817,7 +1885,7 @@ Windows Defender ATP and EDR | View and investigate alerts. When you turn on rol
 Users with this role can open support requests with Microsoft for Azure and Microsoft 365 services, and views the service dashboard and message center in the [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). More information at [About admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
-> Previously, this role was called "Service Administrator" in [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). We have renamed it to "Service Support Administrator" to align with the exsiting name in Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell.
+> Previously, this role was called "Service Administrator" in [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). We have renamed it to "Service Support Administrator" to align with the existing name in Microsoft Graph API and Azure AD PowerShell.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2140,6 +2208,8 @@ Workplace Device Join | Deprecated | [Deprecated roles documentation](#deprecate
 ## Password reset permissions
 
 Column headings represent the roles that can reset passwords. Table rows contain the roles for which their password can be reset.
+
+The following table is for roles assigned at the scope of a tenant. For roles assigned at the scope of an administrative unit, [further restrictions apply](admin-units-assign-roles.md#roles-that-can-be-assigned-with-administrative-unit-scope).
 
 Password can be reset | Password Admin | Helpdesk Admin | Authentication Admin | User Admin | Privileged Authentication Admin | Global Admin
 ------ | ------ | ------ | ------ | ------ | ------ | ------

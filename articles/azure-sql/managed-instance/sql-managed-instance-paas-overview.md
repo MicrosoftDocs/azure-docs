@@ -30,8 +30,8 @@ The following diagram outlines key features of SQL Managed Instance:
 
 Azure SQL Managed Instance is designed for customers looking to migrate a large number of apps from an on-premises or IaaS, self-built, or ISV provided environment to a fully managed PaaS cloud environment, with as low a migration effort as possible. Using the fully automated [Azure Data Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance), customers can lift and shift their existing SQL Server instance to SQL Managed Instance, which offers compatibility with SQL Server and complete isolation of customer instances with native VNet support. For more information on migration options and tools, see [Migration overview: SQL Server to Azure SQL Managed Instance](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md).</br> With Software Assurance, you can exchange your existing licenses for discounted rates on SQL Managed Instance using the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). SQL Managed Instance is the best migration destination in the cloud for SQL Server instances that require high security and a rich programmability surface.
 
-> [!TIP]
-> How can we make Azure SQL better? [Take the survey](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
+
+
 
 ## Key features and capabilities
 
@@ -74,8 +74,9 @@ The [vCore-based purchasing model](../database/service-tiers-vcore.md) for SQL M
 
 In the vCore model, you can choose between generations of hardware.
 
-- **Gen4** logical CPUs are based on Intel&reg; E5-2673 v3 (Haswell) 2.4 GHz processors, attached SSD, physical cores, 7-GB RAM per core, and compute sizes between 8 and 24 vCores.
-- **Gen5** logical CPUs are based on Intel&reg; E5-2673 v4 (Broadwell) 2.3 GHz, Intel&reg; SP-8160 (Skylake), and  Intel&reg; 8272CL (Cascade Lake) 2.5 GHz processors, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 4 and 80 cores.
+- **Standard Series (Gen5)** logical CPUs are based on Intel&reg; E5-2673 v4 (Broadwell) 2.3 GHz, Intel&reg; SP-8160 (Skylake), and  Intel&reg; 8272CL (Cascade Lake) 2.5 GHz processors, with **5.1 GB of RAM per CPU vCore**, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 4 and 80 cores.
+- **Premium Series** logical CPUs are based on Intel&reg; 8370C (Ice Lake) 2.8 GHz processors, with **7 GB of RAM per CPU vCore**, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 4 and 80 cores.
+- **Premium Series Memory-Optimized** logical CPUs are based on Intel&reg; 8370C (Ice Lake) 2.8 GHz processors, with **13.6 GB of RAM per CPU vCore**, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 4 and 64 cores.
 
 Find more information about the difference between hardware generations in [SQL Managed Instance resource limits](resource-limits.md#hardware-generation-characteristics).
 
@@ -93,7 +94,7 @@ Both service tiers guarantee 99.99% availability and enable you to independently
 The following list describes key characteristics of the General Purpose service tier:
 
 - Designed for the majority of business applications with typical performance requirements
-- High-performance Azure Blob storage (8 TB)
+- High-performance Azure Blob storage (16 TB)
 - Built-in [high availability](../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) based on reliable Azure Blob storage and [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
 
 For more information, see [Storage layer in the General Purpose tier](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) and [Storage performance best practices and considerations for SQL Managed Instance (General Purpose)](/archive/blogs/sqlcat/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose).
@@ -107,7 +108,7 @@ The Business Critical service tier is built for applications with high I/O requi
 The following list outlines the key characteristics of the Business Critical service tier:
 
 - Designed for business applications with highest performance and HA requirements
-- Comes with super-fast local SSD storage (up to 1 TB on Gen4 and up to 4 TB on Gen5)
+- Comes with super-fast local SSD storage (up to 4 TB on Standard Series (Gen5), up to 5.5 TB on Premium Series and up to 16 TB on Premium Series Memory-Optimized)
 - Built-in [high availability](../database/high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) based on [Always On availability groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) and [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
 - Built-in additional [read-only database replica](../database/read-scale-out.md) that can be used for reporting and other read-only workloads
 - [In-Memory OLTP](../in-memory-oltp-overview.md) that can be used for workload with high-performance requirements  
