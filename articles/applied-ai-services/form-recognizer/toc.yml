@@ -18,7 +18,7 @@ items:
   items:
    - name: Form Recognizer v2.1
      items:
-     - name: Sample Labeling tool
+     - name: Sample-labeling tool
        href: quickstarts/try-sample-label-tool.md
      - name: Client libraries and REST API
        href: quickstarts/get-started-sdk-rest-api.md
@@ -52,9 +52,9 @@ items:
       items:
       - name: Assemble a training data set
         href: build-training-data-set.md
-      - name:   Deploy the Sample Labeling tool
+      - name:   Deploy the sample-labeling tool
         href: deploy-label-tool.md
-      - name: Train a custom model with the Sample Labeling tool
+      - name: Train a custom model with the sample-labeling tool
         href: label-tool.md
       - name: Use table tags to train your custom model
         href: supervised-table-tags.md
@@ -112,13 +112,13 @@ items:
     href:  create-a-form-recognizer-resource.md
   - name: Generate SAS tokens for Azure Blob containers
     href:  generate-sas-tokens.md
-  - name: Train a custom model with the sample labeling tool
+  - name: Train a custom model with the sample-labeling tool
     href: label-tool.md
   - name: Build a training data set
     href: build-training-data-set.md
   - name: Use table tags to train your custom model
     href: supervised-table-tags.md
-  - name:   Deploy the sample labeling tool
+  - name:   Deploy the sample-labeling tool
     href: deploy-label-tool.md
   - name: Use containers
     items:
