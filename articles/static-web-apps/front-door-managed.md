@@ -9,9 +9,9 @@ ms.date: 11/15/2021
 ms.author: cshoe
 ---
 
-Accelerate your websites with Azure Static Web Apps enterprise-grade edge (Preview)
+# Enterprise-grade edge (Preview)
 
-Use Azure Static Web Apps enterprise-grade edge (Preview) to increase your website page load speed, enhance security, and optimize reliability for your global applications. It combines the capabilities of Azure Static Web Apps, Azure Front Door and Azure Content Delivery Network (CDN) standard into a single secure cloud CDN platform. Key features included with Azure Static Web Apps enterprise-grade edge:
+Use Azure Static Web Apps enterprise-grade edge (Preview) to enable faster page loads, enhance security, and optimize reliability for your global applications. It combines the capabilities of Azure Static Web Apps, Azure Front Door and Azure Content Delivery Network (CDN) standard into a single secure cloud CDN platform. Key features included with Azure Static Web Apps enterprise-grade edge:
 * Global presence in 118+ [edge locations](/azure/frontdoor/edge-locations-by-region) across 100 metro cities
 * Caching assets at the [edge](/azure/frontdoor/front-door-caching)
 * Proactive protection against [Distributed Denial of Service (DDoS) attacks](/azure/frontdoor/front-door-ddos)
@@ -75,16 +75,20 @@ A manual setup gives you full control over the CDN configuration including the c
 
 1. Select **OK** to confirm the save.
 
-    Enabling this feature may result in additional costs.
+    Enabling this feature will incur an additional cost.
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az extension add --yes --source "https://sstrawnwheels.blob.core.windows.net/wheels/enterprise_edge-0.1.0-py3-none-any.whl"
+az extension add -n enterprise-edge
 
 az staticwebapp enterprise-edge enable -n my-static-webapp -g my-resource-group
 ```
 
 ---
 
-This feature is enabled only in EUAP
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Application configuration](configuration.md)
