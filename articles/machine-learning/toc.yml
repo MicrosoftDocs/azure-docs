@@ -44,13 +44,9 @@
           href: tutorial-1st-experiment-bring-data.md
     - name: Jupyter Notebooks
       items:
-        - name: Image classification (MNIST data)
-          items:
-            - name: 1. Train a model
-              displayName: build modeling
-              href: tutorial-train-models-with-aml.md
-            - name: 2. Deploy a model
-              href: tutorial-deploy-models-with-aml.md
+        - name: Train & deploy image classification
+          displayName: MNIST
+          href: tutorial-train-deploy-notebook.md
         - name: Automated ML
           items: 
             - name: Regression (NYC Taxi data)
@@ -410,13 +406,13 @@
               href: how-to-designer-import-data.md
         - name: Access data
           items:
-            - name: Connect to Azure storage (Python)
+            - name: Connect to Azure storage with datastores (Python)
               displayName: blob, get, fileshare, access, mount, download, data lake, datastore
               href: how-to-access-data.md
             - name: Identity-based data access to storage
               displayName: blob, access, data lake, datastore, managed identity
               href: how-to-identity-based-data-access.md
-            - name: Get data from a datastore (Python)
+            - name: Get data from storage with datasets (Python)
               displayName: data, data set, register, access data
               href: how-to-create-register-datasets.md
             - name: Connect to data (UI)
