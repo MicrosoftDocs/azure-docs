@@ -29,6 +29,10 @@ In this tutorial you learn how to:
 > * Set up authentication methods and registration options
 > * Test the SSPR process as a user
 
+#Video Tutorial 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rA8TvhNcCvQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Prerequisites
 
 To finish this tutorial, you need the following resources and privileges:
