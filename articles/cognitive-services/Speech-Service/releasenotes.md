@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/11/2022
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, references_regions
 ---
 
 # Speech Service release notes
