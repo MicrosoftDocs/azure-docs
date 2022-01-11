@@ -278,6 +278,8 @@ items:
         href: catalog-private-link-end-to-end.md
       - name: Isolate network for Purview account and portal
         href: catalog-private-link-account-portal.md
+      - name: Managed virtual network
+        href: catalog-managed-vnet.md        
       - name: Configure DNS for private endpoint
         href: catalog-private-link-name-resolution.md
       - name: Troubleshoot private endpoints
