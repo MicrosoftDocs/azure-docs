@@ -410,7 +410,7 @@ It's not possible to edit connection strings in bulk by using a JSON file with A
 
 ## Configure general settings
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 In the [Azure portal], search for and select **App Services**, and then select your app. In the app's left menu, select **Configuration** > **General settings**.
 
@@ -464,7 +464,7 @@ This setting is only for Windows apps.
 
 The default document is the web page that's displayed at the root URL of an App Service app. The first matching file in the list is used. If the app uses modules that route based on URL instead of serving static content, there is no need for default documents.
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 1. In the [Azure portal], search for and select **App Services**, and then select your app. 
 1. In the app's left menu, select **Configuration** > **Default documents**.
@@ -499,7 +499,7 @@ Set-AzWebApp $webapp
 
 By default, App Service starts your app from the root directory of your app code. But certain web frameworks don't start in the root directory. For example, [Laravel](https://laravel.com/) starts in the `public` subdirectory. Such an app would be accessible at `http://contoso.com/public`, for example, but you typically want to direct `http://contoso.com` to the `public` directory instead. If your app's startup file is in a different folder, or if your repository has more than one application, you can edit or add virtual applications and directories.
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 1. In the [Azure portal], search for and select **App Services**, and then select your app. 
 1. In the app's left menu, select **Configuration** > **Path mappings**
