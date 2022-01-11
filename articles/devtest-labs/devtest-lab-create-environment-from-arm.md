@@ -41,15 +41,21 @@ You can also [store environment templates in your own Git repositories](devtest-
 
 DevTest Labs users don't have to connect to the public template repository externally to use the environment templates. You can enable and configure lab access to the public repository so lab users can access the templates directly from the Azure portal.
 
+### Enable public environments when you create a lab
+
 To enable public environment repository access for a lab, make sure **On** is selected in the **Public environments** field when you create the lab. The setting is **On** by default.
 
 ![Screenshot that shows enabling public environments for a new lab.](media/devtest-lab-create-environment-from-arm/enable-public-environment-new-lab.png)
 
-Existing labs, and labs created with some ARM templates, might not have public environments enabled. To enable or disable the public environment repository for existing labs:
+### Enable or disable public environments for existing labs
+
+Existing labs, and labs you create with some ARM templates, might not have public environments enabled. To enable or disable the public environment repository for existing labs:
 
 1. From the lab's **Overview** page in the Azure portal, select **Configuration and policies** in the left navigation.
 1. On the **Configuration and policies** page, select **Public environments** under **Virtual machine bases** in the left navigation.
 1. Under **Enable Public Environments for this lab**, select **Yes** to enable or **No** to disable public environments.
+
+### Select available public environment templates
 
 If you enable public environments, all the environment templates in the repository are available by default. Deselect specific environments to make them unavailable to lab users.
 
