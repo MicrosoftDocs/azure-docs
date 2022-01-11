@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/22/2021
+ms.date: 01/15/2022
 ms.custom: devx-track-azurepowershell, subject-rbac-steps, ignite-fall-2021
 ---
 
@@ -18,7 +18,7 @@ Azure Logic Apps supports the [*system-assigned* managed identity](../active-dir
 | Logic app resource type | Environment | Description |
 |-------------------------|-------------|-------------|
 | Consumption | - Multi-tenant Azure Logic Apps <p><p>- Integration service environment (ISE) | You can enable and use *either* the system-assigned identity or a *single* user-assigned identity at the logic app resource level and connection level. |
-| Standard | - Single-tenant Azure Logic Apps <p><p>- App Service Environment v3 (ASEv3) <p><p>- Azure Arc enabled Logic Apps | Currently, you can use *only* the system-assigned identity, which is automatically enabled. The user-assigned identity is currently unavailable. |
+| Standard | - Single-tenant Azure Logic Apps <p><p>- App Service Environment v3 (ASEv3) <p><p>- Azure Arc enabled Logic Apps | Currently, you can use *either* the system-assigned identity, which is enabled by default, or a *single* user-assigned identity. |
 |||
 
 To learn about managed identity limits in Azure Logic Apps, review [Limits on managed identities for logic apps](logic-apps-limits-and-config.md#managed-identity). For more information about the Consumption and Standard logic app resource types and environments, review the following documentation:
@@ -56,7 +56,7 @@ The following table lists the operations where you can use the system-assigned m
 
 ---
 
-This article shows how to enable and set up the system-assigned identity or user-assigned identity, based on whether you're using the **Logic App (Consumption)** or **Logic App (Standard)** resource type. Unlike the system-assigned identity, which you don't have to manually create, you *do* have to manually create the user-assigned identity for the **Logic App (Consumption)** resource type. This article includes the steps to create the user-assigned identity using the Azure portal and Azure Resource Manager template (ARM template). For Azure PowerShell, Azure CLI, and Azure REST API, review the following documentation:
+This article shows how to enable and set up the system-assigned identity or user-assigned identity, based on whether you're using the **Logic App (Consumption)** or **Logic App (Standard)** resource type. Unlike the system-assigned identity, which you don't have to manually create, you *do* have to manually create the user-assigned identity. This article includes the steps to create the user-assigned identity using the Azure portal and Azure Resource Manager template (ARM template). For Azure PowerShell, Azure CLI, and Azure REST API, review the following documentation:
 
 | Tool | Documentation |
 |------|---------------|
@@ -78,7 +78,7 @@ This article shows how to enable and set up the system-assigned identity or user
   | Logic app resource type | Managed identity support |
   |-------------------------|--------------------------|
   | Consumption | System-assigned or user-assigned identity |
-  | Standard | System-assigned identity (automatically enabled) |
+  | Standard | System-assigned identity (enabled by default) or user-assigned identity |
   |||
 
 <a name="system-assigned-azure-portal"></a>
@@ -198,9 +198,9 @@ When Azure creates your logic app resource definition, the `identity` object get
 <a name="azure-portal-user-identity"></a>
 <a name="user-assigned-azure-portal"></a>
 
-## Create user-assigned identity in the Azure portal (Consumption only)
+## Create user-assigned identity in the Azure portal
 
-Before you can enable the user-assigned identity on your **Logic App (Consumption)** resource, you have to first create that identity as a separate Azure resource.
+Before you can enable the user-assigned identity on your **Logic App (Consumption)** or **Logic App (Standard)** resource, you have to first create that identity as a separate Azure resource.
 
 1. In the [Azure portal](https://portal.azure.com) search box, enter `managed identities`. Select **Managed Identities**.
 
@@ -390,7 +390,7 @@ On the Azure resource where you want to use the managed identity for authenticat
    | Type | Azure service instance | Subscription | Member |
    |------|------------------------|--------------|--------|
    | **System-assigned** | **Logic App** | <*Azure-subscription-name*> | <*your-logic-app-name*> |
-   | **User-assigned** (Consumption only) | Not applicable | <*Azure-subscription-name*> | <*your-user-assigned-identity-name*> |
+   | **User-assigned** | Not applicable | <*Azure-subscription-name*> | <*your-user-assigned-identity-name*> |
    |||||
 
    For more information about assigning roles, review the documentation, [Assign roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
@@ -691,7 +691,7 @@ The Azure Resource Manager managed connector has an action, **Read a resource**,
 
 <a name="logic-app-resource-definition-connection-managed-identity"></a>
 
-## Logic app resource definition and connections that use a managed identity (Consumption)
+## Logic app resource definition and connections that use a managed identity
 
 A connection that enables and uses a managed identity are a special connection type that works only with a managed identity. At runtime, the connection uses the managed identity that's enabled on the logic app resource. At runtime, the Azure Logic Apps service checks whether any managed connector trigger and actions in the logic app workflow are set up to use the managed identity and that all the required permissions are set up to use the managed identity for accessing the target resources that are specified by the trigger and actions. If successful, Azure Logic Apps retrieves the Azure AD token that's associated with the managed identity and uses that identity to authenticate access to the target resource and perform the configured operation in trigger and actions.
 
