@@ -216,7 +216,7 @@ Here are the details:
 [![Inference workflow](media/concept-azure-machine-learning-architecture/inferencing.png)](media/concept-azure-machine-learning-architecture/inferencing.png#lightbox)
 
 
-For an example of deploying a model as a web service, see [Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
+For an example of deploying a model as a web service, see [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md).
 
 #### Real-time endpoints
 

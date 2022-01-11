@@ -83,7 +83,7 @@ In the latest version, models are deployed as web services to Azure Container In
 
 Learn more in these articles:
 + [Where and how to deploy models](how-to-deploy-and-where.md)
-+ [Tutorial: Deploy models with Azure Machine Learning](tutorial-deploy-models-with-aml.md)
++ [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md)
 
 ## Next steps
 
