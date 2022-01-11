@@ -1,5 +1,5 @@
 ---
-title: Microsoft CloudKnox Permissions Management - Integrations dashboard 
+title: Microsoft CloudKnox Permissions Management - The Integrations dashboard 
 description: How to use the Integrations dashboard in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
@@ -12,9 +12,9 @@ ms.date: 01/10/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - Integrations dashboard
+# Microsoft CloudKnox Permissions Management - The Integrations dashboard
 
-The **Integrations** dashboard displays the systems the authorization systems available to you in Microsoft CloudKnox Permissions Management.
+The **Integrations** dashboard displays the authorization systems available to you in Microsoft CloudKnox Permissions Management.
 
 ## Display the **Integrations** dashboard
 
@@ -52,3 +52,8 @@ The **Integrations** dashboard displays the systems the authorization systems av
 
 
 <!---## Next steps--->
+
+<!---View integrated authorization systems](cloudknox-product-integrations)--->
+<!---[Installation overview](cloudknox-installation.md)--->
+<!---[Configure integration with the CloudKnox API](cloudknox-integration-api.md)--->
+<!---[Sign up and deploy FortSentry in your organization](cloudknox-fortsentry-registration.md)--->
