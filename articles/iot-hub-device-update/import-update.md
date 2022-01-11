@@ -3,7 +3,7 @@ title: How to add a new update | Microsoft Docs
 description: How-To guide for adding a new update into Device Update for IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 4/19/2021
+ms.date: 1/10/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
@@ -15,7 +15,7 @@ Learn how to obtain a new update and import it into Device Update for IoT Hub.
 
 * [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md). 
 * An IoT device (or simulator) [provisioned for Device Update](device-update-agent-provisioning.md) within IoT Hub.
-* [PowerShell 5](/powershell/scripting/install/installing-powershell) or later (includes Linux, macOS and Windows installs)
+* [PowerShell 5](/powershell/scripting/install/installing-powershell) or later (includes Linux, macOS, and Windows installs)
 * Supported browsers:
   * [Microsoft Edge](https://www.microsoft.com/edge)
   * Google Chrome
@@ -25,7 +25,7 @@ Learn how to obtain a new update and import it into Device Update for IoT Hub.
 
 ## Obtain an update for your devices
 
-Now that you've set up Device Update and provisioned your devices, you will need the update file(s) that you will be deploying to those devices.
+Now that you've set up Device Update and provisioned your devices, you'll need the update file(s) that you'll be deploying to those devices.
 
 If you’ve purchased devices from an OEM or solution integrator, that organization will most likely provide update files for you, without you needing to create the updates. Contact the OEM or solution integrator to find out how they make updates available.
 
@@ -33,7 +33,7 @@ If your organization already creates software for the devices you use, that same
 
 ## Create a Device Update import manifest
 
-If you haven't already done so, be sure to familiarize yourself with the basic [import concepts](import-concepts.md), and try out an [image-based](device-update-raspberry-pi.md), [package-based](device-update-ubuntu-agent.md) or proxy update tutorial first.
+If you haven't already done so, be sure to familiarize yourself with the basic [import concepts](import-concepts.md), and try out an [image-based](device-update-raspberry-pi.md), [package-based](device-update-ubuntu-agent.md), or proxy update tutorial first.
 
 1. Ensure that your update file(s) are located in a directory accessible from PowerShell.
 
@@ -65,7 +65,7 @@ If you haven't already done so, be sure to familiarize yourself with the basic [
     | deviceModel | Model of the device the update is compatible with, for example, Toaster. Must match _model_ [device property](./device-update-plug-and-play.md#device-properties).
     | updateProvider | Entity who is creating or directly responsible for the update. It will often be a company name.
     | updateName | Identifier for a class of updates. The class can be anything you choose. It will often be a device or model name.
-    | updateVersion | Version number distinguishing this update from others that have the same Provider and Name. Does not have match a version of an individual software component on the device (but can if you choose).
+    | updateVersion | Version number distinguishing this update from others that have the same Provider and Name. Does not have to match a version of an individual software component on the device (but can if you choose).
     | updateType | <ul><li>Specify `microsoft/swupdate:1` for image update</li><li>Specify `microsoft/apt:1` for package update</li></ul>
     | installedCriteria | Used during deployment to compare the version already on the device with the version of the update. Deploying the update to the device will return a “failed” result if the installedCriteria value doesn't match the version that is on the device.<ul><li>For `microsoft/swupdate:1` update type, specify value of SWVersion </li><li>For `microsoft/apt:1` update type, specify **name-version**, where _name_ is the name of the APT Manifest and _version_ is the version of the APT Manifest. For example, contoso-iot-edge-1.0.0.0.
     | updateFilePath(s) | Path to the update file(s) on your computer. For package update, this should be one APT manifest file. For image-based update, it can be multiple files (see [Import manifest schema details](import-schema.md)).
@@ -125,7 +125,7 @@ An example manifest output is below. For this example, there are two files that 
 
    :::image type="content" source="media/import-update/import-updates-3.png" alt-text="Import Updates" lightbox="media/import-update/import-updates-3.png":::
 
-3. You will see several tabs across the top of the screen. Select the Updates tab.
+3. You'll see several tabs across the top of the screen. Select the Updates tab.
 
    :::image type="content" source="media/import-update/updates-tab.png" alt-text="Updates" lightbox="media/import-update/updates-tab.png":::
 
@@ -137,7 +137,7 @@ An example manifest output is below. For this example, there are two files that 
 
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Select Update Files" lightbox="media/import-update/select-update-files.png":::
 
-6. Once you've selected a Storage account, the Containers UI will be shown. Select an existing container or create a new container using "+ Container". This container will be used to stage your updates for importing. _NOTE: it is recommended to use a new container each time you import an update to avoid accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container before completing this step._
+6. Once you've selected a Storage account, the Containers UI will be shown. Select an existing container or create a new container using "+ Container". This container will be used to stage your updates for importing. _Recommendation: use a new container each time you import an update to avoid accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container before completing this step._
 
    :::image type="content" source="media/import-update/storage-account.png" alt-text="Storage Account" lightbox="media/import-update/storage-account.png":::
 
@@ -170,6 +170,6 @@ An example manifest output is below. For this example, there are two files that 
 ## If you're importing via APIs instead
 
 If you want to use the [Device Update for IoT Hub Update APIs](/rest/api/deviceupdate/updates) to import an update instead of importing via the Azure portal, note the following:
-  - You will need to upload your update file(s) to an Azure Blob Storage location before you call the Update APIs.
-  - You can reference this [sample API call](import-schema.md#example-import-request-body) which uses the import manifest you created above.
-  - If you re-use the same SAS URL while testing, you may encounter errors when the token expires. This is the case when submitting the import manifest as well as the update content itself.
+  - You'll need to upload your update file(s) to an Azure Blob Storage location before you call the Update APIs.
+  - You can reference this [sample API call](import-schema.md#example-import-request-body), which uses the import manifest you created above.
+  - If you reuse the same SAS URL while testing, you may encounter errors when the token expires. This is the case when submitting the import manifest as well as the update content itself.
