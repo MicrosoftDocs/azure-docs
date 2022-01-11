@@ -1,8 +1,8 @@
 ---
-title: Create virtual machines by using Azure Resource Manager (ARM) templates
+title: Create VMs by using ARM templates
 description: Learn how to view, edit, save, and store ARM virtual machine (VM) templates, and connect template repositories to Azure DevTest Labs.
 ms.topic: how-to
-ms.date: 01/03/2022
+ms.date: 01/11/2022
 ---
 
 # Use ARM templates to create DevTest Labs virtual machines

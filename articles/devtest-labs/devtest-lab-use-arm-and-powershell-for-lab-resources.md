@@ -1,8 +1,8 @@
 ---
-title: Azure Resource Manager (ARM) templates in Azure DevTest Labs
+title: Create and deploy labs with Azure Resource Manager (ARM) templates
 description: Learn how Azure DevTest Labs uses Azure Resource Manager (ARM) templates to create and configure lab virtual machines (VMs) and environments.
-ms.topic: conceptual
-ms.date: 01/03/2022
+ms.topic: how-to
+ms.date: 01/11/2022
 ---
 
 # Azure Resource Manager (ARM) templates in Azure DevTest Labs
