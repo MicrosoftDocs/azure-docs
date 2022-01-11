@@ -33,7 +33,7 @@ sections:
       - question: |
          What query expressions can I use when querying individual enrollments or enrollment groups? 
         answer: |
-         DPS supports queries against [Individual Enrollments](/rest/api/iot-dps/service/enrollment-group/query) and [Enrollment Groups](/rest/api/iot-dps/service/enrollment-group/query). Currently, the only query expression supported is `SELECT *`, which returns all of the individual enrollments or enrollment groups in the DPS instance.
+         DPS supports queries against [Individual Enrollments](/rest/api/iot-dps/service/enrollment-group/query) and [Enrollment Groups](/rest/api/iot-dps/service/enrollment-group/query). Currently, the only query expression supported is `SELECT *`, which returns all of the individual enrollments or enrollment groups in the DPS instance. All other clauses, for example, a `WHERE` clause, are ignored.
   - name: DPS Billing
     questions:
       - question: |
