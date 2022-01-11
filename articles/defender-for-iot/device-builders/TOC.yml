@@ -18,10 +18,6 @@
     href: quickstart-onboard-iot-hub.md
   - name: Configure Defender-IoT-micro-agent for Azure RTOS
     href: quickstart-azure-rtos-security-module.md
-  - name: Investigate security recommendations
-    href: quickstart-investigate-security-recommendations.md
-  - name: Investigate security alerts
-    href: quickstart-investigate-security-alerts.md
   - name: Classic
     items:
     - name: Security agent overview
@@ -43,6 +39,10 @@
   - name: Configure Microsoft Defender for IoT agent-based solution
     displayName: data, collection, geolocation, log analytics, raw events
     href: how-to-configure-agent-based-solution.md
+  - name: Investigate security recommendations
+    href: quickstart-investigate-security-recommendations.md
+  - name: Investigate security alerts
+    href: quickstart-investigate-security-alerts.md
   - name: Configure a micro agent twin
     href: tutorial-configure-micro-agent-twin.md
 - name: Concepts

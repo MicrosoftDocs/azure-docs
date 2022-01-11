@@ -97,7 +97,7 @@ In order to secure your IoT solution, the IP addresses of the incoming, and outg
 
 1. Select **Save**.
 
-## Access alerts
+## Investigate alerts in Log Analytics workspace
 
 You can access your alerts and investigate them with the Log Analytics workspace.
 
@@ -113,30 +113,6 @@ You can access your alerts and investigate them with the Log Analytics workspace
 
     :::image type="content" source="media/how-to-configure-agent-based-solution/log-analytic.png" alt-text="Screenshot that shows where to click to investigate in the log anayltics workspace.":::
 
-## Access recommendations
-
-**To access your recommendations**:
-
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
-
-1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Recommendations**.
-
-1. Select a recommendation from the list.
-
-1. Select **Investigate recommendations in Log Analytics workspace**.
-
-    :::image type="content" source="media/how-to-configure-agent-based-solution/recommendation-alert.png" alt-text="Screenshot showing how to view a recommendation in the log analytics workspace.":::
-
-For more information on querying data from Log Analytics, see [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
-
-## Turn off Defender for IoT
-
-**To turn a Defender for IoT service on, or off on a specific IoT Hub**:
-
-1. In your IoT Hub, in the **Security** menu, select **Settings**.
-
-1. Select the **Data Collection** screen, and modify the workspace configuration of Log Analytics settings to suit your needs.
-
 ## Clean up resources
 
 There are no resources to clean up.
@@ -144,4 +120,4 @@ There are no resources to clean up.
 ## Next steps
 
 > [!div class="nextstepaction"]
->
+> [Quickstart: Investigate security recommendations](quickstart-investigate-security-recommendations.md)

@@ -1,34 +1,56 @@
 ---
 title: Investigate security recommendations
 description: Investigate security recommendations with the Defender for IoT security service.
-ms.topic: quickstart
-ms.date: 11/09/2021
-ms.custom: mode-other
+ms.topic: tutorial
+ms.date: 01/11/2022
 ---
 
-# Quickstart: Investigate security recommendations
+# Tutorial: Investigate security recommendations
+
+This tutorial will help you learn how to explore the information available in each IoT security recommendation, and explain how to use the details of each recommendation and related devices, to reduce risks.
 
 Timely analysis and mitigation of recommendations by Defender for IoT is the best way to improve security posture and reduce attack surface across your IoT solution.
 
-In this quickstart, we'll explore the information available in each IoT security recommendation, and explain how to drill down and use the details of each recommendation and related devices, to reduce risk.
+In this tutorial you will learn how to:
 
-Let's get started.
+> [!div class="checklist"]
+> - Investigate new recommendations
+> - Investigate security recommendation details
+> - Investigate recommendations in Log Analytics workspace
 
-## Investigate new recommendations
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- An [IoT hub](../../iot-hub/iot-hub-create-through-portal.md).
+
+- You must have [enabled Microsoft Defender for IoT on your Azure IoT Hub](quickstart-onboard-iot-hub.md).
+
+- You must have [added a resource group to your IoT solution](quickstart-configure-your-solution.md)
+
+- You must have [created a Defender for IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
+
+- You must have [installed the Defender for IoT micro agent (Preview)](quickstart-standalone-agent-binary-installation.md)
+
+- You must have [configured the Microsoft Defender for IoT agent-based solution](how-to-configure-agent-based-solution.md)
+
+## Investigate recommendations
 
 The IoT Hub recommendations list displays all of the aggregated security recommendations for your IoT Hub.
 
-1. In the Azure portal, open the **IoT Hub** you want to investigate for new recommendations.
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
 
-1. From the **Security** menu, select **Recommendations**. All of the security recommendations for the IoT Hub will display, and the recommendations with a **New** flag, mark your recommendations from the past 24 hours.
+1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Recommendations**.
 
-1. Select and open any recommendation from the list to open the recommendation details and drill down to the specifics.
+1. Select a recommendation from the list to open the recommendation details.
 
-## Security recommendation details
+## Investigate security recommendation details
 
 Open each aggregated recommendation to display the detailed recommendation description, remediation steps, device ID for each device that triggered a recommendation. It also displays recommendation severity and direct-investigation access using Log Analytics.
 
-1. Select and open any security recommendation from the **IoT Hub** > **Security** > **Recommendations** list.
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+
+1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Recommendations**.
 
 1. Review the recommendation **description**, **severity**, **device details** of all devices that issued this recommendation in the aggregation period.
 
@@ -40,11 +62,27 @@ Open each aggregated recommendation to display the detailed recommendation descr
 
     :::image type="content" source="media/quickstart/explore-security-recommendation-detail-inline.png" alt-text="Investigate specific security recommendations for a device with Defender for IoT" lightbox="media/quickstart/explore-security-recommendation-detail-expanded.png":::
 
-1. If further investigation is required, **Investigate the recommendation in Log Analytics** using the link. 
+## Investigate recommendations in Log Analytics workspace
+
+**To access your recommendations in Log Analytics workspace**:
+
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+
+1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Recommendations**.
+
+1. Select a recommendation from the list.
+
+1. Select **Investigate recommendations in Log Analytics workspace**.
+
+    :::image type="content" source="media/how-to-configure-agent-based-solution/recommendation-alert.png" alt-text="Screenshot showing how to view a recommendation in the log analytics workspace.":::
+
+For more information on querying data from Log Analytics, see [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
+
+## Clean up resources
+
+There are no resources to clean up.
 
 ## Next steps
 
-Advance to the next article to learn how to create custom alerts...
-
 > [!div class="nextstepaction"]
-> [Create custom alerts](quickstart-create-custom-alerts.md)
+> [Quickstart: Investigate security alerts](quickstart-investigate-security-alerts.md)
