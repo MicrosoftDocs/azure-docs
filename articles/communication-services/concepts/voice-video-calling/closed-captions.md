@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Overview
+# Closed Captions overview
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
@@ -29,7 +29,7 @@ Here are main scenarios where Closed Captions are useful:
 - Closed Captions help maintain concentration and engagement, which can provide a better experience for viewers with learning disabilities, a language barrier, attention deficit disorder, or hearing impairment. 
 - Closed Captions allow participants to be on the call in loud or sound-sensitive environments.
 
-## Feature Highlights
+## Feature highlights
 
 - Support for multiple platforms with cross-platform support.
 - Async processing with client subscription to events and callbacks.
@@ -43,7 +43,9 @@ The Private Preview will be available on all platforms.
 - iOS
 - Web
 
+## Next steps
 
+- Get started with a Closed Caption Quickstart
 
 
 
