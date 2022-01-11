@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Migrate default outbound access to a NAT gateway.
-> * Migrate load balancer outbound rules and IP address to a NAT gateway.
+> * Migrate load balancer outbound connectivity and IP address to a NAT gateway.
 
 ## Prerequisites
 
