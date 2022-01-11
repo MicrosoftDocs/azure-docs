@@ -11,7 +11,7 @@ ms.reviewer: ylunagaria
 
 ---
 
-# Known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage (preview)
+# Known issues with SSH File Transfer Protocol (SFTP) support in Azure Blob Storage (preview)
 
 This article describes limitations and known issues of SFTP support in Azure Blob Storage.
 
@@ -56,6 +56,8 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 | ecdsa-sha2-nistp256 | diffie-hellman-group14-sha256 | aes128-cbc| | ecdsa-sha2-nistp384 |
 | ecdsa-sha2-nistp384| diffie-hellman-group16-sha512 | aes256-cbc |  | 
 ||| aes192-cbc ||
+
+SFTP support in Azure Blob Storage currently limits its cryptographic algorithm support in accordance to the Microsoft Security Development Lifecycle (SDL). We strongly recommend that customers utilize SDL approved algorithms to securely access their data. More details can be found [here](/security/sdl/cryptographic-recommendations)
 
 ## Security
 
@@ -117,7 +119,7 @@ This article describes limitations and known issues of SFTP support in Azure Blo
   
   - The account needs to be in a [supported regions](secure-file-transfer-protocol-support.md#regional-availability).
   
-  - Customer's subscription needs to be signed up for the preview. See this.
+  - Customer's subscription needs to be signed up for the preview. To enroll in the preview, complete [this form](https://forms.office.com/r/gZguN0j65Y) *and* request to join via 'Preview features' in the Azure portal.
 
 - To resolve the `Home Directory not accessible error.` error, check that:
   
