@@ -211,7 +211,7 @@ You might also want to explore other quickstart guides for Azure Logic Apps:
 
 * [Create a multi-tenant based logic app using an ARM template](quickstart-create-deploy-azure-resource-manager-template.md)
 
-* [Create a multi-tenant based logic app using the Azure CLI](quickstart-create-deploy-azure-resource-manager-template.md)
+* [Create a multi-tenant based logic app using the Azure CLI](quickstart-logic-apps-azure-cli.md)
 
 ## Other resources
 
