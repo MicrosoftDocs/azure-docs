@@ -18,6 +18,10 @@ summary: |
 sections:
   - name: Overview
     questions:
+      - question: |
+          TODO
+        answer: |
+          TODO
   - name: Quickstarts
     questions:
       - question: |
@@ -42,7 +46,22 @@ sections:
         answer:  When you create a shared access signature (SAS), the default duration is two days. After two day, you'll need to create a new token. Consider setting a longer duration period for the time you'll be using your storage account with Form Recognizer.
   - name: Custom models
     questions:
+      questions:
+      - question: |
+          TODO
+        answer: |
+          TODO
   - name: Containers
     questions:
+      questions:
+      - question: |
+          TODO
+        answer: |
+          TODO
   - name: Concepts
     questions:
+      questions:
+      - question: |
+          TODO
+        answer: |
+          TODO
