@@ -5,37 +5,29 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 11/15/2021
+ms.date: 01/11/2021
 ms.author: cshoe
 ---
 
 # Enterprise-grade edge (Preview)
 
-Use Azure Static Web Apps enterprise-grade edge (Preview) to enable faster page loads, enhance security, and optimize reliability for your global applications. It combines the capabilities of Azure Static Web Apps, Azure Front Door and Azure Content Delivery Network (CDN) standard into a single secure cloud CDN platform. Key features included with Azure Static Web Apps enterprise-grade edge:
-* Global presence in 118+ [edge locations](/azure/frontdoor/edge-locations-by-region) across 100 metro cities
-* Caching assets at the [edge](/azure/frontdoor/front-door-caching)
-* Proactive protection against [Distributed Denial of Service (DDoS) attacks](/azure/frontdoor/front-door-ddos)
-* Native support of end-to-end IPv6 connectivity and [HTTP/2 protocol](/azure/frontdoor/front-door-http2.md)
-* Optimized file compression 
-* Protection from [Distributed Denial of Service (DDoS) attacks](/azure/frontdoor/front-door-ddos)
-* Significant reductions in latency
-* Increased throughput by bringing static assets geographically closer to your users through [edge load balancing](/azure/frontdoor/edge-locations-by-region)
-* SSL offloading
-* [Enhanced caching](/azure/frontdoor/front-door-caching)
-* Application acceleration
+Use Azure Static Web Apps enterprise-grade edge (Preview) to enable faster page loads, enhance security, and optimize reliability for your global applications. It combines the capabilities of Azure Static Web Apps, Azure Front Door and Azure Content Delivery Network (CDN) standard into a single secure cloud CDN platform. Key features included with Azure Static Web Apps enterprise-grade edge are:
+
+* Global presence in 118+ [edge locations](/azure/frontdoor/edge-locations-by-region) across 100 metro cities.
+* Caching assets at the [edge](/azure/frontdoor/front-door-caching).
+* Proactive protection against [Distributed Denial of Service (DDoS) attacks](/azure/frontdoor/front-door-ddos).
+* Native support of end-to-end IPv6 connectivity and [HTTP/2 protocol](/azure/frontdoor/front-door-http2.md).
+* Optimized file compression.
+
 > [!NOTE]
 > Static Web Apps enterprise-grade edge is currently in preview.
-To enable enterprise-grade edge in Static Web Apps, you must have the following items in place:
-
-* A custom domain configured for your static web app.
-* DNS TTL set for less than 48 hours.
 
 ## Caching
 
 When enterprise-grade edge is enabled for your static web app, you benefit from caching at various levels.
 
-* **CDN**: Caching content on edge locations as physically close to users a possible to reduce latency
-* **DNS**: Caching DNS records for faster lookups
+* **CDN**: Caching content on edge locations as physically close to users a possible to reduce latency.
+* **DNS**: Caching DNS records for faster lookups.
 * **Browser**: Files are stored in the browser and returned for identical requests.
 
 For further control, you also have the option to create [custom cache control headers](configuration.md) for your static web app.
@@ -60,9 +52,10 @@ A manual setup gives you full control over the CDN configuration including the c
 
 ### Prerequisites
 
-* [Custom domain](./custom-domain.md) configured for your static web app
-* Apex domain with TTL set to less than 48 hrs
+* [Custom domain](./custom-domain.md) configured for your static web app.
+* Apex domain with TTL set to less than 48 hrs.
 * An application deployed with [Azure Static Web Apps](./get-started-portal.md) that uses the Standard hosting plan.
+
 # [Azure portal](#tab/azure-portal)
 
 1. Navigate to your static web app in the Azure portal.
@@ -86,7 +79,6 @@ az staticwebapp enterprise-edge enable -n my-static-webapp -g my-resource-group
 ```
 
 ---
-
 
 ## Next steps
 
