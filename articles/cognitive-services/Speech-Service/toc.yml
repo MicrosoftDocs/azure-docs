@@ -288,6 +288,8 @@ items:
       href: intent-recognition.md
     - name: Intent recognition quickstart
       href: get-started-intent-recognition.md
+    - name: Pattern Matching overview
+      href: pattern-matching-overview.md
     - name: How-to guides
       items:
         - name: 'Recognize speech intents with LUIS, C#'
@@ -551,6 +553,8 @@ items:
       href: speech-services-private-link.md
     - name: Enable VNet service endpoint
       href: speech-service-vnet-service-endpoint.md
+    - name: Use Azure Active Directory Authentication
+      href: how-to-configure-azure-ad-auth.md
     - name: Configure OpenSSL for Linux
       displayName: memory usage, memory consumption, object logging, object tracking, memory, openssl
       href: how-to-configure-openssl-linux.md
@@ -597,9 +601,9 @@ items:
   items:
     - name: Overview
       href: speech-devices.md
-    - name: Audio processing overview
+    - name: Audio processing
       href: audio-processing-overview.md
-    - name: Speech SDK integration
+    - name: Using the Microsoft Audio Stack (MAS)
       href: audio-processing-speech-sdk.md
     - name: Microphone array recommendations
       href: speech-sdk-microphone.md

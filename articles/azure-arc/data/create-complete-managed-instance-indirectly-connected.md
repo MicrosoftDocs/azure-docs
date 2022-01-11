@@ -97,7 +97,7 @@ Follow the steps below to deploy the cluster from the Azure CLI.
    az aks create --resource-group <resource_group_name> --name <cluster_name> --node-count 3 --enable-addons monitoring --generate-ssh-keys --node-vm-size <node size>
    ```
 
-   For command details, see [az aks create](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create).
+   For command details, see [az aks create](/cli/azure/aks#az_aks_create).
 
    For a complete demonstration, including an application on a single-node Kubernetes cluster, go to [Quickstart: Deploy an Azure Kubernetes Service cluster using the Azure CLI](../../aks/kubernetes-walkthrough.md).
 

@@ -17,7 +17,7 @@ ms.date: 10/21/2021
 This article lists the curated environments with latest framework versions in Azure Machine Learning. Curated environments are provided by Azure Machine Learning and are available in your workspace by default. They are backed by cached Docker images that use the latest version of the Azure Machine Learning SDK, reducing the run preparation cost and allowing for faster deployment time. Use these environments to quickly get started with various machine learning frameworks.
 
 > [!NOTE]
-> Use the [Python SDK](how-to-use-environments.md), [CLI](/cli/azure/ml/environment?view=azure-cli-latest&preserve-view=true#az_ml_environment_list), or Azure Machine Learning [studio](how-to-manage-environments-in-studio.md) to get the full list of environments and their dependencies. For more information, see the [environments article](how-to-use-environments.md#use-a-curated-environment). 
+> Use the [Python SDK](how-to-use-environments.md), [CLI](/cli/azure/ml/environment#az_ml_environment_list), or Azure Machine Learning [studio](how-to-manage-environments-in-studio.md) to get the full list of environments and their dependencies. For more information, see the [environments article](how-to-use-environments.md#use-a-curated-environment). 
 
 ## Training curated environments
 
@@ -160,7 +160,7 @@ ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 ### TensorFlow
 
 **Name**: AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu  
-**Description**: An environment for deep learning with Tensorflow containing the AzureML Python SDK and additional python packages.  
+**Description**: An environment for deep learning with TensorFlow containing the AzureML Python SDK and additional python packages.  
 
 The following Dockerfile can be customized for your personal workflows.
 

@@ -10,7 +10,7 @@ keywords: cognitive services, cognitive intelligence, cognitive solutions, ai se
 ms.topic: quickstart
 ms.date: 06/04/2021
 ms.author: aahi
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Quickstart: Create a Cognitive Services resource via the Azure CLI

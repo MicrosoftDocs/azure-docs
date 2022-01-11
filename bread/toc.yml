@@ -616,7 +616,7 @@
       topicHref: /azure/healthcare-apis/dicom/index
     - name: Data Transformation
       tocHref: /azure/healthcare-apis/data-transformation/
-      topicHref: /azure/healthcare-apis/data-transformation/index
+      topicHref: /azure/healthcare-apis/fhir/convert-data
     - name: IoT Connector
       tocHref: /azure/healthcare-apis/iot/
       topicHref: /azure/healthcare-apis/iot/index
@@ -1070,6 +1070,9 @@
   - name: Service Connector
     tocHref: /azure/service-connector/
     topicHref: /azure/service-connector/
+  - name: Azure Orbital
+    tocHref: /azure/orbital/
+    topicHref: /azure/orbital/
   - name: Load Testing
     tocHref: /azure/load-testing/
     topicHref: /azure/load-testing/overview-what-is-azure-load-testing

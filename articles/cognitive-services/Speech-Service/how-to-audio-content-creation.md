@@ -98,7 +98,7 @@ Welcome to use Audio Content Creation to customize audio output for your product
 
 ```xml
 <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" version="1.0" xml:lang="en-US">
-    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, ChristopherNeural)">
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)">
     Welcome to use Audio Content Creation <break time="10ms" />to customize audio output for your products.
     </voice>
 </speak>
@@ -116,10 +116,10 @@ After you've reviewed your audio output and are satisfied with your tuning and a
 
 **Supported audio formats**
 
-| Format | 16 kHz sample rate | 24 kHz sample rate |
-|--------|--------------------|--------------------|
-| wav | riff-16khz-16bit-mono-pcm | riff-24khz-16bit-mono-pcm |
-| mp3 | audio-16khz-128kbitrate-mono-mp3 | audio-24khz-160kbitrate-mono-mp3 |
+| Format | 8 kHz sample rate | 16 kHz sample rate | 24 kHz sample rate | 48 kHz sample rate |
+|--------|--------------------|--------------------|--------------------|--------------------|
+| wav | riff-8khz-16bit-mono-pcm | riff-16khz-16bit-mono-pcm | riff-24khz-16bit-mono-pcm |riff-48khz-16bit-mono-pcm |
+| mp3 | N/A | audio-16khz-128kbitrate-mono-mp3 | audio-24khz-160kbitrate-mono-mp3 |audio-48khz-192kbitrate-mono-mp3 |
 
 ## How to add/remove Audio Content Creation users?
 

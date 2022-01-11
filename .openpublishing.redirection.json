@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/linux/login-using-aad.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/login-using-aad",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/classic/ai-gallery-control-personal-data-dsr.md",
       "redirect_url": "/previous-versions/azure/machine-learning/classic/ai-gallery-control-personal-data-dsr",
       "redirect_document_id": false
@@ -2394,6 +2399,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/aks/kubernetes-dashboard.md",
+      "redirect_url": "/azure/aks/kubernetes-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/egress.md",
+      "redirect_url": "/azure/aks/load-balancer-standard",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/analysis-services/analysis-services-create-model-portal.md",
       "redirect_url": "/azure/analysis-services/analysis-services-overview",
       "redirect_document_id": false
@@ -2446,6 +2461,16 @@
     {
       "source_path_from_root": "/articles/machine-learning/reference-yaml-endpoint-k8s-online.md",
       "redirect_url": "/azure/machine-learning/reference-yaml-overview.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/tutorial-train-models-with-aml.md",
+      "redirect_url": "/azure/machine-learning/tutorial-train-deploy-notebook",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/tutorial-deploy-models-with-aml.md",
+      "redirect_url": "/azure/machine-learning/tutorial-train-deploy-notebook",
       "redirect_document_id": false
     },
     {
@@ -5914,6 +5939,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-arc/data/retrieve-the-username-password-for-data-controller.md",
+      "redirect_url": "/azure/azure-arc/data/update-service-principal-credentials",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-arc/data/create-aks-cluster-data-controller.md",
       "redirect_url": "/azure/azure-arc/data/create-complete-managed-instance-indirectly-connected",
       "redirect_document_id": false
@@ -7615,8 +7645,8 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/concepts/model-versioning.md",
-      "redirect_url": "/azure/cognitive-services/language-service/overview",
-      "redirect_document_id": false
+      "redirect_url": "/azure/cognitive-services/language-service/concepts/model-lifecycle",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/text-analytics-resource-external-community.md",
@@ -7699,16 +7729,6 @@
     {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-devops-with-github.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-devops-automation",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/app/app-insights-dashboards.md",
-      "redirect_url": "/azure/azure-monitor/app/overview-dashboard",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/application-insights/app-insights-performance-counters.md",
-      "redirect_url": "/azure/azure-monitor/app/performance-counters",
       "redirect_document_id": true
     },
     {
@@ -17934,8 +17954,8 @@
     },
     {
       "source_path_from_root": "/articles/lab-services/classroom-labs/classroom-labs-overview.md",
-      "redirect_url": "/azure/lab-services/classroom-labs-overview",
-      "redirect_document_id": true
+      "redirect_url": "/azure/lab-services/get-started-manage-labs",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/lab-services/classroom-labs/classroom-labs-scenarios.md",
@@ -20989,16 +21009,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/mariadb/policy-samples.md",
-      "redirect_url": "/azure/mariadb/policy-reference",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mariadb/reference-data-in-stored-procedures.md",
-      "redirect_url": "/azure/mariadb/reference-stored-procedures",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/media-services/previous/media-services-configure-tricaster-live-encoder.md",
       "redirect_url": "/azure/media-services",
       "redirect_document_id": false
@@ -22354,46 +22364,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/mysql/concepts-aad-authentication.md",
-      "redirect_url": "/azure/mysql/concepts-azure-ad-authentication",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/concepts-compute-unit-and-storage.md",
-      "redirect_url": "/azure/mysql/concepts-pricing-tiers",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/concepts-service-tiers.md",
-      "redirect_url": "/azure/mysql/concepts-pricing-tiers",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/policy-samples.md",
-      "redirect_url": "/azure/mysql/policy-reference",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/store-php-create-mysql-database.md",
-      "redirect_url": "/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/reference-data-in-stored-procedures.md",
-      "redirect_url": "/azure/mysql/reference-stored-procedures",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/reference-sync-data-store-procedures.md",
-      "redirect_url": "/azure/mysql/reference-stored-procedures",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/scripts/sample-pitr-restore.md",
-      "redirect_url": "/azure/mysql/scripts/sample-point-in-time-restore",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/guidance/guidance-connecting-your-on-premises-network-to-azure.md",
       "redirect_url": "/azure/networking/networking-overview",
       "redirect_document_id": false
@@ -22681,46 +22651,6 @@
     {
       "source_path_from_root": "/articles/openshift/howto-using-azure-redhat-openshift.md",
       "redirect_url": "/azure/openshift/tutorial-create-cluster",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/postgresql/howto-database-threat-protection-portal.md",
-      "redirect_url": "/azure/security-center/enable-azure-defender",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/howto-database-threat-protection-portal.md",
-      "redirect_url": "/azure/security-center/enable-azure-defender",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mariaDB/howto-database-threat-protection-portal.md",
-      "redirect_url": "/azure/security-center/enable-azure-defender",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/postgresql/concepts-compute-unit-and-storage.md",
-      "redirect_url": "/azure/postgresql/concepts-pricing-tiers",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/postgresql/concepts-service-tiers.md",
-      "redirect_url": "/azure/postgresql/concepts-pricing-tiers",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/postgresql/howto-hyperscale-scaling.md",
-      "redirect_url": "/azure/postgresql/howto-hyperscale-scale-grow",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/postgresql/hyperscale-preview-features.md",
-      "redirect_url": "/azure/postgresql/hyperscale-product-updates",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/postgresql/policy-samples.md",
-      "redirect_url": "/azure/postgresql/policy-reference",
       "redirect_document_id": false
     },
     {
@@ -24014,21 +23944,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/mysql/concepts-data-access-and-security-threat-protection.md",
-      "redirect_url": "/azure/security-center/defender-for-databases-usage",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mariadb/concepts-data-access-and-security-threat-protection.md",
-      "redirect_url": "/azure/security-center/defender-for-databases-usage",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/postgresql/concepts-data-access-and-security-threat-protection.md",
-      "redirect_url": "/azure/security-center/defender-for-databases-usage",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/security-center/security-center-virtual-machine-protection.md",
       "redirect_url": "/azure/security-center/asset-inventory",
       "redirect_document_id": false
@@ -24695,7 +24610,7 @@
     },
     {
       "source_path_from_root": "/articles/sentinel/connect-dns.md",
-      "redirect_url": "/azure/sentinel/data-connectors-reference#domain-name-server",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#windows-dns-server-preview",
       "redirect_document_id": false
     },
     {
@@ -25624,6 +25539,81 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/setup-geodr-failover-pool-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/setup-geodr-failover-database-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-restore-database-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/restore-database-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-import-from-bacpac-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/import-from-bacpac-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/auditing-and-threat-detection-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/auditing-threat-detection-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/setup-geodr-and-failover-database-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/setup-geodr-failover-database-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-create-managed-instance-to-failover-group-cli.md",
+      "redirect_url": "/azure/azure-sql/database/az-cli-script-samples-content-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/scripts/transparent-data-encryption-byok-sql-managed-instance-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-managed-instance-restore-geo-backup-cli.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/scripts/restore-geo-backup-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-create-configure-managed-instance-cli.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/scripts/create-configure-managed-instance-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-copy-database-to-new-server-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/copy-database-to-new-server-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-backup-database-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/backup-database-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-add-managed-instance-to-failover-group-cli.md",
+      "redirect_url": "/azure/azure-sql/database/az-cli-script-samples-content-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-auditing-and-threat-detection-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/auditing-threat-detection-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-database/scripts/sql-database-add-elastic-pool-to-failover-group-cli.md",
+      "redirect_url": "/azure/azure-sql/database/scripts/add-elastic-pool-to-failover-group-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md",
       "redirect_url": "/azure/sql-database/scripts/sql-database-add-single-db-to-failover-group-powershell",
       "redirect_document_id": false
@@ -26519,7 +26509,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cloud-services-extended-support/role-startup-faliure.md",
+      "source_path_from_root": "/articles/cloud-services-extended-support/role-startup-failure.md",
       "redirect_url": "/troubleshoot/azure/cloud-services/role-startup-failure",
       "redirect_document_id": false
     },
@@ -31249,86 +31239,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/mysql/reference-azure-cli.md",
-      "redirect_url": "/cli/azure/mysql",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/migrate/index.md",
-      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/migrate/representative-use-case.md",
-      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/02-representative-use-case",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/migrate/assessment.md",
-      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/03-assessment",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/migrate/planning.md",
-      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/04-planning",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/migrate/migration-methods.md",
-      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/05-migration-methods",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/migrate/test-plans.md",
-      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/06-test-plans",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/migrate/performance-baselines.md",
-      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/07-performance-baselines",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/migrate/data-migration.md",
-      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/08-data-migration",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/migrate/data-migration-with-mysql-workbench.md",
-      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/09-data-migration-with-mysql-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/migrate/post-migration-management.md",
-      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/10-post-migration-management",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/migrate/optimization.md",
-      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/11-optimization",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/migrate/business-continuity-and-disaster-recovery.md",
-      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/12-business-continuity-and-disaster-recovery",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/migrate/security.md",
-      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/13-security",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/migrate/summary.md",
-      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/14-summary",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/migrate/appendix.md",
-      "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/15-appendix",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/store-cleardb-faq.md",
       "redirect_url": "https://azure.microsoft.com/updates/cleardb-removal-from-the-azure-marketplace/",
       "redirect_document_id": false
@@ -34496,6 +34406,11 @@
     {
       "source_path_from_root": "/articles/documentdb/index.md",
       "redirect_url": "https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/documentdb/sql-query-operators.md",
+      "redirect_url": "sql-query-logical-operators",
       "redirect_document_id": false
     },
     {
@@ -40739,6 +40654,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/batch/batch-low-pri-vms.md",
+      "redirect_url": "/azure/batch/batch-spot-vms",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
       "redirect_url": "azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
       "redirect_document_id": false
@@ -43359,16 +43279,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/dms/tutorial-oracle-azure-postgresql-online.md",
-      "redirect_url": "/azure/postgresql/howto-migrate-from-oracle",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/dms/known-issues-oracle-azure-postgresql-online.md",
-      "redirect_url": "/azure/postgresql/howto-migrate-from-oracle",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/iot-develop/quickstart-send-telemetry-python.md",
       "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-central",
       "redirect_document_id": false
@@ -44498,6 +44408,11 @@
       "redirect_url": "/azure/communication-services/concepts/telephony/port-phone-number",
       "redirect_document_id": false
     },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/pstn-call.md",
+        "redirect_url": "/azure/communication-services/quickstarts/telephony/pstn-call",
+        "redirect_document_id": false
+      },
     {
       "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/concepts.md",
       "redirect_url": "/azure/communication-services/concepts/sms/concepts",
@@ -45141,6 +45056,16 @@
     {
       "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-aks.md",
       "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-aks-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/secure-line-of-business-apps.md",
+      "redirect_url": "/azure/active-directory/develop/zero-trust-for-developers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/networking/azure-orbital-overview.md",
+      "redirect_url": "/azure/orbital/overview",
       "redirect_document_id": false
     }
   ]

@@ -8,6 +8,7 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 11/15/2021
 ms.author: RunCai
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create confidential VM on AMD in the Azure portal (preview)

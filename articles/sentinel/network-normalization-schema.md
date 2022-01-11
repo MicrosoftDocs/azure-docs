@@ -75,8 +75,8 @@ The following filtering parameters are available:
 |----------|-----------|-------------|
 | **starttime** | datetime | Filter only network sessions that *started* at or after this time. |
 | **endtime** | datetime | Filter only network sessions that *started* running at or before this time. |
-| **srcipaddr_has_any_prefix** | dynamic | Filter only network sessions for which the [source IP address field](#srcipaddr) prefix is in one of the listed values. |
-| **dstipaddr_has_any_prefix** | dynamic | Filter only network sessions for which the [destination IP address field](#dstipaddr) prefix is in one of the listed values. |
+| **srcipaddr_has_any_prefix** | dynamic | Filter only network sessions for which the [source IP address field](#srcipaddr) prefix is in one of the listed values. Prefixes should end with a `.`, for example: `10.0.`. |
+| **dstipaddr_has_any_prefix** | dynamic | Filter only network sessions for which the [destination IP address field](#dstipaddr) prefix is in one of the listed values. Prefixes should end with a `.`, for example: `10.0.`. |
 | **dstportnum** | Int | Filter only network sessions with the specified destination port number. |
 | **hostname_has_any** | dynamic | Filter only network sessions for which the [destination hostname field](#dsthostname) has any of the values listed. |
 | **dvcaction** | dynamic | Filter only network sessions for which the [Device Action field](#dvcaction) is any of the values listed. | 
@@ -109,7 +109,7 @@ Fields common to all schemas are described in the [ASIM schema overview](normali
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | **EventCount** | Mandatory | Integer | Netflow sources support aggregation, and the **EventCount** field should be set to the value of the Netflow **FLOWS** field. For other sources, the value is typically set to `1`. |
-| **EventType** | Mandatory | Enumerated | Describes the operation reported by the record.<br><br> For Network Session records, supported values include:<br>- `NetworkConnection`<br>- `NetworkSession` |
+| **EventType** | Mandatory | Enumerated | Describes the operation reported by the record.<br><br> For Network Session records, the value should be `NetworkSession`. |
 | **EventSubType** | Optional | String | Additional description of the event type, if applicable. <br> For Network Session records, supported values include:<br>- `Start`<br>- `End` |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `NetworkSession`. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.1`.        |

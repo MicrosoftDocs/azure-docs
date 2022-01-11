@@ -91,7 +91,7 @@ If you don't have an existing Azure Data Explorer database to export to, follow 
 1. You have two choices to create an Azure Data Explorer database:
 
     - Create a new Azure Data Explorer cluster and database. To learn more, see the [Azure Data Explorer quickstart](/azure/data-explorer/create-cluster-database-portal). Make a note of the cluster URI and the name of the database you create, you need these values in the following steps.
-    - Create a new Azure Synapse Data Explorer pool and database. To learn more, see the [Azure Data Explorer quickstart](../../synapse-analytics/get-started-analyze-data-explorer.md). Make a note of the pool URI the name of the database you create, you need these values in the following steps.
+    - Create a new Azure Synapse Data Explorer pool and database. To learn more, see the [Azure Data Explorer quickstart](../../synapse-analytics/get-started-analyze-data-explorer.md). Make a note of the pool URI and the name of the database you create, you need these values in the following steps.
 
 1. Create a service principal that you can use to connect your IoT Central application to Azure Data Explorer. Use the Azure Cloud Shell to run the following command:
 
@@ -104,7 +104,7 @@ If you don't have an existing Azure Data Explorer database to export to, follow 
 1. To add the service principal to the database, navigate to the Azure Data Explorer portal and run the following query on your database. Replace the placeholders with the values you made a note of previously:
 
     ```kusto
-    .add database <YourDatabaseName> admins ('aadapp=<YourAppId>;<YourTenant>');
+    .add database ['<YourDatabaseName>'] admins ('aadapp=<YourAppId>;<YourTenant>');
     ```
 
 1. Create a table in your database with a suitable schema for the data you're exporting. The following example query creates a table called `smartvitalspatch`. To learn more, see [Transform data inside your IoT Central application for export](howto-transform-data-internally.md):
