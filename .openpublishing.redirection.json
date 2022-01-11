@@ -42004,6 +42004,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Content-Moderator/try-review-api-review.md",
+      "redirect_url": "/azure/cognitive-services/Content-Moderator/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/Custom-Vision-Service/custom-vision-encryption-of-data-at-rest.md",
       "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/encrypt-data-at-rest",
       "redirect_document_id": false
