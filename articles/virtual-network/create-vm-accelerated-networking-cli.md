@@ -16,6 +16,7 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: 
+ms.custom: fasttrack-edit
 
 ---
 # Create a Linux virtual machine with Accelerated Networking using Azure CLI
@@ -232,6 +233,7 @@ If you have created a VM without Accelerated Networking, it is possible to enabl
 * The VM must be a supported size for Accelerated Networking
 * The VM must be a supported Azure Gallery image (and kernel version for Linux)
 * All VMs in an availability set or VMSS must be stopped/deallocated before enabling Accelerated Networking on any NIC
+* All individual VMs that are not in an availability set or VMSS must also be stopped/deallocated before enabling Accelerated Networking on any NIC.
 
 ### Individual VMs & VMs in an availability set
 First stop/deallocate the VM or, if an Availability Set, all the VMs in the Set:
