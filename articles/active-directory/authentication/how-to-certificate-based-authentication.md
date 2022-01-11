@@ -103,7 +103,7 @@ $c=Get-AzureADTrustedCertificateAuthority    Remove-AzureADTrustedCertificateAut
 ``` 
  
 ### Modify
-To modify a trusted certificate authority, use the [Set-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/set-azureadtrustedcertificateauthority) cmdlet:
+To modify a trusted certificate authority, use the [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority.md) cmdlet:
 
 ```powershell
 $c=Get-AzureADTrustedCertificateAuthority    $c[0].AuthorityType=1    Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]	   
