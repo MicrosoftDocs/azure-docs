@@ -52,6 +52,8 @@
     items:
     - name: Create WebSocket clients
       href: howto-websocket-connect.md
+    - name: Create reliable Websocket clients
+      href: howto-develop-reliable-clients.md
     - name: Configure event handler
       href: howto-develop-eventhandler.md
     - name: Create `WebPubSubServiceClient` with Azure Identity
@@ -112,8 +114,6 @@
     href: concept-billing-model.md
   - name: Azure AD Authorization
     href: concept-azure-ad-authorization.md
-  - name: Exactly-Once Message Delivery
-    href: concept-exactly-once-delivery.md
 
 - name: Reference 
   items:
