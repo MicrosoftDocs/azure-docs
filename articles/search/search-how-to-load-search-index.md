@@ -21,11 +21,11 @@ Once data is indexed, the physical data structures of the index are locked in. F
 
 Indexing is not a background process. A search service will balance indexing and query workloads, but if [query latency is too high](search-performance-analysis.md#impact-of-indexing-on-queries), you can either [add capacity](search-capacity-planning.md#add-or-reduce-replicas-and-partitions) or identify periods of low query activity for loading an index.
 
-## Push JSON documents
+## Load documents
 
 A search service accepts JSON documents that conform to the index schema.
 
-You can prepare these documents yourself, but if content resides in a [supported data source](search-indexer-overview.md#supported-data-sources), an [indexer](search-indexer-overview.md) can automate the process of document retrieval, JSON serialization, and indexing.
+You can prepare these documents yourself, but if content resides in a [supported data source](search-indexer-overview.md#supported-data-sources), an [indexer](search-indexer-overview.md) or the Import data wizard can automate the process of document retrieval, JSON serialization, and indexing.
 
 ### [**Azure portal**](#tab/import-portal)
 
@@ -37,7 +37,7 @@ Using Azure portal, the sole means for loading an index is the [Import Data wiza
 
    :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
 
-1. Follow these steps to learn more about the workflow: [Quickstart: Create an Azure Cognitive Search index in the Azure portal](search-get-started-portal.md).
+1. Follow this link to review the workflow: [Quickstart: Create an Azure Cognitive Search index in the Azure portal](search-get-started-portal.md).
 
 ### [**REST**](#tab/import-rest)
 
