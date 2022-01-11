@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - View usage analytics about access keys (AWS, Azure, GCP)
-description: How to view  usage analytics about access keys (AWS, Azure, GCP) in Microsoft CloudKnox Permissions Management.
+title: Microsoft CloudKnox Permissions Management - View usage analytics about access keys (AWS, Azure, and GCP)
+description: How to view  usage analytics about access keys (AWS, Azure, and GCP) in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/07/2022
+ms.date: 01/11/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - View usage analytics about access keys (AWS, Azure, GCP)
+# Microsoft CloudKnox Permissions Management - View usage analytics about access keys (AWS, Azure, and GCP)
 
 The CloudKnox **Usage Analytics** feature contains details about identities, resources, and tasks that you can use make informed decisions about granting privileges, and reducing risk on unused privileges.
 

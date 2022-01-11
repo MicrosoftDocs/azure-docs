@@ -1,6 +1,6 @@
 ---
-title: Add Amazon Web Services (AWS) accounts after deploying the Microsoft CloudKnox Permissions Management Sentry
-description: Placeholder topic on how to add Amazon Web Services (AWS) accounts after deploying the Microsoft CloudKnox Permissions Management Sentry
+title: Microsoft CloudKnox Permissions Management Sentry - Configure and monitor Amazon Web Services (AWS) accounts 
+description: How to configure and monitor Amazon Web Services (AWS) accounts to CloudKnox after deploying the Microsoft CloudKnox Permissions Management Sentry
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/20/2021
+ms.date: 01/11/2022
 ms.author: v-ydequadros
 ---
 
 
-# Add Amazon Web Services (AWS) accounts after deploying the Microsoft CloudKnox Permissions Management Sentry
+# Microsoft CloudKnox Permissions Management Sentry - Configure and monitor Amazon Web Services (AWS) accounts
 
 After you've deployed the Microsoft CloudKnox Permissions Management Sentry, you can add other Amazon Web Services (AWS) accounts and monitor them.
 
@@ -21,7 +21,7 @@ After you've deployed the Microsoft CloudKnox Permissions Management Sentry, you
 
 To add AWS accounts to the CloudKnox sentry:
 
-1. Create a cross-account IAM role for each Amazon Web Services (AWS) account you want to add.
+1. Create a cross-account identity and access management (IAM) role for each Amazon Web Services (AWS) account you want to add.
 2. Configure AWS Sentry (UI).
 3. Configure Sentry CLI configuration.
  
