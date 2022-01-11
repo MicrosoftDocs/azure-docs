@@ -211,7 +211,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | ----- | ----- | ---- |
 | **Incidents** | |
 |- [Automation rules](../../sentinel/automate-incident-handling-with-automation-rules.md) | Public Preview | Public Preview |
-| - [Cross-tenant/Cross-workspace incidents view](../../sentinel/multiple-workspace-view.md) |Public Preview | Public Preview |
+| - [Cross-tenant/Cross-workspace incidents view](../../sentinel/multiple-workspace-view.md) |GA | GA |
 | - [Entity insights](../../sentinel/enable-entity-behavior-analytics.md) | GA | Public Preview |
 |- [SOC incident audit metrics](../../sentinel/manage-soc-with-incident-metrics.md) | GA | GA |
 | - [Incident advanced search](/azure/sentinel/investigate-cases#search-for-incidents) |GA |GA |
