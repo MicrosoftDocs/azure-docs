@@ -25,8 +25,6 @@ Azure Purview classifies data by [RegEx](https://wikipedia.org/wiki/Regular_expr
 
 The City, Country, and Place filters have been prepared using best datasets available for preparing the data.
 
--------------------------------------
-
 ## Person Name
 
 Person Name bloom filter has been prepared using the below two datasets.
@@ -36,8 +34,6 @@ Person Name bloom filter has been prepared using the below two datasets.
 
 > [!NOTE]
 > Azure Purview classifies columns only when the data contains first/last names. Azure Purview doesn't classify columns that contain full names.
-
--------------------------------------
 
 ## RegEx Classifications
 
