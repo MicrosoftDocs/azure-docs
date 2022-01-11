@@ -103,6 +103,64 @@ apikey={API_KEY} \
 Mounts:License={LICENSE_LOCATION}
 ```
 
+## Usage records
+
+when operating Docker containers in a disconnected environment, the container will write usage records to a volume where they are collected over time. You can also call a REST endpoint to generate a report about service usage.
+
+### Arguments for storing logs
+
+When run in a disconnected environment, an output mount must be available to the container to store usage logs. For example, you would include `-v /host/output:{OUTPUT_PATH}` and `Mounts:Output={OUTPUT_PATH}` in the example below, replacing `{OUTPUT_PATH}` with the path where the logs will be stored:
+
+```Docker
+docker run -v /host/output:{OUTPUT_PATH} ... <image> ... Mounts:Output={OUTPUT_PATH}
+```
+
+### Get records using the container endpoints
+
+The container provides two endpoints for returning records about its usage.
+
+#### Get all records 
+
+The following endpoint will provide a report summarizing all of the usage collected in the mounted billing record directory.
+
+```http
+https://<service>/records/usage-logs/
+```
+
+It will return JSON similar to the example below. 
+
+```json
+{
+  "apiType": "noop",
+  "serviceName": "noop",
+  "meters": [
+    {
+      "name": "Sample.Meter",
+      "quantity": 253
+    }
+  ]
+}
+```
+#### Get records for a specific month
+
+The following endpoint will provide a report summarizing usage over a specific month and year.
+
+`https://<service>/records/usage-logs/{MONTH}/{YEAR}`
+
+it will return a JSON response similar to the example below:
+
+```json
+{
+  "apiType": "string",
+  "serviceName": "string",
+  "meters": [
+    {
+      "name": "string",
+      "quantity": 253
+    }
+  ]
+}
+```
 ## Troubleshooting
 
 If you run the container with an output mount and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
