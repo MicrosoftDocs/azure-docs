@@ -85,18 +85,18 @@ Before proceeding, you'll need your Elastic APM server connectivity information 
 
    :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/upload-files-microsoft-azure.png" alt-text="Azure portal screenshot showing 'Upload files' pane of 'File share' page" lightbox="media/how-to-elastic-apm-java-agent-monitor/upload-files-microsoft-azure.png":::
 
-1. After you have the Elastic APM endpoint and secret token, use the following command to activate Elastic APM Java agent when deploying applications.
+1. After you have the Elastic APM endpoint and secret token, use the following command to activate Elastic APM Java agent when deploying applications. The placeholder *`<agent-location>`* refers to the mounted storage location of the Elastic APM Java Agent.
 
-```azurecli
-az spring-cloud app deploy \
-    --name <your-app-name> \
-    --artifact-path <unique-path-to-your-app-jar-on-custom-storage> \
-    --jvm-options='-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql -javaagent:<Elastic-APM-Java-Agent-location-from-mounted-storage>' \
-    --env ELASTIC_APM_SERVICE_NAME=<your-app-name> \
-          ELASTIC_APM_APPLICATION_PACKAGES='<your-app-package-name>' \
-          ELASTIC_APM_SERVER_URL='<your-Elastic-APM-server-URL>' \
-          ELASTIC_APM_SECRET_TOKEN='<your-Elastic-APM-secret-token>'
-```
+   ```azurecli
+   az spring-cloud app deploy \
+       --name <your-app-name> \
+       --artifact-path <unique-path-to-your-app-jar-on-custom-storage> \
+       --jvm-options='-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql -javaagent:<agent-location>' \
+       --env ELASTIC_APM_SERVICE_NAME=<your-app-name> \
+             ELASTIC_APM_APPLICATION_PACKAGES='<your-app-package-name>' \
+             ELASTIC_APM_SERVER_URL='<your-Elastic-APM-server-URL>' \
+             ELASTIC_APM_SECRET_TOKEN='<your-Elastic-APM-secret-token>'
+   ```
 
 ## Automate provisioning
 
@@ -114,7 +114,7 @@ resource "azurerm_spring_cloud_java_deployment" "example" {
     environment_variables = {
       "ELASTIC_APM_SERVICE_NAME"="<your-app-name>",
       "ELASTIC_APM_APPLICATION_PACKAGES"="<your-app-package>",
-      "ELASTIC_APM_SERVER_URL"="<your-Elastic-APM-server-url>",
+      "ELASTIC_APM_SERVER_URL"="<your-Elastic-APM-server-URL>",
       "ELASTIC_APM_SECRET_TOKEN"="<your-Elastic-APM-secret-token>"
   }
 }
@@ -129,7 +129,7 @@ To configure the environment variables in an ARM template, add the following cod
   "environmentVariables": {
     "ELASTIC_APM_SERVICE_NAME"="<your-app-name>",
     "ELASTIC_APM_APPLICATION_PACKAGES"="<your-app-package>",
-    "ELASTIC_APM_SERVER_URL"="<your-Elastic-APM-server-url>",
+    "ELASTIC_APM_SERVER_URL"="<your-Elastic-APM-server-URL>",
     "ELASTIC_APM_SECRET_TOKEN"="<your-Elastic-APM-secret-token>"
   },
   "jvmOptions": "-javaagent:<unique-path-to-your-app-jar-on-custom-storage>",
