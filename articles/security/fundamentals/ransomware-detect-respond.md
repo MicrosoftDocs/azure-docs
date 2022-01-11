@@ -76,8 +76,6 @@ Microsoft provides Rapid Ransomware Recovery services. Under this, assistance is
 
 Our Rapid Ransomware Recovery services are treated as "Confidential" for the duration of the engagement. Rapid Ransomware Recovery engagements are exclusively delivered by the WW Compromise Recovery Security Practice (CRSP), part of the Azure Cloud & AI Domain. For more information you can contact CRSP at Request contact about Azure security. 
 
-
-
 ## What's next
 
 See the white paper: [Azure defenses for ransomware attack whitepaper](https://azure.microsoft.com/en-us/resources/azure-defenses-for-ransomware-attack).

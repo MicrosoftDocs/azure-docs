@@ -12,13 +12,13 @@ ms.date: 01/10/2022
 
 # Ransomware protection in Azure
 
-Ransomware and extortion are a high profit, low-cost business which has a debilitating impact on targeted organizations, national security, economic security, and public health and safety. What started as simple single-PC ransomware has grown to include a variety of extortion techniques directed at all types of corporate networks and cloud platforms.​
+Ransomware and extortion are a high profit, low-cost business which has a debilitating impact on targeted organizations, national security, economic security, and public health and safety. What started as simple single-PC ransomware has grown to include a variety of extortion techniques directed at all types of corporate networks and cloud platforms.
 
-To ensure customers running on Azure are protected against ransomware attacks, Microsoft has invested heavily on the security of our cloud platforms and has provided you the security controls you need to protect your Azure cloud workloads.​
+To ensure customers running on Azure are protected against ransomware attacks, Microsoft has invested heavily on the security of our cloud platforms and has provided you the security controls you need to protect your Azure cloud workloads
 
-By leveraging Azure native ransomware protections and implementing the best practices recommended in this article, you are taking measures that ensures your organization is optimally positioned to prevent, protect and detect potential ransomware attacks on your Azure assets.  ​
+By leveraging Azure native ransomware protections and implementing the best practices recommended in this article, you are taking measures that ensures your organization is optimally positioned to prevent, protect and detect potential ransomware attacks on your Azure assets.
 
-This article lays out key Azure native capabilities and defenses for ransomware attacks and guidance on how to proactively leverage these to protect your assets on Azure cloud. ​
+This article lays out key Azure native capabilities and defenses for ransomware attacks and guidance on how to proactively leverage these to protect your assets on Azure cloud.
 
 ## A growing threat
 
@@ -32,13 +32,13 @@ Ransomware's economic model capitalizes on the misperception that a ransomware a
 
 For many organizations, the cost to rebuild from scratch after a ransomware incident far outweighs the original ransom demanded. With a limited understanding of the threat landscape and how ransomware operates, paying the ransom seems like the better business decision to return to operations. However, the real damage is often done when the cybercriminal exfiltrates files for release or sale, while leaving backdoors in the network for future criminal activity—and these risks persist whether or not the ransom is paid. 
 
-Ransomware attacks have become one of the biggest security challenges facing businesses today. When successful, ransomware attacks can cripple a business core IT infrastructure, incapacity and cause destruction that could have a debilitating impact on the physical, economic security or safety of a business. Ransomware attacks are targeted to businesses of all types. This requires that all businesses take preventive measures to ensure protection. ​
+Ransomware attacks have become one of the biggest security challenges facing businesses today. When successful, ransomware attacks can cripple a business core IT infrastructure, incapacity and cause destruction that could have a debilitating impact on the physical, economic security or safety of a business. Ransomware attacks are targeted to businesses of all types. This requires that all businesses take preventive measures to ensure protection.
 
-Recent trends on the number of attacks are quite alarming. While 2020 was not a good year for ransomware attacks on businesses, 2021 started on a bad trajectory.  On May 7, the Colonial pipeline (Colonial) attack shutdown services such as pipeline transportation of diesel and gasoline, and jet fuel were temporary halted. Colonial shut the critical fuel network supplying the populous eastern states.​
+Recent trends on the number of attacks are quite alarming. While 2020 was not a good year for ransomware attacks on businesses, 2021 started on a bad trajectory.  On May 7, the Colonial pipeline (Colonial) attack shutdown services such as pipeline transportation of diesel and gasoline, and jet fuel were temporary halted. Colonial shut the critical fuel network supplying the populous eastern states.
 
-Historically, cyberattacks were seen as a sophisticated set of actions targeting particular industries, which left the remaining industries believing they were outside the scope of cybercrime, and without context about which cybersecurity threats they should prepare for. Ransomware represents a major shift in this threat landscape, and it's made cyberattacks a very real and omnipresent danger for everyone. Encrypted and lost files and threatening ransom notes have now become the top-of-mind fear for most executive teams.​
+Historically, cyberattacks were seen as a sophisticated set of actions targeting particular industries, which left the remaining industries believing they were outside the scope of cybercrime, and without context about which cybersecurity threats they should prepare for. Ransomware represents a major shift in this threat landscape, and it's made cyberattacks a very real and omnipresent danger for everyone. Encrypted and lost files and threatening ransom notes have now become the top-of-mind fear for most executive teams.
 
-### ​Ransomware explained
+## What is ransomware
 
 Ransomware is a type of malware that infects a computer and restricts a user's access to the infected system or specific files in order to extort them for money. After the target system has been compromised, it typically locks out most interaction and displays an on-screen alert, typically stating that the system has been locked or that all of their files have been encrypted.  It then demands a substantial ransom be paid before the system is released or files decrypted.  
 
@@ -52,7 +52,7 @@ represents one of the most targeted sectors, along with the financial, healthcar
 
 :::image type="content" source="./media/ransomware/ransomware1.png" alt-text="Placeholder Text 1":::
 
-### How can my assets in the cloud be targeted?
+## How your assets are targeted
 
 When attacking cloud infrastructure, adversaries often attack multiple resources to try to obtain access to customer data or company secrets. The cloud kill chain model (Figure 2) explains how attackers attempt to gain access to any of your resources running in the public cloud through a four-step process: exposure, access, lateral movement, and actions.
 
@@ -63,7 +63,7 @@ When attacking cloud infrastructure, adversaries often attack multiple resources
 
 :::image type="content" source="./media/ransomware/ransomware2.png" alt-text="Placeholder Text 2":::
 
-### Why do ransomware attacks succeed?
+## Why attacks succeed
 
 There are several reasons why ransomware attacks succeed. Businesses that are vulnerable often fall victim to ransomware attacks. The following are some of the attack critical success factors: 
 
@@ -83,7 +83,7 @@ As illustrated in Figure 3, attackers use different techniques, such as RDP brut
 
 :::image type="content" source="./media/ransomware/ransomware3.png" alt-text="Placeholder Text 3":::
 
-### Should you pay ransom if attacked?
+## Should you pay?
 
 There are varying opinions on what the best option is when confronted with this vexing demand.  The Federal Bureau of Investigation (FBI) advises victims not to pay ransom but to instead be vigilant and take proactive measures to secure their data before an attack.  They contend that paying doesn't guarantee that locked systems and encrypted data will be released again. The FBI says  another reason not to pay is that payments to cyber criminals incentivizes them to continue to attack organizations. 
 
