@@ -67,7 +67,7 @@ To register your application and add the app's registration information to your 
 You can run the provided project in either Visual Studio or Visual Studio for Mac.
 
 
->[!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
+[!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
 
 
 #### Step 3: Configure your Visual Studio project

@@ -65,7 +65,7 @@ To register your application and add the app's registration information to your 
    - `Enter_the_Client_Secret_Here` - replace this value with the client secret created on step 1.
 
 > [!TIP]
-To find the values of **Application (client) ID**, **Directory (tenant) ID**, go to the app's **Overview** page in the Azure portal. To generate a new key, go to **Certificates & secrets** page.
+> To find the values of **Application (client) ID**, **Directory (tenant) ID**, go to the app's **Overview** page in the Azure portal. To generate a new key, go to **Certificates & secrets** page.
 
 
 #### Step 4: Admin consent
