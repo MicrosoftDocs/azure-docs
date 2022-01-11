@@ -16,9 +16,7 @@ ms.author: pafarley
 
 # Learn text moderation concepts
 
-Use Content Moderator's text moderation models to analyze text content.
-
-You can block, approve or review the content based on your policies and thresholds (see [Reviews, workflows, and jobs](./review-api.md) to learn how to set up human reviews). Use the text moderation models to augment human moderation of environments where partners, employees and consumers generate text content. These include chat rooms, discussion boards, chatbots, e-commerce catalogs, and documents.
+Use Content Moderator's text moderation models to analyze text content, such as chat rooms, discussion boards, chatbots, e-commerce catalogs, and documents.
 
 The service response includes the following information:
 
@@ -50,7 +48,7 @@ If the API detects any profane terms in any of the [supported languages](./langu
 
 ## Classification
 
-Content Moderator's machine-assisted **text classification feature** supports **English only**, and helps detect potentially undesired content. The flagged content may be assessed as inappropriate depending on context. It conveys the likelihood of each category and may recommend a human review. The feature uses a trained model to identify possible abusive, derogatory or discriminatory language. This includes slang, abbreviated words, offensive, and intentionally misspelled words for review. 
+Content Moderator's machine-assisted **text classification feature** supports **English only**, and helps detect potentially undesired content. The flagged content may be assessed as inappropriate depending on context. It conveys the likelihood of each category. The feature uses a trained model to identify possible abusive, derogatory or discriminatory language. This includes slang, abbreviated words, offensive, and intentionally misspelled words.
 
 The following extract in the JSON extract shows an example output:
 
@@ -158,4 +156,4 @@ The Content Moderator provides a [Term List API](https://westus.dev.cognitive.mi
 
 ## Next steps
 
-Test out the APIs with the [Text moderation API console](try-text-api.md). Also see [Reviews, workflows, and jobs](./review-api.md) to learn how to set up human reviews.
+Test out the APIs with the [Text moderation API console](try-text-api.md).

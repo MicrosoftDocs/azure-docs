@@ -26,13 +26,6 @@ Customer-managed keys are available in all Azure regions.
 
 [!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 
-## Enable data encryption for your Content Moderator Team
-
-To enable data encryption for your Content Moderator Review Team, see the [Quickstart: Try Content Moderator on the web](quick-start.md#create-a-review-team).  
-
-> [!NOTE]
-> You'll need to provide a _Resource ID_ with the Content Moderator E0 pricing tier.
-
 ## Next steps
 
 * For a full list of services that support CMK, see [Customer-Managed Keys for Cognitive Services](../encryption/cognitive-services-encryption-keys-portal.md)

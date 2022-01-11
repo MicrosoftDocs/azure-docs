@@ -103,10 +103,6 @@ landingContent:
 
   - title: Analyze video content
     linkLists:
-      - linkListType: concept
-        links:
-          - text: Video and transcript moderation
-            url: video-moderation-human-review.md
       - linkListType: how-to-guide
         links:
           - text: Using the .NET SDK

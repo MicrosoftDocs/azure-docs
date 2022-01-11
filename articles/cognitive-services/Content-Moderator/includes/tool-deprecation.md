@@ -12,4 +12,4 @@ ms.author: pafarley
 ---
 
 > [!CAUTION]
-> The Content Moderator Review tool is now deprecated and will be retired on 12/31/2021.
+> The Content Moderator Review Tool was retired on 12/31/2021.

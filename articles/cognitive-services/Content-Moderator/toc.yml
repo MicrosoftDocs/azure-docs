@@ -50,14 +50,6 @@
         href: image-lists-quickstart-dotnet.md
       - name: Check text against custom terms
         href: term-lists-quickstart-dotnet.md
-  - name: Define and use reviews
-    items:
-    - name: API console
-      href: try-review-api-review.md
-    - name: Video reviews (.NET)
-      href: video-reviews-quickstart-dotnet.md
-    - name: Video transcript reviews (.NET)
-      href: video-transcript-reviews-quickstart-dotnet.md
   - name: Export or delete account data
     href: ./export-delete-data.md
   - name: Enterprise readiness
@@ -72,8 +64,6 @@
     href: image-moderation-api.md
   - name: Text moderation
     href: text-moderation-api.md
-  - name: Video moderation
-    href: video-moderation-human-review.md
 - name: Reference
   items:
   - name: Content Moderator REST API

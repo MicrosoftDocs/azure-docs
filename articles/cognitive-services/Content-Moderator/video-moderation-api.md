@@ -428,6 +428,4 @@ After the Content Moderation job is completed, analyze the JSON response. It con
 
 ## Next steps
 
-Learn how to generate [video reviews](video-reviews-quickstart-dotnet.md) from your moderation output.
-
 [Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET.
