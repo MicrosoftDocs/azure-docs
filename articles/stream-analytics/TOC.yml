@@ -74,7 +74,7 @@
       href: stream-analytics-use-reference-data.md
     - name: Read inputs in any format using custom deserializers
       href: custom-deserializer-examples.md
-    - name: Input validation
+    - name: Validate input schema
       href: input-validation.md
   - name: Output types for a job
     items:
