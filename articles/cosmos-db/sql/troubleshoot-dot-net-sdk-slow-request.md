@@ -69,7 +69,7 @@ The JSON structure has breaking changes with each version of the SDK. This makes
 ### <a name="cpu-history"></a>CPU history
 High CPU utilization is the most common cause for slow requests. For optimal latency, CPU usage should be roughly 40 percent. Use 10 seconds as the interval to monitor maximum (not average) CPU utilization. CPU spikes are more common with cross-partition queries where the requests might do multiple connections for a single query.
 
-# [3.21 and 2.16 or greater SDK](#tab/cpu-new)
+# [3.21 or greater SDK](#tab/cpu-new)
 
 The timeouts will contain *Diagnostics*, which contain:
 
