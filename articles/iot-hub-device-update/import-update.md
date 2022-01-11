@@ -151,15 +151,15 @@ An example manifest output is below. For this example, there are two files that 
 
 9. When you've selected all your update files, select "Upload". This will upload your files to the staging container that will be used for importing.
 
-   :::image type="content" source="media/import-update/container-upload-ppr.png" alt-text="Update Import Sequencing" lightbox="media/import-update/update-publishing-sequence-2.png":::
+   :::image type="content" source="media/import-update/container-upload-ppr.png" alt-text="Container Upload" lightbox="media/import-update/update-publishing-sequence-2.png":::
 
 10. Select the files you just uploaded to designate them for importing. Then click the "Select" button to return to the Import update page.
 
-   :::image type="content" source="media/import-update/import-select-ppr.png" alt-text="Job Status" lightbox="media/import-update/update-ready.png":::
+   :::image type="content" source="media/import-update/import-select-ppr.png" alt-text="Select Uploaded Files" lightbox="media/import-update/update-ready.png":::
 
 11. On the Import update page, review the files to be imported. Then select "Import update" to start the import process. _Note: see the [Proxy Update Troubleshooting](device-update-proxy-update-troubleshooting.md) page to resolve any errors._
 
-   :::image type="content" source="media/import-update/Import-start-ppr.png" alt-text="Job Status" lightbox="media/import-update/update-ready.png":::
+   :::image type="content" source="media/import-update/Import-start-ppr.png" alt-text="Import Start" lightbox="media/import-update/update-ready.png":::
 
 12. The import process begins, and the screen switches to to the "Import History" section. Select "Refresh" to view progress until the import process completes (depending on the size of the update, this may complete in a few minutes but could take longer).
 
