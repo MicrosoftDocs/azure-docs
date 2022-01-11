@@ -3,11 +3,7 @@ title: Work with Microsoft Sentinel incidents in many workspaces at once | Micro
 description: How to view incidents in multiple workspaces concurrently in Microsoft Sentinel.
 author: yelevin
 ms.topic: conceptual
-<<<<<<< HEAD
-ms.date: 01/06/2022
-=======
-ms.date: 01/09/2022
->>>>>>> 2d8c64ba5d981329a243fe228e5770ac319131c6
+ms.date: 01/11/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
