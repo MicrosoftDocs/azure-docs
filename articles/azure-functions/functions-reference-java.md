@@ -192,14 +192,14 @@ The following example shows the operating system setting in the `runtime` sectio
  
 ## JDK runtime availability and support 
 
-Microsoft and [Adoptium](https://adoptium.net/) builds of OpenJDK are provided and supported on Functions for Java 8 and 11. These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and runnning Java SE applications. For local development or testing, you can install the Microsoft build of OpenJDK from the [downloads page](https://docs.microsoft.com/java/openjdk/download). The table below describes the new Java versions included in the January 2022 Functions platform release:
+Microsoft and [Adoptium](https://adoptium.net/) builds of OpenJDK are provided and supported on Functions for Java 8 and 11. These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and runnning Java SE applications. The table below describes the new Java versions that Function apps will begin using with the January 2022 Functions platform release:
 
 | Java Version | Linux            | Windows              |
 |--------------|------------------|----------------------|
-| Java 8       | 1.8.0_312 (Adoptium) | 1.8.0_312 (Adoptium) |
-| Java 11      | 11.0.13 (MSFT)   | 11.0.13 (MSFT)       |
+| Java 8       | 1.8.0_302 (Adoptium) | 1.8.0_302 (Adoptium) |
+| Java 11      | 11.0.12 (MSFT)   | 11.0.12 (MSFT)       |
 
-[Azure support](https://azure.microsoft.com/support/) for issues with the JDKs and function apps is available with a [qualified support plan](https://azure.microsoft.com/support/plans/).
+For local development or testing, you can download the [Microsoft build of OpenJDK](https://docs.microsoft.com/java/openjdk/download) or [Adoptium Temurin](https://adoptium.net/?variant=openjdk8&jvmVariant=hotspot) binaries for free. [Azure support](https://azure.microsoft.com/support/) for issues with the JDKs and function apps is available with a [qualified support plan](https://azure.microsoft.com/support/plans/).
 
 ## Customize JVM
 
