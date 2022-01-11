@@ -177,3 +177,16 @@ Local (operational) backups with Azure Backup
 Built-in backups from Azure services
 - Data services like Azure Databases (SQL, MySQL, MariaDB, PostgreSQL), Cosmos DB; and ANF offer built-in backup capabilities
 
+## What's Next
+
+See the white paper: [Azure defenses for ransomware attack whitepaper](https://azure.microsoft.com/en-us/resources/azure-defenses-for-ransomware-attack).
+
+Other articles in this series:
+
+- [Ransomware protection in Azure](ransomware-protection.md)
+- [Prepare for a ransomware attack](ransomware-prepare.md) (link)
+- [Detect and respond to ransomware attack](ransomware-detect-respond.md)
+- [Azure features and resources that help you protect, detect, and respond](ransomware-features-resources.md)
+
+
+

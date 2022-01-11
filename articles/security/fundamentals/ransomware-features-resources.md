@@ -18,7 +18,7 @@ Key capabilities include:
 - **Native Threat Detection**: Microsoft Defender for Cloud provides high quality threat detection and response capabilities, also called Extended Detection and Response – XDR. This helps you:
   - Avoid wasting time and talent of scarce security resources to build custom alerts using raw activity logs.
   - Ensure effective security monitoring, which often enables security teams to rapidly approve use of Azure services.
-**Passwordless and Multi-factor authentication**: Azure MFA, Azure AD Authenticator App, and Windows Hello provide these capabilities. This helps protect accounts against commonly seen password attacks (which account for 99.9% of the volume of identity attacks we see in Azure AD). While no security is perfect, eliminating password-only attack vectors dramatically lowers the ransomware attack risk to Azure resources. 
+- **Passwordless and Multi-factor authentication**: Azure MFA, Azure AD Authenticator App, and Windows Hello provide these capabilities. This helps protect accounts against commonly seen password attacks (which account for 99.9% of the volume of identity attacks we see in Azure AD). While no security is perfect, eliminating password-only attack vectors dramatically lowers the ransomware attack risk to Azure resources. 
 - **Native Firewall and Network Security**: Microsoft built native DDoS attack mitigations, Firewall, Web Application Firewall, and many other controls into Azure. These security 'as a service' help simplify the configuration and implementation of security controls. These give organizations the choice of using native services or virtual appliances versions of familiar vendor capabilities to simplify their Azure security. 
 
 :::image type="content" source="./media/ransomware/ransomware6.png" alt-text="Placeholder Text 6":::
@@ -112,8 +112,6 @@ Key Features:
 
 All of the above are some very good reasons to trust Microsoft—and Azure—with your data.
 
-
-
 ## Additional resources
 
 - [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/)
@@ -143,4 +141,15 @@ Connect with us:
 - [www.microsoft.com/services](https://www.microsoft.com/en-us/msservices)
 
 For detailed information on how Microsoft secures our cloud, visit the [service trust portal](https://servicetrust.microsoft.com/).
+
+## What's Next
+
+See the white paper: [Azure defenses for ransomware attack whitepaper](https://azure.microsoft.com/en-us/resources/azure-defenses-for-ransomware-attack).
+
+Other articles in this series:
+
+- [Ransomware protection in Azure](ransomware-protection.md)
+- [Prepare for a ransomware attack](ransomware-prepare.md) (link)
+- [Detect and respond to ransomware attack](ransomware-detect-respond.md)
+
 
