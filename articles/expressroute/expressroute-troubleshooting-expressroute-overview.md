@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: troubleshooting
-ms.date: 01/07/2021
+ms.date: 01/07/2022
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell
 
@@ -331,7 +331,7 @@ Test your private peering connectivity by **counting** packets arriving and leav
 
     :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/connectivity-issues.png" alt-text="Screenshot of connectivity issues option.":::
 
-1. In the dropdown for *Tell us more about the problem your are experiencing*, select **Connectivity to Azure Private, Azure Public, or Dynamics 365 services.**
+1. In the dropdown for *Tell us more about the problem you are experiencing*, select **Connectivity to Azure Private, Azure Public, or Dynamics 365 services.**
 
     :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/tell-us-more.png" alt-text="Screenshot of drop-down option for problem user is experiencing.":::
 
@@ -343,14 +343,14 @@ Test your private peering connectivity by **counting** packets arriving and leav
 
 1. Fill out the fields of the form, making sure to enter the same on-premises and Azure IP addresses used in Step 5. Then select **Submit** and then wait for your results to load. Once your results are ready, review the information for interpreting them below.
 
-    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/form.png" alt-text="Screenshot of of debug ACL form.":::
+    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/form.png" alt-text="Screenshot of debug ACL form.":::
 
 ### Interpreting results
 Your test results for each MSEE device will look like the example below. You'll have two sets of results for the primary and secondary MSEE devices. Review the number of matches in and out and use the following scenarios to interpret the results:
 * **You see packet matches sent and received on both MSEEs:** This indicates healthy traffic inbound to and outbound from the MSEE on your circuit. If loss is occurring either on-premises or in Azure, it is happening downstream from the MSEE.
-* **If testing PsPing from on-premises to Azure *(received)* results show matches, but *sent* results show NO matches:** This indicates that traffic is getting inbound to Azure, but isn't returning to on-prem. Check for return-path routing issues (are you advertising the appropriate prefixes to Azure? Is there a UDR overriding prefixes? etc).
+* **If testing PsPing from on-premises to Azure *(received)* results show matches, but *sent* results show NO matches:** This indicates that traffic is getting inbound to Azure, but isn't returning to on-prem. Check for return-path routing issues (for example, are you advertising the appropriate prefixes to Azure? Is there a UDR overriding prefixes?).
 * **If testing PsPing from Azure to on-premises *(sent)* results show NO matches, but *(received)* results show matches:** This indicates that traffic is getting to on-premises, but isn't getting back. You should work with your provider to find out why traffic isn't being routed to Azure via your ExpressRoute circuit.
-* **One MSEE shows NO matches, while the other shows good matches:** This indicates that one MSEE isn't receiving or passing any traffic. It could be offline (BGP/ARP down, etc).
+* **One MSEE shows NO matches, while the other shows good matches:** This indicates that one MSEE isn't receiving or passing any traffic. It could be offline (for example, BGP/ARP down).
 
 #### Example
 ```
