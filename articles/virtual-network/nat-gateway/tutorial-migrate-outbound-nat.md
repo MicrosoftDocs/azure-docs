@@ -21,10 +21,8 @@ For more information about Azure Virtual Network NAT, see [What is Azure Virtual
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-
-> * Migrate default outbound access to a NAT gateway
-
-> * Migrate load balancer outbound rules and IP address to a NAT gateway
+> - Migrate default outbound access to a NAT gateway
+> - Migrate load balancer outbound rules and IP address to a NAT gateway
 
 ## Prerequisites
 
