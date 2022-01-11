@@ -179,7 +179,7 @@ sections:
       - question: |
           How do I use self-signed certificates provisioned for Azure Service Fabric Clusters?
         answer: |
-          For the latest example use the following azure CLI statement within azure shell, read Service Fabrics CLI module Example documentation, which will be printed to stdout:
+          For the latest example use the following Azure CLI statement within Azure shell, read Service Fabrics CLI module Example documentation, which will be printed to stdout:
 
           ```azurecli
           az sf cluster create -h
