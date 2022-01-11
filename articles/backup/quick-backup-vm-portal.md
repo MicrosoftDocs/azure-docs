@@ -99,7 +99,7 @@ If you selected to create a new backup policy, fill in the policy settings.
 > [!NOTE]
    > Azure Backup doesn't support automatic clock adjustment for daylight-saving changes for Azure VM backups. As time changes occur, modify backup policies manually as required.
 
-## Trigger the initial backup
+## Start a backup job
 
 The initial backup will run in accordance with the schedule, but you can run it immediately as follows:
 
@@ -111,7 +111,7 @@ The initial backup will run in accordance with the schedule, but you can run it 
    To  monitor the job progress, go to **Backup center** > **Backup Jobs** and filter the list for **In progress** jobs.
    Depending on the size of your VM, creating the initial backup may take a while.
 
-## Verify Backup job status
+## Monitor the backup job
 
 The Backup job details for each VM backup consist of two phases, the **Snapshot** phase followed by the **Transfer data to vault** phase.<br/>
 The snapshot phase guarantees the availability of a recovery point stored along with the disks for **Instant Restores** and are available for a maximum of five days depending on the snapshot retention configured by the user. Transfer data to vault creates a recovery point in the vault for long-term retention. Transfer data to vault only starts after the snapshot phase is completed.
@@ -120,7 +120,7 @@ The snapshot phase guarantees the availability of a recovery point stored along 
 
 There are two **Sub Tasks** running at the backend, one for front-end backup job that can be checked from the **Backup Job** details pane as given below:
 
-  ![Backup Job Status sub-tasks](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
+  ![Screenshot showing backup job status sub-tasks.](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
 
 The **Transfer data to vault** phase can take multiple days to complete depending on the size of the disks, churn per disk and several other factors.
 
@@ -147,20 +147,6 @@ Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent
 --- | ---
 **Windows** | 1. [Download and install](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) the agent MSI file.<br/><br/> 2. Install with admin permissions on the machine.<br/><br/> 3. Verify the installation. In *C:\WindowsAzure\Packages* on the VM, right-click **WaAppAgent.exe** > **Properties**. On the **Details** tab, **Product Version** should be 2.6.1198.718 or higher.<br/><br/> If you're updating the agent, make sure that no backup operations are running, and [reinstall the agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 **Linux** | Install by using an RPM or a DEB package from your distribution's package repository. This is the preferred method for installing and upgrading the Azure Linux agent. All the [endorsed distribution providers](../virtual-machines/linux/endorsed-distros.md) integrate the Azure Linux agent package into their images and repositories. The agent is available on [GitHub](https://github.com/Azure/WALinuxAgent), but we don't recommend installing from there.<br/><br/> If you're updating the agent, make sure no backup operations are running, and update the binaries.
-
-## Start a backup job
-
-You can start a backup now rather than wait for the default policy to run the job at the scheduled time. This first backup job creates a full recovery point. Each backup job after this initial backup creates incremental recovery points. Incremental recovery points are storage and time-efficient, as they only transfer changes made since the last backup.
-
-1. On the **Backup** window for your VM, select **Backup now**.
-
-    ![Screenshot showing to perform immediate VM backup in the Azure portal.](./media/quick-backup-vm-portal/backup-now.png)
-
-2. To accept the backup retention policy of 30 days, leave the default **Retain Backup Till** date. To start the job, select **Backup**.
-
-## Monitor the backup job
-
-In the **Backup** window for your VM, the status of the backup and number of completed restore points are shown. Once the VM backup job is complete, information on the **Last backup time**, **Latest restore point**, and **Oldest restore point** is shown on the right-hand side of the **Overview** window.
 
 ## Clean up deployment
 
