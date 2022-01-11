@@ -26,7 +26,7 @@ sections:
       - question: |
           How do I enable Cloud Native Certificate-based Authentication?
         answer: |
-          1. Sign in to the [Azure portal]((https://portal.azure.com)) as a Global Administrator.
+          1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
           1. Click **Azure Active Directory** > **Security** > **Authentication methods** > **Certificate-based Authentication** > **Basics**, click **On** to enable certificate-based authentication.
 
       - question: |
