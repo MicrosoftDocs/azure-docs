@@ -11,7 +11,7 @@ ms.date: 12/29/2021
 
 # Migrate servers to Azure by using Private Link
 
-This article describes how to use Azure Migrate to migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview). You can use the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link. 
+This article describes how to use Azure Migrate to migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link. 
 
 ::: zone pivot="agentlessvmware"
 
@@ -128,13 +128,13 @@ Ensure that the on-premises replication appliance has network connectivity to th
 
 ## Next steps 
 
- - [Migrate VMs](tutorial-migrate-vmware#migrate-vms)
+ - [Migrate VMs](tutorial-migrate-vmware.md#migrate-vms)
  - Complete the [migration process](./tutorial-migrate-physical-virtual-machines.md#complete-the-migration).
  - Review the [post-migration best practices](./tutorial-migrate-physical-virtual-machines.md#post-migration-best-practices). 
 
 ::: zone-end
 
-This article describes how to use Azure Migrate to migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview). You can use the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link.
+This article describes how to use Azure Migrate to migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link.
 
 ::: zone pivot="hyperv"
 
@@ -240,7 +240,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 >[!Note]
 > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts. 
 
-Next, follow the instructions to [perform migrations](tutorial-migrate-hyper-v?tabs=UI.md#migrate-vms). 
+Next, follow the instructions to [perform migrations](tutorial-migrate-hyper-v.md#migrate-vms). 
 
 ### Grant access permissions to the Recovery Services vault
 
@@ -310,13 +310,13 @@ Ensure that the on-premises replication appliance has network connectivity to th
 > For Hyper-V VM migrations to Azure, if the replication storage account is of _Premium_ type, you must select another storage account of _Standard_ type for the cache storage account. In this case, you must create private endpoints for both the replication and cache storage account.
 
 ## Next steps
- - [Migrate VMs](tutorial-migrate-vmware#migrate-vms)
- - Complete the [migration process](tutorial-migrate-hyper-v?tabs=UI.md#migrate-vms).
+ - [Migrate VMs](tutorial-migrate-vmware.md#migrate-vms)
+ - Complete the [migration process](tutorial-migrate-hyper-v.md#migrate-vms).
  - Review the [post-migration best practices](./tutorial-migrate-physical-virtual-machines.md#post-migration-best-practices).
 
 ::: zone-end
 
-This article describes how to use Azure Migrate to migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview). You can use the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link.
+This article describes how to use Azure Migrate to migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link.
 
 ::: zone pivot="agentbased"
 
