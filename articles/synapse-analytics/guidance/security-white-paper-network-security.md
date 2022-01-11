@@ -35,7 +35,7 @@ These endpoints are automatically created when the Synapse workspace is created.
 
 ### Synapse Studio
 
-[*Synapse Studio*](/learn/modules/explore-azure-synapse-studio/) is a secure web front end development environment for Synapse Analytics. It supports various roles, including the data engineer, data scientist, data developer, data analyst, and Synapse administrator.
+[*Synapse Studio*](/learn/modules/explore-azure-synapse-studio/) is a secure web front-end development environment for Synapse Analytics. It supports various roles, including the data engineer, data scientist, data developer, data analyst, and Synapse administrator.
 
 Use Synapse Studio to performing various data and management operations in Synapse Analytics, such as:
 
@@ -115,7 +115,7 @@ The above diagram depicts the following key points:
 | **Item** | **Description** |
 | --- | --- |
 | ![Item 1.](media/common/icon-01-red-30x30.png) | Dedicated SQL pool (formerly SQL DW) in Workspace A in Tenant A is accessed by a private endpoint in the customer VNet in Tenant A. |
-| ![Item 2.](media/common/icon-02-red-30x30.png) | THe same dedicated SQL pool (formerly SQL DW) in Workspace A in Tenant A is accessed by a private endpoint in the customer VNet in Tenant B through a connection approval workflow. |
+| ![Item 2.](media/common/icon-02-red-30x30.png) | The same dedicated SQL pool (formerly SQL DW) in Workspace A in Tenant A is accessed by a private endpoint in the customer VNet in Tenant B through a connection approval workflow. |
 
 ## Managed VNet
 
@@ -145,7 +145,7 @@ The following diagram depicts a managed private endpoint connecting to an Azure 
 
 A Managed VNet also provides some added advantages for Apache Spark pool users. There's no need to worry about configuring a *fixed* subnet address space as would be done in [VNet Injection](../../databricks/administration-guide/cloud-configurations/azure/vnet-inject.md). Synapse Analytics automatically takes care of allocating these address spaces dynamically for workloads.
 
-In addition, Synapse Spark pools operate as a job cluster. It means each user gets their own Apache Spark cluster when interacting with the workspace. Creating an Apache Spark pool within the workspace is metadata information for what will be assigned to the user when executing Spark workloads. It means each user will get their own Apache Spark cluster *in a dedicated subnet inside the Managed VNet* to execute workloads. Apache Spark pool sessions from the same user execute on the same compute resources. By providing this functionality there are three main benefits:
+In addition, Synapse Spark pools operate as a job cluster. It means each user gets their own Apache Spark cluster when interacting with the workspace. Creating an Apache Spark pool within the workspace is metadata information for what will be assigned to the user when executing Spark workloads. It means each user will get their own Apache Spark cluster *in a dedicated subnet inside the Managed VNet* to execute workloads. Apache Spark pool sessions from the same user execute on the same compute resources. By providing this functionality, there are three main benefits:
 
 - Greater security due to workload isolation based on the user.
 - Reduction of noisy neighbors.
@@ -153,7 +153,7 @@ In addition, Synapse Spark pools operate as a job cluster. It means each user ge
 
 ## Data exfiltration protection
 
-Synapse workspaces with Managed VNet have an additional security feature called *[data exfiltration protection](../security/workspace-data-exfiltration-protection.md)*. It protects all egress traffic going out from Synapse Analytics from all services, including dedicated SQL pools, serverless SQL pools, Apache spark pools, and pipelines. It's configured by enabling data exfiltration protection at the workspace level (at workspace creation time) to restrict the outbound connections to an allowed list of Azure Active Directory (Azure AD) tenants. By default, only the home tenant of the workspace is added to the list, but it's possible to add or modify the list of Azure AD tenants any time after the workspace is created. Adding additional tenants is a highly privileged operation that requires the elevated role of [Synapse Administrator](../security/synapse-workspace-synapse-rbac-roles.md). It effectively controls exfiltration of data from Synapse Analytics to other organizations and tenants, without the need to have complicated network security policies in place.
+Synapse workspaces with Managed VNet have an additional security feature called *[data exfiltration protection](../security/workspace-data-exfiltration-protection.md)*. It protects all egress traffic going out from Synapse Analytics from all services, including dedicated SQL pools, serverless SQL pools, Apache spark pools, and pipelines. It's configured by enabling data exfiltration protection at the workspace level (at workspace creation time) to restrict the outbound connections to an allowed list of Azure Active Directory (Azure AD) tenants. By default, only the home tenant of the workspace is added to the list, but it's possible to add or modify the list of Azure AD tenants anytime after the workspace is created. Adding additional tenants is a highly privileged operation that requires the elevated role of [Synapse Administrator](../security/synapse-workspace-synapse-rbac-roles.md). It effectively controls exfiltration of data from Synapse Analytics to other organizations and tenants, without the need to have complicated network security policies in place.
 
 For workspaces with data exfiltration protection enabled, Synapse pipelines and Apache Spark pools must use managed private endpoint connections for all their outbound connections.
 
@@ -161,7 +161,7 @@ Dedicated SQL pool and serverless SQL pool don't use managed private endpoints f
 
 ## Private link hubs for Synapse Studio
 
-[Azure Private Link Hubs](../security/synapse-private-link-hubs.md) provide the ability to securely connect to Synapse Studio from the customer's VNet using Azure Private Link. This feature is useful for customers who want to access the Synapse workspace using the Synapse Studio from a controlled and restricted environment, where the outbound internet traffic is restricted to a limited set of Azure services.
+[Azure Private Link Hubs](../security/synapse-private-link-hubs.md) allows securely connecting to Synapse Studio from the customer's VNet using Azure Private Link. This feature is useful for customers who want to access the Synapse workspace using the Synapse Studio from a controlled and restricted environment, where the outbound internet traffic is restricted to a limited set of Azure services.
 
 It's achieved by creating a private link hub resource and a private endpoint to this hub from the VNet. This private endpoint is then used to access the studio using its fully qualified domain name (FQDN), *web.azuresynapse.net*, with a private IP address from the VNet. The private link hub resource downloads the static contents of Synapse Studio over Azure Private Link to the user's workstation. In addition, separate private endpoints must be created for the individual workspace endpoints to ensure that communication to the workspace endpoints is private.
 
@@ -176,7 +176,7 @@ The above diagram depicts the following key points:
 | ![Item 1.](media/common/icon-01-red-30x30.png) | The workstation in a restricted customer VNet accesses the Synapse Studio using a web browser. |
 | ![Item 2.](media/common/icon-02-red-30x30.png) | A private endpoint created for private link hubs resource is used to download the static studio contents using Azure Private Link. |
 | ![Item 3.](media/common/icon-03-red-30x30.png) | Private endpoints created for Synapse workspace endpoints access the workspace resources securely using Azure Private Links. |
-| ![Item 4.](media/common/icon-04-red-30x30.png) | Network security group rules in the restricted customer VNet allow outbound traffic over port 443 to a limited set of Azure services, such as Azure Resource Manager, Azure Front Door and Azure Active Directory. |
+| ![Item 4.](media/common/icon-04-red-30x30.png) | Network security group rules in the restricted customer VNet allow outbound traffic over port 443 to a limited set of Azure services, such as Azure Resource Manager, Azure Front Door, and Azure Active Directory. |
 | ![Item 5.](media/common/icon-05-red-30x30.png) | Network security group rules in the restricted customer VNet deny all other outbound traffic from the VNet. |
 | ![Item 6.](media/common/icon-06-red-30x30.png) | Public access is disabled on the Synapse workspace. |
 

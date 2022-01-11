@@ -15,7 +15,7 @@ ms.date: 01/14/2022
 
 ## Data discovery and classification
 
-Organizations need to protect their data to comply with federal, local, and company guidelines to mitigate risks of data breach. One challenge facing organizations is: *How do you protect the data if you don't know where it is?* Another is: *What level of protection is needed?*—because some datasets require more protection than others.
+Organizations need to protect their data to comply with federal, local, and company guidelines to mitigate risks of data breach. One challenge organizations face is: *How do you protect the data if you don't know where it is?* Another is: *What level of protection is needed?*—because some datasets require more protection than others.
 
 Imagine an organization with hundreds or thousands of files stored in their data lake, and hundreds or thousands of tables in their databases. It would benefit from a process that automatically scans every row and column of the file system or table and classifies columns as *potentially* sensitive data. This process is known as *data discovery*.
 
@@ -54,7 +54,7 @@ While SSE forms the first layer of encryption, cautious customers can double enc
 
 Synapse Analytics, dedicated SQL pool (formerly SQL DW), and serverless SQL pool use the [Tabular Data Stream](/openspecs/windows_protocols/ms-tds/893fcc7e-8a39-4b3c-815a-773b7b982c50) (TDS) protocol to communicate between the SQL pool endpoint and a client machine. TDS depends on Transport Layer Security (TLS) for channel encryption, ensuring all data packets are secured and encrypted between endpoint and client machine. It uses a signed server certificate from the Certificate Authority (CA) used for TLS encryption, managed by Microsoft. Synapse Analytics supports data encryption in transit with TLS v1.2, using AES 256 encryption.
 
-Synapse Analytics leverages TLS to ensure data is encrypted in motion. SQL dedicated pools support TLS 1.0, TLS 1.1 and TLS 1.2 versions for encryption wherein Microsoft-provided drivers uses TLS 1.2 by default. Serverless SQL pool and Apache Spark pool use TLS 1.2 for all outbound connections.
+Synapse Analytics leverages TLS to ensure data is encrypted in motion. SQL dedicated pools support TLS 1.0, TLS 1.1, and TLS 1.2 versions for encryption wherein Microsoft-provided drivers use TLS 1.2 by default. Serverless SQL pool and Apache Spark pool use TLS 1.2 for all outbound connections.
 
 ## Next steps
 

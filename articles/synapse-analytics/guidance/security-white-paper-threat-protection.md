@@ -18,7 +18,7 @@ Azure Synapse provides SQL Auditing, SQL Threat Detection, and Vulnerability Ass
 ## Auditing
 
 [Auditing for Azure SQL Database](../../azure-sql/database/auditing-overview.md#overview) and Synapse Analytics tracks database events and writes them to an audit log in an Azure storage account, Log Analytics workspace, or Event Hubs. For any database, auditing is important. It produces an audit trail over time to help understand database activity and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
-Used in conjunction with [Data discovery and classification](../../azure-sql/database/data-discovery-and-classification-overview.md), when any sensitive columns or tables are queried by users, entries will appear in a field named **data_sensitivity_information** of the **sql_audit_information** table.
+Used with [Data discovery and classification](../../azure-sql/database/data-discovery-and-classification-overview.md), when any sensitive columns or tables are queried by users, entries will appear in a field named **data_sensitivity_information** of the **sql_audit_information** table.
 
 > [!NOTE]
 > Azure SQL Auditing applies to Synapse Analytics, dedicated SQL pool (formerly SQL DW), and serverless SQL pool, but it doesn't apply to Apache Spark pool.
@@ -34,7 +34,7 @@ As one of the options available with Microsoft Defender for Cloud, [Microsoft De
 > - Anomalous database access and queries
 > - Suspicious database activity
 
-Alert notifications include details of the incident, as well as recommendations on how to investigate and remediate threats.
+Alert notifications include details of the incident, and recommendations on how to investigate and remediate threats.
 
 > [!NOTE]
 > Microsoft Defender for SQL applies to Synapse Analytics and dedicated SQL pool (formerly SQL DW). It doesn't apply to serverless SQL pool or Apache Spark pool.
