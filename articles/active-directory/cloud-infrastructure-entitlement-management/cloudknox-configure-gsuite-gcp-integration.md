@@ -1,6 +1,6 @@
 ---
-title: G Suite integration for Google Cloud Platform (GCP) Sentry configuration
-description: How to integrate G Suite for Google Cloud Platform (GCP) Sentry configuration.
+title: Microsoft CloudKnox Permissions Management Sentry - Configure G Suite integration for Google Cloud Platform (GCP)
+description: How to configure and monitor G Suite integration for Google Cloud Platform (GCP).
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/29/2021
+ms.date: 01/10/2022
 ms.author: v-ydequadros
 ---
 
-# G Suite integration for Google Cloud Platform (GCP) Sentry configuration
+# Configure G Suite integration for Google Cloud Platform (GCP)
 
-You can configure the G Suite Domain-Wide Delegation of Authority to programmatically access a user's data without any manual authorization on the user's part.
+You can configure the G Suite Domain-Wide Delegation of Authority to programmatically access a user's data without any manual authorization on the user's part. You can also delegate domain-wide authority to a service account and delegate Admin API access to a user.
 
-## How to integrate G Suite for GCP Sentry configuration
+## How to configure G Suite integration for GCP
 
 1. Select **IAM & Admin**, and then select **Service Accounts**.
 2. Select the service account that was created earlier: **knox-sentry-vm-service-account**.
@@ -34,7 +34,7 @@ You can configure the G Suite Domain-Wide Delegation of Authority to programmati
 
      Make a note of the client ID. You'll need it later, when you delegate domain-wide authority to your service account.
 
-## How to delegate domain-wide authority to your service account
+## How to delegate domain-wide authority to a service account
 
 1. Select the [Admin console](https://admin.google.com/) for your G Suite domain.
 2. Select **Security**, and then, from the list of controls, select **API Controls**.
@@ -72,7 +72,5 @@ You can delegate Admin API access to a user because the service account must imp
      2. Select option 2.
      3. Enter a user email associated with the **GSuiteUserGroupReadOnlyAccess** role you assigned in Step 6.
      4. From the service account, upload the p12 file to **/opt/cloudknox/config** as *gcp.p12*.
-
-     <!---(You downloaded this p12 file in the How to integrate G Suite for GCP Sentry Configuration task.)--->
 
 <!---## Next steps--->

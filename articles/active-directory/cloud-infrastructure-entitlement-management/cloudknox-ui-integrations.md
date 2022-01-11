@@ -8,13 +8,15 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/04/2022
+ms.date: 01/10/2022
 ms.author: v-ydequadros
 ---
 
 # Microsoft CloudKnox Permissions Management - Integrations dashboard
 
 The **Integrations** dashboard displays the systems the authorization systems available to you in Microsoft CloudKnox Permissions Management.
+
+## Display the **Integrations** dashboard
 
 1. To display the **Integrations** dashboard, select **User** (your initials) in the upper right of the screen, and then select **Integrations.**
 

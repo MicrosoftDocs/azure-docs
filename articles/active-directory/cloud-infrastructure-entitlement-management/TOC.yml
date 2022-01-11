@@ -40,15 +40,19 @@
       href: cloudknox-servicenow.md
     - name: CloudKnox FortSentry registration
       href: cloudknox-fortsentry-registration.md
-  - name: Configure authorization systems
+  - name: Configure and monitor authorization systems
     expanded: true
     items:
+    - name: Configure and monitor AWS accounts
+      href: cloudknox-configure-account-monitor-aws.md
+    - name: Configure and monitor GCP accounts
+      href: cloudknox-configure-account-monitor-gcp.md
+    - name: Configure and collect data for VCenter
+      href: cloudknox-configure-vcenter.md
+    - name: Configure G Suite integration for GCP
+      href: cloudknox-configure-gsuite-gcp-integration.md
     - name: Configure an IDP to enable the SAML login process
       href: cloudknox-idp-for-saml-login.md
-    - name: Configure and reconfigure Sentry for VCenter
-      href: cloudknox-vcenter-sentry-config-modification.md
-    - name: G Suite integration for GCP Sentry configuration
-      href: cloudknox-gsuite-integration-gcp-sentry.md
   - name: How-to guides
     expanded: true
     items:
@@ -79,7 +83,7 @@
       items:
       - name: Analyze usage for an identity, a task, or an authorization system
         href: cloudknox-howto-analyze-usage.md
-      - name: View details about users, groups, active resources, active tasks, access keys, and serverless functions
+      - name: View detailed usage information with the Usage Analytics dashboard
         href: cloudknox-usage-analytics-home.md
       - name: View usage analytics information about users
         href: cloudknox-usage-analytics-users.md
@@ -139,10 +143,7 @@
       href: cloudknox-product-data-sources.md
     - name: Create and save product alerts
       href: cloudknox-product-alerts.md
-    - name: Add AWS accounts after deploying Sentry
-      href: cloudknox-additional-account-monitor-aws.md
-    - name: Add GCP projects after deploying Sentry
-      href: cloudknox-additional-account-monitor-gcp.md
+
   - name: User management
     expanded: true
     items:

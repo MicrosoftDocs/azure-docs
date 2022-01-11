@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/07/2022
+ms.date: 01/10/2022
 ms.author: v-ydequadros
 ---
 
@@ -33,7 +33,7 @@ The CloudKnox explorers provide more information about an identity, including en
 
 ### Access the Usage Analytics explorers
 
-1. To perform a general search and open the explorer, select **Search** at the upper right of the CloudKnox home screen.
+1. To perform a general search and open the explorer, select **Search** at the upper right of the CloudKnox dashboard.
 
 2. Enter a user, role, resource, or task name and select the appropriate option.
 
@@ -388,3 +388,7 @@ The **Account Explorer** displays all the identities - users, roles, EC2 instanc
         - To view a diagram of the ways in which the identity can access the specified account and through which role(s), select the identity name.
 
 <!---## Next steps--->
+
+
+<!---Add link: To find out more about the Usage Analytics dashboard, see [The Usage Analytics dashboard](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-ui-usage-analytics.html).--->
+<!---Add link: To view details about users, groups, active resources, active tasks, access keys, and serverless functions, see [View detailed usage information with the Usage Analytics dashboard](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-home.html).--->
