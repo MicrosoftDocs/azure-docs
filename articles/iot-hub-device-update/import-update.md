@@ -127,7 +127,7 @@ An example manifest output is below. For this example, there are two files that 
 
 3. You'll see several tabs across the top of the screen. Select the Updates tab.
 
-   :::image type="content" source="media/import-update/updates-tab-ppr.png" alt-text="Updates" lightbox="media/import-update/pdates-tab-ppr.png":::
+   :::image type="content" source="media/import-update/updates-tab-ppr.png" alt-text="Updates" lightbox="media/import-update/updates-tab-ppr.png":::
 
 4. Select "+ Import a new update" below the "Available Updates" header.
 
@@ -143,7 +143,7 @@ An example manifest output is below. For this example, there are two files that 
 
 7. In your container, select "Upload". The Upload UI will be shown.  
 
-   :::image type="content" source="media/import-update/container-ppr.png" alt-text="Select Container" lightbox="media/import-update/import-update/container-ppr.png":::
+   :::image type="content" source="media/import-update/container-ppr.png" alt-text="Select Container" lightbox="media/import-update/container-ppr.png":::
 
 8. Select the folder icon on the right side of the Files section under the Upload blob header. A file picker will be shown. Navigate to the location of your update file or files, select all of the files, then select "Open". _Note: you can hold the Shift key and click the uppermost and lowermost files to multi-select._
 
