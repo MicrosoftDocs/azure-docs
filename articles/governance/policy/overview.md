@@ -46,7 +46,7 @@ Resources are evaluated at specific times during the resource lifecycle, the pol
 lifecycle, and for regular ongoing compliance evaluation. The following are the times or events that
 cause a resource to be evaluated:
 
-- A resource is created, updated, or deleted in a scope with a policy assignment.
+- A resource is created or updated in a scope with a policy assignment.
 - A policy or initiative is newly assigned to a scope.
 - A policy or initiative already assigned to a scope is updated.
 - During the standard compliance evaluation cycle, which occurs once every 24 hours.
