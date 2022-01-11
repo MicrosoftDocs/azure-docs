@@ -109,7 +109,7 @@ This article explains the considerations and steps for enabling LDAP with extend
 
     ![Screenshot that shows the Allow local NFS users with LDAP option](../media/azure-netapp-files/allow-local-nfs-users-with-ldap.png)  
 
-8. <a name="ldap-search-scope"></a>Optional - If you have large topologies, and you use the Unix security style with a dual-protocol volume or LDAP with extended groups, you can use the **LDAP Search Scope** option to avoid "access denied" errors on Linux clients for Azure NetApp Files.  
+9. <a name="ldap-search-scope"></a>Optional - If you have large topologies, and you use the Unix security style with a dual-protocol volume or LDAP with extended groups, you can use the **LDAP Search Scope** option to avoid "access denied" errors on Linux clients for Azure NetApp Files.  
 
     The **LDAP Search Scope** option is configured through the **[Active Directory Connections](create-active-directory-connections.md#create-an-active-directory-connection)** page.
 
