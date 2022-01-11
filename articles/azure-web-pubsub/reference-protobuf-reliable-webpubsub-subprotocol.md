@@ -1,6 +1,6 @@
 ---
-title: Reference - Azure Web PubSub-supported protobuf WebSocket subprotocol `protobuf.webpubsub.azure.v1`
-description: The reference describes the Azure Web PubSub-supported WebSocket subprotocol `protobuf.webpubsub.azure.v1`.
+title: Reference - Azure Web PubSub-supported protobuf WebSocket subprotocol `protobuf.reliable.webpubsub.azure.v1`
+description: The reference describes the Azure Web PubSub-supported WebSocket subprotocol `protobuf.reliable.webpubsub.azure.v1`.
 author: chenyl
 ms.author: chenyl
 ms.service: azure-web-pubsub
@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 11/08/2021
 ---
 
-#  The Azure Web PubSub-supported protobuf WebSocket subprotocol
+#  The Azure Web PubSub-supported reliable protobuf WebSocket subprotocol
      
-This document describes the subprotocol `protobuf.webpubsub.azure.v1`.
+This document describes the subprotocol `protobuf.reliable.webpubsub.azure.v1`.
 
 When a client is using this subprotocol, both the outgoing and incoming data frames are expected to be protocol buffers (protobuf) payloads.
 
 ## Overview
 
-Subprotocol `protobuf.webpubsub.azure.v1` empowers the client to do a publish-subscribe (PubSub) directly instead of doing a round trip to the upstream server. The WebSocket connection with the `protobuf.webpubsub.azure.v1` subprotocol is called a PubSub WebSocket client.
+Subprotocol `protobuf.reliable.webpubsub.azure.v1` empowers the client to have a high reliable message delivery experience under network issues and do a publish-subscribe (PubSub) directly instead of doing a round trip to the upstream server. The WebSocket connection with the `protobuf.reliable.webpubsub.azure.v1` subprotocol is called a Reliable PubSub WebSocket client.
 
-For example, in JavaScript, you can create a PubSub WebSocket client with the protobuf subprotocol by using:
+For example, in JavaScript, you can create a Reliable PubSub WebSocket client with the protobuf subprotocol by using:
 
 ```js
 // PubSub WebSocket client
-var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'protobuf.webpubsub.azure.v1');
+var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'protobuf.reliable.webpubsub.azure.v1');
 ```
 
-For a simple WebSocket client, the server has the *necessary* role of handling events from clients. A simple WebSocket connection always triggers a `message` event when it sends messages, and it always relies on the server side to process messages and do other operations. With the help of the `protobuf.webpubsub.azure.v1` subprotocol, an authorized client can join a group by using [join requests](#join-groups) and publish messages to a group by using [publish requests](#publish-messages) directly. The client can also route messages to various upstream event handlers by using [event requests](#send-custom-events) to customize the *event* that the message belongs to.
+When using `json.reliable.webpubsub.azure.v1` subprotocol, the client must follow the [How to create reliable clients](howto-develop-reliable-clients) to implement reconnection, publisher and subscriber.
 
 > [!NOTE]
 > Currently, the Web PubSub service supports only [proto3](https://developers.google.com/protocol-buffers/docs/proto3).
@@ -70,6 +70,10 @@ message UpstreamMessage {
         string group = 1;
         optional uint64 ack_id = 2;
     }
+
+    message SequenceAckMessage {
+        uint64 sequence_id = 1;
+    }
 }
 
 message MessageData {
@@ -82,6 +86,12 @@ message MessageData {
 ```
 
 [!INCLUDE [reference-protobuf-requests](includes/reference-protobuf-requests.md)]
+
+### SequenceAck Message
+
+Reliable PubSub WebSocket client must send SequenceAck message once it received a message from the service. Find more in [How to create reliable clients](./howto-develop-reliable-clients.md#subscriber)
+ 
+* `sequence_id` is a incremental uint64 number from the message received.
 
 ## Responses
 
@@ -99,6 +109,7 @@ message DownstreamMessage {
         uint64 ack_id = 1;
         bool success = 2;
         optional ErrorMessage error = 3;
+        uint64 sequence_id = 4;
     
         message ErrorMessage {
             string name = 1;
@@ -110,6 +121,7 @@ message DownstreamMessage {
         string from = 1;
         optional string group = 2;
         MessageData data = 3;
+        uint64 sequence_id = 4;
     }
 
     message SystemMessage {
@@ -121,16 +133,19 @@ message DownstreamMessage {
         message ConnectedMessage {
             string connection_id = 1;
             string user_id = 2;
+            string reconnection_token = 3;
+            uint64 sequence_id = 4;
         }
 
         message DisconnectedMessage {
             string reason = 2;
+            uint64 sequence_id = 3;
         }
     }
 }
 ```
 
-Messages received by the client can be in any of three types: `ack`, `message`, or `system`. 
+Messages received by the client can be in any of three types: `ack`, `message`, or `system`. All response messages have `sequence_id` property. Client must send [Sequence Ack](#sequence-ack) to the service once it receives a message.
 
 ### Ack response
 
@@ -162,6 +177,13 @@ The Web PubSub service can also send system-related responses to the client.
 #### Connected
 
 When the client connects to the service, you receive a `DownstreamMessage.SystemMessage.ConnectedMessage` message.
+`connection_id` and `reconnection_token` are used for reconnection. Make connect request with uri for reconnection:
+
+```
+wss://<service-endpoint>/client/hubs/<hub>?awps_connection_id=<connectionId>&awps_reconnection_token=<reconnectionToken>
+```
+
+Find more details in [Reconnection](./howto-develop-reliable-clients.md#reconnection)
 
 #### Disconnected
 

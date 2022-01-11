@@ -124,6 +124,10 @@
       href: reference-json-webpubsub-subprotocol.md
     - name: Protobuf WebSocket subprotocol
       href: reference-protobuf-webpubsub-subprotocol.md
+    - name: Reliable JSON WebSocket subprotocol
+      href: reference-json-reliable-webpubsub-subprotocol.md
+    - name: Reliable Protobuf WebSocket subprotocol
+      href: reference-protobuf-reliable-webpubsub-subprotocol.md
   - name: CloudEvents extension for Azure Web PubSub
     href: reference-cloud-events.md
   - name: Functions trigger and bindings
