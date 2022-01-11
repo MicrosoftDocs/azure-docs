@@ -10,23 +10,18 @@ ms.date: 12/17/2021
 
 ## Overview
 
-In this how-to, you'll learn how to encrypt data in Azure VMware Solution with [customer-managed keys (CMK)](/azure/storage/common/customer-managed-keys-overview) using Azure Key Vault. Customer-managed keys let you generate and manage encryption keys for your Azure VMware Solution private cloud. These keys are protected with a Key Encryption Key (KEK) and stored in your storage account. KEK is invoked with the region, subscription, key type, and operation requirements. The resource and Key Vault aren't required to be in the same subscription. 
+In this article, you'll learn how to encrypt VMware vSAN Key Encryption Keys (KEK) with Customer Managed Keys (CMKs) handled by customer-owned Azure Key Vault. Each ESXi host that participates in the vSAN cluster uses randomly generated Disk Encryption Keys (DEKs) that ESXi uses to encrypt disk data at rest. vSAN encrypts all DEKs with a KEK provided by Azure VMware Solution KMS. When you enable CMK encryption on your Azure VMware Solution private cloud, Azure VMware Solution uses the CMK from your key vault to encrypt the vSAN KEKs. Azure VMware Solution private cloud and Key Vault don't need to be in the same subscription.
 
-When managing your own encryption keys, you can:
+When managing your own encryption keys, you can do the following actions:
 
-- Control access
+- Control Azure access to vSAN keys.
+- Centrally manage and lifecycle CMK.
+- Revoke Azure from accessing the KEK.
 
-- Centrally manage keys and the key lifecycle
+Customer managed keys (CMKs) feature supports, shown below by key type and key size.
 
-- Revoke Azure from accessing the data
-
-Every Azure VMware Solution private cloud has a unique managed service identity with Key Vault. For service authentication to Key Vault, Azure Service has a unique identity per resource instance. It allows you to isolate resources according to your internal security needs. 
-
-When you create the Azure VMware Solution private cloud, you'll assign identity either with a user-assigned identity (UAI) or system-assigned identity (SAI) and KEK to your service instance. You can change an existing CMK configured with UAI to SAI or SAI to UAI.  When you delete an existing UAI, the resource identity is replaced with SAI automatically. For more information, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).  
-
-
->[!NOTE]
->CMK with Azure VMware Solution is [FIPS compliant](/azure/compliance/offerings/offering-fips-140-2).
+- RSA: 2048, 3072, 4096
+- RSA-HSM: 2048, 3072, 4096
 
 ## Topology 
 
@@ -36,6 +31,12 @@ When you create the Azure VMware Solution private cloud, you'll assign identity 
 
 
 ## Prerequisites
+
+Before we begin to enable customer-managed key (CMK) functionality, ensure the requirements listed below are met:
+
+1. You'll need an Azure key vault to leverage CMK functionality. If you don't have an Azure key vault, you can create one using the [Quickstart: Create a key vault using the Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal/) guide.
+1. If you enabled restricted access to key vault, you'll need to allow Microsoft Trusted Services to bypass the Azure Key Vault firewall.
+1. If you didn't enable system assigned Identity on your Azure VMware Solution private cloud during software-defined data center (SDDC) provisioning, enable it now.
 
 # [Portal](#tab/azure-portal)
 
@@ -48,44 +49,6 @@ When you create the Azure VMware Solution private cloud, you'll assign identity 
     <!-- New image from Rahi to go here -->
 1. Find **JSON View** in the upper right corner and select it.
 1. In the **Resource JSON** window, use the **API version** drop down menu to find and select the appropriate API version.
-
-# [Azure CLI](#tab/azure-cli)
-
-Use the JSON file and command provided below to enable MSI on existing SDDC.
-
-`az deployment group create --name <deployment name> --resource-group <RG Name> --template-file ./filename.json`
-
-```json   
-{
-        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "variables": {
-                "name": "SDDC Name",
-                "location": "eastasia",
-                "sku": "av36"
-        },
-        "resources": [{
-                "type": "Microsoft.AVS/privateClouds",
-                "apiVersion": "2021-12-01",
-                "name": "[variables('name')]",
-                "location": "[variables('location')]",
-                "sku": {
-                        "name": "[variables('sku')]"
-                },
-                "properties": {
-                        "managementCluster": {
-                                "clusterSize": <Number of hosts in a Cluster>
-                        },
-                        "internet": "enabled"
-                        },
-        "identity": {
-            "type": "SystemAssigned"
-            }
-
-                }]
-
-}
-```
 
 # [Template](#tab/azure-resource-manager)
 
