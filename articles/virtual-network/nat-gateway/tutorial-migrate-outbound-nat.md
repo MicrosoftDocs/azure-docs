@@ -12,9 +12,9 @@ ms.custom: template-tutorial
 
 # Tutorial: Migrate outbound access to Azure Virtual Network NAT
 
-In this article, you'll learn how to change your outbound connectivity from [default outbound access](../ip-services/default-outbound-access.md)to a NAT gateway. You'll learn how to change your outbound connectivity from load balancer outbound rules to a NAT gateway while keeping the same IP address used via the rule.
+In this article, you'll learn how to migrate your outbound connectivity from [default outbound access](../ip-services/default-outbound-access.md) to a NAT gateway. You'll learn how to change your outbound connectivity from load balancer outbound rules to a NAT gateway. You'll reuse the IP address from the outbound rule configuration for the NAT gateway.
 
-Azure Virtual Network NAT is the recommended method for outbound connectivity. A NAT gateway is a fully managed and highly resilient Network Address Translation (NAT) service that doesn't have the same limitations of SNAT port exhaustion as default outbound access. A NAT gateway replaces the need for outbound rules in load balancer for outbound connectivity.
+Azure Virtual Network NAT is the recommended method for outbound connectivity. A NAT gateway is a fully managed and highly resilient Network Address Translation (NAT) service. A NAT gateway doesn't have the same limitations of SNAT port exhaustion as default outbound access. A NAT gateway replaces the need for outbound rules in load balancer for outbound connectivity.
 
 For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT](nat-overview.md)
 
@@ -77,7 +77,7 @@ In this section, you’ll learn how to change your outbound connectivity method 
 
 ## Migrate load balancer outbound rules
 
-In this section, you’ll learn how to change your outbound connectivity method from outbound rules to a NAT gateway. You'll keep the same frontend IP address used for the outbound rules. You remote the outbound rule’s frontend IP configuration then create a NAT gateway with the same frontend IP address. A public load balancer is used throughout this section.
+In this section, you’ll learn how to change your outbound connectivity method from outbound rules to a NAT gateway. You'll keep the same frontend IP address used for the outbound rules. You'll remove the outbound rule’s frontend IP configuration then create a NAT gateway with the same frontend IP address. A public load balancer is used throughout this section.
 
 ### Remove outbound rule frontend IP configuration
 
@@ -93,7 +93,7 @@ You remove the outbound rule and the associated frontend IP configuration from y
 
 5. Note the **IP address** in **Frontend IP configuration** that you wish to migrate to a **NAT gateway**. You'll need this information in the next section. In this example, it's **myFrontendIP-outbound**.
 
-6. Select **Delete** next to the IP configuration you wish to remove. In this example it's **myFrontendIP-outbound**.
+6. Select **Delete** next to the IP configuration you wish to remove. In this example, it's **myFrontendIP-outbound**.
 
     :::image type="content" source="./media/tutorial-migrate-outbound-nat/frontend-ip.png" alt-text="Screenshot of frontend IP address removal for NAT gateway.":::
 
@@ -102,7 +102,7 @@ You remove the outbound rule and the associated frontend IP configuration from y
 
 8. In **Delete myFrontendIP-outbound**, select the check box next to **I have read and understood that this frontend IP configuration as well as the associated resources listed above will be deleted**.
 
-9. Select **Delete**. This will delete the frontend IP configuration and the outbound rule associated with the frontend.
+9. Select **Delete**. This procedure will delete the frontend IP configuration and the outbound rule associated with the frontend.
 
     :::image type="content" source="./media/tutorial-migrate-outbound-nat/delete-frontend-ip.png" alt-text="Screenshot of confirmation of frontend IP address removal for NAT gateway.":::
 
@@ -160,7 +160,7 @@ In this article, you learned how to:
 
 * Migrate default outbound access to a NAT gateway.
 
-* Migrate a outbound rule and outbound frontend IP address to a NAT gateway.
+* Migrate an outbound rule and outbound frontend IP address to a NAT gateway.
 
 Advance to the next article to learn how to integrate a NAT gateway with a public load balancer:
 > [!div class="nextstepaction"]
