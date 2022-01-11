@@ -17,31 +17,31 @@ In this article, we will go through options on connecting your **existing** Vide
 
 * Unlimited paid Video Analyzer for Media account (classic account).
 
-  * To perform the connect to ARM action, you should have owner's permissions on the Video Analyzer for Media account.
+  * To perform the connect to ARM(Azure Resource Manager) action, you should have owner's permissions on the Video Analyzer for Media account.
 * Azure Subscription.
 * User assigned managed identity (can be created along the flow).
 
 ## Transition state
 
-Connecting a classic account to be ARM-based triggers a 30 days of a transition state. In the transition state, an existing account can be accessed through:
+Connecting a classic account to be ARM-based triggers a 30 days of a transition state. In the transition state, an existing account can be accessed by generating an access token using both:
 
-* API by both access token [generated through API Management](https://aka.ms/avam-dev-portal)(classic way) 
-* an access token generated through ARM. 
+* Access token [generated through API Management](https://aka.ms/avam-dev-portal)(classic way) 
+* Access token [generated through ARM](https://docs.microsoft.com/en-gb/rest/api/videoindexer/generate/access-token) 
 
-The transition state moves all account management functionality to be managed by ARM and will be handled by [Azure RBAC][docs-rbac-overview]. 
+The transition state moves all account management functionality to be managed by ARM(Azure Resource Manager) and will be handled by [Azure RBAC][docs-rbac-overview]. 
 
 The [invite users](invite-users.md) feature in the Video Analyzer for Media portal gets disabled. The invited users on this account lose their access to the Video Analyzer for Media account Media in the portal.  
 However, this can be resolved by assigning the right role-assignment to these users through Azure RBAC, see [How to assign RBAC][docs-rbac-assignment]. 
 
 Only the account owner, who performed the connect action, is automatically assigned as the owner on the connected account. When [Azure policies][docs-governance-policy] are enforced, they override the settings on the account.
 
-If users are not added through Azure RBAC to the account after 30 days, they will lose access through API as well as portal.  
-After the transision state ends, users will only be able to generate a valid access token through through ARM, making Azure RBAC the exclusive way to manage role-based access control on the account.
+If users are not added through Azure RBAC to the account after 30 days, they will lose access through API as well as Video Analyzer for Media portal.  
+After the transision state ends, users will only be able to generate a valid access token through through ARM(Azure Resource Manager), making Azure RBAC the exclusive way to manage role-based access control on the account.
 
 > [!NOTE]
 > If there are invited users you wish to remove access from, do it before connecting the account to ARM. 
 
-Before the end of the 30 days of transition state, you can remove access from users through the Azure Video Analyzer for Media account settings.
+Before the end of the 30 days of transition state, you can remove access from users through the Azure Video Analyzer for Media portal on the account settings page.
 
 ## Get started
 
