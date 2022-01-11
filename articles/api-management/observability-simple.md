@@ -1,6 +1,6 @@
 ---
-title: Observability in Azure API Management | Microsoft Docs
-description: Overview of all observability options in Azure API Management.
+title: Observability in Azure API Management (Simple) | Microsoft Docs
+description: Overview of all observability options in Azure API Management. (Simple)
 services: api-management
 documentationcenter: ''
 author: begim
@@ -16,7 +16,7 @@ ms.author: danlep
 
 ---
 
-# Observability in Azure API Management
+# Observability in Azure API Management (Simple)
 
 Observability is the ability to understand the internal state of a system from the data it produces and the ability to explore that data to answer questions about what happened and why. 
 
@@ -34,7 +34,7 @@ The table below summarizes all the observability capabilities supported by API M
 | **[Azure Monitor Logs](api-management-howto-use-azure-monitor.md)** | Reporting, monitoring, and debugging | Minutes | 31 days/5GB (upgrade to extend) | 100% (adjustable) | Logs | ✔️, optional | ❌ <sup>1</sup> |
 | **[Azure Application Insights](api-management-howto-app-insights.md)** | Reporting, monitoring, and debugging | Seconds | 90 days/5GB (upgrade to extend) | Custom | Logs, metrics | ✔️, optional | ✔️, optional |
 | **[Logging through Azure Event Hub](api-management-howto-log-event-hubs.md)** | Custom scenarios | Seconds | User managed | Custom | Custom | ✔️, optional | ✔️, optional |
-| **[OpenTelemetry](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md#Introduction-to-OpenTelemetry)** | Monitoring | 1 minute | User managed | 100% | Metrics | ❌ | ✔️, optional |
+| **[OpenTelemetry](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md#introduction-to-opentelemetry)** | Monitoring | 1 minute | User managed | 100% | Metrics | ❌ | ✔️, optional |
 
 *1. The [self-hosted gateway](self-hosted-gateway-overview.md) currently does not send diagnostic logs to Azure Monitor. However, it is possible to configure and persist logs locally where the self-hosted gateway is deployed. For more information, please see [configuring local metrics and logs for self-hosted gateway](how-to-configure-local-metrics-logs.md)*
 

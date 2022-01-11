@@ -50,7 +50,7 @@ Here is an overview of what capabilities are supported by every scenario:
 | **[Azure Monitor Logs](api-management-howto-use-azure-monitor.md)** |✔️<sup>1</sup> | ❌ <sup>3</sup> | ❌ <sup>3</sup> |
 | **[Azure Application Insights](api-management-howto-app-insights.md)** | ✔️<sup>1</sup> | ✔️<sup>1</sup> | ✔️<sup>1</sup> |
 | **[Logging through Azure Event Hub](api-management-howto-log-event-hubs.md)** | ✔️<sup>1</sup> | ✔️<sup>1</sup> | ✔️<sup>1</sup> |
-| **[OpenTelemetry](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md#Introduction-to-OpenTelemetry)** | ❌ | ✔️<sup>2</sup> | ❌ |
+| **[OpenTelemetry](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md#introduction-to-opentelemetry)** | ❌ | ✔️<sup>2</sup> | ❌ |
 
 *1. Optional, depending on the configuration of feature in Azure API Management*
 
