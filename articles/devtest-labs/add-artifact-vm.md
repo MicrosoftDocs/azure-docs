@@ -12,7 +12,9 @@ This article describes how to add *artifacts* to Azure DevTest Labs virtual mach
 
 DevTest Labs artifacts can come from the [public DevTest Labs Git repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) or from private Git repositories. To create your own custom artifacts and store them in a repository, see [Create custom artifacts](devtest-lab-artifact-author.md). To add your artifact repository to a lab so lab users can access the custom artifacts, see [Add an artifact repository to your lab](add-artifact-repository.md).
 
-DevTest Labs lab owners can specify mandatory artifacts to be installed on all lab VMs at creation. For more information, see [Specify mandatory artifacts for DevTest Labs VMs](devtest-lab-mandatory-artifacts). You can't change or remove mandatory artifacts at VM creation time, but you can add any available individual artifacts. This article describes how to add available artifacts to VMs by using the Azure portal or Azure PowerShell.
+DevTest Labs lab owners can specify mandatory artifacts to be installed on all lab VMs at creation. For more information, see [Specify mandatory artifacts for DevTest Labs VMs](devtest-lab-mandatory-artifacts.md).
+
+You can't change or remove mandatory artifacts at VM creation time, but you can add any available individual artifacts. This article describes how to add available artifacts to VMs by using the Azure portal or Azure PowerShell.
 
 ## Add artifacts to VMs from the Azure portal
 
@@ -28,7 +30,7 @@ To add artifacts during VM creation:
 
    ![Screenshot that shows adding artifacts on the Add artifacts screen.](media/add-artifact-vm/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
-1. You can change the artifact after adding them.
+1. You can change the artifacts after adding them.
 
    - By default, artifacts install in the order you add them. To rearrange the order, select the ellipsis **...** next to the artifact in the **Selected artifacts** list, and select **Move up**, **Move down**, **Move to top**, or **Move to bottom**.
    - To edit the artifact's parameters, select **Edit** to reopen the **Add artifact** pane.
@@ -39,9 +41,11 @@ To add artifacts during VM creation:
 
 After you create the VM, the installed artifacts appear on the VM's **Artifacts** page. To see details about each artifact's installation, select the artifact name.
 
-To install more artifacts on the existing VM:
+To install artifacts on an existing VM:
 
-1. From the VM's **Artifacts** page, select **Apply artifacts**.
+1. From the lab's home page, select the VM from the **My virtual machines** list.
+1. On the VM page, select **Artifacts** in the top menu bar or left navigation.
+1. On the **Artifacts** page, select **Apply artifacts**.
 
    ![Screenshot that shows the Artifacts screen for an existing V M.](media/add-artifact-vm/artifacts.png)
 

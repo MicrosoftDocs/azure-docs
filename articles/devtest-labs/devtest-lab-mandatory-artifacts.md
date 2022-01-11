@@ -7,7 +7,7 @@ ms.date: 01/10/2022
 
 # Specify mandatory artifacts for DevTest Labs VMs
 
-This article describes how to specify mandatory artifacts in Azure DevTest Labs that install on every lab virtual machine (VM). Artifacts are tools and applications to add to VMs. Installing mandatory artifacts ensures that all lab VMs have standardized, up-to-date artifacts. Lab users don't have to spend the time and effort to add the needed artifacts individually.
+This article describes how to specify mandatory *artifacts* in Azure DevTest Labs to install on every lab virtual machine (VM). Artifacts are tools and applications to add to VMs. Installing mandatory artifacts ensures all lab VMs have standardized, up-to-date artifacts. Lab users don't have to spend time and effort to add needed artifacts individually.
 
 Mandatory artifacts can include any software that every VM in your lab must have. If you create a custom image from a VM that has mandatory artifacts applied to it, and create new VMs from that image, those VMs also have the mandatory artifacts. Even if the custom image is old, VM creation applies the most updated versions of the mandatory artifacts.
  
@@ -63,7 +63,7 @@ For example, to see the mandatory artifacts specified for lab Windows VMs in the
 
    ![Screenshot that shows the Add artifacts screen with the list of mandatory artifacts to install.](media/devtest-lab-mandatory-artifacts/save-to-lab.png)
 
-You can't remove, rearrange, or change mandatory artifacts when you create a VM. However, you can add other available artifacts to the individual VM. For instructions, see [Add artifacts to DevTest Labs VMs](add-artifact-vm.md). You can also create your own artifacts to add to VMs. For instructions, see [Create custom artifacts for DevTest Labs VMs](devtest-lab-artifact-author.md).
+You can't remove, rearrange, or change mandatory artifacts when you create a VM. However, you can add other available artifacts to the individual VM. For more information, see [Add artifacts to DevTest Labs VMs](add-artifact-vm.md). You can also create your own artifacts to add to VMs. For more information, see [Create custom artifacts for DevTest Labs VMs](devtest-lab-artifact-author.md).
 
 ## Next steps
 
