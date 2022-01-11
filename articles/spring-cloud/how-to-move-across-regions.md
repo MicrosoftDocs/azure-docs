@@ -25,7 +25,7 @@ Azure Spring Cloud itself cannot be moved from one region to another directly. B
 ## Limitations
   - As different feature set is supported by different pricing tiers(Sku), change the Sku may need to change the template, that is, only supported features can show up in the template for the target Sku.
   - Not all sub resources in Azure Spring Cloud can be moved with template only, some extra setup is still required after the template is deployed, check [Configure the new Azure Spring Cloud](#configure-the-new-azure-spring-cloud).
-  - When moving a [VNet instance](/azure/spring-cloud/how-to-deploy-in-azure-virtual-network), new network resources may need to be created, depending on the network capacity.
+  - When moving a [VNet instance](/azure/spring-cloud/how-to-deploy-in-azure-virtual-network), new network resources need to be created.
 
 ## How to move an Azure Spring Cloud instance with template
 
@@ -77,7 +77,7 @@ Below will suppose the new service name for Azure Spring Cloud is new-service, p
         }
     ```
 
- 3. If the instance being moved is a VNet instance, you can also change the VNet to a new one, for example, change the parameters:
+ 3. If the instance being moved is a VNet instance, the target VNet resource needs to be updated, for example, change the parameters:
     ```json
     "parameters": {
         …
