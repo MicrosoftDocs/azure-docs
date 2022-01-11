@@ -136,8 +136,7 @@ Asset Metadata may need to be deleted manually for many reasons:
 | 5 | [How to view, edit and delete assets](catalog-asset-details.md#deleting-assets) 
 | 6 | [Scanning best practices](concept-best-practices-scanning.md)
 
-> [!Note]
-> <li>	Deleting a collection, registered source or scan from Purview does not delete all associated asset metadata. <li>  It is not possible to bulk delete asset metadata using the Purview Portal <li>	Deleting the asset metadata does not delete all associated lineage or other relationship data (for example, glossary or classification assignments) about the asset from the data map. The asset information and relationships will no longer be visible in the portal. 
+> [!Note] <li>	Deleting a collection, registered source or scan from Purview does not delete all associated asset metadata. <li>  It is not possible to bulk delete asset metadata using the Purview Portal <li>	Deleting the asset metadata does not delete all associated lineage or other relationship data (for example, glossary or classification assignments) about the asset from the data map. The asset information and relationships will no longer be visible in the portal. 
 
 ## Next steps
 - [Azure Purview accounts architectures and best practices](concept-best-practices-accounts.md)
