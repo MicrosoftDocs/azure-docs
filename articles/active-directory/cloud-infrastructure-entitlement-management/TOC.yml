@@ -42,6 +42,7 @@
       href: cloudknox-servicenow.md
     - name: Configure and monitor authorization systems
       href: cloudknox-fortsentry-registration.md
+  - name: Configure and monitor authorization systems
     expanded: true
     items:
     - name: Configure and monitor AWS accounts

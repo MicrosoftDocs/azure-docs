@@ -76,7 +76,7 @@ The CloudKnox explorers provide more information about an identity, including en
 
             - **Source Name**: The name of the source, that is, admin.
             - **Source**: Displays the ways in which an identity acquires access to a policy.
-        - **Permission Boundary** (AWS only) - An admin can can set this  option to restrict a user's access to certain policies.
+        - **Permission Boundary** (AWS only) - An admin can set this  option to restrict a user's access to certain policies.
 
              - To display the full details of the policy, next to the policy name, select **View**.
 

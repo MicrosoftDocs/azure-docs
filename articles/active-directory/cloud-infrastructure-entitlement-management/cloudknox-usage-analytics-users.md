@@ -72,7 +72,7 @@ On the **Usage Analytics** dashboard:
     - **User Groups**: Identifies how many groups a user belongs to.
     - **Last Activity On**: Displays the date and time the user last performed any type of task in the authorization system.
 
-        If the user hasn't logged in or hasn't performed tasks in the last 90 days, a dash (**-**) displays.
+        A dash (**-**) displays if the user hasn't logged in or hasn't performed tasks in the last 90 days, .
 
     - **Tags** : Displays the number of tags applied to a user.
 
@@ -115,7 +115,7 @@ There are many filter options on the **Users** screen, including filters by **Au
         - **Role/App/Service a/c**: The default for the subcategories under this option is **All**. You can select **Active** or **Inactive**.
              **Role** applies to AWS, Application (**App**) applies to Azure, and **Service account** (a/c) applies to GCP. 
 
-             If you filter by this option, the role, application, or service account name displays under the **Username** column.
+             When you filter by this option, the role, application, or service account name displays under the **Username** column.
         - **Resource** (specific to AWS) -  Displays virtual machines in AWS.
         - **Cross Account** (specific to AWS) -  Displays identities coming from another AWS account.
     3. To display the identities that have a PCI of greater than 0, select the box next to **Risky** at the top of the **Users** filter box. 
@@ -152,7 +152,7 @@ There are many filter options on the **Users** screen, including filters by **Au
 
      - You can display a service in both the **Unused** and **Used** columns, depending on when it was accessed. 
 
-        If none of the tasks have been used in a service, there will be an exclamation mark (**!**). If you hover on the list, the following message displays: 
+        An exclamation point (**!**) displays if none of the tasks have been used in a service. When you hover on the list, the following message displays: 
 
         **None of the tasks in this group have been used in the last 90 days**. 
 
@@ -202,7 +202,7 @@ There are many filter options on the **Users** screen, including filters by **Au
         - **Identities accessed** (AWS Only) -  Displays how many identities have assumed the role, including **Type**, **Name**, and **Domain** information.
 
              > [!IMPORTANT]
-             >  If the role no longer allows the identity to assume it, that identity will still appear in the **Identities accessed** section if the user accessed the identity in the past 90 days prior to the identity being removed. </p>The identity will no longer display in the **Identities accessed** section once the 90 day period has passed.
+             >  The identity still appears in the **Identities accessed** section if the user accessed the identity in the past 90 days prior to the identity being removed, or if the role is no longer allowed to assume the identity. </p>The identity doesn't display in the **Identities accessed** section when the 90 day period has passed.
 
     - **Application (Azure Only)**
         - **Secrets**: Applications can authenticate using secrets. The **Secrets** panel displays the following options:
@@ -247,14 +247,14 @@ There are many filter options on the **Users** screen, including filters by **Au
     1. Click **Add Tag**. 
     1. Select the **Authorization System Type**. 
 
-          If the current user is only part of one authorization system, the **Authorization System Type**  drop-down list won't have multiple options.
+          The **Authorization System Type** drop-down list doesn't display multiple options if the current user is only part of one authorization system, .
     1. Click in the **Tag** box. 
 
           A  drop-down list of existing tags appears. Select from the current options or can type in a brand new tag and then select **Create**. 
     1. Input a value in the **Value (Optional)** box, such as the date and time the tag is being created.
     1. Click in the **Authorization Systems** box. 
     
-          If the current user is only part of one authorization system,  this box will be pre-populated. If they are part of multiple authorization systems, the system administrator can select the appropriate authorization system the tag being created.
+          The box is pre-populated when the current user is only part of one authorization system. When they are part of multiple authorization systems, the system administrator can select the appropriate authorization system the tag being created.
     1. To save the tag, select **Save**.
     1. To close the **Tag** window, select the **X**.
 
