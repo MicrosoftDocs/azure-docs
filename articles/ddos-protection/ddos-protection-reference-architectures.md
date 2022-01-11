@@ -11,6 +11,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
+ms.custom: fasttrack-edit
 ---
 
 # DDoS Protection reference architectures
