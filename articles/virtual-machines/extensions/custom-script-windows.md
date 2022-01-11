@@ -55,8 +55,8 @@ If your script is on a local server, you might still need to open additional fir
 * Write scripts that are idempotent, so running them more than once accidentally won't cause system changes.
 * Ensure that the scripts don't require user input when they run.
 * The script is allowed 90 minutes to run. Anything longer will result in a failed provision of the extension.
-* Don't put restarts inside the script. This action will cause problems with other extensions that are being installed, and the extension won't continue after the restart.
-* If you have a script that will cause a restart before installing applications and running scripts, schedule the restart by using a Windows Scheduled Task or by using tools such as DSC, Chef, or Puppet extensions.
+* Don't put reboots inside the script. This action will cause problems with other extensions that are being installed, and the extension won't continue after the reboot.
+* If you have a script that will cause a reboot before installing applications and running scripts, schedule the reboot by using a Windows Scheduled Task or by using tools such as DSC, Chef, or Puppet extensions.
 * Don't run a script that will cause a stop or update of the VM agent. It might leave the extension in a transitioning state and lead to a timeout.
 * The extension will run a script only once. If you want to run a script on every startup, use the extension to create a Windows Scheduled Task.
 * If you want to schedule when a script will run, use the extension to create a Windows Scheduled Task.
