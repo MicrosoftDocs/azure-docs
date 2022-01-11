@@ -32,7 +32,6 @@ Closed captions allow participants to be on the call in loud or sound-sensitive 
 ## Feature Highlights
 
 -Supported on multiple platform with cross platform support.
--Single bot caters captions to all participants.
 -Async processing with client subscribing to events and callbacks.
 -Offers multiple languages to choose from for recognition.
 -Supports existing SkypeToken for auth
