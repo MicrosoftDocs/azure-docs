@@ -127,7 +127,7 @@ Integrating F5 BIG-IP with Azure AD for SHA have the following pre-requisites:
 
 No previous experience or F5 BIG-IP knowledge is necessary to implement SHA, but we do recommend familiarizing yourself with F5 BIG-IP terminology. F5’s rich [knowledge base](https://www.f5.com/services/resources/glossary) is also a good place to start building BIG-IP knowledge.
 
-## Deployment scenarios
+## Configuration scenarios
 
 Configuring a BIG-IP for SHA is achieved using any of the many available methods, including several template based options, or a manual configuration.
 The following tutorials provide detailed guidance on implementing some of the more common patterns for BIG-IP and Azure AD SHA, using these methods.  
@@ -136,7 +136,7 @@ The following tutorials provide detailed guidance on implementing some of the mo
 
 The advanced approach provides a more elaborate, yet flexible way of implementing SHA by manually creating all BIG-IP configuration objects. You would use this approach for scenarios not covered by the guided configuration templates. 
 
-Refer to the following advanced configuration guides for your integration requirements:
+Refer to the following advanced configuration tutorials for your integration requirements:
 
 - [F5 BIG-IP in Azure deployment walk-through](f5-bigip-deployment-guide.md)
 
@@ -156,7 +156,7 @@ The Guided Configuration wizard, available from BIG-IP version 13.1 aims to mini
 
 The latest version of the Guided Configuration 16.1 now offers an Easy Button feature. With **Easy Button**, admins no longer go back and forth between Azure AD and a BIG-IP to enable services for SHA. The end-to-end deployment and policy management is handled directly between the APM’s Guided Configuration wizard and Microsoft Graph. This rich integration between BIG-IP APM and Azure AD ensures applications can quickly, easily support identity federation, SSO, and Azure AD Conditional Access, without management overhead of having to do so on a per app basis. 
 
-Refer to the following guided configuration guides using Easy Button templates for your integration requirements:
+Refer to the following guided configuration tutorials using Easy Button templates for your integration requirements:
 
 - [F5 BIG-IP Easy Button for SSO to Kerberos applications](f5-big-ip-kerberos-easy-button.md)
 

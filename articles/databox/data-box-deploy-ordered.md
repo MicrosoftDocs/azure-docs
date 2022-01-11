@@ -6,16 +6,16 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/04/2022
+ms.date: 01/10/2022
 ms.author: alkohli 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, contperf-fy22q3
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Order Azure Data Box
 
 Azure Data Box is a hybrid solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to a Microsoft-supplied storage device with 80 TB of usable capacity, and then ship the device back. This data is then uploaded to Azure.
 
-This tutorial describes how you can order an Azure Data Box. In this tutorial, you learn about:  
+This tutorial describes how you can order an Azure Data Box. In this tutorial, you learn about:   
 
 > [!div class="checklist"]
 >

@@ -12,7 +12,9 @@ ms.date: 01/07/2022
 
 # Run or reset indexers, skills, or documents
 
-Indexers can be invoked in three ways: on demand, on a schedule, or when the [indexer is created](/rest/api/searchservice/create-indexer), assuming it's not created in "disabled" mode.
+Indexers can be invoked in three ways: on demand, on a schedule, or when the [indexer is created](/rest/api/searchservice/create-indexer), assuming it's not created in "disabled" mode. This article explains how to run indexers on demand, with and without a reset.
+
+## Resetting indexers
 
 After the initial run, an indexer keeps track of which search documents have been indexed through an internal *high-water mark*. The marker is never exposed, but internally the indexer knows where it last stopped, so that it can pick up where it left off on the next run.
 
