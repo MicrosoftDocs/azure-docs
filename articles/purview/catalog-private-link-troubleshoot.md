@@ -6,14 +6,11 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 10/15/2021
+ms.date: 01/10/2022
 # Customer intent: As a Purview admin, I want to set up private endpoints for my Purview account, for secure access.
 ---
 
 # Troubleshooting private endpoint configuration for Purview accounts
-
-> [!IMPORTANT]
-> If you created a _portal_ private endpoint for your Purview account **prior to 27 September 2021 at 15:30 UTC**, you'll need to take the required actions as detailed in, [Reconfigure DNS for portal private endpoints](./catalog-private-link.md#reconfigure-dns-for-portal-private-endpoints). **These actions must be completed before November 12, 2021. Failing to do so will cause existing portal private endpoints to stop functioning**.
 
 This guide summarizes known limitations related to using private endpoints for Azure Purview and provides a list of steps and solutions for troubleshooting some of the most common relevant issues. 
 
