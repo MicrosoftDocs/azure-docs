@@ -10,6 +10,7 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: mbullwin
+ms.custom: references_regions
 keywords: anomaly detection, machine learning, algorithms
 ---
 
