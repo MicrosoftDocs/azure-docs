@@ -114,16 +114,16 @@ You can test the server by running `dotnet run --urls http://localhost:8080` and
 
 You may remember in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md) the subscriber uses an API in Web PubSub SDK to generate an access token from connection string and use it to connect to the service. This is usually not safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side, so client can call this API to request an access token every time it needs to connect, without need to hold the connection string.
 
-1.  Install dependencies and use [Secret Manager](/aspnet/core/security/app-secrets#secret-manager) tool for .NET Core to set the connection string. Run the below command, replacing `<connection_string>` with the one fetched in [previous step](#get-the-connectionstring-for-future-use).
+1.  Install dependencies.
 
     ```bash
     dotnet add package Microsoft.Extensions.Azure
     ```
 
-2.  Add a `SampleChatHub.cs` class to handle hub events.
+2.  Add a `SampleChatHub` class to handle hub events. And DI the service middleware and service client inside `ConfigureServices`. Don't forget to replace `<connection_string>` with the one of your services.
 
     ```csharp
-    public class SampleChatHub : WebPubSubHub
+    private sealed class SampleChatHub : WebPubSubHub
     {
         private readonly WebPubSubServiceClient<SampleChatHub> _serviceClient;
 
@@ -132,13 +132,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
             _serviceClient = serviceClient;
         }
     }
-    ```
-
-    Here we use the `WebPubSubServiceClient<SampleChatHub>` to invoke rest API calls to service. This is bind with the DI method `AddWebPubSubServiceClient<SampleChatHub>()` in the next step.
-
-3.  DI the service middleware and service client inside `ConfigureServices` and don't forget to replace `<connection_string>` with the one of your services.
-
-    ```csharp
+    
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddWebPubSub(o => o.ServiceEndpoint = new ServiceEndpoint("<connection_string>"))
@@ -146,9 +140,9 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     }
     ```
 
-    `AddWebPubSubServiceClient<THub>` is used to inject the service client, with which you can generate client connection token and invoke service to do something when hub events are triggered.
+    `AddWebPubSubServiceClient<THub>` is used to inject the service client, with which we can generate client connection token and invoke service REST APIs when hub events are triggered.
 
-4.  Add a `/negotiate` API to the server inside `app.UseEndpoints` to generate the token.
+3.  Add a `/negotiate` API to the server inside `app.UseEndpoints` to generate the token.
 
     ```csharp
     app.UseEndpoints(endpoints =>
@@ -172,7 +166,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
 
     You can test this API by running `dotnet run --urls http://localhost:8080` and accessing `http://localhost:8080/negotiate?id=<user-id>` and it will give you the full url of the Azure Web PubSub with an access token.
 
-5.  Then update `index.html` to include the following script to get the token from server and connect to service.
+4.  Then update `index.html` to include the following script to get the token from server and connect to service.
  
     ```html
     <html>
@@ -497,9 +491,9 @@ Here we're using Web PubSub middleware SDK, there is already an implementation t
     });
     ```
 
-2. Go the `SampleChatHub.cs` file we created in previous step and add logic we'd like server to invoke service when subscribed events are triggered.
+2. Go the `SampleChatHub` we created in previous step and override `OnConnectedAsync()` method we'd like server to invoke service when `connected` event is triggered.
     ```csharp
-    public class SampleChatHub : WebPubSubHub
+    private sealed class SampleChatHub : WebPubSubHub
     {
         private readonly WebPubSubServiceClient<SampleChatHub> _serviceClient;
 
@@ -616,12 +610,12 @@ Besides system events like `connected` or `disconnected`, client can also send m
 
 # [C#](#tab/csharp)
 
-Implement the `OnMessageReceivedAsync()` method in `SampleChatHub.cs`.
+Implement the `OnMessageReceivedAsync()` method in `SampleChatHub`.
 
 1. Handle message event.
 
     ```csharp
-    public class SampleChatHub : WebPubSubHub
+    private sealed class SampleChatHub : WebPubSubHub
     {
         private readonly WebPubSubServiceClient<SampleChatHub> _serviceClient;
 
@@ -644,7 +638,7 @@ Implement the `OnMessageReceivedAsync()` method in `SampleChatHub.cs`.
     }
     ```
 
-    This event handler uses `WebPubSubServiceClient.SendToAllAsync()` to broadcast the received message to all clients. You can see in the end we returned `UserEventResponse`, which contains a message directly to the caller and make the WebHook request success. If you have extra logic to validate and would like to break this call, you can directly throw an exception here. The middleware will deliver the exception message to service and service will drop current connection.
+    This event handler uses `WebPubSubServiceClient.SendToAllAsync()` to broadcast the received message to all clients. You can see in the end we returned `UserEventResponse`, which contains a message directly to the caller and make the WebHook request success. If you have extra logic to validate and would like to break this call, you can throw an exception here. The middleware will deliver the exception message to service and service will drop current client connection.
 
 2.  Update `index.html` to add the logic to send message from user to server and display received messages in the page.
 
