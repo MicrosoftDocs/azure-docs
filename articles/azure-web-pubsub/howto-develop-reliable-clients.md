@@ -8,17 +8,17 @@ ms.topic: reference
 ms.date: 12/15/2021
 ---
 
-# Create reliable Websocket with sub-protocol
+# Create reliable Websocket with subprotocol
 
-Websocket client connections may drop due to intermittent network issue and when connections drop, messages will also be lost. In a pubsub system, publishers are decoupled from subscribers, so publishers hard to detect subscribers' drop or message loss. It's crucial for clients to overcome intermittent network issue and keep the reliability of message delivery. To achieve that, you can create a reliable Websocket client with the help of reliable sub-protocols.
+Websocket client connections may drop due to intermittent network issue and when connections drop, messages will also be lost. In a pubsub system, publishers are decoupled from subscribers, so publishers hard to detect subscribers' drop or message loss. It's crucial for clients to overcome intermittent network issue and keep the reliability of message delivery. To achieve that, you can create a reliable Websocket client with the help of reliable subprotocols.
 
 ## Reliable Protocol
 
-Service supports two reliable sub-protocols `json.reliable.webpubsub.azure.v1` and `protobuf.reliable.webpubsub.azure.v1`. Clients must follow the protocol, mainly including the part of reconnection, publisher and subscriber to achieve the reliability, or the message delivery may not work as expected or the service may terminate the client as it violate the protocol spec.
+Service supports two reliable subprotocols `json.reliable.webpubsub.azure.v1` and `protobuf.reliable.webpubsub.azure.v1`. Clients must follow the protocol, mainly including the part of reconnection, publisher and subscriber to achieve the reliability, or the message delivery may not work as expected or the service may terminate the client as it violates the protocol spec.
 
 ## Reconnection
 
-Websocket connections relay on TCP, so if the connection doesn't drop, all messages should be lossless and in order. When facing network issue and connections drop, all the status such as group and message info are kept by the service and wait for reconnection to recover. A Websocket connection owns a session in the service and the identifier is `connectionId`. Reconnection is the basis of achieving reliability and must be implemented. When a new connection connects to the service using reliable sub-protocols, the connection will receive a `Connected` message contains `connectionId` and `reconnectionToken`.
+Websocket connections relay on TCP, so if the connection doesn't drop, all messages should be lossless and in order. When facing network issue and connections drop, all the status such as group and message info are kept by the service and wait for reconnection to recover. A Websocket connection owns a session in the service and the identifier is `connectionId`. Reconnection is the basis of achieving reliability and must be implemented. When a new connection connects to the service using reliable subprotocols, the connection will receive a `Connected` message contains `connectionId` and `reconnectionToken`.
 
 ```json
 {
@@ -37,7 +37,7 @@ wss://<service-endpoint>/client/hubs/<hub>?awps_connection_id=<connection_id>&aw
 
 Reconnection may fail as network issue hasn't been recovered yet. Client should keep retrying reconnecting until
 1. Websocket connection closed with status code 1008. The status code means the connectionId has been removed from the service.
-2. Reconnection failure keeps more then 1 minute.
+2. Reconnection failure keeps more than 1 minute.
 
 ## Publisher
 
