@@ -6,8 +6,6 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
-Get started with Speech containers [here](../../speech-container-howto.md). 
-
 ### 2022-Jan release
 
 #### Speech-to-text Container v2.18.0

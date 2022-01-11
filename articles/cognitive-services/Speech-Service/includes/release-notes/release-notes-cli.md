@@ -10,10 +10,10 @@ ms.author: eur
 
 #### New features
 
-- SPX now supports Profile, Speaker ID and Speaker verification - Try `spx profile` and `spx speaker` from the SPX command line.
-- We also added Dialog support - Try `spx dialog` from the SPX command line.
-- SPX help improvements. Please give us feedback about how this works for you by opening a [GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).
-- We've decreased the size of the SPX .NET tool install.
+- Added support for Profile, Speaker ID and Speaker verification - Try `spx profile` and `spx speaker` from the command line.
+- We also added Dialog support - Try `spx dialog` from the command line.
+- Improved `spx` help. Please give us feedback about how this works for you by opening a [GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).
+- We've decreased the size of the .NET tool install.
 
 #### COVID-19 abridged testing
 
@@ -70,6 +70,6 @@ Due to working remotely over the last few weeks, we couldn't do as much manual v
 Stay healthy!
 
 
-### Speech CLI (Also Know As SPX): 2020-May release
+### Speech CLI (Also known as SPX): 2020-May release
 
 **SPX** is a new command line tool that allows you to perform recognition, synthesis, translation, batch transcription, and custom speech management from the command line. Use it to test the Speech Service, or to script the Speech Service tasks you need to perform. Download the tool and read the documentation [here](../../spx-overview.md).

@@ -9,7 +9,7 @@ ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/08/2022
+ms.date: 01/11/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -29,7 +29,7 @@ See below for information about changes to Speech services and resources.
 
 **Choose a service or resource**
 
-# [SDKs](#tab/speech-sdk)
+# [SDK](#tab/speech-sdk)
 
 [!INCLUDE [speech-sdk](./includes/release-notes/release-notes-sdk.md)]
 
