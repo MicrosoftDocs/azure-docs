@@ -6,11 +6,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-<<<<<<< HEAD
-ms.date: 01/07/2022
-=======
 ms.date: 01/10/2022
->>>>>>> 52b3cd2d62da04e8d3e4d17fb44937fd55b4031b
 ms.author: alkohli 
 ms.custom: devx-track-azurepowershell, contperf-fy22q3
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
