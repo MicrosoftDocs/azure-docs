@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication
 
-In this article, you'll learn how to implement Secure Hybrid Access (SHA) with single sign-on (SSO) to Kerberos applications by using F5's BIG-IP advanced configuration. 
+In this tutorial, you'll learn to implement Secure Hybrid Access (SHA) with single sign-on (SSO) to Kerberos applications by using F5's BIG-IP advanced configuration. 
 
 Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefits, including:
 
@@ -90,7 +90,7 @@ Prior BIG-IP experience isn't necessary, but you will need:
 
 * An existing Kerberos application, or [set up an Internet Information Services (IIS) app](https://active-directory-wp.com/docs/Networking/Single_Sign_On/SSO_with_IIS_on_Windows.html) for KCD SSO.
 
-## Configuration methods
+## BIG-IP configuration methods
 
 There are many methods to configure BIG-IP for this scenario, including two template-based options and an advanced configuration. This article covers the advanced approach, which provides a more flexible way of implementing SHA by manually creating all BIG-IP configuration objects. You would also use this approach for scenarios that the guided configuration templates don't cover.
 
@@ -235,7 +235,7 @@ If the **web_svc_account** service runs in context of a computer account, use th
 
 For more information, see [Kerberos Constrained Delegation across domains](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831477(v=ws.11)).
 
-## Make BIG-IP advanced configurations
+## BIG-IP advanced configuration
 
 Now you can proceed with setting up the BIG-IP configurations.
 
@@ -348,7 +348,7 @@ An *access profile* binds many APM elements that manage access to BIG-IP virtual
 
     ![Screenshot that shows the list box for configuring an A A A server.](./media/f5-big-ip-kerberos-advanced/configure-aaa-server.png)
 
-6. Select the link in the upper **Deny** box to change the **Successful** branch to **Allow**.
+6. Select the link in the upper **Deny** box to change the **Successful** branch to **Allow**, and then select **Save**.
 
     ![Screenshot that shows changing the successful branch to Allow.](./media/f5-big-ip-kerberos-advanced/select-allow-successful-branch.png)
 
