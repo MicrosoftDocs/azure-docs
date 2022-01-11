@@ -42,6 +42,8 @@ To use the unifying parsers that unify all of listed parsers and ensure that you
 
 Deploy the [unifying and source-specific parsers](normalization-about-parsers.md) from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelProcessEvents).
 
+For more information, see [ASIM parsers overview](normalization-parsers-overview.md).
+
 ## Add your own normalized parsers
 
 When implementing custom parsers for the [Process Event](normalization-about-schemas.md#the-process-entity) information model, name your KQL functions using the following syntax: `imProcess<Type><vendor><Product>`, where `Type` is either `Create`, `Terminate`, or `Event` if the parser implements both creation and termination events.

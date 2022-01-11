@@ -31,9 +31,14 @@ The most important activity reported by DNS servers is a DNS query, for which th
 The most important fields in a DNS event are:
 
 - [DnsQuery](#query), which reports the domain name for which the query was issued.
+
 - The [SrcIpAddr](#srcipaddr) (aliased to [IpAddr](#ipaddr)), which represents the IP address from which the request was generated. 
+
 - [EventResultDetails](#eventresultdetails), which reports as to whether the request was successful and if not, why.
-- When available, [DnsResponseName](#responsename), which holds the answer provided by the server to the query. ASIM does not require parsing the response, and its format varies between sources. To use this field in source-agnostic content, search the content using the `has` or `contains` operators.
+
+- When available, [DnsResponseName](#responsename), which holds the answer provided by the server to the query. ASIM does not require parsing the response, and its format varies between sources. 
+
+    To use this field in source-agnostic content, search the content using the `has` or `contains` operators.
 
 DNS events collected on client device may also include [User](#user) and [Process](#process) information. 
 
@@ -59,6 +64,8 @@ imDNS | where SrcIpAddr != "127.0.0.1" and EventSubType == "response"
 
 ## Parsers
 
+For more information about ASIM parsers, see the [ASIM parsers overview](normalization-parsers-overview.md) and [Use ASIM parsers](normalization-about-parsers.md).
+
 ### Unifying parsers
 
 To use parsers that unify all ASIM out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the `_Im_Dns` filtering parser or the `_ASim_Dns` parameter-less parser.
@@ -82,7 +89,7 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific DNS p
 | **zScaler ZIA** |`_ASim_DnsZscalerZIA` (regular)<br> `_Im_DnsZdcalerZIA` (filtering)  | `AsimDnsZscalerZIA` (regular)<br> `vimDnsSzcalerZIA` (filtering)  |
 | | | |
 
-The parsers can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/azsentinelDNS).
+These parsers can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/azsentinelDNS).
 
 ### Add your own normalized parsers
 
@@ -124,7 +131,7 @@ imDns (domain_has_any = torProxies)
 
 ## Normalized content
 
-For a full list of analytics rules that use normalized DNS events, see the [DNS query security content](normalization-content.md#dns-query-security-content) section.
+For a full list of analytics rules that use normalized DNS events, see [DNS query security content](normalization-content.md#dns-query-security-content).
 
 ## Schema details
 
@@ -171,7 +178,7 @@ The fields below are specific to DNS events, although many are similar to fields
 | <a name="srcdvcid"></a>**SrcDvcId** | Optional | String | The ID of the source device as reported in the record.<br><br>For example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
 | **SrcDvcIdType** | Optional | Enumerated | The type of [SrcDvcId](#srcdvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEid`<br><br>If multiple IDs are available, use the first one from the list above, and store the others in the **SrcDvcAzureResourceId** and **SrcDvcMDEid**, respectively.<br><br>**Note**: This field is required if [SrcDvcId](#srcdvcid) is used. |
 | **SrcDeviceType** | Optional | Enumerated | The type of the source device. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other` |
-| <a name="srcuserid"></a>**SrcUserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the source user. Format and supported types include:<br>-  **SID**  (Windows): `S-1-5-21-1377283216-344919071-3415362939-500`<br>-  **UID**  (Linux): `4578`<br>-  **AADID**  (Azure Active Directory): `9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>-  **OktaId**: `00urjk4znu3BcncfY0h7`<br>-  **AWSId**: `72643944673`<br><br>Store the ID type in the [SrcUserIdType](#srcuseridtype) field. <br><br>If other IDs are available, we recommend that you normalize the field names to **SrcUserSid**, **SrcUserUid**, **SrcUserAadId**, **SrcUserOktaId** and **UserAwsId**, respectively. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: S-1-12 |
+| <a name="srcuserid"></a>**SrcUserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the source user. Format and supported types include:<br>-  **SID**  (Windows): `S-1-5-21-1377283216-344919071-3415362939-500`<br>-  **UID**  (Linux): `4578`<br>-  **AADID**  (Azure Active Directory): `9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>-  **OktaId**: `00urjk4znu3BcncfY0h7`<br>-  **AWSId**: `72643944673`<br><br>Store the ID type in the [SrcUserIdType](#srcuseridtype) field. <br><br>If other IDs are available, we recommend that you normalize the field names to **SrcUserSid**, **SrcUserUid**, **SrcUserAadId**, **SrcUserOktaId** and **UserAwsId**, respectively. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `S-1-12` |
 | <a name="srcuseridtype"></a>**SrcUserIdType** | Optional | Enumerated | The type of the ID stored in the [SrcUserId](#srcuserid) field. Supported values include: `SID`, `UIS`, `AADID`, `OktaId`, and `AWSId`. |
 | <a name="srcusername"></a>**SrcUsername** | Optional | String | The Source username, including domain information when available. Use one of the following formats and in the following order of priority:<br>- **Upn/Email**: `johndow@contoso.com`<br>- **Windows**: `Contoso\johndow`<br>- **DN**: `CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM`<br>- **Simple**: `johndow`. Use the Simple form only if domain information is not available.<br><br>Store the Username type in the [SrcUsernameType](#srcusernametype) field. If other IDs are available, we recommend that you normalize the field names to **SrcUserUpn**, **SrcUserWindows** and **SrcUserDn**.<br><br>For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `AlbertE` |
 | <a name="user"></a>**User** | Alias | | Alias to [SrcUsername](#srcusername) |

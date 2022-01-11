@@ -1,5 +1,5 @@
 ---
-title: Modify content to us the Advanced SIEM Information Model (ASIM) | Microsoft Docs
+title: Modify content to use the Microsoft Sentinel Advanced SIEM Information Model (ASIM) | Microsoft Docs
 description: This article explains how to convert Microsoft Sentinel content to use the the Advanced SIEM Information Model (ASIM).
 author: oshezaf
 ms.topic: conceptual
@@ -8,15 +8,15 @@ ms.author: ofshezaf
 ms.custom: ignite-fall-2021
 ---
 
-# Modify content to us the Advanced SIEM Information Model (ASIM) (Public preview)
+# Modify content to use the Advanced SIEM Information Model (ASIM) (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Normalized security content in Microsoft Sentinel includes analytics rules, hunting queries, and workbooks that work with unifying normalization parsers.
 
-<a name="builtin"></a>You can find normalized, built-in content in Microsoft Sentinel galleries and [solutions](sentinel-solutions-catalog.md), create your own normalized content, or modify existing content to use normalized data.
+<a name="builtin"></a>You can find normalized, out-of-the-box content in Microsoft Sentinel galleries and [solutions](sentinel-solutions-catalog.md), create your own normalized content, or modify existing, custom content to use normalized data.
 
-This article explains how to convert Microsoft Sentinel analytic rules to use the the Advanced SIEM Information Model (ASIM).
+This article explains how to convert existing Microsoft Sentinel analytics rules to use [normalizated data](normalization.md) with the Advanced SIEM Information Model (ASIM).
 
 To understand how normalized content fits within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
 
@@ -28,11 +28,17 @@ To understand how normalized content fits within the ASIM architecture, refer to
 > ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-To enable your custom content to use normalization:
+## Modify custom content to use normalization
 
-- Modify your queries to use the unifying parsers relevant to the query.
-- Modify field names in your query to use the normalized schema field names.
+To enable your custom Microsoft Sentinel content to use normalization:
+
+- Modify your queries to use any [unifying parsers](normalization-about-parsers.md) relevant to the query.
+
+- Modify field names in your query to use the [normalized schema](normalization-about-schemas.md) field names.
+
 - When applicable, change conditions to use the normalized values of the fields in your query.
+
+## Sample normalization for analytics rules
 
 For example, consider the **Rare client observed with high reverse DNS lookup count** DNS analytic rule, which works on DNS events send by Infoblox DNS servers:
 
@@ -62,15 +68,14 @@ _Im_Dns(responsecodename='NXDOMAIN')
 | extend timestamp = TimeGenerated, IPCustomEntity = SrcIpAddr```
 ```
 
-To use workspace deployed ASIM parsers, replace the first line with the following code:
+To use workspace-deployed ASIM parsers, replace the first line with the following code:
 
 ```kusto
 imDns(responsecodename='NXDOMAIN')
 ```
+### Differences between built-in and workspace-deployed parsers
 
-The two options are functionally identical.
-
-The normalized, source-agnostic version has the following differences:
+The two options in the example [above](#sample-normalization-for-analytics-rules) are functionally identical. The normalized, source-agnostic version has the following differences:
 
 - The `_In_Dns` or `imDns`normalized parsers are used instead of the Infoblox Parser.
 
@@ -81,9 +86,11 @@ The normalized, source-agnostic version has the following differences:
 - Parser parameter filtering is used for ResponseCodeName, eliminating the need for an explicit `where` clauses.
 
 
-Apart from supporting any normalized DNS source, the normalized version is shorter and easier to understand. 
+>[!NOTE]
+> Apart from supporting any normalized DNS source, the normalized version is shorter and easier to understand. 
+>
 
-If the schema or parsers do not support filtering parameters, the changes are similar, excluding the last one. Instead the filtering conditions are kept from the original query as seen below:
+If the schema or parsers do not support filtering parameters, the changes are similar, except that the filtering conditions are kept from the original query. For example:
 
 ```kusto
 let threshold = 200;

@@ -36,6 +36,8 @@ To use the unifying parser that unifies all of the built-in parsers, and ensure 
 
 Deploy the [unifying and source-specific parsers](normalization-about-parsers.md) from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelRegistry).
 
+For more information, see [ASIM parsers](normalization-parsers-overview.md) and [Use ASIM parsers](normalization-about-parsers.md).
+
 ### Add your own normalized parsers
 
 When implementing custom parsers for the Registry Event information model, name your KQL functions using the following syntax: `imRegistry<vendor><Product>`.
