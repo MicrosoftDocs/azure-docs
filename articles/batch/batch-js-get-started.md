@@ -153,7 +153,7 @@ const poolConfig = {
     enableAutoScale: false
 };
 
-// Creating the Pool for the specific customer
+// Creating the Pool
 var pool = batchClient.pool.add(poolConfig, function (error, result){
     if(error!=null){console.log(error.response)};
 });
@@ -228,14 +228,14 @@ An Azure Batch job is a logical group of similar tasks. In our scenario, it is "
 These tasks would run in parallel and deployed across multiple nodes, orchestrated by the Azure Batch service.
 
 > [!TIP]
-> You can use the [taskSlotsPerNode](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/batch/arm-batch/src/models/index.ts#L1190) property to specify maximum number of tasks that can run concurrently on a single node.
+> You can use the [taskSlotsPerNode](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/batch/arm-batch/src/models/index.ts#L1190-L1191) property to specify maximum number of tasks that can run concurrently on a single node.
 
 #### Preparation task
 
 The VM nodes created are blank Ubuntu nodes. Often, you need to install a set of programs as prerequisites.
 Typically, for Linux nodes you can have a shell script that installs the prerequisites before the actual tasks run. However it could be any programmable executable.
 
-The [shell script](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/startup_prereq.sh) in this example installs Python-pip and the Azure Storage SDK for Python.
+The [shell script](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/startup_prereq.sh) in this example installs Python-pip and the Azure Storage Blob SDK for Python.
 
 You can upload the script on an Azure Storage Account and generate a SAS URI to access the script. This process can also be automated using the Azure Storage JavaScript SDK.
 
@@ -320,7 +320,7 @@ containerList.forEach(function (val, index) {
 
 The code adds multiple tasks to the pool. And each of the tasks is executed on a node in the pool of VMs created. If the number of tasks exceeds the number of VMs in a pool or the taskSlotsPerNode property, the tasks wait until a node is made available. This orchestration is handled by Azure Batch automatically.
 
-The portal has detailed views on the tasks and job statuses. You can also use the list and get functions in the Azure JavaScript SDK. Details are provided in the documentation [link](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/batch/batch/src/operations/job.ts#L120).
+The portal has detailed views on the tasks and job statuses. You can also use the list and get functions in the Azure JavaScript SDK. Details are provided in the documentation [link](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/batch/batch/src/operations/job.ts#L114-L149).
 
 ## Next steps
 
