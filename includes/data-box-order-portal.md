@@ -65,17 +65,17 @@ Do the following steps in the Azure portal to order a device:
 
     If using **storage account(s)** as the storage destination, you see the following screen.
 
-    ![Screenshot of the Data Destination screen for a Data Box order with a Storage Accounts destination. The Storage Accounts destination and the Enable button are highlighted.](media/data-box-order-portal/data-box-import-06.png)<!--New or edit? Crop to storage accounts.-->
+    ![Screenshot of the Data Destination tab for a Data Box order with a Storage Accounts destination. The Storage Accounts storage destination is highlighted.](media/data-box-order-portal/data-box-import-06.png)
 
     Based on the specified Azure region, select one or more storage accounts from the filtered list of existing storage accounts. Your Data Box can be linked with up to 10 storage accounts. You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**.
 
-    - If you select Azure Premium FileStorage accounts, the provisioned quota on the storage account share will increase to the size of data being copied to the file shares. After the quota is increased, it isn't adjusted again, for example, if for some reason the Data Box can't copy your data.
+    - If you select Azure Premium FileStorage accounts, the provisioned quota on the storage account share will increase to the size of data being uploaded to the file shares. After the quota is increased, it isn't adjusted again, for example, if for some reason the Data Box can't upload your data.
 
       This quota is used for billing. After your data is uploaded to the datacenter, you should adjust the quota to meet your needs. For more information, see [Understanding billing](../articles/storage/files/understanding-billing.md).
 
-    - If you're using a **General Purpose v1** or **General Purpose v2** storage account, you can enable large file shares to allow data copies of up to 100 TiB per share. If large file shares aren't enabled, a data copy at Azure will fail once the 5-TiB standard share limit is reached.
+    - If you're using a **General Purpose v1** or **General Purpose v2** storage account, you can enable large file shares to allow data uploads of up to 100 TiB per share. If large file shares aren't enabled, a data upload to Azure will fail once the 5-TiB standard share limit is reached.
 
-      If you select a General Purpose v1 or v2 storage account that supports Azure file shares and doesn't have large file shares enabled, you'll see the following option. If you want to enable large file shares, select **Enable large file shares**, and then enable large file shares on each storage account that will need large file shares.
+      If you select a General Purpose v1 or v2 storage account that supports Azure file shares and doesn't have large file shares enabled, you'll see an **Enable large file shares** button. If you want to enable large file shares for one or more storage accounts, select **Enable large file shares**, and then enable large file shares on each storage account that will need large file shares. When you finish, select **Apply** to return to the **Data destination** tab.
 
       Enabling large file shares is a storage account upgrade. You can't reverse the upgrade after you place your order. The **Enable large file shares** screen links to more information.
 
@@ -95,7 +95,7 @@ Do the following steps in the Azure portal to order a device:
 
     ![Screenshot of the Data Destination tab for a Data Box order with a Managed Disks destination. The Data Destination tab, Managed Disks, and Next: Security button are highlighted.](media/data-box-order-portal/data-box-import-08.png)
 
-    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](../articles/databox/data-box-deploy-picked-up.md#verify-data-upload-to-azure).
+    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting the page blobs to managed disks and moving them to the resource groups. For more information, see [Verify data upload to Azure](../articles/databox/data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 
     > [!NOTE]
     > If a page blob isn't successfully converted to a managed disk, it stays in the storage account and you're charged for storage.
