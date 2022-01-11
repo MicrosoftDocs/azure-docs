@@ -65,7 +65,7 @@
       href: connect-data-sources.md
     - name: Classifying data with entities
       href: entities.md
-  - name: Normalization and the Advanced SIEM Information Model (ASIM)
+  - name: Normalization with ASIM
     items:
     - name: ASIM overview
       href: normalization.md
