@@ -24,7 +24,7 @@ This article lists the curated environments with latest framework versions in Az
 ### PyTorch
 
 **Name**: AzureML-pytorch-1.10-ubuntu18.04-py38-cuda11-gpu
-**Description**: An environment for deep learning with PyTorch containing the AzureML Python SDK and additional python packages.  
+**Description**: An environment for deep learning with PyTorch containing the AzureML Python SDK and other python packages.  
 
 The following Dockerfile can be customized for your personal workflows.
 
@@ -80,7 +80,7 @@ Other available PyTorch environments:
 ### LightGBM
 
 **Name**: AzureML-lightgbm-3.2-ubuntu18.04-py37-cpu  
-**Description**: An environment for machine learning with Scikit-learn, LightGBM, XGBoost, Dask containing the AzureML Python SDK and additional packages.  
+**Description**: An environment for machine learning with Scikit-learn, LightGBM, XGBoost, Dask containing the AzureML Python SDK and other packages.  
 
 The following Dockerfile can be customized for your personal workflows.
 
@@ -123,7 +123,7 @@ ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 
 ### Sklearn
 **Name**: AzureML-sklearn-0.24-ubuntu18.04-py37-cuda11-gpu  
-**Description**: An environment for tasks such as regression, clustering, and classification with Scikit-learn. Contains the AzureML Python SDK and additional python packages.  
+**Description**: An environment for tasks such as regression, clustering, and classification with Scikit-learn. Contains the AzureML Python SDK and other python packages.  
 
 The following Dockerfile can be customized for your personal workflows.
 
@@ -160,7 +160,7 @@ ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 ### TensorFlow
 
 **Name**: AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu  
-**Description**: An environment for deep learning with TensorFlow containing the AzureML Python SDK and additional python packages.  
+**Description**: An environment for deep learning with TensorFlow containing the AzureML Python SDK and other python packages.  
 
 The following Dockerfile can be customized for your personal workflows.
 
