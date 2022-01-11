@@ -87,7 +87,7 @@ Every 4 hours, Change Analysis captures the deployment and configuration state o
 
 Unlike Azure Resource Manager changes, code deployment change information might not be available immediately in the Change Analysis tool. To view the latest changes in Change Analysis, select **Refresh**.
 
-:::image type="content" source="./media/change-analysis/scan-changes.png" alt-text="Screenshot of the "Scan changes now" button":::   
+:::image type="content" source="./media/change-analysis/scan-changes.png" alt-text="Screenshot of the Scan changes now button":::   
 
 Currently all text-based files under site root **wwwroot** with the following extensions are supported:
 - *.json
