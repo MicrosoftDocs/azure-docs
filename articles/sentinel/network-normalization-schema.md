@@ -28,21 +28,49 @@ The network normalization schema can represent any type of an IP network session
 
 ## Parsers
 
-This section discusses parsers, how to add parsers, and how to filter parser parameters.
+This section discusses parsers, how to add parsers, and how to filter parser parameters. For more information, see [ASIM parsers](normalization-parsers-overview.md) and [Use ASIM parsers](normalization-about-parsers.md).
 
-### Source-agnostic parsers
+### Unifying parsers
 
-To use the source-agnostic parsers that unify all of the out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the following KQL functions as the table name in your query:
-
-| Name | Description | Usage instructions |
-| ---- | --- | --- |
-| <a name="imnetworksession"></a>**imNetworkSession** | Aggregative parser that uses *union* to include normalized events from all *network session* sources. |- Update this parser if you want to add or remove sources from source-agnostic analytics. <br><br>- Use this function in your source-agnostic queries.|
-| **ASimNetworkSession** | Similar to the [imNetworkSession](#imnetworksession) function, but without parameter support, so it doesn't force the **Logs** page time picker to use the `custom` value. |- Update these parsers if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries if you don't plan to use parameters.|
-| **vimNetworkSession\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source. <br><br>Example: `vimNetworkSessionSysmonLinux` |- Add a source-specific parser for a source when there's no out-of-the-box normalizing parser. Update the `im` aggregative parser to include reference to your new parser. <br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use a source-specific parser for source-specific analytics.|
- **ASimNetworkSession\<vendor\>\<product\>>** | Source-specific parsers implement normalization for a specific source. <br><br>Unlike the `vim*` functions, the `ASim*` functions don't support parameters. |- Add a source-specific parser for a source when there's no out-of-the-box normalizing parser. Update the aggregative `ASim` parser to include reference to your new parser.<br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use an `ASim` source-specific parser for interactive queries when not using parameters.|
-| | | |
+To use the unifying parsers that unify all of the out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the following KQL functions as the table name in your query. 
 
 Deploy ASIM parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM).
+
+#### <a name="imnetworksession"></a>imNetworkSession
+
+Aggregative parser that uses *union* to include normalized events from all *network session* sources.
+
+- Update this parser if you want to add or remove sources from source-agnostic analytics. 
+- Use this function in your source-agnostic queries.
+
+#### ASimNetworkSession
+
+Similar to the [imNetworkSession](#imnetworksession) function, but without parameter support, so it doesn't force the **Logs** page time picker to use the `custom` value. 
+
+- Update these parsers if you want to add or remove sources from source-agnostic analytics.
+- Use this function in your source-agnostic queries if you don't plan to use parameters.
+
+#### vimNetworkSession\<vendor\>\<product\>
+
+Source-specific parsers implement normalization for a specific source.
+
+Example: `vimNetworkSessionSysmonLinux`
+
+- Add a source-specific parser for a source when there's no out-of-the-box normalizing parser. Update the `im` aggregative parser to include reference to your new parser.
+- Update a source-specific parser to resolve parsing and normalization issues.
+- Use a source-specific parser for source-specific analytics.
+
+#### ASimNetworkSession\<vendor\>\<product\>
+
+Source-specific parsers implement normalization for a specific source.
+
+Unlike the `vim*` functions, the `ASim*` functions don't support parameters.
+
+- Add a source-specific parser for a source when there's no out-of-the-box normalizing parser. Update the aggregative `ASim` parser to include reference to your new parser.
+- Update a source-specific parser to resolve parsing and normalization issues.
+- Use an `ASim` source-specific parser for interactive queries when not using parameters.
+
+
 
 ### Out-of-the-box, source-specific parsers
 
@@ -50,10 +78,10 @@ Microsoft Sentinel provides the following built-in, product-specific Network Ses
 
 | **Name** | **Description** |
 | --- | --- |
-| **Microsoft 365 Defender for Endpoint** | - Parametrized: vimNetworkSessionMicrosoft365Defender <br> - Regular: ASimNetworkSessionMicrosoft365Defender | 
-| **Microsoft Defender for IoT - Endpoint (MD4IoT)** | - Parametrized: vimNetworkSessionMD4IoT <br> - Regular: ASimNetworkSessionMD4IoT  |
-| **Microsoft Sysmon for Linux** | - Parametrized: vimNetworkSessionSysmonLinux<br> - Regular: ASimNetworkSessionSysmonLinux  |
-| **Windows Events Firewall** | Windows firewall activity as represented by using Windows Events 515x, collected by using either the Log Analytics Agent or the Azure Monitor Agent into either the `Event` table or the `WindowsEvent` table.<br><br> - Parametrized: vimNetworkSessionMicrosoftWindowsEventFirewall <br> -  Regular: ASimNetworkSessionMicrosoftWindowsEventFirewall
+| **Microsoft 365 Defender for Endpoint** | - Parametrized: `vimNetworkSessionMicrosoft365Defender` <br> - Regular: `ASimNetworkSessionMicrosoft365Defender` | 
+| **Microsoft Defender for IoT - Endpoint (MD4IoT)** | - Parametrized: `vimNetworkSessionMD4IoT` <br> - Regular: `ASimNetworkSessionMD4IoT`  |
+| **Microsoft Sysmon for Linux** | - Parametrized: `vimNetworkSessionSysmonLinux`<br> - Regular: `ASimNetworkSessionSysmonLinux`  |
+| **Windows Events Firewall** | Windows firewall activity as represented by using Windows Events 515x, collected by using either the Log Analytics Agent or the Azure Monitor Agent into either the `Event` table or the `WindowsEvent` table.<br><br> - Parametrized: `vimNetworkSessionMicrosoftWindowsEventFirewall` <br> -  Regular: `ASimNetworkSessionMicrosoftWindowsEventFirewall`
 | | |
 
 ### Add your own normalized parsers
@@ -94,13 +122,13 @@ imNetworkSession (hostname_has_any = torProxies)
 
 The Network Session information model is aligned with the [OSSEM Network entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/network.md).
 
-To conform with industry best practices, the Network Session schema uses the descriptors **Src** and **Dst** to identify the network session source and destination devices, without including the token **Dvc** in the field name.
+To conform with industry best practices, the Network Session schema uses the descriptors `Src` and `Dst` to identify the network session source and destination devices, without including the token `Dvc` in the field name.
 
-So, for example, the source device hostname and IP address are named **SrcHostname** and **SrcIpAddr**, respectively, and not **Src*Dvc*Hostname** and **Src*Dvc*IpAddr**. The prefix **Dvc** is only used for the reporting or intermediary device, as applicable.
+So, for example, the source device hostname and IP address are named `SrcHostname` and `SrcIpAddr`, respectively, and not `Src*Dvc*Hostname` and `Src*Dvc*IpAddr`. The prefix `Dvc` is only used for the reporting or intermediary device, as applicable.
 
-Fields that describe the user and application associated with the source and destination devices also use the **Src** and **Dst** descriptors.
+Fields that describe the user and application associated with the source and destination devices also use the `Src` and `Dst` descriptors.
 
-Other ASIM schemas typically use **Target** instead of **Dst**.
+Other ASIM schemas typically use `Target` instead of `Dst`.
 
 ### Common fields
 
@@ -252,8 +280,9 @@ These are the changes in version 0.2.1 of the schema:
 
 For more information, see:
 
-- [Normalization in Microsoft Sentinel](normalization.md)
-- [Advanced SIEM Information Model schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model parsers](normalization-about-parsers.md)
-- [Advanced SIEM Information Model content](normalization-content.md)
+- Watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
+- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
+- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced SIEM Information Model (ASIM) parsers](normalization-parsers-overview.md)
+- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)
 
