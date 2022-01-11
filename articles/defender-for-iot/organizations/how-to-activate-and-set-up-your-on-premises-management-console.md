@@ -19,7 +19,7 @@ Activation and setup of the on-premises management console ensures that:
 
 ## Sign in for the first time
 
-**To sign in to the On-premises management console:**
+**To sign in to the on-premises management console:**
 
 1. Navigate to the IP address you received for the on-premises management console during the system installation.
 
@@ -185,7 +185,7 @@ You can also customize the port range to a number other than 9000 for example. 1
   
   ```
 
-Disable th connection, when required.
+Disable the connection, when required.
 
 **To disable:**
 
