@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.subservice: spark
 ms.date: 10/16/2020
 ms.author: saveenr
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: mode-ui
 ---
 

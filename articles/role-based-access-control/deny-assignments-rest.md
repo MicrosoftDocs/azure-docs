@@ -4,14 +4,13 @@ description: Learn how to list Azure deny assignments for users, groups, and app
 services: active-directory
 documentationcenter: na
 author: rolyon
-manager: mtillman
+manager: karenhoran
 editor: ''
 
 ms.assetid: 
 ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
-ms.devlang: na
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: rolyon

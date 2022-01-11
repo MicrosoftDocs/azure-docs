@@ -2,7 +2,7 @@
 title: Use managed identities from a virtual machine to access Cosmos DB  | Microsoft Docs 
 description: Learn how to use managed identities with Windows VMs using the Azure portal, CLI, PowerShell, Azure Resource Manager template  
 author: barclayn
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: msi
 ms.workload: integration

@@ -8,7 +8,7 @@ tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/10/2021
+ms.date: 12/17/2021
 ms.author: banders
 ---
 
@@ -34,6 +34,10 @@ On 1 October 2021, automatic payments in India may block some credit card transa
 
 [Learn more about the Reserve Bank of India regulation for recurring payments](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11668&Mode=0)
 
+On 1 January 2022, Microsoft and other online merchants will no longer be storing credit card information. To comply with this regulation Microsoft will be removing all stored card details from Microsoft Azure. To avoid service interruption, you will need to add a payment method and make a one-time payment for all invoices.
+
+[Learn about the Reserve Bank of India regulation for card storage](https://rbi.org.in/scripts/NotificationUser.aspx?Mode=0&Id=12159)
+
 ## Pay by default payment method
 
 The default payment method of your billing profile can either be a credit or debit card, or a check or wire transfer.
@@ -43,6 +47,8 @@ The default payment method of your billing profile can either be a credit or deb
 If the default payment method for your billing profile is a credit or debit card, it's automatically charged each billing period.
 
 If your automatic credit or debit card charge gets declined for any reason, you can make a one-time payment with a credit or debit card in the Azure portal using **Pay now**.
+
+If have an Microsoft Online Services Program (pay-as-you-go) account and you have a bill due, you'll see the **Pay now** banner on your subscription property page. 
 
 If you want to learn how to change your default payment method to check or wire transfer, see [How to pay by invoice](../manage/pay-by-invoice.md).
 

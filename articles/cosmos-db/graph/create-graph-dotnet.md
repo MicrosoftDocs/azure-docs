@@ -5,7 +5,7 @@ author: manishmsfte
 ms.author: mansha
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 02/21/2020
 ms.custom: devx-track-dotnet, mode-api

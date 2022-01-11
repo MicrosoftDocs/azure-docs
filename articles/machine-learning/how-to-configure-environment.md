@@ -118,9 +118,7 @@ When running a local Jupyter Notebook server, it's recommended that you create a
 1. Launch the Jupyter Notebook server
 
 See the [Azure Machine Learning notebooks repository](https://github.com/Azure/MachineLearningNotebooks) to get started with Azure Machine Learning and Jupyter Notebooks.
-
-> [!NOTE]
-> A community-driven repository of examples can be found at https://github.com/Azure/azureml-examples.
+Also see the community-driven repository, [AzureML-Examples](https://github.com/Azure/azureml-examples).
 
 ### <a id="vscode"></a>Visual Studio Code
 

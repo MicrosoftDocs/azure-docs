@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 09/09/2021
+ms.date: 12/15/2021
 ms.author: lle
 ---
 
@@ -18,7 +18,7 @@ ms.author: lle
 This article explores common troubleshooting methods for security and access control in Azure Data Factory and Synapse Analytics pipelines.
 
 ## Common errors and messages
-
+ 
 ### Connectivity issue in the copy activity of the cloud datastore
 
 #### Symptoms

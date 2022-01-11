@@ -1309,11 +1309,6 @@
       "source_path_from_root": "/articles/iot-central/core/howto-show-hide-chat.md",
       "redirect_url": "/azure/iot-central",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-central/core/howto-map-data.md",
-      "redirect_url": "/azure/iot-central",
-      "redirect_document_id": false
     }
   ]
 }

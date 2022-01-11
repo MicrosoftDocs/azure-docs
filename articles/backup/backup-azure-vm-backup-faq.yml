@@ -131,6 +131,11 @@ sections:
       - question: Will a new disk added to VM be backed up automatically?
         answer: |
           Yes, a new disk added to a VM will be backed up automatically during the next backup.
+          
+      
+      - question: Can I restore the files and folders from an encrypted VM backup?
+        answer: |
+          Restoring files and folders from encrypted VM backup is currently not supported, you must recover the entire VM to restore files and folders. See, [steps to restore an encrypted Azure Virtual machine](restore-azure-encrypted-virtual-machines.md).
 
 
   - name: Restore
@@ -250,10 +255,22 @@ sections:
           - You can also use the [private endpoints](private-endpoints.md) to restrict access to the iSCSI server from within the private network.
           - You can also disable this option across an organization using the [deny assignment](../role-based-access-control/deny-assignments.md) feature.
       
-      - question: I've changed the retention policy, what's the time needed for the policy to be effective?
+      - question: I have changed the retention policy, what is the time needed for the policy to be effective?
         answer: |
           The policy takes effect immediately after the modifications of the parameters, such as retention, schedule, and so on. This is applicable for all new backups taken from the modified policy. However, the pruning of the recovery points (if applicable) according to the new policy takes 24 hours.
 
+      - question: How do I extend or reduce the retention of a specific recovery point?
+        answer: |
+          This feature is currently not supported. You can post any feature ask in the [Azure Backup community](https://feedback.azure.com/d365community/forum/153aa817-0725-ec11-b6e6-000d3a4f0858#) portal.
+          
+      - question: How to modify retention period for Stopped backups?
+        answer: |
+          Retention of stopped backups cannot be modified since they do not have any policy attached to it. However, you can [resume protection](/azure/backup/backup-azure-manage-vms#resume-protection-of-a-vm) and assign a policy.
+          
+      - question: How long are the stopped backups retained?
+        answer: |
+          Stopped backups are retained until manually deleted.
+          
       - question: I’m unable to select a virtual network, subnet, or storage account in the secondary region when performing a Cross Region Restore.
         answer: |
           You need to check the subscription permissions in the secondary region. Write to us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) for subscription enrollment.

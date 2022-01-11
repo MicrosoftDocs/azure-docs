@@ -4,7 +4,7 @@ titleSuffix: Azure Active Directory Verifiable Credentials
 description: Learn how to start a presentation request in Verifiable Credentials
 documentationCenter: ''
 author: barclayn
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.topic: reference
 ms.subservice: verifiable-credentials
@@ -106,7 +106,7 @@ The payload contains the following properties.
 | `authority` | string|  Your decentralized identifier (DID) of your verifier Azure AD tenant. For more information, see [Gather tenant details to set up your sample application](verifiable-credentials-configure-verifier.md#gather-tenant-details-to-set-up-your-sample-application).|
 | `registration` | [RequestRegistration](#requestregistration-type)|  Provides information about the verifier. |
 | `presentation` | [RequestPresentation](#requestpresentation-type)| Provides information about the verifiable credentials presentation request.  |
-|`callback`|  [Callback](#callback-type)| Allows the developer to update the UI during the verifiable credential presentation process. When the user completes the process, continue the process after the results are returned to the application.|
+|`callback`|  [Callback](#callback-type)| Mandatory. Allows the developer to update the UI during the verifiable credential presentation process. When the user completes the process, continue the process after the results are returned to the application.|
 
 ### RequestRegistration type
 
@@ -145,9 +145,9 @@ The Request Service REST API generates several events to the callback endpoint. 
 
 |Property |Type |Description |
 |---------|---------|---------|
-| `url` | string| URI to the callback endpoint of your application. |
+| `url` | string| URI to the callback endpoint of your application. The URI must point to a reacheable endpoint on the internet otherwise the service will throw a callback URL unreadable error. Accepted inputs IPv4, IPv6 or DNS resolvable hostname. |
 | `state` | string| Associates with the state passed in the original payload. |
-| `headers` | string| Optional. You can include a collection of HTTP headers required by the receiving end of the POST message. The headers should only include the `api-key` or any header required for authorization.|
+| `headers` | string| Optional. You can include a collection of HTTP headers required by the receiving end of the POST message. The current supported header values are the `api-key` or the `Authorization` headers. Any other header will throw an invalid callback header error.|
 
 ## Successful response
 

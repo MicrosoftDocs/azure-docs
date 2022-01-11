@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 10/21/2021
+ms.date: 12/22/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021
 ---
@@ -139,7 +139,7 @@ As noted earlier, the `code_configuration.scoring_script` must have an `init()` 
 
 ## Deploy and debug locally by using local endpoints
 
-To save time debugging, we *highly recommend* that you test-run your endpoint locally. For more, see [Debug managed online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
+To save time debugging, we *highly recommend* that you test-run your endpoint locally. For more, see [Debug online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
 
 > [!NOTE]
 > * To deploy locally, [Docker Engine](https://docs.docker.com/engine/install/) must be installed.
@@ -163,7 +163,7 @@ Now, create a deployment named `blue` under the endpoint.
 The `--local` flag directs the CLI to deploy the endpoint in the Docker environment.
 
 > [!TIP]
-> Use Visual Studio Code to test and debug your endpoints locally. For more information, see [debug managed online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
+> Use Visual Studio Code to test and debug your endpoints locally. For more information, see [debug online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
 
 ### Verify the local deployment succeeded
 
@@ -200,9 +200,9 @@ In the example *score.py* file, the `run()` method logs some output to the conso
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="get_logs":::
 
-##  Deploy your managed online endpoint to Azure
+##  Deploy your online endpoint to Azure
 
-Next, deploy your managed online endpoint to Azure.
+Next, deploy your online endpoint to Azure.
 
 ### Deploy to Azure
 
@@ -223,7 +223,7 @@ This deployment might take up to 15 minutes, depending on whether the underlying
 > [!TIP]
 > * If you prefer not to block your CLI console, you may add the flag `--no-wait` to the command. However, this will stop the interactive display of the deployment status.
 >
-> * Use [Troubleshooting managed online endpoints deployment (preview)](./how-to-troubleshoot-online-endpoints.md) to debug errors.
+> * Use [Troubleshooting online endpoints deployment (preview)](./how-to-troubleshoot-online-endpoints.md) to debug errors.
 
 ### Check the status of the deployment
 
@@ -336,10 +336,10 @@ If you aren't going use the deployment, you should delete it by running the foll
 To learn more, review these articles:
 
 - [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
-- [Create and use managed online endpoints (preview) in the studio](how-to-use-managed-online-endpoint-studio.md)
+- [Create and use online endpoints (preview) in the studio](how-to-use-managed-online-endpoint-studio.md)
 - [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
 - [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
 - [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)
 - [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
-- [Access Azure resources with a managed online endpoint and managed identity (preview)](how-to-access-resources-from-endpoints-managed-identities.md)
-- [Troubleshoot managed online endpoints deployment](how-to-troubleshoot-online-endpoints.md)
+- [Access Azure resources with a online endpoint and managed identity (preview)](how-to-access-resources-from-endpoints-managed-identities.md)
+- [Troubleshoot online endpoints deployment](how-to-troubleshoot-online-endpoints.md)

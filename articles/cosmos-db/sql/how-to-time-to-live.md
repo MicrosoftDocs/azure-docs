@@ -7,6 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/09/2021
 ms.author: anfeldma
+ms.devlang: csharp
 ms.custom: devx-track-js, devx-track-csharp
 ---
 

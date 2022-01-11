@@ -67,9 +67,9 @@ After creating an Azure Purview account, the first thing to do is create collect
 > You can use [this Azure CLI command](/cli/azure/purview/account#az_purview_account_add_root_collection_admin):
 >
 >   ```azurecli
->   az purview account add-root-collection-admin --account-name --resource-group [--object-id]
+>   az purview account add-root-collection-admin --account-name [Purview Account Name] --resource-group [Resource Group Name] --object-id [User Object Id]
 >   ```
->
+> The object-id is optional. For more information and an example, see the [CLI command reference page](/cli/azure/purview/account#az_purview_account_add_root_collection_admin).
 
 ### Create collections
 

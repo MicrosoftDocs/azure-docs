@@ -100,7 +100,7 @@ Learn how to create a service principal:
 - [Using the Azure portal](howto-create-service-principal-portal.md)
 - [Using Azure PowerShell](howto-authenticate-service-principal-powershell.md)
 - [Using Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli)
-- [Using Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?tabs=http) and then use [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) to query both the application and service principal objects.
+- [Using Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals) and then use [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) to query both the application and service principal objects.
 
 <!--Reference style links -->
 [MS-Graph-App-Entity]: /graph/api/resources/application

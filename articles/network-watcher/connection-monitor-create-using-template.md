@@ -6,7 +6,6 @@ services: network-watcher
 documentationcenter: na
 author: vinigam
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services

@@ -135,9 +135,15 @@ The appliance must connect to vCenter Server to discover the configuration and p
 1. In **Step 1: Provide vCenter Server credentials**, select **Add credentials** to enter a name for the credentials. Add the username and password for the vCenter Server account that the appliance will use to discover servers running on vCenter Server.
     - You should have set up an account with the required permissions as described earlier in this article.
     - If you want to scope discovery to specific VMware objects (vCenter Server datacenters, clusters, hosts, folders of clusters or hosts, or individual servers), review the instructions to [set discovery scope](set-discovery-scope.md) to restrict the account that Azure Migrate uses.
-1. In **Step 2: Provide vCenter Server details**, select **Add discovery source** to select the name for the credentials from the dropdown list. Select the IP address or FQDN of the vCenter Server. You can leave the port as the default (443) or specify a custom port on which vCenter Server listens. Select **Save**.
-1. The appliance attempts to validate the connection to the server running vCenter Server by using the credentials. It displays the validation status for the vCenter Server IP address or FQDN in the credentials table.
-1. You can *revalidate* the connectivity to vCenter Server anytime before starting discovery.
+    - If you want to add multiple credentials at once, click on **Add more** to save and add more credentials. Multiple credentials are supported for discovery of servers across multiple vCenter Servers using a single appliance.
+1. In **Step 2: Provide vCenter Server details**, select **Add discovery source** to add the IP address or FQDN of a vCenter Server. You can leave the port as the default (443) or specify a custom port on which vCenter Server listens. Select the friendly name for credentials you would like to map to the vCenter Server and click **Save**.
+
+    Click on **Add more** to save the previous details and add more vCenter Server details. **You can add up to 10 vCenter Servers per appliance.**
+
+    :::image type="content" source="./media/tutorial-discover-vmware/add-discovery-source.png" alt-text="Screenshot that allows to add more vCenter Server details.":::
+
+1. The appliance attempts to validate the connection to the vCenter Server(s) added by using the credentials mapped to each vCenter Server. It displays the validation status with the vCenter Server(s) IP address or FQDN in the sources table.
+1. You can *revalidate* the connectivity to vCenter Server(s) any time before starting discovery.
 
     :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Screenshot that shows managing credentials and discovery sources for vCenter Server in the appliance configuration manager.":::
 
@@ -180,8 +186,8 @@ To start vCenter Server discovery, in **Step 3: Provide server credentials to pe
 
 ## How discovery works
 
-* It takes approximately 15 minutes for the inventory of discovered servers to appear in the Azure portal.
-* If you provided server credentials, software inventory (discovery of installed applications) is automatically initiated when the discovery of servers running vCenter Server is finished. Software inventory occurs once every 12 hours.
+* It takes approximately 20-25 minutes for the discovery of servers across 10 vCenter Servers added to a single appliance.
+* If you have provided server credentials, software inventory (discovery of installed applications) is automatically initiated when the discovery of servers running on vCenter Server(s) is finished. Software inventory occurs once every 12 hours.
 * [Software inventory](how-to-discover-applications.md) identifies the SQL Server instances that are running on the servers. Using the information it collects, the appliance attempts to connect to the SQL Server instances through the Windows authentication credentials or the SQL Server authentication credentials that are provided on the appliance. Then, it gathers data on SQL Server databases and their properties. The SQL Server discovery is performed once every 24 hours.
 * [Software inventory](how-to-discover-applications.md) identifies the web server role on the servers. Using the information it collects, the appliance attempts to connect to the IIS web server through the Windows authentication credentials that are provided on the appliance. Then, it gathers data on web apps. The web app discovery is performed once every 24 hours.
 * Discovery of installed applications might take longer than 15 minutes. The duration depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate project in the portal.

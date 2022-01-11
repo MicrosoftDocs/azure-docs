@@ -11,7 +11,7 @@ ms.topic: how-to
 
 ---
 
-# Configure a load test for high-scale load testing
+# Configure Azure Load Testing Preview for high-scale load
 
 In this article, learn how to set up a load test for high-scale load by using Azure Load Testing Preview. To simulate a large number of virtual users, you'll configure the test engine instances.
 
@@ -31,6 +31,8 @@ The maximum number of *requests per second* (RPS) that Azure Load Testing can ge
 You can apply the following formula: RPS = (# of VUs) * (1/latency).
 
 For example, if application latency is 20 milliseconds (ms), and you're generating a load of 2,000 VUs, you can achieve around 100,000 RPS.
+
+Apache JMeter only reports requests that made it to the server and back, either successful or not. If Apache JMeter is unable to connect to your application, the actual number of requests per second will be lower than the maximum value. Possible causes might be that the server is too busy to handle the request, or that an TLS/SSL certificate is missing. To diagnose connection problems, you can check the **Errors** chart in the load testing dashboard and [download the load test log files](./how-to-find-download-logs.md).
 
 ## Test engine instances
 

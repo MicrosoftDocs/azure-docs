@@ -299,7 +299,6 @@ Use the following JSON in your request. The model will be named `MyModel` once t
 
 ```json
 {
-{
   "trainedModelLabel": "MyModel"
 }
 ```

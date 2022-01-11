@@ -21,6 +21,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/security-center/deploy-vulnerability-assessment-byol-vm.md",
+            "redirect_url": "/azure/defender-for-cloud/deploy-vulnerability-assessment-byol-vm",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/defender-for-cloud/azure-defender.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-cloud-introduction",
             "redirect_document_id": false
