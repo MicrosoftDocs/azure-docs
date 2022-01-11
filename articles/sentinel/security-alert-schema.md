@@ -46,7 +46,7 @@ Because alerts come from many sources, not all fields are used by all providers.
 | **ProcessingEndTime** | datetime | The time of the alert's publishing. <ul><li>**Scheduled rule alerts:** the value of the *TimeGenerated* field.<li>**Ingested alerts:** the time that the originating product completes the production of the alert. |
 | **ProductComponentName** | string | The name of the component of the product that generated the alert. |
 | **ProductName** | string | The name of the product that generated the alert. |
-| **ProviderName** | string | The name of the alert provider - the service within the product - that generated the alert. |
+| **ProviderName** | string | The name of the alert provider (the service within the product) that generated the alert. |
 | **RemediationSteps** | string | A list of action items to take to remediate the alert. |
 | **ResourceId** | string | A unique identifier for the resource that is the subject of the alert. |
 | **SourceComputerId** | string | DEPRECATED. Was the agent ID on the server that created the alert. |
