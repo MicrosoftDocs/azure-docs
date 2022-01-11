@@ -18,7 +18,7 @@ This sample CLI script restores a single Azure Database for MariaDB server to a 
 
 ## Sample script
 
-[!INCLUDE [cli-run-local-sign-in.md](../../../../includes/cli-run-local-sign-in.md)]
+[!INCLUDE [cli-run-local-sign-in.md](../../../includes/cli-run-local-sign-in.md)]
 
 ### Run the script
 
@@ -26,7 +26,7 @@ This sample CLI script restores a single Azure Database for MariaDB server to a 
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup
