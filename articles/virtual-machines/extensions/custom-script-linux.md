@@ -51,7 +51,7 @@ If your script is on a local server, you might still need to open additional fir
 * Don't run a script that will cause a stop or update of the VM agent. It might leave the extension in a transitioning state and lead to a timeout.
 * The extension will run a script only once. If you want to run a script on every startup, you can use a [cloud-init image](../linux/using-cloud-init.md) and use a [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) module. Alternatively, you can use the script to create a [systemd](https://systemd.io/) service unit.
 * You can have only one version of an extension applied to the VM. To run a second custom script, you can update the existing extension with a new configuration. Alternatively, you can remove the custom script extension and reapply it with the updated script.
-* If you want to schedule when a script will run, you should use the extension to create a Cron job. 
+* If you want to schedule when a script will run, use the extension to create a Cron job. 
 * When the script is running, you'll only see a "transitioning" extension status from the Azure portal or CLI. If you want more frequent status updates for a running script, you'll need to create your own solution.
 * The Custom Script Extension doesn't natively support proxy servers. However, you can use a file transfer tool that supports proxy servers within your script, such as *Curl*. 
 * Be aware of non-default directory locations that your scripts or commands might rely on. Have logic to handle this situation.
@@ -145,8 +145,8 @@ The default value is `false`, which means dos2unix conversion *is* executed.
 
 The previous version of the Custom Script Extension, Microsoft.OSTCExtensions.CustomScriptForLinux, would automatically convert DOS files to UNIX files by translating `\r\n` to `\n`. This translation still exists and is on by default. This conversion is applied to all files downloaded from `fileUris` or the script setting based on either of the following criteria:
 
-* If the extension is .sh, .txt, .py, or .pl. The script setting will always match this criterion because it's assumed to be a script run with `/bin/sh`. The script setting is saved as *script.sh* on the VM.
-* If the file starts with `#!`.
+* The extension is .sh, .txt, .py, or .pl. The script setting will always match this criterion because it's assumed to be a script run with `/bin/sh`. The script setting is saved as *script.sh* on the VM.
+* The file starts with `#!`.
 
 You can skip the dos2unix conversion by setting `skipDos2Unix` to `true`:
 
@@ -214,7 +214,7 @@ The Custom Script Extension (version 2.1 and later) supports [managed identities
 
 To use this feature, the user must add a [system-assigned](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) or [user-assigned](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-user-assigned-identity) identity to the VM or virtual machine scale set where the Custom Script Extension is expected to run. The user must then [grant the managed identity access to the Azure Storage container or blob](../../active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage.md#grant-access).
 
-To use the system-assigned identity on the target VM or virtual machine scale set, set `managedidentity` to an empty JSON object: 
+To use the system-assigned identity on the target VM or virtual machine scale set, set `managedidentity` to an empty JSON object. 
 
 > Example:
 >
@@ -226,7 +226,7 @@ To use the system-assigned identity on the target VM or virtual machine scale se
 > }
 > ```
 
-To use the user-assigned identity on the target VM or virtual machine scale set, configure `managedidentity` with the client ID or the object ID of the managed identity:
+To use the user-assigned identity on the target VM or virtual machine scale set, configure `managedidentity` with the client ID or the object ID of the managed identity.
 
 > Examples:
 >

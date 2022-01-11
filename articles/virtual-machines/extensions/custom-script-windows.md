@@ -116,7 +116,7 @@ You can use this schema inside the VM resource or as a standalone resource. The 
 
 ### Property values
 
-| Name | Value / Example | Data Type |
+| Name | Value or example | Data type |
 | ---- | ---- | ---- |
 | `apiVersion` | `2015-06-15` | date |
 | `publisher` | `Microsoft.Compute` | string |
@@ -157,11 +157,11 @@ Public settings are sent in clear text to the VM where the script will be run. P
 > [!NOTE]
 > This property *must* be specified in protected settings only.
 
-The Custom Script Extension (version 2.1 and later) supports [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) for downloading files from URLs provided in the `fileUris` setting. It allows the Custom Script Extension to access Azure Storage private blobs or containers without the user having to pass secrets like SAS tokens or storage account keys.
+The Custom Script Extension (version 1.10 and later) supports [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) for downloading files from URLs provided in the `fileUris` setting. It allows the Custom Script Extension to access Azure Storage private blobs or containers without the user having to pass secrets like SAS tokens or storage account keys.
 
 To use this feature, the user must add a [system-assigned](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) or [user-assigned](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-user-assigned-identity) identity to the VM or virtual machine scale set where the Custom Script Extension is expected to run. The user must then [grant the managed identity access to the Azure Storage container or blob](../../active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage.md#grant-access).
 
-To use the system-assigned identity on the target VM or virtual machine scale set, set `managedidentity` to an empty JSON object: 
+To use the system-assigned identity on the target VM or virtual machine scale set, set `managedidentity` to an empty JSON object. 
 
 > Example:
 >
@@ -173,7 +173,7 @@ To use the system-assigned identity on the target VM or virtual machine scale se
 > }
 > ```
 
-To use the user-assigned identity on the target VM or virtual machine scale set, configure `managedidentity` with the client ID or the object ID of the managed identity:
+To use the user-assigned identity on the target VM or virtual machine scale set, configure `managedidentity` with the client ID or the object ID of the managed identity.
 
 > Examples:
 >
@@ -219,7 +219,9 @@ Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
 
 ### Using multiple scripts
 
-In this example, you're using three scripts to build your server. The `commandToExecute` property calls the first script. You then have options on how the others are called. For example, you can have a master script that controls the execution, with the right error handling, logging, and state management. The scripts are downloaded to the local machine for execution. For example, in *1_Add_Tools.ps1*, you would call *2_Add_Features.ps1* by adding  `.\2_Add_Features.ps1` to the script. You would repeat this process for the other scripts that you define in `$settings`.
+In this example, you're using three scripts to build your server. The `commandToExecute` property calls the first script. You then have options on how the others are called. For example, you can have a master script that controls the execution, with the right error handling, logging, and state management. The scripts are downloaded to the local machine for execution. 
+
+For example, in *1_Add_Tools.ps1*, you would call *2_Add_Features.ps1* by adding  `.\2_Add_Features.ps1` to the script. You would repeat this process for the other scripts that you define in `$settings`.
 
 ```powershell
 $fileUri = @("https://xxxxxxx.blob.core.windows.net/buildServer1/1_Add_Tools.ps1",
@@ -300,8 +302,8 @@ To deploy the Custom Script Extension on classic VMs, you can use the Azure port
 ### Azure portal
 
 1. Go to your classic VM resource. Select **Extensions** under **Settings**.
-1. Select **+ Add**. In the list of resources, choose **Custom Script Extension**.
-1. On the **Install extension** page, select the local PowerShell file, fill out any arguments, and select **Ok**.
+1. Select **+ Add**. In the list of resources, select **Custom Script Extension**.
+1. On the **Install extension** page, select the local PowerShell file. Fill out any arguments, and then select **Ok**.
 
 ### PowerShell
 
@@ -321,9 +323,9 @@ Set-AzureVMCustomScriptExtension -VM $vm -FileUri $fileUri -Run 'Create-File.ps1
 $vm | Update-AzureVM
 ```
 
-## Troubleshooting
+## Troubleshoot and support
 
-You can retrieve data about the state of extension deployments from the Azure portal, and by using the Azure PowerShell module. To see the deployment state of extensions for a VM, run the following command:
+You can retrieve data about the state of extension deployments from the Azure portal and by using the Azure PowerShell module. To see the deployment state of extensions for a VM, run the following command:
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName <resourceGroupName> -VMName <vmName> -Name myExtensionName
@@ -358,10 +360,10 @@ Because the absolute download path might vary over time, it's better to opt for 
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```
 
-Path information after the first URI segment is kept for files downloaded via the `fileUris` property list. As shown in the preceding table, downloaded files are mapped into download subdirectories to reflect the structure of the `fileUris` values.  
+Path information after the first URI segment is kept for files downloaded via the `fileUris` property list. As shown in the earlier table, downloaded files are mapped into download subdirectories to reflect the structure of the `fileUris` values.  
 
 ## Support
 
 If you need help with any part of this article, you can contact the Azure experts at [Azure Community Support](https://azure.microsoft.com/support/forums/). 
 
-You can also file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get support**. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+You can also file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get support**. For information about using Azure support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
