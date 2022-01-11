@@ -41,7 +41,7 @@ Because alerts come from many sources, not all fields are used by all providers.
 | **EndTime** | datetime | The end time of the impact of the alert. <ul><li>**Scheduled rule alerts:** the value of the *TimeGenerated* field for the last *event* captured by the query.<li>**Ingested alerts:** the time of the last event or activity included in the alert. |
 | **Entities** | string | A list of the entities identified in the alert. This list can include a combination of entities of different types. The entities' types can be any of those defined in the schema, as described in the [entities documentation](entities-reference.md). |
 | **ExtendedLinks** | string | A bag (a collection) for all links related to the alert. This bag can include a combination of links of different types. |
-| **ExtendedProperties** | string | A collection of other properties of the alert, including user-defined properties. Any [custom details](surface-custom-details-in-alerts.md) defined in the alert, and any dynamic content in the [alert details](customize-alert-details.md), are stored here. |  |
+| **ExtendedProperties** | string | A collection of other properties of the alert, including user-defined properties. Any [custom details](surface-custom-details-in-alerts.md) defined in the alert, and any dynamic content in the [alert details](customize-alert-details.md), are stored here. |
 | **IsIncident** | boolean | DEPRECATED. Always set to *false*. |
 | **ProcessingEndTime** | datetime | The time of the alert's publishing. <ul><li>**Scheduled rule alerts:** the value of the *TimeGenerated* field.<li>**Ingested alerts:** the time that the originating product completes the production of the alert. |
 | **ProductComponentName** | string | The name of the component of the product that generated the alert. |
@@ -57,7 +57,7 @@ Because alerts come from many sources, not all fields are used by all providers.
 | **Tactics** | string | A comma-delineated list of MITRE ATT&CK tactics associated with the alert. |
 | **Techniques** | string | A comma-delineated list of MITRE ATT&CK techniques associated with the alert. |
 | **TenantId** | string | The unique ID of the tenant. |
-| **TimeGenerated** | datetime | The time the alert was generated (in UTC). | Also for ingested alerts? Or is it the ingestion time for those? |
+| **TimeGenerated** | datetime | The time the alert was generated (in UTC). |
 | **Type** | string | The constant ('SecurityAlert') |
 | **VendorName** | string | The vendor of the product that produced the alert. |
 | **VendorOriginalId** | string | Unique ID for the specific alert instance, set by the originating product. |
