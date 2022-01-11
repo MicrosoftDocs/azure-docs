@@ -324,7 +324,7 @@ The correctly labeled example utterances display in a way to show how the entiti
 
 ## Next steps
 
-<!--[LUIS application design](application-design.md)-->
+* [LUIS application design](application-design.md)
 * [prebuilt models](../luis-concept-prebuilt-model.md)
 * [intents](intents.md)
 * [entities](entities.md).

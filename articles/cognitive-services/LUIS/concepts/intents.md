@@ -25,7 +25,7 @@ Travel app intents   |   Example utterances   |
  CheckWeather | "What's the weather like in Boston?" <br/> "Show me the forecast for this weekend" |
  None         | "Get me a cookie recipe"<br>"Did the Lakers win?" |
 
-All applications come with the predefined intent, "[None](../luis-concept-intent.md#none-intent)", which is the fallback intent.
+All applications come with the predefined intent, "[None](#none-intent)", which is the fallback intent.
 
 ## Prebuilt intents
 
