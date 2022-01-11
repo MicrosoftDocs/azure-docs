@@ -26,7 +26,7 @@ In this article, we will go through options on connecting your **existing** Vide
 Connecting a classic account to be ARM-based triggers a 30 days of a transition state. In the transition state, an existing account can be accessed by generating an access token using both:
 
 * Access token [generated through API Management](https://aka.ms/avam-dev-portal)(classic way) 
-* Access token [generated through ARM](https://docs.microsoft.com/en-gb/rest/api/videoindexer/generate/access-token) 
+* Access token [generated through ARM](/rest/api/videoindexer/generate/access-token) 
 
 The transition state moves all account management functionality to be managed by ARM and will be handled by [Azure RBAC][docs-rbac-overview]. 
 
@@ -49,7 +49,7 @@ Before the end of the 30 days of transition state, you can remove access from us
 
 1. Sign in using your Azure AD account.
 1. On the top right bar press *User account* to open the side pane account list.
-1. Select the Video Analyzer for Media classic account you wish to connect to ARM (Classic accounts will be tagged with a *classic tag*).
+1. Select the Video Analyzer for Media classic account you wish to connect to ARM (classic accounts will be tagged with a *classic tag*).
 1. Click **Settings**.
 
     ![account-settings](media/connect-classic-account-to-arm/user-account-settings.png)
