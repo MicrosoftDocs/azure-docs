@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: overview
 ms.workload: identity
-ms.date: 01/10/2022
+ms.date: 01/12/2022
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
 
@@ -133,7 +133,7 @@ The following diagram is a summary of the evaluation logic.
 
 ## Where is Azure RBAC data stored?
 
-Role definitions, role assignments, and deny assignments are stored globally to ensure that you have access to your resources regardless of the region you created the resource. The data stored doesn't contain any personal identifiable information.
+Role definitions, role assignments, and deny assignments are stored globally to ensure that you have access to your resources regardless of the region you created the resource.
 
 When a role assignment or any other Azure RBAC data is deleted, the data is globally deleted. Principals that had access to a resource via Azure RBAC data will lose their access. 
 
