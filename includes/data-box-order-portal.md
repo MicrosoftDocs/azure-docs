@@ -75,7 +75,9 @@ Do the following steps in the Azure portal to order a device:
 
     - If you're using a **General Purpose v1** or **General Purpose v2** storage account, you can enable large file shares to allow data copies of up to 100 TiB per share. If large file shares aren't enabled, a data copy at Azure will fail once the 5-TiB standard share limit is reached.
 
-      If you select a General Purpose v1 or v2 storage account that supports Azure file shares and doesn't have large file shares enabled, you'll see the following option. If you want to enable large file shares, select **Enable large file shares**, and then enable large file shares on that storage account. Enabling large file shares is a storage account upgrade. You can't reverse the upgrade after you place your order. The **Enable large file shares** screen links to more information.
+      If you select a General Purpose v1 or v2 storage account that supports Azure file shares and doesn't have large file shares enabled, you'll see the following option. If you want to enable large file shares, select **Enable large file shares**, and then enable large file shares on each storage account that will need large file shares.
+
+      Enabling large file shares is a storage account upgrade. You can't reverse the upgrade after you place your order. The **Enable large file shares** screen links to more information.
 
       ![Screenshot of the Enable option for for a Data Box order that will import files to storage accounts. The Enabled button is highlighted.](media/data-box-order-portal/data-box-import-07.png)
 
