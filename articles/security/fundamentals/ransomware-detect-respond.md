@@ -32,8 +32,6 @@ Ensure rapid detection and remediation of common attacks on VMs, SQL Servers, We
 - **Integrate outside experts** – into processes to supplement expertise, such as Microsoft Detection and Response Team (DART).
 - **Rapidly isolate** compromised computers using Defender for Endpoint in on-premises deployment.
 
-:::image type="content" source="./media/ransomware/ransomware18.png" alt-text="Placeholder Text X":::
-
 ## Responding to ransomware attacks
 
 ### Incident declaration

@@ -21,8 +21,6 @@ Key capabilities include:
 - **Passwordless and Multi-factor authentication**: Azure MFA, Azure AD Authenticator App, and Windows Hello provide these capabilities. This helps protect accounts against commonly seen password attacks (which account for 99.9% of the volume of identity attacks we see in Azure AD). While no security is perfect, eliminating password-only attack vectors dramatically lowers the ransomware attack risk to Azure resources. 
 - **Native Firewall and Network Security**: Microsoft built native DDoS attack mitigations, Firewall, Web Application Firewall, and many other controls into Azure. These security 'as a service' help simplify the configuration and implementation of security controls. These give organizations the choice of using native services or virtual appliances versions of familiar vendor capabilities to simplify their Azure security. 
 
-:::image type="content" source="./media/ransomware/ransomware6.png" alt-text="Placeholder Text 6":::
-
 ## Microsoft Defender for Cloud
 
 Microsoft Defender for Cloud is a built-in tool that provides threat protection for workloads running in Azure, on-premises, and in other clouds. It protects your hybrid data, cloud native services and servers from ransomware and other threats; and integrates with your existing security workflows like your SIEM solution and Microsoft's vast threat intelligence to streamline threat mitigation.
