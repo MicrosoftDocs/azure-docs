@@ -115,13 +115,13 @@ To learn how to enable or disable blob versioning, see [Enable and manage blob v
 
 Disabling blob versioning does not delete existing blobs, versions, or snapshots. When you turn off blob versioning, any existing versions remain accessible in your storage account. No new versions are subsequently created.
 
-If a blob was created or modified after versioning was disabled on the storage account, then overwriting the blob creates a new version. The updated blob is no longer the current version and does not have a version ID. All subsequent updates to the blob will overwrite its data without saving the previous state.
+After versioning is disabled, modifying the current version creates a blob that is not a version. All subsequent updates to the blob will overwrite its data without saving the previous state. All existing versions persist as previous versions.
 
 You can read or delete versions using the version ID after versioning is disabled. You can also list a blob's versions after versioning is disabled.
 
 The following diagram shows how modifying a blob after versioning is disabled creates a blob that is not versioned. Any existing versions associated with the blob persist.
 
-:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagram showing current version of the blob modified after versioning is disabled.":::
+:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagram showing that modification of a current version after versioning is disabled creates a blob that is not a version.":::
 
 ## Blob versioning and soft delete
 
