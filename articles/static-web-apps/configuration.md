@@ -318,7 +318,7 @@ In addition to IP address blocks, you can also specify [service tags](../virtual
 
 ## Disable cache for authenticated paths
 
-If you have enabled enterprise-grade edge, or set up manual integration with Azure Front Door, you may want to disable caching for your secured routes.
+If you have enabled enterprise-grade edge, or set up [manual integration with Azure Front Door](front-door-manual.md), you may want to disable caching for your secured routes.
 
 To disable Azure Front Door caching for secured routes, add `"Cache-Control": "no-store"` to the route header definition.
 
