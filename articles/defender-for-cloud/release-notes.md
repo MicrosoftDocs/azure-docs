@@ -94,11 +94,11 @@ The new **Copy alert JSON** button puts the alert’s details, in JSON format, i
 
 For consistency with other recommendation names, we've renamed the following two recommendations:
 
-- Recommendation to resolve vulnerabilities discovered in running container images: 
+- Recommendation to resolve vulnerabilities discovered in running container images
     - Previous name: Vulnerabilities in running container images should be remediated (powered by Qualys)
     - New name: Running container images should have vulnerability findings resolved
 
-- Recommendation to enable diagnostic logs for Azure App Service: 
+- Recommendation to enable diagnostic logs for Azure App Service
     - Previous name: Diagnostic logs should be enabled in App Service
     - New name: Diagnostic logs in App Service should be enabled
 
