@@ -128,13 +128,11 @@ You can rotate the subscription keys on the [Azure portal](https://portal.azure.
 
     The full command will look something like the following. Here we have put each parameter on its own line for clarity, so you can see the whole command. Do not copy or use this command as-is. Copy and use the command above with your own values. This example has dummy values for the '<PARAMETER_VALUES>' above. Yours will be different, as you will come up with your own names for these values.
 
-    ```
-    Update-ImmersiveReaderRoleAssignment
-        -SubscriptionName 'MyOrganizationSubscriptionName'
-        -ResourceGroupName 'MyResourceGroupName'
-        -ResourceName 'MyOrganizationImmersiveReader'
-        -AADAppIdentifierUri 'https://MyOrganizationImmersiveReaderAADApp'
-    ```
+    ```Update-ImmersiveReaderRoleAssignment```
+    ```    -SubscriptionName 'MyOrganizationSubscriptionName'```
+    ```    -ResourceGroupName 'MyResourceGroupName'```
+    ```    -ResourceName 'MyOrganizationImmersiveReader'```
+    ```    -AADAppIdentifierUri 'https://MyOrganizationImmersiveReaderAADApp'```
 
     | Parameter | Comments |
     | --- | --- |
@@ -143,7 +141,6 @@ You can rotate the subscription keys on the [Azure portal](https://portal.azure.
     | ResourceName |The name of your Immersive Reader resource. |
     | AADAppIdentifierUri |The URI for your Azure AD app. |
 
-    ```
 
 ## Next steps
 
