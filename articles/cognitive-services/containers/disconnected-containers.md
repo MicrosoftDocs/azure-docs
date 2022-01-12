@@ -63,7 +63,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice:l
 
 Now that you've downloaded your container, you will need to run the container with the `DownloadLicense=True` parameter in your `docker run` command. This parameter will download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container.
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > * When you run the container with `DownloadLicense=True`, your environment must be connected to the internet, and you must provide a valid key and endpoint. Once your container has been configured, it can be run disconnected from the internet, and without your key and endpoint. 
 > * You can only use a license file with the appropriate container that you've been approved for. For example, you cannot use a license file for a speech-to-text container with a form recognizer container. 
 > * If your container requires additional encrypted models, they should be downloaded by running the container with the `DownloadModel=True` flag.
