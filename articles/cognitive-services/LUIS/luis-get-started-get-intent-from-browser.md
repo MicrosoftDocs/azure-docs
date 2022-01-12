@@ -20,7 +20,7 @@ In order to query a public app, you need:
 * Your Language Understanding (LUIS) resource information:
     * **Prediction key** - which can be obtained from [LUIS Portal](https://www.luis.ai/). If you do not already have a subscription to create a key, you can register for a [free account](https://azure.microsoft.com/free/cognitive-services).
     * **Prediction endpoint subdomain** - the subdomain is also the **name** of your LUIS resource.
-* A LUIS app ID - use the public IoT app ID of `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. The user query used in the quickstart code is specific to that app.
+* A LUIS app ID - use the public IoT app ID of `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. The user query used in the quickstart code is specific to that app. This app should work with any prediction resource other than the Europe or Australia regions, since it uses "westus" as the authoring region.
 
 ## Use the browser to see predictions
 

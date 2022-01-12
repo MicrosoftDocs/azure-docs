@@ -132,4 +132,4 @@ Entity prediction errors indicate the predicted entity doesn't match the labeled
 
 ## Next steps
 
-[Train and Test your application](train-test.md)
+[Train and test your application](train-test.md)
