@@ -187,6 +187,8 @@ You can use the Key Vault solution in Azure Monitor logs to review Key Vault `Au
 
 For more information, including how to set this up, see [Azure Key Vault in Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
 
+For understanding how to analyze logs, see [Sample kusto log queries](https://docs.microsoft.com/azure/key-vault/general/monitor-key-vault#analyzing-logs)
+
 ## Next steps
 
 - [How to enable Key Vault logging](howto-logging.md)

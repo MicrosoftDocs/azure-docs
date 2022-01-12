@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/26/2019
-
+ms.devlang: csharp, java, javascript, python
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
 ---
 

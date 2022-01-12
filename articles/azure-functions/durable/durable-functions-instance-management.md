@@ -5,6 +5,7 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 05/11/2021
 ms.author: azfuncdf
+ms.devlang: csharp, javascript, python
 #Customer intent: As a developer, I want to understand the options provided for managing my Durable Functions orchestration instances, so I can keep my orchestrations running efficiently and make improvements.
 ---
 

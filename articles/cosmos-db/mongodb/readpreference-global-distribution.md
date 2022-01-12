@@ -5,7 +5,7 @@ author: gahl-levy
 ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: devx-track-js

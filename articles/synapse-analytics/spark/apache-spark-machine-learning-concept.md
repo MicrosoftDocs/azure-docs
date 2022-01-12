@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 11/13/2020
 ms.author: midesa
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Machine learning with Apache Spark

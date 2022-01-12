@@ -92,14 +92,14 @@ Besides image management, the **aad-user** will also be granted administrative p
 After creating and connecting to the cluster, install the Open Liberty Operator.  The main starting page for the Open Liberty Operator is on [GitHub](https://github.com/OpenLiberty/open-liberty-operator).
 
 1. Sign in to the OpenShift web console from your browser using the `kubeadmin` credentials.
-2. Navigate to **Operators** > **OperatorHub** and search for **Open Liberty Operator**.
-3. Select **Open Liberty Operator** from the search results.
+2. Navigate to **Operators** > **OperatorHub** and search for **Open Liberty**.
+3. Select **Open Liberty** from the search results.
 4. Select **Install**.
-5. In the popup **Create Operator Subscription**, check **All namespaces on the cluster (default)** for **Installation Mode**, **beta** for **Update Channel**, and **Automatic** for **Approval Strategy**:
+5. In the page **Install Operator**, check **beta2** for **Update channel**, **All namespaces on the cluster (default)** for **Installation mode**, and **Automatic** for **Update approval**:
 
    ![create operator subscription for Open Liberty Operator](./media/howto-deploy-java-liberty-app/install-operator.png)
-6. Select **Subscribe** and wait a minute or two until the Open Liberty Operator is displayed.
-7. Observe the Open Liberty Operator with status of "Succeeded".  If you don't, diagnose and resolve the problem before continuing.
+6. Select **Install** and wait a minute or two until the installation completes.
+7. Observe the Open Liberty Operator is successfully installed and ready for use.  If you don't, diagnose and resolve the problem before continuing.
    :::image type="content" source="media/howto-deploy-java-liberty-app/open-liberty-operator-installed.png" alt-text="Installed Operators showing Open Liberty is installed.":::
 
 ## Prepare the Liberty application

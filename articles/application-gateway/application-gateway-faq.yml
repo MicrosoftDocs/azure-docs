@@ -120,7 +120,7 @@ sections:
           Updates initiated to Application Gateway are applied one [update domain](../../articles/virtual-machines/availability-set-overview.md#how-do-availability-sets-work) at a time, during off business hours for the region the gateway is deployed in. Active connections will gracefully be drained from the instance(s) being updated.  While the update is in progress, Application Gateway will temporarily run at reduced capacity, which is determined by the amount of instances configured. The update process will proceed to the next set of instances only if the current set of instances have been upgraded successfully.
           
       - question: Can I use Exchange Server as a backend with Application Gateway?
-        answer: No. Application Gateway doesn't support email protocols such as SMTP, IMAP, and POP3.
+        answer: Application Gateway doesn't support email protocols such as SMTP, IMAP, and POP3. HTTP/HTTPS services such as OWA, ActiveSync, and AutoDiscovery traffic may flow through Application Gateway, however WAF exclusions may be required if using WAF sku.
 
       - question: Is there guidance available to migrate from the v1 SKU to the v2 SKU?
         answer: |
@@ -128,7 +128,7 @@ sections:
           
       - question: Will the Application Gateway v1 SKU continue to be supported?
         answer: |
-          Yes. The Application Gateway v1 SKU will continue to be supported. However, it is strongly recommended that you move to v2 to take advantage of the feature updates in that SKU. For more information, see [Autoscaling and Zone-redundant Application Gateway v2](application-gateway-autoscaling-zone-redundant.md).
+          Yes. The Application Gateway v1 SKU will continue to be supported. However, it is strongly recommended to move to v2 to take advantage of the feature updates in that SKU. For more information on the differences between v1 and v2 features, see [Autoscaling and Zone-redundant Application Gateway v2](application-gateway-autoscaling-zone-redundant.md). You can manually migrate Application Gateway v1 sku deployments to v2 by following our [v1-v2 migration document](migrate-v1-v2.md).
           
       - question: Does Application Gateway V2 support proxying requests with NTLM authentication?
         answer: No. Application Gateway V2 doesn't support proxying requests with NTLM authentication.

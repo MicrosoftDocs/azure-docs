@@ -3,7 +3,7 @@ title: Add or edit Azure role assignment conditions using Azure PowerShell (prev
 description: Learn how to add, edit, list, or delete attribute-based access control (ABAC) conditions in Azure role assignments using Azure PowerShell and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to

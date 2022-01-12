@@ -15,7 +15,7 @@ ms.author: dapine
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="GitHub" src="https://docs.microsoft.com/media/logos/logo_octokitty.svg" width="60px">
+            <img alt="GitHub" src="/media/logos/logo_octokitty.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
