@@ -87,7 +87,7 @@ When represented as a JSON object, a digital twin will display the following fie
 | `$metadata.<property-name>.ackCode` | [Only for writable properties] The `ack` code returned by the device app implementing the digital twin |
 | `$metadata.<property-name>.ackDescription` | [Only for writable properties] The `ack` description returned by the device app implementing the digital twin |
 | `$metadata.<property-name>.lastUpdateTime` |  |
-| `$metadata.<property-name>.sourceTime` | An optional, writable property that users can set to represent the time data was collected from devices. This property can only be written using the latest version of the [Azure Digital Twins APIs/SDKs](concepts-apis-sdks.md). For more information about how to update this property, see [Update a digital twin](how-to-manage-twin.md#update-a-digital-twin). |
+| `$metadata.<property-name>.sourceTime` |An optional, writable property representing the timestamp when the property update was observed in the real world. This property can only be written using the latest version of the [Azure Digital Twins APIs/SDKs](concepts-apis-sdks.md). For more information about how to update this property, see [Update a digital twin](how-to-manage-twin.md#update-a-digital-twin). |
 | `<component-name>` | A JSON object containing the component's property values and metadata, similar to those of the root object. This object exists even if the component has no properties. |
 | `<component-name>.<property-name>` | The value of the component's property in JSON (`string`, number type, or object) |
 | `<component-name>.$metadata` | The metadata information for the component, similar to the root-level `$metadata` |
