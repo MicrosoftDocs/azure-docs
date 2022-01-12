@@ -154,7 +154,9 @@ It will return JSON similar to the example below.
 
 The following endpoint will provide a report summarizing usage over a specific month and year.
 
-`https://<service>/records/usage-logs/{MONTH}/{YEAR}`
+```HTTP
+https://<service>/records/usage-logs/{MONTH}/{YEAR}
+```
 
 it will return a JSON response similar to the example below:
 
@@ -174,8 +176,8 @@ it will return a JSON response similar to the example below:
 
 If you run the container with an output mount and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
 
-[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
-
+> [!TIP]
+> For more troubleshooting information and guidance, see [Disconnected containers Frequently asked questions (FAQ)](disconnected-container-faq.yml).
 ## Next steps
 
 [Azure Cognitive Services containers overview](../cognitive-services-container-support.md)
