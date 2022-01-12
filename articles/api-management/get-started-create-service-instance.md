@@ -17,7 +17,7 @@ This quickstart describes the steps for creating a new API Management instance u
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-:::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-created-1.png" alt-text="API Management instance":::
+:::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-created-1.png" alt-text="Screenshot of API Management instance.":::
 
 ## Sign in to Azure
 
@@ -27,16 +27,16 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. From the Azure portal menu, select **Create a resource**. You can also select **Create a resource** on the Azure **Home** page. 
    
-   :::image type="content" source="media/get-started-create-service-instance/create-resource.png" alt-text="Select Create a resource":::
+   :::image type="content" source="media/get-started-create-service-instance/create-resource.png" alt-text="Select Create a resource.":::
 
    
 1. On the **Create a resource** page, select **Integration** > **API Management**.
 
-   :::image type="content" source="media/get-started-create-service-instance/create-resource-page.png" alt-text="New Azure API Management instance":::
+   :::image type="content" source="media/get-started-create-service-instance/create-resource-page.png" alt-text="Screenshot of New Azure API Management instance.":::
    
 1. In the **Create API Management** page, enter settings.
 
-   :::image type="content" source="media/get-started-create-service-instance/create-API-management-instance.png" alt-text="Create API Management instance":::
+   :::image type="content" source="media/get-started-create-service-instance/create-api-management-instance.png" alt-text="Create API Management instance.":::
    
    | Setting                 | Description   |                                                                     
    |-------------------------|-----------------------------------------------|
@@ -57,7 +57,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 Review the properties of your service on the **Overview** page.
 
-   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-created-1.png" alt-text="API Management instance":::
+   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-created-1.png" alt-text="API Management instance.":::
 
 When your API Management service instance is online, you're ready to use it. Start with the tutorial to [import and publish your first API](import-and-publish.md).
 
@@ -67,17 +67,17 @@ When no longer needed, you can remove the resource group and all the related res
 
 1. In the Azure portal, search for and select **Resource groups**. You can also select **Resource groups** on the **Home** page. 
 
-   :::image type="content" source="media/get-started-create-service-instance/resource-groups.png" alt-text="Resource group navigation":::
+   :::image type="content" source="media/get-started-create-service-instance/resource-groups.png" alt-text="Resource group navigation.":::
 
 1. On the **Resource groups** page, select your resource group.
 
-   :::image type="content" source="media/get-started-create-service-instance/resource-group-page.png" alt-text="Select your resource group":::
+   :::image type="content" source="media/get-started-create-service-instance/resource-group-page.png" alt-text="Select your resource group.":::
 
 1. On the resource group page, select **Delete resource group**.
    
 1. Type the name of your resource group, and then select **Delete**.
 
-   :::image type="content" source="media/get-started-create-service-instance/delete-resource-group.png" alt-text="Delete resource group":::
+   :::image type="content" source="media/get-started-create-service-instance/delete-resource-group.png" alt-text="Delete resource group.":::
 
 ## Next steps
 
