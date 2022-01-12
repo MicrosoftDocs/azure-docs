@@ -25,7 +25,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a new service
 
-1. From the Azure portal menu, select **Create a resource**. You can also select **Create a resource** on the Azure **Home** page. 
+1. From the Azure portal menu, select **Create a resource**. You can also select **Create a resource** on the Azure **Home** page.
    
    :::image type="content" source="media/get-started-create-service-instance/create-resource.png" alt-text="Select Create a resource.":::
 
