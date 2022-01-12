@@ -8,7 +8,7 @@ ms.author: cesardl
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 01/15/2022
 ---
 
 # Generate an AutoML model's training code (preview)
@@ -30,10 +30,14 @@ You can generate the code for the following scenarios:
 - Model data pre-process (featurization and scaling)
 - Classification models
 - Regression models
-- Time Series Forecasting models
+- Time series forecasting models
 
 > [!NOTE]
 > Computer vision models and natural language processing based models do not currently support code generation. 
+
+The following diagram illustrates that you can enable code generation for any AutoML created model from the Azure Machine Learning studio UI or with the Azure Machine Learning SDK. After you select the model to generate code for, Azure Machine Learning copies the code files used to create the model and displays them into your notebooks so you can view and customize them as needed. 
+
+![Code generation diagram](./media/how-to-generate-automl-training-code/code-generation-design.svg)
 
 ## Prerequisites
 
@@ -66,9 +70,8 @@ When you enable code generation, automated ML generates the model's training cod
 
 * **script.py** This is the model's training code, the interesting code you want to analyze with the featurization steps, specific algorithm used, and hyperparameters.
 
-* **script_run_notebook.ipynb**: Notebook with boiler-plate code to run the model's training code (script.py) in AzureMLCompute through Azure ML SDK classes such as `ScriptRunConfig`. 
+* **script_run_notebook.ipynb** Notebook with boiler-plate code to run the model's training code (script.py) in AzureMLCompute through Azure ML SDK classes such as `ScriptRunConfig`. 
 
-![Code generation diagram](./media/how-to-generate-automl-training-code/code-generation-design.svg)
 
 ## Get generated code and model artifacts
 
