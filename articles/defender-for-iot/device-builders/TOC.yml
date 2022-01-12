@@ -30,14 +30,6 @@
     href: quickstart-investigate-security-recommendations.md
   - name: Investigate security alerts
     href: quickstart-investigate-security-alerts.md
-  - name: Classic
-    items:
-    - name: Security agent overview
-      displayName: platforms, C, C#, agent
-      href: security-agent-architecture.md
-    - name: Create an azureiotsecurity module twin
-      displayName: module twin, security module
-      href: quickstart-create-security-twin.md
 - name: Tutorials
   items:
   - name: Configure a micro agent twin
@@ -75,33 +67,6 @@
       href: concept-customizable-security-alerts.md
   - name: Security recommendations for IoT Hub
     href: concept-recommendations.md
-  - name: Classic
-    items:
-    - name: Defender-IoT-micro-agent
-      displayName: device twins, Defender-IoT-micro-agent twin
-      href: concept-security-module.md
-    - name: Edge azureiotsecurity
-      href: security-edge-architecture.md
-    - name: Security agents
-      href: overview-security-agents.md
-    - name: Security agent authentication
-      displayName: method, C, C#, module, device, installation, authentication
-      href: concept-security-agent-authentication-methods.md
-    - name: Baseline
-      displayName: custom, setting, properties
-      href: concept-baseline.md
-    - name: Azure security baseline for Microsoft Defender for IoT
-      displayName: identity management, active directory, privileged access, data protection, incident response, posture, vulnerability, governance
-      href: /security/benchmark/azure/baselines/defender-for-iot-security-baseline?toc=/azure/defender-for-iot/TOC.json
-    - name: Defender-IoT-micro-agent classic event aggregation                                          
-      displayName: twin, default, configuration, alerts
-      href: event-aggregation.md
-    - name: Classic agent based security alerts
-      href: agent-based-security-alerts.md
-    - name: Agent based security custom alerts
-      href: agent-based-security-custom-alerts.md
-    - name: Agent based recommendations
-      href: agent-based-recommendations.md
 - name: How-to guides
   items:
   - name: Connect to Microsoft Sentinel
@@ -129,44 +94,75 @@
     displayNAme: device inventory, device, inventory, EIoT, eiot
   - name: Move a resource to a different region
     href: how-to-region-move.md
-  - name: Classic
-    items:
-      - name: Which agent should I deploy?
-        items:
-        - name: Select an agent to deploy
-          href: how-to-deploy-agent.md
-        - name: Deploy a C#-based security agent on a Windows device
-          href: how-to-deploy-windows-cs.md
-        - name: Deploy a C#-based security agent on a Linux device
-          href: how-to-deploy-linux-cs.md
-        - name: Deploy a C-based security agent on a Linux device
-          href: how-to-deploy-linux-c.md
-      - name: Troubleshoot a security agent
-        items:
-        - name: Troubleshoot Microsoft Defender for IoT Linux security agent
-          href: troubleshoot-agent.md
-        - name: Local configuration C
-          href: azure-iot-security-local-configuration-c.md
-        - name: Local configuration C#
-          href: azure-iot-security-local-configuration-csharp.md 
-      - name: Deploy Edge azureiotsecurity
-        href: how-to-deploy-edge.md
-      - name: Configure security agents
-        displayName: property
-        href: how-to-agent-configuration.md
-      - name: Send your own security messages
-        href: how-to-send-security-messages.md
-      - name: Access raw security data
-        displayName: log analytics, alerts, 
-        href: how-to-security-data-access.md
-      - name: Investigate a device
-        displayName: access, data, kql, ports, logins, process
-        href: how-to-investigate-device.md
   - name: Troubleshoot
     items:
     - name: Defender for IoT micro agent troubleshooting (Preview)
       displayName: service status, review logs
       href: troubleshoot-defender-micro-agent.md
+- name: Classic
+  items:
+  - name: Defender-IoT-micro-agent
+    displayName: device twins, Defender-IoT-micro-agent twin
+    href: concept-security-module.md
+  - name: Edge azureiotsecurity
+    href: security-edge-architecture.md
+  - name: Security agents
+    href: overview-security-agents.md
+  - name: Security agent authentication
+    displayName: method, C, C#, module, device, installation, authentication
+    href: concept-security-agent-authentication-methods.md
+  - name: Baseline
+    displayName: custom, setting, properties
+    href: concept-baseline.md
+  - name: Azure security baseline for Microsoft Defender for IoT
+    displayName: identity management, active directory, privileged access, data protection, incident response, posture, vulnerability, governance
+    href: /security/benchmark/azure/baselines/defender-for-iot-security-baseline?toc=/azure/defender-for-iot/TOC.json
+  - name: Defender-IoT-micro-agent classic event aggregation                                          
+    displayName: twin, default, configuration, alerts
+    href: event-aggregation.md
+  - name: Classic agent based security alerts
+    href: agent-based-security-alerts.md
+  - name: Agent based security custom alerts
+    href: agent-based-security-custom-alerts.md
+  - name: Agent based recommendations
+    href: agent-based-recommendations.md
+  - name: Security agent overview
+    displayName: platforms, C, C#, agent
+    href: security-agent-architecture.md
+  - name: Create an azureiotsecurity module twin
+    displayName: module twin, security module
+    href: quickstart-create-security-twin.md
+  - name: Which agent should I deploy?
+    items:
+    - name: Select an agent to deploy
+      href: how-to-deploy-agent.md
+    - name: Deploy a C#-based security agent on a Windows device
+      href: how-to-deploy-windows-cs.md
+    - name: Deploy a C#-based security agent on a Linux device
+      href: how-to-deploy-linux-cs.md
+    - name: Deploy a C-based security agent on a Linux device
+      href: how-to-deploy-linux-c.md
+  - name: Troubleshoot a security agent
+    items:
+    - name: Troubleshoot Microsoft Defender for IoT Linux security agent
+      href: troubleshoot-agent.md
+    - name: Local configuration C
+      href: azure-iot-security-local-configuration-c.md
+    - name: Local configuration C#
+      href: azure-iot-security-local-configuration-csharp.md 
+  - name: Deploy Edge azureiotsecurity
+    href: how-to-deploy-edge.md
+  - name: Configure security agents
+    displayName: property
+    href: how-to-agent-configuration.md
+  - name: Send your own security messages
+    href: how-to-send-security-messages.md
+  - name: Access raw security data
+    displayName: log analytics, alerts, 
+    href: how-to-security-data-access.md
+  - name: Investigate a device
+    displayName: access, data, kql, ports, logins, process
+    href: how-to-investigate-device.md
 - name: Reference
   items:
   - name: Defender-IoT-micro-agent for Azure RTOS API
