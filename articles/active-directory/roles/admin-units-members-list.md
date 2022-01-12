@@ -69,14 +69,14 @@ Use the [Get-AzureADMSAdministrativeUnit](/powershell/module/azuread/get-azuread
 
 ```powershell
 $userObj = Get-AzureADUser -Filter "UserPrincipalName eq 'bill@example.com'"
-Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -Id $_.ObjectId | where {$_.RefObjectId -eq $userObj.ObjectId} }
+Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -Id $_.Id | where {$_.Id -eq $userObj.ObjectId} }
 ```
 
 ### List the administrative units for a group
 
 ```powershell
 $groupObj = Get-AzureADGroup -Filter "displayname eq 'TestGroup'"
-Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -Id $_.ObjectId | where {$_.ObjectId -eq $groupObj.ObjectId} }
+Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -Id $_.Id | where {$_.Id -eq $groupObj.ObjectId} }
 ```
 
 ### List the users and groups for an administrative unit
