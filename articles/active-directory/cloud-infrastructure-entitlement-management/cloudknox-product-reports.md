@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 01/12/2022
 ms.author: v-ydequadros
 ---
 
@@ -157,7 +157,7 @@ CloudKnox offers the following reports for management associated with the author
 	- **Use cases:** 
 		 - This report lists all the assigned permissions for the selected identities. 
 
-## How to read the Reports dashboard
+## The Reports dashboard
 
 The reports dashboard provides a table of information with both System Reports and Custom Reports. The **Reports** page defaults to the **System Reports** tab, which has the following details:
 
@@ -170,15 +170,6 @@ The reports dashboard provides a table of information with both System Reports a
 
       The following message displays across the top of the screen in green if the download is successful: **Successfully Started to Generate On Demand Report**.
 
-## How to view a custom report
-
-- To view the following information, select the **Custom Reports** tab:
-     - **Report Name** - Displays the name of the report.
-     - **Category** - Describes the type of report. For example, **Permission**, **Compliance**, and so on.
-     - **Authorization Systems** - Displays which authorizations the custom report applies to.
-     - **Format** - Displays the output format for the report, for example, CSV.
-     - **Schedule** - Displays the date and time the next report will be generated.
-     - **Next On** - Displays the date the next custom report will be generated on.
 
 
 

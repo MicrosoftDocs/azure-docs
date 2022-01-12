@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 01/12/2022
 ms.author: v-ydequadros
 ---
 
@@ -18,7 +18,7 @@ The Just Enough Privilege (JEP) Controller at Microsoft CloudKnox Permissions Ma
 
 The JEP Controller includes four tabs: **Roles/Policies**, **Permissions**, **Settings**, and **Requests**.
 
-## How to use the Roles/Policies tab
+## The Roles/Policies tab
 
 > [!NOTE]
 > Only users with the **Viewer**, **Controller**, or **Administrator** role can view this tab. </p>Only users with the **Controller** and **Administrator** role can make changes on this tab.
@@ -36,7 +36,7 @@ The JEP Controller includes four tabs: **Roles/Policies**, **Permissions**, **Se
 
 4. To view the **Role Summary**, click the icon next to the username under **Identities Assigned to**.
 
-5. To filter the roles/AWS policies select from the following options:
+5. To filter the roles/AWS policies, select from the following options:
 
     - **Authorization System Type** - Select **AWS**, **Azure**, **GCP**, or **VCENTER**.
     - **Authorization System** - Select the appropriate authorization system from the  drop-down list.
@@ -50,7 +50,7 @@ The JEP Controller includes four tabs: **Roles/Policies**, **Permissions**, **Se
     - **Policy Usage** - Select **All** or **Unused**.
     - **Policy/Role Name** - Enter the specific policy/role name into the box to search.
 
-### How to create a new policy (AWS Only)
+### Create a new policy (AWS Only)
 
 > [!NOTE]
 > Only users with the **Controller** or **Administrator** role can perform this action.
@@ -152,7 +152,7 @@ The JEP Controller includes four tabs: **Roles/Policies**, **Permissions**, **Se
 
        A green check mark with **Success** displays when the policy has been created, and the task moves to the **Completed** tab.
 
-### How to create a new role (Azure/GCP/VCenter)
+### Create a new role (Azure/GCP/VCenter)
 
 > [!NOTE]
 > Only users with the **Controller** or **Administrator** role can perform this action.
@@ -242,7 +242,7 @@ The JEP Controller includes four tabs: **Roles/Policies**, **Permissions**, **Se
 
        A green check mark with **Success** displays when the policy has been created, and the task moves to the **Completed** tab.
 
-### How to clone a role/AWS policy
+### Clone a role/policy
 
 > [!NOTE]
 > Only users with the Controller or Administrator role can perform this action.
@@ -268,7 +268,7 @@ The JEP Controller includes four tabs: **Roles/Policies**, **Permissions**, **Se
 
 8. Click **Submit**.
 
-### How to modify a role/AWS policy
+### Modify a role/AWS policy
 
 > [!NOTE]
 > Only users with the **Controller** or **Administrator** role can perform this action.
@@ -279,13 +279,13 @@ The JEP Controller includes four tabs: **Roles/Policies**, **Permissions**, **Se
 
 2. On the **Statements** screen, make edits to the **Tasks**, **Resources**, **Request Conditions**, and **Effect** as required. 
 
-    For more information on how to make edits to the **Statements** screen, see [How to Create a New Policy (AWS Only)](cloudknox-product-jep-controller.md#how-to-create-a-new-policy-aws-only) or [How to Create a New Role (Azure/GCP/vCenter)](cloudknox-product-jep-controller.md#how-to-create-a-new-role-azuregcpvcenter)).
+    For more information on how to make edits to the **Statements** screen, see [Create a New Policy (AWS Only)](cloudknox-product-jep-controller.md#how-to-create-a-new-policy-aws-only) or [Create a New Role (Azure/GCP/vCenter)](cloudknox-product-jep-controller.md#how-to-create-a-new-role-azuregcpvcenter)).
 
 3. Click **Next**.
 
 4. Review the edits on the **Preview** screen, and then click **Modify**.
 
-### How to delete a role/AWS policy
+### Delete a role/AWS policy
 
 > [!NOTE]
 > Only users with the **Controller** or **Administrator** role can perform this action.
@@ -300,7 +300,7 @@ The JEP Controller includes four tabs: **Roles/Policies**, **Permissions**, **Se
 
 3. To remove the role/AWS policy, click **Delete**.
 
-## How to use the Permissions tab
+## The Permissions tab
 
 > [!NOTE]
 > Only users with the **Controller** or **Administrator** role can perform these actions.
@@ -399,7 +399,7 @@ The JEP Controller includes four tabs: **Roles/Policies**, **Permissions**, **Se
             - **Cancel** - Cancel performing the action.
 
 
-### How to use the Role/Policy Template tab
+### The Role/Policy Template tab
 
 > [!NOTE]
 > Only users with the Controller or Administrator role can view this tab and perform actions.
@@ -455,7 +455,7 @@ The JEP Controller includes four tabs: **Roles/Policies**, **Permissions**, **Se
 
      When the changes are completed, the following message displays in green at the top of the screen: **Role/Policy template has been successfully Saved**.
 
-### How to use the My Requests tab for templates
+### The My Requests tab for templates
 
 > [!NOTE]
 > Only users with the Administrator role can view this tab and perform actions.
@@ -500,7 +500,7 @@ The JEP Controller includes four tabs: **Roles/Policies**, **Permissions**, **Se
 
 12. **Your request has been successfully submitted** displays highlighted in green across the top of the screen once completed.
 
-## How to use the Settings tab
+## The Settings tab
 
 > [!NOTE]
 > Only users with the Administrator role can view this tab and perform actions. 
@@ -553,7 +553,7 @@ The JEP Controller includes four tabs: **Roles/Policies**, **Permissions**, **Se
 
 1. Click the **Request Settings** tab.
 
-2. Under **Request Duration** the **Request Duration Limit** section is listed in **Hours** and you can request the duration of up to 4 hours, but not greater than 4 hours. 
+2. Under **Request Duration**, the **Request Duration Limit** section is listed in **Hours** and you can request the duration of up to 4 hours, but not greater than 4 hours. 
 
      Hover over the information icon to the right of the hours drop-down to view information of when the settings will be applied.
 
@@ -584,7 +584,7 @@ When the user submits the request, an email is sent to the approver. The request
 
 When the request is approved, CloudKnox provisions the permission for the requestor in the respective account. After the duration of the request has expired, CloudKnox automatically removes the permission for the requestor.
 
-## How to use the Requests tab
+## The Requests tab
 
 > [!NOTE]
 > Only users with the Administrator and Approver role can view this tab, and perform actions.
@@ -661,7 +661,7 @@ The **Requests** tab is only visible to users if they have the *Approver* role a
 
 5. To  display or hide columns, click **Columns**, and then click the icon next to the column name.
 
-### How to use the My Requests tab
+### The My Requests tab
 
 > [!NOTE]
 > Only users with the Viewer, Controller, Administrator, Approver, and Requestor role can view this tab. </p> Only Viewers, Controllers, Administrators, and Requestors can perform actions.
@@ -725,7 +725,7 @@ The **My Requests** tab  displays details about requests submitted by the curren
 
 5. To display or hide columns, click **Columns**, and then click the icon next to the column name.
 
-### How to create a new request
+### Create a new request
 
 > [!NOTE]
 > Only users with the Viewer, Controller, Administrator, Approver, and Requestor role can view this section. </p> Only Viewers, Controllers, Administrators, and Requestors can perform actions.
@@ -745,7 +745,7 @@ The **My Requests** tab  displays details about requests submitted by the curren
 
         3. Select either **Request Policy(s)** or **Request Task(s)**.
 
-             See **How to use My Requests tab for Templates** for instructions on how to request a template.
+             See **My Requests tab for Templates** for instructions on how to request a template.
 
         4. Select the appropriate policies, tasks, or templates from the **Available Policies** or **Available Tasks** column. To add them to the **Selected Policies** or **Selected Tasks** column, click the icon.
 
@@ -788,7 +788,7 @@ The **My Requests** tab  displays details about requests submitted by the curren
         2. In the **Scope** field, select or enter the appropriate resource. By default, the **Scope** is set to the root folder of the authorization system.
         3. Select either **Request Roles(s)** or **Request Task(s)**.
 
-             For information on how to request a template, see **How to use My Requests tab for Templates**.
+             For information on how to request a template, see **The My Requests tab for Templates**.
 
         4. Select the appropriate policies or tasks from the **Select Roles** or **Available Tasks** column and then click the icon to add it to the **Selected Roles** or **Selected Tasks** column.
 

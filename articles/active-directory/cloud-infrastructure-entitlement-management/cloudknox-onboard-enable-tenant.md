@@ -49,7 +49,7 @@ This topic describes how to:
 5. To confirm that the app was created, open **App Registrations** in Azure and, on the **All applications** tab, locate your app.
 6. Select the app name to open the **Expose an API** page.
 
-    The API is displayed in the **Application ID URI** box. This API facilitates the connection with the OIDC account.
+    The API is displayed in the **Application ID URI** box. This API enables the connection with the OIDC account.
 7. Log in to AWS and select the CloudKnox account as the OIDC provider.
 8. Return to CloudKnox, and in the **CloudKnox Onboarding – Azure OIDC Account Details & IDP Access** dialog, enter the **AWS OIDC Account ID**. Then select **Launch Template**.
 
@@ -59,7 +59,7 @@ This topic describes how to:
     AWS creates the required IDC entities including the role that the IDC provider needs to connect to Azure AAD STS. These entity names are listed in the **Resources** page.
 10. In the **CloudKnox Data Collectors** tab, select **Next**.
 11. In the **Enter Your AWS Account ID** box, enter your account ID.
-12. To avoid rule naming collisions, in the **AWS Member Account Role** box, enter a new name. Then select **Launch Template**.
+12. To avoid rule-naming collisions, in the **AWS Member Account Role** box, enter a new name. Then select **Launch Template**.
 
     The **AWS Quick create stack** page opens. 
 13. In the **CloudTrailBucketName** box, enter a name. 
@@ -126,18 +126,18 @@ This topic describes how to:
 
     1. **Execute the following command.**
 
-        - When the **Google Sign In** box appears displaying some code, copy the code and paste it into the **GCP Onboarding screen**. 
+        - When the **Google Sign In** box appears, copy the code in the box and paste it into the **GCP Onboarding screen**. 
         
-        This verifies that you are the owner of the account and are logging in.
+        Running this code confirms that you're the owner of the account and are logging in.
     1. **Execute the script to create the provider.**
 
         - To create the provider, copy and paste the script into the **GCP Onboarding screen**.
     1. **Execute the script to onboard the projects.**
 
         1. To set the PROJECT_ID, copy and paste the script into the **GCP Onboarding screen**.
-        1. In the Authorize Cloud Shell dialog, to authorize all API calls that require your credentials, select Authorize.
+        1. In the Authorize Cloud Shell dialog, to authorize all API calls that require your credentials, select **Authorize**.
     
-        This creates the workload-identity-pool.sh, which creates all the required entities to facilitate the connection between OIDC and GCP.
+         The workload-identity-pool.sh creates all the required entities to facilitate the connection between OIDC and GCP.
 20. When you run the script, you're asked to confirm that you want to enable the controller. Enter: **Y** for read and write permissions or **N** for read-only permissions into the project.
 21. In the **CloudKnox Onboarding – Summary** dialog, review the information you’ve added, and then select **View Now & Save**.
 

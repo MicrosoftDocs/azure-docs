@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 01/12/2022
 ms.author: v-ydequadros
 ---
 
@@ -59,13 +59,14 @@ The report name appears in the **Reports** table.
 
 ## View a custom report 
 
-1. To view a custom report, select **Reports**, and then select the **Custom Reports** tab.
+1. To view a list of custom reports, select **Reports**, and then select the **Custom Reports** tab.
 
     The **Custom Reports** tab displays the following options in the **Reports** table:
-        - **Report Name** - The name of the report.
-        - **Category** - The type of report: **Permission** or **Compliance**.
-        - **Authorization System** - The authorization system in which you can view the report: Amazon Web Services (AWS), Microsoft Azure (Azure), and Google Cloud Platform (GCP).
-        - **Format** - The format of the report.
+
+    - **Report Name** - The name of the report.
+    - **Category** - The type of report: **Permission** or **Compliance**.
+    - **Authorization System** - The authorization system in which you can view the report: Amazon Web Services (AWS), Microsoft Azure (Azure), and Google Cloud Platform (GCP).
+    - **Format** - The format of the report.
 
 2. To view a report, from the **Report Name** column, select the report you want.
 3. To download a report, from the ellipses **(...)** menu, select **Download**.
@@ -82,7 +83,7 @@ The report name appears in the **Reports** table.
 5. To refresh the list of reports, select **Reload**.
 
 
-## How to make changes to a saved or scheduled report
+## Modify a saved or scheduled report
 
 1. Hover over the report name on the **Custom Reports** tab.
 

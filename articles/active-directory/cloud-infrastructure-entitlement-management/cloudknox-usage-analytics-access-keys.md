@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 01/12/2022
 ms.author: v-ydequadros
 ---
 
@@ -25,7 +25,7 @@ The CloudKnox **Usage Analytics** feature contains details about identities, res
 
 The Microsoft CloudKnox Permissions Management **Usage Analytics** dashboard allows system administrators to collect, analyze, report on, and visualize data about all identity types.
 
-This topic describes how How to view  usage analytics about access keys for AWS, Azure, and GCP in Microsoft CloudKnox Permissions Management. 
+This topic describes how to view  usage analytics about access keys for AWS, Azure, and GCP in Microsoft CloudKnox Permissions Management. 
 
 ## View information on the Access Keys dashboard
 

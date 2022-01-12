@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 01/12/2022
 ms.author: v-ydequadros
 ---
 
@@ -101,13 +101,13 @@ This topic describes how to use the **Permissions Analytics report** in Microsof
 	- Date Created On - Displays the date in which the identity was created.
 
 
-## How to add and remove tags in the Permissions Analytics report
+## Add and remove tags in the Permissions Analytics report
 
 1. Select **Tags**.
 
 2. Select one of the categories from the **Permissions Analytics Report**.
 
-     <!---For more information, see [How to use the Permissions Analytics Report](cloudknox-prod-reports.md#how-to-use-the-Permissions-Analytics-Report).--->
+     <!---For more information, see [Use the Permissions Analytics Report](cloudknox-prod-reports.md#how-to-use-the-Permissions-Analytics-Report).--->
 
 3. Select the identity name to which you want to add a tag. Then, select the checkbox at the top to select all identities.
 
