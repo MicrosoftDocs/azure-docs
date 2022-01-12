@@ -35,23 +35,23 @@ To complete this tutorial, make sure you have:
 ## Creating and setting up Unity Project
 
 ### Create New Project
-1. In **Unity Hub** select **New project**
+1. In **Unity Hub**, select **New project**
 2. Select **3D**
 3. Enter your **Project name** and enter a save **Location**
 4. Select **Create project** and wait for Unity to create your project
 
 ### Change Build Platform
-1. In your unity editor select **File** > **Build Settings**
+1. In your unity editor, select **File** > **Build Settings**
 1. Select **Universal Windows Platform** then **Switch Platform**. Wait until Unity has finished processing all files.
 
 
 ### Import ASA and OpenXR
 1. Launch [Mixed Reality Feature Tool](/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool)
-1. Select your project path - This is the folder that contains folders such as  _Assets_, _Packages_, _ProjectSettings_ and so on - and click **Discover Features**
-1. Under _Azure Mixed Reality Services_ select both
+1. Select your project path - the folder that contains folders such as  _Assets_, _Packages_, _ProjectSettings_, and so on - and select  **Discover Features**
+1. Under _Azure Mixed Reality Services_, select both
     1. **Azure Spatial Anchors SDK Core**
     1. **Azure Spatial Anchors SDK for Windows**
-1. Under _Platform Support_ select 
+1. Under _Platform Support_, select
     1. **Mixed Reality OpenXR Plugin**
 > [!NOTE]
 > Make sure you have refreshed the catalog and the newest version is selected for each
