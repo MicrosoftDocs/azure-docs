@@ -38,7 +38,7 @@ This is the basic template format:
           "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
         },
 	"userAssignedIdentities": [
-        "/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName>"
+          "/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName>"
       ]
       },
       "source": {}, 
@@ -126,7 +126,7 @@ These are key/value pairs you can specify for the image that's generated.
 
 There are two ways to add user assigned identities explained below.
 
-### User Assigned Identity for the Image Builder service
+### User Assigned Identity for Azure Image Builder image template resource
 
 Required - For Image Builder to have permissions to read/write images, read in scripts from Azure Storage you must create an Azure User-Assigned Identity, that has permissions to the individual resources. For details on how Image Builder permissions work, and relevant steps, please review the [documentation](image-builder-user-assigned-identity.md).
 
@@ -150,7 +150,12 @@ For more information on deploying this feature, see [Configure managed identitie
 
 ### User Assigned Identity for the Image Builder Build VM
 
-Optional - The Image Builder Build VM is responsible for building your image to your specifications, including running customization scripts and accessing resources. For the Image Builder Build VM to have permissions to authenticate with other services like Azure Key Vault, you must create an Azure User-Assigned Identity that has permissions to the individual resources.
+This field is only available in API versions 2021-10-01 and newer.
+
+Optional - The Image Builder Build VM, that is created by the Image Builder service in your subscription, is used to build and customize the image. For the Image Builder Build VM to have permissions to authenticate with other services like Azure Key Vault in your subscription, you must create a Azure User-Assigned Identity that has permissions to the individual resources. The template MSI should have "Managed Identity Operator" role assignment on all the build VM MSIs.
+
+> [!NOTE]
+> Please be aware that multiple identities can be specified for the Image Builder Build VM, including the identity you created for the [image template resource](#user-assigned-identity-for-azure-image-builder-image-template-resource). By default, the identity you created for the image template resource will not automatically be added to the build VM.
 
 ```json
     "properties": { 
@@ -166,6 +171,9 @@ The Image Builder Build VM User Assigned Identity:
 * Supports a list of one or more user assigned managed identities to be configured on the VM
 * Supports cross subscription scenarios (identity created in one subscription while the image template is created in another subscription under the same tenant)
 * Does not support cross tenant scenarios (identity created in one tenant while the image template is created in another tenant)
+
+> [!IMPORTANT]
+> Image Builder's user assigned identity functionality is aligned with Azure standards. Today, Image Builder can impersonate a customer’s Template identity and it’s possible for the service to do anything in the customer subscription that the Template identity can do. In API verisons 2021-10-01 and newer, AIB will also be able to impersonate additional MSIs in certain scenarios – which is still aligned with how resource providers and Azure work. Image Builder has these privileges, but does not perform any actions in a customer's subscription, unless they are required for building the image. Azure Image Builder does not guarantee that it could never/under no circumstances gain access to customer’s resources (including secrets).
 
 To learn more, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token) and [How to use managed identities for Azure resources on an Azure VM for sign-in](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in).
 
