@@ -35,7 +35,7 @@ Learn about important updates in the commercial marketplace program of Partner C
 | Payouts | We've updated the external tax form page, including instructions on how to reconcile 1099-k forms; see questions about tax forms at [Understand IRS tax forms issued by Microsoft](/partner-center/understand-irs-tax-forms). | 2022-01-06 |
 | Taxation | Nigeria and Thailand are now [Microsoft-managed countries](/partner-center/tax-details-marketplace) in Azure Marketplace. | 2021-09-13 |
 | Taxation | End-customer taxation in Australia is managed by Microsoft, except for customer purchases made through an enterprise agreement, which are managed by the publisher. | 2021-07-01 |
-| Taxation | Updated [tax details page](/partner-center/tax-details-marketplace) country list to include the following: <ul><li>Argentina</li><li>Bulgaria</li><li>Hong Kong SAR</li><li>Korea (South)</li><li>Pakistan</li><li>Palestinian Authority</li><li>Panama</li><li>Paraguay</li><li>Peru</li><li>Philippines</li><li>Saint Kitts and Nevis</li><li>Senegal</li><li>Sri Lanka</li><li>Tajikistan</li><li>Tanzania</li><li>Thailand</li><li>Trinidad and Tobago</li><li>Tunisia</li><li>Turkmenistan</li><li>Uganda</li><li>Uzbekistan</li><li>Zimbabwe</li></ul> | 2021-07-01 |
+| Taxation | Updated [tax details page](/partner-center/tax-details-marketplace) country list to include the following: <br><br> - Argentina <br> - Bulgaria <br> - Hong Kong SAR <br> - Korea (South) <br>- Pakistan <br> - Palestinian Authority <br> - Panama <br> - Paraguay <br> - Peru <br> - Philippines <br> - Saint Kitts and Nevis <br> - Senegal <br> - Sri Lanka <br> - Tajikistan <br> - Tanzania <br> - Thailand <br> - Trinidad and Tobago <br> - Tunisia <br> - Turkmenistan <br> - Uganda <br> - Uzbekistan <br> - Zimbabwe | 2021-07-01 |
 | Taxation | Nigeria moved from the "shared publisher/developer-managed countries" list to the “end-customer taxation with differences in Marketplaces".  | 2021-07-01 |
 |
 
@@ -44,11 +44,7 @@ Learn about important updates in the commercial marketplace program of Partner C
 | Category | Description | Date |
 | ------------ | ------------- | ------------- |
 | Offers | Added a new article, [Troubleshooting Private Plans in the commercial marketplace](azure-private-plan-troubleshooting.md). | 2021-12-13 |
-| Offers | We have updated the names of [Dynamics 365](/marketplace-dynamics-365#licensing-options) offer types:
-<ul><li>Dynamics 365 for Customer Engagement &amp; PowerApps is now **Dynamics 365 apps on Dataverse and Power Apps**</li>
-<li>Dynamics 365 for operations is now **Dynamics 365 Operations Apps**</li>
-<li>Dynamics 365 business central is now **Dynamics 365 Business Central**</li></ul>
- | 2021-12-03 |
+| Offers | We have updated the names of [Dynamics 365](/marketplace-dynamics-365#licensing-options) offer types: <br><br> - Dynamics 365 for Customer Engagement &amp; PowerApps is now **Dynamics 365 apps on Dataverse and Power Apps** <br> - Dynamics 365 for operations is now **Dynamics 365 Operations Apps** <br> - Dynamics 365 business central is now **Dynamics 365 Business Central** | 2021-12-03 |
 | Policy | We’ve created an [FAQ topic](/legal/marketplace/mpa-faq) to answer publisher questions about the Microsoft Publisher Agreement. | 2021-09-27 |
 | Policy | We've updated the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). For change history, see [Microsoft Publisher Agreement Version 8.0 – October 2021 Update](/legal/marketplace/mpa-change-history-oct-2021). | 2021-09-14 |
 | Policy | Updated [certification](/legal/marketplace/certification-policies) policy for September; see [change history](/legal/marketplace/offer-policies-change-history). | 2021-09-10 |
