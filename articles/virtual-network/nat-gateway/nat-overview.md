@@ -51,7 +51,7 @@ NAT is fully scaled out from the start. There's no ramp up or scale-out operatio
   * To upgrade a basic load balancer to standard, see [Upgrade Azure Public Load Balancer](/azure/load-balancer/upgrade-basic-standard)
   * To upgrade a basic public IP to standard, see [Upgrade a public IP address](/azure/virtual-network/ip-services/public-ip-upgrade-portal)
 * NAT is the recommended method for outbound connectivity. A NAT gateway does not have the same limitations of SNAT port exhaustion as does [default outbound access](/azure/virtual-network/ip-services/default-outbound-access) and [outbound rules of a load balancer](/azure/load-balancer/outbound-rules). 
-  * To migrate outbound access to NAT gateway from default outbound access or from outbound rules of a load balancer, see [Migrate oubound access to Azure Virtual Network NAT](/azure/virtual-network/nat-gateway/tutorial-migrate-outbound-nat)
+  * To migrate outbound access to NAT gateway from default outbound access or from outbound rules of a load balancer, see [Migrate outbound access to Azure Virtual Network NAT](/azure/virtual-network/nat-gateway/tutorial-migrate-outbound-nat)
 * NAT cannot be associated to an IPv6 Public IP address or IPv6 Public IP Prefix. However, it can be associated to a dual stack subnet.
 * NAT allows flows to be created from the virtual network to the services outside your VNet. Return traffic from the Internet is only allowed in response to an active flow. Services outside your VNet cannot initiate a connection to instances.
 * NAT cannot span multiple virtual networks.
