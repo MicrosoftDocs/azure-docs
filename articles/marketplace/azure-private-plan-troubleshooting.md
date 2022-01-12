@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot private plans in the commercial marketplace
-description: Troubleshoot private plans in commercial marketplace
+description: Troubleshoot private plans in the commercial marketplace
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
@@ -9,9 +9,9 @@ ms.author: keferna
 ms.date: 12/10/2021
 ---
 
-# Troubleshooting Private Plans in Commercial Marketplace
+# Troubleshooting Private Plans in the commercial marketplace
 
-This topic will discuss various issues and solutions when troubleshooting private plans.
+This topic discusses various issues and solutions when troubleshooting private plans.
 
 ## Customer Blockers and Common Solutions
 

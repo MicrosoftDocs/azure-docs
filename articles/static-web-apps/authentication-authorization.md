@@ -27,6 +27,81 @@ Azure Static Web Apps provides a streamlined authentication experience. By defau
 
 The subjects of authentication and authorization significantly overlap with routing concepts, which are detailed in the [application configuration guide](configuration.md#routes).
 
+## System folder
+
+Azure Static Web Apps uses the `/.auth` system folder to provide access to authorization-related APIs. Rather than exposing any of the routes under the `/.auth` folder directly to end users, consider creating [routing rules](configuration.md#routes) to create friendly URLs.
+
+## Login
+
+Use the following table to find the provider-specific route.
+
+| Authorization provider | Login route             |
+| ---------------------- | ----------------------- |
+| Azure Active Directory | `/.auth/login/aad`      |
+| GitHub                 | `/.auth/login/github`   |
+| Twitter                | `/.auth/login/twitter`  |
+
+For example, to log in with GitHub you could include a link like the following snippet:
+
+```html
+<a href="/.auth/login/github">Login</a>
+```
+
+If you chose to support more than one provider, then you need to expose a provider-specific link for each on your website.
+
+You can use a [route rule](./configuration.md#routes) to map a default provider to a friendly route like _/login_.
+
+```json
+{
+  "route": "/login",
+  "redirect": "/.auth/login/github"
+}
+```
+
+### Post login redirect
+
+If you want a user to return to a specific page after login, provide a full qualified URL in `post_login_redirect_uri` query string parameter.
+
+For example:
+
+```html
+<a href="/.auth/login/github?post_login_redirect_uri=https://zealous-water.azurestaticapps.net/success">Login</a>
+```
+
+## Logout
+
+The `/.auth/logout` route logs users out from the website. You can add a link to your site navigation to allow the user to log out as shown in the following example.
+
+```html
+<a href="/.auth/logout">Log out</a>
+```
+
+You can use a [route rule](./configuration.md#routes) to map a friendly route like _/logout_.
+
+```json
+{
+  "route": "/logout",
+  "redirect": "/.auth/logout"
+}
+```
+
+### Post logout redirect
+
+If you want a user to return to a specific page after logout, provide a URL in `post_logout_redirect_uri` query string parameter.
+
+## Block an authorization provider
+
+You may want to restrict your app from using an authorization provider. For instance, your app may want to standardize only on [providers that expose email addresses](#provider-user-details).
+
+To block a provider, you can create [route rules](configuration.md#routes) to return a 404 for requests to the blocked provider-specific route. For example, to restrict Twitter as provider, add the following route rule.
+
+```json
+{
+  "route": "/.auth/login/twitter",
+  "statusCode": 404
+}
+```
+
 ## Roles
 
 Every user who accesses a static web app belongs to one or more roles. There are two built-in roles that users can belong to:
@@ -228,81 +303,6 @@ https://<WEB_APP_DOMAIN_NAME>/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 ```
 
 Note that if you are using Azure Active Directory, use `aad` as the value for the `<AUTHENTICATION_PROVIDER_NAME>` placeholder.
-
-## System folder
-
-Azure Static Web Apps uses the `/.auth` system folder to provide access to authorization-related APIs. Rather than exposing any of the routes under the `/.auth` folder directly to end users, consider creating [routing rules](configuration.md#routes) to create friendly URLs.
-
-## Login
-
-Use the following table to find the provider-specific route.
-
-| Authorization provider | Login route             |
-| ---------------------- | ----------------------- |
-| Azure Active Directory | `/.auth/login/aad`      |
-| GitHub                 | `/.auth/login/github`   |
-| Twitter                | `/.auth/login/twitter`  |
-
-For example, to log in with GitHub you could include a link like the following snippet:
-
-```html
-<a href="/.auth/login/github">Login</a>
-```
-
-If you chose to support more than one provider, then you need to expose a provider-specific link for each on your website.
-
-You can use a [route rule](./configuration.md#routes) to map a default provider to a friendly route like _/login_.
-
-```json
-{
-  "route": "/login",
-  "redirect": "/.auth/login/github"
-}
-```
-
-### Post login redirect
-
-If you want a user to return to a specific page after login, provide a full qualified URL in `post_login_redirect_uri` query string parameter.
-
-For example:
-
-```html
-<a href="/.auth/login/github?post_login_redirect_uri=https://zealous-water.azurestaticapps.net/success">Login</a>
-```
-
-## Logout
-
-The `/.auth/logout` route logs users out from the website. You can add a link to your site navigation to allow the user to log out as shown in the following example.
-
-```html
-<a href="/.auth/logout">Log out</a>
-```
-
-You can use a [route rule](./configuration.md#routes) to map a friendly route like _/logout_.
-
-```json
-{
-  "route": "/logout",
-  "redirect": "/.auth/logout"
-}
-```
-
-### Post logout redirect
-
-If you want a user to return to a specific page after logout, provide a URL in `post_logout_redirect_uri` query string parameter.
-
-## Block an authorization provider
-
-You may want to restrict your app from using an authorization provider. For instance, your app may want to standardize only on [providers that expose email addresses](#provider-user-details).
-
-To block a provider, you can create [route rules](configuration.md#routes) to return a 404 for requests to the blocked provider-specific route. For example, to restrict Twitter as provider, add the following route rule.
-
-```json
-{
-  "route": "/.auth/login/twitter",
-  "statusCode": 404
-}
-```
 
 ## Restrictions
 
