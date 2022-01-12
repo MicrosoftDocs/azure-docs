@@ -121,9 +121,10 @@ if pager.Err() != nil {
 ### Delete a secret
 
 ```go
-_, err = client.BeginDeleteSecret(context.TODO(), mySecretName, nil)
+respDel, err := client.BeginDeleteSecret(context.TODO(), mySecretName, nil)
+_, err = respDel.PollUntilDone(context.TODO(), time.Second)
 if err != nil {
-  log.Fatalf("failed to delete secret: %v", err)
+	log.Fatalf("failed to delete secret: %v", err)
 }
 ```
 
@@ -189,7 +190,8 @@ func main() {
 	}
 
 	//Delete a secret
-	_, err = client.BeginDeleteSecret(context.TODO(), mySecretName, nil)
+	respDel, err := client.BeginDeleteSecret(context.TODO(), mySecretName, nil)
+	_, err = respDel.PollUntilDone(context.TODO(), time.Second)
 	if err != nil {
 		log.Fatalf("failed to delete secret: %v", err)
 	}
