@@ -11,12 +11,18 @@ ms.author: cshoe
 
 # Enterprise-grade edge (Preview)
 
-Use Azure Static Web Apps enterprise-grade edge (Preview) to enable faster page loads, enhance security, and optimize reliability for your global applications. It combines the capabilities of Azure Static Web Apps, Azure Front Door and Azure Content Delivery Network (CDN) standard into a single secure cloud CDN platform. Key features included with Azure Static Web Apps enterprise-grade edge are:
+Use Azure Static Web Apps enterprise-grade edge (Preview) to enable faster page loads, enhance security, and optimize reliability for your global applications. Enterprise edge combines the capabilities of Azure Static Web Apps, Azure Front Door, and Azure Content Delivery Network (CDN) into a single secure cloud CDN platform.
+
+Key features of Azure Static Web Apps enterprise-grade edge include:
 
 * Global presence in 118+ [edge locations](/azure/frontdoor/edge-locations-by-region) across 100 metro cities.
+
 * Caching assets at the [edge](/azure/frontdoor/front-door-caching).
+
 * Proactive protection against [Distributed Denial of Service (DDoS) attacks](/azure/frontdoor/front-door-ddos).
+
 * Native support of end-to-end IPv6 connectivity and [HTTP/2 protocol](/azure/frontdoor/front-door-http2.md).
+
 * Optimized file compression.
 
 > [!NOTE]
@@ -27,10 +33,12 @@ Use Azure Static Web Apps enterprise-grade edge (Preview) to enable faster page 
 When enterprise-grade edge is enabled for your static web app, you benefit from caching at various levels.
 
 * **CDN**: Caching content on edge locations as physically close to users a possible to reduce latency.
+
 * **DNS**: Caching DNS records for faster lookups.
+
 * **Browser**: Files are stored in the browser and returned for identical requests.
 
-For further control, you also have the option to create [custom cache control headers](configuration.md) for your static web app.
+For further control, you can also create [custom cache control headers](configuration.md) for your static web app.
 
 ## Configuration types
 
@@ -67,7 +75,7 @@ A manual setup gives you full control over the CDN configuration including the c
 
 1. Select **OK** to confirm the save.
 
-    Enabling this feature will incur an additional cost.
+    Enabling this feature incurs extra costs.
 
 # [Azure CLI](#tab/azure-cli)
 
