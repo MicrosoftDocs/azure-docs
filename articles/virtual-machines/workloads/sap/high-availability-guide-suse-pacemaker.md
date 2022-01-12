@@ -33,11 +33,11 @@ This article discusses how to set up Pacemaker on SUSE Linux Enterprise Server (
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
-In Azure, you have two options for setting up STONITH in the Pacemaker cluster for SLES. You can use an Azure fence agent, with which you restart a failed node via the Azure APIs, or you can use a STONITH block device (SBD device). 
+In Azure, you have two options for setting up STONITH in the Pacemaker cluster for SLES. You can use an Azure fence agent, which restarts a failed node via the Azure APIs, or you can use a STONITH block device (SBD device). 
 
-To configure STONITH by using an SBD device in Azure, you can use either of two methods:
+You can configure the SBD device by using either of two options:
 
-- Use an iSCSI target server:
+- SBD with an iSCSI target server:
   
   The SBD device requires at least one additional virtual machine (VM) that acts as an Internet Small Computer System Interface (iSCSI) target server and provides an SBD device. These iSCSI target servers can, however, be shared with other Pacemaker clusters. The advantage of using an SBD device is that, if you're already using SBD devices on-premises, they don't require any changes to how you operate the Pacemaker cluster. 
   
@@ -50,30 +50,30 @@ To configure STONITH by using an SBD device in Azure, you can use either of two 
   >
   >Maintenance events and other issues with the NVA can have a negative impact on the stability and reliability of the overall cluster configuration. For more information, see [User-defined routing rules](../../../virtual-network/virtual-networks-udr-overview.md).
 
-- Use an Azure shared disk:
+- SBD with an Azure shared disk:
   
   To configure an SBD device, you need to attach at least one [Azure shared disk](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/disks-shared.md) to all virtual machines that are part of Pacemaker cluster. The advantage of SBD device using an Azure shared disk is that you don’t need to deploy additional virtual machines.
   
   ![Diagram of the Azure shared disk SBD device for SLES Pacemaker cluster.](./media/high-availability-guide-suse-pacemaker/azure-shared-disk-sbd-device.png)
   
-Here are some important considerations about SBD devices when you're using an Azure shared disk:
+   Here are some important considerations about SBD devices when you're using an Azure shared disk:
 
-- An Azure shared disk with Premium SSD is supported as an SBD device.
-- SBD devices that use an Azure shared disk are supported on SLES High Availability 15 SP01 and later.
-- SBD devices that use an Azure premium shared disk are supported on [locally redundant storage (LRS)](../../disks-redundancy.md#locally-redundant-storage-for-managed-disks) and [zone-redundant storage (ZRS)](../../disks-redundancy.md#zone-redundant-storage-for-managed-disks).
-- Depending on the type of your deployment (availability set or availability zones), choose the appropriate redundant storage for an Azure shared disk as your SBD device.
-  - An SBD device using LRS for Azure premium shared disk (skuName - Premium_LRS) is only supported with deployment in availability set.
-  - An SBD device using ZRS for an Azure premium shared disk (skuName - Premium_ZRS) is recommended with deployment in availability zones.
-- A ZRS for managed disk is currently unavailable in all regions with availability zones. For more information, review the ZRS "Limitations" section in [Redundancy options for managed disks](../../disks-redundancy.md#limitations).
-- The Azure shared disk that you use for SBD devices doesn’t need to be large. The [maxShares](../../disks-shared-enable.md#disk-sizes) value determines how many cluster nodes can use the shared disk. For example, you can use P1 or P2 disk sizes for your SBD device on two-node cluster such as SAP ASCS/ERS or SAP HANA scale-up.
-- For [HANA scale-out with HANA system replication (HSR) and Pacemaker](sap-hana-high-availability-scale-out-hsr-suse.md), you can use an Azure shared disk for SBD devices in clusters with up to four nodes per replication site because of the current limit of [maxShares](../../disks-shared-enable.md#disk-sizes).
-- We do *not* recommend attaching an Azure shared disk SBD device across Pacemaker clusters.
-- If you use multiple Azure shared disk SBD devices, check on the limit for a maximum number of data disks that can be attached to a VM.
-- For more information about limitations for Azure shared disks, carefully review the "Limitations" section of [Azure shared disk documentation](../../disks-shared.md#limitations).
+   - An Azure shared disk with Premium SSD is supported as an SBD device.
+   - SBD devices that use an Azure shared disk are supported on SLES High Availability 15 SP01 and later.
+   - SBD devices that use an Azure premium shared disk are supported on [locally redundant storage (LRS)](../../disks-redundancy.md#locally-redundant-storage-for-managed-disks) and [zone-redundant storage (ZRS)](../../disks-redundancy.md#zone-redundant-storage-for-managed-disks).
+   - Depending on the type of your deployment (availability set or availability zones), choose the appropriate redundant storage for an Azure shared disk as your SBD device.
+     - An SBD device using LRS for Azure premium shared disk (skuName - Premium_LRS) is only supported with deployment in availability set.
+     - An SBD device using ZRS for an Azure premium shared disk (skuName - Premium_ZRS) is recommended with deployment in availability zones.
+   - A ZRS for managed disk is currently unavailable in all regions with availability zones. For more information, review the ZRS "Limitations" section in [Redundancy options for managed disks](../../disks-redundancy.md#limitations).
+   - The Azure shared disk that you use for SBD devices doesn’t need to be large. The [maxShares](../../disks-shared-enable.md#disk-sizes) value determines how many cluster nodes can use the shared disk. For example, you can use P1 or P2 disk sizes for your SBD device on two-node cluster such as SAP ASCS/ERS or SAP HANA scale-up.
+   - For [HANA scale-out with HANA system replication (HSR) and Pacemaker](sap-hana-high-availability-scale-out-hsr-suse.md), you can use an Azure shared disk for SBD devices in clusters with up to four nodes per replication site because of the current limit of [maxShares](../../disks-shared-enable.md#disk-sizes).
+   - We do *not* recommend attaching an Azure shared disk SBD device across Pacemaker clusters.
+   - If you use multiple Azure shared disk SBD devices, check on the limit for a maximum number of data disks that can be attached to a VM.
+   - For more information about limitations for Azure shared disks, carefully review the "Limitations" section of [Azure shared disk documentation](../../disks-shared.md#limitations).
 
-- Azure fence agents require a service principal that manages restarting failed nodes via Azure APIs. Azure fence agents don't require the deployment of additional virtual machines.
+You can set up STONITH by using an Azure fence agent. Azure fence agents require a service principal that manages restarting failed nodes via Azure APIs. Azure fence agents don't require the deployment of additional virtual machines.
 
-## Use an iSCSI target server
+## SBD with an iSCSI target server
 
 To use an SBD device that uses an iSCSI target server for fencing, follow the instructions in the next sections.
 
@@ -113,14 +113,16 @@ You first need to create the iSCSI target virtual machines. You can share iSCSI 
 
 ### Create an iSCSI device on the iSCSI target server
 
-To create the iSCSI disks for the clusters to be used by your SAP systems, run the following commands on all iSCSI target virtual machines. In the following example, SBD devices for  multiple clusters are created. It shows how you would use one iSCSI target server for multiple clusters. The SBD devices are placed on the OS disk. Make sure that you have enough space.
+To create the iSCSI disks for the clusters to be used by your SAP systems, run the following commands on all iSCSI target virtual machines. In the example, SBD devices for  multiple clusters are created. It shows how you would use one iSCSI target server for multiple clusters. The SBD devices are placed on the OS disk. Make sure that you have enough space.
 
 * **nfs**: Identifies the NFS cluster. 
 * **ascsnw1**: Identifies the ASCS cluster of **NW1**.
 * **dbnw1**: Identifies the database cluster of **NW1**.
 * **nfs-0** and **nfs-1**: The hostnames of the NFS cluster nodes. 
 * **nw1-xscs-0** and **nw1-xscs-1**: The hostnames of the **NW1** ASCS cluster nodes.
-* **nw1-db-0** and **nw1-db-1**: The hostnames of the database cluster nodes. Replace them with the hostnames of your cluster nodes and the SID of your SAP system.
+* **nw1-db-0** and **nw1-db-1**: The hostnames of the database cluster nodes. 
+
+In the following instructions, replace the bold-formatted placeholder text with the hostnames of your cluster nodes and the SID of your SAP system.
 
 1. Create the root folder for all SBD devices.
    <pre><code>sudo mkdir /sbd</code></pre>
@@ -213,8 +215,8 @@ Run the following commands on the nodes of the new cluster that you want to crea
 
 > [!NOTE]
 > * **[A]**: Applies to all nodes.
-* **[1]**: Applies only to node 1.
-* **[2]**: Applies only to node 2.
+> * **[1]**: Applies only to node 1.
+> * **[2]**: Applies only to node 2.
 
 1. **[A]** Connect to the iSCSI devices. First, enable the iSCSI and SBD services.
 
@@ -228,7 +230,7 @@ Run the following commands on the nodes of the new cluster that you want to crea
    <pre><code>sudo vi /etc/iscsi/initiatorname.iscsi
    </code></pre>
 
-1. Change the contents of the file to match the access control lists (ACLs) you used when you created the iSCSI device on the iSCSI target server (for example, for the NFS server).
+1. **[1]** Change the contents of the file to match the access control lists (ACLs) you used when you created the iSCSI device on the iSCSI target server (for example, for the NFS server).
 
    <pre><code>InitiatorName=<b>iqn.2006-04.nfs-0.local:nfs-0</b></code></pre>
 
@@ -237,7 +239,7 @@ Run the following commands on the nodes of the new cluster that you want to crea
    <pre><code>sudo vi /etc/iscsi/initiatorname.iscsi
    </code></pre>
 
-1. Change the contents of the file to match the ACLs you used when you created the iSCSI device on the iSCSI target server.
+1. **[2]** Change the contents of the file to match the ACLs you used when you created the iSCSI device on the iSCSI target server.
 
    <pre><code>InitiatorName=<b>iqn.2006-04.nfs-1.local:nfs-1</b>
    </code></pre>
@@ -248,26 +250,26 @@ Run the following commands on the nodes of the new cluster that you want to crea
    sudo systemctl restart iscsi
    </code></pre>
 
-   a. Connect the iSCSI devices. In the following example, 10.0.0.17 is the IP address of the iSCSI target server, and 3260 is the default port. <b>iqn.2006-04.nfs.local:nfs</b> is one of the target names that's listed when you run the first command, `iscsiadm -m discovery`.
+1. **[A]** Connect the iSCSI devices. In the following example, 10.0.0.17 is the IP address of the iSCSI target server, and 3260 is the default port. <b>iqn.2006-04.nfs.local:nfs</b> is one of the target names that's listed when you run the first command, `iscsiadm -m discovery`.
 
    <pre><code>sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.17:3260</b>   
    sudo iscsiadm -m node -T <b>iqn.2006-04.nfs.local:nfs</b> --login --portal=<b>10.0.0.17:3260</b>
    sudo iscsiadm -m node -p <b>10.0.0.17:3260</b> -T <b>iqn.2006-04.nfs.local:nfs</b> --op=update --name=node.startup --value=automatic</code></pre>
    
-   b. If you want to use multiple SBD devices, also connect to the second iSCSI target server.
+1. **[A]** If you want to use multiple SBD devices, also connect to the second iSCSI target server.
 
    <pre><code>sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.18:3260</b>   
    sudo iscsiadm -m node -T <b>iqn.2006-04.nfs.local:nfs</b> --login --portal=<b>10.0.0.18:3260</b>
    sudo iscsiadm -m node -p <b>10.0.0.18:3260</b> -T <b>iqn.2006-04.nfs.local:nfs</b> --op=update --name=node.startup --value=automatic</code></pre>
    
-   c. If you want to use multiple SBD devices, also connect to the third iSCSI target server.
+1. **[A]** If you want to use multiple SBD devices, also connect to the third iSCSI target server.
 
    <pre><code>sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.19:3260</b>   
    sudo iscsiadm -m node -T <b>iqn.2006-04.nfs.local:nfs</b> --login --portal=<b>10.0.0.19:3260</b>
    sudo iscsiadm -m node -p <b>10.0.0.19:3260</b> -T <b>iqn.2006-04.nfs.local:nfs</b> --op=update --name=node.startup --value=automatic
    </code></pre>
 
-   d. Make sure that the iSCSI devices are available and note the device name (**/dev/sde**, in the following example).
+1. **[A]** Make sure that the iSCSI devices are available and note the device name (**/dev/sde**, in the following example).
 
    <pre><code>lsscsi
    
@@ -280,7 +282,7 @@ Run the following commands on the nodes of the new cluster that you want to crea
    # <b>[8:0:0:0]    disk    LIO-ORG  sbdnfs           4.0   /dev/sdf</b>
    </code></pre>
 
-   e. Retrieve the IDs of the iSCSI devices.
+1. **[A]** Retrieve the IDs of the iSCSI devices.
 
    <pre><code>ls -l /dev/disk/by-id/scsi-* | grep <b>sdd</b>
    
@@ -336,17 +338,17 @@ Run the following commands on the nodes of the new cluster that you want to crea
    [...]
    </code></pre>
 
-   c. Create the `softdog` configuration file.
+1. **[A]** Create the `softdog` configuration file.
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
 
-   d. Load the module.
+1. **[A]** Load the module.
 
    <pre><code>sudo modprobe -v softdog
    </code></pre>
 
-## Use an Azure shared disk
+## SBD with an Azure shared disk
 
 This section applies only if you want to use an SBD device with an Azure shared disk.
 
@@ -377,12 +379,12 @@ This section applies only if you want to use an SBD device with an Azure shared 
    <pre><code>$VM1 = "<b>prod-cl1-0</b>"
    $VM2 = "<b>prod-cl1-1</b>"</code></pre>
 
-1. Add the Azure shared disk to cluster node 1.
+   a. Add the Azure shared disk to cluster node 1.
    <pre><code>$vm = Get-AzVM -ResourceGroupName $ResourceGroup -Name $VM1
    $vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun <b>0</b>
    Update-AzVm -VM $vm -ResourceGroupName $ResourceGroup -Verbose</code></pre>
 
-1. Add the Azure shared disk to cluster node 2.
+   b. Add the Azure shared disk to cluster node 2.
    <pre><code>$vm = Get-AzVM -ResourceGroupName $ResourceGroup -Name $VM2
    $vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun <b>0</b>
    Update-AzVm -VM $vm -ResourceGroupName $ResourceGroup -Verbose</code></pre>
@@ -447,12 +449,12 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
    [...]
    </code></pre>
 
-   c. Create the `softdog` configuration file.
+1. Create the `softdog` configuration file.
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
 
-   d. Load the module.
+1. Load the module.
 
    <pre><code>sudo modprobe -v softdog
    </code></pre>
@@ -511,8 +513,8 @@ Be sure to assign the role for both cluster nodes.
 
 > [!NOTE]
 > * **[A]**: Applies to all nodes.
-* **[1]**: Applies only to node 1.
-* **[2]**: Applies only to node 2.
+> * **[1]**: Applies only to node 1.
+> * **[2]**: Applies only to node 2.
 
 1. **[A]** Update SLES.
 
@@ -614,8 +616,7 @@ Be sure to assign the role for both cluster nodes.
    </code></pre>
 
    >[!IMPORTANT]
-   > If a cluster node needs to be fenced, the installed version of the *fence-agents* package must be 4.4.0 or later to benefit from the faster failover times with the Azure fence agent. If you're running an earlier version, we recommend that you update the package.  
-
+   > The installed version of the *fence-agents* package must be 4.4.0 or later to benefit from the faster failover times with the Azure fence agent, when a cluster node is fenced. If you're running an earlier version, we recommend that you update the package.  
 
 1. **[A]** Install the Azure Python SDK on SLES 12 SP4 or SLES 12 SP5.
     <pre><code># You might need to activate the publiccloud extension first
