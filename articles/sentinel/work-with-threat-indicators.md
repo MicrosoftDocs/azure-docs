@@ -94,8 +94,7 @@ Tagging threat indicators is an easy way to group them together to make them eas
 
 :::image type="content" source="media/work-with-threat-indicators/threat-intel-tagging-indicators.png" alt-text="Apply tags to threat indicators" lightbox="media/work-with-threat-indicators/threat-intel-tagging-indicators.png":::
 
-Microsoft Sentinel now allows editing of indicators coming from both 3P sources like TIP's and TAXII servers as well as indicators created on the Microsoft Sentinel UI. For indicators coming from 3P sources we allow editing of a certain set of fields like tags, expiration date, confidence and revoked. For indicators created within Microsoft Sentinel, you can edit any fields of the indicator. 
-
+Microsoft Sentinel also allows you to edit indicators, whether they've been created directly in Microsoft Sentinel, or come from partner sources, like TIP and TAXII servers. For indicators created in Microsoft Sentinel, all fields are editable. For indicators coming from partner sources, only specific fields are editable, including tags, *Expiration date*, *Confidence*, and *Revoked*.
 
 ## Detect threats with threat indicator-based analytics
 
