@@ -14,6 +14,8 @@ ms.date: 01/11/2022
 
 This sample CLI script scales compute and storage for a single Azure Database for MariaDB server after querying the metrics. Compute can scale up or down. Storage can only scale up.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script

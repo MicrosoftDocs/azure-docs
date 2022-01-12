@@ -14,6 +14,8 @@ ms.date: 01/11/2022
 
 This sample CLI script enables and downloads the slow query logs of a single Azure Database for MariaDB server.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script

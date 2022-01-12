@@ -34,5 +34,5 @@ The following table includes links to sample Azure CLI scripts for Azure Databas
 |**Restore a server**||
 | [Restore a server](./scripts/sample-point-in-time-restore.md) | Azure CLI script that restores a single Azure Database for MariaDB server to a previous point in time. |
 |**Manipulate with server logs**||
-| [Enable and download server logs](./scripts/sample-server-logs.md) | Azure CLI script that enables and downloads server logs of a single Azure Database for MariaDB server. |
+| [Enable server logs](./scripts/sample-server-logs.md) | Azure CLI script that enables server logs of a single Azure Database for MariaDB server. |
 |||
