@@ -52,8 +52,7 @@ A manual setup gives you full control over the CDN configuration including the c
 
 ### Prerequisites
 
-* [Custom domain](./custom-domain.md) configured for your static web app.
-* Apex domain with TTL set to less than 48 hrs.
+* [Custom domain](./custom-domain.md) configured for your static web app with a time to live (TTL) set to less than 48 hrs.
 * An application deployed with [Azure Static Web Apps](./get-started-portal.md) that uses the Standard hosting plan.
 
 # [Azure portal](#tab/azure-portal)
