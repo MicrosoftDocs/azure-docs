@@ -2,7 +2,7 @@
 title: 'Quickstart: Enable Microsoft Defender for IoT on your Azure IoT Hub'
 description: Learn how to enable Defender for IoT in an Azure IoT hub.
 ms.topic: quickstart
-ms.date: 01/06/2022
+ms.date: 01/12/2022
 ms.custom: mode-other
 ---
 
@@ -24,6 +24,8 @@ This article explains how to enable Microsoft Defender for IoT on an Azure IoT h
 ## Create an IoT Hub with Microsoft Defender for IoT
 
 You can create a hub in the Azure portal, or using other tools such as Azure IoT Tools for VS code, PowerShell, Azure CLI, or REST API. This tutorial assumes you're using the portal. For all new IoT hubs, Defender for IoT is set to **On** by default.
+
+**To create an IoT Hub**:
 
 1. Follow the steps in [this article](../../iot-hub/iot-hub-create-through-portal.md#create-an-iot-hub).
 
@@ -47,7 +49,7 @@ You can onboard Defender for IoT to an existing IoT Hub, where you can then moni
 
 1. Click **Secure your IoT solution** and complete the onboarding form.
 
-    :::image type="content" source="media/quickstart-onboard-iot-hub/secure-your-iot-solution.png" alt-text="Select the secure your IoT solution button to secure your solution.":::
+    :::image type="content" source="media/quickstart-onboard-iot-hub/secure-your-iot-solution.png" alt-text="Select the secure your IoT solution button to secure your solution." lightbox="media/article-folder-name/secure-your-iot-solution-expanded.png":::
 
 The **Secure your IoT solution** button will only appear if the IoT Hub has not already been onboarded, or if while onboarding you left the Defender for IoT toggle on **Off**.
 
@@ -69,7 +71,7 @@ The **Secure your IoT solution** button will only appear if the IoT Hub has not 
 
 ## Next steps
 
-Advance to the next article to configure your solution...
+Advance to the next article to add a resource group to your solution...
 
 > [!div class="nextstepaction"]
 > [Add a resource group to your IoT solution](quickstart-configure-your-solution.md)

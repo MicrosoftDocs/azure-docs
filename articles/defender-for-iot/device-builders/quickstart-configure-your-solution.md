@@ -2,7 +2,7 @@
 title: Add a resource group to your IoT solution
 description: In this quickstart, learn how to configure your end-to-end IoT solution using Microsoft Defender for IoT.
 ms.topic: tutorial
-ms.date: 01/05/2022
+ms.date: 01/12/2022
 ms.custom: mode-other
 ---
 
@@ -10,15 +10,15 @@ ms.custom: mode-other
 
 This article explains how to Add resource group to your Microsoft Defender for IoT solution.
 
-With Defender for IoT, you can monitor your entire IoT solution in one dashboard, surfacing all of your IoT devices, IoT platforms, and back-end resources in Azure.
+With Defender for IoT, you can monitor your entire IoT solution in one dashboard. From that dashboard, you can surface all of your IoT devices, IoT platforms, and back-end resources in Azure.
 
-Once you enable Defender for IoT on your IoT Hub, Defender for IoT will automatically identify other Azure services, and connect to related services that are affiliated with your IoT solution.
+Once enabled, Defender for IoT will automatically identify other Azure services, and connect to related services that are affiliated with your IoT solution.
 
-You will also be able to select other Azure resource groups that are part of your IoT solution. Your selections allow you to add entire subscriptions, resource groups, or single resources.
+You can select other Azure resource groups that are part of your IoT solution. Your selections allow you to add entire subscriptions, resource groups, or single resources.
 
-After defining all of the resource relationships, Defender for IoT will use Defender for Cloud to provide you security recommendations, and alerts for these resources.
+After defining all of the resource relationships, Defender for IoT will use Defender for Cloud to provide you security recommendations, and alerts for your resources.
 
-In this tutorial you will learn how to:
+In this tutorial you'll learn how to:
 
 > [!div class="checklist"]
 > - Add a resource group to your IoT solution
