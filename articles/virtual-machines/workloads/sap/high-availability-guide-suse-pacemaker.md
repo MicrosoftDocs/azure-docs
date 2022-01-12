@@ -33,7 +33,9 @@ This article discusses how to set up Pacemaker on SUSE Linux Enterprise Server (
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
-In Azure, you have two options for setting up STONITH in the Pacemaker cluster for SLES. You can use an Azure fence agent, which restarts a failed node via the Azure APIs, or you can use a STONITH block device (SBD device). 
+In Azure, you have two options for setting up STONITH in the Pacemaker cluster for SLES. You can use an Azure fence agent, which restarts a failed node via the Azure APIs, or you can use a STONITH block device (SBD device).
+
+### Use an SBD device
 
 You can configure the SBD device by using either of two options:
 
@@ -71,6 +73,7 @@ You can configure the SBD device by using either of two options:
    - If you use multiple Azure shared disk SBD devices, check on the limit for a maximum number of data disks that can be attached to a VM.
    - For more information about limitations for Azure shared disks, carefully review the "Limitations" section of [Azure shared disk documentation](../../disks-shared.md#limitations).
 
+### Use an Azure fence agent
 You can set up STONITH by using an Azure fence agent. Azure fence agents require a service principal that manages restarting failed nodes via Azure APIs. Azure fence agents don't require the deployment of additional virtual machines.
 
 ## SBD with an iSCSI target server
@@ -533,8 +536,8 @@ Be sure to assign the role for both cluster nodes.
 
    > [!NOTE]
    > Check the version of the *resource-agents* package, and make sure that the minimum version requirements are met:  
-   > - **SLES 12 SP4/SP5**: the version must be resource-agents-4.3.018.a7fb5035-3.30.1 or later.  
-   > - **SLES 15/15 SP1**: the version must be resource-agents-4.3.0184.6ee15eb2-4.13.1 or later.  
+   > - **SLES 12 SP4/SP5**: The version must be resource-agents-4.3.018.a7fb5035-3.30.1 or later.  
+   > - **SLES 15/15 SP1**: The version must be resource-agents-4.3.0184.6ee15eb2-4.13.1 or later.  
 
 1. **[A]** Configure the operating system.
 
@@ -619,7 +622,7 @@ Be sure to assign the role for both cluster nodes.
    > The installed version of the *fence-agents* package must be 4.4.0 or later to benefit from the faster failover times with the Azure fence agent, when a cluster node is fenced. If you're running an earlier version, we recommend that you update the package.  
 
 1. **[A]** Install the Azure Python SDK on SLES 12 SP4 or SLES 12 SP5.
-    <pre><code># You might need to activate the publiccloud extension first
+    <pre><code># You might need to activate the public cloud extension first
     SUSEConnect -p sle-module-public-cloud/12/x86_64
     sudo zypper install python-azure-mgmt-compute
     </code></pre>
