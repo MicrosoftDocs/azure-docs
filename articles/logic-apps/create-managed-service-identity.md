@@ -329,7 +329,7 @@ This example shows a Consumption logic app resource definition for an HTTP PUT r
 }
 ```
 
-If your template also includes the managed identity's resource definition, you can parameterize the `identity` object. This example shows how the child `userAssignedIdentities` object references a `userAssignedIdentity` variable that you define in your template's `variables` section. This variable references the resource ID for your user-assigned identity.
+If your template also includes the managed identity's resource definition, you can parameterize the `identity` object. This example shows how the child `userAssignedIdentities` object references a `userAssignedIdentityName` variable that you define in your template's `variables` section. This variable references the resource ID for your user-assigned identity.
 
 ```json
 {
@@ -380,8 +380,101 @@ If your template also includes the managed identity's resource definition, you c
 
 ### [Standard](#tab/standard)
 
-A Standard logic app resource can have both system-assigned and user-assigned identities. This example shows a Standard logic app resource definition for an HTTP PUT request and includes a non-parameterized `identity` object. The response to the PUT request and subsequent GET operation also have this `identity` object:
+A Standard logic app resource can enable and use both the system-assigned identity and multiple user-assigned identities. The Standard logic app resource definition is based on the Azure Functions function app resource definition.
 
+This example shows a Standard logic app resource definition that includes a non-parameterized `identity` object:
+
+```json
+{
+   "$schema": "https://schema.management.azure.com/schemas/2019-01-01/deploymentTemplate.json#",
+   "contentVersion": "1.0.0.0",
+   "parameters": {<template-parameters>},
+   "resources": [
+      {
+         "apiVersion": "2021-02-01",
+         "type": "Microsoft.Web/sites/functions",
+         "name": "[variables('logicappName')]",
+         "location": "[resourceGroup().location]",
+         "identity": {
+            "type": "UserAssigned",
+            "userAssignedIdentities": {
+               "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned-identity-name>": {}
+            },
+         },
+         "properties": {
+            "name": "[variables('appName')]",
+            "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+            "hostingEnvironment": "",
+            "clientAffinityEnabled": false,
+            "alwaysOn": true
+         },
+         "parameters": {},
+         "dependsOn": []
+      }
+   ],
+   "outputs": {}
+}
+```
+
+If your template also includes the managed identity's resource definition, you can parameterize the `identity` object. This example shows how the child `userAssignedIdentities` object references a `userAssignedIdentityName` variable that you define in your template's `variables` section. This variable references the resource ID for your user-assigned identity.
+
+```json
+{
+   "$schema": "https://schema.management.azure.com/schemas/2019-01-01/deploymentTemplate.json#",
+   "contentVersion": "1.0.0.0",
+   "parameters": {<template-parameters>},
+   "resources": [
+      {
+         "apiVersion": "2021-02-01",
+         "type": "Microsoft.Web/sites/functions",
+         "name": "[variables('logicappName')]",
+         "location": "[resourceGroup().location]",
+         "identity": {
+            "type": "UserAssigned",
+            "userAssignedIdentities": {
+               "[resourceId(Microsoft.ManagedIdentity/userAssignedIdentities', variables('userAssignedIdentityName'))]": {}
+            }
+         },
+         "properties": {
+            "name": "[variables('appName')]",
+            "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+            "hostingEnvironment": "",
+            "clientAffinityEnabled": false,
+            "alwaysOn": true
+         },
+         "parameters": {},
+         "dependsOn": [
+            "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+            "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', variables('userAssignedIdentityName'))]"
+         ]
+      },
+      {
+         "apiVersion": "2018-11-30",
+         "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+         "name": "[parameters('Template_UserAssignedIdentityName')]",
+         "location": "[resourceGroup().location]",
+         "properties": {}
+      },
+   ],
+   "outputs": {}
+}
+```
+
+When the logic app resource is created, the `identity` object has the following additional properties:
+
+```json
+"identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+        "<resource-ID>": {
+            "principalId": "<principal-ID>",
+            "clientId": "<client-ID>"
+        }
+    }
+}
+```
+
+The `principalId` property value is a unique identifier for the identity that's used for Azure AD administration. The `clientId` property value is a unique identifier for the logic app's new identity that's used for specifying which identity to use during runtime calls.
 
 ---
 
