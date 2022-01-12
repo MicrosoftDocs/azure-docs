@@ -24,15 +24,14 @@ Check out this video for more information on how to use Azure Percept DK with 80
 > [!VIDEO https://www.youtube.com/embed/Dg6mtD9psLU]  
 
 
-To accelerate your protoype creation, we have also designed a few examples of 80/20 mounting assemblies. 
+To accelerate your prototype creation, we have also designed a few examples of 80/20 mounting assemblies. 
 We have included the technical drawings of these options below so they can be easily ordered and built by
 your local 80/20 distributor: https://8020.net/distributorlookup/
-
 | Design Name  | Overall Design    | CAD Design  1  | CAD Design 2  |
 |--------------|-----------|------------|------------|
-| Wall Mounts| ![Wall Mount Image](./media/overview-8020-integration-images/Wall-Mount.png) | [ ![Horizontal Wall Mount Image](./media/overview-8020-integration-images/Azure-Percept-8020-Horizontal-Wall-Mount-mini.png) ](./media/overview-8020-integration-images/Azure-Percept-8020-Horizontal-Wall-Mount.png#lightbox)    | [ ![Vertical Wall Mount Image](./media/overview-8020-integration-images/Azure-Percept-8020-Vertical-Wall-Mount-mini.png) ](./media/overview-8020-integration-images/Azure-Percept-8020-Vertical-Wall-Mount.png#lightbox)|
-| Ceiling Mounts| ![Ceiling Mount Image](./media/overview-8020-integration-images/Ceiling-Mount.png) | [ ![Ceiling Mount Small Image](./media/overview-8020-integration-images/Azure-Percept-8020-Ceiling-Mount-Small-mini.png) ](./media/overview-8020-integration-images/Azure-Percept-8020-Ceiling-Mount-Small.png#lightbox)       | [ ![Ceiling Mount Large Image](./media/overview-8020-integration-images/Azure-Percept-8020-Ceiling-Mount-Large-mini.png) ](./media/overview-8020-integration-images/Azure-Percept-8020-Ceiling-Mount-Large.png#lightbox)       |
-| Arm Mounts      | ![Arm Mount Image](./media/overview-8020-integration-images/Arm-Mount.png) | [ ![Clamp Bracket Image](./media/overview-8020-integration-images/Azure-Percept-8020-Clamp-Bracket-mini.png) ](./media/overview-8020-integration-images/Azure-Percept-8020-Clamp-Bracket.png#lightbox)      |        |
+| Wall Mounts| <img src="./media/overview-8020-integration-images/Wall-Mount.png" width="200" height="160" title="Wall Mount Image">  | [ <img src="./media/overview-8020-integration-images/Azure-Percept-8020-Horizontal-Wall-Mount-mini.png" width="200" height="160" title="Horizontal Wall Mount Image"> ](./media/overview-8020-integration-images/Azure-Percept-8020-Horizontal-Wall-Mount.png#lightbox) | [ <img src="./media/overview-8020-integration-images/Azure-Percept-8020-Vertical-Wall-Mount-mini.png" width="200" height="160" title="Vertical Wall Mount Image">](./media/overview-8020-integration-images/Azure-Percept-8020-Vertical-Wall-Mount.png#lightbox)
+|Ceiling Mounts| <img src="./media/overview-8020-integration-images/Ceiling-Mount.png" width="200" height="160" title="Ceiling Mount Image"> |[ <img src="./media/overview-8020-integration-images/Azure-Percept-8020-Ceiling-Mount-Small-mini.png" width="200" height="160" title="Ceiling Mount Small Image"> ](./media/overview-8020-integration-images/Azure-Percept-8020-Ceiling-Mount-Small.png#lightbox) | [ <img src="./media/overview-8020-integration-images/Azure-Percept-8020-Ceiling-Mount-Large-mini.png" width="200" height="160" title="Ceiling Mount Large Image"> ](./media/overview-8020-integration-images/Azure-Percept-8020-Ceiling-Mount-Large.png#lightbox) |
+| Arm Mounts      |<img src="./media/overview-8020-integration-images/Arm-Mount.png" width="200" height="160" title="Arm Mount Image"> |[ <img src="./media/overview-8020-integration-images/Azure-Percept-8020-Clamp-Bracket-mini.png" width="200" height="160" title="Clamp Bracket Image">  ](./media/overview-8020-integration-images/Azure-Percept-8020-Clamp-Bracket.png#lightbox)      |        |
 
 
 ## Next steps
