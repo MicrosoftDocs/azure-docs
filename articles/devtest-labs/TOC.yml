@@ -77,7 +77,7 @@
     items:
     - name: Create a network isolated lab
       href: network-isolation.md
-    - name: Create or modify labs using ARM templates
+    - name: Create and manage labs by using ARM templates
       href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
     - name: Specify resource group for lab virtual machines
       href: resource-group-control.md
@@ -177,12 +177,8 @@
       href: devtest-lab-create-environment-from-arm.md
     - name: Use Platform-as-a-Service (PaaS) services
       href: use-paas-services.md
-    - name: Public environments
-      items:
-      - name: Configure and use public environments
-        href: devtest-lab-configure-use-public-environments.md
-      - name: Create an environment with Service Fabric cluster
-        href: create-environment-service-fabric-cluster.md
+    - name: Create a Service Fabric cluster environment
+      href: create-environment-service-fabric-cluster.md
     - name: Connect an environment to your lab's virtual network
       href: connect-environment-lab-virtual-network.md
     - name: Configure test environments with nested templates
@@ -191,16 +187,12 @@
       href: use-managed-identities-environments.md
     - name: Security alerts for environments
       href: environment-security-alerts.md
-    - name: Create an application-centric environment
-      href: create-application-centric-environment.md
   - name: Manage reusable templates
     items:
     - name: Custom images vs. formulas
       href: devtest-lab-comparing-vm-base-image-types.md
-    - name: Manage environment templates
-      items:
-      - name: Add a Git repository for artifacts and templates
-        href: devtest-lab-add-artifact-repo.md
+    - name: Add a Git repository for artifacts and templates
+      href: devtest-lab-add-artifact-repo.md
     - name: Manage custom images
       items:
       - name: Create custom image from a VM

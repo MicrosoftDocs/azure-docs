@@ -14,7 +14,7 @@ ms.custom: references_regions
 # Use a Managed VNet with your Azure Purview account
 
 > [!IMPORTANT]
-> Azure Purview Managed Vnet, VNet Integration Runtime and managed private endpoint connections are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Azure Purview Managed Vnet, VNet Integration Runtime, and managed private endpoint connections are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!IMPORTANT]
 > Currently, Managed Virtual Network and managed private endpoints are available for Azure Purview accounts that are deployed in the following regions:
