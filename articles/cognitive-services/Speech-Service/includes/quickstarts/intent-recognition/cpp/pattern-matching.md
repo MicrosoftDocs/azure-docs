@@ -103,7 +103,7 @@ auto result = intentRecognizer->RecognizeOnceAsync().get();
 
 ## Display the recognition results (or errors)
 
-When the recognition result is returned by the Speech service, let's just print the result.
+When the recognition result is returned by the Speech service, we will print the result.
 
 Insert this code below `auto result = intentRecognizer->RecognizeOnceAsync().get();`:
 
