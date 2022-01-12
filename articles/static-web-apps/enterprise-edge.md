@@ -1,5 +1,5 @@
 ---
-title: Enterprise-grade edge (Preview)
+title: Enterprise-grade edge (preview) in Azure Static Web Apps
 description: Learn about Azure Static Web Apps enterprise-grade edge (Preview)
 services: static-web-apps
 author: craigshoemaker
