@@ -27,7 +27,7 @@ By using managed identity functionality, the process of securely connecting to y
 
 NOTE: This functionality does not yet support authentication for connecting to a cache instance.
 
-Azure Cache for Redis supports [both types of managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types):
+Azure Cache for Redis supports [both types of managed identity](/azure/active-directory/managed-identities-azure-resources/overview):
 
 - **System-assigned identity** is specific to the resource. In this case, the cache is the resource. When the cache is deleted, the identity is deleted.
 
@@ -122,7 +122,7 @@ az redis identity assign \--mi-system-assigned \--name MyCacheName \--resource-g
 
 ### Enable managed identity using Azure PowerShell
 
-Use Azure PowerShell for creating a new cache with managed identity or updating an existing cache to use managed identity. For more information, see [New-AzRedisCache](/powershell/module/az.rediscache/new-azrediscache?view=azps-7.1.0) or [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache?view=azps-7.1.0).
+Use Azure PowerShell for creating a new cache with managed identity or updating an existing cache to use managed identity. For more information, see [New-AzRedisCache](/powershell/module/az.rediscache/new-azrediscache?view=azps-7.1.0) or [[Set-AzRedisCache](/powershell/module/az.rediscache/set-azrediscache?view=azps-7.1.0)].
 
 For example, to update a cache to use system-managed identity, use the following PowerShell command:
 
