@@ -48,17 +48,22 @@ Support for the premium-series hardware generations (public preview) is currentl
 
 | Region | **Premium-series** | **Memory optimized premium-series** | 
 |:--- |:--- |:--- |
+| Australia Central | Yes | | 
+| Australia East | Yes | Yes | 
 | Canada Central | Yes | | 
 | Canada East | Yes | | 
-| Central US | Yes | Yes | 
+| Central US | Yes | | 
 | East US  | Yes | Yes | 
 | East US 2 | Yes | Yes | 
 | France Central |  | Yes | 
+| Germany West Central |  | Yes | 
+| Japan East | Yes | | 
+| Korea Central | Yes | | 
 | North Central US | Yes | Yes | 
-| North Europe | Yes | Yes | 
+| North Europe | Yes | | 
 | South Central US | Yes | Yes | 
 | Southeast Asia | Yes |  | 
-| UK South |  | Yes | 
+| UK South | Yes |  | 
 | West Europe | Yes | Yes | 
 | West US | Yes | Yes |  
 | West US 2 | Yes | Yes | 
