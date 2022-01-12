@@ -3,7 +3,7 @@ title: Finding IDs for Education Hub APIs
 description: Learn how to find all the IDs needed to call the education hub APIs
 author: vinnieangel
 ms.author: vangellotti
-ms.service: eduhub
+ms.service: azure-education
 ms.topic: tutorial
 ms.date: 12/21/2021
 ms.custom: template-tutorial
