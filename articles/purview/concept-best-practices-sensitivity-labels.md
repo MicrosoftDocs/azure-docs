@@ -6,7 +6,7 @@ ms.author: athenadsouza
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 12/14/2021
+ms.date: 01/12/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -49,6 +49,24 @@ It also abstracts the data itself, so you use labels to track the type of data, 
 > Microsoft 365 Trainable classifiers are not used by Azure Purview
 
 - For consistency in labeling across your data estate, if you are using autolabeling rules for files, it is recommended that you use the same sensitive information types for autolabeling database columns.
+
+## Protect Personal Identifiable Information(PII) with Custom Sensitivity Label for Azure Purview, using Microsoft Information Protection
+
+Storing and processing of Personal Identifiable Information is subject to special protection. With referring to Regulations (e.g. GDPR) labelling of PII data is crucial to identify and label sensitive information.  The detection and labelling tasks of PII can be used on different stages of your workflows and because PII is ubiquitous and fluid in your organization it is important to define identification rules for building policies that suits your individual situation
+
+#### Recommendation
+
+- [Define your sensitivity labels via Microsoft information Protection is recommended to identify your PII at central place](https://docs.microsoft.com/microsoft-365/compliance/information-protection?view=o365-worldwide).
+- [Use Policy templates as a starting point to build your rulesets](https://docs.microsoft.com/microsoft-365/compliance/what-the-dlp-policy-templates-include?view=o365-worldwide#general-data-protection-regulation-gdpr).
+- [Combine Data Classifications to an individual Ruleset](https://docs.microsoft.com/azure/purview/supported-classifications).
+- [Force Labelling by using auto label functionality](https://docs.microsoft.com/azure/purview/how-to-automatically-label-your-content).
+- Build groups of Sensitivity Labels and store them as dedicated Sensitivity Label Policy – e.g. store all required Sensitivity Labels for GDPR by using the same Sensitivity Label Policy to publish.
+- Capture all test cases for your labels and test your Label policies with all applications you want to secure.
+- Promote Sensitivity Label Policies to Azure Purview.
+- Run test Scans from Purview on different Data Sources (e.g. Hybrid Cloud, On Premise) to identify Sensitivity Labels.
+- Gather and consider insights (e.g. by using Purview insights) and use alerting mechanism to mitigate potential breaches of Regulations.
+
+By using Sensitivity Labels with Azure Purview you are able to extend your Microsoft Information Protection beyond the border of Microsoft Data Estate to your  On Prem, Hybrid-  Multi- Cloud and SaaS Scenarios.
 
 ## Next steps
 
