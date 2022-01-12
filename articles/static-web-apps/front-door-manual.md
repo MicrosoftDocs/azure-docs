@@ -172,7 +172,7 @@ Open the [staticwebapp.config.json](configuration.md) file for your site and mak
 
     In this example, replace `my-sitename.azurefd.net` with the Azure Front Door hostname for your site.
 
-1. For all secured routes in your app, disable Azure Front Door caching by adding `"Cache-Control": "no-store"` to the route definition.
+1. For all secured routes in your app, disable Azure Front Door caching by adding `"Cache-Control": "no-store"` to the route header definition.
 
     ```json
     {
