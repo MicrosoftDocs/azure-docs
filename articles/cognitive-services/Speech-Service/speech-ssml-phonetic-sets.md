@@ -23,7 +23,7 @@ For some locales, the Speech service defines its own phonetic alphabets that typ
 * `sapi` - [Speech service phonetic alphabet](#speech-service-phonetic-alphabet)
 * `ipa` - [International Phonetic Alphabet](#speech-service-phonetic-alphabet)
 
-You use the `sapi` value for the `alphabet` in [SSML](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation).  
+You set `sapi` or `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation). 
 
 ### [en-US](#tab/en-US)
 
@@ -410,9 +410,9 @@ The Speech service phone set for `ja-JP` is based on the native phone <a href="h
 
 ## International Phonetic Alphabet
 
-For the locales below the Speech service uses the <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet (IPA)</a>.
+For the locales below, the Speech service uses the <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet (IPA)</a>.
 
-You use the `ipa` value for the `alphabet` in [SSML](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation).  
+You set `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation). 
 
 These locales all use the same IPA stress and syllables described here.
 
@@ -423,7 +423,7 @@ These locales all use the same IPA stress and syllables described here.
 | `.`   | Syllable boundary  | 
 
 
-Select a tab below for the IPA phonemes specific to each locale.
+Select a tab for the IPA phonemes specific to each locale.
 
 ### [ca-ES](#tab/ca-ES)
 
