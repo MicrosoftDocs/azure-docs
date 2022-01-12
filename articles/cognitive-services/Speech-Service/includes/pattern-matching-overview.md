@@ -33,7 +33,11 @@ The ``PatternMatchingModel`` contains an ID to reference that model by, a list o
 
 #### Pattern Matching Entities
 
-``PatternMatchingEntity`` objects represent an individual entity and its corresponding properties that tell the ``IntentRecognizer`` how to treat it. All ``PatternMatchingEntity`` objects must have an ID that is present in a phrase or else it will never be matched.
+``PatternMatchingEntity`` objects represent an individual entity reference and its corresponding properties that tell the ``IntentRecognizer`` how to treat it. All ``PatternMatchingEntity`` objects must have an ID that is present in a phrase or else it will never be matched.
+
+##### Entity Naming restrictions
+
+Entity names containing ':' characters will assign a role to an entity. (See below)
 
 ### Types of Entities
 
@@ -119,6 +123,14 @@ It is also possible to include optional entities. Imagine there are multiple par
 
 [!NOTE]
 While it is helpful to use optional items it increases the chances of pattern collisions. This is where two patterns can match the same spoken phrase. If this occurs it can sometimes be solved by separating out the optional items into separate patterns.
+
+### Entity roles
+
+Inside the pattern there may be a scenario where you want to use the same entity multiple times. Consider the scenario of booking a flight from one city to another. In this case the list of cities is the same, but it is necessary to know which city is the user coming from and which city is the destination. To accomplish this, you can use a role assigned to an entity using a ':'.
+
+>"Book a flight from {city:from} to {city:destination}"
+
+Given a pattern like this, there will be two entities in the result labeled "city:from" and "city:destination" but they will both be referencing the "city" entity for matching purposes.
 
 ### Intent Matching Priority
 
