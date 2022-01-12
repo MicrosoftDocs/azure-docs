@@ -147,5 +147,5 @@ After the app is published, only add utterances from active learning in the deve
 
 ## Next steps
 
-[Intents](intents.md)
-<!--[Patterns and features concepts](patterns-features.md)-->
+* [Intents](intents.md)
+* [Patterns and features concepts](patterns-features.md)

@@ -56,7 +56,7 @@ The Language Understanding service automatically encrypts your data when it is p
 
 ## Is it important to train the None intent?
 
-Yes, it is good to train your  **None**  intent with utterances, especially as you add more labels to other intents. <!--See [none intent](concepts/intents.md) for details.-->
+Yes, it is good to train your  **None**  intent with utterances, especially as you add more labels to other intents. See [none intent](concepts/intents.md#none-intent) for details.
 
 ## How do I edit my LUIS app programmatically?
 
@@ -68,11 +68,11 @@ Use one of the following solutions:
 
 * Ignore [punctuation](luis-reference-application-settings.md#punctuation-normalization)
 * Add the different variations as example utterances to the intent
-<!--* Add the pattern of the example utterance with the [syntax to ignore](concepts/utterances.md#utterance-normalization) the punctuation.-->
+* Add the pattern of the example utterance with the [syntax to ignore](concepts/utterances.md#utterance-normalization) the punctuation.
 
 ## Why is my app is getting different scores every time I train?
 
-Enable or disable the use non-deterministic training option. When disabled, training will use all available data. When enabled (by default), training will use a random sample each time the app is trained, to be used as a negative for the intent. To make sure that you are getting same scores every time, make sure you train your LUIS app with all your data. <!--See the [training article](how-to/train-test.md#using-the-luis-portal) for more information. --> 
+Enable or disable the use non-deterministic training option. When disabled, training will use all available data. When enabled (by default), training will use a random sample each time the app is trained, to be used as a negative for the intent. To make sure that you are getting same scores every time, make sure you train your LUIS app with all your data. See the [training article](how-to/train-test.md#interactively-train-using-the-luis-portal) for more information.
 
 ## I received an HTTP 403 error status code. How do I fix it? Can I handle more requests per second?
 

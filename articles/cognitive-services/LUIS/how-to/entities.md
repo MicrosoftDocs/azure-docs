@@ -22,7 +22,7 @@ Machine-learning entities can be created from example utterances, or the  **Enti
 
 In general, you should spend time planning the entities before creating a machine-learning entity in the portal. Then create the machine-learning entity from example utterances with as much detail in the sub-entities and features you know at the time. 
 
-<!--The [decomposable entity tutorial](../tutorial/build-decomposable-application.md) demonstrates how to use this method.-->
+The [decomposable entity tutorial](../tutorial/build-decomposable-application.md) demonstrates how to use this method.
 
 As part of planning the entities, you may know you need text-matching entities (such as prebuilt entities, regular expression entities, or list entities). You can create these from the  **Entities**  page before they are labeled in example utterances.
 
@@ -133,7 +133,7 @@ To recognize common types of information, add a [prebuilt entity](../concepts/en
 
 ## Create a pattern.any entity
 
-The  [**Pattern.any**](../concepts/entities.md#patternany-entity) entity is only available with patterns. <!-- See the [patterns article](../concepts/patterns-features.md) for more information. --> 
+The  [**Pattern.any**](../concepts/entities.md#patternany-entity) entity is only available with patterns. See the [patterns article](../concepts/patterns-features.md) for more information. 
 
 ## Next steps
 

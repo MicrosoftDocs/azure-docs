@@ -73,6 +73,5 @@ To get an intent from your app, you can use either the [REST API](../client-libr
 
 ## Next steps
 
-[Add entities](entities.md)
-
-<!--[Train and test](train-test.md)-->
+* [Add entities](entities.md)
+* [Train and test](train-test.md)
