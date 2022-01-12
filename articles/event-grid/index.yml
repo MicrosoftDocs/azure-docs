@@ -95,7 +95,7 @@ landingContent:
             url: ./kubernetes/install-k8s-extension.md
 
   # Card
-  - title: Scenarios
+  - title: Quickstarts
     linkLists:
       - linkListType: quickstart
         links:
@@ -111,6 +111,9 @@ landingContent:
             url: custom-event-quickstart-portal.md
           - text: Send events from a private container registry
             url: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
+  # Card
+  - title: Tutorials
+    linkLists:
       - linkListType: tutorial
         links:
           - text: Email when VM changes
@@ -126,6 +129,19 @@ landingContent:
           - text: Stream data from Event Hubs
             url: event-grid-event-hubs-integration.md
           - text: Route Media Services events
-            url: ..//media-services/latest/monitoring/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json
+            url: ../media-services/latest/monitoring/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json
           - text: Route to Hybrid Connections
             url: custom-event-to-hybrid-connection.md
+  # Card
+  - title: Learn modules
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Explore Azure Event Grid
+            url: /learn/modules/azure-event-grid/
+          - text: React to state changes in your Azure services by using Event Grid
+            url: /learn/modules/react-to-state-changes-using-event-grid/
+          - text: Choose a messaging model in Azure to loosely connect your services
+            url: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+          - text: Choose a messaging model in Azure to loosely connect your services
+            url: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/            
