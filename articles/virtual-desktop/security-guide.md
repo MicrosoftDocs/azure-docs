@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Best practices for keeping your Azure Virtual Desktop environment secure.
 author: heidilohr
 ms.topic: conceptual
-ms.date: 01/11/2022
+ms.date: 01/12/2022
 ms.author: helohr
 ms.service: virtual-desktop
 manager: femila
@@ -78,7 +78,6 @@ Enabling audit log collection lets you view user and admin activity related to A
 -   [Azure Active Directory Activity Log](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [Session hosts](../azure-monitor/agents/agent-windows.md)
--   [Azure Virtual Desktop Diagnostic Log](../virtual-desktop/diagnostics-log-analytics.md)
 -   [Key Vault logs](../key-vault/general/logging.md)
 
 ### Use RemoteApps

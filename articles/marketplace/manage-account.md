@@ -28,7 +28,7 @@ If you have not already done so, you (or your organization's administrator) shou
 
     [ ![Screenshot of the account settings menu in Partner Center.](./media/manage-accounts/settings-account-workspaces.png) ](./media/manage-accounts/settings-account-workspaces.png#lightbox)
 
-1. Under **Account settings**, select **Legal**, then the **Developer** tab to view details related to your commercial marketplace account.
+1. In the left menu, under **Organization profile**, select **Legal**. Then select the **Developer** tab to view details related to your commercial marketplace account.
 
     [ ![Screenshot of the developer tab on the legal page in Account settings.](./media/manage-accounts/developer-tab-workspaces.png) ](./media/manage-accounts/developer-tab-workspaces.png#lightbox)
 
@@ -170,8 +170,8 @@ By default, Microsoft sends payments on a monthly basis. However, you can option
 
 **To place your payments on hold**:
 
-1. Go to **Account settings**. 
-1. In the left-nav expand **Payout and tax** and select **Payout and tax profiles**.
+1. Go to **Account settings**.
+1. In the left menu expand **Payout and tax** and select **Payout and tax profiles**.
 1. Select the program for which you want to hold payments, and then select the **Hold my Payment** check box.
 
 You can change your payout hold status at any time, but be aware that your decision will impact the next monthly payout. For example, if you want to hold April's payout, make sure to set your payout hold status to **On** before the end of March.
@@ -192,7 +192,7 @@ If you are publishing a [Dynamics 365 apps on Dataverse and Power Apps](./partne
 The billing address is pre-populated from your legal entity, and you can update this address later. The TAX and VAT ID fields are required for some countries and optional for others. The country/region name and company name cannot be edited.
 
 1. In the top-right, select **Settings** (gear icon), and then select **Account settings**.
-1. Then in the left-nav expand **Organization profile** and select **Billing profile**.
+1. Then in the left menu expand **Organization profile** and select **Billing profile**.
 
 ## Multi-user account management
 
