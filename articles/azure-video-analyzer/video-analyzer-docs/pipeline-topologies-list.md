@@ -1,13 +1,13 @@
 ---
 title: List of pipeline topologies
-description: This article lists the live pipeline topologies supported by Azure Video Analyzer. 
+description: This article lists validated sample pipeline topologies for Azure Video Analyzer. 
 ms.topic: conceptual
-ms.date: 01/03/2022
+ms.date: 01/12/2022
 ---
 
 # List of pipeline topologies
 
-The following tables list validated sample Azure Video Analyzer [live pipeline topologies](terminology.md#pipeline-topology). These topologies can be further customized according to solution needs. The tables also provides
+The following tables list validated sample Azure Video Analyzer [live pipeline topologies](terminology.md#pipeline-topology). These topologies can be further customized according to solution needs. The tables also provide
 
 * A short description,
 * Topology's corresponding sample tutorial(s), and 
