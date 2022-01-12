@@ -94,7 +94,7 @@ To ensure you securely connect to your Azure storage service, Azure Machine Lear
 
 ### Virtual network 
 
-Azure Machine Learning requires additional configuration steps to communicate with a storage account that is behind a firewall or within a virtual network. If your storage account is behind a firewall, you can [allow list the IP address via the Azure portal](../storage/common/storage-network-security.md#managing-ip-network-rules).
+Azure Machine Learning requires additional configuration steps to communicate with a storage account that is behind a firewall or within a virtual network.
 
 Azure Machine Learning can receive requests from clients outside of the virtual network. To ensure that the entity requesting data from the service is safe, [use a private endpoint with your workspace](how-to-configure-private-link.md).
 
