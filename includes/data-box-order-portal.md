@@ -59,7 +59,7 @@ Do the following steps in the Azure portal to order a device:
 
 7. On the **Data destination** screen, select the **Data destination** - either storage accounts or managed disks.
 
-    The **Data destination** tab changes based on the destination you select. See either [To use storage accounts](#to-use-storage-accounts) or [To use managed disks](#to-use-managed-disks), below, for instructions.
+    The **Data destination** tab changes based on the destination you select. See either [To use storage accounts](#to-use-storage-accounts) or [To use managed disks](#to-use-managed-disks), below, for instructions. 
 
     #### To use storage accounts
 
