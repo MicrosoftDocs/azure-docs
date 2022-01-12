@@ -19,7 +19,7 @@ JMX metrics collection can be configured by adding a ```"jmxMetrics"``` section 
 
 ## How do I know what metrics are available to configure?
 
-You nailed it - you must know the object names and the attributes, those properties are different for various libraries, frameworks, and application servers, and are often not well documented. Luckily, we made it easy to find what exactly JMX metrics are supported for your particular environment.
+You nailed it - you must know the object names and the attributes, those properties are different for various libraries, frameworks, and application servers, and are often not well documented. Luckily, it's easy to find exactly what JMX metrics are supported for your particular environment.
 
 To view the available metrics, set `selfDiagnostics` to `DEBUG` in your `applicaitoninsight.json` configuration file, for example:
 
