@@ -19,12 +19,22 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 
 ## December 2021
 
-### FHIR service
+### Azure Healthcare APIs 
 
 ### **Features and enhancements**
 
 |Enhancements &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |Related information |
 | :------------------- | ---------------: |
+|Quota details for support requests  |We've updated the quota details for customer support requests with the latest information. |
+|Local RBAC  |We've updated the local RBAC documentation to clarify the use of the secondary tenant and the steps to disable it. |
+|Deploy and configure Healthcare APIs using scripts  |We've started the process of providing PowerShell, CLI scripts, and ARM templates to configure app registration and role assignments. Note that scripts for deploying Healthcare APIs will be available after GA. |
+
+### FHIR service
+
+### **Features and enhancements**
+
+|Enhancements | Related information |
+| :------------------------ | -------------------------------: |
 |Added Publisher to `CapabiilityStatement.name` |You can now find the publisher in the capability statement at `CapabilityStatement.name`. [#2319](https://github.com/microsoft/fhir-server/pull/2319) |
 |Log `FhirOperation` linked to anonymous calls to Request metrics |We weren’t logging operations that didn’t require authentication. We extended the ability to get `FhirOperation` type in `RequestMetrics` for anonymous calls. [#2295](https://github.com/microsoft/fhir-server/pull/2295) |
 
