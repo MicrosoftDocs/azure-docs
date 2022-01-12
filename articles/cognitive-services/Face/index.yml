@@ -55,7 +55,7 @@ landingContent:
           - text: Specify a face recognition model version
             url: Face-API-How-to-Topics/specify-recognition-model.md
 
-  - title: Detection and analysis
+  - title: Face detection and analysis
     linkLists:
       - linkListType: concept
         links:
