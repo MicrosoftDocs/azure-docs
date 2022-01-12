@@ -3,7 +3,7 @@ title: Known issues for application provisioning in Azure Active Directory
 description: Learn about known issues when you work with automated application provisioning in Azure Active Directory.
 author: kenwith
 ms.author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -90,6 +90,10 @@ When a group is in scope and a member is out of scope, the group will be provisi
 #### Manager isn't provisioned
 
 If a user and their manager are both in scope for provisioning, the service provisions the user and then updates the manager. If on day one the user is in scope and the manager is out of scope, we'll provision the user without the manager reference. When the manager comes into scope, the manager reference won't be updated until you restart provisioning and cause the service to reevaluate all the users again. 
+
+#### Global reader
+
+The global reader role is unable to read the provisioning configuration. Please create a custom role with the `microsoft.directory/applications/synchronization/standard/read` permission in order to read the provisioning configuration from the Azure Portal. 
 
 ## On-premises application provisioning
 The following information is a current list of known limitations with the Azure AD ECMA Connector Host and on-premises application provisioning.

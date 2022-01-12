@@ -10,7 +10,6 @@ keywords: azure, kinect, specs, hardware, DK, capabilities, depth, color, RGB, I
 ms.custom: CI 114092, CSSTroubleshooting
 audience: ITPro
 manager: dcscontentpm
-ms.localizationpriority: high
 ---
 
 # Azure Kinect DK hardware specifications

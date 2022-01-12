@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/24/2020 
 ms.author: procha 
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Azure Synapse Analytics system integration partners

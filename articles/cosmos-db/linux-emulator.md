@@ -1,5 +1,5 @@
 ---
-title: Run the Azure Cosmos DB emulator on Docker for Linux
+title: Run the Azure Cosmos DB Emulator on Docker for Linux
 description: Learn how to run and use the Azure Cosmos DB Linux Emulator on Linux, and macOS. Using the emulator you can develop and test your application locally for free, without an Azure subscription.
 ms.service: cosmos-db
 ms.topic: how-to
@@ -241,7 +241,7 @@ The number of physical partitions provisioned on the emulator is too low. Either
   - If the emulator fails to start with the following error:
   
     ```bash
-    "Failed loading Emulator secrets certificate. Error: 0x8009000f or similar, a new policy might have been added to your host that prevents an application such as Azure Cosmos DB emulator from creating and adding self signed certificate files into your certificate store."
+    "Failed loading Emulator secrets certificate. Error: 0x8009000f or similar, a new policy might have been added to your host that prevents an application such as Azure Cosmos DB Emulator from creating and adding self signed certificate files into your certificate store."
     ```
 
     This can be the case even when you run in Administrator context, since the specific policy usually added by your IT department takes priority over the local Administrator. Using a Docker image for the emulator instead might help in this case, as long as you still have the permission to add the self-signed emulator SSL certificate into your host machine context (this is required by Java and .NET Cosmos SDK client application).

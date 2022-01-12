@@ -5,6 +5,7 @@ description: Understand how to develop functions by using JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 11/18/2021
+ms.devlang: javascript
 ms.custom: devx-track-js
 ---
 # Azure Functions JavaScript developer guide
@@ -239,7 +240,7 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
-In a synchonous function, you can choose to define output binding data using the `context.done` method instead of the `context.binding` object (see below).
+In a synchronous function, you can choose to define output binding data using the `context.done` method instead of the `context.binding` object (see below).
 
 ### context.bindingData property
 

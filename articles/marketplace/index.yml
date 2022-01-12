@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: mingshen-ms 
   ms.author: mingshen
-  ms.date: 06/01/2021
+  ms.date: 12/13/2021
 
 landingContent:
   - title: Working in the commercial marketplace
@@ -133,3 +133,5 @@ landingContent:
         url: cloud-partner-portal-api-troubleshooting-authentication-errors.md
       - text: Geographic availability and currencies
         url: marketplace-geo-availability-currencies.md
+      - text: Troubleshoot Private Plans
+        url: azure-private-plan-troubleshooting.md

@@ -82,7 +82,7 @@ At most 50 live pipelines per topology are supported. 
 
 ### Concurrent low latency streaming sessions  
 
-For each active live pipeline, there can be at most one client application viewing the [low latency stream](playback-recordings-how-to.md#low-latency-streaming). If another client attempts to connect, the request will be refused.  
+For each active live pipeline, there can be at most one client application viewing the [low latency stream](viewing-videos-how-to.md#low-latency-streaming). If another client attempts to connect, the request will be refused.  
 
 ### Limitations on designing pipeline topologies 
 

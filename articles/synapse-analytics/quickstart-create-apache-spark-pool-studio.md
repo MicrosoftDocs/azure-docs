@@ -8,8 +8,8 @@ ms.topic: quickstart
 ms.subservice: spark
 ms.date: 10/16/2020
 ms.author: saveenr
-ms.reviewer: jrasnick
-ms.custom: mode-other
+ms.reviewer: sngun
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create a serverless Apache Spark pool using Synapse Studio

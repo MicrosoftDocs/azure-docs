@@ -5,9 +5,9 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
-ms.custom: contperf-fy21q4, mode-portal
+ms.custom: contperf-fy21q4, mode-ui
 ms.date: 08/24/2021
-# Customer intent: As a developer, I want to create my first automated integration workflow by using Azure Logic Apps in the Azure portal
+#Customer intent: As a developer, I want to create my first automated integration workflow by using Azure Logic Apps in the Azure portal
 ---
 
 # Quickstart: Create an integration workflow with multi-tenant Azure Logic Apps and the Azure portal

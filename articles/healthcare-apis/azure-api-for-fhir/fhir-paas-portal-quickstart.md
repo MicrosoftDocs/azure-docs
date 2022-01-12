@@ -2,13 +2,13 @@
 title: 'Quickstart: Deploy Azure API for FHIR using Azure portal'
 description: In this quickstart, you'll learn how to deploy Azure API for FHIR and configure settings using the Azure portal.
 services: healthcare-apis
-author: matjazl
+author: zxue
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.topic: quickstart
-ms.date: 08/05/2021
+ms.topic: quickstart 
+ms.date: 12/02/2021
 ms.author: zxue
-ms.custom: mode-portal
+ms.custom: mode-api
 ---
 
 # Quickstart: Deploy Azure API for FHIR using Azure portal
@@ -63,10 +63,26 @@ When no longer needed, you can delete the resource group, Azure API for FHIR, an
 
 ## Next steps
 
-In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. To set additional settings in your Azure API for FHIR, proceed to the additional settings how-to guide. If you are ready to start using the Azure API for FHIR, read more on how to register applications.
+In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. For information about how to register applications and the Azure API for FHIR configuration settings, see
 
->[!div class="nextstepaction"]
->[Additional settings in Azure API for FHIR](azure-api-for-fhir-additional-settings.md)
 
 >[!div class="nextstepaction"]
 >[Register Applications Overview](fhir-app-registration.md)
+
+>[!div class="nextstepaction"]
+>[Configure Azure RBAC](configure-azure-rbac.md)
+
+>[!div class="nextstepaction"]
+>[Configure local RBAC](configure-local-rbac.md)
+
+>[!div class="nextstepaction"]
+>[Configure database settings](configure-database.md)
+
+>[!div class="nextstepaction"]
+>[Configure customer-managed keys](customer-managed-key.md)
+
+>[!div class="nextstepaction"]
+>[Configure CORS](configure-cross-origin-resource-sharing.md)
+
+>[!div class="nextstepaction"]
+>[Configure Private Link](configure-private-link.md)

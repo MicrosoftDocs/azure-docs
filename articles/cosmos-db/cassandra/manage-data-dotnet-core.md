@@ -5,10 +5,10 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 author: TheovanKraay
 ms.author: thvankra
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 10/01/2020
-ms.custom: devx-track-dotnet, mode-other
+ms.custom: devx-track-dotnet, mode-api
 ---
 
 # Quickstart: Build a Cassandra app with .NET Core and Azure Cosmos DB

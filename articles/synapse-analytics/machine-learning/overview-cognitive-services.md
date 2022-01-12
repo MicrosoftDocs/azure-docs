@@ -5,7 +5,7 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: overview
-ms.reviewer: jrasnick, garye, negust, ruxu
+ms.reviewer: sngun, garye, negust, ruxu
 ms.date: 06/30/2021
 author: WilliamDAssafMSFT
 ms.author: wiassaf

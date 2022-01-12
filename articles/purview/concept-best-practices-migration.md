@@ -89,7 +89,7 @@ This section provides high level guidance on required tasks to copy assets, glos
 
 ### Create the new account
 You will need to create a new Azure Purview account by following below instruction:
-* [Quickstart: Create an Azure Purview account in the Azure portal](https://docs.microsoft.com/azure/purview/create-catalog-portal)
+* [Quickstart: Create an Azure Purview account in the Azure portal](create-catalog-portal.md)
 
 It’s crucial to plan ahead on configuration items that you cannot change later:
 * Account name
@@ -98,18 +98,18 @@ It’s crucial to plan ahead on configuration items that you cannot change later
 * Manage resource group name
 
 ### Migrate configuration items
-Below steps are referring to [Azure Purview API documentation](https://docs.microsoft.com/rest/api/purview) so that you can programmatically stand up the backup account quickly:
+Below steps are referring to [Azure Purview API documentation](/rest/api/purview/) so that you can programmatically stand up the backup account quickly:
 
 |Task|Description|
 |-------------|-----------------|
 |**Account information**|Maintain Account information by granting access for the admin and/or service principal to the account at root level|
-|**Collections**|Create and maintain Collections along with the association of sources with the Collections. You can call [List Collections API](/rest/api/purview/accountdataplane/collections/list-collections) and then get specific details of each collection via [Get Collection API](/rest/api/purview/accountdataplane/collections/get-collection.md)|
+|**Collections**|Create and maintain Collections along with the association of sources with the Collections. You can call [List Collections API](/rest/api/purview/accountdataplane/collections/list-collections) and then get specific details of each collection via [Get Collection API](/rest/api/purview/accountdataplane/collections/get-collection)|
 |**Scan rule set**|Create and maintain custom scan rule sets. You need to call [List all custom scan rule sets API](/rest/api/purview/scanningdataplane/scan-rulesets/list-all) and get details by calling [Get scan rule set API](/rest/api/purview/scanningdataplane/scan-rulesets/get)|
 |**Manual classifications**|Get a list of all manual classifications by calling get classifications APIs and get details of each classification|
 |**Resource set rule**|Create and maintain resource set rule. You can call the [Get resource set rule API](/rest/api/purview/accountdataplane/resource-set-rules/get-resource-set-rule) to get the rule details|
 |**Data sources**|Call the [Get all data sources API](/rest/api/purview/scanningdataplane/scans/list-by-data-source) to list data sources with details. You also have to get the triggers by calling [Get trigger API](/rest/api/purview/scanningdataplane/triggers/get-trigger). There is also [Create data sources API](/rest/api/purview/scanningdataplane/data-sources/create-or-update) if you need to re-create the sources in bulk in the new account.|
 |**Credentials**|Create and maintain credentials used while scanning. There is no API to extract credentials, so this must be redone in the new account.|
-|**Self-hosted integration runtime (SHIR)**|Get a list of SHIR and get updated keys from the new account then update the SHIRs. This must be done [manually inside the SHIRs' hosts](https://docs.microsoft.com/azure/purview/manage-integration-runtimes#create-a-self-hosted-integration-runtime)|
+|**Self-hosted integration runtime (SHIR)**|Get a list of SHIR and get updated keys from the new account then update the SHIRs. This must be done [manually inside the SHIRs' hosts](manage-integration-runtimes.md#create-a-self-hosted-integration-runtime).|
 |**ADF connections**|Currently an ADF can be connected to one Purview at a time. You must disconnect ADF from failed Purview account and reconnect it to the new account later.|
 
 
@@ -325,7 +325,7 @@ To complete the asset migration, you must remap the relationships. There are thr
 > Before migrating terms, you need to migrate the term templates. This step should be already covered in the custom `typedef` migration.
 
 #### Using Azure Purview Portal
-The quickest way to migrate glossary terms is to [export terms to a .csv file](https://review.docs.microsoft.com/azure/purview/how-to-create-import-export-glossary?branch=main). You can do this using the Purview Studio.
+The quickest way to migrate glossary terms is to [export terms to a .csv file](how-to-create-import-export-glossary.md). You can do this using the Purview Studio.
 
 #### Using Azure Purview API
 To automate glossary migration, you first need to get the glossary `guid` (`glossaryGuid`) via [List Glossaries API](/rest/api/purview/catalogdataplane/glossary/list-glossaries). The `glossaryGuid` is the top/root level glossary `guid`.

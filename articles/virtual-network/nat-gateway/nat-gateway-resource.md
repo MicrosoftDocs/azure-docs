@@ -9,7 +9,6 @@ manager: KumudD
 ms.service: virtual-network
 ms.subservice: nat
 # Customer intent: As an IT administrator, I want to learn more about how to design virtual networks with NAT gateway resources.
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: yulili
+ms.devlang: cpp, csharp, java, javascript, objective-c, python
 ms.custom: references_regions 
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---

@@ -4,7 +4,6 @@ description: This article can help you understand how Traffic Manager uses endpo
 services: traffic-manager
 author: asudbring
 ms.service: traffic-manager
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

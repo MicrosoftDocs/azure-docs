@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/21/2021
+ms.date: 01/10/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: jlu
+ms.reviewer: tunag
 ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
 ---
@@ -52,7 +52,7 @@ This process enables the scenario where users lose access to organizational Shar
 > [!NOTE] 
 > Teams and SharePoint Online do not support user risk events.
 
-### Conditional Access policy evaluation (preview)
+### Conditional Access policy evaluation
 
 Exchange Online, SharePoint Online, Teams, and MS Graph can synchronize key Conditional Access policies for evaluation within the service itself.
 
@@ -115,7 +115,7 @@ If you aren't using CAE-capable clients, your default access token lifetime will
 1. In this case, the resource provider denies access, and sends a 401+ claim challenge back to the client.
 1. The CAE-capable client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Azure AD. Azure AD will then reevaluate all the conditions and prompt the user to reauthenticate in this case.
 
-### User condition change flow (Preview)
+### User condition change flow
 
 In the following example, a Conditional Access administrator has configured a location based Conditional Access policy to only allow access from specific IP ranges:
 
@@ -130,29 +130,31 @@ In the following example, a Conditional Access administrator has configured a lo
 1. In this case, the resource provider denies access, and sends a 401+ claim challenge back to the client. The client is challenged because it isn't coming from an allowed IP range.
 1. The CAE-capable client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Azure AD. Azure AD reevaluates all the conditions and will deny access in this case.
 
-## Enable or disable CAE (Preview)
+## Enable or disable CAE
 
-CAE setting has been moved to under the Conditional Access blade. New CAE customers will be able to access and toggle CAE directly when creating Conditional Access policies. However, some existing customers will need to go through migration before they can begin to access CAE through Conditional Access.
+The CAE setting has been moved to under the Conditional Access blade. New CAE customers can access and toggle CAE directly when creating Conditional Access policies. However, some existing customers must go through migration before they can access CAE through Conditional Access.
 
 #### Migration
 
-Customers who have configured CAE settings under Security before have to migrate these setting to a new Conditional Access policy. Use the steps that follow to migrate your CAE settings to a Conditional Access policy.
+Customers who have configured CAE settings under Security before have to migrate settings to a new Conditional Access policy. Use the steps that follow to migrate your CAE settings to a Conditional Access policy.
 
 :::image type="content" source="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png" alt-text="Portal view showing the option to migrate continuous access evaluation to a Conditional Access policy." lightbox="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png":::
 
 1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator. 
-1.	Browse to **Azure Active Directory** > **Security** > **Continuous access evaluation (preview)**. 
+1.	Browse to **Azure Active Directory** > **Security** > **Continuous access evaluation**. 
 1.	You'll then see the option to **Migrate** your policy. This action is the only one that you’ll have access to at this point.
-1. Browse to **Conditional Access** and you will find a new policy named **CA policy created from CAE settings** with your settings configured. Administrators can choose to customize this policy or create their own to replace it.
+1. Browse to **Conditional Access** and you'll find a new policy named **CA policy created from CAE settings** with your settings configured. Administrators can choose to customize this policy or create their own to replace it.
+
+The following table describes the migration experience of each customer group based on previously configured CAE settings. 
+
+| Existing CAE Setting | Is Migration Needed | Auto Enabled for CAE | Expected Migration Experience |
+| --- | --- | --- | --- |
+| New tenants that didn't configure anything in the old experience. | No | Yes | Old CAE setting will be hidden given these customers likely didn't see the experience before general availability. |
+| Tenants that explicitly enabled for all users with the old experience. | No | Yes | Old CAE setting will be greyed out. Since these customers explicitly enabled this setting for all users, they don't need to migrate. |
+| Tenants that explicitly enabled some users in their tenants with the old experience.| Yes | No | Old CAE settings will be greyed out. Clicking **Migrate** launches the new conditional access policy wizard, which includes **All users**, while excluding users and groups copied from CAE. It also sets the new **Customize continuous access evaluation** Session control to **Disabled**. |
+| Tenants that explicitly disabled the preview. | Yes | No | Old CAE settings will be greyed out. Clicking **Migrate** launches the new conditional access policy wizard, which includes **All users**, and sets the new **Customize continuous access evaluation** Session control to **Disabled**. |
 
 More information about continuous access evaluation as a session control can be found in the section, [Customize continuous access evaluation](concept-conditional-access-session.md#customize-continuous-access-evaluation).
-
-### Strict enforcement 
-
-With the latest CAE setting under Conditional Access, strict enforcement is a new feature that allows for enhanced security based on two factors: IP address variation and client capability. This functionality can be enabled while customizing CAE options for a given policy. By turning on strict enforcement, CAE will revoke access upon detecting any instances of either [IP address variation](#ip-address-variation) or a lack of CAE [client capability](#client-capabilities).
-
-> [!NOTE] 
-> You should only enable strict enforcement after you ensure that all the client applications support CAE and you have included all your IP addresses seen by Azure AD and the resource providers, like Exchange online and Azure Resource Mananger, in your location policy under Conditional Access. Otherwise, you could be blocked.
 
 ## Limitations
 
@@ -208,9 +210,9 @@ To reduce this time a SharePoint Administrator can reduce the maximum lifetime o
 
 ### Enable after a user is disabled
 
-If you enable a user right after disabling, there's some latency before the account is recognized as enabled in downstream Microsoft services.
+If you enable a user right after disabling, there's some latency before the account is recognized as enabled in downstream Microsoft services.
 
-- SharePoint Online and Teams typically have a 15-minute delay. 
+- SharePoint Online and Teams typically have a 15-minute delay.
 - Exchange Online typically has a 35-40 minute delay. 
 
 ### Push notifications

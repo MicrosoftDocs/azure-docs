@@ -3,7 +3,8 @@ title: Create a Python function using Visual Studio Code - Azure Functions
 description: Learn how to create a Python function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.custom: devx-track-python, mode-other
+ms.devlang: python
+ms.custom: devx-track-python, mode-api
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 

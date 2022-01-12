@@ -3,7 +3,8 @@ title: Create a PowerShell function from the command line - Azure Functions
 description: Learn how to create a PowerShell function from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 11/03/2020
 ms.topic: quickstart
-ms.custom: devx-track-powershell, devx-track-azurecli, devx-track-azurepowershell, mode-other
+ms.devlang: powershell
+ms.custom: devx-track-powershell, devx-track-azurecli, devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Create a PowerShell function in Azure from the command line

@@ -7,10 +7,10 @@ ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: overview
-author: MladjoA
-ms.author: mlandzic
+author: scoriani
+ms.author: scoriani
 ms.reviewer: kendralittle, mathoma
-ms.date: 11/09/2021
+ms.date: 12/15/2021
 ---
 
 # Azure SQL Database elastic query overview (preview)

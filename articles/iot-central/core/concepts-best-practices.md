@@ -3,7 +3,7 @@ title: Device development best practices in Azure IoT Central | Microsoft Docs
 description: This article outlines best practices for device connectivity in Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/03/2021
+ms.date: 12/22/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -83,7 +83,8 @@ To learn more about the CLI command, see [az iot central device manual-failover]
 
 You can now check to see that telemetry from the device is still reaching your IoT Central application.
 
-To see sample device code that handles failovers in various programing languages, see [IoT high availability clients](https://github.com/iot-for-all/iot-central-high-availability-clients).
+> [!TIP]
+> To see sample device code that handles failovers in various programing languages, see [IoT Central high availability clients](/samples/azure-samples/iot-central-high-availability-clients/iotc-high-availability-clients/).
 
 ## Next steps
 
