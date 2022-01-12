@@ -23,7 +23,7 @@ Follow the steps in this tutorial to:
 
 ## Install the auth library
 
-:::code language="JavaScript" source="~/ms-identity-javascript-react-docs/src/sign-in-webapp/Program.cs" id="ms_docref_add_msal":::
+:::code language="aspx-csharp" source="~/ms-identity-docs-code-dotnet/src/sign-in-webapp/Program.cs" id="ms_docref_add_msal":::
 
 ## Next steps
 
