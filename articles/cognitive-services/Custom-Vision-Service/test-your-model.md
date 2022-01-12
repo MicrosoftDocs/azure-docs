@@ -15,11 +15,11 @@ ms.author: pafarley
 
 # Test and retrain a model with Custom Vision Service
 
-After you train your model, you can quickly test it using a locally stored image or an online image. The test uses the most recently trained iteration of your model.
+After you train your Custom Vision model, you can quickly test it using a locally stored image or a URL pointing to a remote image. The test uses the most recently trained iteration of your model. Then you can decide whether further training is needed.
 
 ## Test your model
 
-1. From the [Custom Vision web page](https://customvision.ai), select your project. Select **Quick Test** on the right of the top menu bar. This action opens a window labeled **Quick Test**.
+1. From the [Custom Vision web portal](https://customvision.ai), select your project. Select **Quick Test** on the right of the top menu bar. This action opens a window labeled **Quick Test**.
 
     ![The Quick Test button is shown in the upper right corner of the window.](./media/test-your-model/quick-test-button.png)
 
@@ -27,13 +27,11 @@ After you train your model, you can quickly test it using a locally stored image
 
     ![Image of the submit image page](./media/test-your-model/submit-image.png)
 
-The image you select appears in the middle of the page. Then the results appear below the image in the form of a table with two columns, labeled **Tags** and **Confidence**. After you view the results, you may close the **Quick Test** window.
-
-You can now add this test image to your model and then retrain your model.
+The image you select appears in the middle of the page. Then the prediction results appear below the image in the form of a table with two columns, labeled **Tags** and **Confidence**. After you view the results, you may close the **Quick Test** window.
 
 ## Use the predicted image for training
 
-To use the image submitted previously for training, use the following steps:
+You can now take the image submitted previously for testing and use it to retrain your model.
 
 1. To view images submitted to the classifier, open the [Custom Vision web page](https://customvision.ai) and select the __Predictions__ tab.
 
@@ -47,7 +45,7 @@ To use the image submitted previously for training, use the following steps:
     > [!TIP]
     > Images are ranked, so that the images that can bring the most gains to the classifier are at the top. To select a different sorting, use the __Sort__ section.
 
-    To add an image to your training data, select the image, select the tag, and then select __Save and close__. The image is removed from __Predictions__ and added to the training images. You can view it by selecting the __Training Images__ tab.
+    To add an image to your training data, select the image, manually select the tag(s), and then select __Save and close__. The image is removed from __Predictions__ and added to the training images. You can view it by selecting the __Training Images__ tab.
 
     ![Image of the tagging page](./media/test-your-model/tag-image.png)
 
