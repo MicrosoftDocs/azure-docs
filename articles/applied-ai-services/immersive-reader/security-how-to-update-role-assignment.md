@@ -44,7 +44,7 @@ If you created and configured an Immersive Reader resource using the instruction
 
 After you have updated the role using the script below, it is also advised that you rotate the subscription keys on your resource. This is in case your keys have been compromised by the exploit above, and somebody is actually using your resource with subscription key authentication without your consent. Rotating the keys will render the previous keys invalid and deny any further access. For customers using Azure AD authentication, which should be everyone per current Immersive Reader SDK implementation, rotating the keys will have no impact on the Immersive Reader service, since Azure AD access tokens are used for authentication, not the subscription key. Rotating the subscription keys is just another precaution.
 
-You can rotate the subscription keys on the Azure portal for your resource. Navigate to your resource and then to the `Keys and Endpoint` blade. At the top, there are buttons to `Regenerate Key1` and `Regenerate Key2`.
+You can rotate the subscription keys on the [Azure portal](https://portal.azure.com). Navigate to your resource and then to the `Keys and Endpoint` blade. At the top, there are buttons to `Regenerate Key1` and `Regenerate Key2`.
 
 :::image type="content" source="media/resource-keys.png" alt-text="Screenshot of the Azure portal showing an Immersive Reader resource with the Keys and Endpoint blade selected, which shows the Regenerate Keys buttons at the top.":::
 
