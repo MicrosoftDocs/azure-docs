@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 12/28/2021
+ms.date: 01/11/2022
 ms.custom: template-how-to
 ---
 
@@ -21,7 +21,7 @@ This article outlines how to register SAP HANA, and how to authenticate and inte
 
 |**Metadata extraction**|  **Full scan**  |**Incremental scan**|**Scoped scan**|**Classification**|**Access policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| No |
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| No |
 
 When scanning SAP HANA source, Purview supports extracting technical metadata including:
 
