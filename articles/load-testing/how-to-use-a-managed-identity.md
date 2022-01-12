@@ -1,5 +1,5 @@
 ---
-title: Use a managed identity for Azure Load Testing
+title: Use managed identity to access Azure key vault
 titleSuffix: Azure Load Testing
 description: Learn how to enable managed identity for Azure Load Testing and use it to read secrets from your Azure key vault.
 services: load-testing

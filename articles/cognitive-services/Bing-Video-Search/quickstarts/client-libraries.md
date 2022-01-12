@@ -11,7 +11,8 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 10/22/2020
 ms.author: aahi
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other
+ms.devlang: csharp, java, javascript, python
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-api
 ---
 # Quickstart: Use the Bing Video Search client library
 

@@ -8,7 +8,6 @@ ms.devlang: c
 ms.topic: quickstart
 ms.date: 12/02/2021
 ms.custom: mode-other
-
 #Customer intent: As a device builder, I want to see a working IoT device sample connecting to Azure IoT, sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
@@ -17,9 +16,9 @@ ms.custom: mode-other
 **Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)<br>
 **Total completion time**:  30 minutes
 
-In this quickstart, you use the Azure FreeRTOS middleware to connect the ESPRESSIF ESP32-Azure IoT Kit (hereafter, the ESP32 DevKit) to Azure IoT.
+In this quickstart, you use the Azure FreeRTOS middleware to connect the ESPRESSIF ESP32-Azure IoT Kit (from now on, the ESP32 DevKit) to Azure IoT.
 
-You will complete the following tasks:
+You'll complete the following tasks:
 
 * Install a set of embedded development tools for programming an ESP32 DevKit
 * Build an image and flash it onto the ESP32 DevKit
@@ -36,7 +35,7 @@ Hardware:
 
 ## Prepare the development environment
 
-To set up your development environment, first you install the ESPRESSIF ESP-IDF build environment. The installer includes all the tools required to clone, build, flash and monitor your device.
+To set up your development environment, first you install the ESPRESSIF ESP-IDF build environment. The installer includes all the tools required to clone, build, flash, and monitor your device.
 
 To install the ESP-IDF tools:
 1. Download and launch the [ESP-IDF Online installer](https://dl.espressif.com/dl/esp-idf).
@@ -100,7 +99,7 @@ To save the configuration:
 
 
 ### Build and flash the image
-In this section, you use the ESP-IDF tools to build, flash and monitor the ESP32 DevKit as it connects to Azure IoT.  
+In this section, you use the ESP-IDF tools to build, flash, and monitor the ESP32 DevKit as it connects to Azure IoT.  
 
 > [!NOTE]
 > In the following commands in this section, use a short build output path near your root directory. Specify the build path after the `-B` parameter in each command that requires it. The short path helps to avoid a current issue in the ESPRESSIF ESP-IDF tools that can cause errors with long build path names.  The following commands use a local path *C:\espbuild* as an example.
@@ -112,7 +111,7 @@ To build the image:
     idf.py --no-ccache -B "C:\espbuild" build 
     ```
 
-1. After the build completes, confirm that the binary image file was created in the build path you specified previously.
+1. After the build completes, confirm that the binary image file was created in the build path that you specified previously.
 
     *C:\espbuild\azure_iot_freertos_esp32.bin*
 
@@ -180,7 +179,7 @@ To view telemetry in IoT Central:
 1. Select the device from the device list.
 1. Select the **Overview** tab on the device page, and view the telemetry as the device sends messages to the cloud.
 
-    :::image type="content" source="media/quickstart-devkit-espressif-esp32/esp-telemetry.png" alt-text="Screenshot of ESP32 DevKit device sending telemetry to IoT Central.":::
+    :::image type="content" source="media/quickstart-devkit-espressif-esp32/esp-telemetry.png" alt-text="Screenshot of the ESP32 DevKit device sending telemetry to IoT Central.":::
 
 ## Send a command to the device
 
@@ -226,7 +225,7 @@ To remove the entire Azure IoT Central sample application and all its devices an
 
 ## Next Steps
 
-In this quickstart you built a custom image that contains the Azure FreeRTOS middleware sample code, and then flashed the image to the ESP32 DevKit device. You also used the IoT Central portal to create Azure resources, connect the ESP32 DevKit securely to Azure, view telemetry, and send messages.
+In this quickstart, you built a custom image that contains the Azure FreeRTOS middleware sample code, and then you flashed the image to the ESP32 DevKit device. You also used the IoT Central portal to create Azure resources, connect the ESP32 DevKit securely to Azure, view telemetry, and send messages.
 
 As a next step, explore the following articles to learn more about working with embedded devices and connecting them to Azure IoT. 
 

@@ -7,7 +7,6 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 # Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for. 
-ms.devlang: na
 ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na

@@ -4,7 +4,7 @@ description: Learn how to troubleshoot SQL insights in Azure Monitor.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/03/2021
+ms.date: 1/3/2022
 ---
 
 # Troubleshoot SQL insights (preview)
@@ -28,9 +28,9 @@ SQL insights uses the following query to retrieve this information:
 
 ```kusto
 InsightsMetrics 
-    | extend Tags = todynamic(Tags) 
-    | extend SqlInstance = tostring(Tags.sql_instance) 
-    | where TimeGenerated > ago(10m) and isnotempty(SqlInstance) and Namespace == 'sqlserver_server_properties' and Name == 'uptime' 
+    | extend Tags = todynamic(Tags) 
+    | extend SqlInstance = tostring(Tags.sql_instance) 
+    | where TimeGenerated > ago(10m) and isnotempty(SqlInstance) and Namespace == 'sqlserver_server_properties' and Name == 'uptime' 
 ```
 
 Check if any logs from Telegraf help identify the root cause the problem. If there are log entries, you can select **Not collecting** and check the logs and troubleshooting info for common problems. 
@@ -79,11 +79,14 @@ To see error messages from the telegraf service, run it manually by using the fo
 
 Check [prerequisites](../agents/azure-monitor-agent-install.md#prerequisites) for the Azure Monitor agent. 
 
-
-Service logs:  
+Prior to Azure Monitoring Agent v1.12, mdsd service logs were located in:
 - `/var/log/mdsd.err`
 - `/var/log/mdsd.warn`
 - `/var/log/mdsd.info`
+
+From v1.12 onward, service logs are located in:
+- `/var/opt/microsoft/azuremonitoragent/log/`
+- `/etc/opt/microsoft/azuremonitoragent/`
 
 To see recent errors: `tail -n 100 -f /var/log/mdsd.err`
 
@@ -91,7 +94,7 @@ If you need to contact support, collect the following information:
 
 - Logs in `/var/log/azure/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent/` 
 - Log in `/var/log/waagent.log` 
-- Logs in `/var/log/mdsd*`
+- Logs in `/var/log/mdsd*`, or logs in `/var/opt/microsoft/azuremonitoragent/log/` and `/etc/opt/microsoft/azuremonitoragent/`.
 - Files in `/etc/mdsd.d/`
 - File `/etc/default/mdsd`
 

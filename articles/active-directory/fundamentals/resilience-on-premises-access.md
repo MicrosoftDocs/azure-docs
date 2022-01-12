@@ -3,7 +3,7 @@ title: Build resilience in application access with Application Proxy
 description: A guide for architects and IT administrators on using Application Proxy for resilient access to on-premises applications
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals

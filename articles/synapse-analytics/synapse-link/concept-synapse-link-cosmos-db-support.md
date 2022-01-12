@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: synapse-link
 ms.date: 06/02/2021
 ms.author: rosouz
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: cosmos-db
 ---
 

@@ -4,7 +4,6 @@ description: Guidance on how customers should consider naming their Azure resour
 services: azure-government
 cloud: gov
 
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.service: azure-government

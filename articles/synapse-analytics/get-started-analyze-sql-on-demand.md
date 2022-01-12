@@ -4,8 +4,7 @@ description: In this tutorial, you'll learn how to analyze data with a serverles
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
-manager: julieMSFT
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial

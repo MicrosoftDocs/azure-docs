@@ -10,6 +10,7 @@ ms.topic: quickstart
 ms.date: 09/16/2021
 ms.author: lajanuar
 recommendations: false
+ms.devlang: csharp, golang, java, javascript, python
 ms.custom: mode-other
 ---
 

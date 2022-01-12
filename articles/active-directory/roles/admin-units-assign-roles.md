@@ -4,12 +4,12 @@ description: Use administrative units to restrict the scope of role assignments 
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 12/11/2021
+ms.date: 12/17/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -47,6 +47,12 @@ The following Azure AD roles can be assigned with administrative unit scope:
 | [User Administrator](permissions-reference.md#user-administrator) | Can manage all aspects of users and groups, including resetting passwords for limited admins within the assigned administrative unit only. |
 
 (*) The SharePoint Administrator and Teams Administrator roles can only be used for managing properties in the Microsoft 365 admin center. Teams admin center and SharePoint admin center currently do not support administrative unit-scoped administration.
+
+Certain role permissions apply only to non-administrator users when assigned with the scope of an administrative unit. In other words, administrative unit scoped [Helpdesk Administrators](permissions-reference.md#helpdesk-administrator) can reset passwords for users in the administrative unit only if those users do not have administrator roles. The following list of permissions are restricted when the target of an action is another administrator:
+
+-	Read and modify user authentication methods, or reset user passwords
+-	Modify sensitive user properties such as telephone numbers, alternate email addresses, or OAuth secret keys
+- Delete or restore user accounts
 
 ## Security principals that can be assigned with administrative unit scope
 

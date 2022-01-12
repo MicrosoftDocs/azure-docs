@@ -9,7 +9,6 @@ editor:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 11/02/2020
@@ -27,7 +26,7 @@ ms.collection: M365-identity-device-management
 
 These Logic Apps can then be triggered to run in accordance with entitlement management use cases such as when an access package is granted or requested. For example, an admin could create and link a custom Logic App to entitlement management so that when a user requests an access package, a Logic App is triggered that ensures the user is also assigned certain characteristics in a 3rd party SAAS app (like Salesforce) or is sent a custom email.
 
-entitlement management use cases that can be integrated with Logic Apps include:  
+Entitlement management use cases that can be integrated with Logic Apps include:  
 
 - when an access package is requested  
 

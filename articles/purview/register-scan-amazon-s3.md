@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 12/07/2021
 ms.custom: references_regions
 # Customer intent: As a security officer, I need to understand how to use the Azure Purview connector for Amazon S3 service to set up, configure, and scan my Amazon S3 buckets.
 ---
@@ -20,17 +20,19 @@ This article describes how to use Azure Purview to scan your unstructured data c
 
 For this service, use Purview to provide a Microsoft account with secure access to AWS, where the Multi-Cloud Scanning Connector for Azure Purview will run. The Multi-Cloud Scanning Connector for Azure Purview uses this access to your Amazon S3 buckets to read your data, and then reports the scanning results, including only the metadata and classification, back to Azure. Use the Purview classification and labeling reports to analyze and review your data scan results.
 
+> [!IMPORTANT]
+> The Multi-Cloud Scanning Connector for Azure Purview is a separate add-on to Azure Purview. The terms and conditions for the Multi-Cloud Scanning Connector for Azure Purview are contained in the agreement under which you obtained Microsoft Azure Services. For more information, see Microsoft Azure Legal Information at https://azure.microsoft.com/support/legal/.
+>
+
 ## Supported capabilities
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
 | Yes | Yes | Yes | Yes | Yes | No | Limited** |
+|
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
-> [!IMPORTANT]
-> The Multi-Cloud Scanning Connector for Azure Purview is a separate add-on to Azure Purview. The terms and conditions for the Multi-Cloud Scanning Connector for Azure Purview are contained in the agreement under which you obtained Microsoft Azure Services. For more information, see Microsoft Azure Legal Information at https://azure.microsoft.com/support/legal/.
->
 
 ## Purview scope for Amazon S3
 
@@ -86,7 +88,9 @@ Ensure that you've performed the following prerequisites before adding your Amaz
 > * [Create a new AWS role for use with Purview](#create-a-new-aws-role-for-purview)
 > * [Create a Purview credential for your AWS bucket scan](#create-a-purview-credential-for-your-aws-s3-scan)
 > * [Configure scanning for encrypted Amazon S3 buckets](#configure-scanning-for-encrypted-amazon-s3-buckets), if relevant
+> * Make sure that your bucket policy does not block the connection. For more information, see [Bucket policy requirements](#confirm-your-bucket-policy-access) and [SCP policy requirements](#confirm-your-scp-policy-access). For these items, you may need to consult with an AWS expert to ensure that your policies allow required access.
 > * When adding your buckets as Purview resources, you'll need the values of your [AWS ARN](#retrieve-your-new-role-arn), [bucket name](#retrieve-your-amazon-s3-bucket-name), and sometimes your [AWS account ID](#locate-your-aws-account-id).
+
 
 ### Create a Purview account
 
@@ -96,7 +100,10 @@ Ensure that you've performed the following prerequisites before adding your Amaz
 
 ### Create a new AWS role for Purview
 
-This procedure describes how to locate the values for your Azure Account ID and External ID, create your AWS role, and then enter the value for your role ARN in Purview.
+The Purview scanner is deployed in a Microsoft account in AWS. To allow the Purview scanner to read your S3 data, you must create a dedicated role in the AWS portal, in the IAM area, to be used by the scanner.
+
+This procedure describes how to create the AWS role, with the required Microsoft Account ID and External ID from Purview, and then enter the Role ARN value in Purview.
+
 
 **To locate your Microsoft Account ID and External ID**:
 
@@ -104,8 +111,8 @@ This procedure describes how to locate the values for your Azure Account ID and 
 
 1. Select **New** to create a new credential.
 
-    In the **New credential** pane that appears on the right, in the **Authentication method** dropdown, select **Role ARN**. 
-    
+    In the **New credential** pane that appears on the right, in the **Authentication method** dropdown, select **Role ARN**.
+
     Then copy the **Microsoft account ID** and **External ID** values that appear to a separate file, or have them handy for pasting into the relevant field in AWS. For example:
 
     [ ![Locate your Microsoft account ID and External ID values.](./media/register-scan-amazon-s3/locate-account-id-external-id.png) ](./media/register-scan-amazon-s3/locate-account-id-external-id.png#lightbox)
@@ -152,12 +159,18 @@ This procedure describes how to locate the values for your Azure Account ID and 
     - In the **Role description** box, enter an optional description to identify the role's purpose
     - In the **Policies** section, confirm that the correct policy (**AmazonS3ReadOnlyAccess**) is attached to the role.
 
-    Then select **Create role** to complete the process.
-
-    For example:
+    Then select **Create role** to complete the process. For example:
 
     ![Review details before creating your role.](./media/register-scan-amazon-s3/review-role.png)
 
+**Extra required configurations**:
+
+- For buckets that use **AWS-KMS** encryption, [special configuration](#configure-scanning-for-encrypted-amazon-s3-buckets) is required to enable scanning.
+
+- Make sure that your bucket policy does not block the connection. For more information, see:
+
+    - [Confirm your bucket policy access](#confirm-your-bucket-policy-access)
+    - [Confirm your SCP policy access](#confirm-your-scp-policy-access)
 
 ### Create a Purview credential for your AWS S3 scan
 
@@ -246,6 +259,25 @@ AWS buckets support multiple encryption types. For buckets that use **AWS-KMS** 
         The **Summary** page is updated, with your new policy attached to your role.
 
         ![View an updated Summary page with the new policy attached to your role.](./media/register-scan-amazon-s3/attach-policy-role.png)
+
+### Confirm your bucket policy access
+
+Make sure that the S3 bucket [policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html) does not block the connection:
+
+1. In AWS, navigate to your S3 bucket, and then select the **Permissions** tab > **Bucket policy**.
+1. Check the policy details to make sure that it doesn't block the connection from the Purview scanner service.
+
+### Confirm your SCP policy access
+
+Make sure that there is no [SCP policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) that blocks the connection to the S3 bucket. 
+
+For example, your SCP policy might block read API calls to the [AWS Region](#storage-and-scanning-regions) where your S3 bucket is hosted.
+
+- Required API calls, which must be allowed by your SCP policy, include: `AssumeRole`, `GetBucketLocation`, `GetObject`, `ListBucket`, `GetBucketPublicAccessBlock`. 
+- Your SCP policy must also allow calls to the **us-east-1** AWS Region, which is the default Region for API calls. For more information, see the [AWS documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html).
+
+Follow the [SCP documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_create.html), review your organization’s SCP policies, and make sure all the [permissions required for the Purview scanner](#create-a-new-aws-role-for-purview) are available.
+
 
 ### Retrieve your new Role ARN
 
@@ -516,6 +548,48 @@ Make sure to define your resource with a wildcard. For example:
     ]
 }
 ```
+
+## Troubleshooting
+
+Scanning Amazon S3 resources requires [creating a role in AWS IAM](#create-a-new-aws-role-for-purview) to allow the Purview scanner service running in a Microsoft account in AWS to read the data.
+
+Configuration errors in the role can lead to connection failure. This section describes some examples of connection failures that may occur while setting up the scan, and the troubleshooting guidelines for each case.
+
+If all of the items described in the following sections are properly configured, and scanning S3 buckets still fails with errors, contact Microsoft support.
+
+> [!NOTE]
+> For policy access issues, make sure that neither your bucket policy, nor your SCP policy are blocking access to your S3 bucket from Purview.
+>
+>For more information, see [Confirm your bucket policy access](#confirm-your-bucket-policy-access) and [Confirm your SCP policy access](#confirm-your-scp-policy-access).
+>
+### Bucket is encrypted with KMS
+
+Make sure that the AWS role has **KMS Decrypt** permissions. For more information, see [Configure scanning for encrypted Amazon S3 buckets](#configure-scanning-for-encrypted-amazon-s3-buckets).
+
+### AWS role is missing an external ID
+
+Make sure that the AWS role has the correct external ID:
+
+1. In the AWS IAM area, select the **Role > Trust relationships** tab.
+1. Follow the steps in [Create a new AWS role for Purview](#create-a-new-aws-role-for-purview) again to verify your details.
+
+### Error found with the role ARN
+
+This is a general error that indicates an issue when using the Role ARN. For example, you may want to troubleshoot as follows:
+
+- Make sure that the AWS role has the required permissions to read the selected S3 bucket.  Required permissions include `AmazonS3ReadOnlyAccess` or the [minimum read permissions](#minimum-permissions-for-your-aws-policy), and `KMS Decrypt` for encrypted buckets.
+
+- Make sure that the AWS role has the correct Microsoft account ID. In the AWS IAM area, select the **Role > Trust relationships** tab and then follow the steps in [Create a new AWS role for Purview](#create-a-new-aws-role-for-purview) again to verify your details.
+
+For more information, see [Cannot find the specified bucket](#cannot-find-the-specified-bucket), 
+
+### Cannot find the specified bucket
+
+Make sure that the S3 bucket URL is properly defined:
+
+1. In AWS, navigate to your S3 bucket, and copy the bucket name.
+1. In Purview, edit the Amazon S3 data source, and update the bucket URL to include your copied bucket name, using the following syntax: `s3://<BucketName>`
+
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 12/12/2021
+ms.date: 12/14/2021
 zone_pivot_groups: connect-aws-accounts
 ms.custom: mode-other
 ---
@@ -16,13 +16,15 @@ Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (A
 
 To protect your AWS-based resources, you can connect an account with one of two mechanisms:
 
-- **Classic cloud connectors experience** - As part of the initial multi-cloud offering, we introduced these cloud connectors as a way to connect your AWS and GCP accounts. If you've already configured an AWS connector through the classic cloud connectors experience, we recommend connecting the account again using the newer mechanism. When you've added your account through the environment settings page, remove the old connector to avoid seeing duplicate recommendations.
+- **Classic cloud connectors experience** - As part of the initial multi-cloud offering, we introduced these cloud connectors as a way to connect your AWS and GCP accounts. If you've already configured an AWS connector through the classic cloud connectors experience, we recommend deleting these connectors (as explained in [Remove classic connectors](#remove-classic-connectors)), and connecting the account again using the newer mechanism. If you don't do this before creating the new connector through the environment settings page, do so afterwards to avoid seeing duplicate recommendations.
 
 - **Environment settings page (in preview)** (recommended) - This preview page provides a greatly improved, simpler, onboarding experience (including auto provisioning). This mechanism also extends Defender for Cloud's enhanced security features to your AWS resources:
 
     - **Defender for Cloud's CSPM features** extend to your AWS resources. This agentless plan assesses your AWS resources according to AWS-specific security recommendations and these are included in your secure score. The resources will also be assessed for compliance with built-in standards specific to AWS (AWS CIS, AWS PCI DSS, and AWS Foundational Security Best Practices). Defender for Cloud's [asset inventory page](asset-inventory.md) is a multi-cloud enabled feature helping you manage your AWS resources alongside your Azure resources.
     - **Microsoft Defender for Containers** extends Defender for Cloud's container threat detection and advanced defenses to your **Amazon EKS clusters**.
     - **Microsoft Defender for servers** brings threat detection and advanced defenses to your Windows and Linux EC2 instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more.
+
+For a reference list of all the recommendations Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
 
 This screenshot shows AWS accounts displayed in Defender for Cloud's [overview dashboard](overview-page.md).
 
@@ -60,6 +62,20 @@ This screenshot shows AWS accounts displayed in Defender for Cloud's [overview d
 
 Follow the steps below to create your AWS cloud connector. 
 
+### Remove 'classic' connectors
+
+If you have any existing connectors created with the classic cloud connectors experience, remove them first:
+
+1. From Defender for Cloud's menu, open **Environment settings** and select the option to switch back to the classic connectors experience.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::From Defender for Cloud's menu, open **Environment settings**.
+
+1. For each connector, select the “…” at the end of the row, and select **Delete**.
+
+1. On AWS, delete the role ARN or the credentials created for the integration.
+
+### Create a new connector
+
 1. From Defender for Cloud's menu, open **Environment settings**.
 1. Select **Add environment** > **Amazon Web Services**.
 
@@ -90,7 +106,7 @@ Follow the steps below to create your AWS cloud connector.
     1. Select **Next: Review and generate**.
     1. Select **Create**.
 
-Defender for Cloud will immediately start scanning your AWS resources and you'll see security recommendations in within a few hours.
+Defender for Cloud will immediately start scanning your AWS resources and you'll see security recommendations within a few hours. For a reference list of all the recommendations Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
 
 ::: zone-end
 
@@ -265,4 +281,5 @@ For other operating systems, the SSM Agent should be installed manually using th
 
 Connecting your AWS account is part of the multi-cloud experience available in Microsoft Defender for Cloud. For related information, see the following page:
 
+- [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
 - [Connect your GCP accounts to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)
