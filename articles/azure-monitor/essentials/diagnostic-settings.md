@@ -304,7 +304,7 @@ When you create the assignment by using the Azure portal, you have the option of
 
 ### Metric category is not supported
 
-When deploying a diagnostic setting, you receive an error message, similar to *Metric category 'xxxx' is not supported*. You may receive this error even though a previous your deployment succeeded. 
+When deploying a diagnostic setting, you receive an error message, similar to *Metric category 'xxxx' is not supported*. You may receive this error even though your previous deployment succeeded. 
 
 The problem occurs when using a Resource Manager template, the diagnostic settings REST API, Azure CLI, or Azure PowerShell. Diagnostic settings created via the Azure portal are not affected as only the supported category names are presented.
 
