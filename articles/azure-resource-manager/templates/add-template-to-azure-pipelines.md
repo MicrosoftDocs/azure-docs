@@ -185,10 +185,10 @@ There are several parts of this task to review in greater detail.
    location: '<location>'
    ```
 
-- `csmFileLink`: Provide the link for the staged template. When setting the value, use variables returned from the file copy task. The following example links to a template named mainTemplate.json. The folder named **templates** is included because that where the file copy task copied the file to. In your pipeline, provide the path to your template and the name of your template.
+- `csmFile`: Provide the link for the staged template. When setting the value, use variables returned from the file copy task. The following example links to a template named mainTemplate.json. The folder named **templates** is included because that where the file copy task copied the file to. In your pipeline, provide the path to your template and the name of your template.
 
    ```yml
-   csmFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
+   csmFile: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
    ```
 
 Your pipeline look like:
@@ -218,8 +218,8 @@ steps:
     resourceGroupName: 'demogroup'
     location: 'West US'
     templateLocation: 'URL of the file'
-    csmFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
-    csmParametersFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.parameters.json$(AzureFileCopy.StorageContainerSasToken)'
+    csmFile: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
+    csmParametersFile: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.parameters.json$(AzureFileCopy.StorageContainerSasToken)'
     deploymentMode: 'Incremental'
     deploymentName: 'deploy1'
 ```
