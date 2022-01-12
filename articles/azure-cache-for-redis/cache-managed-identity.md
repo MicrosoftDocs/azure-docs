@@ -53,7 +53,7 @@ Managed identity can be enabled either when you create a cache instance or after
 
 1. Create a new Azure Cache for Redis instance and fill out the basic information.
 
-  :::image type="content" source="media/cache-managed-identity/image1.png" alt-text="alt text":::
+  :::image type="content" source="media/cache-managed-identity/image1.png" alt-text="alt text 1":::
 
 > [!NOTE]
 > Managed identity functionality is only available in the Premium tier.
@@ -61,15 +61,15 @@ Managed identity can be enabled either when you create a cache instance or after
 
 1. In the **advanced** tab, scroll down to the section titled **(PREVIEW) System assigned managed identity** and select **On**.
 
-:::image type="content" source="media/cache-managed-identity/image3.png" alt-text="alt text":::
+  :::image type="content" source="media/cache-managed-identity/image3.png" alt-text="alt text 3":::
 
 1. Complete the creation process. Once the cache has been created, open it, and select the **(PREVIEW) Identity** tab under the **Settings** section on the left.
 
-  :::image type "content" source="media/cache-managed-identity/image4.png" alt-text="alt text":::
+  :::image type "content" source="media/cache-managed-identity/image4.png" alt-text="alt text 4":::
 
 1. You see that a **system-assigned** **identity** has been assigned to the cache instance.
 
-  :::image type "content" source="media/cache-managed-identity/image6.png" alt-text="alt text":::
+  :::image type "content" source="media/cache-managed-identity/image6.png" alt-text="alt text 6":::
 
 ### Update an existing cache to use managed identity using the portal
 
@@ -77,7 +77,7 @@ Managed identity can be enabled either when you create a cache instance or after
 
 1. Navigate to your Azure Cache for Redis account. Open the **(PREVIEW) Identity** tab under the **Settings** section on the left.
 
-  :::image type="content" source="media/cache-managed-identity/image4.png" alt-text="alt text":::
+  :::image type "content" source="media/cache-managed-identity/image4.png" alt-text="alt text":::
 
 >[!NOTE]
 >Managed identity functionality is only available in the Premium tier.
