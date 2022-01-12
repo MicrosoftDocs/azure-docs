@@ -56,10 +56,12 @@ Azure AD schema doesn't allow two or more objects to have the same value of the 
 * onPremisesSecurityIdentifier
 * objectId
 
+[Azure AD attribute duplicate attribute resiliency](how-to-connect-syncservice-duplicate-attribute-resiliency.md) is also being rolled out as the default behavior of Azure AD. This feature reduces the number of synchronization errors seen by Azure AD Connect and other sync clients. It makes Azure AD more resilient in the way it handles duplicated **proxyAddresses** and **userPrincipalName** attributes present in on-premises Active Directory environments. 
+
+This feature doesn't fix the duplication errors, so the data still needs to be fixed. But it allows provisioning of new objects that are otherwise blocked from being provisioned because of duplicated values in Azure AD. This capability will also reduce the number of synchronization errors returned to the synchronization client.
+
 > [!NOTE]
-> [Azure AD attribute duplicate attribute resiliency](how-to-connect-syncservice-duplicate-attribute-resiliency.md) is also being rolled out as the default behavior of Azure AD. This feature reduces the number of synchronization errors seen by Azure AD Connect and other sync clients. It makes Azure AD more resilient in the way it handles duplicated **proxyAddresses** and **userPrincipalName** attributes present in on-premises Active Directory environments. This feature doesn't fix the duplication errors, so the data still needs to be fixed. But it allows provisioning of new objects that are otherwise blocked from being provisioned because of duplicated values in Azure AD. This capability will also reduce the number of synchronization errors returned to the synchronization client.
-> If this feature is enabled for your tenant, you won't see the InvalidSoftMatch synchronization errors seen during provisioning of new objects.
->
+> If Azure AD attribute duplicate attribute resiliency is enabled for your tenant, you won't see the InvalidSoftMatch synchronization errors seen during provisioning of new objects.
 >
 
 #### Example scenarios for an InvalidSoftMatch error
