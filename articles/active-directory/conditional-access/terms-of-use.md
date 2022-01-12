@@ -192,7 +192,7 @@ The following screen shows how a ToU policy looks on mobile devices.
 
 ![Example terms of use that appears when a user signs in on a mobile device](./media/terms-of-use/mobile-tou.png)
 
-Users are only required to accept the terms of use policy once and they wont see the terms of use policy again on later sign-ins.
+Users are only required to accept the terms of use policy once, and they won't see the terms of use policy again on later sign-ins.
 
 ### How users can review their terms of use
 
