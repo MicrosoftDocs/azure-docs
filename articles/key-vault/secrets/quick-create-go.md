@@ -83,7 +83,7 @@ if err != nil {
 ### Create a secret
 
 ```go
-resp, err := client.SetSecret(context.Background(), "secretName", "secretValue", nil)
+resp, err := client.SetSecret(context.TODO(), "secretName", "secretValue", nil)
 if err != nil {
   log.Fatalf("failed to create a secret: %v", err)
 }
@@ -94,7 +94,7 @@ fmt.Printf("Name: %s, Value: %s\n", *resp.ID, *resp.Value)
 ### Get a secret
 
 ```go
-getResp, err := client.GetSecret(context.Background(), "secretName", nil)
+getResp, err := client.GetSecret(context.TODO(), "secretName", nil)
 if err != nil {
   log.Fatalf("failed to get the secret: %v", err)
 }
@@ -106,7 +106,7 @@ fmt.Printf("secretValue: %s\n", *getResp.Value)
 
 ```go
 pager := client.ListSecrets(nil)
-for pager.NextPage(context.Background()) {
+for pager.NextPage(context.TODO()) {
   resp := pager.PageResponse()
   for _, secret := range resp.Secrets {
     fmt.Printf("Secret ID: %s\n", *secret.ID)
@@ -121,7 +121,7 @@ if pager.Err() != nil {
 ### Delete a secret
 
 ```go
-_, err = client.BeginDeleteSecret(context.Background(), mySecretName, nil)
+_, err = client.BeginDeleteSecret(context.TODO(), mySecretName, nil)
 if err != nil {
   log.Fatalf("failed to delete secret: %v", err)
 }
@@ -162,13 +162,13 @@ func main() {
 	}
 
 	//Create a secret
-	_, err = client.SetSecret(context.Background(), mySecretName, mySecretValue, nil)
+	_, err = client.SetSecret(context.TODO(), mySecretName, mySecretValue, nil)
 	if err != nil {
 		log.Fatalf("failed to create a secret: %v", err)
 	}
 
 	//Get a secret
-	resp, err := client.GetSecret(context.Background(), mySecretName, nil)
+	resp, err := client.GetSecret(context.TODO(), mySecretName, nil)
 	if err != nil {
 		log.Fatalf("failed to get the secret: %v", err)
 	}
@@ -177,7 +177,7 @@ func main() {
 
 	//List secrets
 	pager := client.ListSecrets(nil)
-	for pager.NextPage(context.Background()) {
+	for pager.NextPage(context.TODO()) {
 		resp := pager.PageResponse()
 		for _, secret := range resp.Secrets {
 			fmt.Printf("Secret ID: %s\n", *secret.ID)
@@ -189,7 +189,7 @@ func main() {
 	}
 
 	//Delete a secret
-	_, err = client.BeginDeleteSecret(context.Background(), mySecretName, nil)
+	_, err = client.BeginDeleteSecret(context.TODO(), mySecretName, nil)
 	if err != nil {
 		log.Fatalf("failed to delete secret: %v", err)
 	}
