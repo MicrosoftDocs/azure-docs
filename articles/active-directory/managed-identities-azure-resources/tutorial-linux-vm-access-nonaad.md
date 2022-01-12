@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/16/2020
+ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 #Customer intent: As a developer or administrator I want to configure a Linux virtual machine to retrieve a secret from key vault using a managed identity and have a simple way to validate my configuration before using it for development
@@ -60,7 +60,7 @@ First, we need to create a Key Vault and grant our VM's system-assigned managed 
 
 ### Create a secret
 
-Next, add a secret to the Key Vault, so you can retrieve it later using code running in your VM. For the purpose of this tutorial, we are using PowerShell but the same concepts apply to any code executing in this virtual machine.
+Next, add a secret to the Key Vault, so you can retrieve it later using code running in your VM. In this tutorial, we are using PowerShell but the same concepts apply to any code executing in this virtual machine.
 
 1. Navigate to your newly created Key Vault.
 1. Select **Secrets**, and click **Add**.
@@ -101,7 +101,7 @@ To complete these steps, you need an SSH client.  If you are using Windows, you
 
 1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**. 
 2. **Connect** to the VM with the SSH client of your choice. 
-3. In the terminal window, using CURL, make a request to the local managed identities for Azure resources endpoint to get an access token for Azure Key Vault.  
+3. In the terminal window, use CURL to make a request to the local managed identities for Azure resources endpoint to get an access token for Azure Key Vault.  
  
     The CURL request for the access token is below.  
     
