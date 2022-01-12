@@ -45,7 +45,7 @@ Now, let us follow the process step by step into building the JavaScript client:
 
 You can install Azure Batch SDK for JavaScript using the npm install command.
 
-`npm install azure-batch`
+`npm install @azure/batch`
 
 This command installs the latest version of azure-batch JavaScript SDK.
 
