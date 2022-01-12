@@ -8,7 +8,7 @@ author: vikrambmsft
 ms.author: vikramb
 ms.reviewer: stmummer
 ms.date: 01/11/2022
-=======
+---
 
 # Configure co-sell for a commercial marketplace offer
 
