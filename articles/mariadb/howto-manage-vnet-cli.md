@@ -45,7 +45,7 @@ VNets and Azure service resources can be in the same or different subscriptions.
 
 This sample script is used to create an Azure Database for MariaDB server, create a VNet, VNet service endpoint and secure the server to the subnet with a VNet rule.
 
-:::code language="azurecli" source="~/azure_cli_scripts/mariadb/create-mariadb-server-vnet/create-mariadb-server.sh" range="4-47":::
+:::code language="azurecli" source="~/azure_cli_scripts/mariadb/create-mariadb-server-vnet/create-mariadb-server.sh" range="4-50":::
 
 ## Clean up deployment
 
