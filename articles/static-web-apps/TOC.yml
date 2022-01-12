@@ -76,7 +76,7 @@
       href: monitor.md
       displayName: Application Insights
     - name: Enable enterprise-grade enterprise-grade
-      href: front-door-managed.md
+      href: enterprise-edge.md
     - name: Reset deployment tokens
       href: deployment-token-management.md
     - name: Troubleshoot errors
