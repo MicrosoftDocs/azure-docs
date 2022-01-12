@@ -244,12 +244,12 @@ The following example shows the `ForceAuthN` property in an authorization reques
 
 ### Provider name
 
-You can optionally include the `ProviderName` attribute in the SAML authorization request. Set the metadata item as shown below to include the provider name for all requests to the external SAML IDP. The following example shows the `ProviderName` property set to `contoso.com`:
+You can optionally include the `ProviderName` attribute in the SAML authorization request. Set the metadata item as shown below to include the provider name for all requests to the external SAML IDP. The following example shows the `ProviderName` property set to `Contoso app`:
 
 ```xml
 <Metadata>
   ...
-  <Item Key="ProviderName">contoso.com</Item>
+  <Item Key="ProviderName">Contoso app</Item>
   ...
 </Metadata>
 ```
@@ -259,7 +259,7 @@ The following example shows the `ProviderName` property in an authorization requ
 
 ```xml
 <samlp:AuthnRequest AssertionConsumerServiceURL="https://..."  ...
-                    ProviderName="contoso.com">
+                    ProviderName="Contoso app">
   ...
 </samlp:AuthnRequest>
 ```
