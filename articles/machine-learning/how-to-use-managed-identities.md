@@ -71,7 +71,7 @@ If you do not bring your own ACR, Azure Machine Learning service will create one
     az ml workspace show -n <my workspace> -g <my resource group>
     ```
 
-1. Perform an action that requires ACR. For example, the [tutorial on training a model](tutorial-train-models-with-aml.md).
+1. Perform an action that requires ACR. For example, the [tutorial on training a model](tutorial-train-deploy-notebook.md).
 
 1. Get the ACR name created by the cluster:
 
