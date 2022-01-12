@@ -1,13 +1,13 @@
 ---
-title: Migrate knowledge bases - QnA Maker
-description: Migrating a knowledge base requires exporting from one knowledge base, then importing into another.
+title: Export knowledge bases - QnA Maker
+description: Exporting a knowledge base requires exporting from one knowledge base, then importing into another.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
 ms.custom: ignite-fall-2021
 ---
-# Migrate a knowledge base using export-import
+# Move a knowledge base using export-import
 
 You may want to create a copy of your knowledge base for several reasons:
 
@@ -24,7 +24,7 @@ You may want to create a copy of your knowledge base for several reasons:
 
 ## Export a knowledge base
 1. Sign in to [QnA Maker portal](https://qnamaker.ai).
-1. Select the knowledge base you want to migrate.
+1. Select the knowledge base you want to move.
 
 1. On the **Settings** page, you have the options to export **QnAs**, **Synonyms**, or **Knowledge Base Replica**. You can choose to download the data in .tsv/.xlsx.
 
@@ -60,9 +60,9 @@ You may want to create a copy of your knowledge base for several reasons:
    > [!div class="mx-imgBorder"]
    > ![Migrate knowledge base](../media/qnamaker-how-to-migrate-kb/import-export-kb.png)
 
-## Programmatically migrate a knowledge base from QnA Maker
+## Programmatically export a knowledge base from QnA Maker
 
-The migration process is programmatically available using the following REST APIs:
+The export/import process is programmatically available using the following REST APIs:
 
 **Export**
 
@@ -73,9 +73,9 @@ The migration process is programmatically available using the following REST API
 * [Replace API (reload with same knowledge base ID)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
 * [Create API (load with new knowledge base ID)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
 
-
 ## Chat logs
-There is no way to migrate chat logs, since the new knowledge base uses Application Insights for storing chat logs.
+
+There is no way to export chat logs, since the new knowledge base uses Application Insights for storing chat logs.
 
 ## Next steps
 
