@@ -21,7 +21,7 @@ This article is intended for databases on a standalone instance of SQL Server. T
 
 ## Initial setup
 
-The first step is to create your SQL Server VM in Azure. You can do so by using the [Azure portal](../../virtual-machines/windows/sql-vm-create-portal-quickstart.md), [Azure Powershell](../../virtual-machines/windows/sql-vm-create-powershell-quickstart.md), or an [ARM template](../../virtual-machines/windows/create-sql-vm-resource-manager-template.md). 
+The first step is to create your SQL Server VM in Azure. You can do so by using the [Azure portal](../../virtual-machines/windows/sql-vm-create-portal-quickstart.md), [Azure PowerShell](../../virtual-machines/windows/sql-vm-create-powershell-quickstart.md), or an [ARM template](../../virtual-machines/windows/create-sql-vm-resource-manager-template.md). 
 
 Be sure to configure your SQL Server VM according to the [prerequisites](sql-server-distributed-availability-group-migrate-prerequisites.md). 
 
