@@ -101,7 +101,7 @@ Wherever the container is run, the license file must be mounted to the container
  `{MEMORY_SIZE}` | The appropriate size of memory to allocate for your container. | `4g` | 
 | `{NUMBER_CPUS}` | The appropriate number of CPUs to allocate for your container. | `4` |
 | `{LICENSE_MOUNT}` | The path where the license will be downloaded, and mounted.  | `/path/to/license/directory` |
-| `{OUTPUT_PATH}` | The output path for logging [usage records](usage-records.md). | `/path/to/output/directory` |
+| `{OUTPUT_PATH}` | The output path for logging [usage records](#usage-records). | `/path/to/output/directory` |
 
 ```bash
 docker run {IMAGE} --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \ 

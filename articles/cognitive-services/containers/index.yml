@@ -88,6 +88,6 @@ landingContent:
         links:
         - url: disconnected-containers.md 
           text: Run containers disconnected from the internet
-        - url: disconnected-containers-faq.yml
+        - url: disconnected-container-faq.yml
           text: Frequently Asked Questions about disconnected containers
         
