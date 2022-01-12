@@ -128,8 +128,21 @@ items:
       href: logs/basic-logs.md
     - name: Archived logs
       href: logs/archived-logs.md
+  - name: Workspaces
+    items:
+    - name: Design a workspace deployment
+      href: logs/design-logs-deployment.md
+    - name: Design for service providers
+      href: logs/service-providers.md
+    - name: Dedicated clusters
+      href: logs/logs-dedicated-clusters.md
+    - name: Availability zones
+      href: logs/availability-zones.md
+    - name: Log data ingestion time
+      displayName: latency
+      href: logs/data-ingestion-time.md
   - name: Data collection rules
-    href: platform/data-collection-rule-create.md
+    href: platform/data-collection-rule-overview.md
   - name: Usage and cost
     items:
     - name: Usage and estimated costs
@@ -241,14 +254,7 @@ items:
         href: essentials/metrics-store-custom-rest-api.md
   - name: Azure Monitor Logs
     items:
-    - name: Basic logs
-      items:
-
-      - name: Search jobs
-        href: logs/search-jobs.md
-      - name: Restore
-        href: logs/restore.md
-    - name: Workspaces and clusters
+    - name: Workspaces
       items:
       - name: Create a workspace
         items:
@@ -258,8 +264,6 @@ items:
           href: logs/powershell-workspace-configuration.md
         - name: Resource Manager template
           href: logs/resource-manager-workspace.md
-      - name: Design a workspace deployment
-        href: logs/design-logs-deployment.md
       - name: Monitor a workspace
         href: logs/monitor-workspace.md
       - name: Delete and recover a workspace
@@ -271,15 +275,12 @@ items:
         href: logs/move-workspace.md
       - name: Move a workspace across regions 
         href: logs/move-workspace-region.md
-      - name: Design for service providers
-        href: logs/service-providers.md
-      - name: Dedicated clusters
-        href: logs/logs-dedicated-clusters.md
-      - name: Availability zones
-        href: logs/availability-zones.md
-      - name: Log data ingestion time
-        displayName: latency
-        href: logs/data-ingestion-time.md
+      - name: Archive a table
+        hred: logs/archived-logs-configure.md
+      - name: Restore a table
+        href: logs/restore.md
+      - name: Create a search job
+        href: logs/search-jobs.md
     - name: Log Analytics
       items:
       - name: Overview
@@ -414,7 +415,7 @@ items:
     - name: Create
       displayName: Data collection rules
       href: platform/data-collection-rule-create.md
-    - name: Transformations
+    - name: Create and associate with agent
       displayName: Data collection rules
       href: agents/data-collection-rule-azure-monitor-agent.md
     - name: Transformations

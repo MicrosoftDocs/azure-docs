@@ -11,8 +11,7 @@ ms.date: 10/31/2021
 ---
 
 # Azure Monitor Basic Logs (Preview)
-Basic Logs is a feature of Azure Monitor that reduces the cost for high-value verbose logs that don’t require analytics and alerts. Basic logs have a reduced cost for ingestion but incur a cost for log queries. 
-
+Basic Logs is a feature of Azure Monitor that reduces the cost for high-value verbose logs that don’t require analytics and alerts. Tables in a Log Analytics workspace that are configured as Basic logs have a reduced cost for ingestion with limitations on log queries and other Azure Monitor features. 
 
 ## Difference from standard logs
 Basic logs have the following differences from standard logs.
@@ -22,11 +21,11 @@ Basic logs have the following differences from standard logs.
 | Ingestion | Basic logs have a reduced cost for ingestion. |
 | Log queries | Log queries with basic logs have a cost and support a subset of the query language. Log queries with standard logs have no cost and support the full query language. |
 | Retention |  Basic logs are retained for 8 days. Standard log retention can be configured. |
-| Alerts | Basic logs cannot be used for alerts. |
+| Alerts | Basic logs cannot be used with alert rules. |
 
 
 ## Tables supporting basic logs
-To use basic logs, you configure particular tables yourLog Analytics workspace. Not all tables can be configured for basic logs since other Azure Monitor features may rely on these tables.
+You configure particular tables your Log Analytics workspace to use Basic Logs. This does not affect other tables in the workspace. Not all tables can be configured for basic logs since other Azure Monitor features may rely on these tables.
 
 The following tables can currently be configured as basic logs.
 
@@ -37,17 +36,16 @@ The following tables can currently be configured as basic logs.
 ## When to use Basic Logs
 Basic logs are intended to support data that you need to collect but only require infrequent access to. These are typically high value logs that you may need to retain for purposes such as compliance or infrequent troubleshooting.
 
+## Extracting valuable data
+You may have tables that you want to configure as Basic logs because you don't require regular access to the bulk of their data, but these tables may have some data that is valuable. For example, there may be scalar columns in the table or even scalar values embedded in the text of other columns.
 
-These logs usually have scalar fields that enable powerful and efficient analysis. 
+There are two strategies to handle these kinds of logs:
 
-There are two strategies to handle the textual logs:
-1.	Parse them and extract the scalars from the text. Once parsed, these logs can be used for analytics and every mechanism that Azure Monitor supports. This pattern is usually used for high-value logs.
-2.	Store them as-is and use them not for analytics but for compliancy and troubleshooting. Usually, these logs are fetched based on simple text search. This pattern is usually used for low-value and highly verbose logs.
+-	Configure them as Basic Logs only query them occasionally for compliancy and troubleshooting. This pattern is usually used for low-value and highly verbose logs.
+-	Create a transform in the DCR that collects the table or in the default DCR for the workspace that extracts the required data and stores it in a table.
+Parse them and extract the scalars from the text. Once parsed, these logs can be used for analytics and every mechanism that Azure Monitor supports. This pattern is usually used for high-value logs.
 
 Azure Monitor Logs provides tools for both strategies and the ability to apply both on the same data stream. Custom transforms (**TODO:** add link to transform documentation) can be used to parse logs as they are ingested to filter unnecessary logs. 
-
-
-
 
 
 

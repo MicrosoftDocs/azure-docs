@@ -11,28 +11,34 @@ ms.date: 10/31/2021
 ---
 
 # Azure Monitor Archived Logs (Preview)
-Archived logs store log data for very long periods of time, up to 7 years, at a reduced cost with limitations on its usage.
+Archived Logs is a feature of Azure Monitor that allows you to archive data from a Log Analytics workspace for an extended period of time (up to 7 years) at a reduced cost with limitations on its usage. This is typically data that you must retain for compliance that must be access when an incident or a legal issue arises.
 
-Organizations need to keep data for long periods of time. In many cases, this requirement is driven by compliancy and the need to be able to respond when an incident or a legal issue arise. Archived logs are designed to enable these scenarios by removing the cost barrier and the management overhead.
+## Basic operation
+Configure any table in your Log Analytics workspace to be archived once its configured retention elapses. This includes tables that are configured as Basic Logs. For standard tables, the retention can be configured from 30 days to 2 years (730 days). If archive is added to the table, then data is archived once this period is reached. If archive is added to a table configured as Basic Logs then data is archived after 8 days.
 
-Administrator will be able to configure any table to be archived once its configured retention elapses. This include both tables that were ingested as analytics logs and tables that were ingested as Basic Logs. For Basic Logs the retention is always 8 days and then archive can be added. Analytics logs retention varies between 30 days and 2 years (730 days). Once this retention period ends, data can be archived. Data can be archived to total of 7 years including the initial retention. E.g. if table is configured for 2 years of initial retention, archive can add up to 5 more years. Note that archive is only per-table configuration, it cannot be configured for all tables in the workspace.
-Standard queries will not cover archived logs. E.g. if a table contains 90 days of retention, only these 90 days would be accessible for standard queries. 
+Archive must be added to each table in a workspace. You can't configure a workspace for all tables to be archived.
+
+Data can be archived to total of 7 years including the initial retention. For example, if a table is configured for 2 years of initial retention, archive can add up to 5 more years. 
+
+## Accessing archived logs
+Standard log queries can't access log data after it's been archived For example, if a table is configured for 90 days of retention before archiving, only the most recent 90 days of data would be accessible for standard queries. 
 
 There are two methods to access archived logs: 
 
-- **Search Jobs**: these are queries that fetch records and make the results available as an analytics log table – allowing the user to use all the richness of Log Analytics. Search jobs run asynchronously and may be used to scan very high volume of data. Use them when there are specific records that are relevant. Search jobs are charged according to the volume of the data they scan.
-- **Restore**: this tool allows an admin to restore a whole chunk of a table based on dates. It will make a specific time range of any table available as analytics logs and will allocate additional compute resources to handle their processing. Use restore when there is a temporary need to run many queries on large volume of data. Restore is charge according to the volume of the data and the time it is available.
+- **Search Jobs** are log queries that run asynchronously and make their results available as a standard log table that you can use with standard log queries. Search jobs are charged according to the volume of data they scan. Use a search job when you need access to a specific set of records in your archived data.
+- **Restore** is a tool that allows you to temporarily make all data from an archived table within a particular time range available as a standard table and allocates additional compute resources to handle its processing. Restore is charge according to the volume of the data it retrieves and the duration that data is made available. Use restore when you have a temporary need to run a number of queries on large volume of data. 
 
-Other than query, there are also limitations on the usage of purge. 
-
-If data is used for analytics or it is retrieved frequently, it is recommended to keep it with logs retention to enable analytics and troubleshooting. Archive is recommended for data that is less frequently used.
 
 > [!NOTE]
->* Archived logs, search job and restore are offered as a private preview, and will be available for subscriptions that were added to the feature allow-list. Public preview is planned to early 2022. 
->* During private preview archived logs and restore are offered with no charge, while search job is charged only for the search results ingestion.
+> During public preview there is no charge for archived logs and restore. The only charge for search jobs is for the ingestion of the search results.
 
-## Archive your table
-Use **Tables - Update** API call to set table retention and table total retention, where archive period is calculated as total-retention.
+## Archive a table
+There is currently no option in the Azure portal to configure archive. Use the **Tables - Update** API to set the retention and archive duration for a table. You don't specify the archive duration directly but instead set a total retention that specifies the retention plus the archive duration.
+
+You can use either PUT or PATCH, with the following difference:  
+
+- With **PUT**, if *retentionInDays* or *totalRetentionInDays* is null or unspecified, its value will be set to default.
+- With **PATCH**, if *retentionInDays* or *totalRetentionInDays* is null or unspecified, the existing value will be kept. 
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}?api-version=2021-07-01-privatepreview
@@ -41,15 +47,11 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups
 ### Request Body
 |Name | Type | Description |
 | --- | --- | --- |
-|properties.retentionInDays | integer  | The table's data retention in days, between 7 and 730. In _Basic Logs_ the value is fixed: 8. Setting this property to null will default to the workspace retention.| 
-|properties.totalRetentionInDays | integer  | The table's total data retention including archive period. Setting this property to null will default to properties.retentionInDays, with no archive| 
+|properties.retentionInDays | integer  | The table's data retention in days, between 7 and 730. Setting this property to null will default to the workspace retention. For a table configured as Basic Logs, the value 8 will always be used. | 
+|properties.totalRetentionInDays | integer  | The table's total data retention including archive period. Setting this property to null will default to the properties.retentionInDays value with no archive. | 
 
-> [!TIP]
->You can use either PUT or PATCH, with the following difference:  
->When calling **PUT**, if retentionInDays\totalRetentionInDays is null or unspecified, their value will be set to default.
->When calling **PATCH**, if retentionInDays\totalRetentionInDays is null or unspecified the existing value will be kept. 
->
->properties.retentionInDays default value is the workspace retention, and properties.totalRetentionInDays default value is table's retention
+
+
 ### Examples
 ##### Sample Request
 Set table retention to workspace default of 30 days, and total of 2 years.
