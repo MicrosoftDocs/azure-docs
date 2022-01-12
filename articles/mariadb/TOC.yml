@@ -67,7 +67,7 @@
     items:
     - name: Samples overview
       href: sample-scripts-azure-cli.md
-    - name: Create a server
+    - name: Create a server with firewall rule
       href: ./scripts/sample-create-server-and-firewall-rule.md
     - name: Create script with vNet rules
       href: ./scripts/sample-create-server-with-vnet-rule.md

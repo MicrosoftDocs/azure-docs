@@ -22,10 +22,11 @@ You can configure Azure SQL Database for MariaDB by using the <a href="/cli/azur
 
 The following table includes links to sample Azure CLI scripts for Azure Database for MariaDB.
 
-| Sample link | Description  |
+| Sample link | Description |
 |---|---|
-|**Create a server**||
+|**Create a server with firewall rule**||
 | [Create a server and firewall rule](./scripts/sample-create-server-and-firewall-rule.md) | Azure CLI script that creates a single Azure Database for MariaDB server and configures a server-level firewall rule. |
+| [Create script with vNet rules](./scripts/sample-create-server-with-vnet-rule.md) | Azure CLI that creates an Azure Database for MariaDB server with a service endpoint on a virtual network and configures a vNet rule. | 
 |**Scale a server**||
 | [Scale a server](./scripts/sample-scale-server.md) | Azure CLI script that scales a single Azure Database for MariaDB server up or down to allow for changing performance needs. |
 |**Change server configurations**||
