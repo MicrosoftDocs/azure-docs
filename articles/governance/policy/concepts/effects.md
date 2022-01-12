@@ -447,7 +447,7 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
 ## DeployIfNotExists
 
 Similar to AuditIfNotExists, a DeployIfNotExists policy definition executes a template deployment
-when the condition is met.
+when the condition is met. Policy assignments with effect set as DeployIfNotExists require a [managed identity](../how-to/remediate-resources.md) to do remediation. 
 
 > [!NOTE]
 > [Nested templates](../../../azure-resource-manager/templates/linked-templates.md#nested-template)
@@ -743,7 +743,7 @@ Modify is used to add, update, or remove properties or tags on a subscription or
 creation or update. A common example is updating tags on resources such as costCenter. Existing
 non-compliant resources can be remediated with a
 [remediation task](../how-to/remediate-resources.md). A single Modify rule can have any number of
-operations.
+operations. Policy assignments with effect set as Modify require a [managed identity](../how-to/remediate-resources.md) to do remediation. 
 
 The following operations are supported by Modify:
 
