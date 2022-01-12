@@ -6,7 +6,7 @@ author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 01/01/2022
 ms.author: jovanpop
 ms.reviewer: sngun
 ---
@@ -59,7 +59,7 @@ Query languages used in Synapse SQL can have different supported features depend
 | **Cross-database queries** | No | Yes, including [USE](/sql/t-sql/language-elements/use-transact-sql?view=azure-sqldw-latest&preserve-view=true) statement. |
 | **Built-in/system functions (analysis)** | Yes, all Transact-SQL [Analytic](/sql/t-sql/functions/analytic-functions-transact-sql?view=azure-sqldw-latest&preserve-view=true), Conversion, [Date and Time](/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql?view=azure-sqldw-latest&preserve-view=true), Logical, [Mathematical](/sql/t-sql/functions/mathematical-functions-transact-sql?view=azure-sqldw-latest&preserve-view=true) functions, except [CHOOSE](/sql/t-sql/functions/logical-functions-choose-transact-sql?view=azure-sqldw-latest&preserve-view=true) and [PARSE](/sql/t-sql/functions/parse-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Yes, all Transact-SQL [Analytic](/sql/t-sql/functions/analytic-functions-transact-sql?view=azure-sqldw-latest&preserve-view=true), Conversion, [Date and Time](/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql?view=azure-sqldw-latest&preserve-view=true), Logical, [Mathematical](/sql/t-sql/functions/mathematical-functions-transact-sql?view=azure-sqldw-latest&preserve-view=true) functions. |
 | **Built-in/system functions ([string](/sql/t-sql/functions/string-functions-transact-sql))** | Yes. All Transact-SQL [String](/sql/t-sql/functions/string-functions-transact-sql?view=azure-sqldw-latest&preserve-view=true), [JSON](/sql/t-sql/functions/json-functions-transact-sql?view=azure-sqldw-latest&preserve-view=true), and Collation functions, except [STRING_ESCAPE](/sql/t-sql/functions/string-escape-transact-sql?view=azure-sqldw-latest&preserve-view=true) and [TRANSLATE](/sql/t-sql/functions/translate-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Yes. All Transact-SQL [String](/sql/t-sql/functions/string-functions-transact-sql?view=azure-sqldw-latest&preserve-view=true), [JSON](/sql/t-sql/functions/json-functions-transact-sql?view=azure-sqldw-latest&preserve-view=true), and Collation functions. |
-| **Built-in/system functions ([Cryptographic](/sql/t-sql/functions/cryptographic-functions-transact-sql))** | Some | No |
+| **Built-in/system functions ([Cryptographic](/sql/t-sql/functions/cryptographic-functions-transact-sql))** | Some | `HASHBYTES` is the only supported cryptographic function in serverless SQL pools. |
 | **Built-in/system table-value functions** | Yes, [Transact-SQL Rowset functions](/sql/t-sql/functions/functions?view=azure-sqldw-latest&preserve-view=true#rowset-functions), except [OPENXML](/sql/t-sql/functions/openxml-transact-sql?view=azure-sqldw-latest&preserve-view=true), [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql?view=azure-sqldw-latest&preserve-view=true), [OPENQUERY](/sql/t-sql/functions/openquery-transact-sql?view=azure-sqldw-latest&preserve-view=true), and [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Yes, [Transact-SQL Rowset functions](/sql/t-sql/functions/functions?view=azure-sqldw-latest&preserve-view=true#rowset-functions), except [OPENXML](/sql/t-sql/functions/openxml-transact-sql?view=azure-sqldw-latest&preserve-view=true), [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql?view=azure-sqldw-latest&preserve-view=true), and [OPENQUERY](/sql/t-sql/functions/openquery-transact-sql?view=azure-sqldw-latest&preserve-view=true)  |
 | **Built-in/system aggregates** |  Transact-SQL built-in aggregates except, except [CHECKSUM_AGG](/sql/t-sql/functions/checksum-agg-transact-sql?view=azure-sqldw-latest&preserve-view=true) and [GROUPING_ID](/sql/t-sql/functions/grouping-id-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Transact-SQL built-in aggregates. |
 | **Operators** | Yes, all [Transact-SQL operators](/sql/t-sql/language-elements/operators-transact-sql?view=azure-sqldw-latest&preserve-view=true) except [!>](/sql/t-sql/language-elements/not-greater-than-transact-sql?view=azure-sqldw-latest&preserve-view=true) and [!<](/sql/t-sql/language-elements/not-less-than-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Yes, all [Transact-SQL operators](/sql/t-sql/language-elements/operators-transact-sql?view=azure-sqldw-latest&preserve-view=true)  |
@@ -72,11 +72,11 @@ Synapse SQL pools enable you to use built-in security features to secure your da
 
 |   | Dedicated | Serverless |
 | --- | --- | --- |
-| **Logins** | N/A (only contained users are supported in databases) | Yes |
+| **Logins** | N/A (only contained users are supported in databases) | Yes server-level Azure AD and SQL logins are supported. |
 | **Users** |  N/A (only contained users are supported in databases) | Yes |
 | **[Contained users](/sql/relational-databases/security/contained-database-users-making-your-database-portable?view=azure-sqldw-latest&preserve-view=true)** | Yes. **Note:** only one Azure AD user can be unrestricted admin | No |
 | **SQL username/password authentication**| Yes | Yes |
-| **Azure Active Directory (Azure AD) authentication**| Yes, Azure AD users | Yes, Azure AD logins and users |
+| **Azure Active Directory (Azure AD) authentication**| Yes, Azure AD users | Yes, Azure AD logins and users can access serverless SQL pools using their Azure AD identities. |
 | **Storage Azure Active Directory (Azure AD) passthrough authentication** | Yes | Yes |
 | **Storage SAS token authentication** | No | Yes, using [DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true) in [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true) or instance-level [CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true). |
 | **Storage Access Key authentication** | Yes, using [DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true) in [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true) | No |
@@ -85,7 +85,7 @@ Synapse SQL pools enable you to use built-in security features to secure your da
 | **Server-level roles** | No | Yes, sysadmin, public, and other server-roles are supported |
 | **SERVER SCOPED CREDENTIAL** | No | Yes, the server scoped credentials are used by the `OPENROWSET` function that do not uses explicit data source. |
 | **Permissions - [Server-level](/sql/relational-databases/security/authentication-access/server-level-roles)** | No | Yes, for example, `CONNECT ANY DATABASE` and `SELECT ALL USER SECURABLES` enable a user to read data from any databases. |
-| **Database-scoped roles** | Yes | Yes |
+| **Database-scoped roles** | Yes | Yes, you can use `db_owner`, `db_datareader` and `db_ddladmin` roles. |
 | **DATABASE SCOPED CREDENTIAL** | Yes, used in external data sources. | Yes, used in external data sources. |
 | **Permissions - [Database-level](/sql/relational-databases/security/authentication-access/database-level-roles?view=azure-sqldw-latest&preserve-view=true)** | Yes | Yes |
 | **Permissions - Schema-level** | Yes, including ability to GRANT, DENY, and REVOKE permissions to users/logins on the schema | Yes, including ability to GRANT, DENY, and REVOKE permissions to users/logins on the schema |
