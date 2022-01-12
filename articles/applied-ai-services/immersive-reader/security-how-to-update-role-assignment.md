@@ -42,7 +42,16 @@ Any new Immersive Reader resources you create with our script at [How to: Create
 
 If you created and configured an Immersive Reader resource using the instructions at [How to: Create an Immersive Reader resource](./how-to-create-immersive-reader.md) prior to February 2022, it is advised that you perform the operation below to update the role assignment permissions on ALL of your Immersive Reader resources. The operation involves running a script to update the role assignment on a single resource. If you have multiple resources, run this script multiple times, once for each resource.
 
-### Set up PowerShell environment
+After you have updated the role using the script below, it is also advised that you rotate the subscription keys on your resource. This is in case your keys have been compromised by the exploit above, and somebody is actually using your resource with subscription key authentication without your consent. Rotating the keys will render the previous keys invalid and deny any further access. For customers using Azure AD authentication, which should be everyone per current Immersive Reader SDK implementation, rotating the keys will have no impact on the Immersive Reader service, since Azure AD access tokens are used for authentication, not the subscription key. Rotating the subscription keys is just another precaution.
+
+You can rotate the subscription keys on the Azure portal for your resource. Navigate to your resource and then to the `Keys and Endpoint` blade. At the top, there are buttons to `Regenerate Key1` and `Regenerate Key2`.
+
+:::image type="content" source="media/resource-keys.png" alt-text="Screenshot of the Azure portal showing an Immersive Reader resource with the Keys and Endpoint blade selected, which shows the Regenerate Keys buttons at the top.":::
+
+
+
+
+### Use Azure PowerShell environment to update your Immersive Reader resource Role assignment
 
 1. Start by opening the [Azure Cloud Shell](../../cloud-shell/overview.md). Ensure that Cloud Shell is set to PowerShell in the upper-left hand dropdown or by typing `pwsh`.
 
