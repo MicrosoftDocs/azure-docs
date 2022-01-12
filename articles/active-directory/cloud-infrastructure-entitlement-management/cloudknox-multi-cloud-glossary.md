@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/10/2022
+ms.date: 01/12/2022
 ms.author: v-ydequadros
 ---
 
@@ -20,6 +20,7 @@ This glossary provides a list of some of the commonly used multi-cloud terms at 
 |-----------------------|-----------------------------------------------------|
 | ASIM                  | Azure Sentinel Information Model    |
 | AFB                   | Acronym Fly By                  | 
+| Azure AD STS or AAD STS    | Azure AD Security Token Service    |
 | Cloud security        | Cloud security is a form of cybersecurity that protects data stored online on cloud computing platforms from theft, leakage, and deletion. </p>Methods of providing cloud security include firewalls, penetration testing, obfuscation, tokenization, virtual private networks (VPN), and avoiding public internet connections.     |
 | CASB                  | Cloud Access Security Broker                   | 
 | Cloud storage         | Cloud storage is a service model in which data is maintained, managed, backed up remotely. It's available to users over a network.                |
