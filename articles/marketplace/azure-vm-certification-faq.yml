@@ -315,7 +315,7 @@ sections:
           
           1. Run the [latest Certification Test Tool for Azure VMs](https://aka.ms/AzureCertificationTestTool) on your image.
           
-          2. Raise a [support ticket](https://aka.ms/marketplacepublishersupport). Make sure to attach the toolkit report and provide offer details:
+          2. Raise a [support ticket](https://go.microsoft.com/fwlink/?linkid=2165533). Make sure to attach the toolkit report and provide offer details:
              - Offer name
              - Publisher name
              - Plan ID/SKU and version
@@ -543,15 +543,15 @@ sections:
 
           Publishers generally request exceptions in the following cases:
           
-          - **Exception for one or more test cases**. Contact [Partner Center support](https://aka.ms/marketplacepublishersupport) to request exceptions for test cases.
+          - **Exception for one or more test cases**. Contact [Partner Center support](https://go.microsoft.com/fwlink/?linkid=2165533) to request exceptions for test cases.
           
-          - **Locked-down VMs / No root access**. A few publishers have scenarios where VMs need to be locked because they have software such as firewalls installed on the VM. In this case, download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) and submit the report at [Partner Center support](https://aka.ms/marketplacepublishersupport).
+          - **Locked-down VMs / No root access**. A few publishers have scenarios where VMs need to be locked because they have software such as firewalls installed on the VM. In this case, download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) and submit the report at [Partner Center support](https://go.microsoft.com/fwlink/?linkid=2165533).
           
-          - **Custom templates**. Some publishers publish VM images that require a custom Azure Resource Manager (ARM) template to deploy the VMs. In this case, submit the custom templates at [Partner Center support](https://aka.ms/marketplacepublishersupport) so it can be used by the Certification team for validation.
+          - **Custom templates**. Some publishers publish VM images that require a custom Azure Resource Manager (ARM) template to deploy the VMs. In this case, submit the custom templates at [Partner Center support](https://go.microsoft.com/fwlink/?linkid=2165533) so it can be used by the Certification team for validation.
           
           ### Information to provide for exception scenarios
 
-          Contact [Partner Center support](https://aka.ms/marketplacepublishersupport) to request an exception for one of the scenarios, and include the following information:
+          Contact [Partner Center support](https://go.microsoft.com/fwlink/?linkid=2165533) to request an exception for one of the scenarios, and include the following information:
           
           - **Publisher ID**. Type your Partner Central portal Publisher ID.
           - **Offer ID/name**. Enter the Offer ID or name.
@@ -593,9 +593,7 @@ sections:
 
           To complete these steps, prepare the technical assets for the VM image you want to add. For more information, see [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [Create a virtual machine using your own image](azure-vm-create-using-own-image.md) and [Generate a SAS URI for your VM image](azure-vm-get-sas-uri.md).
 
-          #### [Workspaces view](#tab/workspaces-view)
-
-          1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+                    1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
           1. On the Home page, select the **Marketplace offers** tile.
           1. In the **Offer alias** column, select the offer.
           1. Select the **Plan overview** tab, and then select the appropriate plan.
@@ -608,28 +606,8 @@ sections:
           1. Select **Save draft**.
           
           Next, remove the VM image with the security vulnerability.
-
-          #### [Current view](#tab/current-view)
          
-          1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-          1. In the left pane, select **Commercial Marketplace** > **Overview**.
-          1. In the **Offer alias** column, select the offer.
-          1. On the **Plan overview** tab, in the **Name** column, select the appropriate plan.
-          1. On the **Technical configuration** tab, under **VM Images**, select **+ Add VM Image**.
-          
-             > [!NOTE]
-             > You can add only one VM image to one plan at a time. To add multiple VM images, publish the first one before you add the next VM image.
-          
-          1. In the boxes that appear, provide a new disk version and the virtual machine image.
-          1. Select **Save draft**.
-          
-          Next, remove the VM image with the security vulnerability.
-
-          ---
-          
           ### Remove the VM image with the security vulnerability or exploit
-
-          #### [Workspaces view](#tab/workspaces-view)
 
           1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
           1. On the Home page, select the **Marketplace offers** tile.
@@ -638,18 +616,6 @@ sections:
           5. On the **Technical configuration** tab, under **VM Images**, next to the VM image you want to remove, select **Remove VM Image**.
           6. In the dialog box, select **Continue**.
           7. Select **Save draft**.
-
-          #### [Current view](#tab/current-view)
-
-          1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-          2. In the left pane, select **Commercial Marketplace** > **Overview**.
-          3. In the **Offer alias** column, select the offer.
-          4. On the **Plan overview** tab, in the **Name** column, select the appropriate plan.
-          5. On the **Technical configuration** tab, under **VM Images**, next to the VM image you want to remove, select **Remove VM Image**.
-          6. In the dialog box, select **Continue**.
-          7. Select **Save draft**.
-          
-          ---
 
           Next, republish the offer.
           
@@ -686,7 +652,7 @@ sections:
           Linux VM extension validations require the following to be part of the image:
           
           - Azure Linux Agent greater 2.2.41
-          - Python version above 2.8 
+          - Python version above 2.6+ 
           
           For more information, please visit [VM Extension](../virtual-machines/extensions/diagnostics-linux.md).
                

@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Route Azure Cache for Redis events to web endpoint with Azure CLI'
 description: Use Azure Event Grid to subscribe to Azure Cache for Redis events, trigger an event, and view the results.
-author: curib
-ms.author: cauribeg
+author: flang-msft
+ms.author: franlanglois
 ms.date: 1/5/2021
 ms.topic: quickstart
 ms.service: cache

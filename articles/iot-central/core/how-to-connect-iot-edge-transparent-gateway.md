@@ -3,7 +3,7 @@ title: Connect an IoT Edge transparent gateway to an Azure IoT Central applicati
 description: How to connect devices through an IoT Edge transparent gateway to an IoT Central application
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/08/2021
+ms.date: 12/21/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -99,9 +99,12 @@ To find these values, navigate to each device in the device list and select **Co
 
 ## Deploy the gateway and devices
 
-To enable you to try out this scenario, the following steps show you how to deploy the gateway and downstream devices to Azure virtual machines. In a real scenario, the downstream device and gateway run on physical devices on your local network.
+To let you try out this scenario, the following steps show you how to deploy the gateway and downstream devices to Azure virtual machines.
 
-To try out the transparent gateway scenario, select the following button to deploy two Linux virtual machines. One virtual machine is a transparent IoT Edge gateway, the other is a downstream device that simulates a thermostat:
+> [!TIP]
+> To learn how to deploy the IoT Edge runtime to a physical device, see [Create an IoT Edge device](../../iot-edge/how-to-create-iot-edge-device.md) in the IoT Edge documentation.
+
+To try out the transparent gateway scenario, select the following button to deploy two Linux virtual machines. One virtual machine has the IoT Edge runtime installed and is a transparent IoT Edge gateway. The other virtual machine is a downstream device where you'll run code to send simulated telemetry:
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fiot-central-docs-samples%2Fmaster%2Ftransparent-gateway%2FDeployGatewayVMs.json" target="_blank">
     <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure button" />

@@ -22,7 +22,7 @@ az webapp config hostname add \
     --hostname <fully_qualified_domain_name>
 ``` 
 
-For more information, see [Map a custom domain to a web app](/azure/app-service/scripts/cli-configure-custom-domain.md).
+For more information, see [Map a custom domain to a web app](/azure/app-service/scripts/cli-configure-custom-domain).
 
 # [PowerShell](#tab/powershell)
 
@@ -35,6 +35,6 @@ Set-AzWebApp `
     -HostNames @("<fully_qualified_domain_name>","<app-name>.azurewebsites.net")
 ```
 
-For more information, see [Assign a custom domain to a web app](/azure/app-service/scripts/powershell-configure-custom-domain.md).
+For more information, see [Assign a custom domain to a web app](/azure/app-service/scripts/powershell-configure-custom-domain).
 
 -----

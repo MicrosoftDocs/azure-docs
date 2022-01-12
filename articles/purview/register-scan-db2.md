@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 11/23/2021
+ms.date: 01/11/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -21,14 +21,22 @@ This article outlines how to register DB2, and how to authenticate and interact 
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| Yes|
 
 The supported IBM DB2 versions are DB2 for LUW 9.7 to 11.x. DB2 for z/OS (mainframe) and iSeries (AS/400) are not supported now. 
 
 When scanning IBM DB2 source, Purview supports:
 
-- Extracting metadata including DB2 server, databases, schemas, tables, views, triggers, table/view columns, foreign keys, unique constraints, and indexes.
-- Fetching lineage on assets relationships among tables and views.
+- Extracting technical metadata including:
+
+    - Server
+    - Databases
+    - Schemas
+    - Tables including the columns, foreign keys, indexes, and constraints
+    - Views including the columns
+    - Triggers
+
+- Fetching static lineage on assets relationships among tables and views.
 
 ## Prerequisites
 

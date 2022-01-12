@@ -3,6 +3,7 @@ title: Create a Python function from the command line - Azure Functions
 description: Learn how to create a Python function from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 11/03/2020
 ms.topic: quickstart
+ms.devlang: python
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell, mode-api
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
@@ -129,8 +130,14 @@ In Azure Functions, a function project is a container for one or more individual
     ```console
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
     ```
-
     `func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
+    
+   Get the list of templates by using the following command.
+   
+    ```console
+    func templates list -l python
+    ```
+    
 
 ### (Optional) Examine the file contents
 

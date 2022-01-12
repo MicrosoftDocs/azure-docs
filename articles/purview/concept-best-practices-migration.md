@@ -103,7 +103,7 @@ Below steps are referring to [Azure Purview API documentation](/rest/api/purview
 |Task|Description|
 |-------------|-----------------|
 |**Account information**|Maintain Account information by granting access for the admin and/or service principal to the account at root level|
-|**Collections**|Create and maintain Collections along with the association of sources with the Collections. You can call [List Collections API](/rest/api/purview/accountdataplane/collections/list-collections) and then get specific details of each collection via [Get Collection API](/rest/api/purview/accountdataplane/collections/get-collection.md)|
+|**Collections**|Create and maintain Collections along with the association of sources with the Collections. You can call [List Collections API](/rest/api/purview/accountdataplane/collections/list-collections) and then get specific details of each collection via [Get Collection API](/rest/api/purview/accountdataplane/collections/get-collection)|
 |**Scan rule set**|Create and maintain custom scan rule sets. You need to call [List all custom scan rule sets API](/rest/api/purview/scanningdataplane/scan-rulesets/list-all) and get details by calling [Get scan rule set API](/rest/api/purview/scanningdataplane/scan-rulesets/get)|
 |**Manual classifications**|Get a list of all manual classifications by calling get classifications APIs and get details of each classification|
 |**Resource set rule**|Create and maintain resource set rule. You can call the [Get resource set rule API](/rest/api/purview/accountdataplane/resource-set-rules/get-resource-set-rule) to get the rule details|

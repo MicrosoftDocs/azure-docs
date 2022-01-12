@@ -7,7 +7,7 @@ ms.subservice: purview
 ms.topic: quickstart
 ms.date: 09/29/2021
 ms.author: jejiang
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: mode-other
 ---
 
