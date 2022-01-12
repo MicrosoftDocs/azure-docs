@@ -1,7 +1,7 @@
 ---
 title: Test and retrain a model - Custom Vision Service
 titleSuffix: Azure Cognitive Services
-description: Learn how to test an image and then use it to re-train your model in the Custom Vision service.
+description: Learn how to test an image and then use it to retrain your model in the Custom Vision service.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -23,7 +23,7 @@ After you train your model, you can quickly test it using a locally stored image
 
     ![The Quick Test button is shown in the upper right corner of the window.](./media/test-your-model/quick-test-button.png)
 
-2. In the **Quick Test** window, click in the **Submit Image** field and enter the URL of the image you want to use for your test. If you want to use a locally stored image instead, click the **Browse local files** button and select a local image file.
+2. In the **Quick Test** window, select in the **Submit Image** field and enter the URL of the image you want to use for your test. If you want to use a locally stored image instead, select the **Browse local files** button and select a local image file.
 
     ![Image of the submit image page](./media/test-your-model/submit-image.png)
 
