@@ -5,8 +5,8 @@ description: Learn how to configure hybrid Azure Active Directory join.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: tutorial
-ms.date: 01/05/2022
+ms.topic: how-to
+ms.date: 01/12/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -26,7 +26,7 @@ Bringing your devices to Azure AD maximizes user productivity through single sig
    - If the computer objects of the devices you want to be hybrid Azure AD joined belong to specific organizational units (OUs), configure the correct OUs to sync in Azure AD Connect. To learn more about how to sync computer objects by using Azure AD Connect, see [Organizational unit–based filtering](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
 - Global administrator credentials for your Azure AD tenant.
 - Enterprise administrator credentials for each of the on-premises Active Directory Domain Services forests.
-- (**For federated domains**) Windows Server 2012 R2 with Active Directory Federation Services installed.
+- (**For federated domains**) At least Windows Server 2012 R2 with Active Directory Federation Services installed.
 - Users must be able to register their devices with Azure AD. More information about this setting can be found under the heading **Configure device settings**, in the article, [Configure device settings](device-management-azure-portal.md#configure-device-settings).
 
 Hybrid Azure AD join requires devices to have access to the following Microsoft resources from inside your organization's network:  
@@ -61,33 +61,19 @@ You can deploy hybrid Azure AD joined devices that use [password hash sync (PHS)
 Configure hybrid Azure AD join by using Azure AD Connect for a managed domain:
 
 1. Start Azure AD Connect, and then select **Configure**.
-
 1. In **Additional tasks**, select **Configure device options**, and then select **Next**.
-
-   ![Additional tasks](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-additional-tasks.png)
-
 1. In **Overview**, select **Next**.
-
-1. In **Connect to Azure AD**, enter the credentials of a global administrator for your Azure AD tenant.  
-
+1. In **Connect to Azure AD**, enter the credentials of a global administrator for your Azure AD tenant.
 1. In **Device options**, select **Configure Hybrid Azure AD join**, and then select **Next**.
-
-   ![Device options](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-options.png)
-
 1. In **Device operating systems**, select the operating systems that devices in your Active Directory environment use, and then select **Next**.
-
-   ![Device operating system](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-operating-systems.png)
-
 1. In **SCP configuration**, for each forest where you want Azure AD Connect to configure the SCP, complete the following steps, and then select **Next**.
-
    1. Select the **Forest**.
    1. Select an **Authentication Service**.
    1. Select **Add** to enter the enterprise administrator credentials.
 
-   ![SCP](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-scp-configuration.png)
+   ![Azure AD Connect SCP configuration managed domain](./media/howto-hybrid-azure-ad-join/azure-ad-connect-scp-configuration-managed.png)
 
 1. In **Ready to configure**, select **Configure**.
-
 1. In **Configuration complete**, select **Exit**.
 
 ## Federated domains
@@ -109,50 +95,23 @@ A federated environment should have an identity provider that supports the follo
 Configure hybrid Azure AD join by using Azure AD Connect for a federated environment:
 
 1. Start Azure AD Connect, and then select **Configure**.
-
-   ![Welcome](./media/hybrid-azuread-join-federated-domains/11.png)
-
 1. On the **Additional tasks** page, select **Configure device options**, and then select **Next**.
-
-   ![Additional tasks](./media/hybrid-azuread-join-federated-domains/12.png)
-
 1. On the **Overview** page, select **Next**.
-
-   ![Overview](./media/hybrid-azuread-join-federated-domains/13.png)
-
 1. On the **Connect to Azure AD** page, enter the credentials of a global administrator for your Azure AD tenant, and then select **Next**.
-
-   ![Connect to Azure AD](./media/hybrid-azuread-join-federated-domains/14.png)
-
 1. On the **Device options** page, select **Configure Hybrid Azure AD join**, and then select **Next**.
-
-   ![Device options](./media/hybrid-azuread-join-federated-domains/15.png)
-
 1. On the **SCP** page, complete the following steps, and then select **Next**:
-
-   ![SCP](./media/hybrid-azuread-join-federated-domains/16.png)
-
    1. Select the forest.
    1. Select the authentication service. You must select **AD FS server** unless your organization has exclusively Windows 10 clients and you have configured computer/device sync, or your organization uses seamless SSO.
    1. Select **Add** to enter the enterprise administrator credentials.
+   
+   ![Azure AD Connect SCP configuration federated domain](./media/howto-hybrid-azure-ad-join/azure-ad-connect-scp-configuration-federated.png)
 
 1. On the **Device operating systems** page, select the operating systems that the devices in your Active Directory environment use, and then select **Next**.
-
-   ![Device operating system](./media/hybrid-azuread-join-federated-domains/17.png)
-
 1. On the **Federation configuration** page, enter the credentials of your AD FS administrator, and then select **Next**.
-
-   ![Federation configuration](./media/hybrid-azuread-join-federated-domains/18.png)
-
 1. On the **Ready to configure** page, select **Configure**.
-
-   ![Ready to configure](./media/hybrid-azuread-join-federated-domains/19.png)
-
 1. On the **Configuration complete** page, select **Exit**.
 
-   ![Configuration complete](./media/hybrid-azuread-join-federated-domains/20.png)
-
-### Federated caveats
+### Federation caveats
 
 Beginning with Windows 10 1803, if the instantaneous hybrid Azure AD join for a federated environment by using AD FS fails, we rely on Azure AD Connect to sync the computer object in Azure AD that's then used to complete the device registration for hybrid Azure AD join.
 

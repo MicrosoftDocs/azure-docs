@@ -5,7 +5,7 @@ description:
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 01/05/2022
 
 ms.author: joflore
