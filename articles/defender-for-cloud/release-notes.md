@@ -87,6 +87,7 @@ To help our users quickly share an alert's details with others (for example, SOC
 
 The new **Copy alert JSON** button puts the alert’s details, in JSON format, into the user's clipboard.
 
+:::image type="content" source="media/release-notes/copy-alert-json.png" alt-text="Screenshot of the 'Copy alert JSON' button in the alert details pane." lightbox="./media/release-notes/copy-alert-json.png":::
 
 
 ## December 2021
