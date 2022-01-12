@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/16/2021
+ms.date: 01/07/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
@@ -142,7 +142,7 @@ First you will need to get your resource key and endpoint
 
 [!INCLUDE [JSON result for entity recognition](../includes/recognition-result-json.md)]
 
-# [Using the client libraries](#tab/client)
+# [Using the client libraries (Azure SDK)](#tab/client)
 
 ## Use the client libraries
 

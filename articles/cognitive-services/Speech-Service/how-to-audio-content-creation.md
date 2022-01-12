@@ -116,10 +116,10 @@ After you've reviewed your audio output and are satisfied with your tuning and a
 
 **Supported audio formats**
 
-| Format | 16 kHz sample rate | 24 kHz sample rate |
-|--------|--------------------|--------------------|
-| wav | riff-16khz-16bit-mono-pcm | riff-24khz-16bit-mono-pcm |
-| mp3 | audio-16khz-128kbitrate-mono-mp3 | audio-24khz-160kbitrate-mono-mp3 |
+| Format | 8 kHz sample rate | 16 kHz sample rate | 24 kHz sample rate | 48 kHz sample rate |
+|--------|--------------------|--------------------|--------------------|--------------------|
+| wav | riff-8khz-16bit-mono-pcm | riff-16khz-16bit-mono-pcm | riff-24khz-16bit-mono-pcm |riff-48khz-16bit-mono-pcm |
+| mp3 | N/A | audio-16khz-128kbitrate-mono-mp3 | audio-24khz-160kbitrate-mono-mp3 |audio-48khz-192kbitrate-mono-mp3 |
 
 ## How to add/remove Audio Content Creation users?
 

@@ -1,24 +1,24 @@
 ---
-title: Move an “iotsecuritysolutions” resource to another region by using the Azure portal
-description: Move an “iotsecuritysolutions” resource from one Azure region to another by using a      and the Azure portal.
+title: Move an "iotsecuritysolutions" resource to another region by using the Azure portal
+description: Move an "iotsecuritysolutions" resource from one Azure region to another by using the Azure portal.
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 01/04/2022
 ---
 
-# Move an “iotsecuritysolutions” resource to another region by using the Azure portal
+# Move an "iotsecuritysolutions" resource to another region by using the Azure portal
 
 There are various scenarios for moving an existing resource from one region to another. For example, you might want to take advantage of features, and services that are only available in specific regions, to meet internal policy and governance requirements, or in response to capacity planning requirements.
 
-You can move a Microsoft Defender for IoT “iotsecuritysolutions” resource to a different Azure region. The “iotsecuritysolutions” resource is a hidden resource that is connected to a specific IoT hub resource that is used to enable security on the hub. Learn how to [configure, and create](/azure/templates/microsoft.security/iotsecuritysolutions?tabs=bicep) this resource.
+You can move a Microsoft Defender for IoT "iotsecuritysolutions" resource to a different Azure region. The "iotsecuritysolutions" resource is a hidden resource that is connected to a specific IoT hub resource that is used to enable security on the hub. Learn how to [configure, and create](/azure/templates/microsoft.security/iotsecuritysolutions?tabs=bicep) this resource.
 
 ## Prerequisites
 
 - Make sure that the resource is in the Azure region that you want to move from.
 
-- An existing “iotsecuritysolutions” resource.  
+- An existing "iotsecuritysolutions" resource.  
 
-- Make sure that your Azure subscription allows you to create “iotsecuritysolutions” resources in the target region.
+- Make sure that your Azure subscription allows you to create "iotsecuritysolutions" resources in the target region.
 
 - Make sure that your subscription has enough resources to support the addition of resources for this process. For more information, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
 

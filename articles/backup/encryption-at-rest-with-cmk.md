@@ -97,7 +97,7 @@ Example:
 ```AzurePowerShell
 $vault=Get-AzRecoveryServicesVault -ResourceGroupName "testrg" -Name "testvault"
 
-Update-AzRecoveryServicesVault -IdentityType SystemAssigned -VaultId $vault.ID
+Update-AzRecoveryServicesVault -IdentityType SystemAssigned -ResourceGroupName TestRG -Name TestVault
 
 $vault.Identity | fl
 ```

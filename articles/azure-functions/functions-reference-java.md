@@ -192,9 +192,16 @@ The following example shows the operating system setting in the `runtime` sectio
  
 ## JDK runtime availability and support 
 
-For local development of Java function apps, download and use the appropriate Azul Zulu Enterprise for Azure Java JDKs from [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/). Azure Functions uses an Azul Java JDK runtime when you deploy your function app to the cloud.
+Microsoft and [Adoptium](https://adoptium.net/) builds of OpenJDK are provided and supported on Functions for Java 8 and 11. These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and runnning Java SE applications. The table below describes the new Java versions that Function apps will begin using with the January 2022 Functions platform release:
 
-[Azure support](https://azure.microsoft.com/support/) for issues with the JDKs and function apps is available with a [qualified support plan](https://azure.microsoft.com/support/plans/).
+| Java Version | Linux            | Windows              |
+|--------------|------------------|----------------------|
+| Java 8       | 1.8.0_302 (Adoptium) | 1.8.0_302 (Adoptium) |
+| Java 11      | 11.0.12 (MSFT)   | 11.0.12 (MSFT)       |
+
+For local development or testing, you can download the [Microsoft build of OpenJDK](https://docs.microsoft.com/java/openjdk/download) or [Adoptium Temurin](https://adoptium.net/?variant=openjdk8&jvmVariant=hotspot) binaries for free. [Azure support](https://azure.microsoft.com/support/) for issues with the JDKs and function apps is available with a [qualified support plan](https://azure.microsoft.com/support/plans/).
+
+If you would like to continue using the Zulu for Azure binaries on your Function app, please [configure your app accordingly](https://github.com/Azure/azure-functions-java-worker/wiki/Customize-JVM-to-use-Zulu). You can continue to use the Azul binaries for your site, but any security patches or improvements will only be available in new versions of the OpenJDK, so we recommend that you eventually remove this configuration so that your Function apps use the latest available version of Java.
 
 ## Customize JVM
 
