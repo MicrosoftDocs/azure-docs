@@ -54,7 +54,7 @@ Here is an overview of what capabilities are supported by every scenario:
 
 *1. Optional, depending on the configuration of feature in Azure API Management*
 
-*2. Optional, depending on the configuration of feature in Azure API Management*
+*2. Optional, depending on the configuration of the gateway*
 
 *3. The [self-hosted gateway](self-hosted-gateway-overview.md) currently does not send diagnostic logs to Azure Monitor. However, it is possible to configure and persist logs locally where the self-hosted gateway is deployed. For more information, please see [configuring local metrics and logs for self-hosted gateway](how-to-configure-local-metrics-logs.md)*
 
