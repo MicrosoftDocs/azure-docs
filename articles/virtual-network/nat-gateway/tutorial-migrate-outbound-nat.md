@@ -132,18 +132,18 @@ In this section, you’ll create a NAT gateway with the IP address previously us
 
 6. Select the **Subnet** tab, or select **Next: Subnet** at the bottom of the page.
 
-9. In the pull-down box for **Virtual network**, select your virtual network.
+7. In the pull-down box for **Virtual network**, select your virtual network.
 
-10. In **Subnet name**, select the checkbox for your subnet. In this example, it's **myBackendSubnet**.
+8. In **Subnet name**, select the checkbox for your subnet. In this example, it's **myBackendSubnet**.
 
-11. Select the **Review + create** tab, or select **Review + create** at the bottom of the page.
+9. Select the **Review + create** tab, or select **Review + create** at the bottom of the page.
 
-12. Select **Create**.
+10. Select **Create**.
 
 ## Clean up resources
 
 If you're not going to continue to use this application, delete
-the virtual network, virtual machine, and NAT gateway with the following steps:
+the NAT gateway with the following steps:
 
 1. From the left-hand menu, select **Resource groups**.
 
