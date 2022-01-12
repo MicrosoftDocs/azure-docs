@@ -8,7 +8,7 @@ ms.service: frontdoor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 01/12/2022
 ms.author: duau
 ---
 
@@ -32,8 +32,11 @@ After establishing a connection and completing a TLS handshake, the first step a
 ## Identifying available backends in the backend pool for the routing rule
 Once Front Door has matched a routing rule for an incoming request, the next step is to get health probe status for the backend pool associated with the routing rule if there's no caching. Read about how Front Door monitors backend health using [Health Probes](front-door-health-probes.md) to learn more.
 
-## Forwarding the request to your application backend
-Finally, assuming caching isn't configured, the user request is forwarded to the "best" backend based on your [routing method](front-door-routing-methods.md) configuration.
+## Select backend
+Assumuming caching isn't configured, the "best" backend is selected based on your [routing method](front-door-routing-methods.md) configuration.
+
+## Rules engine
+Finally, Azure Front Door evaluates whether or not you have a [rules engine](front-door-rules-engine.md) for the frontend. If there's no rules engine defined, then the request gets forwarded to the backend pool as-is. Otherwise, the rules engines get executed in the order they're configured. [Rules engines can override the route](front-door-rules-engine-actions.md#route-configuration-overrides), forcing traffic to a specific backend pool.
 
 ## Next steps
 
