@@ -123,7 +123,7 @@ You will need to copy the module identity connection string from the DefenderIoT
     sudo bash -c 'echo "<connection string>" > /var/defender_iot_micro_agent/connection_string.txt'
     ```
 
-    The `connection_string.txt` should now be located in the following path location `/var/defender_iot_micro_agent/connection_string.txt`.
+    The `connection_string.txt` is now be located in the following path location `/var/defender_iot_micro_agent/connection_string.txt`.
 
 1. Restart the service using this command:  
 
@@ -139,7 +139,7 @@ You will need to copy the module identity connection string from the DefenderIoT
 
 1. Place the PEM-encoded public part of the certificate, and the private key, in to the Defender for Cloud Agent Directory in to the file called `certificate_public.pem`, and `certificate_private.pem`.
 
-1. Place the appropriate connection string in to the `connection_string.txt` file. the connection string should look like this:
+1. Place the appropriate connection string in to the `connection_string.txt` file. The connection string should look like this:
 
     `HostName=<the host name of the iot hub>;DeviceId=<the id of the device>;ModuleId=<the id of the module>;x509=true`
 
@@ -189,7 +189,7 @@ A baseline validation failure recommendation will occur in the hub, with a `CceI
 
 ## Install a specific micro agent version
 
-In a situation where you want to install a specific version of the micro agent, this can be done through a specific command.
+You can install a specific version of the micro agent using a specific command.
 
 **To install a specific version of the Defender for IoT micro agent**:
 
@@ -208,4 +208,4 @@ There are no resources to clean up.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure Microsoft Defender for IoT agent-based solution](how-to-configure-agent-based-solution.md)
+> [Configure Microsoft Defender for IoT agent-based solution](tutorial-configure-agent-based-solution.md)

@@ -41,17 +41,15 @@ You can onboard Defender for IoT to an existing IoT Hub, where you can then moni
 
 **To enable Defender for IoT on an existing IoT Hub**:
 
-1. In the Azure portal, search for and select **IoT Hub**.
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
 
-1. Select your hub.
+1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Overview**.
 
-1. Navigate to **Defender for IoT** > **Overview**.
-
-1. Click **Secure your IoT solution** and complete the onboarding form.
+1. Select **Secure your IoT solution**, and complete the onboarding form.
 
     :::image type="content" source="media/quickstart-onboard-iot-hub/secure-your-iot-solution.png" alt-text="Select the secure your IoT solution button to secure your solution." lightbox="media/article-folder-name/secure-your-iot-solution-expanded.png":::
 
-The **Secure your IoT solution** button will only appear if the IoT Hub has not already been onboarded, or if while onboarding you left the Defender for IoT toggle on **Off**.
+The **Secure your IoT solution** button will only appear if the IoT Hub has not already been onboarded, or if you left the Defender for IoT toggle on **Off** while onboarding.
 
 :::image type="content" source="media/quickstart-onboard-iot-hub/toggle-is-off.png" alt-text="If your toggle was set to off during onboarding.":::
 
@@ -59,11 +57,9 @@ The **Secure your IoT solution** button will only appear if the IoT Hub has not 
 
 **To verify that Defender for IoT is enabled**:
 
-1. Navigate to the Azure portal > **IoT Hub**.
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
 
-1. Select the relevant hub from the list.
-
-1. Under **Defender for IoT**, select **Overview**.
+1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Overview**.
 
 1. The Threat prevention, and Threat detection screen will appear.
 
@@ -74,4 +70,4 @@ The **Secure your IoT solution** button will only appear if the IoT Hub has not 
 Advance to the next article to add a resource group to your solution...
 
 > [!div class="nextstepaction"]
-> [Add a resource group to your IoT solution](quickstart-configure-your-solution.md)
+> [Add a resource group to your IoT solution](tutorial-configure-your-solution.md)

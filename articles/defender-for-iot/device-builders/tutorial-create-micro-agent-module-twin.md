@@ -1,6 +1,6 @@
 ---
 title: Create a DefenderforIoTMicroAgent module twin (Preview)
-description: In this tutorial you will learn how to create a DefenderIotMicroAgent module twin for new devices.
+description: In this tutorial, you will learn how to create a DefenderIotMicroAgent module twin for new devices.
 ms.date: 01/10/2022
 ms.topic: tutorial
 ms.custom: mode-other
@@ -14,7 +14,7 @@ This tutorial will help you learn how to create an individual `DefenderIotMicroA
 
 For IoT solutions built in Azure, device twins play a key role in both device management and process automation.
 
-Defender for IoT has the ability to fully integrate with your existing IoT device management platform. Full integration, enables you to manage your device's security status, and allows you to make use of all existing device control capabilities. Integration is achieved by making use of the IoT Hub twin mechanism.
+Defender for IoT fully integrates with your existing IoT device management platform. Full integration, enables you to manage your device's security status, and allows you to make use of all existing device control capabilities. Integration is achieved by making use of the IoT Hub twin mechanism.
 
 Learn more about the concept of [Understand and use device twins in IoT Hub](../../iot-hub/iot-hub-devguide-device-twins.md).
 
@@ -60,15 +60,13 @@ A `DefenderIotMicroAgent` module twin can be created by manually editing each mo
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
 
-1. Search for, and select **IoT Hub**.
-
-1. Navigate to **Device management** > **Devices**.
+1. Navigate to **IoT Hub** > **`Your hub`** > **Device management** > **Devices**.
 
 1. Select your device from the list.
 
 1. Select **Add module identity**.
 
-1. In the Module Identity Name field enter `DefenderIotMicroAgent`.
+1. In the Module Identity Name field, enter `DefenderIotMicroAgent`.
 
 1. Select **Save**.
 
@@ -76,7 +74,9 @@ A `DefenderIotMicroAgent` module twin can be created by manually editing each mo
 
 **To verify the creation of a DefenderIotMicroAgent module twin on a specific device**:
 
-1. In the Azure portal navigate to **IoT Hub** > **`Your device`** > **Device management** > **Devices**.
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+
+1. Navigate to **IoT Hub** > **`Your hub`** > **Device management** > **Devices**.
 
 1. Select your device.
 
@@ -91,4 +91,4 @@ There are no resources to clean up.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> 
+> [Install the Defender for IoT micro agent (Preview)](tutorial-standalone-agent-binary-installation.md)

@@ -60,7 +60,7 @@ Opening each aggregated alert displays the detailed alert description, remediati
 
 1. Review the alert **description**, **severity**, **source of the detection**, **device details** of all devices that issued this alert in the aggregation period.
 
-    :::image type="content" source="media/quickstart/drill-down-iot-alert-details.png" alt-text="Investigate and review the details of each device in an aggregated alert ":::
+    :::image type="content" source="media/quickstart/drill-down-iot-alert-details.png" alt-text="Investigate and review the details of each device in an aggregated alert." lightbox="media/quickstart/drill-down-iot-alert-details-expanded.png":::
 
 1. After reviewing the alert specifics, use the **manual remediation step** instructions to help remediate, and resolve the issue that caused the alert.
 
@@ -80,7 +80,7 @@ You can access your alerts and investigate them with the Log Analytics workspace
 
 1. Select **Investigate alerts in Log Analytics workspace**.
 
-    :::image type="content" source="media/how-to-configure-agent-based-solution/log-analytic.png" alt-text="Screenshot that shows where to click to investigate in the log anayltics workspace.":::
+    :::image type="content" source="media/how-to-configure-agent-based-solution/log-analytic.png" alt-text="Screenshot that shows where to select to investigate in the log analytics workspace.":::
 
 ## Clean up resources
 
@@ -88,6 +88,5 @@ There are no resources to clean up.
 
 ## Next steps
 
-
 > [!div class="nextstepaction"]
-> [Quickstart: Defender-IoT-micro-agent for Azure RTOS](quickstart-azure-rtos-security-module.md)
+> Learn how to [Connect your data from Defender for IoT for device builders to Microsoft Sentinel (Public preview)](how-to-configure-with-sentinel.md).

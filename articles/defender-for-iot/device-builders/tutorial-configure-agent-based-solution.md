@@ -1,7 +1,7 @@
 ---
 title: Configure Microsoft Defender for IoT agent-based solution
 description: Learn how to configure the Microsoft Defender for IoT agent-based solution
-ms.date: 01/11/2022
+ms.date: 01/12/2022
 ms.topic: tutorial
 ---
 
@@ -104,4 +104,4 @@ There are no resources to clean up.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Investigate security recommendations](quickstart-investigate-security-recommendations.md)
+> [Investigate security recommendations](tutorial-investigate-security-recommendations.md)

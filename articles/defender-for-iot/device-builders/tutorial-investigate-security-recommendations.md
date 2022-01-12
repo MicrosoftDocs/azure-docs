@@ -2,7 +2,7 @@
 title: Investigate security recommendations
 description: Learn how to investigate security recommendations with the Defender for IoT.
 ms.topic: tutorial
-ms.date: 01/11/2022
+ms.date: 01/12/2022
 ---
 
 # Tutorial: Investigate security recommendations
@@ -85,4 +85,4 @@ There are no resources to clean up.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Investigate security alerts](quickstart-investigate-security-alerts.md)
+> [Investigate security alerts](tutorial-investigate-security-alerts.md)

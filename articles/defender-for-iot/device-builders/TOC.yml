@@ -28,21 +28,19 @@
   items:
   - name: Add a resource group to your IoT solution
     displayName: resources, monitored, resource
-    href: quickstart-configure-your-solution.md
+    href: tutorial-configure-your-solution.md
   - name: Create a DefenderforIoTMicroAgent module twin (Preview)
-    href: quickstart-create-micro-agent-module-twin.md
+    href: tutorial-create-micro-agent-module-twin.md
   - name: Install the Microsoft Defender for IoT micro agent (Preview)
     displayName: package, authentication, methods, certificate, authenticate, version
-    href: quickstart-standalone-agent-binary-installation.md
+    href: tutorial-standalone-agent-binary-installation.md
   - name: Configure Microsoft Defender for IoT agent-based solution
     displayName: data, collection, geolocation, log analytics, raw events
-    href: how-to-configure-agent-based-solution.md
+    href: tutorial-configure-agent-based-solution.md
   - name: Investigate security recommendations
-    href: quickstart-investigate-security-recommendations.md
+    href: tutorial-investigate-security-recommendations.md
   - name: Investigate security alerts
     href: quickstart-investigate-security-alerts.md
-  - name: Configure a micro agent twin
-    href: tutorial-configure-micro-agent-twin.md
 - name: Concepts
   items:
   - name: Agent portfolio overview and OS support (Preview)                     
@@ -110,6 +108,8 @@
     href: how-to-configure-with-sentinel.md
   - name: Investigate CIS benchmark recommendation
     href: how-to-investigate-cis-benchmark.md
+  - name: Configure a micro agent twin
+    href: how-to-configure-micro-agent-twin.md
   - name: Create custom alerts
     displayName: security group
     href: quickstart-create-custom-alerts.md

@@ -1,21 +1,15 @@
 ---
 title: Configure a micro agent twin
-description: In this tutorial, you will learn how to configure a micro agent twin.
+description: Learn how to configure a micro agent twin.
 author: ElazarK
 ms.author: v-ekrieg
-ms.topic: tutorial
-ms.date: 01/05/2022
-ms.custom: template-tutorial
+ms.topic: how-to
+ms.date: 01/12/2022
 ---
 
-# Tutorial: Configure a micro agent twin
+# Configure a micro agent twin
 
-This tutorial will help you learn how to configure a micro agent twin.
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> - Configure a micro agent twin
+Learn how to configure a micro agent twin.
 
 ## Prerequisites
 
@@ -23,7 +17,7 @@ In this tutorial, you learn how to:
 
 - A Defender for IoT subscription.
 
-- An existing IoT Hub with: [A connected device](quickstart-standalone-agent-binary-installation.md), and [A micro agent module twin](quickstart-create-micro-agent-module-twin.md).
+- An existing IoT Hub with: [A connected device]tutorial-standalone-agent-binary-installation.md), and [A micro agent module twin](tutorial-create-micro-agent-module-twin.md).
 
 ## Micro agent configuration
 
@@ -33,7 +27,7 @@ In this tutorial, you learn how to:
 
 1. Search for, and select **IoT Hub**.
 
-    :::image type="content" source="media/tutorial-micro-agent-configuration/iot-hub.png" alt-text="Screenshot of searching for the IoT hub in the searchbar.":::
+    :::image type="content" source="media/tutorial-micro-agent-configuration/iot-hub.png" alt-text="Screenshot of searching for the IoT hub in the search bar.":::
 
 1. Select your IoT Hub from the list.
 
@@ -47,7 +41,7 @@ In this tutorial, you learn how to:
 
     :::image type="content" source="media/tutorial-micro-agent-configuration/module-id.png" alt-text="Screenshot of the device's module ID selection screen.":::
 
-1. In the Module Identity Details screen select **Module Identity Twin**.
+1. In the Module Identity Details screen, select **Module Identity Twin**.
 
     :::image type="content" source="media/tutorial-micro-agent-configuration/module-identity-twin.png" alt-text="Screenshot of the Module Identity Details screen.":::
 
@@ -61,10 +55,6 @@ In this tutorial, you learn how to:
 
     If the agent fails to set the new configuration, the value of `"latest_state"`, under the `"reported"` section will show `"failed"`. If this occurs, the `"latest_invalid_fields"` will contain a list of the fields that are invalid.
 
-## Clean up resources
-
-There are no resources to clean up.
-
 ## Next steps
 
-In this tutorial, you learned how to configure a micro agent twin. Continue on to learn about additional [Micro agent configurations (Preview)](concept-micro-agent-configuration.md).
+You learned how to configure a micro agent twin. Continue on to learn about other [Micro agent configurations (Preview)](concept-micro-agent-configuration.md).
