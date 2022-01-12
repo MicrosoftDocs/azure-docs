@@ -48,14 +48,6 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ### Microsoft Graph API
 
-## Convert an assigned administrative unit to dynamic
-
-### Azure portal
-
-### PowerShell
-
-### Microsoft Graph API
-
 ## Convert a dynamic administrative unit to assigned
 
 ### Azure portal
