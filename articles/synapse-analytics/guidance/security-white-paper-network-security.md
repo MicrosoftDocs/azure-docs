@@ -121,7 +121,7 @@ The above diagram depicts the following key points:
 
 The [Synapse Managed VNet](../security/synapse-workspace-managed-vnet.md) feature provides a fully managed network isolation for the Apache Spark pool and pipeline compute resources between Synapse workspaces. It can be configured at workspace creation time. In addition, it also provides network isolation for Spark clusters within the same workspace. Each workspace has its own virtual network, which is fully managed by Synapse. The Managed VNet isn't visible to the users to make any modifications. Any pipeline or Apache Spark pool compute resources that are spun up by Azure Synapse in a Managed VNet gets provisioned inside its own VNet. This way, there's full network isolation from other workspaces.
 
-This configuration eliminates the need to create and manage VNets and network security groups for the Apache Spark pool and pipeline resources, as is typically done by [VNet Injection](../../databricks/administration-guide/cloud-configurations/azure/vnet-inject.md).
+This configuration eliminates the need to create and manage VNets and network security groups for the Apache Spark pool and pipeline resources, as is typically done by [VNet Injection](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
 
 As such, multi-tenant services in a Synapse workspace, such as dedicated SQL pools and serverless SQL pools, are **not** provisioned inside the Managed VNet.
 
@@ -143,7 +143,7 @@ The following diagram depicts a managed private endpoint connecting to an Azure 
 
 ## Advanced Spark security
 
-A Managed VNet also provides some added advantages for Apache Spark pool users. There's no need to worry about configuring a *fixed* subnet address space as would be done in [VNet Injection](../../databricks/administration-guide/cloud-configurations/azure/vnet-inject.md). Azure Synapse automatically takes care of allocating these address spaces dynamically for workloads.
+A Managed VNet also provides some added advantages for Apache Spark pool users. There's no need to worry about configuring a *fixed* subnet address space as would be done in [VNet Injection](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Azure Synapse automatically takes care of allocating these address spaces dynamically for workloads.
 
 In addition, Spark pools operate as a job cluster. It means each user gets their own Spark cluster when interacting with the workspace. Creating an Spark pool within the workspace is metadata information for what will be assigned to the user when executing Spark workloads. It means each user will get their own Spark cluster *in a dedicated subnet inside the Managed VNet* to execute workloads. Spark pool sessions from the same user execute on the same compute resources. By providing this functionality, there are three main benefits:
 
