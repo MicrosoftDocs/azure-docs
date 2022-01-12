@@ -22,7 +22,7 @@ Bringing your devices to Azure AD maximizes user productivity through single sig
 ## Prerequisites
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) version 1.1.819.0 or later.
-   - To get device registration sync join to succeed, as part of the device registration configuration, don't exclude the default device attributes from your Azure AD Connect sync configuration. To learn more about default device attributes synced to Azure AD, see [Attributes synchronized by Azure AD Connect](../hybrid/reference-connect-sync-attributes-synchronized.md#windows-10).
+   - Don't exclude the default device attributes from your Azure AD Connect sync configuration. To learn more about default device attributes synced to Azure AD, see [Attributes synchronized by Azure AD Connect](../hybrid/reference-connect-sync-attributes-synchronized.md#windows-10).
    - If the computer objects of the devices you want to be hybrid Azure AD joined belong to specific organizational units (OUs), configure the correct OUs to sync in Azure AD Connect. To learn more about how to sync computer objects by using Azure AD Connect, see [Organizational unit–based filtering](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
 - Global administrator credentials for your Azure AD tenant.
 - Enterprise administrator credentials for each of the on-premises Active Directory Domain Services forests.
@@ -53,10 +53,10 @@ Verify devices can access the required Microsoft resources under the system acco
 
 ## Managed domains
 
-You can deploy hybrid Azure AD joined devices that use [password hash sync (PHS)](../hybrid/whatis-phs.md) or [pass-through authentication (PTA)](../hybrid/how-to-connect-pta.md) with [seamless single sign-on](../hybrid/how-to-connect-sso.md). These scenarios don't require you to configure a federation server for authentication.
+We think most organizations will deploy hybrid Azure AD join with managed domains. Managed domains use [password hash sync (PHS)](../hybrid/whatis-phs.md) or [pass-through authentication (PTA)](../hybrid/how-to-connect-pta.md) with [seamless single sign-on](../hybrid/how-to-connect-sso.md). Managed domain scenarios don't require configuring a federation server.
 
 > [!NOTE]
-> Azure AD doesn't support smartcards or certificates in managed domains.
+> Azure AD doesn't support smart cards or certificates in managed domains.
 
 Configure hybrid Azure AD join by using Azure AD Connect for a managed domain:
 
@@ -113,7 +113,7 @@ Configure hybrid Azure AD join by using Azure AD Connect for a federated environ
 
 ### Federation caveats
 
-Beginning with Windows 10 1803, if the instantaneous hybrid Azure AD join for a federated environment by using AD FS fails, we rely on Azure AD Connect to sync the computer object in Azure AD that's then used to complete the device registration for hybrid Azure AD join.
+With Windows 10 1803 or newer, if instantaneous hybrid Azure AD join for a federated environment using AD FS fails, we rely on Azure AD Connect to sync the computer object in Azure AD that's then used to complete the device registration for hybrid Azure AD join.
 
 ## Troubleshoot hybrid Azure AD join
 
