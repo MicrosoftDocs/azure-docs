@@ -15,7 +15,7 @@ The Azure Percept DK and Audio Accessory were designed to integrate with the [80
 
 ## 80/20 features
 
-The Azure Percept DK carrier board, Azure Percept Vision device, and Azure Percept Audio accessory are manufactured with built-in 80/20 1010 connectors, which allow for endless mounting configurations with 80/20 rails. This integration enables customers and solution builders to more easily extend their proof of concepts to production environments.
+The Azure Percept DK carrier board, Azure Percept Vision device, and Azure Percept Audio accessory are manufactured with integrated 80/20 1010 extrusion connections, which allow for endless mounting configurations with 80/20 rails. This integration enables customers and solution builders to more easily extend their proof of concepts to production environments.
 
 Check out this video for more information on how to use Azure Percept DK with 80/20:
 
