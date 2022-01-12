@@ -7,7 +7,7 @@ ms.topic: how-to
 author: sharath-satish-msft
 ms.author: shsatish
 ms.reviewer: stmummer
-ms.date: 12/03/2021
+ms.date: 01/11/2022
 ---
 
 # Configure co-sell for a commercial marketplace offer
