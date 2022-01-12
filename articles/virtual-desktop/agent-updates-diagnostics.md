@@ -17,7 +17,7 @@ This article describes how to use diagnostic logs in a Log Analytics workspace t
 
 1. Create a Log Analytics workspace, if you haven't already. Next, get the workspace ID and primary key by following the instructions in [Use Log Analytics for the diagnostics feature](diagnostics-log-analytics.md#before-you-get-started).
 
-2. Send diagnostics to the Log Analytics workspace you just created by following the instructions in [Push diagnostics data to your workspace](diagnostics-log-analytics.md#push-diagnostics-data-to-your-workspace). 
+2. Send diagnostics to the Log Analytics workspace you created by following the instructions in [Push diagnostics data to your workspace](diagnostics-log-analytics.md#push-diagnostics-data-to-your-workspace). 
 
 3. Follow the directions in [How to access Log Analytics](diagnostics-log-analytics.md#how-to-access-log-analytics) to access the logs in your workspace.
 
