@@ -7,7 +7,7 @@ ms.subservice: performance
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sashan, moslake
+ms.reviewer: kendralittle, sashan, moslake, mathoma
 ms.date: 09/10/2021
 ms.custom: references_regions, ignite-fall-2021
 ---

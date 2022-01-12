@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
-ms.reviewer: mathoma
-ms.date: 9/9/2021
+ms.reviewer: kendralittle, mathoma
+ms.date: 1/10/2022
 ---
 
 # Hyperscale service tier
@@ -28,10 +28,6 @@ The Hyperscale service tier in Azure SQL Database is the newest service tier in 
 >
 > - For details on the General Purpose and Business Critical service tiers in the vCore-based purchasing model, see [General Purpose](service-tier-general-purpose.md) and [Business Critical](service-tier-business-critical.md) service tiers. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](purchasing-models.md).
 > - The Hyperscale service tier is currently only available for Azure SQL Database, and not Azure SQL Managed Instance.
-
-
-> [!div class="nextstepaction"]
-> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## What are the Hyperscale capabilities
 
@@ -69,11 +65,11 @@ Hyperscale service tier is only available in [vCore model](service-tiers-vcore.m
 
 - **Compute**:
 
-  The Hyperscale compute unit price is per replica. The [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) price is applied to high-availabilty and named replicas automatically. We create a primary replica and one secondary [high-availability replica](service-tier-hyperscale-replicas.md) per Hyperscale database by default.  Users may adjust the total number of high-availability replicas from 0-4, depending on the needed [SLA](https://azure.microsoft.com/support/legal/sla/azure-sql-database/). 
+  The Hyperscale compute unit price is per replica. The [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) price is applied to high-availabilty and named replicas automatically. Users may adjust the total number of high-availability secondary replicas from 0 to 4, depending on [SLA](https://azure.microsoft.com/support/legal/sla/azure-sql-database/) requirements.
 
 - **Storage**:
 
-  You don't need to specify the max data size when configuring a Hyperscale database. In the hyperscale tier, you're charged for storage for your database based on actual allocation. Storage is automatically allocated between 40 GB and 100 TB, in 10-GB increments. Multiple data files can grow at the same time if needed. A Hyperscale database is created with a starting size of 10 GB and it starts growing by 10 GB every 10 minutes, until it reaches the size of 40 GB.
+  You don't need to specify the max data size when configuring a Hyperscale database. In the Hyperscale tier, you're charged for storage for your database based on actual allocation. Storage is automatically allocated between 40 GB and 100 TB, in 10-GB increments. Multiple data files can grow at the same time if needed. A Hyperscale database is created with a starting size of 10 GB and it starts growing by 10 GB every 10 minutes, until it reaches the size of 40 GB.
 
 For more information about Hyperscale pricing, see [Azure SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
@@ -186,7 +182,7 @@ These are the current limitations to the Hyperscale service tier as of GA.  We'r
 | Elastic Pools |  Elastic Pools aren't currently supported with Hyperscale.|
 | Migration to Hyperscale is currently a one-way operation | Once a database is migrated to Hyperscale, it can't be migrated directly to a non-Hyperscale service tier. At present, the only way to migrate a database from Hyperscale to non-Hyperscale is to export/import using a bacpac file or other data movement technologies (Bulk Copy, Azure Data Factory, Azure Databricks, SSIS, etc.) Bacpac export/import from Azure portal, from PowerShell using [New-AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) or [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport), from Azure CLI using [az sql db export](/cli/azure/sql/db#az_sql_db_export) and [az sql db import](/cli/azure/sql/db#az_sql_db_import), and from [REST API](/rest/api/sql/) is not supported. Bacpac import/export for smaller Hyperscale databases (up to 200 GB) is supported using SSMS and [SqlPackage](/sql/tools/sqlpackage) version 18.4 and later. For larger databases, bacpac export/import may take a long time, and may fail for various reasons.|
 | Migration of databases with In-Memory OLTP objects | Hyperscale supports a subset of In-Memory OLTP objects, including memory-optimized table types, table variables, and natively compiled modules. However, when any kind of In-Memory OLTP objects are present in the database being migrated, migration from Premium and Business Critical service tiers to Hyperscale is not supported. To migrate such a database to Hyperscale, all In-Memory OLTP objects and their dependencies must be dropped. After the database is migrated, these objects can be recreated. Durable and non-durable memory-optimized tables are not currently supported in Hyperscale, and must be changed to disk tables.|
-| Geo-replication  | [Geo-replication](active-geo-replication-overview.md) on Hyperscale is now in public preview. |
+| Geo-replication | [Geo-replication](active-geo-replication-overview.md) and [auto-failover groups](auto-failover-group-overview.md) on Hyperscale is now in public preview. |
 | Intelligent Database Features | With the exception of the "Force Plan" option, all other Automatic Tuning options aren't yet supported on Hyperscale: options may appear to be enabled, but there won't be any recommendations or actions made. |
 | Query Performance Insights | Query Performance Insights is currently not supported for Hyperscale databases. |
 | Shrink Database | DBCC SHRINKDATABASE or DBCC SHRINKFILE isn't currently supported for Hyperscale databases. |

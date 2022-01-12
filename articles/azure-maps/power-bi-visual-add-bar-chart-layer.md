@@ -1,10 +1,9 @@
 ---
-title: Add a bar chart layer to the Azure Maps Power BI visual
+title: Add a bar chart layer to an Azure Maps Power BI visual
 titleSuffix: Microsoft Azure Maps
-description: In this article, you will learn how to use the bar chart layer in the Microsoft Azure Maps Power BI visual.
+description: In this article, you will learn how to use the bar chart layer in an Azure Maps Power BI visual.
 author: stevemunk
 ms.author: v-munksteve
-manager: eriklind
 ms.date: 11/29/2021
 ms.topic: conceptual
 ms.service: azure-maps

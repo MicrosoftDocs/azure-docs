@@ -1,14 +1,13 @@
 ---
-title: What is automated SaaS app user provisioning in Azure Active Directory
-description: An introduction to how you can use Azure Active Directory to automatically provision, de-provision, and continuously update user accounts across multiple third-party SaaS applications.
-services: active-directory
+title: What is automated app user provisioning in Azure Active Directory
+description: An introduction to how you can use Azure Active Directory to automatically provision, de-provision, and continuously update user accounts across multiple third-party applications.
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: overview
 ms.workload: identity
-ms.date: 11/15/2021
+ms.date: 12/08/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -21,7 +20,7 @@ In Azure Active Directory (Azure AD), the term *app provisioning* refers to auto
 
 Azure AD application provisioning refers to automatically creating user identities and roles in the applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. Common scenarios include provisioning an Azure AD user into SaaS applications like [Dropbox](../../active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../../active-directory/saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../../active-directory/saas-apps/servicenow-provisioning-tutorial.md), and more.
 
-Azure AD also supports provisioning users into applications hosted on-premises or in a virtual machine, without having to open up any firewalls. If your application supports [SCIM](https://aka.ms/scimoverview), or you've built a SCIM gateway to connect to your legacy application, you can use the Azure AD Provisioning agent to [directly connect](https://docs.microsoft.com/azure/active-directory/app-provisioning/on-premises-scim-provisioning) with your application and automate provisioning and deprovisioning. If you have legacy applications that don't support SCIM and rely on an [LDAP](https://docs.microsoft.com/azure/active-directory/app-provisioning/on-premises-ldap-connector-configure) user store or a [SQL](https://docs.microsoft.com/azure/active-directory/app-provisioning/tutorial-ecma-sql-connector) database, Azure AD can support those as well. 
+Azure AD also supports provisioning users into applications hosted on-premises or in a virtual machine, without having to open up any firewalls. If your application supports [SCIM](https://aka.ms/scimoverview), or you've built a SCIM gateway to connect to your legacy application, you can use the Azure AD Provisioning agent to [directly connect](/azure/active-directory/app-provisioning/on-premises-scim-provisioning) with your application and automate provisioning and deprovisioning. If you have legacy applications that don't support SCIM and rely on an [LDAP](/azure/active-directory/app-provisioning/on-premises-ldap-connector-configure) user store or a [SQL](/azure/active-directory/app-provisioning/tutorial-ecma-sql-connector) database, Azure AD can support those as well. 
 
 App provisioning lets you:
 

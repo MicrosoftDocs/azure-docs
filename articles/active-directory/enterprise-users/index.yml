@@ -10,7 +10,7 @@ metadata:
   services: active-directory
   ms.service: active-directory
   ms.subservice: enterprise-users
-  manager: mtillman
+  manager: karenhoran
   ms.topic: landing-page
   ms.date: 04/18/2021
   author: curtand

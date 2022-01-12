@@ -320,6 +320,8 @@ items:
         href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Create and manage containers
       items:
+      - name: Manage containers (PowerShell)
+        href: blob-containers-powershell.md
       - name: Create or delete a container (.NET)
         href: storage-blob-container-create.md
       - name: List containers (.NET)
@@ -328,6 +330,8 @@ items:
         href: storage-blob-container-properties-metadata.md
     - name: Create and manage blobs
       items:
+      - name: Manage blobs (PowerShell)
+        href: blob-powershell.md
       - name: List blobs (SDK)
         href: storage-blobs-list.md
       - name: Manage blob properties and metadata (.NET)
@@ -656,6 +660,8 @@ items:
         href: https://github.com/microsoft/AzureStorageExplorer/releases
       - name: Troubleshoot Storage Explorer
         href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Connect an emulator to Storage Explorer
+        href: ../common/storage-explorer-emulators.md
       - name: Storage Explorer command line options
         href: ../common/storage-explorer-command-line-options.md
       - name: Storage Explorer direct link

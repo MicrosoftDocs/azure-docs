@@ -8,7 +8,6 @@ ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: eriklind
 custom.ms: subject-rbac-steps
 ---
 

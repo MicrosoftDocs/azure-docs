@@ -128,6 +128,8 @@
         href: event-schema-app-service.md
       - name: Azure Blob Storage
         href: event-schema-blob-storage.md
+      - name: Azure Cache for Redis
+        href: event-schema-azure-cache.md
       - name: Azure Communication Services
         items:
         - name: Overview
@@ -150,6 +152,8 @@
         href: event-schema-iot-hub.md
       - name: Azure Key Vault
         href: event-schema-key-vault.md
+      - name: Azure Kubernetes Service
+        href: event-schema-aks.md
       - name: Azure Machine Learning
         href: event-schema-machine-learning.md
       - name: Azure Maps
@@ -166,10 +170,6 @@
         href: event-schema-azure-signalr.md
       - name: Azure subscriptions
         href: event-schema-subscriptions.md
-      - name: Azure Cache for Redis
-        href: event-schema-azure-cache.md
-      - name: Azure Kubernetes Service (Preview)
-        href: event-schema-aks.md
   - name: Partner Events
     items:
     - name: Overview of Partner Events

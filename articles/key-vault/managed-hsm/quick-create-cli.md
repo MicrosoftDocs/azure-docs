@@ -9,8 +9,8 @@ ms.subservice: managed-hsm
 ms.topic: quickstart
 ms.date: 06/21/2021
 ms.author: mbaldwin
-#Customer intent: As a security admin who is new to Azure, I want to provision and activate a managed HSM
 ms.custom: mode-api
+#Customer intent: As a security admin who is new to Azure, I want to provision and activate a managed HSM
 ---
 
 # Quickstart: Provision and activate a managed HSM using Azure CLI

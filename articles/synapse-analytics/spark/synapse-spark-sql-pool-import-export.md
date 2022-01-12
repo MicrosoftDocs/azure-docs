@@ -2,12 +2,12 @@
 title: Import and Export data between serverless Apache Spark pools and SQL pools
 description: This article provides information on how to use the custom connector for moving data between dedicated SQL pools and serverless Apache Spark pools.
 services: synapse-analytics 
-author: euangMS 
+author: rothja 
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ms.date: 11/19/2020 
-ms.author: prgomata
+ms.author: jroth
 ms.reviewer: euang
 ---
 # Introduction

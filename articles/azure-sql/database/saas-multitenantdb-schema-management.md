@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: tutorial
 author: LitKnd
 ms.author: kendralittle
-ms.reviewer: 
+ms.reviewer: mathoma
 ms.date: 12/18/2018
 ---
 # Manage schema in a SaaS application that uses sharded multi-tenant databases

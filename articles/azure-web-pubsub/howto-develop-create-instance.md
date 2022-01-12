@@ -6,7 +6,7 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: quickstart
 ms.date: 11/08/2021
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create a Web PubSub instance from Azure portal

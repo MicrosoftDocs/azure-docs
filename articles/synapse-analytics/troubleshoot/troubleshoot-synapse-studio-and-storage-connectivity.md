@@ -7,7 +7,7 @@ ms.subservice: troubleshooting
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: xujiang1 
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Troubleshoot connectivity between Azure Synapse Analytics Synapse Studio and storage

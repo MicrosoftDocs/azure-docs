@@ -7,7 +7,7 @@ ms.custom: azure-synapse
 ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto
+ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 05/10/2021
 ---
 

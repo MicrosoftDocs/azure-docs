@@ -2,11 +2,11 @@
 title: Best practices for hosting a Kubernetes client application
 titleSuffix: Azure Cache for Redis
 description: Learn how to host a Kubernetes client application that uses Azure Cache for Redis.
-author: shpathak-msft
+author: flang-msft
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/11/2021
-ms.author: shpathak
+ms.author: franlanglois
 ---
 
 # Kubernetes-hosted client application
