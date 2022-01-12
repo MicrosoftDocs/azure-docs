@@ -1,30 +1,35 @@
 ---
 title: Speech phonetic sets - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn how to the Speech service phonetic alphabet maps to the International Phonetic Alphabet (IPA), and when to use which set.
+description: Learn how to the Speech service phonetic alphabet and International Phonetic Alphabet (IPA), and when to use which set.
 services: cognitive-services
-author: zhaoyunED
+author: jiajzhan
 manager: junwg
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/11/2022
+ms.date: 01/12/2022
 ms.author: jiajzhan
 ---
 
-# Speech service phonetic sets
+# SSML phonetic alphabets
 
-The Speech service defines phonetic alphabets ("phone sets" for short), consisting of seven languages; `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`. The Speech service phone sets typically map to the <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet (IPA) </a>. Speech service phone sets are used in conjunction with the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md), as part of the Text-to-speech service offering. In this article, you'll learn how these phone sets are mapped and when to use which phone set.
+Phonetic alphabets are used with the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) to improve pronunciation of Text-to-speech voices. See [Use phonemes to improve pronunciation](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation) to learn when and how to use each alphabet.
 
-## Speech phone sets
+## Speech service phonetic alphabet
 
-These locales support Speech service phone sets. 
+For some locales, the Speech service defines its own phonetic alphabets that typically map to the <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet (IPA)</a>.
+
+* `sapi` - [Speech service phonetic alphabet](#speech-service-phonetic-alphabet)
+* `ipa` - [International Phonetic Alphabet](#speech-service-phonetic-alphabet)
+
+You use the `sapi` value for the `alphabet` in [SSML](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation).  
 
 ### [en-US](#tab/en-US)
 
 #### English suprasegmentals
 
-| Example 1 (Onset for consonant, word initial for vowel) | Example 2 (Intervocalic for consonant, word medial nucleus for vowel) | Example 3 (Coda for consonant, word final for vowel) | Comments |
+|Example 1 (Onset for consonant, word initial for vowel)|Example 2 (Intervocalic for consonant, word medial nucleus for vowel)|Example 3 (Coda for consonant, word final for vowel)|Comments|
 |--|--|--|--|
 | burger  /b er **1** r - g ax r/ | falafel  /f ax - l aa **1** - f ax  l/ | guitar  /g ih - t aa **1** r/ | Speech service phone set put stress after the vowel of the stressed  syllable |
 | inopportune /ih **2** - n aa - p ax r - t uw 1 n/ | dissimilarity  /d ih - s ih **2**- m ax -  l eh 1 - r ax - t iy/ | workforce /w er 1 r k - f ao **2** r s/ | Speech service phone set put stress after the vowel of the sub-stressed  syllable |
@@ -403,20 +408,22 @@ The Speech service phone set for `ja-JP` is based on the native phone <a href="h
 
 ***
 
-## IPA Phoneme table
+## International Phonetic Alphabet
 
-The locales above support Speech service phone sets. For other locales below, Microsoft supports IPA phones to be used in phoneme tag and custom lexicon.
+For the locales below the Speech service uses the <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet (IPA)</a>.
 
-All IPA supported languages use the same IPA stress and syllable break shown in the below table.
+You use the `ipa` value for the `alphabet` in [SSML](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation).  
+
+These locales all use the same IPA stress and syllables described here.
 
 |`ipa` | Symbol         | 
 |-------|-------------------|
 | `ˈ`   | Primary stress     | 
 | `ˌ`   | Secondary stress   | 
 | `.`   | Syllable boundary  | 
-&emsp;
 
-The following tables are the IPA phonemes for each language.
+
+Select a tab below for the IPA phonemes specific to each locale.
 
 ### [ca-ES](#tab/ca-ES)
 
