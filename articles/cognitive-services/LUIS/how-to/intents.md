@@ -74,4 +74,5 @@ To get an intent from your app, you can use either the [REST API](../client-libr
 ## Next steps
 
 * [Add entities](entities.md)
+* [Label entities](label-utterances.md)
 * [Train and test](train-test.md)

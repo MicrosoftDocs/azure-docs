@@ -138,3 +138,4 @@ The  [**Pattern.any**](../concepts/entities.md#patternany-entity) entity is only
 ## Next steps
 
 [Label your example utterances](label-utterances.md)
+[Train and test your application](train-test.md)
