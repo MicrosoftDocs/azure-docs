@@ -194,99 +194,86 @@ As mentioned, virtual network peering is one way to access your private cluster.
 
 ## Using a private endpoint connection
 
-A private endpoint can be set up so that an Azure Virtual Network doesn't need to be peered to communicate to the private cluster. To use a private endpoint, you need to create it in your virtual network, and then set up a link between your virtual network and a new private DNS zone.
+A private endpoint can be set up so that an Azure Virtual Network doesn't need to be peered to communicate to the private cluster. To use a private endpoint, create a new private endpoint in your virtual network then create a link between your virtual network and a new private DNS zone.
 
 1. On the Azure portal menu or from the Home page, select **Create a resource**.
 2. Search for **Private Endpoint** and select **Create > Private Endpoint**.
 3. Select **Create**.
 4. On the **Basics** tab, set up the following options:
+    * **Project details**:
+      * Select an Azure **Subscription**.
+      * Select the Azure **Resource group** where your virtual network is located.
+    * **Instance details**:
+      * Enter a **Name**, such as *myPrivateEndpoint*.
+      * Select a **Region** for the private endpoint.
   
-    | **Settings**     	    | **Value**                                                             |
-    |-----------------------|-----------------------------------------------------------------------|
-    | **Project details**  	|                                                                       |
-    | Subscription     	    | Select your Azure Subscription 	                                      |
-    | Resource group   	    | Select the Azure Resource group where the virtual network is created  |
-    | **Instance details** 	|                                                                       |
-    | Name             	    | myPrivateEndpoint              	                                      |
-    | Region           	    | Select your region             	                                      |
-
-  > [!NOTE]
-  > Check that the region selected is the same as the virtual network where you want to connect from, otherwise you won't see your virtual network in **Configuration** tab.
+  > [!IMPORTANT]
+  > Check that the region selected is the same as the virtual network where you want to connect from, otherwise you won't see your virtual network in the **Configuration** tab.
 
 5. Select **Next: Resource** when complete.
 6. On the **Resource** tab, set up the following options:
-    
-    | **Settings**        | **Value**                                                           |
-    |---------------------|---------------------------------------------------------------------|
-    | Connection method   | Connect to an Azure resource in my directory.                       |
-    | Subscription        | Select your Azure Subscription where the private cluster is located |
-    | Resource type       | Microsoft.ContainerService/managedClusters                          |
-    | Resource            | myPrivateAKSCluster                                                 |
-    | Target sub-resource | management                                                          |
-
+    * **Connection method**: *Connect to an Azure resource in my directory*
+    * **Subscription**: Select your Azure Subscription where the private cluster is located
+    * **Resource type**: *Microsoft.ContainerService/managedClusters*
+    * **Resource**: *myPrivateAKSCluster*
+    * **Target sub-resource**: *management*
 7. Select **Next: Configuration** when complete.
 8. On the **Configuration** tab, set up the following options:
-    
-    | **Settings**    | **Value**                  |
-    |-----------------|----------------------------|
-    | **Networking**  |                            |
-    | Virtual Network | myVirtualNetwork           |
-    | Subnet          | mySubnet                   |
-
+    * **Networking**:
+      * **Virtual network**: *myVirtualNetwork*
+      * **Subnet**: *mySubnet*
 9.  Select **Next: Tags** when complete.
 10. (Optional) On the **Tags** tab, set up key-values as needed.
 11. Select **Next: Review + create**, and then select **Create** when validation completes. 
 
-Once the private endpoint has been created, a new private DNS zone needs to be created. This zone needs to have the same name as the private DNS zone that was created by the private cluster. Make note of the private IP address of the private endpoint created in previous steps, because it will be used in later steps.
+Record the private IP address of the private endpoint. This private IP address is used in a later step.
+
+After the private endpoint has been created, create a new private DNS zone with the same name as the private DNS zone that was created by the private cluster. 
 
 1. Go to the node resource group in the Azure portal.  
-2. Select the private DNS zone and make note of the name of the private DNS zone, the name of the A record (excluding the private DNS name), and the time-to-live (TTL). The name of the private DNS zone follows the pattern `*.privatelink.<region>.azmk8s.io`.
+2. Select the private DNS zone and record:
+   * the name of the private DNS zone, which follows the pattern `*.privatelink.<region>.azmk8s.io`
+   * the name of the A record (excluding the private DNS name)
+   * the time-to-live (TTL)
 3. On the Azure portal menu or from the Home page, select **Create a resource**.
 4. Search for **Private DNS zone** and select **Create > Private DNS Zone**.
 5. On the **Basics** tab, set up the following options:
-
-    | **Settings**     	   | **Value**                                                               |
-    |----------------------|-------------------------------------------------------------------------|
-    | **Project details**	 |                                                                         |
-    | Subscription     	   | Select your Azure Subscription 	                                       |
-    | Resource group   	   | Select the Azure Resource group where the private endpoint was created  |
-    | **Instance details** |                                                                         |
-    | Name             	   | Input the name of the DNS zone retrieved from previous steps            |
-    | Region           	   | Defaults to the Azure Resource group location                           |
-
+     * **Project details**:
+       * Select an Azure **Subscription**
+       * Select the Azure **Resource group** where the private endpoint was created
+     * **Instance details**:
+       * Enter the **Name** of the DNS zone retrieved from previous steps
+       * **Region** defaults to the Azure Resource group location
 6. Select **Review + create** when complete and select **Create** when validation completes.
 
-After the private DNS zone is created, an A record needs to be created to associate the private endpoint that was created previously, to the private cluster.
+After the private DNS zone is created, create an A record. This record associates the private endpoint to the private cluster.
 
 1. Go to the private DNS zone created in previous steps.
 2. On the **Overview** page, select **+ Record set**.
 3. On the **Add record set** tab, set up the following options:
-   
-    | **Settings**     	| **Value**                                                                            |
-    |-------------------|--------------------------------------------------------------------------------------|
-    | **Name**  	      | Input the name retrieved from the A record in the private cluster's DNS zone         |
-    | **Type**     	    | A - Alias record to IPv4 address                                                     |
-    | **TTL**   	      | Input the number to match the record from the A record private cluster's DNS zone    |
-    | **TTL unit** 	    | Change the dropdown value to match the A record from the private cluster's DNS zone  |
-    | **IP address** 	  | Input the IP address of the private endpoint that was created previously             |
+   * **Name**: Input the name retrieved from the A record in the private cluster's DNS zone
+   * **Type**: *A - Alias record to IPv4 address*
+   * **TTL**: Input the number to match the record from the A record private cluster's DNS zone
+   * **TTL Unit**: Change the dropdown value to match the A record from the private cluster's DNS zone
+   * **IP address**: Input the IP address of the private endpoint that was created previously
 
-> [!NOTE]
+> [!IMPORTANT]
 > When creating the A record, use only the name, and not the fully qualified domain name (FQDN).
 
-Once the A record is created, the private DNS zone needs to be linked to the virtual network that will access the private cluster.
+Once the A record is created, link the private DNS zone to the virtual network that will access the private cluster.
 
 1. Go to the private DNS zone created in previous steps.  
-2. In the left pane, select the **Virtual network links**.  
+2. In the left pane, select **Virtual network links**.  
 3. Create a new link to add the virtual network to the private DNS zone. It takes a few minutes for the DNS zone link to become available.
 
 > [!WARNING]
-> If the private cluster is stopped and restarted, any user created private endpoints linked to the private cluster will need to be deleted and re-created again.
+> If the private cluster is stopped and restarted, the private cluster's original private endpoint is removed and re-created which breaks the connection. To resolve this issue, delete and re-create any user created private endpoints linked to the private cluster. DNS records will also need to be updated if the re-created private endpoints have new IP addresses.
 
 ## Limitations 
 * IP authorized ranges can't be applied to the private api server endpoint, they only apply to the public API server
 * [Azure Private Link service limitations][private-link-service] apply to private clusters.
 * No support for Azure DevOps Microsoft-hosted Agents with private clusters. Consider to use [Self-hosted Agents](/azure/devops/pipelines/agents/agents?tabs=browser). 
-* For customers that need to enable Azure Container Registry to work with private AKS, the Container Registry virtual network must be peered with the agent cluster virtual network. If peering isn't an option, customers can also leverage [private endpoints to connect to Azure Container Registry][container-registry-private-link].
+* If you need to enable Azure Container Registry to work with a private AKS cluster, set up peering between the Container Registry virtual network and the private cluster's virtual network. If peering isn't an option, you can use [private endpoints to connect to Azure Container Registry][container-registry-private-link].
 * No support for converting existing AKS clusters into private clusters
 * Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning. 
 
