@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: msi
 ms.workload: integration
 ms.topic: tutorial
-ms.date: 10/14/2021
+ms.date: 01/11/2022
 ms.author: barclayn
 ms.custom: ep-miar
 #Customer intent: As an administrator, I want to know how to access Cosmos DB from a virtual machine using a managed identity
@@ -309,7 +309,7 @@ To use the sample below, you need to have the following NuGet packages:
 - Microsoft.Azure.Cosmos
 - Microsoft.Azure.Management.CosmosDB
 
-In addition to the NuGet packages above you also need to enable **Include prerelease** and then add **Azure.ResourceManager.CosmosDB**. 
+In addition to the NuGet packages above, you also need to enable **Include prerelease** and then add **Azure.ResourceManager.CosmosDB**. 
 
 ```csharp
 using Azure.Identity;
