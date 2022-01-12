@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/05/2022
+ms.date: 01/07/2022
 ---
 
 # Creating indexers in Azure Cognitive Search
@@ -130,13 +130,13 @@ There are several ways to run an indexer:
 
 + Send an HTTP request for [Create Indexer](/rest/api/searchservice/create-indexer) or [Update indexer](/rest/api/searchservice/update-indexer) to add or change the definition, and run the indexer.
 
-+ Send an HTTP request for [Run Indexer](/rest/api/searchservice/run-indexer) to execute an indexer with no changes to the definition.
++ Send an HTTP request for [Run Indexer](/rest/api/searchservice/run-indexer) to execute an indexer with no changes to the definition. For more information, see [Run or reset indexers](search-howto-run-reset-indexers.md).
 
 + Run a program that calls SearchIndexerClient methods for create, update, or run.
 
 Alternatively, put the indexer [on a schedule](search-howto-schedule-indexers.md) to invoke processing at regular intervals. 
 
-Scheduled processing usually coincides with a need for incremental indexing of changed content. Change detection logic is a capability that's built into source platforms. Changes in a blob container are detected by the indexer automatically. For guidance on leveraging change detection in other data sources, refer to the indexer docs for specific data sources:
+Scheduled execution is usually implemented when you have a need for incremental indexing so that you can pick up the latest changes. As such, scheduling has a dependency on change detection. Change detection logic is a capability that's built into source platforms. If you're using a blob data source, changes in a blob container are detected automatically because Azure Storage exposes a LastModified property. Other data sources require explicit configuration. For guidance on leveraging change detection in other data sources, refer to the indexer docs for those sources:
 
 + [Azure SQL database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 + [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
