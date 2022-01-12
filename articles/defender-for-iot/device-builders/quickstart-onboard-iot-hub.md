@@ -47,7 +47,7 @@ You can onboard Defender for IoT to an existing IoT Hub, where you can then moni
 
 1. Select **Secure your IoT solution**, and complete the onboarding form.
 
-    :::image type="content" source="media/quickstart-onboard-iot-hub/secure-your-iot-solution.png" alt-text="Select the secure your IoT solution button to secure your solution." lightbox="media/article-folder-name/secure-your-iot-solution-expanded.png":::
+    :::image type="content" source="media/quickstart-onboard-iot-hub/secure-your-iot-solution.png" alt-text="Select the secure your IoT solution button to secure your solution." lightbox="media/quickstart-onboard-iot-hub/secure-your-iot-solution-expanded.png":::
 
 The **Secure your IoT solution** button will only appear if the IoT Hub has not already been onboarded, or if you left the Defender for IoT toggle on **Off** while onboarding.
 
