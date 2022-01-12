@@ -89,12 +89,14 @@ To avoid unexpected cost and rework, it is recommended to plan and follow the be
         - SQL Authentication (for example, for on-prem or Azure SQL sources)
         - Account key or Basic Authentication (for example, for SAP S/4HANA sources)
         
+        For details, see the how-to guide to [manage credentials](./manage-credentials.md).
+        
         > [!Note]
         > If you have firewall enabled for the storage account, you must use Managed Identity authentication method when setting up a scan.
         > While setting up a new credential, the credential name can only contain _letters, numbers, underscores and hyphens_.
 
     - **Integration runtime**
-        - Refer the [Network architecture best practices](./concept-best-practices-network.md#integration-runtime-options)
+        - Refer to [Network architecture best practices](./concept-best-practices-network.md#integration-runtime-options).
         - If SHIR is deleted, any ongoing scans relying on it will fail.
         - While using SHIR, ensure that the memory is sufficient for the data source being scanned. For example, when using SHIR for scanning SAP source, if you observe "out of memory error":
             - Ensure the SHIR machine has enough memory (it is recommended to have 128 GB)
