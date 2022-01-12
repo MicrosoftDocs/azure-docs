@@ -57,6 +57,5 @@ This sample script is used to create an Azure Database for MariaDB server, creat
 
    ```
 
-
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md
