@@ -23,7 +23,7 @@ You can create a load test by using existing test scripts based on Apache JMeter
 
 Azure Load Testing test engines abstract the required infrastructure for running a high-scale load test. The test engines run the Apache JMeter script to simulate a large number of virtual users simultaneously accessing your application endpoints. To scale out the load test, you can configure the number of test engines.
 
-Azure Load Testing uses Apache JMeter version 5.4.1 for running load tests.
+Azure Load Testing uses Apache JMeter version 5.4.1 for running load tests. You can use Apache JMeter plugins that are available on https://jmeter-plugins.org in your test script.
 
 The application can be hosted anywhere: in Azure, on-premises, or in other clouds. During the load test, the service collects the following resource metrics and displays them in a dashboard:
 
