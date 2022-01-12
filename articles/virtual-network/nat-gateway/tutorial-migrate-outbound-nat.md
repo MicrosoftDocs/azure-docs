@@ -74,7 +74,7 @@ In this section, you’ll learn how to change your outbound connectivity method 
 
 12. Select **Create**.
 
-## Migrate load balancer outbound rules
+## Migrate load balancer outbound connectivity
 
 In this section, you’ll learn how to change your outbound connectivity method from outbound rules to a NAT gateway. You'll keep the same frontend IP address used for the outbound rules. You'll remove the outbound rule’s frontend IP configuration then create a NAT gateway with the same frontend IP address. A public load balancer is used throughout this section.
 
