@@ -224,7 +224,9 @@ Before you can enable the user-assigned identity on your **Logic App (Consumptio
    | **Name** | Yes | <*user-assigned-identity-name*> | The name to give your user-assigned identity. This example uses `Fabrikam-user-assigned-identity`. |
    |||||
 
-   After validating the information, Azure creates your managed identity. Now you can add the user-assigned identity to your logic app resource, which can have only one user-assigned identity.
+   After validating the information, Azure creates your managed identity. Now you can add the user-assigned identity to your logic app resource.
+
+## Add user-assigned identity to logic app in the Azure portal
 
 ### [Consumption](#tab/consumption)
 
