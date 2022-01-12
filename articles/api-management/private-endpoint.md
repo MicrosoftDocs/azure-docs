@@ -1,12 +1,11 @@
 ---
 title: Set up private endpoint with private link
-titleSuffix: 
 description: Learn how to restrict access to an API Management instance by using an Azure private endpoint and Azure Private Link.
 ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 12/17/2021
+ms.date: 01/11/2022
 
 ---
 
@@ -33,37 +32,41 @@ With a private endpoint and Private Link, you can:
 
 ## Limitations
 
-* To use this feature in preview, contact [...] to enable your subscription.
-* Only the API Management instance's Gateway endpoint currently supports Private Link connections. Connections are not supported on the [self-hosted gateway](self-hosted-gateway-overview.md). 
+* Only the API Management instance's Gateway endpoint currently supports Private Link connections. 
+* Connections are not supported on the [self-hosted gateway](self-hosted-gateway-overview.md). 
 * Each API Management instance currently supports at most 100 private endpoint connections.
-* Currently not supported in the following regions: [...]
+* Currently not supported in the following regions: [TBD]
 
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md). 
-    - Ensure that the API Management instance is hosted on the [`stv2` compute platform](compute-infrastructure.md). For example, create a new instance or, if you already have an instance in the Premium service tier, enable [zone redundancy](zone-redundancy.md). 
-    - Do not deploy the instance into an external or internal virtual network.
+    - The API Management instance must be hosted on the [`stv2` compute platform](compute-infrastructure.md). For example, create a new instance or, if you already have an instance in the Premium service tier, enable [zone redundancy](zone-redundancy.md). 
+    - Do not deploy (inject) the instance into an [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) virtual network.
 - A virtual network and subnet to host the private endpoint. The subnet may contain other Azure resources.
 - (Recommended) A virtual machine in the same or a different subnet in the virtual network, to test the private endpoint.
 
+## Approval method for private endpoint
+
+Typically a network administrator creates a private endpoint. Depending on your Azure role-based access control (RBAC) permissions, a private endpoint that you create is either *automatically approved* to send traffic to the API Management instance, or requires the resource owner to *manually approve* the connection.
+
+
+|Approval method     |Minimum RBAC permissions  |
+|---------|---------|
+|Automatic     | `Microsoft.Network/virtualNetworks/**`<br/>`Microsoft.Network/virtualNetworks/subnets/**`<br/>`Microsoft.Network/privateEndpoints/**`<br/>`Microsoft.Network/networkinterfaces/**`<br/>`Microsoft.Network/locations/availablePrivateEndpointTypes/read`<br/>`Microsoft.ApiManagement/service/**`<br/>`Microsoft.ApiManagement/service/privateEndpointConnections/**`        |
+|Manual     | `Microsoft.Network/virtualNetworks/**`<br/>`Microsoft.Network/virtualNetworks/subnets/**`<br/>`Microsoft.Network/privateEndpoints/**`<br/>`Microsoft.Network/networkinterfaces/**`<br/>`Microsoft.Network/locations/availablePrivateEndpointTypes/read`           |
+
 ## Steps to configure private endpoint
 
-1. [Disable network policies in subnet](#disable-network-policies-in-subnet)
 1. [Get available private endpoint types in subscription](#get-available-private-endpoint-types-in-subscription)
+1. [Disable network policies in subnet](#disable-network-policies-in-subnet)
 1. [Create private endpoint - portal](#create-private-endpoint---portal)
 1. [List private endpoint connections to the instance](#list-private-endpoint-connections-to-the-instance)
 1. [Approve pending private endpoint connections](#approve-pending-private-endpoint-connections)
 1. [Optionally disable public network access](#optionally-disable-public-network-access)
 
-### Disable network policies in subnet
-
-[Disable network policies](../private-link/disable-private-endpoint-network-policy.md) such as network security groups in the subnet used for the private endpoint. When you use the Azure portal to create a private endpoint, the `PrivateEndpointNetworkPolicies` setting is automatically disabled as part of the creation process. 
-
-If you use other tools such as Azure PowerShell, the Azure CLI, or REST API, update the subnet configuration manually. For examples, see [Manage network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md).
-
 ### Get available private endpoint types in subscription
 
-Verify that the API Management private endpoint type is available in your subscription and location. In the portal, find this information by going to the **Private Link Center**, and select **Supported resources**.  
+Verify that the API Management private endpoint type is available in your subscription and location. In the portal, find this information by going to the **Private Link Center**. Select **Supported resources**.  
 
 You can also find this information by using the [Available Private Endpoint Types - List](/rest/api/virtualnetwork/available-private-endpoint-types) REST API.
 
@@ -86,27 +89,25 @@ az
 [...]
 ```
 
+### Disable network policies in subnet
+
+Network policies uch as network security groups must be disabled in the subnet used for the private endpoint. 
+
+If you use tools such as Azure PowerShell, the Azure CLI, or REST API to configure private endpoints, update the subnet configuration manually. For examples, see [Manage network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md).
+
+When you use the Azure portal to create a private endpoint, as shown in the next section, network policies are disabled automatically as part of the creation process 
+
 ### Create private endpoint - portal
 
-Use the following steps to create a private endpoint that links to your API Management instance as a private link resource.
+1. Navigate to your API Management service in the [Azure portal](https://portal.azure.com/).
 
-Typically a network administrator creates a private endpoint. Depending on your Azure role-based access control (RBAC) permissions, your private endpoint is either *automatically approved* to send traffic to the API Management instance, or requires the resource owner to *manually approve* the connection.
+1. In the left-hand menu, select **Network**.
 
+1. Select **Private endpoint connections** > **+ Add endpoint**.
 
-|Approval method     |Minimum RBAC permissions  |
-|---------|---------|
-|Automatic     | `Microsoft.Network/virtualNetworks/**`<br/>`Microsoft.Network/virtualNetworks/subnets/**`<br/>`Microsoft.Network/privateEndpoints/**`<br/>`Microsoft.Network/networkinterfaces/**`<br/>`Microsoft.Network/locations/availablePrivateEndpointTypes/read`<br/>`Microsoft.ApiManagement/service/**`<br/>`Microsoft.ApiManagement/service/privateEndpointConnections/**`        |
-|Manual     | `Microsoft.Network/virtualNetworks/**`<br/>`Microsoft.Network/virtualNetworks/subnets/**`<br/>`Microsoft.Network/privateEndpoints/**`<br/>`Microsoft.Network/networkinterfaces/**`<br/>`Microsoft.Network/locations/availablePrivateEndpointTypes/read`           |
+    :::image type="content" source="media/private-endpoint/add-endpoint-from-instance.png" alt-text="Add a private endpoint using Azure portal":::
 
-1. On the upper-left side of the screen in the portal, select **Create a resource** > **Networking** > **Private Link**, or in the search box enter **Private Link**.
-
-1. Select **Create**.
-
-1. In **Private Link Center**, select **Private endpoints** in the left-hand menu.
-
-1. In **Private endpoints**, select **+ Add**.
-
-1. In the **Basics** tab of **Create a private endpoint**, enter, or select this information:
+1. In the **Basics** tab of **Create a private endpoint**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -114,20 +115,15 @@ Typically a network administrator creates a private endpoint. Depending on your 
     | Subscription | Select your subscription. |
     | Resource group | Select an existing resource group, or create a new one. It must be in the same region as your virtual network.|
     | **Instance details** |  |
-    | Name  | Enter a name such as **myPrivateEndpoint**. |
-    | Region | Select a location for the private endpoint. It must be in the same region as your virtual network. |
+    | Name  | Enter a name for the endpoint such as **myPrivateEndpoint**. |
+    | Region | Select a location for the private endpoint. It must be in the same region as your virtual network. It may differ from the region where your API Management instance is hosted. |
 
-1. Select the **Resource** tab or the **Next: Resource** button at the bottom of the page.
+1. Select the **Resource** tab or the **Next: Resource** button at the bottom of the page. The following information about your API Management instance is already populated:
+    * Subscription
+    * Resource group
+    * Resource name
     
-1. In **Resource**, enter or select this information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Connection method | Select **Connect to an Azure resource in my directory**. |
-    | Subscription | Select your subscription. |
-    | Resource type | Select **Microsoft.ApiManagement/service**. |
-    | Resource | Select your API Management service instance.  |
-    | Target sub-resource | Select **Gateway**. |
+1. In **Resource**, in **Target sub-resource**,  Select **Gateway**. |
 
     :::image type="content" source="media/private-endpoint/create-private-endpoint.png" alt-text="Create a private endpoint in Azure portal":::
 
@@ -171,9 +167,9 @@ Output shows properties of each private endpoint connection including the provis
 
 ### Approve pending private endpoint connections
 
-Before a pending private endpoint connection can be used, an owner of the API Management instance must manually approve it.
+If a private endpoint connection is in pending status, an owner of the API Management instance must manually approve it before it can be used.
 
-To approve a private endpoint connection, use the API Management [Private Endpoint Connection - Create Or Update](/rest/api/apimanagement/current-ga/private-endpoint-connection/create-or-update) REST API.
+If you have sufficient permissions, to approve a private endpoint connection, use the API Management [Private Endpoint Connection - Create Or Update](/rest/api/apimanagement/current-ga/private-endpoint-connection/create-or-update) REST API.
 
 ```rest
 PATCH https://management.azure.comsubscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{apimServiceName}privateEndpointConnections/{privateEndpointConnectionName}?api-version=2021-08-01
@@ -191,7 +187,7 @@ Authorization: Bearer {{authToken.response.body.access_token}}
 Content-Type: application/json
 
 ```
-JSON body:
+Use the following JSON body:
 
 ```json
 {
@@ -240,4 +236,5 @@ To connect to 'Microsoft.ApiManagement/service/my-apim-service', please use the 
 ## Next steps
 
 * Learn more about [private endpoints](../private-link/private-endpoint-overview.md) and [Private Link](../private-link/private-link-overview.md).
+* Use a [Resource Manager template TBD](LINK TBD) to create an API Management instance and a private endpoint with private DNS integration.
 
