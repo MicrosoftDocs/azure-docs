@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management Permissions Analytics report
-description: How to use the Microsoft CloudKnox Permissions ManagementPermissions Analytics report.
+title: Microsoft CloudKnox Permissions Management - The Permissions Analytics report
+description: How to use the Permissions Analytics report in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 01/11/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management Permissions Analytics report
+# Microsoft CloudKnox Permissions Management - The Permissions Analytics report
 
-This topic describes how to use the Permissions Analytics report at Microsoft CloudKnox Permissions Management.
+This topic describes how to use the **Permissions Analytics report** in Microsoft CloudKnox Permissions Management (CloudKnox).
 
 > [!NOTE]
 > This topic applies only to Amazon Web Services (AWS) users.
 
-## How to use the Permissions Analytics report 
+## View the Permissions Analytics report 
 
 1. From the **Systems Reports** tab, under **Report Name**, select **Permissions Analytics Report**.
 2. To view the Privilege Creep Index and Identities statistics, select the right arrow next to **Summary**. 
@@ -101,7 +101,7 @@ This topic describes how to use the Permissions Analytics report at Microsoft Cl
 	- Date Created On - Displays the date in which the identity was created.
 
 
-## How to add and remove tags from the Permissions Analytics report
+## How to add and remove tags in the Permissions Analytics report
 
 1. Select **Tags**.
 

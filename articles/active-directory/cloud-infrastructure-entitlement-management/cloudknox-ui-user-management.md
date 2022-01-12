@@ -1,5 +1,5 @@
 ---
-title: Microsoft CloudKnox Permissions Management - User Management dashboard
+title: Microsoft CloudKnox Permissions Management - The User Management dashboard
 description: View user management information in the User Management dashboard in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/04/2022
+ms.date: 01/11/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - User Management dashboard
+# Microsoft CloudKnox Permissions Management - The User Management dashboard
 
 This topic describes how to use the **User Management** dashboard to view user management information in Microsoft CloudKnox Permissions Management.
 
@@ -72,3 +72,9 @@ You can also select the following options:
 
 
 <!---## Next steps--->
+
+<!---For information about how to create group-based permissions, see [Create group-based permissions](cloudknox-howto-create-group-based-permissions.html).--->
+<!---For information about how to request privileges on-demand (POD), adjust permissions, and remediate excessive permissions, see [Manage permissions with the JEP Controller](cloudknox-product-jep-controller.html).--->
+<!---For information about how to create group-based permissions, see [Attach and detach permissions in the JEP Controller](cloudknox-howto-attach-detach-permissions.html).--->
+<!---For information about how to create and view the Permissions Analytics report, see [The Permissions Analytics report](cloudknox-product-permissions-analytics-reports).--->
+<!---For information about how to view user management information, see [The User Management dashboard](cloudknox-ui-user-management.html).--->

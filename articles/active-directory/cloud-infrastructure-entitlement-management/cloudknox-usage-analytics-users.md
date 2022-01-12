@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/07/2022
+ms.date: 01/11/2022
 ms.author: v-ydequadros
 ---
 
@@ -247,7 +247,7 @@ There are many filter options on the **Users** screen, including filters by **Au
     1. Click **Add Tag**. 
     1. Select the **Authorization System Type**. 
 
-          If the current user is only part of one authorization system, the **Authorization System Type**  drop-down list won't have multiple options.
+           The **Authorization System Type** drop-down list won't have multiple options if the current user is part of only one authorization system.
     1. Click in the **Tag** box. 
 
           A  drop-down list of existing tags appears. Select from the current options or can type in a brand new tag and then select **Create**. 

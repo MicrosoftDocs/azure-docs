@@ -1,5 +1,5 @@
 ---
-title: Microsoft CloudKnox Permissions Management User Management
+title: Microsoft CloudKnox Permissions Management - Define and manage users, roles, and access levels
 description: How to use Microsoft CloudKnox Permissions Management User Management to define and manage users, roles, and access levels.
 services: active-directory
 author: Yvonne-deQ
@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/15/2021
+ms.date: 01/11/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management User Management
+# Microsoft CloudKnox Permissions Management - Define and manage users, roles, and access levels
 
-In Microsoft CloudKnox Permissions Management, a key component of the  interface is the User Management dashboard. In this dashboard, system administrators can define and manage users, their roles, and their access levels in the system.
+In Microsoft CloudKnox Permissions Management (CloudKnox), a key component of the  interface is the User Management dashboard. This topic describes how system administrators can define and manage users, their roles, and their access levels in the system.
 
 ## The User Management dashboard
 
@@ -317,4 +317,11 @@ Creating a permission directly in CloudKnox allows system administrators to assi
     - **Duplicate** - System administrators can duplicate permissions from one group to another.
     - **Delete** - System administrators can delete permissions from a group.
 
+
+
 <!---## Next steps--->
+
+<!---For information about how to view a system report, see [View a system report](cloudknox-report-view-system-report.html).--->
+<!---For information about how to create and view a custom report, see [Create and view a custom report](cloudknox-report-create-custom-report.html).--->
+<!---For a list of available system reports, see [List of system reports](cloudknox-all-reports.html).--->
+<!---For a detailed overview of available system reports, see [Overview of available system reports}(cloudknox-product-reports.html).--->
