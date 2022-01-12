@@ -54,8 +54,8 @@ Metric views can be filtered or split up by a set of predefined dimensions.
 
 | Metric Name  |  Description | Dimensions  | Sample use cases |
 |---|---|---|---|
-| Document processed count  | Shows the number of indexer processed documents.  | Data source name, failed, index name, indexer name, skillset name  | <br><br> - Can be referenced as a rough measure of throughput (number of documents processed by indexer over time) <br> - Set up to alert on failed documents | 
-|  Skill execution invocation count | Shows the number of skill invocations. | Data source name, failed, index name, indexer name, skill name, skill type, skillset name | <br><br> - Reference to ensure skills are invoked as expected by comparing relative invocation numbers between skills and number of skill invocation to the number of documents. <br> - Set up to alert on failed skill invocations |
+| Document processed count  | Shows the number of indexer processed documents.  | Data source name, failed, index name, indexer name, skillset name  | <br> - Can be referenced as a rough measure of throughput (number of documents processed by indexer over time) <br> - Set up to alert on failed documents | 
+|  Skill execution invocation count | Shows the number of skill invocations. | Data source name, failed, index name, indexer name, skill name, skill type, skillset name | <br> - Reference to ensure skills are invoked as expected by comparing relative invocation numbers between skills and number of skill invocation to the number of documents. <br> - Set up to alert on failed skill invocations |
 
 The screenshot below shows the number of documents processed by indexers within a service over an hour, split up by indexer name.
 
