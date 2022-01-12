@@ -205,7 +205,7 @@ az storage account update \
   -g <resource-group> --key-exp-days <period-in-days>
 ```
 
-You can also set the key expiration policy as you create a storage account by setting the `-KeyExpirationPeriodInDay` parameter of the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
+You can also set the key expiration policy as you create a storage account by setting the `--key-exp-days` parameter of the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 To verify that the policy has been applied, call the [az storage account show](/cli/azure/storage/account#az_storage_account_show) command, and use the string `{KeyPolicy:keyPolicy}` for the `-query` parameter.
 
