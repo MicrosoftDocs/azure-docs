@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Migrate outbound access to NAT gateway'
-titlesuffix: Virtual Network NAT
+titlesuffix: Azure Virtual Network NAT
 description: Learn how to migrate outbound access in your virtual network to a Virtual Network NAT gateway.
 author: asudbring
 ms.author: allensu
