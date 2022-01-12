@@ -9,33 +9,33 @@ manager: rkiran
 ---
 # Set up diagnostics to monitor agent updates
 
-Diagnostic logs provide insight into what agent version are being installed, when they are being installed, and whether the updates are successful. In the event that an update is unsuccessful, it may be attributed to the session host being turned off. In that case, you'd need to turn the session host back on.
+Diagnostic logs can tell you which agent version is installed for an update, when it was installed, and if the update was successful. If an update is unsuccessful, it might be because the session host was turned off during the update. If that happened, you should turn the session host back on.
 
 This article describes how to use diagnostic logs in a Log Analytics workspace to monitor agent updates.
 
-## Enable diagnostics to be sent to a Log Analytics workspace
+## To enable sending diagnostic logs to your Log Analytics workspace:
 
-1. Create a Log Analytics workspace, if you have not done so already, and get the workspace ID and primary key using the instructions [here](diagnostics-log-analytics.md#before-you-get-started).
+1. Create a Log Analytics workspace, if you haven't already. Next, get the workspace ID and primary key by following the instructions in [Use Log Analytics for the diagnostics feature](diagnostics-log-analytics.md#before-you-get-started).
 
-2. Enable diagnostics to be sent to the Log Analytics workspace you just created using the instructions [here](diagnostics-log-analytics.md#push-diagnostics-data-to-your-workspace). 
+2. Send diagnostics to the Log Analytics workspace you just created by following the instructions in [Push diagnostics data to your workspace](diagnostics-log-analytics.md#push-diagnostics-data-to-your-workspace). 
 
-3. Access the logs in your Log Analytics workspace using the instructions [here](diagnostics-log-analytics.md#how-to-access-log-analytics). 
+3. Follow the directions in [How to access Log Analytics](diagnostics-log-analytics.md#how-to-access-log-analytics) to access the logs in your workspace.
 
 > [!NOTE]
-Only the past 30 days of data is accessible when running any of the queries below.
+> The log query results only cover the last 30 days of data in your deployment.
 
 ## Use diagnostics to see when an update becomes available
 
-To see when agent component updates are available, you need to: 
+To see when agent component updates are available: 
 
 1. Access the logs in your Log Analytics workspace.
 
-2. Select the **+** to create a new query.
+2. Select the **+** button to create a new query.
 
-3. Copy and paste the following query to see if agent component updates are available for the specified session host. Make sure to change sessionHostName to the name of your session host.
+3. Copy and paste the following Kusto query to see if agent component updates are available for the specified session host. Make sure to change the **sessionHostName** parameter to the name of your session host.
 
 > [!NOTE]
-If you have not enabled the Scheduled Agent Updates feature, you will not see anything in the NewPackagesAvailable field.
+> If you haven't enabled the Scheduled Agent Updates feature, you won't see anything in the NewPackagesAvailable field.
 
 ```kusto
 WVDAgentHealthStatus 
@@ -48,13 +48,13 @@ WVDAgentHealthStatus
 
 ## Use diagnostics to see when agent updates are happening
 
-To see when agent updates are happening or to verify that the Scheduled Agent Updates feature is working as configured, you need to: 
+To see when agent updates are happening or to make sure that the Scheduled Agent Updates feature is working: 
 
 1. Access the logs in your Log Analytics workspace.
 
-2. Select the **+** to create a new query. 
+2. Select the **+** button to create a new query. 
 
-3. Copy and paste the following query to see when the agent has updated for the specified session host. Make sure to change sessionHostName to the name of your session host.
+3. Copy and paste the following Kusto query to see when the agent has updated for the specified session host. Make sure to change the **sessionHostName** parameter to the name of your session host.
 
 ```kusto
 WVDAgentHealthStatus 
@@ -65,15 +65,15 @@ WVDAgentHealthStatus
 | sort by TimeGenerated asc 
 ``` 
 
-## Use diagnostics to see when agent updates have failed
+## Use diagnostics to check for unsuccessful agent updates
 
-To see when agent component updates have failed, you need to: 
+To check if an agent component update was unsuccessful: 
 
 1. Access the logs in your Log Analytics workspace.
 
-2. Select the **+** to create a new query.
+2. Select the **+** button to create a new query.
 
-3. Copy and paste the following query to see if an agent component update has failed for the specified session host. Make sure to change sessionHostName to the name of your session host.
+3. Copy and paste the following Kusto query to see when the agent has updated for the specified session host. Make sure to change the **sessionHostName** parameter to the name of your session host.
 
 ```kusto
 WVDAgentHealthStatus 
@@ -86,9 +86,9 @@ WVDAgentHealthStatus
 
 ## Next steps
 
-For more Scheduled Agent Updates and agent component related information check out the following resources:
+For more information about Scheduled Agent Updates and the agent components, check out the following articles:
 
-- To schedule agent updates, see the [Scheduled Agent Updates (preview) document](scheduled-agent-updates.md).
-- To find more information about the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent, see [Getting Started with the Azure Virtual Desktop Agent](agent-overview.md).
-- To find information about the latest and previous agent versions, see the [Agent Updates Version Notes](whats-new.md#azure-virtual-desktop-agent-updates).
+- To learn how to schedule agent updates, see [Scheduled Agent Updates (preview)](scheduled-agent-updates.md).
+- For more information about the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent, see [Getting Started with the Azure Virtual Desktop Agent](agent-overview.md).
+- Learn more about the latest and previous agent versions at [What's new in the Azure Virtual Desktop agent](whats-new.md#azure-virtual-desktop-agent-updates).
 - If you're experiencing agent or connectivity-related issues, see the [Azure Virtual Desktop Agent issues troubleshooting guide](troubleshoot-agent.md).

@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Desktop Scheduled Agent Updates preview
-description: How to use the Scheduled Agent Updates feature to choose a time and day for the agent components to be updated.
+description: How to use the Scheduled Agent Updates feature to choose a date and time to update your Azure Virtual Desktop agent components.
 author: Sefriend
 ms.topic: how-to
 ms.date: 01/04/2022
@@ -13,7 +13,7 @@ manager: rkiran
 > The Scheduled Agent Updates feature is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The Scheduled Agent Updates feature (preview) allows you to create up to 2 maintenance windows that will be used to ensure that the the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent don't get updated during peak business hours. You can also use Log Analytics to see when agent component updates are available and when updates are unsuccessful. 
+The Scheduled Agent Updates feature (preview) lets you create up to two maintenance windows that will make sure the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent won't update during peak business hours. You can also use Log Analytics to see when agent component updates are available and when updates are unsuccessful. 
 
 This article describes how the Scheduled Agent Updates feature works and how to set it up.
 
@@ -21,43 +21,43 @@ This article describes how the Scheduled Agent Updates feature works and how to 
 Azure Virtual Desktop (classic) doesn't support the Scheduled Agent Updates feature. 
 
 >[!IMPORTANT]
->The preview version of this feature currently has the following limitations:
->
-> - You can only use the Scheduled Agent Updates feature in the Azure public cloud.
+> The preview version of this feature currently only works in the Azure public cloud.
 
-## How the Scheduled Agent Updates feature works
+## Before you get started
 
 When configuring Scheduled Agent Updates, consider the following:
 
-- Scheduled Agent Updates is disabled by default. This means that by default, the agent can get updated any day at any time using the flighting mechanism.
+- Scheduled Agent Updates is disabled by default. This means that, unless you enable this setting, the agent can get updated at any time by the agent update flighting service.
 
-- Scheduled Agent Updates is a host pool setting. The time zone setting you choose and the maintenance windows you set will be applied to all the session hosts in the host pool.
+- Scheduled Agent Updates is a host pool setting. The time zone setting and maintenance windows you configure will be applied to all session hosts in the host pool.
 
 - You can only configure this feature for existing host pools. This feature isn't available when you create a new host pool.
 
 - Scheduled Agent Updates refers to the update of the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent. If any one or more of these components needs to be updated, it will be updated according to the Scheduled Agent Update settings. Any reference to the agent components is referring to these 3 components.
 
-- You must specify at least 1 maintenance window. You can optionally specify a second maintenance window. Having 2 maintenance windows provides additional opportunities for the agent components to be updated in the event that they fail to update at some point.
+- You must specify at least one maintenance window. Configuring the second maintenance window is optional. Creating two maintenance windows gives the agent components additional opportunities to update in the event that the first update during one of the windows is unsuccessful.
 
-- The agent component update will fail if the session host virtual machine is shutdown or deallocated. If you enable Scheduled Agent Updates, it is imperative that all the session hosts in your host pool are turned on during the specified maintenance window.
+- The agent component update won't succeed if the session host virtual machine is shut down or deallocated during the scheduled update time. If you enable Scheduled Agent Updates, you must make sure all session hosts in your host pool are on and allocated during your configured maintenance window time.
 
-- The broker will attempt to update the agent components during each specified maintenance window up to 4 times before the update is forcefully installed. This is to provide adequate time for installation retries in the event that the update fails, but also to prevent session hosts from having stale agent component versions.
+- The broker will attempt to update the agent components during each specified maintenance window up to four times. After the fourth try, the broker will install the update by force. This process gives time for installation retries in the event of an unsuccessful update, and also prevents session hosts from having outdated versions of agent components.
 
-- Maintenance windows are fixed to be 2 hours long to account for the potential of the agent, stack, and monitoring agent all needing to update at the same time. For example, if you set a maintenance window to be Saturday at 9pm, the agent, stack, and/or monitoring agent update will happen anytime between 9pm and 11pm.
+- All maintenance windows are two hours long to account for situations where all three agent components must be updated at the same time. For example, if your maintenance window is Saturday at 9:00 AM PST, the updates will happen between 9:00 AM PST and 11:00 AM PST.
 
-- Critical updates are applied forcefully irrespective of the set maintenance window for security purposes.
+- This feature applies critical updates regardless of your configured maintenance windows for security purposes.
 
-- Scheduled Agent Updates does not apply to the initial installation of the agent components. When the agent is initially installed on a virtual machine, the agent will then install the side-by-side stack and the Geneva Monitoring agent, irrespective of the set maintenance windows. Further updates to any of these agent components will be installed during the set maintenance windows.
+- Scheduled Agent Updates doesn't apply to the initial installation of the agent components. When you install the agent on a virtual machine (VM), the agent will automatically install the side-by-side stack and the Geneva Monitoring agent regardless of which maintenance windows you set. Any non-critical updates after installation will only happen within your maintenance windows.
 
-- Host pools that have the Scheduled Agent Updates feature enabled will receive the agent update after the agent has been fully flighted to production. For more information about how agent flighting works, see [Agent update process](agent-overview.md#agent-update-process).
+- Host pools with the Scheduled Agent Updates feature enabled will receive the agent update after the agent has been fully flighted to production. For more information about how agent flighting works, see [Agent update process](agent-overview.md#agent-update-process).
 
 - If you want to apply the same time zone and maintenance window settings to multiple host pools, run the [PowerShell cmdlet](#configure-the-scheduled-agent-updates-feature-using-powershell) in a loop.
 
-- The **Use session host local time** parameter by default is set to false, which means that you need to specify a single time zone for the agent component update maintenance windows to be applied in for all the session hosts in the host pool. This is useful for scenarios where all session hosts in a host pool are in the same time zone or all users assigned to a host pool are in the same time zone. If you set the **Use session host local time** to be true, the agent component update maintenance windows will be applied to the session hosts in the local time zone of each of the session hosts in the host pool. This is useful for scenarios where all session hosts in a host pool are in different time zones or all users assigned to a host pool are in different time zones. For example, consider a scenario where you have 1 host pool with session hosts in West US in Pacific Standard Time and session hosts in East US in Eastern Standard Time, and you've set the maintenance window to be Saturday at 9pm. Enabling **Use session host local time** will ensure that updates to the West US session hosts happen on Saturday at 9pm Pacific Standard Time and updates to the East US session hosts happen on Saturday at 9pm Eastern Standard Time. Disabling **Use session host local time** and setting the time zone to be Central Standard Time will ensure that updates to all session hosts in the host pool happen at 9pm Central Standard Time, regardless of the session hosts' local time zones.
+- The **Use session host local time** parameter is set to "false" by default. If you want the agent component update to be in the same time zone for all session hosts in your host pool, you'll need to specify a single time zone for your maintenance windows. Having a single time zone helps when all your session hosts or users are located in the same time zone. 
 
-- The local time zone for virtual machines created through the Azure portal is by default set to Coordinated Universal Time (UTC). If you want to change the virtual machine time zone, you must run the [Set-TimeZone PowerShell cmdlet](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/set-timezone?view=powershell-7.1&preserve-view=true) on the virtual machine.
+- If you set **Use session host local time** to "true," the agent component update will be in the local time zone of each session host in the host pool. You should use this setting when all session hosts in your host pool or their assigned users are in different time zones. For example, let's say you have one host pool with session hosts in West US in the Pacific Standard Time zone and session hosts in East US in the Eastern Standard Time zone, and you've set the maintenance window to be Saturday at 9:00 PM. Enabling **Use session host local time** ensures that updates to all session hosts in the host pool will happen at 9:00 PM in their respective time zones. Disabling **Use session host local time** and setting the time zone to be Central Standard Time ensures that updates to the session hosts in the host pool will happen at 9:00 PM Central Standard Time, regardless of the session hosts' local time zones.
 
-- To get a list of all the available time zones for a particular virtual machine, you can run the following [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-timezone?view=powershell-7.1&preserve-view=true) on the virtual machine:
+- The local time zone for VMs you create using the Azure portal is set to Coordinated Universal Time (UTC) by default. If you want to change the VM time zone, you must run the [Set-TimeZone PowerShell cmdlet](/powershell/module/microsoft.powershell.management/set-timezone?view=powershell-7.1&preserve-view=true) on the VM.
+
+- To get a list of available time zones for a VM, run the following [PowerShell cmdlet]/powershell/module/microsoft.powershell.management/get-timezone?view=powershell-7.1&preserve-view=true) on the virtual machine:
     ```powershell
     Get-TimeZone -ListAvailable
     ```
@@ -74,11 +74,11 @@ To use the Azure portal to configure Scheduled Agent Updates:
 
 4. In the host pool, select **Scheduled Agent Updates**. Select the **Scheduled agent updates** checkbox to enable the feature.
 
-5. Input your preferred time zone setting. If you select **Use local session host time zone** you cannot choose a timezone. If you deselect **Use local session host time zone**, you need to specify a time zone.
+5. Enter your preferred time zone setting. If you select **Use local session host time zone**, Scheduled Agent Updates will automatically use the VM's local time zone. If you don't select **Use local session host time zone**, you'll need to specify a time zone.
 
-6. Select a day and corresponding time for the **Maintenance window**. You can optionally select a day and corresponding time for an additional maintenance window.
+6. Select a day and time for the **Maintenance window**. If you'd like to make an optional second maintenance window, you can also select a date and time for it here.
 
-7. Select **Apply** to instantly apply the settings.
+7. Select **Apply** to apply your settings.
 
 ## Configure the Scheduled Agent Updates feature using PowerShell
 
@@ -93,13 +93,14 @@ To configure Scheduled Agent Updates using PowerShell:
     ```powershell
     Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -AgentUpdateType "Scheduled" -AgentUpdateUseSessionHostLocalTime <Boolean> -AgentUpdateTimeZone <timeZoneName> -AgentUpdateMaintenanceWindows [{<hour>, <dayOfWeek>}, {<hour>, <dayOfWeek>}] 
     ```
-    To configure Scheduled Agent Updates to have agent components updated either on Saturdays between 9pm and 11pm or Sundays between 9pm and 11pm in each session hosts' local time zone, run the following PowerShell cmdlet:
+
+    For example, if you want to update agent components on Saturdays and Sundays between 9:00 PM and 11:00 PM in the local time zone for each session host, run the following PowerShell cmdlet:
 
     ```powershell
     Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -AgentUpdateType "Scheduled" -AgentUpdateUseSessionHostLocalTime $true -AgentUpdateMaintenanceWindows [{21, Saturday}, {21, Sunday}]        
     ```
 
-    To configure Scheduled Agent Updates to have agent components updated on Saturdays between 9am and 11am in Pacific Standard Time, run the following PowerShell cmdlet:
+    To configure Scheduled Agent Updates to update agent components on Saturdays between 9:00 AM and 11:00 AM Pacific Standard Time, run the following PowerShell cmdlet:
         
     ```powershell
     Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -AgentUpdateType "Scheduled" -AgentUpdateUseSessionHostLocalTime $false -AgentUpdateMaintenanceWindows [{9, Saturday}]
@@ -116,9 +117,9 @@ The maintenance window hour must be specified according to the 24-hour clock. Fo
 
 ## Next steps
 
-For more Scheduled Agent Updates and agent component related information check out the following resources:
+For more information related to Scheduled Agent Updates and agent components, check out the following resources:
 
-- To set up diagnostics for this feature, see the [Scheduled Agent Updates Diagnostics guide](agent-updates-diagnostics.md).
-- To find more information about the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent, see [Getting Started with the Azure Virtual Desktop Agent](agent-overview.md).
-- To find information about the latest and previous agent versions, see the [Agent Updates Version Notes](whats-new.md#azure-virtual-desktop-agent-updates).
+- Learn how to set up diagnostics for this feature at the [Scheduled Agent Updates Diagnostics guide](agent-updates-diagnostics.md).
+- Learn more about the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent at [Getting Started with the Azure Virtual Desktop Agent](agent-overview.md).
+- For more information about the current and earlier versions of the Azure Virtual Desktop agent, see [Azure Virtual Desktop agent updates](whats-new.md#azure-virtual-desktop-agent-updates).
 - If you're experiencing agent or connectivity-related issues, see the [Azure Virtual Desktop Agent issues troubleshooting guide](troubleshoot-agent.md).
