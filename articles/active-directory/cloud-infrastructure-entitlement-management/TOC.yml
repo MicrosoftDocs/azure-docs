@@ -78,8 +78,8 @@
       href: cloudknox-product-audit-trail.md
     - name: Read information on the CloudKnox dashboard
       href: cloudknox-product-dashboard.md
-    - name: View details about identities, resources, and tasks
-      href: cloudknox-product-user-management.md
+    - name: Define and manage users, roles, and access levels
+      href: cloudknox-product-define-permission-levels.md
     - name: Usage analytics 
       expanded: true
       items:

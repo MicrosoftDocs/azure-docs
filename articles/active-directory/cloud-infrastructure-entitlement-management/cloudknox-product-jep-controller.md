@@ -14,9 +14,9 @@ ms.author: v-ydequadros
 
 # Microsoft CloudKnox Permissions Management - Manage permissions with the Just Enough Privilege (JEP) Controller
 
-The Just Enough Privilege (JEP) Controller at Microsoft CloudKnox Permissions Management allows allows users to request privileges on-demand (POD). The JEP Controller also allows system administrators to adjust permissions and remediate excessive permissions based on activity data from Usage Analytics. 
+The Just Enough Privilege (JEP) Controller at Microsoft CloudKnox Permissions Management (CloudKnox) allows users to request privileges on-demand (POD). The JEP Controller also allows system administrators to adjust permissions and remediate excessive permissions based on activity data from Usage Analytics. 
 
-The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **Settings**, and **Requests**.
+The JEP Controller includes four tabs: **Roles/Policies**, **Permissions**, **Settings**, and **Requests**.
 
 ## How to use the Roles/Policies tab
 
@@ -26,7 +26,7 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 1. You can view the following details the table on the **Roles/Policies** tab:
     - **Role/Policy Name** - Displays the name of the role or the AWS policy.
 
-         An exclamation mark (**!**) circled in red means the role or AWS policy has not been used.
+         An exclamation mark (**!**) circled in red means the role or AWS policy hasn't been used.
 
     - **Role Type** - Displays the type of role or AWS policy.
 
@@ -61,7 +61,7 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 
 3. Select the appropriate option from the **Authorization System**  drop-down list.
 
-     Each authorization system will  display either **Controller Enabled** or **Controller Disabled**. If the controller is disabled, the system administrator will not be able to directly create a new AWS policy in the authorization system.
+     Each authorization system will  display either **Controller Enabled** or **Controller Disabled**. If the controller is disabled, the system administrator won't be able to directly create a new AWS policy in the authorization system.
 
 4. Enter a name for the policy in the **Policy Name** box.
 
@@ -78,7 +78,7 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 
 6. Select the number of days the policy should be created for from the **Tasks Performed in Last** section.
 
-     System administrators can select **90 Days**, **60 Days**, **30 Days**, **7 Days** or **1 Day**.
+     System administrators can select **90 Days**, **60 Days**, **30 Days**, **7 Days**, or **1 Day**.
 
 7. To select the identity to which the policy should apply, click the icon next to the identity name.
 
@@ -95,7 +95,7 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 
       - To view available options, click the right caret icon next to the service name.
 
-        Only System administrators have the option to add individual tasks within the service to the identity's selected tasks.
+        Only System administrators can add individual tasks within the service to the identity's selected tasks.
 
 10. Under **Resources**, select **All Resources** or **Specific Resources**.
 
@@ -110,13 +110,13 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 
      4. To expand options, click the icon next to the resource name. 
 
-           Only system administrators have the option to add individual tasks within the resource to the user's selected resources.
+           Only system administrators can add individual tasks within the resource to the user's selected resources.
 
 12. Click **Next**.
 
 13. In the **Statements** section, all newly created statements that go into the policy display in the column on the left.
 
-14.  To modify the operations (tasks and resources) further, click the the icon next to each statement, if necessary.
+14.  To modify the operations (tasks and resources) further, click the icon next to each statement, if necessary.
 
      Statements  are generated with "Action" and "Resource" sections, by default, but system administrators can check **Not Action** to generate the **NotAction** section or **Not Resource** to generate the **NotResource** section.
 
@@ -128,7 +128,7 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 
      If **Controller Enabled** displays under the icon, CloudKnox can automatically create the policy in the authorization system because permissions to do so have been granted. 
 
-     If permissions have not been granted, the **Controller Disabled** is displayed, and the system administrator can create policy and a script by copying and pasting from the **JSON** tab and **Script** tab, or click **Download JSON** and **Download Script**.
+     If permissions haven't been granted, the **Controller Disabled** is displayed, and the system administrator can create policy and a script by copying and pasting from the **JSON** tab and **Script** tab, or click **Download JSON** and **Download Script**.
 
      If the character count is in red, the policy is too large and needs to be split into multiple policies.
 
@@ -147,12 +147,12 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 
      If **Controller Disabled** displays under the icon, the **Submit** button is disabled.
 
-     When you click **Submit**, a number circled in red displays next to the icon at the top right of the page.
+     When you click **Submit**, a number circled in red displays next to the icon at the top-right of the page.
      - Click the hourglass to view the **Active** tab, which  displays the policies being created.
 
        A green check mark with **Success** displays when the policy has been created, and the task moves to the **Completed** tab.
 
-### How to create a new role (Azure/GCP/VCENTER)
+### How to create a new role (Azure/GCP/VCenter)
 
 > [!NOTE]
 > Only users with the **Controller** or **Administrator** role can perform this action.
@@ -161,7 +161,7 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 2. Under **Basic Details**, select the appropriate option from the **Authorization System Type** drop-down menu.
 3. Select the appropriate option from the **Authorization System** drop-down menu.
 
-     Each authorization system displays either **Controller Enabled** or **Controller Disabled**. If the controller is disabled, the system administrator will not be able to directly create a new role in the authorization system.
+     Each authorization system displays either **Controller Enabled** or **Controller Disabled**. If the controller is disabled, the system administrator won't be able to directly create a new role in the authorization system.
 
 4. Enter a name for the policy in the **Policy Name** box.
 5. Under **How Would You Like to Create the Policy?**, select one of the following options:
@@ -176,7 +176,7 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 
 6. Select the number of days the policy should be created for from the **Tasks Performed in Last** section.
 
-     System administrators can select **90 Days**, **60 Days**, **30 Days**, **7 Days** or **1 Day**.
+     System administrators can select **90 Days**, **60 Days**, **30 Days**, **7 Days**, or **1 Day**.
 
 7. To select the user to whom the policy should apply, click the icon next to the user's name.
 
@@ -189,7 +189,7 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 
      - To expand options, click the icon next to the service name. 
 
-       Only system administrators have the option to add individual tasks within the service to the identity's selected tasks.
+       Only system administrators can add individual tasks within the service to the identity's selected tasks.
 
     **For Azure only:** The **Include inherited read-only tasks** option is already checked. If it is unchecked, only the tasks the user has performed or the write tasks the identity has permissions to perform display.
 
@@ -203,7 +203,7 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 
      4. Click the caret icon next to the resource name to expand options. 
 
-         Only system administrators have the option to add individual tasks within the resource to the identity's selected resources.
+         Only system administrators can add individual tasks within the resource to the identity's selected resources.
 
 13. Click **Next**.
 
@@ -220,7 +220,7 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
      - Character count is specific to **AWS only**.
      - **GCP Only:** The **Preview** screen displays **YAML** instead of JSON.
      - If **Controller Enabled** displays under the authorization system icon, CloudKnox creates the policy in the authorization system because permissions to do so have been granted. 
-     - If permissions have not been granted, the **Controller Disabled** is displayed, and the system administrator can create policy and a script by copying and pasting from the **JSON** tab and **Script** tab, or click **Download JSON** and **Download Script**.
+     - If permissions haven't been granted, the **Controller Disabled** is displayed, and the system administrator can create policy and a script by copying and pasting from the **JSON** tab and **Script** tab, or click **Download JSON** and **Download Script**.
      - If the character count is in red, the policy is too large and should be split into multiple policies.
 
 19. Click **Split**.
@@ -237,8 +237,8 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 
      If **Controller Disabled** displays under the authorization system icon, the **Submit** button is disabled.
 
-     When you click **Submit**, a number is circled in red next to the icon at the top right of the page. 
-     -  To view the **Active** tab which  displays the policies being created, click the hourglass. 
+     When you click **Submit**, a number is circled in red next to the icon at the top-right of the page. 
+     -  To view the policies being created, in the **Active** tab, click the hourglass. 
 
        A green check mark with **Success** displays when the policy has been created, and the task moves to the **Completed** tab.
 
@@ -259,7 +259,7 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 
 6. Click **Next**.
 
-7. For selected authorization systems, if the data collector has not been given controller privileges, the following message displays: 
+7. For selected authorization systems, if the data collector hasn't been given controller privileges, the following message displays: 
 
    > [!NOTE]
    > Only Online/Controller Enabled authorization systems can be submitted for cloning.
@@ -279,7 +279,7 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 
 2. On the **Statements** screen, make edits to the **Tasks**, **Resources**, **Request Conditions**, and **Effect** as required. 
 
-    For more information on how to make edits to the **Statements** screen, see [How to Create a New Policy (AWS Only)](cloudknox-product-jep-controller.md#how-to-create-a-new-policy-aws-only) or [How to Create a New Role (Azure/GCP/VCENTER)](cloudknox-product-jep-controller.md#how-to-create-a-new-role-azuregcpvcenter)).
+    For more information on how to make edits to the **Statements** screen, see [How to Create a New Policy (AWS Only)](cloudknox-product-jep-controller.md#how-to-create-a-new-policy-aws-only) or [How to Create a New Role (Azure/GCP/vCenter)](cloudknox-product-jep-controller.md#how-to-create-a-new-role-azuregcpvcenter)).
 
 3. Click **Next**.
 
@@ -292,7 +292,7 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 
 1. Next to the applicable role/AWS policy, click **Delete**.
 
-     The system administrator can only delete role/AWS policy if that role/policy is not assigned to an identity. System roles or policies cannot be deleted.
+     The system administrator can only delete role/AWS policy if that role/policy isn't assigned to an identity. System roles or policies cannot be deleted.
 
 2. On the **Preview** screen, review the role/AWS policy about to be deleted.
 
@@ -315,7 +315,7 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
     - **Group Name** - Type in a specific group name.
     - **Task Usage** - Select **Any**, **Granted**, **Used**, or **Unused**.
 
-         If you select **Granted**, **Used** or **Unused**, the follow two options become available:
+         If you select **Granted**, **Used**, or **Unused**, the follow two options become available:
 
         - **Task Type** - Select **Any**, **High Risk**, or **Delete**.
         - **Tasks** - To view a list of **Available Tasks** and add new tasks, click in this field, and then click the **Add** icon.
@@ -329,7 +329,7 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 1. When selected, the **Policies** block populates to  display which policies are associated with the user(s)/group(s)/roles(s).
 
      When a user, group, or role is selected, the **Policies** section populates with the policies associated with that identity. 
-     - In the **Attach/Detach Policies** tab, administrators can remove a policy from from multiple identities.
+     - In the **Attach/Detach Policies** tab, administrators can remove a policy from multiple identities.
 
      If you select *AdministrativeAccess* from the list to remove from all identities selected, you can add a policy from multiple identities. For example, you can select *AWSReadOnly* from the list to add to all identities selected.
 
@@ -344,11 +344,11 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
     
 5. When the pop-up message appears asking **Are You Sure You Want to Perform the Quick Action?** click one of the following options:
 
-    - **Generate Script** - Allows a copy and paste function if the system administrator does not have direct access to execute the action.
+    - **Generate Script** - Allows a copy and paste function if the system administrator doesn't have direct access to execute the action.
     - **Confirm** - Performs the actions directly if permissions have been granted by the authorization system.
     - **Cancel** - Cancels the action.
 
-**Azure/GCP/VCENTER**
+**Azure/GCP/vCenter**
 
 1. When you click to open **Modify Permissions**, it populates to  display which permissions are associated with the user(s).
     
@@ -361,7 +361,7 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 3. Click one of the following tabs to continue:
         
     - **Quick Actions**
-        - From the **Quick Actions** tab, system administrators have the option to select from the following actions:
+        - From the **Quick Actions** tab, system administrators can select from the following actions:
 
             - **Revoke Unused Tasks**
             - **Revoke High-Risk Tasks**
@@ -394,7 +394,7 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 
         4. Click **Submit**.
         5. When the pop-up message appears asking **Are You Sure You Want to Perform the Quick Action?** click one of the following options:
-            - **Generate Script** - Allows a copy and paste function if the system administrator does not have direct access to execute the action.
+            - **Generate Script** - Allows a copy and paste function if the system administrator doesn't have direct access to execute the action.
             - **Execute** - Performs the actions directly if permissions have been granted by the authorization system.
             - **Cancel** - Cancel performing the action.
 
@@ -445,7 +445,7 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 
      To view helpful tool tips, hover over each option.
 
-     The **Resource Template** displays an example of the information you must include. Replace the ARN, Service, Region, Account ID and Resource ID with the correct information.
+     The **Resource Template** displays an example of the information you must include. Replace the **ARN**, **Service**, **Region**, **Account ID**, and **Resource ID** with the correct information.
 
 10. Under **Request Conditions**, click the **JSON +** button, if applicable, to open the **Add JSON** screen.
 
@@ -476,8 +476,8 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 
 6. Under **Resources**, update the information appropriately.
 
-     The **Statements** screen is not displayed for every template. 
-     If **All Resources** was selected when setting up the template, the **Statements** screen will not display when requesting the template. 
+     The **Statements** screen isn't displayed for every template. 
+     If **All Resources** was selected when setting up the template, the **Statements** screen won't display when requesting the template. 
 
      For **Specific Resources**, search by **Resource Name** or **Resource Type**.
 
@@ -493,9 +493,9 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 
 10. Click **Submit**.
 
-11. The **Validate OTP to Create JEP Request** box appears. Enter the OTP from your email and click **Verify**.
+11. The **Validate OTP to Create JEP Request** box appears. Enter the One Time Passcode (OTP) from your email and click **Verify**.
 
-     This step will not happen if the One Time Passcode (OTP) validation is disabled by the administrator. 
+     This step won't happen if the OTP validation is disabled by the administrator. 
      For more information, see [Request Settings tab](cloudknox-product-jep-controller.md#request-settings-tab)
 
 12. **Your request has been successfully submitted** displays highlighted in green across the top of the screen once completed.
@@ -531,7 +531,7 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 
 ### Request Role/Policy Filters tab
 
-1. On the **Request Role/Policy Filters** tab, click **Create Filter** from the top right corner. 
+1. On the **Request Role/Policy Filters** tab, click **Create Filter** from the top-right corner. 
 
      The **Edit Policy** window opens.
 
@@ -563,7 +563,7 @@ The JEP Controller comprises four tabs: **Roles/Policies**, **Permissions**, **S
 
 ### Privilege on Demand (POD)
 
-CloudKnox provides a workflow, know as *Privilege on demand (POD)*, for users to ask for additional permissions for a short duration.  CloudKnox provisions the requested permissions for the user when the request approved and automatically deprovisions the permission when the requested duration is exceeded.
+CloudKnox provides a workflow, know as *Privilege on demand (POD)*, for users to ask for more permissions for a short duration.  CloudKnox provisions the requested permissions for the user when the request approved and automatically deprovisions the permission when the requested duration is exceeded.
 
 The workflow is as follows:
 
@@ -572,7 +572,7 @@ The workflow is as follows:
 1. Creates the request.
 2. Fills out the needed tasks and resources.
 3. Fills out the reason for requesting the permission.
-4. Fills out the duration for which the permission is needed for.
+4. Fills out the duration for which the permission is needed.
 5. Submits the request.
 
 When the user submits the request, an email is sent to the approver. The request appears in the approver's **Requests** tab.
@@ -756,21 +756,22 @@ The **My Requests** tab  displays details about requests submitted by the curren
         5.  To see a list of roles that are attached to the select user, view the **Existing Policies** section.
         6. Click **Next**.
 
-             If you select **Request Task(s)**, the next section is be **Scope**. Complete the following steps:
+             If you select **Request Task(s)**, the next section is **Scope**. Complete the following steps:
 
-            - In the **Resource** section, select **All Resources**, **Specific Resources**, or **Not Resource**.
+            1. In the **Resource** section, select **All Resources**, **Specific Resources**, or **Not Resource**.
 
                  To move the selection for **Specific Resources** to the **Selected Resources** column, click the icon from the **Available Resources** column. You can also use **Search** to find a specific resource.
 
-            - From **Request Conditions**, click the icon next to **JSON**, and then enter details in the **Add JSON** box. Click **Done**.
-            - From the **Effect** section, click **Allow** or **Deny**.
-            - Click **Next**.
+            2. From **Request Conditions**, click the icon next to **JSON**, and then enter details in the **Add JSON** box. Click **Done**.
+            3. From the **Effect** section, click **Allow** or **Deny**.
+            4. Click **Next**.
+
         7. Enter details in the **Request Summary** field.
         8. Add notes, if needed, to the **Notes (Optional)** field.
         9. Click in the **Schedule** section to set schedule details:
             - From the **Frequency**  drop-down list, select **ASAP**, **Once**, **Daily**, **Weekly**, or **Monthly**.
 
-                 If you select **ASAP**, the requestor has to wait for the approver to approve the request since the request is not approved immediately.
+                 If you select **ASAP**, the requestor has to wait for the approver to approve the request since the request isn't approved immediately.
 
                  If you select **Once**, **Daily**, **Weekly**, or **Monthly**, enter the **Date** and **Time** details
 
@@ -782,7 +783,7 @@ The **My Requests** tab  displays details about requests submitted by the curren
         10. View the details summary, including **User**, **User Type**, **Authorization System Type**, and **Authorization System**.
         11. Click the **Selected Policies/Tasks** and **Selected Scope** tabs to view a summary of the selections made.
     
-    - **Azure/GCP/VCENTER**
+    - **Azure/GCP/vCenter**
         1. In the **User** field, select the username of the user for whom the permission is being requested.
         2. In the **Scope** field, select or enter the appropriate resource. By default, the **Scope** is set to the root folder of the authorization system.
         3. Select either **Request Roles(s)** or **Request Task(s)**.
@@ -800,13 +801,13 @@ The **My Requests** tab  displays details about requests submitted by the curren
         9. To set schedule details, click in the **Schedule** section:
             - From the **Frequency**  drop-down list, select **ASAP**, **Once**, **Daily**, **Weekly**, or **Monthly**.
 
-                 If **ASAP** is selected, the requestor must wait for the approver to approve the request; the request is not accepted immediately.
+                 If **ASAP** is selected, the requestor must wait for the approver to approve the request; the request isn't accepted immediately.
 
                  If you select **Once**, **Daily**, **Weekly**, or **Monthly**, enter **Date** and **Time** details.
 
             - Enter a number in the **For** field, and from the  drop-down list select between **Hours**, **Days**, **Weeks**, or **Months**.
 
-                The **For** field indicates duration for which the permission will be give to the user.
+                The **For** field indicates duration for which the permission is granted for the user.
 
             - Click **Schedule**.
         10. View the details summary, including **User**, **User Type**, **Authorization System Type**, and **Authorization System**.

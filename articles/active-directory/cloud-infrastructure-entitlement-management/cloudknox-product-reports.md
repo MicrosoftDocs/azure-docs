@@ -25,7 +25,7 @@ Microsoft CloudKnox Permissions Management (CloudKnox) has various types of syst
 CloudKnox offers the following reports for management associated with the authorization systems noted in parenthesis:
 
 - **Access key entitlements and usage**:
-	- **Summary of report:** Provides information about access key - permissions, usage, rotation date, and so on.
+	- **Summary of report:** Provides information about access key - permissions, usage, and rotation date.
 	- **Applies to:** Amazon Web Services (AWS) and Microsoft Azure
 	- **Report output type:** CSV
 	- **Ability to collate report:** Yes
@@ -35,7 +35,7 @@ CloudKnox offers the following reports for management associated with the author
 		- The granted task and PCI score to take action on the keys.
 
 - **User entitlements and usage**: 
-	- **Summary of report:** Provides information about the identities' permissions: entitlement, usage, PCI, and so on.
+	- **Summary of report:** Provides information about the identities' permissions: entitlement, usage, and PCI.
 	- **Applies to:** AWS, Azure, Google Cloud Platform (GCP), and VCENTER
 	- **Report output type:** A comma-separated values (CSV) file
 	- **Ability to collate report:** Yes
@@ -44,7 +44,7 @@ CloudKnox offers the following reports for management associated with the author
 		 - The data displayed on the **Usage Analytics** screen is downloaded as part of the **Summary** report. The user's detailed permissions usage is listed in the **Detailed** report.
 
 - **Group entitlements and usage**:
-	- **Summary of report:** Provides information about the group's permissions: entitlement, usage, PCI, and so on.
+	- **Summary of report:** Provides information about the group's permissions: entitlement, usage, and PCI.
 	- **Applies to:** AWS, Azure, GCP, and VCENTER
 	- **Report output type:** CSV
 	- **Ability to collate report:** Yes
@@ -82,7 +82,7 @@ CloudKnox offers the following reports for management associated with the author
 	- **Ability to collate report:** Yes
 	- **Type of report:** Detailed
 	- **Use cases:** 
-		 - This report lists the different key findings in the selected auth systems. The key findings include super identities, inactive identities, over provisioned active identities, storage bucket hygiene, access key age (for AWS only), and so on. The report helps administrators to visualize the findings across the organization. 
+		 - This report lists the different key findings in the selected auth systems. The key findings include super identities, inactive identities, over provisioned active identities, storage bucket hygiene, and access key age (for AWS only). The report helps administrators to visualize the findings across the organization. 
 
 	<!---For more information, see Permissions analytics report.--->
 
