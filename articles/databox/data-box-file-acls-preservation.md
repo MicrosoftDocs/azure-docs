@@ -65,10 +65,12 @@ Transfer of ACLs is enabled by default. You might want to disable this setting i
 > [!NOTE]
 > Files with ACLs containing conditional access control entry (ACE) strings are not copied. This is a known issue. To work around this, copy these files to the Azure Files share manually by mounting the share and then using a copy tool that supports copying ACLs.
 
->[!NOTE]
-> Support for ACLs transfers from Linux is limited:
->- Only Windows NT ACLs are transferred.
->- ACLs aren't transferred during data copies over Network File System (NTS) and when you use the data copy service to transfer your data. The data copy service reads data directly from your shares and can't read ACLs. To transfer the ACLs, you'll need to use a tool such as `smbcacls` or `cifsacl` after you transfer the files. See [Linux data copy tools](#linux-data-copy-tools) for more information.
+**ACLs from Linux**
+
+Support for ACLs transfers from Linux is limited:
+
+- Only Windows NT ACLs are transferred.
+- ACLs aren't transferred during data copies over Network File System (NTS) and when you use the data copy service to transfer your data. The data copy service reads data directly from your shares and can't read ACLs. To transfer the ACLs, you'll need to use a tool such as `smbcacls` or `cifsacl` after you transfer the files. See [Linux data copy tools](#linux-data-copy-tools) for more information.
 
 ## Copying data and metadata
 
