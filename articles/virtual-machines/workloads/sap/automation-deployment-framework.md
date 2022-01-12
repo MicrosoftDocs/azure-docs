@@ -22,6 +22,11 @@ The [automation framework](https://github.com/Azure/sap-automation) has two main
 
 You will use the control plane of the SAP deployment automation framework to deploy the SAP Infrastructure and the SAP application infrastructure. The deployment uses Terraform templates to create the [infrastructure as a service (IaaS)](https://azure.microsoft.com/overview/what-is-iaas) defined infrastructure to host the SAP Applications.
 
+> [!NOTE]
+> This automation framework is based on Microsoft best practices and principles for SAP on Azure. Review the [get-started guide for SAP on Azure virtual machines (Azure VMs)](get-started.md) to understand how to use certified virtual machines and storage solutions for stability, reliability, and performance.
+> 
+> This automation framework also follows the [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/).
+
 The dependency between the control plane and the application plane is illustrated in the diagram below. In a typical deployment a single control plane is used to manage multiple SAP deployments.
 
 :::image type="content" source="./media/automation-deployment-framework/control-plane-sap-infrastructure.png" alt-text="Diagram showing the SAP deployment automation framework's dependency between the control plane and application plane.":::
@@ -29,13 +34,6 @@ The dependency between the control plane and the application plane is illustrate
 The following diagram shows the key components of the control plane and workload zone.
 
 :::image type="content" source="./media/automation-deployment-framework/automation-diagram-full.png" alt-text="Diagram showing the SAP deployment automation framework environment.":::
-
-> [!NOTE]
-> This automation framework is based on Microsoft best practices and principles for SAP on Azure. Review the [get-started guide for SAP on Azure virtual machines (Azure VMs)](get-started.md) to understand how to use certified virtual machines and storage solutions for stability, reliability, and performance.
-> 
-> This automation framework also follows the [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/).
-
-You will use the control plane of the SAP deployment automation framework to deploy the SAP Infrastructure and the SAP application infrastructure. The deployment uses Terraform templates to create the [infrastructure as a service (IaaS)](https://azure.microsoft.com/overview/what-is-iaas) defined infrastructure to host the SAP Applications.
 
 The application configuration will be performed from the Ansible Controller in the Control plane using a set of pre-defined playbooks. These playbooks will:
 
@@ -50,7 +48,7 @@ The application configuration will be performed from the Ansible Controller in t
 
 ## About the control plane
 
-The control plane houses the infrastructure from which other environments will be deployed. Once the control plane is deployed, it rarely needs to be redeployed, if ever.
+The control plane houses the deployment infrastructure from which other environments will be deployed. Once the control plane is deployed, it rarely needs to be redeployed, if ever.
 
 The control plane provides the following services
 -	Terraform Deployment Infrastructure

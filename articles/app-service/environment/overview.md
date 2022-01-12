@@ -85,6 +85,7 @@ There are a few features that are not available in ASEv3 that were available in 
 - monitor your traffic with Network Watcher or NSG Flow
 - configure a IP-based TLS/SSL binding with your apps
 - configure custom domain suffix
+- backup/restore operation on a storage account behind a firewall
 
 ## Pricing
 

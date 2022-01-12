@@ -76,6 +76,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure_cli_scripts",
+      "url": "https://github.com/Azure-Samples/azure-cli-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "powershell_scripts",
       "url": "https://github.com/Azure/azure-docs-powershell-samples",
       "branch": "master",
@@ -837,8 +843,11 @@
     "articles/iot-accelerators/.openpublishing.redirection.iot-accelerators.json",
     "articles/iot-develop/.openpublishing.redirection.iot-develop.json",
     "articles/iot-edge/.openpublishing.redirection.iot-edge.json",
+    "articles/mariadb/.openpublishing.redirection.mariadb.json",
     "articles/marketplace/.openpublishing.redirection.marketplace.json",
+    "articles/mysql/.openpublishing.redirection.mysql.json",
     "articles/object-anchors/.openpublishing.redirection.object-anchors.json",
+    "articles/postgresql/.openpublishing.redirection.postgresql.json",
     "articles/purview/.openpublishing.redirection.purview.json",
     "articles/service-bus-messaging/.openpublishing.redirection.service-bus-messaging.json",
     "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json",

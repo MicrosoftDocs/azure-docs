@@ -50,7 +50,7 @@ items:
       href: custom-classification/how-to/view-model-evaluation.md
     - name: Improve a model
       href: custom-classification/how-to/improve-model.md
-    - name: Deploy a model and call the runtime API to classify text
+    - name: Deploy a model and classify text
       href: custom-classification/how-to/call-api.md
   - name: Concepts
     items:
@@ -106,7 +106,7 @@ items:
       href: custom-named-entity-recognition/how-to/view-model-evaluation.md 
     - name: Improve a model
       href: custom-named-entity-recognition/how-to/improve-model.md
-    - name: Deploy a model and call the runtime API to extract entities
+    - name: Deploy a model and extract entities from text
       href: custom-named-entity-recognition/how-to/call-api.md
   - name: Tutorials
     items:
@@ -160,7 +160,7 @@ items:
         href: conversational-language-understanding/how-to/tag-utterances.md
       - name: Train a model
         href: conversational-language-understanding/how-to/train-model.md
-      - name: Deploy a model and query the runtime API
+      - name: Deploy a model and get predictions
         href: conversational-language-understanding/how-to/deploy-query-model.md
   - name: Concepts
     items:
