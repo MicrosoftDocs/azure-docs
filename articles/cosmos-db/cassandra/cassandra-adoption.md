@@ -1,6 +1,6 @@
 ---
 title: From Apache Cassandra to Cassandra API
-description: Learn best practices and ways to adopt Azure Cosmos DB Cassandra API successfully.
+description: Learn best practices and ways to successfully use the Azure Cosmos DB Cassandra API to use with Apache Cassandra applications.
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
@@ -22,7 +22,7 @@ When you use the Cassandra API, it's important to be aware of some key differenc
 
 The Cassandra API supports a large surface area of Apache Cassandra features, but some features aren't supported, or they have limitations. Before you migrate, be sure that the [Azure Cosmos DB Cassandra API features](cassandra-support.md) you need are supported.
 
-## Replication (migration)
+## Replication
 
 When you consider replication, it's important to look at both migration and consistency.
 
@@ -95,7 +95,7 @@ In native Apache Cassandra, increasing capacity and scale involves adding new no
 
 One of the challenges of provisioning [request units](../request-units.md), particularly if you're using [provisioned throughput](../set-throughput.md), is rate limiting. Azure Cosmos DB returns rate-limited (429) errors if clients consume more resources (resource units per second) than the amount you provisioned. The Cassandra API in Azure Cosmos DB translates these exceptions to overloaded errors on the Cassandra native protocol. For information about how to avoid rate limiting in your application, see [Prevent rate-limiting errors for Azure Cosmos DB API for Cassandra operations](prevent-rate-limiting-errors.md).
 
-## Using Apache Spark
+## Apache Spark connector
 
 Many Apache Cassandra users use the Apache Spark Cassandra connector to query their data for analytical and data movement needs. You can connect to the Cassandra API the same way and by using the same connector. Before you connect to the Cassandra API, we recommend that you review [Connect to the Azure Cosmos DB Cassandra API from Spark](connect-spark-configuration.md). In particular, see the section [Optimizing Spark connector throughput configuration](connect-spark-configuration.md#optimizing-spark-connector-throughput-configuration).  
 
