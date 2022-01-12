@@ -391,6 +391,9 @@ Use the following parameter types for the output binding:
 The queue message is available via `context.bindings.<NAME>` where `<NAME>` matches the name defined in function.json. If the payload is JSON, the value is deserialized into an object.
 
 ::: zone-end  
+::: zone pivot="programming-language-powershell"
+Content pending.
+::: zone-end  
 ::: zone pivot="programming-language-python"  
 
 Refer to the Python [example](#example).
