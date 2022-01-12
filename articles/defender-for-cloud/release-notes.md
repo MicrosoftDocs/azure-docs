@@ -27,6 +27,7 @@ Updates in January include:
 - [Deprecated the recommendation to classify sensitive data in SQL databases](#deprecated-the-recommendation-to-classify-sensitive-data-in-sql-databases)
 - [Communication with suspicious domain alert expanded to included known Log4Shell-related domains](#communication-with-suspicious-domain-alert-expanded-to-included-known-log4shell-related-domains)
 - ['Copy alert JSON' button added to security alert details pane](#copy-alert-json-button-added-to-security-alert-details-pane)
+- [Renamed two recommendations](#renamed-two-recommendations)
 
 
 ### Recommendations to enable Microsoft Defender plans on workspaces (in preview)
@@ -88,6 +89,18 @@ To help our users quickly share an alert's details with others (for example, SOC
 The new **Copy alert JSON** button puts the alert’s details, in JSON format, into the user's clipboard.
 
 :::image type="content" source="media/release-notes/copy-alert-json.png" alt-text="Screenshot of the 'Copy alert JSON' button in the alert details pane." lightbox="./media/release-notes/copy-alert-json.png":::
+
+### Renamed two recommendations
+
+For consistency with other recommendation names, we've renamed the following two recommendations:
+
+- Recommendation to resolve vulnerabilities discovered in running container images: 
+    - Previous name: Vulnerabilities in running container images should be remediated (powered by Qualys)
+    - New name: Running container images should have vulnerability findings resolved
+
+- Recommendation to enable diagnostic logs for Azure App Service: 
+    - Previous name: Diagnostic logs should be enabled in App Service
+    - New name: Diagnostic logs in App Service should be enabled
 
 
 ## December 2021
