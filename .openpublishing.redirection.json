@@ -658,12 +658,12 @@
       "redirect_url": "/azure/frontdoor/rules-match-conditions",
       "redirect_document_id": false
     },
-    { 
+    {
       "source_path_from_root": "/articles/frontdoor/standard-premium/geo-filtering.md",
       "redirect_url": "/articles/frontdoor/front-door-geo-filtering",
       "redirect_document_id": false
     },
-    { 
+    {
       "source_path_from_root": "/articles/frontdoor/standard-premium/edge-locations.md",
       "redirect_url": "/azure/frontdoor/edge-locations-by-region",
       "redirect_document_id": false
@@ -7679,8 +7679,8 @@
       "redirect_document_id": false
     },
 
-    
-    
+
+
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-container-instances.md",
       "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
@@ -14388,6 +14388,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/Tutorials/migrate-knowledge-base.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Tutorials/export-knowledge-base",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-data-guidelines.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/",
       "redirect_document_id": false
@@ -16571,6 +16576,11 @@
       "source_path_from_root": "/articles/lab-services/use-paas-services.md",
       "redirect_url": "/azure/devtest-labs/use-paas-services",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/devtest-labs/devtest-lab-configure-use-public-environments.md",
+      "redirect_url": "/azure/devtest-labs/devtest-lab-create-environment-from-arm",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/dns/dns-getstarted-cli-nodejs.md",
@@ -21002,7 +21012,7 @@
       "redirect_url": "/azure/machine-learning/reference-yaml-job-pipeline",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-precise-answering.md",
       "redirect_url": "/azure/cognitive-services/language/custom-question-answering/concepts/precise-answering",
@@ -43963,7 +43973,7 @@
       "redirect_url": "/azure/virtual-network/create-public-ip-prefix-portal",
       "redirect_document_id": true
     },
-    {  
+    {
       "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/add-columns.md",
       "redirect_url": "/azure/machine-learning/component-reference/add-columns",
       "redirect_document_id": true
@@ -44488,11 +44498,11 @@
       "redirect_url": "/azure/communication-services/concepts/telephony/port-phone-number",
       "redirect_document_id": false
     },
-      {
-        "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/pstn-call.md",
-        "redirect_url": "/azure/communication-services/quickstarts/telephony/pstn-call",
-        "redirect_document_id": false
-      },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/pstn-call.md",
+      "redirect_url": "/azure/communication-services/quickstarts/telephony/pstn-call",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/concepts.md",
       "redirect_url": "/azure/communication-services/concepts/sms/concepts",
@@ -45119,7 +45129,7 @@
       "redirect_document_id": false
     },
     {
-    "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-sdk-rest-api.md",
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-sdk-rest-api.md",
       "redirect_url": "/azure/applied-ai-services/form-recognizer/how-to-guides/try-sdk-rest-api",
       "redirect_document_id": false
     },
@@ -45147,6 +45157,11 @@
       "source_path_from_root": "/articles/networking/azure-orbital-overview.md",
       "redirect_url": "/azure/orbital/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure/sentinel/connect-windows-virtual-desktop.md",
+      "redirect_url": "/azure/sentinel/connect-azure-virtual-desktop",
+      "redirect_document_id": true
     }
   ]
 }
