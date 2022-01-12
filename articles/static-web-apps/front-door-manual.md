@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 01/07/2022
+ms.date: 01/12/2022
 ms.author: cshoe
 ---
 
@@ -141,6 +141,7 @@ To complete the integration with Front Door, you need to update the application 
 - Restrict traffic to your site only through Front Door
 - Restrict traffic to your site only from your Front Door instance
 - Define which domains can access your site
+- Disable caching for secured routes
 
 Open the [staticwebapp.config.json](configuration.md) file for your site and make the following changes.
 
@@ -170,6 +171,18 @@ Open the [staticwebapp.config.json](configuration.md) file for your site and mak
     Next, add the Azure Front Door hostname (not the Azure Static Web Apps hostname) into the `allowedForwardedHosts` array. If you have custom domains configured in your Front Door instance, also include them in this list.
 
     In this example, replace `my-sitename.azurefd.net` with the Azure Front Door hostname for your site.
+
+1. For all secured routes in your app, disable Azure Front Door caching by adding `"Cache-Control": "no-store"` to the route definition.
+
+    ```json
+    {
+        "route": "/members",
+        "allowedRoles": ["authenticated, members"],
+        "headers": {
+            "Cache-Control": "no-store"
+        }
+    }
+    ```
 
 With this configuration, your site is no longer available via the generated `*.azurestaticapps.net` hostname, but exclusively through the hostnames configured in your Front Door instance.
 
