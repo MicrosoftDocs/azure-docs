@@ -1,6 +1,6 @@
 ---
-title: Configure and enable the Defender-IoT-micro-agent for Azure RTOS
-description: In this quickstart, learn how to onboard and enable the Defender-IoT-micro-agent for Azure RTOS service in your Azure IoT Hub.
+title: Enable the Defender-IoT-micro-agent for Azure RTOS
+description: Learn how to onboard and enable the Defender-IoT-micro-agent for Azure RTOS service in your Azure IoT Hub.
 services: defender-for-iot
 ms.topic: how-to
 ms.date: 11/09/2021
@@ -8,11 +8,15 @@ ms.custom: mode-other
 ---
 
 
-# Defender-IoT-micro-agent for Azure RTOS
+# Enable the Defender IoT micro agent for Azure RTOS
 
-This article provides an explanation of the prerequisites before getting started and explains how to enable the Defender-IoT-micro-agent for Azure RTOS service on an IoT Hub. If you don't currently have an IoT Hub, see [Create an IoT hub using the Azure portal](../../iot-hub/iot-hub-create-through-portal.md).
+Learn how to enable the Defender-IoT-micro-agent for Azure RTOS service on an IoT Hub. If you don't currently have an IoT Hub, see [Create an IoT hub using the Azure portal](../../iot-hub/iot-hub-create-through-portal.md).
 
 ## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- An [IoT hub](../../iot-hub/iot-hub-create-through-portal.md).
 
 ### Supported devices
 
