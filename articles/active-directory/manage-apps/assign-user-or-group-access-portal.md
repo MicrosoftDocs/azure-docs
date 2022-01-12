@@ -3,15 +3,15 @@ title: Assign users and groups
 titleSuffix: Azure AD
 description: Learn how to assign and unassign users, and groups, for an app using Azure Active Directory for identity management.
 services: active-directory
-author: davidmu1
+author: eringreenlee
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/23/2021
-ms.author: davidmu
-ms.reviewer: alamaral
+ms.author: ergreenl
+ms.reviewer: davidmu
 
 #customer intent: As an admin, I want to manage user assignment for an app in Azure Active Directory using Powershell
 ---

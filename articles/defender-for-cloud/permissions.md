@@ -2,7 +2,7 @@
 title: Permissions in Microsoft Defender for Cloud | Microsoft Docs
 description: This article explains how Microsoft Defender for Cloud uses role-based access control to assign permissions to users and identify the permitted actions for each role.
 ms.topic: overview
-ms.date: 11/09/2021
+ms.date: 01/12/2022
 ---
 
 # Permissions in Microsoft Defender for Cloud
@@ -31,11 +31,12 @@ The following table displays roles and allowed actions in Defender for Cloud.
 | Add/assign initiatives (including) regulatory compliance standards)                                                         | -                             | -              | -                                                      | -                        | ✔                 |
 | Edit security policy                                                                                                        | -                             | ✔             | -                                                      | -                        | ✔                 |
 | Enable / disable Microsoft Defender plans                                                                                             | -                             | ✔             | -                                                      | -                        | ✔                 |
-| Enable / disable auto provisioning                                                                                          | -                             | ✔             | -                                                      | ✔                       | ✔                  |
 | Dismiss alerts                                                                                                              | -                             | ✔             | -                                                      | ✔                       | ✔                  |
 | Apply security recommendations for a resource</br> (and use [Fix](implement-security-recommendations.md#fix-button)) | -                             | -              | ✔                                                     | ✔                        | ✔                 |
 | View alerts and recommendations                                                                                             | ✔                            | ✔              | ✔                                                     | ✔                        | ✔                 |
 ||||||
+
+For **auto provisioning**, the specific role required depends on the extension you're deploying. For full details, check the tab for the specific extension in the [availability table on the auto provisioning quick start page](enable-data-collection.md#availability).
 
 > [!NOTE]
 > We recommend that you assign the least permissive role needed for users to complete their tasks. For example, assign the Reader role to users who only need to view information about the security health of a resource but not take action, such as applying recommendations or editing policies.

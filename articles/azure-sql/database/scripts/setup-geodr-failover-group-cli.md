@@ -17,6 +17,8 @@ ms.date: 01/05/2022
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
