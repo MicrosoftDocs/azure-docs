@@ -210,4 +210,4 @@ az spring-cloud build-service builder buildpack-binding delete \
 
 ## Next steps
 
-* [Azure Spring Cloud](.)
+* [Azure Spring Cloud](index.yml)

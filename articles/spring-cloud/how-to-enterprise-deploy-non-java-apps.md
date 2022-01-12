@@ -76,4 +76,4 @@ az spring-cloud app deploy
 
 ## Next steps
 
-* [Azure Spring Cloud](.)
+* [Azure Spring Cloud](index.yml)

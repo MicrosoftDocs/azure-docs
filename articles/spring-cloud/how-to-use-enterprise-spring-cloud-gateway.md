@@ -221,4 +221,4 @@ Not all the filters/predicates are supported in Azure Spring Cloud because of se
 
 ## Next steps
 
-* [Azure Spring Cloud](.)
+* [Azure Spring Cloud](index.yml)

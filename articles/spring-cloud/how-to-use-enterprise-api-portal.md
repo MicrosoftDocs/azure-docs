@@ -85,4 +85,4 @@ Select the `endpoint URL` to go to API portal. You will see all the routes confi
 
 ## Next steps
 
-* [Azure Spring Cloud](.)
+* [Azure Spring Cloud](index.yml)

@@ -44,4 +44,4 @@ To see the Enterprise Tier creation page, select **Set up + subscribe**
 
 ## Next steps
 
-* [Azure Spring Cloud](.)
+* [Azure Spring Cloud](index.yml)
