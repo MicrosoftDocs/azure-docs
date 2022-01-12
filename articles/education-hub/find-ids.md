@@ -1,6 +1,6 @@
 ---
 title: Finding Ids for Education Hub APIs
-description: Learn how to find all the Ids needed to call the education hub apis
+description: Learn how to find all the Ids needed to call the education hub APIs
 author: vinnieangel
 ms.author: vangellotti
 ms.service: eduhub
@@ -11,7 +11,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Find all Ids needed to call Education Hub Apis
 
-This article helps you gather the necessary Ids needed to call the education hub APIs. If you go through the Education Hub UI, these Ids are gathered for you, but to call them publicly, you must have a billing account id, billing profile id and invoice section id.
+This article helps you gather the necessary ids needed to call the education hub APIs. If you go through the Education Hub UI, these ids are gathered for you, but to call them publicly, you must have a billing account id, billing profile id and invoice section id.
 
 In this tutorial, you learn how to:
 
@@ -42,7 +42,7 @@ This section will show you how to get your Billing Account Id.
 2. The string listed in the ID box is your Billing Account Id
 3. Copy this and save it for later
 
-:::image type="content" source="./Media/find-ids/FindBillingAccountID.png" alt-text="Navigate to cost management + billing" border="false":::
+:::image type="content" source="./Media/find-ids/FindBillingAccountID.png" alt-text="Find billing account id":::
 
 ## Get Billing Profile Id
 
@@ -50,12 +50,12 @@ This section will show you how to get your Billing Profile Id.
 
 1. Click on "Billing Profiles" tab under the Billing section
 2. Click on the desired billing profile
-:::image type="content" source="./Media/find-ids/NavigateToBillingProfile.png" alt-text="Navigate to cost management + billing" border="false":::
+:::image type="content" source="./Media/find-ids/NavigateToBillingProfile.png" alt-text="Navigate to billing profile" border="false":::
 3. Click on the "Properties" tab under the Settings section
 4. This page will display your billing profile ID at the top of the page
 5. Copy this and save it for later. You can also see your Billing Account ID at the bottom of the page.
 
-:::image type="content" source="./Media/find-ids/FindBillingProfileID.png" alt-text="Navigate to cost management + billing" border="false":::
+:::image type="content" source="./Media/find-ids/FindBillingProfileID.png" alt-text="Find billing profile id" border="false":::
 
 ## Get Invoice Section Id
 
@@ -63,12 +63,12 @@ This section will show you how to get your Invoice Section Id.
 
 1. Click on "Invoice sections" tab under the Billing tab. Note you must be in Billing Profile to see Invoice Sections
 2. Click on the desired Invoice Section
-:::image type="content" source="./Media/find-ids/NavigateToInvoiceSection.png" alt-text="Navigate to cost management + billing" border="false":::
+:::image type="content" source="./Media/find-ids/NavigateToInvoiceSection.png" alt-text="Navigate to invoice section" border="false":::
 3. Click on the "Properties" tab under the Settings section
 4. This page will display your invoice section ID at the top of the page
 5. Copy this and save it for later. You can also see your Billing Account ID at the bottom of the page.
 
-:::image type="content" source="./Media/find-ids/FindInvoiceSectionID.png" alt-text="Navigate to cost management + billing" border="false":::
+:::image type="content" source="./Media/find-ids/FindInvoiceSectionID.png" alt-text="Find invoice section id" border="false":::
 
 ## Next steps
 
