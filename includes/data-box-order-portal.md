@@ -63,7 +63,7 @@ Do the following steps in the Azure portal to order a device:
 
     #### To use storage accounts
 
-    If using **storage account(s)** as the storage destination, you see the following screen.
+    If using **storage account(s)** as the storage destination, you'll see the following screen.
 
     ![Screenshot of the Data Destination tab for a Data Box order with a Storage Accounts destination. The Storage Accounts storage destination is highlighted.](media/data-box-order-portal/data-box-import-06.png)
 
