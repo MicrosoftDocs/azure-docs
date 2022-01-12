@@ -78,6 +78,8 @@
       href: admin-units-manage.md
     - name: Add members
       href: admin-units-members-add.md
+    - name: Manage members with dynamic membership rules
+      href: admin-units-members-dynamic.md
     - name: List members
       href: admin-units-members-list.md
     - name: Remove members
