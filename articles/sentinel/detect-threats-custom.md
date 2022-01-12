@@ -64,6 +64,12 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
     | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
     ```
 
+    > [!IMPORTANT]
+    >
+    > We recommend that your query uses an [Advanced SIEM Information model (ASIM) parser](normalization-about-parsers.md) and not a native table. This will ensure that the query supports any current or future relevant data source rather than a single data source.
+    >
+
+
     > [!NOTE]
     > **Rule query best practices**:
     >
