@@ -1,20 +1,20 @@
 ---
-title: Predeployment checklist to deploy Azure Stack Edge Pro 2 device | Microsoft Docs
-description: This article describes the information that can be gathered before you deploy your Azure Stack Edge Pro 2 device.
+title: Predeployment checklist to deploy Azure Stack Edge Pro GPU device | Microsoft Docs
+description: This article describes the information that can be gathered before you deploy your Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/11/2022
+ms.date: 06/07/2021
 ms.author: alkohli 
 ---
-# Deployment checklist for your Azure Stack Edge Pro 2 device  
+# Deployment checklist for your Azure Stack Edge Pro GPU device  
 
-This article describes the information that can be gathered ahead of the actual deployment of your Azure Stack Edge Pro 2 device. 
+This article describes the information that can be gathered ahead of the actual deployment of your Azure Stack Edge Pro device. 
 
-Use the following checklist to ensure you have this information after you have placed an order for an Azure Stack Edge Pro 2 device and before you have received the device. 
+Use the following checklist to ensure you have this information after you have placed an order for an Azure Stack Edge Pro device and before you have received the device. 
 
 ## Deployment checklist 
 
@@ -32,7 +32,7 @@ Use the following checklist to ensure you have this information after you have p
 | (Recommended) Time settings       | Configure time zone, primary NTP server, secondary NTP server. | Configure primary and secondary NTP server on local network.<br>If local server is not available, public NTP servers can be   configured.                                                    |
 | (Optional) Update server settings | <li>Require update server IP address on local network, path to WSUS server. </li> | By default, public windows update server is used.|
 | Device settings | <li>Device fully qualified domain name (FQDN) </li><li>DNS domain</li> | |
-| (Optional) Certificates  | To test non-production workloads, use [Generate certificates option](azure-stack-edge-pro-2-deploy-configure-certificates.md#generate-device-certificates) <br><br> If you bring your own certificates including the signing chain(s), [Add certificates](azure-stack-edge-pro-2-deploy-configure-certificates.md#bring-your-own-certificates) in appropriate format.| Configure certificates only if you change the device name and/or DNS domain. |
+| (Optional) Certificates  | To test non-production workloads, use [Generate certificates option](azure-stack-edge-gpu-deploy-configure-certificates.md#generate-device-certificates) <br><br> If you bring your own certificates including the signing chain(s), [Add certificates](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates) in appropriate format.| Configure certificates only if you change the device name and/or DNS domain. |
 | Activation  | Require activation key from the Azure Stack Edge Pro/ Data Box Gateway resource.    | Once generated, the key expires in 3 days. |
 
 <!--
@@ -42,4 +42,4 @@ Use the following checklist to ensure you have this information after you have p
 
 ## Next steps
 
-Prepare to deploy your [Azure Stack Edge Pro 2 device](azure-stack-edge-pro-2-deploy-prep.md).
+Prepare to deploy your [Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-prep.md).
