@@ -29,7 +29,7 @@ To view the available metrics, set the self-diagnostics level to `DEBUG` in your
   }
 ```
 
-The available JMX metrics, with the object names and attribute names will appear in the log file (in the configuration example above you will also see them in the console).
+The available JMX metrics, with the object names and attribute names will appear in the application insights log file.
 
 The output in the log file will look similar to the example below. In some cases the list can be quite extensive.
 > [!div class="mx-imgBorder"]
