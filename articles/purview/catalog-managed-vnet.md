@@ -6,12 +6,15 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/12/2021
+ms.date: 01/11/2022
 ms.custom: references_regions
 # Customer intent: As a Purview admin, I want to set up Managed Virtual Network and managed private endpoints for my Purview account.
 ---
 
 # Use a Managed VNet with your Azure Purview account
+
+> [!IMPORTANT]
+> Azure Purview Managed Vnet, VNet Integration Runtime, and managed private endpoint connections are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!IMPORTANT]
 > Currently, Managed Virtual Network and managed private endpoints are available for Azure Purview accounts that are deployed in the following regions:
