@@ -72,7 +72,7 @@ On the **Usage Analytics** dashboard:
     - **User Groups**: Identifies how many groups a user belongs to.
     - **Last Activity On**: Displays the date and time the user last performed any type of task in the authorization system.
 
-        If the user hasn't logged in or hasn't performed tasks in the last 90 days, a dash (**-**) displays.
+        A dash (**-**) displays if the user hasn't logged in or hasn't performed tasks in the last 90 days, .
 
     - **Tags** : Displays the number of tags applied to a user.
 
@@ -83,7 +83,7 @@ On the **Usage Analytics** dashboard:
 
 ## Apply filters for users
 
-There are many filter options on the **Users** screen, including filters by **Authorization systems**, filters by **User** types and filters by **Task** types. You can apply filters in one, two, or all three categories, depending on what information the system administrator wants. 
+There are many filter options on the **Users** screen, including filters by **Authorization systems**, **User** types, and **Task** types. You can apply filters in one, two, or all three categories, depending on the information you want. 
 
 - **Filtering by Authorization systems**
     1. To expand the **Authorization systems** menu, select the icon on the left side of the page. Then select all applicable systems. 
@@ -115,7 +115,7 @@ There are many filter options on the **Users** screen, including filters by **Au
         - **Role/App/Service a/c**: The default for the subcategories under this option is **All**. You can select **Active** or **Inactive**.
              **Role** applies to AWS, Application (**App**) applies to Azure, and **Service account** (a/c) applies to GCP. 
 
-             If you filter by this option, the role, application, or service account name displays under the **Username** column.
+             When you filter by this option, the role, application, or service account name displays under the **Username** column.
         - **Resource** (specific to AWS) -  Displays virtual machines in AWS.
         - **Cross Account** (specific to AWS) -  Displays identities coming from another AWS account.
     3. To display the identities that have a PCI of greater than 0, select the box next to **Risky** at the top of the **Users** filter box. 
@@ -152,7 +152,7 @@ There are many filter options on the **Users** screen, including filters by **Au
 
      - You can display a service in both the **Unused** and **Used** columns, depending on when it was accessed. 
 
-        If none of the tasks have been used in a service, there will be an exclamation mark (**!**). If you hover on the list, the following message displays: 
+        An exclamation point (**!**) displays if none of the tasks have been used in a service. When you hover on the list, the following message displays: 
 
         **None of the tasks in this group have been used in the last 90 days**. 
 
@@ -163,15 +163,15 @@ There are many filter options on the **Users** screen, including filters by **Au
       - **Search**: In the **Search** box, type a specific task name and find how many of those tasks have been unused or used.
       - **All Tasks**: Use the **Tasks** drop-down list to filter by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
 
-          A **High-Risk task** can cause data leakage, service disruption, or service degradation. 
+          - A **High-Risk task** causes data leakage, service disruption, or service degradation. 
 
-          A **Delete Task** is considered a high-risk task that allows a user to permanently delete a resource.
+          - A **Delete Task** is considered a high-risk task that allows a user to permanently delete a resource.
 
   - When you select **User** from the **Users** filter section, the following side panels display:
 
-      - **User Groups** (Local Users Only) (All Authorization Systems) -  Displays the specific groups the user belongs to, if applicable.
+      - **User Groups** (Local Users only) (All Authorization Systems) -  Displays the specific groups the user belongs to, if applicable.
 
-      - **Roles Available** (AWS Only) - Lists all the roles the user can assume within the authorization system, including **Type**, **Name**, and **Domain**.
+      - **Roles Available** (AWS only) - Lists all the roles the user can assume within the authorization system, including **Type**, **Name**, and **Domain**.
 
         1. In the **Name** column, select **View json.** 
 
@@ -189,7 +189,7 @@ There are many filter options on the **Users** screen, including filters by **Au
 
         4. To view details on who can assume the role being viewed, select the **Trusted Entities** tab.
         
-             - **Roles Accessed** (SAML Users Only) (AWS Only) - Lists all the roles the user has assumed within the authorization system, including **Type**, **Name**, and **Domain**.
+             - **Roles Accessed** (SAML users only) (AWS only) - Lists all the roles the user has assumed within the authorization system, including **Type**, **Name**, and **Domain**.
              - **Roles** (Azure) - Lists all the roles the user can assume within the authorization system, including **Name**, **Resource**, **Type**, and **Status**.
              - **Roles** (GCP) - Lists all the roles the user can assume within the authorization system, including **Source**, **Resource**, and **Current Role**.
 
@@ -197,14 +197,14 @@ There are many filter options on the **Users** screen, including filters by **Au
 
        **Role** is specific to AWS, **Application (App)** is specific to Azure, and **Service Account (a/c)** is specific to GCP.
 
-    - **Role (AWS Only)**
+    - **Role (AWS only)**
         - **Identities with access**:  Displays which identities can assume this specific role, including **Type**, **Name**, and **Domain** information.
-        - **Identities accessed** (AWS Only) -  Displays how many identities have assumed the role, including **Type**, **Name**, and **Domain** information.
+        - **Identities accessed** (AWS only) -  Displays how many identities have assumed the role, including **Type**, **Name**, and **Domain** information.
 
              > [!IMPORTANT]
-             >  If the role no longer allows the identity to assume it, that identity will still appear in the **Identities accessed** section if the user accessed the identity in the past 90 days prior to the identity being removed. </p>The identity will no longer display in the **Identities accessed** section once the 90 day period has passed.
+             >  The identity appears in the **Identities accessed** section if the user has accessed the identity up to 90 days prior to the identity being removed, or if the role is no longer allowed to assume the identity. </p>The identity doesn't display in the **Identities accessed** section after the 90 day period has passed.
 
-    - **Application (Azure Only)**
+    - **Application (Azure only)**
         - **Secrets**: Applications can authenticate using secrets. The **Secrets** panel displays the following options:
             - **Key Id**: The ID number for the secret key.
             - **Start Date**: The day the key was generated.
@@ -221,7 +221,7 @@ There are many filter options on the **Users** screen, including filters by **Au
                 - **Active**: The user is using a role that is available in Microsoft PIM.
                 - **Expired**: The Microsoft PIM role is no longer available for the user.
 
-    - **Service Account (GCP Only)**
+    - **Service Account (GCP only)**
         - **Service Account Usage -**  Displays the usage pattern for the service account over the last 90 days
         - **Roles -** Lists all the roles that are assigned to a user. The following fields display more information about the role:
             - **Source**: The scope where the role is assigned.
@@ -248,13 +248,14 @@ There are many filter options on the **Users** screen, including filters by **Au
     1. Select the **Authorization System Type**. 
 
            The **Authorization System Type** drop-down list won't have multiple options if the current user is part of only one authorization system.
+
     1. Click in the **Tag** box. 
 
           A  drop-down list of existing tags appears. Select from the current options or can type in a brand new tag and then select **Create**. 
     1. Input a value in the **Value (Optional)** box, such as the date and time the tag is being created.
     1. Click in the **Authorization Systems** box. 
     
-          If the current user is only part of one authorization system,  this box will be pre-populated. If they are part of multiple authorization systems, the system administrator can select the appropriate authorization system the tag being created.
+          The box is pre-populated when the current user is only part of one authorization system. When they are part of multiple authorization systems, the system administrator can select the appropriate authorization system the tag being created.
     1. To save the tag, select **Save**.
     1. To close the **Tag** window, select the **X**.
 
@@ -272,3 +273,9 @@ CloudKnox has the following set of predefined tags that can be applied:
 
 
 <!---## Next steps--->
+
+<!---Add link. To track assigned privileges and usage of the group and the group members, see [View usage analytics about groups](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-groups.html).--->
+<!---Add link. To track resources that have been used in the last 90 days, see [View usage analytics about active resources](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-active-resources.html).--->
+<!---Add link. To track tasks that have been performed in the last 90 days, see [View usage analytics about active tasks](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-active-tasks.html).--->
+<!---Add link. To track the privilege usage of access keys for a given user, see [View usage analytics about access keys](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-access-keys.html).--->
+<!---Add link. To track assigned privileges and usage of the serverless functions, see [View usage analytics about serverless functions](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-serverless-functions.html).--->

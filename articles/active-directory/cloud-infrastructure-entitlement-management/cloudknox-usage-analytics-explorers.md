@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/07/2022
+ms.date: 01/11/2022
 ms.author: v-ydequadros
 ---
 
@@ -33,7 +33,7 @@ The CloudKnox explorers provide more information about an identity, including en
 
 ### Access the Usage Analytics explorers
 
-1. To perform a general search and open the explorer, select **Search** at the upper right of the CloudKnox home screen.
+1. To perform a general search and open the explorer, select **Search** at the upper right of the CloudKnox dashboard.
 
 2. Enter a user, role, resource, or task name and select the appropriate option.
 
@@ -76,7 +76,7 @@ The CloudKnox explorers provide more information about an identity, including en
 
             - **Source Name**: The name of the source, that is, admin.
             - **Source**: Displays the ways in which an identity acquires access to a policy.
-        - **Permission Boundary** (AWS only) - An admin can can set this  option to restrict a user's access to certain policies.
+        - **Permission Boundary** (AWS only) - An admin can set this  option to restrict a user's access to certain policies.
 
              - To display the full details of the policy, next to the policy name, select **View**.
 
@@ -154,9 +154,9 @@ The CloudKnox explorers provide more information about an identity, including en
         - **Graph View**
             - Displays a graph view of how many tasks have been granted, how many tasks have been executed, how many tasks are scheduled, and how many tasks are alarm tasks.
         - **Table View - Scheduled Tasks**
-            -  Displays a detailed view of tasks that have been scheduled.
+            - Displays a detailed view of tasks that have been scheduled.
         - **Table View - Alarms**
-            -  Displays a detailed view of tasks that are considered alarm tasks.
+            - Displays a detailed view of tasks that are considered alarm tasks.
 
 9. To view all the policies the user has access to across all accounts with the following details, select the **All Permissions** tab:
 
@@ -179,7 +179,7 @@ The CloudKnox explorers provide more information about an identity, including en
         - **Source Name**: Displays the name of the source.
         - **Source Type**: Displays the type of source applied to the identity.
 
-## The Role Explorer (Available in AWS Only)
+## The Role Explorer (AWS only)
 
 1. To access the **Role Explorer**, choose an authorization system. 
 2. Select **Groups**, and then select **Role / App / Service a/c**. 
@@ -230,7 +230,7 @@ The CloudKnox explorers provide more information about an identity, including en
     - **All Tasks** – Displays the number of tasks available to the role total.
     - **High Risk Tasks** – Displays the number of high risk tasks the role has access to total.
 
-      -  To view the names of the tasks and high risk tasks used on the specific resource listed, select the icon to expand details.
+      - To view the names of the tasks and high risk tasks used on the specific resource listed, select the icon to expand details.
 
 8. To view the tasks the role has executed with the following details, select the **Tasks** tab:
 
@@ -341,13 +341,13 @@ The CloudKnox explorers provide more information about an identity, including en
 
 ## The Account Explorer
 
-The **Account Explorer** displays all the identities - users, roles, EC2 instances, and Lambda Functions - that can access the selected account from an external account.
+The **Account Explorer** displays all the identities that can access the selected account from an external account: users, roles, EC2 instances, and Lambda Functions.
 
 1. To access the **Account Explorer**:
 
-    - To choose an authorization system from the left-side panel, select the **Lock** icon. Then select an AWS account. 
+    - Choose an authorization system from the left-side panel, select the **Lock** icon. Then select an AWS account. 
       - Under the **Domain/Account** column, select the domain or account name to access **Account Explorer**. The default view is the **Cross Account** **Users** tab.
-       - Or, select the **Data Collectors** icon on the top menu. Choose the **Authorization Systems** tab and select the **Name** of any AWS accounts.
+      - Or, select the **Data Collectors** icon on the top menu. Choose the **Authorization Systems** tab and select the **Name** of any AWS accounts.
 2. The **Cross Account** **Users** tab displays which identities can access the specified account, with the following details:
  
       The **Account Explorer** displays identities that aren't part of the  specified AWS account, but have permission to access the account through various roles.
@@ -388,3 +388,7 @@ The **Account Explorer** displays all the identities - users, roles, EC2 instanc
         - To view a diagram of the ways in which the identity can access the specified account and through which role(s), select the identity name.
 
 <!---## Next steps--->
+
+
+<!---Add link: To find out more about the Usage Analytics dashboard, see [The Usage Analytics dashboard](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-ui-usage-analytics.html).--->
+<!---Add link: To view details about users, groups, active resources, active tasks, access keys, and serverless functions, see [View detailed usage information with the Usage Analytics dashboard](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-home.html).--->
