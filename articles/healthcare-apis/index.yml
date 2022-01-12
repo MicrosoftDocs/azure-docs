@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 10/05/2021
+  ms.date: 12/01/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -43,19 +43,6 @@ landingContent:
         links:
           - text: Healthcare APIs FAQs
             url: healthcare-apis-faqs.md
-
-  - title: Transfer and Transform Data
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Export data
-            url: ./data-transformation/export-data.md
-          - text: Export data to Synapse
-            url: ./data-transformation/move-to-synapse.md
-      - linkListType: concept
-        links:
-          - text: Convert data
-            url: ./data-transformation/convert-data.md
   
   - title: FHIR service
     linkLists:

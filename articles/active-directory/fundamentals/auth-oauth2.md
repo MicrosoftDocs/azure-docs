@@ -3,7 +3,7 @@ title: OAUTH 2.0 authentication with Azure Active Directory
 description: Architectural guidance on achieving OAUTH 2.0 authentication with Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 
 ms.service: active-directory
 ms.workload: identity

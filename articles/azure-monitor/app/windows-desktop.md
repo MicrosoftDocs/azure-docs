@@ -3,6 +3,7 @@ title: Monitoring usage and performance for Windows desktop apps
 description: Analyze usage and performance of your Windows desktop app with Application Insights.
 ms.topic: conceptual
 ms.date: 06/11/2020
+ms.devlang: csharp
 ms.custom: fasttrack-edit
 ---
 

@@ -359,8 +359,10 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     # [Java](#tab/java)
 
     Create an HTML page with below content and save it to */src/main/resources/public/index.html*:
+
     ---
     
+
     ```html
     <html>
 

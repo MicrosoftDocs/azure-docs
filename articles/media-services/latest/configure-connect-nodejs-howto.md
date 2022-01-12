@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: javascript
 ms.topic: how-to
 ms.date: 12/13/2021
 ms.author: inhenkel
@@ -207,4 +207,4 @@ Many more samples are available in the [repository](https://github.com/Azure-Sam
 
 ## Next steps
 
-Explore the Media Services [Node.js ref](/javascript/api/overview/azure/mediaservices/management) documentation and check out [samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials) that show how to use Media Services API with node.js.
+Explore the Media Services [Node.js ref](/javascript/api/overview/azure/arm-mediaservices-readme) documentation and check out [samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials) that show how to use Media Services API with node.js.

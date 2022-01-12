@@ -47,20 +47,48 @@ Web Session events may also include [User](network-normalization-schema.md#user)
 
 ## Parsers
 
-### Source-agnostic parsers
+For more information about ASIM parsers, see the [ASIM parsers overview](normalization-parsers-overview.md) and [Use ASIM parsers](normalization-about-parsers.md).
 
-To use the source-agnostic parsers that unify all of the out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the following KQL functions as the table name in your query:
+### Unifying parsers
 
-| Name | Description | Usage instructions |
-| ---- | --- | --- |
-| <a name="imwebsession"></name>**imWebSession** | Aggregative parser that uses *union* to include normalized events from all *Web Session* sources. <br><br>Example: Network sessions fields that support [HTTP session fields](#http-session-fields) |- Update this parser if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries.|
-| **ASimWebSession** | Similar to the [imWebSession](#imwebsession) function, but without parameter support, and therefore does not force the **Logs** page time picker to use the `custom` value. |- Update these parsers if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries if you don't plan to use parameters.|
-| **vimWebSession\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source. |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the `im` aggregative parser to include reference to your new parser. <br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use a source-specific parser for source-specific analytics.|
-| **ASimWebSession\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source. <br><br>Unlike the `vim*` functions, the `ASim*` functions do not support parameters. |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the aggregative `ASim` parser to include reference to your new parser.<br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use an `ASim` source-specific parser for interactive queries when not using parameters.|
-| | | |
-
+To use the unifying parsers that unify all of the out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the following KQL functions as the table name in your query.
 
 Deploy ASIM parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM).
+
+#### <a name="imwebsession"></name>imWebSession
+
+Aggregative parser that uses *union* to include normalized events from all *Web Session* sources. 
+
+Example: Network sessions fields that support [HTTP session fields](#http-session-fields)
+
+- Update this parser if you want to add or remove sources from source-agnostic analytics.
+- Use this function in your source-agnostic queries.
+
+#### ASimWebSession
+
+Similar to the [imWebSession](#imwebsession) function, but without parameter support, and therefore does not force the **Logs** page time picker to use the `custom` value.
+
+- Update these parsers if you want to add or remove sources from source-agnostic analytics.
+- Use this function in your source-agnostic queries if you don't plan to use parameters.
+
+#### vimWebSession\<vendor\>\<product\>
+
+Source-specific parsers implement normalization for a specific source.
+
+- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the `im` aggregative parser to include reference to your new parser. 
+- Update a source-specific parser to resolve parsing and normalization issues.
+- Use a source-specific parser for source-specific analytics.
+
+#### ASimWebSession\<vendor\>\<product\>
+
+Source-specific parsers implement normalization for a specific source.
+
+Unlike the `vim*` functions, the `ASim*` functions do not support parameters.
+
+- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the aggregative `ASim` parser to include reference to your new parser.
+- Update a source-specific parser to resolve parsing and normalization issues.
+- Use an `ASim` source-specific parser for interactive queries when not using parameters.
+
 
 ### Add your own normalized parsers
 
@@ -81,7 +109,7 @@ The following filtering parameters are available:
 |----------|-----------|-------------|
 | **starttime** | datetime | Filter only Web sessions that **started** at or after this time. |
 | **endtime** | datetime | Filter only Web sessions that **started** running at or before this time. |
-| **srcipaddr_has_any_ipv4_prefix** | dynamic | Filter only Web sessions for which the [source IP address field](network-normalization-schema.md#srcipaddr) prefix is in one of the listed values. Note that the list of values can include IP addresses as well as IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. |
+| **srcipaddr_has_any_prefix** | dynamic | Filter only Web sessions for which the [source IP address field](network-normalization-schema.md#srcipaddr) prefix is in one of the listed values. Note that the list of values can include IP addresses as well as IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. |
 | **url_has_any** | dynamic | Filter only Web sessions for which the [URL field](#url) has any of the values listed. If specified, and the session is not a web session, no result will be returned.|  
 | **httpuseragent_has_any** | dynamic | Filter only web sessions for which the [user agent field](#httpuseragent) has any of the values listed. If specified, and the session is not a web session, no result will be returned. | 
 | **ventresultdetails_in** | dynamic | Filter only web sessions for which the HTTP status code, stored in the [EventResultDetails](#eventresultdetails) field, is any of the values listed. | 
@@ -184,8 +212,9 @@ If the event is reported by one of the endpoints of the web session, it may incl
 
 For more information, see:
 
-- [Normalization in Microsoft Sentinel](normalization.md)
-- [Advanced SIEM Information Model schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model parsers](normalization-about-parsers.md)
-- [Advanced SIEM Information Model content](normalization-content.md)
+- Watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
+- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
+- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced SIEM Information Model (ASIM) parsers](normalization-parsers-overview.md)
+- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)
 

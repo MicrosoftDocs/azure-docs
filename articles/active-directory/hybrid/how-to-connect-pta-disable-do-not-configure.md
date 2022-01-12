@@ -3,7 +3,7 @@ title: 'Disable PTA when using Azure AD Connect "Do not configure" | Microsoft D
 description: This article describes how to disable PTA with the Azure AD Connect "do not configure" feature.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity

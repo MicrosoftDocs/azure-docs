@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: python
 ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: inhenkel

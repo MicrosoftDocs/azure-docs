@@ -26,6 +26,10 @@ sections:
          What is the recommended way to update a linked hub when the primary key for the IoT Hub access policy is regenerated? 
         answer: |
          The primary key is embedded inside the connection string that DPS uses for authentication. Whenever the primary connection string is modified, the primary key will also be modified, and you'll need to relink the hub to your DPS.
+      - question: |
+         How can I disable or remove a single device within an enrollment group without affecting any other devices? 
+        answer: |
+         You can create a disabled individual enrollment entry for the device. To learn more, see [How to disenroll a device from Azure IoT Hub Device Provisioning Service](how-to-revoke-device-access-portal.md).
   - name: DPS Billing
     questions:
       - question: |

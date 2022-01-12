@@ -269,7 +269,7 @@ The following example illustrates the process of configuring a service SAS for a
 
 ## Delete containers
 
-Depending on your use case, you can retrieve a container or list of containers with the `Remove-AzStorageContainer` cmdlet. When deleting a list of containers, you can leverage conditional operations, loops, or the PowerShell pipeline as shown in the examples below.
+Depending on your use case, you can delete a container or list of containers with the `Remove-AzStorageContainer` cmdlet. When deleting a list of containers, you can leverage conditional operations, loops, or the PowerShell pipeline as shown in the examples below.
 
 ```azurepowershell
 # Create variables

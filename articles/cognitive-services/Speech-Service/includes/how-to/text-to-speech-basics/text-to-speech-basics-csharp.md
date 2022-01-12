@@ -202,7 +202,7 @@ First, create a new XML file for the SSML config in your root project directory,
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-US-ChristopherNeural">
+  <voice name="en-US-JennyNeural">
     When you're on the freeway, it's a good idea to use a GPS.
   </voice>
 </speak>
@@ -229,7 +229,7 @@ public static async Task SynthesizeAudioAsync()
 ```
 
 > [!NOTE]
-> To change the voice without using SSML, you can set the property on the `SpeechConfig` by using `SpeechConfig.SpeechSynthesisVoiceName = "en-US-ChristopherNeural";`
+> To change the voice without using SSML, you can set the property on the `SpeechConfig` by using `SpeechConfig.SpeechSynthesisVoiceName = "en-US-JennyNeural";`
 
 ## Get facial pose events
 
