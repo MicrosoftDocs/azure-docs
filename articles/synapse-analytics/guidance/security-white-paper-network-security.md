@@ -1,5 +1,5 @@
 ---
-title: "Synapse Analytics security white paper: Network security"
+title: "Azure Synapse Analytics security white paper: Network security"
 description: Manage secure network access with Azure Synapse Analytics.
 author: peter-myers
 ms.author: v-petermyers
@@ -13,15 +13,15 @@ ms.date: 01/14/2022
 
 [!INCLUDE [security-white-paper-context](includes/security-white-paper-context.md)]
 
-To secure Synapse Analytics, there are a range of network security options to consider.
+To secure Azure Synapse, there are a range of network security options to consider.
 
 ## Network security terminology
 
-This opening section provides an overview and definitions of some of key Synapse Analytics terms related to network security. Keep these definitions in mind while reading this article.
+This opening section provides an overview and definitions of some of key Azure Synapse terms related to network security. Keep these definitions in mind while reading this article.
 
 ### Synapse workspace
 
-A [*Synapse workspace*](../get-started-create-workspace.md) is a securable logical collection of all services offered by Synapse Analytics. It includes dedicated SQL pools (formerly SQL DW), serverless SQL pools, Apache Spark pools, pipelines, and other services. Certain network configuration settings, such as IP firewall rules, managed virtual network, and approved tenants for exfiltration protection, are configured and secured at the workspace level.
+A [*Synapse workspace*](../get-started-create-workspace.md) is a securable logical collection of all services offered by Azure Synapse. It includes dedicated SQL pools (formerly SQL DW), serverless SQL pools, Apache Spark pools, pipelines, and other services. Certain network configuration settings, such as IP firewall rules, managed virtual network, and approved tenants for exfiltration protection, are configured and secured at the workspace level.
 
 ### Synapse workspace endpoints
 
@@ -35,9 +35,9 @@ These endpoints are automatically created when the Synapse workspace is created.
 
 ### Synapse Studio
 
-[*Synapse Studio*](/learn/modules/explore-azure-synapse-studio/) is a secure web front-end development environment for Synapse Analytics. It supports various roles, including the data engineer, data scientist, data developer, data analyst, and Synapse administrator.
+[*Synapse Studio*](/learn/modules/explore-azure-synapse-studio/) is a secure web front-end development environment for Azure Synapse. It supports various roles, including the data engineer, data scientist, data developer, data analyst, and Synapse administrator.
 
-Use Synapse Studio to performing various data and management operations in Synapse Analytics, such as:
+Use Synapse Studio to performing various data and management operations in Azure Synapse, such as:
 
 - Connecting to dedicated SQL pools, serverless SQL pools, and running SQL scripts.
 - Developing and running notebooks on Apache Spark pools.
@@ -52,7 +52,7 @@ Connections to workspace endpoints can be made using Synapse Studio. Also, it's 
 
 By default, the workspace endpoints are *public endpoints* when they're provisioned. Access to these workspace endpoints from any public network is enabled, including networks that are outside the customer's organization, without requiring a VPN connection or an ExpressRoute connection to Azure.
 
-All Azure services, including PaaS services like Synapse Analytics, are protected by [DDoS basic protection](../../ddos-protection/ddos-protection-overview.md) to mitigate malicious attacks (active traffic monitoring, always on detection, and automatic attack mitigations).
+All Azure services, including PaaS services like Azure Synapse, are protected by [DDoS basic protection](../../ddos-protection/ddos-protection-overview.md) to mitigate malicious attacks (active traffic monitoring, always on detection, and automatic attack mitigations).
 
 All traffic to workspace endpoints—even via public networks—is encrypted and secured in transit by Transport Level Security (TLS) protocol.
 
@@ -66,7 +66,7 @@ Consider enabling public access when the on-premises environment doesn't have VP
 
 ## Private endpoints
 
-An [Azure private endpoint](../../private-link/private-endpoint-overview.md) is a virtual network interface with a private IP address that's created in the customer's own [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md) (VNet) subnet. A private endpoint can be created for any Azure service that supports private endpoints, such as Synapse Analytics, dedicated SQL pools (formerly SQL DW), Azure SQL Databases, Azure Storage, or any service in Azure powered by [Azure Private Link service](../../private-link/private-link-service-overview.md).
+An [Azure private endpoint](../../private-link/private-endpoint-overview.md) is a virtual network interface with a private IP address that's created in the customer's own [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md) (VNet) subnet. A private endpoint can be created for any Azure service that supports private endpoints, such as Azure Synapse, dedicated SQL pools (formerly SQL DW), Azure SQL Databases, Azure Storage, or any service in Azure powered by [Azure Private Link service](../../private-link/private-link-service-overview.md).
 
 It's possible to create private endpoints in the VNet for all three Synapse workspace endpoints, individually. This way, there could be three private endpoints created for three endpoints of a Synapse workspace: one for dedicated SQL pool, one for serverless SQL pool, and one for the development endpoint.
 
@@ -86,10 +86,10 @@ The above diagram depicts the following key points:
 
 | **Item** | **Description** |
 | --- | --- |
-| ![Item 1.](media/common/icon-01-red-30x30.png) | Workstations from within the customer VNet access the Synapse Analytics private endpoints. |
+| ![Item 1.](media/common/icon-01-red-30x30.png) | Workstations from within the customer VNet access the Azure Synapse private endpoints. |
 | ![Item 2.](media/common/icon-02-red-30x30.png) | Peering between customer VNet and another VNet. |
-| ![Item 3.](media/common/icon-03-red-30x30.png) | Workstation from peered VNet access the Synapse Analytics private endpoints. |
-| ![Item 4.](media/common/icon-04-red-30x30.png) | On-premises network access the Synapse Analytics private endpoints through VPN or ExpressRoute. |
+| ![Item 3.](media/common/icon-03-red-30x30.png) | Workstation from peered VNet access the Azure Synapse private endpoints. |
+| ![Item 4.](media/common/icon-04-red-30x30.png) | On-premises network access the Azure Synapse private endpoints through VPN or ExpressRoute. |
 | ![Item 5.](media/common/icon-05-red-30x30.png) | Workspace endpoints are mapped into customer's VNet through private endpoints using Azure Private Link service. |
 | ![Item 6.](media/common/icon-06-red-30x30.png) | Public access is disabled on the Synapse workspace. |
 
@@ -119,7 +119,7 @@ The above diagram depicts the following key points:
 
 ## Managed VNet
 
-The [Synapse Managed VNet](../security/synapse-workspace-managed-vnet.md) feature provides a fully managed network isolation for the Apache Spark pool and pipeline compute resources between Synapse workspaces. It can be configured at workspace creation time. In addition, it also provides network isolation for Spark clusters within the same workspace. Each workspace has its own virtual network, which is fully managed by Synapse. The Managed VNet isn't visible to the users to make any modifications. Any pipeline or Apache Spark pool compute resources that are spun up by Synapse Analytics in a Managed VNet gets provisioned inside its own VNet. This way, there's full network isolation from other workspaces.
+The [Synapse Managed VNet](../security/synapse-workspace-managed-vnet.md) feature provides a fully managed network isolation for the Apache Spark pool and pipeline compute resources between Synapse workspaces. It can be configured at workspace creation time. In addition, it also provides network isolation for Spark clusters within the same workspace. Each workspace has its own virtual network, which is fully managed by Synapse. The Managed VNet isn't visible to the users to make any modifications. Any pipeline or Apache Spark pool compute resources that are spun up by Azure Synapse in a Managed VNet gets provisioned inside its own VNet. This way, there's full network isolation from other workspaces.
 
 This configuration eliminates the need to create and manage VNets and network security groups for the Apache Spark pool and pipeline resources, as is typically done by [VNet Injection](../../databricks/administration-guide/cloud-configurations/azure/vnet-inject.md).
 
@@ -143,9 +143,9 @@ The following diagram depicts a managed private endpoint connecting to an Azure 
 
 ## Advanced Spark security
 
-A Managed VNet also provides some added advantages for Apache Spark pool users. There's no need to worry about configuring a *fixed* subnet address space as would be done in [VNet Injection](../../databricks/administration-guide/cloud-configurations/azure/vnet-inject.md). Synapse Analytics automatically takes care of allocating these address spaces dynamically for workloads.
+A Managed VNet also provides some added advantages for Apache Spark pool users. There's no need to worry about configuring a *fixed* subnet address space as would be done in [VNet Injection](../../databricks/administration-guide/cloud-configurations/azure/vnet-inject.md). Azure Synapse automatically takes care of allocating these address spaces dynamically for workloads.
 
-In addition, Synapse Spark pools operate as a job cluster. It means each user gets their own Apache Spark cluster when interacting with the workspace. Creating an Apache Spark pool within the workspace is metadata information for what will be assigned to the user when executing Spark workloads. It means each user will get their own Apache Spark cluster *in a dedicated subnet inside the Managed VNet* to execute workloads. Apache Spark pool sessions from the same user execute on the same compute resources. By providing this functionality, there are three main benefits:
+In addition, Spark pools operate as a job cluster. It means each user gets their own Spark cluster when interacting with the workspace. Creating an Spark pool within the workspace is metadata information for what will be assigned to the user when executing Spark workloads. It means each user will get their own Spark cluster *in a dedicated subnet inside the Managed VNet* to execute workloads. Spark pool sessions from the same user execute on the same compute resources. By providing this functionality, there are three main benefits:
 
 - Greater security due to workload isolation based on the user.
 - Reduction of noisy neighbors.
@@ -153,7 +153,7 @@ In addition, Synapse Spark pools operate as a job cluster. It means each user ge
 
 ## Data exfiltration protection
 
-Synapse workspaces with Managed VNet have an additional security feature called *[data exfiltration protection](../security/workspace-data-exfiltration-protection.md)*. It protects all egress traffic going out from Synapse Analytics from all services, including dedicated SQL pools, serverless SQL pools, Apache spark pools, and pipelines. It's configured by enabling data exfiltration protection at the workspace level (at workspace creation time) to restrict the outbound connections to an allowed list of Azure Active Directory (Azure AD) tenants. By default, only the home tenant of the workspace is added to the list, but it's possible to add or modify the list of Azure AD tenants anytime after the workspace is created. Adding additional tenants is a highly privileged operation that requires the elevated role of [Synapse Administrator](../security/synapse-workspace-synapse-rbac-roles.md). It effectively controls exfiltration of data from Synapse Analytics to other organizations and tenants, without the need to have complicated network security policies in place.
+Synapse workspaces with Managed VNet have an additional security feature called *[data exfiltration protection](../security/workspace-data-exfiltration-protection.md)*. It protects all egress traffic going out from Azure Synapse from all services, including dedicated SQL pools, serverless SQL pools, Apache spark pools, and pipelines. It's configured by enabling data exfiltration protection at the workspace level (at workspace creation time) to restrict the outbound connections to an allowed list of Azure Active Directory (Azure AD) tenants. By default, only the home tenant of the workspace is added to the list, but it's possible to add or modify the list of Azure AD tenants anytime after the workspace is created. Adding additional tenants is a highly privileged operation that requires the elevated role of [Synapse Administrator](../security/synapse-workspace-synapse-rbac-roles.md). It effectively controls exfiltration of data from Azure Synapse to other organizations and tenants, without the need to have complicated network security policies in place.
 
 For workspaces with data exfiltration protection enabled, Synapse pipelines and Apache Spark pools must use managed private endpoint connections for all their outbound connections.
 
@@ -182,7 +182,7 @@ The above diagram depicts the following key points:
 
 ## Dedicated SQL pool (formerly SQL DW)
 
-Prior to the Synapse Analytics offering, an Azure SQL data warehouse product named SQL DW was offered. It's now renamed as [dedicated SQL pool (formerly SQL DW)](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
+Prior to the Azure Synapse offering, an Azure SQL data warehouse product named SQL DW was offered. It's now renamed as [dedicated SQL pool (formerly SQL DW)](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
 
 Dedicated SQL pool (formerly SQL DW) is created inside a logical Azure SQL server. It's a securable logical construct that acts as a central administrative point for a collection of databases including SQL DW and other Azure SQL databases.
 
@@ -198,9 +198,9 @@ Since dedicated SQL pool (formerly SQL DW) is a multi-tenant service, it's not p
 
 ## Network security feature matrix
 
-The following comparison table provides a high-level overview of network security features supported across the Synapse Analytics offerings:
+The following comparison table provides a high-level overview of network security features supported across the Azure Synapse offerings:
 
-| **Feature** | **Synapse Analytics: Apache Spark pool** | **Synapse Analytics: Dedicated SQL pool** | **Synapse Analytics: Serverless SQL pool** | **Dedicated SQL pool (formerly SQL DW)** |
+| **Feature** | **Azure Synapse: Apache Spark pool** | **Azure Synapse: Dedicated SQL pool** | **Azure Synapse: Serverless SQL pool** | **Dedicated SQL pool (formerly SQL DW)** |
 | --- | :-: | :-: | :-: | :-: |
 | IP firewall rules | Yes | Yes | Yes | Yes |
 | Disabling public access | Yes | Yes | Yes | Yes |

@@ -21,13 +21,13 @@ Imagine an organization with hundreds or thousands of files stored in their data
 
 Once the data discovery process is complete, it provides classification recommendations based on a predefined set of patterns, keywords, and rules. Someone can then review the recommendations and apply sensitivity-classification labels to appropriate columns. This process is known as *classification*.
 
-Synapse Analytics provides two options for data discovery and classification:
+Azure Synapse provides two options for data discovery and classification:
 
-- [Data Discovery & Classification](../../azure-sql/database/data-discovery-and-classification-overview.md), which is built into Synapse Analytics and dedicated SQL pool (formerly SQL DW).
+- [Data Discovery & Classification](../../azure-sql/database/data-discovery-and-classification-overview.md), which is built into Azure Synapse and dedicated SQL pool (formerly SQL DW).
 - [Azure Purview](https://azure.microsoft.com/services/purview/), which is a unified data governance solution that helps manage and govern on-premises, multicloud, and software-as-a-service (SaaS) data. It can automate data discovery, lineage identification, and data classification. By producing a unified map of data assets and their relationships, it makes data easily discoverable.
 
 > [!NOTE]
-> Azure Purview data discovery and classification is in public preview for Synapse Analytics, dedicated SQL pool (formerly SQL DW), and serverless SQL pool. However, data lineage is currently not supported for Synapse Analytics, dedicated SQL pool (formerly SQL DW), and serverless SQL pool. Apache Spark pool only supports [lineage tracking](../../purview/how-to-lineage-spark-atlas-connector.md).
+> Azure Purview data discovery and classification is in public preview for Azure Synapse, dedicated SQL pool (formerly SQL DW), and serverless SQL pool. However, data lineage is currently not supported for Azure Synapse, dedicated SQL pool (formerly SQL DW), and serverless SQL pool. Apache Spark pool only supports [lineage tracking](../../purview/how-to-lineage-spark-atlas-connector.md).
 
 ## Data encryption
 
@@ -41,7 +41,7 @@ Enabling [Transparent Data Encryption](../../azure-sql/database/transparent-data
 
 By default, TDE protects the database encryption key (DEK) with a built-in server certificate (service managed). There's an option to bring your own key (BYOK) that can be securely stored in [Azure Key Vault](../../key-vault/general/basic-concepts.md).
 
-Synapse Analytics SQL serverless pool and Apache Spark pool are analytic engines that work directly on [Azure Data Lake Gen2](../../storage/blobs/data-lake-storage-introduction.md) (ALDS Gen2) or [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md). These analytic runtimes don't have any permanent storage and rely on Azure Storage encryption technologies for data protection. By default, Azure Storage encrypts all data using [server-side encryption](../../storage/common/storage-service-encryption.md) (SSE). It's enabled for all storage types (including ADLS Gen2) and cannot be disabled. SSE encrypts and decrypts data transparently using AES 256.
+Azure Synapse SQL serverless pool and Apache Spark pool are analytic engines that work directly on [Azure Data Lake Gen2](../../storage/blobs/data-lake-storage-introduction.md) (ALDS Gen2) or [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md). These analytic runtimes don't have any permanent storage and rely on Azure Storage encryption technologies for data protection. By default, Azure Storage encrypts all data using [server-side encryption](../../storage/common/storage-service-encryption.md) (SSE). It's enabled for all storage types (including ADLS Gen2) and cannot be disabled. SSE encrypts and decrypts data transparently using AES 256.
 
 There are two SSE encryption options:
 
@@ -52,9 +52,9 @@ While SSE forms the first layer of encryption, cautious customers can double enc
 
 ### Data in transit
 
-Synapse Analytics, dedicated SQL pool (formerly SQL DW), and serverless SQL pool use the [Tabular Data Stream](/openspecs/windows_protocols/ms-tds/893fcc7e-8a39-4b3c-815a-773b7b982c50) (TDS) protocol to communicate between the SQL pool endpoint and a client machine. TDS depends on Transport Layer Security (TLS) for channel encryption, ensuring all data packets are secured and encrypted between endpoint and client machine. It uses a signed server certificate from the Certificate Authority (CA) used for TLS encryption, managed by Microsoft. Synapse Analytics supports data encryption in transit with TLS v1.2, using AES 256 encryption.
+Azure Synapse, dedicated SQL pool (formerly SQL DW), and serverless SQL pool use the [Tabular Data Stream](/openspecs/windows_protocols/ms-tds/893fcc7e-8a39-4b3c-815a-773b7b982c50) (TDS) protocol to communicate between the SQL pool endpoint and a client machine. TDS depends on Transport Layer Security (TLS) for channel encryption, ensuring all data packets are secured and encrypted between endpoint and client machine. It uses a signed server certificate from the Certificate Authority (CA) used for TLS encryption, managed by Microsoft. Azure Synapse supports data encryption in transit with TLS v1.2, using AES 256 encryption.
 
-Synapse Analytics leverages TLS to ensure data is encrypted in motion. SQL dedicated pools support TLS 1.0, TLS 1.1, and TLS 1.2 versions for encryption wherein Microsoft-provided drivers use TLS 1.2 by default. Serverless SQL pool and Apache Spark pool use TLS 1.2 for all outbound connections.
+Azure Synapse leverages TLS to ensure data is encrypted in motion. SQL dedicated pools support TLS 1.0, TLS 1.1, and TLS 1.2 versions for encryption wherein Microsoft-provided drivers use TLS 1.2 by default. Serverless SQL pool and Apache Spark pool use TLS 1.2 for all outbound connections.
 
 ## Next steps
 

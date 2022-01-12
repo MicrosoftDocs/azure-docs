@@ -1,5 +1,5 @@
 ---
-title: "Synapse Analytics security white paper: Threat detection"
+title: "Azure Synapse Analytics security white paper: Threat detection"
 description: Audit, protect, and monitor Azure Synapse Analytics.
 author: peter-myers
 ms.author: v-petermyers
@@ -17,11 +17,11 @@ Azure Synapse provides SQL Auditing, SQL Threat Detection, and Vulnerability Ass
 
 ## Auditing
 
-[Auditing for Azure SQL Database](../../azure-sql/database/auditing-overview.md#overview) and Synapse Analytics tracks database events and writes them to an audit log in an Azure storage account, Log Analytics workspace, or Event Hubs. For any database, auditing is important. It produces an audit trail over time to help understand database activity and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
+[Auditing for Azure SQL Database](../../azure-sql/database/auditing-overview.md#overview) and Azure Synapse tracks database events and writes them to an audit log in an Azure storage account, Log Analytics workspace, or Event Hubs. For any database, auditing is important. It produces an audit trail over time to help understand database activity and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
 Used with [Data discovery and classification](../../azure-sql/database/data-discovery-and-classification-overview.md), when any sensitive columns or tables are queried by users, entries will appear in a field named **data_sensitivity_information** of the **sql_audit_information** table.
 
 > [!NOTE]
-> Azure SQL Auditing applies to Synapse Analytics, dedicated SQL pool (formerly SQL DW), and serverless SQL pool, but it doesn't apply to Apache Spark pool.
+> Azure SQL Auditing applies to Azure Synapse, dedicated SQL pool (formerly SQL DW), and serverless SQL pool, but it doesn't apply to Apache Spark pool.
 
 ## Threat detection
 
@@ -37,14 +37,14 @@ As one of the options available with Microsoft Defender for Cloud, [Microsoft De
 Alert notifications include details of the incident, and recommendations on how to investigate and remediate threats.
 
 > [!NOTE]
-> Microsoft Defender for SQL applies to Synapse Analytics and dedicated SQL pool (formerly SQL DW). It doesn't apply to serverless SQL pool or Apache Spark pool.
+> Microsoft Defender for SQL applies to Azure Synapse and dedicated SQL pool (formerly SQL DW). It doesn't apply to serverless SQL pool or Apache Spark pool.
 
 ## Vulnerability assessment
 
 [SQL vulnerability assessment](../../azure-sql/database/sql-vulnerability-assessment.md) is part of the Microsoft Defender for SQL offering. It continually monitors the data warehouse, ensuring that databases are always maintained at a high level of security and that organizational policies are met. It provides a comprehensive security report along with actionable remediation steps for each issue found, making it easy to proactively manage database security stature even if you're not a security expert.
 
 > [!NOTE]
-> SQL vulnerability assessment applies to Synapse Analytics and dedicated SQL pool (formerly SQL DW). It doesn't apply to serverless SQL pool or Apache Spark pool.
+> SQL vulnerability assessment applies to Azure Synapse and dedicated SQL pool (formerly SQL DW). It doesn't apply to serverless SQL pool or Apache Spark pool.
 
 ## Compliance
 
