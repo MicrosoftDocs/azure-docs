@@ -20,7 +20,7 @@ Specific steps are provided to copy metadata with Windows and Linux data copy to
 In this article, the ACLs, timestamps, and file attributes that are transferred are referred to collectively as *metadata*.
 
 > [!NOTE]
-> Transfer of metadata from Linux to Azure during a data copy is not supported. After you upload the files to Azure, you'll need to use a tool such as `smbcacls` or `cifsacl` to transfer the metadata. For more information, see [Linux data copy tools](#linux-data-copy-tools).
+> Transfer of metadata from Linux to Azure during a data upload is not supported. After you upload the files to Azure, you'll need to use a tool such as `smbcacls` or `cifsacl` to transfer the metadata. For more information, see [Linux data copy tools](#linux-data-copy-tools).
 
 ## Transferred metadata
 
