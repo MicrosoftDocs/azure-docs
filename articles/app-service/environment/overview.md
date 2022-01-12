@@ -5,7 +5,7 @@ author: madsd
 ms.topic: overview
 ms.date: 11/15/2021
 ms.author: madsd
-ms.custom: references_regions
+ms.custom: references_regions, fasttrack-edit
 ---
 # App Service Environment overview
 
@@ -48,6 +48,12 @@ The ASE is a single tenant deployment of the Azure App Service that runs in your
 
 Applications are hosted in App Service plans, which are created in an App Service Environment. The App Service plan is essentially a provisioning profile for an application host. As you scale your App Service plan out, you create more application hosts with all of the apps in that App Service plan on each host. A single ASEv3 can have up to 200 total App Service plan instances across all of the App Service plans combined. A single Isolated v2 App Service plan can have up to 100 instances by itself.
 
+> [!NOTE]
+> It is possible for the App Service plans and the apps they host to be provisioned in a different Subscription to the App Service Environment. This can be useful for segregating access. The prerequisties are:
+> - The Subscriptions must share the same Azure AD Tenant
+> - The App Service Environment, App Service plans and apps must be in the same region
+> - Today you cannot create App Service Plans and apps in a different subscription using the Azure Portal. Instead, use either [Azure REST API](/rest/api/appservice/app-service-plans/create-or-update) or [Azure Resource Manager Templates](/azure/templates/microsoft.web/allversions).
+
 ## Virtual network support
 
 The ASE feature is a deployment of the Azure App Service into a single subnet in a customer's virtual network. When you deploy an app into an ASE, the app will be exposed on the inbound address assigned to the ASE. If your ASE is deployed with an internal virtual IP (VIP), then the inbound address for all of the apps will be an address in the ASE subnet. If your ASE is deployed with an external VIP, then the inbound address will be an internet addressable address and your apps will be in public DNS.
@@ -79,6 +85,7 @@ There are a few features that are not available in ASEv3 that were available in 
 - monitor your traffic with Network Watcher or NSG Flow
 - configure a IP-based TLS/SSL binding with your apps
 - configure custom domain suffix
+- backup/restore operation on a storage account behind a firewall
 
 ## Pricing
 

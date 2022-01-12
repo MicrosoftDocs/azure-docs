@@ -23,6 +23,10 @@
     href: video-indexer-use-apis.md
   - name: Logic Apps connector
     href: logic-apps-connector-tutorial.md
+  - name: Deploy using ARM template
+    href: deploy-with-arm-template.md
+  - name: Index Video from OneDrive
+    href: odrv-download.md
 - name: Samples
   items:
   - name: Video Analyzer for Media samples
@@ -41,6 +45,8 @@
     href: live-stream-analysis.md
   - name: Observed people in a video   
     href: observed-people-tracing.md
+  - name: Matched person
+    href: matched-person.md    
   - name: People's detected clothing
     href: detected-clothing.md
   - name: Audio effects detection

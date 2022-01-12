@@ -35,17 +35,17 @@ Parameters are case-sensitive.
 
 | Inputs | Description |
 |---------------------|-------------|
-| defaultToLanguageCode | (Required) The language code to translate documents into for documents that don't specify the to language explicitly. <br/> See [Full list of supported languages](../cognitive-services/translator/language-support.md). |
-| defaultFromLanguageCode | (Optional) The language code to translate documents from for documents that don't specify the from language explicitly.  If the defaultFromLanguageCode is not specified, the automatic language detection provided by the Translator Text API will be used to determine the from language. <br/> See [Full list of supported languages](../cognitive-services/translator/language-support.md). |
-| suggestedFrom | (Optional) The language code to translate documents from when neither the fromLanguageCode input nor the defaultFromLanguageCode parameter are provided, and the automatic language detection is unsuccessful.  If the suggestedFrom language is not specified,  English (en) will be used as the suggestedFrom language. <br/> See [Full list of supported languages](../cognitive-services/translator/language-support.md). |
+| defaultToLanguageCode | (Required) The language code to translate documents into for documents that don't specify the to language explicitly. <br/> See the [full list of supported languages](../cognitive-services/translator/language-support.md). |
+| defaultFromLanguageCode | (Optional) The language code to translate documents from for documents that don't specify the from language explicitly.  If the defaultFromLanguageCode is not specified, the automatic language detection provided by the Translator Text API will be used to determine the from language. <br/> See the [full list of supported languages](../cognitive-services/translator/language-support.md). |
+| suggestedFrom | (Optional) The language code to translate documents from when neither the fromLanguageCode input nor the defaultFromLanguageCode parameter are provided, and the automatic language detection is unsuccessful. If the suggestedFrom language is not specified,  English (en) will be used as the suggestedFrom language. <br/> See the [full list of supported languages](../cognitive-services/translator/language-support.md). |
 
 ## Skill inputs
 
 | Input name	 | Description |
 |--------------------|-------------|
 | text | The text to be translated.|
-| toLanguageCode	| A string indicating the language the text should be translated to. If this input is not specified, the defaultToLanguageCode will be used to translate the text. <br/>See [Full list of supported languages](../cognitive-services/translator/language-support.md)|
-| fromLanguageCode	| A string indicating the current language of the text. If this parameter is not specified, the defaultFromLanguageCode (or automatic language detection if the defaultFromLanguageCode is not provided) will be used to translate the text. <br/>See [Full list of supported languages](../cognitive-services/translator/language-support.md)|
+| toLanguageCode	| A string indicating the language the text should be translated to. If this input is not specified, the defaultToLanguageCode will be used to translate the text. <br/>See the [full list of supported languages](../cognitive-services/translator/language-support.md). |
+| fromLanguageCode	| A string indicating the current language of the text. If this parameter is not specified, the defaultFromLanguageCode (or automatic language detection if the defaultFromLanguageCode is not provided) will be used to translate the text. <br/>See the [full list of supported languages](../cognitive-services/translator/language-support.md). |
 
 ## Skill outputs
 
@@ -55,7 +55,7 @@ Parameters are case-sensitive.
 | translatedToLanguageCode	| A string indicating the language code the text was translated to. Useful if you are translating to multiple languages and want to be able to keep track of which text is which language.|
 | translatedFromLanguageCode	| A string indicating the language code the text was translated from. Useful if you opted for the automatic language detection option as this output will give you the result of that detection.|
 
-##	Sample definition
+## Sample definition
 
 ```json
  {

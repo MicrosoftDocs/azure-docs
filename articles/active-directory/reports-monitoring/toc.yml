@@ -101,8 +101,8 @@
 - name: Reference
   expanded: true
   items:
-  - name: Basic info identifiers in the sign-in log
-    href: reference-basic-info-identifiers.md
+  - name: Basic info in the sign-in logs
+    href: reference-basic-info-sign-in-logs.md
   - name: Azure AD PowerShell cmdlets for reporting
     href: reference-powershell-reporting.md
   - name: Audit logs API reference

@@ -426,7 +426,7 @@ Once the Workday provisioning app configurations have been completed and you hav
 
 1. Once the initial sync is completed, it will write an audit summary report in the **Provisioning** tab, as shown below.
    > [!div class="mx-imgBorder"]
-   > ![Provisioning progress bar](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
+   > ![Provisioning progress bar](./media/sap-successfactors-inbound-provisioning/workday-sync.png)
 
 ## Frequently Asked Questions (FAQ)
 

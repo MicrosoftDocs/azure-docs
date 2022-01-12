@@ -14,7 +14,7 @@ ms.custom: devx-track-java
 This article shows you how to start or stop your Azure Spring Cloud service instance.
 
 > [!NOTE]
-> Stop and start is currently under preview.
+> Stop and start is currently under preview and we do not recommend this feature for production.
 
 Your applications running in Azure Spring Cloud may not need to run continuously - for example, if you have a service instance that's used only during business hours. At these times, Azure Spring Cloud may be idle, and running only the system components.
 

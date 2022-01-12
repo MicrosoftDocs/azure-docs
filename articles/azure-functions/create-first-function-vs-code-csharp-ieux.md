@@ -3,7 +3,8 @@ title: "Create a C# function using Visual Studio Code - Azure Functions"
 description: "Learn how to create a C# function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code. "
 ms.topic: quickstart
 ms.date: 11/03/2020
-ms.custom: devx-track-csharp, mode-other
+ms.devlang: csharp
+ms.custom: devx-track-csharp, mode-ui
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 

@@ -3,7 +3,7 @@ title: Encrypt content with the Azure portal
 description: This quickstart shows you how to configure encryption for your content using Azure Media Services in the Azure portal.
 ms.topic: quickstart
 ms.date: 08/31/2020
-ms.custom: mode-other
+ms.custom: mode-ui
 ---
 # Quickstart: Use portal to encrypt content
 

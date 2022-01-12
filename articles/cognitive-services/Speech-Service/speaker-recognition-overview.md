@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 01/08/2022
 ms.author: eur
 ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 keywords: speaker recognition, voice biometry
@@ -16,14 +16,16 @@ keywords: speaker recognition, voice biometry
 
 # What is Speaker Recognition?
 
-Speaker Recognition is used to determine who is speaking in an audio clip. The service can verify and identify speakers by their unique voice characteristics using voice biometry. You provide audio training data for a single speaker, which creates an enrollment profile based on the unique characteristics of the speaker's voice. You can then cross-check audio voice samples against this profile to verify that the speaker is the same person (speaker verification), or cross-check audio voice samples against a *group* of enrolled speaker profiles to see if it matches any profile in the group (speaker identification).
+Speaker Recognition can help determine who is speaking in an audio clip. The service can verify and identify speakers by their unique voice characteristics using voice biometry. 
+
+You provide audio training data for a single speaker, which creates an enrollment profile based on the unique characteristics of the speaker's voice. You can then cross-check audio voice samples against this profile to verify that the speaker is the same person (speaker verification), or cross-check audio voice samples against a *group* of enrolled speaker profiles to see if it matches any profile in the group (speaker identification).
 
 > [!IMPORTANT]
-> Microsoft limits access to Speaker Recognition. Apply to use it through the [Azure Cognitive Services Speaker Recognition Limited Access Review](https://aka.ms/azure-speaker-recognition). After approval, you can access the Speaker Recognition APIs. For more information, please visit [Limited access for Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition).
+> Microsoft limits access to Speaker Recognition. You can apply for access through the [Azure Cognitive Services Speaker Recognition Limited Access Review](https://aka.ms/azure-speaker-recognition). For more information, please visit [Limited access for Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition).
 
 ## Speaker Verification
 
-Speaker Verification streamlines the process of verifying an enrolled speaker identity with either passphrases or free-form voice input. It can be used to verify individuals for secure, frictionless customer engagements in a wide range of solutions, from customer identity verification in call centers to contact-less facility access.
+Speaker Verification streamlines the process of verifying an enrolled speaker identity with either passphrases or free-form voice input. For example, you can use it for customer identity verification in call centers or contact-less facility access.
 
 ### How does Speaker Verification work?
 
@@ -63,23 +65,14 @@ As with all of the Cognitive Services resources, developers who use the Speaker 
 | What scenarios can Speaker Recognition be used for? | Call center customer verification, voice-based patient check-in, meeting transcription, multi-user device personalization|
 | What is the difference between Identification and Verification? | Identification is the process of detecting which member from a group of speakers is speaking. Verification is the act of confirming that a speaker matches a known, or **enrolled** voice.|
 | What's the difference between text-dependent and text-independent verification? | Text-dependent verification requires a specific pass-phrase for both enrollment and recognition. Text-independent verification requires a longer voice sample that must start with a particular activation phrase for enrollment, but anything can be spoken, including during recognition.|
-| What languages are supported? | English, French, Spanish, Chinese, German, Italian, Japanese and Portuguese |
-| What Azure regions are supported? | Speaker Recognition is a preview service, and currently only available in the West US region.|
-| What audio formats are supported? | Mono 16 bit, 16kHz PCM-encoded WAV |
-| **Accept** and **Reject** responses aren't accurate, how do you tune the threshold? | Since the optimal threshold varies highly with scenarios, the API decides whether to “Accept” or “Reject” simply based on a default threshold of 0.5. Advanced users are advised to override the default decision and fine tune the result based on your own scenario. |
+| What languages are supported? | See [Speaker recognition language support](language-support.md#speaker-recognition) |
+| What Azure regions are supported? | See [Speaker recognition region support](regions.md#speaker-recognition)|
+| What audio formats are supported? | Mono 16 bit, 16 kHz PCM-encoded WAV |
+| **Accept** and **Reject** responses aren't accurate, how do you tune the threshold? | Since the optimal threshold varies highly with scenarios, the service decides whether to accept or reject based on a default threshold of 0.5. You should override the default decision and fine tune the result based on your own scenario. |
 | Can you enroll one speaker multiple times? | Yes, for text-dependent verification, you can enroll a speaker up to 50 times. For text-independent verification or speaker identification, you can enroll with up to 300 seconds of audio. |
 | What data is stored in Azure? | Enrollment audio is stored in the service until the voice profile is [deleted](./get-started-speaker-recognition.md#deleting-voice-profile-enrollments). Recognition audio samples are not retained or stored. |
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> * Complete the Speaker Recognition [basics article](./get-started-speaker-recognition.md) for a run-through of common design patterns you can use in your applications.
-> * See the [video tutorial](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) for text-independent speaker verification.
-
-## Responsible use of AI
-> [!div class="ResponsibleUseOfAI"]
-> * [Transparency Note for Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/transparency-note-speaker-recognition)
-> * [Characteristics and limitations for Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/characteristics-and-limitations-speaker-recognition)
-> * [Limited access for Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition)
-> * [Guidance for integration and responsible use with Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/guidance-integration-responsible-use-speaker-recognition)
-> * [Data and privacy for Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition)
+> [Speaker Recognition quickstart](./get-started-speaker-recognition.md) 

@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 11/22/2021
+ms.date: 12/03/2021
 ---
 
 # Review and publish an offer to the commercial marketplace
@@ -52,7 +52,7 @@ After all pages are complete and you have entered applicable testing notes,  sel
 
 For more information about validation in Azure Marketplace, see [Azure Marketplace listing guidelines](marketplace-criteria-content-validation.md).
 
-For more information about testing instructions and completing a first publish in Microsoft AppSource, see [Dynamics 365 Operations functional validation](dynamics-365-operations-validation.md).
+For more information about testing instructions and completing a first publish in Microsoft AppSource, see [Dynamics 365 Operations Apps functional validation](dynamics-365-operations-validation.md).
 
 ## Automated validation phase
 
@@ -156,7 +156,7 @@ The following screenshot shows the **Offer overview** page in the commercial mar
 ### Previewing and approving your offer
 
 > [!IMPORTANT]
-> To validate the end-to-end purchase and setup flow, purchase your offer while it is in Preview. First notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge. If your offer is a _Contact Me_ listing, test that a lead is created as expected by providing the Contact Me details during preview.
+> To validate the end-to-end purchase and setup flow, purchase your offer while it is in Preview. First notify Microsoft with a [support ticket](https://go.microsoft.com/fwlink/?linkid=2165533) to ensure we don't process a charge. If your offer is a _Contact Me_ listing, test that a lead is created as expected by providing the Contact Me details during preview.
 
 On the **Offer overview** page, you will see preview links under the **Go live** button. There will be a link for either AppSource preview, Azure Marketplace preview, or both depending on the options you chose when creating your offer. If you chose to sell your offer through Microsoft, anyone who has been added to the preview audience can test the acquisition and deployment of your offer to ensure it meets your requirements during this stage.
 

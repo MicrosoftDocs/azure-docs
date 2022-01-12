@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 12/06/2021
 ms.author: lajanuar
 ---
 
 # How to translate behind IP firewalls with Translator
 
-Translator can translate behind firewalls using either domain-name or IP filtering. Domain-name filtering is the preferred method. If you still require IP filtering we suggest you to get the [IP addresses details using service tag](../../virtual-network/service-tags-overview.md#service-tags-on-premises). Translator is under the “CognitiveServicesManagement” service tag. 
+Translator can translate behind firewalls using either domain-name or IP filtering. Domain-name filtering is the preferred method. If you still require IP filtering, we suggest you to get the [IP addresses details using service tag](../../virtual-network/service-tags-overview.md#service-tags-on-premises). Translator is under the **CognitiveServicesManagement** service tag.
 
 We **do not recommend** running Microsoft Translator from behind a specific IP filtered firewall. The setup is likely to break in the future without notice.
 

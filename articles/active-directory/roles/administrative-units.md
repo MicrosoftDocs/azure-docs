@@ -4,7 +4,7 @@ description: Use administrative units for more granular delegation of permission
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.topic: overview
 ms.subservice: roles
@@ -40,7 +40,9 @@ Using administrative units requires an Azure AD Premium P1 license for each admi
 
 You can manage administrative units by using the Azure portal, PowerShell cmdlets and scripts, or Microsoft Graph. For more information, see:
 
-- [Create, remove, populate, and add roles to administrative units](admin-units-manage.md): Includes complete how-to procedures.
+- [Create or delete administrative units](admin-units-manage.md)
+- [Add users or groups to an administrative unit](admin-units-members-add.md)
+- [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
 - [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units): Covers how to work with administrative units by using PowerShell.
 - [Administrative unit Graph support](/graph/api/resources/administrativeunit): Provides detailed documentation on Microsoft Graph for administrative units.
 
@@ -100,7 +102,7 @@ Administrative units apply scope only to management permissions. They don't prev
 
 ## Next steps
 
-- [Manage administrative units](admin-units-manage.md)
-- [Manage users in administrative units](admin-units-add-manage-users.md)
-- [Manage groups in administrative units](admin-units-add-manage-groups.md)
-- [Assign scoped roles to an administrative unit](admin-units-assign-roles.md)
+- [Create or delete administrative units](admin-units-manage.md)
+- [Add users or groups to an administrative unit](admin-units-members-add.md)
+- [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
+

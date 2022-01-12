@@ -30,9 +30,9 @@ The Sentinel Connector gets alerts from Microsoft Defender for Cloud and sends t
 
 To create a Microsoft Sentinel case or incident using Defender for Cloud alerts, you'll need the schema for those alerts shown below.
 
-For more information about Microsoft Sentinel, see the [Sentinel documentation](../sentinel/index.yml).
+Learn more in the [Microsoft Sentinel documentation](../sentinel/index.yml).
 
-[!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-log-analytics-workspace.md)]
+[!INCLUDE [Sentinel and workspace schema](../../includes/defender-for-cloud-alerts-schema-log-analytics-workspace.md)]
 
 ### [Azure Activity Log](#tab/schema-activitylog)
 

@@ -6,7 +6,7 @@ ms.author: avneets
 ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
-ms.date: 09/01/2021
+ms.date: 12/21/2021
 ---
 
 # Tutorial: Deploy and walk through the micro-fulfillment center application template

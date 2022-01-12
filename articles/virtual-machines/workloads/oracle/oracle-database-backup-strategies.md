@@ -69,7 +69,7 @@ Azure Blob configured with any redundancy option can be mounted using Blobfuse.
 A Recovery Services vault is a management entity that stores recovery points created over time and provides an interface to perform backup related operations. These include taking on-demand backups, performing restores, and creating backup policies.
 Azure Backup automatically handles storage for the vault. You do need to specify how that storage is replicated at time of creation. It cannot be changed after items are protected in the vault. For regional redundancy, choose the geo-redundant setting.
 
-If you intend to restore to a secondary, [Azure paired region](../../../best-practices-availability-paired-regions.md) enable [Cross Region Restore](../../../backup/backup-create-rs-vault.md) feature. When cross region restore is enabled, the backup storage is moved from GRS to read-access geo-redundant storage (RA-GRS). 
+If you intend to restore to a secondary, [Azure paired region](../../../availability-zones/cross-region-replication-azure.md) enable [Cross Region Restore](../../../backup/backup-create-rs-vault.md) feature. When cross region restore is enabled, the backup storage is moved from GRS to read-access geo-redundant storage (RA-GRS). 
 
 ### Azure Blob Storage
 

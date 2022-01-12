@@ -1,8 +1,8 @@
 ---
 title: Add replicas to Azure Cache for Redis
 description: Learn how to add more replicas to your Premium tier Azure Cache for Redis instances
-author: curib
-ms.author: cauribeg
+author: flang-msft
+ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
@@ -41,6 +41,8 @@ To create a cache, follow these steps:
 1. On the **Advanced** page, choose **Replica count**.
 
     :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Replica count.":::
+
+1. Configure your settings for clustering or relational database persistence.  
 
     > [!NOTE]
     > Currently, you can't use Append-only File (AOF) persistence or geo-replication with multiple replicas (more than one replica).

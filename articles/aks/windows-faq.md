@@ -168,10 +168,6 @@ If the cluster has Azure Hybrid Benefit enabled, the output of `az vmss show` wi
   "resourceGroup": "MC_CLUSTERNAME"
 ```
 
-## Can I use the Kubernetes Web Dashboard with Windows containers?
-
-Yes, you can use the [Kubernetes Web Dashboard][kubernetes-dashboard] to access information about Windows containers. At this time, however, you can't run *kubectl exec* into a running Windows container directly from the Kubernetes Web Dashboard. For more details on connecting to a running Windows container, see [Connect with RDP to Azure Kubernetes Service (AKS) cluster Windows Server nodes for maintenance or troubleshooting][windows-rdp].
-
 ## How do I change the time zone of a running container?
 
 To change the time zone of a running Windows Server container, connect to the running container with a PowerShell session. For example:
@@ -230,8 +226,6 @@ To get started with Windows Server containers in AKS, see [Create a node pool th
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
 [azure-monitor]: ../azure-monitor/containers/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
 [client-source-ip]: concepts-network.md#ingress-controllers
-[kubernetes-dashboard]: kubernetes-dashboard.md
-[windows-rdp]: rdp.md
 [upgrade-node-image]: node-image-upgrade.md
 [managed-identity]: use-managed-identity.md
 [hybrid-vms]: ../virtual-machines/windows/hybrid-use-benefit-licensing.md

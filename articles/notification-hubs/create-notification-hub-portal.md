@@ -11,7 +11,7 @@ ms.lastreviewed: 02/14/2019
 ms.topic: quickstart
 ms.service: notification-hubs
 ms.workload: mobile
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create an Azure notification hub in the Azure portal

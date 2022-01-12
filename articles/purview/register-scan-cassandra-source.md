@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 01/11/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -18,10 +18,20 @@ This article outlines how to register Cassandra, and how to authenticate and int
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-cassandra.md)|
+| [Yes](#register) | [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](how-to-lineage-cassandra.md)|
 
-> [!Important]
-> Supported Cassandra server versions are 3.*x* or 4.*x*.
+The supported Cassandra server versions are 3.*x* or 4.*x*.
+
+When scanning Cassandra source, Purview supports:
+
+- Extracting technical metadata including:
+
+    - Cluster
+    - Keyspaces
+    - Tables including the columns and indexes
+    - Materialized views including the columns
+
+- Fetching static lineage on assets relationships among tables and materialized views.
 
 ## Prerequisites
 
@@ -32,7 +42,7 @@ This article outlines how to register Cassandra, and how to authenticate and int
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-  For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
+  For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
 * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
 

@@ -1,5 +1,5 @@
 ---
-title: HTTP extension protocol - Azure
+title: HTTP extension protocol
 description: Azure Video Analyzer allows you to enhance its processing capabilities through a pipeline extension node. HTTP extension processor enables extensibility scenarios using the HTTP protocol, where performance and/or optimal resource utilization is not the primary concern.
 ms.topic: reference
 ms.date: 11/04/2021

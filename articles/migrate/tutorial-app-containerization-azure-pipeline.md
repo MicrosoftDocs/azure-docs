@@ -1,7 +1,6 @@
 ---
 title: Continuous Deployment for containerized applications with Azure DevOps
 description: Tutorial:Continuous Deployment for containerized applications with Azure DevOps
-services:
 author: rahug1190
 manager: bsiva
 ms.topic: tutorial
@@ -21,8 +20,8 @@ Before you begin this tutorial, you should:
 
 -  Containerize and deploy your ASP.NET or Java web app using Azure Migrate App Containerization.
 -  A GitHub account, where you can create a repository. If you don't have one, you can [create one for free](https://github.com/).
--  An Azure DevOps organization. If you don't have one, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops). (An Azure DevOps organization is different from your GitHub organization. You can give your DevOps organization and your GitHub organization the same name if you want alignment between them.) <br/> If your team already has one, then make sure you're an administrator of the Azure DevOps project that you want to use.
--  An ability to run pipelines on Microsoft-hosted agents. You can either purchase a [parallel job](/azure/devops/pipelines/licensing/concurrent-jobs?view=azure-devops) or you can request a free tier. To request a free tier, follow the instructions in [this article](/azure/devops/pipelines/licensing/concurrent-jobs?view=azure-devops). Please note that it may take us 2-3 business days to grant the free tier.
+-  An Azure DevOps organization. If you don't have one, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up). (An Azure DevOps organization is different from your GitHub organization. You can give your DevOps organization and your GitHub organization the same name if you want alignment between them.) <br/> If your team already has one, then make sure you're an administrator of the Azure DevOps project that you want to use.
+-  An ability to run pipelines on Microsoft-hosted agents. You can either purchase a [parallel job](/azure/devops/pipelines/licensing/concurrent-jobs) or you can request a free tier. To request a free tier, follow the instructions in [this article](/azure/devops/pipelines/licensing/concurrent-jobs). Please note that it may take us 2-3 business days to grant the free tier.
 
 
 ## Locate the artifacts
@@ -73,7 +72,7 @@ Before you create your pipeline, you should first create your service connection
 1. In the bottom left corner, select **Project settings > Service connections**.
 2. Select **new service connection**, select the **Docker Registry > Azure Container Registry** option for type of service connection that you need, and select Next.
 3. Choose an authentication method, and select Next.
-4. Enter the parameters for the service connection. The list of parameters differs for each type of service connection. For more information, see the [list of service connection types and associated parameters](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#common-service-connection-types).
+4. Enter the parameters for the service connection. The list of parameters differs for each type of service connection. For more information, see the [list of service connection types and associated parameters](/azure/devops/pipelines/library/service-endpoints?tabs=yaml#common-service-connection-types).
 5. Select **Save** to create the connection.
 6. **Validate** the connection, once it's created and parameters are entered. The validation link uses a REST call to the external service with the information that you entered, and indicates whether the call succeeded.
 7. Repeat the same steps for creating a service connection to your Azure Subscription by selecting **new service connection > Azure Resource Manager**. 
@@ -93,4 +92,4 @@ Now that you've created both the service connections, you can configure your pip
 8. Provide the resource ID for the Azure Resource Manager service connection as the value for the **dockerRegistryServiceConnection** variable.
 9. When you're ready, **Save** to commit the new pipeline into your repo. 
 
-Your pipeline is all setup to build and deploy your containerized for Day 2 operations. You can [customize your pipeline](/azure/devops/pipelines/customize-pipeline?view=azure-devops#prerequisite) to meet your organizational needs. 
+Your pipeline is all setup to build and deploy your containerized for Day 2 operations. You can [customize your pipeline](/azure/devops/pipelines/customize-pipeline#prerequisite) to meet your organizational needs. 

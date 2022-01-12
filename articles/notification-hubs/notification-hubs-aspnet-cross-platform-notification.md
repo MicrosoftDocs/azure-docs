@@ -10,7 +10,7 @@ editor: thsomasu
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
-ms.devlang: multiple
+ms.devlang: csharp
 ms.topic: article
 ms.date: 08/23/2021
 ms.author: sethm
