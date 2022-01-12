@@ -56,8 +56,8 @@ It also abstracts the data itself, so you use labels to track the type of data, 
 
 - [Define your sensitivity labels via Microsoft information Protection is recommended to identify your Personal Identifiable Information at central place](/microsoft-365/compliance/information-protection).
 - [Use Policy templates as a starting point to build your rulesets](/microsoft-365/compliance/what-the-dlp-policy-templates-include#general-data-protection-regulation-gdpr).
-- [Combine Data Classifications to an individual Ruleset](./supported-classifications).
-- [Force Labeling by using auto label functionality](./how-to-automatically-label-your-content).
+- [Combine Data Classifications to an individual Ruleset](./supported-classifications.md).
+- [Force Labeling by using auto label functionality](./how-to-automatically-label-your-content.md).
 - Build groups of Sensitivity Labels and store them as dedicated Sensitivity Label Policy – for example store all required Sensitivity Labels for Regulatory Rules by using the same Sensitivity Label Policy to publish.
 - Capture all test cases for your labels and test your Label policies with all applications you want to secure.
 - Promote Sensitivity Label Policies to Azure Purview.
