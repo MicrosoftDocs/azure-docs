@@ -44,7 +44,7 @@ Here is an overview of what capabilities are supported by every scenario:
 
 | Capability  | Managed Gateway | Self-hosted Gateway | Azure Arc |
 |:----------- |:----------------|:------------------- |:----------|
-| **[API Inspector](api-management-howto-api-inspector.md)** | ✔️ | ❌ | ❌ |
+| **[API Inspector](api-management-howto-api-inspector.md)** | ✔️ | ✔️ | ✔️ |
 | **Built-in Analytics** | ✔️ | ❌ | ❌ |
 | **[Azure Monitor Metrics](api-management-howto-use-azure-monitor.md)** | ✔️ | ✔️ <sup>2</sup> | ✔️ |
 | **[Azure Monitor Logs](api-management-howto-use-azure-monitor.md)** |✔️<sup>1</sup> | ❌ <sup>3</sup> | ❌ <sup>3</sup> |

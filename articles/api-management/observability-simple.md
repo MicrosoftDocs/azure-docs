@@ -28,7 +28,7 @@ The table below summarizes all the observability capabilities supported by API M
 
 | Tool        | Useful for    | Data lag | Retention | Sampling | Data kind | Managed Gateway Support | Self-hosted Gateway Support | Azure Arc Support |
 |:------------- |:-------------|:---- |:----|:---- |:--- |:---- |:---- |:---- |
-| **[API Inspector](api-management-howto-api-inspector.md)** | Testing and debugging | Instant | Last 100 traces | Turned on per request | Request traces | ✔️ | ❌ | ❌ |
+| **[API Inspector](api-management-howto-api-inspector.md)** | Testing and debugging | Instant | Last 100 traces | Turned on per request | Request traces | ✔️ | ✔️ | ✔️ |
 | **Built-in Analytics** | Reporting and monitoring | Minutes | Lifetime | 100% | Reports and logs | ✔️ | ❌ | ❌ |
 | **[Azure Monitor Metrics](api-management-howto-use-azure-monitor.md)** | Reporting and monitoring | Minutes | 90 days (upgrade to extend) | 100% | Metrics | ✔️ | ✔️ <sup>2</sup> | ✔️ |
 | **[Azure Monitor Logs](api-management-howto-use-azure-monitor.md)** | Reporting, monitoring, and debugging | Minutes | 31 days/5GB (upgrade to extend) | 100% (adjustable) | Logs |✔️<sup>1</sup> | ❌ <sup>3</sup> | ❌ <sup>3</sup> |
