@@ -84,7 +84,7 @@ To prepare your PowerShell environment:
     Install-Module -Name PackageManagement -Repository PSGallery -Force
     Install-Module -Name PowerShellGet -Repository PSGallery -Force
     # Then restart shell
-    Install-Module -Name Microsoft.RdInfra.RDPowershell.Migration -RequiredVersion 1.0.3725-Prerelease -AllowPrerelease -AllowClobber
+    Install-Module -Name Microsoft.RdInfra.RDPowershell.Migration -AllowClobber
     Import-Module <Full path to the location of the migration module>\Microsoft.RdInfra.RDPowershell.Migration.psd1
     ```
 
