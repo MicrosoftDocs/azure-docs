@@ -36,7 +36,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
    
 1. In the **Create API Management** page, enter settings.
 
-   :::image type="content" source="media/get-started-create-service-instance/create-api-management-instance.png" alt-text="Create API Management instance.":::
+   :::image type="content" source="media/get-started-create-service-instance/create-api-management-instance-1.png" alt-text="Create API Management instance.":::
    
    | Setting                 | Description   |                                                                     
    |-------------------------|-----------------------------------------------|
