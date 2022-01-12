@@ -10,14 +10,9 @@ ms.date: 11/09/2021
 
 # Microsoft Sentinel built-in watchlist template schemas (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+This article details the schemas used in each built-in watchlist template provided by Microsoft Sentinel. For more information, see [Create a new watchlist by using a template (Public preview)](watchlists-create.md#create-a-watchlist-by-using-a-template-public-preview).
 
-This article details the schemas used in each built-in watchlist template provided by Microsoft Sentinel. For more information, see [Create a new watchlist using a template (Public preview)](watchlists.md#create-a-new-watchlist-using-a-template-public-preview).
-
-> [!IMPORTANT]
-> The Microsoft Sentinel watchlist templates are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-
+The Microsoft Sentinel watchlist templates are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## High Value Assets
 
@@ -110,4 +105,6 @@ The Service Accounts watchlist lists service accounts and their owners, and incl
 
 ## Next steps
 
-For more information, see [Use Microsoft Sentinel watchlists](watchlists.md).
+For more information, see,
+- [Use watchlists in Microsoft Sentinel](watchlists.md)
+- [Create watchlists](watchlists-create.md)

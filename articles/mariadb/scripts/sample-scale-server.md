@@ -23,10 +23,6 @@ This sample CLI script scales compute and storage for a single Azure Database fo
 Update the script with your subscription ID.
 [!code-azurecli-interactive[main](../../../cli_scripts/mariadb/scale-mariadb-server/scale-mariadb-server.sh "Create and scale Azure Database for MariaDB.")]
 
-## Clean up deployment
-Use the following command to remove the resource group and all resources associated with it after the script has been run. 
-[!code-azurecli-interactive[main](../../../cli_scripts/mariadb/scale-mariadb-server/delete-mariadb.sh  "Delete the resource group.")]
-
 ## Script explanation
 This script uses the commands outlined in the following table:
 

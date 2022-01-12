@@ -6,7 +6,6 @@ metadata:
   documentationcenter: na
   author: aletheatoh
   ms.service: virtual-network
-  ms.devlang: na
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: infrastructure-services
@@ -16,7 +15,6 @@ metadata:
     
 title: Azure DDoS Protection Standard frequently asked questions
 summary: This article answers common questions about Azure DDoS Protection Standard. 
-
 
 sections:
   - name: Ignored
@@ -67,13 +65,15 @@ sections:
       - question: |
           What are the supported protected resource types?
         answer: |
-          Public IPs in ARM based VNETs are currently the only type of protected resource. PaaS services (multitenant) are not supported at presented. See [Azure DDoS Protection Standard reference architectures](ddos-protection-reference-architectures.md) for more details.
-          
+          Public IPs in ARM based VNETs are currently the only type of protected resource. Protected resources include public IPs attached to an IaaS VM, Load Balancer (Classic & Standard Load Balancers), Application Gateway (including WAF) cluster, Firewall, Bastion, VPN Gateway, Service Fabric or an IaaS based Network Virtual Appliance (NVA). 
+
+          PaaS services (multitenant) are not supported at present. See [Azure DDoS Protection Standard reference architectures](ddos-protection-reference-architectures.md) for more details.
+
       - question: |
           Are Classic/RDFE protected resources supported?
         answer: |
           Only ARM based protected resources are supported in preview. VMs in Classic/RDFE deployments are not supported. Support is not currently planned for Classic/RDFE resources. See [Azure DDoS Protection Standard reference architectures](ddos-protection-reference-architectures.md) for more details.
-          
+
       - question: |
           Can I protect my PaaS resources using DDoS Protection?
         answer: |

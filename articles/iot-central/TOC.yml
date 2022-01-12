@@ -173,6 +173,8 @@
           href: core/howto-manage-data-export-with-rest-api.md
         - name: Manage device templates
           href: core/howto-manage-device-templates-with-rest-api.md
+        - name: Manage devices
+          href: core/howto-manage-devices-with-rest-api.md
         - name: Control devices
           href: core/howto-control-devices-with-rest-api.md
         - name: Manage jobs
@@ -241,12 +243,12 @@
       href: ../iot-dps/index.yml
     - name: IoT Edge
       href: ../iot-edge/index.yml
-    - name: IoT Plug and Play
-      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
     - name: Time Series Insights
       href: ../time-series-insights/index.yml
+  - name: IoT device developer
+    href: ../iot-develop/index.yml
   - name: Azure IoT SDKs
     items:
     - name: IoT Service SDKs

@@ -7,7 +7,6 @@ documentationcenter: ''
 author: stevevi
 ms.author: stevevi
 ms.service: azure-government
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government

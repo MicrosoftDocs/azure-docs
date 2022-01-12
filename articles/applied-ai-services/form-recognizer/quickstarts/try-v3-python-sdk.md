@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 12/13/2021
+ms.date: 01/04/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021, mode-api
 ---
-
+<!-- markdownlint-disable MD025 -->
 # Quickstart: Python client library SDK v3.0 | Preview
 
 >[!NOTE]
@@ -30,7 +30,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
-* [**Prebuilt Invoice**](#prebuilt-model)Analyze and extract common fields from invoices, using a pre-trained invoice model.
+* [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained model.
 
 ## Prerequisites
 
@@ -39,6 +39,8 @@ In this quickstart you'll use following features to analyze and extract data and
 * [Python 3.x](https://www.python.org/)
 
   * Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check if you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
+
+* The latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. For more information, *see* [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial)
 
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -89,6 +91,16 @@ key = "YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY"
 
 ```
 
+> [!TIP]
+> If you would like to try more than one code sample:
+>
+> * Select one of the sample code blocks below to copy and paste into your application.
+> * [**Run your application**](#run-your-application).
+> * Comment out that sample code block but keep the set-up code and library directives.
+> * Select another sample code block to copy and paste into your application.
+> * [**Run your application**](#run-your-application).
+> * You can continue to comment out, copy/paste, and run the sample blocks of code.
+
 ### Select a code sample to copy and paste into your application:
 
 * [**General document**](#general-document-model)
@@ -103,7 +115,7 @@ key = "YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY"
 
 ## General document model
 
-##### Extract text, tables, structure, key-value pairs, and named entities from documents.
+Extract text, tables, structure, key-value pairs, and named entities from documents.
 
 > [!div class="checklist"]
 >
@@ -112,7 +124,7 @@ key = "YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY"
 > * We've added the file URL value to the `docUrl` variable in the `analyze_general_documents` function.
 > * For simplicity, all the entity fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
-##### Add the following code to your general document application on a line below the `key` variable
+###### Add the following code to your general document application on a line below the `key` variable
 
 ```python
 
@@ -239,7 +251,7 @@ if __name__ == "__main__":
 
 ## Layout model
 
-##### Extract text, selection marks, text styles, table structures, and bounding region coordinates from documents.
+Extract text, selection marks, text styles, table structures, and bounding region coordinates from documents.
 
 > [!div class="checklist"]
 >
@@ -247,7 +259,7 @@ if __name__ == "__main__":
 > * We've added the file URL value to the `formUrl` variable in the `analyze_layout` function.
 > * To analyze a given file at a URL, you'll use the `begin_analyze_document_from_url` method and pass in `prebuilt-layout` as the model Id. The returned value is a `result` object containing data about the submitted document.
 
-### Add the following code to your layout application on the line below the `key` variable
+#### Add the following code to your layout application on the line below the `key` variable
 
 ```python
 
@@ -350,7 +362,9 @@ if __name__ == "__main__":
 
 ## Prebuilt model
 
-### Choose the invoice prebuilt model ID
+Extract and analyze data from common document types using a pre-trained model.
+
+### Choose a prebuilt model ID
 
 You are not limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the model IDs for the prebuilt models currently supported by the Form Recognizer service:
 
@@ -359,16 +373,16 @@ You are not limited to invoices—there are several prebuilt models to choose fr
 * [**prebuilt-idDocument**](../concept-id-document.md): extracts text and key information from driver licenses and international passports.
 * [**prebuilt-businessCard**](../concept-business-card.md): extracts text and key information from business cards.
 
-##### Extract and analyze data from common document types using a pre-trained model.
+#### Try the prebuilt invoice model
 
 > [!div class="checklist"]
 >
-> * For this example, we wll analyze an invoice document using a prebuilt model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
-> * We've added the file URL value to the `invoiceUrl` variable to the `analyze_invoice` function.
-> * To analyze a given file from a URL, you'll use the `begin_analyze_document_from_url` method and pass in `prebuilt-invoice` as the model Id. The returned value is a `result` object containing data about the submitted document.
+> * We wll analyze an invoice using the prebuilt-invoice model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
+> * We've added the file URL value to the `invoiceUrl` variable at the top of the file.
+> * To analyze a given file at a URI, you'll use the `beginAnalyzeDocuments` method and pass `PrebuiltModels.Invoice` as the model Id. The returned value is a `result` object containing data about the submitted document.
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.
 
-### Add the following code to your prebuilt invoice application below the `key` variable
+#### Add the following code to your prebuilt invoice application below the `key` variable
 
 ```python
 

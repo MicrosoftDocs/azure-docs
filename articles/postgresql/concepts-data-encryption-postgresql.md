@@ -23,10 +23,12 @@ Key Vault is a cloud-based, external key management system. It's highly availabl
 
 Data encryption with customer-managed keys for Azure Database for PostgreSQL Single server provides the following benefits:
 
-* Data-access is fully controlled by you by the ability to remove the key and making the database inaccessible 
-*    Full control over the key-lifecycle, including rotation of the key to align with corporate policies
-*    Central management and organization of keys in Azure Key Vault
-*    Ability to implement separation of duties between security officers, and DBA and system administrators
+* Data-access is fully controlled by you by the ability to remove the key and making the database inaccessible.
+*    Full control over the key-lifecycle, including rotation of the key to align with corporate policies.
+*    Central management and organization of keys in Azure Key Vault.
+*    Enabling encryption does not have any additional performance impact with or without customers managed key (CMK) as PostgreSQL relies on Azure storage layer for data encryption in both the scenarios ,the only difference is when CMK is used **Azure Storage Encryption Key**  which performs actual data encryption is encrypted using CMK.
+*    Ability to implement separation of duties between security officers, and DBA and system administrators.
+
 
 ## Terminology and description
 

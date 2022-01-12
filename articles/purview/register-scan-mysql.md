@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 11/02/2021
+ms.date: 01/11/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -21,14 +21,20 @@ This article outlines how to register MySQL, and how to authenticate and interac
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| Yes|
 
 The supported MySQL server versions are 5.7 to 8.x.
 
 When scanning MySQL source, Purview supports:
 
-- Extracting metadata including MySQL server, databases, tables, views, and table/view columns.
-- Fetching lineage on assets relationships among tables and views.
+- Extracting technical metadata including:
+
+    - Server
+    - Databases
+    - Tables including the columns
+    - Views including the columns
+
+- Fetching static lineage on assets relationships among tables and views.
 
 ## Prerequisites
 

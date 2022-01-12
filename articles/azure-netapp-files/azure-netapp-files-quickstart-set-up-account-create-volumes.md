@@ -2,7 +2,7 @@
 title: 'Quickstart: Set up Azure NetApp Files and NFS volume'
 description: Quickstart - Describes how to quickly set up Azure NetApp Files and create a volume.
 author: b-hchen
-ms.author: b-hchen
+ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart

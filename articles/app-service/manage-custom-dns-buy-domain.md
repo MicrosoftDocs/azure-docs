@@ -263,7 +263,7 @@ After you purchase the App Service Domain, you have five days to cancel your pur
 
 ## Direct default URL to a custom directory
 
-By default, App Service directs web requests to the root directory of your app code. To direct them to a subdirectory, such as `public`, see [Redirect to a custom directory](app-service-web-tutorial-custom-domain.md#redirect-to-a-custom-directory).
+By default, App Service directs web requests to the root directory of your app code. To direct them to a subdirectory, such as `public`, see [Redirect to a custom directory](configure-common.md#redirect-to-a-custom-directory).
 
 ## Next steps
 

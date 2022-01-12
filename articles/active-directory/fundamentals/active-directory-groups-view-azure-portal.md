@@ -3,7 +3,7 @@ title: Quickstart - View groups & members - Azure AD
 description: Instructions about how to search for and view your organization's groups and their assigned members.
 services: active-directory
 author: ajburnle
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals

@@ -46,7 +46,10 @@ Calling a Teams user using [microsoftTeamsUserId](/javascript/api/@azure/communi
 const teamsCallee = { microsoftTeamsUserId: '<Teams User AAD Object ID>' }
 const call = callAgent.startCall([teamsCallee]);
 ```
- 
+**Voice and video calling events**
+
+[Communication Services voice and video calling events](/azure/event-grid/communication-services-voice-video-events) are raised for calls between a Communication Services user and Teams users.
+
 **Limitations and known issues**
 - Teams users must be in "TeamsOnly" mode. Skype for Business users can't receive 1:1 calls from Communication Services users.
 - Escalation to a group call isn't supported.

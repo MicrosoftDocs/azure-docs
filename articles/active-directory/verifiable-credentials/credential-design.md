@@ -3,7 +3,7 @@ title: How to customize your Azure Active Directory Verifiable Credentials (prev
 description: This article shows you how to create your own custom verifiable credential
 services: active-directory
 author: barclayn
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: how-to

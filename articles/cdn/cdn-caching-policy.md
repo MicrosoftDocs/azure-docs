@@ -11,7 +11,6 @@ ms.assetid: be33aecc-6dbe-43d7-a056-10ba911e0e94
 ms.service: media-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 02/04/2017
 ms.author: juliako

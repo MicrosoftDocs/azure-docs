@@ -135,9 +135,9 @@ The private link resource owner can do the following actions over a private endp
 
 ### Connect with alias
 
-Alias is a unique moniker that is generated when the service owner creates the private link service behind a standard load balancer. Service owners can share this alias with their consumers offline. 
+An alias is a unique moniker that is generated when the service owner creates the private link service behind a standard load balancer. Service owners can share this alias with their consumers offline. 
 
-Consumers can request a connection to private link service using either the resource URI or the alias. If you want to connect using alias, you must create a private endpoint using the manual connection approval method. For using manual connection approval method, set manual request parameter to true during private endpoint create flow. For more information, see [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) and [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create).
+Consumers can request a connection to private link service using either the resource URI or the alias. If you want to connect using the alias, you must create a private endpoint using the manual connection approval method. For using manual connection approval method, set manual request parameter to true during private endpoint create flow. For more information, see [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) and [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create).
 
 ## DNS configuration
 

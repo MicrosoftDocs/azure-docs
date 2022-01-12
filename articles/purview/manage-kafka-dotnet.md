@@ -6,7 +6,7 @@ author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.date: 09/27/2021
 ms.custom: mode-other
 ---

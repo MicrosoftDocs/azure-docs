@@ -9,6 +9,7 @@ ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
+ms.devlang: java
 ms.custom: devx-track-java, mode-api
 ms.author: aahi
 ---

@@ -23,31 +23,53 @@ The contents of the file should satisfy the following json schema:
     "$schema" : "http://json-schema.org/schema#",
     "description" : "ARR ConversionSettings Schema",
     "type" : "object",
-    "properties" :
+    "definitions" : 
+    {
+        "position_attribute" : {"type" : "string", "description" : "Destination format of the position attribute", "enum" : [ "32_32_32_FLOAT", "16_16_16_16_FLOAT" ]},
+        "color_attribute" : {"type" : "string", "description" : "Destination format of the color attribute", "enum" : [ "NONE", "8_8_8_8_UNSIGNED_NORMALIZED" ]},
+        "vector_attribute" : {"type" : "string", "description" : "Destination format of the normals, tangents and binormals attributes", "enum" : [ "NONE", "8_8_8_8_SIGNED_NORMALIZED", "16_16_16_16_FLOAT" ]},
+        "texcoord_attribute" : {"type" : "string", "description" : "Destination format of the texture coordinates attribute", "enum" : [ "NONE", "32_32_FLOAT", "16_16_FLOAT" ]}
+    },
+    "properties" : 
     {
         "scaling" : { "type" : "number", "exclusiveMinimum" : 0, "default" : 1.0 },
         "recenterToOrigin" : { "type" : "boolean", "default" : false },
-        "opaqueMaterialDefaultSidedness" : { "type" : "string", "enum" : [ "SingleSided", "DoubleSided" ], "default" : "DoubleSided" },
+        "opaqueMaterialDefaultSidedness" : {" type" : "string", "enum" : [ "SingleSided", "DoubleSided" ], "default" : "DoubleSided" },
+        "material-override" : { "type" : "string", "default" : "" },
         "gammaToLinearMaterial" : { "type" : "boolean", "default" : false },
         "gammaToLinearVertex" : { "type" : "boolean", "default" : false },
-        "sceneGraphMode": { "type" : "string", "enum" : [ "none", "static", "dynamic" ], "default" : "dynamic" },
+        "sceneGraphMode" : { "type" : "string", "enum" : [ "none", "static", "dynamic" ], "default" : "dynamic" },
         "generateCollisionMesh" : { "type" : "boolean", "default" : true },
         "unlitMaterials" : { "type" : "boolean", "default" : false },
-        "fbxAssumeMetallic" : { "type" : "boolean", "default" : true },
-        "deduplicateMaterials" : { "type" : "boolean", "default" : true },
+        "deduplicateMaterials" : {"type" : "boolean", "default" : true },
+        "fbxAssumeMetallic" : {"type" : "boolean", "default" : true },
         "axis" : {
             "type" : "array",
             "items" : {
                 "type" : "string",
-                "enum" : ["default", "+x", "-x", "+y", "-y", "+z", "-z"]
+                "enum" : [ "default", "+x", "-x", "+y", "-y", "+z", "-z" ]
             },
-            "minItems": 3,
-            "maxItems": 3
+            "minItems" : 3,
+            "maxItems" : 3
         },
-        "metadataKeys": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        "vertex" : {
+            "type" : "object",
+            "properties" : {
+                "position" : { "$ref" : "#/definitions/position_attribute" },
+                "color0" : { "$ref" : "#/definitions/color_attribute" },
+                "color1" : { "$ref" : "#/definitions/color_attribute" },
+                "normal" : { "$ref" : "#/definitions/vector_attribute" },
+                "tangent" : { "$ref" : "#/definitions/vector_attribute" },
+                "binormal" : { "$ref" : "#/definitions/vector_attribute" },
+                "texcoord0" : { "$ref" : "#/definitions/texcoord_attribute" },
+                "texcoord1" : { "$ref" : "#/definitions/texcoord_attribute" }
+            },
+            "additionalProperties" : false
+        },
+        "metadataKeys" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
             }
         }
     },
