@@ -17,7 +17,6 @@ Containers enable you to run Cognitive Services APIs in your own environment, an
 
 * [Speech to Text (Standard)](../speech-service/speech-container-howto.md?tabs=stt)
 * [Text to Speech (Neural)](../speech-service/speech-container-howto.md?tabs=ntts)
-* [Language Understanding standard (Text Requests)](../luis/luis-container-howto.md)
 * Azure Cognitive Service for Language
     * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md)
     * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md)
@@ -27,12 +26,11 @@ Containers enable you to run Cognitive Services APIs in your own environment, an
 Disconnected container usage is also available for the following Applied AI service:
 * [Form Recognizer – Custom/Invoice](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md)
 
->[!IMPORTANT]
-> Before attempting to run a Docker container in an offline environment, make sure you know the steps to successfully download and use the container. For example:
-> * Host computer requirements and recommendations.
-> * The Docker `pull` command you will use to download the container.
-> * How to validate that a container is running.
-> * How to send queries to the container's endpoint, once it's running.
+Before attempting to run a Docker container in an offline environment, make sure you know the steps to successfully download and use the container. For example:
+* Host computer requirements and recommendations.
+* The Docker `pull` command you will use to download the container.
+* How to validate that a container is running.
+* How to send queries to the container's endpoint, once it's running.
 
 ## Request access to use containers in disconnected environments
 
@@ -61,46 +59,57 @@ After you have a license file, download the Docker container you have approval t
 docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice:latest
 ```
 
-> [!IMPORTANT]
-> You can only use a license file with the appropriate container that you've been approved for. For example, you cannot use a license file for a speech-to-text container with a form recognizer container. 
-
-## Configure the container to be run in a disconnected environment.
+## Configure the container to be run in a disconnected environment
 
 Now that you've downloaded your container, you will need to run the container with the `DownloadLicense=True` parameter in your `docker run` command. This parameter will download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container.
+
+> ![IMPORTANT]
+> * When you run the container with `DownloadLicense=True`, your environment must be connected to the internet, and you must provide a valid key and endpoint. Once your container has been configured, it can be run disconnected from the internet, and without your key and endpoint. 
+> * You can only use a license file with the appropriate container that you've been approved for. For example, you cannot use a license file for a speech-to-text container with a form recognizer container. 
+> * If your container requires additional encrypted models, they should be downloaded by running the container with the `DownloadModel=True` flag.
 
 The following example shows the formatting of the `docker run` command you'll use, with placeholder values. Replace these placeholder values with your own values.
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
 | `{IMAGE}` | The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice` |
+| `{MEMORY_SIZE}` | The appropriate size of memory to allocate for your container. | `4g` | 
+| `{NUMBER_CPUS}` | The appropriate number of CPUs to allocate for your container. | `4` |
 | `{LICENSE_MOUNT}` | The path where the license will be downloaded, and mounted.  | `/path/to/license/directory` |
 | `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 | `{API_KEY}` | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| `{MEMORY_SIZE}` | The appropriate size of memory to allocate for your container. | `4g` | 
-| `{NUMBER_CPUS}` | The appropriate number of CPUs to allocate for your container. | `4` |
-| `{LICENSE_LOCATION}` | The path where the license will be downloaded, and mounted.  | `/path/to/license/directory` |
 
 ```bash
-docker run -v {LICENSE_MOUNT}  --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \ 
-{IMAGE} \
+docker run {IMAGE} --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \ 
+-v {LICENSE_MOUNT} \
 eula=accept \
 billing={ENDPOINT_URI} \
 apikey={API_KEY} \
 DownloadLicense=True \
-Mounts:License={LICENSE_LOCATION}
+Mounts:License={LICENSE_MOUNT} \ 
 ```
 
-> [!TIP]
-> If your container requires additional encrypted models, they should be downloaded by running the container with the `DownloadModel=True` flag.
+## Run the container in a disconnected environment
 
-At runtime, mount the license file to your image and specify the `Mounts:License` parameter to indicate the directory where the license file can be found.
+Once the license file has been downloaded, you can run the container in a disconnected environment. The following example shows the formatting of the `docker run` command you'll use, with placeholder values. Replace these placeholder values with your own values. 
+
+Wherever the container is run, the license file must be mounted to the container and the location of the license folder on the container's local filesystem must be specified with `Mounts:License=`. An output mount must also be specified so that billing usage records can be written.
+
+ Placeholder | Value | Format or example |
+|-------------|-------|---|
+| `{IMAGE}` | The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice` |
+ `{MEMORY_SIZE}` | The appropriate size of memory to allocate for your container. | `4g` | 
+| `{NUMBER_CPUS}` | The appropriate number of CPUs to allocate for your container. | `4` |
+| `{LICENSE_MOUNT}` | The path where the license will be downloaded, and mounted.  | `/path/to/license/directory` |
+| `{OUTPUT_PATH}` | The output path for logging [usage records](usage-records.md). | `/path/to/output/directory` |
 
 ```bash
-docker run -v {LICENSE_MOUNT} {IMAGE} \
+docker run {IMAGE} --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \ 
+-v {LICENSE_MOUNT} \ 
+-v /host/output:{OUTPUT_PATH} \
 eula=accept \
-billing={ENDPOINT_URI} \
-apikey={API_KEY} \
-Mounts:License={LICENSE_LOCATION}
+Mounts:License={LICENSE_MOUNT}
+Mounts:Output={OUTPUT_PATH}
 ```
 
 ## Usage records
