@@ -89,7 +89,7 @@ When deploying non-persistent VDI, Microsoft recommends organizations implement 
 - Active Directory Federation Services (AD FS) supports instant join for non-persistent VDI and Hybrid Azure AD Join.
 - Create and use a prefix for the display name (for example, NPVDI-) of the computer that indicates the desktop as non-persistent VDI-based.
 - For Windows down-level:
-   - Implement **autoworkplacejoin /leave** command as part of logoff script. This command should be triggered in the context of the user and should be execute before the user has logged off completely and network connectivity exists.
+   - Implement **autoworkplacejoin /leave** command as part of logoff script. This command should be triggered in the context of the user, and should be executed before the user has logged off completely and network connectivity exists.
 - For Windows current in a Federated environment (for example, AD FS):
    - Implement **dsregcmd /join** as part of VM boot sequence/order and before user signs in.
    - **DO NOT** execute dsregcmd /leave as part of VM shutdown/restart process.
