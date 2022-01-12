@@ -25,13 +25,7 @@ To view the available metrics, set `selfDiagnostics` to `DEBUG` in your `applica
 
 ```json
 "selfDiagnostics": {
-    "destination": "file+console",
-    "level": "DEBUG",
-    "file": {
-      "path": "applicationinsights.log",
-      "maxSizeMb": 5,
-      "maxHistory": 1
-    }
+    "level": "DEBUG"
   }
 ```
 
