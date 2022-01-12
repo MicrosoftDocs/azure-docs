@@ -3,7 +3,7 @@ title: Create a private Azure Kubernetes Service cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 01/11/2022
+ms.date: 01/12/2022
 
 ---
 
@@ -204,7 +204,7 @@ A private endpoint can be set up so that an Azure Virtual Network doesn't need t
       * Select an Azure **Subscription**.
       * Select the Azure **Resource group** where your virtual network is located.
     * **Instance details**:
-      * Enter a **Name**, such as *myPrivateEndpoint*.
+      * Enter a **Name** for the private endpoint, such as *myPrivateEndpoint*.
       * Select a **Region** for the private endpoint.
   
   > [!IMPORTANT]
@@ -267,12 +267,12 @@ Once the A record is created, link the private DNS zone to the virtual network t
 3. Create a new link to add the virtual network to the private DNS zone. It takes a few minutes for the DNS zone link to become available.
 
 > [!WARNING]
-> If the private cluster is stopped and restarted, the private cluster's original private endpoint is removed and re-created which breaks the connection. To resolve this issue, delete and re-create any user created private endpoints linked to the private cluster. DNS records will also need to be updated if the re-created private endpoints have new IP addresses.
+> If the private cluster is stopped and restarted, the private cluster's original private endpoint is removed and re-created which breaks the connection between your private endpoint and the private cluster. To resolve this issue, delete and re-create any user created private endpoints linked to the private cluster. DNS records will also need to be updated if the re-created private endpoints have new IP addresses.
 
 ## Limitations 
-* IP authorized ranges can't be applied to the private api server endpoint, they only apply to the public API server
+* IP authorized ranges can't be applied to the private API server endpoint, they only apply to the public API server
 * [Azure Private Link service limitations][private-link-service] apply to private clusters.
-* No support for Azure DevOps Microsoft-hosted Agents with private clusters. Consider to use [Self-hosted Agents](/azure/devops/pipelines/agents/agents?tabs=browser). 
+* No support for Azure DevOps Microsoft-hosted Agents with private clusters. Consider using [Self-hosted Agents](/azure/devops/pipelines/agents/agents?tabs=browser). 
 * If you need to enable Azure Container Registry to work with a private AKS cluster, set up peering between the Container Registry virtual network and the private cluster's virtual network. If peering isn't an option, you can use [private endpoints to connect to Azure Container Registry][container-registry-private-link].
 * No support for converting existing AKS clusters into private clusters
 * Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning. 
