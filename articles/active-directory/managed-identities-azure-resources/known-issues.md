@@ -13,7 +13,7 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 04/08/2021
+ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: 
@@ -36,7 +36,7 @@ az vm update -n <VM Name> -g <Resource Group> --set tags.fixVM=1
  
 This command sets a new tag "fixVM" with a value of 1 on the VM. 
  
-By setting this property, the VM updates with the correct managed identities for Azure resources resource URI, and then you should be able to start the VM. 
+By setting this property, the VM updates with the correct managed identities for Azure resources URI, and then you should be able to start the VM.
  
 Once the VM is started, the tag can be removed by using following command:
 
