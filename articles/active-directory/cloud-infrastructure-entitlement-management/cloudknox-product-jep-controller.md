@@ -279,7 +279,7 @@ The JEP Controller includes four tabs: **Roles/Policies**, **Permissions**, **Se
 
 2. On the **Statements** screen, make edits to the **Tasks**, **Resources**, **Request Conditions**, and **Effect** as required. 
 
-    For more information on how to make edits to the **Statements** screen, see [Create a New Policy (AWS Only)](cloudknox-product-jep-controller.md#how-to-create-a-new-policy-aws-only) or [Create a New Role (Azure/GCP/vCenter)](cloudknox-product-jep-controller.md#how-to-create-a-new-role-azuregcpvcenter)).
+    For more information on how to make edits to the **Statements** screen, see [Create a New Policy (AWS Only)](cloudknox-product-jep-controller.md#create-a-new-policy-aws-only) or [Create a New Role (Azure/GCP/vCenter)](cloudknox-product-jep-controller.md#create-a-new-role-azuregcpvcenter)).
 
 3. Click **Next**.
 
