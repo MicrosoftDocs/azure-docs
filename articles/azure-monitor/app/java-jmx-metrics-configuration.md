@@ -24,9 +24,11 @@ You nailed it - you must know the object names and the attributes, those propert
 To view the available metrics, set the self-diagnostics level to `DEBUG` in your `applicationinsights.json` configuration file, for example:
 
 ```json
-"selfDiagnostics": {
+{
+  "selfDiagnostics": {
     "level": "DEBUG"
   }
+}
 ```
 
 The available JMX metrics, with the object names and attribute names will appear in the application insights log file.
