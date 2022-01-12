@@ -188,4 +188,4 @@ az spring-cloud app deploy -n <app-name> --artifact-path <app.jar> --config-file
 
 ## Next steps
 
-* [Azure Spring Cloud](.)
+* [Azure Spring Cloud](index.yml)
