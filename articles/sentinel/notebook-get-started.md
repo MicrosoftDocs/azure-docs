@@ -261,7 +261,7 @@ In Azure ML notebooks, the authentication defaults to using the credentials you 
 
 **Authenticate by using managed identity**
 
-1. Run the following code to authenticate to your Sentinel workspace.
+Run the following code to authenticate to your Sentinel workspace.
 
    ```python
    # Get the default Microsoft Sentinel workspace details from msticpyconfig.yaml
@@ -272,7 +272,7 @@ In Azure ML notebooks, the authentication defaults to using the credentials you 
    qry_prov.connect(ws_config)
    ```
 
-   Output similar to the following is displayed in your notebook:
+Output similar to the following is displayed in your notebook:
 
    :::image type="content" source="media/notebook-get-started/authorization-connected-workspace.png" alt-text="Screenshot that shows authentication to Azure that ends with a connected message.":::
 
