@@ -732,7 +732,7 @@ The SAP application installation happens through Ansible playbooks.
 Navigate to the system deployment folder:
 
 ```bash
-cd ~/Azure_ SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00/
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00/
 ```
 
 Make sure you have the following files in the current folder: `sap-parameters.yaml` and `SID_host.yaml`.

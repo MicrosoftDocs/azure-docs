@@ -347,7 +347,7 @@ az vmss identity assign --name myVMSS --resource-group AzureADLinuxVM
 2. Install the Azure AD extension on your virtual machine scale set.
 
 ```azurecli
-az vmss extension set --publisher Microsoft.Azure.ActiveDirectory --name Azure ADSSHLoginForLinux --resource-group AzureADLinuxVM --vmss-name myVMSS
+az vmss extension set --publisher Microsoft.Azure.ActiveDirectory --name AADSSHLoginForLinux --resource-group AzureADLinuxVM --vmss-name myVMSS
 ```
 
 Virtual machine scale sets usually don't have public IP addresses, so you must have connectivity to them from another machine that can reach their Azure virtual network. This example shows how to use the private IP of a virtual machine scale set VM to connect from a machine in the same virtual network. 

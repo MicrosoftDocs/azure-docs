@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 12/28/2021
+ms.date: 01/11/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -21,11 +21,11 @@ This article outlines how to register Snowflake, and how to authenticate and int
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| Yes|
 
 When scanning Snowflake source, Purview supports:
 
-- Extract technical metadata including:
+- Extracting technical metadata including:
 
     - Server
     - Databases
@@ -40,7 +40,7 @@ When scanning Snowflake source, Purview supports:
     - Tasks
     - Sequences
 
-- Fetch static lineage on assets relationships among tables, views, and streams.
+- Fetching static lineage on assets relationships among tables, views, and streams.
 
 ## Prerequisites
 

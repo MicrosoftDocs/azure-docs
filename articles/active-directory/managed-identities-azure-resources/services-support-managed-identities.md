@@ -16,9 +16,11 @@ ROBOTS: NOINDEX
 # Services that support managed identities for Azure resources
 
 Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. Using a managed identity, you can authenticate to any service that supports Azure AD authentication without having credentials in your code. We are in the process of integrating managed identities for Azure resources and Azure AD authentication across Azure. Check back often for updates.
-
+> [!IMPORTANT]
+> In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
 > [!NOTE]
 > Managed identities for Azure resources is the new name for the service formerly known as Managed Service Identity (MSI).
+
 
 ## Azure services that support managed identities for Azure resources
 
@@ -276,6 +278,16 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | User assigned | Preview | Not available | Not available | Not available |
 
 For more information, see [Use managed identities with Azure Machine Learning](../../machine-learning/how-to-use-managed-identities.md).
+
+### Azure Maps
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | Preview | Preview | Not available | Not available |
+| User assigned | Preview | Preview | Not available | Not available |
+
+For more information, see [Authentication on Azure Maps](../../azure-maps/azure-maps-authentication.md).
+
 
 ### Azure Media Services
 

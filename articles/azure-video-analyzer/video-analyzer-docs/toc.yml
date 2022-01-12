@@ -127,10 +127,10 @@
       href: edge/deploy-iot-edge-linux-on-windows.md  
     - name: Deploy on Azure Stack Edge
       href: edge/deploy-on-stack-edge.md
-  - name: Playback
+  - name: Viewing
     items:     
-    - name: Recorded video
-      href: playback-recordings-how-to.md
+    - name: Recorded and live videos
+      href: viewing-videos-how-to.md
     - name: Create access policies for playback
       href: access-policies.md      
     - name: Enable video preview images

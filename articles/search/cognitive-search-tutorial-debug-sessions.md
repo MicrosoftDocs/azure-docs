@@ -1,5 +1,5 @@
 ---
-title: Debug skillsets
+title: 'Tutorial: Debug skillsets'
 titleSuffix: Azure Cognitive Search
 description: Debug sessions (preview) is an Azure portal tool used to find, diagnose, and repair problems in a skillset.
 

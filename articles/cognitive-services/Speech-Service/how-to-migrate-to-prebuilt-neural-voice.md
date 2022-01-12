@@ -15,7 +15,7 @@ ms.author: v-baolianzou
 # Migrate from prebuilt standard voice to prebuilt neural voice
 
 > [!IMPORTANT]
-> We are retiring the standard voices on **August 31, 2024** and they will no longer be supported after that date. During the retiring period (8/31/2021 - 8/31/2024), existing standard voice users can continue to use standard voices, but all new users/new speech resources must choose neural voices. 
+> We are retiring the standard voices from September 1, 2021 through August 31, 2024. If you used a standard voice with your Speech resource prior to September 1, 2021 then you can continue to do so until August 31, 2024. All other Speech resources can only use prebuilt neural voices. You can choose from the supported [neural voice names](language-support.md#prebuilt-neural-voices). After August 31, the standard voices won't be supported with any Speech resource.
 
 The prebuilt neural voice provides more natural sounding speech output, and thus, a better end-user experience. 
 

@@ -13,7 +13,7 @@ ms.author: eur
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Java" src="https://docs.microsoft.com/media/logos/logo_java.svg" width="60px">
+            <img alt="Java" src="/media/logos/logo_java.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::

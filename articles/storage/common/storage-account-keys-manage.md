@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/09/2021
+ms.date: 01/04/2022
 ms.author: tamram 
 ms.custom: devx-track-azurepowershell
 ---
@@ -144,7 +144,10 @@ To rotate an account's access keys, the user must either be a Service Administra
 
 ## Create a key expiration policy
 
-Before you can create a key expiration policy, you may need to rotate each of your account access keys at least once.
+A key expiration policy enables you to set a reminder for the rotation of the account access keys. The reminder is displayed if the specified interval has elapsed and the keys have not yet been rotated. After you create a key expiration policy, you can monitor your storage accounts for compliance to ensure that the account access keys are rotated regularly.
+
+> [!NOTE]
+> Before you can create a key expiration policy, you may need to rotate each of your account access keys at least once.
 
 ### [Portal](#tab/azure-portal)
 
