@@ -69,7 +69,7 @@ Transfer of ACLs is enabled by default. You might want to disable this setting i
 
 Support for ACLs transfers from Linux is limited:
 
-- Only Windows NT ACLs are transferred.
+- For directories and files, only Windows NT ACLs are transferred.<!--QUERY:  his bullet was the final sentence in bullet 1, above. It's not clear whether bullet 2 applies to Linux transfers. Are the DEFAULT ACLs on directories and files transferred (paragraph 2) during Linux transfers?-->
 
 - ACLs aren't transferred during data copies over Network File System (NTS) and when you use the data copy service to transfer your data. The data copy service reads data directly from your shares and can't read ACLs.
 
