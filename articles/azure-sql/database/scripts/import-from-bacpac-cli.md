@@ -10,39 +10,28 @@ ms.topic: sample
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: mathoma
-ms.date: 12/23/2021
+ms.date: 01/05/2022
 ---
 
 # Use CLI to import a BACPAC file into a database in SQL Database
 
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
+
 This Azure CLI script example imports a database from a *.bacpac* file into a database in SQL Database.  
 
-If you choose to install and use Azure CLI locally, this article requires that you are running Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-
-> [!IMPORTANT]
-> When running Bash on Windows, run this script from within a Docker container.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-### Sign in to Azure
-
-For this script, use Azure CLI locally as it takes too long to run in Cloud Shell. Use the following script to sign in using a specific subscription. [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
-
-```azurecli-interactive
-subscription="<subscriptionId>" # add subscription here
-
-az account set -s $subscription # ...or use 'az login'
-```
-
-For more information, see [set active subscription](/cli/azure/account#az_account_set) or [log in interactively](/cli/azure/reference-index#az_login)
+[!INCLUDE [cli-run-local-sign-in.md](../../../../includes/cli-run-local-sign-in.md)]
 
 ### Run the script
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/import-from-bacpac/import-from-bacpac.sh" range="4-48":::
 
-### Clean up resources
+## Clean up resources
 
-Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command- unless you have additional needs for these resources. Some of these resources may take a while to create, as well as to delete.
+[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

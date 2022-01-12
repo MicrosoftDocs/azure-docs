@@ -100,7 +100,7 @@ You can copy the sample configuration files to start testing the deployment auto
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
+cp -R sap-automation/samples/WORKSPACES WORKSPACES
 
 ```
 
@@ -135,24 +135,25 @@ You can copy the sample configuration files to start testing the deployment auto
 
 cd C:\Azure_SAP_Automated_Deployment
 
-xcopy sap-automation\deploy\samples\WORKSPACES WORKSPACES
+xcopy sap-automation\samples\WORKSPACES WORKSPACES
 
 ```
 
 
 ```powershell
 $subscription="<subscriptionID>"
-$appId="<appID>"
+$spn_id="<appID>"
 $spn_secret="<password>"
 $tenant_id="<tenant>"
 $keyvault=<keyvaultName>
 $storageaccount=<storageaccountName>
 $statefile_subscription=<statefile_subscription>
+$region_code="WEEU"
 
-cd C:\Azure_SAP_Automated_Deployment\WORKSPACES\LANDSCAPE\DEV-WEEU-SAP01-INFRASTRUCTURE
+cd C:\Azure_SAP_Automated_Deployment\WORKSPACES\LANDSCAPE\DEV-$region_code-SAP01-INFRASTRUCTURE
 
-New-SAPWorkloadZone -Parameterfile DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars 
--Subscription $subscription -SPN_id $appId -SPN_password $spn_secret -Tenant_id $tenant_id
+New-SAPWorkloadZone -Parameterfile DEV-$region_code-SAP01-INFRASTRUCTURE.tfvars 
+-Subscription $subscription -SPN_id $spn_id -SPN_password $spn_secret -Tenant_id $tenant_id
 -State_subscription $statefile_subscription -Vault $keyvault -$StorageAccountName $storageaccount
 ```
 

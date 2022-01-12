@@ -130,7 +130,7 @@ New-AzGalleryImageVersion `
    -Location $resourceGroup.Location `
    -TargetRegion $targetRegions  `
    -Source $sourceVM.Id.ToString() `
-   -PublishingProfileEndOfLifeDate '2020-12-01'
+   -PublishingProfileEndOfLifeDate '2030-12-01'
 ```
 
 It can take a while to replicate the image to all of the target regions.

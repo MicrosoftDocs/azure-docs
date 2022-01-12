@@ -72,7 +72,7 @@ When building new term templates in Purview, review the following considerations
 - Before importing terms, test the import in a lab environment to ensure that no unexpected results occur, such as duplicate terms. 
 - The email address for Stewards and Experts should be the primary address of the user from the Azure Active Directory group. Alternate email, user principal name and non-Azure Active Directory emails are not yet supported.
 - Glossary terms provide fours status: draft, approved, expire, alert. Draft is not officially implemented, approved is official/stand/approved for production, expired means should no longer be used, alert need to pay more attention.
-For more information, see [Create, import, and export glossary terms](/how-to-create-import-export-glossary)
+For more information, see [Create, import, and export glossary terms](./how-to-create-import-export-glossary.md)
 
 ## Recommendations for exporting glossary terms 
 
