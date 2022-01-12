@@ -100,7 +100,7 @@ If "floorName" is a prebuilt integer entity the expectation is that whatever tex
 
 ### Optional items and grouping
 
-In the pattern it is allowed to include words or entities that may be present in the utterance or not. This is especially useful for determiners like  "the", "a", or "an". This doesn't have any functional difference from hard coding out the many combinations, but can help reduce the amount of patterns needed. Indicate optional items with "[" and "]". You may include multiple items in the same group by separating them with a '|' character.
+In the pattern it is allowed to include words or entities that may be present in the utterance or not. This is especially useful for determiners like  "the", "a", or "an". This doesn't have any functional difference from hard coding out the many combinations, but can help reduce the number of patterns needed. Indicate optional items with "[" and "]". You may include multiple items in the same group by separating them with a '|' character.
 
 To see how this would reduce the number of patterns needed consider the following set.
 
