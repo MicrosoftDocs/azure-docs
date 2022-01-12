@@ -22,22 +22,9 @@ In this how-to article, you learn to use the Azure CLI to work with both individ
 
 ## Prerequisites
 
-- An Azure subscription. If you don't already have a subscription, visit the article on how to [Get an Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-- An Azure storage account. All access to Azure Storage takes place through a storage account. For this how-to article, create a storage account using the [Azure portal](https://portal.azure.com), Azure PowerShell, or Azure CLI. For help with creating a storage account, see the article on how to [Create a storage account](../common/storage-account-create.md).
-
-### Prepare your environment for the Azure CLI
-
-- Use the Bash environment in [Azure Cloud Shell](../../cloud-shell/quickstart.md).
-
-   [![Launch Cloud Shell in a new window](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
-
-- If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
-
-  - If you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az_login) command.  To finish the authentication process, follow the steps displayed in your terminal.  For other sign in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
-
-  - When you're prompted, install Azure CLI extensions on first use.  For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
-  - Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
 
 - This article requires version 2.0.46 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
