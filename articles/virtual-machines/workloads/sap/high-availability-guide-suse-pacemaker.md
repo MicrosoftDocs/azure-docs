@@ -33,7 +33,7 @@ This article discusses how to set up Pacemaker on SUSE Linux Enterprise Server (
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
-In Azure, you have two options for setting up STONITH in the Pacemaker cluster for SLES. You can use an Azure fence agent, with which you restart a failed node via the Azure APIs, or you can use a STONITH block device, or SBD device. 
+In Azure, you have two options for setting up STONITH in the Pacemaker cluster for SLES. You can use an Azure fence agent, with which you restart a failed node via the Azure APIs, or you can use a STONITH block device (SBD device). 
 
 To configure STONITH by using an SBD device in Azure, you can use either of two methods:
 
@@ -48,7 +48,7 @@ To configure STONITH by using an SBD device in Azure, you can use either of two 
   >[!IMPORTANT]
   > When you're planning and deploying Linux Pacemaker clustered nodes and SBD devices, do not allow the routing between your virtual machines and the VMs that are hosting the SBD devices to pass through any other devices, such as a [network virtual appliance (NVA)](https://azure.microsoft.com/solutions/network-appliances/). 
   >
-  >Issues and maintenance events with the NVA can have a negative impact on the stability and reliability of the overall cluster configuration. For more information, see [User-defined routing rules](../../../virtual-network/virtual-networks-udr-overview.md).
+  >Maintenance events and other issues with the NVA can have a negative impact on the stability and reliability of the overall cluster configuration. For more information, see [User-defined routing rules](../../../virtual-network/virtual-networks-udr-overview.md).
 
 - Use an Azure shared disk:
   
@@ -56,29 +56,28 @@ To configure STONITH by using an SBD device in Azure, you can use either of two 
   
   ![Diagram of the Azure shared disk SBD device for SLES Pacemaker cluster.](./media/high-availability-guide-suse-pacemaker/azure-shared-disk-sbd-device.png)
   
-  Here are some important considerations for SBD devices using an Azure shared disk:
+Here are some important considerations about SBD devices when you're using an Azure shared disk:
 
-   - An Azure shared disk with Premium SSD is supported as an SBD device.
-   - SBD devices that use an Azure shared disk are supported on SLES High Availability 15 SP01 and later.
-   - SBD devices that use an Azure premium shared disk are supported on [locally redundant storage (LRS)](../../disks-redundancy.md#locally-redundant-storage-for-managed-disks) and [zone-redundant storage (ZRS)](../../disks-redundancy.md#zone-redundant-storage-for-managed-disks).
-   - Depending on the type of your deployment (availability set or availability zones), choose the appropriate redundant storage for an Azure shared disk as your SBD device.
-     - An SBD device using LRS for Azure premium shared disk (skuName - Premium_LRS) is only supported with deployment in availability set.
-     - An SBD device using ZRS for an Azure premium shared disk (skuName - Premium_ZRS) is recommended with deployment in availability zones.
-   - A ZRS for managed disk is currently unavailable in all regions with availability zones. For more information, review the ZRS "Limitations" section in [Redundancy options for managed disks](../../disks-redundancy.md#limitations).
-   - The Azure shared disk that you use for SBD devices doesn’t need to be large. The [maxShares](../../disks-shared-enable.md#disk-sizes) value determines how many cluster nodes can use the shared disk. For example, you can use P1 or P2 disk sizes for your SBD device on two-node cluster such as SAP ASCS/ERS or SAP HANA scale-up.
-   - For [HANA scale-out with HANA system replication (HSR) and Pacemaker](sap-hana-high-availability-scale-out-hsr-suse.md), you can use an Azure shared disk for SBD devices in clusters with up to four nodes per replication site because of the current limit of [maxShares](../../disks-shared-enable.md#disk-sizes).
-   - We do *not* recommend attaching an Azure shared disk SBD device across Pacemaker clusters.
-   - If you use multiple Azure shared disk SBD devices, check on the limit for a maximum number of data disks that can be attached to a VM.
-   - For more information about limitations for Azure shared disks, carefully review the "Limitations" section of [Azure shared disk documentation](../../disks-shared.md#limitations).
+- An Azure shared disk with Premium SSD is supported as an SBD device.
+- SBD devices that use an Azure shared disk are supported on SLES High Availability 15 SP01 and later.
+- SBD devices that use an Azure premium shared disk are supported on [locally redundant storage (LRS)](../../disks-redundancy.md#locally-redundant-storage-for-managed-disks) and [zone-redundant storage (ZRS)](../../disks-redundancy.md#zone-redundant-storage-for-managed-disks).
+- Depending on the type of your deployment (availability set or availability zones), choose the appropriate redundant storage for an Azure shared disk as your SBD device.
+  - An SBD device using LRS for Azure premium shared disk (skuName - Premium_LRS) is only supported with deployment in availability set.
+  - An SBD device using ZRS for an Azure premium shared disk (skuName - Premium_ZRS) is recommended with deployment in availability zones.
+- A ZRS for managed disk is currently unavailable in all regions with availability zones. For more information, review the ZRS "Limitations" section in [Redundancy options for managed disks](../../disks-redundancy.md#limitations).
+- The Azure shared disk that you use for SBD devices doesn’t need to be large. The [maxShares](../../disks-shared-enable.md#disk-sizes) value determines how many cluster nodes can use the shared disk. For example, you can use P1 or P2 disk sizes for your SBD device on two-node cluster such as SAP ASCS/ERS or SAP HANA scale-up.
+- For [HANA scale-out with HANA system replication (HSR) and Pacemaker](sap-hana-high-availability-scale-out-hsr-suse.md), you can use an Azure shared disk for SBD devices in clusters with up to four nodes per replication site because of the current limit of [maxShares](../../disks-shared-enable.md#disk-sizes).
+- We do *not* recommend attaching an Azure shared disk SBD device across Pacemaker clusters.
+- If you use multiple Azure shared disk SBD devices, check on the limit for a maximum number of data disks that can be attached to a VM.
+- For more information about limitations for Azure shared disks, carefully review the "Limitations" section of [Azure shared disk documentation](../../disks-shared.md#limitations).
 
-- Azure fence agents
+- Azure fence agents require a service principal that manages restarting failed nodes via Azure APIs. Azure fence agents don't require the deployment of additional virtual machines.
 
-  An Azure fence agent requires a service principal that manages restarting failed nodes via Azure APIs. Azure fence agents don't require the deployment of additional virtual machines.
 ## Use an iSCSI target server
 
 To use an SBD device that uses an iSCSI target server for fencing, follow the instructions in the next sections.
 
-### Set up iSCSI target servers
+### Set up the iSCSI target server
 
 You first need to create the iSCSI target virtual machines. You can share iSCSI target servers with multiple Pacemaker clusters.
 
@@ -207,15 +206,15 @@ To create the iSCSI disks for the clusters to be used by your SAP systems, run t
    o- xen-pvscsi ........................................................................................ [Targets: 0]
    </code></pre>
 
-### Set up iSCSI target server SBD device
+### Set up the iSCSI target server SBD device
 
 Connect to the iSCSI device that you created in the last step from the cluster.
 Run the following commands on the nodes of the new cluster that you want to create.
 
 > [!NOTE]
-> **[A]**: Applies to all nodes.
-> **[1]**: Applies only to node 1.
-> **[2]**: Applies only to node 2.
+> * **[A]**: Applies to all nodes.
+* **[1]**: Applies only to node 1.
+* **[2]**: Applies only to node 2.
 
 1. **[A]** Connect to the iSCSI devices. First, enable the iSCSI and SBD services.
 
@@ -229,7 +228,7 @@ Run the following commands on the nodes of the new cluster that you want to crea
    <pre><code>sudo vi /etc/iscsi/initiatorname.iscsi
    </code></pre>
 
-   Change the contents of the file to match the access control lists (ACLs) you used when you created the iSCSI device on the iSCSI target server (for example, for the NFS server).
+1. Change the contents of the file to match the access control lists (ACLs) you used when you created the iSCSI device on the iSCSI target server (for example, for the NFS server).
 
    <pre><code>InitiatorName=<b>iqn.2006-04.nfs-0.local:nfs-0</b></code></pre>
 
@@ -238,7 +237,7 @@ Run the following commands on the nodes of the new cluster that you want to crea
    <pre><code>sudo vi /etc/iscsi/initiatorname.iscsi
    </code></pre>
 
-   Change the content of the file to match the ACLs you used when you created the iSCSI device on the iSCSI target server.
+1. Change the contents of the file to match the ACLs you used when you created the iSCSI device on the iSCSI target server.
 
    <pre><code>InitiatorName=<b>iqn.2006-04.nfs-1.local:nfs-1</b>
    </code></pre>
@@ -281,7 +280,7 @@ Run the following commands on the nodes of the new cluster that you want to crea
    # <b>[8:0:0:0]    disk    LIO-ORG  sbdnfs           4.0   /dev/sdf</b>
    </code></pre>
 
-   e. Now, retrieve the IDs of the iSCSI devices.
+   e. Retrieve the IDs of the iSCSI devices.
 
    <pre><code>ls -l /dev/disk/by-id/scsi-* | grep <b>sdd</b>
    
@@ -302,7 +301,7 @@ Run the following commands on the nodes of the new cluster that you want to crea
    # lrwxrwxrwx 1 root root  9 Aug  9 13:32 /dev/disk/by-id/scsi-SLIO-ORG_sbdnfs_f88f30e7-c968-4678-bc87-fe7bfcbdb625 -> ../../sdf
    </code></pre>
 
-   The command lists three device IDs for every SBD device. We recommend using the ID that starts with scsi-1. In the preceding example, the ID is:
+   The command lists three device IDs for every SBD device. We recommend using the ID that starts with scsi-1. In the preceding example, the IDs are:
 
    * **/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03**
    * **/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df**
@@ -378,7 +377,7 @@ This section applies only if you want to use an SBD device with an Azure shared 
    <pre><code>$VM1 = "<b>prod-cl1-0</b>"
    $VM2 = "<b>prod-cl1-1</b>"</code></pre>
 
-1.  Add the Azure shared disk to cluster node 1.
+1. Add the Azure shared disk to cluster node 1.
    <pre><code>$vm = Get-AzVM -ResourceGroupName $ResourceGroup -Name $VM1
    $vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun <b>0</b>
    Update-AzVm -VM $vm -ResourceGroupName $ResourceGroup -Verbose</code></pre>
@@ -421,7 +420,7 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
    <b>lrwxrwxrwx 1 root root  9 Nov  8 16:55 /dev/disk/by-id/scsi-3600224804208a67da8073b2a9728af19 -> ../../sdc</b>
    </code></pre>
 
-   The command lists device IDs for the SBD device. We recommend using the ID that starts with scsi-3, in the preceding example, the ID is **/dev/disk/by-id/scsi-3600224804208a67da8073b2a9728af19**.
+   The commands list device IDs for the SBD device. We recommend using the ID that starts with scsi-3. In the preceding example, the ID is **/dev/disk/by-id/scsi-3600224804208a67da8073b2a9728af19**.
 
 1. **[1]** Create the SBD device.
 
@@ -464,7 +463,7 @@ This section applies only if you want to use a STONITH device with an Azure fenc
 
 ### Create an Azure fence agent STONITH device
 
-This section applies only if you're using a STONITH device that's based on Azure Fence agent. The STONITH device uses a service principal to authorize against Microsoft Azure. To create a service principal, do the following:
+This section applies only if you're using a STONITH device that's based on an Azure fence agent. The STONITH device uses a service principal to authorize against Microsoft Azure. To create a service principal, do the following:
 
 1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** > **Properties**, and then write down the Directory ID. This is the **tenant ID**.
 1. Select **App registrations**.
@@ -474,14 +473,14 @@ This section applies only if you're using a STONITH device that's based on Azure
    The sign-on URL is not used and can be any valid URL.
 1. Select **Certificates and secrets**, and then select **New client secret**.
 1. Enter a description for a new key, select **Never expires**, and then select **Add**.
-1. Write down the value. It is used as the password for the service principal.
-1. Select **Overview**, and then write down the application ID. It is used as the username of the service principal.
+1. Write down the value, which you'll use as the password for the service principal.
+1. Select **Overview**, and then write down the application ID, which you'll use as the username of the service principal.
 
 ### **[1]** Create a custom role for the fence agent
 
 By default, the service principal doesn't have permissions to access your Azure resources. You need to give the service principal permissions to start and stop (deallocate) all virtual machines in the cluster. If you didn't already create the custom role, you can do so by using [PowerShell](../../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) or the[Azure CLI](../../../role-based-access-control/custom-roles-cli.md).
 
-Use the following content for the input file. You need to adapt the content to your subscriptions. That is, replace c276fc76-9cd4-44c9-99a7-4fd71546436e and e91d47c4-76f3-4271-a796-21b4ecfe3624 with the your own subscritpion IDs. If you have only one subscription, remove the second entry under AssignableScopes.
+Use the following content for the input file. You need to adapt the content to your subscriptions. That is, replace *c276fc76-9cd4-44c9-99a7-4fd71546436e* and *e91d47c4-76f3-4271-a796-21b4ecfe3624* with the your own subscritpion IDs. If you have only one subscription, remove the second entry under AssignableScopes.
 
 ```json
 {
@@ -511,33 +510,33 @@ Be sure to assign the role for both cluster nodes.
 ## Install the cluster
 
 > [!NOTE]
-> **[A]**: Applies to all nodes.
-> **[1]**: Applies only to node 1.
-> **[2]**: Applies only to node 2.
+> * **[A]**: Applies to all nodes.
+* **[1]**: Applies only to node 1.
+* **[2]**: Applies only to node 2.
 
 1. **[A]** Update SLES.
 
    <pre><code>sudo zypper update
    </code></pre>
 
-1. **[A]** Install the component, which is needed for cluster resources.
+1. **[A]** Install the component, which you'll need for the cluster resources.
 
    <pre><code>sudo zypper in socat
    </code></pre>
 
-1. **[A]** Install the azure-lb component, which is needed for cluster resources.
+1. **[A]** Install the azure-lb component, which you'll need for the cluster resources.
 
    <pre><code>sudo zypper in resource-agents
    </code></pre>
 
    > [!NOTE]
-   > Check the version of package resource-agents and make sure that the minimum version requirements are met:  
-   > - For SLES 12 SP4/SP5, the version must be at least resource-agents-4.3.018.a7fb5035-3.30.1.  
-   > - For SLES 15/15 SP1, the version must be at least resource-agents-4.3.0184.6ee15eb2-4.13.1.  
+   > Check the version of the *resource-agents* package, and make sure that the minimum version requirements are met:  
+   > - **SLES 12 SP4/SP5**: the version must be resource-agents-4.3.018.a7fb5035-3.30.1 or later.  
+   > - **SLES 15/15 SP1**: the version must be resource-agents-4.3.0184.6ee15eb2-4.13.1 or later.  
 
 1. **[A]** Configure the operating system.
 
-   Pacemaker occasionally creates many processes, which can exhaust the allowed number of processes. When this happens, a heartbeat between the cluster nodes might fail and lead to a failover of your resources. We recommend increasing the maximum allowed processes by setting the following parameter:
+   a. Pacemaker occasionally creates many processes, which can exhaust the allowed number. When this happens, a heartbeat between the cluster nodes might fail and lead to a failover of your resources. We recommend increasing the maximum number of allowed processes by setting the following parameter:
 
    <pre><code># Edit the configuration file
    sudo vi /etc/systemd/system.conf
@@ -553,7 +552,7 @@ Be sure to assign the role for both cluster nodes.
    sudo systemctl --no-pager show | grep DefaultTasksMax
    </code></pre>
 
-   Reduce the size of the dirty cache. For more information, see [Low write performance on SLES 11/12 servers with large RAM](https://www.suse.com/support/kb/doc/?id=7010287).
+   b. Reduce the size of the dirty cache. For more information, see [Low write performance on SLES 11/12 servers with large RAM](https://www.suse.com/support/kb/doc/?id=7010287).
 
    <pre><code>sudo vi /etc/sysctl.conf
    # Change/set the following settings
@@ -609,13 +608,13 @@ Be sure to assign the role for both cluster nodes.
    sudo vi /root/.ssh/authorized_keys
    </code></pre>
 
-1. **[A]** Install the **fence-agents** package if you're using a STONITH device, based on the Azure fence agent.  
+1. **[A]** Install the *fence-agents* package if you're using a STONITH device, based on the Azure fence agent.  
    
    <pre><code>sudo zypper install fence-agents
    </code></pre>
 
    >[!IMPORTANT]
-   > If a cluster node needs to be fenced, the installed version of the **fence-agents** package must be 4.4.0 or later to benefit from the faster failover times with the Azure fence agent. If you're running an earlier version, we recommend that you update the package.  
+   > If a cluster node needs to be fenced, the installed version of the *fence-agents* package must be 4.4.0 or later to benefit from the faster failover times with the Azure fence agent. If you're running an earlier version, we recommend that you update the package.  
 
 
 1. **[A]** Install the Azure Python SDK on SLES 12 SP4 or SLES 12 SP5.
@@ -624,7 +623,7 @@ Be sure to assign the role for both cluster nodes.
     sudo zypper install python-azure-mgmt-compute
     </code></pre>
 
-    - On SLES 15 and later:
+    Install the Azure Python SDK on SLES 15 or later:
     <pre><code># You might need to activate the public cloud extension first. In this example, the SUSEConnect command is for SLES 15 SP1
     SUSEConnect -p sle-module-public-cloud/15.1/x86_64
     sudo zypper install python3-azure-mgmt-compute
@@ -705,7 +704,7 @@ Be sure to assign the role for both cluster nodes.
     <pre><code>sudo vi /etc/corosync/corosync.conf
     </code></pre>
 
-    a. Add the following bold content to the file if the values are not there or are different. Be sure to change the token to 30000 to allow memory-preserving maintenance. For more information, see the "Maintenance for virtual machines in Azure" article for [Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance].
+    a. Add the following bold-formatted content to the file if the values are not there or are different. Be sure to change the token to 30000 to allow memory-preserving maintenance. For more information, see the "Maintenance for virtual machines in Azure" article for [Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance].
 
     <pre><code>[...]
       <b>token:          30000
@@ -744,7 +743,7 @@ Be sure to assign the role for both cluster nodes.
     <pre><code>sudo service corosync restart
     </code></pre>
 
-### Create a STONITH device on Pacemaker cluster
+### Create a STONITH device on the Pacemaker cluster
 
 1. **[1]** If you're using an SDB device (iSCSI target server or Azure shared disk) as STONITH, run the following commands. Enable the use of a STONITH device, and set the fence delay.
 
@@ -785,9 +784,9 @@ Be sure to assign the role for both cluster nodes.
    > [!TIP]
    >The Azure fence agent requires outbound connectivity to the public endpoints, as documented, along with possible solutions, in [Public endpoint connectivity for VMs using standard ILB](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
-## Pacemaker configuration for Azure scheduled events
+## Configure Pacemaker for Azure scheduled events
 
-Azure offers [scheduled events](../../linux/scheduled-events.md). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events as VM shutdown, VM redeployment, and so on. Resource agent [azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, the azure-events agent will place the target cluster node in standby mode to force the cluster to migrate resources away from the VM with pending [Azure scheduled events](../../linux/scheduled-events.md). To achieve that, additional Pacemaker resources must be configured. 
+Azure offers [scheduled events](../../linux/scheduled-events.md). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events as VM shutdown, VM redeployment, and so on. Resource agent [azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, the azure-events agent will place the target cluster node in standby mode to force the cluster to migrate resources away from the VM with pending [Azure scheduled events](../../linux/scheduled-events.md). To achieve that, you must configure additional Pacemaker resources. 
 
 1. **[A]** Make sure that the package for the azure-events agent is already installed and up to date. 
    
