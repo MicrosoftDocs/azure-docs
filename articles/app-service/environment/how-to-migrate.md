@@ -18,9 +18,9 @@ An App Service Environment (ASE) v2 can be migrated to an [App Service Environme
 
 Ensure you understand how migrating to an App Service Environment v3 will affect your applications. Review the [migration process](migrate.md#overview-of-the-migration-process) to understand the process timeline and where and when you'll need to get involved. Also review the [FAQs](migrate.md#frequently-asked-questions), which may answer some questions you currently have.
 
-For the initial preview of the migration tool, you should follow the below steps in order and as written since you'll be making Azure REST API calls. The recommended way for making these calls is by using the [Azure CLI](https://docs.microsoft.com/cli/azure/). For information about other methods, see [Getting Started with Azure REST](https://docs.microsoft.com/rest/api/azure/).
+For the initial preview of the migration tool, you should follow the below steps in order and as written since you'll be making Azure REST API calls. The recommended way for making these calls is by using the [Azure CLI](/cli/azure/). For information about other methods, see [Getting Started with Azure REST](/rest/api/azure/).
 
-For this guide, [install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) or use the [Azure Cloud Shell](https://shell.azure.com/).
+For this guide, [install the Azure CLI](/cli/azure/install-azure-cli) or use the [Azure Cloud Shell](https://shell.azure.com/).
 
 ## 1. Get your App Service Environment ID
 

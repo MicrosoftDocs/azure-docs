@@ -18,10 +18,8 @@ App Service can now migrate your App Service Environment (ASE) v2 to an [App Ser
 
 At this time, App Service Environment migrations to v3 are supported for both [Internal Load Balancer (ILB)](create-ilb-ase.md) and [external (internet facing with public IP)](create-external-ase.md) App Service Environment v2 in the following regions:
 
-- West Central US
 - Canada Central
 - Canada East
-- UK South
 - Germany West Central
 - East Asia
 - Australia East
