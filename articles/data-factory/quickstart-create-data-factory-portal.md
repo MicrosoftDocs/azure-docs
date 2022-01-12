@@ -10,7 +10,7 @@ ms.author: jianleishen
 ms.custom: mode-other
 ---
 
-# Quickstart: Create a data factory by using the Azure Data Factory UI 
+# Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

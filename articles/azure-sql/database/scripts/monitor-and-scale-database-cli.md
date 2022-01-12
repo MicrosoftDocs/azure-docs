@@ -19,6 +19,8 @@ ms.date: 01/05/2022
 
 This Azure CLI script example scales a single database in Azure SQL Database to a different compute size after querying the size information of the database.
 
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
