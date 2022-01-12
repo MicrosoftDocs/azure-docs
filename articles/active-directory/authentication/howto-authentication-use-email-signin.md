@@ -62,10 +62,9 @@ In the current preview state, the following limitations apply to email as an alt
     * [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md)
     * [Azure AD joined devices](../devices/concept-azure-ad-join.md)
     * [Azure AD registered devices](../devices/concept-azure-ad-register.md)
-    * [Applications using Resource Owner Password Credentials (ROPC)](../develop/v2-oauth-ropc.md)
-    * Applications using legacy authentication such as POP3 and SMTP
+    * [Resource Owner Password Credentials (ROPC)](../develop/v2-oauth-ropc.md)
+    * Legacy authentication such as POP3 and SMTP
     * Skype for Business
-    * Microsoft Office on macOS
     * Microsoft 365 Admin Portal
 
 * **Unsupported apps** - Some third-party applications may not work as expected if they assume that the `unique_name` or `preferred_username` claims are immutable or will always match a specific user attribute, such as UPN.
@@ -133,7 +132,24 @@ Email as an alternate login ID applies to [Azure AD B2B collaboration](../extern
 
 Once users with the *ProxyAddresses* attribute applied are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign in with email as an alternate login ID for your tenant. This feature tells the Azure AD login servers to not only check the sign-in identifier against UPN values, but also against *ProxyAddresses* values for the email address.
 
-During preview, you can currently only enable the sign-in with email as an alternate login ID feature using PowerShell. You need *global administrator* permissions to complete the following steps:
+During preview, you currently need *global administrator* permissions to enable sign-in with email as an alternate login ID. You can use either Azure portal or PowerShell to set up the feature.
+
+### Azure portal
+
+1. Sign in to the [Azure portal][azure-portal] as a *global administrator*.
+1. Search for and select **Azure Active Directory**.
+1. From the navigation menu on the left-hand side of the Azure Active Directory window, select **Azure AD Connect > Email as alternate login ID**.
+
+    ![Browse to and select the email as alternate login ID window in the Azure portal.](media/howto-authentication-use-email-signin/azure-ad-connect-screen.png)
+
+1. Click the checkbox next to *Email as an alternate login ID*.
+1. Click **Save**.
+
+    ![Enable the feature in the email as alternate login ID window.](media/howto-authentication-use-email-signin/email-alternate-login-id-screen.png)
+
+With the policy applied, it can take up to 1 hour to propagate and for users to be able to sign in using their alternate login ID.
+
+### PowerShell
 
 1. Open a PowerShell session as an administrator, then install the *AzureADPreview* module using the [Install-Module][Install-Module] cmdlet:
 
@@ -416,6 +432,7 @@ For more information on hybrid identity operations, see [how password hash sync]
 [identity-protection]: ../identity-protection/overview-identity-protection.md#risk-detection-and-remediation
 
 <!-- EXTERNAL LINKS -->
+[azure-portal]: https://portal.azure.com
 [Install-Module]: /powershell/module/powershellget/install-module
 [Connect-AzureAD]: /powershell/module/azuread/connect-azuread
 [Get-AzureADPolicy]: /powershell/module/azuread/get-azureadpolicy
