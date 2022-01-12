@@ -22,17 +22,20 @@ keywords: facial recognition, facial recognition software, facial analysis, face
 
 The Azure Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as identity verification, touchless access control, and face blurring for privacy.
 
-Identity Verification: Verifies someone’s identity against a government-issued ID card like a passport or driver’s license or other enrollment image to grant access to digital or physical services or recover an account. Specific access scenarios include opening a new account, verifying a worker, or administering an online assessment. Identity verification can be done once when a person is onboarded, and repeatedly as someone accesses a digital or physical service.
-
-Touchless Access Control: Compared to today’s methods like cards or tickets, opt-in face identification enables an enhanced access control experience while reducing the hygiene and security risks from card sharing, loss, or theft. Facial recognition assists the check-in process with a human in the loop for check-ins in airports, stadiums, theme parks, or buildings as well as reception kiosks at offices, hospitals, gyms, clubs, or schools.
-
-Face Redaction: Redact or blur detected faces of people recorded in a video to protect their privacy.
-
 This documentation contains the following types of articles:
 * The [quickstarts](./Quickstarts/client-libraries.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
 * The [how-to guides](./Face-API-How-to-Topics/HowtoDetectFacesinImage.md) contain instructions for using the service in more specific or customized ways.
 * The [conceptual articles](./concepts/face-detection.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./enrollment-overview.md) are longer guides that show you how to use this service as a component in broader business solutions.
+
+## Example use cases
+
+Identity verification: Verify someone's identity against a government-issued ID card like a passport or driver's license or other enrollment image to grant access to digital or physical services or recover an account. Specific access scenarios include opening a new account, verifying a worker, or administering an online assessment. Identity verification can be done once when a person is onboarded, and repeated as someone accesses a digital or physical service.
+
+Touchless access control: Compared to today’s methods like cards or tickets, opt-in face identification enables an enhanced access control experience while reducing the hygiene and security risks from card sharing, loss, or theft. Facial recognition assists the check-in process with a human in the loop for check-ins in airports, stadiums, theme parks, or buildings as well as reception kiosks at offices, hospitals, gyms, clubs, or schools.
+
+Face redaction: Redact or blur detected faces of people recorded in a video to protect their privacy.
+
 
 ## Face detection and analysis
 
@@ -91,7 +94,7 @@ The Group operation divides a set of unknown faces into several smaller groups b
 
 All of the faces in a returned group are likely to belong to the same person, but there can be several different groups for a single person. Those groups are differentiated by another factor, such as expression, for example. For more information, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Group API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) reference documentation.
 
-## Sample app
+## Sample apps
 
 The following sample applications show a few ways to use the Face service:
 
