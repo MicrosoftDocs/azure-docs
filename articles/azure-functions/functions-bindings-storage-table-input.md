@@ -18,13 +18,27 @@ Use the Azure Table storage input binding to read a table in an Azure Storage ac
 
 ::: zone pivot="programming-language-csharp"
 
-# [C#](#tab/csharp)
+The C# function can be created using one of the following C# modes:
 
-### One entity
+# [In-process](#tab/in-process)
+
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
+
+# [Isolated process](#tab/isolated-process)
+
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
+
+# [C# script](#tab/csharp-script)
+
+Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
+
+---
+
+# [Functions 2.x and higher](#tab/functionsv2/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that reads a single table row. For every message sent to the queue, the function will be triggered.
 
-The row key value "{queueTrigger}" indicates that the row key comes from the queue message string.
+The row key value `{queueTrigger}` binds the row key to the message metadata, which is the message string.
 
 ```csharp
 public class TableStorage
@@ -47,7 +61,7 @@ public class TableStorage
 }
 ```
 
-### CloudTable
+
 
 `CloudTable` is only supported in the [Functions v2 and and higher runtimes](functions-versions.md).
 
@@ -101,7 +115,32 @@ For more information about how to use CloudTable, see [Get started with Azure Ta
 
 If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
 
-### IQueryable
+# [Functions 1.x](#tab/functionsv1/in-process)
+
+The following example shows a [C# function](functions-dotnet-class-library.md) that reads a single table row. For every message sent to the queue, the function will be triggered.
+
+The row key value `{queueTrigger}` binds the row key to the message metadata, which is the message string.
+
+```csharp
+public class TableStorage
+{
+    public class MyPoco
+    {
+        public string PartitionKey { get; set; }
+        public string RowKey { get; set; }
+        public string Text { get; set; }
+    }
+
+    [FunctionName("TableInput")]
+    public static void TableInput(
+        [QueueTrigger("table-items")] string input, 
+        [Table("MyTable", "MyPartition", "{queueTrigger}")] MyPoco poco, 
+        ILogger log)
+    {
+        log.LogInformation($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
+    }
+}
+```
 
 `IQueryable` is only supported in the [Functions v1 runtime](functions-versions.md).
 
@@ -129,13 +168,25 @@ public class TableStorage
 }
 ```
 
-# [C# Script](#tab/csharp-script)
+# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 
-### One entity
+The following `MyTableData` class represents a row of data in the table: 
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Table/TableFunction.cs" range="31-38" :::
+
+The following function, which is started by a Queue Storage trigger, reads a row key from the queue, which is used to get the row from the input table. The expression `{queueTrigger}` binds the row key to the message metadata, which is the message string.
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Table/TableFunction.cs" range="12-29" ::: 
+
+# [Functions 1.x](#tab/functionsv1/isolated-process)
+
+Functions version 1.x doesn't support isolated process.
+
+# [Functions 2.x and higher](#tab/functionsv2/csharp-script)
 
 The following example shows a table input binding in a *function.json* file and [C# script](functions-reference-csharp.md) code that uses the binding. The function uses a queue trigger to read a single table row. 
 
-The *function.json* file specifies a `partitionKey` and a `rowKey`. The `rowKey` value "{queueTrigger}" indicates that the row key comes from the queue message string.
+The *function.json* file specifies a `partitionKey` and a `rowKey`. The `rowKey` value `{queueTrigger}` indicates that the row key comes from the queue message string.
 
 ```json
 {
@@ -180,9 +231,7 @@ public class Person
 }
 ```
 
-### CloudTable
-
-`IQueryable` isn't supported in the Functions runtime for [versions 2.x and higher)](functions-versions.md). An alternative is to use a `CloudTable` method parameter to read the table by using the Azure Storage SDK. Here's an example of a function that queries an Azure Functions log table:
+To read more than one row, use a `CloudTable` method parameter to read the table by using the Azure Storage SDK. Here's an example of a function that queries an Azure Functions log table:
 
 ```json
 {
@@ -243,9 +292,56 @@ For more information about how to use CloudTable, see [Get started with Azure Ta
 
 If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
 
-### IQueryable
+# [Functions 1.x](#tab/functionsv1/csharp-script)
 
-The following example shows a table input binding in a *function.json* file and [C# script](functions-reference-csharp.md) code that uses the binding. The function reads entities for a partition key that is specified in a queue message.
+The following example shows a table input binding in a *function.json* file and [C# script](functions-reference-csharp.md) code that uses the binding. The function uses a queue trigger to read a single table row. 
+
+The *function.json* file specifies a `partitionKey` and a `rowKey`. The `rowKey` value `{queueTrigger}` indicates that the row key comes from the queue message string.
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "personEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the C# script code:
+
+```csharp
+public static void Run(string myQueueItem, Person personEntity, ILogger log)
+{
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"Name in Person entity: {personEntity.Name}");
+}
+
+public class Person
+{
+    public string PartitionKey { get; set; }
+    public string RowKey { get; set; }
+    public string Name { get; set; }
+}
+```
+
+The following example shows a table input binding in a *function.json* file and [C# script](functions-reference-csharp.md) code that uses the binding. The function uses `IQueryable<T>` to read entities for a partition key that is specified in a queue message. `IQueryable<T>` is only supported by version 1.x of the Functions runtime.
 
 Here's the *function.json* file:
 
@@ -351,7 +447,7 @@ public HttpResponseMessage get(
 }
 ```
 
-The following example uses the Filter to query for persons with a specific name in an Azure Table, and limits the number of possible matches to 10 results.
+The following example uses a filter to query for persons with a specific name in an Azure Table, and limits the number of possible matches to 10 results.
 
 ```java
 @FunctionName("getPersonsByName")
@@ -421,34 +517,34 @@ Binding configuration in _function.json_:
 
 ```json
 {
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "MyQueueItem",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "PersonEntity",
-      "type": "table",
-      "tableName": "Person",
-      "partitionKey": "Test",
-      "rowKey": "{queueTrigger}",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "in"
-    }
-  ],
-  "disabled": false
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "MyQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "PersonEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
 }
 ```
 
 PowerShell code in _run.ps1_:
 
 ```powershell
-param($MyQueueItem, $PersonEntity, $TriggerMetadata)
-Write-Host "PowerShell queue trigger function processed work item: $MyQueueItem"
-Write-Host "Person entity name: $($PersonEntity.Name)"
+param($MyQueueItem, $PersonEntity, $TriggerMetadata)
+Write-Host "PowerShell queue trigger function processed work item: $MyQueueItem"
+Write-Host "Person entity name: $($PersonEntity.Name)"
 ```
 
 ::: zone-end  
@@ -507,16 +603,29 @@ def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
     return func.HttpResponse(f"Table row: {messageJSON}")
 ```
 
-With this simple binding, you can't programatically handle a case in which no row that has a row key ID is found. For more fine-grained data selection, use the [storage SDK](/azure/developer/python/azure-sdk-example-storage-use?tabs=cmd).
+With this simple binding, you can't programmatically handle a case in which no row that has a row key ID is found. For more fine-grained data selection, use the [storage SDK](/azure/developer/python/azure-sdk-example-storage-use?tabs=cmd).
 
 ---
 
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
 
-## Attributes and annotations
+## Attributes
 
-# [C#](#tab/csharp)
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [TableInputAttribute] attribute to define the function. C# script instead uses a function.json configuration file.
+
+The following table explains the binding configuration properties that you set in the [TableInputAttribute].
+
+| Attribute property |Description|
+|---------|---------|
+| **TableName** | The name of the table.| 
+| **PartitionKey** |Optional. The partition key of the table entity to read. See the [usage](#usage) section for guidance on how to use this property.| 
+|**RowKey** | Optional. The row key of the table entity to read. See the [usage](#usage) section for guidance on how to use this property.| 
+|**Take** | Optional. The maximum number of entities to read in JavaScript. See the [usage](#usage) section for guidance on how to use this property.| 
+|**Filter** | Optional. An OData filter expression for table input in JavaScript. See the [usage](#usage) section for guidance on how to use this property.| 
+|**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. The setting can be the name of an "AzureWebJobs" prefixed app setting or connection string name. For example, if your setting name is "AzureWebJobsMyStorage", you can specify "MyStorage" here. The Functions runtime will automatically look for an app setting that named "AzureWebJobsMyStorage". If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+
+# [In-process](#tab/in-process)
 
  In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a table input binding:
 
@@ -548,61 +657,43 @@ With this simple binding, you can't programatically handle a case in which no ro
   }
   ```
 
-  For a complete example, see the C# example.
+[!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
 
-* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
-  Provides another way to specify the storage account to use. The constructor takes the name of an app setting that contains a storage connection string. The attribute can be applied at the parameter, method, or class level. The following example shows class level and method level:
+# [Isolated process](#tab/isolated-process)
 
-  ```csharp
-  [StorageAccount("ClassLevelStorageAppSetting")]
-  public static class AzureFunctions
-  {
-      [FunctionName("TableInput")]
-      [StorageAccount("FunctionLevelStorageAppSetting")]
-      public static void Run( //...
-  {
-      ...
-  }
-  ```
+Here's a `TableInput` attribute in a method signature:
 
-The storage account to use is determined in the following order:
-
-* The `Table` attribute's `Connection` property.
-* The `StorageAccount` attribute applied to the same parameter as the `Table` attribute.
-* The `StorageAccount` attribute applied to the function.
-* The `StorageAccount` attribute applied to the class.
-* The default storage account for the function app ("AzureWebJobsStorage" app setting).
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Table/TableFunction.cs" range="14-17":::
 
 # [C# script](#tab/csharp-script)
-Attributes aren't supported by C# Script.
+
+C# script uses a function.json file for configuration instead of attributes.
+
+The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
+
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+|**type** | n/a | Must be set to `table`. This property is set automatically when you create the binding in the Azure portal.|
+|**direction** | n/a | Must be set to `in`. This property is set automatically when you create the binding in the Azure portal. |
+|**name** | n/a | The name of the variable that represents the table or entity in function code. | 
+|**tableName** | **TableName** | The name of the table.| 
+|**partitionKey** | **PartitionKey** |Optional. The partition key of the table entity to read. See the [usage](#usage) section for guidance on how to use this property.| 
+|**rowKey** |**RowKey** | Optional. The row key of the table entity to read. See the [usage](#usage) section for guidance on how to use this property.| 
+|**take** |**Take** | Optional. The maximum number of entities to read in JavaScript. See the [usage](#usage) section for guidance on how to use this property.| 
+|**filter** |**Filter** | Optional. An OData filter expression for table input in JavaScript. See the [usage](#usage) section for guidance on how to use this property.| 
+|**connection** |**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. The setting can be the name of an "AzureWebJobs" prefixed app setting or connection string name. For example, if your setting name is "AzureWebJobsMyStorage", you can specify "MyStorage" here. The Functions runtime will automatically look for an app setting that named "AzureWebJobsMyStorage". If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
 
 ---
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-##Attributes and annotations
+## Attributes and annotations
 
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@TableInput` annotation on parameters whose value would come from Table storage.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript"  
-##Attributes and annotations
-
-Attributes aren't supported by JavaScript.
-
-::: zone-end  
-::: zone pivot="programming-language-powershell"
-##Attributes and annotations
-
-Attributes aren't supported by PowerShell.
-::: zone-end  
-::: zone pivot="programming-language-python"
-##Attributes and annotations
-
-Attributes aren't supported by Python.
-::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file and the `Table` attribute.
@@ -671,3 +762,5 @@ Table data is passed to the function as a JSON string. De-serialize the message 
 ## Next steps
 
 * [Write table storage data from a function](./functions-bindings-storage-table-output.md)
+
+[TableInputAttribute]: /dotnet/api/microsoft.azure.webjobs.tableinputattribute

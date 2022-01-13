@@ -59,11 +59,11 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs/5.0.0-beta.4), version 5.x.
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages//dotnet/api/microsoft.azure.webjobs.blobattribute.Blobs/5.0.0-beta.4), version 5.x.
 
 # [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage), version 3.x.
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages//dotnet/api/microsoft.azure.webjobs.blobattribute), version 3.x.
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
@@ -82,8 +82,6 @@ This extension version is available from the extension bundle v3 by adding the f
   }
 }
 ```
-
-[!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]
 
 To learn more, see [Update your extensions].
 
@@ -134,6 +132,8 @@ Functions 1.x apps automatically have a reference to the extension.
 ---
 
 ::: zone-end
+
+[!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]
 
 ## host.json settings
 

@@ -395,7 +395,7 @@ Access the message data by using a method parameter such as `string paramName`. 
 
 When binding to an object, the Functions runtime tries to deserializes the JSON payload into an instance of an arbitrary class defined in your code. For examples using [QueueMessage], see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
-[!INCLUDE [functions-bindings-queue-storage-attribute](../../includes/functions-bindings-queue-storage-attribute.md)]
+[!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
 
 # [Extension 2.x and higher](#tab/extensionv2/in-process)
 
@@ -408,7 +408,7 @@ Access the message data by using a method parameter such as `string paramName`. 
 
 When binding to an object, the Functions runtime tries to deserializes the JSON payload into an instance of an arbitrary class defined in your code.  If you try to bind to [CloudQueueMessage] and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md).
 
-[!INCLUDE [functions-bindings-queue-storage-attribute](../../includes/functions-bindings-queue-storage-attribute.md)]
+[!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
 
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 

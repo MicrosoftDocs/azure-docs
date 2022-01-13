@@ -294,7 +294,7 @@ def main(queuemsg: func.QueueMessage, inputblob: bytes) -> bytes:
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs) attribute to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [BlobAttribute](/dotnet/api/microsoft.azure.webjobs.blobattribute) attribute to define the function. C# script instead uses a function.json configuration file.
 
 The attribute's constructor takes the following parameters:
 
@@ -307,7 +307,7 @@ The attribute's constructor takes the following parameters:
 
 # [In-process](#tab/in-process)
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs).
+In [C# class libraries](functions-dotnet-class-library.md), use the [BlobAttribute](/dotnet/api/microsoft.azure.webjobs.blobattribute).
 
 The attribute's constructor takes the path to the blob and a `FileAccess` parameter indicating read or write, as shown in the following example:
 

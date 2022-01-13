@@ -12,7 +12,7 @@ You can also use the [StorageAccountAttribute](https://github.com/Azure/azure-we
 [StorageAccount("ClassLevelStorageAppSetting")]
 public static class AzureFunctions
 {
-    [FunctionName("QueueTrigger")]
+    [FunctionName("StorageTrigger")]
     [StorageAccount("FunctionLevelStorageAppSetting")]
     public static void Run( //...
 {
@@ -22,8 +22,8 @@ public static class AzureFunctions
 
 The storage account to use is determined in the following order:
 
-* The `QueueTrigger` attribute's `Connection` property.
-* The `StorageAccount` attribute applied to the same parameter as the `QueueTrigger` attribute.
+* The trigger or binding attribute's `Connection` property.
+* The `StorageAccount` attribute applied to the same parameter as the trigger or binding attribute.
 * The `StorageAccount` attribute applied to the function.
 * The `StorageAccount` attribute applied to the class.
 * The default storage account for the function app, which is defined in the `AzureWebJobsStorage` application setting.

@@ -325,7 +325,7 @@ The attribute that defines an output binding in C# libraries depends on the mode
 
 # [In-process](#tab/in-process)
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues/QueueAttribute.cs).
+In [C# class libraries](functions-dotnet-class-library.md), use the [QueueAttribute](/dotnet/api/microsoft.azure.webjobs.queueattribute).
 
 The attribute applies to an `out` parameter or the return value of the function. The attribute's constructor takes the name of the queue, as shown in the following example:
 
@@ -464,7 +464,7 @@ You can write multiple messages to the queue by using one of the following types
 
 For examples using [QueueMessage] and [QueueClient], see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
-[!INCLUDE [functions-bindings-queue-storage-attribute](../../includes/functions-bindings-queue-storage-attribute.md)]
+[!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
 
 # [Extension 2.x and higher](#tab/extensionv2/in-process)
 
@@ -482,7 +482,7 @@ You can write multiple messages to the queue by using one of the following types
 * `ICollector<T>` or `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
-[!INCLUDE [functions-bindings-queue-storage-attribute](../../includes/functions-bindings-queue-storage-attribute.md)]
+[!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
 
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
