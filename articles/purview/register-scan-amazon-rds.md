@@ -497,7 +497,7 @@ If an error of `Invalid VPC service name` or `Invalid endpoint service` appears 
 
     For more information, see [Step 5: Create an endpoint service](#step-5-create-an-endpoint-service).
 
-1. Make sure that your RDS database is listed in one of the supported regions. For more information, see [Azure Purview scope for Amazon RDS](#purview-scope-for-amazon-rds).
+1. Make sure that your RDS database is listed in one of the supported regions. For more information, see [Azure Purview scope for Amazon RDS](#azure-purview-scope-for-amazon-rds).
 
 ### Invalid availability zone
 

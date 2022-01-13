@@ -24,7 +24,7 @@ A credential is authentication information that Azure Purview can use to authent
 
 In Azure Purview, there are few options to use as authentication method to scan data sources such as the following options:
 
-- [Azure Purview system-assigned managed identity](#use-purview-system-assigned-managed-identity-to-set-up-scans)
+- [Azure Purview system-assigned managed identity](#use-azure-purview-system-assigned-managed-identity-to-set-up-scans)
 - [User-assigned managed identity](#create-a-user-assigned-managed-identity) (preview)
 - Account Key (using [Key Vault](#create-azure-key-vaults-connections-in-your-azure-purview-account))
 - SQL Authentication (using [Key Vault](#create-azure-key-vaults-connections-in-your-azure-purview-account))
@@ -125,7 +125,7 @@ These credential types are supported in Azure Purview:
 - Consumer Key: For Salesforce data sources, you can add the **password** and the **consumer secret** in key vault.
 - User-assigned managed identity (preview): You can add user-assigned managed identity credentials. For more information, see the [create a user-assigned managed identity section](#create-a-user-assigned-managed-identity) below.
 
-For more information, see [Add a secret to Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) and [Create a new AWS role for Azure Purview](register-scan-amazon-s3.md#create-a-new-aws-role-for-purview).
+For more information, see [Add a secret to Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) and [Create a new AWS role for Azure Purview](register-scan-amazon-s3.md#create-a-new-aws-role-for-azure-purview).
 
 After storing your secrets in the key vault:
 

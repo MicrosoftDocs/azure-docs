@@ -30,7 +30,7 @@ There are specific instructions for each source type:
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#authentication-for-registration)
 - [SQL Server](register-scan-on-premises-sql-server.md#authentication-for-registration)
 - [Power BI](register-scan-power-bi-tenant.md)
-- [Amazon S3](register-scan-amazon-s3.md#create-a-purview-credential-for-your-aws-s3-scan)
+- [Amazon S3](register-scan-amazon-s3.md#create-an-azure-purview-credential-for-your-aws-s3-scan)
 
 ## Verifying Azure Role-based Access Control to enumerate Azure resources in Azure Purview Studio
 
