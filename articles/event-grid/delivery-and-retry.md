@@ -210,7 +210,7 @@ Here are the possible values of `lastDeliveryOutcome` and their descriptions.
 | Aborted | Delivery was aborted by Event Grid after a time interval. |
 | SocketError | Network communication error occurred during delivery. |
 | ResolutionError | DNS resolution of destination endpoint failed. |
-| Delivering | | 
+| Delivering | Delivering events to the destination. | 
 | SessionQueueNotSupported | Event delivery without session ID is attempted on an entity which has session support enabled. Applicable for Azure Service Bus entity destination. |
 | Forbidden | Delivery is forbidden by destination endpoint (could be because of ip firewalls or other restrictions) |
 | InvalidAzureFunctionDestination | Destination Azure function isn't valid. Probably because it doesn't have EventGridTrigger type. |
