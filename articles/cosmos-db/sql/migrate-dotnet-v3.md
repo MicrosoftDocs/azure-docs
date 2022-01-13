@@ -157,7 +157,7 @@ catch (CosmosClientException ex)
 
 ### Diagnostics
 
-Where the v2 SDK had Direct-only diagnostics available through the `ResponseDiagnosticsString` property, the v3 SDK uses `Diagnostics` available in all responses and exceptions, which are richer and not restricted to Direct mode. They include not only the time spent on the SDK for the operation, but also the regions the operation contacted:
+Where the v2 SDK had Direct-only diagnostics available through the `RequestDiagnosticsString` property, the v3 SDK uses `Diagnostics` available in all responses and exceptions, which are richer and not restricted to Direct mode. They include not only the time spent on the SDK for the operation, but also the regions the operation contacted:
 
 ```csharp
 try
