@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Install Microsoft CloudKnox Permissions Management Sentry on the Google Cloud Platform (GCP)
 
-This topic describes how to install the Microsoft CloudKnox Permissions Management Sentry on Microsoft Azure (Azure).
+This topic describes how to install the Microsoft CloudKnox Permissions Management Sentry on the Google Cloud Platform (GCP).
 
 <!---![GCP Sentry Installation](sentry-install-GCP.jpg)--->
 
