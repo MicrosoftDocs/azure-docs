@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 08/26/2021
+ms.date: 01/13/2022
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -29,17 +29,17 @@ You can either create your own keys and store them in the key vault or managed H
 
 ## About customer-managed keys
 
-The following diagram shows how Azure Storage uses Azure Active Directory and a key vault or managed HSM to make requests using the customer-managed key:
+The following diagram shows how Azure Storage uses Azure AD and a key vault or managed HSM to make requests using the customer-managed key:
 
 ![Diagram showing how customer-managed keys work in Azure Storage](media/customer-managed-keys-overview/encryption-customer-managed-keys-diagram.png)
 
 The following list explains the numbered steps in the diagram:
 
 1. An Azure Key Vault admin grants permissions to encryption keys to either a user-assigned managed identity, or the system-assigned managed identity that's associated with the storage account.
-2. An Azure Storage admin configures encryption with a customer-managed key for the storage account.
-3. Azure Storage uses the managed identity that was used by the Azure Key Vault admin in step one to authenticate access to Azure Key Vault via Azure Active Directory.
-4. Azure Storage wraps the account encryption key with the customer-managed key in Azure Key Vault.
-5. For read/write operations, Azure Storage sends requests to Azure Key Vault to unwrap the account encryption key to perform encryption and decryption operations.
+1. An Azure Storage admin configures encryption with a customer-managed key for the storage account.
+1. Azure Storage uses the managed identity to which the Azure Key Vault admin granted permissions in step 1 to authenticate access to Azure Key Vault via Azure AD.
+1. Azure Storage wraps the account encryption key with the customer-managed key in Azure Key Vault.
+1. For read/write operations, Azure Storage sends requests to Azure Key Vault to unwrap the account encryption key to perform encryption and decryption operations.
 
 The managed identity that's associated with the storage account must have these permissions at a minimum to access a  customer-managed key in Azure Key Vault:
 
@@ -65,7 +65,7 @@ When you configure a customer-managed key, Azure Storage wraps the root data enc
 
 When you enable or disable customer managed keys, or when you modify the key or the key version, the protection of the root encryption key changes, but the data in your Azure Storage account does not need to be re-encrypted.
 
-Customer-managed keys can enabled on both existing storage accounts or new accounts as you create them. If you plan to enable customer-managed keys while creating an account, only user-assigned managed identities will be available. To use a system-assigned managed identity, you'll have to create the account first, and then enable customer-managed keys. That's because the system-assigned managed identity can exist only after the account is created.
+You can enable customer-managed keys on existing storage accounts or on new accounts when you create them. When you enable customer-managed keys while creating an account, only user-assigned managed identities are available. To use a system-assigned managed identity, you must first create the account and then enable customer-managed keys, because the system-assigned managed identity can exist only after the account is created.
 
 You can switch between customer-managed keys and Microsoft-managed keys at any time. For more information about Microsoft-managed keys, see [About encryption key management](storage-service-encryption.md#about-encryption-key-management).
 

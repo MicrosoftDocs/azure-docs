@@ -45,9 +45,9 @@ If you want to use an existing key vault, you'll need to enable purge protection
 
 1. Navigate to your key vault in the Azure portal.
 
-2. Under **Settings**, choose **Properties**.
+1. Under **Settings**, choose **Properties**.
 
-3. In the **Purge protection** section, choose **Enable purge protection**.
+1. In the **Purge protection** section, choose **Enable purge protection**.
 
 ### [PowerShell](#tab/powershell)
 
