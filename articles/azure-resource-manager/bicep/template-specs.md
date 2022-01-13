@@ -2,7 +2,7 @@
 title: Create & deploy template specs in Bicep
 description: Describes how to create template specs in Bicep and share them with other users in your organization.
 ms.topic: conceptual
-ms.date: 01/07/2022
+ms.date: 01/12/2022
 ---
 
 # Azure Resource Manager template specs in Bicep
@@ -144,6 +144,12 @@ The JSON template embedded in the Bicep file needs to make these changes:
 * Escape the single quotes within the expressions. For example, **'name': '[parameters(&#92;'storageAccountType&#92;')]'**.
 * To access the parameters and variables defined in the Bicep file, you can directly use the parameter names and the variable names. To access the parameters and variables defined in `mainTemplate`, you still need to use the ARM JSON template syntax.  For example, **'name': '[parameters(&#92;'storageAccountType&#92;')]'**.
 * Use the Bicep syntax to call Bicep functions.  For example, **'location': resourceGroup().location**.
+
+The size of a template spec is limited to approximated 2 MB. If a template spec size exceeds the limit, you will get the **TemplateSpecTooLarge** error code. The error message says:
+
+```error
+The size of the template spec content exceeds the maximum limit. For large template specs with many artifacts, the recommended course of action is to split it into multiple template specs and reference them modularly via TemplateLinks.
+```
 
 You can view all template specs in your subscription by using:
 
