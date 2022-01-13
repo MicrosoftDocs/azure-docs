@@ -39,14 +39,14 @@ In the portal page of your Azure Database for MySQL server, select **Query Perfo
 
 ### Long running queries
 
-The **Long running queries** tab shows the top 5 Query ID's by average duration per execution, aggregated in 15-minute intervals. You can view more Query IDs by selecting from  the **Number of Queries** drop down. The chart colors may change for a specific Query ID when you do this.
+The **Long running queries** tab shows the top 5 Query IDs by average duration per execution, aggregated in 15-minute intervals. You can view more Query IDs by selecting from the **Number of Queries** drop down. The chart colors may change for a specific Query ID when you do this.
 
 > [!Note]
 >  Displaying the Query Text is no longer supported and will show as empty. The query text is removed to avoid unauthorized access to the query text or underlying schema which can pose a security risk.
 
 The recommended steps to view the query text is shared below:
- - Identify the query_id of the top queries from the Query Performance Insight blade in Azure portal
- - Login to your Azure Database for MySQL server from MySQL Workbench or mysql.exe client or your preferred query tool and execute the following queries
+ 1. Identify the query_id of the top queries from the Query Performance Insight blade in the Azure portal.
+1. Log in to your Azure Database for MySQL server from MySQL Workbench or mysql.exe client or your preferred query tool and execute the following queries.
  
 ```sql
     SELECT * FROM mysql.query_store where query_id = '<insert query id from Query performance insight blade in Azure portal';  // for queries in Query Store
@@ -72,8 +72,8 @@ Queries displayed in the wait statistics view are grouped by the queries that ex
 >  Displaying the Query Text is no longer supported and will show as empty. The query text is removed to avoid unauthorized access to the query text or underlying schema which can pose a security risk.
 
 The recommended steps to view the query text is shared below:
- - Identify the query_id of the top queries from the Query Performance Insight blade in Azure portal
- - Login to your Azure Database for MySQL server from MySQL Workbench or mysql.exe client or your preferred query tool and execute the following queries
+ 1. Identify the query_id of the top queries from the Query Performance Insight blade in the Azure portal.
+1. Log in to your Azure Database for MySQL server from MySQL Workbench or mysql.exe client or your preferred query tool and execute the following queries.
  
 ```sql
     SELECT * FROM mysql.query_store where query_id = '<insert query id from Query performance insight blade in Azure portal';  // for queries in Query Store
