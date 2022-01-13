@@ -14,11 +14,11 @@ ms.date: 01/13/2022
 ## Nodes
 
 The Azure Database for PostgreSQL - Hyperscale (Citus) deployment option allows
-Azure Database for PostgreSQL servers (called nodes) to coordinate with one
-another in a "shared nothing" architecture. The nodes in a server group
-collectively hold more data and use more CPU cores than would be possible on a
-single server. The architecture also allows the database to scale by adding
-more nodes to the server group.
+PostgreSQL servers (called nodes) to coordinate with one another in a "shared
+nothing" architecture. The nodes in a server group collectively hold more data
+and use more CPU cores than would be possible on a single server. The
+architecture also allows the database to scale by adding more nodes to the
+server group.
 
 To learn more about the types of Hyperscale (Citus) nodes, see [nodes and
 tables](concepts-nodes.md).
