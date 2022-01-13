@@ -12,7 +12,7 @@ ms.author: reasuquo
 ms.custom: devx-track-azurepowershell
 
 ---
-# Create a Site-to-Site connection to Azure Virtual WAN using PowerShell
+# Create a site-to-site connection to Azure Virtual WAN using PowerShell
 
 This article shows you how to use Virtual WAN to connect to your resources in Azure over an IPsec/IKE (IKEv1 and IKEv2) VPN connection via PowerShell. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
 
