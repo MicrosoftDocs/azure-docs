@@ -23,10 +23,6 @@ This sample CLI script creates an Azure Database for MariaDB server and configur
 In this sample script, edit the highlighted lines to update the admin username and password to your own.
 [!code-azurecli-interactive[main](../../../cli_scripts/mariadb/create-mariadb-server-and-firewall-rule/create-mariadb-server-and-firewall-rule.sh?highlight=15-16 "Create an Azure Database for mariadb, and server-level firewall rule.")]
 
-## Clean up deployment
-Use the following command to remove the resource group and all resources associated with it after the script has been run.
-[!code-azurecli-interactive[main](../../../cli_scripts/mariadb/create-mariadb-server-and-firewall-rule/delete-mariadb.sh "Delete the resource group.")]
-
 ## Script explanation
 This script uses the commands outlined in the following table:
 
