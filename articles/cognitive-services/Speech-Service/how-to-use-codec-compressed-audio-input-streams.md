@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-set-twenty-eight
 
 # Stream codec-compressed audio
 
-The Speech SDK and Speech CLI uses GStreamer to support a variety of input audio formats. GStreamer decompresses the audio before it's sent over the wire to the Speech service as raw PCM.
+The Speech SDK and Speech CLI use GStreamer to support different kinds of input audio formats. GStreamer decompresses the audio before it's sent over the wire to the Speech service as raw PCM.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
@@ -35,11 +35,11 @@ Windows (excluding UWP) | C++, C#, Java, Python | [1.18.3](https://gstreamer.fre
 
 See [GStreamer configuration by programming language](#gstreamer-configuration) for the details about building libgstreamer_android.so.
 
-For more information see [Android installation instructions](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c). 
+For more information, see [Android installation instructions](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c). 
 
 ### [Linux](#tab/linux)
 
-For more information see [Linux installation instructions](https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c).  
+For more information, see [Linux installation instructions](https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c).  
 
 ```sh
 sudo apt install libgstreamer1.0-0 \
