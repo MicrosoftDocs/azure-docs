@@ -8,31 +8,14 @@ ms.date: 01/13/2022
 
 # Quickstart: Create an Azure portal dashboard with PowerShell
 
-A dashboard in the Azure portal is a focused and organized view of your cloud resources. This
-article focuses on the process of using the Az.Portal PowerShell module to create a dashboard.
-The dashboard shows the performance of a virtual machine (VM), as well as some static information
+A dashboard in the Azure portal is a focused and organized view of your cloud resources. This article focuses on the process of using the Az.Portal PowerShell module to create a dashboard. The dashboard shows the performance of a virtual machine (VM), as well as some static information
 and links.
 
 ## Requirements
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
-before you begin.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-If you choose to use PowerShell locally, this article requires that you install the Az PowerShell
-module and connect to your Azure account using the
-[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)
-cmdlet. For more information about installing the Az PowerShell module, see
-[Install Azure PowerShell](/powershell/azure/install-az-ps).
-
-> [!IMPORTANT]
-> While the **Az.Portal** PowerShell module is in preview, you must install it separately from
-> the Az PowerShell module using the `Install-Module` cmdlet. Once this PowerShell module becomes
-> generally available, it becomes part of future Az PowerShell module releases and available
-> natively from within Azure Cloud Shell.
-
-```azurepowershell-interactive
-Install-Module -Name Az.Portal
-```
+If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -183,4 +166,4 @@ Remove-Item -Path "$HOME\portal-dashboard-template-testvm.json"
 For more information about the cmdlets contained in the Az.Portal PowerShell module, see:
 
 > [!div class="nextstepaction"]
-> [Microsoft Azure PowerShell: Portal Dashboard cmdlets](/powershell/module/Az.Portal/)
+> [Microsoft Azure PowerShell: Portal Dashboard cmdlets](/powershell/module/Az.Portal/#portal)

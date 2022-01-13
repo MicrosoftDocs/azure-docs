@@ -39,7 +39,7 @@ The dashboard you create in the next part of this quickstart requires an existin
     New-AzResourceGroup -Name SimpleWinVmResourceGroup -Location EastUS
     ```
 
-1. Copy the following command and enter it at the command prompt to create a VM in the resource group.
+1. Next, copy the following command and enter it at the command prompt to create a VM in your new resource group.
 
     ```powershell
     New-AzVm `
@@ -50,13 +50,15 @@ The dashboard you create in the next part of this quickstart requires an existin
 
 1. Enter a username and password for the VM. This is a new user name and password; it's not, for example, the account you use to sign in to Azure. For more information, see [username requirements](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-) and [password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
-    The VM deployment now starts and typically takes a few minutes to complete. After deployment completes, move on to the next section.
+    After the VM has been created, move on to the next section.
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-portal-dashboard/). The template for this article is too long to show here. To view the template, see [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.portal/azure-portal-dashboard/azuredeploy.json). One Azure resource is defined in the template, [Microsoft.Portal/dashboards](/azure/templates/microsoft.portal/dashboards) - Create a dashboard in the Azure portal.
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-portal-dashboard/). The template for this article is too long to show here. To view the template, see [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.portal/azure-portal-dashboard/azuredeploy.json). The template defines one Azure resource, a dashboard that displays data about the VM you created.
 
 ## Deploy the template
+
+This example uses the Azure portal to deploy the template. You can also use other methods to deploy ARM templates, such as [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), or [REST API](../azure-resource-manager/templates/deploy-rest.md).
 
 1. Select the following image to sign in to Azure and open a template.
 
@@ -75,8 +77,6 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
     - **Virtual Machine Resource Group**: enter **SimpleWinVmResourceGroup**.
 
 1. Select **Create**. You'll see a notification confirming when the dashboard has been deployed successfully.
-
-In this example, he Azure portal was used to deploy the template. In addition to the Azure portal, you can also use Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Review deployed resources
 
