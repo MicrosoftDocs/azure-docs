@@ -87,7 +87,7 @@ Consider deploying collections in Azure Purview to fulfill the following require
 
 ## Define an authorization model
 
-Azure Purview data-plane roles are managed in Azure Purview. After you deploy a Azure Purview account, the creator of the Azure Purview account is automatically assigned the following roles at the root collection. You can use [Azure Purview Studio](https://web.purview.azure.com/resource/) or a programmatic method to directly assign and manage roles in Azure Purview.
+Azure Purview data-plane roles are managed in Azure Purview. After you deploy an Azure Purview account, the creator of the Azure Purview account is automatically assigned the following roles at the root collection. You can use [Azure Purview Studio](https://web.purview.azure.com/resource/) or a programmatic method to directly assign and manage roles in Azure Purview.
 
   - **Collection Admins** can edit Azure Purview collections and their details and add subcollections. They can also add users to other Azure Purview roles on collections where they're admins.
   - **Data Source Admins** can manage data sources and data scans.

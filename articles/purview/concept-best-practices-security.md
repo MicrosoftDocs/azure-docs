@@ -132,9 +132,9 @@ Examples of control plane operations and data plane operations:
 
 |Task  |Scope  |Recommended role  |What roles to use?  |
 |---------|---------|---------|---------|
-|Deploy a Azure Purview account     | Control plane         | Azure subscription owner or contributor         | Azure RBAC roles         |
+|Deploy an Azure Purview account     | Control plane         | Azure subscription owner or contributor         | Azure RBAC roles         |
 |Setup a Private Endpoint for Azure Purview     | Control plane         | Contributor         | Azure RBAC roles        |
-|Delete a Azure Purview account      | Control plane         | Contributor         | Azure RBAC roles        |
+|Delete an Azure Purview account      | Control plane         | Contributor         | Azure RBAC roles        |
 |View Azure Purview metrics to get current capacity units       | Control plane         | Reader       | Azure RBAC roles        |
 |Create a collection      | Data plane           | Collection Admin        | Azure Purview roles        |
 |Register a data source    | Data plane          | Collection Admin         | Azure Purview roles         |
@@ -236,7 +236,7 @@ When an Azure Purview account is deployed, in addition, a managed resource group
 
 Azure Purview extracts only the metadata from different data source systems into [Azure Purview Data Map](concept-elastic-data-map.md) during the scanning process. 
 
-You can deploy a Azure Purview account inside your Azure subscription in any [supported Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=purview&regions=all).  
+You can deploy an Azure Purview account inside your Azure subscription in any [supported Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=purview&regions=all).  
 
 All metadata is stored inside Data Map inside your Azure Purview instance. This means the metadata is stored in the same region as your Azure Purview instance. 
 

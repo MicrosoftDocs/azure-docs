@@ -35,7 +35,7 @@ To connect an Azure Purview Account to a Synapse workspace, you need a **Contrib
 Follow the steps to connect an Azure Purview account:
 
 1. Go to [https://web.azuresynapse.net](https://web.azuresynapse.net) and sign in to your Synapse workspace. 
-2. Go to **Manage** -> **Azure Purview**, select **Connect to a Azure Purview account**.
+2. Go to **Manage** -> **Azure Purview**, select **Connect to an Azure Purview account**.
 3. You can choose **From Azure subscription** or **Enter manually**. **From Azure subscription**, you can select the account that you have access to.
 4. Once connected, you can see the name of the Azure Purview account in the tab **Azure Purview account**. 
 
@@ -69,13 +69,13 @@ When connecting Synapse workspace to Azure Purview in Synapse Studio, Synapse tr
 
 ## Monitor Azure Purview connection
 
-Once you connect the Synapse workspace to a Azure Purview account, you see the following page with details on the enabled integration capabilities.
+Once you connect the Synapse workspace to an Azure Purview account, you see the following page with details on the enabled integration capabilities.
 
 :::image type="content" source="./media/monitor-purview-connection-status.png" alt-text="Screenshot for monitoring the integration status between Azure Synapse and Azure Purview.":::
 
 For **Data Lineage - Synapse Pipeline**, you may see one of below status:
 
-- **Connected**: The Synapse workspace is successfully connected to the Azure Purview account. Note this indicates Synapse workspace is associated with a Azure Purview account and has permission to push lineage to it. If your Azure Purview account is protected by firewall, you also need to make sure the integration runtime used to execute the activities and conduct lineage push can reach the Azure Purview account. Learn more from [Access a secured Azure Purview account](how-to-access-secured-purview-account.md).
+- **Connected**: The Synapse workspace is successfully connected to the Azure Purview account. Note this indicates Synapse workspace is associated with an Azure Purview account and has permission to push lineage to it. If your Azure Purview account is protected by firewall, you also need to make sure the integration runtime used to execute the activities and conduct lineage push can reach the Azure Purview account. Learn more from [Access a secured Azure Purview account](how-to-access-secured-purview-account.md).
 - **Disconnected**: The Synapse workspace cannot push lineage to Azure Purview because Azure Purview Data Curator role is not granted to Synapse workspace's managed identity. To fix this issue, go to your Azure Purview account to check the role assignments, and manually grant the role as needed. Learn more from [Set up authentication](#set-up-authentication) section.
 - **Unknown**: Azure Synapse cannot check the status. Possible reasons are:
 
@@ -84,11 +84,11 @@ For **Data Lineage - Synapse Pipeline**, you may see one of below status:
 
 ## Report lineage to Azure Purview
 
-Once you connect the Synapse workspace to a Azure Purview account, when you execute pipelines, Synapse reports lineage information to the Azure Purview account. For detailed supported capabilities and an end to end walkthrough, see [Metadata and lineage from Azure Synapse Analytics](../../purview/how-to-lineage-azure-synapse-analytics.md).
+Once you connect the Synapse workspace to an Azure Purview account, when you execute pipelines, Synapse reports lineage information to the Azure Purview account. For detailed supported capabilities and an end to end walkthrough, see [Metadata and lineage from Azure Synapse Analytics](../../purview/how-to-lineage-azure-synapse-analytics.md).
 
 ## Discover and explore data using Azure Purview
 
-Once you connect the Synapse workspace to a Azure Purview account, you can use the search bar at the top center of Synapse workspace to search for data and perform actions. Learn more from [Discover, connect and explore data in Synapse using Azure Purview](how-to-discover-connect-analyze-azure-purview.md).
+Once you connect the Synapse workspace to an Azure Purview account, you can use the search bar at the top center of Synapse workspace to search for data and perform actions. Learn more from [Discover, connect and explore data in Synapse using Azure Purview](how-to-discover-connect-analyze-azure-purview.md).
 
 ## Next steps 
 

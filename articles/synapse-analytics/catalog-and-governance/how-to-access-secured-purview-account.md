@@ -33,7 +33,7 @@ If your Azure Purview account is protected by firewall and denies public access,
 
 To create managed private endpoints for Azure Purview on Synapse Studio:
 
-1. Go to **Manage** -> **Azure Purview**, and click **Edit** to edit your existing connected Azure Purview account or click **Connect to a Azure Purview account** to connect to a new Azure Purview account.
+1. Go to **Manage** -> **Azure Purview**, and click **Edit** to edit your existing connected Azure Purview account or click **Connect to an Azure Purview account** to connect to a new Azure Purview account.
 
 2. Select **Yes** for **Create managed private endpoints**. You need to have "**workspaces/managedPrivateEndpoint/write**" permission, e.g. Synapse Administrator or Synapse Linked Data Manager role.
 

@@ -358,4 +358,4 @@ If you have extracted asset information from previous steps, the contact details
 To assign contacts to assets, you need a list of `guids` and identify all `objectid` of the contacts. You can automate this process by iterating through all assets and reassign contacts to all assets using the [Create Or Update Entities API](/rest/api/purview/catalogdataplane/entity/create-or-update-entities)
 
 ## Next steps
--  [Create a Azure Purview account](./create-catalog-portal.md)
+-  [Create an Azure Purview account](./create-catalog-portal.md)

@@ -29,7 +29,7 @@ Some organizations may require setting up multiple Azure Purview accounts. Revie
 
 It is recommended to create a new instance of Azure Purview account when testing scan configurations or classifications in isolated environments. For some scenarios, there is a "versioning" feature in some areas of the platform such as glossary, however, it would be easier to have a "disposable" instance of Azure Purview to freely test expected functionality and then plan to roll out the feature into the production instance.  
 
-Additionally, consider using a test Azure Purview account when you cannot perform a rollback. For example, currently you cannot remove a glossary term attribute from a Azure Purview instance once it is added to your Azure Purview account. In this case, it is recommended using a test Azure Purview account first.
+Additionally, consider using a test Azure Purview account when you cannot perform a rollback. For example, currently you cannot remove a glossary term attribute from an Azure Purview instance once it is added to your Azure Purview account. In this case, it is recommended using a test Azure Purview account first.
  
 ### Isolating Production and non-production environments 
 
@@ -61,7 +61,7 @@ An exception applies to VM-based data sources and Power BI tenants.For more info
 
 Review [Azure Purview Pricing model](https://azure.microsoft.com/pricing/details/azure-purview) when defining budgeting model and designing Azure Purview architecture for your organization. One billing is generated for a single Azure Purview account in the subscription where Azure Purview account is deployed. This model also applies to other Azure Purview costs such as scanning and classifying metadata inside Azure Purview Data Map.
 
-Some organizations often have many business units (BUs) that operate separately, and, in some cases, they don't even share billing with each other. In those cases, the organization will end up creating a Azure Purview instance for each BU. This model is not ideal, however, may be necessary, especially because Business Units are often not willing to share Azure billing. 
+Some organizations often have many business units (BUs) that operate separately, and, in some cases, they don't even share billing with each other. In those cases, the organization will end up creating an Azure Purview instance for each BU. This model is not ideal, however, may be necessary, especially because Business Units are often not willing to share Azure billing. 
 
 For more information about cloud computing cost model in chargeback and showback models, see, [What is cloud accounting?](/azure/cloud-adoption-framework/strategy/cloud-accounting).  
 
@@ -78,4 +78,4 @@ For more information about cloud computing cost model in chargeback and showback
 - Review [Azure Purview prerequisites](./create-catalog-portal.md#prerequisites) before deploying any new Azure Purview accounts in your environment.
   
 ## Next steps
--  [Create a Azure Purview account](./create-catalog-portal.md)
+-  [Create an Azure Purview account](./create-catalog-portal.md)

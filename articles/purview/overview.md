@@ -24,21 +24,18 @@ Azure Purview automates data discovery by providing data scanning and classifica
 
 ## Data Map
 
-Azure Purview Data Map provides the foundation for data discovery and effective data governance. Purview Data Map is a cloud native PaaS service that captures metadata about enterprise data present in analytics and operation systems on-premises and cloud. Purview Data Map is automatically kept up to date with built-in automated scanning and classification system. Business users can configure and use the Purview Data Map through an intuitive UI and developers can programmatically interact with the Data Map using open-source Apache Atlas 2.0 APIs.
-Azure PurviewAzure PurviewAzure Purview
-Azure Purview Data Map powers the Purview Data Catalog and Purview data insights as unified experiences within the [Purview Studio](https://web.purview.azure.com/resource/).
-Azure PurviewAzure PurviewAzure Purview
+Azure Purview Data Map provides the foundation for data discovery and effective data governance. Azure Purview Data Map is a cloud native PaaS service that captures metadata about enterprise data present in analytics and operation systems on-premises and cloud. Azure Purview Data Map is automatically kept up to date with built-in automated scanning and classification system. Business users can configure and use the Azure Purview Data Map through an intuitive UI and developers can programmatically interact with the Data Map using open-source Apache Atlas 2.0 APIs.
+Azure Purview Data Map powers the Azure Purview Data Catalog and Azure Purview data insights as unified experiences within the [Azure Purview Studio](https://web.purview.azure.com/resource/).
 For more information, see our [introduction to Data Map](concept-elastic-data-map.md).
 
 ## Data Catalog
 
-With the Purview Data Catalog, business and technical users alike can quickly & easily find relevant data using a search experience with filters based on various lenses like glossary terms, classifications, sensitivity labels and more. For subject matter experts, data stewards and officers, the Purview Data Catalog provides data curation features like business glossary management and ability to automate tagging of data assets with glossary terms. Data consumers and producers can also visually trace the lineage of data assets starting from the operational systems on-premises, through movement, transformation & enrichment with various data storage & processing systems in the cloud to consumption in an analytics system like Power BI.
-Azure PurviewAzure Purview
+With the Azure Purview Data Catalog, business and technical users alike can quickly & easily find relevant data using a search experience with filters based on various lenses like glossary terms, classifications, sensitivity labels and more. For subject matter experts, data stewards and officers, the Azure Purview Data Catalog provides data curation features like business glossary management and ability to automate tagging of data assets with glossary terms. Data consumers and producers can also visually trace the lineage of data assets starting from the operational systems on-premises, through movement, transformation & enrichment with various data storage & processing systems in the cloud to consumption in an analytics system like Power BI.
 For more information, see our [introduction to search using Data Catalog](concept-search.md).
 
 ## Data Insights
-With the Purview data insights, data officers and security officers can get a bird’s eye view and at a glance understand what data is actively scanned, where sensitive data is and how it moves.
-Azure Purview
+With the Azure Purview data insights, data officers and security officers can get a bird’s eye view and at a glance understand what data is actively scanned, where sensitive data is and how it moves.
+
 For more information, see our [introduction to Data Insights](concept-insights.md).
 
 ## Discovery challenges for data consumers

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a Azure Purview account with PowerShell/Azure CLI'
+title: 'Quickstart: Create an Azure Purview account with PowerShell/Azure CLI'
 description: This Quickstart describes how to create an Azure Purview account using Azure PowerShell/Azure CLI.
 author: hophanms
 ms.author: hophan
@@ -87,7 +87,7 @@ For more information about Azure Purview, [see our overview page](overview.md). 
 
     # [Azure CLI](#tab/azure-cli)
 
-    1. Create a Azure Purview template file such as `purviewtemplate.json`. You can update `name`, `location`, and `capacity` (`4` or `16`):
+    1. Create an Azure Purview template file such as `purviewtemplate.json`. You can update `name`, `location`, and `capacity` (`4` or `16`):
 
         ```json
         {

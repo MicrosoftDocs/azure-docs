@@ -38,7 +38,7 @@ As you plan your manual BCDR plan, keep the following points in mind:
 
 - The primary and secondary Azure Purview accounts cannot be configured to the same Azure Data Factory, Azure Data Share and Synapse Analytics accounts, if applicable.  As a result, the lineage from Azure Data Factory and Azure Data Share cannot be seen in the secondary Azure Purview accounts. Also, the Synapse Analytics workspace associated with the primary Azure Purview account cannot be associated with secondary Azure Purview accounts. This is a limitation today and will be addressed when automated BCDR is supported. 
 
-- The integration runtimes are specific to a Azure Purview account. Hence, if scans must run in primary and secondary Azure Purview accounts in-parallel, multiple self-hosted integration runtimes must be maintained. This limitation will also be addressed when automated BCDR is supported. 
+- The integration runtimes are specific to an Azure Purview account. Hence, if scans must run in primary and secondary Azure Purview accounts in-parallel, multiple self-hosted integration runtimes must be maintained. This limitation will also be addressed when automated BCDR is supported. 
 
 - Parallel execution of scans from both primary and secondary Azure Purview accounts on the same source can affect the performance of the source. This can result in scan durations to vary across the Azure Purview accounts.   
 
