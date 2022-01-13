@@ -98,11 +98,10 @@ az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Da
 
 ## Clean up resources
 
-To remove the virtual machine and associated dashboard, delete the resource group that contains them.
+To remove the virtual machine and associated dashboard that you created, delete the resource group that contains them.
 
 > [!CAUTION]
-> The following example deletes the specified resource group and all resources contained within it.
-> If resources outside the scope of this article exist in the specified resource group, they will also be deleted.
+> Deleting the resource group will delete all of the resources contained within it. If the resource group contains additional resources aside from your virtual machine and dashboard, those resources will also be deleted.
 
 ```azurecli
 az group delete --name myResourceGroup

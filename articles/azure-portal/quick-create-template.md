@@ -25,21 +25,19 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 The dashboard you create in the next part of this quickstart requires an existing VM. Create a VM by following these steps.
 
-1. In the Azure portal, select **Cloud Shell**.
+1. In the Azure portal, select **Cloud Shell** from the global controls at the top of the page.
 
-    ![Select Cloud shell from the Azure portal ribbon](media/quick-create-template/cloud-shell.png)
+    :::image type="content" source="media/quick-create-template/cloud-shell.png" alt-text="Screenshot showing the Cloud Shell option in the Azure portal.":::
 
 1. In the **Cloud Shell** window, select **PowerShell**.
 
-    ![Select PowerShell in the terminal window](media/quick-create-template/powershell.png)
+    :::image type="content" source="media/quick-create-template/powershell.png" alt-text="Screenshot showing the Powershell option in Cloud Shell.":::
 
 1. Copy the following command and enter it at the command prompt to create a resource group.
 
     ```powershell
     New-AzResourceGroup -Name SimpleWinVmResourceGroup -Location EastUS
     ```
-
-    ![Copy a command into the command prompt](media/quick-create-template/command-prompt.png)
 
 1. Copy the following command and enter it at the command prompt to create a VM in the resource group.
 
@@ -66,21 +64,19 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 1. Select or enter the following values, then select **Review + create**.
 
-    ![ARM template, create dashboard, deploy portal](media/quick-create-template/create-dashboard-using-template-portal.png)
+    :::image type="content" source="media/quick-create-template/create-dashboard-using-template-portal.png" alt-text="Screenshot of the dashboard template deployment screen in the Azure portal.":::
 
     Unless it's specified, use the default values to create the dashboard.
 
-    - **Subscription**: select an Azure subscription.
+    - **Subscription**: select the Azure subscription.
     - **Resource group**: select **SimpleWinVmResourceGroup**.
-    - **Location**: select **East US**.
+    - **Location**: If not automatically selected, choose **East US**.
     - **Virtual Machine Name**: enter **myVM1**.
     - **Virtual Machine Resource Group**: enter **SimpleWinVmResourceGroup**.
 
-1. Select **Create** or **Purchase**. After the dashboard has been deployed successfully, you get a notification:
+1. Select **Create**. You'll see a notification confirming when the dashboard has been deployed successfully.
 
-    ![ARM template, create dashboard, deploy portal notification](media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
-
-The Azure portal was used to deploy the template. In addition to the Azure portal, you can also use Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
+In this example, he Azure portal was used to deploy the template. In addition to the Azure portal, you can also use Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Review deployed resources
 
@@ -94,7 +90,8 @@ If you want to remove the VM and associated dashboard, delete the resource group
 
 1. On the **SimpleWinVmResourceGroup** page, select **Delete resource group**, enter the resource group name to confirm, then select **Delete**.
 
-    ![Delete resource group](media/quick-create-template/delete-resource-group.png)
+> [!CAUTION]
+> Deleting a resource group will delete all of the resources contained within it. If the resource group contains additional resources aside from your virtual machine and dashboard, those resources will also be deleted.
 
 ## Next steps
 

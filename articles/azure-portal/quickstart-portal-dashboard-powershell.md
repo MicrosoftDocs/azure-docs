@@ -171,9 +171,7 @@ Get-AzPortalDashboard -Name $dashboardName -ResourceGroupName $resourceGroupName
 To remove the VM and associated dashboard, delete the resource group that contains them.
 
 > [!CAUTION]
-> The following example deletes the specified resource group and all resources contained within it.
-> If resources outside the scope of this article exist in the specified resource group, they will
-> also be deleted.
+> Deleting the resource group will delete all of the resources contained within it. If the resource group contains additional resources aside from your virtual machine and dashboard, those resources will also be deleted.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroupName
