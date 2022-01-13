@@ -3,24 +3,30 @@
   #- name: Overview
     #expanded: true
     #items:
-  - name: Onboard CloudKnox on the Azure Active Directory tenant
+  - name: Onboard CloudKnox on the Azure AD tenant
     expanded: true
     items:
-    - name: Enable M-CIEM on your Azure AD tenant 
+    - name: Enable CloudKnox on your Azure AD tenant 
       href: cloudknox-onboard-enable-tenant.md
+    - name: Onboard the AWS authorization system
+      href: cloudknox-onboard-aws.md
+    - name: Onboard the Azure authorization system
+      href: cloudknox-onboard-azure.MD
+    - name: Onboard the GCP authorization system
+      href: cloudknox-onboard-gcp.md
   - name: Installation
     expanded: true
     items:
-    - name: Install CloudKnox - Overview
-      href: cloudknox-installation.md
-    - name: Install CloudKnox on GCP
-      href: cloudknox-sentry-install-gcp.md
-    - name: Install CloudKnox with an AWS role
-      href: cloudknox-install-aws-agentless-deployment.md
+    - name: CloudKnox installation overview 
+      href: cloudknox-installation-overview.md
     - name: Install CloudKnox Sentry on AWS
       href: cloudknox-sentry-install-aws.md
+    - name: Install CloudKnox with an AWS role (Agentless deployment)
+      href: cloudknox-install-aws-agentless-deployment.md
     - name: Install CloudKnox Sentry on Azure
       href: cloudknox-sentry-install-azure.md
+    - name: Install CloudKnox on GCP
+      href: cloudknox-sentry-install-gcp.md
   - name: Integration
     expanded: true
     items:
@@ -145,7 +151,6 @@
       href: cloudknox-product-data-sources.md
     - name: Create and save product alerts
       href: cloudknox-product-alerts.md
-
   - name: User management
     expanded: true
     items:

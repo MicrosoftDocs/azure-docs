@@ -1,6 +1,6 @@
 ---
-title: Install Microsoft CloudKnox Permissions Management Sentry on Microsoft Azure
-description: How to install Microsoft CloudKnox Permissions Management Sentry on Microsoft Azure.
+title: Install Microsoft CloudKnox Permissions Management Sentry on Microsoft Azure (Azure)
+description: How to install Microsoft CloudKnox Permissions Management Sentry on Microsoft Azure (Azure).
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/12/2022
+ms.date: 01/13/2022
 ms.author: v-ydequadros
 ---
 
 
-# Install Microsoft CloudKnox Permissions Management Sentry on Microsoft Azure
+# Install Microsoft CloudKnox Permissions Management Sentry on Microsoft Azure (Azure)
 
 This topic describes how to install the Microsoft CloudKnox Permissions Management Sentry on Microsoft Azure (Azure).
 
@@ -30,11 +30,17 @@ To provide visibility and insights, the CloudKnox Sentry collects information fr
 
 To gain insight into activity within the Azure account, CloudKnox gathers CloudTrail event logs and ties them to individual identities.
 
-### Architecture
+### CloudKnox architecture
 
-The CloudKnox Sentry is a Linux-based appliance that collects information about the Azure Subscription. Sentry uses an Azure Active Directory Application ID to make application programming interface (API) calls to read identity entitlements, resource information, and activity data on an hourly basis. It then uploads that data to the CloudKnox Software as a Service (SaaS) application for processing.
+The CloudKnox Sentry is a Linux Photon based appliance that: 
 
-Inbound traffic to the Sentry is only received on port 22, and is used for configuration by the CloudKnox administrator. We recommend only allowing traffic from any observable source IP addresses your administrator may be configuring from. Outbound traffic is 443 to make API calls to Azure, CloudKnox, and Azure Active Directory (AD).
+- Collects information about the GCP account. 
+- Uses an IAM role to read identity entitlements, resource information, and CloudTrail data on an hourly basis.
+- Uploads the collected data to CloudKnox's SaaS Application for processing.
+
+Inbound traffic to the Sentry is only received on port 22, and is used for configuration by the CloudKnox administrator. We recommend only allowing traffic from observable source IP addresses that your administrator has configured.  
+
+Outbound traffic is 443 to make API calls to Azure, CloudKnox, and Azure Active Directory (AD).
 
 <!---![Sentry Architecture Azure](sentry-architecture-Azure.png)--->
 
@@ -47,7 +53,7 @@ Inbound traffic to the Sentry is only received on port 22, and is used for confi
 | TCP Inbound  | 9000 | Configuration. </p>Request this information from the administrator's source IP only when you're doing a configuration. |
 | TCP Outbound | 443  | API calls to Azure, CloudKnox, and for identity provider (IDP) integration.        |
 
-### Multi-account collection from one Sentry
+## Multi-account collection from one Sentry
 
 For Azure organizations with multiple accounts, you can set up one Sentry to collect from multiple accounts by allowing the Sentry's IAM role to assume a cross-account role in the account from which you want to collect data. To allow cross-account, configure a trust relationship.
 
@@ -79,7 +85,7 @@ The following information guides you through the installation and configuration 
 
 4. Identify an Azure Storage account and container to copy the CloudKnox Sentry VHD. (This step requires the Storage Account access key.)
 
-## Deploying the CloudKnox Sentry appliance
+## Deploy the CloudKnox Sentry appliance
 
 ### Create a network security group for the CloudKnox Sentry
 
@@ -101,9 +107,9 @@ The following information guides you through the installation and configuration 
     - In the **Name** box, enter *Port_22*
 7. Select **Add**.
 
-### Create the Service Principal
+### Create the service principal
 
-**Option 1: Using managed identities**
+**Option 1: Use managed identities**
 
 1. Open **Managed Identities and Create User Assigned Managed Identity**.
 2. Enter the CloudKnox resource group.
@@ -142,7 +148,7 @@ The following information guides you through the installation and configuration 
     New-AzureAdServiceAppRoleAssignment -ObjectId $MSI.ObjectId -PrincipalId $MSI.ObjectId -ResourceId $GraphServicePrincipal.ObjectId -Id $AppRole.Id
 ~~~
 
-**Option 2: Using App registration**
+**Option 2: Use App registration**
 
 1. Browse to **Azure Active Directory**.
 2. Select  **App registrations**.
@@ -167,7 +173,7 @@ The following information guides you through the installation and configuration 
     3. Select **Add**.
     4. Make a note of the **client secret value**. You'll use it when you configure the Sentry.
 
-### Granting the *Reader* role to the Azure Application 
+### Grant the Reader role to the Azure application 
 
 1. Browse to the subscription from which you want the Sentry to collect data.
 2. In the subscription, select **Access Control (IAM)**.
@@ -179,7 +185,7 @@ The following information guides you through the installation and configuration 
        - In the **Role** box, enter *User Access Administrator*
 4. Repeat step 3 for each Azure subscription from which you want CloudKnox to collect data.
 
-### Creating the CloudKnox Sentry from the image
+### Create the CloudKnox Sentry from the image
 
 After you create a **Resource** group in CloudKnox, you'll use it to install CloudKnox sentry VM.
 
@@ -203,7 +209,7 @@ After you create a **Resource** group in CloudKnox, you'll use it to install Clo
 4. Select **Review and Create**.
 5. Select **Create**.
 
-## Connecting the CloudKnox Sentry with the CloudKnox console
+## Connect the CloudKnox Sentry with the CloudKnox console
 
 1. Select **Settings**, and then select the **Data Collectors** tab.
 2. In the **Azure** section, select **Deploy**.
@@ -232,3 +238,8 @@ After you create a **Resource** group in CloudKnox, you'll use it to install Clo
 7. To automatically pick subscriptions the CloudKnox service principal can access, in the **Enter number of subs to add (0-50):** box, enter the number of subscriptions you want.
 
 <!---## Next steps--->
+
+<!---For an overview of the CloudKnox installation process, see[CloudKnox Installation overview cloud](cloudknox-installation.html).--->
+<!---For information on how to enable CloudKnox on your Azure AD tenant, see [Enable Microsoft CloudKnox Permissions Management on your Azure AD tenant](cloudknox-onboard-enable-tenant.html).--->
+<!---For information on how to install AWS on CloudKnox, see [Install CloudKnox Sentry on AWS](cloudknox-sentry-install-aws.md)--->
+<!---For information on how to install GCP on CloudKnox, see [Install CloudKnox Sentry on GCP](cloudknox-sentry-install-gcp.md)--->
