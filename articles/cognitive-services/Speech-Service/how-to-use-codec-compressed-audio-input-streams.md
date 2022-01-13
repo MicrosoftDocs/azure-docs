@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-set-twenty-eight
 
 # Stream codec-compressed audio
 
-The Speech SDK and Speech CLI uses GStreamer to stream codec-compressed audio. GStreamer decompresses the audio before it's sent over the wire to the Speech service as raw PCM.
+The Speech SDK and Speech CLI uses GStreamer to support a variety of input audio formats. GStreamer decompresses the audio before it's sent over the wire to the Speech service as raw PCM.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
