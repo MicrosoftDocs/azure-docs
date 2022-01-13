@@ -30,7 +30,7 @@ This article lists several open-source tools and utilities (command-line, python
 
 - *Azure Purview Adopters*: Adopters who have migrated from starting up and exploring Azure Purview and are smoothly using Azure Purview for more than a few months.
 
-- *Azure Purview Long-Term Regular Users*: Long-term users who have been using Azure Purview for more than one year and are now confident and comfortable using most advanced Azure Purview use cases on the Azure portal and Azure Purview Studio; furthermore they have near perfect knowledge and awareness of the Azure Purview REST APIs and the additional use cases supported vian Azure Purview APIs.
+- *Azure Purview Long-Term Regular Users*: Long-term users who have been using Azure Purview for more than one year and are now confident and comfortable using most advanced Azure Purview use cases on the Azure portal and Azure Purview Studio; furthermore they have near perfect knowledge and awareness of the Azure Purview REST APIs and the additional use cases supported via Azure Purview APIs.
 
 
 ## Azure Purview open-source tools and utilities list

@@ -55,7 +55,7 @@ Check the section on managing Azure Purview role assignments in this [guide](how
 >[!WARNING]
 > **Known issues** related to permissions
 > - In addition to Azure Purview *Policy authors* role, user requires *Directory Reader* permission in Azure Active Directory to create data owner policy. Learn more about permissions for [Azure AD Directory Reader](../active-directory/roles/permissions-reference.md#directory-readers)
-> - Azure Purview *Policy author* role is not sufficient to create policies. It also reqzure Azure Purview *Data source admin* role as well.
+> - Azure Purview *Policy author* role is not sufficient to create policies. It also requires Azure Purview *Data source admin* role as well.
 
 ### Register and scan data sources in Azure Purview
 Register and scan each data source with Azure Purview to later define access policies. You can follow these guides:
@@ -82,10 +82,10 @@ If you would like to use a data source to create access policies in Azure Purvie
 
 ### Data use governance best practices
 - We highly encourage registering data sources for *Data use governance* and managing all associated access policies in a single Azure Purview account.
-- Should you have multiple Azure Purview accounts, be aware that **all** data sources belonging to a subscription must be registered for *Data use governance* in a szure Azure Purview acThat Azure Purview account can be in any subscription in the tenant. The *Data use governance* toggle will become greyed out when there are invalid configurations. Some examples of valid and invalid configurations follow in the diagram below:
+- Should you have multiple Azure Purview accounts, be aware that **all** data sources belonging to a subscription must be registered for *Data use governance* in a single Azure Purview account. That Azure Purview account can be in any subscription in the tenant. The *Data use governance* toggle will become greyed out when there are invalid configurations. Some examples of valid and invalid configurations follow in the diagram below:
     - **Case 1** shows a valid configuration where a Storage account is registered in an Azure Purview account in the same subscription.
     - **Case 2** shows a valid configuration where a Storage account is registered in an Azure Purview account in a different subscription. 
-    - **Case 3** shows an invalid configuration arising because Storage accounts S3SA1 and S3SA2 both belong to Subscription 3, but are registered to different Azure Purview accounts. In that case, the *Data use governance* toggle will only work izure Azure Purview account that wins and registers a data source in that subscription first. The toggle will then be greyed out for the other data source.
+    - **Case 3** shows an invalid configuration arising because Storage accounts S3SA1 and S3SA2 both belong to Subscription 3, but are registered to different Azure Purview accounts. In that case, the *Data use governance* toggle will only work in the Azure Purview account that wins and registers a data source in that subscription first. The toggle will then be greyed out for the other data source.
 
 ![Diagram shows valid and invalid configurations when using multiple Azure Purview accounts to manage policies.](./media/how-to-access-policies-storage/valid-and-invalid-configurations.png)"
 
@@ -141,7 +141,7 @@ This section describes the steps to create a new policy in Azure Purview.
 
 > [!WARNING]
 > **Known issues** related to Policy creation
-> - Do not create policy statements based on Azure Purview resource sets. Even if displayzure Azure Purview policy authoring UI, they are not yet enforced. Learn more about [resource sets](concept-resource-sets.md).
+> - Do not create policy statements based on Azure Purview resource sets. Even if displayed in Azure Purview policy authoring UI, they are not yet enforced. Learn more about [resource sets](concept-resource-sets.md).
 > - Once subscription gets disabled for *Data use governance* any underlying assets that are enabled for *Data use governance* will be disabled, which is the right behavior. However, policy statements based on those assets will still be allowed after that.
 
 ### Update or delete a policy

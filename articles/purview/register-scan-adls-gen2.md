@@ -22,21 +22,22 @@ This article outlines the process to register an Azure Data Lake Storage Gen2 da
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.miccom/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * An active [Azure Purview resource](create-catalog-portal.md).
+
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
 This section will enable you to register the ADLS Gen2 data source and set up an appropriate authentication mechanism to ensure successful scanning of the data source.
-Azure Purview
+
 ### Steps to register
-Azure Purview
+
 It is important to register the data source in Azure Purview prior to setting up a scan for the data source.
-Azure Purview
+
 1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Azure Purview accounts** page and select your _Purview account_
-Azure Purview
+
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-purview-acct.png" alt-text="Screenshot that shows the Azure Purview account used to register the data source":::
 
 1. **Open Azure Purview Studio** and navigate to the **Data Map --> Sources**
@@ -98,9 +99,9 @@ It is important to give your Azure Purview account or user-assigned managed iden
 1. From the [Azure portal](https://portal.azure.com), find either the subscription, resource group, or resource (for example, an Azure Data Lake Storage Gen2 storage account) that you would like to allow the catalog to scan.
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-storage-acct.png" alt-text="Screenshot that shows the storage account":::
-Azure Purview
+
 1. Select **Access Control (IAM)** in the left navigation and then select **+ Add** --> **Add role assignment**
-Azure Purview
+
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-access-control.png" alt-text="Screenshot that shows the access control for the storage account":::
 
 1. Set the **Role** to **Storage Blob Data Reader** and enter your _Azure Purview account name_ or _[user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity)_ under the **Select** input box. Then, select **Save** to give this role assignment to your Azure Purview account.
@@ -149,7 +150,7 @@ When authentication method selected is **Account Key**, you need to get your acc
 1. Enter the **Name** and **Value** as the *key* from your storage account
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-secret-values.png" alt-text="Screenshot that shows the key vault option to enter the secret values":::
-Azure Purview
+
 1. Select **Create** to complete
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-secret.png" alt-text="Screenshot that shows the key vault option to create a secret":::
@@ -179,7 +180,7 @@ It is important to give your service principal the permission to scan the ADLS G
 1. From the [Azure portal](https://portal.azure.com), find either the subscription, resource group, or resource (for example, an Azure Data Lake Storage Gen2 storage account) that you would like to allow the catalog to scan.
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-storage-acct.png" alt-text="Screenshot that shows the storage account":::
-Azure Purview
+
 1. Select **Access Control (IAM)** in the left navigation and then select **+ Add** --> **Add role assignment**
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-access-control.png" alt-text="Screenshot that shows the access control for the storage account":::
@@ -246,7 +247,7 @@ Azure Purview
 
 1. Review your scan and select **Save and run**.
 
-Azure Purviewimage type="content" source="media/register-scan-adls-gen2/register-adls-gen2-review-scan.png" alt-text="review scan":::Azure Purview
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-review-scan.png" alt-text="review scan":::
 
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
@@ -263,4 +264,3 @@ Now that you have registered your source, follow the below guides to learn more 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)
-Azure Purview

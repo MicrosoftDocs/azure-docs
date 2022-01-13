@@ -319,7 +319,7 @@ items:
     - name: PowerShell
       href: /powershell/module/az.purview/
     - name: Python
-      href: /python/api/azure-mgmt-azure-purview/
+      href: /python/api/azure-mgmt-purview/
     - name: REST
       href: /rest/api/purview/
     - name: Azure Purview open-source tools utilities
