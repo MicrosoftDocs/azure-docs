@@ -99,7 +99,7 @@ Outbound traffic from your app is now routed through the integrated virtual netw
 1. Navigate to the firewall's overview page and select its firewall policy.
 
 1. In the firewall policy page, from the left navigation, select **Application Rules** > **Add a rule collection**.
-1. In **Rules**, add a network rule with the App Service subnet as the source address, and specify a FQDN destination. In the screenshot below, the destination FQDN is set to `api.my-ip.io`.
+1. In **Rules**, add a network rule with the App Service subnet as the source address, and specify an FQDN destination. In the screenshot below, the destination FQDN is set to `api.my-ip.io`.
 
     :::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/config-azfw-policy-app-rule.png" alt-text="Screenshot of configure Azure Firewall policy rule.":::
 
