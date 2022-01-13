@@ -16129,8 +16129,13 @@
     },
     {
       "source_path_from_root": "/articles/lab-services/devtest-lab-add-artifact-repo.md",
-      "redirect_url": "/azure/devtest-labs/devtest-lab-add-artifact-repo",
-      "redirect_document_id": true
+      "redirect_url": "/azure/devtest-labs/add-artifact-repository",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/devtest-labs/devtest-lab-add-artifact-repo.md",
+      "redirect_url": "/azure/devtest-labs/add-artifact-repository",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/lab-services/devtest-lab-add-claimable-vm.md",

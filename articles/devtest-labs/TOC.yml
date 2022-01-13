@@ -191,8 +191,6 @@
     items:
     - name: Custom images vs. formulas
       href: devtest-lab-comparing-vm-base-image-types.md
-    - name: Add a Git repository for artifacts and templates
-      href: devtest-lab-add-artifact-repo.md
     - name: Manage custom images
       items:
       - name: Create custom image from a VM
@@ -280,6 +278,8 @@
       href: troubleshoot-vm-environment-creation-failures.md
     - name: Troubleshoot artifact failures
       href: devtest-lab-troubleshoot-artifact-failure.md
+    - name: Troubleshoot issues when applying artifacts
+      href: devtest-lab-troubleshoot-apply-artifacts.md
   - name: Monitor
     items:
     - name: View activity logs
