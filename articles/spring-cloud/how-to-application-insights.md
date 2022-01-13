@@ -22,7 +22,7 @@ With this feature you can:
 * Monitor real-time live metrics.
 * Check request failures.
 * Check application metrics.
-* Check application logs (Enterprise Tier Only).
+* Check application logs.
 
 Application Insights can provide many observable perspectives, including:
 
@@ -32,9 +32,43 @@ Application Insights can provide many observable perspectives, including:
 * Metrics
 * Live Metrics
 * Availability
-* Logs (Enterprise Tier Only)
+* Logs
 
-::: zone pivot="sc-standard-tier"
+## Using the Application Insights feature
+
+When the **Application Insights** feature is enabled, you can:
+
+* In the left navigation pane, select **Application Insights** to view the **Overview** page of Application Insights. The **Overview** page will show you an overview of all running applications.
+* Select **Application Map** to see the status of calls between applications.
+
+   [ ![Applicaiton Insights Map image](media/spring-cloud-application-insights/insights-process-agent-2-map.png)](media/spring-cloud-application-insights/insights-process-agent-2-map.png)
+
+* Select the link between customers-service and `petclinic` to see more details such as a query from SQL.
+* Select an endpoint to see all the applications making requests to the endpoint.
+
+* In the left navigation pane, select **Performance** to see the performance data of all applications' operations, as well as dependencies and roles.
+
+   [ ![Example of Application Performance metrics image](media/spring-cloud-application-insights/insights-process-agent-4-performance.png)](media/spring-cloud-application-insights/insights-process-agent-4-performance.png)
+
+* In the left navigation pane, select **Failures** to see any unexpected failures or exceptions from your applications.
+
+   [ ![Example of Application Insights Failures image](media/spring-cloud-application-insights/insights-process-agent-6-failures.png)](media/spring-cloud-application-insights/insights-process-agent-6-failures.png)
+
+* In the left navigation pane, select **Metrics** and select the namespace, you will see both Spring Boot metrics and custom metrics, if any.
+
+   [ ![Example Application Insights Metrics image](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)
+
+* In the left navigation pane, select **Live Metrics** to see the real-time metrics for different dimensions.
+
+   [ ![Example Application Insights live metrics image](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)
+
+* In the left navigation pane, select **Availability** to monitor the availability and responsiveness of Web apps by creating [Availability tests in Application Insights](../azure-monitor/app/monitor-web-app-availability.md).
+
+   [ ![Example Application Insights availability tests image](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)
+
+* In the left navigation pane, select **Logs** to view all applications' logs, or one application's logs when filtering by `cloud_RoleName`.
+
+   ![Example of Application Logs](./media/enterprise/how-to-application-insights/ai-application-logs.png)
 
 ## Enable Java In-Process Agent for Application Insights
 
@@ -51,54 +85,201 @@ Enable the Java In-Process Agent by using the following procedure.
 
 > [!Note]
 > Do not use the same Applicaiton Insights instance in different Azure Spring Cloud instances, or else you will see mixed data.
-::: zone-end
 
-## Using the Application Insights feature
-
-When the **Application Insights** feature is enabled, you can:
-
-* In the left navigation pane, select **Application Insights** to view the **Overview** page of Application Insights. The **Overview** page will show you an overview of all running applications.
-
-* Select **Application Map** to see the status of calls between applications.
-
-   [ ![IPA 2](media/spring-cloud-application-insights/insights-process-agent-2-map.png)](media/spring-cloud-application-insights/insights-process-agent-2-map.png)
-
-* Select the link between customers-service and `petclinic` to see more details such as a query from SQL.
-* Select an endpoint to see all the applications making requests to the endpoint.
-
-   ![Application Insights Map endpoints image](./media/enterprise/how-to-application-insights/ai-application-map-endpoints.png)
-
-* In the left navigation pane, select **Performance** to see the performance data of all applications' operations, as well as dependencies and roles.
-
-   [ ![Example of Application Performance metrics](media/spring-cloud-application-insights/insights-process-agent-4-performance.png)](media/spring-cloud-application-insights/insights-process-agent-4-performance.png)
-
-* In the left navigation pane, select **Failures** to see any unexpected failures or exceptions from your applications.
-
-   [ ![IPA 6](media/spring-cloud-application-insights/insights-process-agent-6-failures.png)](media/spring-cloud-application-insights/insights-process-agent-6-failures.png)
-
-* In the left navigation pane, select **Metrics** and select the namespace, you will see both Spring Boot metrics and custom metrics, if any.
-
-   [ ![IPA 7](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)
-
-* In the left navigation pane, select **Live Metrics** to see the real-time metrics for different dimensions.
-
-   [ ![IPA 8](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)
-
-* In the left navigation pane, select **Availability** to monitor the availability and responsiveness of Web apps by creating [Availability tests in Application Insights](../azure-monitor/app/monitor-web-app-availability.md).
-
-   [ ![IPA 9](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)
 
 ::: zone pivot="sc-enterprise-tier"
 
-* In the left navigation pane, select **Logs** to view all applications' logs, or one application's logs when filtering by `cloud_RoleName`.
+## Manage Application Insights using the Azure portal
 
-   ![Example of Application Logs](./media/enterprise/how-to-application-insights/ai-application-logs.png)
+You can use the Portal to check or update the current settings in Application Insights.
+
+### Enable Application Insights using the Azure portal
+
+1. Select **Application Insights**.
+1. Enable Application Insights by selecting **Edit binding**, or the **Unbound** hyperlink.
+
+   ![WHere to Enable Application Insights](./media/enterprise/how-to-application-insights/ai-binding-enable.png)
+
+1. Edit **Application Insights** or **Sampling rate**, then select **Save**.
+
+### Disable Application Insights
+
+1. Select **Application Insights**.
+1. Select **Unbind binding** to disable Application Insights.
+
+   ![Where to disable Application Insights](./media/enterprise/how-to-application-insights/ai-unbind-binding.png)
+
+### Change Application Insights Settings
+
+Select the name under the *Application Insights* column to open the Application Insights section.
+
+![Where to change Application Insights settings](./media/enterprise/how-to-application-insights/ai-change-settings.png)
+
+### Edit Application Insights buildpack bindings in Build Service
+
+To check and update the current settings for the Application Insights buildpack bindings in Build Service, follow these steps:
+
+1. Select **Build Service**.
+1. Choose your builder.
+1. Select **Edit** under the Bindings column.
+
+Application Insights settings are found in the *ApplicationInsights* item listed under the *Binding type* column.
+
+1. Select the **Bound** hyperlink, or select **Edit Binding** under the ellipse, to open and edit the Application Insights buildpack bindings.
+
+   ![Where to select editing of bindings in Build Service](./media/enterprise/how-to-application-insights/ai-builder-settings.png)
+
+1. Edit the binding settings, then select **Save**.
+
+   ![e-spring-ipa-8](./media/enterprise/how-to-application-insights/ai-edit-binding.png)
 
 ::: zone-end
 
-::: zone pivot="sc-standard-tier"
+## Manage Application Insights using Azure CLI
+
+You can manage Application Insights using Azure CLI commands. In the following commands, be sure to replace the *\<placeholder>* text with the values described. The *\<service-instance-name>* placeholder refers to the name of your Azure Spring Cloud instance.
+
+### Enable Application Insights
+
+To configure Application Insights when creating an Azure Spring Cloud instance, use the following command. For the `app-insights` argument, you can specify an Application Insights name or resource ID.
+
+```azurecli
+az spring-cloud create \
+    --resource-group <resource-group-name> \
+    --name "service-instance-name" \
+    --app-insights <name-or-resource-ID> \
+    --sampling-rate <sampling-rate>
+```
+
+You can also use an Application Insights connection string (preferred) or instrumentation key, as shown in the following example.
+
+```azurecli
+az spring-cloud create \
+    --resource-group <resource-group-name> \
+    --name <service-instance-name> \
+    --app-insights-key <connection-string-or-instrumentation-key> \
+    --sampling-rate <sampling-rate>
+```
+
+### Disable Application Insights
+
+To disable Application Insights when creating an Azure Spring Cloud instance, use the following command:
+
+```azurecli
+az spring-cloud create \
+    --resource-group <resource-group-name> \
+    --name <service-instance-name> \
+    --disable-app-insights
+```
+
+### Check Application Insights settings
+To check the Application Insights settings of an existing Azure Spring Cloud instance, use the following command:
+
+```azurecli
+az spring-cloud app-insights show \
+    --resource-group <resource-group-name> \
+    --name <service-instance-name>
+```
+
+### Update Application Insights
+
+To update Application Insights to use a connection string (preferred) or instrumentation key, use the following command:
+
+```azurecli
+az spring-cloud app-insights update \
+    --resource-group <resource-group-name> \
+    --name <service-instance-name> \
+    --app-insights-key <connection-string-or-instrumentation-key> \
+    --sampling-rate <sampling-rate>
+```
+
+To update Application Insights to use the resource name or ID, use the following command:
+
+```azurecli
+az spring-cloud app-insights update \
+    --resource-group <resource-group-name> \
+    --name <service-instance-name> \
+    --app-insights <name-or-resource-ID> \
+    --sampling-rate <sampling-rate>
+```
+
+### Disable Application Insights with the update command
+To disable Application Insights on an existing Azure Spring Cloud instance, use the following command:
+
+```azurecli
+az spring-cloud app-insights update \
+    --resource-group <resource-group-name> \
+    --name <service-instance-name> \
+    --disable
+```
+
+::: zone pivot="sc-enterprise-tier"
+### Manage Application Insights buildpack bindings
+
+This section applies to the Enterprise Tier only, and provides instructions that that supplement the previous section.
+
+Azure Enterprise tier uses [Buildpack Bindings](./how-to-enterprise-build-service.md#buildpack-bindings) to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights`.
+
+To create an Application Insights buildpack binding, use the following command:
+
+   ```azurecli
+   az spring-cloud build-service builder buildpack-binding create \
+       --resource-group <your-resource-group-name> \
+       --service <your-service-instance-name> \
+       --name <your-binding-name> \
+       --builder-name <your-builder-name> \
+       --type ApplicationInsights \
+       --properties sampling-percentage=<your-sampling-percentage> \
+                    connection-string=<your-connection-string>
+   ```
+
+To list all buildpack bindings, and find Application Insights bindings the type `ApplicationInsights`, use the following command:
+
+   ```azurecli
+   az spring-cloud build-service builder buildpack-binding list \
+       --resource-group <your-resource-group-name> \
+       --service <your-service-resource-name> \
+       --builder-name <your-builder-name>
+   ```
+
+To replace an Application Insights buildpack binding, use the following command:
+
+   ```azurecli
+   az spring-cloud build-service builder buildpack-binding set \
+       --resource-group <your-resource-group-name> \
+       --service <your-service-instance-name> \
+       --name <your-binding-name> \
+       --builder-name <your-builder-name> \
+       --type ApplicationInsights \
+       --properties sampling-percentage=<your-sampling-percentage> \
+                    connection-string=<your-connection-string>
+   ```
+
+To get an Application Insights buildpack binding, use the following command:
+
+   ```azurecli
+   az spring-cloud build-service builder buildpack-binding show \
+       --resource-group <your-resource-group-name> \
+       --service <your-service-instance-name> \
+       --name <your-binding-name> \
+       --builder-name <your-builder-name> \
+   ```
+
+To delete an Application Insights buildpack binding, use the following command:
+
+   ```azurecli
+   az spring-cloud build-service builder buildpack-binding delete \
+       --resource-group <your-resource-group-name> \
+       --service <your-service-instance-name> \
+       --name <your-binding-name> \
+       --builder-name <your-builder-name> \
+   ```
+
+::: zone-end
 
 ## Automation
+
+::: zone pivot="sc-standard-tier"
 
 The following sections describe how to automate your deployment using Azure Resource Manager templates (ARM templates) or Terraform.
 
@@ -179,221 +360,13 @@ resource "azurerm_spring_cloud_service" "example" {
   }
 }
 ```
-
 ::: zone-end
 
 ::: zone pivot="sc-enterprise-tier"
 
-## Manage Application Insights using the Azure portal
-
-You can use the Portal to check or update the current settings in Application Insights.
-
-### Enable Application Insights using the Azure portal
-
-1. Select **Application Insights**.
-1. Enable Application Insights by selecting **Edit binding**, or the **Unbound** hyperlink.
-
-   ![WHere to Enable Application Insights](./media/enterprise/how-to-application-insights/ai-binding-enable.png)
-
-1. Edit **Application Insights** or **Sampling rate**, then select **Save**.
-
-### Disable Application Insights
-
-1. Select **Application Insights**.
-1. Select **Unbind binding** to disable Application Insights.
-
-   ![Where to disable Application Insights](./media/enterprise/how-to-application-insights/ai-unbind-binding.png)
-
-### Change Application Insights Settings
-
-Select the name under the *Application Insights* column to open the Application Insights section.
-
-![Where to change Application Insights settings](./media/enterprise/how-to-application-insights/ai-change-settings.png)
-
-### Edit Application Insights buildpack bindings in Build Service
-
-To check and update the current settings for the Application Insights buildpack bindings in Build Service, follow these steps:
-
-1. Select **Build Service**.
-1. Choose your builder.
-1. Select **Edit** under the Bindings column.
-
-Application Insights settings are found in the *ApplicationInsights* item listed under the *Binding type* column.
-
-1. Select the **Bound** hyperlink, or select **Edit Binding** under the ellipse, to open and edit the Application Insights buildpack bindings.
-
-   ![Where to select editing of bindings in Build Service](./media/enterprise/how-to-application-insights/ai-builder-settings.png)
-
-1. Edit the binding settings, then select **Save**.
-
-   ![e-spring-ipa-8](./media/enterprise/how-to-application-insights/ai-edit-binding.png)
+Automation in Enterprise tier is pending support. Documentation will be added as soon as it is available.
 
 ::: zone-end
-
-::: zone pivot="sc-standard-tier"
-
-## Manage Application Insights using Azure CLI
-
-You can manage Application Insights using Azure CLI commands. In the following commands, be sure to replace the *\<placeholder>* text with the values described. The *\<service-instance-name>* placeholder refers to the name of your Azure Spring Cloud instance.
-
-### Manage Application Insights
-
-To configure Application Insights when creating an Azure Spring Cloud instance, use the following command. For the `app-insights` argument, you can specify an Application Insights name or resource ID.
-
-```azurecli
-az spring-cloud create \
-    --resource-group <resource-group-name> \
-    --name <service-instance-name> \
-    --app-insights <name-or-resource-ID> \
-    --sampling-rate <sampling-rate>
-```
-
-You can also use an Application Insights connection string (preferred) or instrumentation key, as shown in the following example.
-
-```azurecli
-az spring-cloud create \
-    --resource-group <resource-group-name> \
-    --name <service-instance-name> \
-    --app-insights-key <connection-string-or-instrumentation-key> \
-    --sampling-rate <sampling-rate>
-```
-
-To disable Application Insights when creating an Azure Spring Cloud instance, use the following command:
-
-```azurecli
-az spring-cloud create \
-    --resource-group <resource-group-name> \
-    --name <service-instance-name> \
-    --disable-app-insights
-```
-
-To check the Application Insights settings of an existing Azure Spring Cloud instance, use the following command:
-
-```azurecli
-az spring-cloud app-insights show \
-    --resource-group <resource-group-name> \
-    --name <service-instance-name>
-```
-
-To enable Application Insights using a connection string (preferred) or instrumentation key, use the following command:
-
-```azurecli
-az spring-cloud app-insights update \
-    --resource-group <resource-group-name> \
-    --name <service-instance-name> \
-    --app-insights-key <connection-string-or-instrumentation-key> \
-    --sampling-rate <sampling-rate>
-```
-
-To enable Application Insights using the resource name or ID, use the following command:
-
-```azurecli
-az spring-cloud app-insights update \
-    --resource-group <resource-group-name> \
-    --name <service-instance-name> \
-    --app-insights <name-or-resource-ID> \
-    --sampling-rate <sampling-rate>
-```
-
-To disable Application Insights on an existing Azure Spring Cloud instance, use the following command:
-
-```azurecli
-az spring-cloud app-insights update \
-    --resource-group <resource-group-name> \
-    --name <service-instance-name> \
-    --disable
-```
-
-::: zone-end
-
-::: zone pivot="sc-enterprise-tier"
-
-### Manage Application Insights buildpack bindings
-
-This section applies to the Enterprise Tier only, and provides instructions that that supplement the previous section.
-
-Azure Enterprise tier uses [Buildpack Bindings](./how-to-enterprise-build-service.md#buildpack-bindings) to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights`.
-
-To create an Application Insights buildpack binding, use the following command:
-
-   ```azurecli
-   az spring-cloud build-service builder buildpack-binding create \
-       --resource-group <your-resource-group-name> \
-       --service <your-service-instance-name> \
-       --name <your-binding-name> \
-       --builder-name <your-builder-name> \
-       --type ApplicationInsights \
-       --properties sampling-percentage=<your-sampling-percentage> \
-                    connection-string=<your-connection-string>
-   ```
-
-To list all buildpack bindings, and find Application Insights bindings the type `ApplicationInsights`, use the following command:
-
-   ```azurecli
-   az spring-cloud build-service builder buildpack-binding list \
-       --resource-group <your-resource-group-name> \
-       --service <your-service-resource-name> \
-       --builder-name <your-builder-name>
-   ```
-
-To replace an Application Insights buildpack binding, use the following command:
-
-   ```azurecli
-   az spring-cloud build-service builder buildpack-binding set \
-       --resource-group <your-resource-group-name> \
-       --service <your-service-instance-name> \
-       --name <your-binding-name> \
-       --builder-name <your-builder-name> \
-       --type ApplicationInsights \
-       --properties sampling-percentage=<your-sampling-percentage> \
-                    connection-string=<your-connection-string>
-   ```
-
-To get an Application Insights buildpack binding, use the following command:
-
-   ```azurecli
-   az spring-cloud build-service builder buildpack-binding show \
-       --resource-group <your-resource-group-name> \
-       --service <your-service-instance-name> \
-       --name <your-binding-name> \
-       --builder-name <your-builder-name> \
-   ```
-
-To delete an Application Insights buildpack binding, use the following command:
-
-   ```azurecli
-   az spring-cloud build-service builder buildpack-binding delete \
-       --resource-group <your-resource-group-name> \
-       --service <your-service-instance-name> \
-       --name <your-binding-name> \
-       --builder-name <your-builder-name> \
-   ```
-
-### Enable Application Insights
-
-To configure Application Insights when creating an Azure Spring Cloud instance, use the following command. For the `app-insights` argument, you can specify an Application Insights name or resource ID.
-
-```azurecli
-az spring-cloud create \
-    --resource-group <resource-group-name> \
-    --name "serviceName" \
-    --app-insights <name-or-resource-ID> \
-    --sampling-rate <sampling-rate>
-```
-
-You can also use an Application Insights connection string (preferred) or instrumentation key, as shown in the following example.
-
-```azurecli
-az spring-cloud create \
-    --resource-group <resource-group-name> \
-    --name <service-instance-name> \
-    --app-insights-key <connection-string-or-instrumentation-key> \
-    --sampling-rate <sampling-rate>
-```
-
-::: zone-end
-
-::: zone pivot="sc-standard-tier"
 
 ## Java agent update/upgrade
 
