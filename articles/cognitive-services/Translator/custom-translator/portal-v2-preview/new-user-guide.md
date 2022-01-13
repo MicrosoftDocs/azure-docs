@@ -21,7 +21,7 @@ Translation systems built and published with [Custom Translator](https://portal.
 
 Microsoft Text Translation API serves a huge number of high qulaity translation systems that generalize to a wide spectrum of translation scenarios, but is leser focused on a domain-specific business terminology. However, with custom trained translation systems, customers can achieve much higher adherence to the domain-specific terminology and style by training a custom translation system on previously translated, in-domain documents. These previously translated documents allow Custom Translator to learn the preferred translations in context, so Translator can apply these terms and phrases when the context calls for it, and produce a fluent translation in the target language, respecting the context-dependent grammar of the target language.
 
-![Custom vs. general](portal-v2-preview/how-to/for-beginners.png)
+![Custom vs. general](media/how-to/for-beginners.png)
 
 ## What does training custom translation systems involve?
 

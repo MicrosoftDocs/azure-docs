@@ -49,7 +49,7 @@ Document types are associated with the language pair selected when you create a 
 
 1.  Select **Next**
 
-![Document upload link](portal-v2-preview/how-toupload-1.png)
+![Document upload link](../media/how-to/upload-1.png)
 
 >[!Note]
 >Choosing **Dictionary set** launches **Choose type of dictionary** dialog. 
@@ -57,7 +57,7 @@ Document types are associated with the language pair selected when you create a 
 
 5.  Select on document format dial.
 
-    ![Upload document page](portal-v2-preview/how-toupload-2.png)
+    ![Upload document page](../media/how-to/upload-2.png)
 
     - For **Parallel documents**, fill in the `Document set name` and select **Browse files** to select source and target documents.
     - For **Translation memory (TM)** file or **Upload multiple sets with ZIP**, select **Browse files** to select the file 
@@ -70,8 +70,8 @@ At this point, we're processing your documents and attempting to extract sentenc
 
 ## Next steps
 
-- Learn [how to train a model](how-to-train-model.md).
-- Learn [how to view model details](how-to-model-details.md).
-- Learn [how to test and evaluate model quality](how-to-test-model-details.md).
-- Learn [how to publish model](how-to-publish-model.md).
-- Learn [how to translate with custom models](how-to-translate.md).
+- Learn [how to train a model](train-model.md).
+- Learn [how to view model details](view-model-details.md).
+- Learn [how to test and evaluate model quality](test-model-details.md).
+- Learn [how to publish model](publish-model.md).
+- Learn [how to translate with custom models](use-custom-model.md).

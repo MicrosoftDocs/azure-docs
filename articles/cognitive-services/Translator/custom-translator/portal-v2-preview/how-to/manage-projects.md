@@ -1,30 +1,28 @@
 ---
-title: How to create and manage a project - Custom Translator
+title: How to manage a project - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: How to create and manage a project in the Azure Cognitive Services Custom Translator portal v2.  
+description: This article explains how to create and manage a project in the Azure Cognitive Services Custom Translator.  
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 01/12/2022
-ms.author: moelghaz
+ms.date: 08/17/2020
+ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to create project, so that I can build and manage a project.
 ---
-
-# Create and manage a project
-
-## What is a project?
+# What is a project?
 
 A project is a container for a models, documents, and tests. Each project automatically includes all documents that are uploaded into that workspace that have the correct language pair.
 
 Creating project is the first step toward building and publishing a model.
 
-## Create a project
+## Create project
 
-1. After sign-in, your default workspace is loaded. To create a project in different workspace, select **My workspaces**, then select the workspace name
-1. Select **Create project**
-1.  Enter the following details about your project in the dialog:
+1.  After sign-in, your default workspace is loaded. 
+    - To create a project in different workspace, click **My workspaces**, then click the workspace name
+2.  Click **Create project**
+3.  Enter the following details about your project in the dialog:
 
     a.  **Project name (required):** Give your project a unique, meaningful name. It's not necessary to mention the languages within the title.
 
@@ -35,7 +33,7 @@ Creating project is the first step toward building and publishing a model.
         documents you intend to translate.
 
     >[!Note]
-    >Select **Show advanced options** to add project label, project description, and domain description
+    >Click **Show advanced options** to add project label, project description, and domain description
 
     d.  **Project label:** The project label distinguishes between
         projects with the same language pair and domain. As best practices,
@@ -57,41 +55,41 @@ Creating project is the first step toward building and publishing a model.
         or pediatrics. The description has no influence over the behavior of the
         Custom Translator or your resulting custom system.
 
-    ![Create project dialog](../media/how-to/create-project-dialog.png)
+    ![Create project dialog](media/how-to/how-to-create-project-dialog.png)
 
-1.  Select **Create project** 
+3.  Click **Create project** 
 
-## Edit a project
+## Edit project
 
 To modify the project name, project description and domain description:
-1.  Select the workspace name, e.g., `Contoso MT models`.
+1.  Click the workspace name, e.g., `Contoso MT models`.
 2.  Select the project name, e.g., `English to German`.
 3.  **Edit and Delete** buttons are now visible. 
 
-    ![Edit project](../media/how-to/edit-project-dialog-1.png)
+    ![Edit project](media/how-to/how-to-edit-project-dialog-1.png)
 
-4.  Select **Edit** and fill in or modify existing text.
+4.  Click **Edit** and fill in or modify existing text.
 
-    ![Edit project details](../media/how-to/edit-project-dialog-2.png)
+    ![Edit project details](media/how-to/how-to-edit-project-dialog-2.png)
 
-5.  Select **Edit project** to save.
+5.  Click **Edit project** to save.
 
-## Delete a project
+## Delete project
 
 1.  Follow **Edit a project** steps 1-3
-2.  Select **Delete** and read the delete message before you select **Delete project** to confirm.
+2.  Click **Delete** and read the delete message before you click **Delete project** to confirm.
 
-    ![Delete project dialog](../media/how-to/delete-project-1.png)
+    ![Delete project dialog](media/how-to/how-to-delete-project-1.png)
 
 >[!Note]
 >If your project has published model or in training status, delete fails with the Following message:
 >
->   ![Unable to delete project](../media/how-to/delete-project-2.png)
+>   ![Unable to delete project](media/how-to/how-to-delete-project-2.png)
 
 ## Next steps
 
-- Learn [how to manage project documents](manage-documents.md).
-- Learn [how to train a model](train-model.md).
-- Learn [how to test and evaluate model quality](test-model-details.md).
-- Learn [how to publish model](publish-model.md).
-- Learn [how to translate with custom models](use-custom-model.md).
+- Learn [how to manage project documents](how-to-manage-documents.md).
+- Learn [how to train a model](how-to-train-model.md).
+- Learn [how to test and evaluate model quality](how-to-test-model-details.md).
+- Learn [how to publish model](how-to-publish-model.md).
+- Learn [how to translate with custom models](how-to-translate.md).
