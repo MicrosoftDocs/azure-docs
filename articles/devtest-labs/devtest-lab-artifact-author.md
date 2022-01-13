@@ -132,7 +132,7 @@ The following example uses expressions and functions to construct a value:
 
 To create a custom artifact:
 
-- Install a JSON editor to work with artifact definition files. [Visual Studio Code](https://code.visualstudio.com/) is available for Windows, Linux, and MacOS.
+- Install a JSON editor to work with artifact definition files. [Visual Studio Code](https://code.visualstudio.com/) is available for Windows, Linux, and macOS.
 
 - Start with a sample *artifactfile.json* definition file.
 
