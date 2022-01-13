@@ -81,24 +81,26 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 This should provide with response similar to:
 ```json
-baseResourceStatus :[
 {
- resourceName: sfmccluster1
- resourceType: Microsoft.StorageAccounts
- isZoneResilient: false
-},
-{
- resourceName: PublicIP-sfmccluster1
- resourceType: Microsoft.Network/publicIPAddresses
- isZoneResilient: false
-},
-{
- resourceName: primary
- resourceType: Microsoft.Compute/virutalmachinescalesets
- isZoneResilient: false
-},
-]
-isClusterZoneResilient: false
+ baseResourceStatus :[
+ {
+  resourceName: "sfmccluster1"
+  resourceType: "Microsoft.Storage/storageAccounts"
+  isZoneResilient: false
+ },
+ {
+  resourceName: "PublicIP-sfmccluster1"
+  resourceType: "Microsoft.Network/publicIPAddresses"
+  isZoneResilient: false
+ },
+ {
+  resourceName: "primary"
+  resourceType: "Microsoft.Compute/virutalmachinescalesets"
+  isZoneResilient: false
+ },
+ ],
+ isClusterZoneResilient: false
+}
 ```
 If the PublicIP resource is not zone resilient, migration of the cluster would incur a brief downtime when cluster will remain unreachable. If the Public IP resource is zone resilient, migration will reuse the Public IP resource thus incuring no down time for the cluster.
 
