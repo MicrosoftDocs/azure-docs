@@ -56,7 +56,7 @@ This topic describes how to:
     The **AWS Quick create stack** page opens. 
 9. To create basic entities, for example the OIDC provider, the assumed role policy, or the role the IDC provider requires to connect to Azure AD Security Token Service (Azure AD STS), scroll to the bottom of the page, and in the **Capabilities** box, select **I acknowledge that AWS CloudFormation might create IAM resources with custom names**. Then select **Create stack.**
 
-    AWS creates the required IDC entities including the role that the IDC provider needs to connect to Azure AAD STS. These entity names are listed in the **Resources** page.
+    AWS creates the required IDC entities including the role that the IDC provider needs to connect to Azure AD STS. These entity names are listed in the **Resources** page.
 10. In the **CloudKnox Data Collectors** tab, select **Next**.
 11. In the **Enter Your AWS Account ID** box, enter your account ID.
 12. To avoid rule-naming collisions, in the **AWS Member Account Role** box, enter a new name. Then select **Launch Template**.
