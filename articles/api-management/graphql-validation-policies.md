@@ -52,7 +52,7 @@ The policy for path=`/__*` is the [introspection](https://graphql.org/learn/intr
 
 ```xml
 <validate-graphql-request error-variable-name="variable name" max-size="size in bytes" max-depth="query depth">
-    <authorize default-action="allow|remove|reject|ignore">
+    <authorize>
         <rule path="query path, for example: /Query/list Users or /__*" action="string or policy expression that evaluates to allow|remove|reject|ignore" />
     </authorize>
 </validate-graphql-request>
@@ -60,16 +60,16 @@ The policy for path=`/__*` is the [introspection](https://graphql.org/learn/intr
 
 ### Example
 
-In the following example, we validate a GraphQL query and reject:
-* Requests larger than 100 kb or with query depth greater than 4. 
-* Access to the introspection system 
-* Access to the `list Users` query from requests originating from IP address 198.51.100.1. 
+This example applies the follow validation and authorization rules to a GraphQL query:
+* Requests larger than 100 kb or with query depth greater than 4 are rejected. 
+* Requests to the introspection system are rejected. 
+* The `/ship/missions/name` field is removed from requests containing more than two headers. 
 
 ```xml
 <validate-graphql-request error-variable-name="name" max-size="102400" max-depth="4"> 
-    <authorize default-action="allow">
+    <authorize>
         <rule path="/__*" action="reject" /> 
-        <rule path="/Query/list Users" action="@(context.Request.IpAddress == "198.51.100.1" ? "remove" : "allow")" /> 
+        <rule path="/ship/missions/name" action="@(context.Request.Headers.Count > 2 ? "remove" : "allow")" />
     </authorize>
 </validate-graphql-request> 
 ```
@@ -89,9 +89,8 @@ In the following example, we validate a GraphQL query and reject:
 | `error-variable-name` | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
 | `max-size` | Maximum size of the request payload in bytes. Maximum allowed value: 102,400 bytes (100 KB). (Contact [support](https://azure.microsoft.com/support/options/) if you need to increase this limit.) | Yes       | N/A   |
 | `max-depth` | An integer. Maximum query depth. | No | 6 |
-| `default-action` | [Action](#request-actions) to perform by default if no rule modifies it at the field level. |  Yes     | N/A   |
 | `path` | Query path to execute authorization validation on. | Yes | N/A |
-| `action` | [Action](#request-actions) to perform if the rule applies. May be specified conditionally using a policy expression. |  Yes     | N/A   |
+| `action` | [Action](#request-actions) to perform if the rule applies. May be specified conditionally using a policy expression. |  No     | allow   |
 
 ### Request actions
 
