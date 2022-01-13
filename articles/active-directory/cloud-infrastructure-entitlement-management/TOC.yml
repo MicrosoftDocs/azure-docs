@@ -18,7 +18,7 @@
     expanded: true
     items:
     - name: CloudKnox installation overview 
-      href: cloudknox-installation.md
+      href: cloudknox-installation-overview.md
     - name: Install CloudKnox Sentry on AWS
       href: cloudknox-sentry-install-aws.md
     - name: Install CloudKnox with an AWS role (Agentless deployment)
