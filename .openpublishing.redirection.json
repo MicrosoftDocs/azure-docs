@@ -16710,6 +16710,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/devtest-labs/devtest-lab-configure-use-public-environments.md",
+      "redirect_url": "/azure/devtest-labs/devtest-lab-create-environment-from-arm",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/dns/dns-getstarted-cli-nodejs.md",
       "redirect_url": "/azure/dns/dns-getstarted-cli",
       "redirect_document_id": false
@@ -45284,6 +45289,11 @@
       "source_path_from_root": "/articles/networking/azure-orbital-overview.md",
       "redirect_url": "/azure/orbital/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure/sentinel/connect-windows-virtual-desktop.md",
+      "redirect_url": "/azure/sentinel/connect-azure-virtual-desktop",
+      "redirect_document_id": true
     }
   ]
 }
