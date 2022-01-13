@@ -80,7 +80,7 @@ az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGE
 
 Use `Import-AzContainerRegistryImage` to import those images into your ACR.
 
-```azurepowershell
+```azurepowershell-interactive
 $RegistryName = "<REGISTRY_NAME>"
 $ResourceGroup = (Get-AzContainerRegistry | Where-Object {$_.name -eq $RegistryName} ).ResourceGroupName
 $ControllerRegistry = "k8s.gcr.io"
@@ -207,7 +207,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```powershell-interactive
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
@@ -307,7 +307,7 @@ helm install cert-manager jetstack/cert-manager \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```powershell-interactive
 # Label the cert-manager namespace to disable resource validation
 kubectl label namespace ingress-basic cert-manager.io/disable-validation=true
 

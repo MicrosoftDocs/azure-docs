@@ -59,7 +59,7 @@ helm install ingress-nginx ingress-nginx/ingress-nginx --create-namespace --name
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```powershell-interactive
 $Namespace = 'ingress-basic'
 
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
@@ -101,7 +101,7 @@ az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$DEFAULTBACKEND_IM
 To control image versions, you will want to import them into your own Azure Container registry.  The [NGINX ingress controller Helm chart][ingress-nginx-helm-chart] relies on three container images. Use `Import-AzContainerRegistryImage` to import those images into your ACR.
 
 
-```azurepowershell
+```azurepowershell-interactive
 $RegistryName = "<REGISTRY_NAME>"
 $ResourceGroup = (Get-AzContainerRegistry | Where-Object {$_.name -eq $RegistryName} ).ResourceGroupName
 $SourceRegistry = "k8s.gcr.io"
@@ -166,7 +166,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 

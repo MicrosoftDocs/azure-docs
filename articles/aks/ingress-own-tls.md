@@ -68,7 +68,7 @@ az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$DEFAULTBACKEND_IM
 
 Use `Import-AzContainerRegistryImage` to import those images into your ACR.
 
-```azurepowershell
+```azurepowershell-interactive
 $RegistryName = "<REGISTRY_NAME>"
 $ResourceGroup = (Get-AzContainerRegistry | Where-Object {$_.name -eq $RegistryName} ).ResourceGroupName
 $SourceRegistry = "k8s.gcr.io"
@@ -134,7 +134,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
 
@@ -213,14 +213,14 @@ The following example generates a 2048-bit RSA X509 certificate valid for 365 da
 
 This article works with the *demo.azure.com* subject common name and doesn't need to be changed. For production use, specify your own organizational values for the `-subj` parameter:
 
-```powershell
+```powershell-interactive
 $Certificate = New-SelfSignedCertificate -KeyAlgorithm RSA -KeyLength 2048 -Subject "CN=demo.azure.com,O=aks-ingress-tls" -KeyExportPolicy Exportable -CertStoreLocation Cert:\CurrentUser\My\
 $certificatePem =[System.Security.Cryptography.PemEncoding]::Write("CERTIFICATE", $Certificate.RawData)
-$certificatePem -join '' | out-file -FilePath aks-ingress-tls.crt
+$certificatePem -join '' | Out-File -FilePath aks-ingress-tls.crt
 
 $privKeyBytes = $Certificate.PrivateKey.ExportPkcs8PrivateKey()
 $privKeyPem = [System.Security.Cryptography.PemEncoding]::Write("PRIVATE KEY", $privKeyBytes)
-$privKeyPem -join '' | out-file -FilePath aks-ingress-tls.key
+$privKeyPem -join '' | Out-File -FilePath aks-ingress-tls.key
 
 ```
 
@@ -243,7 +243,7 @@ kubectl create secret tls aks-ingress-tls \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```powershell-interactive
 kubectl create secret tls aks-ingress-tls `
     --namespace ingress-basic `
     --key aks-ingress-tls.key `
