@@ -30,7 +30,7 @@ The dashboard you create in the next part of this quickstart requires an existin
 
 1. In the **Cloud Shell** window, select **PowerShell**.
 
-    :::image type="content" source="media/quick-create-template/powershell.png" alt-text="Screenshot showing the Powershell option in Cloud Shell.":::
+    :::image type="content" source="media/quick-create-template/powershell.png" alt-text="Screenshot showing the PowerShell option in Cloud Shell.":::
 
 1. Copy the following command and enter it at the command prompt to create a resource group.
 
