@@ -921,13 +921,15 @@ This example shows what the configuration looks like when the logic app enables 
 
 If you automate deployment with an ARM template, and your logic app workflow includes a managed connector trigger or action that uses a managed identity, confirm that the underlying connection resource definition includes the `parameterValueSet` object, which includes the `name` property set to `managedIdentityAuth` and the `values` property set to an empty object. Otherwise, your ARM deployment won't set up the connection to use the managed identity for authentication, and the connection won't work in your logic app's workflow. This requirement applies only to [specific managed connector triggers and actions](#triggers-actions-managed-identity) where you selected the [**Connect with managed identity** option](#authenticate-managed-connector-managed-identity).
 
-For example, here's the underlying connection resource definition for an Azure Automation action that uses a managed identity where the definition includes the `parameterValueType` property, which includes the `name` property set to `managedIdentityAuth` and the `values` property set to an empty object. Also note that the `apiVersion` property is set to `2018-07-01-preview`:
+### [Consumption](#tab/consumption)
+
+For example, here's the underlying connection resource definition for an Azure Automation action in a Consumption logic app resource that uses a managed identity where the definition includes the `parameterValueType` property, which includes the `name` property set to `managedIdentityAuth` and the `values` property set to an empty object. Also note that the `apiVersion` property is set to `2018-07-01-preview`:
 
 ```json
 {
     "type": "Microsoft.Web/connections",
     "name": "[variables('automationAccountApiConnectionName')]",
-    "apiVersion": "2018-07-01",
+    "apiVersion": "2018-07-01-preview",
     "location": "[parameters('location')]",
     "kind": "V1",
     "properties": {
@@ -942,6 +944,67 @@ For example, here's the underlying connection resource definition for an Azure A
     }
 },
 ```
+
+### [Standard](#tab/standard)
+
+For example, here's the underlying connection resource definition for an Azure Automation action in a Standard logic app resource that uses a managed identity where the definition includes the `parameterValueType` property, which includes the `name` property set to `managedIdentityAuth` and the `values` property set to an empty object.
+
+> [!NOTE]
+> For Standard, the `kind` property is set to `V2`, and the `apiVersion` property is set to `2018-07-01-preview`:
+
+```json
+{
+    "type": "Microsoft.Web/connections",
+    "name": "[variables('automationAccountApiConnectionName')]",
+    "apiVersion": "2018-07-01-preview",
+    "location": "[parameters('location')]",
+    "kind": "V2",
+    "properties": {
+        "api": {
+            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureautomation')]"
+        },
+        "customParameterValues": {},
+        "displayName": "[variables('automationAccountApiConnectionName')]",
+        "parameterValueSet":{
+            "name": "managedIdentityAuth",
+            "values": {}
+    }
+},
+```
+
+Following this `Microsoft.Web/connections` resource definition, make sure that you add an access policy that specifies a resource definition for each managed API connection and provide the following information:
+
+| Parameter | Description |
+|-----------|-------------|
+| <*connection-name*> | The name for your managed API connection, for example, `office365` |
+| <*object-ID*> | The object ID for your Azure AD identity, previously saved from your app registration |
+| <*tenant-ID*> | The tenant ID for your Azure AD identity, previously saved from your app registration |
+|||
+
+```json
+{
+   "type": "Microsoft.Web/connections/accessPolicies",
+   "apiVersion": "2016-06-01",
+   "name": "[concat('<connection-name>'),'/','<object-ID>')]",
+   "location": "<location>",
+   "dependsOn": [
+      "[resourceId('Microsoft.Web/connections', parameters('connection_name'))]"
+   ],
+   "properties": {
+      "principal": {
+         "type": "ActiveDirectory",
+         "identity": {
+            "objectId": "<object-ID>",
+            "tenantId": "<tenant-ID>"
+         }
+      }
+   }
+}
+```
+
+For more information, review the [Microsoft.Web/connections/accesspolicies (ARM template)](/templates/microsoft.web/connections?tabs=json) documentation.
+
+---
 
 <a name="remove-identity"></a>
 
