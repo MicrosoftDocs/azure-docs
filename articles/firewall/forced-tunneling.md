@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 08/13/2021
+ms.date: 01/13/2022
 ms.author: victorh
 ---
 
@@ -15,7 +15,7 @@ When you configure a new Azure Firewall, you can route all Internet-bound traffi
 
 ## Forced tunneling configuration
 
-You can configure Forced Tunneling during Firewall creation by enabling Forced Tunnel mode as shown below. To support forced tunneling, Service Management traffic is separated from customer traffic. An additional dedicated subnet named **AzureFirewallManagementSubnet** (minimum subnet size /26) is required with its own associated public IP address. 
+You can configure Forced Tunneling during Firewall creation by enabling Forced Tunnel mode as shown below. To support forced tunneling, Service Management traffic is separated from customer traffic. An additional dedicated subnet named **AzureFirewallManagementSubnet** (minimum subnet size /26) is required with its own associated public IP address. This public IP address is for management traffic. It is used exclusively by the Azure platform and can't be used for any other purpose.
 
 In Forced Tunneling mode, the Azure Firewall service incorporates the Management subnet (AzureFirewallManagementSubnet) for its *operational* purposes. By default, the service associates a system-provided route table to the Management subnet. The only route allowed on this subnet is a default route to the Internet and *Propagate gateway* routes must be disabled. Avoid associating customer route tables to the Management subnet when you create the firewall. 
 
