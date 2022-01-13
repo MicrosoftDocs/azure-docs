@@ -37,7 +37,7 @@ This article shows you how to use Virtual WAN to connect to your resources in Az
 
 ## <a name="openvwan"></a>Create a virtual WAN
 
-Before you can create a virtual wan, you have to create a resource group to host the virtual wan or use an existing resource group. Create a resource group with [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). This example creates a new resource group named **testRG** in the **West US** location: 
+Before you can create a virtual WAN, you have to create a resource group to host the virtual WAN or use an existing resource group. Create a resource group with [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). This example creates a new resource group named **testRG** in the **West US** location: 
 
 Create a resource group:
 
@@ -45,23 +45,23 @@ Create a resource group:
 New-AzResourceGroup -Location "West US" -Name "testRG" 
 ``` 
 
-Create the virtual wan:
+Create the virtual WAN:
 
 ```azurepowershell-interactive
 $virtualWan = New-AzVirtualWan -ResourceGroupName testRG -Name myVirtualWAN -Location "West US"
 ```
 
-### To create the virtual wan in an already existing resource group
+### To create the virtual WAN in an already existing resource group
 
-Use the steps in this section if you need to create the virtual wan in an already existing resource group.
+Use the steps in this section if you need to create the virtual WAN in an already existing resource group.
 
-1. Set the variables for the existing resource group
+1. Set the variables for the existing resource group.
 
    ```azurepowershell-interactive
    $resourceGroup = Get-AzResourceGroup -ResourceGroupName "testRG" 
    ```
 
-2. Create the virtual wan.
+2. Create the virtual WAN.
 
    ```azurepowershell-interactive
    $virtualWan = New-AzVirtualWan -ResourceGroupName testRG -Name myVirtualWAN -Location "West US"
@@ -83,7 +83,7 @@ In this section, you create a site-to-site VPN gateway that will be in the same 
 New-AzVpnGateway -ResourceGroupName "testRG" -Name "testvpngw" -VirtualHubId $virtualHub.Id -VpnGatewayScaleUnit 2
 ``` 
 
-Once your VPNgateway is created, you can view it using the following example. 
+Once your VPN gateway is created, you can view it using the following example. 
 
 ```azurepowershell-interactive
 Get-AzVpnGateway -ResourceGroupName "testRG" -Name "testvpngw"
@@ -93,7 +93,7 @@ Get-AzVpnGateway -ResourceGroupName "testRG" -Name "testvpngw"
 
 In this section, you create sites that correspond to your physical locations and the connections. These sites contain your on-premises VPN device endpoints, you can create up to 1000 sites per virtual hub in a virtual WAN. If you have multiple hubs, you can create 1000 per each of those hubs.
 
-Set the variable for the vpnGateway and for the IP address space that is located on your on-premises site, traffic destined for this address space is routed to your local site. This is required when BGP is not enabled for the site:
+Set the variable for the VPN gateway and for the IP address space that is located on your on-premises site, traffic destined for this address space is routed to your local site. This is required when BGP is not enabled for the site:
 
 ```azurepowershell-interactive 
 $vpnGateway = Get-AzVpnGateway -ResourceGroupName "testRG" -Name "testvpngw"
@@ -116,7 +116,7 @@ Create the vpnSite and reference the variables of the vpnSiteLinks just created:
 $vpnSite = New-AzVpnSite -ResourceGroupName "testRG" -Name "testVpnSite" -Location "West US" -VirtualWan $virtualWan -AddressSpace $vpnSiteAddressSpaces -DeviceModel "SomeDevice" -DeviceVendor "SomeDeviceVendor" -VpnSiteLink @($vpnSiteLink1, $vpnSiteLink2)
 ```
 
-Next is the Vpn Site Link connection which is composed of 2 Active-Active tunnels from a branch/Site known as VPNSite to the scalable gateway:
+Next is the VPN Site Link connection which is composed of 2 Active-Active tunnels from a branch/Site known as VPNSite to the scalable gateway:
 
 ```azurepowershell-interactive
 $vpnSiteLinkConnection1 = New-AzVpnSiteLinkConnection -Name "testLinkConnection1" -VpnSiteLink $vpnSite.VpnSiteLinks[0] -ConnectionBandwidth 100
