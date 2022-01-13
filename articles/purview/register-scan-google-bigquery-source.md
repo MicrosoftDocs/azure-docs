@@ -1,6 +1,6 @@
 ---
 title: Connect to and manage Google BigQuery projects
-description: This guide describes how to connect to Google BigQuery projects in Azure Purview, and use Purview's features to scan and manage your Google BigQuery source.
+description: This guide describes how to connect to Google BigQuery projects in Azure Purview, and use Azure Purview's features to scan and manage your Google BigQuery source.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
@@ -24,7 +24,7 @@ This article outlines how to register Google BigQuery projects, and how to authe
 | [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](how-to-lineage-google-bigquery.md)|
 
 When scanning Google BigQuery source, Purview supports:
-
+Azure Purview
 - Extracting technical metadata including:
 
     - Projects
@@ -36,15 +36,15 @@ When scanning Google BigQuery source, Purview supports:
 
 >[!NOTE]
 > Currently, Purview only supports scanning Google BigQuery datasets in US multi-regional location. If the specified dataset is in other location e.g. us-east1 or EU, you will observe scan completes but no assets shown up in Purview.
-
+Azure PurviewAzure Purview
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * An active [Purview resource](create-catalog-portal.md).
-
+Azure Purview
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
-
+Azure Purview
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
 * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
@@ -59,11 +59,11 @@ When scanning Google BigQuery source, Purview supports:
 ## Register
 
 This section describes how to register a Google BigQuery project in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
-
+Azure Purview
 ### Steps to register
 
 1. Navigate to your Purview account.
-1. Select **Data Map** on the left navigation.
+1. Select **Data MapAzure Purviewhe left navigation.
 1. Select **Register.**
 1. On Register sources, select **Google BigQuery** . Select **Continue.**
 
@@ -155,7 +155,7 @@ Follow the steps below to scan a Google BigQuery project to automatically identi
 ## Next steps
 
 Now that you have registered your source, follow the below guides to learn more about Purview and your data.
-
+Azure Purview
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

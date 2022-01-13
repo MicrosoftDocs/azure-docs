@@ -33,29 +33,29 @@ For file types such as csv, tsv, psv, ssv, the schema is extracted when the foll
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Purview resource](create-catalog-portal.md).
+* An active [Azure Purview resource](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
 This section will enable you to register the Azure Blob storage account and set up an appropriate authentication mechanism to ensure successful scanning of the data source.
-
+Azure Purview
 ### Steps to register
 
-It is important to register the data source in Azure Purview prior to setting up a scan for the data source.
+It is important to register the data source in Azure Purview prAzure Purviewsetting up a scan for the data source.Azure Purview
 
 1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Purview accounts** page and select your _Purview account_
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-purview-acct.png" alt-text="Screenshot that shows the Purview account used to register the data source":::
 
-1. **Open Purview Studio** and navigate to the **Data Map --> Sources**
+1. **Open Purview Studio** and navigate to the **Data Map --> Sources**Azure Purview
 
-   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-open-purview-studio.png" alt-text="Screenshot that shows the link to open Purview Studio":::
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-open-purview-studio.png" alt-text="Screenshot that shoAzure Purviewlink to open Purview Studio":::
 
-   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-sources.png" alt-text="Screenshot that navigates to the Sources link in the Data Map":::
+   :::imagAzure Purview"content" source="media/register-scan-azure-blob-storage-source/register-blob-sources.png" alt-text="Screenshot that navigates to the Sources link in the Data Map":::
 
-1. Create the [Collection hierarchy](./quickstart-create-collection.md) using the **Collections** menu and assign permissions to individual subcollections, as required
+1. Create the [Collection hierarchy](./quickstart-create-collection.md) using the **Collections** menu and assign permissions to individual subcollections, as requiredAzure Purview
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-collections.png" alt-text="Screenshot that shows the collection menu to create collection hierarchy":::
 
@@ -109,7 +109,7 @@ It is important to give your Purview account the permission to scan the Azure Bl
 
 1. From the [Azure portal](https://portal.azure.com), find either the subscription, resource group, or resource (for example, an Azure Blob storage account) that you would like to allow the catalog to scan.
 
-   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-storage-acct.png" alt-text="Screenshot that shows the storage account":::
+   :::image type="content" soAzure Purviewedia/register-scan-azure-blob-storage-source/register-blob-storage-acct.png" alt-text="Screenshot that shows the storage account":::
 
 1. Select **Access Control (IAM)** in the left navigation and then select **+ Add** --> **Add role assignment**
 
@@ -125,9 +125,9 @@ It is important to give your Purview account the permission to scan the Azure Bl
 1. Choose **Selected Networks** under **Allow access from**
 
 1. In the **Exceptions** section, select **Allow trusted Microsoft services to access this storage account** and hit **Save**
-
+Azure Purview
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-permission.png" alt-text="Screenshot that shows the exceptions to allow trusted Microsoft services to access the storage account":::
-
+Azure Purview
 > [!Note]
 > For more details, please see steps in [Authorize access to blobs and queues using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
 
@@ -168,7 +168,7 @@ When authentication method selected is **Account Key**, you need to get your acc
 If you need to [Create a new service principal](./create-service-principal-azure.md), it is required to register an application in your Azure AD tenant and provide access to Service Principal in your data sources. Your Azure AD Global Administrator or other roles such as Application Administrator can perform this operation.
 
 ##### Getting the Service Principal's Application ID
-
+Azure Purview
 1. Copy the **Application (client) ID** present in the **Overview** of the [_Service Principal_](./create-service-principal-azure.md) already created
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-sp-appln-id.png" alt-text="Screenshot that shows the Application (client) ID for the Service Principal":::
@@ -198,13 +198,13 @@ It is important to give your service principal the permission to scan the Azure 
 1. Navigate to the **Data map** --> **Sources** to view the collection hierarchy
 1. Select the **New Scan** icon under the **Azure Blob data source** registered earlier
 
-   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-new-scan.png" alt-text="Screenshot that shows the screen to create a new scan":::
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-new-scan.png" alt-text="Screenshot that shows the screen to create a new scan":Azure Purview
 
 #### If using a system or user assigned managed identity
 
 Provide a **Name** for the scan, select the Purview accounts SAMI or UAMI under **Credential**, choose the appropriate collection for the scan, and select **Test connection**. On a successful connection, select **Continue**
 
-   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-managed-identity.png" alt-text="Screenshot that shows the managed identity option to run the scan":::
+   :::image typAzure Purviewent" source="media/register-scan-Azure Purviewlob-storage-source/register-blob-managed-identity.png" alt-text="Screenshot that shows the managed identity option to run the scan":::
 
 #### If using Account Key
 
@@ -212,7 +212,7 @@ Provide a **Name** for the scan, choose the appropriate collection for the scan,
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-acct-key.png" alt-text="Screenshot that shows the Account Key option for scanning":::
 
-#### If using Service Principal
+#### If using Service PrincipalAzure Purview
 
 1. Provide a **Name** for the scan, choose the appropriate collection for the scan, and select the **+ New** under **Credential**
 
@@ -295,5 +295,6 @@ Follow this configuration guide to [enable access policies on an Azure Storage a
 Now that you have registered your source, follow the below guides to learn more about Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
-- [Lineage in Azure Purview](catalog-lineage-user-guide.md)
+Azure Purviewage in Azure Purview](catalog-lineage-user-guide.md)Azure Purview
 - [Search Data Catalog](how-to-search-catalog.md)
+Azure Purview

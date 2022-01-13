@@ -26,9 +26,9 @@ landingContent:
         links:
           - text: Deployment best practices
             url: deployment-best-practices.md
-          - text: Use Purview Studio
+          - text: Use Azure Purview Studio
             url: use-purview-studio.md
-          - text: Understand Purview access control
+          - text: Understand Azure Purview access control
             url: catalog-permissions.md
           - text: Understand the elastic data map
             url: catalog-permissions.md
@@ -45,7 +45,7 @@ landingContent:
         links:
           - text: Create a Purview account - Portal
             url: create-catalog-portal.md
-          - text: Create a Collection - Portal
+          - text: Create an Azure Purviewion - Portal
             url: quickstart-create-collection.md
       - linkListType: how-to-guide
         links:
@@ -61,7 +61,7 @@ landingContent:
             url: tutorial-asset-search.md
           - text: Browse assets and view lineage 
             url: tutorial-browse-and-view-lineage.md
-          - text: Explore resource sets, assets, schemas, classifications 
+          - text: Explore rAzure Purview sets, assets, schemas, classifications 
             url: tutorial-schemas-and-classifications.md
           - text: Create glossary terms
             url: tutorial-import-create-glossary-terms.md
@@ -168,3 +168,4 @@ landingContent:
         - text: Connect to private networks
           url: manage-integration-runtimes.md
  
+Azure Purview

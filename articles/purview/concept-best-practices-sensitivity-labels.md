@@ -1,5 +1,5 @@
 ---
-title: Best practices for applying sensitivity labels in Azure Purview
+title: Best practices for applying sensitivity labels in Azure Purviewurview
 description: This article provides best practices for applying sensitivity labels in Azure Purview.
 author: athenads
 ms.author: athenadsouza
@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 # Labeling best practices
 
-Azure Purview supports labeling of both structured and unstructured data stored across various data sources. Labeling of data within Azure Purview allows users to easily find data that matches pre-defined auto-labeling rules that have been configured in the Microsoft 365 Security and Compliance Center (SCC). Azure Purview extends the use of Microsoft 365 sensitivity labels to assets stored in infrastructure cloud locations and structured data sources.
+Azure Purview supports labeling of both structured and unstructured data stored across various data sources. Labeling of data within Azure Purviewurview allows users to easily find data that matches pre-defined auto-labeling rules that have been configured in the Microsoft 365 Security and Compliance Center (SCC). Azure Purview extends the use of Microsoft 365 sensitivity labels to assets stored in infrastructure cloud locations and structured data sources.
 
 ## Protect Personal Identifiable Information(PII) with Custom Sensitivity Label for Azure Purview, using Microsoft Information Protection
 
@@ -30,16 +30,16 @@ It also abstracts the data itself, so you use labels to track the type of data, 
 
 - Enabling sensitivity labeling in Azure Purview can be accomplished using the steps defined in [How to automatically apply sensitivity labels to your data in Azure Purview](./how-to-automatically-label-your-content.md).
 - Required licensing and helpful answers to other questions can be found in the [Sensitivity labels in Azure Purview FAQ](./sensitivity-labels-frequently-asked-questions.yml).
-
+Azure Purview
 ### Label considerations
 
 - If you already have Microsoft 365 sensitivity labels in use in your environment, it is recommended that you continue to use your existing labels rather than making duplicate or more labels for Purview. This approach allows you to maximize the investment you have already made in the Microsoft 365 compliance space and ensures consistent labeling across your data estate.
 - If you have not yet created Microsoft 365 sensitivity labels, it is recommended that you review the documentation to [Get started with sensitivity labels](/microsoft-365/compliance/get-started-with-sensitivity-labels). Creating a classification schema is a tenant-wide operation and should be discussed thoroughly before enabling it within your organization.
-
+Azure Purview
 ### Label recommendations
 
 - When configuring sensitivity labels for Azure Purview, you may define autolabeling rules for files, database columns, or both within the label properties.  Azure Purview will label files within the Azure Purview data map when the autolabeling rule is configured to automatically apply the label or recommend that the label is applied.
-
+Azure Purview
 > [!WARNING]
 > If you have not already configured autolabeling for files and emails on your sensitivity labels, keep in mind this can have user impact within your Office and Microsoft 365 environment.  You may however test autolabeling on database columns without user impact.
 

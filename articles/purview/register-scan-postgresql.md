@@ -1,6 +1,6 @@
 ---
 title: Connect to and manage PostgreSQL
-description: This guide describes how to connect to PostgreSQL in Azure Purview, and use Purview's features to scan and manage your PostgreSQL source.
+description: This guide describes how to connect to PostgreSQL in Azure Purview, and use Azure Purview's features to scan and manage your PostgreSQL source.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
@@ -26,7 +26,7 @@ This article outlines how to register PostgreSQL, and how to authenticate and in
 The supported PostgreSQL server versions are 8.4 to 12.x.
 
 When scanning PostgreSQL source, Purview supports:
-
+Azure Purview
 - Extracting technical metadata including:
 
     - Server
@@ -42,9 +42,9 @@ When scanning PostgreSQL source, Purview supports:
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * An active [Purview resource](create-catalog-portal.md).
-
+Azure Purview
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
-
+Azure Purview
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.11.7953.1.
 
 * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
@@ -56,13 +56,13 @@ When scanning PostgreSQL source, Purview supports:
 ## Register
 
 This section describes how to register PostgreSQL in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
-
+Azure Purview
 ### Steps to register
 
 To register a new PostgreSQL source in your data catalog, do the following:
 
 1. Navigate to your Purview account in the [Purview Studio](https://web.purview.azure.com/resource/).
-1. Select **Data Map** on the left navigation.
+1. Select **Data MapAzure Purviewhe left navigatioAzure Purview
 1. Select **Register**
 1. On Register sources, select **PostgreSQL**. Select **Continue**.
 
@@ -149,7 +149,7 @@ To create and run a new scan, do the following:
 ## Next steps
 
 Now that you have registered your source, follow the below guides to learn more about Purview and your data.
-
+Azure Purview
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)
