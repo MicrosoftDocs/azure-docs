@@ -15,7 +15,10 @@ In this how-to guide, you'll carry out each of the tasks you need to complete be
 
 ## Complete the prerequisite tasks
 
-You must do the following before you can deploy a private mobile network. <!-- DJR Will need a little more here to cover how specific tasks can be found in the detailed instructions column -->
+You must do the following before you can deploy a private mobile network. 
+
+<!-- DJR Will need a little more here to cover how specific tasks can be found in the detailed instructions column -->
+
 | Step No. | Description | Detailed instructions |
 |--|--|--|
 | 1. | <p>Ensure that you have an active Azure subscription with access to the following.</p><ul><li>The Azure Network Function Manager service. This service has the resource provider namespace Microsoft.HybridNetwork. For more information, see [What is Azure Network Function Manager?](/azure/network-function-manager/overview).</li><li>The Kubernetes Base VM Preview.</li><ul> |  |
