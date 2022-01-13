@@ -15,12 +15,12 @@ In this article, you'll learn how to move Azure an API for FHIR service instance
 
 Moving to a different region is not supported, though the option may be shown from the list. See more information on [Move operation support for resources](https://docs.microsoft.com/azure/azure-resource-manager/management/move-support-resources#microsofthealthcareapis).
 
+> [!Note] 
+> Moving an instance of Azure API for FHIR between subscriptions or resource groups is supported, as long as Private Link is NOT enabled and no IoMT connectors are created.
+
 ## Move to another subscription
 
 You can move an Azure API for FHIR service instance to another subscription from the portal. However, the runtime and data for the service are not moved. On average the **move** operation takes approximately 15 minutes or so, and the actual time may vary.
-
-> [!Note] 
-> Moving an instance of Azure API for FHIR between subscriptions or resource groups is supported, as long as Private Link is NOT enabled and no IoMT connectors are created.
 
 The **move** operation takes a few simple steps.
 
