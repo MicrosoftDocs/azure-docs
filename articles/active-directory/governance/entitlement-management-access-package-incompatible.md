@@ -143,7 +143,7 @@ foreach ($w in $apa_w) { if ($null -ne $w.Target -and $null -ne $w.Target.Id -an
 
 ## Configuring multiple access packages for override scenarios
 
-If an access package has been configured as incompatible, then a user who has an assignment to that incompatible access package cannot request, nor can an administrator make a new assignment that would be incompatible.
+If an access package has been configured as incompatible, then a user who has an assignment to that incompatible access package cannot request the access package, nor can an administrator make a new assignment that would be incompatible.
 
 For example, if the **Production environment** access package has marked the **Development environment** package as incompatible, and a user has an assignment to the **Development environment** access package, then the access package manager for **Production environment** cannot create an assignment for that user to the **Production environment**.  In order to proceed with that assignment, the user's existing assignment to the **Development environment** access package must first be removed.
 
