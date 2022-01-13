@@ -144,6 +144,7 @@ The following steps illustrate how to manage (add and remove) access policies fo
    * **Add a new access policy** - Select **Add**. Once generated, the **Access Policies** dialog will display the newly added access policy (with default settings).
    * **Edit an access policy** -  Make any desired edits, and select **Save**.
    * **Remove an access policy** - Select **Remove** next to the access policy you wish to remove.
+
 > [!NOTE]
 > Modifying immutability policies is not supported from Storage Explorer. 
 
