@@ -231,7 +231,7 @@ New-AzDnsRecordSet -Name "*" `
     -RecordType A `
     -ResourceGroupName <Name of Resource Group for the DNS Zone> `
     -ZoneName <Custom Domain Name> `
-    -TTL 3600
+    -TTL 3600 `
     -DnsRecords $Records
 ```
 
