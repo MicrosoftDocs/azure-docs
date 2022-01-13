@@ -1,7 +1,7 @@
 ---
 author: alkohli
 ms.service: databox  
-ms.subservice: heavy
+ms.subservice: pod
 ms.topic: include
 ms.date: 01/13/2022
 ms.author: alkohli
