@@ -175,6 +175,111 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 > [!NOTE]
 > To reduce the number of requests to App Configuration when using push refresh, it is important to call `SetCacheExpiration(TimeSpan cacheExpiration)` with an appropriate value of `cacheExpiration` parameter. This controls the cache expiration time for pull refresh and can be used as a safety net in case there is an issue with the Event subscription or the Service Bus subscription. The recommended value is `TimeSpan.FromDays(30)`.
 
+## Push Model
+
+> [!NOTE]
+> The API's used in this example are only available in the provider library version 5.x and later.
+
+This is an optional section which works with the Push Model. Using a `SyncToken` ensures that users will receive their most up to date configurations. This `SyncToken` is sent to the `Azure App Configuration` SDK which is subsequently passed to `Cosmos DB` to ensure the most recent configurations are returned. This new model prevents replication lag from occurring.
+
+The implementation of this PushModel introduces one new `PushNotification` class and two new API's:
+
+**PushNotification**
+```cs
+public class pushNotification() {
+    public Uri ResourceUri;
+    public string SyncToken;
+    public string EventType;
+}
+```
+This class stores the `ResourceUri` of the resource which triggered the `PushNotification`, the `Synchronization Token` to be added to the next request to the App Configuration Service, and the Type of Event which triggered the `PushNotification`.
+
+**TryCreatePushNotification**
+```cs
+EventGridEvent.TryCreatePushNotification(out PushNotification pushNotification)
+```
+This method uses the `Data`, `EventType`, and `Subject` stored in the Event Grid Event to try and create a `PushNotification`. If successful returns *true* and an out `PushNotification` parameter. Otherwise the parameter will be null and the method will return *false*.
+
+**ProcessPushNotification**
+```cs
+ProcessPushNotification(PushNotification pushNotification, TimeSpan? maxDelay)
+```
+This method is called by the refresher and provider to process the `PushNotification`. `ProcessPushNotification()` will invoke `UpdateSyncToken()` and then invoke `SetDirty()` to ensure the most recent configuration is provided to the user.
+
+Open **Program.cs** and update the file with the following code.
+
+```cs
+using Azure.Messaging.EventGrid;
+using Microsoft.Azure.ServiceBus;
+using Microsoft.Extensions.Configuration.AzureAppConfiguration.Extensions;
+using System;
+using System.Threading.Tasks;
+namespace Microsoft.Extensions.Configuration.AzureAppConfiguration.Examples.ConsoleApplication
+{
+    class Program
+    {
+        private const string AppConfigurationConnectionStringEnvVarName = "AppConfigurationConnectionString"; // e.g. Endpoint=https://{store_name}.azconfig.io;Id={id};Secret={secret}
+        private const string ServiceBusConnectionStringEnvVarName = "ServiceBusConnectionString"; // e.g. Endpoint=sb://{service_bus_name}.servicebus.windows.net/;SharedAccessKeyName={key_name};SharedAccessKey={key}
+        private const string ServiceBusTopicEnvVarName = "ServiceBusTopic";
+        private const string ServiceBusSubscriptionEnvVarName = "ServiceBusSubscription";
+        private static IConfigurationRefresher _refresher = null;
+        static async Task Main(string[] args)
+        {
+            string appConfigurationConnectionString = Environment.GetEnvironmentVariable(AppConfigurationConnectionStringEnvVarName);
+            IConfiguration configuration = new ConfigurationBuilder()
+                .AddAzureAppConfiguration(options =>
+                {
+                    options.Connect(appConfigurationConnectionString);
+                    options.ConfigureRefresh(refresh =>
+                        refresh
+                            .Register("TestApp:Settings:Message")
+                            .SetCacheExpiration(TimeSpan.FromDays(30))  // Important: Reduce poll frequency
+                    );
+                    _refresher = options.GetRefresher();
+                }).Build();
+            RegisterRefreshEventHandler();
+            var message = configuration["TestApp:Settings:Message"];
+            Console.WriteLine($"Initial value: {configuration["TestApp:Settings:Message"]}");
+            while (true)
+            {
+                await _refresher.TryRefreshAsync();
+                if (configuration["TestApp:Settings:Message"] != message)
+                {
+                    Console.WriteLine($"New value: {configuration["TestApp:Settings:Message"]}");
+                    message = configuration["TestApp:Settings:Message"];
+                }
+                await Task.Delay(TimeSpan.FromSeconds(1));
+            }
+        }
+        private static void RegisterRefreshEventHandler()
+        {
+            string serviceBusConnectionString = Environment.GetEnvironmentVariable(ServiceBusConnectionStringEnvVarName);
+            string serviceBusTopic = Environment.GetEnvironmentVariable(ServiceBusTopicEnvVarName);
+            string serviceBusSubscription = Environment.GetEnvironmentVariable(ServiceBusSubscriptionEnvVarName);
+            SubscriptionClient serviceBusClient = new SubscriptionClient(serviceBusConnectionString, serviceBusTopic, serviceBusSubscription);
+            serviceBusClient.RegisterMessageHandler(
+                handler: (message, cancellationToken) =>
+                {
+                    EventGridEvent eventGridEvent = EventGridEvent.Parse(BinaryData.FromBytes(message.Body));
+
+                    eventGridEvent.TryCreatePushNotification(out PushNotification pushNotification);
+
+                    _refresher.ProcessPushNotification(pushNotification);
+
+                    return Task.CompletedTask;
+                },
+                exceptionReceivedHandler: (exceptionargs) =>
+                {
+                    Console.WriteLine($"{exceptionargs.Exception}");
+                    return Task.CompletedTask;
+                });
+        }
+    }
+}
+```
+The `SetDirty` method is still called in the PushModel. `SetDirty()` is invoked in the `ProcessPushNotification` method to cache values for key-values registered for refresh as dirty. This ensures that the next call to `RefreshAsync` or `TryRefreshAsync` re-validates the cached values with App Configuration and updates them if needed.
+
+
 ## Build and run the app locally
 
 1. Set an environment variable named **AppConfigurationConnectionString**, and set it to the access key to your App Configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
