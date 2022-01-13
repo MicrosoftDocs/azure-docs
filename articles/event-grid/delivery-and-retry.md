@@ -212,16 +212,11 @@ Here are the possible values of `lastDeliveryOutcome` and their descriptions.
 | ResolutionError | DNS resolution of destination endpoint failed. |
 | Delivering | Delivering events to the destination. | 
 | SessionQueueNotSupported | Event delivery without session ID is attempted on an entity which has session support enabled. Applicable for Azure Service Bus entity destination. |
-| Forbidden | Delivery is forbidden by destination endpoint (could be because of ip firewalls or other restrictions) |
-| InvalidAzureFunctionDestination | Destination Azure function isn't valid. Probably because it doesn't have EventGridTrigger type. |
+| Forbidden | Delivery is forbidden by destination endpoint (could be because of IP firewalls or other restrictions) |
+| InvalidAzureFunctionDestination | Destination Azure function isn't valid. Probably because it doesn't have the EventGridTrigger type. |
 
 **LastDeliveryOutcome: Probation**
-An event subscription is put into probation for a duration by Event Grid if event deliveries to that destination start failing. Probation time is different for different errors returned by the destination endpoint.
-
-If an event subscription is in probation, events may get dead-lettered or dropped without even trying delivery depending on the error code due to which it's in probation.
-
-> [!NOTE]
-> Probation and its duration is used by Event Grid for better delivery management and can be changed in future.
+An event subscription is put into probation for a duration by Event Grid if event deliveries to that destination start failing. Probation time is different for different errors returned by the destination endpoint. If an event subscription is in probation, events may get dead-lettered or dropped without even trying delivery depending on the error code due to which it's in probation.
 
 | Error | Probation Duration |
 | ----- | ------------------ | 
@@ -235,6 +230,9 @@ If an event subscription is in probation, events may get dead-lettered or droppe
 | Unauthorized | 5 minutes |
 | Forbidden | 5 minutes |
 | InvalidAzureFunctionDestination | 10 minutes |
+
+> [!NOTE]
+> Event Grid uses probation duration for better delivery management and the duration might change in the future.
 
 
 #### 
