@@ -13,7 +13,7 @@ ms.author: yelevin
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-After you've configured and connected your Microsoft Sentinel workspace to your workspace, you'll want to monitor your connector health, viewing any service or data source issues, such as authentication, throttling, and more.
+After you've configured and connected your Microsoft Sentinel workspace to your data connectors, you'll want to monitor your connector health, viewing any service or data source issues, such as authentication, throttling, and more.
 
 You also might like to configure notifications for health drifts for relevant stakeholders who can take action. For example, configure email messages, Microsoft Teams messages, new tickets in your ticketing system, and so on.
 
@@ -24,7 +24,7 @@ This article describes how to use the following features, which allow you to kee
 - ***SentinelHealth* data table**. (Public preview) Provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions.
 
     > [!NOTE]
-    > The *SentinelHealth* data table is currently supported only for selected data connectors. For more information, see [Supported data connectors](#supported-data-connectors).
+    > The *SentinelHealth* data table is currently supported only for [selected data connectors](#supported-data-connectors).
     >
 
 
@@ -226,4 +226,5 @@ The following table describes the columns and data generated in the *SentinelHea
 
 
 ## Next steps
+
 Learn how to [onboard your data to Microsoft Sentinel](quickstart-onboard.md), [connect data sources](connect-data-sources.md), and [get visibility into your data, and potential threats](get-visibility.md).

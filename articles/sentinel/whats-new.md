@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.date: 01/13/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -31,7 +31,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 - [More workspaces supported for Multiple Workspace View](#more-workspaces-supported-for-multiple-workspace-view)
 - [Kusto Query Language workbook and tutorial](#kusto-query-language-workbook-and-tutorial)
-- [SentinelHealth data table](#sentinel-health-data-table)
+- [SentinelHealth data table](#sentinel-health-data-table-public-preview)
 
 ### SentinelHealth data table (Public preview)
 
