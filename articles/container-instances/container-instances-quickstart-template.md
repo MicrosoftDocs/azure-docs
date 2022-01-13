@@ -5,10 +5,7 @@ services: azure-resource-manager
 ms.date: 04/30/2020
 ms.topic: quickstart
 ms.service: azure-resource-manager
-ms.custom:
-  - subject-armqs
-  - devx-track-js
-  - mode-arm
+ms.custom: subject-armqs, devx-track-js, mode-arm
 ---
 
 # Quickstart: Deploy a container instance in Azure using an ARM template

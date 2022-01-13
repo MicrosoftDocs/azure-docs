@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
 ---
 # Schema and data type mapping in copy activity
@@ -62,7 +62,7 @@ For example, to copy data from Salesforce to Azure SQL Database and explicitly m
 
 2. Map the needed fields and exclude/delete the rest.
 
-![Map tabular to tabular](media/copy-activity-schema-and-type-mapping/map-tabular-to-tabular.png)
+:::image type="content" source="media/copy-activity-schema-and-type-mapping/map-tabular-to-tabular.png" alt-text="Map tabular to tabular":::
 
 The same mapping can be configured as the following in copy activity payload (see `translator`):
 
@@ -181,11 +181,11 @@ You can define such mapping on Data Factory authoring UI:
 > [!NOTE]
 > For records where the array marked as collection reference is empty and the check box is selected, the entire record is skipped.
 
-![Map hierarchical to tabular using UI](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png)
+:::image type="content" source="media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png" alt-text="Map hierarchical to tabular using UI":::
 
 You can also switch to **Advanced editor**, in which case you can directly see and edit the fields' JSON paths. If you choose to add new mapping in this view, specify the JSON path.
 
-![Map hierarchical to tabular using advanced editor](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-advanced-editor.png)
+:::image type="content" source="media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-advanced-editor.png" alt-text="Map hierarchical to tabular using advanced editor":::
 
 The same mapping can be configured as the following in copy activity payload (see `translator`):
 

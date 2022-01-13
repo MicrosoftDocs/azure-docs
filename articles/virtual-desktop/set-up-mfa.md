@@ -1,6 +1,6 @@
 ---
-title: Set up Azure multifactor authentication for Azure Virtual Desktop - Azure
-description: How to set up Azure multifactor authentication for increased security in Azure Virtual Desktop.
+title: Azure multifactor authentication for Azure Virtual Desktop - Azure
+description: How to set up Azure multifactor authentication to make Azure Virtual Desktop more secure.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 12/10/2020

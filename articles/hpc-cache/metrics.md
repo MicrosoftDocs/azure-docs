@@ -1,11 +1,11 @@
 ---
 title: Azure HPC Cache metrics and monitoring
 description: How to see statistics about your Azure HPC Cache
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2021
-ms.author: v-erkel
+ms.author: femila
 ---
 
 # Cache metrics and monitoring
@@ -31,7 +31,7 @@ The cache's **Overview** page shows graphs for some basic cache statistics - cac
 
 ![screenshot of three line graphs showing the statistics mentioned above for a sample cache](media/hpc-cache-overview-stats.png)
 
-These charts are part of Azure's built-in monitoring and analytics tools. Learn more about these capabilities from the [Azure Monitoring documentation](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal).
+These charts are part of Azure's built-in monitoring and analytics tools. Learn more about these capabilities from the [Azure Monitor documentation](../azure-monitor/essentials/monitor-azure-resource.md).
 
 ## Metrics page
 

@@ -95,9 +95,9 @@ There are two changes you need to make, potentially:
 
 - By default, your app uses a shared public IP address. When you bind a certificate with IP SSL, App Service creates a new, dedicated IP address for your app. If you mapped an A record to your app, update your domain registry with this new, dedicated IP address.
 
-    Your app's **Custom domain** page is updated with the new, dedicated IP address. [Copy this IP address](app-service-web-tutorial-custom-domain.md#info), then [remap the A record](app-service-web-tutorial-custom-domain.md#4-create-the-dns-records) to this new IP address.
+    Your app's **Custom domain** page is updated with the new, dedicated IP address. [Copy this IP address](app-service-web-tutorial-custom-domain.md#info), then [remap the A record](app-service-web-tutorial-custom-domain.md#3-create-the-dns-records) to this new IP address.
 
-- If you have an SNI SSL binding to `<app-name>.azurewebsites.net`, [remap any CNAME mapping](app-service-web-tutorial-custom-domain.md#4-create-the-dns-records) to point to `sni.<app-name>.azurewebsites.net` instead (add the `sni` prefix).
+- If you have an SNI SSL binding to `<app-name>.azurewebsites.net`, [remap any CNAME mapping](app-service-web-tutorial-custom-domain.md#3-create-the-dns-records) to point to `sni.<app-name>.azurewebsites.net` instead (add the `sni` prefix).
 
 ## Test HTTPS
 
@@ -149,17 +149,6 @@ When the operation is complete, your app rejects all connections with lower TLS 
 In App Service, [TLS termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
 
 Language specific configuration guides, such as the [Linux Node.js configuration](configure-language-nodejs.md#detect-https-session) guide, shows you how to detect an HTTPS session in your application code.
-
-## Renew certificate binding
-
-> [!NOTE]
-> To renew an [App Service certificate you purchased](configure-ssl-certificate.md#import-an-app-service-certificate), see [Export (an App Service) certificate](configure-ssl-certificate.md#export-certificate). App Service certificates can be automatically renewed and the binding can be automatically synced.
-
-To replace an expiring certificate, how you update the certificate binding with the new certificate can adversely affect user experience. For example, your inbound IP address can change when you delete a binding, even if that binding is IP-based. This is especially important when you renew a certificate that's already in an IP-based binding. To avoid a change in your app's IP address, and to avoid downtime for your app, follow these steps in order:
-
-1. Upload the new certificate.
-2. Bind the new certificate to the same custom domain without deleting the existing (expiring) certificate. This action replaces the binding instead of removing the existing certificate.
-3. Delete the existing certificate.
 
 ## Automate with scripts
 

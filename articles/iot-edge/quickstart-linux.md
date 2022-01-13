@@ -1,14 +1,13 @@
 ---
-title: Quickstart create an Azure IoT Edge device on Linux | Microsoft Docs 
-description: In this quickstart, learn how to create an IoT Edge device on Linux and then deploy prebuilt code remotely from the Azure portal. 
+title: Quickstart create an Azure IoT Edge device on Linux | Microsoft Docs
+description: In this quickstart, learn how to create an IoT Edge device on Linux and then deploy prebuilt code remotely from the Azure portal.
 author: kgremban
-
 ms.author: kgremban
 ms.date: 04/07/2021
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, mode-other
 ---
 
 # Quickstart: Deploy your first IoT Edge module to a virtual Linux device
@@ -98,7 +97,7 @@ During the runtime configuration, you provide a device connection string. This i
 
 ### Deploy the IoT Edge device
 
-This section uses an Azure Resource Manager template to create a new virtual machine and install the IoT Edge runtime on it. If you want to use your own Linux device instead, you can follow the installation steps in [Install the Azure IoT Edge runtime](how-to-install-iot-edge.md), then return to this quickstart.
+This section uses an Azure Resource Manager template to create a new virtual machine and install the IoT Edge runtime on it. If you want to use your own Linux device instead, you can follow the installation steps in [Manually provision a single Linux IoT Edge device](how-to-provision-single-device-linux-symmetric.md), then return to this quickstart.
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -273,6 +272,8 @@ Follow these steps to start the **Set Modules** wizard to deploy your first modu
 1. From the menu on the left, under **Automatic Device Management**, select **IoT Edge**.
 
 1. Select the device ID of the target device from the list of devices.
+
+   When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
 
 1. On the upper bar, select **Set Modules**.
 

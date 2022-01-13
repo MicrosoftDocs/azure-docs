@@ -45,7 +45,7 @@ Set up an account that the appliance can use to access the physical servers.
 - The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users. 
 - If Remote management Users group isn't present, then add user account to the group: **WinRMRemoteWMIUsers_**.
 - The account needs these permissions for appliance to create a CIM connection with the server and pull the required configuration and performance metadata from the WMI classes listed [here.](migrate-appliance.md#collected-data---physical)
-- In some cases, adding the account to these groups may not return the required data from WMI classes as the account might be filtered by [UAC](/windows/win32/wmisdk/user-account-control-and-wmi). To overcome the UAC filtering, user account needs to have necessary permissions on CIMV2 Namespace and sub-namespaces on the target server. You can follow the steps [here](troubleshoot-appliance.md#access-is-denied-when-connecting-to-physical-servers-during-validation) to enable the required permissions.
+- In some cases, adding the account to these groups may not return the required data from WMI classes as the account might be filtered by [UAC](/windows/win32/wmisdk/user-account-control-and-wmi). To overcome the UAC filtering, user account needs to have necessary permissions on CIMV2 Namespace and sub-namespaces on the target server. You can follow the steps [here](troubleshoot-appliance.md#access-is-denied-error-occurs-when-you-connect-to-physical-servers-during-validation) to enable the required permissions.
 
     > [!Note]
     > For Windows Server 2008 and 2008 R2, ensure that WMF 3.0 is installed on the servers.
@@ -76,12 +76,12 @@ Set up an account that the appliance can use to access the physical servers.
 
 - If you cannot provide root account or user account with sudo access, then you can set 'isSudo' registry key to value '0' in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance registry and provide a non-root account with the required capabilities using the following commands:
 
-**Command** | **Purpose**
---- | --- |
-setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(if /usr/sbin/fdisk is not present)_ | To collect disk configuration data
-setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br>cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br>cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | To collect disk performance data
-setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | To collect BIOS serial number
-chmod a+r /sys/class/dmi/id/product_uuid | To collect BIOS GUID
+   **Command** | **Purpose**
+   --- | --- |
+   `setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk` <br></br> `setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk` _(if /usr/sbin/fdisk is not present)_ | To collect disk configuration data
+   `setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br>cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br>cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm` | To collect disk performance data
+   `setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode` | To collect BIOS serial number
+   `chmod a+r /sys/class/dmi/id/product_uuid` | To collect BIOS GUID
 
 ## Azure Migrate appliance requirements
 

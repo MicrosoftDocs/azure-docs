@@ -29,7 +29,7 @@ Here is a breakdown of the components and their service definitions - you can re
 
 * [Provision an Azure Cosmos DB Cassandra API account](manage-data-dotnet.md#create-a-database-account)
 
-* [Use cqlsh or hosted shell for validation](cassandra-support.md#hosted-cql-shell-preview)
+* [Use cqlsh for validation](cassandra-support.md#cql-shell)
 
 * Install [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install)
 

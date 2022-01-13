@@ -2,7 +2,7 @@
 title: 'Tutorial: Host RESTful API with CORS'
 description: Learn how Azure App Service helps you host your RESTful APIs with CORS support. App Service can host both front-end web apps and back end APIs.
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.custom: "devx-track-csharp, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seodec18, devx-track-azurecli"

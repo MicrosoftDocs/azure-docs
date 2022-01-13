@@ -8,11 +8,10 @@ manager: twooley
 
 ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/15/2019 
+ms.date: 09/02/2021 
 ms.author: alkohli
 
 ---
@@ -41,6 +40,13 @@ This brand new migration option enables customers to store their organization’
 
 For more information on how to migrate data to Azure File Sync, go to [Migrate data from StorSimple 5000-7000 series to Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md).
 
+#### Migrate to Azure NetApp Files
+
+StorSimple 5000-7000 Series customers can migrate to Azure NetApp Files (ANF) paired with NetApp Global File Cache (GFC) to continue storing critical data in Azure while maintaining content at remote sites. Customers can streamline and simplify IT storage and infrastructure by centralizing unstructured data in Microsoft Azure using Azure NetApp Files to provide fast local and geographically distributed access with NetApp Global File Cache.
+
+For an overview of capabilities, deployment methodologies, and migration, see [Reference Architecture: Globally Distributed
+Enterprise File Sharing with Azure NetApp Files and NetApp Global File Cache](https://f.hubspotusercontent20.net/hubfs/525875/r3_NA-581-0521-Ref-Arch-ANF-GFC-StorSimple%20(1)%20(1)%20(2).pdf), from NetApp.<!--Not included: 1) Partnership with MS; 2) How to initiate migration with NetApp (other providers point people to their site).-->
+
 ### Third-party options
 
 #### Migrate to Panzura Freedom NAS
@@ -60,12 +66,6 @@ Learn more on [migration to the Cohesity Data Platform](https://info.cohesity.co
 Nasuni makes it easy for StorSimple 5000-7000 customers to migrate and keep their data in Azure.  Nasuni is a leading Azure-based NAS storage solution, giving customers the performance and security they expect from on-prem solutions, with cloud economics and scale.  In addition to high performance file storage, Nasuni and Azure handle backup and DR, while allowing you to share and collaborate on your data around the globe with centralized file storage management. 
 
 Nasuni has the experience to make your migration easy – get started today: https://www.nasuni.com/blog-migrating-off-storsimple/
-
-#### Migrate to Talon FAST
-
-Talon makes it easy for StorSimple 5000-7000 customers to continue to leverage the benefits they valued so much in the StorSimple platform (small on-site footprint backed by unlimited cloud resources) with even greater function.  With the Talon FAST solution, customers can migrate and keep their data in Azure, while now having an even smaller software-only onsite footprint and adding benefits such as global file locking, global namespace, and multi-site collaboration.  Talon is a leading Azure ecosystem solution, working with global customers to migrate their on-premises file server workloads into a consolidated, Azure-based footprint without compromising user workflow or experience.  
-
-Learn more about how to evolve to a cloud-consolidated enterprise.
 
 ## Migration - Frequently asked questions
 

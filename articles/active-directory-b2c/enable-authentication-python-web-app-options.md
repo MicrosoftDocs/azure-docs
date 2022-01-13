@@ -1,23 +1,23 @@
 ---
-title: Enable Python web application options using Azure Active Directory B2C
-description:  Enable the use of Python web application options by using several ways.
+title: Enable Python web application options by using Azure Active Directory B2C
+description:  This article shows you how to enable the use of Python web application options.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/05/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
 
-# Configure authentication options in a Python web application using Azure Active Directory B2C 
+# Enable authentication options in a Python web app by using Azure AD B2C 
 
-This article describes ways you can customize and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your Python web application. 
+This article describes how to enable, customize, and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your Python web application. 
 
-Before you start, it is important to familiarize yourself with the [Configure authentication in a sample Python web application](configure-authentication-sample-python-web-app.md) article.
+Before you start, it's important to familiarize yourself with how to [Configure authentication in a sample Python web app by using Azure AD B2C](configure-authentication-sample-python-web-app.md).
 
 [!INCLUDE [active-directory-b2c-app-integration-custom-domain](../../includes/active-directory-b2c-app-integration-custom-domain.md)]
 
@@ -41,7 +41,7 @@ authority_template = "https://custom.domain.com/00000000-0000-0000-0000-00000000
 [!INCLUDE [active-directory-b2c-app-integration-login-hint](../../includes/active-directory-b2c-app-integration-login-hint.md)]
 
 1. If you're using a custom policy, add the required input claim as described in [Set up direct sign-in](direct-signin.md#prepopulate-the-sign-in-name). 
-1. Find the `initiate_auth_code_flow` method and add the `login_hint` parameter with the identity provider domain name. For example, facebook.com.
+1. Find the `initiate_auth_code_flow` method, and then add the `login_hint` parameter with the identity provider domain name (for example, *facebook.com*).
 
 ```python
 def _build_auth_code_flow(authority=None, scopes=None):
@@ -54,7 +54,7 @@ def _build_auth_code_flow(authority=None, scopes=None):
 [!INCLUDE [active-directory-b2c-app-integration-domain-hint](../../includes/active-directory-b2c-app-integration-domain-hint.md)]
 
 1. Check the domain name of your external identity provider. For more information, see [Redirect sign-in to a social provider](direct-signin.md#redirect-sign-in-to-a-social-provider). 
-1. Find the `initiate_auth_code_flow` method and add the `domain_hint` parameter with the login hint.
+1. Find the `initiate_auth_code_flow` method, and then add the `domain_hint` parameter with the login hint.
 
     ```python
     def _build_auth_code_flow(authority=None, scopes=None):
@@ -67,4 +67,4 @@ def _build_auth_code_flow(authority=None, scopes=None):
 
 ## Next steps
 
-- Learn more: [MSAL for Python configuration options](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki)
+- To learn more, see [MSAL for Python configuration options](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki).

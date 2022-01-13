@@ -101,7 +101,7 @@ When an autoscale rule triggers, your scale set can automatically scale in one o
 | Increase percent by | A percentage-based increase of VM instances. Good for larger scale sets where a fixed increase may not noticeably improve performance. |
 | Increase count to   | Create as many VM instances are required to reach a desired maximum amount.                                                            |
 | Decrease count by   | A fixed number of VM instances to remove. Useful in scale sets with a smaller number of VMs.                                           |
-| Decrease percent by | A percentage-based decrease of VM instances. Good for larger scale sets where a fixed increase may not noticeably reduce resource consumption and costs. |
+| Decrease percent by | A percentage-based decrease of VM instances. Good for larger scale sets where a fixed decrease may not noticeably reduce resource consumption and costs. |
 | Decrease count to   | Remove as many VM instances are required to reach a desired minimum amount.                                                            |
 
 

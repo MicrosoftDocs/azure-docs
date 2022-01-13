@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create a Windows VM with Azure PowerShell 
+title: Quickstart - Create a Windows VM with Azure PowerShell
 description: In this quickstart, you learn how to use Azure PowerShell to create a Windows virtual machine
 author: cynthn
 ms.service: virtual-machines
@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
-ms.custom: mvc, devx-track-azurepowershell
+ms.custom: mvc, devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Create a Windows virtual machine in Azure with PowerShell

@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ---
 
 # System variables supported by Azure Data Factory and Azure Synapse Analytics
@@ -67,6 +67,9 @@ These system variables can be referenced anywhere in the trigger JSON for trigge
 | @triggerBody().fileName  |Name of the file whose creation or deletion caused the trigger to fire.   |
 | @triggerBody().folderPath  |Path to the folder that contains the file specified by `@triggerBody().fileName`. The first segment of the folder path is the name of the Azure Blob Storage container.  |
 | @trigger().startTime |Time at which the trigger fired to invoke the pipeline run. |
+
+   > [!NOTE]
+   > If you are creating your pipeline and trigger in [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md), you must use `@trigger().outputs.body.fileName` and `@trigger().outputs.body.folderPath` as parameters. Those two properties capture blob information. Use those properties instead of using `@triggerBody().fileName` and `@triggerBody().folderPath`.
 
 ## Custom event trigger scope
 

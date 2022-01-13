@@ -26,7 +26,7 @@ The JBoss EAP on Azure Marketplace offer is a joint solution by Red Hat and Micr
 
 * RHEL options - Choose between Pay-As-You-Go (PAYG) or Bring-Your-Own-Subscription (BYOS). With BYOS, you need to activate your [Red Hat Cloud Access](https://access.redhat.com/) [RHEL Gold Image](https://azure.microsoft.com/updates/red-hat-enterprise-linux-gold-images-now-available-on-azure/) before deploying the Marketplace  offer with solutions template. Follow [these instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index) to enable RHEL Gold images for use on Microsoft Azure.
 
-* Azure Command-Line Interface (CLI).
+* The Azure CLI.
 
 ## Azure Marketplace offer subscription options
 
@@ -61,7 +61,7 @@ To use RHEL as BYOS VMs/virtual machine scale sets, you're required to have a va
     4. Activate Red Hat Gold Images for your Azure Subscription. For more information, read the chapter on [Enabling and maintaining subscriptions for Cloud Access](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/understanding-gold-images_cloud-access#using-gold-images-on-azure_cloud-access#using-gold-images-on-azure_cloud-access) for more details. 
     5. Wait for Red Hat Gold Images to be available in your Azure subscription. These Gold Images are typically available within 3 hours of submission or less as Azure Private offers.
 
-3. Accept the Azure Marketplace Terms and Conditions (T&C) for RHEL BYOS Images. To accept, run the [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) commands, as given below. For more information, see the [RHEL BYOS Gold Images in Azure](./byos.md) documentation for more details. It's important that you're running the latest Azure CLI version.
+3. Accept the Azure Marketplace Terms and Conditions (T&C) for RHEL BYOS Images. To accept, run the [Azure CLI](/cli/azure/install-azure-cli) commands, as given below. For more information, see the [RHEL BYOS Gold Images in Azure](./byos.md) documentation for more details. It's important that you're running the latest version of the Azure CLI.
     1. Launch an Azure CLI session and authenticate with your Azure account. Refer to [Signing in with Azure CLI](/cli/azure/authenticate-azure-cli) for assistance. Make sure you're running the latest Azure CLI version before moving on.
     2. Verify the RHEL BYOS plans are available in your subscription by running the following CLI command. If you don't get any results here, refer to step #2. Ensure that your Azure subscription is activated with entitlement for JBoss EAP on RHEL BYOS plans.
 
@@ -106,7 +106,7 @@ These offer plans create all the Azure compute resources to run JBoss EAP setup 
 ## After a successful deployment
 
 1. [Create a Jump VM with VNet Peering](../../windows/quick-create-portal.md#create-virtual-machine) in a different Virtual Network and access the server and expose the application using [Virtual Network Peering](../../../virtual-network/tutorial-connect-virtual-networks-portal.md#peer-virtual-networks).
-2. [Create a Public IP](../../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) to access the server and the application.
+2. [Create a Public IP](../../../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address) to access the server and the application.
 3. [Create a Jump VM in the same Virtual Network (VNet)](../../windows/quick-create-portal.md#create-virtual-machine) in a different subnet (new subnet) in the same VNet and access the server via a Jump VM. The Jump VM can be used to expose the application.
 4. Expose the application using an [Application Gateway](../../../application-gateway/quick-create-portal.md#create-an-application-gateway).
 5. Expose the application using an External Load Balancer (ELB).
@@ -123,7 +123,7 @@ These offer plans create all the Azure compute resources to run JBoss EAP setup 
 
 ### 2. Create a Public IP to access the RHEL VM and JBoss EAP Admin Console.
 
-1. The RHEL VM you created don't have a Public IP associated with it. You can [create a Public IP](../../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) for accessing the VM and [associate the Public IP to the VM](../../../virtual-network/associate-public-ip-address-vm.md). Creating a Public IP can be done using Azure portal or [Azure PowerShell](/powershell/) commands or [Azure CLI](/cli/azure/install-azure-cli) commands.
+1. The RHEL VM you created don't have a Public IP associated with it. You can [create a Public IP](../../../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address) for accessing the VM and [associate the Public IP to the VM](../../../virtual-network/ip-services/associate-public-ip-address-vm.md). Creating a Public IP can be done using Azure portal or [Azure PowerShell](/powershell/) commands or [Azure CLI](/cli/azure/install-azure-cli) commands.
 2. Obtain the Public IP of a VM - go to the VM details page and copy the Public IP. Use Public IP to access the VM and JBoss EAP Admin Console.
 3. View the JBoss EAP on Azure web page - open a web browser and go to *http://<PUBLIC_HOSTNAME>:8080/* and you should see the default EAP welcome page.
 4. Log into the JBoss EAP Admin Console - open a web browser and go to *http://<PUBLIC_HOSTNAME>:9990*. Enter the JBoss EAP username and password to log in.

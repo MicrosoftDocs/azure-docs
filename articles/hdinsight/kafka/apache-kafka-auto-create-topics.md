@@ -57,13 +57,14 @@ When creating a Kafka cluster using an Azure Resource Manager template, you can 
 "clusterDefinition": {
     "kind": "kafka",
     "configurations": {
-    "gateway": {
-        "restAuthCredential.isEnabled": true,
-        "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
-        "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
-    },
-    "kafka-broker": {
-        "auto.create.topics.enable": "true"
+        "gateway": {
+            "restAuthCredential.isEnabled": true,
+            "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
+            "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
+        },
+        "kafka-broker": {
+            "auto.create.topics.enable": "true"
+        }
     }
 }
 ```

@@ -319,7 +319,7 @@ appgateways:
 
 ## Test the flow
 
-1. Navigate to the on-premises application url, `https://example.com/sonar/dashboard`.
+1. Navigate to the on-premises application URL, `https://example.com/sonar/dashboard`.
 
 2. The Orchestrator should redirect to the page you configured in your user flow.
 

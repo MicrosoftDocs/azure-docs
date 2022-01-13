@@ -225,12 +225,9 @@ To selectively download blobs, use wildcards. For example:
 
 ## Use Azure Monitor logs
 
-You can use the Key Vault solution in Azure Monitor logs to review Key Vault `AuditEvent` logs. In Azure Monitor logs, you use log queries to analyze data and get the information you need.
-
-For more information, including how to set this up, see [Azure Key Vault in Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
+You can use the Key Vault solution in Azure Monitor logs to review Key Vault `AuditEvent` logs. In Azure Monitor logs, you use log queries to analyze data and get the information you need.  For more information, see [Monitoring Key Vault](monitor-key-vault.md).
 
 ## Next steps
 
 - For conceptual information, including how to interpret Key Vault logs, see [Key Vault logging](logging.md).
-- For a tutorial that uses Azure Key Vault in a .NET web application, see [Use Azure Key Vault from a web application](tutorial-net-create-vault-azure-web-app.md).
-- For programming references, see [Azure Key Vault developer's guide](developers-guide.md).
+- To learn more about using Azure Monitor on your key vault, see [Monitoring Key Vault](monitor-key-vault.md).

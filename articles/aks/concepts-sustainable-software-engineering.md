@@ -8,7 +8,7 @@ ms.date: 03/29/2021
 
 # Sustainable software engineering principles in Azure Kubernetes Service (AKS)
 
-The sustainable software engineering principles are a set of competencies to help you define, build, and run sustainable applications. The overall goal is to reduce your carbon footprint of every aspect of your application. [The Principles of Sustainable Software Engineering][principles-sse] has an overview of the principles of sustainable software engineering.
+The sustainable software engineering principles are a set of competencies to help you define, build, and run sustainable applications. The overall goal is to reduce the carbon footprint in every aspect of your application. [The Principles of Sustainable Software Engineering][principles-sse] has an overview of the principles of sustainable software engineering.
 
 Sustainable software engineering is a shift in priorities and focus. In many cases, the way most software is designed and run highlights fast performance and low latency. Meanwhile, sustainable software engineering focuses on reducing as much carbon emission as possible. Consider:
 
@@ -19,7 +19,7 @@ Before applying sustainable software engineering principles to your application,
 
 ## Measure and optimize
 
-To lower the carbon footprint of your AKS clusters, you need understand how your cluster's resources are being used. [Azure Monitor][azure-monitor] provides details on your cluster's resource usage, such as memory and CPU usage. This data informs your decision to reduce the carbon footprint of your cluster and observes the effect of your changes. 
+To lower the carbon footprint of your AKS clusters, you need to understand how your cluster's resources are being used. [Azure Monitor][azure-monitor] provides details on your cluster's resource usage, such as memory and CPU usage. This data informs your decision to reduce the carbon footprint of your cluster and observes the effect of your changes. 
 
 You can also install the [Microsoft Sustainability Calculator][sustainability-calculator] to see the carbon footprint of all your Azure resources.
 
@@ -98,4 +98,4 @@ Learn more about the features of AKS mentioned in this article:
 [node-sizing]: use-multiple-node-pools.md#specify-a-vm-size-for-a-node-pool
 [sustainability-calculator]: https://azure.microsoft.com/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/
 [system-pools]: use-system-pools.md
-[principles-sse]: https://docs.microsoft.com/learn/modules/sustainable-software-engineering-overview/
+[principles-sse]: /learn/modules/sustainable-software-engineering-overview/

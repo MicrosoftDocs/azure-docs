@@ -10,7 +10,7 @@ ms.date: 08/25/2021
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
@@ -47,7 +47,7 @@ Azure [GOV endpoints](../../azure-government/compare-azure-government-global-azu
 
 If you need more granularity, see the [list of Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This list is updated every Wednesday and goes into effect the next Monday.
 
-To determine if access to a url and port are restricted in an environment, run the following cmdlet:
+To determine if access to a URL and port are restricted in an environment, run the following cmdlet:
 
 ```powershell
 Test-NetConnection -ComputerName ssprdedicatedsbprodscu.servicebus.windows.net -Port 443
@@ -56,7 +56,7 @@ Test-NetConnection -ComputerName ssprdedicatedsbprodscu.servicebus.windows.net -
 Or run the following:
 
 ```powershell
-Invoke-WebRequest -Uri https://ssprdedicatedbprodscu.servicebus.windows.net -Verbose
+Invoke-WebRequest -Uri https://ssprdedicatedsbprodscu.servicebus.windows.net -Verbose
 ```
 
 For more information, see the [connectivity prerequisites for Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md).

@@ -96,9 +96,27 @@ Use the server call ID received during initiation of the call.
 URI recordingStateCallbackUri = new URI("<CallbackUri>");
 
 Response<StartCallRecordingResult> response = this.callingServerClient.initializeServerCall("<serverCallId>")
-.startRecordingWithResponse(String.valueOf(recordingStateCallbackUri),null);
+.startRecordingWithResponse(String.valueOf(recordingStateCallbackUri), null, null);
 ```
 The `startRecordingWithResponse` API response contains the recording ID of the recording session.
+
+## Start recording session with StartRecordingOptions using 'startRecordingWithResponse' server API
+
+Use the server call ID received during initiation of the call.
+
+- RecordingContent is used to pass the recording content type. Ex: AUDIO/AUDIO_VIDEO.
+- RecordingChannel is used to pass the recording channel type. Ex: MIXED/UNMIXED.
+- RecordingFormat is used to pass the format of the recording. Ex: MP4/MP3/WAV.
+
+```java
+URI recordingStateCallbackUri = new URI("<CallbackUri>");
+StartRecordingOptions recordingOptions = new StartRecordingOptions();
+recordingOptions.setRecordingContent(RecordingContent.AUDIO_VIDEO);
+recordingOptions.setRecordingChannel(RecordingChannel.MIXED);
+recordingOptions.setRecordingFormat(RecordingFormat.MP4);
+Response<StartCallRecordingResult> response = this.callingServerClient.initializeServerCall("<serverCallId>")
+.startRecordingWithResponse(String.valueOf(recordingStateCallbackUri), recordingOptions, null);
+```
 
 ## Stop recording session using 'stopRecordingWithResponse' server API
 

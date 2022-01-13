@@ -1,0 +1,3 @@
+> [!IMPORTANT]
+> Short Code availability is currently restricted to Azure enterprise subscriptions that have a billing address in the United States and Communication Services resources that have a US data location. 
+> Short code cannot be acquired on trial accounts or using Azure free credits. For more information, visit the [subscription eligibility](../concepts/numbers/sub-eligibility-number-capability.md) page.

@@ -1,18 +1,18 @@
 ---
 title: Plan an Azure Application offer for the commercial marketplace
-description: Learn how to plan for a new Azure application offer for listing or selling in Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the commercial marketplace portal in Microsoft Partner Center.
+description: Plan an Azure application offer for Azure Marketplace using Partner Center.
 author: aarathin
 ms.author: aarathin
 ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/06/2020
+ms.date: 11/11/2021
 ---
 
-# Plan an Azure Application offer for the commercial marketplace
+# Plan an Azure Application offer
 
-This article explains the different options and requirements for publishing an Azure Application offer to the Microsoft commercial marketplace.
+This article explains the different options and requirements for publishing an Azure Application offer to the commercial marketplace.
 
 ## Before you begin
 
@@ -41,7 +41,7 @@ Review the following resources as you plan your Azure application offer for the 
     - [Azure PowerShell](../azure-resource-manager/managed-applications/powershell-samples.md)
     - [Managed application solutions](../azure-resource-manager/managed-applications/sample-projects.md)
 
-The video [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) gives a comprehensive introduction to the Azure application offer type:
+The video [Building Solution Templates, and Managed Applications for Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) gives a comprehensive introduction to the Azure application offer type:
 
 - What offer types are available
 - What technical assets are required
@@ -103,7 +103,7 @@ If you choose to use the standard contract, you have the option to add universal
 
 ## Offer listing details
 
-When you create a new Azure Application offer in Partner Center, you will enter text, images, optional videos, and other details on the Offer listing page. This is the information that customers will see when they discover your offer listing in the Azure Marketplace, as shown in the following example.
+When you create a new Azure Application offer in Partner Center, you will enter text, images, optional videos, and other details on the Offer listing page. This is the information that customers will see when they discover your offer listing in Azure Marketplace, as shown in the following example.
 
 :::image type="content" source="media/create-new-azure-app-offer/example-azure-marketplace-app.png" alt-text="Illustrates how this offer appears in Azure Marketplace.":::
 
@@ -150,9 +150,9 @@ To help create your offer more easily, prepare some of these items ahead of time
   - **Engineering contact**: Provide the name, phone, and email for Microsoft to use directly when there are problems with your offer. This contact information isn't listed in the commercial marketplace.
   - **CSP Program contact** (optional): Provide the name, phone, and email if you opt in to the Cloud Solution Provider (CSP) program, so those partners can contact you with any questions. You can also include a URL to your marketing materials.
 - **Media – Logos**: Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later.
-  - Large (from 216 x 216 to 350 x 350 px, required)
-  - Medium (90 x 90 px, optional)
-  - Small (48 x 48 px, optional)
+  - Large (from 216x216 to 350x350 px, required)
+  - Medium (90x90 px, optional)
+  - Small (48x48 px, optional)
 
   These logos are used in different places in the online stores:
   - The Small logo appears in Azure Marketplace search results.
@@ -168,13 +168,13 @@ To help create your offer more easily, prepare some of these items ahead of time
   - Make sure the logo isn't stretched.
 
 - **Media - Screenshots** (optional): We recommend that you add screenshots that show how your offer works. You can add up to five screenshots with the following requirements, that show how your offer works:
-  - 1280 x 720 pixels
-  - .png file
+  - 1280x720 pixels
+  - .PNG file
   - Must include a caption
 - **Media – Videos** (optional): You can add up to five videos with the following requirements, that demonstrate your offer:
   - Name
   - URL: Must be hosted on YouTube or Vimeo only.
-  - Thumbnail: 1280 x 720 .png file
+  - Thumbnail: 1280x720 .PNG file
 
 > [!NOTE]
 > Your offer must meet the general [commercial marketplace certification policies](/legal/marketplace/certification-policies#100-general.md) to be published to the commercial marketplace.

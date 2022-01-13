@@ -8,9 +8,7 @@ ms.author: victorh
 ms.date: 06/14/2021
 ms.topic: quickstart
 ms.service: application-gateway
-ms.custom:
-  - mvc
-  - mode-portal
+ms.custom: mvc, mode-ui
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure portal

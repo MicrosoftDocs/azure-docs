@@ -1,29 +1,42 @@
 ---
-title: Remove VMs from Azure Automation Change Tracking and Inventory
-description: This article tells how to remove VMs from Change Tracking and Inventory.
+title: Remove machines from Azure Automation Change Tracking and Inventory
+description: This article tells how to remove Azure and non-Azure machines from Change Tracking and Inventory.
 services: automation
 ms.subservice: change-inventory-management
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 10/26/2021
 ---
 
-# Remove VMs from Change Tracking and Inventory
+# Remove machines from Change Tracking and Inventory
 
-When you're finished tracking changes on the VMs in your environment, you can stop managing them with the [Change Tracking and Inventory](overview.md) feature. To stop managing them, you will edit the saved search query `MicrosoftDefaultComputerGroup` in your Log Analytics workspace that is linked to your Automation account.
+When you're finished tracking changes on your Azure or non-Azure machines in your environment, you can stop managing them with the [Change Tracking and Inventory](overview.md) feature. To stop managing them, you will edit the saved search query `MicrosoftDefaultComputerGroup` in your Log Analytics workspace that is linked to your Automation account.
 
 ## Sign into the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## To remove your VMs
+## To remove your machines
 
 1. In the Azure portal, launch **Cloud Shell** from the top navigation of the Azure portal. If you are unfamiliar with Azure Cloud Shell, see [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
 
-2. Use the following command to identify the UUID of a machine that you want to remove from management.
+2. Use the following method to identify the UUID of an Azure virtual machine or non-Azure machine that you want to remove from management.
 
-    ```azurecli
-    az vm show -g MyResourceGroup -n MyVm -d
-    ```
+   # [Azure VM](#tab/azure-vm)
+
+   ```azurecli
+   az vm show -g MyResourceGroup -n MyVm -d
+   ```
+
+   # [Non-Azure machine](#tab/non-azure-machine)
+
+   ```kusto
+   Heartbeat
+   | where TimeGenerated > ago(30d)
+   | where ComputerEnvironment == "Non-Azure"
+   | summarize by Computer, VMUUID
+   ```
+
+   ---
 
 3. In the Azure portal, navigate to **Log Analytics workspaces**. Select your workspace from the list.
 

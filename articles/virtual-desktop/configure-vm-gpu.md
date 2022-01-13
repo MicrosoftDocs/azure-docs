@@ -18,10 +18,11 @@ Follow the instructions in this article to create a GPU optimized Azure virtual 
 
 ## Select an appropriate GPU optimized Azure virtual machine size
 
-Select one of Azure's [NV-series](../virtual-machines/nv-series.md), [NVv3-series](../virtual-machines/nvv3-series.md), or [NVv4-series](../virtual-machines/nvv4-series.md) VM sizes. These are tailored for app and desktop virtualization and enable most apps and the Windows user interface to be GPU accelerated. The right choice for your host pool depends on a number of factors, including your particular app workloads, desired quality of user experience, and cost. In general, larger and more capable GPUs offer a better user experience at a given user density, while smaller and fractional-GPU sizes allow more fine-grained control over cost and quality.
+Select one of Azure's [NV-series](../virtual-machines/nv-series.md), [NVv3-series](../virtual-machines/nvv3-series.md), or [NVv4-series](../virtual-machines/nvv4-series.md) VM sizes. These are tailored for app and desktop virtualization and enable most apps and the Windows user interface to be GPU accelerated. The right choice for your host pool depends on a number of factors, including your particular app workloads, desired quality of user experience, and cost. In general, larger and more capable GPUs offer a better user experience at a given user density, while smaller and fractional-GPU sizes allow more fine-grained control over cost and quality. Consider NV series VM retirement when selecting VM, details on [NV retirement](../virtual-machines/nv-series-retirement.md)
 
 >[!NOTE]
 >Azure's NC, NCv2, NCv3, ND, and NDv2 series VMs are generally not appropriate for Azure Virtual Desktop session hosts. These VMs are tailored for specialized, high-performance compute or machine learning tools, such as those built with NVIDIA CUDA. They do not support GPU acceleration for most apps or the Windows user interface.
+
 
 ## Create a host pool, provision your virtual machine, and configure an app group
 
@@ -31,6 +32,9 @@ Azure Virtual Desktop supports GPU-accelerated rendering and encoding in the fol
 
 * Windows 10 version 1511 or newer
 * Windows Server 2016 or newer
+
+>[!NOTE]
+>Multi-session OS is not specifically listed however NV instances GRID license supports 25 concurrent users, see [NV-series](../virtual-machines/nv-series.md)
 
 You must also configure an app group, or use the default desktop app group (named "Desktop Application Group") that's automatically created when you create a new host pool. For instructions, see [Tutorial: Manage app groups for Azure Virtual Desktop](./manage-app-groups.md).
 
@@ -73,6 +77,9 @@ Remote Desktop encodes all graphics rendered by apps and desktops (whether rende
 3. Sign out from the Remote Desktop session.
 
 ## Configure fullscreen video encoding
+
+>[!NOTE]
+>Fullscreen video encoding can be enabled even without a GPU present.
 
 If you often use applications that produce a high-frame rate content, such as 3D modeling, CAD/CAM and video applications, you may choose to enable a fullscreen video encoding for a remote session. Fullscreen video profile provides a higher frame rate and better user experience for such applications at expense of network bandwidth and both session host and client resources. It is recommended to use GPU-accelerated frame encoding for a full-screen video encoding. Configure Group Policy for the session host to enable fullscreen video encoding. Continuing the steps above:
 

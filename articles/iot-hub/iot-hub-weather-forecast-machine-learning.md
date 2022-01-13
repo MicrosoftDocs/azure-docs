@@ -1,14 +1,14 @@
 ---
 title: Weather forecast using Machine Learning Studio (classic) with IoT Hub data
 description: Use ML Studio (classic) to predict the chance of rain based on the temperature and humidity data your IoT hub collects from a sensor.
-author: robinsh
+author: eross-msft
 
 keywords: weather forecast machine learning
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.author: robinsh
+ms.date: 10/26/2021
+ms.author: lizross
 ---
 
 # Weather forecast using the sensor data from your IoT hub in Machine Learning Studio (classic)
@@ -18,6 +18,8 @@ ms.author: robinsh
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 Machine learning is a technique of data science that helps computers learn from existing data to forecast future behaviors, outcomes, and trends. ML Studio (classic) is a cloud predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics solutions. In this article, you learn how to use ML Studio (classic) to do weather forecasting (chance of rain) using the temperature and humidity data from your Azure IoT hub. The chance of rain is the output of a prepared weather prediction model. The model is built upon historic data to forecast chance of rain based on temperature and humidity.
+
+[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
 
 ## Prerequisites
 

@@ -7,9 +7,9 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: BustosMSFT
-ms.author: robustos
-ms.reviewer: mathoma
+author: emlisa
+ms.author: emlisa
+ms.reviewer: kendralittle, mathoma
 ms.date: 07/16/2019
 ---
 

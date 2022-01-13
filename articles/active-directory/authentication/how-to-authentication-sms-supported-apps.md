@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/28/2021
+ms.date: 11/19/2021
 ms.author: justinha
 author: aanjusingh
-manager: daveba
+manager: karenhoran
 ms.reviewer: anjusingh
 
 ms.collection: M365-identity-device-management
@@ -17,14 +17,14 @@ ms.collection: M365-identity-device-management
 
 # App support for SMS-based authentication
 
-SMS-based authentication is available to Microsoft apps integrated with the Microsoft Identity platform (Azure AD). The table lists some of the web and mobile apps that support SMS-based authentication. If you would like to add or validate any app, [contact us](https://feedback.azure.com/forums/169401-azure-active-directory). 
+SMS-based authentication is available to Microsoft apps integrated with the Microsoft Identity platform (Azure AD). The table lists some of the web and mobile apps that support SMS-based authentication. If you would like to add or validate any app, [contact us](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789). 
 
 | App | Web/browser app | Native mobile app |
 | --- |:---:|:---:|
 | Office 365- Microsoft Online Services* | ● |   |
 | Microsoft One Note | ● |   |
 | Microsoft Teams | ● | ● |
-| Microsoft Intune/ Company portal | ● | ● |
+| Microsoft Intune Company portal | ● | ● |
 | My Apps Portal | ● |Not available|
 | Microsoft Forms | ● |Not available|
 | Microsoft Edge | ● |   |

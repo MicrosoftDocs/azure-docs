@@ -30,7 +30,7 @@ Service Fabric Java binaries have moved from the Service Fabric Java SDK to Mave
 
 4. Update the install/uninstall scripts of your application to use the new Service Fabric CLI following the steps mentioned [here](service-fabric-application-lifecycle-sfctl.md). You can refer to our getting-started [examples](https://github.com/Azure-Samples/service-fabric-java-getting-started) for reference.
 
->[!TIP]
+> [!TIP]
 > After uninstalling the Service Fabric Java SDK, Yeoman will not work. Follow the Prerequisites mentioned [here](service-fabric-create-your-first-linux-application-with-java.md) to have Service Fabric Yeoman Java template generator up and working.
 
 ## Service Fabric Java libraries on Maven
@@ -41,7 +41,7 @@ Service Fabric Java libraries have been hosted in Maven. You can add the depende
 
 Service Fabric Reliable Actor support for your application.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-actors</artifactId>
@@ -62,7 +62,7 @@ Service Fabric Reliable Actor support for your application.
 
 Service Fabric Stateless Service support for your application.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-services</artifactId>
@@ -85,7 +85,7 @@ Service Fabric Stateless Service support for your application.
 
 Transport layer support for Service Fabric Java application. You do not need to explicitly add this dependency to your Reliable Actor or Service applications, unless you program at the transport layer.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-transport</artifactId>
@@ -106,7 +106,7 @@ Transport layer support for Service Fabric Java application. You do not need to 
 
 System level support for Service Fabric, which talks to native Service Fabric runtime. You do not need to explicitly add this dependency to your Reliable Actor or Service applications. This gets fetched automatically from Maven, when you include the other dependencies above.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf</artifactId>

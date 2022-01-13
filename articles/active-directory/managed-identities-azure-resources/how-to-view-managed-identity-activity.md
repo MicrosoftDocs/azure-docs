@@ -4,16 +4,15 @@ description: Step-by-step instructions for viewing the activities made to manage
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/26/2021
+ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -111,5 +110,5 @@ System-assigned identity:
 ## Next steps
 
 * [Managed identities for Azure resources](./overview.md)
-* [Azure Activity log](/azure/azure-monitor/essentials/activity-log)
-* [Azure Active Directory sign-ins log](/azure/active-directory/reports-monitoring/concept-sign-ins )
+* [Azure Activity log](../../azure-monitor/essentials/activity-log.md)
+* [Azure Active Directory sign-ins log](../reports-monitoring/concept-sign-ins.md)

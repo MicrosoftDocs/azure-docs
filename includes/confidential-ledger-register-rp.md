@@ -7,7 +7,7 @@ ms.author: msmbaldwin
 
 ---
 
-A resource provider is a service that supplies Azure resources. Use the Azure CLI [az provider register](/cli/azure/provider#az_provider_register) command or the Azure PowerShell [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider) cmdlet to register the Confidential Ledger resource provider, 'microsoft.ConfidentialLedger'.
+A resource provider is a service that supplies Azure resources. Use the Azure CLI [az provider register](/cli/azure/provider#az_provider_register) command or the Azure PowerShell [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider) cmdlet to register the Azure confidential ledger resource provider, 'microsoft.ConfidentialLedger'.
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli

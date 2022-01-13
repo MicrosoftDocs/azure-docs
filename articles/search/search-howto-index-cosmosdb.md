@@ -26,10 +26,6 @@ The Cosmos DB indexer in Azure Cognitive Search can crawl [Azure Cosmos DB items
 
 + For [MongoDB API (preview)](../cosmos-db/mongodb-introduction.md), you can use either the [portal](#cosmos-indexer-portal) or the [REST API version 2020-06-30-Preview](search-api-preview.md) to create the data source and indexer.
 
-> [!Note]
-> You can cast a vote on User Voice for the [Table API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab) if you'd like to see it supported in Azure Cognitive Search.
->
-
 ## Prerequisites
 
 Only Cosmos DB collections with an [indexing policy](../cosmos-db/index-policy.md) set to [Consistent](../cosmos-db/index-policy.md#indexing-mode) are supported by Azure Cognitive Search. Indexing collections with a Lazy indexing policy is not recommended and may result in missing data. Collections with indexing disabled are not supported.
@@ -55,7 +51,7 @@ Make sure your Cosmos DB database contains data. The [Import data wizard](search
 
 You can [start the wizard](search-import-data-portal.md) from the command bar in the Azure Cognitive Search service page, or if you're connecting to Cosmos DB SQL API you can click **Add Azure Cognitive Search** in the **Settings** section of your Cosmos DB account's left navigation pane.
 
-   ![Import data command in portal](./media/search-import-data-portal/import-data-cmd2.png "Start the Import data wizard")
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
 
 ### Step 3 - Set the data source
 
@@ -181,7 +177,7 @@ The body of the request contains the data source definition, which should includ
 You can specify a SQL query to flatten nested properties or arrays, project JSON properties, and filter the data to be indexed. 
 
 > [!WARNING]
-> Custom queries are not supported for **MongoDB API**: `container.query` parameter must be set to null or omitted. If you need to use a custom query, please let us know on [User Voice](https://feedback.azure.com/forums/263029-azure-search).
+> Custom queries are not supported for **MongoDB API**: `container.query` parameter must be set to null or omitted. 
 
 Example document:
 

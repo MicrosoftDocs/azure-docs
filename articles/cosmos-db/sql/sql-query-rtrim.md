@@ -5,25 +5,28 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 09/14/2021
 ms.author: girobins
 ms.custom: query-reference
 ---
 # RTRIM (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
- Returns a string expression after it removes trailing blanks.  
+ Returns a string expression after it removes trailing whitespace or specified characters.  
   
 ## Syntax
   
 ```sql
-RTRIM(<str_expr>)  
+RTRIM(<str_expr1>[, <str_expr2>])  
 ```  
   
 ## Arguments
   
-*str_expr*  
-   Is any valid string expression.  
+*str_expr1*  
+   Is a string expression
+
+*str_expr2*  
+   Is an optional string expression to be trimmed from str_expr1. If not set, the default is whitespace.  
   
 ## Return types
   
@@ -34,14 +37,28 @@ RTRIM(<str_expr>)
   The following example shows how to use `RTRIM` inside a query.  
   
 ```sql
-SELECT RTRIM("  abc") AS r1, RTRIM("abc") AS r2, RTRIM("abc   ") AS r3  
+SELECT RTRIM("   abc") AS t1, 
+RTRIM("   abc   ") AS t2, 
+RTRIM("abc   ") AS t3, 
+RTRIM("abc") AS t4,
+RTRIM("abc", "bc") AS t5,
+RTRIM("abc", "abc") AS t6
 ```  
   
  Here is the result set.  
   
 ```json
-[{"r1": "   abc", "r2": "abc", "r3": "abc"}]  
-```  
+[
+    {
+        "t1": "   abc",
+        "t2": "   abc",
+        "t3": "abc",
+        "t4": "abc",
+        "t5": "a",
+        "t6": ""
+    }
+]
+``` 
 
 ## Remarks
 

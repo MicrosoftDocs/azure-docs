@@ -218,10 +218,10 @@ There are two levels of support for deployment slots:
 | OS/Hosting plan           | Level of support     |
 | ------------------------- | -------------------- |
 | Windows Consumption       | General availability |
-| Windows Premium           | General availability  |
+| Windows Premium           | General availability |
 | Windows Dedicated         | General availability |
-| Linux Consumption         | Preview          |
-| Linux Premium             | General availability  |
+| Linux Consumption         | General availability |
+| Linux Premium             | General availability |
 | Linux Dedicated           | General availability |
 
 ## Next steps

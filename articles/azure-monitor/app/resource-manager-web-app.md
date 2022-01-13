@@ -1,11 +1,8 @@
 ---
 title: Resource Manager template samples for Azure App Service + Application Insights Resources
 description: Sample Azure Resource Manager templates to deploy an Azure App Service with an Application Insights resource.
-
 ms.topic: sample
 ms.custom: devx-track-dotnet
-author: lgayhardt
-ms.author: lagayhar
 ms.date: 08/06/2020
 
 ---

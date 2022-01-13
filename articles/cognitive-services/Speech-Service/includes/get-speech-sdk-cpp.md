@@ -1,19 +1,20 @@
 ---
-author: laujan
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
-ms.author: lajanuar
+ms.author: eur
 ---
 
 :::row:::
     :::column span="3":::
-        The C++ Speech SDK is available on Windows, Linux, and macOS. For more information, see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech </a>.
+        The C++ Speech SDK is available as a NuGet package on Windows, Linux, and macOS. For more information, see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech</a>.
+        The C++ Speech SDK is also available as tar package from https://aka.ms/csspeech/linuxbinary.
     :::column-end:::
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="C++" src="https://docs.microsoft.com/media/logos/logo_Cplusplus.svg" width="60px">
+            <img alt="C++" src="/media/logos/logo_Cplusplus.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::

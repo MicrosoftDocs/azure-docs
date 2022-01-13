@@ -5,7 +5,7 @@ titleSuffix: Azure API Management
 description: This topic describes how to configure a custom domain name for your Azure API Management instance.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: anneta
 editor: ''
 
@@ -13,7 +13,7 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 ms.date: 08/24/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # Configure a custom domain name for your Azure API Management instance

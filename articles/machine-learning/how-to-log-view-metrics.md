@@ -75,9 +75,9 @@ mlflow_run = mlflow.start_run()
 
 |Logged Value|Example code| Notes|
 |----|----|----|
-|Log a numeric value (int or float) | `mlfow.log_metric('my_metric', 1)`| |
-|Log a boolean value | `mlfow.log_metric('my_metric', 0)`| 0 = True, 1 = False|
-|Log a string | `mlfow.log_text('foo', 'my_string')`| Logged as an artifact|
+|Log a numeric value (int or float) | `mlflow.log_metric('my_metric', 1)`| |
+|Log a boolean value | `mlflow.log_metric('my_metric', 0)`| 0 = True, 1 = False|
+|Log a string | `mlflow.log_text('foo', 'my_string')`| Logged as an artifact|
 |Log numpy metrics or PIL image objects|`mlflow.log_image(img, 'figure.png')`||
 |Log matlotlib plot or image file|` mlflow.log_figure(fig, "figure.png")`||
 
@@ -251,4 +251,4 @@ The following notebooks demonstrate concepts in this article:
 
 See these articles to learn more on how to use Azure Machine Learning:
 
-* See an example of how to register the best model and deploy it in the tutorial, [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
+* See an example of how to register the best model and deploy it in the tutorial, [Train an image classification model with Azure Machine Learning](tutorial-train-deploy-notebook.md).

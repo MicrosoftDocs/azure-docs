@@ -3,7 +3,7 @@ title: Transition to governed collaboration with Azure Active Directory B2B Coll
 description: Move to governed collaboration with Azure Ad B2B collaboration.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
@@ -27,7 +27,7 @@ Getting your collaboration under control is key to securing external access to y
 
 * [Understood how groups and security work together](4-secure-access-groups.md)
 
-Once you’ve done those things, you're ready to move into controlled collaboration. This article will guide you to move all your external collaboration into [Azure Active Directory B2B collaboration](../external-identities/what-is-b2b.md) (Azure AD B2B). Azure Ad B2B is a feature of [Azure AD External Identities](../external-identities/compare-with-b2c.md).
+Once you’ve done those things, you're ready to move into controlled collaboration. This article will guide you to move all your external collaboration into [Azure Active Directory B2B collaboration](../external-identities/what-is-b2b.md) (Azure AD B2B). Azure AD B2B is a feature of [Azure AD External Identities](../external-identities/compare-with-b2c.md).
 
 ## Control who your organization collaborates with
 

@@ -5,16 +5,16 @@ description: Learn about how to monitor the copy activity execution in Azure Dat
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: synapse
+ms.custom: synapse, contperf-fy22q2
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
 ---
 # Monitor copy activity
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to monitor the copy activity execution in Azure Data Factory and Synapse pipelines. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to monitor the copy activity execution in Azure Data Factory and Synapse pipelines. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.  You can also monitor copy activities generated with the [Copy Data Tool](copy-data-tool.md) as well as [Delete activities](delete-activity.md) using the same approach.
 
 ## Monitor visually
 
@@ -24,17 +24,17 @@ To monitor the Copy activity run, go to the **Data Factory Studio** or **Azure S
 
 # [Azure Data Factory](#tab/data-factory)
 
-![Monitor pipeline run](./media/copy-activity-overview/monitor-pipeline-run.png)
+:::image type="content" source="./media/copy-activity-overview/monitor-pipeline-run.png" alt-text="Monitor pipeline run":::
 
 # [Azure Synapse](#tab/synapse-analytics)
 
-![Monitor pipeline run](./media/copy-activity-overview/monitor-pipeline-run-synapse.png)
+:::image type="content" source="./media/copy-activity-overview/monitor-pipeline-run-synapse.png" alt-text="Monitor pipeline run":::
 
 ---
 
 At this level, you can see links to copy activity input, output, and errors (if the Copy activity run fails), as well as statistics like duration/status. Clicking the **Details** button (eyeglasses) next to the copy activity name will give you deep details on your copy activity execution. 
 
-![Monitor copy activity run](./media/copy-activity-overview/monitor-copy-activity-run.png)
+:::image type="content" source="./media/copy-activity-overview/monitor-copy-activity-run.png" alt-text="Monitor copy activity run":::
 
 In this graphical monitoring view, the service presents you the copy activity execution information, including data read/written volume, number of files/rows of data copied from source to sink, throughput, the configurations applied for your copy scenario, steps the copy activity goes through with corresponding durations and details, and more. Refer to [this table](#monitor-programmatically) on each possible metric and its detailed description. 
 
@@ -44,7 +44,7 @@ The bottom **execution details and durations** describes the key steps your copy
 
 **Example: Copy from Amazon S3 to Azure Data Lake Storage Gen2**
 
-![Monitor copy activity run details](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
+:::image type="content" source="./media/copy-activity-overview/monitor-copy-activity-run-details.png" alt-text="Monitor copy activity run details":::
 
 ## Monitor programmatically
 

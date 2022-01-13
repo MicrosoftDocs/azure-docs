@@ -24,7 +24,7 @@ Follow the steps below to install [cert-manager](https://docs.cert-manager.io) o
 
     - create a new `cert-manager` namespace on your AKS
     - create the following CRDs: Certificate, Challenge, ClusterIssuer, Issuer, Order
-    - install cert-manager chart (from [docs.cert-manager.io)](https://docs.cert-manager.io/en/latest/getting-started/install/kubernetes.html#steps)
+    - install cert-manager chart (from [docs.cert-manager.io)](https://cert-manager.io/docs/installation/compatibility/)
 
     ```bash
     #!/bin/bash

@@ -1,8 +1,8 @@
 ---
 title: Metadata and Lineage from SAP ECC
 description: This article describes the data lineage extraction from SAP ECC source.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to

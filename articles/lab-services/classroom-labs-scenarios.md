@@ -1,7 +1,7 @@
 ---
 title: Use labs for trainings - Azure Lab Services
 description: This article describes how to use Azure DevTest Labs for creating labs on Azure for training scenarios.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 

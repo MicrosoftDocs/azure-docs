@@ -85,7 +85,7 @@ appconfigId=$(az appconfig show --name <appconfig_name> --resource-group <resour
 endpoint=https://$sitename.azurewebsites.net/api/updates
 
 az eventgrid event-subscription create \
-  --resource-id $appconfigId \
+  --source-resource-id $appconfigId \
   --name <event_subscription_name> \
   --endpoint $endpoint
 ```

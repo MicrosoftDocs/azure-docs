@@ -7,7 +7,7 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.custom: devx-track-azurepowershell, synapse
 ---
 
@@ -25,7 +25,7 @@ This article describes how you can create and configure a self-hosted IR.
 
 ## Considerations for using a self-hosted IR
 
-- You can use a single self-hosted integration runtime for multiple on-premises data sources. You can also share it with another data factory or Synapse workspace within the same Azure Active Directory (Azure AD) tenant. For more information, see [Sharing a self-hosted integration runtime](./create-shared-self-hosted-integration-runtime-powershell.md).
+- You can use a single self-hosted integration runtime for multiple on-premises data sources. You can also share it with another data factory within the same Azure Active Directory (Azure AD) tenant. For more information, see [Sharing a self-hosted integration runtime](./create-shared-self-hosted-integration-runtime-powershell.md).
 - You can install only one instance of a self-hosted integration runtime on any single machine. If you have two data factories or Synapse workspaces that need to access on-premises data sources, either use the [self-hosted IR sharing feature](./create-shared-self-hosted-integration-runtime-powershell.md) to share the self-hosted IR, or install the self-hosted IR on two on-premises computers, one for each data factory or Synapse workspace.  
 - The self-hosted integration runtime doesn't need to be on the same machine as the data source. However, having the self-hosted integration runtime close to the data source reduces the time for the self-hosted integration runtime to connect to the data source. We recommend that you install the self-hosted integration runtime on a machine that differs from the one that hosts the on-premises data source. When the self-hosted integration runtime and data source are on different machines, the self-hosted integration runtime doesn't compete with the data source for resources.
 - You can have multiple self-hosted integration runtimes on different machines that connect to the same on-premises data source. For example, if you have two self-hosted integration runtimes that serve two data factories, the same on-premises data source can be registered with both data factories.
@@ -34,13 +34,16 @@ This article describes how you can create and configure a self-hosted IR.
 - Use the self-hosted integration runtime even if the data store is in the cloud on an Azure Infrastructure as a Service (IaaS) virtual machine.
 - Tasks might fail in a self-hosted integration runtime that you installed on a Windows server for which FIPS-compliant encryption is enabled. To work around this problem, you have two options: store credentials/secret values in an Azure Key Vault or disable FIPS-compliant encryption on the server. To disable FIPS-compliant encryption, change the following registry subkey's value from 1 (enabled) to 0 (disabled): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`. If you use the [self-hosted integration runtime as a proxy for SSIS integration runtime](./self-hosted-integration-runtime-proxy-ssis.md), FIPS-compliant encryption can be enabled and will be used when moving data from on premises to Azure Blob Storage as a staging area.
 
+> [!NOTE]
+> Currently self-hosted integration runtime can only be shared with multiple data factories, it can't be shared across Synapse workspaces or between data factory and Synapse workspace.
+
 ## Command flow and data flow
 
 When you move data between on-premises and the cloud, the activity uses a self-hosted integration runtime to transfer the data between an on-premises data source and the cloud.
 
 Here is a high-level summary of the data-flow steps for copying with a self-hosted IR:
 
-![The high-level overview of data flow](media/create-self-hosted-integration-runtime/high-level-overview.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/high-level-overview.png" alt-text="The high-level overview of data flow":::
 
 1. A data developer first creates a self-hosted integration runtime within an Azure data factory or Synapse workspace by using the Azure portal or the PowerShell cmdlet.  Then the data developer creates a linked service for an on-premises data store, specifying the self-hosted integration runtime instance that the service should use to connect to data stores.
 
@@ -59,6 +62,7 @@ Here is a high-level summary of the data-flow steps for copying with a self-host
   - Windows Server 2012 R2
   - Windows Server 2016
   - Windows Server 2019
+  - Windows Server 2022
 
 Installation of the self-hosted integration runtime on a domain controller isn't supported.
 
@@ -69,7 +73,10 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 - Copy-activity runs happen with a specific frequency. Processor and RAM usage on the machine follows the same pattern with peak and idle times. Resource usage also depends heavily on the amount of data that is moved. When multiple copy jobs are in progress, you see resource usage go up during peak times.
 - Tasks might fail during extraction of data in Parquet, ORC, or Avro formats. For more on Parquet, see [Parquet format in Azure Data Factory](./format-parquet.md#using-self-hosted-integration-runtime). File creation runs on the self-hosted integration machine. To work as expected, file creation requires the following prerequisites:
   - [Visual C++ 2010 Redistributable](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Package (x64)
-  - Java Runtime (JRE) version 8 from a JRE provider such as [Adopt OpenJDK](https://adoptopenjdk.net/). Ensure that the `JAVA_HOME` environment variable is set to the JRE folder (and not just the JDK folder).
+  - Java Runtime (JRE) version 8 from a JRE provider such as [Adopt OpenJDK](https://adoptopenjdk.net/). Ensure that the JAVA_HOME environment variable is set to the JDK folder (and not just the JRE folder).
+  >[!NOTE]
+  >It might be necessary to adjust the Java settings if memory errors occur, as described in the [Parquet format] documentation(format-parquet#using-self-hosted-integration-runtime).
+  
 
 >[!NOTE]
 >If you are running in government cloud, please review [Connect to government cloud.](../azure-government/documentation-government-get-started-connect-with-ps.md)
@@ -221,19 +228,19 @@ Here are details of the application's actions and arguments:
 
 The default log on service account of Self-hosted integration runtime is **NT SERVICE\DIAHostService**. You can see it in **Services -> Integration Runtime Service -> Properties -> Log on**.
 
-![Service account for Self-hosted integration runtime](media/create-self-hosted-integration-runtime/shir-service-account.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/shir-service-account.png" alt-text="Service account for Self-hosted integration runtime":::
 
 Make sure the account has the permission of Log on as a service. Otherwise self-hosted integration runtime can't start successfully. You can check the permission in **Local Security Policy -> Security Settings -> Local Policies -> User Rights Assignment -> Log on as a service**
 
-![Screenshot of Local Security Policy - User Rights Assignment](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/shir-service-account-permission.png" alt-text="Screenshot of Local Security Policy - User Rights Assignment":::
 
-![Screenshot of Log on as a service user rights assignment](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png" alt-text="Screenshot of Log on as a service user rights assignment":::
 
 ## Notification area icons and notifications
 
 If you move your cursor over the icon or message in the notification area, you can see details about the state of the self-hosted integration runtime.
 
-![Notifications in the notification area](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/system-tray-notifications.png" alt-text="Notifications in the notification area":::
 
 ## High availability and scalability
 

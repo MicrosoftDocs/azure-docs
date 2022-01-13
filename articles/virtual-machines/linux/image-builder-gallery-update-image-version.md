@@ -14,7 +14,7 @@ ms.subservice: image-builder
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
-This article shows you how to take an existing image version in a [Shared Image Gallery](../shared-image-galleries.md), update it, and publish it as a new image version to the gallery.
+This article shows you how to take an existing image version in an [Azure Compute Gallery](../shared-image-galleries.md) (formerly known as Shared Image Gallery), update it, and publish it as a new image version to the gallery.
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json). 
 
@@ -45,7 +45,7 @@ az provider register -n Microsoft.Network
 
 ## Set variables and permissions
 
-If you used [Create an image and distribute to a Shared Image Gallery](image-builder-gallery.md) to create your Shared Image Gallery, you've already created some of the variables we need. If not, please setup some variables to be used for this example.
+If you used [Create an image and distribute to an Azure Compute Gallery](image-builder-gallery.md) to create your Azure Compute Gallery, you've already created some of the variables we need. If not, please setup some variables to be used for this example.
 
 
 ```console
@@ -55,7 +55,7 @@ sigResourceGroup=ibLinuxGalleryRG
 location=westus2
 # Additional region to replicate the image version to 
 additionalregion=eastus
-# Name of the shared image gallery 
+# Name of the Azure Compute Gallery 
 sigName=myIbGallery
 # Name of the image definition to use
 imageDefName=myIbImageDef
@@ -87,7 +87,7 @@ As you had set the user-identity up in the previous example, you just need to ge
 imgBuilderId=$(az identity list -g $sigResourceGroup --query "[?contains(name, 'aibBuiUserId')].id" -o tsv)
 ```
 
-If you already have your own Shared Image Gallery, and did not follow the previous example, you will need to assign permissions for Image Builder to access the Resource Group, so it can access the gallery. Please review the steps in the [Create an image and distribute to a Shared Image Gallery](image-builder-gallery.md) example.
+If you already have your own Azure Compute Gallery, and did not follow the previous example, you will need to assign permissions for Image Builder to access the Resource Group, so it can access the gallery. Please review the steps in the [Create an image and distribute to an Azure Compute Gallery](image-builder-gallery.md) example.
 
 
 ## Modify helloImage example

@@ -21,40 +21,7 @@ By using Azure Monitor, you can collect custom metrics via your application tele
 > [!NOTE]  
 > Custom Metrics are not supported in all regions. Supported regions are listed [here](./metrics-custom-overview.md#supported-regions)
 
-## Send custom metrics 
 
-For this tutorial, we deploy a Linux VM that runs the Ubuntu 18.04 LTS operating system. The Telegraf agent is supported for most Linux operating systems. Both Debian and RPM packages are available along with unpackaged Linux binaries on the [InfluxData download portal](https://portal.influxdata.com/downloads). See this [Telegraf installation guide](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) for additional installation instructions and options. 
-
-Sign in to the [Azure portal](https://portal.azure.com).
-
-> [!NOTE]  
-> If you want to migrate classic alert rules and use an existing Linux virtual machine, make sure the virutal machine has a system-assigned identity set to **On**.
-
-Create a new Linux VM: 
-
-1. Select the **Create a resource** option from the left-hand navigation pane. 
-1. Search for **Virtual Machine**.  
-1. Select **Ubuntu 18.04 LTS** and select **Create**. 
-1. Provide a VM name like **MyTelegrafVM**.  
-1. Leave the disk type as **SSD**. Then provide a **username**, such as **azureuser**. 
-1. For **Authentication type**, select **Password**. Then enter a password you'll use later to SSH into this VM. 
-1. Choose to **Create new resource group**. Then provide a name, such as **myResourceGroup**. Choose your **Location**. Then select **OK**. 
-
-    ![Create an Ubuntu VM](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
-
-1. Select a size for the VM. You can filter by **Compute type** or **Disk type**, for example. 
-
-    ![Virtual machine size Telegraph agent overview](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
-
-1. On the **Settings** page in **Network** > **Network Security Group** > **Select public inbound ports**, select **HTTP** and **SSH (22)**. Leave the rest of the defaults and select **OK**. 
-
-1. On the summary page, select **Create** to start the VM deployment. 
-
-1. The VM is pinned to the Azure portal dashboard. After the deployment finishes, the VM summary automatically opens. 
-
-1. In the VM pane, navigate to the **Identity** tab. Ensure that your VM has a system-assigned identity set to **On**. 
- 
-    ![Telegraf VM identity preview](./media/collect-custom-metrics-linux-telegraf/connect-to-VM.png)
  
 ## Connect to the VM 
 

@@ -3,13 +3,12 @@ title: How to use batch transcription - Speech service
 titleSuffix: Azure Cognitive Services
 description: Batch transcription is ideal if you want to transcribe a large quantity of audio in storage, such as Azure Blobs. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcriptions.
 services: cognitive-services
-author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/17/2021
-ms.author: wolfma
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -298,7 +297,7 @@ The output of transcription with diarization enabled contains a `Speaker` entry 
 
 To request diarization, add set the `diarizationEnabled` property to `true` like the HTTP request shows below.
 
- ```json
+```json
 {
   "contentUrls": [
     "<URL to an audio file to transcribe>",

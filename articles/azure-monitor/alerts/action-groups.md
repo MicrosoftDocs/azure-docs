@@ -3,7 +3,7 @@ title: Create and manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 05/28/2021
+ms.date: 11/18/2021
 ms.author: dukek
 ---
 # Create and manage action groups in the Azure portal
@@ -18,6 +18,8 @@ Each action is made up of the following properties:
 * **Details**: The corresponding details that vary by *type*.
 
 For information on how to use Azure Resource Manager templates to configure action groups, see [Action group Resource Manager templates](./action-groups-create-resource-manager-template.md).
+
+Action Group is **Global** service, therefore there is no dependency on a specific Azure region. Requests from client can be processed by action group service in any region, which means, if one region of service is down, the traffic will be routed and process by other regions automatically. Being a *global service* it helps client not to worry about **disaster recovery**. 
 
 ## Create an action group by using the Azure portal
 
@@ -43,7 +45,7 @@ Under **Instance details**:
 
 1. Enter a **Display name**. The display name is used in place of a full action group name when notifications are sent using this group.
 
-      ![The Add action group" dialog box](./media/action-groups/action-group-1-basics.png)
+      ![The "Add action group" dialog box](./media/action-groups/action-group-1-basics.png)
 
 
 ### Configure notifications
@@ -150,6 +152,12 @@ While setting up *Email ARM Role* you need to make sure below 3 conditions are m
 
 > [!NOTE]
 > It can take upto **24 hours** for customer to start receiving notifications after they add new ARM Role to their subscription.
+
+### Event Hub (Preview)
+> [!NOTE]
+> The Event Hub action type is currently in *Preview*. During the preview there may be bugs and disruptions in availability of the functionality.
+
+An Event Hub action publishes notifications to an [Azure Event Hub](~/articles/event-hubs/event-hubs-about.md). You may then subscribe to the alert notification stream from your event receiver.
 
 ### Function
 Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-get-started.md). To handle a request, your endpoint must handle the HTTP POST verb.
@@ -264,7 +272,7 @@ See the [rate limiting information](./alerts-rate-limiting.md) and [SMS alert be
 You may have a limited number of SMS actions in an Action Group.
 
 > [!NOTE]
-> If the Azure portal action group user interface does not let you select your country/region code, then SMS is not supported for your country/region.  If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice). In the meantime, a work around is to have your action group call a webhook to a third-party SMS provider with support in your country/region.  
+> If the Azure portal action group user interface does not let you select your country/region code, then SMS is not supported for your country/region.  If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). In the meantime, a work around is to have your action group call a webhook to a third-party SMS provider with support in your country/region.  
 
 Pricing for supported countries/regions is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -317,7 +325,7 @@ See the [rate limiting information](./alerts-rate-limiting.md) article for addit
 You may have a limited number of Voice actions in an Action Group.
 
 > [!NOTE]
-> If the Azure portal action group user interface does not let you select your country/region code, then voice calls are not supported for your country/region. If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  In the meantime, a work around is to have your action group call a webhook to a third-party voice call provider with support in your country/region.  
+> If the Azure portal action group user interface does not let you select your country/region code, then voice calls are not supported for your country/region. If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0).  In the meantime, a work around is to have your action group call a webhook to a third-party voice call provider with support in your country/region.  
 > Only Country code supported today in Azure portal action group for Voice Notification is +1(United States). 
 
 Pricing for supported countries/regions is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).

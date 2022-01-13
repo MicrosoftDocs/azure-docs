@@ -4,11 +4,11 @@ description: In this quickstart, create a Python app with Azure App Configuratio
 services: azure-app-configuration
 author: drewbatgit
 ms.service: azure-app-configuration
+ms.devlang: python
 ms.topic: quickstart
-ms.custom: devx-track-python
+ms.custom: devx-track-python, mode-other
 ms.date: 9/17/2020
 ms.author: drewbat
-
 #Customer intent: As a Python developer, I want to manage all my app settings in one place.
 ---
 # Quickstart: Create a Python app with Azure App Configuration
@@ -18,7 +18,7 @@ In this quickstart, you will use Azure App Configuration to centralize storage a
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- Python 2.7, or 3.6 or later - For information on setting up Python on Windows, see the [Python on Windows documentation]( https://docs.microsoft.com/windows/python/)
+- Python 2.7, or 3.6 or later - For information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
 
 ## Create an App Configuration store
 

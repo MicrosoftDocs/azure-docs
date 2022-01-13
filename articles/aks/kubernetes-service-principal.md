@@ -3,7 +3,7 @@ title: Service principals for Azure Kubernetes Services (AKS)
 description: Create and manage an Azure Active Directory service principal for a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 04/22/2021
+ms.date: 12/06/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 #Customer intent: As a cluster operator, I want to understand how to create a service principal and delegate permissions for AKS to access required resources. In large enterprise environments, the user that deploys the cluster (or CI/CD system), may not have permissions to create this service principal automatically when the cluster is created.
@@ -35,9 +35,9 @@ You also need Azure PowerShell version 5.0.0 or later installed. Run `Get-Instal
 
 ### [Azure CLI](#tab/azure-cli)
 
-When you create an AKS cluster in the Azure portal or using the [az aks create][az-aks-create] command, Azure can automatically generate a service principal.
+When you create an AKS cluster in the Azure portal or using the [az aks create][az-aks-create] command, Azure creates a managed identity.
 
-In the following Azure CLI example, a service principal is not specified. In this scenario, the Azure CLI creates a service principal for the AKS cluster. To successfully complete the operation, your Azure account must have the proper rights to create a service principal.
+In the following Azure CLI example, a service principal is not specified. In this scenario, the Azure CLI creates a managed identity for the AKS cluster.
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup
@@ -45,9 +45,9 @@ az aks create --name myAKSCluster --resource-group myResourceGroup
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-When you create an AKS cluster in the Azure portal or using the [New-AzAksCluster][new-azakscluster] command, Azure can automatically generate a service principal.
+When you create an AKS cluster in the Azure portal or using the [New-AzAksCluster][new-azakscluster] command, Azure can generate a new managed identity .
 
-In the following Azure PowerShell example, a service principal is not specified. In this scenario, Azure PowerShell creates a service principal for the AKS cluster. To successfully complete the operation, your Azure account must have the proper rights to create a service principal.
+In the following Azure PowerShell example, a service principal is not specified. In this scenario, Azure PowerShell creates a managed identity for the AKS cluster.
 
 ```azurepowershell-interactive
 New-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
@@ -61,10 +61,10 @@ New-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
 
 ### [Azure CLI](#tab/azure-cli)
 
-To manually create a service principal with the Azure CLI, use the [az ad sp create-for-rbac][az-ad-sp-create] command. In the following example, the `--skip-assignment` parameter prevents any additional default assignments being assigned:
+To manually create a service principal with the Azure CLI, use the [az ad sp create-for-rbac][az-ad-sp-create] command.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --skip-assignment --name myAKSClusterServicePrincipal
+az ad sp create-for-rbac --name myAKSClusterServicePrincipal
 ```
 
 The output is similar to the following example. Make a note of your own `appId` and `password`. These values are used when you create an AKS cluster in the next section.
@@ -81,10 +81,10 @@ The output is similar to the following example. Make a note of your own `appId` 
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-To manually create a service principal with Azure PowerShell, use the [New-AzADServicePrincipal][new-azadserviceprincipal] command. In the following example, the `-SkipAssignment` parameter prevents any additional default assignments being assigned:
+To manually create a service principal with Azure PowerShell, use the [New-AzADServicePrincipal][new-azadserviceprincipal] command.
 
 ```azurepowershell-interactive
-New-AzADServicePrincipal -DisplayName myAKSClusterServicePrincipal -SkipAssignment -OutVariable sp
+New-AzADServicePrincipal -DisplayName myAKSClusterServicePrincipal -OutVariable sp
 ```
 
 The output is similar to the following example. The values are also stored in a variable that is used when you create an AKS cluster in the next section.

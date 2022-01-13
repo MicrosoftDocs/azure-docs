@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Learn how to link Azure Synapse and Azure Machine Learning workspaces, and attach Apache Spark pools for a unified data wrangling experience. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
-ms.date: 03/08/2021
+ms.date: 10/21/2021
 ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
 
 

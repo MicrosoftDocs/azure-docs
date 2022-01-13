@@ -3,7 +3,7 @@ title: Tutorial - Azure IoT continuous patient monitoring | Microsoft Docs
 description: This tutorial shows you how to deploy and use the continuous patient monitoring application template for IoT Central.
 author: philmea
 ms.author: philmea
-ms.date: 08/02/2021
+ms.date: 12/23/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -20,7 +20,7 @@ Many medical wearables used in healthcare IoT solutions are BLE devices. These d
 
 ## Mobile phone gateway
 
-The mobile phone application's primary function is to collect BLE data from medical devices and communicate it to IoT Central. The app also guides patients through device setup and lets them view their personal health data. Other solutions could use a tablet gateway or a static gateway in a hospital room. An open-source sample mobile application is available for Android and iOS to use as a starting point for your application development. To learn more, see the [IoT Central Continuous Patient Monitoring mobile app](/samples/iot-for-all/iotc-cpm-sample/iotc-cpm-sample/).
+The mobile phone application's primary function is to collect BLE data from medical devices and communicate it to IoT Central. The app also guides patients through device setup and lets them view their personal health data. Other solutions could use a tablet gateway or a static gateway in a hospital room. An open-source sample mobile application is available for Android and iOS to use as a starting point for your application development. To learn more, see the [Continuous Patient Monitoring sample mobile app on GitHub](https://github.com/iot-for-all/iotc-cpm-sample).
 
 ## Export to Azure API for FHIR&reg;
 

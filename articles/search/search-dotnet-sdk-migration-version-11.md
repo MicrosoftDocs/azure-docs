@@ -7,9 +7,9 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 06/09/2021
+ms.date: 12/10/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -177,9 +177,12 @@ Version 11.2 additions ([change log](https://github.com/Azure/azure-sdk-for-net/
 
   You can also continue to explicitly declare a dependency on [Microsoft.Spatial](https://www.nuget.org/packages/Microsoft.Spatial/). Examples of this technique are available for [System.Text.Json](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial/README.md) and [Newtonsoft.Json](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/README.md).
 
-Currently unsupported in any version of Azure.Search.Documents:
+Version 11.3 additions ([change log](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md#1130-2021-06-08) details):
 
-+ [Knowledge store](knowledge-store-concept-intro.md)
++ [KnowledgeStore](/dotnet/api/azure.search.documents.indexes.models.knowledgestore)
++ Added support for Azure.Core.GeoJson types in [SearchDocument](/dotnet/api/azure.search.documents.models.searchdocument), [SearchFilter](/dotnet/api/azure.search.documents.searchfilter) and [FieldBuilder](/dotnet/api/azure.search.documents.indexes.fieldbuilder).
++ Added EventSource based logging. Event source name is Azure-Search-Documents. Current set of events are focused on tuning batch sizes for [SearchIndexingBufferedSender](/dotnet/api/azure.search.documents.searchindexingbufferedsender-1).
++ Added [CustomEntityLookupSkill](/dotnet/api/azure.search.documents.indexes.models.customentitylookupskill) and [DocumentExtractionSkill](/dotnet/api/azure.search.documents.indexes.models.documentextractionskill). Added DefaultCountryHint in [LanguageDetectionSkill](/dotnet/api/azure.search.documents.indexes.models.languagedetectionskill).
 
 ## Before upgrading
 

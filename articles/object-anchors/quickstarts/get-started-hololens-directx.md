@@ -3,11 +3,11 @@ title: 'Quickstart: Create a HoloLens app with DirectX'
 description: In this quickstart, you learn how to build a HoloLens app using Object Anchors.
 author: craigktreasure
 manager: virivera
-
 ms.author: crtreasu
-ms.date: 08/02/2021
+ms.date: 09/08/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
+ms.custom: mode-api
 ---
 # Quickstart: Create a HoloLens app with Azure Object Anchors, in C++/WinRT and DirectX
 
@@ -34,6 +34,8 @@ To complete this quickstart, make sure you have:
   * <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> with the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.18362.0 or newer)** component
 * A HoloLens 2 device that is up to date and has [developer mode](/windows/mixed-reality/using-visual-studio#enabling-developer-mode) enabled.
   * To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, and then select **Check for updates**.
+
+## Create an Object Anchors account
 
 [!INCLUDE [Create Account](../../../includes/object-anchors-get-started-create-account.md)]
 
@@ -105,3 +107,6 @@ The app aligns a 3D model to its physical counterpart closely. A user can air ta
 
 > [!div class="nextstepaction"]
 > [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+
+> [!div class="nextstepaction"]
+> [Troubleshooting object detection](../troubleshoot/object-detection.md)

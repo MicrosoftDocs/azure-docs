@@ -1,74 +1,60 @@
 ---
-title: Create tasks to prepare & complete jobs on compute nodes
-description: Use job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion.
+title: Create tasks to prepare and complete jobs on compute nodes
+description: Make job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion.
 ms.topic: how-to
-ms.date: 02/17/2020
+ms.date: 01/12/2021
+ms.devlang: csharp
 ms.custom: "seodec18, devx-track-csharp"
 
 ---
-# Run job preparation and job release tasks on Batch compute nodes
+# Create tasks to prepare and complete jobs on Batch compute nodes
 
- An Azure Batch job often requires some form of setup before its tasks are executed, and post-job maintenance when its tasks are completed. You might need to download common task input data to your compute nodes, or upload task output data to Azure Storage after the job completes. You can use **job preparation** and **job release** tasks to perform these operations.
+An Azure Batch job often requires some form of setup before its tasks are executed. It also may require post-job maintenance when its tasks are completed. For example, you might need to download common task input data to your compute nodes, or upload task output data to Azure Storage after the job completes. You can use **job preparation** and **job release** tasks to perform these operations.
 
 ## What are job preparation and release tasks?
+
 Before a job's tasks run, the job preparation task runs on all compute nodes scheduled to run at least one task. Once the job is completed, the job release task runs on each node in the pool that executed at least one task. As with normal Batch tasks, you can specify a command line to be invoked when a job preparation or release task is run.
 
-Job preparation and release tasks offer familiar Batch task features such as file download ([resource files][net_job_prep_resourcefiles]), elevated execution, custom environment variables, maximum execution duration, retry count, and file retention time.
+Job preparation and release tasks offer familiar Batch task features such as file download ([resource files](/dotnet/api/microsoft.azure.batch.jobpreparationtask.resourcefiles)), elevated execution, custom environment variables, maximum execution duration, retry count, and file retention time.
 
-In the following sections, you'll learn how to use the [JobPreparationTask][net_job_prep] and [JobReleaseTask][net_job_release] classes found in the [Batch .NET][api_net] library.
+In the following sections, you'll learn how to use the [JobPreparationTask](/dotnet/api/microsoft.azure.batch.jobpreparationtask) and [JobReleaseTask](/dotnet/api/microsoft.azure.batch.jobreleasetask) classes found in the [Batch .NET](/dotnet/api/microsoft.azure.batch) library.
 
 > [!TIP]
 > Job preparation and release tasks are especially helpful in "shared pool" environments, in which a pool of compute nodes persists between job runs and is used by many jobs.
-> 
-> 
 
 ## When to use job preparation and release tasks
+
 Job preparation and job release tasks are a good fit for the following situations:
 
-**Download common task data**
+- **Downloading common task data**: Batch jobs often require a common set of data as input for the job's tasks. For example, in daily risk analysis calculations, market data is job-specific, yet common to all tasks in the job. This market data, often several gigabytes in size, should be downloaded to each compute node only once so that any task that runs on the node can use it. Use a **job preparation task** to download this data to each node before the execution of the job's other tasks.
 
-Batch jobs often require a common set of data as input for the job's tasks. For example, in daily risk analysis calculations, market data is job-specific, yet common to all tasks in the job. This market data, often several gigabytes in size, should be downloaded to each compute node only once so that any task that runs on the node can use it. Use a **job preparation task** to download this data to each node before the execution of the job's other tasks.
+- **Job and task output deletion**: In a "shared pool" environment, where a pool's compute nodes are not decommissioned between jobs, you may need to delete job data between runs. You might need to conserve disk space on the nodes, or satisfy your organization's security policies. Use a **job release task** to delete data that was downloaded by a job preparation task, or that was generated during task execution.
 
-**Delete job and task output**
-
-In a "shared pool" environment, where a pool's compute nodes are not decommissioned between jobs, you may need to delete job data between runs. You might need to conserve disk space on the nodes, or satisfy your organization's security policies. Use a **job release task** to delete data that was downloaded by a job preparation task, or generated during task execution.
-
-**Log retention**
-
-You might want to keep a copy of log files that your tasks generate, or perhaps crash dump files that can be generated by failed applications. Use a **job release task** in such cases to compress and upload this data to an [Azure Storage][azure_storage] account.
-
-> [!TIP]
-> Another way to persist logs and other job and task output data is to use the [Azure Batch File Conventions](batch-task-output.md) library.
->
->
+- **Log retention**: You might want to keep a copy of log files that your tasks generate, or perhaps crash dump files that can be generated by failed applications. Use a **job release task** in such cases to compress and upload this data to an [Azure Storage account](accounts.md#azure-storage-accounts).
 
 ## Job preparation task
 
+Before executing tasks in a job, Batch runs the job preparation task on each compute node scheduled to run a task. By default, Batch waits for the job preparation task to complete before running the tasks scheduled to execute on the node. However, you can configure the service not to wait. If the node restarts, the job preparation task runs again. You can also disable this behavior. If you have a job with a job preparation task and a job manager task configured, the job preparation task runs before the job manager task, just as it does for all other tasks. The job preparation task always runs first.
 
-Before execution of a job's tasks, Batch executes the job preparation task on each compute node scheduled to run a task. By default, Batch waits for the job preparation task to complete before running the tasks scheduled to execute on the node. However, you can configure the service not to wait. If the node restarts, the job preparation task runs again. You can also disable this behavior. If you have a job with a job preparation task and a job manager task configured, the job preparation task runs before the job manager task, just as it does for all other tasks. The job preparation task always runs first.
-
-The job preparation task is executed only on nodes that are scheduled to run a task. This prevents the unnecessary execution of a preparation task in case a node is not assigned a task. This can occur when the number of tasks for a job is less than the number of nodes in a pool. It also applies when [concurrent task execution](batch-parallel-node-tasks.md) is enabled, which leaves some nodes idle if the task count is lower than the total possible concurrent tasks. By not running the job preparation task on idle nodes, you can spend less money on data transfer charges.
-
-> [!NOTE]
-> [JobPreparationTask][net_job_prep_cloudjob] differs from [CloudPool.StartTask][pool_starttask] in that JobPreparationTask executes at the start of each job, whereas StartTask executes only when a compute node first joins a pool or restarts.
->
-
-
->## Job release task
-
-Once a job is marked as completed, the job release task is executed on each node in the pool that executed at least one task. You mark a job as completed by issuing a terminate request. The Batch service then sets the job state to *terminating*, terminates any active or running tasks associated with the job, and runs the job release task. The job then moves to the *completed* state.
+The job preparation task is executed only on nodes that are scheduled to run a task. This prevents the unnecessary execution of a preparation task in case a node is not assigned any tasks. This can occur when the number of tasks for a job is less than the number of nodes in a pool. It also applies when [concurrent task execution](batch-parallel-node-tasks.md) is enabled, which leaves some nodes idle if the task count is lower than the total possible concurrent tasks.
 
 > [!NOTE]
-> Job deletion also executes the job release task. However, if a job has already been terminated, the release task is not run a second time if the job is later deleted.
+> [JobPreparationTask](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) differs from [CloudPool.StartTask](/dotnet/api/microsoft.azure.batch.cloudpool.starttask) in that JobPreparationTask executes at the start of each job, whereas StartTask executes only when a compute node first joins a pool or restarts.
+
+## Job release task
+
+Once a job is marked as completed, the job release task runs on each node in the pool that executed at least one task. You mark a job as completed by issuing a terminate request. This request sets the job state to *terminating*, terminates any active or running tasks associated with the job, and runs the job release task. The job then moves to the *completed* state.
+
+> [!NOTE]
+> Deleting a job also executes the job release task. However, if a job has already been terminated, the release task is not run a second time if the job is later deleted.
 
 Jobs release tasks can run for a maximum of 15 minutes before being terminated by the Batch service. For more information, see the [REST API reference documentation](/rest/api/batchservice/job/add#jobreleasetask).
-> 
-> 
 
 ## Job prep and release tasks with Batch .NET
-To use a job preparation task, assign a [JobPreparationTask][net_job_prep] object to your job's [CloudJob.JobPreparationTask][net_job_prep_cloudjob] property. Similarly, initialize a [JobReleaseTask][net_job_release] and assign it to your job's [CloudJob.JobReleaseTask][net_job_prep_cloudjob] property to set the job's release task.
 
-In this code snippet, `myBatchClient` is an instance of [BatchClient][net_batch_client], and `myPool` is an existing pool within the Batch account.
+To use a job preparation task, assign a [JobPreparationTask](/dotnet/api/microsoft.azure.batch.jobpreparationtask) object to your job's [CloudJob.JobPreparationTask](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) property. Similarly, to use a job release task, initialize a [JobReleaseTask](/dotnet/api/microsoft.azure.batch.jobreleasetask) and assign it to your job's [CloudJob.JobReleaseTask](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask).
+
+In this code snippet, `myBatchClient` is an instance of [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient), and `myPool` is an existing pool within the Batch account.
 
 ```csharp
 // Create the CloudJob for CloudPool "myPool"
@@ -94,27 +80,29 @@ myJob.JobReleaseTask =
 await myJob.CommitAsync();
 ```
 
-As mentioned earlier, the release task is executed when a job is terminated or deleted. Terminate a job with [JobOperations.TerminateJobAsync][net_job_terminate]. Delete a job with [JobOperations.DeleteJobAsync][net_job_delete]. You typically terminate or delete a job when its tasks are completed, or when a timeout that you've defined has been reached.
+As mentioned earlier, the release task is executed when a job is terminated or deleted. Terminate a job with [JobOperations.TerminateJobAsync](/dotnet/api/microsoft.azure.batch.joboperations.terminatejobasync). Delete a job with [JobOperations.DeleteJobAsync](/dotnet/api/microsoft.azure.batch.joboperations.deletejobasync). You typically terminate or delete a job when its tasks are completed, or when a timeout that you've defined has been reached.
 
 ```csharp
-// Terminate the job to mark it as Completed; this will initiate the
-// Job Release Task on any node that executed job tasks. Note that the
-// Job Release Task is also executed when a job is deleted, thus you
-// need not call Terminate if you typically delete jobs after task completion.
+// Terminate the job to mark it as completed; this will initiate the
+// job release task on any node that executed job tasks. Note that the
+// job release task is also executed when a job is deleted, so you don't
+// have to call Terminate if you delete jobs after task completion.
+
 await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 ```
 
 ## Code sample on GitHub
-To see job preparation and release tasks in action, check out the [JobPrepRelease][job_prep_release_sample] sample project on GitHub. This console application does the following:
+
+To see job preparation and release tasks in action, check out the [JobPrepRelease](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease) sample project on GitHub. This console application does the following:
 
 1. Creates a pool with two nodes.
-2. Creates a job with job preparation, release, and standard tasks.
-3. Runs the job preparation task, which first writes the node ID to a text file in a node's "shared" directory.
-4. Runs a task on each node that writes its task ID to the same text file.
-5. Once all tasks are completed (or the timeout is reached), prints the contents of each node's text file to the console.
-6. When the job is completed, runs the job release task to delete the file from the node.
-7. Prints the exit codes of the job preparation and release tasks for each node on which they executed.
-8. Pauses execution to allow confirmation of job and/or pool deletion.
+1. Creates a job with job preparation, release, and standard tasks.
+1. Runs the job preparation task, which first writes the node ID to a text file in a node's "shared" directory.
+1. Runs a task on each node that writes its task ID to the same text file.
+1. Once all tasks are completed (or the timeout is reached), prints the contents of each node's text file to the console.
+1. When the job is completed, runs the job release task to delete the file from the node.
+1. Prints the exit codes of the job preparation and release tasks for each node on which they executed.
+1. Pauses execution to allow confirmation of job and/or pool deletion.
 
 Output from the sample application is similar to the following:
 
@@ -163,54 +151,18 @@ Sample complete, hit ENTER to exit...
 
 > [!NOTE]
 > Due to the variable creation and start time of nodes in a new pool (some nodes are ready for tasks before others), you may see different output. Specifically, because the tasks complete quickly, one of the pool's nodes may execute all of the job's tasks. If this occurs, you will notice that the job prep and release tasks do not exist for the node that executed no tasks.
-> 
-> 
 
 ### Inspect job preparation and release tasks in the Azure portal
-When you run the sample application, you can use the [Azure portal][portal] to view the properties of the job and its tasks, or even download the shared text file that is modified by the job's tasks.
 
-The screenshot below shows the **Preparation tasks blade** in the Azure portal after a run of the sample application. Navigate to the *JobPrepReleaseSampleJob* properties after your tasks have completed (but before deleting your job and pool) and click **Preparation tasks** or **Release tasks** to view their properties.
+You can use the [Azure portal](https://portal.azure.com) to view the properties of the job and its tasks. After you run the sample application, you can also download the shared text file that is modified by the job's tasks.
 
-![Job preparation properties in Azure portal][1]
+The screenshot below shows the **Preparation tasks blade** in the Azure portal. Navigate to the *JobPrepReleaseSampleJob* properties after your tasks have completed (but before deleting your job and pool) and click **Preparation tasks** or **Release tasks** to view their properties.
+
+:::image type="content" source="media/batch-job-prep-release/portal-jobprep-01.png" alt-text="Screenshot showing job preparation task properties in the Azure portal.":::
 
 ## Next steps
-### Application packages
-In addition to the job preparation task, you can also use the [application packages](batch-application-packages.md) feature of Batch to prepare compute nodes for task execution. This feature is especially useful for deploying applications that do not require running an installer, applications that contain many (100+) files, or applications that require strict version control.
 
-### Installing applications and staging data
-This MSDN forum post provides an overview of several methods of preparing your nodes for running tasks:
-
-[Installing applications and staging data on Batch compute nodes][forum_post]
-
-Written by one of the Azure Batch team members, it discusses several techniques that you can use to deploy applications and data to compute nodes.
-
-[api_net]: /dotnet/api/microsoft.azure.batch
-[api_net_listjobs]: /dotnet/api/microsoft.azure.batch.joboperations
-[api_rest]: /rest/api/batchservice/
-[azure_storage]: https://azure.microsoft.com/services/storage/
-[portal]: https://portal.azure.com
-[job_prep_release_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease
-[forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
-[net_batch_client]: /dotnet/api/microsoft.azure.batch.batchclient
-[net_cloudjob]:https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
-[net_job_prep]: /dotnet/api/microsoft.azure.batch.jobpreparationtask
-[net_job_prep_cloudjob]: /dotnet/api/microsoft.azure.batch.cloudjob
-[net_job_prep_resourcefiles]: /dotnet/api/microsoft.azure.batch.jobpreparationtask
-[net_job_delete]: /previous-versions/azure/mt281411(v=azure.100)
-[net_job_terminate]: /previous-versions/azure/mt188985(v=azure.100)
-[net_job_release]: /dotnet/api/microsoft.azure.batch.jobreleasetask
-[net_job_release_cloudjob]: /dotnet/api/microsoft.azure.batch.cloudjob
-[pool_starttask]: /dotnet/api/microsoft.azure.batch.cloudpool
-
-[net_list_certs]: /dotnet/api/microsoft.azure.batch.certificateoperations
-[net_list_compute_nodes]: /dotnet/api/microsoft.azure.batch.pooloperations
-[net_list_job_schedules]: /dotnet/api/microsoft.azure.batch.jobscheduleoperations
-[net_list_jobprep_status]: /dotnet/api/microsoft.azure.batch.joboperations
-[net_list_jobs]: /dotnet/api/microsoft.azure.batch.joboperations
-[net_list_nodefiles]: /dotnet/api/microsoft.azure.batch.joboperations
-[net_list_pools]: /dotnet/api/microsoft.azure.batch.pooloperations
-[net_list_schedule_jobs]: /dotnet/api/microsoft.azure.batch.jobscheduleoperations
-[net_list_task_files]: /dotnet/api/microsoft.azure.batch.cloudtask
-[net_list_tasks]: /dotnet/api/microsoft.azure.batch.joboperations
-
-[1]: ./media/batch-job-prep-release/portal-jobprep-01.png
+- Learn about [error checking for jobs and tasks](batch-job-task-error-checking.md).
+- Learn how to use [application packages](batch-application-packages.md) to prepare Batch compute nodes for task execution.
+- Explore different ways to [copy data and application to Batch compute nodes](batch-applications-to-pool-nodes.md).
+- Learn about using the [Azure Batch File Conventions library](batch-task-output.md#batch-file-conventions-library) to persist logs and other job and task output data.

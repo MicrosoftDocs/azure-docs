@@ -405,7 +405,7 @@ PolicyState     : Valid
 Now the policy object is complete and has an associated backup schedule, retention policy, and an inclusion/exclusion list of files. This policy can now be committed for Azure Backup to use. Before you apply the newly created policy, ensure that there are no existing backup policies associated with the server by using the [Remove-OBPolicy](/powershell/module/msonlinebackup/remove-obpolicy) cmdlet. Removing the policy will prompt for confirmation. To skip the confirmation, use the `-Confirm:$false` flag with the cmdlet.
 
 >[!Note]
->While running the cmdlet if it prompts to set a Security PIN, see the [Method 1 section](/azure/backup/backup-azure-delete-vault#method-1).
+>While running the cmdlet if it prompts to set a Security PIN, see the [Method 1 section](./backup-azure-delete-vault.md#method-1).
 
 ```powershell
 Get-OBPolicy | Remove-OBPolicy

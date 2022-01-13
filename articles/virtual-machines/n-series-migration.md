@@ -1,12 +1,10 @@
 ---
 title: Migration Guide for GPU Compute Workloads in Azure
 description: NC, ND, NCv2-series migration guide.
-author: iafinder
 ms.service: virtual-machines
 ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 08/15/2020
-ms.author: iafinder
 ---
  
 # Migration Guide for GPU Compute Workloads in Azure
@@ -25,7 +23,7 @@ Azure recognizes that customers have a multitude of requirements that may dictat
 
 At the same time, GPU acceleration is a new and rapidly evolving area.
 
-Thus, there is no true one-size fits-all guidance for this product area, and a migration is a perfect time to re-evaluate potentially dramatic changes to a workload- like moving from a clustered deployment model to a single large 8-GPU VM or vise-versa, leveraging reduced precision datatypes, adopting features like Multi-Instance GPU, and much more.
+Thus, there is no true one-size fits-all guidance for this product area, and a migration is a perfect time to re-evaluate potentially dramatic changes to a workload- like moving from a clustered deployment model to a single large 8-GPU VM or vice versa, leveraging reduced precision datatypes, adopting features like Multi-Instance GPU, and much more.
 
 These sorts of considerations- when made the context of already dramatic per-generation GPU performance increases, where a feature such as the addition of TensorCores can increase performance by an order of magnitude, are extremely workload-specific.
 
@@ -107,7 +105,7 @@ Follow the guide to [request an increase in vCPU quota by VM family.](../azure-p
 
 #### Resize the current virtual machine
 
-You can [resize the virtual machine through Azure portal or PowerShell](./windows/resize-vm.md). You can also [resize the virtual machine using Azure CLI](./linux/change-vm-size.md).
+You can [resize the virtual machine](resize-vm.md). 
 
 ## Next steps
 

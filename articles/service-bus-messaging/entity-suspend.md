@@ -2,7 +2,7 @@
 title: Azure Service Bus - suspend messaging entities
 description: This article explains how to temporarily suspend and reactivate Azure Service Bus message entities (queues, topics, and subscriptions).
 ms.topic: article
-ms.date: 09/29/2020 
+ms.date: 09/28/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -63,7 +63,7 @@ You can change subscription status in the Azure portal. Select the current statu
 :::image type="content" source="./media/entity-suspend/subscription-state-change.png" alt-text="Change subscription status":::
 
 The states that can be set for a **subscription** are:
-- **Active**: The subscription is active. You can receive messages frm the subscription.
+- **Active**: The subscription is active. You can receive messages from the subscription.
 - **Disabled**: The subscription is suspended. You can't receive messages from the subscription. 
 - **ReceiveDisabled**: Same effect as **Disabled**. You can't receive messages from the subscription. You'll get an exception if you try to receive messages to the subscription.
 

@@ -7,13 +7,13 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 10/07/2021
 ms.author: banders
 ---
 
 # Manage costs with Azure Budgets
 
-Cost control is a critical component to maximizing the value of your investment in the cloud. There are several scenarios where cost visibility, reporting, and cost-based orchestration are critical to continued business operations. [Azure Cost Management APIs](/rest/api/consumption/) provide a set of APIs to support each of these scenarios. The APIs provide usage details, allowing you to view granular instance level costs.
+Cost control is a critical component to maximizing the value of your investment in the cloud. There are several scenarios where cost visibility, reporting, and cost-based orchestration are critical to continued business operations. [Cost Management APIs](/rest/api/consumption/) provide a set of APIs to support each of these scenarios. The APIs provide usage details, allowing you to view granular instance level costs.
 
 Budgets are commonly used as part of cost control. Budgets can be scoped in Azure. For instance, you could narrow your budget view based on subscription, resource groups, or a collection of resources. In addition to using the budgets API to notify you via email when a budget threshold is reached, you can use [Azure Monitor action groups](../../azure-monitor/alerts/action-groups.md) to trigger an orchestrated set of actions resulting from a budget event.
 
@@ -55,7 +55,7 @@ Using an [Azure Automation runbook](../../automation/automation-runbook-types.md
 1. Once the runbook has completed the import process, select **Edit** to display the graphical runbook editor and publishing option.  
     ![Azure - Edit graphical runbook](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-01.png)
 1. Select **Publish** to publish the runbook and then select **Yes** when prompted. When you publish a runbook, you override any existing published version with the draft version. In this case, you've no published version because you've created the runbook.
-    For more information about publishing a runbook, see [Create a graphical runbook](../../automation/learn/automation-tutorial-runbook-graphical.md).
+    For more information about publishing a runbook, see [Create a graphical runbook](../../automation/learn/powershell-runbook-managed-identity.md).
 
 ## Create webhooks for the runbook
 

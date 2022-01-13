@@ -2,7 +2,7 @@
 title: Use extensions with Batch pools
 description: Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes. 
 ms.topic: how-to
-ms.date: 08/06/2021
+ms.date: 11/03/2021
 ---
 
 # Use extensions with Batch pools
@@ -17,12 +17,19 @@ You can check the live status of the extensions you use and retrieve the informa
 - The CustomScript extension type is reserved for the Azure Batch service and can't be overridden.
 - Some extensions may need pool-level Managed Identity accessible in the context of a compute node in order to function properly. Please see [configuring managed identities in Batch pools](managed-identity-pools.md) if applicable for the extension(s).
 
-### Supported extensions
+## Supported extensions
 
 The following extensions can currently be installed when creating a Batch pool:
 
-- Azure Key Vault extension for both [Linux](../virtual-machines/extensions/key-vault-linux.md) and [Windows](../virtual-machines/extensions/key-vault-windows.md)
-- Log analytics and Monitoring extension for both [Linux](../virtual-machines/extensions/oms-linux.md) and [Windows](../virtual-machines/extensions/oms-windows.md)
+- [Azure Key Vault extension for Linux](../virtual-machines/extensions/key-vault-linux.md)
+- [Azure Key Vault extension for Windows](../virtual-machines/extensions/key-vault-windows.md)
+- [Azure Monitor Logs analytics and monitoring extension for Linux](../virtual-machines/extensions/oms-linux.md)
+- [Azure Monitor Logs analytics and monitoring extension for Windows](../virtual-machines/extensions/oms-windows.md)
+- [Azure Desired State Configuration (DSC) extension](../virtual-machines/extensions/dsc-overview.md)
+- [Azure Diagnostics extension for Windows VMs](../virtual-machines/windows/extensions-diagnostics.md)
+- [HPC GPU driver extension for Windows on AMD](../virtual-machines/extensions/hpccompute-amd-gpu-windows.md)
+- [HPC GPU driver extension for Windows on NVIDIA](../virtual-machines/extensions/hpccompute-gpu-windows.md)
+- [Microsoft Antimalware extension for Windows](../virtual-machines/extensions/iaas-antimalware-windows.md)
 
 You can request support for additional publishers and/or extension types by opening a support request.
 
