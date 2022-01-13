@@ -52,6 +52,18 @@ Fill out and submit the [request form](https://aka.ms/csdisconnectedcontainers) 
 
 3. Select **Review + Create** at the bottom of the page. Review the information, and select **Create**. 
 
+## Gather required parameters
+
+There are three primary parameters for all Cognitive Services' containers that are required. The end-user license agreement (EULA) must be present with a value of *accept*. Additionally, both an endpoint URL and API key are needed when you first run the container, to configure it for disconnected usage.
+
+You can find the key and endpoint on the **Overview** page for your resource, under **Get started**
+
+:::image type="content" source="media/portal-key-endpoint.png" alt-text="A screenshot of the resource key and endpoint on the Azure portal." lightbox="media/portal-key-endpoint.png":::
+
+
+> [!IMPORTANT]
+> These subscription keys are used to access your Cognitive Service API. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service.
+
 ## Download a Docker container with `docker pull`
 
 After you have a license file, download the Docker container you have approval to run in a disconnected environment. For example:
