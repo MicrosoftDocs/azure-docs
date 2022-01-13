@@ -15,7 +15,7 @@ ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
 ---
-# Controlled validation of hybrid Azure AD join
+# Hybrid Azure AD join targeted deployment
 
 When all of the pre-requisites are in place, Windows devices will automatically register as devices in your Azure AD tenant. The state of these device identities in Azure AD is referred as hybrid Azure AD join. More information about the concepts covered in this article can be found in the articles [Introduction to device management in Azure Active Directory](overview.md) and [Plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md).
 

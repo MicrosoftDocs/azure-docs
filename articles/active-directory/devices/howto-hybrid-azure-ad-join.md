@@ -19,6 +19,8 @@ ms.collection: M365-identity-device-management
 
 Bringing your devices to Azure AD maximizes user productivity through single sign-on (SSO) across your cloud and on-premises resources. You can secure access to your resources with [Conditional Access](../conditional-access/howto-conditional-access-policy-compliant-device.md) at the same time.
 
+> [!VIDEO https://www.youtube-nocookie.com/embed/hSCVR1oJhFI]
+
 ## Prerequisites
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) version 1.1.819.0 or later.
@@ -114,6 +116,12 @@ Configure hybrid Azure AD join by using Azure AD Connect for a federated environ
 ### Federation caveats
 
 With Windows 10 1803 or newer, if instantaneous hybrid Azure AD join for a federated environment using AD FS fails, we rely on Azure AD Connect to sync the computer object in Azure AD that's then used to complete the device registration for hybrid Azure AD join.
+
+## Other scenarios
+
+Some organizations may not be able to use Azure AD Connect to configure AD FS, the steps to configure the claims manually can be found in the article [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual.md).
+
+Organizations who may wish to test hybrid Azure AD join on a subset of their environment before a full rollout, the steps to complete a targeted deployment can be found in the article [Hybrid Azure AD join targeted deployment](hybrid-azuread-join-control.md).
 
 ## Troubleshoot hybrid Azure AD join
 
