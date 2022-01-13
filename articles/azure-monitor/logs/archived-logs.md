@@ -1,12 +1,11 @@
 ---
 title: Azure Monitor Archived Logs
-description: Use Azure Monitor Basic Logs to quickly, or periodically investigate issues, troubleshoot code or configuration problems or address support cases.
-author: MeirMen, adiBiran
-ms.author: meirm, adbiran
-ms.reviewer: osalzberg
+description: Overview of Archived Logs which is a feature of Azure Monitor that lets you archive data from a table after its retention period.
+author: bwren
+ms.author: bwren
 ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/31/2021
+ms.date: 01/12/2022
 
 ---
 
