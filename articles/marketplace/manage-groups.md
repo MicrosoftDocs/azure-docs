@@ -24,7 +24,6 @@ To add a group that already exists in your organization's work account (Azure AD
 1. Select one or more groups from the list that appears and then select **Next**.
     > [!NOTE]
     > You can use the search box to search for specific groups. If you select more than one group to add to your Partner Center account, you must assign them the same role or set of custom permissions. To add multiple groups with different roles/permissions, repeat these steps for each role or set of custom permissions.
-1. When you are finished choosing groups, select **Add selected**.
 1. In the panel that appears, select the roles you want and then select **Add**.  All members of the group will be able to access your Partner Center account with the permissions you apply to the group, regardless of the roles and permissions associated with their individual account.
 
 When you add an existing group, every user who is a member of that group will be able to access your Partner Center account, with the permissions associated with the group's assigned role.

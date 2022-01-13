@@ -20,12 +20,12 @@ ms.date: 01/14/2022
 An organization can have multiple publishers associated with a commercial marketplace account. A user who is part of an existing publisher account can add publishers.
 
 >[!NOTE]
->Before you add a new publisher, review your list of existing publishers by signing into Partner Center and selecting **Settings** > **Account Settings**. Then in the left-nav, under **Organization profile**, select **Identifiers**. The publishers on your account are listed under **Publisher**.
+>Before you add a new publisher, review your list of existing publishers by signing into Partner Center and selecting **Settings** > **Account Settings**. Then in the left-menu, under **Organization profile**, select **Identifiers**. The publishers on your account are listed under **Publisher**.
 
 ## Add new publishers
 
 1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507).
-1. In the upper-right, select **Settings** > **Account settings**.
+1. In the upper-right, select **Settings** (gear icon) > **Account settings**.
 1. Under **Organization Profile**, select **Identifiers**.
 1. In the **Publisher** section, select **Add publisher**.
 1. Choose the MPN ID that you want to associate with the publisher.
