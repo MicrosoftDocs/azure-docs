@@ -33,7 +33,7 @@ Windows (excluding UWP) | C++, C#, Java, Python | [1.18.3](https://gstreamer.fre
 
 ### [Android](#tab/android)
 
-See [GStreamer configuration by programming language](#gstreamer-configuration-by-programming-language) for the details about building libgstreamer_android.so.
+See [GStreamer configuration by programming language](#gstreamer-configuration) for the details about building libgstreamer_android.so.
 
 For more information see [Android installation instructions](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c). 
 
@@ -72,7 +72,7 @@ For more information about GStreamer, see [Windows installation instructions](ht
 
 ***
 
-## GStreamer configuration by programming language
+## GStreamer configuration
 
 > [!NOTE]
 > GStreamer configuration requirements vary by programming language. For details, choose your programming language at the top of this page. The contents of this section will be updated. 
@@ -97,7 +97,7 @@ For more information about GStreamer, see [Windows installation instructions](ht
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/go/prerequisites.md)]
 ::: zone-end
 
-## Example code using codec compressed audio input
+## Example
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/csharp/examples.md)]
