@@ -1,15 +1,43 @@
 ---
-title: Basic tier - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: The single node basic tier for Azure Database for PostgreSQL - Hyperscale (Citus)
+title: Server group - Hyperscale (Citus) - Azure Database for PostgreSQL
+description: What is a server group in Azure Database for PostgreSQL - Hyperscale (Citus)
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 08/03/2021
+ms.date: 01/13/2022
 ---
 
-# Basic tier
+# Hyperscale (Citus) server group
+
+## Nodes
+
+The Azure Database for PostgreSQL - Hyperscale (Citus) deployment option allows
+Azure Database for PostgreSQL servers (called nodes) to coordinate with one
+another in a "shared nothing" architecture. The nodes in a server group
+collectively hold more data and use more CPU cores than would be possible on a
+single server. The architecture also allows the database to scale by adding
+more nodes to the server group.
+
+To learn more about the types of Hyperscale (Citus) nodes, see [nodes and
+tables](concepts-nodes.md).
+
+### Node states
+
+* **Provisioning**: Initial node provisioning, either as a part of its server
+  group provisioning, or when a worker node is added.
+* **Available**: Node is in a healthy state.
+* **Need attention**: An issue is detected on the node. Usually it means that
+  the self-healing process has been kicked off, or that the node failed to
+  self-heal and issue was put in the queue for our engineers to investigate.
+* **Dropping**: Server group deletion was initiated.
+* **Disabled**: The server group's Azure subscription turned into Disabled
+  states. See [this
+  page](../../cost-management-billing/manage/subscription-states.md) for more
+  details.
+
+## Tiers
 
 The basic tier in Azure Database for PostgreSQL - Hyperscale (Citus) is a
 simple way to create a small server group that you can scale later. While
@@ -20,7 +48,7 @@ Other than using fewer nodes, the basic tier has all the features of the
 standard tier. Like the standard tier, it supports high availability, read
 replicas, and columnar table storage, among other features.
 
-## Choosing basic vs standard tier
+### Choosing basic vs standard tier
 
 The basic tier can be an economical and convenient deployment option for
 initial development, testing, and continuous integration. It uses a single
