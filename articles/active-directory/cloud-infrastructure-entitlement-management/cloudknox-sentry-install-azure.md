@@ -8,27 +8,27 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/15/2021
+ms.date: 01/12/2022
 ms.author: v-ydequadros
 ---
 
 
 # Install Microsoft CloudKnox Permissions Management Sentry on Microsoft Azure
 
-This topic describes how to install the Microsoft CloudKnox Permissions Management Sentry on Microsoft Azure.
+This topic describes how to install the Microsoft CloudKnox Permissions Management Sentry on Microsoft Azure (Azure).
 
-<!---![AWS Sentry Installation](sentry-install-AWS.jpg)--->
+<!---![Azure Sentry Installation](sentry-install-Azure.jpg)--->
 
 ## CloudKnox overview
 
-The CloudKnox Sentry is an agent packaged in a virtual appliance. It gathers information on users, their privileges, activity, and resources for any monitored Amazon Web Services (AWS) account(s). It can be deployed in two ways:
+The CloudKnox Sentry is an agent packaged in a virtual appliance. It gathers information on users, their privileges, activity, and resources for any monitored Azure account(s). It can be deployed in two ways:
 
 - *Read only* (controller disabled), which only collects information about the account.
 - *Controller enabled*, which allows the CloudKnox Sentry to collect information and make changes to identity and access management (IAM) roles, policies, and users.
 
 To provide visibility and insights, the CloudKnox Sentry collects information from many sources. It uses *Read*, *List*, and *Describe* privileges, for example, to help CloudKnox display resource information to catalog ec2 instances and s3 buckets.
 
-To gain insight into activity within the AWS account, CloudKnox gathers CloudTrail event logs and ties them to individual identities.
+To gain insight into activity within the Azure account, CloudKnox gathers CloudTrail event logs and ties them to individual identities.
 
 ### Architecture
 
@@ -36,7 +36,7 @@ The CloudKnox Sentry is a Linux-based appliance that collects information about 
 
 Inbound traffic to the Sentry is only received on port 22, and is used for configuration by the CloudKnox administrator. We recommend only allowing traffic from any observable source IP addresses your administrator may be configuring from. Outbound traffic is 443 to make API calls to Azure, CloudKnox, and Azure Active Directory (AD).
 
-<!---![Sentry Architecture AWS](sentry-architecture-AWS.png)--->
+<!---![Sentry Architecture Azure](sentry-architecture-Azure.png)--->
 
 ### Port requirements
 
@@ -45,15 +45,15 @@ Inbound traffic to the Sentry is only received on port 22, and is used for confi
 | Traffic      | Port | Description                                                                                               |
 | ------------ | ---- | --------------------------------------------------------------------------------------------------------- |
 | TCP Inbound  | 9000 | Configuration. </p>Request this information from the administrator's source IP only when you're doing a configuration. |
-| TCP Outbound | 443  | API calls to AWS, CloudKnox, and for identity provider (IDP) integration.        |
+| TCP Outbound | 443  | API calls to Azure, CloudKnox, and for identity provider (IDP) integration.        |
 
 ### Multi-account collection from one Sentry
 
-For AWS organizations with multiple AWS accounts, you can set up one Sentry to collect from multiple AWS accounts by allowing the Sentry's IAM role to assume a cross-account role in the account from which you want to collect data. To allow cross-account, configure a trust relationship.
+For Azure organizations with multiple accounts, you can set up one Sentry to collect from multiple accounts by allowing the Sentry's IAM role to assume a cross-account role in the account from which you want to collect data. To allow cross-account, configure a trust relationship.
 
 **Explanation and diagram**
 
-<!---![Multi-Account Collection Diagram](multi-account-AWS.png)--->
+<!---![Multi-Account Collection Diagram](multi-account-Azure.png)--->
 
 **Example**
 
@@ -63,7 +63,7 @@ If the Sentry in Account B needs to collect entitlement, resource, and activity 
 
 2. The role assumes a cross-account role to Account A.
 
-3. The cross-account role collects information about user privileges, groups, resources, configuration, and activity from native AWS services through the API. It then returns the data to the CloudKnox Sentry.
+3. The cross-account role collects information about user privileges, groups, resources, configuration, and activity from native Azure services through the API. It then returns the data to the CloudKnox Sentry.
 
 ## CloudKnox Sentry deployment prerequisites
 

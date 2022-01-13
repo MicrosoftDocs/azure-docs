@@ -1,5 +1,5 @@
 ---
-title: Microsoft CloudKnox Permissions Management User Management
+title: Microsoft CloudKnox Permissions Management - Define and manage users, roles, and access levels
 description: How to use Microsoft CloudKnox Permissions Management User Management to define and manage users, roles, and access levels.
 services: active-directory
 author: Yvonne-deQ
@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/15/2021
+ms.date: 01/12/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management User Management
+# Microsoft CloudKnox Permissions Management - Define and manage users, roles, and access levels
 
-In Microsoft CloudKnox Permissions Management, a key component of the  interface is the User Management dashboard. In this dashboard, system administrators can define and manage users, their roles, and their access levels in the system.
+In Microsoft CloudKnox Permissions Management (CloudKnox), a key component of the  interface is the User Management dashboard. This topic describes how system administrators can define and manage users, their roles, and their access levels in the system.
 
 ## The User Management dashboard
 
@@ -44,11 +44,11 @@ The CloudKnox User Management system includes the following components:
 - **Groups** - A group of users who interact with the CloudKnox application through their organization. The organization must create the groups.
 - **Authorization Systems** - The system that specifies access privileges to resources by users or groups. These groups include Amazon Web Services (AWS) accounts, Google Cloud Platform (GCP) projects, Microsoft Azure subscriptions, and vCenter deployments.
 
-## How to manage users for customers without SAML integration
+## Manage users for customers without SAML integration
 
 Follow this process to invite users if the customer hasn't enabled SAML integration with the CloudKnox application.
 
-### How to invite a user to CloudKnox
+### Invite a user to CloudKnox
 
 Inviting a user to CloudKnox adds the user to the system and allows system administrators to assign permissions to those users. Follow the steps below to invite a user to CloudKnox.
 
@@ -101,7 +101,7 @@ Inviting a user to CloudKnox adds the user to the system and allows system admin
 
     The following message displays in green at the top of the screen: **New User Has Been Invited Successfully**.
 
-### How to use the Invited tab
+### The Invited tab
 
 1. To view the invited user, select the **Invited** tab. The system administrator can view the following details:
 
@@ -118,7 +118,7 @@ Inviting a user to CloudKnox adds the user to the system and allows system admin
 
     When a user registers with CloudKnox, their name moves from the **Invited** tab to the **Registered** tab.
 
-### How to use the Registered tab
+### The Registered tab
 
 1. The **Registered** tab provides a high-level overview of user details to system administrators:
     - The **Name/Email Address** column lists the name and email address of the user.
@@ -138,11 +138,11 @@ Inviting a user to CloudKnox adds the user to the system and allows system admin
     - **Edit Permissions** - System administrators can edit a user's permissions.
     - **Delete User** - System administrators can delete a user.
 
-## How to manage users for customers with SAML integration
+## Manage users for customers with SAML integration
 
 Follow this process to invite users if the customer has enabled SAML integration with the CloudKnox application.
 
-### How to create a permission in CloudKnox
+### Create a permission in CloudKnox
 
 Creating a permission directly in CloudKnox allows system administrators to assign permissions to specific users. The following steps help you to create a permission.
 
@@ -200,7 +200,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
  **New User Has Been Created Successfully**.  
     5. The new user receives an email invitation to log in to CloudKnox.
 
-### How to use the Pending tab
+### The Pending tab
 
 1. To view the created permission, select the **Pending** tab. The system administrator can view the following details:
     - **Email Address** - Displays the email address of the invited user.
@@ -215,7 +215,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
 
        When a user registers with CloudKnox, they move from the **Pending** tab to the **Registered** tab.
 
-### How to use the Registered tab
+### The Registered tab
 
 - For **Users**:
 
@@ -292,7 +292,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
     
        The following message displays in green at the top of the screen: **New Group Has Been Created Successfully**. 
 
-### How to use the Groups tab
+### The Groups tab
 
 1. The **Groups** tab provides a high-level overview of user details to system administrators:
     
@@ -317,4 +317,11 @@ Creating a permission directly in CloudKnox allows system administrators to assi
     - **Duplicate** - System administrators can duplicate permissions from one group to another.
     - **Delete** - System administrators can delete permissions from a group.
 
+
+
 <!---## Next steps--->
+
+<!---For information about how to view a system report, see [View a system report](cloudknox-report-view-system-report.html).--->
+<!---For information about how to create and view a custom report, see [Create and view a custom report](cloudknox-report-create-custom-report.html).--->
+<!---For a list of available system reports, see [List of system reports](cloudknox-all-reports.html).--->
+<!---For a detailed overview of available system reports, see [Overview of available system reports}(cloudknox-product-reports.html).--->

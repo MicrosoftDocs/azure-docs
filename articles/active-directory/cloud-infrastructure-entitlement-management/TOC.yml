@@ -78,8 +78,8 @@
       href: cloudknox-product-audit-trail.md
     - name: Read information on the CloudKnox dashboard
       href: cloudknox-product-dashboard.md
-    - name: View details about identities, resources, and tasks
-      href: cloudknox-product-user-management.md
+    - name: Define and manage users, roles, and access levels
+      href: cloudknox-product-define-permission-levels.md
     - name: Usage analytics 
       expanded: true
       items:
@@ -160,22 +160,26 @@
   - name: Reports 
     expanded: true
     items: 
-    - name: Overview of reports 
-      href: cloudknox-all-reports.md
-    - name: Create and system and custom reports
+    - name: Overview of available system report types
       href: cloudknox-product-reports.md
+    - name: Quick list of system reports
+      href: cloudknox-all-reports.md
+    - name: View a system report
+      href: cloudknox-report-view-system-report.md
+    - name: Create and view a custom report
+      href: cloudknox-report-create-custom-report.md
     - name: The Permissions Analytics report
       href: cloudknox-product-permissions-analytics-reports.md
-  #- name: Compliance
-    #expanded: true
-    #items:
-    #- name: Compliance with established guidelines
-      #href: cloudknox-product-compliance.md
-  - name: Training material
+  - name: Compliance
     expanded: true
     items:
-    - name: Get started with CloudKnox training videos
-      href: cloudknox-training-videos.md
+    - name: Compliance with established guidelines
+      href: cloudknox-product-compliance.md
+  #- name: Training material
+    #expanded: true
+    #items:
+    #- name: Get started with CloudKnox training videos
+      #href: cloudknox-training-videos.md
   - name: Reference
     expanded: true
     items:

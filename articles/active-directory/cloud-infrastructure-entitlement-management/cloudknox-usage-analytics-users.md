@@ -63,10 +63,10 @@ On the **Usage Analytics** dashboard:
 
              As a system administrator, you can hover over the information in this column for specific details on how long the user has had a high, medium, or low privilege creep index (PCI). For example, if you hover over **! High - 130 days**, the following message displays: **The User's privilege creep index has been High since 14 February 2020, 1:37 PM in the authorization system**.
 
-    - **Tasks**: Displays how many tasks are assigned to a particular user, and is broken into the following columns:
+    - **Tasks**: Displays how many tasks are assigned to a particular user. The tasks are organized into the following columns:
         - **Granted**: Captures the number of tasks that have been granted to the user directly, granted to the user if part of a group, or granted based on the AWS role type the user can assume.
         - **Executed**: Displays how many of the tasks the user has executed in the last 90 days.
-    - **Resources**: Displays how many resources a particular user can access, and is broken into the following columns:
+    - **Resources**: Displays how many resources a particular user can access, and is organized into the following columns:
         - **All**: Captures the number of resources the user can access.
         - **Accessed**: Displays how many of the resources the user has accessed.
     - **User Groups**: Identifies how many groups a user belongs to.
@@ -247,7 +247,8 @@ There are many filter options on the **Users** screen, including filters by **Au
     1. Click **Add Tag**. 
     1. Select the **Authorization System Type**. 
 
-          The **Authorization System Type** drop-down list doesn't display multiple options if the current user is only part of one authorization system, .
+       The **Authorization System Type** drop-down list won't have multiple options if the current user is part of only one authorization system.
+
     1. Click in the **Tag** box. 
 
           A  drop-down list of existing tags appears. Select from the current options or can type in a brand new tag and then select **Create**. 

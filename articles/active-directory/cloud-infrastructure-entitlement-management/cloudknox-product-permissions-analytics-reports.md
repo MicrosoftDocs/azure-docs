@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management Permissions Analytics report
-description: How to use the Microsoft CloudKnox Permissions ManagementPermissions Analytics report.
+title: Microsoft CloudKnox Permissions Management - The Permissions Analytics report
+description: How to use the Permissions Analytics report in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 01/12/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management Permissions Analytics report
+# Microsoft CloudKnox Permissions Management - The Permissions Analytics report
 
-This topic describes how to use the Permissions Analytics report at Microsoft CloudKnox Permissions Management.
+This topic describes how to use the **Permissions Analytics report** in Microsoft CloudKnox Permissions Management (CloudKnox).
 
 > [!NOTE]
 > This topic applies only to Amazon Web Services (AWS) users.
 
-## How to use the Permissions Analytics report 
+## View the Permissions Analytics report 
 
 1. From the **Systems Reports** tab, under **Report Name**, select **Permissions Analytics Report**.
 2. To view the Privilege Creep Index and Identities statistics, select the right arrow next to **Summary**. 
@@ -101,13 +101,13 @@ This topic describes how to use the Permissions Analytics report at Microsoft Cl
 	- Date Created On - Displays the date in which the identity was created.
 
 
-## How to add and remove tags from the Permissions Analytics report
+## Add and remove tags in the Permissions Analytics report
 
 1. Select **Tags**.
 
 2. Select one of the categories from the **Permissions Analytics Report**.
 
-     <!---For more information, see [How to use the Permissions Analytics Report](cloudknox-prod-reports.md#how-to-use-the-Permissions-Analytics-Report).--->
+     <!---For more information, see [Use the Permissions Analytics Report](cloudknox-prod-reports.md#how-to-use-the-Permissions-Analytics-Report).--->
 
 3. Select the identity name to which you want to add a tag. Then, select the checkbox at the top to select all identities.
 
