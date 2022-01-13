@@ -153,7 +153,7 @@ For example, if there was a scenario that some users would need to have access t
 
 If the motivation of the incompatible access is one resource's roles are particularly problematic, then that resource could be omitted from the combined access package, and require explicit administrator assignment of a user to the role.  If that is a third party application or your own application, then you can ensure oversight by monitoring those role assignments using the  *Application role assignment activity* workbook described in the next section.
 
-Depending on your governance processes, that combined access package could have as its policy either
+Depending on your governance processes, that combined access package could have as its policy either:
 
  - a direct assignments policy, so that only an access package manager would be interacting with the access package, or
  - a users can request access policy, so that a user can request, with potentially an additional approval stage
