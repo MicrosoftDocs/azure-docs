@@ -111,4 +111,4 @@ Azure Private 5G Core includes and utilizes the following Azure services.
 <!--
 DJR - we should include appropriate links for the deployment process and for SIM / policy provisioning as well ##
 -->
-- [Learn more about the prerequisites for deploying a private mobile network](private-mobile-network-prerequisites.md)
+- [Learn more about the prerequisites for deploying a private mobile network](complete-private-mobile-network-prerequisites.md)
