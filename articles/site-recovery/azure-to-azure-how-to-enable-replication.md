@@ -55,14 +55,14 @@ Enable replication. This procedure assumes that the primary Azure region is East
       1.	In the **Basics** tab, under **Project details**, select the correct subscription and then choose to create a new resource group or use an existing one.
       1.	Under **Instance details**, type a name for the virtual machine and choose a **Region**.
       1.	Go to the **Advanced** tab.
-      1.	In the **Capacity reservation group** dropdown, select the capacity reservation group that you want the VM to be associated with. Or, create a new capacity reservation group by clicking **Create a new Capacity reservation group** to associate the VM and do the following:<br/>
-          - Select a **Subscription**. <br/>
+      1.	In the **Capacity reservation group** dropdown, select the capacity reservation group that you want the VM to be associated with or create a new capacity reservation group by clicking **Create a new Capacity reservation group** to associate the VM and do the following:<br/>
+          - Select a **Subscription**.<br/>
           - Select or create a Resource group.<br/>
           - Enter a name for the capacity reservation group.<br/>
           - Select a **Region**.<br/>
           - Select **Availability zones**.<br/>
           - Select **Next**.<br/>
-          - Under the **Reservations** tab, create at least one Capacity Reservation by providing each reservation a Reservation Name, the quantity of VM Instances, and select a unique VM size. The **Cost/month** column displays the billing information based on your selection.<br/>
+          - Under the **Reservations** tab, create at least one Capacity Reservation by providing each reservation a Reservation Name, the quantity of VM Instances, and select a unique VM size. The **Cost/month** column displays the billing information based on your selection.
       1.  Select **Review + create**.
 
       [Learn more](../virtual-machines/capacity-reservation-overview.md) about capacity reservation.
