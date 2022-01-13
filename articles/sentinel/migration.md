@@ -1,10 +1,7 @@
 ---
 title: Migrate to Microsoft Sentinel from an existing SIEM.
 description: Learn how to best migrate from an existing SIEM to Microsoft Sentinel, for scalable, intelligent security analytics across your organization.
-services: sentinel
-documentationcenter: na
 author: batamig
-ms.service: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: bagol
@@ -67,7 +64,7 @@ Consider the pros and cons for each approach when deciding which one to use in y
 > [!NOTE]
 > Many organizations avoid running multiple on-premises analytics solutions because of cost and complexity.
 >
-> Microsoft Sentinel provides [pay-as-you-go pricing](azure-sentinel-billing.md) and flexible infrastructure, giving SOC teams time to adapt to the change. Migrate and test your content at a pace that works best for your organization.
+> Microsoft Sentinel provides [pay-as-you-go pricing](billing.md) and flexible infrastructure, giving SOC teams time to adapt to the change. Migrate and test your content at a pace that works best for your organization.
 >
 ### Short-term approach
 
@@ -176,7 +173,7 @@ Make sure that you migrate only the data that represents your current key use ca
 
 1. Use any of the following resources to ingest data:
 
-    - Use **Microsoft Sentinel's [built-in data connectors](connect-data-sources.md)** to start ingesting data. For example, you may want to start a [free trial](azure-sentinel-billing.md#free-trial) with your cloud data, or use [free data connectors](azure-sentinel-billing.md#free-data-sources) to ingest data from other Microsoft products.
+    - Use **Microsoft Sentinel's [built-in data connectors](connect-data-sources.md)** to start ingesting data. For example, you may want to start a [free trial](billing.md#free-trial) with your cloud data, or use [free data connectors](billing.md#free-data-sources) to ingest data from other Microsoft products.
 
     - Use **[Syslog](connect-data-sources.md#syslog), [Common Event Format (CEF)](connect-data-sources.md#common-event-format-cef), or [REST APIs](connect-data-sources.md#rest-api-integration)** to connect other data sources.
 
@@ -256,7 +253,7 @@ Use automated workflows to group and prioritize alerts into a common incident, a
 
 For more information, see:
 
-- [Security Orchestration, Automation, and Response (SOAR) in Microsoft Sentinel](automation-in-azure-sentinel.md).
+- [Security Orchestration, Automation, and Response (SOAR) in Microsoft Sentinel](automation.md).
 - [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md)
 - [Automate incident handling in Microsoft Sentinel with automation rules](automate-incident-handling-with-automation-rules.md)
 
@@ -281,7 +278,7 @@ For more information, see:
 
 - [Rule migration best practices](https://techcommunity.microsoft.com/t5/azure-sentinel/best-practices-for-migrating-detection-rules-from-arcsight/ba-p/2216417)
 - [Webinar: Best Practices for Converting Detection Rules](https://www.youtube.com/watch?v=njXK1h9lfR4)
-- [Security Orchestration, Automation, and Response (SOAR) in Microsoft Sentinel](automation-in-azure-sentinel.md)
+- [Security Orchestration, Automation, and Response (SOAR) in Microsoft Sentinel](automation.md)
 - [Manage your SOC better with incident metrics](manage-soc-with-incident-metrics.md)
 - [Microsoft Sentinel learning path](/learn/paths/security-ops-sentinel/)
 - [SC-200 Microsoft Security Operations Analyst certification](/learn/certifications/exams/sc-200)

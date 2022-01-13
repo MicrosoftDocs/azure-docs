@@ -29,7 +29,7 @@ Before you can use custom text classification, you will need to create an Azure 
     |Location | "West US 2" or "West Europe"         |
     |Pricing tier     | Standard (**S**) pricing tier        |
 
-2. In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, select an existing storage account or select **Create a new storage account**. Note that these values are for this quickstart, and not necessarily the [storage account values](/azure/storage/common/storage-account-overview) you will want to use in production environments.
+2. In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, select an existing storage account or select **Create a new storage account**. Note that these values are for this quickstart, and not necessarily the [storage account values](../../../../../storage/common/storage-account-overview.md) you will want to use in production environments.
 
     |Storage account value  |Recommended value  |
     |---------|---------|
@@ -42,7 +42,7 @@ Before you can use custom text classification, you will need to create an Azure 
 
 ## Upload sample data to blob container
 
-After you have created an Azure storage account and linked it to your Language resource, you will need to upload the example files for this quickstart. These files will later be used to train your model.
+After you have created an Azure storage account and linked it to your Language resource, you will need to upload the example files to the root directory of your container for this quickstart. These files will later be used to train your model.
 
 1. [Download sample data](https://go.microsoft.com/fwlink/?linkid=2175083) for this quickstart from GitHub.
 

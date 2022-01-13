@@ -64,7 +64,7 @@ The type of projection you specify in this structure determines the type of stor
 
   Projected content is not aggregated or normalized. The following screenshot shows a table, sorted by key phrase, with the parent document indicated in the adjacent column. In contrast with data ingestion during indexing, there is no linguistic analysis or aggregation of content. Plural forms and differences in casing are considered unique instances.
 
-  :::image type="content" source="media/kstore-keyphrases-per-document.png" alt-text="Screenshot of key phrases and documents in a table" border="true":::
+  :::image type="content" source="media/knowledge-store-concept-intro/kstore-keyphrases-per-document.png" alt-text="Screenshot of key phrases and documents in a table" border="true":::
 
 + `objects` project JSON document into Blob storage. The physical representation of an `object` is a hierarchical JSON structure that represents an enriched document.
 
@@ -105,7 +105,7 @@ Within the skillset:
 + Include a Shaper skill in your skillset to determine the schema and contents of the projection
 + Assign the named shape to a projection
 
-### [**.NET SDK**](#tab/kstore-dotnet)
+### [**C#**](#tab/kstore-csharp)
 
 For .NET developers, use the [KnowledgeStore Class](/dotnet/api/azure.search.documents.indexes.models.knowledgestore) in the Azure.Search.Documents client library.
 

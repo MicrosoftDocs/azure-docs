@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: gwallace
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ---
 
 # Create a CI/CD pipeline for Ruby on Rails by using Azure DevOps Starter

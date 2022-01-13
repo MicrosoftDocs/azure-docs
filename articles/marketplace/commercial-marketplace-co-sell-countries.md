@@ -4,9 +4,10 @@ description: Use these two-letter country/region codes when providing contact in
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: palanis-MSFT
-ms.author: palanis
-ms.date: 08/27/2019
+author: vikrambmsft
+ms.author: vikramb
+ms.reviewer: palanis
+ms.date: 04/27/2021
 ---
 
 # Co-sell country and region codes

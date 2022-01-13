@@ -86,6 +86,12 @@ SELECT * FROM devices
 > [!NOTE]
 > [Azure IoT SDKs](iot-hub-devguide-sdks.md) support paging of large results.
 
+Aggregations are supported. For example, the following query gets a count of the total number of devices in an IoT hub:
+
+```sql
+SELECT COUNT() as totalNumberOfDevices FROM devices
+```
+
 IoT Hub allows you to retrieve device twins filtering with arbitrary conditions. For instance, to receive device twins where the **location.region** tag is set to **US** use the following query:
 
 ```sql
@@ -117,7 +123,7 @@ SELECT * FROM devices
 
 Refer to the [WHERE clause](iot-hub-devguide-query-language.md#where-clause) section for the full reference of the filtering capabilities.
 
-Grouping and aggregations are also supported. For instance, to find the count of devices in each telemetry configuration status, use the following query:
+Grouping is also supported. For instance, to find the count of devices in each telemetry configuration status, use the following query:
 
 ```sql
 SELECT properties.reported.telemetryConfig.status AS status,

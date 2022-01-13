@@ -1,13 +1,8 @@
 ---
 title: Defender for Cloud Readiness Roadmap | Microsoft Docs
 description: This document provides you a readiness roadmap to ramp up on Defender for Cloud.
-services: security-center
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 11/09/2021
-ms.author: memildin
 ---
 # Defender for Cloud readiness roadmap
 
@@ -95,7 +90,7 @@ Articles
 * [Defender for Cloud Documentation Page](./index.yml)
 * [Defender for Cloud REST API Documentation Page](/previous-versions/azure/reference/mt704034(v=azure.100))
 * [Defender for Cloud frequently asked questions (FAQ)](./faq-general.yml)
-* [Pricing page](https://azure.microsoft.com/pricing/details/security-center/)
+* [Pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)
 * [Identity security best practices](../security/fundamentals/identity-management-best-practices.md)
 * [Network security best practices](../security/fundamentals/network-best-practices.md)
 * [PaaS recommendations](../security/fundamentals/paas-deployments.md)

@@ -1,12 +1,12 @@
 ---
-title:  "Quickstart - Integrate with Azure Database for MySQL"
+title: "Quickstart - Integrate with Azure Database for MySQL"
 description: Explains how to provision and prepare an Azure Database for MySQL instance, and then configure Pet Clinic on Azure Spring Cloud to use it as a persistent database with only one command.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/15/2021
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, mode-other
 ---
 
 # Quickstart: Integrate Azure Spring Cloud with Azure Database for MySQL

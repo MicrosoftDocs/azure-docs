@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.subservice: security 
 ms.date: 8/05/2021
 ms.author: ronytho
-ms.reviewer: jrasnick, wiassaf
+ms.reviewer: sngun, wiassaf
 ms.custom: subject-rbac-steps
 ---
 

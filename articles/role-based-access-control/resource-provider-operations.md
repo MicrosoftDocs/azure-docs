@@ -7066,6 +7066,8 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 
 Azure service: [Machine Learning Studio (classic)](../machine-learning/classic/index.yml)
 
+[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
+
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
@@ -7093,7 +7095,7 @@ Azure service: [Machine Learning Studio (classic)](../machine-learning/classic/i
 
 ### Microsoft.MachineLearningServices
 
-Azure service: [Machine Learning Service](../machine-learning/index.yml)
+Azure service: [Machine Learning](../machine-learning/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -10039,7 +10041,7 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.Insights/Logs/Alert/Read | Read data from the Alert table |
 > | Microsoft.Insights/Logs/AlertHistory/Read | Read data from the AlertHistory table |
 > | Microsoft.Insights/Logs/AmlComputeClusterEvent/Read | Read data from the AmlComputeClusterEvent table |
-> | Microsoft.Insights/Logs/AmlComputeClusterNodeEvent/Read | Read data from the AmlComputeClusterNodeEvent table |
+> | Microsoft.Insights/Logs/AmlComputeClusterNodeEvent/Read | Read data from the AmlComputeClusterNodeEvent table. This API is deprecated, please use AmlComputeClusterEvent instead |
 > | Microsoft.Insights/Logs/AmlComputeCpuGpuUtilization/Read | Read data from the AmlComputeCpuGpuUtilization table |
 > | Microsoft.Insights/Logs/AmlComputeJobEvent/Read | Read data from the AmlComputeJobEvent table |
 > | Microsoft.Insights/Logs/AmlRunStatusChangedEvent/Read | Read data from the AmlRunStatusChangedEvent table |
@@ -10497,7 +10499,7 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/AlertHistory/read | Read data from the AlertHistory table |
 > | Microsoft.OperationalInsights/workspaces/query/AlertInfo/read | Read data from the AlertInfo table |
 > | Microsoft.OperationalInsights/workspaces/query/AmlComputeClusterEvent/read | Read data from the AmlComputeClusterEvent table |
-> | Microsoft.OperationalInsights/workspaces/query/AmlComputeClusterNodeEvent/read | Read data from the AmlComputeClusterNodeEvent table |
+> | Microsoft.OperationalInsights/workspaces/query/AmlComputeClusterNodeEvent/read | Read data from the AmlComputeClusterNodeEvent table. This API is deprecated, please use AmlComputeClusterEvent instead |
 > | Microsoft.OperationalInsights/workspaces/query/AmlComputeCpuGpuUtilization/read | Read data from the AmlComputeCpuGpuUtilization table |
 > | Microsoft.OperationalInsights/workspaces/query/AmlComputeInstanceEvent/read | Read data from the AmlComputeInstanceEvent table |
 > | Microsoft.OperationalInsights/workspaces/query/AmlComputeJobEvent/read | Read data from the AmlComputeJobEvent table |

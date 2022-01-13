@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Azure Digital Twins query language reference - MATCH clause
+title: Azure Digital Twins query language reference - MATCH clause (preview)
 titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language MATCH clause
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/07/2021
+ms.date: 12/01/2021
 ms.topic: article
 ms.service: digital-twins
 
@@ -15,9 +15,9 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Azure Digital Twins query language reference: MATCH clause
+# Azure Digital Twins query language reference: MATCH clause (preview)
 
-This document contains reference information on the **MATCH clause** for the [Azure Digital Twins query language](concepts-query-language.md).
+This document contains reference information on the **MATCH clause** for the [Azure Digital Twins query language](concepts-query-language.md). This clause is currently in preview.
 
 The `MATCH` clause is used in the Azure Digital Twins query language as part of the [FROM clause](reference-query-clause-from.md). `MATCH` allows you to specify which pattern should be followed while traversing relationships in the Azure Digital Twins graph (this is also known as a "variable hop" query pattern).
 
@@ -106,6 +106,9 @@ The first example shows a **left-to-right** directional traversal. This query fi
 * *factory* has a `$dtId` of 'ABC'
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchDirectionLRExample":::
+
+>[!NOTE]
+> MATCH queries that contain `$dtId` filters on any twin other than the starting twin for the MATCH traversal may show empty results. This applies to `factory.$dtId` in the above example. For more information, see [Limitations](#limitations).
 
 The following example shows a **right-to-left** directional traversal. This query looks similar to the one above, but the direction of the relationship between *room* and *factory* is reversed. This query finds twins *room* and *factory* where...
 * *factory* targets *room* (with any name of relationship)
@@ -319,7 +322,17 @@ The query also specifies that twin *building* has a `$dtId` of 'building-3' and 
 ## Limitations
 
 The following limits apply to queries using `MATCH`:
-* Only one `MATCH` expression is supported per query statement
-* `$dtId` is required in the `WHERE` clause
-* Assigning a query variable to the relationship is only supported when the query specifies a single hop
-* The maximum hops supported in a query is 10
+* Only one `MATCH` expression is supported per query statement.
+* `$dtId` is required in the `WHERE` clause.
+* Assigning a query variable to the relationship is only supported when the query specifies a single hop.
+* The maximum hops supported in a query is 10.
+* MATCH queries that contain `$dtId` filters on any twin other than the starting twin for the MATCH traversal may show empty results. For example, the following query is subject to this limitation:
+
+    ```sql
+    SELECT A, B, C FROM DIGITALTWINS 
+    MATCH A-[contains]->B-[is_part_of]->C 
+    WHERE B.$dtId = 'Device01'
+    ```
+
+    If your scenario requires you to use `$dtId` on other twins, consider using the [JOIN clause](reference-query-clause-join.md) instead.
+* MATCH queries that traverse the same twin multiple times may unexpectedly remove this twin from results.

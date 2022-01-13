@@ -60,6 +60,8 @@ items:
       href: how-to-integrate-storage-file.md
     - name: Azure Key Vault
       href: how-to-integrate-key-vault.md
+    - name: Azure Cache for Redis
+      href: how-to-integrate-redis-cache.md
     - name: Azure SignalR Service
       href: how-to-integrate-signalr.md
     - name: Apache Kafka on Confluent Cloud
@@ -72,6 +74,6 @@ items:
   expanded: true
   items:
   - name: Rest API
-    href: /rest/api/servicelinker
+    href: /rest/api/
   - name: Python SDK
-    href: /python/api/overview/azure/servicelinker
+    href: /python/api/overview/azure/

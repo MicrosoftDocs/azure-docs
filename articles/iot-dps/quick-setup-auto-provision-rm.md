@@ -7,7 +7,7 @@ ms.date: 01/27/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc, subject-armqs, devx-track-azurecli
+ms.custom: mvc, subject-armqs, devx-track-azurecli, mode-arm
 ---
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service (DPS) with an ARM template

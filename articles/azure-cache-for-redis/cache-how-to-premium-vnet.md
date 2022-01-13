@@ -1,9 +1,9 @@
 ---
 title: Configure a virtual network - Premium-tier Azure Cache for Redis instance
 description: Learn how to create and manage virtual network support for your Premium-tier Azure Cache for Redis instance
-author: curib
+author: flang-msft
 
-ms.author: cauribeg
+ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
@@ -202,7 +202,7 @@ When you try to connect to an Azure Cache for Redis instance in a virtual networ
 
 The cause could be that you're connecting to the host by the IP address. We recommend that you use the host name. In other words, use the following string:
 
-`[mycachename].redis.windows.net:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
+`[mycachename].redis.cache.windows.net:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
 Avoid using the IP address similar to the following connection string:
 
@@ -210,7 +210,7 @@ Avoid using the IP address similar to the following connection string:
 
 If you're unable to resolve the DNS name, some client libraries include configuration options like `sslHost`, which is provided by the StackExchange.Redis client. This option allows you to override the host name used for certificate validation. For example:
 
-`10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
+`10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.cache.windows.net`
 
 ### Can I use virtual networks with a standard or basic cache?
 

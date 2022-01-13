@@ -8,7 +8,7 @@ ms.date: 12/19/2019
 
 # Performance optimization for Apache Kafka HDInsight clusters
 
-This article gives some suggestions for optimizing the performance of your Apache Kafka workloads in HDInsight. The focus is on adjusting producer and broker configuration. There are different ways of measuring performance, and the optimizations that you apply will depend on your business needs.
+This article gives some suggestions for optimizing the performance of your Apache Kafka workloads in HDInsight. The focus is on adjusting producer, broker and consumer configuration. Sometimes, you also need to adjust OS settings to tune the performance with heavy workload. There are different ways of measuring performance, and the optimizations that you apply will depend on your business needs.
 
 ## Architecture overview
 
@@ -28,7 +28,7 @@ Apache Kafka performance has two main aspects – throughput and latency. Throug
 
 ## Producer configurations
 
-The following sections will highlight some of the most important configuration properties to optimize performance of your Kafka producers. For a detailed explanation of all configuration properties, see [Apache Kafka documentation on producer configurations](https://kafka.apache.org/documentation/#producerconfigs).
+The following sections will highlight some of the most important generic configuration properties to optimize performance of your Kafka producers. For a detailed explanation of all configuration properties, see [Apache Kafka documentation on producer configurations](https://kafka.apache.org/documentation/#producerconfigs).
 
 ### Batch size
 
@@ -71,6 +71,66 @@ Higher replication factor results in additional requests between the partition l
 We recommend that you use at least 3x replication for Kafka in Azure HDInsight. Most Azure regions have three fault domains, but in regions with only two fault domains, users should use 4x replication.
 
 For more information on replication, see [Apache Kafka: replication](https://kafka.apache.org/documentation/#replication) and [Apache Kafka: increasing replication factor](https://kafka.apache.org/documentation/#basic_ops_increase_replication_factor).
+
+## Consumer configurations
+
+The following section will highlight some of the important generic configurations to optimize the performance of your Kafka consumers. For a detailed explanation of all configurations, see [Apache Kafka documentation on consumer configurations](https://kafka.apache.org/documentation/#consumerconfigs).
+
+### Number of consumers
+
+It is a good practice to have the number of partitions equal to the number of consumers. If the number of consumers is less than the number of partitions then a few of the consumers will read from multiple partitions, increasing consumer latency. 
+
+If the number of consumers is greater than the number of partitions, then you will be wasting your consumer resources since those consumers will be idle. 
+
+### Avoid frequent consumer rebalance
+
+Consumer rebalance is triggered by partition ownership change  (i.e., consumers scales out or scales down), a broker crash (since brokers are group coordinator for consumer groups), a consumer crash, adding a new topic or adding new partitions. During rebalancing, consumers cannot consume, hence increasing the latency.
+
+Consumers are considered alive if it can send a heartbeat to a broker within `session.timeout.ms`. Otherwise, the consumer will be considered dead or failed. This will lead to a consumer rebalance. The lower the consumer `session.timeout.ms` the faster we will be able to detect those failures. 
+
+If the `session.timeout.ms` is too low, a consumer could experience repeated unnecessary rebalances, due to scenarios such as when a batch of messages takes longer to process or when a JVM GC pause takes too long. If you have a consumer that spends too much time processing messages, you can address this either by increasing the upper bound on the amount of time that a consumer can be idle before fetching more records with `max.poll.interval.ms` or by reducing the maximum size of batches returned with the configuration parameter `max.poll.records`.
+
+### Batching
+
+Like producers, we can add batching for consumers. The amount of data consumers can get in each fetch request can be configured by changing the configuration `fetch.min.bytes`. This parameter defines the minimum bytes expected from a fetch response of a consumer. Increasing this value will reduce the number of fetch requests made to the broker, therefore reducing extra overhead. By default, this value is 1. Similarly, there is another configuration `fetch.max.wait.ms`. If a fetch request doesn’t have enough messages as per the size of `fetch.min.bytes`, it will wait until the expiration of the wait time based on this config `fetch.max.wait.ms`.
+
+> [!NOTE]
+> In few scenarios, consumers may seem to be slow, when it fails to process the message. If you are not committing the offset after an exception, consumer will be stuck at a particular offset in an infinite loop and will not move forward, increasing the lag on consumer side as a result. 
+
+## Linux OS tuning with heavy workload
+
+### Memory maps
+
+`vm.max_map_count` defines maximum number of mmap a process can have. By default, on HDInsight Apache Kafka cluster linux VM, the value is 65535. 
+
+In Apache Kafka, each log segment requires a pair of index/timeindex files, and each of these files consumes 1 mmap. In other words, each log segment uses 2 mmap. Thus, if each partition hosts a single log segment, it requires minimum 2 mmap. The number of log segments per partition varies depending on the **segment size, load intensity, retention policy, rolling period** and, generally tends to be more than one. `Mmap value = 2*((partition size)/(segment size))*(partitions)`
+
+If required mmap value exceeds the `vm.max_map_count`, broker would raise **"Map failed"** exception.
+
+To avoid this exception, use the below commands to check the size for mmap in vm and increase the size if needed on each worker node.
+
+```
+# command to find number of index files:
+find . -name '*index' | wc -l
+
+# command to view vm.max_map_count for a process:
+cat /proc/[kafka-pid]/maps | wc -l
+
+# command to set the limit of vm.max_map_count:
+sysctl -w vm.max_map_count=<new_mmap_value>
+
+# This will make sure value remains, even after vm is rebooted:
+echo 'vm.max_map_count=<new_mmap_value>' >> /etc/sysctl.conf
+sysctl -p
+
+```
+
+> [!NOTE]
+> Be careful about setting this too high as it takes up memory on the VM. The amount of memory allowed to be used by the JVM on memory maps is determined by the setting **`MaxDirectMemory`**. The default value is 64MB. It is possible that this is reached. You can increase this value by adding **`-XX:MaxDirectMemorySize=amount of memory used`** into the JVM settings through Ambari. Be cognizant of the amount of memory being used on the node and if there is enough available RAM to support this.
+
+
+
+
 
 ## Next steps
 

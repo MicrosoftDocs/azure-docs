@@ -26,6 +26,8 @@ In Azure Data Factory, continuous integration and delivery (CI/CD) means moving 
 
 ## CI/CD lifecycle
 
+[!NOTE] See also: [Continuous deployment improvements](continuous-integration-delivery-improvements.md#continuous-deployment-improvements)
+
 Below is a sample overview of the CI/CD lifecycle in an Azure data factory that's configured with Azure Repos Git. For more information on how to configure a Git repository, see [Source control in Azure Data Factory](source-control.md).
 
 1.  A development data factory is created and configured with Azure Repos Git. All developers should have permission to author Data Factory resources like pipelines and datasets.
@@ -94,6 +96,7 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 
 ## Next steps
 
+- [Continuous deployment improvements](continuous-integration-delivery-improvements.md#continuous-deployment-improvements)
 - [Automate continuous integration using Azure Pipelines releases](continuous-integration-delivery-automate-azure-pipelines.md)
 - [Manually promote a Resource Manager template to each environment](continuous-integration-delivery-manual-promotion.md)
 - [Use custom parameters with a Resource Manager template](continuous-integration-delivery-resource-manager-custom-parameters.md)

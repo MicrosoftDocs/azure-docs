@@ -4,6 +4,7 @@ description: Explore examples that show telemetry processors in Azure Monitor Ap
 ms.topic: conceptual
 ms.date: 12/29/2020
 author: kryalama
+ms.devlang: java
 ms.custom: devx-track-java
 ms.author: kryalama
 ---

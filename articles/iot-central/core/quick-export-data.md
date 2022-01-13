@@ -3,11 +3,11 @@ title: Quickstart - Export data from Azure IoT Central
 description: Quickstart - Learn how to use the data export feature in IoT Central to integrate with other cloud services.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/10/2021
+ms.date: 12/28/2021
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ---
 
 # Quickstart: Export data from an IoT Central application
@@ -29,12 +29,14 @@ In this quickstart, you:
 
 Before you can export data from your IoT Central application, you need an Azure Data Explorer cluster and database. In this quickstart, you use the bash environment in the [Azure Cloud Shell](https://shell.azure.com) to create and configure them.
 
-Run the following script in the Azure Cloud Shell. Replace the `clustername` value with a unique name for your cluster before you run the script:
+Run the following script in the Azure Cloud Shell. Replace the `clustername` value with a unique name for your cluster before you run the script. The cluster name can contain only lowercase letters and numbers:
 
 > [!IMPORTANT]
-> The script takes at least 10 minutes to run.
+> The script can take 20 to 30 minutes to run.
 
 ```azurecli
+# The cluster name can contain only lowercase letters and numbers.
+# It must contain from 4 to 22 characters.
 clustername="<A unique name for your cluster>"
 databasename="phonedata"
 location="eastus"
@@ -54,19 +56,19 @@ az kusto cluster create --cluster-name $clustername \
     --enable-auto-stop=true \
     --resource-group $resourcegroup --location $location
 
-# Crete a database in the cluster
+# Create a database in the cluster
 az kusto database create --cluster-name $clustername \
     --database-name $databasename \
     --read-write-database location=$location soft-delete-period=P365D hot-cache-period=P31D \
     --resource-group $resourcegroup
 
 # Create a service principal to use when authenticating from IoT Central
-SP_JSON=$(az ad sp create-for-rbac --skip-assignment --name spforiotcentral)
+SP_JSON=$(az ad sp create-for-rbac --skip-assignment --name $clustername)
 
 az kusto database-principal-assignment create --cluster-name $clustername \
                                               --database-name $databasename \
                                               --principal-id $(jq -r .appId <<< $SP_JSON) \
-                                              --principal-assignment-name spforiotcentral \
+                                              --principal-assignment-name $clustername \
                                               --resource-group $resourcegroup \
                                               --principal-type App \
                                               --role Admin

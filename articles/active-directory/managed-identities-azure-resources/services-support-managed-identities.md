@@ -4,21 +4,25 @@ description: List of services that support managed identities for Azure resource
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 10/26/2021
+ms.date: 11/09/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
-manager: daveba
+manager: karenhoran
 ms.collection: M365-identity-device-management
-ms.custom: references_regions
+ROBOTS: NOINDEX
 ---
 
 # Services that support managed identities for Azure resources
 
 Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. Using a managed identity, you can authenticate to any service that supports Azure AD authentication without having credentials in your code. We are in the process of integrating managed identities for Azure resources and Azure AD authentication across Azure. Check back often for updates.
 
+> [!IMPORTANT]
+> In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
+
 > [!NOTE]
 > Managed identities for Azure resources is the new name for the service formerly known as Managed Service Identity (MSI).
+
 
 ## Azure services that support managed identities for Azure resources
 
@@ -81,6 +85,15 @@ All Azure Arc-enabled servers have a system assigned identity. You cannot disabl
 - [Authenticate against Azure resources with Azure Arc-enabled servers](../../azure-arc/servers/managed-identity-authentication.md)
 - [Using a managed identity with Azure Arc-enabled servers](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-azure-arc-enabled-servers)
 
+### Azure Arc resource bridge
+
+| Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | Not available | Not available | Not available |
+| User assigned | Not available | Not available | Not available | Not available |
+
+Azure Arc resource bridge currently [supports system assigned identity](../../azure-arc/resource-bridge/security-overview.md). The managed service identity is used by agents in the resource bridge for communication with Azure.
+
 ### Azure Automanage
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -116,7 +129,6 @@ Refer to the following list to use a managed identity with [Azure Blueprints](..
 - [Azure portal - blueprint assignment](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
 - [REST API - blueprint assignment](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
 
-
 ### Azure Cognitive Search
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -143,7 +155,6 @@ Refer to the following list to configure managed identity for Azure Container In
 - [Azure CLI](~/articles/container-instances/container-instances-managed-identity.md)
 - [Azure Resource Manager template](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
 - [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
-
 
 ### Azure Container Registry Tasks
 
@@ -238,7 +249,6 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | System assigned | ![Available][check] | ![Available][check] | Not available | Not available |
 | User assigned | Preview | ![Available][check] | Not available | Not available |
 
-
 For more information, see [Use managed identities in Azure Kubernetes Service](../../aks/use-managed-identity.md).
 
 ### Azure Log Analytics cluster
@@ -257,7 +267,6 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
 | User assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
 
-
 Refer to the following list to configure managed identity for Azure Logic Apps (in regions where available):
 
 - [Azure portal](../../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal)
@@ -271,6 +280,16 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | User assigned | Preview | Not available | Not available | Not available |
 
 For more information, see [Use managed identities with Azure Machine Learning](../../machine-learning/how-to-use-managed-identities.md).
+
+### Azure Maps
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | Preview | Preview | Not available | Not available |
+| User assigned | Preview | Preview | Not available | Not available |
+
+For more information, see [Authentication on Azure Maps](../../azure-maps/azure-maps-authentication.md).
+
 
 ### Azure Media Services
 
@@ -297,7 +316,6 @@ Refer to the following list to configure managed identity for Azure Policy (in r
 - [Azure CLI](/cli/azure/policy/assignment#az_policy_assignment_create)
 - [Azure Resource Manager templates](/azure/templates/microsoft.authorization/policyassignments)
 - [REST](/rest/api/policy/policyassignments/create)
-
 
 ### Azure Service Fabric
 
@@ -344,8 +362,6 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 - [Azure Resource Manager templates](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
-
-
 ### Azure Virtual Machines
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -361,7 +377,6 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 - [Azure Resource Manager templates](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 - [Azure SDKs](qs-configure-sdk-windows-vm.md)
-
 
 ### Azure VM Image Builder
 
@@ -476,15 +491,14 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany |  `https://servicebus.azure.net`  | ![Available][check] |
 | Azure China 21Vianet | `https://servicebus.azure.net`  | ![Available][check] |
 
-
-### Azure Storage blobs and queues
+### Azure Storage blobs, queues, and tables
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
-| Azure Global | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | ![Available][check] |
-| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | ![Available][check] |
-| Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | ![Available][check] |
-| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | ![Available][check] |
+| Azure Global | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` <br /><br />`https://<account>.table.core.windows.net`| ![Available][check] |
+| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` <br /><br />`https://<account>.table.core.usgovcloudapi.net`| ![Available][check] |
+| Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` <br /><br />`https://<account>.table.core.cloudapi.de`| ![Available][check] |
+| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` <br /><br />`https://<account>.table.core.chinacloudapi.cn`| ![Available][check] |
 
 ### Azure Analysis Services
 
@@ -504,6 +518,5 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 > [!NOTE]
 > You can use Managed Identities to authenticate an [Azure Stream analytics job to Power BI](../../stream-analytics/powerbi-output-managed-identity.md).
-
 
 [check]: media/services-support-managed-identities/check.png "Available"

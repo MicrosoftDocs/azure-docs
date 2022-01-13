@@ -6,6 +6,7 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: quickstart
 ms.date: 11/08/2021
+ms.custom: mode-other
 ---
 
 # Azure Web PubSub basic concepts

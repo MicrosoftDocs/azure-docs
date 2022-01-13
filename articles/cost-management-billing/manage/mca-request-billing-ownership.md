@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 11/17/2021
 ms.author: banders
 ---
 
@@ -27,6 +27,8 @@ This process contains the following tasks, which we’ll guide you through step 
 1. Request billing ownership
 2. Review/approve transfer request
 3. Check transfer request status
+
+When you send or accept transfer request, you agree to terms and conditions. For more information, see [Transfer terms and conditions](subscription-transfer.md#transfer-terms-and-conditions).
 
 Before you begin, make sure that the person you're requesting billing ownership from has one of the following roles:
 

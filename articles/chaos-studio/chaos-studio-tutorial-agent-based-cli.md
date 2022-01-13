@@ -31,6 +31,9 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 If you prefer to install and use the CLI locally, this tutorial requires Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
+> [!NOTE]
+> These instructions use a Bash terminal in Azure Cloud Shell. Some commands may not work as described if running the CLI locally or in a PowerShell terminal.
+
 ## Assign managed identity to the virtual machine
 
 Before setting up Chaos Studio on the virtual machine, you need to assign a user-assigned managed identity to each virtual machine and/or virtual machine scale set where you plan to install the agent by using the `az vm identity assign` or `az vmss identity assign` command. Replace `$VM_RESOURCE_ID`/`$VMSS_RESOURCE_ID` with the resource ID of the VM you are adding as a chaos target and `$MANAGED_IDENTITY_RESOURCE_ID` with the resource ID of the user-assigned managed identity.
@@ -93,7 +96,7 @@ Next, set up a Microsoft-Agent target on each virtual machine or virtual machine
 
 3. Copy down the GUID for the **agentProfileId** returned by this command for use in a later step.
 
-4. Create the capabilities on the target by creating a capability.json file as shown below. Save the JSON file in the same location where you are running the Azure CLI. Replace `$RESOURCE_ID` with the resource ID of the target virtual machine or virtual machine scale set and `$CAPABILITY` with the [name of the fault capability you are enabling](chaos-studio-fault-library.md).
+4. Create the capabilities by replacing `$RESOURCE_ID` with the resource ID of the target virtual machine or virtual machine scale set and `$CAPABILITY` with the [name of the fault capability you are enabling](chaos-studio-fault-library.md).
     
     ```azurecli-interactive
     az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-Agent/capabilities/$CAPABILITY?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
@@ -163,11 +166,11 @@ With your virtual machine now onboarded, you can create your experiment. A chaos
             "id": "Selector1",
             "targets": [
               {
-                "id": "/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myWindowsVM/providers/Microsoft.Chaos/targets/microsoft-agent",
+                "id": "/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myWindowsVM/providers/Microsoft.Chaos/targets/Microsoft-Agent",
                 "type": "ChaosTarget"
               },
               {
-                "id": "/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myLinuxVM/providers/Microsoft.Chaos/targets/micosoft-agent",
+                "id": "/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myLinuxVM/providers/Microsoft.Chaos/targets/Microsoft-Agent",
                 "type": "ChaosTarget"
               }
             ],

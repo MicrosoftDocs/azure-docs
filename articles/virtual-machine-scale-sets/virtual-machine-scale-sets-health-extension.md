@@ -41,7 +41,7 @@ The following JSON shows the schema for the Application Health extension. The ex
   "location": "<location>",  
   "properties": {
     "publisher": "Microsoft.ManagedServices",
-    "type": "< ApplicationHealthLinux or ApplicationHealthWindows>",
+    "type": "<ApplicationHealthLinux or ApplicationHealthWindows>",
     "autoUpgradeMinorVersion": true,
     "typeHandlerVersion": "1.0",
     "settings": {
@@ -85,8 +85,8 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 {
   "name": "myHealthExtension",
   "properties": {
-    "publisher": " Microsoft.ManagedServices",
-    "type": "< ApplicationHealthWindows>",
+    "publisher": "Microsoft.ManagedServices",
+    "type": "ApplicationHealthWindows",
     "autoUpgradeMinorVersion": true,
     "typeHandlerVersion": "1.0",
     "settings": {

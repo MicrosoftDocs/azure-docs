@@ -1,16 +1,8 @@
 ---
 title: Connect your threat intelligence platform to Microsoft Sentinel | Microsoft Docs
 description: Learn how to connect your threat intelligence platform (TIP) or custom feed to Microsoft Sentinel and send threat indicators.
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021

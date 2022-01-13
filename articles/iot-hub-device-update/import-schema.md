@@ -50,7 +50,7 @@ If you want to import an update into Device Update for IoT Hub, be sure you've r
 
 | Name | Required | Type | Description |
 | --------- | --------- | --------- | --------- |
-| Sha256 | True | string | Base64-encoded hash of the file using the SHA-256 algorithm. |
+| Sha256 | True | string | Base64-encoded hash of the file using the SHA-256 algorithm. See the relevant sections of the import manifest generation [PowerShell](https://github.com/Azure/iot-hub-device-update/blob/release/2021-q2/tools/AduCmdlets/AduUpdate.psm1#L81) and [bash](https://github.com/Azure/iot-hub-device-update/blob/release/2021-q2/tools/AduCmdlets/create-adu-import-manifest.sh#L266) scripts.|
 
 ## Example import request body
 

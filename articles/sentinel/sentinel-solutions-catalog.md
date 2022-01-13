@@ -1,18 +1,9 @@
 ---
 title: Microsoft Sentinel content hub catalog  | Microsoft Docs
 description: This article displays and details the currently available Microsoft Sentinel content hub packages.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: batamig
-manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
-ms.date: 11/09/2021
+ms.date: 01/04/2022
 ms.author: bagol
 ms.custom: ignite-fall-2021
 ---
@@ -35,10 +26,11 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Microsoft Insider Risk Management** |[Data connector](data-connectors-reference.md#microsoft-365-insider-risk-management-irm-preview), workbook, analytics rules, hunting queries |Security - Insider threat | Microsoft|
+|**Apache Log4j Vulnerability Detection** | Analytics rules, hunting queries | Application, Security - Threat Protection, Security - Vulnerability Management | Microsoft|
+|**Microsoft Insider Risk Management** (IRM) |[Data connector](data-connectors-reference.md#microsoft-365-insider-risk-management-irm-preview), workbook, analytics rules, hunting queries |Security - Insider threat | Microsoft|
 | **Microsoft MITRE ATT&CK solution for Cloud**| Workbooks, analytics rules, hunting queries|Security - Threat protection, Security - Others |Microsoft |
 | **Microsoft Sentinel Deception** | [Workbooks, analytics rules, watchlists](monitor-key-vault-honeytokens.md)  | Security - Threat Protection  |Microsoft |
-|**Zero Trust** (TIC3.0) |Workbooks |Identity, Security - Others |Microsoft |
+|**Zero Trust** (TIC3.0) |[Workbooks](https://techcommunity.microsoft.com/t5/public-sector-blog/announcing-the-azure-sentinel-zero-trust-tic3-0-workbook/ba-p/2313761) |Identity, Security - Others |Microsoft  |
 | | | | |
 
 ## Arista Networks
@@ -171,6 +163,12 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |**Fortinet Fortigate** |[Data connector](data-connectors-reference.md#fortinet), playbooks, custom Logic App connector|Security - Automation (SOAR) | Microsoft|
 | | | |
 
+## GitHub
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Continuous Threat Monitoring for GitHub** |[Data connector](data-connectors-reference.md#github-preview), parser, workbook, analytics rules |Cloud Provider |Microsoft |
+| | | | |
 
 ## Google
 
@@ -249,7 +247,9 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**Microsoft Sentinel 4 Microsoft Dynamics 365**     |   [Data connector](data-connectors-reference.md#dynamics-365), workbooks, analytics rules, and hunting queries |      Application   |Microsoft         |
-|**Microsoft Sentinel for Teams**     | Data connector, analytics rules, playbooks, hunting queries      |   Application      |    Community     |
+|**Microsoft Sentinel for Teams**     | Analytics rules, playbooks, hunting queries      |   Application      |    Microsoft     |
+| **IoT OT Threat Monitoring with Defender for IoT** | [Analytics rules, playbooks, workbook](iot-solution.md) | Internet of Things (IoT), Security - Threat Protection | Microsoft |
+| **Microsoft Sysmon for Linux** | [Data connector](data-connectors-reference.md#microsoft-sysmon-for-linux-preview) | Platform | Microsoft |
 | | | | |
 
 

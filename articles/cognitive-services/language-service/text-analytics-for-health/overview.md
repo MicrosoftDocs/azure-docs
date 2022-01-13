@@ -8,12 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 11/19/2021
 ms.author: aahi
 ms.custom: language-service-health, ignite-fall-2021
 ---
 
 # What is Text Analytics for health in Azure Cognitive Service for Language?
+
+[!INCLUDE [service notice](includes/service-notice.md)]
 
 Text Analytics for health is one of the features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. 
 

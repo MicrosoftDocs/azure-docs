@@ -8,7 +8,7 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/05/2021
+ms.date: 11/17/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -22,6 +22,8 @@ If you want to keep your billing ownership but change subscription type, see [Sw
 If you're an Enterprise Agreement (EA) customer, your enterprise administrator can transfer billing ownership of your subscriptions between accounts. For more information, [Change Azure subscription or account ownership](ea-portal-administration.md#change-azure-subscription-or-account-ownership).
 
 Only the billing administrator of an account can transfer ownership of a subscription.
+
+When you send or accept transfer request, you agree to terms and conditions. For more information, see [Transfer terms and conditions](subscription-transfer.md#transfer-terms-and-conditions).
 
 ## Transfer billing ownership of an Azure subscription
 

@@ -35,7 +35,9 @@
       href: work-remotely-support.md
   - name: Virtual WAN FAQ
     href: virtual-wan-faq.md
-  - name: Locations and partners
+  - name: NVA in the Virtual WAN Hub
+    href: about-nva-hub.md
+  - name: Locations and Partners
     items:
     - name: Hub locations and partners
       href: virtual-wan-locations-partners.md
@@ -95,8 +97,6 @@
       href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=/azure/virtual-wan/TOC.json
   - name: Pricing explained
     href: pricing-concepts.md
-  - name: About NVA in a virtual hub
-    href: about-nva-hub.md
   - name: About secured virtual hubs
     href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
 - name: How-to guides
@@ -200,7 +200,11 @@
     - name: Azure Monitor Insights
       href: azure-monitor-insights.md
     - name: Configure S2S VPN packet captures
-      href: packet-capture-site-to-site-powershell.md
+      items:
+      - name: Azure portal
+        href: packet-capture-site-to-site-portal.md
+      - name: PowerShell
+        href: packet-capture-site-to-site-powershell.md
 - name: Reference
   items:
   - name: Azure PowerShell

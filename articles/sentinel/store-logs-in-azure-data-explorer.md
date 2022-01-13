@@ -1,17 +1,8 @@
 ---
 title: Integrate Azure Data Explorer for long-term log retention | Microsoft Docs
 description: Send Microsoft Sentinel logs to Azure Data Explorer for long-term retention to reduce data storage costs.
-services: sentinel
-documentationcenter: na
 author: batamig
-manager: rkarlin
-editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
@@ -29,7 +20,11 @@ Storing logs in Azure Data Explorer reduces costs while retains your ability to 
 
 Azure Data Explorer is a big data analytics platform that is highly optimized for log and data analytics. Since Azure Data Explorer uses Kusto Query Language (KQL) as its query language, it's a good alternative for Microsoft Sentinel data storage. Using Azure Data Explorer for your data storage enables you to run cross-platform queries and visualize data across both Azure Data Explorer and Microsoft Sentinel.
 
-For more information, see the Azure Data Explorer [documentation](/azure/data-explorer/) and [blog](https://azure.microsoft.com/blog/tag/azure-data-explorer/).
+For more information, see:
+
+- [Azure Data Explorer documentation](/azure/data-explorer/)
+- [Azure Data Explorer blog](https://azure.microsoft.com/blog/tag/azure-data-explorer/)
+- [General architectures for long-term security log retention with Azure Data Explorer](/azure/architecture/example-scenario/security/security-log-retention-azure-data-explorer)
 
 ### When to integrate with Azure Data Explorer
 
@@ -169,7 +164,7 @@ The following image shows a sample flow of exported data into an Azure Storage, 
 
 **To export data into Azure Data Explorer via an Azure Storage and Azure Data Factory**:
 
-1. **Configure the Log Analytics data export to an Event Hub**. For more information, see [Log Analytics workspace data export in Azure Monitor](../azure-monitor/logs/logs-data-export.md?tabs=portal#enable-data-export).
+1. **Configure the Log Analytics data export to a Storage Account**. For more information, see [Log Analytics workspace data export in Azure Monitor](../azure-monitor/logs/logs-data-export.md?tabs=portal#enable-data-export).
 
 1. **Create an Azure Data Explorer cluster and database**. For more information, see:
 
@@ -184,7 +179,7 @@ The following image shows a sample flow of exported data into an Azure Storage, 
 
     For more information, see [Ingest and query monitoring data in Azure Data Explorer](/azure/data-explorer/ingest-data-no-code?tabs=diagnostic-metrics).
 
-1. <a name="mapping"></a>**Create table mapping**. Map the JSON tables to define how records land in the raw events table as they come in from an Event Hub. For more information, see [Create the update policy for metric and log data](/azure/data-explorer/ingest-data-no-code?tabs=diagnostic-metrics).
+1. <a name="mapping"></a>**Create table mapping**. Map the JSON tables to define how records land in the raw events table as they come in from Azure Storage. For more information, see [Create the update policy for metric and log data](/azure/data-explorer/ingest-data-no-code?tabs=diagnostic-metrics).
 
 1. **Create an update policy and attach it to the raw records table**. In this step, create a function, called an update policy, and attach it to the destination table so that the data is transformed at ingestion time.
 
@@ -193,14 +188,6 @@ The following image shows a sample flow of exported data into an Azure Storage, 
     >
 
     For more information, see [Connect an Event Hub to Azure Data Explorer](/azure/data-explorer/ingest-data-no-code?tabs=activity-logs).
-
-1. **Create a data connection between the Event Hub and the raw data table in Azure Data Explorer**. Configure Azure Data Explorer with details of how to export the data into the Event Hub.
-
-    Use the instructions in the [Azure Data Explorer documentation](/azure/data-explorer/ingest-data-no-code?tabs=activity-logs) and specify the following details:
-
-    - **Target**. Specify the specific table with the raw data.
-    - **Format**. Specify `.json` as the table format.
-    - **Mapping to be applied**. Specify the mapping table created in [step 4](#mapping) above.
 
 1. **Set up the Azure Data Factory pipeline**:
 
@@ -211,9 +198,9 @@ The following image shows a sample flow of exported data into an Azure Storage, 
 
     - Create a dataset from Azure Storage. For more information, see [Datasets in Azure Data Factory](../data-factory/concepts-datasets-linked-services.md).
 
-    - Create a data pipeline with a copy operation, based on the **LastModifiedDate** properties.
+    - Create a data pipeline with a copy activity, based on when the blob properties were last modified. 
 
-        For more information, see [Copy new and changed files by **LastModifiedDate** with Azure Data Factory](../data-factory/solution-template-copy-new-files-lastmodifieddate.md).
+        This step requires an extra understanding of Azure Data Factory. For more information, see [Copy activity in Azure Data Factory and Azure Synapse Analytics](/azure/data-factory/copy-activity-overview).
 
 ---
 

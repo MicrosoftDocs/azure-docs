@@ -1,14 +1,13 @@
 ---
-title: Using Azure Monitor and Application Insights
-description: How to use Azure Monitor and Application Insights with Open Service Mesh
+title: Configure Monitoring and Observability with Open Service Mesh on Azure Kubernetes Service (AKS)
+description: Configure Monitoring and Observability with Open Service Mesh on Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 8/26/2021
-ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 ---
 
-# Open Service Mesh (OSM) Monitoring and Observability using Azure Monitor and Applications Insights
+# Configure Monitoring and Observability with Open Service Mesh on Azure Kubernetes Service (AKS)
 
 Both Azure Monitor and Azure Application Insights assist with maximizing the availability and performance of your applications and services. These services deliver a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
@@ -35,7 +34,7 @@ For metrics to be scraped from a particular namespace monitored by the mesh, the
 osm metrics enable --namespace <namespace>
 ```
 
-For instance, if you are running the [bookstore demo](https://release-v0-11.docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/), you would run the `osm metrics enable` command on the following namespaces:
+For instance, if you are running the [bookstore demo](https://docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/), you would run the `osm metrics enable` command on the following namespaces:
 
 ```sh
 osm metrics enable --namespace bookbuyer
@@ -79,3 +78,7 @@ InsightsMetrics
 ## Additional information
 
 For more information on how to enable and configure Azure Monitor and Azure Application Insights for the OSM AKS add-on, visit the [Azure Monitor for OSM](https://aka.ms/azmon/osmpreview) page.
+
+In addition, there are open source tools you can use with OSM for observability. For more information, see the [OSM Observability][osm-observeability].
+
+[osm-observeability]: https://docs.openservicemesh.io/docs/guides/observability/

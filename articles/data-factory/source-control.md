@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/22/2021
+ms.date: 11/23/2021
 ---
 
 # Source control in Azure Data Factory
@@ -191,9 +191,6 @@ Once you follow these steps, your factory will be able to connect to both public
 - GitHub Enterprise with a version older than 2.14.0 doesn't work in the Microsoft Edge browser.
 
 - GitHub integration with the Data Factory visual authoring tools only works in the generally available version of Data Factory.
-
-
-- A maximum of 1,000 entities per resource type (such as pipelines and datasets) can be fetched from a single GitHub branch. If this limit is reached, is suggested to split your resources into separate factories. Azure DevOps Git does not have this limitation.
 
 ## Version control
 

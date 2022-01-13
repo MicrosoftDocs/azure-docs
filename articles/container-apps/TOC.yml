@@ -10,11 +10,22 @@
   expanded: true
   items: 
     - name: Deploy your first container app
+      expanded: true
       items:
+      - name: With a sample container image
+        expanded: true
+        items:
         - name: Azure portal
           href: quickstart-portal.md
         - name: Azure CLI
-          href: get-started.md  
+          href: get-started.md
+      - name: With a custom container image
+        expanded: true
+        items:
+        - name: Azure portal
+          href: get-started-existing-container-image-portal.md
+        - name: Azure CLI
+          href: get-started-existing-container-image.md
 - name: Concepts
   items:
     - name: Environment
@@ -47,7 +58,7 @@
   items:
     - name: Microservices with Dapr using the CLI
       href: microservices-dapr.md
-    - name: Microservices with Dapr using ARM
+    - name: Microservices with Dapr using ARM or Bicep
       href: microservices-dapr-azure-resource-manager.md
     - name: Background processing
       href: background-processing.md
@@ -61,3 +72,5 @@
       href: https://azure.microsoft.com/pricing/details/container-apps/
     - name: Quotas
       href: quotas.md
+    - name: Frequently asked questions
+      href: https://github.com/microsoft/azure-container-apps/wiki/FAQs
