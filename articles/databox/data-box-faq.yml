@@ -422,7 +422,7 @@ sections:
           
           For error information and steps to proceed with your order, see [Review copy errors in uploads from Azure Data Box and Azure Data Box Heavy devices](data-box-troubleshoot-data-upload.md).
 
-          ### I'm seeing date entries with "Fri, 31 Dec 9999 23:59:59" on some files. What does that mean?
+          ### I'm seeing date entries with "Fri, 31 Dec 9999 23:59:59" on some files. What does that mean? 
 
           [!INCLUDE [data-box-file-date-substitution](../../includes/data-box-file-date-substitution.md)]
 
