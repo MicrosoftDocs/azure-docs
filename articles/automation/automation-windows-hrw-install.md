@@ -80,6 +80,7 @@ To install and configure a Windows user Hybrid Runbook Worker, you can use one o
 
 * Use a provided PowerShell script to completely [automate](#automated-deployment) the process of configuring one or more Windows machines. This is the recommended method for machines in your datacenter or another cloud environment.
 * Manually import the Automation solution, install the Log Analytics agent for Windows, and configure the worker role on the machine.
+* Agent-based hybrid worker uses MMA proxy setting. You have to pass the proxy setting while installing the log analytics extension(MMA) and this setting will be stored under MMA configuration(registry) on VM.
 
 ## Automated deployment
 
