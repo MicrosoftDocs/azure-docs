@@ -4,9 +4,9 @@ description: Learn about your support options for the commercial marketplace pro
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: navits09
-ms.author: navits
-ms.date: 09/27/2021
+author: aarathin
+ms.author: aarathin
+ms.date: 01/12/2022
 ---
 
 # Support for the commercial marketplace program in Partner Center
@@ -18,8 +18,6 @@ Microsoft provides support for a wide variety of products and services. Finding 
 - If you're a publisher and have a question relating to your app or service, review the following support options.
 
 ## Get help or open a support ticket
-
-#### [Workspaces view](#tab/workspaces-view)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) with your work account. If you have not yet done so, you will need to [create a Partner Center account](create-account.md).
 
@@ -53,57 +51,13 @@ If you cannot find your answer in the self help, select **Provide issue details*
 >[!Note]
 >If you have not signed in to Partner Center, you may be required to sign in before you can create a ticket.
 
-#### [Current view](#tab/current-view)
-
-1. Sign in with your work account. If you have not yet done so, you will need to [create a Partner Center account](create-account.md).
-
-1. In the menu on the upper-right of the page, select the **Support** icon. The **Help and support** pane appears on the right side of the page.
-
-1. For help with the commercial marketplace, select **Commercial Marketplace**.
-
-   ![Support drop-down menu](./media/support/commercial-marketplace-support-pane.png)
-
-1. In the **Problem summary** box, enter a brief description of the issue.
-
-1. In the **Problem type** box, do one of the following:
-
-    - **Option 1**: Enter keywords such as: Marketplace, Azure app, SaaS offer, account management, lead management, deployment issue, payout, or co-sell offer migration. Then select a problem type from the recommended list that appears.
-
-    - **Option 2**: Select **Browse topics** from the **Category** list and then select **Commercial Marketplace**. Then select the appropriate **Topic** and **Subtopic**.
-
-1. After you have found the topic of your choice, select **Review Solutions**.
-
-    ![Next step](./media/support/next-step.png)
-
-The following options are shown:
-
-- To select a different topic, click **Select a different issue**.
-- To help solve the issue, review the recommended steps and documents, if available.
-
-    ![Recommended solutions](./media/support/recommended-solutions.png)
-
-If you cannot find your answer in the self help, select **Provide issue details**. Complete all required fields to speed up the resolution process, then select **Submit**.
-
->[!Note]
->If you have not signed in to Partner Center, you may be required to sign in before you can create a ticket.
-
----
-
 ## Track your existing support requests
-
-#### [Workspaces view](#tab/workspaces-view)
 
 1. To review your open and closed tickets, sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) with your work account.
 
 1. On the Home page, select the **Help + support** tile.
 
     [ ![Illustrates the Partner Center Home page with the Help + support tile highlighted.](./media/workspaces/partner-center-help-support-tile.png) ](./media/workspaces/partner-center-help-support-tile.png#lightbox)
-
-#### [Current view](#tab/current-view)
-
-To review your open and closed tickets, in the left-navigation menu, select **Commercial Marketplace** > **Support**.
-
----
 
 ## Record issue details with a HAR file
 
@@ -163,6 +117,37 @@ To generate a HAR file using **Safari**:
 1. After you’ve reproduced the issue, select **Export** and save the file.
 
     ![How to export a HAR file in Safari](media/support/safari-network-export-har.png)
+
+## Additional resources
+
+Do you have questions about getting started as a Microsoft commercial marketplace publisher? Here's a list of support options for the commercial marketplace. In addition to the following resources, you can also get many of your questions answered in the [Marketplace channel of C+AI Community Forum](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
+
+### Onboarding
+
+Open a ticket with Microsoft [marketplace publisher support](https://go.microsoft.com/fwlink/?linkid=2165533) for issues with onboarding and getting started.
+
+### Partner Center
+
+| Support channel | Description | Availability |  
+|:--- |:--- |:--- |  
+| For assistance, visit the Create an incident page located at [Marketplace Support](https://go.microsoft.com/fwlink/?linkid=2165533)</li> </ul> | Support for Partner Center. | Support is provided 24x5. |
+|
+
+### Technical  
+
+| Support channel | Description |  
+|:--- |:--- |  
+| MSDN forums: Marketplace located at [Microsoft Q&A question page](/answers/products/azure) | Microsoft Developer Network forum. |  
+| Stack Overflow: Azure located at [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow environment to get solutions and ask questions about everything related to Azure Marketplace.<ul> <li>Stack Overflow: Azure Marketplace located at [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Azure Resource Manager located at [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: Virtual Machines on Azure located at [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: Containers on Azure located at [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
+
+### Marketing resources  
+
+| Support channel | Description | Availability |  
+|:--- |:--- |:--- |
+| Email: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Answers to questions about usage for Azure logos and branding. |  |
+|
+
+For questions about Marketplace Rewards, contact [Partner Center support](https://partner.microsoft.com/support/v2/?stage=1).
 
 ## Next steps
 

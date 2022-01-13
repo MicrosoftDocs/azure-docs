@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
@@ -74,7 +73,7 @@ To access this property, you need an Azure Active Directory Premium edition.
 To read this property, you need to grant the following rights: 
 
 - AuditLog.Read.All
-- Organization.Read.All  
+- Directory.Read.All  
 
 
 ### When does Azure AD update the property?

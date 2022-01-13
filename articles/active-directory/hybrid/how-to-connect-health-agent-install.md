@@ -11,7 +11,6 @@ ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/20/2020
 ms.topic: how-to
 ms.author: billmath

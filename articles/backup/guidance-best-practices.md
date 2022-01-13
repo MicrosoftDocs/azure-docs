@@ -252,7 +252,7 @@ Azure Backup provides you with the [Multi-User Authorization (MUA)](/azure/backu
 
 ### Monitoring and alerts of suspicious activity
 
-You may encounter scenarios where someone tries to breach into your system and maliciously turn off the security mechanisms, such as disabling Soft= Delete or attempts to perform destructive operations, such as deleting the backup resources. 
+You may encounter scenarios where someone tries to breach into your system and maliciously turn off the security mechanisms, such as disabling Soft Delete or attempts to perform destructive operations, such as deleting the backup resources. 
 
 Azure Backup provides security against such incidents by sending you critical alerts over your preferred notification channel (email, ITSM, Webhook, runbook, and sp pn) by creating an [Action Rule](/azure/azure-monitor/alerts/alerts-action-rules) on top of the alert. [Learn more](/azure/backup/security-overview#monitoring-and-alerts-of-suspicious-activity)
 

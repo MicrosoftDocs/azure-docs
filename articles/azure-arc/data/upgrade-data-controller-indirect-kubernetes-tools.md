@@ -1,6 +1,6 @@
 ---
-title: Upgrade indirect mode Azure Arc data controller using Kubernetes tools
-description: Article explains how to upgrade indirect mode Azure Arc data controller using Kubernetes tools
+title: Upgrade indirectly connected Azure Arc data controller using Kubernetes tools
+description: Article describes how to upgrade an indirectly connected Azure Arc data controller using Kubernetes tools
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,7 +11,7 @@ ms.date: 12/09/2021
 ms.topic: how-to
 ---
 
-# Upgrade indirect mode Azure Arc data controller using Kubernetes tools
+# Upgrade an indirectly connected Azure Arc data controller using Kubernetes tools
 
 This article explains how to upgrade an indirectly connected Azure Arc-enabled data controller with Kubernetes tools.
 
@@ -28,7 +28,7 @@ In this article, you will apply a .yaml file to:
 > Some of the data services tiers and modes are generally available and some are in preview.
 > If you install GA and preview services on the same data controller, you can't upgrade in place.
 > To upgrade, delete all non-GA database instances. You can find the list of generally available 
-> and preview services in the [Release Notes](/release-notes).
+> and preview services in the [Release Notes](/azure/azure-arc/data/release-notes).
 
 ## Prerequisites
 
@@ -53,15 +53,15 @@ such as the Kubernetes dashboard, oc, or helm if you are familiar with those too
 Pull the list of available images for the data controller with the following command:
 
 ```azurecli
-az arcdata dc list-upgrades --k8s-namespace <namespace> –-use-k8s
+az arcdata dc list-upgrades --k8s-namespace <namespace>
  ```
 
 The command above returns output like the following example:
 
 ```output
-Found 2 valid versions.  The current datacontroller version is v1.0.0_2021-07-30.
-v1.1.0_2021-11-02
-v1.0.0_2021-07-30
+Found 2 valid versions.  The current datacontroller version is <current-version>.
+<available-version>
+...
 ```
 
 ## Create or download .yaml file
@@ -88,8 +88,7 @@ To specify the service account:
 
 1. Describe the service account in a .yaml file. The following example sets a name for `ServiceAccount` as `sa-arc-upgrade-worker`:
 
-   :::code language="yaml" source="~/azure_arc_sample/arc_data_services/upgrade/yaml/service-account.yaml":::
-   <!-- https://github.com/microsoft/azure_arc/blob/main/arc_data_services/upgrade/yaml/service-account.yaml-->
+   :::code language="yaml" source="~/azure_arc_sample/arc_data_services/upgrade/yaml/upgrade-indirect-k8s.yaml" range="2-4":::
 
 1. Edit the file as needed.
 
@@ -99,7 +98,7 @@ A cluster role (`ClusterRole`) grants the service account permission to perform 
 
 1. Describe the cluster role and rules in a .yaml file. The following example defines a cluster role for `arc:cr-upgrade-worker` and allows all API groups, resources, and verbs. 
 
-   :::code language="yaml" source="~/azure_arc_sample/arc_data_services/upgrade/yaml/cluster-role.yaml":::
+   :::code language="yaml" source="~/azure_arc_sample/arc_data_services/upgrade/yaml/upgrade-indirect-k8s.yaml" range="7-9":::
 
 1. Edit the file as needed. 
 
@@ -109,7 +108,7 @@ A cluster role binding (`ClusterRoleBinding`) links the service account and the 
 
 1. Describe the cluster role binding in a .yaml file. The following example describes a cluster role binding for the service account.
 
-   :::code language="yaml" source="~/azure_arc_sample/arc_data_services/upgrade/yaml/cluster-role-binding.yaml":::
+   :::code language="yaml" source="~/azure_arc_sample/arc_data_services/upgrade/yaml/upgrade-indirect-k8s.yaml" range="20-21":::
 
 1. Edit the file as needed. 
 
@@ -119,7 +118,7 @@ A job creates a pod to execute the upgrade.
 
 1. Describe the job in a .yaml file. The following example creates a job called `arc-bootstrapper-upgrade-job`.
 
-   :::code language="yaml" source="~/azure_arc_sample/arc_data_services/upgrade/yaml/job.yaml":::
+   :::code language="yaml" source="~/azure_arc_sample/arc_data_services/upgrade/yaml/upgrade-indirect-k8s.yaml" range="31-48":::
 
 1. Edit the file for your environment.
 

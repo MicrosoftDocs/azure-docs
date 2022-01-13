@@ -9,7 +9,6 @@ manager: karenhoran
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: pim
-ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity

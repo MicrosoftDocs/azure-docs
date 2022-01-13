@@ -41,9 +41,11 @@ sections:
           No, we don't support B2C in the Azure API for FHIR. If you need more granular access controls, we recommend looking at the [open-source FHIR proxy](https://github.com/microsoft/fhir-proxy). 
 
       - question: |
-          What is the Recovery Point Objective (RPO) for the Azure API for FHIR?
+          What is the backup and recovery policy for the Azure API for FHIR?
         answer: |
-          The RPO for Azure API for FHIR is < 240 minutes.
+          Data for the managed service is backed up automatically every 4 hours and two backups are maintained. So the retention duration is 8 hours. Data recovery is done by the support team and the recovery point objective (RPO) is less than 240 minutes.
+
+          Customers can make a request to restore the data, or change the default data backup policy, through a support ticket.
           
       - question: |
           What FHIR version do you support?
@@ -174,7 +176,20 @@ sections:
           Is de-identified export available at Patient and Group level as well?
         answer: |
           Anonymized export is currently supported only on a full system export (/$export) and not for Patient export (/Patient/$export). We're working on making it available at the Patient level as well.
-
+      
+      - question: |
+          What are the differences between delete types in Azure API for FHIR?
+        answer: |
+          There're two basic Delete types supported within Azure API for FHIR. These are [Delete and Conditional Delete](fhir-rest-api-capabilities.md#delete-and-conditional-delete).
+          * With Delete, you can choose to do a soft delete (most common type) and still be able to recover historic versions of your record.
+          * With Conditional Delete, you can pass a search criteria to delete a resource one item at a time or several at a time.
+          * With either Delete or Conditional Delete, if you passed the `hardDelete` parameter, all the records and history are deleted and unrecoverable.
+      
+      - question: |
+          How do I recover deleted records in Azure API for FHIR?
+        answer: |
+          You can recover deleted files if you don't use the `hardDelete` parameter. The record(s) in Azure API for FHIR should still exist. The record(s) can be found by doing a history search on the resource and by looking for the last version with data.
+  
   - name: Using Azure API for FHIR
     questions:
       - question: |

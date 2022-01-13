@@ -36,7 +36,7 @@ The following table shows the property a public IP can be associated to a resour
 | --- | --- | --- | --- | --- | --- |
 | Virtual machine |Network interface |Yes | Yes | Yes | Yes |
 | Public Load balancer |Front-end configuration |Yes | Yes | Yes |Yes |
-| Virtual Network gateway (VPN) |Gateway IP configuration |Yes (non-AZ only) |Yes (AZ only) | No |No |
+| Virtual Network gateway (VPN) |Gateway IP configuration |Yes (non-AZ only) |Yes | No |No |
 | Virtual Network gateway (ER) |Gateway IP configuration |Yes | No | Yes (preview) |No |
 | NAT gateway |Gateway IP configuration |No |Yes | No |No |
 | Application gateway |Front-end configuration |Yes (V1 only) |Yes (V2 only) | No | No |
@@ -54,7 +54,7 @@ Public IP addresses are created with one of the following SKUs:
 | Public IP address | Standard  | Basic |
 | --- | --- | --- |
 | Allocation method| Static | For IPv4: Dynamic or Static; For IPv6: Dynamic.| 
-| | Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|
+| Idle Timeout | Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|
 | Security | Secure by default model and be closed to inbound traffic when used as a frontend.  Allow traffic with [network security group](../../virtual-network/network-security-groups-overview.md#network-security-groups) (NSG) is required (for example, on the NIC of a virtual machine with a Standard SKU Public IP attached).| Open by default.  Network security groups are recommended but optional for restricting inbound or outbound traffic.| 
 | [Availability zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Supported. Standard IPs can be non-zonal, zonal, or zone-redundant. **Zone redundant IPs can only be created in [regions where 3 availability zones](../../availability-zones/az-region.md) are live.** IPs created before zones are live won't be zone redundant. | Not supported. | 
 | [Routing preference](routing-preference-overview.md)| Supported to enable more granular control of how traffic is routed between Azure and the Internet. | Not supported.| 
@@ -85,7 +85,7 @@ Public IPs have two types of assignments:
 
 | Resource | Static  | Dynamic |
 | --- | --- | --- |
-| Standard Public IPv4 | :white_check_mark: | x |
+| Standard public IPv4 | :white_check_mark: | x |
 | Standard public IPv6 | :white_check_mark: | x |
 | Basic public IPv4 | :white_check_mark: | :white_check_mark: |
 | Basic public IPv6 | x | :white_check_mark: |

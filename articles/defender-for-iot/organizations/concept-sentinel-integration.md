@@ -1,21 +1,21 @@
 ---
 title: OT threat monitoring in enterprise SOCs
 description: Learn about how integration with Microsoft Sentinel can help SOC teams bridge the gap between IT and OT security sectors
-ms.date: 12/20/2021
+ms.date: 01/02/2022
 ms.topic: article
 ---
 
 # OT threat monitoring in enterprise SOCs
 
-This section describes how integration with Microsoft Sentinel can help SOC teams bridge the gap between IT and OT security sectors.
+This article describes how integration with Microsoft Sentinel can help SOC teams bridge the gap between IT and OT security sectors.
 
 ## About the digital transformation in business-critical industries
 
 As the digital transformation in business-critical industries connects OT systems with IT infrastructures, the OT/IT convergence puts data, systems, and safety at risk.  
 
-As a result, CISOs and Security Operations Center (SOC) teams are increasingly responsible for new threats from OT network segments that they traditionally did not manage.
+As a result, CISOs and Security Operations Center (SOC) teams are becoming increasingly responsible for threats from OT network segments that they traditionally did not handle.
 
-As a result, SOC solutions and teams are faced with various challenges, including:
+This means SOC teams must deal with various new challenges, including:
 
 **People**
 
@@ -83,7 +83,7 @@ This section describes how Microsoft Sentinel workbooks, analytics rules, and SO
 
 To visualize and monitor your Defender for IoT data, use the workbooks deployed to your Microsoft Sentinel workspace as part of the IoT OT Threat Monitoring with Defender for IoT solution.
 
-The Defender for IoT workbooks provide guided investigations for OT entities based on open incidents, alert notifications, and activities for OT assets. They also provide a hunting experience across the MITRE ATT&CK® framework for ICS, and are designed to enable analysts, security engineers, and MSSPs to gain situational awareness of OT security posture.
+Defenders for IoT workbooks provide guided investigations for OT entities based on open incidents, alert notifications, and activities for OT assets. They also provide a hunting experience across the MITRE ATT&CK® framework for ICS, and are designed to enable analysts, security engineers, and MSSPs to gain situational awareness of OT security posture.
 
 For example:  
 
