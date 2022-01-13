@@ -15,6 +15,11 @@ We've also added links to some user-generated content. Those items will be marke
 
 ## Release notes
 
+### January 2022
+* **Multivariate Anomaly Detector API v1.1-preview.1 public preview on 1/18.** In this version, Multivariate Anomaly Detector support synchronized API for inference and added new fields in API output interpreting the correlation change of variables. 
+* Univariate Anomaly Detector added new fields in API output. 
+
+
 ### November 2021
 * Multivariate Anomaly Detector available in six more regions: UAE North, France Central, North Central US, Switzerland North, South Africa North, Jio India West. Now in total 26 regions are supported.
 
