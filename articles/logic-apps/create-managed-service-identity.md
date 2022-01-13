@@ -919,15 +919,15 @@ This example shows what the configuration looks like when the logic app enables 
 
 ## ARM template for managed connections and managed identities (Consumption)
 
-If you automate deployment with an ARM template, and your logic app workflow includes a managed connector trigger or action that uses a managed identity, confirm that the underlying connection resource definition includes the `parameterValueType` property with `Alternative` as the property value. Otherwise, your ARM deployment won't set up the connection to use the managed identity for authentication, and the connection won't work in your logic app's workflow. This requirement applies only to [specific managed connector triggers and actions](#triggers-actions-managed-identity) where you selected the [**Connect with managed identity** option](#authenticate-managed-connector-managed-identity).
+If you automate deployment with an ARM template, and your logic app workflow includes a managed connector trigger or action that uses a managed identity, confirm that the underlying connection resource definition includes the `parameterValueSet` object, which includes the `name` property set to `managedIdentityAuth` and the `values` property set to an empty object. Otherwise, your ARM deployment won't set up the connection to use the managed identity for authentication, and the connection won't work in your logic app's workflow. This requirement applies only to [specific managed connector triggers and actions](#triggers-actions-managed-identity) where you selected the [**Connect with managed identity** option](#authenticate-managed-connector-managed-identity).
 
-For example, here's the underlying connection resource definition for an Azure Automation action that uses a managed identity where the definition includes the `parameterValueType` property, which is set to `Alternative` as the property value:
+For example, here's the underlying connection resource definition for an Azure Automation action that uses a managed identity where the definition includes the `parameterValueType` property, which includes the `name` property set to `managedIdentityAuth` and the `values` property set to an empty object. Also note that the `apiVersion` property is set to `2018-07-01-preview`:
 
 ```json
 {
     "type": "Microsoft.Web/connections",
     "name": "[variables('automationAccountApiConnectionName')]",
-    "apiVersion": "2016-06-01",
+    "apiVersion": "2018-07-01",
     "location": "[parameters('location')]",
     "kind": "V1",
     "properties": {
@@ -936,7 +936,9 @@ For example, here's the underlying connection resource definition for an Azure A
         },
         "customParameterValues": {},
         "displayName": "[variables('automationAccountApiConnectionName')]",
-        "parameterValueType": "Alternative"
+        "parameterValueSet":{
+            "name": "managedIdentityAuth",
+            "values": {}
     }
 },
 ```
