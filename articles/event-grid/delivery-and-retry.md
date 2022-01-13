@@ -12,9 +12,9 @@ Event Grid provides durable delivery. It tries to deliver each message **at leas
 > Event Grid doesn't guarantee order for event delivery, so subscribers may receive them out of order. 
 
 ## Retry schedule
-When EventGrid receives an error for an event delivery attempt, EventGrid decides whether it should retry the delivery, dead-letter the event, or drop the event based on the type of the error. 
+When Event Grid receives an error for an event delivery attempt, Event Grid decides whether it should retry the delivery, dead-letter the event, or drop the event based on the type of the error. 
 
-If the error returned by the subscribed endpoint is a configuration-related error that can't be fixed with retries (for example, if the endpoint is deleted), EventGrid will either perform dead-lettering on the event or drop the event if dead-letter isn't configured.
+If the error returned by the subscribed endpoint is a configuration-related error that can't be fixed with retries (for example, if the endpoint is deleted), Event Grid will either perform dead-lettering on the event or drop the event if dead-letter isn't configured.
 
 The following table describes the types of endpoints and errors for which retry doesn't happen:
 
@@ -26,7 +26,7 @@ The following table describes the types of endpoints and errors for which retry 
 > [!NOTE]
 > If Dead-Letter isn't configured for an endpoint, events will be dropped when the above errors happen. Consider configuring Dead-Letter if you don't want these kinds of events to be dropped.
 
-If the error returned by the subscribed endpoint isn't among the above list, EventGrid performs the retry using policies described below:
+If the error returned by the subscribed endpoint isn't among the above list, Event Grid performs the retry using policies described below:
 
 Event Grid waits 30 seconds for a response after delivering a message. After 30 seconds, if the endpoint hasn’t responded, the message is queued for retry. Event Grid uses an exponential backoff retry policy for event delivery. Event Grid retries delivery on the following schedule on a best effort basis:
 
@@ -205,9 +205,9 @@ Here are the possible values of `lastDeliveryOutcome` and their descriptions.
 | TimedOut | Delivery operation timed out. |
 | Busy | Destination server is busy. |
 | PayloadTooLarge | Size of the message exceeded the maximum allowed size by the destination. Applicable for Azure Service Bus and Azure Event Hubs. |
-| Probation | Destination is put in probation by EventGrid. Delivery is not attempted during probation. |
+| Probation | Destination is put in probation by Event Grid. Delivery is not attempted during probation. |
 | Canceled | Delivery operation canceled. |
-| Aborted | Delivery was aborted by EventGrid after a time interval. |
+| Aborted | Delivery was aborted by Event Grid after a time interval. |
 | SocketError | Network communication error occurred during delivery. |
 | ResolutionError | DNS resolution of destination endpoint failed. |
 | Delivering | | 
@@ -216,12 +216,12 @@ Here are the possible values of `lastDeliveryOutcome` and their descriptions.
 | InvalidAzureFunctionDestination | Destination Azure function isn't valid. Probably because it doesn't have EventGridTrigger type. |
 
 **LastDeliveryOutcome: Probation**
-An event subscription is put into probation for a duration by EventGrid if event deliveries to that destination start failing. Probation time is different for different errors returned by the destination endpoint.
+An event subscription is put into probation for a duration by Event Grid if event deliveries to that destination start failing. Probation time is different for different errors returned by the destination endpoint.
 
 If an event subscription is in probation, events may get dead-lettered or dropped without even trying delivery depending on the error code due to which it's in probation.
 
 > [!NOTE]
-> Probation and its duration is used by EventGrid for better delivery management and can be changed in future.
+> Probation and its duration is used by Event Grid for better delivery management and can be changed in future.
 
 | Error | Probation Duration |
 | ----- | ------------------ | 
