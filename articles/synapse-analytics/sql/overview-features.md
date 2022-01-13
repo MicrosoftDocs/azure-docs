@@ -97,7 +97,7 @@ Synapse SQL pools enable you to use built-in security features to secure your da
 | **Data Discovery & Classification** | [Yes](../../azure-sql/database/data-discovery-and-classification-overview.md) | No |
 | **Vulnerability Assessment** | [Yes](../../azure-sql/database/sql-vulnerability-assessment.md) | No |
 | **Advanced Threat Protection** | [Yes](../../azure-sql/database/threat-detection-overview.md) | No |
-| **Auditing** | [Yes](../../azure-sql/database/auditing-overview.md) | [Yes](../../azure-sql/database/auditing-overview.md) |
+| **Auditing** | [Yes](../../azure-sql/database/auditing-overview.md) | Yes, [Auditing is suppored](../../azure-sql/database/auditing-overview.md) in serverless SQL pools. |
 | **[Firewall rules](../security/synapse-workspace-ip-firewall.md)**| Yes | Yes, the firewall rules can be set on serverless SQL endpoint. |
 | **[Private endpoint](../security/synapse-workspace-managed-private-endpoints.md)**| Yes | Yes, the private endpoint can be set on serverless SQL pool. |
 
@@ -109,11 +109,11 @@ You can use various tools to connect to Synapse SQL to query data.
 
 |   | Dedicated | Serverless |
 | --- | --- | --- |
-| **Synapse Studio** | Yes, SQL scripts | Yes, SQL scripts. Use SSMS or ADS instead of Synapse Studio if you are returning a large amount of data as a result. |
-| **Power BI** | Yes | [Yes](tutorial-connect-power-bi-desktop.md) |
+| **Synapse Studio** | Yes, SQL scripts | Yes, SQL scripts cn be used in Synapse Studio. Use SSMS or ADS instead of Synapse Studio if you are returning a large amount of data as a result. |
+| **Power BI** | Yes | Yes, you can [use Power BI](tutorial-connect-power-bi-desktop.md) to create reports on serverless SQL pool. Import mode is recommended for reporting.|
 | **Azure Analysis Service** | Yes | Yes |
-| **Azure Data Studio** | Yes | [Yes](get-started-azure-data-studio.md), version 1.18.0 or higher. SQL scripts and SQL Notebooks are supported. |
-| **SQL Server Management Studio** | Yes | [Yes](get-started-ssms.md), version 18.5 or higher |
+| **Azure Data Studio (ADS)** | Yes | Yes, you can [use ADS](get-started-azure-data-studio.md)(version 1.18.0 or higher) to query serverless SQL pool. SQL scripts and SQL Notebooks are supported. |
+| **SQL Server Management Studio (SSMS)** | Yes | Yes, you can [use SSMS](get-started-ssms.md)(version 18.5 or higher) to query serverless SQL pool. |
 
 > [!NOTE]
 > You can use SSMS to connect to serverless SQL pool and query. It is partially supported starting from version 18.5, you can use it to connect and query only.
@@ -130,12 +130,12 @@ Data that is analyzed can be stored on various storage types. The following tabl
 | **Azure Data Lake v2** | Yes | Yes, you can use external tables and the `OPENROWSET` function to read data from ADLS. |
 | **Azure Blob Storage** | Yes | Yes, you can use external tables and the `OPENROWSET` function to read data from Azure Blob Storage. |
 | **Azure SQL/SQL Server (remote)** | No | No, serverless SQL pool cannot reference Azure SQL database. You can reference serverless SQL pools from Azure SQL using [elastic queries](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) or [linked servers](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance). |
-| **Dataverse** | No | Yes, using [Synapse link](https://docs.microsoft.com/powerapps/maker/data-platform/azure-synapse-link-data-lake). |
-| **Azure CosmosDB transactional storage** | No | No, use Spark pools to update the Cosmos DB transactional storage. |
-| **Azure CosmosDB analytical storage** | No | Yes, using [Synapse Link](../../cosmos-db/synapse-link.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) |
-| **Apache Spark tables (in workspace)** | No | Only PARQUET and CSV tables using [metadata synchronization](develop-storage-files-spark-tables.md) |
-| **Apache Spark tables (remote)** | No | No |
-| **Databricks tables (remote)** | No | No |
+| **Dataverse** | No | Yes, you can read Dataverse tables using [Synapse link](https://docs.microsoft.com/powerapps/maker/data-platform/azure-synapse-link-data-lake). |
+| **Azure CosmosDB transactional storage** | No | No, you cannot access Cosmos DB containers to update data or read data from the Cosmos DB transactional storage. Use Spark pools to update the Cosmos DB transactional storage. |
+| **Azure CosmosDB analytical storage** | No | Yes, you can access Cosmos DB analytical storage using [Synapse Link](../../cosmos-db/synapse-link.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) |
+| **Apache Spark tables (in workspace)** | No | Yes, serverless pool can read PARQUET and CSV tables using [metadata synchronization](develop-storage-files-spark-tables.md). |
+| **Apache Spark tables (remote)** | No | No, serverless pool can access only the PARQUET and CSV tables that are [created in Apache Spark pools in the same Synapse workspace](develop-storage-files-spark-tables.md). |
+| **Databricks tables (remote)** | No | No, serverless pool can access only the PARQUET and CSV tables that are [created in Apache Spark pools in the same Synapse workspace](develop-storage-files-spark-tables.md). |
 
 ## Data formats
 
@@ -143,12 +143,12 @@ Data that is analyzed can be stored in various storage formats. The following ta
 
 |   | Dedicated | Serverless |
 | --- | --- | --- |
-| **Delimited** | [Yes](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) | [Yes](query-single-csv-file.md) |
-| **CSV** | Yes (multi-character delimiters not supported) | [Yes](query-single-csv-file.md) |
-| **Parquet** | [Yes](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) | [Yes](query-parquet-files.md), including files with [nested types](query-parquet-nested-types.md) |
+| **Delimited** | [Yes](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Yes, you can [query delimited files](query-single-csv-file.md). |
+| **CSV** | Yes (multi-character delimiters not supported) |  Yes, you can [query CSV files](query-single-csv-file.md). |
+| **Parquet** | [Yes](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Yes, you can [query CSV files](query-parquet-files.md), including the files with [nested types](query-parquet-nested-types.md) |
 | **Hive ORC** | [Yes](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) | No |
 | **Hive RC** | [Yes](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) | No |
-| **JSON** | Yes | [Yes](query-json-files.md) |
+| **JSON** | Yes | Yes, you can [query JSON files](query-json-files.md) using delimited text format and JSON functions. |
 | **Avro** | No | No |
 | **[Delta Lake](https://delta.io/)** | No | [Yes](query-delta-lake-format.md), including files with [nested types](query-parquet-nested-types.md) |
 | **[CDM](/common-data-model/)** | No | No |
