@@ -234,8 +234,6 @@ An event subscription is put into probation for a duration by Event Grid if even
 > [!NOTE]
 > Event Grid uses probation duration for better delivery management and the duration might change in the future.
 
-
-#### 
 ### CloudEvents 1.0 schema
 
 #### Event
