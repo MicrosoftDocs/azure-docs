@@ -55,10 +55,9 @@ The following table summarizes processing done for each document format, and des
 | XML (application/xml) |`metadata_content_type`<br/>`metadata_content_encoding`<br/>`metadata_language`<br/> |Strip XML markup and extract text |
 | ZIP (application/zip) |`metadata_content_type` |Extract text from all documents in the archive |
 
-
 ## See also
 
 * [Indexers in Azure Cognitive Search](search-indexer-overview.md)
-* [Understand blobs using AI](search-blob-ai-integration.md)
+* [AI enrichment overview](cognitive-search-concept-intro.md)
 * [Blob indexing overview](search-blob-storage-integration.md)
 * [SharePoint Online indexing](search-howto-index-sharepoint-online.md)

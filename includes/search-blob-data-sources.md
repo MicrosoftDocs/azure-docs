@@ -12,7 +12,7 @@ ms.author: magottei
 * HTML
 * JSON (see [Indexing JSON blobs](../articles/search/search-howto-index-json-blobs.md))
 * KML (XML for geographic representations)
-* Microsoft Office formats: DOCX/DOC/DOCM, XLSX/XLS/XLSM, PPTX/PPT/PPTM, MSG (Outlook emails), XML(both 2003 and 2006 WORD XML)
+* Microsoft Office formats: DOCX/DOC/DOCM, XLSX/XLS/XLSM, PPTX/PPT/PPTM, MSG (Outlook emails), XML (both 2003 and 2006 WORD XML)
 * Open Document formats: ODT, ODS, ODP  
 * PDF
 * Plain text files (see also [Indexing plain text](../articles/search/search-howto-index-plaintext-blobs.md))
