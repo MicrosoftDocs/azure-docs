@@ -506,12 +506,6 @@ If all of your source records map to the same target entity and your source data
 
 When transforming data in mapping data flow, you can read and write to tables from Dynamics. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows. You can choose to use a Dynamics dataset or an [inline dataset](data-flow-source.md#inline-datasets) as source and sink type.
 
->[!Note]
-> The customer data type is not supported.
-
->[!Caution]
-> If you delete the non-exist row in Dynamics, the data flow will be failed, and the following step will be blocked. Update/upsert failure will also block the following operations.
-
 ### Source transformation
 
 The below table lists the properties supported by Dynamics. You can edit these properties in the **Source options** tab.
@@ -521,6 +515,9 @@ The below table lists the properties supported by Dynamics. You can edit these p
 | Table | If you select Table as input, data flow fetches all the data from the table specified in the dataset. | No | - | tableName |
 | Query |FetchXML is a proprietary query language that is used in Dynamics online and on-premises. See the following example. To learn more, see [Build queries with FetchXML](/previous-versions/dynamicscrm-2016/developers-guide/gg328332(v=crm.8)). | No | String | query |
 | Entity | The logical name of the entity to retrieve. | Yes when use inline mode | - | entity|
+
+> [!Note]
+> If you select **Query** as input type, the column type from multiple tables can not be retrieved. It will be treated as string by default.
 
 #### Dynamics source script example
 
