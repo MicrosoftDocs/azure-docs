@@ -168,8 +168,8 @@ Below table lists out the prebuilt neural voices supported in each language. You
 | Arabic (Egypt) | `ar-EG` | Male | `ar-EG-ShakirNeural` | General |
 | Arabic (Iraq) | `ar-IQ` | Female | `ar-IQ-RanaNeural` <sup>New</sup>  | General |
 | Arabic (Iraq) | `ar-IQ` | Male | `ar-IQ-BasselNeural` <sup>New</sup>  | General |
-| Arabic (Jordan) | `ar-JO` | Female | `ar-JO-Sana Neural` <sup>New</sup>  | General |
-| Arabic (Jordan) | `ar-JO` | Male | `ar-JO-Taim Neural` <sup>New</sup>  | General |
+| Arabic (Jordan) | `ar-JO` | Female | `ar-JO-SanaNeural` <sup>New</sup>  | General |
+| Arabic (Jordan) | `ar-JO` | Male | `ar-JO-TaimNeural` <sup>New</sup>  | General |
 | Arabic (Kuwait) | `ar-KW` | Female | `ar-KW-NouraNeural` <sup>New</sup>  | General |
 | Arabic (Kuwait) | `ar-KW` | Male | `ar-KW-FahedNeural` <sup>New</sup>  | General |
 | Arabic (Libya) | `ar-LY` | Female | `ar-LY-ImanNeural` <sup>New</sup>  | General |
