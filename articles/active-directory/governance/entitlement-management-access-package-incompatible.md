@@ -114,7 +114,7 @@ Follow these steps to view the list of users who have assignments to two access 
 
 1.	In the left menu, click **Assignments**.
 
-1.  In the **Status** field, ensure that **Delivered** status is selected.
+1.  In the **Status** field, ensure that the **Delivered** status is selected.
 
 1.  Click the **Download** button and save the resulting CSV file as the second file with a list of assignments.
 
