@@ -18,7 +18,7 @@ Phonetic alphabets are used with the [Speech Synthesis Markup Language (SSML)](s
 
 ## Speech service phonetic alphabet
 
-For some locales, the Speech service defines its own phonetic alphabets that typically map to the <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet (IPA)</a>.
+For some locales, the Speech service defines its own phonetic alphabets that typically map to the <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet (IPA)</a>. The 7 locales that support `sapi` are: `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`.
 
 You set `sapi` or `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation). 
 
