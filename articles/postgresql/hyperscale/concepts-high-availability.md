@@ -60,7 +60,7 @@ for server groups in the Azure portal.
   standby nodes, and the nodes' state will transition back to **Healthy**.
 * **No**: HA is not enabled on this node.
 
-### Next steps
+## Next steps
 
 - Learn how to [enable high
   availability](howto-high-availability.md) in a Hyperscale (Citus) server
