@@ -42,6 +42,11 @@ Please refer to the [Products by region](https://azure.microsoft.com/global-infr
 ### What are the subscription quota limits for the Azure Healthcare APIs?
 Please refer to [Healthcare APIs service limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-healthcare-apis) for the most current information.
 
+### What is the backup and recovery policy for the Azure Healthcare APIs?
+Data for the managed service is backed up with geo-redundancy automatically every 12 hours and backups are kept for 7 days. Data can be restored in the same region, or in a different region unless the default geo-redundant backup policy is disabled to meet single region data residency requirement, by the support team. The recovery point objective (RPO) is governed by the SLA policy.
+
+Customers can make a request to restore the data, or change the default data backup policy, through a support ticket.
+
 ## More frequently asked questions
 [FAQs about Azure Healthcare APIs FHIR service](./fhir/fhir-faq.md)
 
