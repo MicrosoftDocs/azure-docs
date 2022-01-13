@@ -6,7 +6,7 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/19/2021
+ms.date: 01/13/2022
 ms.devlang: csharp
 ---
 
