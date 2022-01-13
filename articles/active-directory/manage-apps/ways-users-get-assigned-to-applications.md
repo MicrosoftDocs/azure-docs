@@ -36,7 +36,7 @@ There are several ways a user can be assigned an application. Assignment can be 
 * An administrator enables [Self-service Group Management](../enterprise-users/groups-self-service-management.md) to allow a user to join a group that an application is assigned to, but only **with prior approval from a selected set of business approvers**
 * An administrator assigns a license to a user directly, for a Microsoft service such as [Microsoft 365](https://products.office.com/)
 * An administrator assigns a license to a group that the user is a member of, for a Microsoft service such as [Microsoft 365](https://products.office.com/)
-* A user [consents to an application](consent-and-permissions-overview#user-consent.md) on behalf of themselves.
+* A user [consents to an application](consent-and-permissions-overview.md#user-consent) on behalf of themselves.
 
 ## Next steps
 
