@@ -149,7 +149,7 @@ For example, if the **Production environment** access package has marked the **D
 
 If there is an exceptional situation where separation of duties rules might need to be overridden, then configuring an additional access package to capture the users who have overlapping access rights will make it clear to the approvers, reviewers, and auditors the exceptional nature of those assignments.
 
-For example, if there was a scenario that some users would need to have access to both production and deployment environments simultaneously, you could create a new access package **Production and development environments**.  That access package could have as its resource roles some of the resource roles of the **Production environment** access package and some of the resource roles of the **Development environment** access package.  
+For example, if there was a scenario that some users would need to have access to both production and deployment environments at the same time, you could create a new access package **Production and development environments**.  That access package could have as its resource roles some of the resource roles of the **Production environment** access package and some of the resource roles of the **Development environment** access package.  
 
 If the motivation of the incompatible access is one resource's roles are particularly problematic, then that resource could be omitted from the combined access package, and require explicit administrator assignment of a user to the role.  If that is a third party application or your own application, then you can ensure oversight by monitoring those role assignments using the  *Application role assignment activity* workbook described in the next section.
 
