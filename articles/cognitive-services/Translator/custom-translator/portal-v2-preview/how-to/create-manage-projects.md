@@ -57,7 +57,7 @@ Creating project is the first step toward building and publishing a model.
         or pediatrics. The description has no influence over the behavior of the
         Custom Translator or your resulting custom system.
 
-    ![Create project dialog](media/how-to/how-to-create-project-dialog.png)
+    ![Create project dialog](portal-v2-preview/how-tocreate-project-dialog.png)
 
 1.  Select **Create project** 
 
@@ -68,11 +68,11 @@ To modify the project name, project description and domain description:
 2.  Select the project name, e.g., `English to German`.
 3.  **Edit and Delete** buttons are now visible. 
 
-    ![Edit project](media/how-to/how-to-edit-project-dialog-1.png)
+    ![Edit project](portal-v2-preview/how-toedit-project-dialog-1.png)
 
 4.  Select **Edit** and fill in or modify existing text.
 
-    ![Edit project details](media/how-to/how-to-edit-project-dialog-2.png)
+    ![Edit project details](portal-v2-preview/how-toedit-project-dialog-2.png)
 
 5.  Select **Edit project** to save.
 
@@ -81,12 +81,12 @@ To modify the project name, project description and domain description:
 1.  Follow **Edit a project** steps 1-3
 2.  Select **Delete** and read the delete message before you select **Delete project** to confirm.
 
-    ![Delete project dialog](media/how-to/how-to-delete-project-1.png)
+    ![Delete project dialog](portal-v2-preview/how-todelete-project-1.png)
 
 >[!Note]
 >If your project has published model or in training status, delete fails with the Following message:
 >
->   ![Unable to delete project](media/how-to/how-to-delete-project-2.png)
+>   ![Unable to delete project](portal-v2-preview/how-todelete-project-2.png)
 
 ## Next steps
 

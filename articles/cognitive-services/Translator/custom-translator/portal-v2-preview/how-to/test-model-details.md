@@ -1,7 +1,7 @@
 ---
 title: How to test model - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: This article explains how to create and manage a project in the Azure Cognitive Services Custom Translator.  
+description: How to create and manage a project in the Azure Cognitive Services Custom Translator portal.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
@@ -21,9 +21,9 @@ In order to make informed decision whether to use our standard model or your cus
 2. Select model **Name**, e.g., "en-de with sample data".
 3. Human evaluate translation from **New model** (custom model), and **Baseline model** (our pre-trained baseline used for customization) against **Reference** (target translation from the test set)
 
-![Model test results](media/quickstart/model-test-details.png)
+![Model test results](../media/quickstart/model-test-details.png)
 
 ## Next steps
 
-- Learn [how to publish model](how-to-publish-model.md).
-- Learn [how to translate with custom models](how-to-translate.md).
+- Learn [how to publish model](publish-model.md).
+- Learn [how to translate docuements with custom models](use-custom-model.md).

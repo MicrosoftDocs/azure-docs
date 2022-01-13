@@ -22,8 +22,8 @@ A project might have one or many successfully trained models. However, you can p
 3. Check desired region(s) 
 4. Select **Publish** (Status should transition from Deploying to Deployed)
 
-![Deploy a trained model](media/quickstart/how-to-publish-model.png)
+![Deploy a trained model](../media/quickstart/publish-model.png)
 
 ## Next steps
 
-- Learn [how to translate with custom models](how-to-translate.md).
+- Learn [how to translate documents with custom models](use-custom-model.md).

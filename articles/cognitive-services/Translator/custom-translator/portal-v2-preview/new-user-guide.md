@@ -15,15 +15,15 @@ ms.topic: overview
 
 [Custom Translator](https://portal.customtranslator.azure.ai) is a feature of the Microsoft Translator service, which enables you to customize our general domain neural machine translation (NMT) systems and build translation systems that understand the terminology used in your own business and industry. The customized translation systems seamlessly integrate into existing applications, workflows, and websites.
 
-Translation systems built and published with [Custom Translator](https://portal.customtranslator.azure.ai) are available through the same cloud-based, secure, high performance, highly scalable Microsoft Translator [Text API V3](../reference/v3-0-translate.md?tabs=curl), that powers billions of translations every day.
+Translation systems built and published with [Custom Translator](https://portal.customtranslator.azure.ai) are available through the same cloud-based, secure, high performance, highly scalable Microsoft Translator [Text API V3](../../reference/v3-0-translate.md?tabs=curl), that powers billions of translations every day.
 
-# Is custom translation systems the right choice for me?
+## Is custom translation systems the right choice for me?
 
 Microsoft Text Translation API serves a huge number of high qulaity translation systems that generalize to a wide spectrum of translation scenarios, but is leser focused on a domain-specific business terminology. However, with custom trained translation systems, customers can achieve much higher adherence to the domain-specific terminology and style by training a custom translation system on previously translated, in-domain documents. These previously translated documents allow Custom Translator to learn the preferred translations in context, so Translator can apply these terms and phrases when the context calls for it, and produce a fluent translation in the target language, respecting the context-dependent grammar of the target language.
 
-![Custom vs. general](media/how-to/for-beginners.png)
+![Custom vs. general](portal-v2-preview/how-to/for-beginners.png)
 
-# What does training custom translation systems involve?
+## What does training custom translation systems involve?
 
 In order to build custom translation system, you start with the use-case, the availability of in-domain translated data (human translated is better), the data coverage to generalize, expected outcome, target users location, regional data residency requirement, and keeping human in the loop.
 
@@ -45,16 +45,16 @@ Finding in-domain quality data is often a challenging task which varies based on
 
 | What goes in | What it does | Rules to follow |
 |---|---|---|
-| Bilingual training documents | Teaches the system your terminology and style | Be liberal. Any in-domain human translation is better then machine translation. Add and remove documents as you go and try to improve the [BLEU score](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/what-is-bleu-score?WT.mc_id=aiml-43548-heboelma). |
-| Tuning documents | Train the Neural Machine Translation parameters | Be strict. Compose them to be optimally respresntative of what you are going to translation in the future. | 
-| Test documents | Calculate the [BLEU score](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/what-is-bleu-score?WT.mc_id=aiml-43548-heboelma) - just for you | Be strict. Compose them to be optimally respresntative of what you are going to translation in the future. |
+| Bilingual training documents | Teaches the system your terminology and style | Be liberal. Any in-domain human translation is better then machine translation. Add and remove documents as you go and try to improve the [BLEU score](/azure/cognitive-services/translator/custom-translator/what-is-bleu-score?WT.mc_id=aiml-43548-heboelma). |
+| Tuning documents | Train the Neural Machine Translation parameters | Be strict. Compose them to be optimally representative of what you are going to translation in the future. | 
+| Test documents | Calculate the [BLEU score](/azure/cognitive-services/translator/custom-translator/what-is-bleu-score?WT.mc_id=aiml-43548-heboelma) - just for you | Be strict. Compose them to be optimally respresntative of what you are going to translation in the future. |
 | Phrase dictionary | Forces the given translation with a probability of 1. | Be restrictive. Case-sensitive and safe to use only for compound nouns and named entities. Better to not use and let the system learn. |
 | Sentence dictionary | Forces the given translation with a probability of 1. | Case-insensitive and good for common in domain short sentences. |
 
 ### BLEU Score
 
 BLEU is the industry standard method for evaluating the "precision" or accuracy of the translation model. Though other methods of evaluation exist, Microsoft Translator relies BLEU method to report accuracy to Project Owners.
-[Read more](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/what-is-bleu-score?WT.mc_id=aiml-43548-heboelma)
+[Read more](/azure/cognitive-services/translator/custom-translator/what-is-bleu-score?WT.mc_id=aiml-43548-heboelma)
 
 ### Auto or manual selection of Tuning and Test data
 
