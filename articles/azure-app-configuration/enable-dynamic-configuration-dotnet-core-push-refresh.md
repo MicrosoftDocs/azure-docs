@@ -207,6 +207,7 @@ ProcessPushNotification(PushNotification pushNotification, TimeSpan? maxDelay)
 This method is called by the refresher and provider to process the `PushNotification`. `ProcessPushNotification()` will invoke `UpdateSyncToken()` and then invoke `SetDirty()` to ensure the most recent configuration is provided to the user.
 
 Open **Program.cs** and update the file with the following code.
+This example uses [ServiceBus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues) as an example. 
 
 ```cs
 using Azure.Messaging.EventGrid;
