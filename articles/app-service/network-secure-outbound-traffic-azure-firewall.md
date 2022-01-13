@@ -4,7 +4,7 @@ description: Outbound traffic from App Service to internet, private IP addresses
 author: madsd
 ms.author: madsd
 ms.topic: article
-ms.date: 12/14/2021
+ms.date: 01/13/2022
 ---
 
 # Control outbound traffic with Azure Firewall
@@ -57,7 +57,7 @@ To deploy a firewall into the integrated virtual network, you need a subnet call
 1. After deployment completes, go to your resource group, and select the firewall.
 1. In the firewall's **Overview** page, copy private IP address. The private IP address will be used as next hop address in the routing rule for the virtual network.
     
-    :::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/firewall-private-ip.png" alt-text="Screenshot of get Azure firewall private IP address.":::
+    :::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/firewall-private-ip.png" alt-text="Screenshot of get Azure Firewall private IP address.":::
 
 ## 3. Route all traffic to the firewall
 
@@ -129,9 +129,10 @@ An easy way to verify your configuration is to use the `curl` command from your 
 > 1. In the Azure portal, navigate to your firewall.
 > 1. From the left navigation, select **Logs**.
 > 1. Close the welcome message by selecting **X**.
-> 1. From All Queries, select **Firewall Logs** > **Application rule log data**. You can see these two access logs in query result.
+> 1. From All Queries, select **Firewall Logs** > **Application rule log data**. 
+> 1. Click **Run**. You can see these two access logs in query result.
 >
->    :::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/azfw-application-log.png" alt-text="Screenshot of SCM debug console to verify the failed outbound traffic by using curl command.":::
+>    :::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/azfw-application-log-min.png" alt-text="Screenshot of SCM debug console to verify the failed outbound traffic by using curl command." lightbox="./media/network-secure-outbound-traffic-azure-firewall/azfw-application-log.png":::
 
 ## More resources
 
