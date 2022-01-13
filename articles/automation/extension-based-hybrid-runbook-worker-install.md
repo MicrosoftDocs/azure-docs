@@ -61,6 +61,36 @@ After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid
 
 If you use a proxy server for communication between Azure Automation and machines running the extension-base Hybrid Runbook Worker, ensure that the appropriate resources are accessible. The timeout for requests from the Hybrid Runbook Worker and Automation services is 30 seconds. After three attempts, a request fails.
 
+> [!NOTE]
+> You can set up the proxy settings either by PowerShell cmdlets or API.
+
+**Proxy server settings**
+# [Windows](#tab/windows) 
+ 
+```azurepowershell
+$settings = @{
+    "AutomationAccountURL"  = "<registrationurl>/<subscription-id>";    
+    "ProxySettings" = @{
+        "ProxyServer" = "<ipaddress>:<port>";
+        "UserName"="test";
+    }
+};
+$protectedsettings = @{
+"ProxyPassword" = "password";
+};
+```
+
+# [Linux](#tab/linux)
+```
+$protectedsettings = @{
+      "Proxy_URL"="http://username:password@<IP Address>"
+};
+$settings = @{
+    "AutomationAccountURL"  = "<registration-url>/<subscription-id>";    
+};
+```
+---
+
 ### Firewall use
 
 If you use a firewall to restrict access to the Internet, you must configure the firewall to permit access. The following port and URLs are required for the Hybrid Runbook Worker, and for [Automation State Configuration](./automation-dsc-overview.md) to communicate with Azure Automation.

@@ -2,19 +2,19 @@
 title: Azure Event Grid delivery and retry
 description: Describes how Azure Event Grid delivers events and how it handles undelivered messages.
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 01/12/2022
 ---
 
 # Event Grid message delivery and retry
-Event Grid provides durable delivery. It tries to deliver each message **at least once** for each matching subscription immediately. If a subscriber's endpoint doesn't acknowledge receipt of an event or if there is a failure, Event Grid retries delivery based on a fixed [retry schedule](#retry-schedule) and [retry policy](#retry-policy). By default, the Event Grid module delivers one event at a time to the subscriber. The payload is however an array with a single event.
+Event Grid provides durable delivery. It tries to deliver each message **at least once** for each matching subscription immediately. If a subscriber's endpoint doesn't acknowledge receipt of an event or if there's a failure, Event Grid retries delivery based on a fixed [retry schedule](#retry-schedule) and [retry policy](#retry-policy). By default, the Event Grid module delivers one event at a time to the subscriber. The payload is however an array with a single event.
 
 > [!NOTE]
 > Event Grid doesn't guarantee order for event delivery, so subscribers may receive them out of order. 
 
 ## Retry schedule
-When EventGrid receives an error for an event delivery attempt, EventGrid decides whether it should retry the delivery, dead-letter the event, or drop the event based on the type of the error. 
+When Event Grid receives an error for an event delivery attempt, Event Grid decides whether it should retry the delivery, dead-letter the event, or drop the event based on the type of the error. 
 
-If the error returned by the subscribed endpoint is a configuration-related error that can't be fixed with retries (for example, if the endpoint is deleted), EventGrid will either perform dead-lettering on the event or drop the event if dead-letter isn't configured.
+If the error returned by the subscribed endpoint is a configuration-related error that can't be fixed with retries (for example, if the endpoint is deleted), Event Grid will either perform dead-lettering on the event or drop the event if dead-letter isn't configured.
 
 The following table describes the types of endpoints and errors for which retry doesn't happen:
 
@@ -26,7 +26,7 @@ The following table describes the types of endpoints and errors for which retry 
 > [!NOTE]
 > If Dead-Letter isn't configured for an endpoint, events will be dropped when the above errors happen. Consider configuring Dead-Letter if you don't want these kinds of events to be dropped.
 
-If the error returned by the subscribed endpoint isn't among the above list, EventGrid performs the retry using policies described below:
+If the error returned by the subscribed endpoint isn't among the above list, Event Grid performs the retry using policies described below:
 
 Event Grid waits 30 seconds for a response after delivering a message. After 30 seconds, if the endpoint hasn’t responded, the message is queued for retry. Event Grid uses an exponential backoff retry policy for event delivery. Event Grid retries delivery on the following schedule on a best effort basis:
 
@@ -124,7 +124,7 @@ Event Grid sends an event to the dead-letter location when it has tried all of i
 
 The time-to-live expiration is checked ONLY at the next scheduled delivery attempt. So, even if time-to-live expires before the next scheduled delivery attempt, event expiry is checked only at the time of the next delivery and then subsequently dead-lettered. 
 
-There is a five-minute delay between the last attempt to deliver an event and when it is delivered to the dead-letter location. This delay is intended to reduce the number of Blob storage operations. If the dead-letter location is unavailable for four hours, the event is dropped.
+There's a five-minute delay between the last attempt to deliver an event and when it's delivered to the dead-letter location. This delay is intended to reduce the number of Blob storage operations. If the dead-letter location is unavailable for four hours, the event is dropped.
 
 Before setting the dead-letter location, you must have a storage account with a container. You provide the endpoint for this container when creating the event subscription. The endpoint is in the format of:
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
@@ -192,6 +192,48 @@ This section gives you examples of events and dead-lettered events in different 
     "lastDeliveryAttemptTime": "2020-08-13T17:18:14.0465788Z" 
 }
 ```
+
+Here are the possible values of `lastDeliveryOutcome` and their descriptions. 
+
+| LastDeliveryOutcome | Description |
+| ------------------- | ----------- | 
+| NotFound | Destination resource wasn't found. |
+| Disabled | Destination has disabled receiving events. Applicable for Azure Service Bus and Azure Event Hubs. |
+| Full | Exceeded maximum number of allowed operations on the destination. Applicable for Azure Service Bus and Azure Event Hubs. |
+| Unauthorized | Destination returned unauthorized response code. |
+| BadRequest | Destination returned bad request response code. |
+| TimedOut | Delivery operation timed out. |
+| Busy | Destination server is busy. |
+| PayloadTooLarge | Size of the message exceeded the maximum allowed size by the destination. Applicable for Azure Service Bus and Azure Event Hubs. |
+| Probation | Destination is put in probation by Event Grid. Delivery isn't attempted during probation. |
+| Canceled | Delivery operation canceled. |
+| Aborted | Delivery was aborted by Event Grid after a time interval. |
+| SocketError | Network communication error occurred during delivery. |
+| ResolutionError | DNS resolution of destination endpoint failed. |
+| Delivering | Delivering events to the destination. | 
+| SessionQueueNotSupported | Event delivery without session ID is attempted on an entity, which has session support enabled. Applicable for Azure Service Bus entity destination. |
+| Forbidden | Delivery is forbidden by destination endpoint (could be because of IP firewalls or other restrictions) |
+| InvalidAzureFunctionDestination | Destination Azure function isn't valid. Probably because it doesn't have the EventGridTrigger type. |
+
+**LastDeliveryOutcome: Probation**
+
+An event subscription is put into probation for a duration by Event Grid if event deliveries to that destination start failing. Probation time is different for different errors returned by the destination endpoint. If an event subscription is in probation, events may get dead-lettered or dropped without even trying delivery depending on the error code due to which it's in probation.
+
+| Error | Probation Duration |
+| ----- | ------------------ | 
+| Busy | 10 seconds |
+| NotFound | 5 minutes |
+| SocketError | 30 seconds |
+| ResolutionError | 5 minutes |
+| Disabled | 5 minutes |
+| Full | 5 minutes | 
+| TimedOut | 10 seconds |
+| Unauthorized | 5 minutes |
+| Forbidden | 5 minutes |
+| InvalidAzureFunctionDestination | 10 minutes |
+
+> [!NOTE]
+> Event Grid uses probation duration for better delivery management and the duration might change in the future.
 
 ### CloudEvents 1.0 schema
 
