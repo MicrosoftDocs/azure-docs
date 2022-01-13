@@ -1,14 +1,14 @@
 ---
-title: Speech phonetic sets - Speech service
+title: Speech phonetic alphabets - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn how to the Speech service phonetic alphabet and International Phonetic Alphabet (IPA), and when to use which set.
+description: Speech service phonetic alphabet and International Phonetic Alphabet (IPA) examples.
 services: cognitive-services
 author: jiajzhan
 manager: junwg
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/12/2022
+ms.date: 01/13/2022
 ms.author: jiajzhan
 ---
 
