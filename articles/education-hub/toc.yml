@@ -44,6 +44,8 @@
       href: azure-dev-tools-teaching/manage-students.md
     - name: How to download software
       href: azure-dev-tools-teaching/download-software.md
+    - name: How to Find IDs
+      href: find-ids.md
   - name: Troubleshooting
     items:
     - name: Login errors

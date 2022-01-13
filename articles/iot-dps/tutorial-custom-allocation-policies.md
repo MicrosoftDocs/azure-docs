@@ -181,7 +181,7 @@ In this section, you'll create a new enrollment group that uses the custom alloc
 
     | Field | Description and/or suggested value |
     | :---- | :----------------------------- |
-    | **Group name** | Enter **contoso-custom-allocated-devices** |
+    | **Group name** | Enter **contoso-custom-allocated-devices**. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). |
     | **Attestation Type** | Select **Symmetric Key** |
     | **Auto Generate Keys** | This checkbox should already be checked. |
     | **Select how you want to assign devices to hubs** | Select **Custom (Use Azure Function)** |
