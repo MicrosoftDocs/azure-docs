@@ -2,7 +2,7 @@
 title: Azure Event Grid delivery and retry
 description: Describes how Azure Event Grid delivers events and how it handles undelivered messages.
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 01/12/2022
 ---
 
 # Event Grid message delivery and retry
@@ -193,6 +193,51 @@ This section gives you examples of events and dead-lettered events in different 
 }
 ```
 
+Here are the possible values of `lastDeliveryOutcome` and their descriptions. 
+
+| LastDeliveryOutcome | Description |
+| ------------------- | ----------- | 
+| NotFound | Destination resource was not found. |
+| Disabled | Destination has disabled receiving events. Applicable for Azure Service Bus and Azure Event Hubs. |
+| Full | Exceeded maximum number of allowed operations on the destination. Applicable for Azure Service Bus and Azure Event Hubs. |
+| Unauthorized | Destination returned unauthorized response code. |
+| BadRequest | Destination returned bad request response code. |
+| TimedOut | Delivery operation timed out. |
+| Busy | Destination server is busy. |
+| PayloadTooLarge | Size of the message exceeded the maximum allowed size by the destination. Applicable for Azure Service Bus and Azure Event Hubs. |
+| Probation | Destination is put in probation by EventGrid. Delivery is not attempted during probation. |
+| Canceled | Delivery operation canceled. |
+| Aborted | Delivery was aborted by EventGrid after a time interval. |
+| SocketError | Network communication error occurred during delivery. |
+| ResolutionError | DNS resolution of destination endpoint failed. |
+| Delivering | | 
+| SessionQueueNotSupported | Event delivery without session ID is attempted on an entity which has session support enabled. Applicable for Azure Service Bus entity destination. |
+| Forbidden | Delivery is forbidden by destination endpoint (could be because of ip firewalls or other restrictions) |
+| InvalidAzureFunctionDestination | Destination Azure function isn't valid. Probably because it doesn't have EventGridTrigger type. |
+
+**LastDeliveryOutcome: Probation**
+An event subscription is put into probation for a duration by EventGrid if event deliveries to that destination start failing. Probation time is different for different errors returned by the destination endpoint.
+
+If an event subscription is in probation, events may get dead-lettered or dropped without even trying delivery depending on the error code due to which it's in probation.
+
+> [!NOTE]
+> Probation and its duration is used by EventGrid for better delivery management and can be changed in future.
+
+| Error | Probation Duration |
+| ----- | ------------------ | 
+| Busy | 10 seconds |
+| NotFound | 5 minutes |
+| SocketError | 30 seconds |
+| ResolutionError | 5 minutes |
+| Disabled | 5 minutes |
+| Full | 5 minutes | 
+| TimedOut | 10 seconds |
+| Unauthorized | 5 minutes |
+| Forbidden | 5 minutes |
+| InvalidAzureFunctionDestination | 10 minutes |
+
+
+#### 
 ### CloudEvents 1.0 schema
 
 #### Event
