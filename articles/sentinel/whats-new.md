@@ -29,9 +29,9 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## January 2021
 
+- [SentinelHealth data table (Public preview)](#sentinelhealth-data-table-public-preview)
 - [More workspaces supported for Multiple Workspace View](#more-workspaces-supported-for-multiple-workspace-view)
 - [Kusto Query Language workbook and tutorial](#kusto-query-language-workbook-and-tutorial)
-- [SentinelHealth data table](#sentinel-health-data-table-public-preview)
 
 ### SentinelHealth data table (Public preview)
 
@@ -390,7 +390,7 @@ For more information, see:
 
 ### Data connector health enhancements (Public preview)
 
-Azure Sentinel now provides the ability to enhance your data connector health monitoring with a new *SentinelHealth* table. The *SentinelHealth* table is created after you've [turned on the Azure Sentinel health feature](monitor-data-connector-health.md#turn-on-azure-sentinel-health-for-your-workspace) in your Azure Sentinel workspace, at the first success or failure health event that's generated.
+Azure Sentinel now provides the ability to enhance your data connector health monitoring with a new *SentinelHealth* table. The *SentinelHealth* table is created after you've [turned on the Azure Sentinel health feature](monitor-data-connector-health.md#turn-on-microsoft-sentinel-health-for-your-workspace) in your Azure Sentinel workspace, at the first success or failure health event that's generated.
 
 For more information, see [Monitor the health of your data connectors with this Azure Sentinel workbook](monitor-data-connector-health.md).
 
