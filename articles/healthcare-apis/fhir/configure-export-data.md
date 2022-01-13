@@ -69,15 +69,15 @@ This option provides two different configurations depending on whether the stora
 
 Select a storage account from the Azure portal, and then select the **Networking** blade. Select **Selected networks** under the **Firewalls and virtual networks** tab.
 
-  :::image type="content" source="media/export-data/storage-networking-1.png" alt-text="Azure Storage Networking Settings." lightbox="media/export-data/storage-networking-1.png":::
+  :::image type="content" source="media/export-data/storage-networking-1.png" alt-text="Screenshot of Azure Storage Networking Settings." lightbox="media/export-data/storage-networking-1.png":::
   
-Select "Microsoft.HealthcareApis/workspaces" from the "Resource type" dropdown list and your workspace from the "Instance name" dropdown list.
+Select **Microsoft.HealthcareApis/workspaces** from the **Resource type** dropdown list and your workspace from the **Instance name** dropdown list.
 
 Under the **Exceptions** section, select the box **Allow trusted Microsoft services to access this storage account** and save the setting. 
 
 :::image type="content" source="media/export-data/exceptions.png" alt-text="Allow trusted Microsoft services to access this storage account.":::
 
-Next, specify the FHIR service instance in the selected workspace instance for the storatge account using the PowerShell command. 
+Next, specify the FHIR service instance in the selected workspace instance for the storage account using the PowerShell command. 
 
 ```
 $subscription="xxx"
@@ -91,11 +91,11 @@ $resourceId = "/subscriptions/$subscription/resourceGroups/$resourcegroup/provid
 Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $storageaccountName -TenantId $tenantId -ResourceId $resourceId
 ```
 
-You can see that the networking setting for the storage account shows "two selected" in the "Instance name" dropdown list, one linked to the workspace instance and another linked to the FHIR service instance.
+You can see that the networking setting for the storage account shows **two selected** in the **Instance name** dropdown list. One is linked to the workspace instance and the second is linked to the FHIR service instance.
 
-  :::image type="content" source="media/export-data/storage-networking-2.png" alt-text="Azure Storage Networking Settings Showing Selected Resource Type and Insances." lightbox="media/export-data/storage-networking-2.png":::
+  :::image type="content" source="media/export-data/storage-networking-2.png" alt-text="Screenshot of Azure Storage Networking Settings Showing Selected Resource Type and Insances." lightbox="media/export-data/storage-networking-2.png":::
 
-Note that you will need to install "Add-AzStorageAccountNetworkRule" using an administrator account. See more details on [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security)
+Note that you'll need to install "Add-AzStorageAccountNetworkRule" using an administrator account. For more information, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security)
 
 `
 Install-Module Az.Storage -Repository PsGallery -AllowClobber -Force 
@@ -146,7 +146,7 @@ FHIR service service is provisioned.
 ### Allowing specific IP addresses for the Azure storage account in the same region
 
 The configuration process is the same as above except a specific IP
-address range in CIDR format is used instead, 100.64.0.0/10. The reason why the IP address range, which includes 100.64.0.0 – 100.127.255.255, must be specified is because the actual IP address used by the service varies, but will be within the range, for each $export request.
+address range in Classless Inter-Domain Routing (CIDR) format is used instead, 100.64.0.0/10. The reason why the IP address range, which includes 100.64.0.0 – 100.127.255.255, must be specified is because the actual IP address used by the service varies, but will be within the range, for each $export request.
 
 > [!Note] 
 > It is possible that a private IP address within the range of 10.0.2.0/24 may be used instead. In that case, the $export operation will not succeed. You can retry the $export request, but there is no guarantee that an IP address within the range of 100.64.0.0/10 will be used next time. That's the known networking behavior by design. The alternative is to configure the storage account in a different region.
