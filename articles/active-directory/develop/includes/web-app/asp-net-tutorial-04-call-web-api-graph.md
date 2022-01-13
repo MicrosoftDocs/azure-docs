@@ -22,6 +22,8 @@ Before making a REST call to an API, such as Microsoft Graph, you'll need to acq
 
 ## Call Microsoft Graph API
 
+:::code language="aspx-csharp" source="~/ms-identity-docs-code-dotnet/src/Pages/Index.cshtml.cs":::
+
 ## Next steps
 
 In this tutorial, you acquired an access token and called the Microsoft Graph API using a React single-page application.

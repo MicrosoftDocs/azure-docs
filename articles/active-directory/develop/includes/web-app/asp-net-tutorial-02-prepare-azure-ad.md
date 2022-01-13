@@ -20,7 +20,7 @@ Follow the steps in this tutorial to:
 
 ## Configure a redirect URI
 
-:::code language="aspx-csharp" source="~/ms-identity-docs-code-dotnet/src/sign-in-webapp/appsettings.json":::
+:::code language="json" source="~/ms-identity-docs-code-dotnet/src/sign-in-webapp/appsettings.json":::
 
 ## Next steps
 
