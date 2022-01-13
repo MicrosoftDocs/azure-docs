@@ -125,9 +125,9 @@ items:
       displayName: Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries
       href: logs/data-platform-logs.md
     - name: Basic logs
-      href: logs/basic-logs.md
+      href: logs/basic-logs-overview.md
     - name: Archived logs
-      href: logs/archived-logs.md
+      href: logs/archived-logs-overview.md
   - name: Workspaces
     items:
     - name: Design a workspace deployment

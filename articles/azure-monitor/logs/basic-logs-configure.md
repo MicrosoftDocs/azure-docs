@@ -1,12 +1,11 @@
 ---
-title: Azure Monitor Basic Logs
-description: Use Azure Monitor Basic Logs to quickly, or periodically investigate issues, troubleshoot code or configuration problems or address support cases.
-author: MeirMen, adiBiran
-ms.author: meirm, adbiran
-ms.reviewer: osalzberg
+title: Configure Basic Logs in Azure Monitor (Preview)
+description: Configure a table for Basic logs in Azure Monitor.
+author: bwren
+ms.author: bwren
 ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/31/2021
+ms.date: 01/13/2022
 
 ---
 
@@ -93,11 +92,11 @@ You can check the configuration for a particular table from Log Analytics in the
 
 When browsing the list of tables, Basic Logs tables are identified a unique icon: 
 
-![Screenshot of the Basic Logs table icon in the table list.](./media/basic-logs/BasicLogsTableIndicator.png)
+![Screenshot of the Basic Logs table icon in the table list.](./media/basic-logs-configure/table-icon.png)
 
 You can also hover over a table name for the table information view. This will specify that the table is configured as Basic Logs:
 
-![Screenshot of the Basic Logs table indicator in the table details.](./media/basic-logs/BasicLogsTableInfo.png)
+![Screenshot of the Basic Logs table indicator in the table details.](./media/basic-logs-configure/table-info.png)
 
 You can also use **Tables - Get** API call to check whether the table is configured as _Basic Logs_ or _Analytics Logs_.
 
@@ -137,6 +136,9 @@ Status code: 200
     "name": "ContainerLog"
 }
 ```
->[!TIP]
->* You can use any REST API tool to run the commands. [Read More](https://docs.microsoft.com/rest/api/azure/)
->* You need to use the Bearer token for authentication. [Read More](https://social.technet.microsoft.com/wiki/contents/articles/51140.azure-rest-management-api-the-quickest-way-to-get-your-bearer-token.aspx)
+
+> You need to use the Bearer token for authentication. [Read More](https://social.technet.microsoft.com/wiki/contents/articles/51140.azure-rest-management-api-the-quickest-way-to-get-your-bearer-token.aspx)
+
+## Next steps
+
+- [Query data in Basic Logs.](basic-logs-query.md)
