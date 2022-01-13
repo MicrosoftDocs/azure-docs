@@ -19,7 +19,7 @@ ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-cor
 
 In this quickstart, you download an ASP.NET Core web API code sample and review the way it restricts resource access to authorized accounts only. The sample supports authorization of personal Microsoft accounts and accounts in any Azure Active Directory (Azure AD) organization.
 
-> [!div renderon="docs"]
+
 > ## Prerequisites
 >
 > - Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -39,17 +39,17 @@ In this quickstart, you download an ASP.NET Core web API code sample and review 
 > 1. Select **Register**.
 > 1. Under **Manage**, select **Expose an API** > **Add a scope**. For **Application ID URI**, accept the default by selecting **Save and continue**, and then enter the following details:
 >    - **Scope name**: `access_as_user`
->    - **Who can consent?**: **Admins and users**
->    - **Admin consent display name**: `Access AspNetCoreWebApi-Quickstart`
->    - **Admin consent description**: `Allows the app to access AspNetCoreWebApi-Quickstart as the signed-in user.`
->    - **User consent display name**: `Access AspNetCoreWebApi-Quickstart`
->    - **User consent description**: `Allow the application to access AspNetCoreWebApi-Quickstart on your behalf.`
->    - **State**: **Enabled**
-> 1. Select **Add scope** to complete the scope addition.
+   - **Who can consent?**: **Admins and users**
+   - **Admin consent display name**: `Access AspNetCoreWebApi-Quickstart`
+   - **Admin consent description**: `Allows the app to access AspNetCoreWebApi-Quickstart as the signed-in user.`
+   - **User consent display name**: `Access AspNetCoreWebApi-Quickstart`
+   - **User consent description**: `Allow the application to access AspNetCoreWebApi-Quickstart on your behalf.`
+   - **State**: **Enabled**
+1. Select **Add scope** to complete the scope addition.
 
 ## Step 2: Download the ASP.NET Core project
 
-> [!div renderon="docs"]
+> [!div jon="docs"]
 > [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/archive/aspnetcore3-1.zip) from GitHub.
 
 [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
