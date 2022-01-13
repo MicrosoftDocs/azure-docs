@@ -81,11 +81,11 @@ Some of the pipelines will add files to the Azure Repos and therefore require pu
 
 Create the control plane pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
 
-| Setting | Value                                     |
-| ------- | ----------------------------------------- |
-| Branch  | private-preview                           |
-| Path    | `deploy/pipelines/01-prepare-region.yaml` |
-| Name    | Control plane deployment                  |
+| Setting | Value                                           |
+| ------- | ----------------------------------------------- |
+| Branch  | private-preview                                 |
+| Path    | `deploy/pipelines/01-deploy-control-plane.yaml` |
+| Name    | Control plane deployment                        |
 
 Save the Pipeline, to see the Save option click the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Control plane deployment' by choosing 'Rename/Move' from the three-dot menu on the right.
 

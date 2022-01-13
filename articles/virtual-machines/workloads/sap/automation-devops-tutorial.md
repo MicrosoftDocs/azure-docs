@@ -92,6 +92,17 @@ Deployer Environment Name: MGMT
 
 You can track the progress in the Azure DevOps portal. Once the deployment is complete you can see the Workload Zone details in the _Extensions_ tab.
 
+## Deploying the SAP System
+
+The deployment will use the configuration defined in the Terraform variable file located in the 'samples/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X00' folder.
+
+Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _SAP system deployment_ pipeline. Run the pipeline and when prompted enter the following values:
+
+SAP System configuration name: DEV-WEEU-SAP01-X00
+
+You can track the progress in the Azure DevOps portal. Once the deployment is complete you can see the SAP System details in the _Extensions_ tab.
+
+
 ## Next step
 
 > [!div class="nextstepaction"]
