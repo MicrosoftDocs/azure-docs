@@ -216,6 +216,7 @@ Here are the possible values of `lastDeliveryOutcome` and their descriptions.
 | InvalidAzureFunctionDestination | Destination Azure function isn't valid. Probably because it doesn't have the EventGridTrigger type. |
 
 **LastDeliveryOutcome: Probation**
+
 An event subscription is put into probation for a duration by Event Grid if event deliveries to that destination start failing. Probation time is different for different errors returned by the destination endpoint. If an event subscription is in probation, events may get dead-lettered or dropped without even trying delivery depending on the error code due to which it's in probation.
 
 | Error | Probation Duration |
@@ -231,8 +232,8 @@ An event subscription is put into probation for a duration by Event Grid if even
 | Forbidden | 5 minutes |
 | InvalidAzureFunctionDestination | 10 minutes |
 
-> [!NOTE]
-> Event Grid uses probation duration for better delivery management and the duration might change in the future.
+    > [!NOTE]
+    > Event Grid uses probation duration for better delivery management and the duration might change in the future.
 
 ### CloudEvents 1.0 schema
 
