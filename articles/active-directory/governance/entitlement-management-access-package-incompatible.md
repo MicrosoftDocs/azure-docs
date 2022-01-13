@@ -156,7 +156,7 @@ If the motivation of the incompatible access is one resource's roles are particu
 Depending on your governance processes, that combined access package could have as its policy either:
 
  - a **direct assignments policy**, so that only an access package manager would be interacting with the access package, or
- - a users can request access policy, so that a user can request, with potentially an additional approval stage
+ - a **users can request access policy**, so that a user can request, with potentially an additional approval stage
 
 This policy could have as its lifecycle settings a much shorter expiration number of days than a policy on other access packages, or require more frequent access reviews, with regular oversight so that users do not retain access longer than necessary.
 
