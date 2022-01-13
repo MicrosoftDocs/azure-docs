@@ -43,7 +43,7 @@ A serverless Spark pool is a way of indicating how a user wants to work with Spa
     display(df.limit(10))
     ```
 
-1. Modify the load URI so it references the sample file in your storage account according to the [abfss uri scheme](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction-abfs-uri).
+1. Modify the load URI, so it references the sample file in your storage account according to the [abfss URI scheme](../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
 1. In the notebook, in the **Attach to** menu, choose the **Spark1** serverless Spark pool that we created earlier.
 1. Select **Run** on the cell. Synapse will start a new Spark session to run this cell if needed. If a new Spark session is needed, initially it will take about two seconds to be created. 
 1. If you just want to see the schema of the dataframe run a cell with the following code:
