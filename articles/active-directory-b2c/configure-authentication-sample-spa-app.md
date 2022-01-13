@@ -89,21 +89,22 @@ To create the SPA registration, do the following:
 1. Under **Permissions**, select the **Grant admin consent to openid and offline access permissions** checkbox.
 1. Select **Register**.
 
+   Record the **Application (client) ID** to use later, when you configure the web application.
+
+    ![Screenshot of the web app Overview page for recording your web application ID.](./media/configure-authentication-sample-web-app/get-azure-ad-b2c-app-id.png)  
+
+
 ### Step 2.4: Enable the implicit grant flow
+> [!IMPORTANT] If the SPA supports OIDC PKCE flow, do not enable implicit grant flow.
 
 Next, enable the implicit grant flow:
 
 1. Under **Manage**, select **Authentication**.
 
-1. Select **Try out the new experience** (if shown).
-
-1. Under **Implicit grant**, select the **ID tokens** checkbox.
+1. Under **Implicit grant and hybrid flows**, select the **ID tokens** checkbox.
 
 1. Select **Save**.
 
-   Record the **Application (client) ID** to use later, when you configure the web application.
-
-    ![Screenshot of the web app Overview page for recording your web application ID.](./media/configure-authentication-sample-web-app/get-azure-ad-b2c-app-id.png)  
 
 ### Step 2.5: Grant permissions
 
