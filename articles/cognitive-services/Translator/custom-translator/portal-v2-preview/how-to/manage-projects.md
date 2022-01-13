@@ -1,7 +1,7 @@
 ---
 title: How to manage a project - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: This article explains how to create and manage a project in the Azure Cognitive Services Custom Translator.  
+description: How to create and manage a project in the Azure Cognitive Services Custom Translator v2.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
@@ -19,10 +19,10 @@ Creating project is the first step toward building and publishing a model.
 
 ## Create project
 
-1.  After sign-in, your default workspace is loaded. 
+1. After sign-in, your default workspace is loaded.
     - To create a project in different workspace, click **My workspaces**, then click the workspace name
-2.  Click **Create project**
-3.  Enter the following details about your project in the dialog:
+2. Click **Create project**
+3. Enter the following details about your project in the dialog:
 
     a.  **Project name (required):** Give your project a unique, meaningful name. It's not necessary to mention the languages within the title.
 
@@ -55,41 +55,42 @@ Creating project is the first step toward building and publishing a model.
         or pediatrics. The description has no influence over the behavior of the
         Custom Translator or your resulting custom system.
 
-    ![Create project dialog](media/how-to/how-to-create-project-dialog.png)
+    ![Create project dialog](../media/how-to/create-project-dialog.png)
 
-3.  Click **Create project** 
+3. Click **Create project**
 
 ## Edit project
 
 To modify the project name, project description and domain description:
-1.  Click the workspace name, e.g., `Contoso MT models`.
-2.  Select the project name, e.g., `English to German`.
-3.  **Edit and Delete** buttons are now visible. 
 
-    ![Edit project](media/how-to/how-to-edit-project-dialog-1.png)
+1. Click the workspace name, e.g., `Contoso MT models`.
+2. Select the project name, e.g., `English to German`.
+3. **Edit and Delete** buttons are now visible.
 
-4.  Click **Edit** and fill in or modify existing text.
+    ![Edit project](../media/how-to/edit-project-dialog-1.png)
 
-    ![Edit project details](media/how-to/how-to-edit-project-dialog-2.png)
+4. Click **Edit** and fill in or modify existing text.
 
-5.  Click **Edit project** to save.
+    ![Edit project details](../media/how-to/edit-project-dialog-2.png)
+
+5. Click **Edit project** to save.
 
 ## Delete project
 
-1.  Follow **Edit a project** steps 1-3
-2.  Click **Delete** and read the delete message before you click **Delete project** to confirm.
+1. Follow **Edit a project** steps 1-3
+2. Click **Delete** and read the delete message before you click **Delete project** to confirm.
 
-    ![Delete project dialog](media/how-to/how-to-delete-project-1.png)
+    ![Delete project dialog](../media/how-to/delete-project-1.png)
 
 >[!Note]
 >If your project has published model or in training status, delete fails with the Following message:
 >
->   ![Unable to delete project](media/how-to/how-to-delete-project-2.png)
+> ![Unable to delete project](../media/how-to/delete-project-2.png)
 
 ## Next steps
 
-- Learn [how to manage project documents](how-to-manage-documents.md).
-- Learn [how to train a model](how-to-train-model.md).
-- Learn [how to test and evaluate model quality](how-to-test-model-details.md).
-- Learn [how to publish model](how-to-publish-model.md).
-- Learn [how to translate with custom models](how-to-translate.md).
+- Learn [how to manage project documents](manage-documents.md).
+- Learn [how to train a model](train-model.md).
+- Learn [how to test and evaluate model quality](test-model-details.md).
+- Learn [how to publish model](publish-model.md).
+- Learn [how to translate with custom models](translate.md).

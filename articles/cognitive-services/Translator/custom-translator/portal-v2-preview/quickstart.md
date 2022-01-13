@@ -101,7 +101,7 @@ You will upload [training](../training-and-model.md#training-document-type-for-c
 >[!Note]
 >You can upload the sample phrase and sentence dictionaries dataset. This step is left for you to complete.
 
-![Upload documents](media/quickstartupload.png)
+![Upload documents](media/quickstart/upload-model.png)
 
 ## Create model
 
@@ -119,7 +119,7 @@ Now you are ready to train your English to German model.
 >[!Note]
 >**Notifications** displays model training in progress, e.g., **Submitting data** state. Training model takes few hours, subject to the number of selected sentences.
 
-![Create a model](media/quickstarttrain.png)
+![Create a model](media/quickstart/train-model.png)
 
 7. After successful model training, select **Model details** blade
 8. Select the model name "en-de with sample data" to review training date/time, total training time, number of sentences used for training, tuning, testing, dictionary, and whether the system generated the test and tuning sets. You will use the "Category ID" to make translation requests.
@@ -153,7 +153,7 @@ You can publish one model per project to any region of our three geographies reg
 3. Check desired region(s) 
 4. Select **Publish** (Status should transition from Deploying to Deployed)
 
-![Deploy a trained model](media/quickstartpublish-model.png)
+![Deploy a trained model](media/quickstart/publish-model.png)
 
 ## Translate
 
