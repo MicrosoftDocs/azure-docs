@@ -145,7 +145,7 @@ The following steps illustrate how to manage (add and remove) access policies fo
    * **Edit an access policy** -  Make any desired edits, and select **Save**.
    * **Remove an access policy** - Select **Remove** next to the access policy you wish to remove.
 > [!NOTE]
-> Managing Immutable policies for a blob container is not supported using Storage Explorer. 
+> Modifying immutable policies is not supported from Storage Explorer. 
 
 ## Set the Public Access Level for a blob container
 
