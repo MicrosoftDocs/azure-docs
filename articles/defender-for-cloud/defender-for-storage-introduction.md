@@ -8,7 +8,7 @@ ms.topic: overview
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-**Microsoft Defender for Storage** is an Azure-native layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage accounts. It utilizes advanced threat detection capabilities and [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) data to provide contextual security alerts. Those alerts also include steps to mitigate the detected threats as well as prevent future attacks.
+**Microsoft Defender for Storage** is an Azure-native layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage accounts. It uses advanced threat detection capabilities and [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) data to provide contextual security alerts. Those alerts also include steps to mitigate the detected threats and prevent future attacks.
 
 You can enable **Microsoft Defender for Storage** at either the subscription level (recommended) or the resource level.
 
@@ -33,7 +33,7 @@ Defender for Storage doesn't access the Storage account data and has no impact o
 
 Defender for Storage provides:
 
-- **Azure-native security** - With 1-click enablement, Defender for Storage protects data stored in Azure Blob, Azure Files, and Data Lakes. As an Azure-native service, Defender for Storage provides centralized security across all data assets managed by Azure and is integrated with other Azure security services such as Microsoft Sentinel.
+- **Azure-native security** - With 1-click enablement, Defender for Storage protects data stored in Azure Blob, Azure Files, and Data Lakes. As an Azure-native service, Defender for Storage provides centralized security across all data assets that are managed by Azure and is integrated with other Azure security services such as Microsoft Sentinel.
 - **Rich detection suite** - Powered by Microsoft Threat Intelligence, the detections in Defender for Storage cover the top storage threats such as unauthenticated access, compromised credentials, social engineering attacks, data exfiltration, privilege abuse, and malicious content.
 - **Response at scale** - Defender for Cloud's automation tools make it easier to prevent and respond to identified threats. Learn more in [Automate responses to Defender for Cloud triggers](workflow-automation.md).
 
@@ -55,13 +55,13 @@ Security alerts are triggered for the following scenarios (typically from 1-2 ho
 |Type of threat  | Description  |
 |---------|---------|
 |**Unusual access to an account**     | For example, access from a TOR exit node, suspicious IP addresses, unusual applications, unusual locations, and anonymous access without authentication.        |
-|**Unusual behavior in an account**  | This is behavior that deviates from a learned baseline. This includes a change of access permissions in an account, unusual access inspection, unusual data exploration, unusual deletion of blobs/files, and unusual data extraction. |
-|**Hash reputation based Malware detection**   | Detection of known malware based on full blob/file hash. This can help detect ransomware, viruses, spyware, and other malware uploaded to an account, prevent it from entering the organization, and spreading to additional users and resources. See also [Limitations of hash reputation analysis](#limitations-of-hash-reputation-analysis). |
+|**Unusual behavior in an account**  | Behavior that deviates from a learned baseline, such as a change of access permissions in an account, unusual access inspection, unusual data exploration, unusual deletion of blobs/files, or unusual data extraction. |
+|**Hash reputation based Malware detection**   | Detection of known malware based on full blob/file hash. This can help detect ransomware, viruses, spyware, and other malware uploaded to an account, prevent it from entering the organization, and spreading to more users and resources. See also [Limitations of hash reputation analysis](#limitations-of-hash-reputation-analysis). |
 |**Unusual file uploads** | Unusual cloud service packages and executable files that have been uploaded to an account. |
 | **Public visibility** | Potential break-in attempts by scanning containers and pulling potentially sensitive data from publicly accessible containers. | 
-| **Phishing campaigns** | When content that's hosted on Azure Storage is identified as part of a phishing attack affecting users of Microsoft 365. |
+| **Phishing campaigns** | When content that's hosted on Azure Storage is identified as part of a phishing attack that's impacting Microsoft 365 users. |
 
-Alerts include details of the incident that triggered them, as well as recommendations on how to investigate and remediate threats. Alerts can be exported to Microsoft Sentinel or any other third-party SIEM or any other external tool. Learn more in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
+Alerts include details of the incident that triggered them, and recommendations on how to investigate and remediate threats. Alerts can be exported to Microsoft Sentinel or any other third-party SIEM or any other external tool. Learn more in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
 
 > [!TIP]
 > For a comprehensive list of all Defender for Storage alerts, see the [alerts reference page](alerts-reference.md#alerts-azurestorage). This is useful for workload owners who want to know what threats can be detected and help SOC teams gain familiarity with detections before investigating them. Learn more about what's in a Defender for Cloud security alert, and how to manage your alerts in [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md).
@@ -69,7 +69,7 @@ Alerts include details of the incident that triggered them, as well as recommend
 
 ### Limitations of hash reputation analysis
 
-- **Hash reputation isn't deep file inspection** - Microsoft Defender for Storage uses hash reputation analysis supported by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) to determine whether an uploaded file is suspicious. The threat protection tools don’t scan the uploaded files; rather they analyze the telemetry generated from the Blobs Storage and Files services. Defender for Storage then compares the hashes of newly uploaded files with those of known viruses, trojans, spyware, and ransomware. 
+- **Hash reputation isn't deep file inspection** - Microsoft Defender for Storage uses hash reputation analysis supported by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) to determine whether an uploaded file is suspicious. The threat protection tools don’t scan the uploaded files; rather they analyze the telemetry generated from the Blobs Storage and Files services. Defender for Storage then compares the hashes of newly uploaded files with hashes of known viruses, trojans, spyware, and ransomware.
 
 - **Hash reputation analysis isn't supported for all files protocols and operation types** - Some, but not all, of the telemetry logs contain the hash value of the related blob or file. In some cases, the telemetry doesn't contain a hash value. As a result, some operations can't be monitored for known malware uploads. Examples of such unsupported use cases include SMB file-shares and when a blob is created using [Put Block](/rest/api/storageservices/put-block) and [Put Block List](/rest/api/storageservices/put-block-list).
 
@@ -138,7 +138,7 @@ To exclude a specific Storage account when Defender for Storage is enabled on a 
 
 Use [workflow automation](workflow-automation.md) to trigger automatic responses to Defender for Cloud security alerts.
 
-For example, you can setup automation to open tasks or tickets for specific personnel or teams in an external task management system.
+For example, you can set up automation to open tasks or tickets for specific personnel or teams in an external task management system.
 
 > [!TIP]
 > Explore the automations available from the Defender for Cloud community pages: [ServiceNow automation](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workflow%20automation/Create-SNOWIncfromASCAlert), [Jira automation](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workflow%20automation/Open-JIRA-Ticket), [Azure DevOps automation](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workflow%20automation/Open-DevOpsTaskAlert), [Slack automation](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workflow%20automation/Post-SlackMessageAlert) or build your own.

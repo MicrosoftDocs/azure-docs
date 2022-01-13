@@ -70,7 +70,7 @@ To exclude specific storage accounts from Microsoft Defender for Storage when th
     If you skip this stage, your untagged resources will continue receiving daily updates from the subscription level enablement policy. That policy will enable Defender for Storage again on the account.
 
     > [!TIP]
-    > Learn more about tags in [az tag](/cli/azure/tag?view=azure-cli-latest).
+    > Learn more about tags in [az tag](/cli/azure/tag).
 
 1. Disable Microsoft Defender for Storage for the desired account on the relevant subscription with the ``security atp storage`` command (using the same resource ID): 
 
@@ -78,10 +78,10 @@ To exclude specific storage accounts from Microsoft Defender for Storage when th
     az security atp storage update --resource-group MyResourceGroup  --storage-account MyStorageAccount --is-enabled false 
     ```
 
-    [Learn more about this command](/cli/azure/security/atp/storage?view=azure-cli-latest).
+    [Learn more about this command](/cli/azure/security/atp/storage).
 
 
-### [**Azure portal**](#tab/enable-storage-protection-cli)
+### [**Azure portal**](#tab/enable-storage-protection-portal)
 
 ### Use the Azure portal to exclude an Azure Storage account
 
@@ -107,9 +107,9 @@ To exclude specific storage accounts from Microsoft Defender for Storage when th
 ---
 
 
-## Exclude an Azure DataBricks Storage account
+## Exclude an Azure Databricks Storage account
 
-When a subscription has Defender for Storage is enabled, it's not currently possible to exclude a Storage account if it belongs to an Azure DataBricks workspace.
+When a subscription has Defender for Storage is enabled, it's not currently possible to exclude a Storage account if it belongs to an Azure Databricks workspace.
 
 Instead, you can disable Defender for Storage on the subscription and enable Defender for Storage for each Azure Storage account from the **Security** page:
 
