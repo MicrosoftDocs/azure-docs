@@ -307,10 +307,15 @@
           href: manage-disaster-recovery.md
         - name: Enable on Azure Arc
           href: manage-create-arc-environment.md
+
+    - name: Networking
+      items:
         - name: Enable VNet integration
           href: configure-vnet-integration-enable.md
         - name: Configure VNet integration routing
           href: configure-vnet-integration-routing.md
+        - name: Control outbound traffic with Azure Firewall
+          href: network-secure-outbound-traffic-azure-firewall.md
 
     - name: Move app
       items:
