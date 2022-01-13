@@ -8,13 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/12/2022
+ms.date: 01/13/2022
 ms.author: v-ydequadros
 ---
 
 # Install Microsoft CloudKnox Permissions Management Sentry on the Google Cloud Platform (GCP)
 
+This topic describes how to install the Microsoft CloudKnox Permissions Management Sentry on Microsoft Azure (Azure).
+
 <!---![GCP Sentry Installation](sentry-install-GCP.jpg)--->
+
+## CloudKnox overview
 
 The Microsoft CloudKnox Permissions Management Sentry is an agent for monitored Google Cloud Platform (GCP) accounts, packaged in a virtual appliance. It gathers information on users, their privileges, their activities, and other resources.
 
@@ -27,7 +31,7 @@ To provide visibility and insights, the CloudKnox Sentry collects information fr
 
 To gain insight into activity within the GCP account, CloudKnox gathers CloudTrail event logs and ties them to individual identities.
 
-## Architecture
+### CloudKnox architecture
 
 The CloudKnox Sentry is a Linux Photon based appliance that: 
 
@@ -41,7 +45,7 @@ Outbound traffic is only received on port 443, and makes API calls to GCP, Cloud
 
 <!---![Sentry Architecture GCP](sentry-architecture-GCP.png)--->
 
-## Port requirements
+### Port requirements
 
 **Required Ports for the CloudKnox Sentry**
 
@@ -67,3 +71,8 @@ If you set up the Sentry in Account B to collect entitlement, resource, and acti
 3. Through the API, the cross-account role collects information about user privileges, groups, resources, configuration, and activity from native GCP services. Then cross-account role returns the data to the CloudKnox Sentry.
 
 <!---## Next steps---> 
+
+<!---For an overview of the CloudKnox installation process, see[CloudKnox Installation overview cloud](cloudknox-installation.html).--->
+<!---For information on how to enable CloudKnox on your Azure AD tenant, see [Enable Microsoft CloudKnox Permissions Management on your Azure AD tenant](cloudknox-onboard-enable-tenant.html).--->
+<!---For information on how to install AWS on CloudKnox, see [Install CloudKnox Sentry on AWS](cloudknox-sentry-install-aws.md)--->
+<!---For information on how to install Azure on CloudKnox, see [Install CloudKnox Sentry on Azure](cloudknox-sentry-install-azure.md)--->

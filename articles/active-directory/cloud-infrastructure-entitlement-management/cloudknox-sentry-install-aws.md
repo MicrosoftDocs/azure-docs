@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/17/2021
+ms.date: 01/13/2022
 ms.author: v-ydequadros
 ---
 
@@ -18,7 +18,7 @@ This topic describes how to install the Microsoft CloudKnox Permissions Manageme
 
 <!---![AWS Sentry Installation](sentry-install-AWS.jpg)--->
 
-## CloudKnox summary
+## What is the CloudKnox Sentry
 
 The CloudKnox Sentry is an agent packaged in a virtual appliance. It gathers information on users, their privileges, activity, and resources for any monitored Amazon Web Services (AWS) accounts. It can be deployed in two ways:
 
@@ -29,11 +29,17 @@ To provide visibility and insights, the CloudKnox Sentry collects information fr
 
 CloudKnox gathers CloudTrail event logs and ties them to individual identities to gain insight into activity within the AWS account.
 
-### Architecture
+### The CloudKnox Sentry architecture
 
-The CloudKnox Sentry is a Linux Photon-based appliance that collects information about the AWS account. CloudKnox Sentry uses an IAM role to read identity entitlements, resource information, and CloudTrail data on an hourly basis. It then uploads that data to the CloudKnox Software as a Service (SaaS) application for processing.
+The CloudKnox Sentry is a Linux Photon based appliance that: 
 
-Inbound traffic to the Sentry is only received on port 9000, and is used for configuration by the CloudKnox administrator. We recommend only allowing traffic from any observable source IP  addresses your administrator may be configuring. Outbound traffic is only received on port 443, and is used to make API calls to AWS, CloudKnox, and for identity provider (IDP) Integration.
+- Collects information about the GCP account. 
+- Uses an IAM role to read identity entitlements, resource information, and CloudTrail data on an hourly basis.
+- Uploads the collected data to CloudKnox's SaaS Application for processing.
+
+Inbound traffic to the Sentry is only received on port 9000, and is used for configuration by the CloudKnox administrator. We recommend only allowing traffic from observable source IP addresses that your administrator has configured. 
+
+Outbound traffic is only received on port 443, and is used to make API calls to AWS, CloudKnox, and for identity provider (IDP) Integration.
 
 <!--- - To view the Google Cloud Platform (GCP) architecture, select [here](cloudknox-sentry-install-gcp.md#architecture).--->
 
@@ -102,7 +108,7 @@ The following instructions guide you through the installation and configuration 
 
 3. Ensure that the administrator deploying and configuring the Sentry Appliance can route to that appliance from their workstation on SSH port 22.
 
-### Deploying the Sentry
+### Deploy the CloudKnox Sentry
 
 **The CloudFormation template**
 
@@ -153,7 +159,7 @@ The Sentry automatically collects data from the account in which it's deployed. 
 
 Create a cross-account role that allows the Sentry's EC2 instance to assume the data collection role for each account from which the Sentry collects data. The account in which it was deployed is excluded.
 
-#### Create cross-account roles for data collection
+#### Create a cross-account role for data collection
 
 1. To create a new IAM Role in the target collection account, enter the following information:
 
@@ -182,7 +188,7 @@ Create a cross-account role that allows the Sentry's EC2 instance to assume the 
 
 4. To run this role creation using the CloudFormation template, use [this CFT](https://knox-software.s3.amazonaws.com/cloud-formation/cloudknox-sentry-prod.yaml).
 
-### Collecting CloudTrail from a S3 bucket in local account
+### Collect CloudTrail from a S3 bucket in local account
 
 To grant access to the local S3 bucket collecting CloudTrail logs, add a policy to the IAM role you created earlier.
 
@@ -220,11 +226,9 @@ To grant access to the local S3 bucket collecting CloudTrail logs, add a policy 
 
 5. To create this role using CloudFormation template, use [this CFT](https://knox-software.s3.amazonaws.com/cloud-formation/member-account.yaml).
 
-### Collecting CloudTrail from a centralized S3 bucket
+### Collect CloudTrail from a centralized S3 bucket
 
 If your organization's CloudTrail is centralized into one S3 bucket, create a cross-account role to collect the appropriate CloudTrails in the S3 bucket.
-
-**Instructions:**
 
 1. In the AWS account with the S3 bucket holding the organization's CloudTrails, create **Cross Account Role for Collection**.
 
@@ -286,7 +290,7 @@ If your organization's CloudTrail is centralized into one S3 bucket, create a cr
 
 5. To create the role using the CloudFormation template, use [this CFT](https://knox-software.s3.amazonaws.com/cloud-formation/member-account-with-cloudtrail.yaml).
 
-### Cross-account collection configuration (for the master account)
+### Cross-account collection configuration (For the master account)
 
 The Cloud Sentry lists accounts from the master account and can automatically collect from accounts sentry has access to collect from cross-account roles. This master account role also includes permission to collect SCP applicable for the accounts. For this feature, we must create a cross-account role that allows the Sentry's EC2 instance to assume master account role. 
 
@@ -327,9 +331,9 @@ The Cloud Sentry lists accounts from the master account and can automatically co
 
 4. To run this creation of role using CloudFormation template, use [this CFT](https://knox-software.s3.amazonaws.com/cloud-formation/master-account.yaml).
 
-## Connecting your CloudKnox Sentry with the CloudKnox console
+## Connect CloudKnox Sentry with the CloudKnox dashboard
 
-Follow the instructions below to configure the Sentry in CloudKnox console.
+Follow the instructions below to configure the Sentry in CloudKnox dashboard.
 
 1. Log in to CloudKnox and select the gear icon to open the **Data Collectors** tab. 
 
@@ -348,7 +352,7 @@ Follow the instructions below to configure the Sentry in CloudKnox console.
 
     <!---Add screenshots.--->
 
-### Sentry configuration
+### Configure Sentry
 
 1. To configure the AWS Sentry, run the following script:
 
@@ -380,9 +384,9 @@ Follow the instructions below to configure the Sentry in CloudKnox console.
 
     *Logging Account Role Name*
 
-### Edit Sentry configuration
+### Modify Sentry configuration
 
-1. To edit the sentry configuration to add IDP configuration or change account configuration option, run the following script:
+1. To modify the sentry configuration to add IDP configuration or change account configuration option, run the following script:
 
     `sudo /opt/cloudknox/sentrysoftwareservice/bin/runAWSConfigCLI.sh`
 
@@ -429,4 +433,10 @@ Initial collection may take up to 24 hours depending on the activity in the acco
 
 <!--- Last row, third column
 { "Version": "2012-10-17", "Statement": [ { "Sid": "VisualEditor0", "Effect": "Allow", "Action": [ "iam:PutUserPermissionsBoundary", "iam:AttachUserPolicy", "iam:DeleteUserPolicy", "iam:DeletePolicy", "iam:AttachRolePolicy", "iam:PutRolePolicy", "iam:CreatePolicy", "iam:DetachRolePolicy", "iam:AttachGroupPolicy", "iam:DeleteRolePolicy", "iam:PutUserPolicy", "iam:DetachGroupPolicy", "iam:CreatePolicyVersion", "iam:DetachUserPolicy", "iam:DeleteGroupPolicy", "iam:DeletePolicyVersion", "iam:PutGroupPolicy", "iam:SetDefaultPolicyVersion" ], "Resource": "*" } ] }--->
+
 <!---## Next steps--->
+
+<!---For an overview of the CloudKnox installation process, see[CloudKnox Installation overview cloud](cloudknox-installation.html).--->
+<!---For information on how to enable CloudKnox on your Azure AD tenant, see [Enable Microsoft CloudKnox Permissions Management on your Azure AD tenant](cloudknox-onboard-enable-tenant.html).--->
+<!---For information on how to install Azure on CloudKnox, see [Install CloudKnox Sentry on Azure](cloudknox-sentry-install-azure.md)--->
+<!---For information on how to install GCP on CloudKnox, see [Install CloudKnox Sentry on GCP](cloudknox-sentry-install-gcp.md)--->
