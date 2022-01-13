@@ -13,6 +13,7 @@ ms.author: sipastak
 
 # Azure Stack Edge Pro 2 safety instructions
 
+
 :::image type="icon" source="media/azure-stack-edge-pro-2-safety/icon-safety-warning.png" border="false"::: :::image type="icon" source="media/azure-stack-edge-pro-2-safety/icon-safety-read-all-instructions.png" border="false":::
 
 To reduce the risk of bodily injury, electrical shock, fire, and equipment damage, read the safety instructions found at the below QR Code and observe all warnings and precautions in this guide before unpacking, installing, or maintaining this server.
@@ -22,6 +23,15 @@ To reduce the risk of bodily injury, electrical shock, fire, and equipment damag
 | Icon | Description |
 |:--- |:--- |
 | ![Hazard Symbol](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)| **DANGER:** Indicates a hazardous situation that, if not avoided, will result in death or serious injury. <br> **WARNING:** Indicates a hazardous situation that, if not avoided, could result in death or serious injury. <br> **CAUTION:** Indicates a hazardous situation that, if not avoided, could result in minor or moderate injury.|
+
+The following hazard icons are to be observed when setting up and running your Azure Stack Edge Pro 2 Edge device:
+
+| Icon | Description |
+|:--- |:--- |
+| ![Read All Instructions First](./media/azure-stack-edge-pro-r-safety/icon-safety-read-all-instructions.png) | Read All Instructions First |
+| ![Notice Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **NOTICE:** | Indicates information considered important, but not hazard-related. |
+| ![Hazard Symbol](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Hazard Symbol |
+
 
 <!--confirm with Tim about QR code-->
 
@@ -52,7 +62,7 @@ For electrical supply ratings, refer to the equipment rating label provided with
 
 :::image type="icon" source="media/azure-stack-edge-pro-2-safety/icon-safety-warning.png" border="false":::**WARNING:** 
 * This is a class A product. In a domestic environment, this product may cause radio interference in which case the user may be required to take adequate measures.
-:::image type="content" source="media/azure-stack-edge-pro-2-safety/ce-marking.png" alt-text="CE Marking":::
+:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-ce-marking.png" alt-text="CE marking":::
 
 For Model: DB040-W only
 
@@ -72,13 +82,14 @@ In accordance with Article 10.8(a) and 10.8(b) of the Radio Equipment Directive 
 |5470 - 5725   |         |
 |5725 - 5875    |         |
 
-:::image type="icon" source="media/azure-stack-edge-pro-2-safety/icon-safety-notice.png" border="false":::Notice: This is a receiver category 1 device under EN 300 440 
+:::image type="icon" source="media/azure-stack-edge-pro-2-safety/icon-safety-notice.png" border="false":::Notice: This device is a receiver category 1 device under EN 300 440 
 <!--notice icon-->
 
 **Disposal of Waste Batteries and Electrical & Electronic Equipment:**
 
-:::image type="icon" source="media/azure-stack-edge-pro-2-safety/icon-ewaste-disposal.png" border="false":::
-This symbol on the product or its batteries or its packaging means that this product and any batteries it contains must not be disposed of with your household waste. Instead, it is your responsibility to hand this over to an applicable collection point for the recycling of batteries and electrical and electronic equipment. This separate collection and recycling will help to conserve natural resources and prevent potential negative consequences for human health and the environment due to the possible presence of hazardous substances in batteries and electrical and electronic equipment, which could be caused by inappropriate disposal. For more information about where to drop off your batteries and electrical and electronic waste, please contact your local city/municipality office, your household waste disposal service, or the shop where you purchased this product. Contact erecycle@microsoft.com for additional information on WEEE.  
+![Warning Icon 14](./media/azure-stack-edge-mini-r-safety/icon-ewaste-disposal.png)
+
+This symbol on the product or its batteries or its packaging means that this product and any batteries it contains must not be disposed of with your household waste. Instead, it is your responsibility to hand this product over to an applicable collection point for the recycling of batteries and electrical and electronic equipment. This separate collection and recycling will help to conserve natural resources and prevent potential negative consequences for human health and the environment due to the possible presence of hazardous substances in batteries and electrical and electronic equipment, which could be caused by inappropriate disposal. For more information about where to drop off your batteries and electrical and electronic waste, contact your local city/municipality office, your household waste disposal service, or the shop where you purchased this product. Contact erecycle@microsoft.com for additional information on WEEE.  
 
 This product might contain Lithium-Ion and/or Lithium Metal battery(ies). 
 
@@ -88,20 +99,20 @@ Telephone number: +353 1 295 3826
 
 Fax number: +353 1 706 4110
 
-### **JAPAN**
+### **Japan**
 :::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-japan.png" alt-text="Japan":::
 
 
 
 ### **SOUTH KOREA**
-:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-south-korea.png" alt-text="South Korea":::
+:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-south-korea.png" alt-text="Additional instructions for South Korea":::
 
 ### **TAIWAN** 
-:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-taiwan.png" alt-text="Taiwan":::
+:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-taiwan.png" alt-text="Additional instructions for Taiwan":::
 
-:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-taiwan-table-1.png" alt-text="":::
+:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-taiwan-table-1.png" alt-text="Additional instructions for Taiwan":::
 
-:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-taiwan-table-2.png" alt-text="DB040, DB040-W Taiwan":::
+:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-taiwan-table-2.png" alt-text="Additional instructions for Taiwan":::
 
 :::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-commodity-inspection-mark.png" alt-text="Commodity Inspection Mark":::
 
