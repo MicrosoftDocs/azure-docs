@@ -52,10 +52,9 @@ If you try to run the application at this point, you'll receive *HTTP 403 - Forb
 
 ##### Global tenant administrator
 
-> [!div class="sxs-lookup"]
-> If you are a global administrator, go to **API Permissions** page select **Grant admin consent for Enter_the_Tenant_Name_Here**.
-> > [!div id="apipermissionspage"]
-> > [Go to the API Permissions page]()
+If you are a global administrator, go to **API Permissions** page select **Grant admin consent for Enter_the_Tenant_Name_Here**.
+> [!div id="apipermissionspage"]
+> [Go to the API Permissions page]()
 
 ##### Standard user
 
@@ -64,10 +63,7 @@ If you're a standard user of your tenant, then you need to ask a global administ
 ```url
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here
 ```
-
-> [!div class="sxs-lookup"]
-> #### Step 4: Run the application
-
+#### Step 4: Run the application
 
 You can test the sample directly by running the main method of ClientCredentialGrant.java from your IDE.
 
@@ -134,7 +130,7 @@ ConfidentialClientApplication cca =
 
 > | Where: |Description |
 > |---------|---------|
-> | `CLIENT_SECRET` | Is the client secret created for the application in Azure Portal. |
+> | `CLIENT_SECRET` | Is the client secret created for the application in Azure portal. |
 > | `CLIENT_ID` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
 > | `AUTHORITY`    | The STS endpoint for user to authenticate. Usually `https://login.microsoftonline.com/{tenant}` for public cloud, where {tenant} is the name of your tenant or your tenant Id.|
 
@@ -174,7 +170,7 @@ IAuthenticationResult result;
 
 > |Where:| Description |
 > |---------|---------|
-> | `SCOPE` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under the **Expose an API** section in **App registrations** in the Azure Portal.|
+> | `SCOPE` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under the **Expose an API** section in **App registrations** in the Azure portal.|
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

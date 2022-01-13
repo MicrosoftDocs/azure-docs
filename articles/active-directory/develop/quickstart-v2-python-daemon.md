@@ -52,10 +52,9 @@ If you try to run the application at this point, you'll receive *HTTP 403 - Forb
 
 ##### Global tenant administrator
 
-> [!div class="sxs-lookup"]
-> If you are a global administrator, go to **API Permissions** page select **Grant admin consent for Enter_the_Tenant_Name_Here**.
-> > [!div id="apipermissionspage"]
-> > [Go to the API Permissions page]()
+If you are a global administrator, go to **API Permissions** page select **Grant admin consent for Enter_the_Tenant_Name_Here**.
+> [!div id="apipermissionspage"]
+> [Go to the API Permissions page]()
 
 ##### Standard user
 
@@ -65,8 +64,8 @@ If you're a standard user of your tenant, ask a global administrator to grant ad
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here
 ```
 
-> [!div class="sxs-lookup"]
-> #### Step 4: Run the application
+
+#### Step 4: Run the application
 
 You'll need to install the dependencies of this sample once.
 
@@ -115,7 +114,7 @@ app = msal.ConfidentialClientApplication(
 
 > | Where: |Description |
 > |---------|---------|
-> | `config["secret"]` | Is the client secret created for the application in Azure Portal. |
+> | `config["secret"]` | Is the client secret created for the application in Azure portal. |
 > | `config["client_id"]` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
 > | `config["authority"]`    | The STS endpoint for user to authenticate. Usually `https://login.microsoftonline.com/{tenant}` for public cloud, where {tenant} is the name of your tenant or your tenant Id.|
 
@@ -136,7 +135,7 @@ if not result:
 
 > |Where:| Description |
 > |---------|---------|
-> | `config["scope"]` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under the **Expose an API** section in **App registrations** in the Azure Portal.|
+> | `config["scope"]` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under the **Expose an API** section in **App registrations** in the Azure portal.|
 
 For more information, please see the [reference documentation for `AcquireTokenForClient`](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client).
 

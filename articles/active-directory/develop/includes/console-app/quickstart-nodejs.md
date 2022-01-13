@@ -7,7 +7,7 @@ author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: include
 ms.date: 01/10/2022
 ms.author: marsma
 #Customer intent: As an application developer, I want to learn how my Node.js app can get an access token and call an API that is protected by a Microsoft identity platform endpoint using client credentials flow.
@@ -31,7 +31,7 @@ Follow the steps below to get started.
 #### Step 1: Register the application
 To register your application and add the app's registration information to your solution manually, follow these steps:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
@@ -139,8 +139,8 @@ const cca = new msal.ConfidentialClientApplication(msalConfig);
 | Where: |Description |
 |---------|---------|
 | `clientId` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
-| `authority`    | The STS endpoint for user to authenticate. Usually `https://login.microsoftonline.com/{tenant}` for public cloud, where {tenant} is the name of your tenant or your tenant Id.|
-| `clientSecret` | Is the client secret created for the application in Azure Portal. |
+| `authority`    | The STS endpoint for user to authenticate. Usually `https://login.microsoftonline.com/{tenant}` for public cloud, where {tenant} is the name of your tenant or your tenant ID.|
+| `clientSecret` | Is the client secret created for the application in Azure portal. |
 
 For more information, please see the [reference documentation for `ConfidentialClientApplication`](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md)
 
@@ -158,7 +158,7 @@ const tokenResponse = await cca.acquireTokenByClientCredential(tokenRequest);
 
 |Where:| Description |
 |---------|---------|
-| `tokenRequest` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure Portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under **Expose an API** section in Azure Portal's Application Registration. |
+| `tokenRequest` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under **Expose an API** section in Azure portal's Application Registration. |
 | `tokenResponse` | The response contains an access token for the scopes requested. |
 
 [!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]

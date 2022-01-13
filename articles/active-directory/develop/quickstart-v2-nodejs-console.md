@@ -51,8 +51,7 @@ If you try to run the application at this point, you'll receive *HTTP 403 - Forb
 
 ##### Global tenant administrator
 
-> [!div class="sxs-lookup"]
-> If you are a global administrator, go to **API Permissions** page select **Grant admin consent for Enter_the_Tenant_Name_Here**
+If you are a global administrator, go to **API Permissions** page select **Grant admin consent for Enter_the_Tenant_Name_Here**
 > > [!div id="apipermissionspage"]
 > > [Go to the API Permissions page]()
 
@@ -64,7 +63,6 @@ If you're a standard user of your tenant, then you need to ask a global administ
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here
 ```
 
-> [!div class="sxs-lookup"]
 #### Step 4: Run the application
 
 Locate the sample's root folder (where `package.json` resides) in a command prompt or console. You'll need to install the dependencies of this sample once:

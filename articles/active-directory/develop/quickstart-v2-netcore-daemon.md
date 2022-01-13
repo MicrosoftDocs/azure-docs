@@ -48,18 +48,15 @@ For the code sample in this quickstart to work, create a client secret and add t
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 
-> [!div class="sxs-lookup"]
-
 #### Step 3: Admin consent
 
 If you try to run the application at this point, you'll receive an *HTTP 403 - Forbidden* error: "Insufficient privileges to complete the operation." This error happens because any app-only permission requires a global administrator of your directory to give consent to your application. Select one of the following options, depending on your role.
 
 ##### Global tenant administrator
 
-> [!div class="sxs-lookup"]
-> If you're a global administrator, go to the **API Permissions** page and select **Grant admin consent for Enter_the_Tenant_Name_Here**.
-> > [!div id="apipermissionspage"]
-> > [Go to the API Permissions page]()
+If you're a global administrator, go to the **API Permissions** page and select **Grant admin consent for Enter_the_Tenant_Name_Here**.
+> [!div id="apipermissionspage"]
+> [Go to the API Permissions page]()
 
 ##### Standard user
 

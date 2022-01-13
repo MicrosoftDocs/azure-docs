@@ -7,7 +7,7 @@ author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: include
 ms.workload: identity
 ms.date: 01/10/2022
 ms.author: jmprieur
@@ -32,7 +32,7 @@ To run this sample, you need:
 #### Step 1: Register your application
 To register your application and add the app's registration information to your solution manually, follow these steps:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
@@ -140,7 +140,7 @@ app = msal.ConfidentialClientApplication(
 
 > | Where: |Description |
 > |---------|---------|
-> | `config["secret"]` | Is the client secret created for the application in Azure Portal. |
+> | `config["secret"]` | Is the client secret created for the application in Azure portal. |
 > | `config["client_id"]` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
 > | `config["authority"]`    | The STS endpoint for user to authenticate. Usually `https://login.microsoftonline.com/{tenant}` for public cloud, where {tenant} is the name of your tenant or your tenant Id.|
 
@@ -161,7 +161,7 @@ if not result:
 
 > |Where:| Description |
 > |---------|---------|
-> | `config["scope"]` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under the **Expose an API** section in **App registrations** in the Azure Portal.|
+> | `config["scope"]` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under the **Expose an API** section in **App registrations** in the Azure portal.|
 
 For more information, please see the [reference documentation for `AcquireTokenForClient`](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client).
 
