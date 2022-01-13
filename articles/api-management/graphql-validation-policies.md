@@ -13,7 +13,7 @@ ms.custom: ignite-fall-2021
 
 # API Management policy to validate and authorize GraphQL requests (preview)
 
-This article provides a reference for a new API Management policy to validate and authorize requests to a [GraphQL API](graphql-api.md) imported to API Management.
+This article provides a reference for an API Management policy to validate and authorize requests to a [GraphQL API](graphql-api.md) imported to API Management.
 
 For more information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
@@ -80,7 +80,7 @@ This example applies the follow validation and authorization rules to a GraphQL 
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | `validate-graphql-request` | Root element.                                                                                                                               | Yes      |
 | `authorize` | Add this element to provide field-level authorization with both request- and field-level errors.   | No |
-| `rule` | Add one or more of these elements for a conditional change to the default action for a field-level authorization. The first matching rule is used. | No |
+| `rule` | Add one or more of these elements to authorize specific query paths. Each rule can optionally specify a different [action](#request-actions). | No |
 
 ### Attributes
 
@@ -98,10 +98,10 @@ Available actions are described in the following table.
 
 |Action |Description  |
 |---------|---------|
-|`reject`     | A request error happens, and the request is not sent to the back end.     |
+|`reject`     | A request error happens, and the request is not sent to the back end. Additional rules if configured are not applied.   |
 |`remove`     | A field error happens, and the field is removed from the request.         |
 |`allow`     | The field is passed to the back end.        |
-|`ignore`     | The rule is not valid for this case and the next rule should apply.        |
+|`ignore`     | The rule is not valid for this case and the next rule is applied.        |
 
 ### Usage
 
