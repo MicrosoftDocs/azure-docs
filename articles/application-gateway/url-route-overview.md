@@ -74,7 +74,31 @@ Path rules are case insensitive.
 |`/Repos/*/Comments/*`     |no|
 |`/CurrentUser/Comments/*`     |yes|
 
+#### Examples
 
+Path based rule processing when wildcard (*) is used:
+
+**Example 1:**
+
+`/master-dev to contoso.com`
+
+`/master-dev/api-core/ to fabrikam.com`
+
+`/master-dev/* to microsoft.com`
+
+Because the wildcard path `/master-dev*` is present above more granular paths, all client requests containing `/master-dev` are routed to contoso.com, including the specific `/master-dev/api-core/`. To ensure that the client requests are routed to the appropriate paths, it is critical to have the granular paths above wildcard paths.
+
+**Example 2:**
+
+`/ (default) to contoso.com`
+
+`/master-dev/api-core/ to fabrikam.com`
+
+`/master-dev/api to bing.com`
+
+`/master-dev/* to microsoft.com`
+
+All client requests with the path pattern `/master-dev/*` are processed in the order as listed. If there is no match within the path rules, the request is routed to the default target.
 
 You can check out a [Resource Manager template using URL-based routing](https://azure.microsoft.com/resources/templates/application-gateway-url-path-based-routing) for more information.
 
