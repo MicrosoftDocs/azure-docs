@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 04/04/2020
+ms.date: 01/13/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: mode-other

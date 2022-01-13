@@ -150,7 +150,7 @@ Steps to create a new policy in Azure Purview are as follows.
 
 1. Log in to Azure Purview portal.
 
-1. Navigate to Azure Purview policy app using the left side panel.
+1. Navigate to Azure Purview Policy management app using the left side panel.
 
     ![Image shows how a data owner can access the Policy functionality in Azure Purview when it wants to update a policy.](./media/how-to-access-policies-storage/policy-onboard-guide-2.png)
 
@@ -168,7 +168,7 @@ The steps to publish a policy are as follows
 
 1. Log in to Azure Purview portal.
 
-1. Navigate to the Azure Purview Policy app using the left side panel.
+1. Navigate to the Azure Purview Policy management app using the left side panel.
 
     ![Image shows how a data owner can access the Policy functionality in Azure Purview when it wants to publish a policy.](./media/how-to-access-policies-storage/policy-onboard-guide-2.png)
 
