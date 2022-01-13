@@ -35,7 +35,7 @@ Customer managed keys (CMKs) feature supports, shown below by key type and key s
 Before you begin to enable customer-managed key (CMK) functionality, ensure the requirements listed below are met:
 
 1. You'll need an Azure key vault to leverage CMK functionality. If you don't have an Azure key vault, you can create one using the [Quickstart: Create a key vault using the Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) guide.
-1. If you enabled restricted access to key vault, you'll need to allow Microsoft Trusted Services to bypass the Azure Key Vault firewall.
+1. If you enabled restricted access to key vault, you'll need to allow Microsoft Trusted Services to bypass the Azure Key Vault firewall. Go to [Configure Azure Key Vault networking settings](https://docs.microsoft.com/azure/key-vault/general/how-to-azure-key-vault-network-security?tabs=azure-portal) to learn more.
 1. Enable system assigned Identity on your Azure VMware Solution private cloud if you didn't enable it during software-defined data center (SDDC) provisioning.
 
 # [Portal](#tab/azure-portal)
@@ -149,35 +149,19 @@ Navigate to your **Azure Key vault** and provide access to the SDDC on Azure Key
 
 1. From your Azure VMware Solution private cloud, under **Manage**, select **Encryption** and then **Customer-managed keys (CMK)**.
 
-<!--    :::image type="content" source="media/configure-customer-managed-key-encryption-at-rest/set-up-customer-managed-keys1.png" alt-text="Screenshot of the encryption type for customer-managed keys.":::  -->   
-
 1. Select the encryption type and then the **Select key vault and key** option.
-   
-<!--    :::image type="content" source="media/configure-customer-managed-key-encryption-at-rest/set-up-customer-managed-keys2.png" alt-text="Screenshot of the key and key vault selection."::: -->
 
-1. Select the key vault and key from the dropdowns and then select **Select**.  
-
-<!--    :::image type="content" source="media/configure-customer-managed-key-encryption-at-rest/set-up-customer-managed-keys3.png" alt-text="Screenshot of the key and key vault drop-downs.":::   -->  
+1. Select the key vault and key from the dropdowns and then select **Select**.   
 
 1. Select **Manage resource identity**.
 
-<!--    :::image type="content" source="media/configure-customer-managed-key-encryption-at-rest/set-up-customer-managed-keys4.png" alt-text="Screenshot of the Manage resource identity option.":::     --> 
+1. Select the **System assigned** tab under Identity.  
 
-1. Select the **System assigned** tab under Identity.
-
-<!--    :::image type="content" source="media/configure-customer-managed-key-encryption-at-rest/enable-system-assigned-identity1.png" alt-text="Screenshot of the System-assigned identity tab toggled off.":::  -->   
-
-1. Toggle the Status to **On** and then select **Save**.
-
-<!--    :::image type="content" source="media/configure-customer-managed-key-encryption-at-rest/enable-system-assigned-identity2.png" alt-text="Screenshot of the System-assigned identity tab toggled on.":::   -->  
+1. Toggle the Status to **On** and then select **Save**. 
 
 1. When prompted, select **Enable**.
 
-<!--    :::image type="content" source="media/configure-customer-managed-key-encryption-at-rest/enable-system-assigned-identity3.png" alt-text="Screenshot of the Enable system-assigned managed identity window to enable SAI.":::     -->
-
 1. Select **Save** to grant access to the resource. 
-
-<!--    :::image type="content" source="media/configure-customer-managed-key-encryption-at-rest/enable-system-assigned-identity4.png" alt-text="Screenshot of the System-assigned identity enabled."::: -->
 
 # [Template](#tab/azure-resource-manager)
 
@@ -283,10 +267,23 @@ Below is the JSON file used to create an ARM template and enable CMK on SDDC.
 }
 ```
 ---
+## Customer Managed Key version lifecycle
+
+You can change the Customer Managed Key (CMK) by creating a new version of the key at any time without interrupting the virtual machine (VM) workflow.
+
+In Azure VMware Solution, CMK key version rotation will depend on the key selection setting you've chosen during CMK setup.
+
+**Key selection setting 1**
+
+When customers enable CMK encryption without supplying a specific key version for CMK, Azure VMware Solution will select the latest key version for CMK in the customer key vault to encrypt the vSAN KEKs. Azure VMware Solution will track the CMK for version rotation. When a customer creates a new version of the CMK key in Azure Key Vault, the new version will be captured by Azure VMware Solution automatically to encrypt vSAN KEKs.
+
+**Key selection setting 2**
+
+Customers can enable CMK encryption for a specified CMK key version to supply the full key version URI under the **Enter Key from URI** option. In this scenario, when the customer's current key expires, the customer will need to re-enable CMK encryption with a new key.
 
 ## Change from Customer Managed Key to Microsoft Managed Key 
 
-If a customer wants to change from Customer managed key (CMK) to Microsoft managed key (MMK), it won't interrupt virtual machine (VM) workload. To do this, follow the steps below.
+If a customer wants to change from Customer managed key (CMK) to Microsoft managed key (MMK), it won't interrupt VM workload. To do this, follow the steps below.
 
 1. From your Azure VMware Solution private cloud, under **Manage**, select **Encryption**.
 
