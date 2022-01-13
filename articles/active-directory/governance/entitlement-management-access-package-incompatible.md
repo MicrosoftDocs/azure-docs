@@ -118,7 +118,7 @@ Follow these steps to view the list of users who have assignments to two access 
 
 1.  Click the **Download** button and save the resulting CSV file as the second file with a list of assignments.
 
-1.  Using a spreadsheet program such as Excel, open the two files.
+1.  Use a spreadsheet program such as Excel to open the two files.
 
 1.  Users who are listed in both files will have already-existing incompatible assignments.
 
