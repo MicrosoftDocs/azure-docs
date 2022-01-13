@@ -222,7 +222,7 @@ For tooling improvements, make sure you have the correct version installed speci
 
 ## Next steps
 
-- [create a dedicated SQL pool(formerly SQL DW)](create-data-warehouse-portal.md)
+- [Create a dedicated SQL pool(formerly SQL DW)](create-data-warehouse-portal.md)
 
 ## More information
 
