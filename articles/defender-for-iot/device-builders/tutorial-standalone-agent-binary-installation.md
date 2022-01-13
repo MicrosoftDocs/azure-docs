@@ -1,7 +1,7 @@
 ---
 title: Install the Microsoft Defender for IoT micro agent (Preview)
 description: Learn how to install and authenticate the Defender for IoT micro agent.
-ms.date: 01/11/2022
+ms.date: 01/13/2022
 ms.topic: tutorial
 ms.custom: mode-other
 #Customer intent: As an Azure admin I want to install the Defender for IoT agent on devices connected to an Azure IoT Hub
@@ -103,7 +103,7 @@ You will need to copy the module identity connection string from the DefenderIoT
 
 1. Select a device from the Device ID list.
 
-1. Select the **Module identities** tab.
+1. Select the **Module Identities** tab.
 
 1. Select the **DefenderIotMicroAgent** module from the list of module identities associated with the device.
 
@@ -117,13 +117,13 @@ You will need to copy the module identity connection string from the DefenderIoT
 
 **To configure the agent to authenticate using a module identity connection string**:
 
-1. Place a file named `connection_string.txt` containing the connection string encoded in utf-8 in the Defender for Cloud agent directory `/var/defender_iot_micro_agent` path by entering the following command:
+1. Create a file named `connection_string.txt` containing the copied connection string encoded in utf-8 in the Defender for Cloud agent directory `/var/defender_iot_micro_agent` path by entering the following command:
 
     ```bash
     sudo bash -c 'echo "<connection string>" > /var/defender_iot_micro_agent/connection_string.txt'
     ```
 
-    The `connection_string.txt` is now be located in the following path location `/var/defender_iot_micro_agent/connection_string.txt`.
+    The `connection_string.txt` will now be located in the following path location `/var/defender_iot_micro_agent/connection_string.txt`.
 
 1. Restart the service using this command:  
 

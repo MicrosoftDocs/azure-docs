@@ -1,7 +1,7 @@
 ---
 title: Create a DefenderforIoTMicroAgent module twin (Preview)
 description: In this tutorial, you will learn how to create a DefenderIotMicroAgent module twin for new devices.
-ms.date: 01/10/2022
+ms.date: 01/13/2022
 ms.topic: tutorial
 ms.custom: mode-other
 ---

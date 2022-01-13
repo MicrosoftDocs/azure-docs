@@ -2,7 +2,7 @@
 title: Investigate security alerts
 description: Learn how to investigate Defender for IoT security alerts on your IoT devices.
 ms.topic: tutorial
-ms.date: 01/11/2022
+ms.date: 01/13/2022
 ---
 
 # Tutorial: Investigate security alerts
@@ -89,4 +89,4 @@ There are no resources to clean up.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Learn how to [Connect your data from Defender for IoT for device builders to Microsoft Sentinel (Public preview)](how-to-configure-with-sentinel.md).
+> Learn how to [Connect your data from Defender for IoT for device builders to Microsoft Sentinel (Public preview)](how-to-configure-with-sentinel.md)

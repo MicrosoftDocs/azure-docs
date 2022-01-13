@@ -2,7 +2,7 @@
 title: 'Quickstart: Enable Microsoft Defender for IoT on your Azure IoT Hub'
 description: Learn how to enable Defender for IoT in an Azure IoT hub.
 ms.topic: quickstart
-ms.date: 01/12/2022
+ms.date: 01/13/2022
 ms.custom: mode-other
 ---
 
@@ -23,7 +23,7 @@ This article explains how to enable Microsoft Defender for IoT on an Azure IoT h
 
 ## Create an IoT Hub with Microsoft Defender for IoT
 
-You can create a hub in the Azure portal, or using other tools such as Azure IoT Tools for VS code, PowerShell, Azure CLI, or REST API. This tutorial assumes you're using the portal. For all new IoT hubs, Defender for IoT is set to **On** by default.
+You can create a hub in the Azure portal. For all new IoT hubs, Defender for IoT is set to **On** by default.
 
 **To create an IoT Hub**:
 
@@ -33,7 +33,7 @@ You can create a hub in the Azure portal, or using other tools such as Azure IoT
 
     :::image type="content" source="media/quickstart-onboard-iot-hub/management-tab.png" alt-text="Ensure the Defender for IoT toggle is set to on.":::
 
-1. Follow the rest of the article to create the hub.
+1. Follow the rest of [this article](../../iot-hub/iot-hub-create-through-portal.md#create-an-iot-hub) to create the hub.
 
 ## Enable Defender for IoT on an existing IoT Hub
 
