@@ -1,5 +1,5 @@
 ---
-title: Best practices for applying sensitivity labels in Purview
+title: Best practices for applying sensitivity labels in Azure Purview
 description: This article provides best practices for applying sensitivity labels in Azure Purview.
 author: athenads
 ms.author: athenadsouza
@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 # Labeling best practices
 
-Azure Purview supports labeling of both structured and unstructured data stored across various data sources. Labeling of data within Purview allows users to easily find data that matches pre-defined auto-labeling rules that have been configured in the Microsoft 365 Security and Compliance Center (SCC). Azure Purview extends the use of Microsoft 365 sensitivity labels to assets stored in infrastructure cloud locations and structured data sources.
+Azure Purview supports labeling of both structured and unstructured data stored across various data sources. Labeling of data within Azure Purview allows users to easily find data that matches pre-defined auto-labeling rules that have been configured in the Microsoft 365 Security and Compliance Center (SCC). Azure Purview extends the use of Microsoft 365 sensitivity labels to assets stored in infrastructure cloud locations and structured data sources.
 
 ## Protect Personal Identifiable Information(PII) with Custom Sensitivity Label for Azure Purview, using Microsoft Information Protection
 
@@ -38,12 +38,12 @@ It also abstracts the data itself, so you use labels to track the type of data, 
 
 ### Label recommendations
 
-- When configuring sensitivity labels for Azure Purview, you may define autolabeling rules for files, database columns, or both within the label properties.  Azure Purview will label files within the Purview data map when the autolabeling rule is configured to automatically apply the label or recommend that the label is applied.
+- When configuring sensitivity labels for Azure Purview, you may define autolabeling rules for files, database columns, or both within the label properties.  Azure Purview will label files within the Azure Purview data map when the autolabeling rule is configured to automatically apply the label or recommend that the label is applied.
 
 > [!WARNING]
 > If you have not already configured autolabeling for files and emails on your sensitivity labels, keep in mind this can have user impact within your Office and Microsoft 365 environment.  You may however test autolabeling on database columns without user impact.
 
-- If you are defining new autolabeling rules for files when configuring labels for Purview, make sure that you have the condition for applying the label set appropriately.
+- If you are defining new autolabeling rules for files when configuring labels for Azure Purview, make sure that you have the condition for applying the label set appropriately.
 - You can set the detection criteria to **All of these** or **Any of these** in the upper right of the autolabeling for files and emails page of the label properties.
 - The default setting for detection criteria is **All of these** which means that the asset must contain all of the specified sensitive info types for the label to be applied.  While the default setting may be valid in some instances, many customers prefer to change the setting to **Any of these** meaning that if at least one of them is found the label is applied.
 
@@ -61,8 +61,8 @@ It also abstracts the data itself, so you use labels to track the type of data, 
 - Build groups of Sensitivity Labels and store them as dedicated Sensitivity Label Policy – for example store all required Sensitivity Labels for Regulatory Rules by using the same Sensitivity Label Policy to publish.
 - Capture all test cases for your labels and test your Label policies with all applications you want to secure.
 - Promote Sensitivity Label Policies to Azure Purview.
-- Run test scans from Purview on different Data Sources (for Example Hybrid-Cloud, On-Premise) to identify Sensitivity Labels.
-- Gather and consider insights (for example by using Purview insights) and use alerting mechanism to mitigate potential breaches of Regulations.
+- Run test scans from Azure Purview on different Data Sources (for Example Hybrid-Cloud, On-Premise) to identify Sensitivity Labels.
+- Gather and consider insights (for example by using Azure Purview insights) and use alerting mechanism to mitigate potential breaches of Regulations.
 
 By using Sensitivity Labels with Azure Purview you are able to extend your Microsoft Information Protection beyond the border of Microsoft Data Estate to your  On-prem, Hybrid-Could, Multi-Cloud and SaaS Scenarios.
 
