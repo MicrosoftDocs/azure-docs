@@ -48,6 +48,29 @@ Enable replication. This procedure assumes that the primary Azure region is East
        - You can customize the resource group settings.
        - The location of the target resource group can be any Azure region, except the region in which the source VMs are hosted.
    - **Target virtual network**: By default, Site Recovery creates a new virtual network in the target region with an "asr" suffix in the name. This is mapped to your source network, and used for any future protection. [Learn more](./azure-to-azure-network-mapping.md) about network mapping.
+   - **Capacity reservation**: Capacity reservation allows you to reserve VMs that can be used during a disaster. Capacity reservation can be created for a specific VM size in an Azure region or an Availability Zone. 
+    ![Screenshot that displays the capacity reservation parameters.](./media/azure-to-azure-how-to-enable-replication/create-capacity-reservation-basics.png)
+    To create a capacity reservation, do the following:
+      1. 	Under **Services**, select **Virtual machines**.
+      1.	In the **Basics** tab, under **Project details**, select the correct subscription and then choose to create a new resource group or use an existing one.
+      1.	Under **Instance details**, type a name for the virtual machine and choose a **Region**.
+      1.	Go to the **Advanced** tab.
+      1.	In the **Capacity reservation group** dropdown, select the capacity reservation group that you want the VM to be associated with. <br/>
+          Or <br/>
+          Create a new capacity reservation group by clicking **Create a new Capacity reservation group** to associate the VM and do the following:
+
+          1. Select a **Subscription**. 
+          1. Select or create a Resource group.
+          1. Enter a name for the capacity reservation group.
+          1. Select a **Region**.
+          1. Select **Availability zones**.
+          1. Select **Next**.
+          1. Under the **Reservations** tab, create at least one Capacity Reservation by providing each reservation a Reservation Name, the quantity of VM Instances, and select a unique VM size. The **Cost/month** column displays the billing information based on your selection.
+
+      1.  Select **Review + create**.
+
+      [Learn more](../virtual-machines/capacity-reservation-overview.md) about capacity reservation.
+
    - **Target storage accounts (source VM doesn't use managed disks)**: By default, Site Recovery creates a new target storage account mimicking your source VM storage configuration. In case storage account already exists, it is reused.
    - **Replica-managed disks (source VM uses managed disks)**: Site Recovery creates new replica-managed disks in the target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
    - **Cache Storage accounts**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating them to the target location. This storage account should be Standard.
