@@ -10,6 +10,8 @@ ms.date: 01/13/2022
 
 A dashboard in the Azure portal is a focused and organized view of your cloud resources. This article shows you how to use Azure CLI to create a dashboard. In this example, the dashboard shows the performance of a virtual machine (VM), as well as some static information and links.
 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - If you have multiple Azure subscriptions, choose the appropriate subscription in which to bill the resources.
