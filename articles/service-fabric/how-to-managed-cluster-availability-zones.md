@@ -72,7 +72,22 @@ Existing Service Fabric managed clusters which are not spanned across availabili
 
 The following steps are required to migrate a cluster to be zone resilient:
 
-* Use apiVersion 2021-11-01-preview or higher
+### Get AZ resiliency state for the basic resources of managed cluster
+Use the GET API call to determine the underlying resources' resiliency status, to better understand if the cluster is going to get a short down time during migration. 
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/azresiliencystatus?api-version=2022-01-01-preview
+```
+
+This should provide with response similar to :
+```json
+
+```
+### Add a new primary nodetype which spans across availability zones
+
+This step performs migration of Public IP and other network resources, thus can cause a brief moment of unreachability to the cluster. Use the above API to understand implication of this step .
+
+* Use apiVersion 2022-01-01-preview or higher.
 * Add a new primary node type to the cluster with zones parameter in the nodetype set to ["1", "2", "3"] as show below:
 ```json
 {
@@ -92,14 +107,17 @@ The following steps are required to migrate a cluster to be zone resilient:
 }
 ```
 
-* A brief period of unreachability to the cluster can occur during the step above.
-* Add new secondary node type(s) with same zones parameter as required. Skip if you have no secondary node type.
-* Migrate existing services from the old node types to the new ones. [Recommended using placement properties](./service-fabric-cluster-resource-manager-cluster-description.md)
-* Remove the old node types from the cluster using [Portal or cmdlet](./how-to-managed-cluster-modify-node-type.md). Make sure to remove old node types from your template.
-* Set zonalResiliency: true in the cluster ARM template and do a deployment to mark cluster as zone resilient and ensure all new node type deployments span across availability zones.
+### Add secondary nodetypes which spans across availabiity zones
+Add secondary node types which span across availabilty zones in the similar fashion as primary node type. Migrate existing services from the old node types to the new ones. [Recommended using placement properties](./service-fabric-cluster-resource-manager-cluster-description.md)
 
+### Gradually start removing older non az spanning node types
+Once all your services are not present on your node types, start removing a node type as mentioned here. 
+Remove the old node types from the cluster using [Portal or cmdlet](./how-to-managed-cluster-modify-node-type.md). Make sure to remove old node types from your template.
 
+### Mark the cluster resilient to zone failures
 
+This step helps in future deployments, since it ensures all future deployments of node types span across availability zones and thus cluster remains tolerant to AZ failures.
+Set zonalResiliency: true in the cluster ARM template and do a deployment to mark cluster as zone resilient and ensure all new node type deployments span across availability zones.
 
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
