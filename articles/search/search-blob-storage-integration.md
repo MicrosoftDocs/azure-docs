@@ -30,13 +30,13 @@ Output is always an Azure Cognitive Search index, used for fast text search, ret
 
 Once the index is created and populated, it exists independently of your blob container, but you can re-run indexing operations to refresh your index based on changed documents. Timestamp information on individual blobs is used for change detection. You can opt for either scheduled execution or on-demand indexing as the refresh mechanism.
 
-<!-- ## Required resources
+## Required resources
 
 You need both Azure Cognitive Search and Azure Blob Storage. Within blob storage, you need a container that provides source content.
 
 You can start directly in your Storage account portal page. In the left navigation page, under **Blob service** select **Add Azure Cognitive Search** to create a new service or select an existing one. 
 
-Once you add Azure Cognitive Search to your storage account, you can follow the standard process to index blob data. We recommend the **Import data** wizard in Azure Cognitive Search for an easy initial introduction, or call the REST APIs using a tool like Postman. This tutorial walks you through the steps of calling the REST API in Postman: [Index and search semi-structured data (JSON blobs) in Azure Cognitive Search](search-semi-structured-data.md).  -->
+Once you add Azure Cognitive Search to your storage account, you can follow the standard process to index blob data. We recommend the **Import data** wizard in Azure Cognitive Search for an easy initial introduction, or call the REST APIs using a tool like Postman. This tutorial walks you through the steps of calling the REST API in Postman: [Index and search semi-structured data (JSON blobs) in Azure Cognitive Search](search-semi-structured-data.md).
 
 ## Use a Blob indexer
 
@@ -47,7 +47,7 @@ Blobs in Azure Storage are indexed using the [Azure Cognitive Search Blob storag
 An indexer ["cracks a document"](search-indexer-overview.md#document-cracking), opening a blob to inspect content. After connecting to the data source, it's the first step in the pipeline. For blob data, this is where PDF, Office docs, and other content types are detected. Document cracking with text extraction is no charge. If your blobs contain image content, images are ignored unless you [add AI enrichment](cognitive-search-concept-intro.md). Standard indexing applies only to text content.
 
 The Blob indexer comes with configuration parameters and supports change tracking if the underlying data provides sufficient information. You can learn more about the core functionality in [Azure Cognitive Search Blob storage indexer](search-howto-indexing-azure-blob-storage.md).
-<!-- 
+
 ### Supported access tiers
 
 Blob storage [access tiers](../storage/blobs/access-tiers-overview.md) include hot, cool, and archive. Only hot and cool can be accessed by indexers. 
@@ -56,7 +56,7 @@ Blob storage [access tiers](../storage/blobs/access-tiers-overview.md) include h
 
 By running a Blob indexer over a container, you can extract text and metadata from the following content types with a single query:
 
-[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)] -->
+[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
 ### Indexing blob metadata
 
@@ -67,15 +67,15 @@ A common scenario that makes it easy to sort through blobs of any content type i
 >
 > To learn more about Blob Index, see [Manage and find data on Azure Blob Storage with Blob Index](../storage/blobs/storage-manage-find-blobs.md).
 
-<!-- ### Indexing JSON blobs
+### Indexing JSON blobs
 
-Indexers can be configured to extract structured content found in blobs that contain JSON. An indexer can read JSON blobs and parse the structured content into the appropriate fields of a search document. Indexers can also take blobs that contain an array of JSON objects and map each element to a separate search document. You can set a parsing mode to affect the type of JSON object created by the indexer. -->
+Indexers can be configured to extract structured content found in blobs that contain JSON. An indexer can read JSON blobs and parse the structured content into the appropriate fields of a search document. Indexers can also take blobs that contain an array of JSON objects and map each element to a separate search document. You can set a parsing mode to affect the type of JSON object created by the indexer.
 
-<!-- ## Search blob content in a search index 
+## Search blob content in a search index 
 
 The output of an indexer is a search index, used for interactive exploration using free text and filtered queries in a client app. For initial exploration and verification of content, we recommend starting with [Search Explorer](search-explorer.md) in the portal to examine document structure. You can use [simple query syntax](query-simple-syntax.md), [full query syntax](query-lucene-syntax.md), and [filter expression syntax](query-odata-filter-orderby-syntax.md) in Search explorer.
 
-A more permanent solution is to gather query inputs and present the response as search results in a client application. The following C# tutorial explains how to build a search application: [Create your first application in Azure Cognitive Search](tutorial-csharp-create-first-app.md). -->
+A more permanent solution is to gather query inputs and present the response as search results in a client application. The following C# tutorial explains how to build a search application: [Create your first application in Azure Cognitive Search](tutorial-csharp-create-first-app.md).
 
 ## Next steps
 
