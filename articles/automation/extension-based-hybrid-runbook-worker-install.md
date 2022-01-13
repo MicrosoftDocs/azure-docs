@@ -69,7 +69,7 @@ If you use a proxy server for communication between Azure Automation and machine
  
 ```azurepowershell
 $settings = @{
-    "AutomationAccountURL"  = "https://<subscription-id>.jrds.eap.azure-automation.net/automationAccounts/<subscription-id>";    
+    "AutomationAccountURL"  = "<registrationurl>/<subscription-id>";    
     "ProxySettings" = @{
         "ProxyServer" = "<ipaddress>:<port>";
         "UserName"="test";
@@ -86,7 +86,7 @@ $protectedsettings = @{
       "Proxy_URL"="http://username:password@<IP Address>"
 };
 $settings = @{
-    "AutomationAccountURL"  = "https://<subscription-id>.jrds.eap.azure-automation.net/automationAccounts/<subscription-id>";    
+    "AutomationAccountURL"  = "<registration-url>/<subscription-id>";    
 };
 ```
 ---
