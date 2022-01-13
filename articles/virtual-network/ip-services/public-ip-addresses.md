@@ -36,7 +36,7 @@ The following table shows the property a public IP can be associated to a resour
 | --- | --- | --- | --- | --- | --- |
 | Virtual machine |Network interface |Yes | Yes | Yes | Yes |
 | Public Load balancer |Front-end configuration |Yes | Yes | Yes |Yes |
-| Virtual Network gateway (VPN) |Gateway IP configuration |Yes (non-AZ only) |Yes (AZ only) | No |No |
+| Virtual Network gateway (VPN) |Gateway IP configuration |Yes (non-AZ only) |Yes | No |No |
 | Virtual Network gateway (ER) |Gateway IP configuration |Yes | No | Yes (preview) |No |
 | NAT gateway |Gateway IP configuration |No |Yes | No |No |
 | Application gateway |Front-end configuration |Yes (V1 only) |Yes (V2 only) | No | No |

@@ -28,7 +28,7 @@ Semantic search is a premium feature. We recommend this article for background, 
 
 ## What is semantic search?
 
-Semantic search is collection of features that improve the quality of search results. When enabled on your search service, it extends the query execution pipeline in two ways. First, it adds secondary ranking over an initial result set, promoting the most semantically relevant results to the top of the list. Second, it extracts and returns captions and answers in the response, which you can render on a search page to improve the user's search experience.
+Semantic search is a collection of features that improve the quality of search results. When enabled on your search service, it extends the query execution pipeline in two ways. First, it adds secondary ranking over an initial result set, promoting the most semantically relevant results to the top of the list. Second, it extracts and returns captions and answers in the response, which you can render on a search page to improve the user's search experience.
 
 | Feature | Description |
 |---------|-------------|

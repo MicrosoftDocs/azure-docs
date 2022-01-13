@@ -25,7 +25,7 @@ Scenarios for local deployment include:
 ## Prerequisites
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
-- A model and an environment. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](tutorial-train-models-with-aml.md).
+- A model and an environment. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](tutorial-train-deploy-notebook.md).
 - The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
 - A conda manager, like Anaconda or Miniconda, if you want to mirror Azure Machine Learning package dependencies.
 - Docker, if you want to use a containerized version of the Azure Machine Learning environment.
@@ -56,7 +56,7 @@ The argument to the `run()` method will be in this form:
 
 The object you return from the `run()` method must implement `toJSON() -> string`.
 
-The following example demonstrates how to load a registered scikit-learn model and score it by using NumPy data. This example is based on the model and dependencies of [this tutorial](tutorial-train-models-with-aml.md).
+The following example demonstrates how to load a registered scikit-learn model and score it by using NumPy data. This example is based on the model and dependencies of [this tutorial](tutorial-train-deploy-notebook.md).
 
 ```python
 import json

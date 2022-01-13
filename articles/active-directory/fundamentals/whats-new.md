@@ -1119,7 +1119,7 @@ Now with the Windows 10 21H1 update, Windows Hello supports multiple cameras. Th
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance
  
-Azure Active Directory access reviews MS Graph APIs are now in v1.0 support fully configurable access reviews features. [Learn more](/graph/api/resources/accessreviewsv2-root?view=graph-rest-1.0&preserve-view=true).
+Azure Active Directory access reviews MS Graph APIs are now in v1.0 support fully configurable access reviews features. [Learn more](/graph/api/resources/accessreviewsv2-overview?view=graph-rest-1.0&preserve-view=true).
  
 ---
 

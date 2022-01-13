@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 12/28/2021
+ms.date: 01/11/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -21,7 +21,7 @@ This article outlines how to register Google BigQuery projects, and how to authe
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-google-bigquery.md)|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](how-to-lineage-google-bigquery.md)|
 
 When scanning Google BigQuery source, Purview supports:
 
@@ -33,6 +33,9 @@ When scanning Google BigQuery source, Purview supports:
     - Views including the columns
 
 - Fetching static lineage on assets relationships among tables and views.
+
+>[!NOTE]
+> Currently, Purview only supports scanning Google BigQuery datasets in US multi-regional location. If the specified dataset is in other location e.g. us-east1 or EU, you will observe scan completes but no assets shown up in Purview.
 
 ## Prerequisites
 

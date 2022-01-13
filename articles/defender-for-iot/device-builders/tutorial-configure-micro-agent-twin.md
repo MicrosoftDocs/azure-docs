@@ -4,7 +4,7 @@ description: In this tutorial, you will learn how to configure a micro agent twi
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 12/22/2021
+ms.date: 01/05/2022
 ms.custom: template-tutorial
 ---
 
@@ -23,15 +23,11 @@ In this tutorial, you learn how to:
 
 - A Defender for IoT subscription.
 
-- An existing IoT Hub with:
-
-    - [A connected device](quickstart-standalone-agent-binary-installation.md).
-
-    - [A micro agent module twin](quickstart-create-micro-agent-module-twin.md).
+- An existing IoT Hub with: [A connected device](quickstart-standalone-agent-binary-installation.md), and [A micro agent module twin](quickstart-create-micro-agent-module-twin.md).
 
 ## Micro agent configuration
 
-To view and update the micro agent twin configuration:
+**To view and update the micro agent twin configuration**:
 
 1. Navigate to the [Azure portal](https://ms.portal.azure.com).
 

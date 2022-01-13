@@ -3,7 +3,7 @@ title: Connect Syslog data to Microsoft Sentinel | Microsoft Docs
 description: Connect any machine or appliance that supports Syslog to Microsoft Sentinel by using an agent on a Linux machine between the appliance and Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/05/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
@@ -82,6 +82,11 @@ Many device types have their own data connectors appearing in the **Data connect
 
 All connectors listed in the gallery will display any specific instructions on their respective connector pages in the portal, as well as in their sections of the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page.
 
+If the instructions on your data connector's page in Microsoft Sentinel indicate that the Kusto functions are deployed as [Advanced SIEM Information Model (ASIM)](normalization.md) parsers, make sure that you have the ASIM parsers deployed to your workspace.
+
+Use the link in the data connector page to deploy your parsers, or follow the instructions from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASim).
+
+For more information, see [Advanced SIEM Information Model (ASIM) parsers](normalization-about-parsers.md).
 
 ## Configure the Log Analytics agent
 

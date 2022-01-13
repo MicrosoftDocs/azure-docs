@@ -81,6 +81,8 @@ items:
       href: concept-scans-and-ingestion.md
     - name: Data lineage
       href: concept-data-lineage.md
+    - name: Classification
+      href: concept-classification.md
   - name: Data catalog
     items:
     - name: Catalog search
@@ -276,6 +278,8 @@ items:
         href: catalog-private-link-end-to-end.md
       - name: Isolate network for Purview account and portal
         href: catalog-private-link-account-portal.md
+      - name: Managed virtual network
+        href: catalog-managed-vnet.md        
       - name: Configure DNS for private endpoint
         href: catalog-private-link-name-resolution.md
       - name: Troubleshoot private endpoints

@@ -208,7 +208,7 @@ Logs for the extension are stored in the following location: `C:\WindowsAzure\Lo
 
 ## Next steps
 
-- For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/dsc/overview/overview).
+- For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/dsc/overview).
 - Examine the [Resource Manager template for the DSC extension](dsc-template.md).
 - For more functionality that you can manage by using PowerShell DSC, and for more DSC resources, browse the [PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
 - For details about passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](dsc-credentials.md).
