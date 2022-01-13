@@ -3,7 +3,7 @@ title: Create an Azure portal dashboard with PowerShell
 description: Learn how to create a dashboard in the Azure portal using Azure PowerShell.
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell, mode-api
-ms.date: 03/25/2021
+ms.date: 01/13/2022
 ---
 
 # Quickstart: Create an Azure portal dashboard with PowerShell
@@ -67,7 +67,7 @@ $dashboardName = $dashboardTitle -replace '\s'
 $subscriptionID = (Get-AzContext).Subscription.Id
 
 # Name of test VM
-$vmName = 'SimpleWinVM'
+$vmName = 'myVM1'
 ```
 
 ## Create a resource group

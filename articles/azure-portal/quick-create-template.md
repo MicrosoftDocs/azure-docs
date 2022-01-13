@@ -3,7 +3,7 @@ title: Create an Azure portal dashboard by using an Azure Resource Manager templ
 description: Learn how to create an Azure portal dashboard by using an Azure Resource Manager template.
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm
-ms.date: 03/15/2021
+ms.date: 01/13/2022
 ---
 
 # Quickstart: Create a dashboard in the Azure portal by using an ARM template
@@ -46,7 +46,7 @@ The dashboard you create in the next part of this quickstart requires an existin
     ```powershell
     New-AzVm `
         -ResourceGroupName "SimpleWinVmResourceGroup" `
-        -Name "SimpleWinVm" `
+        -Name "myVM1" `
         -Location "East US" 
     ```
 
@@ -70,11 +70,11 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
     Unless it's specified, use the default values to create the dashboard.
 
-    * **Subscription**: select an Azure subscription.
-    * **Resource group**: select **SimpleWinVmResourceGroup**.
-    * **Location**: select **East US**.
-    * **Virtual Machine Name**: enter **SimpleWinVm**.
-    * **Virtual Machine Resource Group**: enter **SimpleWinVmResourceGroup**.
+    - **Subscription**: select an Azure subscription.
+    - **Resource group**: select **SimpleWinVmResourceGroup**.
+    - **Location**: select **East US**.
+    - **Virtual Machine Name**: enter **myVM1**.
+    - **Virtual Machine Resource Group**: enter **SimpleWinVmResourceGroup**.
 
 1. Select **Create** or **Purchase**. After the dashboard has been deployed successfully, you get a notification:
 
