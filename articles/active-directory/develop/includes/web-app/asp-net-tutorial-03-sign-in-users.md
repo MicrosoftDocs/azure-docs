@@ -22,6 +22,8 @@ Follow the steps in this tutorial to:
 
 ## Sign in users
 
+:::code language="aspx-csharp" source="~/ms-identity-docs-code-dotnet/src/sign-in-webapp/Program.cs" id="ms_docref_enable_authz_capabilities":::
+
 ## Display logged in content
 
 ## Display MSAL provider content
