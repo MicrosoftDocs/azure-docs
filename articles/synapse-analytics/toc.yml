@@ -1488,7 +1488,6 @@ items:
       href: ./guidance/security-white-paper-network-security.md
     - name: Threat protection
       href: ./guidance/security-white-paper-threat-protection.md
-    - name: Security white paper
 - name: Reference
   items:
   - name: Azure CLI
