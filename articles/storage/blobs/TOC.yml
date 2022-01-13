@@ -321,7 +321,7 @@ items:
     - name: Create and manage containers
       items:
       - name: Manage containers (CLI)
-        href: blob-containers-powershell.md      
+        href: blob-containers-cli.md      
       - name: Manage containers (PowerShell)
         href: blob-containers-powershell.md
       - name: Create or delete a container (.NET)
