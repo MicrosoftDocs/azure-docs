@@ -232,8 +232,8 @@ An event subscription is put into probation for a duration by Event Grid if even
 | Forbidden | 5 minutes |
 | InvalidAzureFunctionDestination | 10 minutes |
 
-    > [!NOTE]
-    > Event Grid uses probation duration for better delivery management and the duration might change in the future.
+> [!NOTE]
+> Event Grid uses probation duration for better delivery management and the duration might change in the future.
 
 ### CloudEvents 1.0 schema
 
