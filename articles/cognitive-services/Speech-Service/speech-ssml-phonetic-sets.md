@@ -18,7 +18,7 @@ Phonetic alphabets are used with the [Speech Synthesis Markup Language (SSML)](s
 
 ## Speech service phonetic alphabet
 
-For some locales, the Speech service defines its own phonetic alphabets that typically map to the <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet (IPA)</a>. The 7 locales that support `sapi` are: `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`.
+For some locales, the Speech service defines its own phonetic alphabets that typically map to the [International Phonetic Alphabet (IPA)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet). The 7 locales that support `sapi` are: `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`.
 
 You set `sapi` or `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation). 
 
@@ -293,7 +293,7 @@ The Speech service phone set puts stress after the vowel of the stressed syllabl
 | ^      | `ʔ`   | beachtlich     /b ax - ^ a 1 x t - l ih c/ |
 
 > [!NOTE]
-> We need to add a [gs\] phone between two distinct vowels, except the two vowels are a genuine diphthong. This oral consonant is a glottal stop, for more information, see <a href="http://en.wikipedia.org/wiki/Glottal_stop" target="_blank">glottal stop <span class="docon docon-navigate-external x-hidden-focus"></a></a>.
+> We need to add a [gs\] phone between two distinct vowels, except the two vowels are a genuine diphthong. This oral consonant is a glottal stop, for more information, see [glottal stop](http://en.wikipedia.org/wiki/Glottal_stop).
 
 ### [es-ES](#tab/es-ES)
 
@@ -341,7 +341,7 @@ The Speech service phone set puts stress after the vowel of the stressed syllabl
 
 ### [zh-CN](#tab/zh-CN)
 
-The Speech service phone set for `zh-CN` is based on the native phone <a href="https://en.wikipedia.org/wiki/Pinyin" target="_blank">Pinyin </a> set.
+The Speech service phone set for `zh-CN` is based on the native phone [Pinyin](https://en.wikipedia.org/wiki/Pinyin).
 
 #### Tone
 
@@ -363,7 +363,7 @@ The Speech service phone set for `zh-CN` is based on the native phone <a href="h
 
 ### [zh-TW](#tab/zh-TW)
 
-The Speech service phone set for `zh-TW` is based on the native phone <a href="https://en.wikipedia.org/wiki/Bopomofo" target="_blank">Bopomofo </a> set.
+The Speech service phone set for `zh-TW` is based on the native phone [Bopomofo](https://en.wikipedia.org/wiki/Bopomofo).
 
 #### Tone
 
@@ -385,7 +385,7 @@ The Speech service phone set for `zh-TW` is based on the native phone <a href="h
 
 ### [ja-JP](#tab/ja-JP)
 
-The Speech service phone set for `ja-JP` is based on the native phone <a href="https://en.wikipedia.org/wiki/Kana" target="_blank">Kana </a> set.
+The Speech service phone set for `ja-JP` is based on the native phone [Kana](https://en.wikipedia.org/wiki/Kana) set.
 
 #### Stress
 
@@ -407,7 +407,7 @@ The Speech service phone set for `ja-JP` is based on the native phone <a href="h
 
 ## International Phonetic Alphabet
 
-For the locales below, the Speech service uses the <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet (IPA)</a>.
+For the locales below, the Speech service uses the [International Phonetic Alphabet (IPA)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet).
 
 You set `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation). 
 
