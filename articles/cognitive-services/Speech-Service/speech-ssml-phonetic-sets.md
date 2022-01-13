@@ -20,9 +20,6 @@ Phonetic alphabets are used with the [Speech Synthesis Markup Language (SSML)](s
 
 For some locales, the Speech service defines its own phonetic alphabets that typically map to the <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet (IPA)</a>.
 
-* `sapi` - [Speech service phonetic alphabet](#speech-service-phonetic-alphabet)
-* `ipa` - [International Phonetic Alphabet](#speech-service-phonetic-alphabet)
-
 You set `sapi` or `ipa` as the `alphabet` in [SSML](speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation). 
 
 ### [en-US](#tab/en-US)
