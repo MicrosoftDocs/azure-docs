@@ -101,7 +101,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 3. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
 
     ```azurepowershell-interactive
-    .\kubectl get nodes
+    kubectl get nodes
     ```
 
     Output shows the single node created in the previous steps. Make sure the node status is *Ready*:
@@ -218,7 +218,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
 1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
     ```azurepowershell-interactive
-    .\kubectl apply -f azure-vote.yaml
+    kubectl apply -f azure-vote.yaml
     ```
 
     Output shows the successfully created deployments and services:
@@ -237,7 +237,7 @@ When the application runs, a Kubernetes service exposes the application front en
 Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument.
 
 ```azurepowershell-interactive
-.\kubectl get service azure-vote-front --watch
+kubectl get service azure-vote-front --watch
 ```
 
 The **EXTERNAL-IP** output for the `azure-vote-front` service will initially show as *pending*.
