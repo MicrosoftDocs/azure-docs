@@ -1,9 +1,9 @@
 ---
-title: 'Create a Site-to-Site connection to Azure Virtual WAN using Powershell'
-description: Learn how to create a Site-to-Site connection from your branch site to Azure Virtual WAN using Powershell.
+title: 'Create a Site-to-Site connection to Azure Virtual WAN using PowerShell'
+description: Learn how to create a Site-to-Site connection from your branch site to Azure Virtual WAN using PowerShell.
 titleSuffix: Azure Virtual WAN
 services: virtual-wan
-author: 
+author: reasuquo
 
 ms.service: virtual-wan
 ms.topic: how-to
@@ -12,9 +12,9 @@ ms.author: reasuquo
 ms.custom: devx-track-azurepowershell
 
 ---
-# Create a Site-to-Site connection to Azure Virtual WAN using Powershell
+# Create a Site-to-Site connection to Azure Virtual WAN using PowerShell
 
-This article shows you how to use Virtual WAN to connect to your resources in Azure over an IPsec/IKE (IKEv1 and IKEv2) VPN connection via Powershell. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
+This article shows you how to use Virtual WAN to connect to your resources in Azure over an IPsec/IKE (IKEv1 and IKEv2) VPN connection via PowerShell. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
 
 :::image type="content" source="./media/virtual-wan-about/virtualwan.png" alt-text="Screenshot shows a networking diagram for Virtual WAN.":::
 
@@ -78,7 +78,7 @@ $virtualHub = New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testR
 
 ## <a name="gateway"></a>Create a site-to-site VPN gateway
 
-In this section, you create a site-to-site VPN gateway which will be in the same location as the referenced VirtualHub. The site-to-site VPN gateway scales based on the scale unit specified and can take about 30 minutes to create.
+In this section, you create a site-to-site VPN gateway that will be in the same location as the referenced VirtualHub. The site-to-site VPN gateway scales based on the scale unit specified and can take about 30 minutes to create.
 ```azurepowershell-interactive 
 New-AzVpnGateway -ResourceGroupName "testRG" -Name "testvpngw" -VirtualHubId $virtualHub.Id -VpnGatewayScaleUnit 2
 ``` 
@@ -91,7 +91,7 @@ Get-AzVpnGateway -ResourceGroupName "testRG" -Name "testvpngw"
 
 ## <a name="site"></a>Create a site and the connections
 
-In this section, you create sites which correspond to your physical locations and the connections. These sites contain your on-premises VPN device endpoints, you can create up to 1000 sites per virtual hub in a virtual WAN. If you have multiple hubs, you can create 1000 per each of those hubs.
+In this section, you create sites that correspond to your physical locations and the connections. These sites contain your on-premises VPN device endpoints, you can create up to 1000 sites per virtual hub in a virtual WAN. If you have multiple hubs, you can create 1000 per each of those hubs.
 
 Set the variable for the vpnGateway and for the IP address space that is located on your on-premises site, traffic destined for this address space is routed to your local site. This is required when BGP is not enabled for the site:
 
@@ -116,7 +116,7 @@ Create the vpnSite and reference the variables of the vpnSiteLinks just created:
 $vpnSite = New-AzVpnSite -ResourceGroupName "testRG" -Name "testVpnSite" -Location "West US" -VirtualWan $virtualWan -AddressSpace $vpnSiteAddressSpaces -DeviceModel "SomeDevice" -DeviceVendor "SomeDeviceVendor" -VpnSiteLink @($vpnSiteLink1, $vpnSiteLink2)
 ```
 
-Next is the Vpn Site Link connection which comprises of 2 Active-Active tunnels from a branch/Site known as VPNSite to the scalable gateway:
+Next is the Vpn Site Link connection which is composed of 2 Active-Active tunnels from a branch/Site known as VPNSite to the scalable gateway:
 
 ```azurepowershell-interactive
 $vpnSiteLinkConnection1 = New-AzVpnSiteLinkConnection -Name "testLinkConnection1" -VpnSiteLink $vpnSite.VpnSiteLinks[0] -ConnectionBandwidth 100
