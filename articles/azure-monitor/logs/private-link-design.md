@@ -18,8 +18,7 @@ The simplest and most secure approach would be:
 2. Add *all* Azure Monitor resources (Application Insights components and Log Analytics workspaces) to that AMPLS.
 3. Block network egress traffic as much as possible.
 
-If you can't add all Azure Monitor resources to your AMPLS, you can still your Private Link to some resources, as explained in [Control how Private Links apply to your networks](./private-link-design.md#control-how-private-links-apply-to-your-networks). While useful, this approach is less recommended since it doesn't prevent data exfiltration.
-
+If you can't add all Azure Monitor resources to your AMPLS, you can still apply your Private Link to some resources, as explained in [Control how Private Links apply to your networks](./private-link-design.md#control-how-private-links-apply-to-your-networks). While useful, this approach is less recommended since it doesn't prevent data exfiltration.
 
 ## Plan by network topology
 

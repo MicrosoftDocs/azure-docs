@@ -43,6 +43,8 @@ landingContent:
             url: ./azure-dev-tools-teaching/enroll-renew-subscription.md
           - text: Set up access
             url: ./azure-dev-tools-teaching/set-up-access.md
+          - text: Find IDs
+            url: find-ids.md
       - linkListType: how-to-guide
         links:
           - text: How to manage students

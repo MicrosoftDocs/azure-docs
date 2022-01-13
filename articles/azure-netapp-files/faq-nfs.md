@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
-ms.author: b-hchen
+ms.author: anfdocs
 ms.date: 10/19/2021
 ---
 # NFS FAQs for Azure NetApp Files

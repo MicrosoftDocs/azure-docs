@@ -4,7 +4,7 @@ description: Add users or groups to an administrative unit in Azure Active Direc
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles

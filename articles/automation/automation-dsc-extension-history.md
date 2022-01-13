@@ -332,7 +332,7 @@ This article provides information about each version of the Azure DSC VM extensi
 
 ## Next steps
 
-- For more information about PowerShell DSC, see [PowerShell documentation center](/powershell/dsc/overview/overview).
+- For more information about PowerShell DSC, see [PowerShell documentation center](/powershell/dsc/overview).
 - Examine the [Resource Manager template for the DSC extension](../virtual-machines/extensions/dsc-template.md).
 - For other functionality and resources that you can manage with PowerShell DSC, browse the [PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
 - For details about passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](../virtual-machines/extensions/dsc-credentials.md).

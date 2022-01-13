@@ -4,14 +4,13 @@ description: Learn how to list, create, update, or delete Azure custom roles usi
 services: active-directory
 documentationcenter: na
 author: rolyon
-manager: mtillman
+manager: karenhoran
 editor: ''
 
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
 ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
-ms.devlang: na
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: rolyon

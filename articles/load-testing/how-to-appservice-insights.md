@@ -1,7 +1,7 @@
 ---
-title: Get more insights when you test Azure App Service workloads
+title: Get more insights from App Service diagnostics
 titleSuffix: Azure Load Testing
-description: 'Learn how to get more insights by using Azure App Service diagnostics when you test App Service workloads.'
+description: 'Learn how to get detailed insights from App Service diagnostics and Azure Load Testing for App Service workloads.'
 services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
@@ -11,7 +11,7 @@ ms.topic: how-to
 
 ---
 
-# Get more insights when you load-test Azure App Service workloads
+# Get detailed insights from App Service diagnostics and Azure Load Testing Preview for Azure App Service workloads
 
 In this article, you'll learn how to gain more insights from Azure App Service workloads by using Azure Load Testing Preview and Azure App Service diagnostics.
 
@@ -65,8 +65,6 @@ In this section, you use [App Service diagnostics](/azure/app-service/overview-d
 
 ## Next steps
 
-- To learn how to parameterize a load test by using secrets, see [Parameterize a load test](./how-to-parameterize-load-tests.md).
+- Learn how to [parameterize a load test](./how-to-parameterize-load-tests.md) with secrets.
 
-- To learn about performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
-
-- To learn more about App Service diagnostics, see [Azure App Service diagnostics overview](/azure/app-service/overview-diagnostics/).
+- Learn how to [configure automated performance testing](./tutorial-cicd-azure-pipelines.md).

@@ -9,6 +9,7 @@ ms.date: 02/16/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
+ms.devlang: quickstart
 ms.custom: seo-javascript-october2019, devx-track-python
 ---
 

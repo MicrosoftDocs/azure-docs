@@ -8,7 +8,7 @@ ms.subservice: sql
 ms.date: 07/15/2021
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, wiassaf
+ms.reviewer: sngun, wiassaf
 ms.custom: ignite-fall-2021
 ---
 

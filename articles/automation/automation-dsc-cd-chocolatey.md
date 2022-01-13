@@ -37,7 +37,7 @@ Package managers such as [apt-get](https://en.wikipedia.org/wiki/Advanced_Packag
 introduction. In a nutshell, Chocolatey allows you to use the command line to install packages from a central repository onto a Windows operating system. You can create and manage your own
 repository, and Chocolatey can install packages from any number of repositories that you designate.
 
-[PowerShell DSC](/powershell/dsc/overview/overview) is a PowerShell tool that allows you to declare the configuration that you want for a machine. For example, if you want Chocolatey installed, IIS installed, port 80 opened, and version 1.0.0 of your
+[PowerShell DSC](/powershell/dsc/overview) is a PowerShell tool that allows you to declare the configuration that you want for a machine. For example, if you want Chocolatey installed, IIS installed, port 80 opened, and version 1.0.0 of your
 website installed, the DSC Local Configuration Manager (LCM) implements that configuration. A DSC
 pull server holds a repository of configurations for your machines. The LCM on each machine checks
 in periodically to see if its configuration matches the stored configuration. It can either report
