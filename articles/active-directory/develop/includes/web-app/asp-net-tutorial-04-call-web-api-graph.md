@@ -22,7 +22,7 @@ Before making a REST call to an API, such as Microsoft Graph, you'll need to acq
 
 ## Call Microsoft Graph API
 
-:::code language="aspx-csharp" source="~/ms-identity-docs-code-dotnet/src/Pages/Index.cshtml.cs":::
+:::code language="aspx-csharp" source="~/ms-identity-docs-code-dotnet/src/sign-in-webapp/Pages/Index.cshtml.cs":::
 
 ## Next steps
 
