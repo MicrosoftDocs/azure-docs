@@ -32,7 +32,7 @@ Find the object ID of the app (not the application (client) ID), which you need 
 
 Get the information for your external IdP and software workload, which you need in the following steps.
 
-The Microsoft Graph beta endpoint (`https://graph.microsoft.com/beta`) exposes REST APIs to create, update, delete [federatedIdentityCredentials](/graph/api/resources/federatedidentitycredential?view=graph-rest-beta) on applications. Launch [Azure Cloud Shell](https://portal.azure.com/#cloudshell/) and sign in to your tenant.
+The Microsoft Graph beta endpoint (`https://graph.microsoft.com/beta`) exposes REST APIs to create, update, delete [federatedIdentityCredentials](/graph/api/resources/federatedidentitycredential?view=graph-rest-beta&preserve-view=true) on applications. Launch [Azure Cloud Shell](https://portal.azure.com/#cloudshell/) and sign in to your tenant.
 
 ## Configure a federated identity credential
 
