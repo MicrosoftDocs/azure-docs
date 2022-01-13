@@ -32,9 +32,9 @@ The Build Agent Pool scale set sizes available are:
    | S4        | 5 vCPU, 10 Gi |
    | S5        | 6 vCPU, 12 Gi |
 
-The image below shows the resources allocated to the Build Service Agent Pool after the service instance is provisioned successfully.
+The image below shows the resources given to the Build Service Agent Pool after the service instance is provisioned successfully.
 
-![Finding resources allocated to Build Service](./media/enterprise/how-to-enterprise-build-service/agent-pool-size.png)
+![Finding resources given to Build Service](./media/enterprise/how-to-enterprise-build-service/agent-pool-size.png)
 
 ## Default Builder and Tanzu Buildpacks
 
@@ -83,7 +83,7 @@ If the builder isn't specified, the `default` builder will be used.
 
 ## Real time build logs
 
-A build task will be triggered when an app is deployed from an Azure CLI command. Build logs are streamed in real-time as part of the CLI command output. See [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md) to diagnose build logs.
+A build task will be triggered when an app is deployed from an Azure CLI command. Build logs are streamed in real time as part of the CLI command output. See [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md) to diagnose build logs.
 
 ## Buildpack bindings
 
