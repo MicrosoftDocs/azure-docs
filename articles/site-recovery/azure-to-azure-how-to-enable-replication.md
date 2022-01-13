@@ -58,7 +58,7 @@ Enable replication. This procedure assumes that the primary Azure region is East
       1.	In the **Capacity reservation group** dropdown, select the capacity reservation group that you want the VM to be associated with. <br/>
           Or <br/>
           Create a new capacity reservation group by clicking **Create a new Capacity reservation group** to associate the VM and do the following:<br/>
-          - Select a **Subscription**.<br/>
+          - Select a **Subscription**. <br/>
           - Select or create a Resource group.<br/>
           - Enter a name for the capacity reservation group.<br/>
           - Select a **Region**.<br/>
