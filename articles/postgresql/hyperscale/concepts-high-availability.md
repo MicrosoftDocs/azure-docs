@@ -40,11 +40,11 @@ Recovery can be broken into three stages: detection, failover, and full
 recovery.  Hyperscale (Citus) runs periodic health checks on every node, and
 after four failed checks it determines that a node is down. Hyperscale (Citus)
 then promotes a standby to primary node status (failover), and provisions a new
-standby-to-be.  Streaming replication begins, bringing the new node up-to-date.
+standby-to-be.  Streaming replication begins, bringing the new node up to date.
 When all data has been replicated, the node has reached full recovery.
 
 Hyperscale (Citus) displays its failover progress state on the Overview page
-for server groups in the Azure portal. These are the states:
+for server groups in the Azure portal.
 
 * **Healthy**: HA is enabled and the node is fully replicated to its standby.
 * **Failover in progress**: A failure was detected on the primary node and

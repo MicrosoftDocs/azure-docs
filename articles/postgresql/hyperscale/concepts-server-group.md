@@ -25,19 +25,19 @@ tables](concepts-nodes.md).
 ### Node status
 
 Hyperscale (Citus) displays the status of nodes in a server group on the
-Overview page in the Azure portal. These are the status values:
+Overview page in the Azure portal. Each node can have one of these status
+values:
 
 * **Provisioning**: Initial node provisioning, either as a part of its server
   group provisioning, or when a worker node is added.
 * **Available**: Node is in a healthy state.
-* **Need attention**: An issue is detected on the node. Usually it means that
-  the self-healing process has been kicked off, or that the node failed to
-  self-heal and issue was put in the queue for our engineers to investigate.
-* **Dropping**: Server group deletion was initiated.
+* **Need attention**: An issue is detected on the node. The node is attempting
+  to self-heal. If self-healing fails, an issue gets put in the queue for our
+  engineers to investigate.
+* **Dropping**: Server group deletion started.
 * **Disabled**: The server group's Azure subscription turned into Disabled
-  states. See [this
-  page](../../cost-management-billing/manage/subscription-states.md) for more
-  details.
+  states. For more information about subscription states, see [this
+  page](../../cost-management-billing/manage/subscription-states.md).
 
 ## Tiers
 
