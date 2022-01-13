@@ -74,7 +74,8 @@ For more information about GStreamer, see [Windows installation instructions](ht
 
 ## GStreamer configuration by programming language
 
-GStreamer configuration requirements vary by programming language. For details, choose your programming language at the top of this page. The contents of this section will be updated. 
+> [!NOTE]
+> GStreamer configuration requirements vary by programming language. For details, choose your programming language at the top of this page. The contents of this section will be updated. 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/csharp/prerequisites.md)]
