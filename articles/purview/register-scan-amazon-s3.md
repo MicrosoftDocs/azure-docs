@@ -84,19 +84,19 @@ Ensure that you've performed the following prerequisites before adding your Amaz
 
 > [!div class="checklist"]
 > * You need to be an Azure Purview Data Source Admin.
-> * [Create a Azure Purview account](#create-an-azure-purview-account) if you don't yet have one
+> * [Create an Azure Purview account](#create-an-azure-purview-account) if you don't yet have one
 > * [Create a new AWS role for use with Azure Purview](#create-a-new-aws-role-for-azure-purview)
-> * [Create a Azure Purview credential for your AWS bucket scan](#create-an-azure-purview-credential-for-your-aws-s3-scan)
+> * [Create an Azure Purview credential for your AWS bucket scan](#create-an-azure-purview-credential-for-your-aws-s3-scan)
 > * [Configure scanning for encrypted Amazon S3 buckets](#configure-scanning-for-encrypted-amazon-s3-buckets), if relevant
 > * Make sure that your bucket policy does not block the connection. For more information, see [Bucket policy requirements](#confirm-your-bucket-policy-access) and [SCP policy requirements](#confirm-your-scp-policy-access). For these items, you may need to consult with an AWS expert to ensure that your policies allow required access.
 > * When adding your buckets as Azure Purview resources, you'll need the values of your [AWS ARN](#retrieve-your-new-role-arn), [bucket name](#retrieve-your-amazon-s3-bucket-name), and sometimes your [AWS account ID](#locate-your-aws-account-id).
 
 
-### Create a Azure Purview account
+### Create an Azure Purview account
 
-- **If you already have a Azure Purview account,** you can continue with the configurations required for AWS S3 support. Start with [Create a Azure Purview credential for your AWS bucket scan](#create-an-azure-purview-credential-for-your-aws-s3-scan).
+- **If you already have an Azure Purview account,** you can continue with the configurations required for AWS S3 support. Start with [Create an Azure Purview credential for your AWS bucket scan](#create-an-azure-purview-credential-for-your-aws-s3-scan).
 
-- **If you need to create a Azure Purview account,** follow the instructions in [Create an Azure Purview account instance](create-catalog-portal.md). After creating your account, return here to complete configuration and begin using Azure Purview connector for Amazon S3.
+- **If you need to create an Azure Purview account,** follow the instructions in [Create an Azure Purview account instance](create-catalog-portal.md). After creating your account, return here to complete configuration and begin using Azure Purview connector for Amazon S3.
 
 ### Create a new AWS role for Azure Purview
 
@@ -172,7 +172,7 @@ This procedure describes how to create the AWS role, with the required Microsoft
     - [Confirm your bucket policy access](#confirm-your-bucket-policy-access)
     - [Confirm your SCP policy access](#confirm-your-scp-policy-access)
 
-### Create a Azure Purview credential for your AWS S3 scan
+### Create an Azure Purview credential for your AWS S3 scan
 
 This procedure describes how to create a new Azure Purview credential to use when scanning your AWS buckets.
 
@@ -309,19 +309,19 @@ You'll need the name of your Amazon S3 bucket to copy it in to Azure Purview whe
 
     ![Retrieve and copy the S3 bucket URL.](./media/register-scan-amazon-s3/retrieve-bucket-url-amazon.png)
 
-    Paste your bucket name in a secure file, and add an `s3://` prefix to it to create the value you'll need to enter when configuring your bucket as a Azure Purview resource.
+    Paste your bucket name in a secure file, and add an `s3://` prefix to it to create the value you'll need to enter when configuring your bucket as an Azure Purview resource.
 
     For example: `s3://purview-tutorial-bucket`
 
 > [!TIP]
-> Only the root level of your bucket is supported as a Azure Purview data source. For example, the following URL, which includes a sub-folder is *not* supported: `s3://purview-tutorial-bucket/view-data`
+> Only the root level of your bucket is supported as an Azure Purview data source. For example, the following URL, which includes a sub-folder is *not* supported: `s3://purview-tutorial-bucket/view-data`
 >
 > However, if you configure a scan for a specific S3 bucket, you can select one or more specific folders for your scan. For more information, see the step to [scope your scan](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 >
 
 ### Locate your AWS account ID
 
-You'll need your AWS account ID to register your AWS account as a Azure Purview data source, together with all of its buckets.
+You'll need your AWS account ID to register your AWS account as an Azure Purview data source, together with all of its buckets.
 
 Your AWS account ID is the ID you use to log in to the AWS console. You can also find it once you're logged in on the IAM dashboard, on the left under the navigation options, and at the top, as the numerical part of your sign-in URL:
 
@@ -330,7 +330,7 @@ For example:
 ![Retrieve your AWS account ID.](./media/register-scan-amazon-s3/aws-locate-account-id.png)
 
 
-## Add a single Amazon S3 bucket as a Azure Purview resource
+## Add a single Amazon S3 bucket as an Azure Purview resource
 
 Use this procedure if you only have a single S3 bucket that you want to register to Azure Purview as a data source, or if you have multiple buckets in your AWS account, but do not want to register all of them to Azure Purview.
 
@@ -338,7 +338,7 @@ Use this procedure if you only have a single S3 bucket that you want to register
 
 1. In Azure Purview, go to the **Data Map** page, and select **Register** ![Register icon.](./media/register-scan-amazon-s3/register-button.png) > **Amazon S3** > **Continue**.
 
-    ![Add an Amazon AWS bucket as a Azure Purview data source.](./media/register-scan-amazon-s3/add-s3-datasource-to-purview.png)
+    ![Add an Amazon AWS bucket as an Azure Purview data source.](./media/register-scan-amazon-s3/add-s3-datasource-to-purview.png)
 
     > [!TIP]
     > If you have multiple [collections](manage-data-sources.md#manage-collections) and want to add your Amazon S3 to a specific collection, select the **Map view** at the top right, and then select the **Register** ![Register icon.](./media/register-scan-amazon-s3/register-button.png) button inside your collection.
@@ -357,7 +357,7 @@ Use this procedure if you only have a single S3 bucket that you want to register
 
 Continue with [Create a scan for one or more Amazon S3 buckets.](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
-## Add an AWS account as a Azure Purview resource
+## Add an AWS account as an Azure Purview resource
 
 Use this procedure if you have multiple S3 buckets in your Amazon account, and you want to register all of them  as Azure Purview data sources.
 
@@ -367,7 +367,7 @@ When [configuring your scan](#create-a-scan-for-one-or-more-amazon-s3-buckets), 
 
 1. In Azure Purview, go to the **Data Map** page, and select **Register** ![Register icon.](./media/register-scan-amazon-s3/register-button.png) > **Amazon accounts** > **Continue**.
 
-    ![Add an Amazon account as a Azure Purview data source.](./media/register-scan-amazon-s3/add-s3-account-to-purview.png)
+    ![Add an Amazon account as an Azure Purview data source.](./media/register-scan-amazon-s3/add-s3-account-to-purview.png)
 
     > [!TIP]
     > If you have multiple [collections](manage-data-sources.md#manage-collections) and want to add your Amazon S3 to a specific collection, select the **Map view** at the top right, and then select the **Register** ![Register icon.](./media/register-scan-amazon-s3/register-button.png) button inside your collection.
@@ -401,7 +401,7 @@ Once you've added your buckets as Azure Purview data sources, you can configure 
     |---------|---------|
     |**Name**     |  Enter a meaningful name for your scan or use the default.       |
     |**Type** |Displayed only if you've added your AWS account, with all buckets included. <br><br>Current options include only **All** > **Amazon S3**. Stay tuned for more options to select as Azure Purview's support matrix expands. |
-    |**Credential**     |  Select a Azure Purview credential with your role ARN. <br><br>**Tip**: If you want to create a new credential at this time, select **New**. For more information, see [Create a Azure Purview credential for your AWS bucket scan](#create-an-azure-purview-credential-for-your-aws-s3-scan).     |
+    |**Credential**     |  Select an Azure Purview credential with your role ARN. <br><br>**Tip**: If you want to create a new credential at this time, select **New**. For more information, see [Create an Azure Purview credential for your AWS bucket scan](#create-an-azure-purview-credential-for-your-aws-s3-scan).     |
     | **Amazon S3**    |   Displayed only if you've added your AWS account, with all buckets included. <br><br>Select one or more buckets to scan, or **Select all** to scan all the buckets in your account.      |
     | | |
 
@@ -443,7 +443,7 @@ For more information, see [Explore Azure Purview scanning results](#explore-azur
 
 ## Explore Azure Purview scanning results
 
-Once a Azure Purview scan is complete on your Amazon S3 buckets, drill down in the Azure Purview **Data Map**  area to view the scan history.
+Once an Azure Purview scan is complete on your Amazon S3 buckets, drill down in the Azure Purview **Data Map**  area to view the scan history.
 
 Select a data source to view its details, and then select the **Scans** tab to view any currently running or completed scans.
 If you've added an AWS account with multiple buckets, the scan history for each bucket is shown under the account.
