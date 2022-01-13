@@ -29,7 +29,7 @@ Some organizations may require setting up multiple Azure Purview accounts. Revie
 
 It is recommended to create a new instance of Azure Purview account when testing scan configurations or classifications in isolated environments. For some scenarios, there is a "versioning" feature in some areas of the platform such as glossary, however, it would be easier to have a "disposable" instance of Azure Purview to freely test expected functionality and then plan to roll out the feature into the production instance.  
 
-Additionally, consider using a test Azure Purview account when you cannot perform a rollback. For example, currently you cannot remove a glossary term attribute from a Azure Purview instance once it is added to your Azure Purview account. In this case, it is recommended using a test Azure Purview account first.
+Additionally, consider using a test Azure Purview account when you cannot perform a rollback. For example, currently you cannot remove a glossary term attribute from an Azure Purview instance once it is added to your Azure Purview account. In this case, it is recommended using a test Azure Purview account first.
  
 ### Isolating Production and non-production environments 
 
