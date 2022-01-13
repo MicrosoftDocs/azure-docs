@@ -52,6 +52,7 @@ For more information, see:
 - [The need to use multiple Microsoft Sentinel workspaces](extend-sentinel-across-workspaces-tenants.md#the-need-to-use-multiple-microsoft-sentinel-workspaces)
 - [Work with incidents in many workspaces at once](multiple-workspace-view.md)
 - [Manage multiple tenants in Microsoft Sentinel as an MSSP](multiple-tenants-service-providers.md)
+
 ### Kusto Query Language workbook and tutorial
 
 Kusto Query Language is used in Microsoft Sentinel to search, analyze, and visualize data, as the basis for detection rules, workbooks, hunting, and more.
@@ -64,7 +65,6 @@ The new **Advanced KQL for Microsoft Sentinel** interactive workbook is designed
 - Allowing you to execute sample queries on-the-fly, within your own environment or in "LA Demo" - a public [Log Analytics demo environment](https://aka.ms/lademo). Try the sample Kusto Query Language statements in real time without the need to navigate away from the workbook.
 
 Accompanying the new workbook is an explanatory [blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/advanced-kql-framework-workbook-empowering-you-to-become-kql/ba-p/3033766), as well as a new [introduction to Kusto Query Language](kusto-overview.md) and a [collection of learning and skilling resources](kusto-resources.md) in the Microsoft Sentinel documentation.
->>>>>>> 292b1d155ca303ed9505cdf9fae7adaafd91ebc9
 
 ## December 2021
 
