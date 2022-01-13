@@ -1,11 +1,8 @@
 ---
 title: Elastic integration overview - Azure partner solutions
 description: Learn about using the Elastic Cloud-Native Observability Platform in the Azure Marketplace.
-author: tfitzmac
 ms.topic: conceptual
-ms.service: partner-services
 ms.date: 09/02/2021
-ms.author: tomfitz
 ---
 
 # What is Elastic integration with Azure?

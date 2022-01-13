@@ -1,7 +1,7 @@
 ---
 title: Configure Azure Load Testing for high-scale load tests
 titleSuffix: Azure Load Testing
-description: Learn how to configure Azure Load Testing to run high-scale load tests, by simulating large amounts of virtual users.
+description: Learn how to configure Azure Load Testing to run high-scale load tests by simulating large amounts of virtual users.
 services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
@@ -11,13 +11,12 @@ ms.topic: how-to
 
 ---
 
-# Configure for high-scale load testing
+# Configure Azure Load Testing Preview for high-scale load
 
-In this article, learn how to set up a load test for high-scale load with Azure Load Testing Preview. To simulate a large number of virtual users, you'll configure the test engine instances.
+In this article, learn how to set up a load test for high-scale load by using Azure Load Testing Preview. To simulate a large number of virtual users, you'll configure the test engine instances.
 
 > [!IMPORTANT]
-> Azure Load Testing is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites  
 
@@ -25,49 +24,53 @@ In this article, learn how to set up a load test for high-scale load with Azure 
 
 - An existing Azure Load Testing resource. To create an Azure Load Testing resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).
 
-## Requests per second (RPS)
+## Determine requests per second
 
-The maximum number of *requests per second* (RPS) that Azure Load Testing can generate depends on the application's latency and the number of *virtual users* (VU). 
+The maximum number of *requests per second* (RPS) that Azure Load Testing can generate depends on the application's latency and the number of *virtual users* (VUs). 
 
 You can apply the following formula: RPS = (# of VUs) * (1/latency).
 
-For example, if application latency is 20 ms, and you're generating a 2000 VUs load, you can achieve around 100,000 RPS.
+For example, if application latency is 20 milliseconds (ms), and you're generating a load of 2,000 VUs, you can achieve around 100,000 RPS.
+
+Apache JMeter only reports requests that made it to the server and back, either successful or not. If Apache JMeter is unable to connect to your application, the actual number of requests per second will be lower than the maximum value. Possible causes might be that the server is too busy to handle the request, or that an TLS/SSL certificate is missing. To diagnose connection problems, you can check the **Errors** chart in the load testing dashboard and [download the load test log files](./how-to-find-download-logs.md).
 
 ## Test engine instances
 
-In Azure Load Testing, *test engine* instances are responsible for executing the test plan. If you used an Apache JMeter script to create the test plan, each test engine executes the Apache JMeter script.
+In Azure Load Testing, *test engine* instances are responsible for executing a test plan. If you use an Apache JMeter script to create the test plan, each test engine executes the Apache JMeter script.
 
 The test engine instances run in parallel. They allow you to define how you want to scale out the load test execution for your application.
 
-In the Apache JMeter script, you define the number of parallel threads. This number indicates how many threads each test engine instance executes in parallel. Each thread represents a virtual user. The recommendation is to keep the number of threads below a maximum of 250.
+In the Apache JMeter script, you define the number of parallel threads. This number indicates how many threads each test engine instance executes in parallel. Each thread represents a virtual user. We recommend that you keep the number of threads below a maximum of 250.
 
-For example, to simulate 1000 threads (or virtual users), set the number of threads in the Apache JMeter script to 250. Then configure the test with four test engine instances (4 x 250 threads).
+For example, to simulate 1,000 threads (or virtual users), set the number of threads in the Apache JMeter script to 250. Then configure the test with four test engine instances (that is, 4 x 250 threads).
 
 > [!IMPORTANT]
-> For public preview, we support up to 45 engine instances for a test run.
+> For preview release, Azure Load Testing supports up to 45 engine instances for a test run.
 
 ## Configure your test plan
 
-In this section, you'll configure the scaling settings of your load test.
+In this section, you configure the scaling settings of your load test.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.
 
-1. Navigate to your Load Testing resource, and select **Tests** from the left navigation to view the list of tests. Next, select the test from the list by checking the box, and then select **Edit**.
+1. Go to your Load Testing resource. On the left pane, select **Tests** to view the list of load tests.
 
-    :::image type="content" source="media/how-to-high-scale-load/edit-test.png" alt-text="Screenshot that shows the list of tests.":::
+1. In the list, select your load test, and then select **Edit**.
 
-1. You can also modify the test configuration from the test details page. Select **Configure**, and then **Test** to edit the test.
+    :::image type="content" source="media/how-to-high-scale-load/edit-test.png" alt-text="Screenshot that shows the list of load tests and the 'Edit' button.":::
 
-    :::image type="content" source="media/how-to-high-scale-load/configure-test.png" alt-text="Screenshot that shows how to configure a test from the test details page.":::
+1. You can also edit the test configuration from the test details page. To do so, select **Configure**, and then select **Test**.
 
-1. In the **Edit test** page, navigate to the **Load** tab and configure the **Engine instances** input field.
+    :::image type="content" source="media/how-to-high-scale-load/configure-test.png" alt-text="Screenshot that shows the 'Configure' and 'Test' buttons on the test details page.":::
 
-    :::image type="content" source="media/how-to-high-scale-load/edit-test-load.png" alt-text="Screenshot that shows the Load tab when editing a test.":::
+1. On the **Edit test** page, select the **Load** tab. In the **Engine instances** box, enter the number of test engines required to run your test.
 
-1. Select **Apply** to modify the test and use the new configuration when you rerun the test.
+    :::image type="content" source="media/how-to-high-scale-load/edit-test-load.png" alt-text="Screenshot of the 'Load' tab on the 'Edit test' pane.":::
+
+1. Select **Apply** to modify the test and use the new configuration when you rerun it.
 
 ## Next steps
 
-- For information about how to compare test results, see [Compare multiple test results](./how-to-compare-multiple-test-runs.md).
+- For more information about comparing test results, see [Compare multiple test results](./how-to-compare-multiple-test-runs.md).
 
-- To learn about performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md)
+- To learn about performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md).

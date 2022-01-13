@@ -4,7 +4,7 @@ description: Azure Hybrid Benefit is a licensing benefit that lets you bring you
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/11/2021
+ms.date: 12/03/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -15,7 +15,21 @@ ms.reviewer: chrisrin
 
 Azure Hybrid Benefit is a licensing benefit that helps you to significantly reduce the costs of running your workloads in the cloud. It works by letting you use your on-premises Software Assurance or subscription-enabled Windows Server and SQL Server licenses on Azure. For more information, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-You can centrally manage your Azure Hybrid Benefit for SQL Server across the scope of an entire Azure subscription or overall billing account. At a high level, here's how it works:
+You can centrally manage your Azure Hybrid Benefit for SQL Server across the scope of an entire Azure subscription or overall billing account. 
+
+To use centrally manage licenses, you must have a specific role assigned to you, depending on your Azure agreement type:
+
+- Enterprise Agreement
+    - Enterprise Administrator  
+        If you're not an Enterprise admin, you must be assigned that role by your organization (with full access). For more information about how to become a member of the role, see [Add another enterprise administrator](../manage/ea-portal-administration.md#create-another-enterprise-administrator).
+- Microsoft Customer Agreement
+    - Billing account owner
+    - Billing account contributor
+    - Billing profile owner
+    - Billing profile contributor  
+        If you don't have one of the roles above, your organization must assign one to you. For more information about how to become a member of the roles, see [Manage billing roles](../manage/understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+
+At a high level, here's how it works:
 
 1. First, confirm that all your SQL Server VMs are visible to you and Azure by enabling automatic registration of the self-installed SQL server images with the IaaS extension. For more information, see [Register multiple SQL VMs in Azure with the SQL IaaS Agent extension](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md).
 1. Under **Cost Management + Billing** in the Azure portal, you (the billing administrator) choose the scope and the number of qualifying licenses that you want to assign to cover the resources in the scope.  

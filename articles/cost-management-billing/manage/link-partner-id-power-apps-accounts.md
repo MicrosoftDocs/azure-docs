@@ -6,14 +6,14 @@ ms.reviewer: tpalmer
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.date: 12/17/2021
 ms.author: banders 
 ms.custom: devx-track-azurepowershell
 ---
 
 # Link a partner ID to your Power Platform and Dynamics Customer Insights accounts
 
-Microsoft partners that who are Power Platform and Dynamics Customer Insights service providers can associate their service to customers on Microsoft Power Apps, Power Automate, Power BI and Dynamics Customer Insights. You have access to your customer's environment when you, the Microsoft partner, manage, configure, and support Power Platform and Customer Insights resources for your customer. You can use your Azure credentials and a Partner Admin Link (PAL) to associate your partner network ID with the account credentials used for service delivery.
+Microsoft partners who are Power Platform and Dynamics Customer Insights service providers can associate their service to customers on Microsoft Power Apps, Power Automate, Power BI and Dynamics Customer Insights. You have access to your customer's environment when you, the Microsoft partner, manage, configure, and support Power Platform and Customer Insights resources for your customer. You can use your Azure credentials and a Partner Admin Link (PAL) to associate your partner network ID with the account credentials used for service delivery.
 
 The PAL allows Microsoft to identify and recognize partners that have Power Platform and Customer Insights customers. Microsoft attributes usage to a partner's organization based on the account's permissions (user role) and scope (tenant, resource, and so on). This attribution can be used for Advanced Specializations, such as the [Microsoft Low Code Advanced Specializations](https://partner.microsoft.com/membership/advanced-specialization#tab-content-2), and [Partner Incentives](https://partner.microsoft.com/asset/collection/microsoft-commerce-incentive-resources#/). 
 
@@ -119,7 +119,8 @@ az managementpartner delete --partner-id 12345
 ```
 
 ## Attribute your access account to the product resource
-The partner user that was linked through the Partner Admin Link (PAL) needs to be attributed to the resource for Power Platform or Dynamics Customer Insights to count the usage of that specific resource. In many cases, it happens automatically, as the partner user is the one creating, editing, and updating the resource. Besides the logic below, the specific programs the PAL link is used for (such as the [Microsoft Low Code Advanced Specializations](https://partner.microsoft.com/membership/advanced-specialization#tab-content-2) or Partner Incentives) may have other requirements such as the resource needing to be in production and associated with paid usage.
+
+The partner user/guest account that you received from your customer and was linked through the Partner Admin Link (PAL) needs to be attributed to the *resource* for Power Platform or Dynamics Customer Insights to count the usage of that specific resource. The user/guest account doesn't need to be associated with a specific Azure subscription for Power Apps, Power Automate, Power BI or D365 Customer Insights. In many cases, it happens automatically, as the partner user is the one creating, editing, and updating the resource. Besides the logic below, the specific programs the PAL link is used for (such as the [Microsoft Low Code Advanced Specializations](https://partner.microsoft.com/membership/advanced-specialization#tab-content-2) or Partner Incentives) may have other requirements such as the resource needing to be in production and associated with paid usage.
 
 | Product           | Primary Metric   | Resource | Attributed User Logic                                                                                                                                                                             |
 |-------------------|------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

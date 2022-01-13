@@ -105,6 +105,7 @@ Azure has the following policies for cancellations, exchanges, and refunds.
     - Refunds that result from an exchange don't count against the refund limit.
 - Refunds are calculated based on the lowest price of either your purchase price or the current price of the reservation.
 - Only reservation order owners can process a refund. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
+- For CSP program, the 50,000 USD limit is per customer.
 
 ## Need help? Contact us.
 

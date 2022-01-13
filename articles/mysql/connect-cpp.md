@@ -4,7 +4,7 @@ description: This quickstart provides a C++ code sample you can use to connect a
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.custom: mvc, mode-other
+ms.custom: mvc, mode-api
 ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 5/26/2020

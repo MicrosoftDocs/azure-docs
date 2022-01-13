@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 12/02/2021
+ms.date: 12/06/2021
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -210,7 +210,7 @@ The minimum Azure PowerShell version requirement is 6.5.0. For more information,
    $azfw.Sku.Tier="Premium"
    $vnet = Get-AzVirtualNetwork -ResourceGroupName "<resource-group-name>" -Name "<Virtual-Network-Name>"
    $publicip = Get-AzPublicIpAddress -Name "<Firewall-PublicIP-name>" -ResourceGroupName "<resource-group-name>"
-   $azfw.Allocate($vnet,$pip)
+   $azfw.Allocate($vnet,$publicip)
    Set-AzFirewall -AzureFirewall $azfw
    ```
 
@@ -241,7 +241,7 @@ The minimum Azure PowerShell version requirement is 6.5.0. For more information,
 
    ```azurepowershell
    $azfw = Get-AzFirewall -Name -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
-   $hub = get-azvirtualhub -ResourceGroupName "<resource-group-name>" -name "<vWAN-name>"
+   $hub = get-azvirtualhub -ResourceGroupName "<resource-group-name>" -name "<vWANhub-name>"
    $azfw.Sku.Tier="Premium"
    $azfw.Allocate($hub.id)
    Set-AzFirewall -AzureFirewall $azfw

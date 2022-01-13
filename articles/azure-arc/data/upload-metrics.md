@@ -47,6 +47,10 @@ export MSI_OBJECT_ID=`az k8s-extension show --resource-group <resource group>  -
 export MSI_OBJECT_ID=`az k8s-extension show --resource-group myresourcegroup  --cluster-name myconnectedcluster --cluster-type connectedClusters --name ads-extension | jq '.identity.principalId' | tr -d \"`
 ```
 
+# [Windows](#tab/windows)
+
+N/A
+
 ---
 
 ### (2) Assign role to the managed identity
@@ -61,6 +65,11 @@ az role assignment create --assignee $Env:MSI_OBJECT_ID --role 'Monitoring Metri
 ```console
 az role assignment create --assignee ${MSI_OBJECT_ID} --role 'Monitoring Metrics Publisher' --scope "/subscriptions/${subscription}/resourceGroups/${resourceGroup}"
 ```
+
+# [Windows](#tab/windows)
+
+N/A
+
 ---
 
 ### Automatic upload of metrics can be enabled as follows:
@@ -91,12 +100,6 @@ Before you proceed, make sure you have created the required service principal an
 
 Set the SPN authority URL in an environment variable:
 
-# [Windows](#tab/windows)
-
-```console
-SET SPN_AUTHORITY=https://login.microsoftonline.com
-```
-
 # [PowerShell](#tab/powershell)
 
 ```PowerShell
@@ -107,6 +110,12 @@ $Env:SPN_AUTHORITY='https://login.microsoftonline.com'
 
 ```console
 export SPN_AUTHORITY='https://login.microsoftonline.com'
+```
+
+# [Windows](#tab/windows)
+
+```console
+SET SPN_AUTHORITY=https://login.microsoftonline.com
 ```
 
 ---

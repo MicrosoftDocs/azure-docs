@@ -70,7 +70,6 @@ An Automation Contributor can manage all resources in the Automation account exc
 
 |**Actions**  |**Description**  |
 |---------|---------|
-|Microsoft.Automation/automationAccounts/*|Create and manage resources of all types under Automation account.|
 |Microsoft.Authorization/*/read|Read roles and role assignments.|
 |Microsoft.Resources/deployments/*|Create and manage resource group deployments.|
 |Microsoft.Resources/subscriptions/resourceGroups/read|Read resource group deployments.|
@@ -159,7 +158,6 @@ A Log Analytics Contributor can read all monitoring data and edit monitoring set
 |**Actions**  |**Description**  |
 |---------|---------|
 |*/read|Read resources of all types, except secrets.|
-|Microsoft.Automation/automationAccounts/*|Manage Automation accounts.|
 |Microsoft.ClassicCompute/virtualMachines/extensions/*|Create and manage virtual machine extensions.|
 |Microsoft.ClassicStorage/storageAccounts/listKeys/action|List classic storage account keys.|
 |Microsoft.Compute/virtualMachines/extensions/*|Create and manage classic virtual machine extensions.|
@@ -306,7 +304,6 @@ Perform the following steps to create the Azure Automation custom role in the Az
                     "Microsoft.Insights/diagnosticSettings/*",
                     "Microsoft.Resources/deployments/*",
                     "Microsoft.Resources/subscriptions/resourceGroups/read",
-                    "Microsoft.Automation/automationAccounts/*",
                     "Microsoft.Support/*"
                 ],
                 "notActions": [],
@@ -344,7 +341,6 @@ Perform the following steps to create the Azure Automation custom role with Powe
            "Microsoft.Insights/diagnosticSettings/*",
            "Microsoft.Resources/deployments/*",
            "Microsoft.Resources/subscriptions/resourceGroups/read",
-           "Microsoft.Automation/automationAccounts/*",
            "Microsoft.Support/*"
        ],
        "NotActions": [],

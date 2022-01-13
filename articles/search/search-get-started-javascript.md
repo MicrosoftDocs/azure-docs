@@ -8,7 +8,7 @@ ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/08/2021
-ms.custom: devx-track-js, mode-other
+ms.custom: devx-track-js, mode-api
 ---
 
 # Quickstart: Create an Azure Cognitive Search index using the JavaScript SDK

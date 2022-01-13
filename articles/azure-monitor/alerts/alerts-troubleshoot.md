@@ -184,10 +184,10 @@ If you can see a fired alert in the portal, but a related alert processing rule 
 
 1. **Is the alert processing rule enabled?** 
 
-   Check the alert processing rule status field to verify that the related action role is enabled. By default, the portal rule list only shows rules that are enabled, but you can change the filter to show all rules. 
+    Check the alert processing rule status field to verify that the related action role is enabled. By default, the portal rule list only shows rules that are enabled, but you can change the filter to show all rules. 
 
-    ![Screenshot of alert processing rule list highlighting the status field and status filter.](media/alerts-troubleshoot/alerts-troubleshoot-alert-processing-rules-status.png) 
-
+    :::image type="content" source="media/alerts-troubleshoot/alerts-troubleshoot-alert-processing-rules-status.png" alt-text="Screenshot of alert processing rule list highlighting the status field and status filter.":::
+   
     If it is not enabled, you can enable the alert processing rule by selecting it and clicking Enable. 
 
 1. **Is it a service health alert?** 

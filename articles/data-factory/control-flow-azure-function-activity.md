@@ -20,6 +20,21 @@ For an eight-minute introduction and demonstration of this feature, watch the fo
 
 > [!VIDEO https://channel9.msdn.com/shows/azure-friday/Run-Azure-Functions-from-Azure-Data-Factory-pipelines/player]
 
+## Create an Azure Function activity with UI
+
+To use an Azure Function activity in a pipeline, complete the following steps:
+
+1. Expand the Azure Function section of the pipeline Activities pane, and drag an Azure Function activity to the pipeline canvas.
+1. Select the new Azure Function activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+   :::image type="content" source="media/control-flow-azure-function-activity/azure-function-activity-configuration.png" alt-text="Shows the UI for an Azure Function activity.":::
+
+1. If you do not already have an Azure Function linked service defined, select New to create a new one.  In the new Azure Function linked service pane, choose your existing Azure Function App url and provide a Function Key.
+   
+   :::image type="content" source="media/control-flow-azure-function-activity/new-azure-function-linked-service.png" alt-text="Shows the new Azure Function linked service creation pane.":::
+
+1. After selecting the Azure Function linked service, provide the function name and other details to complete the configuration.
+
 ## Azure Function linked service
 
 

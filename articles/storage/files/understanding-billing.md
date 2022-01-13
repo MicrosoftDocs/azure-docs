@@ -4,7 +4,7 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 12/08/2021
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -76,8 +76,8 @@ When you provision a premium file share, you specify how many GiBs your workload
 |-|-|
 | Minimum size of a file share | 100 GiB |
 | Provisioning unit | 1 GiB |
-| Baseline IOPS formula | `MIN(400 + 1 * ProvisionedGiB, 100000)` |
-| Burst limit | `MIN(MAX(4000, 3 * ProvisionedGiB), 100000)` |
+| Baseline IOPS formula | `MIN(3000 + 1 * ProvisionedGiB, 100000)` |
+| Burst limit | `MIN(MAX(10000, 3 * ProvisionedGiB), 100000)` |
 | Burst credits | `(BurstLimit - BaselineIOPS) * 3600` |
 | Throughput rate (ingress + egress) | `100 + CEILING(0.04 * ProvisionedGiB) + CEILING(0.06 * ProvisionedGiB)` |
 
@@ -85,13 +85,13 @@ The following table illustrates a few examples of these formulae for the provisi
 
 | Capacity (GiB) | Baseline IOPS | Burst IOPS | Burst credits | Throughput (ingress + egress) (MiB/sec) |
 |-|-|-|-|-|
-| 100 | 500 | Up to 4,000 | 12,600,000 | 110 |
-| 500 | 900 | Up to 4,000 | 11,160,000 | 150 |
-| 1,024 | 1,424 | Up to 4,000 | 10,713,600 | 203 |
-| 5,120 | 5,520 | Up to 15,360 | 35,424,000 | 613 |
-| 10,240 | 10,640 | Up to 30,720 | 72,288,000 | 1,125 |
-| 33,792 | 34,192 | Up to 100,000 | 236,908,800 | 3,480 |
-| 51,200 | 51,600 | Up to 100,000 | 174,240,000 | 5,220 |
+| 100 | 3,100 | Up to 10,000 | 24,840,000 | 110 |
+| 500 | 3,500 | Up to 10,000 | 23,400,000 | 150 |
+| 1,024 | 4,024 | Up to 10,000 | 21,513,600 | 203 |
+| 5,120 | 8,120 | Up to 15,360 | 26,064,000 | 613 |
+| 10,240 | 13,240 | Up to 30,720 | 62,928,000 | 1,125 |
+| 33,792 | 36,792 | Up to 100,000 | 227,548,800 | 3,480 |
+| 51,200 | 54,200 | Up to 100,000 | 164,880,000 | 5,220 |
 | 102,400 | 100,000 | Up to 100,000 | 0 | 10,340 |
 
 Effective file share performance is subject to machine network limits, available network bandwidth, IO sizes, parallelism, among many other factors. For example, based on internal testing with 8 KiB read/write IO sizes, a single Windows virtual machine without SMB Multichannel enabled, *Standard F16s_v2*, connected to premium file share over SMB could achieve 20K read IOPS and 15K write IOPS. With 512 MiB read/write IO sizes, the same VM could achieve 1.1 GiB/s egress and 370 MiB/s ingress throughput. The same client can achieve up to \~3x performance if SMB Multichannel is enabled on the premium shares. To achieve maximum performance scale, [enable SMB Multichannel](files-smb-protocol.md#smb-multichannel) and spread the load across multiple VMs. Refer to [SMB Multichannel performance](storage-files-smb-multichannel-performance.md) and [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.

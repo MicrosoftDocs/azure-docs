@@ -16,7 +16,7 @@ Backups form an essential part of any business continuity strategy. They help wi
 
 ## Backup overview
 
-Flexible Server takes snapshot backups of the data files and stores them securely in zone-redundant storage or locally redundant storage depending on the [region](overview.md#azure-regions). The server also performs transaction logs backup as and when the WAL file as and when it is ready to be archived. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days and can be stored up to 35 days. All backups are encrypted using AES 256-bit encryption for the data stored at rest.
+Flexible Server takes snapshot backups of the data files and stores them securely in zone-redundant storage or locally redundant storage depending on the [region](overview.md#azure-regions). The server also performs transaction logs backup as and when the WAL file is ready to be archived. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days and can be stored up to 35 days. All backups are encrypted using AES 256-bit encryption for the data stored at rest.
 
 These backup files cannot be exported or used to create servers outside of Azure Database for PostgreSQL - Flexible Server. For that purpose, you can use PostgreSQL tools pg_dump and pg_restore/psql.
 
@@ -70,7 +70,7 @@ In Flexible server, performing a point-in-time restore creates a new server in t
 
 The physical database files are first restored from the snapshot backups to the server's data location. The appropriate backup that was taken earlier than the desired point-in-time is automatically chosen and restored. A recovery process is then initiated using WAL files to bring the database to a consistent state. 
 
- For example, let us assume the backups are performed at 11pm every night. If the restore point is for August 15, 2020 at 10:00 am, the daily backup of August 14, 2020 is restored. The database will be recovered until 10am of August 25, 2020 using the transaction logs backup between August 24, 11pm until August 25, 10am. 
+ For example, let us assume the backups are performed at 11pm every night. If the restore point is for August 15, 2020 at 10:00 am, the daily backup of August 14, 2020 is restored. The database will be recovered until 10am of August 15, 2020 using the transaction logs backup from August 14, 11pm to August 15, 10am. 
 
  Please see [these steps](./how-to-restore-server-portal.md) to restore your database server.
 

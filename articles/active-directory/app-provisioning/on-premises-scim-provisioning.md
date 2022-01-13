@@ -1,9 +1,8 @@
 ---
 title: Azure AD on-premises app provisioning to SCIM-enabled apps
 description: This article describes how to use the Azure AD provisioning service to provision users into an on-premises app that's SCIM enabled.
-services: active-directory
 author: billmath
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -39,7 +38,7 @@ To provision users to SCIM-enabled apps:
  1. Wait 20 minutes prior to completing the next step, to provide time for the agent assignment to complete.
  1. Provide the URL for your SCIM endpoint in the **Tenant URL** box. An example is https://localhost:8585/scim. 
      ![Screenshot that shows assigning an agent.](./media/on-premises-scim-provisioning/scim-2.png)
- 1. Select **Test Connection**, and save the credentials. Use the steps [here](https://docs.microsoft.com/azure/active-directory/app-provisioning/on-premises-ecma-troubleshoot#troubleshoot-test-connection-issues) if you run into connectivity issues. 
+ 1. Select **Test Connection**, and save the credentials. Use the steps [here](on-premises-ecma-troubleshoot.md#troubleshoot-test-connection-issues) if you run into connectivity issues. 
  1. Configure any [attribute mappings](customize-application-attributes.md) or [scoping](define-conditional-rules-for-provisioning-user-accounts.md) rules required for your application.
  1. Add users to scope by [assigning users and groups](../../active-directory/manage-apps/add-application-portal-assign-users.md) to the application.
  1. Test provisioning a few users [on demand](provision-on-demand.md).

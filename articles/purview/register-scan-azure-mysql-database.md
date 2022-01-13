@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
-ms.custom: template-how-to, ignite-fall-2021
+ms.custom: template-how-to, ignite-fall-2021, fasttrack-edit
 ---
 
-# Connect to and manage Azure databases for MySQL in Azure Purview
+# Connect to and manage Azure Database for MySQL in Azure Purview
 
-This article outlines how to register an Azure Database for MySQL, and how to authenticate and interact with Azure Database for MySQLs in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register a database in Azure Database for MySQL, and how to authenticate and interact with Azure Database for MySQL in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
@@ -23,6 +23,9 @@ This article outlines how to register an Azure Database for MySQL, and how to au
 \* Purview relies on UPDATE_TIME metadata from Azure Database for MySQL for incremental scans. In some cases, this field might not persist in the database and a full scan is performed. For more information, see [The INFORMATION_SCHEMA TABLES Table](https://dev.mysql.com/doc/refman/5.7/en/information-schema-tables-table.html) for MySQL.
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+
+> [!Important]
+>  Purview only supports single server deployment option for Azure Database for MySQL. 
 
 ## Prerequisites
 

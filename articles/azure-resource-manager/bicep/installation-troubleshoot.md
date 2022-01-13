@@ -2,7 +2,7 @@
 title: Troubleshoot problems with Bicep installation
 description: How to resolve errors and problems with your Bicep installation.
 ms.topic: conceptual
-ms.date: 11/19/2021
+ms.date: 12/15/2021
 ---
 
 # Troubleshoot Bicep installation
@@ -60,6 +60,26 @@ For other **macOS** installations, use:
 ```
 
 See [User and Workspace Settings](https://code.visualstudio.com/docs/getstarted/settings) for configuring Visual Studio Code settings.
+
+## Visual Studio Code error
+
+If you see the following error message popup in VSCode:
+
+```error
+The Bicep server crashed 5 times in the last 3 minutes. The server will not be restarted.
+```
+
+From VSCode, open the **Output** view in the pane at the bottom of the screen, and then select **Bicep**:
+
+  :::image type="content" source="./media/installation-troubleshoot/visual-studio-code-output-pane-bicep.png" alt-text="Visual Studio Code output pane":::
+
+If you see the following output in the pane, and you are using Bicep CLI **version 0.4.1124** or later, check whether you have added the `dotnetAcquisitionExtension.existingDotnetPath` configuration option to VSCode. See [.NET runtime error](#net-runtime-error). If this configuration option is present, remove it and restart VSCode.
+
+  ```error
+  It was not possible to find any compatible framework version.
+  ```
+
+Otherwise, raise an issue in the [Bicep repo](https://github.com/Azure/bicep/issues), and include the output messages.
 
 ## Multiple versions of Bicep CLI installed
 

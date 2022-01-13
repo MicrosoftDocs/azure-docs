@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Group writeback'
 description: This article describes group writeback in Azure AD Connect.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity

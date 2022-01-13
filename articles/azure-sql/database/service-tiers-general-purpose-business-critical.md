@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 11/15/2021
 ---
 # Azure SQL Database and Azure SQL Managed Instance service tiers

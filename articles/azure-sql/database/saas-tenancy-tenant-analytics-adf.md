@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: tutorial
 author: LitKnd
 ms.author: kendralittle
-ms.reviewer:
+ms.reviewer: mathoma
 ms.date: 12/18/2018
 ---
 # Explore SaaS analytics with Azure SQL Database, Azure Synapse Analytics, Data Factory, and Power BI
