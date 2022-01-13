@@ -19,7 +19,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-* To get started, you must have an existing Azure Purview account. If you don't have a catalog, see the [quickstart for creating an Azure Purview account](create-catalog-portal.md).
+* To get started, you must have an existing Azure Purview account. If you don't have a catalog, see the [quickstart for creating a Azure Purview account](create-catalog-portal.md).
 
 ## Create a service principal (application)
 

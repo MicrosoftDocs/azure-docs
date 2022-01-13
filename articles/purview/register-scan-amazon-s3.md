@@ -98,7 +98,7 @@ Azure Purview
 Azure Purview
 - **If you need to create a Purview account,** follow the instructions in [Create an Azure Purview account instance](create-catalog-portal.md). After creating your account, return here to complete configuration and begin using Purview connector for Amazon S3.
 
-### Create an Azure Purview role for Purview
+### Create a Azure Purview role for Purview
 
 The Purview scanner is depAzure Purviewn a Microsoft account in AWS. To allow the Purview scanner to read your S3 data, you must create a dediAzure Purviewole in the AWS portal, in the IAM area, to be used by the scanner.
 
@@ -336,7 +336,7 @@ Use this procedure if you only have a single S3 bucket that you want to register
 
 **To add your bucket**:
 
-1. In Azure Purview, go to the **Datan Azure Purviewage, and select **Register** ![Register icon.](./media/register-scan-amazon-s3/register-button.png) > **Amazon S3** > **Continue**.
+1. In Azure Purview, go to the **Data Azure Purviewage, and select **Register** ![Register icon.](./media/register-scan-amazon-s3/register-button.png) > **Amazon S3** > **Continue**.
 
     ![Add an Amazon AWS bucket as a Purview data source.](./media/register-scan-amazAzure Purviewdd-s3-datasource-to-purview.png)Azure Purview
 

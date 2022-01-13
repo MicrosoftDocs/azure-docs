@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 09/27/2021
 ms.custom: mode-api
 ---
-# Quickstart: Create an Azure Purview account using .NET SDK
+# Quickstart: Create a Azure Purview account using .NET SDK
 
 In this quickstart you'll use the [.NET SDK](/dotnet/api/overview/azure/purviewresourceprovider) to create an Azure Purview account.
 
@@ -54,7 +54,7 @@ Next, create a C# .NET console application in Visual Studio:
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
 
-## Create an Azure Purview client
+## Create a Azure Purview client
 
 1. Open **Program.cs**, include the following statements to add references to namespaces.
 
@@ -84,7 +84,7 @@ Next, create a C# .NET console application in Visual Studio:
        "<specify the name of purview account to create. It must be globally unique.>";
    ```
 
-3. Add the following code to the **Main** method that creates an instance of **PurviewManagementClient** class. You use this object to create an Azure Purview Account.
+3. Add the following code to the **Main** method that creates an instance of **PurviewManagementClient** class. You use this object to create a Azure Purview Account.
 
    ```csharp
    // Authenticate and create a purview management client
@@ -99,7 +99,7 @@ Next, create a C# .NET console application in Visual Studio:
    };
    ```
 
-## Create an Azure Purview account
+## Create a Azure Purview account
 
 Add the following code to the **Main** method that creates a **Azure Purview Account**.
 
@@ -163,7 +163,7 @@ Go to the **Azure Purview accounts** page in the [Azure portal](https://portal.a
 
 ## Delete Azure Purview account
 
-To programmatically delete an Azure Purview Account, add the following lines of code to the program:
+To programmatically delete a Azure Purview Account, add the following lines of code to the program:
 
 ```csharp
 Console.WriteLine("Deleting the Azure Purview Account");
@@ -188,7 +188,7 @@ The above code with print 'True' if the name is available and 'False' if the nam
 
 ## Next steps
 
-The code in this tutorial creates a purview account, deletes a purview account and checks for name availability of purview account. You can now download the .NET SDK and learn about other resource provider actions you can perform for an Azure Purview account.
+The code in this tutorial creates a purview account, deletes a purview account and checks for name availability of purview account. You can now download the .NET SDK and learn about other resource provider actions you can perform for a Azure Purview account.
 
 Follow these next articles to learn how to navigate the Azure Purview Studio, create a collection, and grant access to Azure Purview.
 

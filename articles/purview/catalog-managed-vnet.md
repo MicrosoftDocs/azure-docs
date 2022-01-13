@@ -8,7 +8,7 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/11/2022
 ms.custom: references_regions
-# Customer intent: As an Azure Purview admin, I want to set up Managed Virtual Network and managed private endpoints for my Azure Purview account.
+# Customer intent: As a Azure Purview admin, I want to set up Managed Virtual Network and managed private endpoints for my Azure Purview account.
 ---
 
 # Use a Managed VNet with your Azure Purview account

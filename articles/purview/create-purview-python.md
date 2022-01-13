@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Azure Purview account using Python'
+title: 'Quickstart: Create a Azure Purview account using Python'
 description: Create an Azure Purview account using Python.
 author: nayenama
 ms.author: nayenama
@@ -10,9 +10,9 @@ ms.date: 09/27/2021
 ms.custom: mode-api
 ---
 
-# Quickstart: Create an Azure Purview account using Python
+# Quickstart: Create a Azure Purview account using Python
 
-In this quickstart, you will create an Azure Purview account programatically using Python. [Python reference for Azure Purview](/python/api/azure-mgmt-purview/) is available, but this article will take you through all the steps needed to create an account with Python.
+In this quickstart, you will create a Azure Purview account programatically using Python. [Python reference for Azure Purview](/python/api/azure-mgmt-purview/) is available, but this article will take you through all the steps needed to create an account with Python.
 
 Azure Purview is a data governance service that helps you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Azure Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end to end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
 
@@ -200,7 +200,7 @@ pa = purview_client.accounts.begin_delete(rg_name, purview_name).result()
 
 ## Next steps
 
-The code in this tutorial creates a purview account and  deletes a purview account. You can now download the python SDK and learn about other resource provider actions you can perform for an Azure Purview account.
+The code in this tutorial creates a purview account and  deletes a purview account. You can now download the python SDK and learn about other resource provider actions you can perform for a Azure Purview account.
 
 Follow these next articles to learn how to navigate the Azure Purview Studio, create a collection, and grant access to Azure Purview.
 

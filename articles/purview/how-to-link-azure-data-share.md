@@ -32,7 +32,7 @@ Data producers want to know who will be impacted upon making a change to their d
 
 To connect your Azure Data Share and Azure Purview account, do the following:
 
-1. Create an Azure Purview account. All the Data Share lineage information will be collected by an Azure Purview account. You can use an existing one or create a new Azure Purview account.
+1. Create a Azure Purview account. All the Data Share lineage information will be collected by a Azure Purview account. You can use an existing one or create a new Azure Purview account.
 
 1. Connect your Azure Data Share to your Azure Purview account.
 

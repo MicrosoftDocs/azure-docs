@@ -69,7 +69,7 @@ Ensure that you've performed the following prerequisites before adding your Amaz
 
 > [!div class="checklist"]
 > * You need to be an Azure Purview Data Source Admin.
-> * You need an Azure Purview account. [Create an Azure Purview account instance](create-catalog-portal.md), if you don't yet have one.
+> * You need a Azure Purview account. [Create an Azure Purview account instance](create-catalog-portal.md), if you don't yet have one.
 > * You need an Amazon RDS PostgreSQL or Microsoft SQL database, with data.
 
 
@@ -242,7 +242,7 @@ While you run your scan, select **Refresh** to monitor the scan progress.
 
 ## Explore scanning results
 
-After an Azure Purview scan is complete on your Amazon RDS databases, drill down in the Azure Purview **Data Map**  area to view the scan history. Select a data source to view its details, and then select the **Scans** tab to view any currently running or completed scans.
+After a Azure Purview scan is complete on your Amazon RDS databases, drill down in the Azure Purview **Data Map**  area to view the scan history. Select a data source to view its details, and then select the **Scans** tab to view any currently running or completed scans.
 
 Use the other areas of Azure Purview to find out details about the content in your data estate, including your Amazon RDS databases:
 

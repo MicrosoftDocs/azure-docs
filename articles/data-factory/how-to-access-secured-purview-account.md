@@ -32,7 +32,7 @@ If your Azure Purview account is protected by firewall and denies public access,
 
 To create managed private endpoints for Azure Purview on Data Factory authoring UI:
 
-1. Go to **Manage** -> **Azure Purview**, and click **Edit** to edit your existing connected Azure Purview account or click **Connect to an Azure Purview account** to connect to a new Azure Purview account.
+1. Go to **Manage** -> **Azure Purview**, and click **Edit** to edit your existing connected Azure Purview account or click **Connect to a Azure Purview account** to connect to a new Azure Purview account.
 
 2. Select **Yes** for **Create managed private endpoints**. You need to have at least one Azure Integration Runtime with "Virtual network configuration" option enabled in the data factory to see this option.
 

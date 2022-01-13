@@ -28,9 +28,9 @@ You need to have **Owner** or **Contributor** role on your data factory to conne
 
 To establish the connection on Data Factory authoring UI:
 
-1. In the ADF authoring UI, go to **Manage** -> **Azure Purview**, and select **Connect to an Azure Purview account**. 
+1. In the ADF authoring UI, go to **Manage** -> **Azure Purview**, and select **Connect to a Azure Purview account**. 
 
-    :::image type="content" source="./media/data-factory-purview/register-purview-account.png" alt-text="Screenshot for registering an Azure Purview account.":::
+    :::image type="content" source="./media/data-factory-purview/register-purview-account.png" alt-text="Screenshot for registering a Azure Purview account.":::
 
 2. Choose **From Azure subscription** or **Enter manually**. **From Azure subscription**, you can select the account that you have access to.
 
@@ -73,13 +73,13 @@ When connecting data factory to Azure Purview on authoring UI, ADF tries to add 
 
 ## Monitor Azure Purview connection
 
-Once you connect the data factory to an Azure Purview account, you see the following page with details on the enabled integration capabilities.
+Once you connect the data factory to a Azure Purview account, you see the following page with details on the enabled integration capabilities.
 
 :::image type="content" source="./media/data-factory-purview/monitor-purview-connection-status.png" alt-text="Screenshot for monitoring the integration status between Azure Data Factory and Azure Purview.":::
 
 For **Data Lineage - Pipeline**, you may see one of below status:
 
-- **Connected**: The data factory is successfully connected to the Azure Purview account. Note this indicates data factory is associated with an Azure Purview account and has permission to push lineage to it. If your Azure Purview account is protected by firewall, you also need to make sure the integration runtime used to execute the activities and conduct lineage push can reach the Azure Purview account. Learn more from [Access a secured Azure Purview account from Azure Data Factory](how-to-access-secured-purview-account.md).
+- **Connected**: The data factory is successfully connected to the Azure Purview account. Note this indicates data factory is associated with a Azure Purview account and has permission to push lineage to it. If your Azure Purview account is protected by firewall, you also need to make sure the integration runtime used to execute the activities and conduct lineage push can reach the Azure Purview account. Learn more from [Access a secured Azure Purview account from Azure Data Factory](how-to-access-secured-purview-account.md).
 - **Disconnected**: The data factory cannot push lineage to Azure Purview because Azure Purview Data Curator role is not granted to data factory's managed identity. To fix this issue, go to your Azure Purview account to check the role assignments, and manually grant the role as needed. Learn more from [Set up authentication](#set-up-authentication) section.
 - **Unknown**: Data Factory cannot check the status. Possible reasons are:
 
@@ -88,11 +88,11 @@ For **Data Lineage - Pipeline**, you may see one of below status:
 
 ## Report lineage data to Azure Purview
 
-Once you connect the data factory to an Azure Purview account, when you execute pipelines, Data Factory push lineage information to the Azure Purview account. For detailed supported capabilities, see [Supported Azure Data Factory activities](../purview/how-to-link-azure-data-factory.md#supported-azure-data-factory-activities). For an end to end walkthrough, refer to [Tutorial: Push Data Factory lineage data to Azure Purview](tutorial-push-lineage-to-purview.md).
+Once you connect the data factory to a Azure Purview account, when you execute pipelines, Data Factory push lineage information to the Azure Purview account. For detailed supported capabilities, see [Supported Azure Data Factory activities](../purview/how-to-link-azure-data-factory.md#supported-azure-data-factory-activities). For an end to end walkthrough, refer to [Tutorial: Push Data Factory lineage data to Azure Purview](tutorial-push-lineage-to-purview.md).
 
 ## Discover and explore data using Azure Purview
 
-Once you connect the data factory to an Azure Purview account, you can use the search bar at the top center of Data Factory authoring UI to search for data and perform actions. Learn more from [Discover and explore data in ADF using Azure Purview](how-to-discover-explore-purview-data.md).
+Once you connect the data factory to a Azure Purview account, you can use the search bar at the top center of Data Factory authoring UI to search for data and perform actions. Learn more from [Discover and explore data in ADF using Azure Purview](how-to-discover-explore-purview-data.md).
 
 ## Next steps
 
