@@ -71,7 +71,7 @@ The following tables provide information about what kind of traffic information 
 | Greece                 |     ✓     |  ✓  |
 | Hungary                |     ✓     |  ✓  |
 | Iceland                |     ✓     |  ✓  |
-| Ireland (Republic of)  |     ✓     |  ✓  |
+| Ireland                |     ✓     |  ✓  |
 | Italy                  |     ✓     |  ✓  |
 | Latvia                 |     ✓     |  ✓  |
 | Liechtenstein          |     ✓     |  ✓  |
