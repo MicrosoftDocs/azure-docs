@@ -72,7 +72,7 @@ The next sections show you how to secure the network scenario described above. T
 
 If you want to access the workspace over the public internet while keeping all the associated resources secured in a virtual network, use the following steps:
 
-1. Create an [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) that will contain the resources used by the workspace.
+1. Create an [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) that will contain the resources used by the workspace.
 1. Use __one__ of the following options to create a publicly accessible workspace:
 
     * Create an Azure Machine Learning workspace that __does not__ use the virtual network. For more information, see [Manage Azure Machine Learning workspaces](how-to-manage-workspace.md).
