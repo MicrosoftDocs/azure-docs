@@ -30,7 +30,7 @@ If your goal is to detect system level anomalies from a group of time series dat
 
 ## Sample Notebook
 
-To learn how to call the Multivariate Anomaly Detector API, try this [Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb). To run the Notebook, you should get a valid Anomaly Detector API **subscription key** and an **API endpoint**. In the notebook, add your valid Anomaly Detector API subscription key to the `subscription_key` variable, and change the `endpoint` variable to your endpoint.
+To learn how to call the Multivariate Anomaly Detector API, try this [Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb). To run the Notebook, you only need a valid Anomaly Detector API **subscription key** and an **API endpoint**. In the notebook, add your valid Anomaly Detector API subscription key to the `subscription_key` variable, and change the `endpoint` variable to your endpoint.
  
 Basically, Multivariate Anomaly Detector includes three main steps, **data preparation**, **training** and **inference**. 
  
