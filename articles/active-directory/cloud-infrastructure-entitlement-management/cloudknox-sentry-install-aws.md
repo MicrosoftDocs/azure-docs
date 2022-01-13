@@ -18,7 +18,7 @@ This topic describes how to install the Microsoft CloudKnox Permissions Manageme
 
 <!---![AWS Sentry Installation](sentry-install-AWS.jpg)--->
 
-## What is the CloudKnox Sentry
+## What is the CloudKnox Sentry?
 
 The CloudKnox Sentry is an agent packaged in a virtual appliance. It gathers information on users, their privileges, activity, and resources for any monitored Amazon Web Services (AWS) accounts. It can be deployed in two ways:
 

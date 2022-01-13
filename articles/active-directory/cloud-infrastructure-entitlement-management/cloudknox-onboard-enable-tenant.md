@@ -43,7 +43,7 @@ After enabling CloudKnox on your Azure AD tenant this task, the next step is to 
 Open one of the following topics and follow the instructions provided to onboard your authorization system.
 
 - Onboard the Amazon Web Services (AWS) authorization system
-- Onboard the Microsoft Azure (Azure) authorization system)
+- Onboard the Microsoft Azure (Azure) authorization system
 - Onboard the Google Cloud Platform (GCP) authorization system
 
 <!---Next Steps

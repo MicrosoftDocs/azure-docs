@@ -8,7 +8,7 @@
     items:
     - name: Enable CloudKnox on your Azure AD tenant 
       href: cloudknox-onboard-enable-tenant.md
-    - name: Onboard THE AWS authorization system
+    - name: Onboard the AWS authorization system
       href: cloudknox-onboard-aws.md
     - name: Onboard the Azure authorization system
       href: cloudknox-onboard-azure.MD

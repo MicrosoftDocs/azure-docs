@@ -47,8 +47,8 @@ CloudKnox enables you to:
 
 ## The CloudKnox home page
 
-When you launch Cloudknox, the home page provides a visual, operational dashboard that summarizes and
-updates key statistics and data about an authorization system hourly. This dashboard provides information for Amazon Web Services (AWS), and Google Cloud Platform (GCP), Microsoft Azure.  
+When you launch CloudKnox, the home page provides a visual, operational dashboard that summarizes and
+updates key statistics and data about an authorization system hourly. This dashboard provides information for Amazon Web Services (AWS), Google Cloud Platform (GCP), and Microsoft Azure.  
 
 This data displays metrics related to avoidable risk and contains the following information:
 
