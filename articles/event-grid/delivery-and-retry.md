@@ -6,7 +6,7 @@ ms.date: 01/12/2022
 ---
 
 # Event Grid message delivery and retry
-Event Grid provides durable delivery. It tries to deliver each message **at least once** for each matching subscription immediately. If a subscriber's endpoint doesn't acknowledge receipt of an event or if there is a failure, Event Grid retries delivery based on a fixed [retry schedule](#retry-schedule) and [retry policy](#retry-policy). By default, the Event Grid module delivers one event at a time to the subscriber. The payload is however an array with a single event.
+Event Grid provides durable delivery. It tries to deliver each message **at least once** for each matching subscription immediately. If a subscriber's endpoint doesn't acknowledge receipt of an event or if there's a failure, Event Grid retries delivery based on a fixed [retry schedule](#retry-schedule) and [retry policy](#retry-policy). By default, the Event Grid module delivers one event at a time to the subscriber. The payload is however an array with a single event.
 
 > [!NOTE]
 > Event Grid doesn't guarantee order for event delivery, so subscribers may receive them out of order. 
@@ -124,7 +124,7 @@ Event Grid sends an event to the dead-letter location when it has tried all of i
 
 The time-to-live expiration is checked ONLY at the next scheduled delivery attempt. So, even if time-to-live expires before the next scheduled delivery attempt, event expiry is checked only at the time of the next delivery and then subsequently dead-lettered. 
 
-There is a five-minute delay between the last attempt to deliver an event and when it is delivered to the dead-letter location. This delay is intended to reduce the number of Blob storage operations. If the dead-letter location is unavailable for four hours, the event is dropped.
+There's a five-minute delay between the last attempt to deliver an event and when it's delivered to the dead-letter location. This delay is intended to reduce the number of Blob storage operations. If the dead-letter location is unavailable for four hours, the event is dropped.
 
 Before setting the dead-letter location, you must have a storage account with a container. You provide the endpoint for this container when creating the event subscription. The endpoint is in the format of:
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
@@ -197,7 +197,7 @@ Here are the possible values of `lastDeliveryOutcome` and their descriptions.
 
 | LastDeliveryOutcome | Description |
 | ------------------- | ----------- | 
-| NotFound | Destination resource was not found. |
+| NotFound | Destination resource wasn't found. |
 | Disabled | Destination has disabled receiving events. Applicable for Azure Service Bus and Azure Event Hubs. |
 | Full | Exceeded maximum number of allowed operations on the destination. Applicable for Azure Service Bus and Azure Event Hubs. |
 | Unauthorized | Destination returned unauthorized response code. |
@@ -205,13 +205,13 @@ Here are the possible values of `lastDeliveryOutcome` and their descriptions.
 | TimedOut | Delivery operation timed out. |
 | Busy | Destination server is busy. |
 | PayloadTooLarge | Size of the message exceeded the maximum allowed size by the destination. Applicable for Azure Service Bus and Azure Event Hubs. |
-| Probation | Destination is put in probation by Event Grid. Delivery is not attempted during probation. |
+| Probation | Destination is put in probation by Event Grid. Delivery isn't attempted during probation. |
 | Canceled | Delivery operation canceled. |
 | Aborted | Delivery was aborted by Event Grid after a time interval. |
 | SocketError | Network communication error occurred during delivery. |
 | ResolutionError | DNS resolution of destination endpoint failed. |
 | Delivering | Delivering events to the destination. | 
-| SessionQueueNotSupported | Event delivery without session ID is attempted on an entity which has session support enabled. Applicable for Azure Service Bus entity destination. |
+| SessionQueueNotSupported | Event delivery without session ID is attempted on an entity, which has session support enabled. Applicable for Azure Service Bus entity destination. |
 | Forbidden | Delivery is forbidden by destination endpoint (could be because of IP firewalls or other restrictions) |
 | InvalidAzureFunctionDestination | Destination Azure function isn't valid. Probably because it doesn't have the EventGridTrigger type. |
 
