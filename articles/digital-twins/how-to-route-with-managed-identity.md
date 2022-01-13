@@ -18,7 +18,7 @@ ms.custom: subject-rbac-steps, contperf-fy21q4
 
 # Enable a managed identity for routing Azure Digital Twins events
 
-This article describes how to enable a [system-assigned identity for an Azure Digital Twins instance](concepts-security.md#managed-identity-for-accessing-other-resources), and use the identity when forwarding events to supported routing destinations. Setting up a managed identity isn't required for routing, but it can help the instance to easily access other Azure AD-protected resources, such as [Event Hubs](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md).
+This article describes how to enable a [system-assigned identity for an Azure Digital Twins instance](concepts-security.md#managed-identity-for-accessing-other-resources), and use the identity when forwarding events to supported routing destinations. Setting up a managed identity isn't required for routing, but it can help the instance to easily access other Azure AD-protected resources, such as [Event Hubs](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md).
 
 Here are the steps that are covered in this article: 
 
@@ -208,5 +208,5 @@ To continue using an endpoint that was set up with a managed identity that's now
 
 ## Next steps
 
-Learn more about managed identities in Azure AD: 
+Learn more about managed identities in Azure AD: 
 * [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
