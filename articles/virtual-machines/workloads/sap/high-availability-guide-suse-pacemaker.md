@@ -41,9 +41,9 @@ You can configure the SBD device by using either of two options:
 
 - SBD with an iSCSI target server:
   
-  The SBD device requires at least one additional virtual machine (VM) that acts as an Internet Small Computer System Interface (iSCSI) target server and provides an SBD device. These iSCSI target servers can, however, be shared with other Pacemaker clusters. The advantage of using an SBD device is that, if you're already using SBD devices on-premises, they don't require any changes to how you operate the Pacemaker cluster. 
+  The SBD device requires at least one additional virtual machine (VM) that acts as an Internet Small Computer System Interface (iSCSI) target server and provides an SBD device. These iSCSI target servers can, however, be shared with other Pacemaker clusters. The advantage of using an SBD device is that if you're already using SBD devices on-premises, they don't require any changes to how you operate the Pacemaker cluster. 
   
-  You can use up to three SBD devices for a Pacemaker cluster to allow an SBD device to become unavailable (for example, during OS patching of the iSCSI target server). If you want to use more than one SBD device per Pacemaker, be sure to deploy multiple iSCSI target servers and connect one SBD from each iSCSI target server. We recommend using either one SBD device or three. Pacemaker can't automatically fence a cluster node if only two SBD devices are configured and one of them is unavailable. If you want to be able to fence when one iSCSI target server is down, you have to use three SBD devices and, therefore, three iSCSI target servers, which is the most resilient configuration when you're using SBDs.
+  You can use up to three SBD devices for a Pacemaker cluster to allow an SBD device to become unavailable (for example, during OS patching of the iSCSI target server). If you want to use more than one SBD device per Pacemaker, be sure to deploy multiple iSCSI target servers and connect one SBD from each iSCSI target server. We recommend using either one SBD device or three. Pacemaker can't automatically fence a cluster node if only two SBD devices are configured and one of them is unavailable. If you want to be able to fence when one iSCSI target server is down, you have to use three SBD devices and, therefore, three iSCSI target servers. That's the most resilient configuration when you're using SBDs.
   
   ![Diagram of Pacemaker on SLES overview.](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
   
@@ -366,7 +366,7 @@ This section applies only if you want to use an SBD device with an Azure shared 
    <pre><code>$DiskSizeInGB = <b>4</b>
    $DiskName = "<b>SBD-disk1</b>"</code></pre>
 
-1. With parameter '-MaxSharesCount', define the maximum number of cluster nodes to attach the shared disk for the SBD device.
+1. With parameter -MaxSharesCount, define the maximum number of cluster nodes to attach the shared disk for the SBD device.
    <pre><code>$ShareNodes = <b>2</b></code></pre>
 
 1. For an SBD device that uses LRS for an Azure premium shared disk, use the following storage SkuName:
@@ -483,9 +483,9 @@ This section applies only if you're using a STONITH device that's based on an Az
 
 ### **[1]** Create a custom role for the fence agent
 
-By default, the service principal doesn't have permissions to access your Azure resources. You need to give the service principal permissions to start and stop (deallocate) all virtual machines in the cluster. If you didn't already create the custom role, you can do so by using [PowerShell](../../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) or the[Azure CLI](../../../role-based-access-control/custom-roles-cli.md).
+By default, the service principal doesn't have permissions to access your Azure resources. You need to give the service principal permissions to start and stop (deallocate) all virtual machines in the cluster. If you didn't already create the custom role, you can do so by using [PowerShell](../../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) or the [Azure CLI](../../../role-based-access-control/custom-roles-cli.md).
 
-Use the following content for the input file. You need to adapt the content to your subscriptions. That is, replace *c276fc76-9cd4-44c9-99a7-4fd71546436e* and *e91d47c4-76f3-4271-a796-21b4ecfe3624* with the your own subscritpion IDs. If you have only one subscription, remove the second entry under AssignableScopes.
+Use the following content for the input file. You need to adapt the content to your subscriptions. That is, replace *c276fc76-9cd4-44c9-99a7-4fd71546436e* and *e91d47c4-76f3-4271-a796-21b4ecfe3624* with your own subscription IDs. If you have only one subscription, remove the second entry under AssignableScopes.
 
 ```json
 {
