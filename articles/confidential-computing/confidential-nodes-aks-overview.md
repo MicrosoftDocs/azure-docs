@@ -31,12 +31,17 @@ Azure Kubernetes Service (AKS) supports adding [DCsv2 confidential computing nod
 - Linux Containers support through Ubuntu 18.04 Gen 2 VM worker nodes
 
 ## Confidential Computing add-on for AKS
-The add-on feature enables extra capability on AKS when running confidential computing node pools on the cluster. This add-on enables the features below.
+The add-on feature enables extra capability on AKS when running confidential computing Intel SGX calable node pools on the cluster. This add-on enables the features below.
 
 #### Azure Device Plugin for Intel SGX <a id="sgx-plugin"></a>
 
-The device plugin implements the Kubernetes device plugin interface for Encrypted Page Cache (EPC) memory and exposes the device drivers from the nodes. Effectively, this plugin makes EPC memory as another resource type in Kubernetes. Users can specify limits on this resource just as other resources. Apart from the scheduling function, the device plugin helps assign Intel SGX device driver permissions to confidential workload containers. With this plugin developer can avoid mounting the Intel SGX driver volumes in the deployment files. A sample implementation of the EPC memory-based deployment (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) sample is [here](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/helloworld/helm/templates/helloworld.yaml)
+The device plugin implements the Kubernetes device plugin interface for Encrypted Page Cache (EPC) memory and exposes the device drivers from the nodes. Effectively, this plugin makes EPC memory as another resource type in Kubernetes. Users can specify limits on this resource just as other resources. Apart from the scheduling function, the device plugin helps assign Intel SGX device driver permissions to confidential container deployments. With this plugin developer can avoid mounting the Intel SGX driver volumes in the deployment files. This add-on on AKS clusters runs as a daemonset per VM node that are of Intel SGX capable. A sample implementation of the EPC memory-based deployment (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) sample is [here](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/helloworld/helm/templates/helloworld.yaml)
 
+#### Intel SGX Quote Helper with Platform Software Components <a id="sgx-plugin"></a>
+
+As part of the plugin another daemonset is deployed  per VM node that are of Intel SGX capable on the AKS cluster. This daemonset helps your confidential container apps when a remote out-of-proc attestation request is invoked. 
+
+Enclave applications that do remote attestation need to generate a quote. The quote provides cryptographic proof of the identity and the state of the application, along with the enclave's host environment. Quote generation relies on certain trusted software components from Intel, which are part of the SGX Platform Software Components (PSW/DCAP). This PSW is packaged as a daemon set that runs per node. You can use the PSW when requesting attestation quote from enclave apps. Using the AKS provided service helps better maintain the compatibility between the PSW and other SW components in the host with Intel SGX drivers that are part of the AKS VM nodes. Read more on how your apps can leverage this daemonset without having to package the attestation premitivies as part of your container deployments [More here](confidential-nodes-aks-addon.md#psw-with-sgx-quote-helper)
 
 ## Programming models
 
