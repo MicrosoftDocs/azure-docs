@@ -14,8 +14,6 @@ ms.topic: conceptual
 
 # Create and manage a project
 
-## What is a project?
-
 A project is a container for a models, documents, and tests. Each project automatically includes all documents that are uploaded into that workspace that have the correct language pair.
 
 Creating project is the first step toward building and publishing a model.
@@ -94,4 +92,4 @@ To modify the project name, project description and domain description:
 - Learn [how to train a model](train-model.md).
 - Learn [how to test and evaluate model quality](test-model-details.md).
 - Learn [how to publish model](publish-model.md).
-- Learn [how to translate with custom models](use-custom-model.md).
+- Learn [how to translate with custom models](translate-with-custom-model.md).

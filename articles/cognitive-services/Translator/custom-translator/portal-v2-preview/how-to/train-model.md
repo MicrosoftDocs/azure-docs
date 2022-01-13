@@ -1,17 +1,17 @@
 ---
 title: How to train model - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: How to create and manage a project in the Azure Cognitive Services Custom Translator v2.  
+description: How to train a custom model in the Azure Cognitive Services Custom Translator v2.  
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 08/17/2020
+ms.date: 01/13/2022
 ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to create project, so that I can build and manage a project.
 ---
-# What is a custom model?
+# Train a custom model | Preview
 
 A model is the system, which provides translation for a specific language pair. The outcome of a successful training is a model. When training a model, three mutually exclusive document types are required: training, tuning, and testing. If only training data is provided when queuing a training, Custom Translator will automatically assemble tuning and testing data. It will use a random subset of sentences from your training documents, and exclude these sentences from the training data itself. A 10,000 parallel sentences is the minimum requirement to train a model.
 
@@ -39,10 +39,10 @@ A model is the system, which provides translation for a specific language pair. 
 2. Click the model name "en-de with sample data" to review training date/time, total training time, number of sentences used for training, tuning, testing, dictionary, and whether the system generated the test and tuning sets. You will use the "Category ID" to make translation requests.
 3. Evaluate the model BLEU score. Using the test set, **BLEU score** is the custom model score and **Baseline BLEU** is the pre-trained baseline model used for customization. Higher **BLEU score** means higher translation quality using the custom model.
 
-![Model details](media/quickstart/model-details.png)
+![Model details](../media/quickstart/model-details.png)
 
 ## Next steps
 
 - Learn [how to test and evaluate model quality](test-model-details.md).
 - Learn [how to publish model](publish-model.md).
-- Learn [how to translate with custom models](use-custom-model.md).
+- Learn [how to translate with custom models](translate-with-custom-model.md).

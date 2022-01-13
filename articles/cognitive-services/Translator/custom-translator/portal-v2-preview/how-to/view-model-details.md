@@ -6,13 +6,13 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 08/17/2020
+ms.date: 01/13/2022
 ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to create project, so that I can build and manage a project.
 ---
 
-# What is a project?
+# How to view custom model details | Preview
 
 A project is a container for a models, documents, and tests. Each project automatically includes all documents that are uploaded into that workspace that have the correct language pair.
 
@@ -28,4 +28,4 @@ Creating project is the first step toward building and publishing a model.
 
 - Learn [how to test model quality](test-model-details.md).
 - Learn [how to publish model](publish-model.md).
-- Learn [how to translate documents with custom models](use-custom-model.md).
+- Learn [how to translate documents with custom models](translate-with-custom-model.md).

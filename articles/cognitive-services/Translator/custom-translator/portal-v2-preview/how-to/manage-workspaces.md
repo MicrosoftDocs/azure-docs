@@ -44,16 +44,16 @@ The person who creates the Workspace is the owner. Within the 'Workspace setting
 3. Select role from the dropdown list
 4. Select *Add*
 
-![Workspace settings](../media/quickstart/manage-workspace-settings-1.png)
+:::image type="content" source="../media/quickstart/manage-workspace-settings-1.png" alt-text="Screenshot illustrating how to share a workspace.":::
 
-![Workspace settings](../media/quickstart/manage-workspace-settings-2.png)
+:::image type="content" source="../media/quickstart/manage-workspace-settings-2.png" alt-text="Screenshot illustrating share workspace settings.":::
 
 ### Unshare workspace steps
 
 1. Select *Share workspace*
 2. Select the `X` icon next to the *Role* of the email you want to remove
 
-![Workspace settings](../media/quickstart/manage-workspace-settings-3.png)
+:::image type="content" source="../media/quickstart/manage-workspace-settings-3.png" alt-text="Screenshot illustrating how to unshare a workspace.":::
 
 ## Next Steps
 

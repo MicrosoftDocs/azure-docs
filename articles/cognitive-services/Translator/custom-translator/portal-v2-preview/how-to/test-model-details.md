@@ -26,4 +26,4 @@ In order to make informed decision whether to use our standard model or your cus
 ## Next steps
 
 - Learn [how to publish model](publish-model.md).
-- Learn [how to translate docuements with custom models](use-custom-model.md).
+- Learn [how to translate docuements with custom models](translate-with-custom-model.md).

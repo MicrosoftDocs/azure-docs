@@ -74,4 +74,4 @@ At this point, we're processing your documents and attempting to extract sentenc
 - Learn [how to view model details](view-model-details.md).
 - Learn [how to test and evaluate model quality](test-model-details.md).
 - Learn [how to publish model](publish-model.md).
-- Learn [how to translate with custom models](use-custom-model.md).
+- Learn [how to translate with custom models](translate-with-custom-model.md).

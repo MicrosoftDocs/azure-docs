@@ -26,4 +26,4 @@ A project might have one or many successfully trained models. However, you can p
 
 ## Next steps
 
-- Learn [how to translate documents with custom models](use-custom-model.md).
+- Learn [how to translate documents with custom models](translate-with-custom-model.md).

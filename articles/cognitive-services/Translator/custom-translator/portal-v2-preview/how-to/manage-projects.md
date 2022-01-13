@@ -1,7 +1,7 @@
 ---
 title: How to manage a project - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: How to create and manage a project in the Azure Cognitive Services Custom Translator v2.
+description: How to create and manage a project with the Azure Cognitive Services Custom Translator v2.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
@@ -11,7 +11,7 @@ ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to create project, so that I can build and manage a project.
 ---
-# What is a project?
+# How to manage a Custom Translator project
 
 A project is a container for a models, documents, and tests. Each project automatically includes all documents that are uploaded into that workspace that have the correct language pair.
 
@@ -93,4 +93,4 @@ To modify the project name, project description and domain description:
 - Learn [how to train a model](train-model.md).
 - Learn [how to test and evaluate model quality](test-model-details.md).
 - Learn [how to publish model](publish-model.md).
-- Learn [how to translate with custom models](translate.md).
+- Learn [how to translate with custom models](translate-with-custom-model.md).
