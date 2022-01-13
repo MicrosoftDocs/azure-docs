@@ -5,7 +5,7 @@ author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 12/16/2021
+ms.date: 01/14/2022
 ms.author: cavoeg
 ---
 
@@ -80,13 +80,13 @@ Under the **Exceptions** section, select the box **Allow trusted Microsoft servi
 Next, specify the FHIR service instance in the selected workspace instance for the storatge account using the PowerShell command. 
 
 ```
+$subscription="xxx"
+$tenantId = "xxx"
+$resourceGroupName = "xxx"
 $storageaccountName = "xxx"
 $workspacename="xxx"
 $fhirname="xxx"
-$subscription="xxx"
 $resourceId = "/subscriptions/$subscription/resourceGroups/$resourcegroup/providers/Microsoft.HealthcareApis/workspaces/$workspacename/fhirservices/$fhirname"
-$tenantId = "xxx"
-$resourceGroupName = "rg-bx-bicep"
 
 Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $storageaccountName -TenantId $tenantId -ResourceId $resourceId
 ```
