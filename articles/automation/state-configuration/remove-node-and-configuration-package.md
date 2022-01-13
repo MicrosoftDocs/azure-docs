@@ -10,12 +10,12 @@ ms.topic: how-to
 
 # How to remove a configuration and node from Automation State Configuration
 
-This article covers how to unregister a node managed by Automation State Configuration, and safely remove a PowerShell Desired State Configuration (DSC) configuration from managed nodes. For both Windows and Linux nodes, you need to [unregister the node](#unregister-a-node) and [delete the configuration](#delete-a-configuration). For Linux nodes only, you can optionally delete the DSC packages from the nodes as well. See [Remove the DSC package from a Linux node](#remove-the-dsc-package-from-a-linux-node).
+This article covers how to unregister a node managed by Automation State Configuration, and safely remove a PowerShell Desired State Configuration (DSC) configuration from managed nodes. For both Windows and Linux nodes, you need to [unregister the node](#unregister-a-node) and [Delete a configuration from the node](#delete-a-configuration-from-the-node). For Linux nodes only, you can optionally delete the DSC packages from the nodes as well. See [Remove the DSC package from a Linux node](#remove-the-dsc-package-from-a-linux-node).
 
 ## Unregister a node
 
 >[!NOTE]
-> Unregistering a node from the service only sets the Local Configuration Manager settings so the node is no longer connecting to the service. This does not effect the configuration that's currently applied to the node, and leaves the related files in place on the node. After you unregister/delete the node, to re-register it, clear the existing configuration files. See [Delete a configuration from a node](#delete-a-configuration-from-a-node).
+> Unregistering a node from the service only sets the Local Configuration Manager settings so the node is no longer connecting to the service. This does not effect the configuration that's currently applied to the node, and leaves the related files in place on the node. After you unregister/delete the node, to re-register it, clear the existing configuration files. See [Delete a configuration from the node](#delete-a-configuration-from-the-node).
 
 If you no longer want a node to be managed by State Configuration (DSC), you can unregister it from the Azure portal or with Azure PowerShell using the following steps.
 
@@ -41,7 +41,7 @@ You can also unregister a node using the PowerShell cmdlet [Unregister-AzAutomat
 ---
 
 
-## Delete a configuration from a node
+## Delete a configuration from the node
 
 When you're ready to remove an imported DSC configuration document (which is a Managed Object Format (MOF) or .mof file) that's assigned to one or more nodes, follow either of these steps.
 
