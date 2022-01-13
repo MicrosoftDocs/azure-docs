@@ -22,7 +22,10 @@ the database to scale by adding more nodes to the server group.
 To learn more about the types of Hyperscale (Citus) nodes, see [nodes and
 tables](concepts-nodes.md).
 
-### Node states
+### Node status
+
+Hyperscale (Citus) displays the status of nodes in a server group on the
+Overview page in the Azure portal. These are the status values:
 
 * **Provisioning**: Initial node provisioning, either as a part of its server
   group provisioning, or when a worker node is added.
