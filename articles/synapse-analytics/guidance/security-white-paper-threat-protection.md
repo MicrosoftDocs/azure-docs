@@ -48,7 +48,7 @@ Alert notifications include details of the incident, and recommendations on how 
 
 ## Compliance
 
-For an overview of Azure compliance offerings, download the latest version of the [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/mediahandler/files/resourcefiles/microsoft-azure-compliance-offerings/Microsoft Azure Compliance Offerings.pdf) document.
+For an overview of Azure compliance offerings, download the latest version of the [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/mediahandler/files/resourcefiles/microsoft-azure-compliance-offerings/Microsoft&nbsp;Azure&nbsp;Compliance&nbsp;Offerings.pdf) document.
 
 ## Next steps
 
