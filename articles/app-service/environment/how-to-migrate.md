@@ -18,7 +18,7 @@ An App Service Environment (ASE) v2 can be migrated to an [App Service Environme
 
 Ensure you understand how migrating to an App Service Environment v3 will affect your applications. Review the [migration process](migrate.md#overview-of-the-migration-process) to understand the process timeline and where and when you'll need to get involved. Also review the [FAQs](migrate.md#frequently-asked-questions), which may answer some questions you currently have.
 
-For the initial preview of the migration tool, you should follow the below steps in order and as written since you'll be making Azure REST API calls. The recommended way for making these calls is by using the [Azure CLI](/cli/azure/). For information about other methods, see [Getting Started with Azure REST](/rest/api/azure/).
+For the initial preview of the migration feature, you should follow the below steps in order and as written since you'll be making Azure REST API calls. The recommended way for making these calls is by using the [Azure CLI](/cli/azure/). For information about other methods, see [Getting Started with Azure REST](/rest/api/azure/).
 
 For this guide, [install the Azure CLI](/cli/azure/install-azure-cli) or use the [Azure Cloud Shell](https://shell.azure.com/).
 
@@ -44,7 +44,7 @@ az network vnet subnet update -g $ASE_RG -n <subnet-name> --vnet-name <vnet-name
 
 ## 3. Validate migration is supported
 
-The following command will check whether your App Service Environment is supported for migration. If you receive an error, you can't migrate at this time. For an estimate of when you can migrate, see the [timeline](migrate.md#preview-limitations). If your environment [won't be supported for migration](migrate.md#migration-tool-limitations) or you want to migrate to ASEv3 manually, see [migration alternatives](migration-alternatives.md).
+The following command will check whether your App Service Environment is supported for migration. If you receive an error, you can't migrate at this time. For an estimate of when you can migrate, see the [timeline](migrate.md#preview-limitations). If your environment [won't be supported for migration](migrate.md#migration-feature-limitations) or you want to migrate to ASEv3 manually, see [migration alternatives](migration-alternatives.md).
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=validation"

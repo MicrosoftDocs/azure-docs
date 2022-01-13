@@ -101,9 +101,9 @@ As in the IP generation step, you won't be able to scale or modify your App Serv
 
 There's no cost to migrate your App Service Environment. You'll stop being charged for your previous App Service Environment as soon as it shuts down during the full migration process, and you'll begin getting charged for your new App Service Environment v3 as soon as it's deployed. For more information about App Service Environment v3 pricing, see the [pricing details](overview.md#pricing).
 
-## Migration tool limitations
+## Migration feature limitations
 
-The migration tool doesn't plan on supporting App Service Environment v1 within a classic VNet. See [migration alternatives](migration-alternatives.md) if your App Service Environment falls into this category.
+The migration feature doesn't plan on supporting App Service Environment v1 within a classic VNet. See [migration alternatives](migration-alternatives.md) if your App Service Environment falls into this category.
 
 ## Frequently asked questions
 
