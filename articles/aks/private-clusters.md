@@ -295,4 +295,4 @@ Once the A record is created, link the private DNS zone to the virtual network t
 [availability-zones]: availability-zones.md
 [command-invoke]: command-invoke.md
 [container-registry-private-link]: ../container-registry/container-registry-private-link.md
-[virtual-networks-name-resolution]: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances?#name-resolution-that-uses-your-own-dns-server
+[virtual-networks-name-resolution]: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server
