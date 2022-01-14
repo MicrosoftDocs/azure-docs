@@ -16129,8 +16129,13 @@
     },
     {
       "source_path_from_root": "/articles/lab-services/devtest-lab-add-artifact-repo.md",
-      "redirect_url": "/azure/devtest-labs/devtest-lab-add-artifact-repo",
-      "redirect_document_id": true
+      "redirect_url": "/azure/devtest-labs/add-artifact-repository",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/devtest-labs/devtest-lab-add-artifact-repo.md",
+      "redirect_url": "/azure/devtest-labs/add-artifact-repository",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/lab-services/devtest-lab-add-claimable-vm.md",
@@ -22817,6 +22822,11 @@
       "source_path_from_root": "/articles/scheduler/get-started-portal.md",
       "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
       "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/search/search-blob-ai-integration.md",
+      "redirect_url": "/azure/search/cognitive-search-concept-intro",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/search/search-monitor-usage.md",
