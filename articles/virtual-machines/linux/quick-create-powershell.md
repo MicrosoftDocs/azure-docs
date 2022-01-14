@@ -49,8 +49,8 @@ New-AzVm `
     -Name "myVM" `
     -Location "East US" `
     -Image UbuntuLTS `
-    -size Standard_B2s
-    -OpenPorts 80,3389 `
+    -size Standard_B2s `
+    -OpenPorts 80,22 `
     -GenerateSshKey `
     -SshKeyName mySSHKey
 ```
