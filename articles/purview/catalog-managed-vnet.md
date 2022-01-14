@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 01/13/2022
 ms.custom: references_regions
 # Customer intent: As a Purview admin, I want to set up Managed Virtual Network and managed private endpoints for my Purview account.
 ---
@@ -18,6 +18,7 @@ ms.custom: references_regions
 
 > [!IMPORTANT]
 > Currently, Managed Virtual Network and managed private endpoints are available for Azure Purview accounts that are deployed in the following regions:
+> - Australia East
 > - Canada Central
 > - East US 2
 > - West Europe 
@@ -29,6 +30,7 @@ This article describes how to configure Managed Virtual Network and managed priv
 ### Supported regions
 
 Currently, Managed Virtual Network and managed private endpoints are available for Azure Purview accounts that are deployed in the following regions:
+- Australia East
 - Canada Central
 - East US 2
 - West Europe 
