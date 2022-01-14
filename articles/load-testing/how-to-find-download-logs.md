@@ -24,7 +24,7 @@ When you run a load test, the Azure Load Testing test engines execute your Apach
 ## Prerequisites  
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
-- An Azure Load Testing resource that has a completed test run. If you need to create an Azure Load Testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md).  
+- An Azure load testing resource that has a completed test run. If you need to create an Azure load testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md).  
 
 ## Access and download logs for your load test  
 
@@ -45,13 +45,15 @@ In this section, you retrieve and download the Azure Load Testing logs from the 
 
 1. On the dashboard, select **Download**, and then select **Logs**.  
 
-    :::image type="content" source="media/how-to-find-download-logs/logs.png" alt-text="Screenshot that shows how to download the load test logs from the test result page.":::  
+    :::image type="content" source="media/how-to-find-download-logs/logs.png" alt-text="Screenshot that shows how to download the load test logs from the test run details page.":::  
 
-    The browser should now start downloading the execution logs as a zipped folder.
+    The browser should now start downloading the JMeter worker node log file *worker.log*.
 
-1. You can use any extraction tool to extract the zipped folder and access the logging information.
+1. You can use a text editor to open the log file.
 
     :::image type="content" source="media/how-to-find-download-logs/jmeter-log.png" alt-text="Screenshot that shows the JMeter log file content.":::  
+
+    The *worker.log* file can help you diagnose the root cause of a failing load test. In the previous screenshot, you can see that the test failed because a file is missing.
 
 ## Next steps
 
