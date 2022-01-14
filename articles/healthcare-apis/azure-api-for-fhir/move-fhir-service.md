@@ -24,19 +24,19 @@ You can move an Azure API for FHIR service instance to another subscription from
 
 The **move** operation takes a few simple steps.
 
-- Select a FHIR service instance 
+1. Select a FHIR service instance 
 
 Select the FHIR service from the source subscription and then the target subscription.
 
   :::image type="content" source="media/move/move-source-target.png" alt-text="Screenshot of Move to another subscription with source and target." lightbox="media/move/move-source-target.png":::
 
-- Validate the move operation
+2. Validate the move operation
 
 This step validates whether the selected resource can be moved. It takes a few minutes and returns a status from **Pending validation** to **Succeeded** or **Failed**. If the validation failed, you can view the error details, fix the error, and restart the **move** operation.
 
   :::image type="content" source="media/move/move-validation.png" alt-text="Screenshot of Move to another subscription with validation." lightbox="media/move/move-validation.png":::
 
-- Review and confirm the move operation
+3. Review and confirm the move operation
  
 After reviewing the move operation summary, select the confirmation checkbox at the bottom of the screen and press the Move button to complete the operation.
 
