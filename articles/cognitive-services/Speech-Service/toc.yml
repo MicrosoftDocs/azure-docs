@@ -233,7 +233,7 @@ items:
           href: language-support.md#prebuilt-neural-voices
         - name: Region support
           href: regions.md#speech-to-text-text-to-speech-and-translation
-        - name: SSML phonetic sets
+        - name: SSML phonetic alphabets
           href: speech-ssml-phonetic-sets.md
 - name: Speech translation
   items:
