@@ -10,7 +10,7 @@ ms.date: 08/12/2021
 ---
 # How to get lineage from BigQuery into Azure Purview
 
-This article elaborates on the data lineage aspects of BigQuery source in Azure Purview. The prerequisite to see data lineage in Purview for BigQuery is to [scan your BigQuery project.](../purview/register-scan-google-bigquery-source.md) 
+This article elaborates on the data lineage aspects of BigQuery source in Azure Purview. The prerequisite to see data lineage in Azure Purview for BigQuery is to [scan your BigQuery project.](../purview/register-scan-google-bigquery-source.md) 
 
 ## Lineage of BigQuery artifacts in Azure Purview
 

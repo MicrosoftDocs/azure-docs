@@ -28,9 +28,10 @@ In addition to consolidating this functionality into a single agent, the Azure M
 ### Current limitations
 When compared with the existing agents, this new agent doesn't yet have full parity.
 - **Comparison with Log Analytics agents (MMA/OMS):**
-  - Not all Log Analytics solutions are supported today. See [what's supported](#supported-services-and-features).
-  - No support for Azure Private Links.
-  - No support for collecting file based logs or IIS logs.
+	- Not all Log Analytics solutions are supported today. [View supported features and services](#supported-services-and-features).
+	- No support for Azure Private Links.
+	- No support for collecting file based logs or IIS logs.
+
 - **Comparison with Azure Diagnostics extensions (WAD/LAD):**
   - No support for Event Hubs and Storage accounts as destinations.
   - No support for collecting file based logs, IIS logs, ETW events, .NET events and crash dumps.
@@ -49,8 +50,8 @@ The Azure Monitor agent replaces the [legacy agents for Azure Monitor](agents-ov
 - **Environment requirements:** The Azure Monitor agent supports [these operating systems](./agents-overview.md#supported-operating-systems) today. Support for future operating system versions, environment support, and networking requirements will most likely be provided in this new agent. 
  
   Assess whether your environment is supported by the Azure Monitor agent. If not, you might need to stay with the current agent. If the Azure Monitor agent supports your current environment, consider transitioning to it.
-- **Current and new feature requirements:** The Azure Monitor agent introduces several new capabilities, such as filtering, scoping, and multi-homing. But it isn't at parity yet with the current agents for other functionality, such as custom log collection and integration with all solutions. ([See the solutions in preview](../faq.yml).) 
- 
+- **Current and new feature requirements:** The Azure Monitor agent introduces several new capabilities, such as filtering, scoping, and multi-homing. But it isn't at parity yet with the current agents for other functionality, such as custom log collection and integration with all solutions. ([View supported features and services](#supported-services-and-features).) 
+
   Most new capabilities in Azure Monitor will be made available only with the Azure Monitor agent. Over time, more functionality will be available only in the new agent. Consider whether the Azure Monitor agent has the features you require and if there are some features that you can temporarily do without to get other important features in the new agent. 
   
   If the Azure Monitor agent has all the core capabilities you require, consider transitioning to it. If there are critical features that you require, continue with the current agent until the Azure Monitor agent reaches parity.

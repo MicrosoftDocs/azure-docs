@@ -78,10 +78,10 @@ You need to have 'write' permissions to both workspace and destination to config
 
 Don't use an existing event hub that has other, non-monitoring data stored in it to better control access to the data and prevent reaching event hub namespace ingress rate limit, failures, and latency.
 
-Data is sent to your event hub as it reaches Azure Monitor and exported to destinations located in workspace region. When specific event hub isn't provided in rule, an event hub is created for each data type that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. The [number of supported event hubs in 'Basic' and 'Standard' namespaces tiers is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). When exporting more than 10 tables to these tiers, either split the tables between several export rules to different event hub namespaces, or provide an event hub name in the rule to export all tables to that event hub.
+Data is sent to your event hub as it reaches Azure Monitor and exported to destinations located in workspace region. You can create multiple export rules to the same event hub namespace by providing different `event hub name` in rule.When `event hub name` isn't provided, a default event hub is created for each table that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. The [number of supported event hubs in 'Basic' and 'Standard' namespaces tiers is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). When exporting more than 10 tables to these tiers, either split the tables between several export rules to different event hub namespaces, or provide an event hub name in the rule to export all tables to that event hub.
 
 > [!NOTE]
-> - 'Basic' event hub tier is limited--it supports lower event size [limit](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) and no the is no [Auto-inflate](../../event-hubs/event-hubs-auto-inflate.md) option. Since data volume to your workspace increases over time and consequence event hub scaling is required, use 'Standard', 'Premium' or 'Dedicated' event hub tiers with **Auto-inflate** feature enabled to automatically scale up and increase the number of throughput units. See [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md).
+> - 'Basic' event hub tier is limited--it supports [lower event size](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) and no [Auto-inflate](../../event-hubs/event-hubs-auto-inflate.md) option to automatically scale up and increase the number of throughput units. Since data volume to your workspace increases over time and consequence event hub scaling is required, use 'Standard', 'Premium' or 'Dedicated' event hub tiers with **Auto-inflate** feature enabled. See [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md).
 > - Data export can't reach event hub resources when virtual networks are enabled. You have to enable the **Allow trusted Microsoft services** to bypass this firewall setting in event hub, to grant access to your Event Hubs resources.
 
 ## Enable data export
@@ -113,32 +113,26 @@ If you have configured your storage account to allow access from selected networ
 
 [![Storage account firewalls and networks](media/logs-data-export/storage-account-network.png "Screenshot of allow trusted Microsoft services.")](media/logs-data-export/storage-account-network.png#lightbox)
 
-### Create or update data export rule
-A data export rule defines the tables for which data is exported and destination. You can have 10 enabled rules in your workspace, more rules can be added in 'disable' state. Storage account must be unique across all export rules in workspace, but you can use the same event hub namespace in multiple rules.
-
-> [!NOTE]
-> - If export rule includes unsupported tables, no data will be exported for that tables until the tables becomes supported.
-> - A separate container is created for tables in storage account export.
-> - If event hub name isn't provided in rule, a separate event hub is created for tables in event hub namespace. The [number of supported event hubs in 'Basic' and 'Standard' namespaces tiers is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). When exporting more than 10 tables to these tiers, either split the tables between several export rules to different event hub namespaces, or provide an event hub name in the rule to export all tables to that event hub.
+### Destinations monitoring
 
 > [!IMPORTANT]
 > Export destinations have limits and should be monitored to minimize throttling, failures, and latency. See [storage accounts scalability](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) and [event hub namespace quota](../../event-hubs/event-hubs-quotas.md).
 
-#### Monitoring storage account
+**Monitoring storage account**
 
 1. Use separate storage account for export
-1. Configure alert on the metric below: 
+2. Configure alert on the metric below: 
 
     | Scope | Metric Namespace | Metric | Aggregation | Threshold |
     |:---|:---|:---|:---|:---|
     | storage-name | Account | Ingress | Sum | 80% of max ingress per alert evaluation period. For example: limit is 60 Gbps for general-purpose v2 in West US. Threshold is 14,400 Gb per 5-minutes evaluation period |
   
-1. Alert remediation actions
+3. Alert remediation actions
     - Use separate storage account for export that isn't shared with non-monitoring data.
     - Azure Storage standard accounts support higher ingress limit by request. To request an increase, contact [Azure Support](https://azure.microsoft.com/support/faq/).
     - Split tables between more storage accounts.
 
-#### Monitoring event hub
+**Monitoring event hub**
 
 1. Configure alerts on the [metrics](../../event-hubs/monitor-event-hubs-reference.md) below:
   
@@ -148,12 +142,21 @@ A data export rule defines the tables for which data is exported and destination
     | namespaces-name | Event Hub standard metrics | Incoming requests | Count | 80% of max events per alert evaluation period. For example, limit is 1000/s per unit (TU or PU) and five units used. Threshold is 1200000 per 5-minutes evaluation period |
     | namespaces-name | Event Hub standard metrics | Quota Exceeded Errors | Count | Between 1% of request. For example, requests per 5 minutes is 600000. Threshold is 6000 per 5-minutes evaluation period |
 
-1. Alert remediation actions
+2. Alert remediation actions
    - Use separate event hub namespace for export that isn't shared with non-monitoring data.
    - Configure [Auto-inflate](../../event-hubs/event-hubs-auto-inflate.md) feature to automatically scale up and increase the number of throughput units to meet usage needs
    - Verify increase of throughput units to accommodate data volume
    - Split tables between more namespaces
    - Use 'Premium' or 'Dedicated' tiers for higher throughput
+
+### Create or update data export rule
+Data export rule defines the destination and tables for which data is exported. You can create 10 rules in 'enable' state in your workspace, more rules are allowed in 'disable' state. Storage account destination must be unique across all export rules in workspace, but multiple rules can export to the same event hub namespace in separate event hubs.
+
+> [!NOTE]
+> - You can include tables that aren't yet supported in export, and no data will be exported for these until the tables are supported.
+> - The current custom log tables won’t be supported in export. The next generation of custom log available early 2022 in preview is supported.
+> - Export to storage account - a separate container is created in storage account for each table.
+> - Export to event hub - if event hub name isn't provided, a separate event hub is created for each table. The [number of supported event hubs in 'Basic' and 'Standard' namespaces tiers is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). When exporting more than 10 tables to these tiers, either split the tables between several export rules to different event hub namespaces, or provide an event hub name in the rule to export all tables to that event hub.
 
 # [Azure portal](#tab/portal)
 
@@ -171,22 +174,22 @@ Follow the steps, then click **Create**.
 Use the following command to create a data export rule to a storage account using PowerShell. A separate container is created for each table.
 
 ```powershell
-$storageAccountResourceId = 'subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name'
-New-AzOperationalInsightsDataExport -ResourceGroupName resourceGroupName -WorkspaceName workspaceName -DataExportName 'ruleName' -TableName 'SecurityEvent, Heartbeat' -ResourceId $storageAccountResourceId
+$storageAccountResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name'
+New-AzOperationalInsightsDataExport -ResourceGroupName resourceGroupName -WorkspaceName workspaceName -DataExportName 'ruleName' -TableName 'SecurityEvent,Heartbeat' -ResourceId $storageAccountResourceId
 ```
 
 Use the following command to create a data export rule to a specific event hub using PowerShell. All tables are exported to the provided event hub name and can be filtered by "Type" field to separate tables.
 
 ```powershell
-$eventHubResourceId = 'subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name/eventhubs/eventhub-name'
-New-AzOperationalInsightsDataExport -ResourceGroupName resourceGroupName -WorkspaceName workspaceName -DataExportName 'ruleName' -TableName 'SecurityEvent, Heartbeat' -ResourceId $eventHubResourceId -EventHubName EventhubName
+$eventHubResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name/eventhubs/eventhub-name'
+New-AzOperationalInsightsDataExport -ResourceGroupName resourceGroupName -WorkspaceName workspaceName -DataExportName 'ruleName' -TableName 'SecurityEvent,Heartbeat' -ResourceId $eventHubResourceId -EventHubName EventhubName
 ```
 
 Use the following command to create a data export rule to an event hub using PowerShell. When specific event hub name isn't provided, a separate container is created for each table up to the [number of supported event hubs for your event hub tier](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). If you have more tables to export, provide event hub name to export any number of tables, or set another rule to export the remaining tables to another event hub namespace.
 
 ```powershell
-$eventHubResourceId = 'subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name'
-New-AzOperationalInsightsDataExport -ResourceGroupName resourceGroupName -WorkspaceName workspaceName -DataExportName 'ruleName' -TableName 'SecurityEvent, Heartbeat' -ResourceId $eventHubResourceId
+$eventHubResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name'
+New-AzOperationalInsightsDataExport -ResourceGroupName resourceGroupName -WorkspaceName workspaceName -DataExportName 'ruleName' -TableName 'SecurityEvent,Heartbeat' -ResourceId $eventHubResourceId
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -512,7 +515,7 @@ Export rules can be disabled to let you stop the export for a certain period suc
 Export rules can be disabled to let you stop the export for a certain period such as when testing is being held. Use the following command to disable or update rule parameters using PowerShell.
 
 ```powershell
-Update-AzOperationalInsightsDataExport -ResourceGroupName resourceGroupName -WorkspaceName workspaceName -DataExportName 'ruleName' -TableName 'SecurityEvent, Heartbeat' -Enable: $false
+Update-AzOperationalInsightsDataExport -ResourceGroupName resourceGroupName -WorkspaceName workspaceName -DataExportName 'ruleName' -TableName 'SecurityEvent,Heartbeat' -Enable: $false
 ```
 
 # [Azure CLI](#tab/azure-cli)

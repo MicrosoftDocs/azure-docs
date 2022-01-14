@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/29/2021
+ms.date: 12/07/2021
 ms.topic: how-to
 ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
 ---
@@ -72,7 +72,7 @@ The next sections show you how to secure the network scenario described above. T
 
 If you want to access the workspace over the public internet while keeping all the associated resources secured in a virtual network, use the following steps:
 
-1. Create an [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) that will contain the resources used by the workspace.
+1. Create an [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) that will contain the resources used by the workspace.
 1. Use __one__ of the following options to create a publicly accessible workspace:
 
     * Create an Azure Machine Learning workspace that __does not__ use the virtual network. For more information, see [Manage Azure Machine Learning workspaces](how-to-manage-workspace.md).
@@ -92,8 +92,7 @@ If you want to access the workspace over the public internet while keeping all t
 
 Use the following steps to secure your workspace and associated resources. These steps allow your services to communicate in the virtual network.
 
-1. Create an [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) that will contain the workspace and other resources.
-1. Create a [Private Link-enabled workspace](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) to enable communication between your VNet and workspace.
+1. Create an [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) that will contain the workspace and other resources. Then create a [Private Link-enabled workspace](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) to enable communication between your VNet and workspace.
 1. Add the following services to the virtual network by using _either_ a __service endpoint__ or a __private endpoint__. Also allow trusted Microsoft services to access these services:
 
     | Service | Endpoint information | Allow trusted information |
@@ -103,7 +102,7 @@ Use the following steps to secure your workspace and associated resources. These
     | __Azure Container Registry__ | [Private endpoint](../container-registry/container-registry-private-link.md) | [Allow trusted services](../container-registry/allow-access-trusted-services.md) |
 
 
-![Architecture diagram showing how the workspace and associated resources communicate to each other over service endpoints or private endpoints inside of a VNet](./media/how-to-network-security-overview/secure-workspace-resources.png)
+:::image type="content" source="./media/how-to-network-security-overview/secure-workspace-resources.svg" alt-text="Diagram showing how the workspace and associated resources communicate inside a VNet.":::
 
 For detailed instructions on how to complete these steps, see [Secure an Azure Machine Learning workspace](how-to-secure-workspace-vnet.md). 
 
@@ -119,9 +118,12 @@ In this section, you learn how to secure the training environment in Azure Machi
 To secure the training environment, use the following steps:
 
 1. Create an Azure Machine Learning [compute instance and computer cluster in the virtual network](how-to-secure-training-vnet.md#compute-cluster) to run the training job.
-1. [Allow inbound communication](how-to-secure-training-vnet.md#required-public-internet-access) so that management services can submit jobs to your compute resources. 
+1. If your compute cluster or compute instance does not use a public IP address, you must [Allow inbound communication](how-to-secure-training-vnet.md#required-public-internet-access) so that management services can submit jobs to your compute resources. 
 
-![Architecture diagram showing how to secure managed compute clusters and instances](./media/how-to-network-security-overview/secure-training-environment.png)
+    > [!TIP]
+    > Compute cluster and compute instance can be created with or without a public IP address. If created with a public IP address, they communicate with the Azure Batch Services over the public IP. If created without a public IP, they communicate with Azure Batch Services over the private IP. When using a private IP, you need to allow inbound communications from Azure Batch.
+
+:::image type="content" source="./media/how-to-network-security-overview/secure-training-environment.svg" alt-text="Diagram showing how to secure managed compute clusters and instances.":::
 
 For detailed instructions on how to complete these steps, see [Secure a training environment](how-to-secure-training-vnet.md). 
 
@@ -135,7 +137,7 @@ In this section, you learn how Azure Machine Learning securely communicates betw
 
 1. Azure Batch service receives the job from the workspace. It then submits the training job to the compute environment through the public load balancer for the compute resource. 
 
-1. The compute resource receive the job and begins training. The compute resources accesses secure storage accounts to download training files and upload output.
+1. The compute resource receives the job and begins training. The compute resource accesses secure storage accounts to download training files and upload output.
 
 ### Limitations
 
@@ -158,7 +160,7 @@ For detailed instructions on how to add default and private clusters, see [Secur
 
 The following network diagram shows a secured Azure Machine Learning workspace with a private AKS cluster attached to the virtual network.
 
-![Architecture diagram showing how to attach a private AKS cluster to the virtual network. The AKS control plane is placed outside of the customer VNet](./media/how-to-network-security-overview/secure-inferencing-environment.png)
+:::image type="content" source="./media/how-to-network-security-overview/secure-inferencing-environment.svg" alt-text="Diagram showing an attached private AKS cluster.":::
 
 ### Limitations
 

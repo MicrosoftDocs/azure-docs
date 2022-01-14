@@ -5,7 +5,7 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 01/10/2022
 ms.author: amverma
 ms.reviewer: cynthn
 ---
@@ -24,7 +24,7 @@ All HBv3-series VMs feature 200 Gb/sec HDR InfiniBand from NVIDIA Networking to 
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Coming soon<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported ([Learn more](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-hbv2-and-ndv2/ba-p/2067965) about performance and potential issues) <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
 <br>
 

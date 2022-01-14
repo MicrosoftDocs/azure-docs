@@ -39,7 +39,7 @@ You can use the Azure portal to create a data collection rule and associate virt
 > [!NOTE]
 > If you wish to send data to Log Analytics, you must create the data collection rule in the **same region** where your Log Analytics workspace resides. The rule can be associated to machines in other supported region(s).
 
-In the **Azure Monitor** menu in the Azure portal, select **Data Collection Rules** from the **Settings** section. Click **Create** to create a new Data Collection Rule and assignment.
+In the **Monitor** menu in the Azure portal, select **Data Collection Rules** from the **Settings** section. Click **Create** to create a new Data Collection Rule and assignment.
 
 [![Data Collection Rules](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png#lightbox)
 

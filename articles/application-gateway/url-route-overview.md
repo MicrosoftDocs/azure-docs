@@ -4,7 +4,7 @@ description: This article provides an overview of the Azure Application Gateway 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 11/18/2021
+ms.date: 01/12/2022
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -63,13 +63,9 @@ The urlPathMap element is used to specify Path patterns to back-end server pool 
 
 PathPattern is a list of path patterns to match. Each path must start with / and may use \* as a wildcard character. The string fed to the path matcher does not include any text after the first ? or #, and those chars are not allowed here. Otherwise, any characters allowed in a URL are allowed in PathPattern.
 
-The supported patterns depend on whether you deploy Application Gateway v1 or v2:
-
-#### v1
-
 Path rules are case insensitive.
 
-|v1 path pattern  |Is supported?  |
+|Path pattern  |Is supported?  |
 |---------|---------|
 |`/images/*`     |yes|
 |`/images*`     |yes|
@@ -78,18 +74,7 @@ Path rules are case insensitive.
 |`/Repos/*/Comments/*`     |no|
 |`/CurrentUser/Comments/*`     |yes|
 
-#### v2
 
-Path rules are case insensitive.
-
-|v2 path pattern  |Is supported?  |
-|---------|---------|
-|`/images/*`     |yes|
-|`/images*`     |yes|
-|`/images/*.jpg`     |no|
-|`/*.jpg`     |no|
-|`/Repos/*/Comments/*`     |no|
-|`/CurrentUser/Comments/*`     |yes|
 
 You can check out a [Resource Manager template using URL-based routing](https://azure.microsoft.com/resources/templates/application-gateway-url-path-based-routing) for more information.
 
