@@ -5,6 +5,7 @@ author: seligj95
 ms.topic: article
 ms.date: 1/17/2022
 ms.author: jordanselig
+ms.custom: references_regions
 ---
 # Migration to App Service Environment v3
 
@@ -41,19 +42,17 @@ Note that App Service Environment v3 doesn't currently support the following fea
 - Monitoring your traffic with Network Watcher or NSG Flow
 - Configuring an IP-based TLS/SSL binding with your apps
 
-The following scenarios aren't supported in this version of the preview. Future updates to the migration functionality will add support for these areas.
+The following scenarios aren't supported in this version of the preview.
 
-|Scenario          |Estimated Support Date  |
-|-------------------------------------------------------------------------------------------------|---------|
-|App Service Environment v2 -> Zone Redundant App Service Environment v3                          |TBD      |
-|App Service Environment v1                                                                       |Q1 2022  |
-|App Service Environment v1 -> Zone Redundant App Service Environment v3                          |TBD      |
-|ILB App Service Environment v2 with a custom domain suffix                                       |Q1 2022  |
-|ILB App Service Environment v1 with a custom domain suffix                                       |TBD      |
-|Internet facing App Service Environment v2 with IP SSL addresses                                 |TBD      |
-|Internet facing App Service Environment v1 with IP SSL addresses                                 |TBD      |
-|[Zone pinned](zone-redundancy.md) App Service Environment v2                                     |TBD      |
-|App Service Environment in a region not listed above                                             |Gradually|
+- App Service Environment v2 -> Zone Redundant App Service Environment v3
+- App Service Environment v1
+- App Service Environment v1 -> Zone Redundant App Service Environment v3
+- |ILB App Service Environment v2 with a custom domain suffix
+- ILB App Service Environment v1 with a custom domain suffix
+- Internet facing App Service Environment v2 with IP SSL addresses
+- Internet facing App Service Environment v1 with IP SSL addresses
+- [Zone pinned](zone-redundancy.md) App Service Environment v2
+- App Service Environment in a region not listed above
 
 The App Service platform will review your App Service Environment to confirm migration support. If your scenario doesn't pass all validation checks, you won't be able to migrate at this time.
 
@@ -62,7 +61,7 @@ The App Service platform will review your App Service Environment to confirm mig
 Migration consists of a series of steps that must be followed in order. Key points are given below for a subset of the steps. It's important to understand what will happen during these steps and how your environment and apps will be impacted. After reviewing the following information and when you're ready to migrate, follow the [step-by-step guide](how-to-migrate.md).
 
 > [!NOTE]
-> For this version of the preview, migration must be carried out using Azure REST API calls. An Azure portal experience will be available in early February, 2022.
+> For this version of the preview, migration must be carried out using Azure REST API calls.
 >
 
 ### Delegate your App Service Environment subnet
@@ -108,7 +107,7 @@ The migration feature doesn't plan on supporting App Service Environment v1 with
 ## Frequently asked questions
 
 - **What if migrating my App Service Environment is not currently supported?**  
-  Support for other scenarios will roll out over the next few months in future versions of the preview. Check back for updates on this page and look for announcements on the [App Service Blog](https://azure.github.io/AppService/). If you have an unsupported environment and want to migrate sooner, see [migration alternatives](migration-alternatives.md).
+  You won't be able migrate using the migration feature at this time. If you have an unsupported environment and want to migrate immediately, see [migration alternatives](migration-alternatives.md).
 - **Will I experience downtime during the migration?**  
   Yes, you should expect about one hour of downtime during the full migration step so plan accordingly. If downtime isn't an option for you, see [migration alternatives](migration-alternatives.md).
 - **Will I need to do anything to my apps after the migration to get them running on the new App Service Environment?**  
@@ -123,8 +122,6 @@ The migration feature doesn't plan on supporting App Service Environment v1 with
   If there's an unexpected issue, support teams will be on hand. It's recommended to migrate dev environments before touching any production environments.
 - **What happens to my old App Service Environment?**  
   If you decide to migrate an App Service Environment, the old environment gets shut down and deleted and all of your apps are migrated to a new environment. Your old environment will no longer be accessible.
-- **Will I be able to migrate from the Azure portal?**  
-  Yes, the portal experience is expected to be available by early February 2022.
 
 ## Next steps
 

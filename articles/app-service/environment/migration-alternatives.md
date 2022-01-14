@@ -41,7 +41,7 @@ The [back up](../manage-backup.md) and [restore](../web-sites-restore.md) featur
 
 The step-by-step instructions in the current documentation for [back up](../manage-backup.md) and [restore](../web-sites-restore.md) should be sufficient to allow you to use this feature. When restoring, the **Storage** option lets you select any backup ZIP file from any existing Azure Storage account container in your subscription. A sample of a restore configuration is given below.
 
-![back up and restore sample](./media/migration/back-up-restore_sample.png)
+![back up and restore sample](./media/migration/back-up-restore-sample.png)
 
 |Benefits     |Limitations    |
 |---------|---------|
@@ -71,7 +71,7 @@ To clone an app using the [Azure portal](https://www.portal.azure.com), navigate
 1. You can use an existing Windows **App Service plan** from your new environment if you created one already, or create a new one. The available Windows App Service plans in your new App Service Environment v3, if any, will be listed in the dropdown.
 1. Modify **SKU and size** as needed using one of the Isolated v2 options if creating a new App Service plan. Note App Service Environment v3 uses Isolated v2 plans, which have more memory and CPU per corresponding instance size compared to the Isolated plan. For more information, see [App Service Environment v3 pricing](overview.md#pricing).
 
-![clone sample](./media/migration/portal_clone_sample.png)
+![clone sample](./media/migration/portal-clone-sample.png)
 
 |Benefits     |Limitations     |
 |---------|---------|
@@ -85,11 +85,11 @@ If the above features don't support your apps or you're looking to take a more m
 
 You can export [Azure Resource Manager (ARM) templates](../../azure-resource-manager/templates/overview.md) of your existing apps, App Service plans, and any other supported resources and deploy them in your new environment. To export a template for just your app, head over to your App Service and go to **Export template** under **Automation**.
 
-![export from toc](./media/migration/export_toc.png)
+![export from toc](./media/migration/export-toc.png)
 
 You can also export templates for multiple resources directly from your resource group by going to your resource group, selecting the resources you want a template for, and then selecting **Export template**.
 
-![export template sample](./media/migration/export_template_sample.png)
+![export template sample](./media/migration/export-template-sample.png)
 
 The following initial changes to your Azure Resource Manager templates are required to get your apps onto your App Service Environment v3:
 

@@ -40,7 +40,7 @@ App Service Environment v3 requires the subnet it's in to have a single delegati
 az network vnet subnet update -g $ASE_RG -n <subnet-name> --vnet-name <vnet-name> --delegations Microsoft.Web/hostingEnvironments
 ```
 
-![subnet-delegation](./media/migration/subnet_delegation.jpg)
+![subnet-delegation](./media/migration/subnet-delegation.jpg)
 
 ## 3. Validate migration is supported
 
