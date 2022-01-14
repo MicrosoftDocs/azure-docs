@@ -33,7 +33,7 @@ A workspace can contain any number of **Linked service**, essentially connection
 Inside Synapse Studio, you can work with SQL pools by running **SQL scripts**.
 
 > [!NOTE]
-> Dedicated SQL pools in Azure Synapse is different from the dedicated SQL pool (formerly SQL DW). Not all features of the dedicated SQL pool in Azure Synapse workspaces apply to dedicated SQL pool (formerly SQL DW), and vice versa.
+> Dedicated SQL pools in Azure Synapse is different from the dedicated SQL pool (formerly SQL DW). Not all features of the dedicated SQL pool in Azure Synapse workspaces apply to dedicated SQL pool (formerly SQL DW), and vice versa. To enable workspace features for an existing dedicated SQL pool (formerly SQL DW), see [How to enable a workspace for your dedicated SQL pool (formerly SQL DW)](sql-data-warehouse/workspace-connected-create.md).
 
 ## Apache Spark for Synapse
 
