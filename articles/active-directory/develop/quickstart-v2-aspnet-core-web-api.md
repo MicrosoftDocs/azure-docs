@@ -31,7 +31,7 @@ In this quickstart, you download an ASP.NET Core web API code sample and review 
 
 First, register the web API in your Azure AD tenant and add a scope by following these steps:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
@@ -60,7 +60,7 @@ In this step, configure the sample code to work with the app registration that y
 
 1. Extract the .zip archive into a folder near the root of your drive. For example, extract into *C:\Azure-Samples*.
 
-  We recommend extracting the archive into a directory near the root of your drive to avoid errors caused by path length limitations on Windows.
+   We recommend extracting the archive into a directory near the root of your drive to avoid errors caused by path length limitations on Windows.
 
 1. Open the solution in the *webapi* folder in your code editor.
 1. Open the *appsettings.json* file and modify the following code:
