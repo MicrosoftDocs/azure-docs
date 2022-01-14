@@ -36,3 +36,4 @@ Having multiple Azure Purview accounts in a tenant now poses the challenge of wh
 
 - [Create an Azure Purview account](create-catalog-portal.md)
 - [Azure Purview Pricing](https://azure.microsoft.com/pricing/details/azure-purview/)
+
