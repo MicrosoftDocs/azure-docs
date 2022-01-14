@@ -265,7 +265,7 @@ This problem occurs for one of the following reasons:
 
 **Do I have to configure my custom domain for my website once I buy it?**
 
-When you purchase a domain from the Azure portal, the App Service application is automatically configured to use that custom domain. You don’t have to take any additional steps. For more information, watch [Azure App Service Self Help: Add a Custom Domain Name](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) on Channel9.
+When you purchase a domain from the Azure portal, the App Service application is automatically configured to use that custom domain. You don’t have to take any additional steps. For more information, watch Azure App Service Self Help: Add a Custom Domain Name on Channel9.
 
 **Can I use a domain purchased in the Azure portal to point to an Azure VM instead?**
 
