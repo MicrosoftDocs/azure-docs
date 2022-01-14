@@ -167,7 +167,7 @@ Azure AD provides built-in roles to work with custom security attributes. The At
 > [!IMPORTANT]
 > By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes.
 
-## Graph explorer
+## Graph Explorer
 
 If you use the Microsoft Graph API, you can use [Graph Explorer](/graph/graph-explorer/graph-explorer-overview) to more easily try the Microsoft Graph APIs for custom security attributes. For more information, see [Overview of custom security attributes using the Microsoft Graph API](/graph/api/resources/custom-security-attributes-overview).
 
