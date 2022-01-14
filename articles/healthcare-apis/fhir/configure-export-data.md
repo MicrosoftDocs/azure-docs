@@ -153,7 +153,7 @@ address range in Classless Inter-Domain Routing (CIDR) format is used instead, 1
 
 ## Next steps
 
-In this article, you learned about the three steps in configuring export settings that allows you to export data out of FHIR service account to a storage account. For more information about the Bulk Export feature that allows data to be exported from the FHIR service, see 
+In this article, you learned about the three steps in configuring export settings that allow you to export data out of FHIR service account to a storage account. For more information about the Bulk Export feature that allows data to be exported from the FHIR service, see 
 
 >[!div class="nextstepaction"]
 >[How to export FHIR data](export-data.md)
