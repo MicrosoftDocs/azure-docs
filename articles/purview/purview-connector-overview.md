@@ -1,6 +1,6 @@
 ---
-title: Purview Connector Overview
-description: This article outlines the different data stores and functionalities supported in Purview
+title: Azure Purview Connector Overview
+description: This article outlines the different data stores and functionalities supported in Azure Purview
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
@@ -12,9 +12,9 @@ ms.custom: ignite-fall-2021
 
 # Supported data stores
 
-Purview supports the following data stores. Select each data store to learn the supported capabilities and the corresponding configurations in details.
+Azure Purview supports the following data stores. Select each data store to learn the supported capabilities and the corresponding configurations in details.
 
-## Purview data sources
+## Azure Purview data sources
 
 |**Category**|  **Data Store**  |**Technical metadata** |**Classification** |**Lineage** | **Access Policy** |
 |---|---|---|---|---|---|
@@ -53,12 +53,12 @@ Purview supports the following data stores. Select each data store to learn the 
 \* Besides the lineage on assets within the data source, lineage is also supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).
 
 > [!NOTE]
-> Currently, Purview can't scan an asset that has `/`, `\`, or `#` in its name. To scope your scan and avoid scanning assets that have those characters in the asset name, use the example in [Register and scan an Azure SQL Database](register-scan-azure-sql-database.md#creating-the-scan).
+> Currently, Azure Purview can't scan an asset that has `/`, `\`, or `#` in its name. To scope your scan and avoid scanning assets that have those characters in the asset name, use the example in [Register and scan an Azure SQL Database](register-scan-azure-sql-database.md#creating-the-scan).
 
 ## Scan regions
-The following is a list of all the Azure data source (data center) regions where the Purview scanner runs. If your Azure data source is in a region outside of this list, the scanner will run in the region of your Purview instance.
+The following is a list of all the Azure data source (data center) regions where the Azure Purview scanner runs. If your Azure data source is in a region outside of this list, the scanner will run in the region of your Azure Purview instance.
 
-### Purview scanner regions
+### Azure Purview scanner regions
 
 - Australia East
 - Australia Southeast

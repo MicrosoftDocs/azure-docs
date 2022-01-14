@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/07/2022
+ms.date: 01/14/2022
 ms.author: anfdocs
 ---
 # Configure ADDS LDAP with extended groups for NFS volume access
@@ -46,33 +46,14 @@ This article explains the considerations and steps for enabling LDAP with extend
 
 ## Steps
 
-1. The LDAP with extended groups feature is currently in preview. Before using this feature for the first time, you need to register the feature:  
-
-    1. Register the feature:   
-
-        ```azurepowershell-interactive
-        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapExtendedGroups
-        ```
-
-    2. Check the status of the feature registration: 
-
-        > [!NOTE]
-        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
-
-        ```azurepowershell-interactive
-        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapExtendedGroups
-        ```
-        
-    You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
-2. LDAP volumes require an Active Directory configuration for LDAP server settings. Follow instructions in [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections) and [Create an Active Directory connection](create-active-directory-connections.md#create-an-active-directory-connection) to configure Active Directory connections on the Azure portal.  
+1. LDAP volumes require an Active Directory configuration for LDAP server settings. Follow instructions in [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections) and [Create an Active Directory connection](create-active-directory-connections.md#create-an-active-directory-connection) to configure Active Directory connections on the Azure portal.  
 
     > [!NOTE]
     > Ensure that you have configured the Active Directory connection settings. A machine account will be created in the organizational unit (OU) that is specified in the Active Directory connection settings. The settings are used by the LDAP client to authenticate with your Active Directory.
 
-3. Ensure that the Active Directory LDAP server is up and running on the Active Directory. 
+2. Ensure that the Active Directory LDAP server is up and running on the Active Directory. 
 
-4. LDAP NFS users need to have certain POSIX attributes on the LDAP server. Set the attributes for LDAP users and LDAP groups as follows: 
+3. LDAP NFS users need to have certain POSIX attributes on the LDAP server. Set the attributes for LDAP users and LDAP groups as follows: 
 
     * Required attributes for LDAP users:   
         `uid: Alice`,  
@@ -91,19 +72,19 @@ This article explains the considerations and steps for enabling LDAP with extend
 
     ![Active Directory Attribute Editor](../media/azure-netapp-files/active-directory-attribute-editor.png) 
 
-5. If you want to configure an LDAP-integrated NFSv4.1 Linux client, see [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md).
+4. If you want to configure an LDAP-integrated NFSv4.1 Linux client, see [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md).
 
-6. If your LDAP-enabled volumes use NFSv4.1, follow instructions in [Configure NFSv4.1 domain](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-domain) to configure the `/etc/idmapd.conf` file.
+5. If your LDAP-enabled volumes use NFSv4.1, follow instructions in [Configure NFSv4.1 domain](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-domain) to configure the `/etc/idmapd.conf` file.
 
     You need to set `Domain` in `/etc/idmapd.conf` to the domain that is configured in the Active Directory Connection on your NetApp account. For instance, if `contoso.com` is the configured domain in the NetApp account, then set `Domain = contoso.com`.
 
     Then you need to restart the `rpcbind` service on your host or reboot the host. 
 
-7.	Follow steps in [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md) to create an NFS volume. During the volume creation process, under the **Protocol** tab, enable the **LDAP** option.   
+6.	Follow steps in [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md) to create an NFS volume. During the volume creation process, under the **Protocol** tab, enable the **LDAP** option.   
 
     ![Screenshot that shows Create a Volume page with LDAP option.](../media/azure-netapp-files/create-nfs-ldap.png)  
 
-8. Optional - You can enable local NFS client users not present on the Windows LDAP server to access an NFS volume that has LDAP with extended groups enabled. To do so, enable the **Allow local NFS users with LDAP** option as follows:
+7. Optional - You can enable local NFS client users not present on the Windows LDAP server to access an NFS volume that has LDAP with extended groups enabled. To do so, enable the **Allow local NFS users with LDAP** option as follows:
     1. Click **Active Directory connections**.  On an existing Active Directory connection, click the context menu (the three dots `…`), and select **Edit**.  
     2. On the **Edit Active Directory settings** window that appears, select the **Allow local NFS users with LDAP** option.  
 

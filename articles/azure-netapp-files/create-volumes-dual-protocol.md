@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/07/2022
+ms.date: 01/14/2022
 ms.author: anfdocs
 ---
 # Create a dual-protocol volume for Azure NetApp Files

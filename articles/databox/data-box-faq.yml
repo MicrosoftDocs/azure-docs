@@ -8,7 +8,7 @@ metadata:
   ms.service: databox
   ms.subservice: pod
   ms.topic: article
-  ms.date: 12/27/2021
+  ms.date: 01/13/2022
   ms.author: alkohli
   ms.custom: references_regions
 
@@ -209,6 +209,10 @@ sections:
 
           [!INCLUDE [return-data-box-before-certificates-expire](../../includes/data-box-certificate-expiration.md)]
 
+          ### How do I verify the data I copied onto my Data Box?
+
+          After the data copy is complete, when you run **Prepare to ship**, your data is validated. Data Box generates a list of files and checksums for the data during the validation process. You can download the list of files and verify the list against the files in the source data. For more information, go to [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship).
+          
           ## [Data Box only](#tab/data-box)
 
           ### The system fault indicator LED on the front operating panel is on. What should I do?
@@ -418,13 +422,13 @@ sections:
           
           For error information and steps to proceed with your order, see [Review copy errors in uploads from Azure Data Box and Azure Data Box Heavy devices](data-box-troubleshoot-data-upload.md).
 
-          ### How do I verify the data I copied onto my Data Box?
+          ### I'm seeing date entries with "Fri, 31 Dec 9999 23:59:59" on some files. What does that mean? 
 
-          After the data copy is complete, when you run **Prepare to ship**, your data is validated. Data Box generates a list of files and checksums for the data during the validation process. You can download the list of files and verify the list against the files in the source data. For more information, go to [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship).
+          [!INCLUDE [data-box-file-date-substitution](../../includes/data-box-file-date-substitution.md)]
 
           ### What happens to my data after I return the Data Box?
 
-          Once the data copy to Azure is complete, the data from the disks on the Data Box is securely erased as per the NIST SP 800-88 Revision 1 guidelines. For more information, go to [Erasure of data from Data Box](data-box-deploy-picked-up.md#erasure-of-data-from-data-box).
+          Once the data upload to Azure is complete, the data from the disks on the Data Box is securely erased as per the NIST SP 800-88 Revision 1 guidelines. For more information, go to [Erasure of data from Data Box](data-box-deploy-picked-up.md#erasure-of-data-from-data-box).
 
       - question: |
           Audit report 

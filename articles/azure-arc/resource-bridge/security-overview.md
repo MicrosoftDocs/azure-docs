@@ -9,6 +9,9 @@ ms.date: 11/08/2021
 
 This article describes the security configuration and considerations you should evaluate before deploying Azure Arc resource bridge (preview) in your enterprise.
 
+> [!IMPORTANT]
+> In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
+
 ## Using a managed identity
 
 By default, an Azure Active Directory system-assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) is created and assigned to the Azure Arc resource bridge (preview). Azure Arc resource bridge (preview) currently supports only a system-assigned identity. The `clusteridentityoperator` identity initiates the first outbound communication and fetches the Managed Service Identity (MSI) certificate used by other agents for communication with Azure.
