@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 11/30/2021
+ms.date: 01/14/2022
 ms.topic: how-to
 
 ---
@@ -57,6 +57,8 @@ In this section, you retrieve and download the Azure Load Testing logs from the 
 
 ## Next steps
 
-- For more information about comparing test results, see [Compare multiple test results](./how-to-compare-multiple-test-runs.md).
+- Learn how to [Monitor server-side application metrics](./how-to-update-rerun-test.md).
 
-- To learn about performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
+- Learn how to [Get detailed insights for Azure App Service based applications](./how-to-appservice-insights.md).
+
+- Learn how to [Compare multiple load test runs](./how-to-compare-multiple-test-runs.md).
