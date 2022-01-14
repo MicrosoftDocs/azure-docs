@@ -50,6 +50,7 @@ New-AzVm `
     -Location "East US" `
     -Image UbuntuLTS `
     -size Standard_B2s `
+    -PublicIpAddressName myPubIP `
     -OpenPorts 80,22 `
     -GenerateSshKey `
     -SshKeyName mySSHKey
