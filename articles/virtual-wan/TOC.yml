@@ -118,7 +118,11 @@
   - name: Site-to-site
     items:
     - name: Create a site-to-site connection
-      href: virtual-wan-site-to-site-portal.md
+      items:
+      - name: Azure portal
+        href: virtual-wan-site-to-site-portal.md
+      - name: Azure PowerShell
+        href: site-to-site-powershell.md   
     - name: Connect virtual network gateway to Virtual WAN
       href: connect-virtual-network-gateway-vwan.md
     - name: Configure custom IPsec policy
