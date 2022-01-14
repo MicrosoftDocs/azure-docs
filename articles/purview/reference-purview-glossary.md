@@ -1,5 +1,5 @@
 ---
-title: Purview product glossary
+title: Azure Purview product glossary
 description: A glossary defining the terminology used throughout Azure Purview
 author: djpmsft
 ms.author: daperlov
@@ -12,11 +12,11 @@ ms.date: 08/16/2021
 Below is a glossary of terminology used throughout Azure Purview.
 
 ## Annotation
-Information that is associated with data assets in Azure Purview, for example, glossary terms and classifications. After they are applied, annotations can be used within Search to aid in the discovery of the data assets. 
+Information that is associated with data assets in Azure Azure Purview, for example, glossary terms and classifications. After they are applied, annotations can be used within Search to aid in the discovery of the data assets. 
 ## Approved
 The state given to any request that has been accepted as satisfactory by the designated individual or group who has authority to change the state of the request. 
 ## Asset
-Any single object that is stored within an Azure Purview data catalog.
+Any single object that is stored within an Azure Azure Purview data catalog.
 > [!NOTE]
 > A single object in the catalog could potentially represent many objects in storage, for example, a resource set is an asset but it's made up of many partition files in storage.
 ## Azure Information Protection
@@ -81,8 +81,8 @@ Data that is in a data center controlled by a customer, for example, not in�
 An individual or group in charge of managing a data asset.
 ## Pattern rule
 A configuration that overrides how Azure Purview groups assets as resource sets and displays them within the catalog.
-## Purview instance
-A single Azure Purview resource. 
+## Azure Purview instance
+A single Azure Azure Purview resource. 
 ## Registered source
 A source that has been added to an Azure Purview instance and is now managed as a part of the Data catalog. 
 ## Related terms
@@ -90,7 +90,7 @@ Glossary terms that are linked to other terms within the organization.  
 ## Resource set
 A single asset that represents many partitioned files or objects in storage. For example, Azure Purview stores partitioned Apache Spark output as a single resource set instead of unique assets for each individual file. 
 ## Role
-Permissions assigned to a user within an Azure Purview instance. Roles, such as Purview Data Curator or Purview Data Reader, determine what can be done within the product.
+Permissions assigned to a user within an Azure Purview instance. Roles, such as Azure Purview Data Curator or Azure Purview Data Reader, determine what can be done within the product.
 ## Scan
 An Azure Purview process that examines a source or set of sources and ingests its metadata into the data catalog. Scans can be run manually or on a schedule using a scan trigger. 
 ## Scan ruleset

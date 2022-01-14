@@ -8,18 +8,18 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
 ---
-# View, edit and delete assets in Purview catalog
+# View, edit and delete assets in Azure Purview catalog
 
 This article discusses how to you can view your assets and their relevant details. It also describes how you can edit and delete assets from your catalog.
 
 ## Prerequisites
 
 - Set up your data sources and scan the assets into your catalog.
-- *Or* Use the Purview Atlas APIs to ingest assets into the catalog. 
+- *Or* Use the Azure Purview Atlas APIs to ingest assets into the catalog. 
 
 ## Viewing asset details
 
-You can discover your assets in Purview by either:
+You can discover your assets in Azure Purview by either:
 - [Browsing the Azure Purview Data catalog](how-to-browse-catalog.md)
 - [Searching the Azure Purview Data Catalog](how-to-search-catalog.md)
 
@@ -81,7 +81,7 @@ If you edit an asset by adding a description, asset level classification, glossa
 
 If you make some column level updates, like adding a description, column level classification, or glossary term, then subsequent scans will also update the asset schema (new columns and classifications will be detected by the scanner in subsequent scan runs). 
 
-Even on edited assets, after a scan Azure Purview will reflect the truth of the source system. For example: if you edit a column and it's deleted from the source, it will be deleted from your asset in Purview. 
+Even on edited assets, after a scan Azure Purview will reflect the truth of the source system. For example: if you edit a column and it's deleted from the source, it will be deleted from your asset in Azure Purview. 
 
 >[!NOTE]
 > If you update the **name or data type of a column** in an Azure Purview asset, later scans **will not** update the asset schema. New columns and classifications **will not** be detected.
@@ -92,11 +92,11 @@ You can delete an asset by selecting the delete icon under the name of the asset
 
 ### Delete behavior explained
 
-Any asset you delete using the delete button is permanently deleted in Azure Purview. However, if you run a **full scan** on the source from which the asset was ingested into the catalog, then the asset is reingested and you can discover it using the Purview catalog.
+Any asset you delete using the delete button is permanently deleted in Azure Purview. However, if you run a **full scan** on the source from which the asset was ingested into the catalog, then the asset is reingested and you can discover it using the Azure Purview catalog.
 
-If you have a scheduled scan (weekly or monthly) on the source, the **deleted asset will not get re-ingested** into the catalog unless the asset is modified by an end user since the previous run of the scan.   For example, if a SQL table was deleted from Purview, but after the table was deleted a user added a new column to the table in SQL, at the next scan the asset will be rescanned and ingested into the catalog.
+If you have a scheduled scan (weekly or monthly) on the source, the **deleted asset will not get re-ingested** into the catalog unless the asset is modified by an end user since the previous run of the scan.   For example, if a SQL table was deleted from Azure Purview, but after the table was deleted a user added a new column to the table in SQL, at the next scan the asset will be rescanned and ingested into the catalog.
 
-If you delete an asset, only that asset is deleted. Purview does not currently support cascaded deletes. For example, if you delete a storage account asset in your catalog - the containers, folders and files within them are not deleted. 
+If you delete an asset, only that asset is deleted. Azure Purview does not currently support cascaded deletes. For example, if you delete a storage account asset in your catalog - the containers, folders and files within them are not deleted. 
 
 
 ## Next steps
