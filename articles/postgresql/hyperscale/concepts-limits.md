@@ -6,13 +6,20 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 12/10/2021
+ms.date: 01/14/2022
 ---
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) limits and limitations
 
 The following section describes capacity and functional limits in the
 Hyperscale (Citus) service.
+
+### Naming
+
+#### Server group name
+
+A Hyperscale (Citus) server group must have a name that is 40 characters or
+shorter.
 
 ## Networking
 
@@ -45,31 +52,6 @@ You can scale connections further using [connection
 pooling](concepts-connection-pool.md). Hyperscale (Citus) offers a
 managed pgBouncer connection pooler configured for up to 2,000 simultaneous
 client connections.
-
-### Private access (preview)
-
-#### Server group name
-
-To be compatible with [private access](concepts-private-access.md),
-a Hyperscale (Citus) server group must have a name that is 40 characters or
-shorter.
-
-#### Regions
-
-The private access feature is available in preview in only these regions:
-
-* Americas
-	* East US
-	* East US 2
-	* West US 2
-* Asia Pacific
-	* Japan East
-	* Japan West
-	* Korea Central
-* Europe
-	* Germany West Central
-	* UK South
-	* West Europe
 
 ## Storage
 
