@@ -45,6 +45,9 @@ If your vault is configured with [network restrictions](../key-vault/general/ove
 
 ### Access vaults with a user-assigned identity
 
+> [!CAUTION]
+> Azure Function App does not support access to vaults with user-assigned identities.
+
 Some apps need to reference secrets at creation time, when a system-assigned identity would not yet be available. In these cases, a user-assigned identity can be created and given access to the vault in advance.
 
 Once you have granted permissions to the user-assigned identity, follow these steps:
