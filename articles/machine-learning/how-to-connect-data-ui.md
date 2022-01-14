@@ -47,6 +47,10 @@ For a code first experience, see the following articles to use the [Azure Machin
 
 You can create datastores from [these Azure storage solutions](how-to-access-data.md#matrix). **For unsupported storage solutions**, and to save data egress cost during ML experiments, you must [move your data](how-to-access-data.md#move) to a supported Azure storage solution. [Learn more about datastores](how-to-access-data.md). 
 
+You can create datastores with credential-based access or identity-based access. 
+
+# [Credential-based](#tab/credential)
+
 Create a new datastore in a few steps with the Azure Machine Learning studio.
 
 > [!IMPORTANT]
@@ -61,6 +65,23 @@ The following example demonstrates what the form looks like when you create an *
 
 ![Form for a new datastore](media/how-to-connect-data-ui/new-datastore-form.png)
 
+# [Identity-based](#tab/identity)
+
+Create a new datastore in a few steps with the Azure Machine Learning studio. Learn more about [identity-based data access](how-to-identity-based-data-access.md). 
+
+> [!IMPORTANT]
+> If your data storage account is in a virtual network, additional configuration steps are required to ensure the studio has access to your data. See [Network isolation & privacy](how-to-enable-studio-virtual-network.md) to ensure the appropriate configuration steps are applied.
+
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
+1. Select **Datastores** on the left pane under **Manage**.
+1. Select **+ New datastore**.
+1. Complete the form to create and register a new datastore. The form intelligently updates itself based on your selections for Azure storage type. See [which storage types support identity-based](how-to-identity-based-data-access.md#storage-access-permissions) data access.
+1. Select **No** to  not **Save credentials with the datastore for data access**.
+
+The following example demonstrates what the form looks like when you create an **Azure blob datastore**:
+
+![Form for a new datastore](media/how-to-connect-data-ui/new-id-based-datastore-form.png)
+---
 ## Create datasets
 
 After you create a datastore, create a dataset to interact with your data. Datasets package your data into a lazily evaluated consumable object for machine learning tasks, like training. [Learn more about datasets](how-to-create-register-datasets.md).

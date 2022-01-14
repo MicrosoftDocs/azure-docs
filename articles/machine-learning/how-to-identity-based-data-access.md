@@ -19,6 +19,8 @@ ms.custom: contperf-fy21q1, devx-track-python, data4ml
 In this article, you learn how to connect to storage services on Azure by using identity-based data access and Azure Machine Learning datastores via the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).  
 
 Typically, datastores use credential-based data access to confirm you have permission to access the storage service. They keep connection information, like your subscription ID and token authorization, in the [key vault](https://azure.microsoft.com/services/key-vault/) that's associated with the workspace. When you create a datastore that uses **identity-based data access**, your Azure account ([Azure Active Directory token](../active-directory/fundamentals/active-directory-whatis.md)) is used to confirm you have permission to access the storage service. In the **identity-based data access** scenario, no authentication credentials are saved. Only the storage account information is stored in the datastore. 
+ 
+To create datastores with identity-based data access via the Azure Machine Learning studio UI, see [Connect to data with the Azure Machine Learning studio](how-to-connect-data-ui.md#create-datastores).
 
 To create datastores that use credential-based authentication, like access keys or service principals, see [Connect to storage services on Azure](how-to-access-data.md).
 
