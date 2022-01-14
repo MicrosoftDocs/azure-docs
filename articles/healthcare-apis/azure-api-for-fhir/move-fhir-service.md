@@ -1,5 +1,5 @@
 ---
-title: Move FHIR Service to Another Subscription or Resource Group
+title: Move FHIR service to another subscription or resource group
 description: This article describes how to move Azure an API for FHIR service instance  
 author: zxue
 ms.service: healthcare-apis
@@ -9,7 +9,7 @@ ms.date: 01/14/2022
 ms.author: zxue
 ---
 
-# Move FHIR Service to Another Subscription or Resource Group
+# Move FHIR service to another subscription or resource group
 
 In this article, you'll learn how to move Azure an API for FHIR service instance to another one subscription or another resource group.  
 
