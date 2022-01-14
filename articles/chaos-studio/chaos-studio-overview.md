@@ -14,11 +14,8 @@ ms.custom: template-overview,ignite-fall-2021
 
 Azure Chaos Studio is a managed service for improving resilience by injecting faults into your Azure applications. Running controlled fault injection experiments against your applications, a practice known as chaos engineering, helps you to measure, understand, and improve resilience against real-world incidents, such as a region outages or application failures causing high CPU utilization on a VM.
 
-<<<<<<< HEAD
-=======
 > [!VIDEO https://aka.ms/docs/player?id=29017ee4-bdfa-491e-acfe-8876e93c505b]
 
->>>>>>> ea545d30a278349a33b9c8bf5188cf5ecc483a20
 ## Why should I use Chaos Studio?
 
 Whether you are developing a new application that will be hosted on Azure, migrating an existing application to Azure, or operating an application that already runs on Azure, it is important to validate and improve your application's resilience. Resilience is the capability of a system to handle and recover from disruptions. Disruptions in your application's availability can result in errors and failures for users, which in turn can have negative consequences on your business or mission.

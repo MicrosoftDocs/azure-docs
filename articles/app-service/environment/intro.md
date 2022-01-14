@@ -32,11 +32,6 @@ Customers can create multiple ASEs within a single Azure region or across multip
 
 ASEs host applications from only one customer and do so in one of their VNets. Customers have fine-grained control over inbound and outbound application network traffic. Applications can establish high-speed secure connections over VPNs to on-premises corporate resources.
 
-<<<<<<< HEAD
-* ASE comes with its own pricing tier, learn how the Isolated offering helps drive hyper-scale and security.
-* App Service Environments v2 provide a surrounding to safeguard your apps in a subnet of your network and provides your own private deployment of Azure App Service.
-=======
->>>>>>> ea545d30a278349a33b9c8bf5188cf5ecc483a20
 * Multiple ASEs can be used to scale horizontally. For more information, see [how to set up a geo-distributed app footprint](app-service-app-service-environment-geo-distributed-scale.md).
 * ASEs can be used to configure security architecture, as shown in the AzureCon Deep Dive. To see how the security architecture shown in the AzureCon Deep Dive was configured, see the [article on how to implement a layered security architecture](app-service-app-service-environment-layered-security.md) with App Service environments.
 * Apps running on ASEs can have their access gated by upstream devices, such as web application firewalls (WAFs). For more information, see [Web application firewall (WAF)][AppGW].

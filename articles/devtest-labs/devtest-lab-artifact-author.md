@@ -7,10 +7,6 @@ ms.date: 01/11/2022
 
 # Create custom artifacts for DevTest Labs
 
-<<<<<<< HEAD
-## Overview
-You can use *artifacts* to deploy and set up your application after you provision a VM. An artifact consists of an artifact definition file and other script files that are stored in a folder in a Git repository. Artifact definition files consist of JSON expressions that specify what you want to install on a VM. For example, you can define the name of an artifact, a command to run, and available parameters for the command. You can refer to other script files within the artifact definition file by name.
-=======
 This article describes how to create custom artifact files for Azure DevTest Labs virtual machines (VMs). DevTest Labs artifacts specify actions to take to provision a VM. An artifact consists of an artifact definition file and other script files that you store in a folder in a Git repository.
 
 - For information about adding your artifact repositories to labs, see [Add an artifact repository to your lab](add-artifact-repository.md).
@@ -18,7 +14,6 @@ This article describes how to create custom artifact files for Azure DevTest Lab
 - For information about specifying mandatory artifacts to be added to all lab VMs, see [Specify mandatory artifacts for DevTest Labs VMs](devtest-lab-mandatory-artifacts.md).
 
 ## Artifact definition files
->>>>>>> ea545d30a278349a33b9c8bf5188cf5ecc483a20
 
 Artifact definition files are JSON expressions that specify what you want to install on a VM. The files define the name of an artifact, a command to run, and available parameters for the command. You can refer to other script files by name in the artifact definition file.
 
