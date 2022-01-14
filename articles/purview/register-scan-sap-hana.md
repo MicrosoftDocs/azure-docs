@@ -23,7 +23,7 @@ This article outlines how to register SAP HANA, and how to authenticate and inte
 |---|---|---|---|---|---|---|
 | [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| No |
 
-When scanning SAP HANA source, Purview supports extracting technical metadata including:
+When scanning SAP HANA source, Azure Purview supports extracting technical metadata including:
 
 - Server
 - Databases

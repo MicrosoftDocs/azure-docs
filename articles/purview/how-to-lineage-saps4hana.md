@@ -10,7 +10,7 @@ ms.date: 08/12/2021
 ---
 # How to get lineage from SAP S/4HANA into Azure Purview
 
-This article elaborates on the data lineage aspects of SAP S/4HANA source in Azure Purview. The prerequisite to see data lineage in Purview for SAP S/4HANA is to [scan your SAP S/4HANA.](../purview/register-scan-saps4hana-source.md) 
+This article elaborates on the data lineage aspects of SAP S/4HANA source in Azure Purview. The prerequisite to see data lineage in Azure Purview for SAP S/4HANA is to [scan your SAP S/4HANA.](../purview/register-scan-saps4hana-source.md) 
 
 ## Lineage of SAP S/4HANA artifacts in Azure Purview
 

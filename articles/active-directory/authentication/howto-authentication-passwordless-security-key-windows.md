@@ -72,7 +72,7 @@ Organizations may choose to use one or more of the following methods to enable t
 
 To enable the use of security keys using Intune, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Endpoint Manager admin center](https://endpoint.microsoft.com).
 1. Browse to **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Windows Hello for Business** > **Properties**.
 1. Under **Settings**, set **Use security keys for sign-in** to **Enabled**.
 
@@ -82,13 +82,13 @@ Configuration of security keys for sign-in isn't dependent on configuring Window
 
 To target specific device groups to enable the credential provider, use the following custom settings via Intune:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Microsoft Intune** > **Device configuration** > **Profiles** > **Create profile**.
+1. Sign in to the [Microsoft Endpoint Manager admin center](https://endpoint.microsoft.com).
+1. Browse to **Device** > **Windows** > **Configuration Profiles** > **Create profile**.
 1. Configure the new profile with the following settings:
    - Name: Security Keys for Windows Sign-In
    - Description: Enables FIDO Security Keys to be used during Windows Sign In
    - Platform: Windows 10 and later
-   - Profile type: Custom
+   - Profile type: Template > Custom
    - Custom OMA-URI Settings:
       - Name: Turn on FIDO Security Keys for Windows Sign-In
       - OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin

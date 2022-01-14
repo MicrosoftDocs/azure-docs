@@ -235,6 +235,8 @@ Here are some design recommendations for configuring timers:
 ## Limitations
 
 - Basic load balancers and basic Public IP addresses are not compatible with NAT. Use standard SKU load balancers and Public IPs instead.
+  - To upgrade a basic load balancer to standard, see [Upgrade Azure Public Load Balancer](/azure/load-balancer/upgrade-basic-standard)
+  - To upgrade a basic public IP address to standard, see [Upgrade a public IP address](/azure/virtual-network/ip-services/public-ip-upgrade-portal)
 - IP fragmentation isn't available for NAT gateway.
 
 ## Next steps
