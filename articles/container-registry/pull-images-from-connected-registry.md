@@ -49,7 +49,7 @@ The command will return details about the newly generated token including passwo
 
 ## Update the connected registry with the client token
 
-Use the [az acr connected-registry update][az-acr-connected-registry-update] command to update the connected registry with the newly created client token. 
+Use the az acr connected-registry update command to update the connected registry with the newly created client token. 
 
 ```azurecli
 az acr connected-registry update \
