@@ -113,7 +113,9 @@ $rg
 Verify that the resource group is correctly provisioned. **ProvisioningState** should be "Succeeded."
 The resource group name is used by the template to generate the storage account name. The storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 
-![Resource Group](./media/deploy-with-resource-manager-template/resource-groupprovisioning.png)
+<!--
+ ![Resource Group](./media/deploy-with-resource-manager-template/resource-groupprovisioning.png)
+-->
 
 * Using the resource group deployment, deploy a new Machine Learning Workspace.
 
