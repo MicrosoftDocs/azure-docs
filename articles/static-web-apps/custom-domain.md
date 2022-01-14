@@ -23,7 +23,9 @@ Azure Static Web Apps automatically provides a free SSL/TLS certificate for the 
 
 Domain names without a subdomain are known as apex or "naked" domains. For example the domain `www.example.com` is the domain with *www* as the subdomain, while `example.com` is known as the apex domain.
 
-Some domain registrars (like Google and GoDaddy) don't allow you to point apex domain to the generated Static Web Apps URL. When your registrar doesn't allow you to redirect the apex domain, consider forwarding your apex domain to the *www* subdomain. With this configuration, requests to the *www* subdomain will resolve to the generated Static Web Apps location after following the steps in this article.
+Some domain registrars (like Google and GoDaddy) don't allow you to point the apex domain to the generated Static Web Apps URL. If your registrar doesn't allow you to redirect the apex domain, consider forwarding the apex domain to the *www* subdomain.
+
+With this configuration, requests to the *www* subdomain will resolve to the generated Static Web Apps location after following the steps in this article.
 
 ## Prerequisites
 
