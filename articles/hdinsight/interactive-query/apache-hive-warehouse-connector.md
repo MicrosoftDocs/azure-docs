@@ -10,7 +10,7 @@ ms.date: 05/28/2020
 
 # Integrate Apache Spark and Apache Hive with Hive Warehouse Connector in Azure HDInsight
 
-The Apache Hive Warehouse Connector (HWC) is a library that allows you to work more easily with Apache Spark and Apache Hive. It supports tasks such as moving data between Spark DataFrames and Hive tables. Also, by directing Spark streaming data into Hive tables. Hive Warehouse Connector works like a bridge between Spark and Hive. It also supports Scala, Java, and Python as programming languages for development.
+The Apache Hive Warehouse Connector (HWC) is a library that allows you to work more easily with Apache Spark and Apache Hive. It supports tasks such as moving data between Spark DataFrames and Hive tables. Also, by directing Spark streaming data into Hive tables. Hive Warehouse Connector works like a bridge between Spark and Hive. It also supports Scala, Java, and Python as programming languages for development. However, R language is not supported.
 
 The Hive Warehouse Connector allows you to take advantage of the unique features of Hive and Spark to build powerful big-data applications.
 
@@ -122,6 +122,8 @@ Below are some examples to connect to HWC from Spark.
 
 ### Spark-shell
 
+This is a way to run Spark interactively through a modified version of the Scala shell.
+
 1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Apache Spark cluster. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
 
     ```cmd
@@ -151,6 +153,9 @@ Below are some examples to connect to HWC from Spark.
 
 ### Spark-submit
 
+Spark-submit is a utility to submit any spark program (or job) to Spark clusters.
+The spark-submit job will setup and configure Spark and Hive Warehouse Connector as per our instructions, execute the program we pass to it, then cleanly release the resources that were being used.
+
 Once you build the scala/java code along with the dependencies into an assembly jar, use the below command to launch a Spark application. Replace `<VERSION>`, and `<APP_JAR_PATH>` with the actual values.
 
 * YARN Client mode
@@ -176,7 +181,8 @@ Once you build the scala/java code along with the dependencies into an assembly 
     /<APP_JAR_PATH>/myHwcAppProject.jar
     ```
 
-For Python, add the following configuration as well. 
+This utility is also used when we have written the entire application in pySpark and packaged into py files (Python), so that we can submit the entire code to Spark cluster for execution.
+For Python applications, simply pass a .py file in the place of /<APP_JAR_PATH>/myHwcAppProject.jar, and add the below configuration (Python .zip) file to the search path with --py-files.
 
 ```python
 --py-files /usr/hdp/current/hive_warehouse_connector/pyspark_hwc-<VERSION>.zip
