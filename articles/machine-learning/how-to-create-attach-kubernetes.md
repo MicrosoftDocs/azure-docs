@@ -394,16 +394,7 @@ compute_target.detach()
 compute_target.wait_for_completion(show_output=True)
 ```
 
-```shell
-kubectl delete sa azureml-fe
-kubectl delete clusterrole azureml-fe-role
-kubectl delete clusterrolebinding azureml-fe-binding
-kubectl delete svc azureml-fe
-kubectl delete svc azureml-fe-int-http
-kubectl delete deploy azureml-fe
-kubectl delete secret azuremlfessl
-kubectl delete cm azuremlfeconfig
-```
+If you don't have any active service in cluster, follow the [guidance](how-to-create-attach-kubernetes.md#delete-azureml-fe-related-resources) to delete azureml-fe related resources
 
 ```python
 attach_config = AksCompute.attach_configuration(resource_group=resourceGroup, cluster_name=kubernetesClusterName)
@@ -428,6 +419,21 @@ kubectl get secret/azuremlfessl -o yaml
 
 >[!Note]
 >Kubernetes stores the secrets in base-64 encoded format. You will need to base-64 decode the `cert.pem` and `key.pem` components of the secrets prior to providing them to `attach_config.enable_ssl`. 
+
+### Delete azureml-fe related resources
+
+After detaching cluster, if you don't have any active service in cluster, please delete the azureml-fe related resources before attaching again
+
+```shell
+kubectl delete sa azureml-fe
+kubectl delete clusterrole azureml-fe-role
+kubectl delete clusterrolebinding azureml-fe-binding
+kubectl delete svc azureml-fe
+kubectl delete svc azureml-fe-int-http
+kubectl delete deploy azureml-fe
+kubectl delete secret azuremlfessl
+kubectl delete cm azuremlfeconfig
+```
 
 ### Webservice failures
 
