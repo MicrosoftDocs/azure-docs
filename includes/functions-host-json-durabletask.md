@@ -57,7 +57,7 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
     "extendedSessionIdleTimeoutInSeconds": 30,
     "useAppLease": true,
     "useGracefulShutdown": false,
-    "maxEntityOperationBatchSize: 50
+    "maxEntityOperationBatchSize": 50
   }
  }
 }
