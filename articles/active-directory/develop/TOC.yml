@@ -24,16 +24,16 @@
     href: single-page-app-quickstart.md
   - name: Web app
     href: web-app-quickstart.md
-  - name: Mobile
-    href: mobile-app-quickstart.md
-  - name: Desktop
-    href: desktop-app-quickstart.md
   - name: Web API
     items:
     - name: ASP.NET
       href: quickstart-v2-dotnet-native-aspnet.md
     - name: ASP.NET Core
       href: quickstart-v2-aspnet-core-web-api.md
+  - name: Mobile app
+    href: mobile-app-quickstart.md
+  - name: Desktop app
+    href: desktop-app-quickstart.md
   - name: Daemon or back-end service
     href: console-app-quickstart.md
 - name: Tutorials
