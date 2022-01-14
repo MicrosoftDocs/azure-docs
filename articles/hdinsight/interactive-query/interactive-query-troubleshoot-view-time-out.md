@@ -31,7 +31,7 @@ The Hive View default timeout value may not be suitable for the query you are ru
   views.request.read.timeout.millis=300000
   views.ambari.hive.<HIVE_VIEW_INSTANCE_NAME>.result.fetch.timeout=300000
   ```
-  The value of `HIVE_VIEW_INSTANCE_NAME` is available by at <YOUR USERNAME> > Manage Ambari > Views > Names column. Do not use the URL name.
+  The value of `HIVE_VIEW_INSTANCE_NAME` is available by clicking <YOUR USERNAME> > Manage Ambari > Views > Names column. Do not use the URL name.
 
 2. Restart the active Ambari server by running the following. If you get an error message saying it's not the active Ambari server, just ssh into the next headnode and repeat this step.
   ```
