@@ -576,13 +576,13 @@ items:
       - name: Prebuilt
         items:
         - name: Runtime API
-          href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text
+          href: /rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text
       - name: Custom
         items:
           - name: Authoring API
-            href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering-projects
+            href: /rest/api/cognitiveservices/questionanswering/question-answering-projects
           - name: Runtime API 
-            href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers
+            href: /rest/api/cognitiveservices/questionanswering/question-answering/get-answers
 - name: Sentiment analysis and Opinion mining
   items:
   - name: Overview
@@ -621,7 +621,7 @@ items:
     - name: Sentiment Analysis on streaming data using Azure Databricks
       href: /azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?context=/azure/cognitive-services/language-service/context/context
     - name: Use Flask to translate text, analyze sentiment, and synthesize speech
-      href: /azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language-service/context/context
+      href: ../translator/tutorial-build-flask-app-translation-synthesis.md?context=%2fazure%2fcognitive-services%2flanguage-service%2fcontext%2fcontext
   - name: Reference
     items:
     - name: REST API
