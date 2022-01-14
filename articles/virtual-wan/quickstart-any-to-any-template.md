@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create an any-to-any configuration using an ARM template'
 titleSuffix: Azure Virtual WAN
-description: This quickstart shows you how to create an any-to-any configuration using an Azure Resource Manager template (ARM template).
+description: Learn how to create an any-to-any configuration using an Azure Resource Manager template (ARM template).
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -24,7 +24,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* Public key certificate data is required for this configuration. Sample data is provided in the article. However, the sample data is provided only to satisfy the template requirements in order to create a P2S gateway. After the template completes and the resources are deployed, you must update this field with your own certificate data in order for the configuration to work. See [Generate and export certificates](certificates-point-to-site.md#cer) for information and steps.
+* Public key certificate data is required for this configuration. See [Generate and export certificates](certificates-point-to-site.md#cer) for steps to generate and export the required certificates. Sample certificate data is provided in the article only to satisfy the template requirements in order to create a P2S gateway.
 
 ## <a name="review"></a>Review the template
 
@@ -57,7 +57,6 @@ Multiple Azure resources are defined in the template:
 > [!NOTE]
 > This ARM template doesn't create the customer-side resources required for hybrid connectivity. After you deploy the template, you still need to create and configure the P2S VPN clients, the VPN branches (Local Sites), and connect the ExpressRoute circuits.
 
-
 To find more templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
 ## <a name="deploy"></a>Deploy the template
@@ -72,11 +71,10 @@ To deploy this template properly, you must use **Deploy to Azure** button in the
 
    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-all-gateways%2fazuredeploy.json)
 1. To view the template, click **Edit template**. On this page, you can adjust some of the values such as address space or the name of certain resources. **Save** to save your changes, or **Discard**.
-1. On the template page, enter the values. For this template, the P2S public certificate data is required. If you are using this article as an exercise, you can use the following example data from this .cer file as sample data for both hubs. Once the template runs and deployment is complete, in order to use the P2S configuration, you must replace this information with the public key certificate data for your own deployment. For more information, see [Generate and export certificates](certificates-point-to-site.md#cer).
+1. On the template page, enter the values. For the **Hub_Public Certificate Data for P2S** fields, you need to input the public key certificate data from the root certificate that you want to use (as mentioned in the prerequisites). If you haven't generated a root certificate and you are using these steps as only an exercise to run the template and observe the results, you can use the following example certificate data for both hubs. If you choose to use this example data and later want P2S clients to connect, you must replace this information with the certificate data from your own environment.
 
    > [!NOTE]
-   > The certificate data in example below is supplied for demonstration purposes only. You must replace this information with the public key [certificate data](certificates-point-to-site.md#cer) for your own deployment if you want this configuration to work properly.
-   >
+   > This certificate data is supplied for example purposes only. Replace this example data with the public key [certificate data](certificates-point-to-site.md#cer) from your own certificate if you want P2S clients to connect.
 
    ```certificate-data
     MIIC9zCCAd+gAwIBAgIQOn0lVXm3E5hH/A7CdSuPyDANBgkqhkiG9w0BAQsFADAe
@@ -115,7 +113,7 @@ To deploy this template properly, you must use **Deploy to Azure** button in the
 
 ## <a name="complete"></a>Complete the hybrid configuration
 
-The template does not configure all of the settings necessary for a hybrid network. You need to complete the following configurations and settings, depending on your requirements.
+The template does not configure all of the settings necessary for a hybrid network. Complete the following configurations and settings, depending on your requirements:
 
 * [Configure the VPN branches - local sites](virtual-wan-site-to-site-portal.md#site)
 * [Complete the P2S VPN configuration](virtual-wan-point-to-site-portal.md)
