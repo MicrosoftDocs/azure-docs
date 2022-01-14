@@ -41,13 +41,16 @@ The following diagram is a high-level overview of the connected solution. For si
 ## Region Availability 
 
 Cross-cloud connectivity is limited to the following regions:
-* Azure East US (EastUS) & OCI Ashburn, VA (US East)
-* Azure UK South (UKSouth) & OCI London (UK South)
-* Azure Canada Central (CanadaCentral) & OCI Toronto (Canada Southeast)
-* Azure West Europe (WestEurope) & OCI Amsterdam (Netherlands Northwest)
-* Azure Japan East (JapanEast) & OCI Tokyo (Japan East)
-* Azure West US (WestUS) & OCI San Jose (US West)
-* Germany West Central (Frankfurt) & OCI Germany Central (Frankfurt)
+* Azure EastUS (Virginia) & OCI US East (Ashburn)
+* Azure WestUS (California) & OCI US West (San Jose)
+* Azure WestUS3 (Arizona) & OCI US West (Phoenix)
+* Azure CanadaCentral (Toronto) & OCI Canada Southeast (Toronto)
+* Azure UKSouth (London) & OCI UK South (London)
+* Azure WestEurope (Netherlands) & OCI Netherlands Northwest (Amsterdam)
+* Azure JapanEast (Tokyo) & OCI Japan East (Tokyo)
+* Azure GermanyWestCentral (Frankfurt) & OCI Germany Central (Frankfurt)
+* Azure BrazilSouth (Sao Paulo) & OCI Brazil Southeast (Vinhedo)
+* Azure KoreaCentral (Seoul) & OCI South Korea Central (Seoul)
 
 
 ## Networking
