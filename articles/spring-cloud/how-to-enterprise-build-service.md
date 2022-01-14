@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 This article describes the extra configuration and functionality included in Build Service with Azure Spring Cloud Enterprise Tier.
 
-In Azure Spring Cloud, the existing Standard tier already supports compiling user source code into [OCI images](https://opencontainers.org/) through [Kpack](https://github.com/pivotal/kpack). Kpack is a Kubernetes (K8s) implementation of [Cloud Native Buildpacks (CNB)](https://buildpacks.io/) provided by VMware. This article provides details of the extra configurations and functionality exposed in the Azure Spring Cloud Enterprise tier.
+In Azure Spring Cloud, the existing Standard tier already supports compiling user source code into [OCI images](https://opencontainers.org/) through [Kpack](https://github.com/pivotal/kpack). Kpack is a Kubernetes (K8s) implementation of [Cloud Native Buildpacks (CNB)](https://buildpacks.io/) provided by VMware. This article provides details about the extra configurations and functionality exposed in the Azure Spring Cloud Enterprise tier.
 
 ## Build Agent Pool
 
@@ -81,7 +81,7 @@ az spring-cloud app deploy \
 
 If the builder isn't specified, the `default` builder will be used.
 
-## Real time build logs
+## Real-time build logs
 
 A build task will be triggered when an app is deployed from an Azure CLI command. Build logs are streamed in real time as part of the CLI command output. See [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md) to diagnose build logs.
 

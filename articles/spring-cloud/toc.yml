@@ -1,4 +1,4 @@
-- name: Azure Spring Cloud Documentation
+- name: Azure Spring Cloud documentation
   href: index.yml
   displayName: Azure Spring Cloud
 - name: Overview
@@ -110,6 +110,8 @@
           href: https://code.visualstudio.com/docs/java/java-spring-cloud
         - name: Deploy Azure Spring Cloud with Azure PowerShell
           href: how-to-deploy-powershell.md
+        - name: Deploy non-Java enterprise applications
+          href: how-to-enterprise-deploy-non-java-apps.md
     - name: Manage
       items:
         - name: Start or stop a service

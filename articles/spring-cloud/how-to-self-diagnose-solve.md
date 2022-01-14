@@ -41,6 +41,7 @@ To find an issue, you can either search by typing a keyword or select the soluti
 
 Selection of **Config Server Health Check**, **Config Server Health Status**, or **Config Server Update History** will display various results.
 
+> [!NOTE]
 > Spring Cloud Config Server is not applicable to enterprise tier.
 
 ![Issues options](media/spring-cloud-diagnose/detectors-options.png)
