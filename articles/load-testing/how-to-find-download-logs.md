@@ -10,11 +10,13 @@ ms.date: 11/30/2021
 ms.topic: how-to
 
 ---
-# Troubleshoot JMeter problems by downloading Azure Load Testing Preview logs
+# Troubleshoot load test errors by downloading Apache JMeter logs in Azure Load Testing Preview
 
-In this article, you'll learn how to download the Azure Load Testing Preview logs in the Azure portal to troubleshoot problems with the Apache JMeter script.
+In this article, you'll learn how to download the Apache JMeter logs for Azure Load Testing Preview in the Azure portal. You can use the logging information to troubleshoot problems while the Apache JMeter script runs.
 
-When you run a load test, the Azure Load Testing test engines execute your Apache JMeter test script. The Apache JMeter log can help you identify both problems in the JMX file and issues that occur during the test execution. For example, the application endpoint might be unavailable, or the JMX file might contain invalid credentials.
+The Apache JMeter log can help you identify problems in your JMX file, or run-time issues that occur while the test is running. For example, the application endpoint might be unavailable, or the JMX file might contain invalid credentials.
+
+When you run a load test, the Azure Load Testing test engines execute your Apache JMeter test script. While your load test is running, Apache JMeter stores detailed logging information in the worker node logs. You can download the JMeter worker node log for your load test run from the Azure portal to help you diagnose load test errors.
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
