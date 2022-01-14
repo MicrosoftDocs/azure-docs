@@ -196,6 +196,9 @@ As mentioned, virtual network peering is one way to access your private cluster.
 
 A private endpoint can be set up so that an Azure Virtual Network doesn't need to be peered to communicate to the private cluster. To use a private endpoint, create a new private endpoint in your virtual network then create a link between your virtual network and a new private DNS zone.
 
+> [!IMPORTANT]
+> If the virtual network is configured with custom DNS servers, private DNS will need to be set up appropriately for the environment. See the [virtual networks name resolution documentation][virtual-networks-name-resolution] for more details.
+
 1. On the Azure portal menu or from the Home page, select **Create a resource**.
 2. Search for **Private Endpoint** and select **Create > Private Endpoint**.
 3. Select **Create**.
@@ -267,13 +270,13 @@ Once the A record is created, link the private DNS zone to the virtual network t
 3. Create a new link to add the virtual network to the private DNS zone. It takes a few minutes for the DNS zone link to become available.
 
 > [!WARNING]
-> If the private cluster is stopped and restarted, the private cluster's original private endpoint is removed and re-created which breaks the connection between your private endpoint and the private cluster. To resolve this issue, delete and re-create any user created private endpoints linked to the private cluster. DNS records will also need to be updated if the re-created private endpoints have new IP addresses.
+> If the private cluster is stopped and restarted, the private cluster's original private link service is removed and re-created, which breaks the connection between your private endpoint and the private cluster. To resolve this issue, delete and re-create any user created private endpoints linked to the private cluster. DNS records will also need to be updated if the re-created private endpoints have new IP addresses.
 
 ## Limitations 
 * IP authorized ranges can't be applied to the private API server endpoint, they only apply to the public API server
 * [Azure Private Link service limitations][private-link-service] apply to private clusters.
 * No support for Azure DevOps Microsoft-hosted Agents with private clusters. Consider using [Self-hosted Agents](/azure/devops/pipelines/agents/agents?tabs=browser). 
-* If you need to enable Azure Container Registry to work with a private AKS cluster, set up peering between the Container Registry virtual network and the private cluster's virtual network. If peering isn't an option, you can use [private endpoints to connect to Azure Container Registry][container-registry-private-link].
+* If you need to enable Azure Container Registry to work with a private AKS cluster, [set up a private link for the container registry in the cluster virtual network][container-registry-private-link] or set up peering between the Container Registry virtual network and the private cluster's virtual network.
 * No support for converting existing AKS clusters into private clusters
 * Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning. 
 
@@ -292,3 +295,4 @@ Once the A record is created, link the private DNS zone to the virtual network t
 [availability-zones]: availability-zones.md
 [command-invoke]: command-invoke.md
 [container-registry-private-link]: ../container-registry/container-registry-private-link.md
+[virtual-networks-name-resolution]: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances?#name-resolution-that-uses-your-own-dns-server
