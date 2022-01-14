@@ -85,6 +85,9 @@ After geo-replication is configured, the following restrictions apply to your li
 
     The primary linked cache remains available for use during the linking process. The secondary linked cache isn't available until the linking process completes.
 
+[!NOTE]
+> Geo-replication can be enabled for this cache if you scale it to 'Premium' pricing tier and disable data persistence. This feature is not available at this time when using extra replicas.
+
 ## Remove a geo-replication link
 
 1. To remove the link between two caches and stop geo-replication, click **Unlink caches** from the **Geo-replication** on the left .

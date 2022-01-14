@@ -87,15 +87,13 @@ Persistence writes Redis data into an Azure Storage account that you own and man
 
 It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
 
-> [!NOTE]
-> If you enable data persistence, geo-replication cannot be enabled for you Premium Redis cache.
-
 ## Persistence FAQ
 
 The following list contains answers to commonly asked questions about Azure Cache for Redis persistence.
 
 - [Can I enable persistence on a previously created cache?](#can-i-enable-persistence-on-a-previously-created-cache)
 - [Can I enable AOF and RDB persistence at the same time?](#can-i-enable-aof-and-rdb-persistence-at-the-same-time)
+- [How does persistence work with geo-replication?](#how-does-persistence-work-with-geo-replication)
 - [Which persistence model should I choose?](#which-persistence-model-should-i-choose)
 - [What happens if I've scaled to a different size and a backup is restored that was made before the scaling operation?](#what-happens-if-ive-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
 - [Can I use the same storage account for persistence across two different caches?](#can-i-use-the-same-storage-account-for-persistence-across-two-different-caches)
@@ -124,6 +122,10 @@ Yes, Redis persistence can be configured both at cache creation and on existing 
 ### Can I enable AOF and RDB persistence at the same time?
 
 No, you can enable RDB or AOF, but not both at the same time.
+
+### How does persistence work with geo-replication?
+
+If you enable data persistence, geo-replication cannot be enabled for your premium cache.
 
 ### Which persistence model should I choose?
 
