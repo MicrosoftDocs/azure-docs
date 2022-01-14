@@ -8,6 +8,8 @@
     href: deploy-prerequisite.md
   - name: Config files and packaging
     href: cloud-services-model-and-package.md
+  - name: Frequently asked questions
+    href: faq.yml
 - name: Tutorials
   items: 
   - name: Deploy a cloud service - Portal
@@ -87,12 +89,6 @@
     href: swap-cloud-service.md
   - name: Override SKU details
     href: override-sku.md
-  - name: Troubleshoot
-    items:
-    - name: Role startup failure
-      href: role-startup-failure.md
-    - name: Frequently asked questions
-      href: faq.yml
 - name: Samples
   items: 
   - name: Sample templates
@@ -120,7 +116,7 @@
   - name: SDK
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview
   - name: CLI
-    href: /cli/azure/cloud-service?view=azure-cli-latest
+    href: /cli/azure/cloud-service
 - name: Resources
   items:
   - name: Azure Roadmap

@@ -50,7 +50,7 @@ This is a high-level overview of how Conversation Transcription works.
 
 ## Expected inputs
 
-- **Multi-channel audio stream** – For specification and design details, see [Microsoft Speech Device SDK Microphone](./speech-sdk-microphone.md). To learn more or purchase a development kit, see [Get Microsoft Speech Device SDK](./get-speech-devices-sdk.md).
+- **Multi-channel audio stream** – For specification and design details, see [Microphone array recommendations](./speech-sdk-microphone.md). 
 - **User voice samples** – Conversation Transcription needs user profiles in advance of the conversation for speaker identification. You will need to collect audio recordings from each user, then send the recordings to the [Signature Generation Service](https://aka.ms/cts/signaturegenservice) to validate the audio and generate user profiles.
 
 > [!NOTE]

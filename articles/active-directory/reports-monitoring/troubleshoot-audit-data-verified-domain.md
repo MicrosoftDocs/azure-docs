@@ -8,7 +8,6 @@ author: MarkusVi
 manager: karenhoran
 editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: identity

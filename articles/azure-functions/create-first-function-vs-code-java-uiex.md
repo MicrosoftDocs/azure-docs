@@ -3,8 +3,9 @@ title: Create a Java function using Visual Studio Code - Azure Functions
 description: Learn how to create a Java function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/03/2020
+ms.devlang: java
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Quickstart: Create a Java function in Azure using Visual Studio Code

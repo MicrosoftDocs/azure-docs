@@ -13,6 +13,10 @@ Learn what's new in the service. These items include release notes, videos, blog
 
 ## Release notes
 
+### December 2021
+* [Updated text recognizer](https://github.com/microsoft/Recognizers-Text/releases/tag/dotnet-v1.8.1) to v1.8.1
+* Jio India west [publishing region](luis-reference-regions.md#other-publishing-regions)
+   
 ### November 2021
 * [Azure Role-based access control (RBAC) article](role-based-access-control.md)
 

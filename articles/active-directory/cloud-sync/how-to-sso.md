@@ -3,7 +3,7 @@ title: 'How to use Single Sign-on with cloud sync'
 description: This article describes how to install and use sso with cloud sync.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to

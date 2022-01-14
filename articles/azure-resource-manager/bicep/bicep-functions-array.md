@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file for working with arr
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 10/18/2021
+ms.date: 12/08/2021
 
 ---
 # Array functions for Bicep
@@ -352,15 +352,15 @@ The following example converts a dictionary object to an array. For each object 
 
 ```bicep
 var entities = {
-  item001: {
-    enabled: true
-    displayName: 'Example item 1'
-    number: 300
-  }
   item002: {
     enabled: false
     displayName: 'Example item 2'
     number: 200
+  }
+  item001: {
+    enabled: true
+    displayName: 'Example item 1'
+    number: 300
   }
 }
 
@@ -397,15 +397,15 @@ The following example shows the array that is returned from the items function.
 
 ```bicep
 var entities = {
-  item001: {
-    enabled: true
-    displayName: 'Example item 1'
-    number: 300
-  }
   item002: {
     enabled: false
     displayName: 'Example item 2'
     number: 200
+  }
+  item001: {
+    enabled: true
+    displayName: 'Example item 1'
+    number: 300
   }
 }
 
@@ -439,6 +439,8 @@ The example returns:
   ]
 }
 ```
+
+The items() function sorts the objects in the alphabetical order. For example, **item001** appears before **item002** in the outputs of the two preceding samples.
 
 ## last
 

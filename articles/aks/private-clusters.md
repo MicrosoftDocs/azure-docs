@@ -137,18 +137,11 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### Create a private AKS cluster with Custom Private DNS Zone
-
-```azurecli-interactive
-# Custom Private DNS Zone name should be in format "privatelink.<region>.azmk8s.io"
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId>
-```
-
-### Create a private AKS cluster with Custom Private DNS SubZone
+### Create a private AKS cluster with Custom Private DNS Zone or Private DNS SubZone
 
 ```azurecli-interactive
 # Custom Private DNS Zone name should be in format "<subzone>.privatelink.<region>.azmk8s.io"
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId>
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone or custom private dns subzone ResourceId>
 ```
 
 ### Create a private AKS cluster with Custom Private DNS Zone and Custom Subdomain
@@ -165,45 +158,9 @@ The API server endpoint has no public IP address. To manage the API server, you'
 * Create a VM in the same Azure Virtual Network (VNet) as the AKS cluster.
 * Use a VM in a separate network and set up [Virtual network peering][virtual-network-peering].  See the section below for more information on this option.
 * Use an [Express Route or VPN][express-route-or-VPN] connection.
-* Use the [AKS Run Command feature](#aks-run-command).
+* Use the [AKS `command invoke` feature][command-invoke].
 
 Creating a VM in the same VNET as the AKS cluster is the easiest option.  Express Route and VPNs add costs and require additional networking complexity.  Virtual network peering requires you to plan your network CIDR ranges to ensure there are no overlapping ranges.
-
-### AKS Run Command
-
-Today when you need to access a private cluster, you must do so within the cluster virtual network or a peered network or client machine. This usually requires your machine to be connected via VPN or Express Route to the cluster virtual network or a jumpbox to be created in the cluster virtual network. AKS run command allows you to remotely invoke commands in an AKS cluster through the AKS API. This feature provides an API that allows you to, for example, execute just-in-time commands from a remote laptop for a private cluster. This can greatly assist with quick just-in-time access to a private cluster when the client machine is not on the cluster private network while still retaining and enforcing the same RBAC controls and private API server.
-
-### Prerequisites
-
-* The Azure CLI version 2.24.0 or later
-
-### Use AKS Run Command
-
-Simple command
-
-```azurecli-interactive
-az aks command invoke -g <resourceGroup> -n <clusterName> -c "kubectl get pods -n kube-system"
-```
-
-Deploy a manifest by attaching the specific file
-
-```azurecli-interactive
-az aks command invoke -g <resourceGroup> -n <clusterName> -c "kubectl apply -f deployment.yaml -n default" -f deployment.yaml
-```
-
-Deploy a manifest by attaching a whole folder
-
-```azurecli-interactive
-az aks command invoke -g <resourceGroup> -n <clusterName> -c "kubectl apply -f deployment.yaml -n default" -f .
-```
-
-Perform a Helm install and pass the specific values manifest
-
-```azurecli-interactive
-az aks command invoke -g <resourceGroup> -n <clusterName> -c "helm repo add bitnami https://charts.bitnami.com/bitnami && helm repo update && helm install my-release -f values.yaml bitnami/nginx" -f values.yaml
-```
-> [!NOTE]
-> Secure access to the AKS Run Command by creating a Custom role with the "Microsoft.ContainerService/managedClusters/runcommand/action", "Microsoft.ContainerService/managedclusters/commandResults/read" permissions and assign to specific users and/or groups in combination with Just-in-Time access or Conditional Access policies. 
 
 ## Virtual network peering
 
@@ -254,3 +211,4 @@ As mentioned, virtual network peering is one way to access your private cluster.
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
 [devops-agents]: /azure/devops/pipelines/agents/agents
 [availability-zones]: availability-zones.md
+[command-invoke]: command-invoke.md

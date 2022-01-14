@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: security 
 ms.date: 10/25/2020 
 ms.author: xujiang1
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Connect to workspace resources from a restricted network

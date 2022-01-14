@@ -86,7 +86,7 @@ Articles
 * [Defender for Cloud Documentation Page](./index.yml)
 * [Defender for Cloud REST API Documentation Page](/previous-versions/azure/reference/mt704034(v=azure.100))
 * [Defender for Cloud frequently asked questions (FAQ)](./faq-general.yml)
-* [Pricing page](https://azure.microsoft.com/pricing/details/security-center/)
+* [Pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)
 * [Identity security best practices](../security/fundamentals/identity-management-best-practices.md)
 * [Network security best practices](../security/fundamentals/network-best-practices.md)
 * [PaaS recommendations](../security/fundamentals/paas-deployments.md)

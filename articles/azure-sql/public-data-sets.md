@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: reference
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: mathoma
+ms.reviewer: mathoma, kendralittle
 ms.date: 10/01/2018
 ---
 # Public data sets for testing and prototyping

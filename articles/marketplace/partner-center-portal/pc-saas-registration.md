@@ -4,7 +4,7 @@ description: Learn how to use the Azure portal to register a SaaS application an
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 11/23/2021
 author: arifgani
 ms.author: argani
 ---

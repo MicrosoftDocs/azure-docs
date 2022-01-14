@@ -1,11 +1,11 @@
 ---
 title: Azure Cosmos DB free tier 
 description: Use Azure Cosmos DB free tier to get started, develop, test your applications. With free tier, you'll get the first 1000 RU/s and 25 GB of storage in the account for free. 
-author: SnehaGunda
+author: ThomasWeiss
+ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/25/2021
-ms.author: sngun
 ---
 
 # Azure Cosmos DB free tier 

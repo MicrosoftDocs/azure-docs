@@ -84,4 +84,4 @@ You get a response similar to this:
 
 ## Next steps
 
-[az ams job (CLI)](/cli/azure/ams/job)
+Learn about the [az ams job](/cli/azure/ams/job) command in the Azure CLI.

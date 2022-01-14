@@ -335,12 +335,6 @@
         displayName: security, baseline
       - name: Account security
         items:
-        - name: What is the Microsoft identity platform?
-          href: ../../active-directory/develop/app-objects-and-service-principals.md
-        - name: What is an application and service principal?
-          href: ../../active-directory/develop/app-objects-and-service-principals.md
-        - name: What are managed identities for Azure resources?
-          href: ../../active-directory/managed-identities-azure-resources/overview.md
         - name: Azure RBAC
           href: security-rbac-concept.md
           displayName: RBAC, role based access, role based access control, roles, access, secure, security, authorization
@@ -616,10 +610,8 @@
     items:
       - name: Account security
         items:
-        - name: How to create user-assigned managed identity in the portal
-          href: ../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md
-        - name: How to assign a managed identity access to another Azure resources
-          href: ../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md
+        - name: Create a Media Services account
+          href: account-create-how-to.md
       - name: Network security
         items:
         - name: Use a Private Link with a Streaming endpoint
@@ -669,7 +661,7 @@
       href: /python/api/overview/azure/mediaservices/management
       displayName: SDK, Python SDK, Python, Python docs, Python reference, reference Python, developer, develop, Python library, pypi, package, pip, pip install
     - name: Node.js
-      href: /javascript/api/overview/azure/mediaservices/management
+      href: /javascript/api/overview/azure/arm-mediaservices-readme
       displayName: SDK, Node SDK, Node.js, Nodejs, Nodejs SDk, Node.js SDk, Javscript, Javascript SDK, Typescript, Typescript SDK, Javascript docs, Node docs, Node.js Docs, Node.js reference, reference Node, developer, develop, Node.js library, Typescript library, package, npm, npm install
     - name: Go
       href: https://aka.ms/ams-v3-go-ref

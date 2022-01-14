@@ -2,8 +2,7 @@
 title: Automanage for Windows Server 
 description: Overview of Azure Automanage for Windows Server capabilities with Windows Server Azure Edition 
 author: nwashburn-ms
-ms.service: virtual-machines
-ms.subservice: automanage
+ms.service: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 07/09/2021

@@ -3,7 +3,7 @@ title: Azure IoT Central quotas and limits | Microsoft Docs
 description: This article lists the key quotas and limits that apply to an IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/28/2021
+ms.date: 12/15/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -13,6 +13,9 @@ services: iot-central
 # Quotas and limits
 
 There are various quotas and limits that apply to IoT Central applications. IoT Central applications internally use multiple Azure services such as IoT Hub and the Device Provisioning Service (DPS), and these services also have quotas and limits. Where relevant, quotas and limits in the underlying services are called out in this article.
+
+> [!NOTE]
+> The quotas and limits described in this article apply to the new multiple IoT hub architecture. Currently, there are a few legacy IoT Central applications that were created before April 2021 that haven't yet been migrated to the multiple IoT hub architecture. Use the `az iot central device manual-failover` command to check if your application still uses a single IoT hub.
 
 ## Devices
 
@@ -32,14 +35,14 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
-| Number of property updates per second | 100 | This is a soft limit. IoT Central autoscales the application as needed <sup>1</sup>. |
+| Number of property updates per second | 100 | This is a soft limit. IoT Central autoscales the application as needed<sup>1</sup>. |
 | Maximum size of a property | 32 KB | This value is set by the IoT Hub service. |
 
 ## Commands
 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
-| Number of command executions per second | 20 | This is a soft limit. IoT Central autoscales the application as needed <sup>1</sup>. |
+| Number of command executions per second | 20 | This is a soft limit. IoT Central autoscales the application as needed<sup>1</sup>. |
 
 ## REST API calls
 
@@ -105,7 +108,7 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 | Maximum organizations per application| 200 | |
 | Maximum organization hierarchy depth | 5 | |
 
-<sup>1</sup>IoT Central doesn't limit the amount of device-to-cloud, cloud-to-device, property, or command traffic. It has variable throttles based on the application's load profile. If your application starts sending more traffic, IoT Central autoscales to best suit the load profile. You might notice throttling messages for a short period of time until IoT Central completes the autoscale process.
+<sup>1</sup> IoT Central doesn't limit the amount of device-to-cloud, cloud-to-device, property, or command traffic. It has variable throttles based on the application's load profile. If your application starts sending more traffic, IoT Central autoscales to best suit the load profile. You might notice throttling messages for a short period of time until IoT Central completes the autoscale process.
 
 ## Next steps
 

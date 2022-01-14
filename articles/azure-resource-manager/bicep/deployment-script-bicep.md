@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 11/29/2021
+ms.date: 12/28/2021
 ms.author: jgao
 
 ---
 
 # Use deployment scripts in Bicep
 
-Learn how to use deployment scripts in Bicep. With [`Microsoft.Resources/deploymentScripts`](/azure/templates/microsoft.resources/deploymentscripts.md?tabs=bicep), users can execute scripts in Bicep deployments and review execution results. These scripts can be used for performing custom steps such as:
+Learn how to use deployment scripts in Bicep. With [Microsoft.Resources/deploymentScripts](/azure/templates/microsoft.resources/deploymentscripts), users can execute scripts in Bicep deployments and review execution results. These scripts can be used for performing custom steps such as:
 
 - add users to a directory
 - perform data plane operations, for example, copy blobs or seed database
@@ -38,7 +38,7 @@ The deployment script resource is only available in the regions where Azure Cont
 
 ### Microsoft Learn
 
-To learn more about the ARM template test toolkit, and for hands-on guidance, see [Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts) on **Microsoft Learn**.
+If you would rather learn about the ARM template test toolkit through step-by-step guidance, see [Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts) on **Microsoft Learn**.
 
 ## Configure the minimum permissions
 
@@ -73,7 +73,7 @@ For deployment script API version 2020-10-01 or later, there are two principals 
 - **Deployment script principal**: This principal is only required if the deployment script needs to authenticate to Azure and call Azure CLI/PowerShell. There are two ways to specify the deployment script principal:
 
   - Specify a [user-assigned managed identity]() in the `identity` property (see [Sample Bicep files](#sample-bicep-files)). When specified, the script service calls `Connect-AzAccount -Identity` before invoking the deployment script. The managed identity must have the required access to complete the operation in the script. Currently, only user-assigned managed identity is supported for the `identity` property. To login with a different identity, use the second method in this list.
-  - Pass the service principal credentials as secure environment variables, and then can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) or [az login](/cli/azure/reference-index?view=azure-cli-latest#az_login&preserve-view=true) in the deployment script.
+  - Pass the service principal credentials as secure environment variables, and then can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) or [az login](/cli/azure/reference-index#az_login) in the deployment script.
 
   If a managed identity is used, the deployment principal needs the **Managed Identity Operator** role (a built-in role) assigned to the managed identity resource.
 
@@ -159,7 +159,7 @@ Property value details:
   replace(string(parameters('tables')), '"', '\\"')
   ```
 
-  For more information, see the [sample Bicep file](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/deployment-script/deploymentscript-jsonEscape.bicep).
+  For more information, see the [sample Bicep file](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/deployment-script/deploymentscript-jsonEscape.bicep).
 
 - `environmentVariables`: Specify the environment variables to pass over to the script. For more information, see [Develop deployment scripts](#develop-deployment-scripts).
 - `scriptContent`: Specify the script content. To run an external script, use `primaryScriptUri` instead. For examples, see [Use inline script](#use-inline-scripts) and [Use external script](#use-external-scripts).
@@ -199,6 +199,14 @@ Write-Host "Press [ENTER] to continue ..."
 The output looks like:
 
 ![ARM Bicep deployment script output](./media/deployment-script-bicep/resource-manager-template-deployment-script-inline-script-output.png)
+
+## Load script file
+
+You can use the [loadTextContent](bicep-functions-files.md#loadtextcontent) function to load a script file as a string. This function enables you to keep the script in a separate file and retrieve it as a deployment script. The path you provide to the script file is relative to the Bicep file.
+
+The following example loads a script from a file and uses it for a deployment script.
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadTextContent/loaddeploymentscript.bicep" highlight="13" :::
 
 ## Use external scripts
 

@@ -11,7 +11,7 @@ ms.assetid: c0e6cd3d-932d-433e-b72d-e513e23b4eb6
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: routlaw

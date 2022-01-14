@@ -24,8 +24,8 @@ You’ll get traceability information such as the GitHub workflow and the GitHub
 
 |Aspect|Details|
 |----|:----|
-|Release state:| **This CI/CD integration is in preview.**<br>We recommend that you experiment with it on non-production workflows only.<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
-|Pricing:|**Microsoft Defender for container registries** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/security-center/)|
+|Release state:| **This CI/CD integration is in preview.**<br>We recommend that you experiment with it on non-production workflows only.<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
+|Pricing:|**Microsoft Defender for container registries** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 |||
 
@@ -94,7 +94,7 @@ To enable vulnerability scans of images in your GitHub workflows:
 
 ## View CI/CD scan results
 
-1. To view the findings, go to the **Recommendations** page. If issues were found, you'll see the recommendation **Vulnerabilities in Azure Container Registry images should be remediated**.
+1. To view the findings, open the **Recommendations** page. If issues were found, you'll see the recommendation [Container registry images should have vulnerability findings resolved (powered by Qualys)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dbd0cb49-b563-45e7-9724-889e799fa648).
 
     ![Recommendation to remediate issues .](media/monitor-container-security/acr-finding.png)
 

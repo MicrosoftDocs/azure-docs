@@ -1,6 +1,6 @@
 ---
-title: Create an Azure file share with Azure Active Directory
-description: Set up an FSLogix profile container on an Azure file share in an existing Azure Virtual Desktop host pool with your Azure Active Directory domain.
+title: Create an Azure file share with Azure Active Directory (preview)
+description: Set up an FSLogix profile container on an Azure file share in an existing Azure Virtual Desktop host pool with your Azure Active Directory domain (preview).
 services: virtual-desktop
 author: Heidilohr
 manager: femila
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 12/01/2021
 ms.author: helohr
 ---
-# Create a profile container with Azure Files and Azure Active Directory
+# Create a profile container with Azure Files and Azure Active Directory (preview)
 
 > [!IMPORTANT]
 > Storing FSLogix profiles on Azure Files for Azure Active Directory (AD)-joined VMs is currently in public preview.

@@ -11,9 +11,11 @@ ms.date: 10/27/2021
 ms.author: banders
 ---
 
-# Resolve past due balance for your Azure subscription
+# Resolve past due balance for your pay-as-you-go Azure subscription
 
-This article applies to customers who signed up for Azure online with a credit card and have a Microsoft Online Services Program billing account, also called pay-as-you go. Learn how to [check your billing account type](#check-the-type-of-your-account). If you have a Microsoft Customer Agreement billing account, see [pay your bill for Microsoft Azure](../understand/pay-bill.md) instead.
+This article applies to customers who signed up for Azure online with a credit card and have a Microsoft Online Services Program billing account, also called pay-as-you go. If you're unsure of your billing account type, see [Check your billing account type](#check-the-type-of-your-account). 
+
+If you have a Microsoft Customer Agreement billing account, see [Pay Microsoft Customer Agreement bill](../understand/pay-bill.md) instead.
 
 If your payment isn't received or if we can't process your payment, you will get an email and see an alert in the Azure portal telling you that your subscription is past due. The email contains a link that takes you to the Settle balance page.
 

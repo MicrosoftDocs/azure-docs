@@ -3,7 +3,7 @@ title: 'Selective Password Hash Synchronization for Azure AD Connect'
 description: This article describes how to setup and configure selective password hash synchronization to use with Azure AD Connect.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to

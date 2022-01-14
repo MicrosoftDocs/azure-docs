@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/22/2021
+ms.date: 12/07/2021
 ms.author: radeltch
 
 ---
@@ -413,6 +413,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     ```bash
     sudo vi /etc/waagent.conf
     
+    # Check if property ResourceDisk.Format is already set to y and if not, set it
+    ResourceDisk.Format=y
+
     # Set the property ResourceDisk.EnableSwap to y
     # Create and use swapfile on resource disk.
     ResourceDisk.EnableSwap=y

@@ -3,15 +3,15 @@ title: Assign users and groups
 titleSuffix: Azure AD
 description: Learn how to assign and unassign users, and groups, for an app using Azure Active Directory for identity management.
 services: active-directory
-author: davidmu1
+author: eringreenlee
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/23/2021
-ms.author: davidmu
-ms.reviewer: alamaral
+ms.author: ergreenl
+ms.reviewer: davidmu
 
 #customer intent: As an admin, I want to manage user assignment for an app in Azure Active Directory using Powershell
 ---
@@ -26,7 +26,7 @@ To assign users to an app using PowerShell, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-- If you have not yet installed the AzureAD module (use the command `Install-Module -Name AzureAD`). If prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
+- If you have not yet installed the AzureAD module (use the command `Install-Module -Name AzureAD`). If you're prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
 - Azure Active Directory Premium P1 or P2 for group-based assignment. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory).
 - Optional: Completion of [Configure an app](add-application-portal-configure.md).
 

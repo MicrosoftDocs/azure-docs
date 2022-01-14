@@ -64,9 +64,9 @@ For other Defender for Cloud quickstart templates, see these [community contribu
 
 Use the Azure portal to check the workflow automation has been deployed.
 
-1. From the [Azure portal](https://portal.azure.com), open **Defender for Cloud**.
+1. From the [Azure portal](https://portal.azure.com), open **Microsoft Defender for Cloud**.
 1. From the top menu bar, select the filter icon, and select the specific subscription on which you deployed the new workflow automation.
-1. From Defender for Cloud's menu, open **workflow automation** and check for your new automation.
+1. From Microsoft Defender for Cloud's menu, open **workflow automation** and check for your new automation.
     :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="List of configured automations." lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
     >[!TIP]
     > If you have many workflow automations on your subscription, use the **filter by name** option.
@@ -75,9 +75,9 @@ Use the Azure portal to check the workflow automation has been deployed.
 
 When no longer needed, delete the workflow automation using the Azure portal.
 
-1. From the [Azure portal](https://portal.azure.com), open **Defender for Cloud**.
+1. From the [Azure portal](https://portal.azure.com), open **Microsoft Defender for Cloud**.
 1. From the top menu bar, select the filter icon, and select the specific subscription on which you deployed the new workflow automation.
-1. From Defender for Cloud's menu, open **workflow automation** and find the automation to be deleted.
+1. From Microsoft Defender for Cloud's menu, open **workflow automation** and find the automation to be deleted.
     :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Steps for removing a workflow automation." lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
 1. Select the checkbox for the item to be deleted.
 1. From the toolbar, select **Delete**.
