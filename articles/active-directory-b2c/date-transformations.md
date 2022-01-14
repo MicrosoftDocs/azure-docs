@@ -102,7 +102,7 @@ The self-asserted technical profile calls the validation `Example-AssertDates` t
 
 ## ConvertDateToDateTimeClaim
 
-Converts a `Date**` claim type to a `DateTime` claim type. The claims transformation converts the time format and adds 12:00:00 AM to the date.
+Converts a `Date` claim type to a `DateTime` claim type. The claims transformation converts the time format and adds 12:00:00 AM to the date.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
