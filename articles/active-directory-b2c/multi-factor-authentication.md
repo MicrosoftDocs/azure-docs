@@ -97,7 +97,7 @@ When an Azure AD B2C application enables MFA using the TOTP option, end users ne
 1. Select **+ Add account**.
 1. Select **Other account (Google, Facebook, etc.)**, and then scan the QR code shown in the application (for example, *Contoso webapp*) to enroll your account. If you're unable to scan the QR code, you can add the account manually:
     1. In the Microsoft Authenticator app on your phone, select **OR ENTER CODE MANUALLY**.
-    1. In the application (for example, *Contoso webapp*), select **Still having trouble?** to show **Account Name** and **Secret**.
+    1. In the application (for example, *Contoso webapp*), select **Still having trouble?**. This displays **Account Name** and **Secret**.
     1. Enter the **Account Name** and **Secret** in your Microsoft Authenticator app, and then select **FINISH**.
 1. In the application (for example, *Contoso webapp*), select **Continue**.
 1. In **Enter your code**, enter the code that appears in your Microsoft Authenticator app.
