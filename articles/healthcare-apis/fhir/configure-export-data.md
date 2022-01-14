@@ -114,7 +114,7 @@ portal.
 Select **Selected networks**. Under the Firewall section, specify the IP address in the **Address range** box. Add IP ranges to
 allow access from the internet or your on-premises networks. You can
 find the IP address in the table below for the Azure region where the
-FHIR service service is provisioned.
+FHIR service is provisioned.
 
 |**Azure Region**         |**Public IP Address** |
 |:----------------------|:-------------------|
