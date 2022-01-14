@@ -107,6 +107,8 @@ SFTP support in Azure Blob Storage currently limits its cryptographic algorithm 
 
 - PowerShell and Azure CLI and not supported. You can leverage Portal and ARM templates for Public Preview.
 
+- `ssh-keycan` is not supported.
+
 ## Troubleshooting
 
 - To resolve the `Failed to update SFTP settings for account 'accountname'. Error: The value 'True' is not allowed for property isSftpEnabled.` error, ensure that the following pre-requisites are met at the storage account level:
