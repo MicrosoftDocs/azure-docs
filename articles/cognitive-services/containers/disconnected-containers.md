@@ -112,7 +112,7 @@ After you have configured the container, use the next section to run the contain
 ## Run the container in a disconnected environment
 
 > [!NOTE]
-> If you're using the [Translator container](../translator/containers/translator-how-to-install-container), you will need to add parameters for the downloaded translation models. For example:
+> If you're using the [Translator container](../translator/containers/translator-how-to-install-container.md), you will need to add parameters for the downloaded translation models. For example:
 > ```bash
 > -e MODELS= /path/to/model1/, /path/to/model2/
 > -e TRANSLATORSYSTEMCONFIG=/path/to/model/config/translatorsystemconfig.json
