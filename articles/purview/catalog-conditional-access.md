@@ -12,7 +12,7 @@ ms.date: 01/14/2022
 
 # Conditional Access with Azure Purview
 
-[Azure Purview](purview/overview.md) supports Microsoft Conditional Access.
+[Azure Purview](/overview.md) supports Microsoft Conditional Access.
 
 The following steps show how to configure Azure Purview to enforce a Conditional Access policy.  
 
@@ -22,7 +22,7 @@ The following steps show how to configure Azure Purview to enforce a Conditional
 
 ## Configure conditional access
 
-1. Sign in to the Azure portal, select **Azure Active Directory**, and then select **Conditional Access**. For more information, see [Azure Active Directory Conditional Access technical reference](../../active-directory/conditional-access/concept-conditional-access-conditions.md).  
+1. Sign in to the Azure portal, select **Azure Active Directory**, and then select **Conditional Access**. For more information, see [Azure Active Directory Conditional Access technical reference](../active-directory/conditional-access/concept-conditional-access-conditions.md).  
 
   :::image type="content" source="media/catalog-conditional-access/conditional-access-blade.png" alt-text="Conditional Access blade":::
   
@@ -43,4 +43,4 @@ The following steps show how to configure Azure Purview to enforce a Conditional
 
 ## Next steps
 
-- [Use Azure Purview Studio](./use-purview-studio.md)
+- [Use Azure Purview Studio](/use-purview-studio.md)
