@@ -614,11 +614,11 @@ These steps show how to use the managed identity with a trigger or action throug
 
      1. From the **Authentication type** list, select **Managed identity**.
 
-        ![Screenshot showing example built-in action with "Authentication type" list open and "Managed identity" selected in Standard.](./media/create-managed-service-identity/built-in-managed-identity-standard.png)
+        ![Screenshot showing example built-in action with "Authentication type" list open and "Managed identity" selected - Standard.](./media/create-managed-service-identity/built-in-managed-identity-standard.png)
 
      1. From the list with enabled identities, select the identity that you want to use, for example:
 
-        ![Screenshot showing example built-in action with "Authentication type" list open and "Managed identity" selected in Standard.](./media/create-managed-service-identity/built-in-select-identity-standard.png)
+        ![Screenshot showing example built-in action with managed identity selected to use - Standard.](./media/create-managed-service-identity/built-in-select-identity-standard.png)
 
      For more information, review [Example: Authenticate built-in trigger or action with a managed identity](#authenticate-built-in-managed-identity).
 
@@ -626,7 +626,7 @@ These steps show how to use the managed identity with a trigger or action throug
 
      1. On the tenant selection page, select **Connect with managed identity (preview)**, for example:
 
-        ![Screenshot showing Azure Resource Manager action and "Connect with managed identity" selected in Standard.](./media/create-managed-service-identity/select-connect-managed-identity-standard.png)
+        ![Screenshot showing Azure Resource Manager action and "Connect with managed identity" selected - Standard.](./media/create-managed-service-identity/select-connect-managed-identity-standard.png)
 
      1. On the next page, for **Connection name**, provide a name to use for the connection.
 
@@ -634,17 +634,17 @@ These steps show how to use the managed identity with a trigger or action throug
 
         * **Single-authentication**: These connectors support only one authentication type, which is managed identity in this case. From the **Managed identity** list, select the identity that you want to use. When you're ready to create the connection, select **Create**, for example:
 
-          ![Screenshot showing the connection name page and available enabled managed identities for Standard logic app.](./media/create-managed-service-identity/single-identity-standard.png)
+          ![Screenshot showing the connection name page and available enabled managed identities - Standard.](./media/create-managed-service-identity/single-identity-standard.png)
 
         * **Multi-authentication**: These connectors support more than one authentication type.
 
           1. From the **Authentication type** list, select **Logic Apps Managed Identity** > **Create**, for example:
 
-             ![Screenshot showing the connection name page and "Logic Apps Managed Identity" selected for Standard logic app.](./media/create-managed-service-identity/multi-identity-standard.png)
+             ![Screenshot showing the connection name page and "Logic Apps Managed Identity" selected - Standard.](./media/create-managed-service-identity/multi-identity-standard.png)
 
           1. From the **Managed identity** list, select the identity that you want to use.
 
-             ![Screenshot showing the action's "Parameters" pane and "Managed identity" list for Standard logic app.](./media/create-managed-service-identity/select-multi-identity-standard.png)
+             ![Screenshot showing the action's "Parameters" pane and "Managed identity" list - Standard.](./media/create-managed-service-identity/select-multi-identity-standard.png)
 
         For more information, review [Example: Authenticate managed connector trigger or action with a managed identity](#authenticate-managed-connector-managed-identity).
 
@@ -819,13 +819,11 @@ The Azure Resource Manager managed connector has an action, **Read a resource**,
 
 1. On the connection name page, provide a name for the connection.
 
-   The Azure Resource Manager action is a single-authentication action, so the connection information pane shows a **Managed identity** list that automatically selects the managed identity that's currently enabled on the logic app resource. If you enabled a system-assigned managed identity, the **Managed identity** list selects **System-assigned managed identity**. If you had enabled a user-assigned managed identity instead, the list selects that identity instead.
+   The Azure Resource Manager action is a single-authentication action, so the connection information pane shows a **Managed identity** list that automatically selects the managed identity that's currently enabled on the logic app resource. By default, Standard logic apps automatically have the system-assigned managed identity enabled. The **Managed identity** list shows all the currently enabled identities, for example:
 
-   In this example, **System-assigned managed identity** is the only selection available.
+   ![Screenshot showing Azure Resource Manager action with the connection name entered and "System-assigned managed identity" selected.](./media/create-managed-service-identity/single-identity-standard.png)
 
-   ![Screenshot showing Azure Resource Manager action with the connection name entered and "System-assigned managed identity" selected.](./media/create-managed-service-identity/single-system-identity-standard.png)
-
-   If you're using a multiple-authentication trigger or action, such as Azure Blob Storage, the connection information pane shows an **Authentication type** list that includes the **Managed identity** option among other authentication types.
+   If you're using a multiple-authentication trigger or action, such as Azure Blob Storage, the connection information pane shows an **Authentication type** list that includes the **Logic Apps Managed Identity** option among other authentication types. After you select this option, on the next pane, you can select an identity from the **Managed identity** list.
 
    > [!NOTE]
    > If the managed identity isn't enabled when you try to create the connection, change the connection, 
