@@ -45,6 +45,8 @@ If no upgrade is available, you will get the message:
 ```console
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
+> [!NOTE]
+> If there is no upgrade available, you will need to create a new cluster on a newer, supported version to be able to upgrade your cluster.
 
 ## Customize node surge upgrade
 
