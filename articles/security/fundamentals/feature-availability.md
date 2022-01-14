@@ -304,7 +304,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [F5 BIG-IP ](../../sentinel/data-connectors-reference.md#f5-big-ip)                                       | GA             | GA             |
 | - [F5 Networks](../../sentinel/data-connectors-reference.md#f5-networks-asm)                                     | GA             | GA             |
 | - [FireEye NX (Network Security)](../../sentinel/sentinel-solutions-catalog.md#fireeye-nx-network-security) | Public Preview | Not Available |
-| - [Flare Systems Firework](../../sentinel/sentinel-solutions-catalog.md#flare-systems-framework) | Public Preview | Not Available |
+| - [Flare Systems Firework](../../sentinel/sentinel-solutions-catalog.md) | Public Preview | Not Available |
 | - [Forcepoint NGFW](../../sentinel/data-connectors-reference.md#forcepoint-cloud-access-security-broker-casb-preview)                                  | Public Preview | Public Preview |
 | - [Forcepoint CASB](../../sentinel/data-connectors-reference.md#forcepoint-cloud-access-security-broker-casb-preview)                                  | Public Preview | Public Preview |
 | - [Forcepoint DLP ](../../sentinel/data-connectors-reference.md#forcepoint-data-loss-prevention-dlp-preview)                                   | Public Preview | Not Available      |
