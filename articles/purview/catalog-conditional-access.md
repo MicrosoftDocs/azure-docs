@@ -18,7 +18,7 @@ The following steps show how to configure Azure Purview to enforce a Conditional
 
 ## Prerequisites
 
-- When Multi-Factor Authentication is enabled, to login to Azure Purview Studio, you must perform Multi-Factor Authentication.
+- When multi-factor authentication is enabled, to login to Azure Purview Studio, you must perform multi-factor authentication.
 
 ## Configure conditional access
 
