@@ -43,6 +43,8 @@
     href: isv-app-license.md
   - name: Private plans
     href: private-plans.md
+  - name: Private plans troubleshooting
+    href: azure-private-plan-troubleshooting.md           
   - name: Plans and pricing
     href: plans-pricing.md
   - name: Standard contract
@@ -193,8 +195,6 @@
           href: azure-container-plan-availability.md
         - name: Plan technical configuration
           href: azure-container-plan-technical-configuration.md
-        - name: Private plan troubleshooting
-          href: azure-private-plan-troubleshooting.md           
   - name: Azure virtual machine offer
     items:
     - name: Plan the offer
