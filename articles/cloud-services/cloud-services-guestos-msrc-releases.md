@@ -29,19 +29,19 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 21-12 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup | [2.117] | Jun 8, 2021 |
 |  Rel 21-12 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup | [4.97] | Feb 16, 2021 |
 |  Rel 21-12 |  [4578956]  |  .NET Framework 4.5.2 Security and Quality Rollup | [4.97] | Feb 16, 2021 |
-|  Rel 21-12 |  [4578950  ]  |  .NET Framework 3.5 Security and Quality Rollup | [3.104] | Feb 16, 2021 |
-|  Rel 21-12 |  [4578954 ]  |  . NET Framework 4.5.2 Security and Quality Rollup | [3.104] | Feb 16, 2021 |
-|  Rel 21-12 |  [5004335 ]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update | [6.38] | Aug 10, 2021 |
+|  Rel 21-12 |  [4578950]  |  .NET Framework 3.5 Security and Quality Rollup | [3.104] | Feb 16, 2021 |
+|  Rel 21-12 |  [4578954]  |  . NET Framework 4.5.2 Security and Quality Rollup | [3.104] | Feb 16, 2021 |
+|  Rel 21-12 |  [5004335]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update | [6.38] | Aug 10, 2021 |
 |  Rel 21-12 |  [5008244]  |  Monthly Rollup | [2.117] | Sep 14, 2021 |
 |  Rel 21-12 |  [5008277]  |  Monthly Rollup | [3.104] | Sep 14, 2021 |
 |  Rel 21-12 |  [5008263]  |  Monthly Rollup | [4.97] | Sep 14, 2021 |
-|  Rel 21-12 |  [5001401 ]  |  Servicing Stack update | [3.104] | Apr 13, 2021 |
-|  Rel 21-12 |  [5001403 ]  |  Servicing Stack update | [4.97] | Apr 13, 2021 |
+|  Rel 21-12 |  [5001401]  |  Servicing Stack update | [3.104] | Apr 13, 2021 |
+|  Rel 21-12 |  [5001403]  |  Servicing Stack update | [4.97] | Apr 13, 2021 |
 |  Rel 21-12 OOB |  [4578013]  |  Standalone Security Update | [4.97] | Aug 19, 2020 |
 |  Rel 21-12 |  [5005698]  |  Servicing Stack update | [5.62] | Sep 14, 2021 |
 |  Rel 21-12 |  [5006749]  |  Servicing Stack update | [2.117] | July 13, 2021 |
-|  Rel 21-12 |  [5008287 ]  |  Servicing Stack update | [6.38] | Aug 10, 2021 |
-|  Rel 21-12 |  [4494175 ]  |  Microcode | [5.62] | Sep 1, 2020 |
+|  Rel 21-12 |  [5008287]  |  Servicing Stack update | [6.38] | Aug 10, 2021 |
+|  Rel 21-12 |  [4494175]  |  Microcode | [5.62] | Sep 1, 2020 |
 |  Rel 21-12 |  [4494174]  |  Microcode | [6.38] | Sep 1, 2020 |
 
 [5008218]: https://support.microsoft.com/kb/5008218
@@ -52,18 +52,18 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4578955]: https://support.microsoft.com/kb/4578955
 [4578953]: https://support.microsoft.com/kb/4578953
 [4578956]: https://support.microsoft.com/kb/4578956
-[4578950  ]: https://support.microsoft.com/kb/4578950  
-[4578954 ]: https://support.microsoft.com/kb/4578954 
-[5004335 ]: https://support.microsoft.com/kb/5004335 
+[4578950]: https://support.microsoft.com/kb/4578950  
+[4578954]: https://support.microsoft.com/kb/4578954 
+[5004335]: https://support.microsoft.com/kb/5004335 
 [5008244]: https://support.microsoft.com/kb/5008244
 [5008277]: https://support.microsoft.com/kb/5008277
 [5008263]: https://support.microsoft.com/kb/5008263
-[5001401 ]: https://support.microsoft.com/kb/5001401 
-[5001403 ]: https://support.microsoft.com/kb/5001403 
+[5001401]: https://support.microsoft.com/kb/5001401 
+[5001403]: https://support.microsoft.com/kb/5001403 
 [4578013]: https://support.microsoft.com/kb/4578013
 [5005698]: https://support.microsoft.com/kb/5005698
 [5006749]: https://support.microsoft.com/kb/5006749
-[5008287 ]: https://support.microsoft.com/kb/5008287 
+[5008287]: https://support.microsoft.com/kb/5008287 
 [4494175 ]: https://support.microsoft.com/kb/4494175 
 [4494174]: https://support.microsoft.com/kb/4494174
 [2.117]: ./cloud-services-guestos-update-matrix.md#family-2-releases
