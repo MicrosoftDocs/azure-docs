@@ -119,9 +119,9 @@ With Windows 10 1803 or newer, if instantaneous hybrid Azure AD join for a feder
 
 ## Other scenarios
 
-Some organizations may not be able to use Azure AD Connect to configure AD FS, the steps to configure the claims manually can be found in the article [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual.md).
-
 Organizations who may wish to test hybrid Azure AD join on a subset of their environment before a full rollout, the steps to complete a targeted deployment can be found in the article [Hybrid Azure AD join targeted deployment](hybrid-azuread-join-control.md).
+
+Some organizations may not be able to use Azure AD Connect to configure AD FS, the steps to configure the claims manually can be found in the article [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual.md).
 
 ## Troubleshoot hybrid Azure AD join
 
