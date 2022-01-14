@@ -201,6 +201,18 @@ it will return a JSON response similar to the example below:
 }
 ```
 
+## Purchase a different commitment plan for disconnected containers
+
+Commitment plans for disconnected containers have a calendar year commitment period. When you purchase a plan, you will be charged the full price immediately. During the commitment period, you cannot change your commitment plan, however you can purchase additional unit(s) at a pro-rated price for the remaining days in the year. You can only purchase a different commitment plan for the next billing cycle, which happens on the first day of the next year. 
+
+You can choose a different commitment plan in the **Commitment Tier pricing** settings of your resource. 
+
+The commitment plans have a calendar month commitment period. You can purchase a commitment plan at any time from the default pay-as-you-go pricing model. When you purchase a plan, you will be charged a pro-rated price for the remaining month. During the commitment period, you cannot change the commitment plan for the current month. However, you can choose a different commitment plan for the next calendar month. The billing for the next month would happen on the first day of the next month.
+
+## End a commitment plan
+
+If you decide that you don't want to continue purchasing a commitment plan, you can set your resource's auto-renewal to **Do not auto-renew**. Your commitment plan will expire on the displayed commitment end date. After this date, you won't be charged for the commitment plan. You will be able to continue using the Azure resource to make API calls, charged at pay-as-you-go pricing. You have until midnight (UTC) on the last day of the year to end a commitment plan for disconnected containers, and not be charged for the following year. 
+
 ## Troubleshooting
 
 If you run the container with an output mount and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
