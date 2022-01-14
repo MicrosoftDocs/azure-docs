@@ -202,43 +202,23 @@ To configure customer-managed keys with automatic updating of the key version wi
 
 You can use either a system-assigned managed identity or a user-assigned managed identity to authenticate access to the key vault. To learn more about each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
-#### Authenticate with a system-assigned managed identity
-
-To use a system-assigned managed identity to authenticate access to the key vault, first determine whether a system-assigned managed identity is assigned to the storage account. Use the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command to get the storage account object, and then check the `Identity` property of storage account object to get the ID of the system-assigned managed identity. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
-
-```powershell
-$storageAccount = Get-AzStorageAccount -ResourceGroupName <resource_group> `
-    -AccountName <storage-account>
-$storageAccount.Identity
-```
-
-If the `identity` property doesn't return a value, then you'll need to assign a system-assigned assigned managed identity to your storage account. To assign a system-assigned managed identity using PowerShell, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount):
+To authenticate access to the key vault with a system-assigned managed identity, assign the system-assigned managed identity to the storage account by calling [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount):
 
 ```powershell
 $storageAccount = Set-AzStorageAccount -ResourceGroupName <resource_group> `
     -Name <storage-account> `
     -AssignIdentity
+$objectId = $storageAccount.Identity.PrincipalId
 ```
 
-Next, to set the access policy for the key vault, call [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), providing the identifier for the system-assigned managed identity. For more information about assigning the key vault access policy, see [Assign a Key Vault access policy using Azure PowerShell](../../key-vault/general/assign-access-policy-powershell.md)).
-
-```powershell
-Set-AzKeyVaultAccessPolicy `
-    -VaultName $keyVault.VaultName `
-    -ObjectId $storageAccount.Identity.PrincipalId `
-    -PermissionsToKeys wrapkey,unwrapkey,get
-```
-
-#### Authenticate with a user-assigned managed identity
-
-To use a system-assigned managed identity to authenticate access to the key vault, first find the object ID of the user-assigned managed identity. To run this script, you'll need the resource ID of the user-assigned managed identity.
+To authenticate access to the key vault with a user-assigned managed identity, first find the object ID of the user-assigned managed identity. To run this example, you'll need the resource ID of the user-assigned managed identity.
 
 ```powershell
 $userManagedIdentityResourceId = '/subscriptions/{my subscription ID}/resourceGroups/{my resource group name}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{my managed identity name}'
 $objectId = (Get-AzResource -ResourceId $userManagedIdentityResourceId).Properties.PrincipalId
 ```
 
-To set the access policy for the key vault, call [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy):
+Next, to set the access policy for the key vault, call [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), providing the identifier for the system-assigned managed identity. For more information about assigning the key vault access policy, see [Assign a Key Vault access policy using Azure PowerShell](../../key-vault/general/assign-access-policy-powershell.md)).
 
 ```powershell
 Set-AzKeyVaultAccessPolicy `
@@ -248,8 +228,6 @@ Set-AzKeyVaultAccessPolicy `
 ```
 
 For more information, see [Assign a Key Vault access policy using Azure PowerShell](../../key-vault/general/assign-access-policy-powershell.md)).
-
-
 
 Finally, configure the customer-managed key. To automatically update the key version for the customer-managed key, omit the key version when you configure encryption with customer-managed keys for the storage account. Call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings, as shown in the following example, and include the **-KeyvaultEncryption** option to enable customer-managed keys for the storage account.
 
@@ -261,12 +239,40 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-
 # [Azure CLI](#tab/azure-cli)
 
 To configure customer-managed keys with automatic updating of the key version with Azure CLI, install [Azure CLI version 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-To automatically update the key version for a customer-managed key, omit the key version when you configure encryption with customer-managed keys for the storage account. Call [az storage account update](/cli/azure/storage/account#az_storage_account_update) to update the storage account's encryption settings, as shown in the following example. Include the `--encryption-key-source` parameter and set it to `Microsoft.Keyvault` to enable customer-managed keys for the account.
+You can use either a system-assigned managed identity or a user-assigned managed identity to authenticate access to the key vault. To learn more about each type of managed identity, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
+
+To authenticate access to the key vault with a system-assigned managed identity, assign the system-assigned managed identity to the storage account by calling [az storage account update](/cli/azure/storage/account#az_storage_account_update):
+
+```azurecli-interactive
+az storage account update \
+    --name <storage-account> \
+    --resource-group <resource_group> \
+    --assign-identity
+```
+
+To authenticate access to the key vault with a user-assigned managed identity, first find the object ID of the user-assigned managed identity.
+
+```azurecli-interactive
+az identity show \
+    --name <name-of-user-assigned-managed-identity> \
+    --resource-group <resource-group>
+```
+
+Next, to set the access policy for the key vault, call [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) and provide the object ID of the managed identity:
+
+```azurecli-interactive
+az keyvault set-policy \
+    --name <key-vault> \
+    --resource-group <resource_group>
+    --object-id <object-id> \
+    --key-permissions get unwrapKey wrapKey
+```
+
+Finally, configure the customer-managed key. To automatically update the key version for a customer-managed key, omit the key version when you configure encryption with customer-managed keys for the storage account. Call [az storage account update](/cli/azure/storage/account#az_storage_account_update) to update the storage account's encryption settings, as shown in the following example. Include the `--encryption-key-source` parameter and set it to `Microsoft.Keyvault` to enable customer-managed keys for the account.
 
 Remember to replace the placeholder values in brackets with your own values.
 
@@ -305,6 +311,7 @@ To configure customer-managed keys with manual updating of the key version in th
    ![Screenshot showing how to enter key URI](./media/customer-managed-keys-configure-key-vault/portal-specify-key-uri.png)
 
 1. Specify the subscription that contains the key vault.
+1. Specify either a system-assigned or user-assigned managed identity.
 1. Save your changes.
 
 # [PowerShell](#tab/powershell)
