@@ -21,7 +21,7 @@ This topic provides an overview of the components of the **Autopilot** dashboard
 > [!NOTE]
 > Only users with the **Administrator** role can view and make changes on this tab.
 
-**To display a list of Autopilot Rules:**
+**To display a list of Autopilot Rules**
 
 - **Authorization system types** - From a drop-down list, select the authorization system types you can access. May include Amazon Web Services (AWS), Microsoft Azure (Azure), Google Cloud Platform (GCP), and so on.
 - **Authorization systems** - Select the appropriate option from either the **List** or **Folders** section, and then select **Apply**. 
@@ -37,7 +37,7 @@ The following information displays in the table:
 - **Last Modified** - The date and time the rule was last modified.
 - **Subscription** - Provides an **On** or **Off** subscription that allows you to receive email notifications when recommendations have been generated, applied, or unapplied.
 
-**To view the available options:**
+**To view the available options**
 
 - Select the ellipses **(...)**
 
