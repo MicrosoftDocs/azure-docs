@@ -82,6 +82,7 @@ The following example demonstrates what the form looks like when you create an *
 
 ![Form for a new datastore](media/how-to-connect-data-ui/new-id-based-datastore-form.png)
 ---
+
 ## Create datasets
 
 After you create a datastore, create a dataset to interact with your data. Datasets package your data into a lazily evaluated consumable object for machine learning tasks, like training. [Learn more about datasets](how-to-create-register-datasets.md).
