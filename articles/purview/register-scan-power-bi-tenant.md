@@ -1,6 +1,6 @@
 ---
 title: Connect to and manage a Power BI tenant
-description: This guide describes how to connect to a Power BI tenant in Azure Purview, and use Purview's features to scan and manage your Power BI tenant source.
+description: This guide describes how to connect to a Power BI tenant in Azure Purview, and use Azure Purview's features to scan and manage your Power BI tenant source.
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
@@ -21,12 +21,12 @@ This article outlines how to register a Power BI tenant, and how to authenticate
 | [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-powerbi.md)|
 
 > [!Note]
-> If the Purview instance and the Power BI tenant are in the same Azure tenant, you can only use managed identity (MSI) authentication to set up a scan of a Power BI tenant.
+> If the Azure Purview instance and the Power BI tenant are in the same Azure tenant, you can only use managed identity (MSI) authentication to set up a scan of a Power BI tenant.
 
 ### Known limitations
 
 -   For cross-tenant scenario, no UX experience currently available to register and scan cross Power BI tenant.
--   By Editing the Power BI cross tenant registered with PowerShell using Purview Studio will tamper the data source registration with inconsistent scan behavior.
+-   By Editing the Power BI cross tenant registered with PowerShell using Azure Purview Studio will tamper the data source registration with inconsistent scan behavior.
 -   Review [Power BI Metadata scanning limitations](/power-bi/admin/service-admin-metadata-scanning).
 
 
@@ -34,9 +34,9 @@ This article outlines how to register a Power BI tenant, and how to authenticate
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Purview resource](create-catalog-portal.md).
+* An active [Azure Purview resource](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
@@ -81,7 +81,7 @@ For both same-tenant and cross-tenant scenarios, to set up authentication, creat
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Image showing how to allow service principals to get read-only Power BI admin API permissions.":::
 
-1. Select **Admin API settings** > **Enhance admin APIs responses with detailed metadata** > Enable the toggle to allow Purview Data Map automatically discover the detailed metadata of Power BI datasets as part of its scans.
+1. Select **Admin API settings** > **Enhance admin APIs responses with detailed metadata** > Enable the toggle to allow Azure Purview Data Map automatically discover the detailed metadata of Power BI datasets as part of its scans.
 
     > [!IMPORTANT]
     > After you update the Admin API settings on your power bi tenant, wait around 15 minutes before registering a scan and test connection.
@@ -89,10 +89,10 @@ For both same-tenant and cross-tenant scenarios, to set up authentication, creat
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-sub-artifacts.png" alt-text="Image showing the Power BI admin portal config to enable subartifact scan.":::
 
     > [!Caution]
-    > When you allow the security group you created (that has your Purview managed identity as a member) to use read-only Power BI admin APIs, you also allow it to access the metadata (e.g. dashboard and report names, owners, descriptions, etc.) for all of your Power BI artifacts in this tenant. Once the metadata has been pulled into the Azure Purview, Purview's permissions, not Power BI permissions, determine who can see that metadata.
+    > When you allow the security group you created (that has your Azure Purview managed identity as a member) to use read-only Power BI admin APIs, you also allow it to access the metadata (e.g. dashboard and report names, owners, descriptions, etc.) for all of your Power BI artifacts in this tenant. Once the metadata has been pulled into the Azure Purview, Azure Purview's permissions, not Power BI permissions, determine who can see that metadata.
   
     > [!Note]
-    > You can remove the security group from your developer settings, but the metadata previously extracted won't be removed from the Purview account. You can delete it separately, if you wish.
+    > You can remove the security group from your developer settings, but the metadata previously extracted won't be removed from the Azure Purview account. You can delete it separately, if you wish.
 
 ### Steps to register in the same tenant
 
@@ -242,7 +242,7 @@ This guide covers both [same-tenant](#create-and-run-scan-for-same-tenant-power-
 
 To create and run a new scan, do the following:
 
-1. In the Purview Studio, navigate to the **Data map** in the left menu.
+1. In the Azure Purview Studio, navigate to the **Data map** in the left menu.
 
 1. Navigate to **Sources**.
 
@@ -259,14 +259,14 @@ To create and run a new scan, do the following:
 
 1. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem
     1. Access - Failed status means the user authentication failed. Scans using managed identity will always pass because no user authentication required.
-    1. Assets (+ lineage) - Failed status means the Purview - Power BI authorization has failed. Make sure the Purview-managed identity is added to the security group associated in Power BI admin portal.
+    1. Assets (+ lineage) - Failed status means the Azure Purview - Power BI authorization has failed. Make sure the Purview-managed identity is added to the security group associated in Power BI admin portal.
     1. Detailed metadata (Enhanced) - Failed status means the Power BI admin portal is disabled for the following setting - **Enhance admin APIs responses with detailed metadata**
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-test-connection-status-report.png" alt-text="Screenshot of test connection status report page.":::
 
 1. Set up a scan trigger. Your options are **Once**, **Every 7 days**, and **Every 30 days**.
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Screenshot of the Purview scan scheduler.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Screenshot of the Azure Purview scan scheduler.":::
 
 1. On **Review new scan**, select **Save and Run** to launch your scan.
 
@@ -286,7 +286,7 @@ To create and run a new scan inside Azure Purview execute the following cmdlets 
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)

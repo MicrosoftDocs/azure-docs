@@ -16,10 +16,10 @@ This article provides an overview of the data lineage features in Azure Purview 
 One of the platform features of Azure Purview is the ability to show the lineage between datasets created by data processes. Systems like Data Factory, Data Share, and Power BI capture the lineage of data as it moves. Custom lineage reporting is also supported via Atlas hooks and REST API.
 
 ## Lineage collection 
- Metadata collected in Azure Purview from enterprise data systems are stitched across to show an end to end data lineage. Data systems that collect lineage into Purview are broadly categorized into following three types.
+ Metadata collected in Azure Purview from enterprise data systems are stitched across to show an end to end data lineage. Data systems that collect lineage into Azure Purview are broadly categorized into following three types.
 
 ### Data processing system
-Data integration and ETL tools can push lineage in to Azure Purview at execution time. Tools such as Data Factory, Data Share, Synapse, Azure Databricks, and so on, belong to this category of data systems. The data processing systems reference datasets as source from different databases and storage solutions to create target datasets. The list of data processing systems currently integrated with Purview for lineage are listed in below table.
+Data integration and ETL tools can push lineage in to Azure Purview at execution time. Tools such as Data Factory, Data Share, Synapse, Azure Databricks, and so on, belong to this category of data systems. The data processing systems reference datasets as source from different databases and storage solutions to create target datasets. The list of data processing systems currently integrated with Azure Purview for lineage are listed in below table.
 
 | Data processing system | Supported scope |
 | ---------------------- | ------------|
@@ -28,7 +28,7 @@ Data integration and ETL tools can push lineage in to Azure Purview at execution
 | Azure Data Share | [Share snapshot](how-to-link-azure-data-share.md) |
  
 ### Data storage systems
-Databases & storage solutions such as SQL Server, Teradata, and SAP have query engines to transform data using scripting language. Data lineage from stored procedures is collected in to Purview and stitched with lineage from other systems.
+Databases & storage solutions such as SQL Server, Teradata, and SAP have query engines to transform data using scripting language. Data lineage from stored procedures is collected in to Azure Purview and stitched with lineage from other systems.
 
 | Data storage system | Supported scope |
 | ---------------------- | ------------|
@@ -45,17 +45,17 @@ Data systems like Azure ML and Power BI report lineage into Azure Purview. These
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWxTAK]
 
-Lineage in Purview includes datasets and processes. Datasets are also referred to as nodes while processes can be also called edges:
+Lineage in Azure Purview includes datasets and processes. Datasets are also referred to as nodes while processes can be also called edges:
 
-* **Dataset (Node)**: A dataset (structured or unstructured) provided as an input to a process. For example, a SQL Table, Azure blob, and files (such as .csv and .xml), are all considered datasets. In the lineage section of Purview, datasets are represented by rectangular boxes.
+* **Dataset (Node)**: A dataset (structured or unstructured) provided as an input to a process. For example, a SQL Table, Azure blob, and files (such as .csv and .xml), are all considered datasets. In the lineage section of Azure Purview, datasets are represented by rectangular boxes.
 
-* **Process (Edge)**: An activity or transformation performed on a dataset is called a process. For example, ADF Copy activity, Data Share snapshot and so on. In the lineage section of Purview, processes are represented by round-edged boxes.
+* **Process (Edge)**: An activity or transformation performed on a dataset is called a process. For example, ADF Copy activity, Data Share snapshot and so on. In the lineage section of Azure Purview, processes are represented by round-edged boxes.
 
-To access lineage information for an asset in Purview, follow the steps:
+To access lineage information for an asset in Azure Purview, follow the steps:
 
 1. In the Azure portal, go to the [Azure Purview accounts page](https://aka.ms/purviewportal).
 
-1. Select your Azure Purview account from the list, and then select **Open Purview Studio** from the **Overview** page.
+1. Select your Azure Purview account from the list, and then select **Open Azure Purview Studio** from the **Overview** page.
 
 1. On the Azure Purview Studio **Home** page, search for a dataset name or the process name such as ADF Copy or Data Flow activity. And then press Enter.
 
@@ -94,7 +94,7 @@ To see column-level lineage of a dataset, go to the **Lineage** tab of the curre
    :::image type="content" source="./media/catalog-lineage-user-guide/use-toggle-to-filter-nodes.png" alt-text="Screenshot showing how to use the toggle to filter the list of nodes on the lineage page." lightbox="./media/catalog-lineage-user-guide/use-toggle-to-filter-nodes.png":::
 
 ## Process column lineage
-Data process can take one or more input datasets to produce one or more outputs. In Purview, column level lineage is available for process nodes. 
+Data process can take one or more input datasets to produce one or more outputs. In Azure Purview, column level lineage is available for process nodes. 
 1. Switch between input and output datasets from a drop down in the columns panel.
 2. Select columns from one or more tables to see the lineage flowing from input dataset to corresponding output dataset.
 

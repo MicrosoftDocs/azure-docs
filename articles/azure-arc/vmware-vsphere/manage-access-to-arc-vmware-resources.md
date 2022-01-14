@@ -13,6 +13,9 @@ Once your VMware vCenter resources have been enabled for access through Azure, t
 
 This article describes how to use custom roles to manage granular access to VMware resources through Azure.
 
+> [!IMPORTANT]
+> In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
+
 ## Arc enabled VMware vSphere custom roles
 
 You can select from three custom roles to meet your RBAC needs. You can apply these roles to a whole subscription, resource group, or a single resource.
