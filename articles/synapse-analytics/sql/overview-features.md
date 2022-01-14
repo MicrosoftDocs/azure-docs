@@ -148,12 +148,12 @@ Data that is analyzed can be stored in various storage formats. The following ta
 | **Delimited** | [Yes](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Yes, you can [query delimited files](query-single-csv-file.md). |
 | **CSV** | Yes (multi-character delimiters not supported) |  Yes, you can [query CSV files](query-single-csv-file.md). |
 | **Parquet** | [Yes](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Yes, you can [query CSV files](query-parquet-files.md), including the files with [nested types](query-parquet-nested-types.md) |
-| **Hive ORC** | [Yes](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) | No |
-| **Hive RC** | [Yes](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) | No |
+| **Hive ORC** | [Yes](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) | No, serverless SQL pools cannot read Hive ORC format. |
+| **Hive RC** | [Yes](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) | No, serverless SQL pools cannot read Hive RC format. |
 | **JSON** | Yes | Yes, you can [query JSON files](query-json-files.md) using delimited text format and JSON functions. |
-| **Avro** | No | No |
+| **Avro** | No | No, serverless SQL pools cannot read Avro format. |
 | **[Delta Lake](https://delta.io/)** | No | Yes, you can [query delta lake files](query-delta-lake-format.md), including the files with [nested types](query-parquet-nested-types.md) |
-| **[CDM](/common-data-model/)** | No | No |
+| **[Common Data Model (CDM)](/common-data-model/)** | No | No, serverless SQL pool cannot read data stored using Common Data Model. |
 
 ## Next steps
 Additional information on best practices for dedicated SQL pool and serverless SQL pool can be found in the following articles:
