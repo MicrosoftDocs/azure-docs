@@ -56,6 +56,10 @@ sections:
       - question: Can Virtual Network NAT gateway be associated with a gateway subnet? 
         answer: |
           No. Virtual Network NAT can't be associated with a [gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub) subnet.
+          
+      - question: Can multiple Virtual Network NAT gateways be attached to a single subnet?
+        answer: |
+          No. NAT gateways are defined with a property on a single subnet within a virtual network, and so multiple NAT gateways cannot be attached to a single subnet.
 
       - question: How does Virtual Network NAT gateway work with availability zones?   
         answer: |

@@ -147,8 +147,8 @@ In a PowerShell window, run the following command, providing the script and user
 To disable the updated experience for your users, complete these steps:
 
 1. Sign in to the Azure portal as a user administrator.
-2. Go to **Azure Active Directory** > **User settings** > **Manage settings for access panel preview features**.
-3. Under **Users can use preview features for registering and managing security info**, set the selector to **None**, and then select **Save**.
+2. Go to **Azure Active Directory** > **User settings** > **Manage user feature settings**.
+3. Under **Users can use the combined security information registration experience**, set the selector to **None**, and then select **Save**.
 
 Users will no longer be prompted to register by using the updated experience.
 

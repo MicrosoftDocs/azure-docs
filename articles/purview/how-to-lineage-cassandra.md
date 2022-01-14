@@ -10,7 +10,7 @@ ms.date: 08/12/2021
 ---
 # How to get lineage from Cassandra into Azure Purview
 
-This article elaborates on the data lineage aspects of Cassandra source in Azure Purview. The prerequisite to see data lineage in Purview for Cassandra is to [scan your Cassandra server.](../purview/register-scan-cassandra-source.md) 
+This article elaborates on the data lineage aspects of Cassandra source in Azure Purview. The prerequisite to see data lineage in Azure Purview for Cassandra is to [scan your Cassandra server.](../purview/register-scan-cassandra-source.md) 
 
 ## Lineage of Cassandra artifacts in Azure Purview
 

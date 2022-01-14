@@ -14,7 +14,7 @@ This article discusses how to apply classifications on assets.
 
 ## Introduction
 
-Classifications can be system or custom types. System classifications are present in Purview by default. Custom classifications can be created based on a regular expression pattern. Classifications can be applied to assets either automatically or manually.
+Classifications can be system or custom types. System classifications are present in Azure Purview by default. Custom classifications can be created based on a regular expression pattern. Classifications can be applied to assets either automatically or manually.
 
 This document explains how to apply classifications to your data.
 

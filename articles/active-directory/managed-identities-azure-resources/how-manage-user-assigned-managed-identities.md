@@ -10,7 +10,7 @@ ms.subservice: msi
 ms.devlang: 
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/08/2021
+ms.date: 01/11/2022
 ms.author: barclayn
 zone_pivot_groups: identity-mi-methods
 ---
