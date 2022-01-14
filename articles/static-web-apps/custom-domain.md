@@ -69,6 +69,9 @@ You'll need to configure a CNAME with your domain provider. Azure DNS is recomme
 
 # [Azure DNS](#tab/azure-dns)
 
+> [!IMPORTANT]
+> If Azure DNS does not have the *Reader* permission to the static web app, the step to add an ALIAS record in Azure DNS returns an error. You need to grant permission to the Azure DNS application object to read the endpoint to update DNS.
+
 1. Make sure **CNAME** is selected from the _Hostname record type_ dropdown list.
 
 1. Copy the value in the _Value_ field to your clipboard by selecting the **copy** icon.
