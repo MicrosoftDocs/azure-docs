@@ -15,13 +15,13 @@ ms.custom: references_regions, ignite-fall-2021
 
 # Language and voice support for the Speech service
 
-Language support varies by Speech service functionality. The following tables summarize language support for [Speech-to-Text](#speech-to-text), [Text-to-Speech](#text-to-speech), [Speech translation](#speech-translation), and [Speaker Recognition](#speaker-recognition) service offerings.
+Language support varies by Speech service functionality. The following tables summarize language support for [Speech to Text](#speech-to-text), [Text to Speech](#text-to-speech), [Speech Translation](#speech-translation), and [Speaker Recognition](#speaker-recognition) service offerings.
 
-## Speech-to-Text
+## Speech to Text
 
-Both the Microsoft Speech SDK and the REST API support the following languages (locales). 
+Both the Microsoft Speech SDK and the REST API support the languages (locales) in the following table.
 
-To improve accuracy, customization is available for some languages and baseline model versions by uploading **Audio + Human-labeled Transcripts**, **Plain Text**, **Structured Text**, and **Pronunciation**. By default, Plain Text customization is supported for all available baseline models. To learn more about customization, see [Get started with Custom Speech](./custom-speech-overview.md).
+To improve accuracy, customization is available for some languages and baseline model versions by uploading Audio + Human-labeled Transcripts, Plain Text, Structured Text, and Pronunciation. By default, Plain Text customization is supported for all available baseline models. To learn more about customization, see [Get started with Custom Speech](./custom-speech-overview.md).
 
 <!--
 To get the AM and ML bits:
@@ -44,9 +44,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Arabic (Libya)                    | `ar-LY`         | Plain Text                                                            |
 | Arabic (Morocco)                  | `ar-MA`         | Plain Text                                                            |
 | Arabic (Oman)                     | `ar-OM`         | Plain Text                                                            |
+| Arabic (Palestinian Authority)    | `ar-PS`         | Plain Text                                                            |
 | Arabic (Qatar)                    | `ar-QA`         | Plain Text                                                            |
 | Arabic (Saudi Arabia)             | `ar-SA`         | Plain Text                                                            |
-| Arabic (Palestinian Authority)    | `ar-PS`         | Plain Text                                                            |
 | Arabic (Syria)                    | `ar-SY`         | Plain Text                                                            |
 | Arabic (Tunisia)                  | `ar-TN`         | Plain Text                                                            |
 | Arabic (United Arab Emirates)     | `ar-AE`         | Plain Text                                                            |
@@ -75,15 +75,15 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | English (Tanzania)                | `en-TZ`         | Plain Text<br/>Pronunciation                                          |
 | English (United Kingdom)          | `en-GB`         | Audio (20201019)<br>Plain Text<br>Structured Text (20210906)<br>Pronunciation                     |
 | English (United States)           | `en-US`         | Audio (20201019, 20210223)<br>Plain Text<br>Structured Text (20211012)<br>Pronunciation           |
-| Estonian(Estonia)                 | `et-EE`         | Plain Text<br/>Pronunciation                                          |
+| Estonian (Estonia)                 | `et-EE`         | Plain Text<br/>Pronunciation                                          |
 | Filipino (Philippines)            | `fil-PH`        | Plain Text<br/>Pronunciation                                          |
 | Finnish (Finland)                 | `fi-FI`         | Plain Text<br/>Pronunciation                                          |
 | French (Canada)                   | `fr-CA`         | Audio (20201015)<br>Plain Text<br>Structured Text (20210908)<br>Pronunciation                     |
 | French (France)                   | `fr-FR`         | Audio (20201015)<br>Plain Text<br>Structured Text (20210908)<br>Pronunciation                     |
 | French (Switzerland)              | `fr-CH`         | Plain Text<br/>Pronunciation                                          |
 | German (Austria)                  | `de-AT`         | Plain Text<br/>Pronunciation                                          |
-| German (Switzerland)              | `de-CH`         | Plain Text<br/>Pronunciation                                          |
-| German (Germany)                  | `de-DE`         | Audio (20201127)<br>Plain Text<br>Structured Text (20210831)<br>Pronunciation |
+| German (Germany)                  | `de-DE`         | Plain Text<br/>Pronunciation                                          |
+| German (Switzerland)              | `de-CH`         | Audio (20201127)<br>Plain Text<br>Structured Text (20210831)<br>Pronunciation |
 | Greek (Greece)                    | `el-GR`         | Plain Text                                                            |
 | Gujarati (Indian)                 | `gu-IN`         | Plain Text                                                            |
 | Hebrew (Israel)                   | `he-IL`         | Plain Text                                                            |
@@ -139,19 +139,19 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Turkish (Turkey)                  | `tr-TR`         | Plain Text                                                            |
 | Vietnamese (Vietnam)              | `vi-VN`         | Plain Text                                                            |
 
-## Text-to-Speech
+## Text to Speech
 
-Both the Microsoft Speech SDK and REST APIs support these neural voices, each of which supports a specific language and dialect, identified by locale. You can also get a full list of languages and voices supported for each specific region/endpoint through the [voices list API](rest-text-to-speech.md#get-a-list-of-voices). 
+Both the Microsoft Speech SDK and REST APIs support these neural voices, each of which supports a specific language and dialect, identified by locale. You can also get a full list of languages and voices supported for each specific region or endpoint through the [voices list API](rest-text-to-speech.md#get-a-list-of-voices).
 
 > [!IMPORTANT]
-> Pricing varies for Prebuilt Neural Voice (referred as *Neural* on the pricing page) and Custom Neural Voice (referred as *Custom Neural* on the pricing page). Please visit the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page for additional information.
+> Pricing varies for Prebuilt Neural Voice (referred to as *Neural* on the pricing page) and Custom Neural Voice (referred to as *Custom Neural* on the pricing page). For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page.
 
-### Prebuilt neural voices
+### Prebuilt Neural Voice
 
-Below table lists out the prebuilt neural voices supported in each language. You can [try the demo and hear the voices here](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).  
+The following table lists the prebuilt neural voices supported in each language. You can try the demo and hear the voices on [this website](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
 
 > [!NOTE]
-> Prebuilt neural voices are created from samples that use a 24 khz sample rate.
+> Prebuilt neural voices are created from samples that use a 24-khz sample rate.
 > All voices can upsample or downsample to other sample rates when synthesizing.
 
 | Language | Locale | Gender | Voice name | Style support |
@@ -227,8 +227,8 @@ Below table lists out the prebuilt neural voices supported in each language. You
 | English (Australia) | `en-AU` | Male | `en-AU-WilliamNeural` | General |
 | English (Canada) | `en-CA` | Female | `en-CA-ClaraNeural` | General |
 | English (Canada) | `en-CA` | Male | `en-CA-LiamNeural` | General |
-| English (Hongkong) | `en-HK` | Female | `en-HK-YanNeural` | General |
-| English (Hongkong) | `en-HK` | Male | `en-HK-SamNeural` | General |
+| English (Hong Kong) | `en-HK` | Female | `en-HK-YanNeural` | General |
+| English (Hong Kong) | `en-HK` | Male | `en-HK-SamNeural` | General |
 | English (India) | `en-IN` | Female | `en-IN-NeerjaNeural` | General |
 | English (India) | `en-IN` | Male | `en-IN-PrabhatNeural` | General |
 | English (Ireland) | `en-IE` | Female | `en-IE-EmilyNeural` | General |
@@ -431,44 +431,42 @@ Below table lists out the prebuilt neural voices supported in each language. You
 | Zulu (South Africa) | `zu-ZA` | Male | `zu-ZA-ThembaNeural` <sup>New</sup>  | General |
 
 > [!IMPORTANT]
-> The English (United Kingdom) voice `en-GB-MiaNeural` retired on **30 October 2021**. All service requests to `en-GB-MiaNeural` now will be re-directed to `en-GB-SoniaNeural` automatically since **30 October 2021**.
-> If you are using container Neural TTS, please [download](speech-container-howto.md#get-the-container-image-with-docker-pull) and deploy the latest version, starting from **30 October 2021**, all requests with previous versions will be rejected.
+> The English (United Kingdom) voice `en-GB-MiaNeural` retired on **October 30, 2021**. All service requests to `en-GB-MiaNeural` will be redirected to `en-GB-SoniaNeural` automatically as of **October 30, 2021**.
+> If you're using container Neural TTS, [download](speech-container-howto.md#get-the-container-image-with-docker-pull) and deploy the latest version. Starting from **October 30,2021**, all requests with previous versions will be rejected.
 
 ### Prebuilt neural voices in preview
 
-Below neural voices are in public preview. 
+The following neural voices are in public preview.
 
 | Language                         | Locale  | Gender | Voice name                             | Style support |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
-| English (United States) | `en-US` | Female | `en-US-JennyMultilingualNeural` <sup>New</sup> | General，multi-lingual capabilities available [using SSML](speech-synthesis-markup.md#create-an-ssml-document) |
+| English (United States) | `en-US` | Female | `en-US-JennyMultilingualNeural` <sup>New</sup> | General，multilingual capabilities available [using SSML](speech-synthesis-markup.md#create-an-ssml-document) |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaochenNeural` <sup>New</sup> | Optimized for spontaneous conversation |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoyanNeural` <sup>New</sup> | Optimized for customer service |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoshuangNeural` <sup>New</sup> | Child voice，optimized for child story and chat; multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)|
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoqiuNeural` <sup>New</sup> | Optimized for narrating |
 
 > [!IMPORTANT]
-> Voices in public preview are only available in 3 service regions: East US, West Europe and Southeast Asia.
+> Voices in public preview are only available in three service regions: East US, West Europe, and Southeast Asia.
 
-> [!TIP]
-> `en-US-JennyNeuralMultilingual` supports multiple languages. Check the [voices list API](rest-text-to-speech.md#get-a-list-of-voices) for supported languages list.
+The `en-US-JennyNeuralMultilingual` voice supports multiple languages. Check the [voices list API](rest-text-to-speech.md#get-a-list-of-voices) for a supported languages list.
 
 For more information about regional availability, see [regions](regions.md#prebuilt-neural-voices).
 
 To learn how you can configure and adjust neural voices, such as Speaking Styles, see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
 
 > [!IMPORTANT]
-> The `en-US-JessaNeural` voice has changed to `en-US-AriaNeural`. If you were using "Jessa" before, convert over to "Aria".
+> The `en-US-JessaNeural` voice has changed to `en-US-AriaNeural`. If you were using "Jessa" before, convert  to "Aria."
 
-> [!TIP]
-> You can continue to use the full service name mapping like "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)" in your speech synthesis requests.
+You can continue to use the full service name mapping like "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)" in your speech synthesis requests.
 
 ### Voice styles and roles
 
-In some cases you can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm, or optimize the voice for different scenarios like customer service, newscast, and voice assistant. With roles the same voice can act as a different age and gender. 
+In some cases, you can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm. You can optimize the voice for different scenarios like customer service, newscast, and voice assistant. With roles, the same voice can act as a different age and gender.
 
-To learn how you can configure and adjust neural voice styles and roles see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
+To learn how you can configure and adjust neural voice styles and roles, see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
 
-Use this table to determine supported styles and roles for each neural voice.
+Use the following table to determine supported styles and roles for each neural voice.
 
 |Voice|Styles|Style degree|Roles|
 |-----|-----|-----|-----|
@@ -488,13 +486,13 @@ Use this table to determine supported styles and roles for each neural voice.
 |zh-CN-YunyangNeural|`customerservice`|Supported||
 |zh-CN-YunyeNeural|`angry`, `calm`, `cheerful`, `disgruntled`, `fearful`, `sad`, `serious`|Supported|Supported|
 
-### Custom neural voice
+### Custom Neural Voice
 
-Custom neural voice lets you create synthetic voices that are rich in speaking styles. You can create a unique brand voice in multiple languages and styles by using a small set of recording data.  
+Custom Neural Voice lets you create synthetic voices that are rich in speaking styles. You can create a unique brand voice in multiple languages and styles by using a small set of recording data.  
 
 Select the right locale that matches the training data you have to train a custom neural voice model. For example, if the recording data you have is spoken in English with a British accent, select `en-GB`.
 
-With the cross-lingual feature (preview), you can transfer you custom neural voice model to speak a second language. For example, with the `zh-CN` data, you can create a voice that speaks `en-AU` or any of the languages marked 'yes' in the 'cross-lingual' column below.  
+With the cross-lingual feature (preview), you can transfer your custom neural voice model to speak a second language. For example, with the `zh-CN` data, you can create a voice that speaks `en-AU` or any of the languages marked "Yes" in the Cross-lingual column in the following table.  
 
 | Language | Locale | Cross-lingual (preview) |
 |--|--|--|
@@ -551,7 +549,7 @@ With the cross-lingual feature (preview), you can transfer you custom neural voi
 
 ## Language identification
 
-With language identification, you set and get one of the supported locales below. But we only compare at the language level such as English and German. If you include multiple locales of the same language (for example, `en-IN` and `en-US`), we'll only compare English (`en`) with the other candidate languages.
+With language identification, you set and get one of the supported locales in the following table. We only compare at the language level, such as English and German. If you include multiple locales of the same language, for example, `en-IN` and `en-US`, we'll only compare English (`en`) with the other candidate languages.
 
 |Language|Locale (BCP-47)|
 |-----|-----|
@@ -590,14 +588,13 @@ Arabic|`ar-DZ`<br/>`ar-BH`<br/>`ar-EG`<br/>`ar-IQ`<br/>`ar-OM`<br/>`ar-SY`|
 |Thai|`th-TH`|
 |Turkish|`tr-TR`|
 
+## Pronunciation Assessment
 
-## Pronunciation assessment
+The [Pronunciation Assessment](how-to-pronunciation-assessment.md) feature currently supports the `en-US` locale, which is available with all speech-to-text regions. Support for `en-GB` and `zh-CN` languages is in preview.
 
-The [Pronunciation assessment](how-to-pronunciation-assessment.md) feature currently supports the `en-US` locale, which is available with all speech-to-text regions. Support for `en-GB` and `zh-CN` languages is in preview.
+## Speech Translation
 
-## Speech translation
-
-The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the Speech-to-text language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into any of the  [supported languages](https://www.microsoft.com/translator/business/languages/). A subset of languages is available for [speech synthesis](language-support.md#text-languages).
+The Speech Translation API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the Speech-to-Text language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into any of the [supported languages](https://www.microsoft.com/translator/business/languages/). A subset of languages is available for [speech synthesis](language-support.md#text-languages).
 
 ### Text languages
 
@@ -697,7 +694,7 @@ The **Speech Translation** API supports different languages for speech-to-speech
 
 ## Speaker Recognition
 
-Speaker recognition is mostly language agnostic. We built a universal model for text-independent speaker recognition by combining various data sources from multiple languages. We have tuned and evaluated the model on the languages and locales that appear in the following table. See the [overview](speaker-recognition-overview.md) for additional information on Speaker Recognition.
+Speaker Recognition is mostly language agnostic. We built a universal model for text-independent speaker recognition by combining various data sources from multiple languages. We've tuned and evaluated the model on the languages and locales that appear in the following table. For more information on Speaker Recognition, see the [overview](speaker-recognition-overview.md).
 
 | Language | Locale (BCP-47) | Text-dependent verification | Text-independent verification | Text-independent identification |
 |----|----|----|----|----|
