@@ -927,7 +927,7 @@ This example shows what the configuration looks like when the logic app enables 
 
 <a name="arm-templates-connection-resource-managed-identity"></a>
 
-## ARM template for managed connections and managed identities (Consumption)
+## ARM template for managed connections and managed identities
 
 If you automate deployment with an ARM template, and your logic app workflow includes a managed connector trigger or action that uses a managed identity, confirm that the underlying connection resource definition includes the `parameterValueSet` object, which includes the `name` property set to `managedIdentityAuth` and the `values` property set to an empty object. Otherwise, your ARM deployment won't set up the connection to use the managed identity for authentication, and the connection won't work in your logic app's workflow. This requirement applies only to [specific managed connector triggers and actions](#triggers-actions-managed-identity) where you selected the [**Connect with managed identity** option](#authenticate-managed-connector-managed-identity).
 
