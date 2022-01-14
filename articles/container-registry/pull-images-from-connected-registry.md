@@ -92,6 +92,6 @@ docker pull <IP_address_or_FQDN_of_connected_registry>:<port>/hello-world
 [az-acr-scope-map-create]: /cli/azure/acr/token/#az_acr_token_create
 [az-acr-token-create]: /cli/azure/acr/token/#az_acr_token_create
 [az-acr-token-credential-generate]: /cli/azure/acr/token/credential#az_acr_token_credential_generate
-[az-acr-connected-registry-update]: /azure/container-registry/quickstart-connected-registry-cli#az_acr_connected_registry_update] 
+[az-acr-connected-registry-update]: ./quickstart-connected-registry-cli.md#az_acr_connected_registry_update] 
 [container-registry-intro]: container-registry-intro.md
 [quickstart-connected-registry-cli]: quickstart-connected-registry-cli.md
