@@ -89,11 +89,11 @@ If a user attempts to perform an action not allowed by their role, they may rece
 
 ## Managed identity for accessing other resources
 
-Setting up an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **managed identity** for an Azure Digital Twins instance can allow the instance to easily access other Azure AD-protected resources, such as [Azure Key Vault](../key-vault/general/overview.md). The identity is managed by the Azure platform, and doesn't require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
+Setting up an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **managed identity** for an Azure Digital Twins instance can allow the instance to easily access other Azure AD-protected resources, such as [Azure Key Vault](../key-vault/general/overview.md). The identity is managed by the Azure platform, and doesn't require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
 
 Azure supports two types of managed identities: system-assigned and user-assigned. Currently, Azure Digital Twins supports only **system-assigned identities**. 
 
-You can use a system-assigned managed identity for your Azure Digital Instance to authenticate to a [custom-defined endpoint](concepts-route-events.md#create-an-endpoint). Azure Digital Twins supports system-assigned identity-based authentication to endpoints for [Event Hubs](../event-hubs/event-hubs-about.md) and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and to an [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md) endpoint for [dead-letter events](concepts-route-events.md#dead-letter-events). [Event Grid](../event-grid/overview.md) endpoints are currently not supported for managed identities.
+You can use a system-assigned managed identity for your Azure Digital Instance to authenticate to a [custom-defined endpoint](concepts-route-events.md#create-an-endpoint). Azure Digital Twins supports system-assigned identity-based authentication to endpoints for [Event Hubs](../event-hubs/event-hubs-about.md) and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and to an [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md) endpoint for [dead-letter events](concepts-route-events.md#dead-letter-events). [Event Grid](../event-grid/overview.md) endpoints are currently not supported for managed identities.
 
 For instructions on how to enable a system-managed identity for Azure Digital Twins and use it to route events, see [Route events with a managed identity](how-to-route-with-managed-identity.md).
 
@@ -114,17 +114,17 @@ For instructions on how to set up Private Link for Azure Digital Twins, see [Ena
 ### Design considerations 
 
 When working with Private Link for Azure Digital Twins, here are some factors you may want to consider:
-* **Pricing**: For pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link). 
+* **Pricing**: For pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link). 
 * **Regional availability**: For Azure Digital Twins, this feature is available in all the Azure regions where Azure Digital Twins is available. 
 * **Maximum number of private endpoints per Azure Digital Twins instance**: 10
 
-For information on the limits of Private Link, see [Azure Private Link documentation: Limitations](../private-link/private-link-service-overview.md#limitations).
+For information on the limits of Private Link, see [Azure Private Link documentation: Limitations](../private-link/private-link-service-overview.md#limitations).
 
 ## Service tags
 
-A **service tag** represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules. For more information about service tags, see [Virtual network tags](../virtual-network/service-tags-overview.md). 
+A **service tag** represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules. For more information about service tags, see [Virtual network tags](../virtual-network/service-tags-overview.md). 
 
-You can use service tags to define network access controls on [network security groups](../virtual-network/network-security-groups-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md), by using service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (in this case, **AzureDigitalTwins**) in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service. 
+You can use service tags to define network access controls on [network security groups](../virtual-network/network-security-groups-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md), by using service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (in this case, **AzureDigitalTwins**) in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service. 
 
 Below are the details of the **AzureDigitalTwins** service tag.
 

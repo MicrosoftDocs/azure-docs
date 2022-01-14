@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox  
 ms.subservice: heavy
 ms.topic: include
-ms.date: 01/11/2022
+ms.date: 01/13/2022
 ms.author: alkohli
 ---
 
@@ -25,5 +25,5 @@ ms.author: alkohli
   - If there are any errors when uploading data to Azure, an error log is created in the target storage account. The path to this error log is available when the upload is complete, and you can review the log to take corrective action. Don't delete data from the source without verifying the uploaded data.
   - File metadata and NTFS permissions can be preserved when the data is uploaded to Azure Files using guidance in [Preserving file ACLs, attributes, and timestamps with Azure Data Box](../articles/databox/data-box-file-acls-preservation.md).
   - The hierarchy of the files is maintained while uploading to the cloud for both blobs and Azure Files. For example, you copied a file at this path: `<container folder>\A\B\C.txt`. This file is uploaded to the same path in cloud.
-  - If the **CreateTime** or **LastWriteTime** field for a file exceeds the allowable size during an upload, “Fri, 31 Dec 9999 23:59:59” replaces the original date in the Azure file property. The file upload succeeds, and no error is raised.
+  - [!INCLUDE [data-box-file-date-substitution](data-box-file-date-substitution.md)]
   

@@ -17,6 +17,9 @@ Azure Arc resource bridge (preview) is part of the core Azure Arc platform, and 
 
 All management operations are performed from Azure, no local configuration is required on the appliance.
 
+> [!IMPORTANT]
+> In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
+
 ## Overview
 
 Azure resource bridge (preview) hosts other components such as Custom Locations, cluster extensions, and other Azure Arc agents in order to deliver the level of functionality with the private cloud infrastructures it supports. This complex system is composed of three layers:
