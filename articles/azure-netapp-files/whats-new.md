@@ -24,7 +24,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Active Directory Domain Services (ADDS) LDAP user-mapping with NFS extended groups](configure-ldap-extended-groups.md) now generally available (GA)
 
-The ADDS LDAP user-mapping with NFS extended groups feature is now generally available. You no longer need to register the feature before using it.
+    The ADDS LDAP user-mapping with NFS extended groups feature is now generally available. You no longer need to register the feature before using it.
 
 
 ## December 2021
