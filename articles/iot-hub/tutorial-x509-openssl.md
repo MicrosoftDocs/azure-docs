@@ -236,15 +236,14 @@ You now have both a root CA certificate and a subordinate CA certificate. You ca
 
 3. Enter a display name in the **Certificate Name** field, and select the PEM  certificate file you created previously.
 
-> [!NOTE]
-> The .crt certificates created above are the same as .pem certificates. You can simply change the extension when uploading a certificate to prove possession, or you can use the following OpenSSL command:
-
-```bash
-openssl x509 -in mycert.crt -out mycert.pem -outform PEM
-```
+   > [!NOTE]
+   > The .crt certificates created above are the same as .pem certificates. You can simply change the extension when uploading a certificate to prove possession, or you can use the following OpenSSL command:
+   >
+   > ```bash
+   > openssl x509 -in mycert.crt -out mycert.pem -outform PEM
+   > ```
 
 4. Select **Save**. Your certificate is shown in the certificate list with a status of **Unverified**. The verification process will prove that you own the certificate.
-
 
 5. Select the certificate to view the **Certificate Details** dialog.
 
@@ -254,37 +253,36 @@ openssl x509 -in mycert.crt -out mycert.pem -outform PEM
 
 8. Generate a private key.
 
-  ```bash
-    $ openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
-  ```
+   ```bash
+   openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
+   ```
 
 9. Generate a certificate signing request (CSR) from the private key. Add the verification code as the subject of your certificate.
 
-  ```bash
-  openssl req -new -key pop.key -out pop.csr
+   ```bash
+   openssl req -new -key pop.key -out pop.csr
 
-    -----
-    Country Name (2 letter code) [XX]:.
-    State or Province Name (full name) []:.
-    Locality Name (eg, city) [Default City]:.
-    Organization Name (eg, company) [Default Company Ltd]:.
-    Organizational Unit Name (eg, section) []:.
-    Common Name (eg, your name or your server hostname) []:BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A
-    Email Address []:
+     -----
+     Country Name (2 letter code) [XX]:.
+     State or Province Name (full name) []:.
+     Locality Name (eg, city) [Default City]:.
+     Organization Name (eg, company) [Default Company Ltd]:.
+     Organizational Unit Name (eg, section) []:.
+     Common Name (eg, your name or your server hostname) []:BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A
+     Email Address []:
 
-    Please enter the following 'extra' attributes
-    to be sent with your certificate request
-    A challenge password []:
-    An optional company name []:
+     Please enter the following 'extra' attributes
+     to be sent with your certificate request
+     A challenge password []:
+     An optional company name []:
 
-  ```
+   ```
 
 10. Create a certificate using the subordinate CA configuration file and the CSR for the proof of possession certificate.
 
-  ```bash
+    ```bash
     openssl ca -config subca.conf -in pop.csr -out pop.crt -extensions client_ext
-
-  ```
+    ```
 
 11. Select the new certificate in the **Certificate Details** view. To find the PEM file, navigate to the *certs* folder.
 
