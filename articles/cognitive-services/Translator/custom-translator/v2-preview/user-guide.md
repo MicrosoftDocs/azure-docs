@@ -1,7 +1,7 @@
 ---
-title: Custom Translator new user guide
+title: Custom Translator user guide | Preview v2.0
 titleSuffix: Azure Cognitive Services
-description: A new user guide to understanding the E2E MT customization process to publish custom translation engines.  
+description: A user guide for understanding the E2E machine translatin customization process to publish custom translation engines.  
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
@@ -11,7 +11,7 @@ ms.author: moelghaz
 ms.topic: overview
 #Customer intent: As a new custom translator user, I want to understand the E2E MT customization process, so that I can build and publish custom translation engines.
 ---
-# Custom Translator new user guide
+# Custom Translator user guide | Preview v2.0
 
 [Custom Translator](https://portal.customtranslator.azure.ai) is a feature of the Microsoft Translator service, which enables you to customize our general domain neural machine translation (NMT) systems and build translation systems that understand the terminology used in your own business and industry. The customized translation systems seamlessly integrate into existing applications, workflows, and websites.
 

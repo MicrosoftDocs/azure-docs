@@ -11,7 +11,10 @@ ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to translate with custom models, so that I can improve the translation quality.
 ---
-# Translate with custom models
+# Translate documents with a custom model | Preview
+
+> [!IMPORTANT]
+> Custom Translator v2.1 is currently in public preview. Some features may not be supported or have constrained capabilities.
 
 After you publish your custom model to any of our regions; North America, Europe, and Asia Pacific, your model is ready to process translation requests.
 

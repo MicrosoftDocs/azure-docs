@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 08/17/2020
+ms.date: 01/13/2022
 ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to know how to create and upload documents, so that I can train custom model.

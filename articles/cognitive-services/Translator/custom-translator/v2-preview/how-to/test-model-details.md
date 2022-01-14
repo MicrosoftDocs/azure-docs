@@ -6,12 +6,15 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 08/17/2020
+ms.date: 01/13/2022
 ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand the test results, so that I can publish the custom model or use standard.
 ---
-# Test (human evaluate) model BLEU score and model translation
+# Test (human evaluate) model BLEU score and model translation | Preview
+
+> [!IMPORTANT]
+> Custom Translator v2.1 is currently in public preview. Some features may not be supported or have constrained capabilities.
 
 In order to make informed decision whether to use our standard model or your custom model, you should evaluate the delta between your custom model `BLEU score` and our standard model `Baseline BLEU`. Usually, an average of 3-to-5 BLEU points - or more - indecates the custom model has higher translation quality.
 

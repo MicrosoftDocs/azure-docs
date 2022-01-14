@@ -11,10 +11,10 @@ ms.author: lajanuar
 ms.topic: quickstart
 #Customer intent: As a new user, I want to understand how to use Custom Translator so that I can build, deploy, and use a custom model for translation.
 ---
+# Quickstart: Build, publish, and translate with custom models
+
 > [!IMPORTANT]
 > Custom Translator v2.1 is currently in public preview. Some features may not be supported or have constrained capabilities.
-
-# Quickstart: Build, publish, and translate with custom models
 
 This article provides new users with basic knowledge to build, publish, and translate with custom models.
 

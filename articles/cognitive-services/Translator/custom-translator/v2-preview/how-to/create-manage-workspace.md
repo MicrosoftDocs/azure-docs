@@ -6,13 +6,16 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 01/03/2022
+ms.date: 01/13/2022
 ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to view system test results, so that I can review test results and analyze my training.
 ---
 
-# Manage workspace
+# Manage workspace | Preview
+
+> [!IMPORTANT]
+> Custom Translator v2.1 is currently in public preview. Some features may not be supported or have constrained capabilities.
 
 The first step before building a custom model is to prepare starting with the prerequisites below and then creating a workspace. Workspaces are places to manage your documents, projects, models. When you create a workspace, you can choose to use the workspace independently, share it with teammates or you can divide up the work and create multiple workspaces.
 
@@ -57,4 +60,4 @@ The person who creates the Workspace is the owner. Within the 'Workspace setting
 
 ## Next Steps
 
-* Learn [How to manage projects](how-to-manage-projects.md) to build high quality custom translation systems.
+* Learn [How to manage projects](manage-projects.md) to build high quality custom translation systems.
