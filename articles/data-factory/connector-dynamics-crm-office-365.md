@@ -517,7 +517,7 @@ The below table lists the properties supported by Dynamics. You can edit these p
 | Entity | The logical name of the entity to retrieve. | Yes when use inline mode | - | entity|
 
 > [!Note]
-> If you select **Query** as input type, the column type from multiple tables can not be retrieved. It will be treated as string by default.
+> If you select **Query** as input type, the column type from tables can not be retrieved. It will be treated as string by default. 
 
 #### Dynamics source script example
 
