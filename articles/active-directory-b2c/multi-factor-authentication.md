@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/09/2021
+ms.date: 01/14/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -79,9 +79,9 @@ A customer account is created in your tenant before the multifactor authenticati
 
 ::: zone pivot="b2c-custom-policy"
 
-To enable multifactor authentication, get the custom policy starter packs from GitHub as follows:
+To enable multifactor authentication, get the custom policy starter pack from GitHub as follows:
 
--  [Download the .zip file](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) or clone the repository from `https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack`, and then update the XML files in the **SocialAndLocalAccountsWithMFA** starter pack with your Azure AD B2C tenant name. The **SocialAndLocalAccountsWithMFA**  enables social, local, and multifactor authentication options, except the Authenticator app - TOTP MFA option.
+-  [Download the .zip file](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) or clone the repository from `https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack`, and then update the XML files in the **SocialAndLocalAccountsWithMFA** starter pack with your Azure AD B2C tenant name. The **SocialAndLocalAccountsWithMFA**  enables social and local sign in options, and multifactor authentication options, except for the Authenticator app - TOTP option.
 - To support the **Authenticator app - TOTP** MFA option, download the custom policy files from `https://github.com/azure-ad-b2c/samples/tree/master/policies/totp`, and then update the XML files with your Azure AD B2C tenant name. Make sure to include `TrustFrameworkExtensions.xml`, `TrustFrameworkLocalization.xml`, and `TrustFrameworkBase.xml` XML files from the **SocialAndLocalAccounts** starter pack.
 - Update your [page layout] to version `2.1.9`. For more information, see [Select a page layout](contentdefinitions.md#select-a-page-layout).
 
@@ -97,7 +97,7 @@ When an Azure AD B2C application enables MFA using the TOTP option, end users ne
 1. Select **+ Add account**.
 1. Select **Other account (Google, Facebook, etc.)**, and then scan the QR code shown in the application (for example, *Contoso webapp*) to enroll your account. If you're unable to scan the QR code, you can add the account manually:
     1. In the Microsoft Authenticator app on your phone, select **OR ENTER CODE MANUALLY**.
-    1. In the application (for example, *Contoso webapp*), select **Still having trouble?** to show **Account Name** and **Secret**.
+    1. In the application (for example, *Contoso webapp*), select **Still having trouble?**. This displays **Account Name** and **Secret**.
     1. Enter the **Account Name** and **Secret** in your Microsoft Authenticator app, and then select **FINISH**.
 1. In the application (for example, *Contoso webapp*), select **Continue**.
 1. In **Enter your code**, enter the code that appears in your Microsoft Authenticator app.
@@ -108,7 +108,7 @@ Learn about [OATH software tokens](../active-directory/authentication/concept-au
 
 ## Delete a user's TOTP authenticator enrollment (for system admins)
 
-In Azure AD B2C, you can delete a user's TOTP authenticator app enrollment. Then the user would be required to re-enroll their account to use TOTP authentication again. To delete a user's TOTP enrollment, you can use either the Azure portal or the Microsoft Graph API.
+In Azure AD B2C, you can delete a user's TOTP authenticator app enrollment. Then the user would be required to re-enroll their account to use TOTP authentication again. To delete a user's TOTP enrollment, you can use either the [Azure portal](https://portal.azure.com) or the [Microsoft Graph API](/graph/api/softwareoathauthenticationmethod-delete).
 
 > [!NOTE]
 > - Deleting a user's TOTP authenticator app enrollment from Azure AD B2C doesn't remove the user's account in the TOTP authenticator app. The system admin needs to direct the user to manually delete their account from the TOTP authenticator app before trying to enroll again.
