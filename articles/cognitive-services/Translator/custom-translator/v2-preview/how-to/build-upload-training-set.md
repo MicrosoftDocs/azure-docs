@@ -1,7 +1,7 @@
 ---
-title: How to manage documents - Custom Translator
+title: How to build and upload a custom document training set 
 titleSuffix: Azure Cognitive Services
-description: THow to upload parallel documents (two documents where one is the origin and the other is the translation) into the service.
+description: How to train and upload parallel documents (two documents where one is the origin and the other is the translation) using the service.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
@@ -11,7 +11,7 @@ ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to know how to create and upload documents, so that I can train custom model.
 ---
-# Manage documents | Preview
+# Build and upload a training set | Preview
 
 > [!IMPORTANT]
 > Custom Translator v2.1 is currently in public preview. Some features may not be supported or have constrained capabilities.
@@ -73,7 +73,7 @@ At this point, we're processing your documents and attempting to extract sentenc
 
 ## Next steps
 
-- Learn [how to train a model](train-model.md).
+- Learn [how to train a model](train-custom-model.md).
 - Learn [how to view model details](view-model-details.md).
 - Learn [how to test and evaluate model quality](test-model-details.md).
 - Learn [how to publish model](publish-model.md).
