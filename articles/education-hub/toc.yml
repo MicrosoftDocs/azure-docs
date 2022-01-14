@@ -18,7 +18,9 @@
     href: hub-overview-page.md
   - name: Create an assignment and allocate credit
     href: create-assignment-allocate-credit.md
-  - name: How to Find IDs
+- name: Tutorials
+  items:
+  - name: Find IDs required for calling Azure Education Hub APIs
     href: find-ids.md
 - name: Support
   items:
