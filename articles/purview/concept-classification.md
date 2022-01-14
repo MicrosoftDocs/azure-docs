@@ -50,4 +50,4 @@ Custom classification rules can be based on a *regular expression* pattern or *d
 * [Read about classification best practices](concept-best-practices-classification.md)
 * [Create custom classifications](create-a-custom-classification-and-classification-rule.md)
 * [Apply classifications](apply-classifications.md)
-* [Use the Purview Studio](use-purview-studio.md)
+* [Use the Azure Purview Studio](use-purview-studio.md)

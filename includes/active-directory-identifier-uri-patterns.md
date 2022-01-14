@@ -1,7 +1,7 @@
 ---
 author: madansr7
 ms.author: saumadan
-ms.date: 10/06/2021
+ms.date: 01/13/2022
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
@@ -16,9 +16,9 @@ The following API and HTTP scheme-based application ID URI formats are supported
 | _api://\<tenantId\>/\<string\>_ | _api://a8573488-ff46-450a-b09a-6eca0c6a02dc/api_ |
 | _api://\<string\>/<appId\>_ | _api://productapi/fc4d2d73-d05a-4a9b-85a8-4f2b3a5f38ed_ |
 | _https://\<tenantInitialDomain\>.onmicrosoft.com/\<string\>_ | _`https://contoso.onmicrosoft.com/productsapi`_  |
-| _https://\<verifiedCustomDomain\>/\<string\>_ |  _`https://contoso.onmicrosoft.com/productsapi`_ |
-| _https://\<string\>.\<verifiedCustomDomain\>_ |  _`https://product.contoso.onmicrosoft.com`_ |
-| _https://\<string\>.\<verifiedCustomDomain\>/\<string\>_ | _`https://product.onmicrosoft.com/productsapi`_   |
+| _https://\<verifiedCustomDomain\>/\<string\>_ |  _`https://contoso.com/productsapi`_ |
+| _https://\<string\>.\<verifiedCustomDomain\>_ |  _`https://product.contoso.com`_ |
+| _https://\<string\>.\<verifiedCustomDomain\>/\<string\>_ | _`https://product.contoso.com/productsapi`_   |
 
 
 - _\<appId\>_ - The application identifier (appId) property of the application object.
