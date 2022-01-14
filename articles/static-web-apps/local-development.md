@@ -157,7 +157,7 @@ For more information on different debugging scenarios, with guidance on how to c
 
 ### Sample debugging configuration
 
-Visual Studio Code uses the *.vscode/launch.json* to enable debugging sessions in the editor. If Visual Studio Code doesn't generate a *launch.json* file for you, you can place the the following configuration in *.vscode/launch.json*.
+Visual Studio Code uses a file to enable debugging sessions in the editor. If Visual Studio Code doesn't generate a *launch.json* file for you, you can place the the following configuration in *.vscode/launch.json*.
 
 ```json
 {
