@@ -1123,7 +1123,7 @@ JBoss EAP is only available on the Premium v3 and Isolated v2 App Service Plan t
 
 ### JDK versions and maintenance
 
-Microsoft and Adoptium builds of OpenJDK are provided and supported on App Service for Java 8, 11, and 17. These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and runnning Java SE applications. For local development or testing, you can install the Microsoft build of OpenJDK from the [downloads page](https://docs.microsoft.com/java/openjdk/download). The table below describes the new Java versions included in the January 2022 App Service platform release:
+Microsoft and Adoptium builds of OpenJDK are provided and supported on App Service for Java 8, 11, and 17. These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and runnning Java SE applications. For local development or testing, you can install the Microsoft build of OpenJDK from the [downloads page](/java/openjdk/download). The table below describes the new Java versions included in the January 2022 App Service platform release:
 
 | Java Version | Linux            | Windows              |
 |--------------|------------------|----------------------|
@@ -1151,8 +1151,8 @@ Community support for Java 7 will terminate on July 29th, 2022 and [Java 7 will 
 
 If a supported Java runtime will be retired, Azure developers using the affected runtime will be given a deprecation notice at least six months before the runtime is retired.
 
-- [Reasons to move to Java 11](https://docs.microsoft.com/java/openjdk/reasons-to-move-to-java-11?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json)
-- [Java 7 migration guide](https://docs.microsoft.com/java/openjdk/transition-from-java-7-to-java-8?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json)
+- [Reasons to move to Java 11](/java/openjdk/reasons-to-move-to-java-11?bc=%2fazure%2fdeveloper%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdeveloper%2fjava%2ffundamentals%2ftoc.json)
+- [Java 7 migration guide](/java/openjdk/transition-from-java-7-to-java-8?bc=%2fazure%2fdeveloper%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdeveloper%2fjava%2ffundamentals%2ftoc.json)
 
 ### Local development
 
@@ -1160,7 +1160,7 @@ Developers can download the Production Edition of Azul Zulu Enterprise JDK for l
 
 ### Development support
 
-Product support for the [Microsoft Build of OpenJDK](https://docs.microsoft.com/java/openjdk/download) is available through Microsoft when developing for Azure or [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) with a [qualified Azure support plan](https://azure.microsoft.com/support/plans/).
+Product support for the [Microsoft Build of OpenJDK](/java/openjdk/download) is available through Microsoft when developing for Azure or [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) with a [qualified Azure support plan](https://azure.microsoft.com/support/plans/).
 
 ## Next steps
 
