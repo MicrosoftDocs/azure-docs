@@ -62,7 +62,7 @@ A manual setup gives you full control over the CDN configuration including the c
 
 * [Custom domain](./custom-domain.md) configured for your static web app with a time to live (TTL) set to less than 48 hrs.
 * An application deployed with [Azure Static Web Apps](./get-started-portal.md) that uses the Standard hosting plan.
-* The subscription has been re-registered for Microsoft.CDN RP.
+* The subscription has been re-registered for Microsoft.CDN Resource Provider.
 
 # [Azure portal](#tab/azure-portal)
 
@@ -89,7 +89,7 @@ A manual setup gives you full control over the CDN configuration including the c
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az provider register --namespace 'Microsoft.PolicyInsights' --wait
+az provider register --namespace 'Microsoft.CDN' --wait
 
 az extension add -n enterprise-edge
 
