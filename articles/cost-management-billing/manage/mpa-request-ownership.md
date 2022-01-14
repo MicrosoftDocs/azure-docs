@@ -129,7 +129,7 @@ Azure Reservations don't automatically move with subscriptions. Either you can k
 
 Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) isn't affected during the transition. The partner won’t get any new Azure RBAC access to the subscriptions.
 
-The partners should work with the customer to get access to subscriptions. The partners need to get either [Admin on Behalf Of - AOBO](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) or [Azure Lighthouse](../../lighthouse/concepts/cloud-solution-provider.md) access open support tickets.
+The partners should work with the customer to get access to subscriptions. The partners need to get either Admin on Behalf Of - AOBO or [Azure Lighthouse](../../lighthouse/concepts/cloud-solution-provider.md) access open support tickets.
 
 ### Power BI connectivity
 

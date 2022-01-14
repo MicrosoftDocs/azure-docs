@@ -15,7 +15,7 @@ You can use two different Azure services to set up lab environments in the cloud
 
 - [Azure Lab Services](https://azure.microsoft.com/services/lab-services) provides managed classroom labs.
 
-  Lab Services does all infrastructure management, from spinning up VMs and scaling infrastructure to handling errors. After an IT administrator creates a Lab Services lab account, instructors can [create classroom labs](/azure/lab-services/how-to-manage-classroom-labs#create-a-classroom-lab) in the account. An instructor specifies the number and type of VMs they need for the class, and adds users to the class. Once users register in the class, they can access the VMs to do class exercises and homework.
+  Lab Services does all infrastructure management, from spinning up VMs and scaling infrastructure to handling errors. After an IT administrator creates a Lab Services lab account, instructors can [create classroom labs](../lab-services/how-to-manage-classroom-labs.md#create-a-classroom-lab) in the account. An instructor specifies the number and type of VMs they need for the class, and adds users to the class. Once users register in the class, they can access the VMs to do class exercises and homework.
 
 ## Key capabilities
 
