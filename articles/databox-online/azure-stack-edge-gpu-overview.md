@@ -59,7 +59,7 @@ The Azure Stack Edge Pro GPU solution includes the Azure Stack Edge resource, Az
 
 * **Azure Stack Edge Pro GPU physical device** - A 1U rack-mounted server supplied by Microsoft that can be configured to send data to Azure.
 
-    [!INCLUDE [azure-stack-edge-gateway-edge-hardware-center-overview](../../includes/azure-stack-edge-gateway-edge-hardware-center-overview.md)]    
+    [!INCLUDE [azure-stack-edge-gateway-edge-hardware-center-overview](../../includes/azure-stack-edge-gateway-edge-hardware-center-overview.md)]
 
     For more information, go to [Create an order for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
     
@@ -96,7 +96,7 @@ Billing starts 10 days after a device is marked as **Shipped** and ends when ret
 
 The billing happens against the order resource. If you activate the device against a different resource, the order and billing details move to the new resource.
 
-For more information, see [Frequently asked questions about billings for Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-faq-billing-model.md).
+For more information, see the [Billings FAQ for Azure Stack Edge Pro with GPU](./azure-stack-edge-gpu-faq-billing-model.yml).
 
 <!--#### Are there other fees associated with my Azure Stack Edge device?
 

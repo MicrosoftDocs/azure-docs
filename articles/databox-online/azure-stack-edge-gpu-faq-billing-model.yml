@@ -13,8 +13,7 @@ metadata:
 
 title: "Frequently asked questions about billings for Azure Stack Edge Pro with GPU"
 summary:
-  The billings for an Azure Stack Edge Pro with GPU device are based on a monthly billing against the Azure subscription and onetime charges for shipping and customs. There is no traditional licensing fee. This FAQ answers questions you may have about billings for your Azure Stack Edge Pro with GPU device.
-
+  The billing model for an Azure Stack Edge Pro with GPU device in based on a monthly charge to the Azure subscription with onetime charges for shipping and customs and other onetime charges to replace a lost or damaged device of extra security. There is no traditional licensing fee. This FAQ answers questions you may have about the billings for your Azure Stack Edge device.
 
 sections:
   - name: ignored
@@ -27,14 +26,14 @@ sections:
     - question: |
         Are there other fees associated with my Azure Stack Edge device?
       answer: |
-        In addition to the monthly subscription fee, there's a onetime fee for shipping and for customs. For information about onetime fees, including charges for a lost or damaged device and Return with Secure Data Destruction, see **Frequently asked questions** on the [Azure Stack Edge Pricing](/pricing/details/azure-stack/edge/) page.
+        In addition to the monthly subscription fee, there are onetime fees for shipping and customs. Other onetime fees are charged to replace a device that's lost or damaged or use the Return with Secure Data Destruction option. For information about onetime fees, see **Frequently asked questions** on the [Azure Stack Edge Pricing](/pricing/details/azure-stack/edge/) page.
 
-        No traditional on-premises software license is required for an Azure Stack Edge devices.
+        No traditional on-premises software license is required for an Azure Stack Edge device.
 
     - question: |
         When does billing start, and when does it stop?
       answer: |
-        Billing starts 14 days after a device is marked as **Shipped**. The billings occur whether or not you use the device.
+        Billing starts 14 days after a device is marked as **Shipped**. The billings continue even if you're not using the device.
 
         Billing stops when return of the device is initiated at the Azure datacenter.
 
