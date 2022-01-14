@@ -53,7 +53,7 @@ The policy for path=`/__*` is the [introspection](https://graphql.org/learn/intr
 ```xml
 <validate-graphql-request error-variable-name="variable name" max-size="size in bytes" max-depth="query depth">
     <authorize>
-        <rule path="query path, for example: /Query/list Users or /__*" action="string or policy expression that evaluates to allow|remove|reject|ignore" />
+        <rule path="query path, for example: '/listUsers' or '/__*'" action="string or policy expression that evaluates to 'allow|remove|reject|ignore'" />
     </authorize>
 </validate-graphql-request>
 ```
