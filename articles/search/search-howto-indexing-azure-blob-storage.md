@@ -15,9 +15,11 @@ ms.custom:
 
 # Configure a Blob indexer to import data from Azure Blob Storage
 
-In Azure Cognitive Search, blob indexers are frequently used for both [AI enrichment](cognitive-search-concept-intro.md) and text-based processing. 
+In Azure Cognitive Search, blob [indexers](search-indexer-overview.md) are frequently used for both [AI enrichment](cognitive-search-concept-intro.md) and text-based processing. 
 
 This article focuses on how to configure a blob indexer for text-based indexing, where just the textual content and metadata are loaded into a search index for full text search scenarios. Inputs are your blobs, in a single container. Output is a search index with searchable content and metadata stored in individual fields.
+
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing from Blob Storage
 
 ## Prerequisites
 
@@ -26,8 +28,6 @@ This article focuses on how to configure a blob indexer for text-based indexing,
 + [Access tiers](../storage/blobs/access-tiers-overview.md) for Blob storage include hot, cool, and archive. Only hot and cool can be accessed by search indexers.
 
 + Blob content must not exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
-
-This article assumes a basic familiarity with [indexers](search-indexer-overview.md) and [indexer creation](search-howto-create-indexers.md), including tools and SDK support.
 
 <a name="SupportedFormats"></a>
 
