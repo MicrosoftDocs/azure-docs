@@ -20,9 +20,9 @@ Although you can purchase X.509 certificates from a trusted certification author
 
 Create a directory structure for the certification authority.
 
-* The **certs** directory stores new certificates.
-* The **db** directory is used for the certificate database.
-* The **private** directory stores the CA private key.
+* The *certs* directory stores new certificates.
+* The *db* directory is used for the certificate database.
+* The *private* directory stores the CA private key.
 
 ```bash
   mkdir rootca
