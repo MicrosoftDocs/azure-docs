@@ -73,11 +73,11 @@ For more information on storage shared access signatures, see [Using shared acce
 > [!NOTE]
 > If you use shared access signature credentials, you will need to update the datasource credentials periodically with renewed signatures to prevent their expiration. If shared access signature credentials expire, the indexer fails with an error message similar to "Credentials provided in the connection string are invalid or have expired."  
 
-## Define search fields for entities
+## Define fields in a search index
 
 A [search index](search-what-is-an-index.md) specifies the fields in a search document, attributes, and other constructs that shape the search experience. All indexers require that you specify a search index definition as the destination.
 
-1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store entities:
+1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store content from entities:
 
 ```http
 POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
@@ -103,30 +103,28 @@ api-key: [admin key]
 > The `Key` value may contain characters that are invalid in document keys, such as dashes. You can work around invalid characters by adding the `base64Encode` [field mapping function](search-indexer-field-mappings.md#base64EncodeFunction) to your indexer definition. If you do this, remember to also use URL-safe Base64 encoding when passing document keys in API calls such as Lookup.
 >
 
-## Set properties and parameters on the indexer
+## Set properties on the indexer
 
-[Create Indexer](/rest/api/searchservice/create-indexer) connects a data source with a target search index and provides a schedule to automate the data refresh. 
+1. [Create Indexer](/rest/api/searchservice/create-indexer) connects a data source with a target search index and provides a schedule to automate the data refresh. 
 
-After the index and data source are created, you're ready to create the indexer:
+   An indexer definition for Table Storage uses the global properties for data source, index, [schedule](search-howto-schedule-indexers.md), mapping functions for base-64 encoding, and any field mappings.
 
-```http
-POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
-Content-Type: application/json
-api-key: [admin key]
-
-{
-    "name" : "table-indexer",
-    "dataSourceName" : "table-datasource",
-    "targetIndexName" : "my-target-index",
-    "schedule" : { "interval" : "PT2H" }
-}
-```
-
-This indexer runs every two hours. (The schedule interval is set to "PT2H".) To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is five minutes. The schedule is optional; if omitted, an indexer runs only once when it's created. However, you can run an indexer on demand at any time. For more information about defining indexer schedules see [Schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
+    ```http
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+    Content-Type: application/json
+    api-key: [admin key]
+    
+    {
+        "name" : "table-indexer",
+        "dataSourceName" : "table-datasource",
+        "targetIndexName" : "my-target-index",
+        "schedule" : { "interval" : "PT2H" }
+    }
+    ```
 
 ## Change and deletion detection
 
-When you set up a table indexer to run on a schedule, it reindexes only new or updated rows, as determined by a row’s `Timestamp` value. You don’t have to specify a change detection policy. Incremental indexing is enabled for you automatically.
+When you set up a table indexer to run on a schedule, it reindexes only new or updated rows, as determined by a row’s `Timestamp` value. When indexing out of Azure Table Storage, you don’t have to specify a change detection policy. Incremental indexing is enabled for you automatically.
 
 To indicate that certain documents must be removed from the index, you can use a soft delete strategy. Instead of deleting a row, add a property to indicate that it's deleted, and set up a soft deletion detection policy on the data source. For example, the following policy considers that a row is deleted if the row has a property `IsDeleted` with the value `"true"`:
 
@@ -148,11 +146,13 @@ api-key: [admin key]
 
 ## Performance considerations
 
-By default, Azure Cognitive Search uses the following query filter: `Timestamp >= HighWaterMarkValue`. Because Azure tables don’t have a secondary index on the `Timestamp` field, this type of query requires a full table scan and is therefore slow for large tables.
+By default, Azure Cognitive Search uses the following internal query filter to keep track of which source entities have been updated since the last run: `Timestamp >= HighWaterMarkValue`. 
 
-Here are two possible approaches for improving table indexing performance. Both of these approaches rely on using table partitions: 
+Because Azure tables don’t have a secondary index on the `Timestamp` field, this type of query requires a full table scan and is therefore slow for large tables.
 
-+ If your data can naturally be partitioned into several partition ranges, create a datasource and a corresponding indexer for each partition range. Each indexer now has to process only a specific partition range, resulting in better query performance. If the data that needs to be indexed has a small number of fixed partitions, even better: each indexer only does a partition scan. For example, to create a datasource for processing a partition range with keys from `000` to `100`, use a query like this: 
+Here are two possible approaches for improving table indexing performance. Both rely on using table partitions: 
+
++ If your data can naturally be partitioned into several partition ranges, create a data source and a corresponding indexer for each partition range. Each indexer now has to process only a specific partition range, resulting in better query performance. If the data that needs to be indexed has a small number of fixed partitions, even better: each indexer only does a partition scan. For example, to create a data source for processing a partition range with keys from `000` to `100`, use a query like this: 
 
 	```json
 	"container" : { "name" : "my-table", "query" : "PartitionKey ge '000' and PartitionKey lt '100' " }
