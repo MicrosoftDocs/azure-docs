@@ -4,7 +4,7 @@ description: This article provides essential information for developers looking 
 author: ggailey777
 ms.service: azure
 ms.topic: article
-ms.date: 11/18/2019
+ms.date: 11/20/2019
 ms.author: glenga
 ---
 
