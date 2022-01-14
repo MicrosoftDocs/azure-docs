@@ -279,11 +279,13 @@ Before you can enable the user-assigned identity on your **Logic App (Consumptio
 
    1. When you're done, select **Add**.
 
-   Your logic app is now associated with the user-assigned managed identity.
+      Your logic app is now associated with the user-assigned managed identity.
 
-   ![Screenshot showing Standard logic app and association between user-assigned identity and logic app resource.](./media/create-managed-service-identity/added-user-assigned-identity-standard.png)
+      ![Screenshot showing Standard logic app and association between user-assigned identity and logic app resource.](./media/create-managed-service-identity/added-user-assigned-identity-standard.png)
 
-1. Now follow the [steps that give that identity access to the resource](#access-other-resources) later in this topic.
+   1. To use multiple user-assigned managed identities, repeat the same steps to add the identity.
+
+1. Now follow the [steps that give the identity access to the resource](#access-other-resources) later in this topic.
 
 ---
 
@@ -614,6 +616,10 @@ These steps show how to use the managed identity with a trigger or action throug
 
         ![Screenshot showing example built-in action with "Authentication type" list open and "Managed identity" selected in Standard.](./media/create-managed-service-identity/built-in-managed-identity-standard.png)
 
+     1. From the list with enabled identities, select the identity that you want to use, for example:
+
+        ![Screenshot showing example built-in action with "Authentication type" list open and "Managed identity" selected in Standard.](./media/create-managed-service-identity/built-in-select-identity-standard.png)
+
      For more information, review [Example: Authenticate built-in trigger or action with a managed identity](#authenticate-built-in-managed-identity).
 
    * **Managed connector operations that support managed identity authentication** (preview)
@@ -626,13 +632,19 @@ These steps show how to use the managed identity with a trigger or action throug
 
      1. For the authentication type, choose one of the following options based on your managed connector:
 
-        * **Single-authentication**: These connectors support only one authentication type. From the **Managed identity** list, select the currently enabled managed identity, if not already selected, and then select **Create**, for example:
+        * **Single-authentication**: These connectors support only one authentication type, which is managed identity in this case. From the **Managed identity** list, select the identity that you want to use. When you're ready to create the connection, select **Create**, for example:
 
-          ![Screenshot showing the connection name page and single managed identity selected in Standard.](./media/create-managed-service-identity/single-system-identity-standard.png)
+          ![Screenshot showing the connection name page and available enabled managed identities for Standard logic app.](./media/create-managed-service-identity/single-identity-standard.png)
 
-        * **Multi-authentication**: These connectors support more than one authentication type. From the **Authentication type** list, select **Logic Apps Managed Identity** > **Create**, for example:
+        * **Multi-authentication**: These connectors support more than one authentication type.
 
-          ![Screenshot showing the connection name page and "Logic Apps Managed Identity" selected in Standard.](./media/create-managed-service-identity/multi-system-identity-standard.png)
+          1. From the **Authentication type** list, select **Logic Apps Managed Identity** > **Create**, for example:
+
+             ![Screenshot showing the connection name page and "Logic Apps Managed Identity" selected for Standard logic app.](./media/create-managed-service-identity/multi-identity-standard.png)
+
+          1. From the **Managed identity** list, select the identity that you want to use.
+
+             ![Screenshot showing the action's "Parameters" pane and "Managed identity" list for Standard logic app.](./media/create-managed-service-identity/select-multi-identity-standard.png)
 
         For more information, review [Example: Authenticate managed connector trigger or action with a managed identity](#authenticate-managed-connector-managed-identity).
 
