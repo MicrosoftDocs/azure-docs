@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 01/14/2022
 ms.author: rogarana 
 ms.custom: devx-track-azurepowershell
 ---
@@ -135,8 +135,8 @@ Set-AzStorageAccount `
         -ResourceGroupName "<your-resource-group-name-here>" `
         -Name "<your-storage-account-name-here>" `
         -EnableActiveDirectoryDomainServicesForFile $true `
-        -ActiveDirectoryDomainName "<your-domain-name-here>" `
-        -ActiveDirectoryNetBiosDomainName "<your-netbios-domain-name-here>" `
+        -ActiveDirectoryDomainName "<your-domain-dns-root-here>" `
+        -ActiveDirectoryNetBiosDomainName "<your-domain-dns-root-here>" `
         -ActiveDirectoryForestName "<your-forest-name-here>" `
         -ActiveDirectoryDomainGuid "<your-guid-here>" `
         -ActiveDirectoryDomainsid "<your-domain-sid-here>" `
