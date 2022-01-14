@@ -288,6 +288,8 @@ items:
         href: catalog-private-link-faqs.md
     - name: Azure policy exceptions
       href: create-purview-portal-faq.md
+    - name: Conditional access
+      href: catalog-conditional-access.md
   - name: Manage Kafka notifications - .NET
     href: manage-kafka-dotnet.md
   - name: Disaster recovery

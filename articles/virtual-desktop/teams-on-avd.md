@@ -3,7 +3,7 @@ title: Microsoft Teams on Azure Virtual Desktop - Azure
 description: How to use Microsoft Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/07/2021
+ms.date: 01/14/2021
 ms.author: helohr
 manager: femila
 ---
@@ -13,12 +13,7 @@ manager: femila
 >Media optimization for Teams is supported for Microsoft 365 Government (GCC) and GCC-High environments. Media optimization for Teams is not supported for Microsoft 365 DoD.
 
 >[!NOTE]
->Media optimization for Microsoft Teams is only available for the following two Windows 10 clients:
->
-> - Windows Desktop client, version 1.2.1026.0 or later
-> - macOS Remote Desktop client, version 10.7.2 or later
-> 
-> Teams for the macOS Remote Desktop client is currently in public preview. In order for the macOS client version of Teams to work properly, you must go to **App Preferences** > **General** and enable Teams optimizations.
+>Media optimization for Microsoft Teams is only available for the Windows Desktop client on Windows 10 machines. Media optimizations require Windows Desktop client version 1.2.1026.0 or later.
 
 Microsoft Teams on Azure Virtual Desktop supports chat and collaboration. With media optimizations, it also supports calling and meeting functionality. To learn more about how to use Microsoft Teams in Virtual Desktop Infrastructure (VDI) environments, see [Teams for Virtualized Desktop Infrastructure](/microsoftteams/teams-for-vdi/).
 
