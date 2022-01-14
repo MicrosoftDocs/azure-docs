@@ -142,7 +142,7 @@ Mounts:Output={OUTPUT_PATH}
 
 ## Usage records
 
-when operating Docker containers in a disconnected environment, the container will write usage records to a volume where they are collected over time. You can also call a REST endpoint to generate a report about service usage.
+When operating Docker containers in a disconnected environment, the container will write usage records to a volume where they are collected over time. You can also call a REST endpoint to generate a report about service usage.
 
 ### Arguments for storing logs
 
@@ -200,16 +200,6 @@ it will return a JSON response similar to the example below:
   ]
 }
 ```
-
-## Purchase a different commitment plan for disconnected containers
-
-The commitment plans have a calendar year commitment period. When you purchase a plan, you will be charged a pro-rated price for the remaining year. During the commitment period, you cannot change the commitment plan for the current year. However, you can choose a different commitment plan for the next calendar year. The billing for the next month would happen on the first day of the next year.
-
-If you need a larger commitment plan than any of the ones offered, contact `csgate@microsoft.com`.
-
-## End a commitment plan
-
-If you decide that you don't want to continue purchasing a commitment plan, you can set your resource's auto-renewal to **Do not auto-renew**. Your commitment plan will expire on the displayed commitment end date. After this date, you won't be charged for the commitment plan. You will be able to continue using the Azure resource to make API calls, charged at pay-as-you-go pricing. You have until midnight (UTC) on the last day of the year to end a commitment plan for disconnected containers, and not be charged for the following year. 
 
 ## Troubleshooting
 
