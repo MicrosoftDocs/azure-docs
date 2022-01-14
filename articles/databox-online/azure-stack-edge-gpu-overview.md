@@ -96,14 +96,13 @@ Billing starts 10 days after a device is marked as **Shipped** and ends when ret
 
 The billing happens against the order resource. If you activate the device against a different resource, the order and billing details move to the new resource.
 
-For more information, see Frequently asked questions: Billing model for Azure Stack Edge Pro GPU.
+For more information, see [Frequently asked questions about billings for Azure Stack Edge Pro with GPU](azure-stack-edge-g[i-faq-billing-model.md]).
 
+<!--#### Are there other fees associated with my Azure Stack Edge device?
 
-#### Are there other fees associated with my Azure Stack Edge device?
+- In addition to the monthly subscription fee, there's a onetime fee for shipping and for customs. For information about onetime fees, including charges for a lost or damaged device and Return with Secure Data Destruction, see **Frequently asked questions** on the [Azure Stack Edge Pricing](/pricing/details/azure-stack/edge/) page.
 
-- In addition to the monthly subscription fee, there is a onetime fee for shipping and for customs. For information about onetime fees, including charges for a lost or damaged device and Return with Secure Data Destruction, see **Frequently asked questions** on the [Azure Stack Edge Pricing](/pricing/details/azure-stack/edge/) page.
-
-- No traditional on-premises software license is required for an Azure Stack Edge device. However, guest VMs might require their own licenses under Bring Your Own License (BYOL).<!--1) Is BYOL a thing for customers? Inclined to write around this unless it's a term. 2) Link to pricing info for VMs.-->
+- No traditional on-premises software license is required for an Azure Stack Edge device. However, guest VMs might require their own licenses under Bring Your Own License (BYOL).
 
 #### When does billing start, and when does it stop?
 
@@ -118,6 +117,15 @@ Subscription prices on the [Azure Stack Edge Pricing](/pricing/details/azure-sta
 #### I'm replacing a device, and I can't delete the original resource. Will billings continue for the original resource?
 
 You can't delete a resource while it's subject to billings. To delete a resource with active billing, you must first activate the device against a new resource. After the order and billing details move to the new resource, you can delete the resource.
+
+## Next steps
+
+- Review the [Azure Stack Edge Pro GPU system requirements](azure-stack-edge-gpu-system-requirements.md).
+
+- Understand the [Azure Stack Edge Pro GPU limits](azure-stack-edge-limits.md).
+
+- Deploy [Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md) in Azure portal.
+-->
 
 ## Next steps
 
