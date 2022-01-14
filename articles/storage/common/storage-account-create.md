@@ -179,7 +179,7 @@ On the **Encryption** tab, you can configure options that relate to how your dat
 | Field | Required or optional | Description |
 |--|--|--|
 | Encryption type| Required | By default, data in the storage account is encrypted by using Microsoft-managed keys. You can rely on Microsoft-managed keys for the encryption of your data, or you can manage encryption with your own keys. For more information, see [Azure Storage encryption for data at rest](storage-service-encryption.md).  |
-| Enable support for customer-managed keys | Required | By default, customer managed keys can be used to encrypt only blobs and files. You can use the options presented in this section to enable support for tables and queues as well. This option can be configured only when you create the storage account. |
+| Enable support for customer-managed keys | Required | By default, customer managed keys can be used to encrypt only blobs and files. You can use the options presented in this section to enable support for tables and queues as well. This option can be configured only when you create the storage account. For more information, see [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md). |
 | Enable infrastructure encryption | Optional | By default, infrastructure encryption is not enabled. Enable infrastructure encryption to encrypt your data at both the service level and the infrastructure level. For more information, see [Create a storage account with infrastructure encryption enabled for double encryption of data](infrastructure-encryption-enable.md). |
 
 ### Tags tab
