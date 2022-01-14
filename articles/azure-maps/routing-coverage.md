@@ -69,10 +69,10 @@ The following table provides coverage information for Azure Maps routing.
 | Saint Barthélemy                       |    ✓    |                   |               |
 | Saint Kitts and Nevis                  |    ✓    |                   |               |
 | Saint Lucia                            |    ✓    |                   |               |
-| Saint Maarten                          |    ✓    |                   |               |
 | Saint Martin                           |    ✓    |                   |               |
 | Saint Pierre & Miquelon                |    ✓    |                   |               |
 | Saint Vincent & Grenadines             |    ✓    |                   |               |
+| Sint Maarten                           |    ✓    |                   |               |
 | South Georgia & South Sandwich Islands |    ✓    |                   |               |
 | Suriname                               |    ✓    |                   |               |
 | Trinidad & Tobago                      |    ✓    |                   |               |
