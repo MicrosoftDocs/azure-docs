@@ -111,6 +111,13 @@ After you have configured the container, use the next section to run the contain
 
 ## Run the container in a disconnected environment
 
+> [!NOTE]
+> If you're using the [Translator container](../translator/containers/translator-how-to-install-container), you will need to add parameters for the downloaded translation models. For example:
+> ```bash
+> -e MODELS= /path/to/model1/, /path/to/model2/
+> -e TRANSLATORSYSTEMCONFIG=/path/to/model/config/translatorsystemconfig.json
+> ```
+
 Once the license file has been downloaded, you can run the container in a disconnected environment. The following example shows the formatting of the `docker run` command you'll use, with placeholder values. Replace these placeholder values with your own values. 
 
 Wherever the container is run, the license file must be mounted to the container and the location of the license folder on the container's local filesystem must be specified with `Mounts:License=`. An output mount must also be specified so that billing usage records can be written.
