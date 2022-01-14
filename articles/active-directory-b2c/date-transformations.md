@@ -227,4 +227,4 @@ The following example shows how to get the current data and time:
 
 ## Next steps
 
-- Check the GitHub [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation)
+- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation) on the Azure AD B2C community GitHub repo
