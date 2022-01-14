@@ -154,37 +154,62 @@ If you haven't already done so, create a [Device Update account and instance](cr
 
 [Learn more](import-update.md) about importing updates.
 
-## Create an update group
+## Create update group
 
-1. Select the **Groups and Deployments** tab at the top of the page. 
+1. Go to the Groups and Deployments tab at the top of the page. 
+   :::image type="content" source="media/create-update-group/ungrouped-devices.png" alt-text="Screenshot of ungrouped devices." lightbox="media/create-update-group/ungrouped-devices.png":::
 
-2. Select the **+ Add Group** button to create a new group by selecting the **IoT Hub** tag. Then select **Create group**. Note that you can also deploy the update to an existing group.
+2. Select the "Add group" button to create a new group.
+   :::image type="content" source="media/create-update-group/add-group.png" alt-text="Screenshot of device group addition." lightbox="media/create-update-group/add-group.png":::
 
-[Learn more](create-update-group.md) about adding tags and creating update groups.
+3. Select an IoT Hub tag and Device Class from the list and then select Create group.
+   :::image type="content" source="media/create-update-group/select-tag.png" alt-text="Screenshot of tag selection." lightbox="media/create-update-group/select-tag.png":::
 
-## Deploy an update
+4. Once the group is created, you will see that the update compliance chart and groups list are updated.  Update compliance chart shows the count of devices in various states of compliance: On latest update, New updates available, and Updates in Progress. [Learn  about update compliance.](device-update-compliance.md)
+   :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot of update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
-1. In the **Groups and Deployments** view, confirm that the new update is available for your device group. You might need to refresh the page once. The following example shows the view for the example smart vacuum device:
+5. You should see your newly created group and any available updates for the devices in the new group. If there are devices that don't meet the device class requirements of the group, they will show up in a corresponding invalid group. You can deploy the best available update to the new user-defined group from this view by clicking on the "Deploy" button next to the group.
 
-   :::image type="content" source="media/understand-device-update/five-groups.png" alt-text="Screenshot that shows an available update." lightbox="media/understand-device-update/five-groups.png":::
+[Learn more](create-update-group.md) about adding tags and creating update groups
 
-2. Select **Deploy**.
 
-3. Confirm that the correct group is selected as the target group. Select the option to schedule your deployment or the option to start immediately, and then select **Create**.
+## Deploy update
 
-   :::image type="content" source="media/understand-device-update/six-deploy.png" alt-text="Screenshot that shows options for creating a deployment." lightbox="media/understand-device-update/six-deploy.png":::
+1. Once the group is created, you should see a new update available for your device group, with a link to the update under Best Update (you may need to Refresh once). [Learn More about update compliance.](device-update-compliance.md) 
 
-4. View the compliance chart. You should see that the update is now in progress. 
+2. Select the target group by clicking on the group name. You will be directed to the group details under Group basics.
 
-5. After your device is successfully updated, confirm that your compliance chart and deployment details are updated to reflect that success. 
+  :::image type="content" source="media/deploy-update/group-basics.png" alt-text="Group details" lightbox="media/deploy-update/group-basics.png":::
 
-   :::image type="content" source="media/understand-device-update/seven-results.png" alt-text="Screenshot that shows the results of a successful update." lightbox="media/understand-device-update/seven-results.png":::
+3. To initiate the deployment, go to the Current deployment tab. Click the deploy link next to the desired update from the Available updates section. The best, available update for a given group will be denoted with a "Best" highlight. 
+
+  :::image type="content" source="media/deploy-update/select-update.png" alt-text="Select update" lightbox="media/deploy-update/select-update.png":::
+
+4. Schedule your deployment to start immediately or in the future, then select Create.
+
+ :::image type="content" source="media/deploy-update/create-deployment.png" alt-text="Create deployment" lightbox="media/deploy-update/create-deployment.png":::
+
+5. The Status under Deployment details should turn to Active, and the deployed update should be marked with "(deploying)".
+
+ :::image type="content" source="media/deploy-update/deployment-active.png" alt-text="Deployment active" lightbox="media/deploy-update/deployment-active.png":::
+
+6. View the compliance chart. You should see the update is now in progress. 
+
+7. After your device is successfully updated, you should see your compliance chart and deployment details update to reflect the same. 
+
+   :::image type="content" source="media/deploy-update/update-succeeded.png" alt-text="Update succeeded" lightbox="media/deploy-update/update-succeeded.png":::
 
 ## Monitor an update deployment
 
-1. Select the **Groups and Deployments** tab at the top of the page.
+1. Select the Deployment history tab at the top of the page.
 
-2. Select the group that you created to view the deployment details.
+   :::image type="content" source="media/deploy-update/deployments-history.png" alt-text="Deployment History" lightbox="media/deploy-update/deployments-history.png":::
+
+2. Select the details link next to the deployment you created.
+
+   :::image type="content" source="media/deploy-update/deployment-details.png" alt-text="Deployment details" lightbox="media/deploy-update/deployment-details.png":::
+
+3. Select Refresh to view the latest status details.
 
 You've now completed a successful end-to-end proxy update by using Device Update for IoT Hub. 
 
