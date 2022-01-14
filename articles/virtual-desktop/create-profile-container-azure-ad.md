@@ -174,9 +174,6 @@ To enable Azure AD authentication on a storage account, you need to create an Az
     }
     ```
 
-    > [!IMPORTANT]
-    > The password expires every 6 months and must be updated by following the steps in [Update the service principal's password](#update-the-service-principals-password).
-
 ### Set the API permissions on the newly created application
 
 You can configure the API permissions from the [Azure portal](https://portal.azure.com) by following these steps:
