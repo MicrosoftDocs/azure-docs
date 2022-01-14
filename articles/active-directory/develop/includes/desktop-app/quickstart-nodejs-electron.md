@@ -16,7 +16,7 @@ ms.custom: mode-api
 
 In this quickstart, you download and run a code sample that demonstrates how an Electron desktop application can sign in users and acquire access tokens to call the Microsoft Graph API.
 
-This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) with the [authorization code flow with PKCE](v2-oauth2-auth-code-flow.md).
+This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) with the [authorization code flow with PKCE](../../v2-oauth2-auth-code-flow.md).
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Nod
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
 > 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. Enter a **Name** for your application, for example `msal-node-desktop`. Users of your app might see this name, and you can change it later.
@@ -49,7 +49,7 @@ This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Nod
 > > [Make this change for me]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Already configured](media/quickstart-v2-windows-desktop/green-check.png) Your application is configured with these attributes.
+> > ![Already configured](../../media/quickstart-v2-windows-desktop/green-check.png) Your application is configured with these attributes.
 
 #### Step 2: Download the Electron sample project
 
@@ -106,7 +106,7 @@ Below, some of the important aspects of the sample application are discussed.
 
 ### MSAL Node
 
-[MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. For more information on how to use MSAL Node with desktop apps, see [this article](scenario-desktop-overview.md).
+[MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. For more information on how to use MSAL Node with desktop apps, see [this article](../../scenario-desktop-overview.md).
 
 You can install MSAL Node by running the following npm command.
 
@@ -236,4 +236,4 @@ async function listenForAuthCode(navigateUrl, authWindow) {
 To learn more about Electron desktop app development with MSAL Node, see the tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Sign in users and call the Microsoft Graph API in an Electron desktop app](tutorial-v2-nodejs-desktop.md)
+> [Tutorial: Sign in users and call the Microsoft Graph API in an Electron desktop app](../../tutorial-v2-nodejs-desktop.md)
