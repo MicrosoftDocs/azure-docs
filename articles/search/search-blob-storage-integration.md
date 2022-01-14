@@ -8,19 +8,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/14/2021
+ms.date: 01/14/2022
 ---
 
 # Search over Azure Blob Storage content
 
-Searching across the variety of content types stored in Azure Blob Storage can be a difficult problem to solve. In this article, review the basic workflow for extracting content and metadata from blobs and sending it to a search index in Azure Cognitive Search. The resulting index can be queried using full text search.
+Searching across the variety of content types stored in Azure Blob Storage can be a difficult problem to solve, but [Azure Cognitive Search](search-what-is-azure-search.md) provides deep integration at the content layer, extracting and inferring textual information, which can then be queried in a search index.
+
+In this article, review the basic workflow for extracting content and metadata from blobs and sending it to a [search index](search-what-is-an-index.md) in Azure Cognitive Search. The resulting index can be queried using full text search. Optionally, you can send processed blob content to a [knowledge store](knowledge-store-concept-intro.md) for non-search scenarios.
 
 > [!NOTE]
-> Already familiar with the workflow and composition? [How to configure a blob indexer](search-howto-indexing-azure-blob-storage.md) is your next step.
+> Already familiar with the workflow and composition? [Configure a blob indexer](search-howto-indexing-azure-blob-storage.md) is your next step.
 
 ## What it means to add full text search to blob data
 
-Azure Cognitive Search is a search service that supports indexing and query workloads over user-defined indexes that contain your remote searchable content hosted in the cloud. Co-locating your searchable content with the query engine is necessary for performance, returning results at a speed users have come to expect from search queries.
+Azure Cognitive Search is a standalone search service that supports indexing and query workloads over user-defined indexes that contain your remote searchable content hosted in the cloud. Co-locating your searchable content with the query engine is necessary for performance, returning results at a speed users have come to expect from search queries.
 
 Cognitive Search integrates with Azure Blob Storage at the indexing layer, importing your blob content as search documents that are indexed into *inverted indexes* and other query structures that support free-form text queries and filter expressions. Because your blob content is indexed into a search index, you can use the full range of query features in Azure Cognitive Search to find information in your blob content.
 

@@ -37,14 +37,13 @@ AI enrichment is available in regions where Azure Cognitive Services is also ava
 
 + Australia Southeast
 + China North 2
-+ Norway East
 + Germany West Central
 
 If your search service is located in one of these regions, you will not be able to create and use skillsets, but all other search service functionality is available and fully supported.
 
 ## When to use AI enrichment
 
-You should consider enrichment if your raw content is unstructured text, image content, or content that needs language detection and translation. Applying AI through the built-in cognitive skills can unlock this content, increasing its value and utility in your search and data science apps. 
+You should consider enrichment if your raw content is unstructured text, image content, or content that needs language detection and translation. Applying AI through the built-in cognitive skills can unlock this content for full text search and data science apps.
 
 Additionally, you might consider adding a custom skill if you have open-source, third-party, or first-party code that you'd like to integrate into the pipeline. Classification models that identify salient characteristics of various document types fall into this category, but any package that adds value to your content could be used.
 
