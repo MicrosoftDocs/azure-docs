@@ -1,7 +1,7 @@
 ---
-title: How to manage workspaces - Custom Translator
+title: Create and manage a workspace
 titleSuffix: Azure Cognitive Services
-description: Workspaces are places to manage your documents, projects, models. 
+description: How to create and manage workspaces—places to manage your documents, projects, models. 
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,10 +9,10 @@ ms.subservice: translator-text
 ms.date: 01/13/2022
 ms.author: lajanuar
 ms.topic: conceptual
-#Customer intent: As a Custom Translator user, I want to understand how to view system test results, so that I can review test results and analyze my training.
+
 ---
 
-# Manage workspace | preview
+# Create and manage a workspace | preview
 
 > [!IMPORTANT]
 > Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.

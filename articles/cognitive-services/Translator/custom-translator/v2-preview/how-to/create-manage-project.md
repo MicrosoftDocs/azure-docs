@@ -1,7 +1,7 @@
 ---
-title: How to create and manage a project - Custom Translator
+title: Create and manage a project.
 titleSuffix: Azure Cognitive Services
-description: How to create and manage a project in the Azure Cognitive Services Custom Translator portal v2.  
+description: How to create and manage a project in the Azure Cognitive Services Custom Translator portal v2.0.  
 author: laujan
 manager: nitinme
 ms.service: cognitive-services

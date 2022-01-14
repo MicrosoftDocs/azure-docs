@@ -1,7 +1,7 @@
 ---
-title: How to test model - Custom Translator
+title: Test custom model BLEU score and model translation
 titleSuffix: Azure Cognitive Services
-description: How to create and manage a project in the Azure Cognitive Services Custom Translator portal.
+description: How to test custom model BLEU score and model translation
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
@@ -11,7 +11,7 @@ ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand the test results, so that I can publish the custom model or use standard.
 ---
-# Test (human evaluate) model BLEU score and model translation | preview
+# Test custom model BLEU score and model translation | preview
 
 > [!IMPORTANT]
 > Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.

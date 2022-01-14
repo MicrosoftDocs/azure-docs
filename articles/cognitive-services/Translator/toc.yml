@@ -160,7 +160,7 @@ items:
         href: custom-translator/v2-preview/how-to/test-model-details.md
       - name: Publish a custom model
         href: custom-translator/v2-preview/how-to/publish-model.md  
-      - name: Translate documents with a custom model
+      - name: Translate text with a custom model
         href: custom-translator/v2-preview/how-to/translate-with-custom-model.md
   - name: Custom Translator v1.0
     items:

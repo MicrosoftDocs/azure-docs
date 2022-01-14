@@ -1,7 +1,7 @@
 ---
-title: How to model details - Custom Translator
+title: View custom model details
 titleSuffix: Azure Cognitive Services
-description: How to create and manage a projects in the Azure Cognitive Services Custom Translator.  
+description: How to view custom model details 
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
@@ -12,7 +12,7 @@ ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to create project, so that I can build and manage a project.
 ---
 
-# How to view custom model details | preview
+# View custom model details | preview
 
 > [!IMPORTANT]
 > Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.

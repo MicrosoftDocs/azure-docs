@@ -1,7 +1,7 @@
 ---
-title: How to build and upload a custom document training set 
+title: Build and upload a custom document training set 
 titleSuffix: Azure Cognitive Services
-description: How to train and upload parallel documents (two documents where one is the origin and the other is the translation) using the service.
+description: How to build and upload parallel documents (two documents where one is the origin and the other is the translation) using the custom translator service.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services

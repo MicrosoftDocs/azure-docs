@@ -1,7 +1,7 @@
 ---
-title: How to train model - Custom Translator
+title: Train model
 titleSuffix: Azure Cognitive Services
-description: How to train a custom model in the Azure Cognitive Services Custom Translator v2.  
+description: How to train a custom model in the Azure Cognitive Services Custom Translator v2.0.  
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
