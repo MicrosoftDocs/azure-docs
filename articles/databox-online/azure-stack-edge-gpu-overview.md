@@ -86,13 +86,18 @@ Azure Stack Edge service is a non-regional service. For more information, see [R
 
 For a discussion of considerations for choosing a region for the Azure Stack Edge service, device, and data storage, see [Choosing a region for Azure Stack Edge](azure-stack-edge-gpu-regions.md).
 
-## Pricing
+## Billings
 
-Microsoft Azure charges a monthly, recurring subscription fee for an Azure Stack Edge device.
+Microsoft Azure charges a monthly, recurring subscription fee for an Azure Stack Edge device. In addition, there are onetime fees for shipping and customs, and there are separate charges for things like replacement of a lost or damaged device. There is no on-premises software license for the device.
 
 Currencies and discounts are handled centrally by the Azure Commerce billing platform, and you get one unified, itemized bill at the end of each month.
 
+Billing starts 10 days after a device is marked as **Shipped** and ends when return of the device is initiated at the Azure datacenter.
+
 The billing happens against the order resource. If you activate the device against a different resource, the order and billing details move to the new resource.
+
+For more information, see Frequently asked questions: Billing model for Azure Stack Edge Pro GPU.
+
 
 #### Are there other fees associated with my Azure Stack Edge device?
 
