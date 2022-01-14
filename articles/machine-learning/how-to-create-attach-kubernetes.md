@@ -422,6 +422,14 @@ kubectl get secret/azuremlfessl -o yaml
 >[!Note]
 >Kubernetes stores the secrets in base-64 encoded format. You will need to base-64 decode the `cert.pem` and `key.pem` components of the secrets prior to providing them to `attach_config.enable_ssl`. 
 
+### Webservice failures
+
+Many webservice failures in AKS can be debugged by connecting to the cluster using `kubectl`. You can get the `kubeconfig.json` for an AKS cluster by running
+
+```azurecli-interactive
+az aks get-credentials -g <rg> -n <aks cluster name>
+```
+
 ### Delete azureml-fe related resources
 
 After detaching cluster, if you don't have any active service in cluster, please delete the azureml-fe related resources before attaching again
@@ -435,14 +443,6 @@ kubectl delete svc azureml-fe-int-http
 kubectl delete deploy azureml-fe
 kubectl delete secret azuremlfessl
 kubectl delete cm azuremlfeconfig
-```
-
-### Webservice failures
-
-Many webservice failures in AKS can be debugged by connecting to the cluster using `kubectl`. You can get the `kubeconfig.json` for an AKS cluster by running
-
-```azurecli-interactive
-az aks get-credentials -g <rg> -n <aks cluster name>
 ```
 
 ## Next steps
