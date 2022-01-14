@@ -302,7 +302,7 @@ If you are using Azure Active Directory, use `aad` as the value for the `<PROVID
 > [!Note]
 > These URLs are provided by Azure Static Web Apps to receive the response from the authentication provider, you don't need to create pages at these routes.
 
-## Login, logout, and purging user details
+## Login, logout, and user details
 
 To use a custom identity provider, use the following URL patterns.
 
@@ -310,6 +310,7 @@ To use a custom identity provider, use the following URL patterns.
 | ------------------ | ---------------------------------------- |
 | Login              | `/.auth/login/<PROVIDER_NAME_IN_CONFIG>` |
 | Logout             | `/.auth/logout`                          |
+| User details       | `/.auth/me`                              |
 | Purge user details | `/.auth/purge/<PROVIDER_NAME_IN_CONFIG>` |
 
 If you are using Azure Active Directory, use `aad` as the value for the `<PROVIDER_NAME_IN_CONFIG>` placeholder.
@@ -317,4 +318,4 @@ If you are using Azure Active Directory, use `aad` as the value for the `<PROVID
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Securing authentication secrets in Azure Key Vault](./key-vault-secrets.md)
+> [Set user roles programmatically](./assign-roles-microsoft-graph.md)

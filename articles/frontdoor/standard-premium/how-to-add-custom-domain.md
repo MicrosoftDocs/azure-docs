@@ -106,4 +106,4 @@ Then lastly, validate that your application content is getting served using a br
 To learn how to enable HTTPS for your custom domain, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Enable HTTPS for a custom domain]()
+> [Enable HTTPS for a custom domain](how-to-configure-https-custom-domain.md)

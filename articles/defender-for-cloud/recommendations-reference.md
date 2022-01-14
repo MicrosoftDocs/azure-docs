@@ -4,7 +4,7 @@ description: This article lists Microsoft Defender for Cloud's security recommen
 author: memildin
 ms.service: defender-for-cloud
 ms.topic: reference
-ms.date: 01/08/2022
+ms.date: 01/12/2022
 ms.author: memildin
 ms.custom: generated
 ---

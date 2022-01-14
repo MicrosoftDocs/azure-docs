@@ -19,6 +19,8 @@ ms.date: 01/05/2022
 
 This Azure CLI script example creates a single database, adds it to an elastic pool, creates a failover group, and tests failover.
 
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script

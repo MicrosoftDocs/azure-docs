@@ -115,7 +115,7 @@ Now that you've assigned your subscription the role, it's time to configure the 
 
 ### Deployment considerations 
 
-Start VM on Connect is a host pool setting. If you only want a select group of users to use this feature, make sure you only assign the required role to the users you want to add.
+Start VM on Connect is a host pool setting.
 
 For personal desktops, the feature will only turn on an existing VM that the service has already assigned or will assign to a user. In a pooled host pool scenario, the service will only turn on a VM when none are turned on. The feature will only turn on additional VMs when the first VM reaches the session limit.
 
