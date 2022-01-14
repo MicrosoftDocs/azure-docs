@@ -96,7 +96,7 @@ Billing starts 10 days after a device is marked as **Shipped** and ends when ret
 
 The billing happens against the order resource. If you activate the device against a different resource, the order and billing details move to the new resource.
 
-For more information, see [Frequently asked questions about billings for Azure Stack Edge Pro with GPU](azure-stack-edge-g[i-faq-billing-model.md]).
+For more information, see [Frequently asked questions about billings for Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-faq-billing-model.md).
 
 <!--#### Are there other fees associated with my Azure Stack Edge device?
 
