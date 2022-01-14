@@ -4,7 +4,7 @@ description: This article provides an overview of the Azure Application Gateway 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 01/12/2022
+ms.date: 01/14/2022
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -80,7 +80,7 @@ Path based rule processing when wildcard (*) is used:
 
 **Example 1:**
 
-`/master-dev to contoso.com`
+`/master-dev* to contoso.com`
 
 `/master-dev/api-core/ to fabrikam.com`
 
@@ -100,7 +100,7 @@ Because the wildcard path `/master-dev*` is present above more granular paths, a
 
 All client requests with the path pattern `/master-dev/*` are processed in the order as listed. If there is no match within the path rules, the request is routed to the default target.
 
-You can check out a [Resource Manager template using URL-based routing](https://azure.microsoft.com/resources/templates/application-gateway-url-path-based-routing) for more information.
+For more information, see [Resource Manager template using URL-based routing](https://azure.microsoft.com/resources/templates/application-gateway-url-path-based-routing).
 
 ## PathBasedRouting rule
 
