@@ -1,6 +1,6 @@
 ---
 title: Microsoft CloudKnox Permissions Management - The Account Settings dashboard
-description: How to to view personal and organization information in the Account Settings dashboard in Microsoft CloudKnox Permissions Management.
+description: How to view personal and organization information in the Account Settings dashboard in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444

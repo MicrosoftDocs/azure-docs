@@ -23,7 +23,7 @@ This topic describes how to use the Microsoft CloudKnox Permissions Management (
     The **Integrations** dashboard displays a tile for each authorization system available to you.
 1. Select an authorization system tile to view its integration information.
 
-    The Integrations dashboard has 3 tabs:
+    The Integrations dashboard has three tabs:
     - The **Authorization system** tab
     - The **Integration** tab
     - The **Settings** tab
@@ -50,7 +50,7 @@ Depending on the authorization system you've selected, some of the information d
 - **Created On** - Displays the date the user created the integration. 
 - **Recent activity** - Displays when the authorization system was last used. 
 
-    If it has not been used, it displays **Never used**.
+    If there has been no activity, the tab displays **Never used**.
 - **Service Account ID** - Displays the service account ID. 
     - Select **Copy** (the pages icon) to copy the service account ID to the clipboard. 
 - **Access Key** - Displays the access key. 
