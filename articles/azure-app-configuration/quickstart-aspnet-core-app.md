@@ -23,7 +23,7 @@ In this quickstart, you'll use Azure App Configuration to centralize storage and
 > [!TIP]
 > The Azure Cloud Shell is a free, interactive shell that you can use to run the command line instructions in this article. It has common Azure tools preinstalled, including the .NET Core SDK. If you're logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com. You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
 
-## Create an App Configuration store
+ ## Create an App Configuration store
 
 [!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
@@ -78,22 +78,19 @@ dotnet new mvc --no-https --output TestAppConfig
 
     ```csharp
     var builder = WebApplication.CreateBuilder(args);
+    //Retrieve the Connection String from the secrets manager 
+    var connectionString = builder.Configuration["AppConfig"];
+    
     builder.Host.ConfigureAppConfiguration(builder =>
-        {
-            builder.AddAzureAppConfiguration(options =>
-            {
-                //Connect to your App Config Store using a connection string 
-                options.Connect(Environment.GetEnvironmentVariable("AppConfig"))
-                        // Load all keys that start with `TestApp:` and have no label
-                        .Select("TestApp:*");                               
-            });
-        })
-        .ConfigureServices(services =>
-        {
-            // Make Azure App Configuration services available through dependency injection
-            services.AddAzureAppConfiguration()
-                    .AddControllersWithViews();
-        });
+                    {
+                        //Connect to your App Config Store using the connection string
+                        builder.AddAzureAppConfiguration(connectionString);
+                    })
+                    .ConfigureServices(services =>
+                    {
+                        services.AddControllersWithViews();
+                    });
+
     
     var app = builder.Build();
     
@@ -102,9 +99,7 @@ dotnet new mvc --no-https --output TestAppConfig
     {
         app.UseExceptionHandler("/Home/Error");
     }
-    app.UseStaticFiles();
-    
-    app.UseAzureAppConfiguration(); 
+    app.UseStaticFiles(); 
     
     app.UseRouting();
     
@@ -128,9 +123,6 @@ dotnet new mvc --no-https --output TestAppConfig
         using Microsoft.Extensions.Configuration;
         ```
 
-    > [!IMPORTANT]
-    > `CreateHostBuilder` in .NET 5.x replaces `CreateWebHostBuilder` in .NET Core 3.x. 
-
     1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
     
         ```csharp
@@ -151,7 +143,10 @@ dotnet new mvc --no-https --output TestAppConfig
         using Microsoft.Extensions.Configuration;
         ```
     
-    1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
+    > [!IMPORTANT]
+    > `CreateHostBuilder` in .NET 3.x replaces `CreateWebHostBuilder` in .NET Core 2.x. 
+    
+    1. Update the `CreateHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
     
         ```csharp
         public static IHostBuilder CreateHostBuilder(string[] args) =>
