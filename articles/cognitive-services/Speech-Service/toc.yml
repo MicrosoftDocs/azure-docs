@@ -82,28 +82,6 @@ items:
               href: how-to-custom-speech-human-labeled-transcriptions.md
             - name: Model and Endpoint Lifecycle
               href: how-to-custom-speech-model-and-endpoint-lifecycle.md
-    - name: Responsible use of AI
-      items:
-        - name: Speech-to-text
-          items:
-          - name: Transparency note
-            items:
-            - name: Use cases for Speech-to-text
-              href: /legal/cognitive-services/speech-service/speech-to-text/transparency-note?context=/azure/cognitive-services/speech-service/context/context
-            - name: Characteristics and limitations
-              href: /legal/cognitive-services/speech-service/speech-to-text/characteristics-and-limitations?context=/azure/cognitive-services/speech-service/context/context
-          - name: Integration and responsible use
-            href: /legal/cognitive-services/speech-service/speech-to-text/guidance-integration-responsible-use?context=/azure/cognitive-services/speech-service/context/context
-          - name: Data, privacy, and security
-            href: /legal/cognitive-services/speech-service/speech-to-text/data-privacy-security?context=/azure/cognitive-services/speech-service/context/context
-        - name: Pronunciation Assessment
-          items:
-          - name: Transparency Note
-            items:
-            - name: Use cases for Pronunciation Assessment
-              href: /legal/cognitive-services/speech-service/pronunciation-assessment/transparency-note-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context
-            - name: Characteristics and limitations
-              href: /legal/cognitive-services/speech-service/pronunciation-assessment/characteristics-and-limitations-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context
     - name: Tutorials
       items:
         - name: Improve accuracy with tenant models
@@ -160,32 +138,6 @@ items:
               href: how-to-migrate-to-prebuilt-neural-voice.md 
     - name: SSML phonetic sets
       href: speech-ssml-phonetic-sets.md
-    - name: Responsible use of AI
-      items:
-        - name: Custom Neural Voice
-          items:
-            - name: Transparency Note
-              items:
-                - name: Use cases for Custom Neural Voice
-                  href: /legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
-                - name: Characteristics and limitations
-                  href: /legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
-            - name: Integration and responsible use
-              items:
-                - name: Limited access
-                  href: /legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
-                - name: Responsible deployment of synthetic speech
-                  href: concepts-guidelines-responsible-deployment-synthetic.md
-                - name: Disclosure for voice talent
-                  href: /legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context
-                - name: Disclosure design guidelines
-                  href: concepts-disclosure-guidelines.md
-                - name: Disclosure design patterns
-                  href: concepts-disclosure-patterns.md
-                - name: Code of conduct
-                  href: /legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context
-            - name: Data, privacy and security
-              href: /legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
 - name: Speech translation
   items:
     - name: Speech translation documentation
@@ -226,22 +178,6 @@ items:
       href: speaker-recognition-overview.md
     - name: Speaker Recognition quickstart
       href: get-started-speaker-recognition.md
-    - name: Responsible use of AI
-      items: 
-      - name: Transparency note
-        items:
-        - name: Use cases for Speaker Recognition
-          href: /legal/cognitive-services/speech-service/speaker-recognition/transparency-note-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
-        - name: Characteristics and limitations
-          href: /legal/cognitive-services/speech-service/speaker-recognition/characteristics-and-limitations-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
-      - name: Integration and responsible use
-        items:
-        - name: Limited access
-          href: /legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
-        - name: General guidelines
-          href: /legal/cognitive-services/speech-service/speaker-recognition/guidance-integration-responsible-use-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
-      - name: Data, privacy, and security
-        href: /legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
 - name: Keyword recognition
   items:
     - name: Keyword recognition overview
@@ -474,6 +410,68 @@ items:
           href: rest-text-to-speech.md
         - name: Speaker Recognition REST API
           href: /rest/api/speakerrecognition/
+- name: Responsible use of AI
+  items:
+    - name: Speaker Recognition
+      items: 
+      - name: Transparency note
+        items:
+        - name: Use cases for Speaker Recognition
+          href: /legal/cognitive-services/speech-service/speaker-recognition/transparency-note-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
+        - name: Characteristics and limitations
+          href: /legal/cognitive-services/speech-service/speaker-recognition/characteristics-and-limitations-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
+      - name: Integration and responsible use
+        items:
+        - name: Limited access
+          href: /legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
+        - name: General guidelines
+          href: /legal/cognitive-services/speech-service/speaker-recognition/guidance-integration-responsible-use-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
+      - name: Data, privacy, and security
+        href: /legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
+    - name: Speech-to-text
+      items:
+      - name: Transparency note
+        items:
+        - name: Use cases for Speech-to-text
+          href: /legal/cognitive-services/speech-service/speech-to-text/transparency-note?context=/azure/cognitive-services/speech-service/context/context
+        - name: Characteristics and limitations
+          href: /legal/cognitive-services/speech-service/speech-to-text/characteristics-and-limitations?context=/azure/cognitive-services/speech-service/context/context
+      - name: Integration and responsible use
+        href: /legal/cognitive-services/speech-service/speech-to-text/guidance-integration-responsible-use?context=/azure/cognitive-services/speech-service/context/context
+      - name: Data, privacy, and security
+        href: /legal/cognitive-services/speech-service/speech-to-text/data-privacy-security?context=/azure/cognitive-services/speech-service/context/context
+    - name: Pronunciation Assessment
+      items:
+      - name: Transparency Note
+        items:
+        - name: Use cases for Pronunciation Assessment
+          href: /legal/cognitive-services/speech-service/pronunciation-assessment/transparency-note-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context
+        - name: Characteristics and limitations
+          href: /legal/cognitive-services/speech-service/pronunciation-assessment/characteristics-and-limitations-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context
+    - name: Custom Neural Voice
+      items:
+        - name: Transparency Note
+          items:
+            - name: Use cases for Custom Neural Voice
+              href: /legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+            - name: Characteristics and limitations
+              href: /legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+        - name: Integration and responsible use
+          items:
+            - name: Limited access
+              href: /legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+            - name: Responsible deployment of synthetic speech
+              href: concepts-guidelines-responsible-deployment-synthetic.md
+            - name: Disclosure for voice talent
+              href: /legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context
+            - name: Disclosure design guidelines
+              href: concepts-disclosure-guidelines.md
+            - name: Disclosure design patterns
+              href: concepts-disclosure-patterns.md
+            - name: Code of conduct
+              href: /legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context
+        - name: Data, privacy and security
+          href: /legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
 - name: Resources
   items:
     - name: Enterprise readiness
