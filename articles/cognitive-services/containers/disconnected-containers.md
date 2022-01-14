@@ -16,7 +16,6 @@ ms.author: aahi
 Containers enable you to run Cognitive Services APIs in your own environment, and are great for your specific security and data governance requirements. Disconnected containers enable you to use several of these APIs completely disconnected from the internet. Currently, the following containers can be run in this manner:
 
 * [Speech to Text (Standard)](../speech-service/speech-container-howto.md?tabs=stt)
-* [Text to Speech (Neural)](../speech-service/speech-container-howto.md?tabs=ntts)
 * [Text Translation (Standard)](../translator/containers/translator-how-to-install-container.md#host-computer)
 * Azure Cognitive Service for Language
     * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md)

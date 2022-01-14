@@ -18,10 +18,10 @@ sections:
     questions:
       - question: Which services are available as disconnected containers?
         answer: |
-          Azure Cognitive Services containers allow developers to use the same intelligent APIs that are available in Azure, but with the [benefits](../cognitive-services-container-support.md#features-and-benefits) of containerization. Through Cognitive Services offers commitment tier pricing, each offering a discounted rate compared to the pay-as-you-go pricing model. With commitment tier pricing, you can commit to using the following Cognitive Services features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload:
+          Azure Cognitive Services containers allow developers to use the same intelligent APIs that are available in Azure, but with the [benefits](../cognitive-services-container-support.md#features-and-benefits) of containerization. 
+          Disconnected containers are offered through commitment tier pricing, each offering a discounted rate compared to the pay-as-you-go pricing model. With commitment tier pricing, you can commit to using the following Cognitive Services features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload.
           * Speech services
             *	Speech to Text (Standard)
-            *	Text to Speech (Neural)
           *	Text Translation (Standard)
           *	Azure Cognitive Service for Language
               *	Sentiment Analysis
@@ -33,7 +33,7 @@ sections:
 
           *	Form Recognizer - Custom/Invoice
 
-          For more information, see [Azure Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/). You can find a full list of containers and their availability in [Container support in Azure Cognitive Services](../cognitive-services-container-support.md). You can also view the containers in [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
+          For more information about commitment tier pricing, please reach out to your Microsoft account team or contact at Microsoft. You can also email csgate@microsoft.com.
       - question: Will containers be available for other Cognitive Services offerings, and what's the next set of containers I should expect?
         answer: |
           We'd like to make more Cognitive Services offerings available as containers. Contact your local Microsoft account manager to get updates on new container releases and other Cognitive Services announcements.
@@ -41,7 +41,7 @@ sections:
         answer: |
           Fill out and submit the request form to request access to the container. Access is limited to customers that meet the following requirements:
 
-            * Microsoft Enterprise Agreement - Your organization must have a Microsoft Enterprise Agreement or an equivalent agreement and should identified as strategic customer or partner with Microsoft.  
+            * Your organization must have an enterprise agreement or an equivalent agreement and should identified as strategic customer or partner with Microsoft.  
             * Valid business scenario/use case - Disconnected containers are expected to run fully offline hence, your use cases must meet one of below or similar requirements: 
               * Environment or device(s) with zero connectivity to internet. 
               *	Remote location that occasionally has internet access. 
@@ -49,11 +49,11 @@ sections:
             * Application completed as instructed - Please pay close attention to guidance provided throughout the application to ensure you provide all the necessary information required for approval. 
       - question: What if my use case cannot satisfy the requirements listed above?
         answer: |
-          If your use case cannot satisfy above requirements but you're interested in running containers on premises, see the list of all available containers which can be run while connected to the internet. Many of these containers don't require permission for use.   
+          If your use case cannot satisfy above requirements but you're interested in running containers on premises, you may be able to use [connected containers](../cognitive-services-container-support.md).   
       - question: What are some reasons my application may be denied?
         answer: |
           Possible causes for a denied application are as follows: 
-          *	Not being an existing Microsoft Partner or Enterprise Agreement customer  
+          *	Not being an existing Microsoft partner or enterprise agreement customer  
           *	Invalid Azure subscription ID. your ID must belong to the applicant organization, and you cannot apply on behalf of other organizations. 
           *	The application was submitted with a personal email address (For example: @hotmail.com, @gmail.com, @yahoo.com, etc.) 
           *	Invalid justification or business scenario provided 
@@ -100,7 +100,17 @@ sections:
           We encourage customers to [voice their concerns](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858) publicly and to up-vote others who have done the same where potential issues overlap. You can use the feedback tool for both product feedback and feature recommendations.
       - question: What status messages and errors do Cognitive Services containers return?
         answer: |
-          TBD
+          Here are the status messages and errors:
+
+          |Status  | Description  |
+          |---------|---------|
+          | `Valid` |	Your API key is valid. No action is needed. |
+          | `Invalid` |	Your API key is invalid. You must provide a valid API key to configure the container for use in disconnected environments. Find your API key and service region in the Azure portal, in the **Keys and Endpoint** section for your Cognitive Services resource. |
+          | `Mismatch` | You've provided an API key or endpoint for a different kind of Cognitive Services resource. Find your API key and service region in the Azure portal, in the **Keys and Endpoint** section for your Cognitive Services resource. |
+          | `CouldNotConnect` | The container couldn't connect to the endpoint. |
+          | `OutOfQuota` | The API key has exceeded the quota. You can either upgrade your pricing tier or wait for additional quota to become available. Find your tier in the Azure portal, in the **Pricing Tier** section of your Cognitive Service resource. |
+          | `ContainerUseUnauthorized` | The provided API key is not authorized for use with this container. You're likely using a gated container, so make sure your Azure subscription ID is approved by submitting an [online request](https://aka.ms/csgate). |
+          | `Unknown` | The server is currently unable to process requests. |
       - question: How do I get support?
         answer: |
           Customer support channels are the same as for the Cognitive Services cloud-based APIs. All Cognitive Services containers include logging features that will help us and the community support customers. Here are options for more support:
@@ -116,9 +126,8 @@ sections:
           > [!TIP]
           > To find the pricing information for disconnected containers on these pricing pages, scroll down to **Commitment Tiers** section.
 
-          * [Speech Services pricing](/pricing/details/cognitive-services/speech-services) for:
+          * [Speech Services](/pricing/details/cognitive-services/speech-services) for:
             * Speech to Text (Standard)
-            * Text to Speech (Neural)
           * [Text Translation (Standard)](/pricing/details/cognitive-services/translator/)
           *	[Azure Cognitive Service for Language pricing](/pricing/details/cognitive-services/language-service/) for
             * Sentiment Analysis
@@ -138,7 +147,6 @@ sections:
 
           * [Speech Services](../speech-service/speech-container-howto.md#host-computer-requirements-and-recommendations) for:
             * Speech to Text (Standard)
-            * Text to Speech (Neural)
           * [Text Translation (Standard)](../translator/containers/translator-how-to-install-container.md#host-computer)
           *	Azure Cognitive Service for Language documentation for
               * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md#host-computer-requirements-and-recommendations)
