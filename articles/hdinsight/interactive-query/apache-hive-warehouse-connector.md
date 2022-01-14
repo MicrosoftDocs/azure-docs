@@ -153,7 +153,8 @@ This is a way to run Spark interactively through a modified version of the Scala
 
 ### Spark-submit
 
-Spark-submit is a utility to submit any spark program (or job) to Spark clusters.
+Spark-submit is a utility to submit any Spark program (or job) to Spark clusters.
+
 The spark-submit job will setup and configure Spark and Hive Warehouse Connector as per our instructions, execute the program we pass to it, then cleanly release the resources that were being used.
 
 Once you build the scala/java code along with the dependencies into an assembly jar, use the below command to launch a Spark application. Replace `<VERSION>`, and `<APP_JAR_PATH>` with the actual values.
@@ -182,7 +183,8 @@ Once you build the scala/java code along with the dependencies into an assembly 
     ```
 
 This utility is also used when we have written the entire application in pySpark and packaged into py files (Python), so that we can submit the entire code to Spark cluster for execution.
-For Python applications, simply pass a .py file in the place of /<APP_JAR_PATH>/myHwcAppProject.jar, and add the below configuration (Python .zip) file to the search path with --py-files.
+
+For Python applications, simply pass a .py file in the place of `/<APP_JAR_PATH>/myHwcAppProject.jar`, and add the below configuration (Python .zip) file to the search path with `--py-files`.
 
 ```python
 --py-files /usr/hdp/current/hive_warehouse_connector/pyspark_hwc-<VERSION>.zip
@@ -235,3 +237,4 @@ kinit USERNAME
 * [Use Interactive Query with HDInsight](./apache-interactive-query-get-started.md)
 * [HWC integration with Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)
 * [Examples of interacting with Hive Warehouse Connector using Zeppelin, Livy, spark-submit, and pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)
+* [Submitting Spark Applications via Spark-submit utility](https://spark.apache.org/docs/2.4.0/submitting-applications.html)
