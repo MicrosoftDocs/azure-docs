@@ -93,7 +93,7 @@ Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $sto
 
 You can see that the networking setting for the storage account shows **two selected** in the **Instance name** dropdown list. One is linked to the workspace instance and the second is linked to the FHIR service instance.
 
-  :::image type="content" source="media/export-data/storage-networking-2.png" alt-text="Screenshot of Azure Storage Networking Settings Showing Selected Resource Type and Insances." lightbox="media/export-data/storage-networking-2.png":::
+  :::image type="content" source="media/export-data/storage-networking-2.png" alt-text="Screenshot of Azure Storage Networking Settings with resource type and instance names." lightbox="media/export-data/storage-networking-2.png":::
 
 Note that you'll need to install "Add-AzStorageAccountNetworkRule" using an administrator account. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md)
 
