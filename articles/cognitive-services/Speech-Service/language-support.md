@@ -146,7 +146,7 @@ Both the Microsoft Speech SDK and REST APIs support these neural voices, each of
 > [!IMPORTANT]
 > Pricing varies for Prebuilt Neural Voice (referred to as *Neural* on the pricing page) and Custom Neural Voice (referred to as *Custom Neural* on the pricing page). For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page.
 
-### Prebuilt Neural Voice
+### Prebuilt neural voices
 
 The following table lists the prebuilt neural voices supported in each language. You can try the demo and hear the voices on [this website](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
 
