@@ -49,7 +49,7 @@ Make sure you enable **Allow trusted Microsoft services** to access the resource
 
 No. Connecting to Azure Purview from a public endpoint where **Public network access** is set to **Deny** results in the following error message:
 
-"Not authorized to access this Purview account. This Purview account is behind a private endpoint. Please access the account from a client in the same virtual network (VNet) that has been configured for the Purview account's private endpoint."
+"Not authorized to access this Azure Purview account. This Azure Purview account is behind a private endpoint. Please access the account from a client in the same virtual network (VNet) that has been configured for the Azure Purview account's private endpoint."
 
 In this case, to open Azure Purview Studio, either use a machine that's deployed in the same virtual network as the Azure Purview portal private endpoint or use a VM that's connected to your CorpNet in which hybrid connectivity is allowed.
 
@@ -105,7 +105,7 @@ No. However, it's expected that the virtual machine running self-hosted integrat
 
 ### Why do I receive the following error message when I try to launch Azure Purview Studio from my machine?
 
-"This Purview account is behind a private endpoint. Please access the account from a client in the same virtual network (VNet) that has been configured for the Purview account's private endpoint."
+"This Azure Purview account is behind a private endpoint. Please access the account from a client in the same virtual network (VNet) that has been configured for the Azure Purview account's private endpoint."
 
 It's likely your Azure Purview account is deployed by using Private Link and public access is disabled on your Azure Purview account. As a result, you have to browse Azure Purview Studio from a virtual machine that has internal network connectivity to Azure Purview.
 

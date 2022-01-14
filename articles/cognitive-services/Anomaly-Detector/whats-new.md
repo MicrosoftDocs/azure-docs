@@ -63,14 +63,14 @@ We've also added links to some user-generated content. Those items will be marke
 
 ## Videos
 
-* May 7, 2021 [New to Anomaly Detector: Multivariate Capabilities](https://channel9.msdn.com/Shows/AI-Show/New-to-Anomaly-Detector-Multivariate-Capabilities) - AI Show on the new multivariate anomaly detection APIs with Tony Xing and Seth Juarez
-* April 20, 2021 [AI Show Live | Episode 11| New to Anomaly Detector: Multivariate Capabilities](https://channel9.msdn.com/Shows/AI-Show/AI-Show-Live-Episode-11-Whats-new-with-Anomaly-Detector) - AI Show live recording with Tony Xing and Seth Juarez
-* May 18, 2020 [Inside Anomaly Detector](https://channel9.msdn.com/Shows/AI-Show/Inside-Anomaly-Detector) - AI Show with Qun Ying and Seth Juarez
+* May 7, 2021 [New to Anomaly Detector: Multivariate Capabilities](/shows/AI-Show/New-to-Anomaly-Detector-Multivariate-Capabilities) - AI Show on the new multivariate anomaly detection APIs with Tony Xing and Seth Juarez
+* April 20, 2021 AI Show Live | Episode 11| New to Anomaly Detector: Multivariate Capabilities - AI Show live recording with Tony Xing and Seth Juarez
+* May 18, 2020 [Inside Anomaly Detector](/shows/AI-Show/Inside-Anomaly-Detector) - AI Show with Qun Ying and Seth Juarez
 * September 19, 2019 **[UGC]** [Detect Anomalies in Your Data with the Anomaly Detector](https://www.youtube.com/watch?v=gfb63wvjnYQ) - Video by Jon Wood
-* September 3, 2019 [Anomaly detection on streaming data using Azure Databricks](https://channel9.msdn.com/Shows/AI-Show/Anomaly-detection-on-streaming-data-using-Azure-Databricks) - AI Show with Qun Ying
-* August 27, 2019 [Anomaly Detector v1.0 Best Practices](https://channel9.msdn.com/Shows/AI-Show/Anomaly-Detector-v10-Best-Practices) - AI Show on univariate anomaly detection best practices with Qun Ying
-* August 20, 2019 [Bring Anomaly Detector on-premises with containers support](https://channel9.msdn.com/Shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support) - AI Show with Qun Ying and Seth Juarez
-* August 13, 2019 [Introducing Azure Anomaly Detector](https://channel9.msdn.com/Shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner) - AI Show with Qun Ying and Seth Juarez
+* September 3, 2019 [Anomaly detection on streaming data using Azure Databricks](/shows/AI-Show/Anomaly-detection-on-streaming-data-using-Azure-Databricks) - AI Show with Qun Ying
+* August 27, 2019 [Anomaly Detector v1.0 Best Practices](/shows/AI-Show/Anomaly-Detector-v10-Best-Practices) - AI Show on univariate anomaly detection best practices with Qun Ying
+* August 20, 2019 [Bring Anomaly Detector on-premises with containers support](/shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support) - AI Show with Qun Ying and Seth Juarez
+* August 13, 2019 [Introducing Azure Anomaly Detector](/shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner) - AI Show with Qun Ying and Seth Juarez
 
 
 ## Service updates

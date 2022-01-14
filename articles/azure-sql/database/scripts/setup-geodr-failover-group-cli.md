@@ -45,7 +45,7 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Description |
 |---|---|
 | [az sql failover-group create](/cli/azure/sql/failover-group#az_sql_failover_group_create) | Creates a failover group. |
-| [az sql failover-group set-primary](/cli/azure/sql/failover-groupt#az_sql_failover_group_set_primary) | Set the primary of the failover group by failing over all databases from the current primary server |
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az-sql-failover-group-set-primary) | Set the primary of the failover group by failing over all databases from the current primary server |
 | [az sql failover-group show](/cli/azure/sql/failover-group) | Gets a failover group |
 | [az sql failover-group delete](/cli/azure/sql/failover-group) | Deletes a failover group |
 
