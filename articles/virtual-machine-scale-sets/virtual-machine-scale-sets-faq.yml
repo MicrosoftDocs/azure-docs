@@ -219,14 +219,14 @@ sections:
       - question: |
           How do I remove deprecated certificates?
         answer: |
-          To remove deprecated certificates, remove the old certificate from the vault certificates list. Leave all the certificates that you want to remain on your computer in the list. This does not remove the certificate from all your VMs. It also does not add the certificate to new VMs that are created in the virtual machine scale set.
+          To remove deprecated certificates, remove the old certificate from the vault certificates list. Leave all the certificates that you want to remain on your computer in the list. This doesn't remove the certificate from all your VMs. It also doesn't add the certificate to new VMs that are created in the virtual machine scale set.
 
-          To remove the certificate from existing VMs, use a custom script extension to manually remove the certificates from your certificate store.
+          To remove the certificate from existing VMs, use a custom script extension to manually remove the certificate from your certificate store.
 
       - question: |
           How do I inject an existing SSH public key into the virtual machine scale set SSH layer during provisioning?
         answer: |
-          If you are providing the VMs only with a public SSH key, you don't need to put the public keys in Key Vault. Public keys are not secret.
+          If you are providing the VMs only with a public SSH key, you don't need to put the public keys in Azure Key Vault. Public keys aren't secret.
 
           You can provide SSH public keys in plain text when you create a Linux VM:
 
@@ -243,51 +243,49 @@ sections:
           }
           ```
 
-          linuxConfiguration element name | Required | Type | Description
+          `linuxConfiguration` element name | Required | Type | Description
           --- | --- | --- | ---
-          ssh | No | Collection | Specifies the SSH key configuration for a Linux OS
-          path | Yes | String | Specifies the Linux file path where the SSH keys or certificate should be located
-          keyData | Yes | String | Specifies a base64-encoded SSH public key
+          `ssh` | No | Collection | Specifies the SSH key configuration for a Linux operating system.
+          `path` | Yes | String | Specifies the Linux file path where the SSH keys or certificate should be located.
+          `keyData` | Yes | String | Specifies a base64-encoded SSH public key.
 
           For an example, see [the vm-sshkey GitHub quickstart template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-sshkey/azuredeploy.json).
 
       - question: |
-          When I run `Update-AzVmss` after adding more than one certificate from the same key vault, I see the following message:
+          When I run `Update-AzVmss` after adding more than one certificate from the same key vault, why do I get an error message?
         answer: |
-          >Update-AzVmss: List secret contains repeated instances of /subscriptions/\<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, which is disallowed.
+          This can happen if you try to re-add the same vault instead of using a new vault certificate for the existing source vault. The `Add-AzVmssSecret` command doesn't work correctly if you're adding additional secrets.
 
-          This can happen if you try to re-add the same vault instead of using a new vault certificate for the existing source vault. The `Add-AzVmssSecret` command does not work correctly if you are adding additional secrets.
-
-          To add more secrets from the same key vault, update the $vmss.properties.osProfile.secrets[0].vaultCertificates list.
+          To add more secrets from the same key vault, update the following list: `$vmss.properties.osProfile.secrets[0].vaultCertificates`.
 
           For the expected input structure, see [Create or update a virtual machine set](/rest/api/compute/virtualmachinescalesets/createorupdate).
 
           Find the secret in the virtual machine scale set object that is in the key vault. Then, add your certificate reference (the URL and the secret store name) to the list associated with the vault.
 
           > [!NOTE]
-          > Currently, you cannot remove certificates from VMs by using the virtual machine scale set API.
+          > Currently, you can't remove certificates from VMs by using the virtual machine scale set API.
           >
 
-          New VMs will not have the old certificate. However, VMs that have the certificate and which are already deployed will have the old certificate.
+          New VMs will not have the old certificate. However, VMs that have the certificate, and that are already deployed, do have the old certificate.
 
       - question: |
           Can I push certificates to the virtual machine scale set without providing the password, when the certificate is in the secret store?
         answer: |
-          You do not need to hard-code passwords in scripts. You can dynamically retrieve passwords with the permissions you use to run the deployment script. If you have a script that moves a certificate from the secret store key vault, the secret store `get certificate` command also outputs the password of the .pfx file.
+          You don't need to hard-code passwords in scripts. You can dynamically retrieve passwords with the permissions you use to run the deployment script. If you have a script that moves a certificate from the secret store key vault, the secret store `get certificate` command also outputs the password of the .pfx file.
 
       - question: |
-          How does the Secrets property of virtualMachineProfile.osProfile for a virtual machine scale set work? Why do I need the sourceVault value when I have to specify the absolute URI for a certificate by using the certificateUrl property?
+          How does the `Secrets` property of `virtualMachineProfile.osProfile` for a virtual machine scale set work? Why do I need the `sourceVault` value when I have to specify the absolute URI for a certificate by using the `certificateUrl` property?
         answer: |
-          A Windows Remote Management (WinRM) certificate reference must be present in the Secrets property of the OS profile.
+          A Windows Remote Management (WinRM) certificate reference must be present in the `Secrets` property of the operating system profile.
 
-          The purpose of indicating the source vault is to enforce access control list (ACL) policies that exist in a user's Azure Cloud Service model. If the source vault isn't specified, users who do not have permissions to deploy or access secrets to a key vault would be able to through a Compute Resource Provider (CRP). ACLs exist even for resources that do not exist.
+          The purpose of indicating the source vault is to enforce access control list (ACL) policies that exist in a user's Azure Cloud Services model. If the source vault isn't specified, users who don't have permissions to deploy or access secrets to a key vault are able to, through a compute resource provider (CRP). ACLs exist even for resources that don't exist.
 
-          If you provide an incorrect source vault ID but a valid key vault URL, an error is reported when you poll the operation.
+          If you provide an incorrect source vault ID, but a valid key vault URL, an error is reported when you poll the operation.
 
       - question: |
           If I add secrets to an existing virtual machine scale set, are the secrets injected into existing VMs, or only into new ones?
         answer: |
-          Certificates are added to all your VMs, even pre-existing ones. If your virtual machine scale set upgradePolicy property is set to **manual**, the certificate is added to the VM when you perform a manual update on the VM.
+          Certificates are added to all your VMs, even pre-existing ones. If your virtual machine scale set `upgradePolicy` property is set to `manual`, the certificate is added to the VM when you perform a manual update on the VM.
 
       - question: |
           Where do I put certificates for Linux VMs?
@@ -310,28 +308,28 @@ sections:
       - question: |
           What happens to certificates if you reimage a VM?
         answer: |
-          If you reimage a VM, certificates are deleted. Reimaging deletes the entire OS disk.
+          If you reimage a VM, certificates are deleted. Reimaging deletes the entire operating system disk.
 
       - question: |
           What happens if you delete a certificate from the key vault?
         answer: |
-          If the secret is deleted from the key vault, and then you run `stop deallocate` for all your VMs and then start them again, you encounter a failure. The failure occurs because the CRP needs to retrieve the secrets from the key vault, but it cannot. In this scenario, you can delete the certificates from the virtual machine scale set model.
+          If the secret is deleted from the key vault, and then you run `stop deallocate` for all your VMs and then start them again, you encounter a failure. The failure occurs because the CRP needs to retrieve the secrets from the key vault, but it can't. In this scenario, you can delete the certificates from the virtual machine scale set model.
 
-          The CRP component does not persist customer secrets. If you run `stop deallocate` for all VMs in the virtual machine scale set, the cache is deleted. In this scenario, secrets are retrieved from the key vault.
+          The CRP component doesn't make customer secrets persistent. If you run `stop deallocate` for all VMs in the virtual machine scale set, the cache is deleted. In this scenario, secrets are retrieved from the key vault.
 
-          You don't encounter this problem when scaling out because there is a cached copy of the secret in Azure Service Fabric (in the single-fabric tenant model).
+          You don't encounter this problem when scaling out, because there's a cached copy of the secret in Azure Service Fabric (in the single-fabric tenant model).
 
       - question: |
           Why do I have to specify the certificate version when I use Key Vault?
         answer: |
-          The purpose of the Key Vault requirement to specify the certificate version is to make it clear to the user what certificate is deployed on their VMs.
+          The purpose is to make it clear to the user what certificate is deployed on their VMs.
 
-          If you create a VM and then update your secret in the key vault, the new certificate is not downloaded to your VMs. But your VMs appear to reference it, and new VMs get the new secret. To avoid this, you are required to reference a secret version.
+          If you create a VM and then update your secret in the key vault, the new certificate isn't downloaded to your VMs. But your VMs appear to reference it, and new VMs get the new secret. To avoid this, you are required to reference a secret version.
 
       - question: |
           My team works with several certificates that are distributed to us as .cer public keys. What is the recommended approach for deploying these certificates to a virtual machine scale set?
         answer: |
-          To deploy .cer public keys to a virtual machine scale set, you can generate a .pfx file that contains only .cer files. To do this, use `X509ContentType = Pfx`. For example, load the .cer file as an x509Certificate2 object in C# or PowerShell, and then call the method.
+          To deploy .cer public keys to a virtual machine scale set, you can generate a .pfx file that contains only .cer files. To do this, use `X509ContentType = Pfx`. For example, load the .cer file as an `x509Certificate2` object in C# or PowerShell, and then call the method.
 
           For more information, see [X509Certificate.Export Method (X509ContentType, String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?#system_security_cryptography_x509certificates_x509certificate_export_system_security_cryptography_x509certificates_x509contenttype_system_string_).
 
@@ -349,36 +347,36 @@ sections:
         answer: |
           In virtual machine scale sets and VMs, certificates must be wrapped in JSON objects.
 
-          We also support the content type application/x-pkcs12.
+          We also support the content type *application/x-pkcs12*.
 
-          We currently do not support .cer files. To use .cer files, export them into .pfx containers.
+          We currently don't support .cer files. To use .cer files, export them into .pfx containers.
 
 
 
-  - name: Compliance and Security
+  - name: Compliance and security
     questions:
       - question: |
           Are virtual machine scale sets PCI-compliant?
         answer: |
           Virtual machine scale sets are a thin API layer on top of the CRP. Both components are part of the compute platform in the Azure service tree.
 
-          From a compliance perspective, virtual machine scale sets are a fundamental part of the Azure compute platform. They share a team, tools, processes, deployment methodology, security controls, just-in-time (JIT) compilation, monitoring, alerting, and so on, with the CRP itself. Virtual machine scale sets are Payment Card Industry (PCI)-compliant because the CRP is part of the current PCI Data Security Standard (DSS) attestation.
+          From a compliance perspective, virtual machine scale sets are a fundamental part of the Azure compute platform. They share the following with the CRP itself: a team, tools, processes, deployment methodology, security controls, just-in-time (JIT) compilation, monitoring, and alerting. Virtual machine scale sets are Payment Card Industry (PCI)-compliant because the CRP is part of the current PCI Data Security Standard (DSS) attestation.
 
-          For more information, see [the Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Compliance/PCI).
+          For more information, see the [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
       - question: |
-          Does managed identities for Azure resources work with virtual machine scale sets?
+          Do managed identities for Azure resources work with virtual machine scale sets?
         answer: |
-          Yes. You can [see](../active-directory/managed-identities-azure-resources/overview.md) some example MSI templates in Azure Quickstart templates for [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-msi) and [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-msi).
+          Yes. For more information, see the [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md). You can see some example MSI templates in Azure Quickstart templates for [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-msi) and [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-msi).
 
   - name: Deleting
     questions:
       - question: |
-          Will the locks I set in place on virtual machine scale set instances be respected when deleting instances?
+          Will the locks I set in place on virtual machine scale set instances be respected when I'm deleting instances?
         answer: |
-          In the Azure portal, you have the ability to delete an individual instance or bulk delete by selecting multiple instances. If you attempt to delete a single instance that has a lock in place, the lock is respected and you will not be able to delete the instance. However, if you bulk select multiple instances and any of those instances have a lock in place, the lock(s) will not be respected and all of the selected instances will be deleted.
+          In the Azure portal, you have the ability to delete an individual instance, or bulk delete by selecting multiple instances. If you attempt to delete a single instance that has a lock in place, the lock is respected and you can't delete the instance. However, if you bulk select multiple instances, and any of those instances have a lock in place, the locks aren't respected. All of the selected instances will be deleted.
 
-          In Azure CLI, you only have the ability to delete an individual instance. If you attempt to delete a single instance that has a lock in place, the lock is respected and you will not be able to delete that instance.
+          In the Azure CLI, you only have the ability to delete an individual instance. If you attempt to delete a single instance that has a lock in place, the lock is respected and you can't delete that instance.
 
   - name: Extensions
     questions:
@@ -395,36 +393,36 @@ sections:
           Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName" -VirtualMacineScaleSet $vmss
           ```
 
-          You can find the extensionName value in `$vmss`.
+          You can find the `extensionName` value in `$vmss`.
 
       - question: |
-          Is there a virtual machine scale set template example that integrates with Azure Monitor logs?
+          Is there a virtual machine scale set template example that integrates with Azure Monitor Logs?
         answer: |
-          For a virtual machine scale set template example that integrates with Azure Monitor logs, see the second example in [Deploy an Azure Service Fabric cluster and enable monitoring by using Azure Monitor logs](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+          For a virtual machine scale set template example that integrates with Azure Monitor logs, see the second example in [Deploy an Azure Service Fabric cluster and enable monitoring by using Azure Monitor Logs](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
 
       - question: |
           How do I add an extension to all VMs in my virtual machine scale set?
         answer: |
-          If update policy is set to **automatic**, redeploying the template with the new extension properties updates all VMs.
+          If the update policy is set to automatic, redeploying the template with the new extension properties updates all VMs.
 
-          If update policy is set to **manual**, first update the extension, and then manually update all instances in your VMs.
+          If the update policy is set to manual, first update the extension, and then manually update all instances in your VMs.
 
       - question: |
           If the extensions associated with an existing virtual machine scale set are updated, are existing VMs affected?
         answer: |
-          If the extension definition in the virtual machine scale set model is updated and the upgradePolicy property is set to **automatic**, it updates the VMs. If the upgradePolicy property is set to **manual**, extensions are flagged as not matching the model.
+          If the extension definition in the virtual machine scale set model is updated, and the `upgradePolicy` property is set to `automatic`, it updates the VMs. If the `upgradePolicy` property is set to `manual`, extensions are flagged as not matching the model.
 
       - question: |
           Are extensions run again when an existing machine is service-healed or reimaged?
         answer: |
-          If an existing VM is service-healed, it appears as a reboot, and the extensions are not run again. If a VM is reimaged, the process is similar replacing the OS drive with the source image. Any specialization from the latest model, such as extensions, are run again.
+          If an existing VM is service-healed, it appears as a reboot, and the extensions aren't run again. If a VM is reimaged, the process is similar to replacing the operating system drive with the source image. Any specializations from the latest model, such as extensions, are run again.
 
       - question: |
           How do I join a virtual machine scale set to an Active Directory domain?
         answer: |
           To join a virtual machine scale set to an Active Directory (AD) domain, you can define an extension.
 
-          To define an extension, use the JsonADDomainExtension property:
+          To define an extension, use the `JsonADDomainExtension` property:
 
           ```json
           "extensionProfile": {
@@ -452,28 +450,29 @@ sections:
           ```
 
       - question: |
-          My virtual machine scale set extension is trying to install something that requires a reboot.
+          My virtual machine scale set extension is trying to install something that requires a reboot. What should I do?
         answer: |
-          If your virtual machine scale set extension is trying to install something that requires a reboot, you can use the Azure Automation Desired State Configuration (Automation DSC) extension. If the operating system is Windows Server 2012 R2, Azure pulls in the Windows Management Framework (WMF) 5.0 setup, reboots, and then continues with the configuration.
+          You can use the Azure Automation Desired State Configuration (Automation DSC) extension. If the operating system is Windows Server 2012 R2, Azure pulls in the Windows Management Framework (WMF) 5.0 setup, reboots, and then continues with the configuration.
 
       - question: |
-          How do I execute a custom script that's hosted in a private storage account?
+          How do I run a custom script that's hosted in a private storage account?
         answer: |
-          To execute a custom script that's hosted in a private storage account, set up protected settings with the storage account key and name. For more information, see [Custom Script Extension](../virtual-machines/extensions/custom-script-windows.md?toc=/azure/virtual-machines/windows/toc.json#property-managedidentity).
+          Set up protected settings with the storage account key and name. For more information, see [Custom script extension](../virtual-machines/extensions/custom-script-windows.md?toc=/azure/virtual-machines/windows/toc.json#property-managedidentity).
 
   - name: Passwords
     questions:
       - question: |
           How do I reset the password for VMs in my virtual machine scale set?
         answer: |
-          There are two main ways to change the password for VMs in scale sets.
+          You can:
 
-          - Change the virtual machine scale set model directly. Available with API 2017-12-01 and later.
+          - Change the virtual machine scale set model directly. This option is only available with API 2017-12-01 and later versions.
 
-              Update the admin credentials directly in the scale set model (for example using the Azure Resource Explorer, PowerShell or CLI). Once the scale set is updated, all new VMs have the new credentials. Existing VMs only have the new credentials if they are reimaged.
+              Update the admin credentials directly in the scale set model (for example, by using the Azure Resource Explorer, PowerShell or the Azure CLI). After the scale set is updated, all new VMs have the new credentials. Existing VMs only have the new credentials if they are reimaged.
 
-          - Reset the password using the VM access extensions. Make sure to follow the password requirements as described [here](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
-          - Using a VM access extension doesn't require reimaging because the extension doesn't update the password in the model. The extension runs a script to append the password to the password or to the SSH key file. The extension doesn't remove the original SSH key.
+          - Reset the password by using the VM access extensions. Make sure to follow the password requirements, as described in [the FAQ](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
+              
+              Using a VM access extension doesn't require reimaging, because the extension doesn't update the password in the model. The extension runs a script to append the password to the password or to the SSH key file. The extension doesn't remove the original SSH key.
 
               Use the following PowerShell example for a Windows virtual machine scale set:
 
