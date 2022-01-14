@@ -23,10 +23,6 @@ This sample CLI script enables and downloads the slow query logs of a single Azu
 In this sample script, edit the highlighted lines to update the admin username and password to your own. Replace the &lt;log_file_name&gt; in the `az monitor` commands with your own server log file name.
 [!code-azurecli-interactive[main](../../../cli_scripts/mariadb/server-logs/server-logs.sh?highlight=15-16 "Manipulate with server logs.")]
 
-## Clean up deployment
-Use the following command to remove the resource group and all resources associated with it after the script has been run. 
-[!code-azurecli-interactive[main](../../../cli_scripts/mariadb/server-logs/delete-mariadb.sh  "Delete the resource group.")]
-
 ## Script explanation
 This script uses the commands outlined in the following table:
 

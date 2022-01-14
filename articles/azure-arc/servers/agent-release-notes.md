@@ -16,9 +16,17 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Arc-enabled servers agent](agent-release-notes-archive.md).
 
-## November 2021
+## Version 1.14 - January 2022
 
-Version 1.13
+### Fixed
+
+- A state corruption issue in the extension manager that could cause extension operations to get stuck in transient states has been fixed. Customers running agent version 1.13 are encouraged to upgrade to version 1.14 as soon as possible. If you continue to have issues with extensions after upgrading the agent, [submit a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+## Version 1.13 - November 2021
+
+### Known issues
+
+- Extensions may get stuck in transient states (creating, deleting, updating) on Windows machines running the 1.13 agent in certain conditions. Microsoft recommends upgrading to agent version 1.14 as soon as possible to resolve this issue.
 
 ### Fixed
 
@@ -31,9 +39,7 @@ Version 1.13
 - Extension operations will execute faster using a new notification pipeline. You may need to adjust your firewall or proxy server rules to allow the new network addresses for this notification service (see [networking configuration](agent-overview.md#networking-configuration)). The extension manager will fall back to the existing behavior of checking every 5 minutes when the notification service cannot be reached.
 - Detection of the AWS account ID, instance ID, and region information for servers running in Amazon Web Services.
 
-## October 2021
-
-Version 1.12
+## Version 1.12 - October 2021
 
 ### Fixed
 
@@ -41,9 +47,7 @@ Version 1.12
 - `azcmagent_proxy remove` command on Linux now correctly removes environment variables on Red Hat Enterprise Linux and related distributions.
 - `azcmagent logs` now includes the computer name and timestamp to help disambiguate log files.
 
-## September 2021
-
-Version 1.11
+## Version 1.11 - September 2021
 
 ### Fixed
 
@@ -51,41 +55,12 @@ Version 1.11
 - The guest configuration policy agent will now automatically retry if an error is encountered during service start or restart events.
 - Fixed an issue that prevented guest configuration audit policies from successfully executing on Linux machines.
 
-## August 2021
-
-Version 1.10
+## Version 1.10 - August 2021
 
 ### Fixed
 
 - The guest configuration policy agent can now configure and remediate system settings. Existing policy assignments continue to be audit-only. Learn more about the Azure Policy [guest configuration remediation options](../../governance/policy/concepts/guest-configuration-policy-effects.md).
 - The guest configuration policy agent now restarts every 48 hours instead of every 6 hours.
-
-## July 2021
-
-Version 1.9
-
-## New features
-
-Added support for the Indonesian language
-
-### Fixed
-
-Fixed a bug that prevented extension management in the West US 3 region
-
-Version 1.8
-
-### New features
-
-- Improved reliability when installing the Azure Monitor Agent extension on Red Hat and CentOS systems
-- Added agent-side enforcement of max resource name length (54 characters)
-- Guest Configuration policy improvements:
-  - Added support for PowerShell-based Guest Configuration policies on Linux operating systems
-  - Added support for multiple assignments of the same Guest Configuration policy on the same server
-  - Upgraded PowerShell Core to version 7.1 on Windows operating systems
-
-### Fixed
-
-- The agent will continue running if it is unable to write service start/stop events to the Windows application event log
 
 ## Next steps
 

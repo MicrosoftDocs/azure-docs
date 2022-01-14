@@ -92,7 +92,7 @@ cd azure-voting-app-redis/azure-vote/
 
 ## Build and push the sample application to the ACR
 
-Using the preceding Dockerfile, run the [az acr build][az-acr-build] command to build and push an image to the registry. The `.` at the end of the command sets the location of the Dockerfile (in this case, the current directory).
+Using the preceding Dockerfile, run the [az acr build][az-acr-build] command to build and push an image to the registry. The `.` at the end of the command provides the location of the source code directory path (in this case, the current directory). The `--file` parameter takes in the path of the Dockerfile relative to this source code directory path.
 
 ```azurecli
 az acr build --image azure-vote-front:v1 --registry MyHelmACR --file Dockerfile .
@@ -214,9 +214,9 @@ az group delete --name MyResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete].
+> If the AKS cluster was created with system-assigned managed identity (default identity option used in this quickstart), the identity is managed by the platform and does not require removal.
 > 
-> If you used a managed identity, the identity is managed by the platform and does not require removal.
+> If the AKS cluster was created with service principal as the identity option instead, then when you delete the cluster, the service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete].
 
 ## Next steps
 
