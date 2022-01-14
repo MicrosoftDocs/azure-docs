@@ -79,7 +79,7 @@ namespace Company.Function
 
 # [Isolated process](#tab/isolated-process)
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/RabbitMQ/RabbitMQFunction.cs" range="17-25":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/RabbitMQ/RabbitMQFunction.cs" range="12-23":::
 
 
 # [C# Script](#tab/csharp-script)
