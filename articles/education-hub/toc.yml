@@ -18,6 +18,8 @@
     href: hub-overview-page.md
   - name: Create an assignment and allocate credit
     href: create-assignment-allocate-credit.md
+  - name: How to Find IDs
+    href: find-ids.md
 - name: Support
   items:
   - name: Service desk
@@ -44,8 +46,6 @@
       href: azure-dev-tools-teaching/manage-students.md
     - name: How to download software
       href: azure-dev-tools-teaching/download-software.md
-    - name: How to Find IDs
-      href: find-ids.md
   - name: Troubleshooting
     items:
     - name: Login errors
