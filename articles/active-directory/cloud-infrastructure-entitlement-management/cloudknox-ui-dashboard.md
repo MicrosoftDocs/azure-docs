@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/13/2022
+ms.date: 01/14/2022
 ms.author: v-ydequadros
 ---
 
@@ -21,12 +21,12 @@ The Microsoft CloudKnox Permissions Management (CloudKnox) dashboard provides a 
 1. From the dropdown menu on the far left, select **AWS**, **Azure**, or **GCP**. 
 2. From the **Authorization System** dropdown, select the accounts and folders whose metrics you want to view. Then select **Apply**. 
 
-   The Privilege Creep Index (PCI) chart is updated according to the selected authorization system. It displays the date and time it was last updated in the upper right-hand corner.
+   The Privilege Creep Index (PCI) chart is updated according to the selected authorization system. It displays the date and time it was last updated in the upper right corner.
 3. (Optional) To redirect the user to the **Usage Analytics** tab, under the **Privilege Creep Index** chart, select the number next to **Users that contributed to your index**. 
 
     For more information, see The Usage Analytics dashboard.
     <!---Add link.--->
-4. To view the metrics in the PCI chart, select **Graph** (the graph icon) on the upper-right of the chart.
+4. To view the metrics in the PCI chart, select **Graph** (the graph icon) on the upper right of the chart.
 
     Or, select the **List** icon for a column view of number of identities in the Low, Medium, and High PCI categories. 
 5. The far right column displays **Highest PCI Change** for the last seven days and shows the Authorization system name with the PCI number and the change number, if applicable. 
@@ -56,7 +56,7 @@ The Microsoft CloudKnox Permissions Management dashboard provides an overview of
     - To view all the PCI changes, select **View All**.
 
 - **Identity** - A summary of the **Findings** that includes the number of identities that are:
-    - **Inactive Roles** - A list of roles that have not been accessed in over 90 days.
+    - **Inactive Roles** - A list of roles that haven"t been accessed in over 90 days.
     - **Roles That Can Access Secret Information** - A list of roles that can access secret information.
     - **Over Provisioned Active Roles** - A list of roles that have more permissions than they currently access.
     - **Resources That Can Access Secret Information** - A list of resources that can access secret information.
@@ -93,7 +93,7 @@ The PCI heat map shows the incurred risk of users with access to high-risk privi
 
 - The number of resources a user has access to, otherwise known as resource reach.
 
-- The high-risk privileges coupled with the number of resources a user has access to produce the score seen on the chart. They are classified as high, medium, and low.
+- The high-risk privileges coupled with the number of resources a user has access to produce the score seen on the chart. They're classified as high, medium, and low.
 
     - High (red) - The score is between 68 and 100. A user has access to many high-risk privileges they aren't using, and has high resource reach.
     - Medium (yellow) - The score is between 34 and 67. A user has access to some high-risk privileges that they use, or have medium resource reach.
@@ -141,3 +141,10 @@ To view detailed information about the following, select the number displayed on
 - The **Resource** section below the heat map on the right side of the page shows all the relevant findings about resources. It includes unencrypted S3 buckets, open security groups, and so on.
 
 <!---## Next steps--->
+
+<!---For an overview of the The Usage Analytics dashboard, see [The CloudKnox dashboard](cloudknox-ui-usage-analytics.html).--->
+<!---For an overview of the The Audit Trail dashboard, see [The CloudKnox dashboard](cloudknox-audit-trail-dashboard.html).--->
+<!---For an overview of the JEP Controller dashboard, see [The JEP Controller dashboard](cloudknox-ui-jep-controller.html).--->
+<!---For an overview of the The Compliance dashboard, see [The Compliance dashboard](cloudknox-ui-compliance.html).--->
+<!---For an overview of the The Reports dashboard, see [The Reports dashboard](cloudknox-ui-reports.html).--->
+<!---For an overview of the The Autopilot dashboard, see [The Autopilot dashboard](cloudknox-ui-autopilot.html).--->

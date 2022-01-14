@@ -8,53 +8,27 @@
     items:
     - name: Enable M-CIEM on your Azure AD tenant 
       href: cloudknox-onboard-enable-tenant.md
-  - name: Installation
-    expanded: true
-    items:
-    - name: Install CloudKnox - Overview
-      href: cloudknox-installation.md
-    - name: Install CloudKnox on GCP
-      href: cloudknox-sentry-install-gcp.md
-    - name: Install CloudKnox with an AWS role
-      href: cloudknox-install-aws-agentless-deployment.md
-    - name: Install CloudKnox Sentry on AWS
-      href: cloudknox-sentry-install-aws.md
-    - name: Install CloudKnox Sentry on Azure
-      href: cloudknox-sentry-install-azure.md
-  - name: Integration
-    expanded: true
-    items:
-    - name: View integrated authorization systems
-      href: cloudknox-product-integrations.md
-    - name: Configure integration with the CloudKnox API
-      href: cloudknox-integration-api.md
-    - name: Sign up and deploy FortSentry in your organization
-      href: cloudknox-fortsentry-registration.md
-    - name: Integration with HashiCorp Terraform
-      href: cloudknox-hashicorp-terraform.md
-    - name: Integration with Saviynt
-      href: cloudknox-saviynt.md
-    - name: Integration with Securonix
-      href: cloudknox-securonix.md
-    - name: Integration with Splunk
-      href: cloudknox-splunk.md
-    - name: Integration with ServiceNow
-      href: cloudknox-servicenow.md
-    - name: Configure and monitor authorization systems
-      href: cloudknox-fortsentry-registration.md
-  - name: Configure and monitor authorization systems
-    expanded: true
-    items:
-    - name: Configure and monitor AWS accounts
-      href: cloudknox-configure-account-monitor-aws.md
-    - name: Configure and monitor GCP accounts
-      href: cloudknox-configure-account-monitor-gcp.md
-    - name: Configure and collect data for VCenter
-      href: cloudknox-configure-vcenter.md
-    - name: Configure G Suite integration for GCP
-      href: cloudknox-configure-gsuite-gcp-integration.md
-    - name: Configure an IDP to enable the SAML login process
-      href: cloudknox-idp-for-saml-login.md
+  #- name: Integration
+    #expanded: true
+    #items:
+    #- name: View integrated authorization systems
+      #href: cloudknox-product-integrations.md
+    #- name: Configure integration with the CloudKnox API
+      #href: cloudknox-integration-api.md
+    #- name: Sign up and deploy FortSentry in your organization
+      #href: cloudknox-fortsentry-registration.md
+    #- name: Integration with HashiCorp Terraform
+      #href: cloudknox-hashicorp-terraform.md
+    #- name: Integration with Saviynt
+      #href: cloudknox-saviynt.md
+    #- name: Integration with Securonix
+      #href: cloudknox-securonix.md
+    #- name: Integration with Splunk
+      #href: cloudknox-splunk.md
+    #- name: Integration with ServiceNow
+      #href: cloudknox-servicenow.md
+    #- name: Configure and monitor authorization systems
+      #href: cloudknox-fortsentry-registration.md
   - name: How-to guides
     expanded: true
     items:
@@ -81,6 +55,8 @@
     - name: Usage analytics 
     - name: Create and save product alerts
       href: cloudknox-product-alerts.md 
+    - name: Create a rule
+      href: cloudknox-howto-create-rule.md 
     - name: Filter and query user activity
       href: cloudknox-product-audit-trail.md
       expanded: true

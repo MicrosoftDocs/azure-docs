@@ -1,6 +1,6 @@
 ---
 title: Microsoft CloudKnox Permissions Management - The Usage Analytics explorers
-description: How to use the Usage Analytics explorers in Microsoft CloudKnox Permissions Management.
+description: How to view details about identities, resources, and tasks you can use to grant privileges in the Usage Analytics explorers in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,11 +8,15 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 01/14/2022
 ms.author: v-ydequadros
 ---
 
 # Microsoft CloudKnox Permissions Management - The Usage Analytics explorers
+
+The Microsoft CloudKnox Permissions Management (CloudKnox) **Usage Analytics** dashboard allows system administrators to collect, analyze, report on, and visualize data about all identity types.
+
+This topic describes how to use the Usage Analytics explorers.
 
 The CloudKnox **Usage Analytics** feature contains details about identities, resources, and tasks that you can use make informed decisions about granting privileges, and reducing risk on unused privileges.
 
@@ -23,9 +27,6 @@ The CloudKnox **Usage Analytics** feature contains details about identities, res
 - **Access Keys**: Tracks the privilege usage of access keys for a given user.
 - **Serverless Functions**: Tracks assigned privileges and usage of the serverless functions.
 
-The Microsoft CloudKnox Permissions Management **Usage Analytics** dashboard allows system administrators to collect, analyze, report on, and visualize data about all identity types.
-
-This topic describes how to use the Usage Analytics explorers.
 
 ## The Usage Analytics explorers
 
@@ -33,11 +34,11 @@ The CloudKnox explorers provide more information about an identity, including en
 
 ### Access the Usage Analytics explorers
 
-1. To perform a general search and open the explorer, select **Search** at the upper right of the CloudKnox dashboard.
+1. To perform a general search and open the explorer, select **Search** in the upper right of the CloudKnox dashboard.
 
 2. Enter a user, role, resource, or task name and select the appropriate option.
 
-3. From the **Search**  drop-down list, you can switch from **All** to **Resources**, **Tasks**, **Users**, or **AWS Roles**.
+3. From the **Search**  drop-down list, you can switch from **All** to **Users**, **Resources**, **Tasks**, or **AWS Roles**.
 
 ## The User Explorer
 
@@ -47,7 +48,7 @@ The CloudKnox explorers provide more information about an identity, including en
     - **User Info**: This section displays the following details:
         - **User Groups**: Lists any groups the user is in.
 
-        - **Last Login** (AWS/VMWare users only) - Displays the date the user was last active, the Client or browser the user last used, and the user's IP address from which they logged in.
+        - **Last Login** (AWS users only) - Displays the date the user was last active, the Client or browser the user last used, and the user's IP address from which they logged in.
     - **Access Key** (Local AWS users only) - The following information is given about access keys:
         - **Access Key ID**: The ID for the access key.
         - **Last Rotated On**: The date and time since the access key was created.

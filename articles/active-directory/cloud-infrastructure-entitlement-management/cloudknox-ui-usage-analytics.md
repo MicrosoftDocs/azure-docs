@@ -157,7 +157,7 @@ The information about the **Access Keys** includes:
 - **Access Key ID** - The Access Key ID.
 - **Owner** - The owner's name.
 - **Account** - The account name.
-- **Privilege Creep Index** - The index rating, the frequency and number of days the user has accessed CloudKnox.
+- **Privilege Creep Index** - The index rating, the frequency, and number of days the user has accessed CloudKnox.
 - **Tasks** - The **Granted** and **Executed** tasks.
 - **Resources** - **All** and **Accessed** resources.
 - **Access Key Age** - The age of the access key in days.
