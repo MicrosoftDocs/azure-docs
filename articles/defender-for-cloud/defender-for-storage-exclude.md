@@ -87,7 +87,7 @@ To exclude specific storage accounts from Microsoft Defender for Storage when th
 
 1. Define the AzDefenderPlanAutoEnable tag on the storage account:
 
-    1. From the Azure portal, open the storage account and select the **Tabs** page.
+    1. From the Azure portal, open the storage account and select the **Tags** page.
     1. Enter the tag name **AzDefenderPlanAutoEnable** and set the value to **off**.
     1. Select **Apply**.
 
@@ -109,7 +109,7 @@ To exclude specific storage accounts from Microsoft Defender for Storage when th
 
 ## Exclude an Azure Databricks Storage account
 
-When a subscription has Defender for Storage is enabled, it's not currently possible to exclude a Storage account if it belongs to an Azure Databricks workspace.
+When Defender for Storage is enabled on a subscription, it's not currently possible to exclude a Storage account if it belongs to an Azure Databricks workspace.
 
 Instead, you can disable Defender for Storage on the subscription and enable Defender for Storage for each Azure Storage account from the **Security** page:
 
