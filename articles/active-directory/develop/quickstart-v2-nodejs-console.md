@@ -7,8 +7,8 @@ author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
-ms.date: 02/17/2021
+ms.topic: portal
+ms.date: 01/10/2022
 ms.author: marsma
 ms.custom: mode-api
 #Customer intent: As an application developer, I want to learn how my Node.js app can get an access token and call an API that is protected by a Microsoft identity platform endpoint using client credentials flow.
@@ -25,84 +25,33 @@ This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Nod
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download) or another code editor
 
-> [!div renderon="docs"]
-> ## Register and download the sample application
->
-> Follow the steps below to get started.
->
-> [!div renderon="docs"]
-> #### Step 1: Register the application
-> To register your application and add the app's registration information to your solution manually, follow these steps:
->
-> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-> 1. Search for and select **Azure Active Directory**.
-> 1. Under **Manage**, select **App registrations** > **New registration**.
-> 1. Enter a **Name** for your application, for example `msal-node-cli`. Users of your app might see this name, and you can change it later.
-> 1. Select **Register**.
-> 1. Under **Manage**, select **Certificates & secrets**.
-> 1. Under **Client secrets**, select **New client secret**, enter a name, and then select **Add**. Record the secret value in a safe location for use in a later step.
-> 1. Under **Manage**, select **API Permissions** > **Add a permission**. Select **Microsoft Graph**.
-> 1. Select **Application permissions**.
-> 1. Under **User** node, select **User.Read.All**, then select **Add permissions**.
 
-> [!div class="sxs-lookup" renderon="portal"]
-> ### Download and configure the sample app
->
-> #### Step 1: Configure the application in Azure portal
-> For the code sample for this quickstart to work, you need to create a client secret, and add Graph API's **User.Read.All** application permission.
-> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Make these changes for me]()
->
-> > [!div id="appconfigured" class="alert alert-info"]
-> > ![Already configured](media/quickstart-v2-netcore-daemon/green-check.png) Your application is configured with these attributes.
+### Download and configure the sample app
+
+#### Step 1: Configure the application in Azure portal
+For the code sample for this quickstart to work, you need to create a client secret, and add Graph API's **User.Read.All** application permission.
+> [!div class="nextstepaction"]
+> [Make these changes for me]()
+
+> [!div class="alert alert-info"]
+> ![Already configured](media/quickstart-v2-netcore-daemon/green-check.png) Your application is configured with these attributes.
 
 #### Step 2: Download the Node.js sample project
 
-> [!div renderon="docs"]
+> [!div class="sxs-lookup nextstepaction"]
 > [Download the code sample](https://github.com/azure-samples/ms-identity-javascript-nodejs-console/archive/main.zip)
 
-> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
-> [Download the code sample](https://github.com/azure-samples/ms-identity-javascript-nodejs-console/archive/main.zip)
-
-> [!div class="sxs-lookup" renderon="portal"]
+> [!div class="sxs-lookup"]
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 
-> [!div renderon="docs"]
-> #### Step 3: Configure the Node.js sample project
->
-> 1. Extract the zip file to a local folder close to the root of the disk, for example, *C:/Azure-Samples*.
-> 1. Edit *.env* and replace the values of the fields `TENANT_ID`, `CLIENT_ID`, and `CLIENT_SECRET` with the following snippet:
->
->    ```
->    "TENANT_ID": "Enter_the_Tenant_Id_Here",
->    "CLIENT_ID": "Enter_the_Application_Id_Here",
->    "CLIENT_SECRET": "Enter_the_Client_Secret_Here"
->    ```
->    Where:
->    - `Enter_the_Application_Id_Here` - is the **Application (client) ID** of the application you registered earlier. Find this ID on the app registration's **Overview** pane in the Azure portal.
->    - `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant ID** or **Tenant name** (for example, contoso.microsoft.com).  Find these values on the app registration's **Overview** pane in the Azure portal.
->    - `Enter_the_Client_Secret_Here` - replace this value with the client secret you created earlier. To generate a new key, use **Certificates & secrets** in the app registration settings in the Azure portal.
->
-> > [!WARNING]
-> > Any plaintext secret in source code poses an increased security risk. This article uses a plaintext client secret for simplicity only. Use [certificate credentials](active-directory-certificate-credentials.md) instead of client secrets in your confidential client applications, especially those apps you intend to deploy to production.
-
-> [!div class="sxs-lookup" renderon="portal"]
-> #### Step 3: Admin consent
-
-> [!div renderon="docs"]
-> #### Step 4: Admin consent
+#### Step 3: Admin consent
 
 If you try to run the application at this point, you'll receive *HTTP 403 - Forbidden* error: `Insufficient privileges to complete the operation`. This error happens because any *app-only permission* requires **admin consent**: a global administrator of your directory must give consent to your application. Select one of the options below depending on your role:
 
 ##### Global tenant administrator
 
-> [!div renderon="docs"]
-> If you are a global tenant administrator, go to **API Permissions** page in the Azure portal's Application Registration and select **Grant admin consent for {Tenant Name}** (where {Tenant Name} is the name of your directory).
-
-> [!div renderon="portal" class="sxs-lookup"]
-> If you are a global administrator, go to **API Permissions** page select **Grant admin consent for Enter_the_Tenant_Name_Here**
+If you are a global administrator, go to **API Permissions** page select **Grant admin consent for Enter_the_Tenant_Name_Here**
 > > [!div id="apipermissionspage"]
 > > [Go to the API Permissions page]()
 
@@ -114,16 +63,7 @@ If you're a standard user of your tenant, then you need to ask a global administ
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here
 ```
 
-> [!div renderon="docs"]
->> Where:
->> * `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
->> * `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
-
-> [!div class="sxs-lookup" renderon="portal"]
-> #### Step 4: Run the application
-
-> [!div renderon="docs"]
-> #### Step 5: Run the application
+#### Step 4: Run the application
 
 Locate the sample's root folder (where `package.json` resides) in a command prompt or console. You'll need to install the dependencies of this sample once:
 
