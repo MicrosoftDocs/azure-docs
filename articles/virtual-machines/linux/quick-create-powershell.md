@@ -63,7 +63,9 @@ Private key is saved to /home/user/.ssh/1234567891
 Public key is saved to /home/user/.ssh/1234567891.pub
 ```
 
-When you create your SSH key pair using the Cloud Shell, the local version is stored in a [storage account that is automatically created by Cloud Shell](../../cloud-shell/persisting-shell-storage.md). Don't delete the storage account, or the file share in it, until after you have retrieved your keys or you will lose access to the VM. 
+Make a note of the path to your private key to use later.
+
+When you create your SSH key pair using the Cloud Shell, the local version is stored in a [storage account that is automatically created by Cloud Shell](../../cloud-shell/persisting-shell-storage.md). Don't delete the storage account, or the file share in it, until after you have retrieved your keys or you will lose access to the VM.
 
 
 It will take a few minutes for your VM to be deployed. When the deployment is finished, move on to the next section.
@@ -71,18 +73,23 @@ It will take a few minutes for your VM to be deployed. When the deployment is fi
 
 ## Connect to the VM
 
+You need to change the permission on the SSH key using `chmod`. Replace *~/.ssh/1234567891* in the following example with the private key name and path from the earlier output.
+
+```azurepowershell-interactive
+chmod 400 ~/.ssh/1234567891
+```
+
 Create an SSH connection with the VM using the public IP address. To see the public IP address of the VM, use the [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) cmdlet:
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 ```
 
-Using the same shell you used to create your SSH key pair, paste the the following command into the shell to create an SSH session. Replace *10.111.12.123* with the IP address of your VM and *azureuser* with the name you provided when you created the VM.
+Using the same shell you used to create your SSH key pair, paste the the following command into the shell to create an SSH session. Replace *~/.ssh/1234567891* in the following example with the private key name and path from the earlier output. Replace *10.111.12.123* with the IP address of your VM and *azureuser* with the name you provided when you created the VM.
 
 ```bash
-ssh azureuser@10.111.12.123
+ssh -i ~/.ssh/1234567891 azureuser@10.111.12.123
 ```
-
 
 ## Install NGINX
 
