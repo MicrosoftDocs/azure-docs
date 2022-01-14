@@ -14,7 +14,6 @@ You can add a markdown tile to your Azure dashboards to display custom, static c
 
 1. Select **Dashboard** from the Azure portal menu.
 
-
 1. In the dashboard view, select the dashboard where the custom markdown tile should appear, then select **Edit**.
 
    ![Screenshot showing dashboard edit view](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)

@@ -22956,6 +22956,11 @@
       "redirect_document_id": ""
     },
     {
+      "source_path_from_root": "/articles/search/search-blob-ai-integration.md",
+      "redirect_url": "/azure/search/cognitive-search-concept-intro",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/search/search-monitor-usage.md",
       "redirect_url": "/azure/search/monitor-azure-cognitive-search",
       "redirect_document_id": true
