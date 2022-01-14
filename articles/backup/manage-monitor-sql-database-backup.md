@@ -139,7 +139,7 @@ You can fix the policy version for all the impacted items in one click:
 
 ## Unregister a SQL Server instance
 
-Before you unregister the server, [disable soft delete](/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete-using-azure-portal), and then delete all backup items to remove them immediately.
+Before you unregister the server, [disable soft delete](/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete-using-azure-portal), and then delete all backup items.
 
 >[!NOTE]
 >Deleting backup items with soft delete enabled will lead to 14 days retention, and you will need to wait before the items are completely removed. However, if you've deleted the backup items with soft delete enabled, you can undelete them, disable soft-delete, and then delete them again for immediate removal. [Learn more](/azure/backup/backup-azure-security-feature-cloud#permanently-deleting-soft-deleted-backup-items)
