@@ -8,24 +8,26 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 01/14/2022
 ms.custom: references_regions
 ---
 # AI enrichment in Azure Cognitive Search
 
-In Azure Cognitive Search, AI enrichment refers to built-in cognitive skills and custom skills that add analysis, transformations, and content generation during indexing. Enrichments create new information where none previously existed: extracting information from images, detecting sentiment, key phrases, and entities from text, to name a few. Enrichments also add structure to undifferentiated text. All of these processes result in making previously unsearchable content available to full text search scenarios. In many instances, enriched documents are useful for scenarios other than search, such as for knowledge mining.
+In Azure Cognitive Search, AI enrichment refers to a pipeline process that adds machine learning to [indexer-based indexing](search-indexer-overview.md). Steps in the pipeline create new information where none previously existed: extracting information from images, detecting sentiment or key phrases from chunks of text, and recognizing entities, to name a few. All of these processes result in making previously unsearchable content available to full text search and knowledge mining scenarios.
 
-Enrichment is defined by a [**skillset**](cognitive-search-working-with-skillsets.md) that's attached to an [**indexer**](search-indexer-overview.md). The indexer will extract and set up the content, while the skillset identifies, analyzes, and creates new information and structures from images, blobs, and other unstructured data sources. The output of an enrichment pipeline is either a [**search index**](search-what-is-an-index.md) or a [**knowledge store**](knowledge-store-concept-intro.md).
+Azure Blob Storage is the most commonly used input, but any indexer-supported data source can provide the initial content. A [**skillset**](cognitive-search-working-with-skillsets.md), attached to an indexer, adds the AI processing. The indexer will extract and set up the content, while the skillset identifies, analyzes, and creates new information and structures from blobs, embedded images, and raw text. Output is either a [**search index**](search-what-is-an-index.md) or a [**knowledge store**](knowledge-store-concept-intro.md).
 
 ![Enrichment pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "enrichment pipeline overview")
 
-A skillset can contain built-in skills from Cognitive Search or embed external processing that you provide in a [*custom skill*](cognitive-search-create-custom-skill-example.md). Examples of a custom skill might be a custom entity module or document classifier targeting a specific domain such as finance, scientific publications, or medicine.
+A skillset is composed of built-in skills from Cognitive Search or [*custom skills*](cognitive-search-create-custom-skill-example.md) for external processing that you provide. Custom skills might sound complex but can be simple and straightforward in terms of implementation. If you have existing packages that provide pattern matching or document classification models, the content you extract during indexing could be passed to these models for processing. 
 
 Built-in skills fall into these categories:
 
-+ **Natural language processing** skills include [entity recognition](cognitive-search-skill-entity-recognition-v3.md), [language detection](cognitive-search-skill-language-detection.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), text manipulation, [sentiment detection (including opinion mining)](cognitive-search-skill-sentiment-v3.md), and [PII detection](cognitive-search-skill-pii-detection.md). With these skills, unstructured text is mapped as searchable and filterable fields in an index.
++ **Machine translation** is provided by the [text translation](cognitive-search-skill-text-translation.md) skill, often paired with [language detection](cognitive-search-skill-language-detection.md) for multi-language solutions.
 
 + **Image processing** skills include [Optical Character Recognition (OCR)](cognitive-search-skill-ocr.md) and identification of [visual features](cognitive-search-skill-image-analysis.md), such as facial detection, image interpretation, image recognition (famous people and landmarks) or attributes like image orientation. These skills create text representations of image content, making it searchable using the query capabilities of Azure Cognitive Search.
+
++ **Natural language processing** skills include [entity recognition](cognitive-search-skill-entity-recognition-v3.md), [language detection](cognitive-search-skill-language-detection.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), text manipulation, [sentiment detection (including opinion mining)](cognitive-search-skill-sentiment-v3.md), and [PII detection](cognitive-search-skill-pii-detection.md). With these skills, unstructured text is mapped as searchable and filterable fields in an index.
 
 Built-in skills in Azure Cognitive Search are based on pre-trained machine learning models in Cognitive Services APIs: [Computer Vision](../cognitive-services/computer-vision/index.yml) and [Language Service](../cognitive-services/language-service/overview.md). You can attach a Cognitive Services resource if you want to leverage these resources during content processing.
 
@@ -43,7 +45,7 @@ If your search service is located in one of these regions, you will not be able 
 
 ## When to use AI enrichment
 
-You should consider enrichment if your raw content is unstructured text, image content, or content that needs language detection and translation. Applying AI through the built-in cognitive skills can unlock this content for full text search and data science apps.
+You should consider enrichment if your raw content is unstructured text, image content, or content that needs language detection and translation. Applying AI through the built-in cognitive skills can unlock this content for full text search and data science applications.
 
 Additionally, you might consider adding a custom skill if you have open-source, third-party, or first-party code that you'd like to integrate into the pipeline. Classification models that identify salient characteristics of various document types fall into this category, but any package that adds value to your content could be used.
 
