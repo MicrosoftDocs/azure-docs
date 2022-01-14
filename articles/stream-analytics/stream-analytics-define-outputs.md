@@ -6,7 +6,7 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperf-fy21q1
-ms.date: 12/9/2020
+ms.date: 01/14/2022
 ---
 
 # Outputs from Azure Stream Analytics
@@ -23,7 +23,7 @@ Some outputs types support [partitioning](#partitioning), and [output batch size
 |[Azure Data Explorer](azure-database-explorer-output.md)|Yes|Managed Identity|
 |[Azure Database for PostgreSQL](postgresql-database-output.md)|Yes|Username and password auth|
 |[Azure SQL Database](sql-database-output.md)|Yes, optional.|SQL user auth, </br> Managed Identity|
-|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Yes|SQL user auth, </br> Managed Identity (preview)|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Yes|SQL user auth, </br> Managed Identity|
 |[Blob storage and Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|Access key, </br> Managed Identity|
 |[Azure Event Hubs](event-hubs-output.md)|Yes, need to set the partition key column in output configuration.|Access key, </br> Managed Identity|
 |[Power BI](power-bi-output.md)|No|Azure Active Directory user, </br> Managed Identity|

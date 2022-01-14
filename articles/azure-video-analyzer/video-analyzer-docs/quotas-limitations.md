@@ -62,7 +62,7 @@ Video Analyzer only supports RTSP with [interleaved RTP streams](https://datatra
 ### Support for video AI
 The HTTP or gRPC extension processors only support sending of image/video frame data with an external AI module. Thus, running inferencing on audio data is not supported. As a result, processor nodes in pipeline topologies that have an RTSP source node as one of the `inputs` also make use of an `outputSelectors` property to ensure that only video is passed into the processor. See this [topology](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/evr-grpcExtension-video-sink/topology.json) as an example.
 
-## Quotas and limitations - live and batch pipeline
+## Quotas and limitations - cloud pipelines
 
 This section enumerates the quotas and limitations of Video Analyzer cloud pipelines. 
 

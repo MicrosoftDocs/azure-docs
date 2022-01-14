@@ -74,6 +74,8 @@
       href: stream-analytics-use-reference-data.md
     - name: Read inputs in any format using custom deserializers
       href: custom-deserializer-examples.md
+    - name: Validate input schema
+      href: input-validation.md
   - name: Output types for a job
     items:
     - name: Outputs overview
@@ -81,7 +83,7 @@
       displayName: adls, sql, blob, event hubs, power bi, table, service bus, cosmos, functions
     - name: Azure Data Lake Storage Gen 1
       href: azure-data-lake-storage-gen1-output.md
-    - name: Azure Database Explorer
+    - name: Azure Data Explorer
       href: azure-database-explorer-output.md
     - name: Azure Database for PostgreSQL
       href: postgresql-database-output.md
@@ -148,8 +150,6 @@
     href: stream-analytics-compatibility-level.md
   - name: Common query patterns
     href: stream-analytics-stream-analytics-query-patterns.md
-  - name: Input validation
-    href: input-validation.md
   - name: Parse JSON and AVRO data
     href: stream-analytics-parsing-json.md
   - name: Time handling considerations

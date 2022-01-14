@@ -19,6 +19,8 @@ ms.date: 01/05/2022
 
 This Azure CLI script example configures active geo-replication for a single database and fails it over to a secondary replica of the database.
 
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
