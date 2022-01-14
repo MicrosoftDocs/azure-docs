@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 10/05/2021
+ms.date: 01/14/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro GPU is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -53,7 +53,6 @@ Azure Stack Edge Pro GPU has the following capabilities:
 
 <!--|ExpressRoute | Added security through ExpressRoute. Use peering configuration where traffic from local devices to the cloud storage endpoints travels over the ExpressRoute. For more information, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).|-->
 
-
 ## Components
 
 The Azure Stack Edge Pro GPU solution comprises of Azure Stack Edge resource, Azure Stack Edge Pro GPU physical device, and a local web UI.
@@ -86,6 +85,34 @@ Azure Stack Edge Pro GPU physical device, Azure resource, and target storage acc
 Azure Stack Edge service is a non-regional service. For more information, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md). Azure Stack Edge service does not have dependency on a specific Azure region, making it resilient to zone-wide outages and region-wide outages.
 
 For a discussion of considerations for choosing a region for the Azure Stack Edge service, device, and data storage, see [Choosing a region for Azure Stack Edge](azure-stack-edge-gpu-regions.md).
+
+## Pricing
+
+Microsoft Azure charges a monthly, recurring subscription fee for an Azure Stack Edge device.
+
+Currencies and discounts are handled centrally by the Azure Commerce billing platform, and you get one unified, itemized bill at the end of each month.
+
+The billing happens against the order resource. If you activate the device against a different resource, the order and billing details move to the new resource.
+
+#### Are there other fees associated with my Azure Stack Edge device?
+
+- In addition to the monthly subscription fee, there is a onetime fee for shipping and for customs. For information about onetime fees, including charges for a lost or damaged device and Return with Secure Data Destruction, see **Frequently asked questions** on the [Azure Stack Edge Pricing](/pricing/details/azure-stack/edge/) page.
+
+- No traditional on-premises software license is required for an Azure Stack Edge device. However, guest VMs might require their own licenses under Bring Your Own License (BYOL).<!--1) Is BYOL a thing for customers? Inclined to write around this unless it's a term. 2) Link to pricing info for VMs.-->
+
+#### When does billing start, and when does it stop?
+
+- Billing starts 14 days after a device is marked as **Shipped**. The billings occur whether or not you use the device.
+
+- Billing stops when return of the device is initiated at the Azure datacenter.
+
+#### Why doesn't the price on my invoice match the price on the Pricing page?
+
+Subscription prices on the [Azure Stack Edge Pricing](/pricing/details/azure-stack/edge/) page might not match the price on your invoice exactly. The Pricing page shows list prices. Your invoice shows the price you're charged after any requisite discounts are applied.
+
+#### I'm replacing a device, and I can't delete the original resource. Will billings continue for the original resource?
+
+You can't delete a resource while it's subject to billings. To delete a resource with active billing, you must first activate the device against a new resource. After the order and billing details move to the new resource, you can delete the resource.
 
 ## Next steps
 
