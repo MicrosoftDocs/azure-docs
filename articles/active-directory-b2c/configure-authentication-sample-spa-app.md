@@ -95,7 +95,7 @@ To create the SPA registration, do the following:
 
 
 ### Step 2.4: Enable the implicit grant flow
-> [!IMPORTANT] If the SPA supports OIDC PKCE flow, do not enable implicit grant flow.
+> [!IMPORTANT] MSAL.js 2.0 does not support implicit grant. Enable implicit grant settings only if your app is using MSAL.js 1.0 or does not support Authorization Code Flow with PKCE.
 
 Next, enable the implicit grant flow:
 
