@@ -51,7 +51,7 @@ Self-signed ssl cert is not supported when trying to connect ASA jobs to SQL on 
 
 * [Understand outputs from Azure Stream Analytics](stream-analytics-define-outputs.md)
 * [Increase throughput performance to Azure SQL Database from Azure Stream Analytics](stream-analytics-sql-output-perf.md)
-* [Use managed identities to access Azure SQL Database or Azure Synapse Analytics from an Azure Stream Analytics job](/sql-database-output-managed-identity.md)
+* [Use managed identities to access Azure SQL Database or Azure Synapse Analytics from an Azure Stream Analytics job](./sql-database-output-managed-identity.md)
 * [Use reference data from a SQL Database for an Azure Stream Analytics job](sql-reference-data.md)
 * [Update or merge records in Azure SQL Database with Azure Functions](sql-database-upsert.md)
 * [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)

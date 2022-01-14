@@ -75,7 +75,7 @@ Ddsv5-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 | Standard_D32ds_v5              | 32 | 128 | 1200 | 32 | 150000/2000 | 51200/865   | 80000/2000 | 8 | 16000 |
 | Standard_D48ds_v5              | 48 | 192 | 1800 | 32 | 225000/3000 | 76800/1315  | 80000/3000 | 8 | 24000 |
 | Standard_D64ds_v5              | 64 | 256 | 2400 | 32 | 375000/4000 | 80000/1735  | 80000/3000 | 8 | 30000 |
-| Standard_D96ds_v5              | 96 | 256 | 3600 | 32 | 450000/4000 | 80000/2600  | 80000/4000 | 8 | 35000 |
+| Standard_D96ds_v5              | 96 | 384 | 3600 | 32 | 450000/4000 | 80000/2600  | 80000/4000 | 8 | 35000 |
 
 <sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
 <sup>1</sup> Accelerated networking is required and turned on by default on all Ddsv5 virtual machines.<br>

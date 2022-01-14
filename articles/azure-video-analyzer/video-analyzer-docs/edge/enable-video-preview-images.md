@@ -19,7 +19,7 @@ If you record video using the Video Analyzer edge module, you can enable the vid
 > [!NOTE]
 > The preview images will preserve the aspect ratio of video from the camera.
 
-The preview images are generated periodically, the frequency being determined by [`segmentLength`](../playback-recordings-how-to.md#recording-and-playback-latencies). If you are using [event-based recording](record-event-based-live-video.md), you should note that images are generated only when the live pipeline is active and video is being recorded. Each time a set of preview images are generated, they will overwrite the previous set.
+The preview images are generated periodically, the frequency being determined by [`segmentLength`](../viewing-videos-how-to.md#recording-and-playback-latencies). If you are using [event-based recording](record-event-based-live-video.md), you should note that images are generated only when the live pipeline is active and video is being recorded. Each time a set of preview images are generated, they will overwrite the previous set.
 
 > [!NOTE]
 > This functionality is currently only available with Video Analyzer Edge module. Further, enabling this has an impact on your Azure storage costs, driven by the frequent transactions to write the images or view them, and the size of the images.
@@ -51,7 +51,7 @@ Example:
           },
           "videoCreationProperties": {
             "title": "{$parameter-for-specifying-unique-title-for-each-pipeline}",
-            "description": "{$parameter-for-specifying-unique-description-for-each-pipeline}k",
+            "description": "{$parameter-for-specifying-unique-description-for-each-pipeline}",
             "segmentLength": "PT30S"
           },
           "localMediaCachePath": "/var/lib/videoanalyzer/tmp/",
@@ -60,9 +60,9 @@ Example:
       ]
 ``` 
 
-## Accessing preview images
+## Access preview images
 
-To acquire the static URLs to the available preview images, a GET request must be called on the video resource with an [authorized bearer token](../playback-recordings-how-to.md#accessing-videos). You will see the URLs listed under **contentUrls** in the response as shown below.
+To acquire the static URLs to the available preview images, a GET request must be called on the video resource with an [authorized bearer token](../viewing-videos-how-to.md#accessing-videos). You will see the URLs listed under **contentUrls** in the response as shown below.
 
 ```
       "contentUrls": {

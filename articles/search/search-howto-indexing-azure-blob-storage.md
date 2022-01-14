@@ -15,11 +15,13 @@ ms.custom:
 
 # Configure a Blob indexer to import data from Azure Blob Storage
 
-In Azure Cognitive Search, blob indexers are frequently used for both [AI enrichment](cognitive-search-concept-intro.md) and text-oriented processing. This article focuses on how to configure a blob indexer for text-oriented indexing, where just the textual content and metadata are loaded into a search index for full text search scenarios.
+In Azure Cognitive Search, blob indexers are frequently used for both [AI enrichment](cognitive-search-concept-intro.md) and text-based processing. 
+
+This article focuses on how to configure a blob indexer for text-based indexing, where just the textual content and metadata are loaded into a search index for full text search scenarios. Inputs are your blobs, in a single container. Output is a search index with searchable content and metadata stored in individual fields.
 
 ## Prerequisites
 
-+ [Azure Blob storage](../storage/blobs/storage-blobs-overview.md), Standard performance (general-purpose v2).
++ [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md), Standard performance (general-purpose v2).
 
 + [Access tiers](../storage/blobs/access-tiers-overview.md) for Blob storage include hot, cool, and archive. Only hot and cool can be accessed by search indexers.
 
@@ -62,25 +64,25 @@ A primary difference between a blob indexer and other indexers is the data sourc
 
 You can provide the credentials for the blob container in one of these ways:
 
-**Managed identity connection string**:
-`{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;" }`
+| Managed identity connection string |
+|------------------------------------|
+|`{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;" }`|
+|This connection string does not require an account key, but you must follow the instructions for [Setting up a connection to an Azure Storage account using a managed identity](search-howto-managed-identities-storage.md).|
 
-This connection string does not require an account key, but you must follow the instructions for [Setting up a connection to an Azure Storage account using a managed identity](search-howto-managed-identities-storage.md).
+| Full access storage account connection string |
+|-----------------------------------------------|
+|`{ "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>;" }` |
+| You can get the connection string from the Azure portal by navigating to the Storage Account > Settings > Keys (for Classic storage accounts) or Security + networking  > Access keys (for Azure Resource Manager storage accounts). |
 
-**Full access storage account connection string**: 
-`{ "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>;" }`
+| Storage account shared access signature** (SAS) connection string |
+|-------------------------------------------------------------------|
+| `{ "connectionString" : "BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl;" }` |
+| The SAS should have the list and read permissions on containers and objects (blobs in this case). |
 
-You can get the connection string from the Azure portal by navigating to the Storage Account > Settings > Keys (for Classic storage accounts) or Security + networking  > Access keys (for Azure Resource Manager storage accounts).
-
-**Storage account shared access signature** (SAS) connection string: 
-`{ "connectionString" : "BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl;" }`
-
-The SAS should have the list and read permissions on containers and objects (blobs in this case).
-
-**Container shared access signature**: 
-`{ "connectionString" : "ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl;" }`
-
-The SAS should have the list and read permissions on the container. For more information on storage shared access signatures, see [Using Shared Access Signatures](../storage/common/storage-sas-overview.md).
+| Container shared access signature |
+|-----------------------------------|
+| `{ "connectionString" : "ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl;" }` |
+| The SAS should have the list and read permissions on the container. For more information on storage shared access signatures, see [Using Shared Access Signatures](../storage/common/storage-sas-overview.md). |
 
 > [!NOTE]
 > If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to "Credentials provided in the connection string are invalid or have expired".  
@@ -102,9 +104,7 @@ A [search index](search-what-is-an-index.md) specifies the fields in a search do
     }
     ```
 
-<a name="DocumentKeys"></a>
-
-1. Designate one string field as the document key that uniquely identifies each document. For blob content, the best candidates for a document key are metadata properties on the blob:
+1. <a name="DocumentKeys"></a> Designate one string field as the document key that uniquely identifies each document. For blob content, the best candidates for a document key are metadata properties on the blob:
 
    + **`metadata_storage_path`** (default). Using the full path ensures uniqueness, but the path contains `/` characters that are [invalid in a document key](/rest/api/searchservice/naming-rules). Use the [base64Encode function](search-indexer-field-mappings.md#base64EncodeFunction) to encode characters (see the example in the next section). If using the portal to define the indexer, the encoding step is built in.
 
@@ -354,5 +354,5 @@ You can also set [blob configuration parameters](/rest/api/searchservice/create-
 
 + [Indexers in Azure Cognitive Search](search-indexer-overview.md)
 + [Create an indexer](search-howto-create-indexers.md)
-+ [AI enrichment over blobs overview](search-blob-ai-integration.md)
++ [AI enrichment overview](cognitive-search-concept-intro.md)
 + [Search over blobs overview](search-blob-storage-integration.md)

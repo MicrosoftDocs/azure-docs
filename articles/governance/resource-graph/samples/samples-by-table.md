@@ -1,7 +1,7 @@
 ---
 title: List of sample Azure Resource Graph queries by table
 description: List sample queries for Azure Resource-Graph. Tables include Resources, ResourceContainers, PolicyResources, and more.
-ms.date: 10/12/2021
+ms.date: 12/20/2021
 ms.topic: sample
 ms.custom: generated
 ---
@@ -28,11 +28,13 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 
 [!INCLUDE [azure-resource-graph-samples-table-healthresources](../../../../includes/resource-graph/samples/bytable/healthresources.md)]
 
+## IoT Defender
+
+[!INCLUDE [azure-resource-graph-samples-table-iot-defender](../../../../includes/resource-graph/samples/bytable/iot-defender.md)]
+
 ## IotSecurityResources
 
 [!INCLUDE [azure-resource-graph-samples-table-iotsecurityresources](../../../../includes/resource-graph/samples/bytable/iotsecurityresources.md)]
-
-[!INCLUDE [azure-resource-graph-samples-table-iot-defender](../../../../includes/resource-graph/samples/bytable/iot-defender.md)]
 
 ## KubernetesConfigurationResources
 

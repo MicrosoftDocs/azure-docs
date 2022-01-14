@@ -39,7 +39,7 @@ This article introduces the core concepts that secure your applications in AKS:
 
 ## Build Security
 
-As the entry point for the Supply Chain it is important to conduct static analysis of image builds before they are promoted down the pipeline. This includes vulnerability and compliance assessment.  It is not about failing off a build because it has a high vulnerability, as that will break development, it is about looking at the "Vendor Status" to segment based on vulnerabilities that are actionable by the development teams.  Also leverage "Grace Periods" to allow developers time to remediate identified issues. 
+As the entry point for the Supply Chain, it is important to conduct static analysis of image builds before they are promoted down the pipeline. This includes vulnerability and compliance assessment. It is not about failing a build because it has a vulnerability, as that will break development. It is about looking at the "Vendor Status" to segment based on vulnerabilities that are actionable by the development teams. Also leverage "Grace Periods" to allow developers time to remediate identified issues. 
 
 ## Registry Security
 
@@ -175,7 +175,7 @@ For more information on core Kubernetes and AKS concepts, see:
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
 [aks-aad]: ./managed-aad.md
-[aks-add-np-containerd]: windows-container-cli.md#add-a-windows-server-node-pool-with-containerd-preview
+[aks-add-np-containerd]: windows-container-cli.md#add-a-windows-server-node-pool-with-containerd
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md

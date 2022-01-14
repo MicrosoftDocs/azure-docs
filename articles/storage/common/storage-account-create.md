@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/18/2021
+ms.date: 01/13/2022
 ms.author: tamram
 ms.subservice: common 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -31,15 +31,7 @@ None.
 
 # [PowerShell](#tab/azure-powershell)
 
-To create an Azure storage account with PowerShell, make sure you have installed the [Az PowerShell module](https://www.powershellgallery.com/packages/Az), version 0.7 or later. For more information, see [Introducing the Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
-
-To find your current version, run the following command:
-
-```powershell
-Get-InstalledModule -Name "Az"
-```
-
-To install or upgrade Azure PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+To create an Azure storage account with PowerShell, make sure you have installed the latest [Azure Az PowerShell module](https://www.powershellgallery.com/packages/Az). See [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -60,7 +52,7 @@ The button launches an interactive shell that you can use to run the steps outli
 
 ### Install the CLI locally
 
-You can also install and use the Azure CLI locally. The examples in this article require Azure CLI version 2.0.4 or later. Run `az --version` to find your installed version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+You can also install and use the Azure CLI locally. If you plan to use Azure CLI locally, make sure you have installed the latest version of the Azure CLI. See [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 # [Template](#tab/template)
 
@@ -140,14 +132,15 @@ The following table describes the fields on the **Advanced** tab.
 
 | Section | Field | Required or optional | Description |
 |--|--|--|--|
-| Security | Enable secure transfer | Optional | Enable secure transfer to require that incoming requests to this storage account are made only via HTTPS (default). Recommended for optimal security. For more information, see [Require secure transfer to ensure secure connections](storage-require-secure-transfer.md). |
-| Security | Enable infrastructure encryption | Optional | By default, infrastructure encryption is not enabled. Enable infrastructure encryption to encrypt your data at both the service level and the infrastructure level. For more information, see [Create a storage account with infrastructure encryption enabled for double encryption of data](infrastructure-encryption-enable.md). |
+| Security | Require secure transfer for REST API operations | Optional | Require secure transfer to ensure that incoming requests to this storage account are made only via HTTPS (default). Recommended for optimal security. For more information, see [Require secure transfer to ensure secure connections](storage-require-secure-transfer.md). |
 | Security | Enable blob public access | Optional | When enabled, this setting allows a user with the appropriate permissions to enable anonymous public access to a container in the storage account (default). Disabling this setting prevents all anonymous public access to the storage account. For more information, see [Prevent anonymous public read access to containers and blobs](../blobs/anonymous-read-access-prevent.md).<br> <br> Enabling blob public access does not make blob data available for public access unless the user takes the additional step to explicitly configure the container's public access setting. |
-| Security | Enable storage account key access (preview) | Optional | When enabled, this setting allows clients to authorize requests to the storage account using either the account access keys or an Azure Active Directory (Azure AD) account (default). Disabling this setting prevents authorization with the account access keys. For more information, see [Prevent Shared Key authorization for an Azure Storage account](shared-key-authorization-prevent.md). |
+| Security | Enable storage account key access | Optional | When enabled, this setting allows clients to authorize requests to the storage account using either the account access keys or an Azure Active Directory (Azure AD) account (default). Disabling this setting prevents authorization with the account access keys. For more information, see [Prevent Shared Key authorization for an Azure Storage account](shared-key-authorization-prevent.md). |
+| Security | Default to Azure Active Directory authorization in the Azure portal | Optional | When enabled, the Azure portal authorizes data operations with the user's Azure AD credentials by default. If the user does not have the appropriate permissions assigned via Azure role-based access control (Azure RBAC) to perform data operations, then the portal will use the account access keys for data access instead. The user can also choose to switch to using the account access keys. For more information, see [Default to Azure AD authorization in the Azure portal](../blobs/authorize-data-operations-portal.md#default-to-azure-ad-authorization-in-the-azure-portal). |
 | Security | Minimum TLS version | Required | Select the minimum version of Transport Layer Security (TLS) for incoming requests to the storage account. The default value is TLS version 1.2. When set to the default value, incoming requests made using TLS 1.0 or TLS 1.1 are rejected. For more information, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to a storage account](transport-layer-security-configure-minimum-version.md). |
 | Data Lake Storage Gen2 | Enable hierarchical namespace | Optional | To use this storage account for Azure Data Lake Storage Gen2 workloads, configure a hierarchical namespace. For more information, see [Introduction to Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md). |
 | Secure File Transfer Protocol (SFTP) | Enable SFTP | Optional | Enable the use of Secure File Transfer Protocol (SFTP) to securely transfer of data over the internet. For more information, see [Secure File Transfer (SFTP) protocol support in Azure Blob Storage](../blobs/secure-file-transfer-protocol-support.md). |
 | Blob storage | Enable network file share (NFS) v3 | Optional | NFS v3 provides Linux file system compatibility at object storage scale enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. For more information, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage](../blobs/network-file-system-protocol-support.md). |
+| Blob storage | Allow cross-tenant replication | Required | By default, users with appropriate permissions can configure object replication across Azure AD tenants. To prevent replication across tenants, deselect this option. For more information, see [Prevent replication across Azure AD tenants](../blobs/object-replication-overview.md#prevent-replication-across-azure-ad-tenants). |
 | Blob storage | Access tier | Required | Blob access tiers enable you to store blob data in the most cost-effective manner, based on usage. Select the hot tier (default) for frequently accessed data. Select the cool tier for infrequently accessed data. For more information, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md). |
 | Azure Files | Enable large file shares | Optional | Available only for standard file shares with the LRS or ZRS redundancies. |
 | Tables and queues | Enable support for customer-managed keys | Optional | To enable support for customer-managed keys for tables and queues, you must select this setting at the time that you create the storage account. For more information, see [Create an account that supports customer-managed keys for tables and queues](account-encryption-key-create.md). |
@@ -173,10 +166,21 @@ The following table describes the fields on the **Data protection** tab.
 |--|--|--|--|
 | Recovery | Enable point-in-time restore for containers | Optional | Point-in-time restore provides protection against accidental deletion or corruption by enabling you to restore block blob data to an earlier state. For more information, see [Point-in-time restore for block blobs](../blobs/point-in-time-restore-overview.md).<br /><br />Enabling point-in-time restore also enables blob versioning, blob soft delete, and blob change feed. These prerequisite features may have a cost impact. For more information, see [Pricing and billing](../blobs/point-in-time-restore-overview.md#pricing-and-billing) for point-in-time restore. |
 | Recovery | Enable soft delete for blobs | Optional | Blob soft delete protects an individual blob, snapshot, or version from accidental deletes or overwrites by maintaining the deleted data in the system for a specified retention period. During the retention period, you can restore a soft-deleted object to its state at the time it was deleted. For more information, see [Soft delete for blobs](../blobs/soft-delete-blob-overview.md).<br /><br />Microsoft recommends enabling blob soft delete for your storage accounts and setting a minimum retention period of seven days. |
-| Recovery | Enable soft delete for containers (preview) | Optional | Container soft delete protects a container and its contents from accidental deletes by maintaining the deleted data in the system for a specified retention period. During the retention period, you can restore a soft-deleted container to its state at the time it was deleted. For more information, see [Soft delete for containers (preview)](../blobs/soft-delete-container-overview.md).<br /><br />Microsoft recommends enabling container soft delete for your storage accounts and setting a minimum retention period of seven days. |
+| Recovery | Enable soft delete for containers | Optional | Container soft delete protects a container and its contents from accidental deletes by maintaining the deleted data in the system for a specified retention period. During the retention period, you can restore a soft-deleted container to its state at the time it was deleted. For more information, see [Soft delete for containers (preview)](../blobs/soft-delete-container-overview.md).<br /><br />Microsoft recommends enabling container soft delete for your storage accounts and setting a minimum retention period of seven days. |
 | Recovery | Enable soft delete for file shares | Optional | Soft delete for file shares protects a file share and its contents from accidental deletes by maintaining the deleted data in the system for a specified retention period. During the retention period, you can restore a soft-deleted file share to its state at the time it was deleted. For more information, see [Prevent accidental deletion of Azure file shares](../files/storage-files-prevent-file-share-deletion.md).<br /><br />Microsoft recommends enabling soft delete for file shares for Azure Files workloads and setting a minimum retention period of seven days. |
 | Tracking | Enable versioning for blobs | Optional | Blob versioning automatically saves the state of a blob in a previous version when the blob is overwritten. For more information, see [Blob versioning](../blobs/versioning-overview.md).<br /><br />Microsoft recommends enabling blob versioning for optimal data protection for the storage account. |
 | Tracking | Enable blob change feed | Optional | The blob change feed provides transaction logs of all changes to all blobs in your storage account, as well as to their metadata. For more information, see [Change feed support in Azure Blob Storage](../blobs/storage-blob-change-feed.md). |
+| Access control | Enable version-level immutability support | Optional | Enable support for immutability policies that are scoped to the blob version. If this option is selected, then after you create the storage account, you can configure a default time-based retention policy for the account or for the container, which blob versions within the account or container will inherit by default. For more information, see [Enable version-level immutability support on a storage account](../blobs/immutable-policy-configure-version-scope.md#enable-version-level-immutability-support-on-a-storage-account). |
+
+### Encryption tab
+
+On the **Encryption** tab, you can configure options that relate to how your data is encrypted when it is persisted to the cloud. Some of these options can be configured only when you create the storage account. 
+
+| Field | Required or optional | Description |
+|--|--|--|
+| Encryption type| Required | By default, data in the storage account is encrypted by using Microsoft-managed keys. You can rely on Microsoft-managed keys for the encryption of your data, or you can manage encryption with your own keys. For more information, see [Azure Storage encryption for data at rest](storage-service-encryption.md).  |
+| Enable support for customer-managed keys | Required | By default, customer managed keys can be used to encrypt only blobs and files. You can use the options presented in this section to enable support for tables and queues as well. This option can be configured only when you create the storage account. For more information, see [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md). |
+| Enable infrastructure encryption | Optional | By default, infrastructure encryption is not enabled. Enable infrastructure encryption to encrypt your data at both the service level and the infrastructure level. For more information, see [Create a storage account with infrastructure encryption enabled for double encryption of data](infrastructure-encryption-enable.md). |
 
 ### Tags tab
 
@@ -291,7 +295,7 @@ az deployment group create --resource-group $resourceGroupName --template-uri "h
 ```
 
 > [!NOTE]
-> This template serves only as an example. There are many storage account settings that aren't configured as part of this template. For example, if you want to use [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), you would modify this template by setting the `isHnsEnabledad` property of the `StorageAccountPropertiesCreateParameters` object to `true`.
+> This template serves only as an example. There are many storage account settings that aren't configured as part of this template. For example, if you want to use [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), you would modify this template by setting the `isHnsEnabled` property of the `StorageAccountPropertiesCreateParameters` object to `true`.
 
 To learn how to modify this template or create new ones, see:
 

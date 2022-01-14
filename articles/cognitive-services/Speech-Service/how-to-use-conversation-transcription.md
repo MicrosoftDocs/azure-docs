@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: eur
 zone_pivot_groups: acs-js-csharp
+ms.devlang: csharp, javascript
 ms.custom: ignite-fall-2021
 ---
 

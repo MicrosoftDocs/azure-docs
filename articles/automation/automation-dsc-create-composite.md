@@ -82,6 +82,6 @@ to view the
 
 ## Next steps
 
-- To understand PowerShell DSC, see [Windows PowerShell Desired State Configuration overview](/powershell/dsc/overview/overview).
+- To understand PowerShell DSC, see [Windows PowerShell Desired State Configuration overview](/powershell/dsc/overview).
 - Find out about PowerShell DSC resources in [DSC Resources](/powershell/dsc/resources/resources).
 - For details of Local Configuration Manager configuration, see [Configuring the Local Configuration Manager](/powershell/dsc/managing-nodes/metaconfig).

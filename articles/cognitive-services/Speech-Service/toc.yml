@@ -29,7 +29,7 @@ items:
           href: how-to-specify-source-language.md
         - name: How to use the audio input stream
           href: how-to-use-audio-input-streams.md
-        - name: Use compressed audio input formats
+        - name: Stream codec-compressed audio
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
         - name: Select a specific microphone input device
@@ -167,9 +167,7 @@ items:
                 - name: How to record voice samples
                   href: record-custom-voice-samples.md
             - name: Audio Content Creation
-              items:     
-                - name: Audio Content Creation
-                  href: how-to-audio-content-creation.md   
+              href: how-to-audio-content-creation.md 
         - name: Neural voice migration
           items:
             - name: Migration overview
@@ -235,7 +233,7 @@ items:
           href: language-support.md#prebuilt-neural-voices
         - name: Region support
           href: regions.md#speech-to-text-text-to-speech-and-translation
-        - name: SSML phonetic sets
+        - name: SSML phonetic alphabets
           href: speech-ssml-phonetic-sets.md
 - name: Speech translation
   items:
@@ -601,9 +599,9 @@ items:
   items:
     - name: Overview
       href: speech-devices.md
-    - name: Audio processing overview
+    - name: Audio processing
       href: audio-processing-overview.md
-    - name: Speech SDK integration
+    - name: Using the Microsoft Audio Stack (MAS)
       href: audio-processing-speech-sdk.md
     - name: Microphone array recommendations
       href: speech-sdk-microphone.md

@@ -3,12 +3,12 @@ title: Use logs to troubleshoot upload issues in Azure Data Box Disk
 titleSuffix: Azure Data Box Disk
 description: Describes how to use copy/error logs to troubleshoot issues seen when uploading data to Azure Data Box Disk.
 services: databox
-author: alkohli
+author: v-dalc
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: troubleshooting
-ms.date: 12/17/2021
+ms.date: 12/22/2021
 ms.author: alkohli
 ---
 
@@ -18,11 +18,9 @@ This article describes the issues you see when you upload data in the Azure data
 
 ## About upload logs
 
-When the data from a Data Box Disk is uploaded in the Azure datacenter, a copy/error log and a verbose log are generated for each storage account. These logs are uploaded to the same storage account that was used to upload data.
+When the data from a Data Box Disk is uploaded in the Azure datacenter, a copy/error log and a verbose log are generated for each storage account. These logs are uploaded to the same storage account that was used to upload data. 
 
-* The copy/error log has descriptions of the events that occurred for all failed copy operations from the disk to the Azure Storage account, and a summary of errors by error category.
-
-* The verbose log has a listing of all copy operations that succeeded on every blob and file.
+[!INCLUDE [storage-import-export-verbose-log-copy-log-descriptions.md](../../includes/storage-import-export-verbose-log-copy-log-descriptions.md)]
 
 ## Locate the logs
 

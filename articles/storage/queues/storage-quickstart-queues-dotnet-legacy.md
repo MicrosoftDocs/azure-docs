@@ -8,6 +8,7 @@ ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
+ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-api
 ---
 
