@@ -11,9 +11,8 @@ ms.topic: quickstart
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.custom: devx-track-azurepowershell, mode-other
-# Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
+ms.custom: devx-track-azurepowershell, mode-api
+#Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
 # Quickstart: Create a Front Door for a highly available global web application using Azure PowerShell

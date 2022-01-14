@@ -16,6 +16,22 @@ ms.reviewer: jburchel
 
 Use the Set Variable activity to set the value of an existing variable of type String, Bool, or Array defined in a Data Factory or Synapse pipeline.
 
+## Create an Append Variable activity with UI
+
+To use a Set Variable activity in a pipeline, complete the following steps:
+
+1. Select the background of the pipeline canvas and use the Variables tab to add a variable:
+
+   :::image type="content" source="media/control-flow-activities-common/add-pipeline-array-variable.png" alt-text="Shows an empty pipeline canvas with the Variables tab selected having an array type variable named TestVariable.":::
+
+2. Search for _Set Variable_ in the pipeline Activities pane, and drag a Set Variable activity to the pipeline canvas.
+1. Select the Set Variable activity on the canvas if it is not already selected, and its  **Variables** tab, to edit its details.
+1. Select the variable for the Name property.
+1. Enter an expression to set the value.  This can be a literal string expression, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
+
+   :::image type="content" source="media/control-flow-set-variable-activity/set-variable-activity.png" alt-text="Shows the UI for a Set Variable activity.":::
+
+
 ## Type properties
 
 Property | Description | Required

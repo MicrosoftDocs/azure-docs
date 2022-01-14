@@ -3,7 +3,7 @@ title: Discover the current state of external collaboration with Azure Active Di
 description: Learn methods to discover the current state of your collaboration.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals

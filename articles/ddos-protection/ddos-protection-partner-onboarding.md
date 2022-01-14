@@ -4,7 +4,6 @@ description: "Understand partnering opportunities enabled by Azure DDoS Protecti
 ms.service: ddos-protection
 documentationcenter: na
 author: aletheatoh
-mms.devlang: na
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: yitoh

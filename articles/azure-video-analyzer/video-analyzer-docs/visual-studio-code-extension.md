@@ -1,5 +1,5 @@
 ---
-title: Visual Studio Code extension for Azure Video Analyzer
+title: Visual Studio Code extension 
 description: This reference article explains how to use the various pieces of functionality in the Visual Studio Code extension for Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: reference

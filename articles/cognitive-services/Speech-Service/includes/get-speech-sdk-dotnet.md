@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="C#" src="https://docs.microsoft.com/media/logos/logo_Csharp.svg" width="60px">
+            <img alt="C#" src="/media/logos/logo_Csharp.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::

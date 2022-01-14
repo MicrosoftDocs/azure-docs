@@ -180,9 +180,9 @@ To check the current usage of metric alert rules, follow the steps below.
 - REST API - [List by subscription](/rest/api/monitor/metricalerts/listbysubscription)
 - Azure CLI - [az monitor metrics alert list](/cli/azure/monitor/metrics/alert#az_monitor_metrics_alert_list)
 
-## Managing alert rules using Resource Manager templates, REST API, PowerShell, or Azure CLI
+## Managing alert rules using Resource Manager templates, REST API, Azure PowerShell, or the Azure CLI
 
-If you're running into issues creating, updating, retrieving, or deleting metric alerts using Resource Manager templates, REST API, PowerShell, or the Azure command-line interface (CLI), the following steps may help resolve the issue.
+If you're running into issues creating, updating, retrieving, or deleting metric alerts using Resource Manager templates, REST API, PowerShell, or the Azure CLI, the following steps may help resolve the issue.
 
 ### Resource Manager templates
 

@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 01/03/2022
 ms.author: banders
 ---
 
@@ -95,6 +95,8 @@ To create an invoice section, you need to be a **billing profile owner** or a **
 
 To create a billing profile, you need to be a **billing account owner** or a **billing account contributor**. For more information, see [Manage billing profiles for billing account](understand-mca-roles.md#manage-billing-profiles-for-billing-account).
 
+Adding additional billing profiles is supported only for direct Microsoft Customer Agreements (working with a Microsoft representative). If you don't see the **Add** option on the Billing profile page, the feature isn't available for your account. If you don't have a direct Microsoft Customer Agreement, you can contact the Digital Sales team by chat, phone, or ticket. For more information, see [Contact Azure Sales](https://azure.microsoft.com/overview/contact-azure-sales/#contact-sales).
+
 > [!IMPORTANT]
 >
 > Creating additional billing profiles may impact your overall cost. For more information, see [Things to consider when adding new billing profiles](#things-to-consider-when-adding-new-billing-profiles).
@@ -108,10 +110,6 @@ To create a billing profile, you need to be a **billing account owner** or a **b
 3. Select **Billing profiles** from the left-hand pane and then select **Add** from the top of the page.
 
    [![Screenshot that shows billing profile list with Add selected.](./media/mca-section-invoice/mca-list-profiles.png)](./media/mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
-
-    > [!Note]
-    >
-    > If you don't see the Add button in the Billing profile page, the feature is not available for your account. Currently, it is only available for accounts that have been set up while working with a Microsoft representative.
 
 4. Fill the form and click **Create**.
 

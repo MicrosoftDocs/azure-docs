@@ -1,14 +1,12 @@
 ---
 title: About Azure DCasv5/ECasv5-series confidential virtual machines (preview)
 description: Azure confidential computing offers confidential virtual machines (confidential VMs) for tenants with high security and confidentiality requirements.
-services: virtual-machines
 author: edendcohen
 ms.service: container-service
 ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 11/15/2021
 ms.author: edcohen
- 
 ---
 
 # About Azure DCasv5/ECasv5-series confidential virtual machines (preview)
@@ -45,7 +43,7 @@ Full-disk encryption is optional, because this process can lengthen the initial 
  - A confidential VM with full OS disk encryption before VM deployment that uses platform-managed keys (PMK).
  - A confidential VM without OS disk encryption before VM deployment.
 
-For further integrity and protection, confidential VMs offer [Secure Boot](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot) by default. 
+For further integrity and protection, confidential VMs offer [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot) by default. 
 With Secure Boot, trusted publishers must sign OS boot components (including the boot loader, kernel, and kernel drivers). All compatible confidential VM images support Secure Boot. 
 
 ### Encryption pricing differences

@@ -6,7 +6,7 @@ ms.author: pariks
 ms.date: 3/19/2020
 ms.topic: quickstart
 ms.service: mariadb
-ms.custom: mvc, mode-portal
+ms.custom: mvc, mode-ui
 ---
 
 # Quickstart: Create an Azure Database for MariaDB server by using the Azure portal

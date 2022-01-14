@@ -33,7 +33,7 @@ There are many ways to migrate database workloads from one platform to another. 
 
 * Ensure you've already created empty keyspaces and tables in your target Azure Cosmos DB Cassandra API account.
 
-* [Use cqlsh or hosted shell for validation](cassandra-support.md#hosted-cql-shell-preview).
+* [Use cqlsh for validation](cassandra-support.md#cql-shell).
 
 ## Provision an Azure Databricks cluster
 

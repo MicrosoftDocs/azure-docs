@@ -42,7 +42,7 @@ Before you can use custom text classification, you will need to create a Languag
 
 ## Upload sample data to blob container
 
-After you have created an Azure storage account and linked it to your Language resource, you will need to upload the example files for this quickstart. These files will later be used to train your model.
+After you have created an Azure storage account and linked it to your Language resource, you will need to upload the example files to the root directory of your container for this quickstart. These files will later be used to train your model.
 
 1. [Download sample data](https://go.microsoft.com/fwlink/?linkid=2175083) for this quickstart from GitHub.
 
@@ -97,7 +97,7 @@ Use the following JSON in your request. Replace the placeholder values below wit
     "metadata": {
         "name": "MyProject",
         "multiLingual": true,
-        "description": "Tryong out custom text classification",
+        "description": "Trying out custom text classification",
         "modelType": "multiClassification",
         "language": "string",
         "storageInputContainerName": "YOUR-CONTAINER-NAME",
@@ -269,7 +269,6 @@ Use the following header to authenticate your request.
 Use the following JSON in your request. The model will be named `MyModel` once training is complete.  
 
 ```json
-{
 {
   "trainedModelLabel": "MyModel"
 }

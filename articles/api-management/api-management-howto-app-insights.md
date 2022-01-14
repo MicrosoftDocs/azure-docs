@@ -42,7 +42,7 @@ To use Application Insights, [create an instance of the Application Insights ser
     :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-logger-2.png" alt-text="Screenshot that shows where to view the newly created Application Insights logger with instrumentation key":::
 
 > [!NOTE]
-> Behind the scenes, a [Logger](/rest/api/apimanagement/2020-12-01/logger/create-or-update) entity is created in your API Management instance, containing the instrumentation key of the Application Insights instance.
+> Behind the scenes, a [Logger](/rest/api/apimanagement/current-ga/logger/create-or-update) entity is created in your API Management instance, containing the instrumentation key of the Application Insights instance.
 
 ## Enable Application Insights logging for your API
 
@@ -61,7 +61,7 @@ To use Application Insights, [create an instance of the Application Insights ser
     > Overriding the default **Number of payload bytes to log** value **0** may significantly decrease the performance of your APIs.
 
 1. Select **Save**.
-1. Behind the scenes, a [Diagnostic](/rest/api/apimanagement/2020-12-01/diagnostic/create-or-update) entity named `applicationinsights` is created at the API level.
+1. Behind the scenes, a [Diagnostic](/rest/api/apimanagement/current-ga/diagnostic/create-or-update) entity named `applicationinsights` is created at the API level.
 
 > [!NOTE]
 > Requests are successful once API Management sends the entire response to the client.
@@ -107,7 +107,7 @@ Application Insights receives:
 You can emit custom metrics by configuring the [`emit-metric`](api-management-advanced-policies.md#emit-metrics) policy. 
 
 To make Application Insights pre-aggregated metrics available in API Management, you'll need to manually enable custom metrics in the service.
-1. Use the [`emit-metric`](api-management-advanced-policies.md#emit-metrics) policy with the [Create or Update API](/rest/api/apimanagement/2021-04-01-preview/api-diagnostic/create-or-update).
+1. Use the [`emit-metric`](api-management-advanced-policies.md#emit-metrics) policy with the [Create or Update API](/rest/api/apimanagement/current-ga/api-diagnostic/create-or-update).
 1. Add `"metrics":true` to the payload, along with any other properties.
 
 > [!NOTE]

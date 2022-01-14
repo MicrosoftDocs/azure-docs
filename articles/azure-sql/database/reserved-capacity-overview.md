@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 10/13/2020
 ---
 # Save costs for resources with reserved capacity - Azure SQL Database & SQL Managed Instance

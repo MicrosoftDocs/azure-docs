@@ -152,12 +152,12 @@ Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deployment
 
 Check the configuration for the prepared Cloud Service (extended support) by using either Azure PowerShell or the Azure portal. If you're not ready for migration and you want to go back to the old state, abort the migration.
 ```powershell
-Move-AzureService -Abort -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+Move-AzureService -Abort -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 If you're ready to complete the migration, commit the migration
 
 ```powershell
-Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
 ### 5.1) Option 2 - Migrate a Cloud Service in a virtual network

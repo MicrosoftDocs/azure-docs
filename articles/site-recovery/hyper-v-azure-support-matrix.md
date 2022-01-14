@@ -69,6 +69,7 @@ Guest VM network: Static IP (Windows) | Yes | Yes
 Guest VM network: Static IP (Linux) | No | No
 Guest VM network: Multi-NIC | Yes | Yes
 Https Proxy | No | No
+Automatic Private IP Addressing (APIPA) | No | No
 Private link access to Site Recovery service | Yes. [Learn more](hybrid-how-to-enable-replication-private-endpoints.md). | Yes. [Learn more](hybrid-how-to-enable-replication-private-endpoints.md).
 
 
@@ -133,6 +134,7 @@ Zone-redundant storage | No | No
 Cool storage | No | No
 Hot storage| No | No
 Block blobs | No | No
+Encryption at host | No | No
 Encryption at rest (SSE)| Yes | Yes
 Encryption at rest (CMK) <br></br> (Only for failover to managed disks)| Yes (via PowerShell Az 3.3.0 module onwards) | Yes (via PowerShell Az 3.3.0 module onwards)
 Double Encryption at rest <br></br> (Only for failover to managed disks) <br></br> Learn more on supported regions for [Windows](../virtual-machines/disk-encryption.md) and [Linux](../virtual-machines/disk-encryption.md) | Yes (via PowerShell Az 3.3.0 module onwards) | Yes (via PowerShell Az 3.3.0 module onwards)

@@ -1,16 +1,12 @@
 ---
 title: Use additional context in multifactor authentication (MFA) notifications (Preview) - Azure Active Directory
 description: Learn how to use additional context in MFA notifications
-services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/16/2021
-
+ms.date: 12/08/2021
 ms.author: justinha
 author: mjsantani
-manager: daveba
-
 ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
@@ -30,11 +26,11 @@ Your organization will need to enable Microsoft Authenticator push notifications
 
 When a user receives a Passwordless phone sign-in or MFA push notification in the Microsoft Authenticator app, they'll see the name of the application that requests the approval and the app location based on its IP address.
 
-![Screenshot of additional context in the MFA push notification.](media/howto-authentication-passwordless-phone/location.png)
+:::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/location.png" alt-text="Screenshot of additional context in the MFA push notification.":::
 
 The additional context can be combined with [number matching](how-to-mfa-number-match.md) to further improve sign-in security. 
 
-![Screenshot of additional context with number matching in the MFA push notification.](media/howto-authentication-passwordless-phone/location-with-number-match.png)
+:::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/location-with-number-match.png" alt-text="Screenshot of additional context with number matching in the MFA push notification.":::
 
 ### Policy schema changes 
 
@@ -42,6 +38,8 @@ Identify a single target group for the schema configuration. Then use the follow
 
 https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
 
+>[!NOTE]
+>For Passwordless phone sign-in, the Authenticator app does not retrieve policy information just in time for each sign-in request. Instead, the Authenticator app does a best effort retrieval of the policy once every 7 days. We understand this limitation is less than ideal and are working to optimize the behavior. In the meantime, if you want to force a policy update to test using additional context with Passwordless phone sign-in, you can remove and re-add the account in the Authenticator app. 
 
 #### MicrosoftAuthenticatorAuthenticationMethodConfiguration properties
 
@@ -56,7 +54,7 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 
 | Relationship | Type | Description |
 |--------------|------|-------------|
-| includeTargets | [microsoftAuthenticatorAuthenticationMethodTarget](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget?view=graph-rest-beta) |
+| includeTargets | [microsoftAuthenticatorAuthenticationMethodTarget](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget) |
 | collection | A collection of users or groups who are enabled to use the authentication method. |
  
 #### MicrosoftAuthenticator includeTarget properties
@@ -130,7 +128,7 @@ You need to PATCH the entire includeTarget to prevent overwriting any previous c
     "includeTargets": [
         {
             "targetType": "group",
-            "id": "1ca44590-e896-4dbe-98ed-b140b1e7a53a”,
+            "id": "1ca44590-e896-4dbe-98ed-b140b1e7a53a",
             "authenticationMode": "any",
             "displayAppInformationRequiredState": "enabled",
             "numberMatchingRequiredState": "enabled"

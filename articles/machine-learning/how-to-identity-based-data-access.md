@@ -2,7 +2,6 @@
 title: Identity-based data access to storage services on Azure
 titleSuffix: Machine Learning
 description: Learn how to use identity-based data access to connect to storage services on Azure with Azure Machine Learning datastores and the Machine Learning Python SDK.   
-services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
@@ -26,6 +25,8 @@ To create datastores that use credential-based authentication, like access keys 
 ## Identity-based data access in Azure Machine Learning
 
 There are two scenarios in which you can apply identity-based data access in Azure Machine Learning. These scenarios are a good fit for identity-based access when you're working with confidential data and need more granular data access management:
+> [!IMPORTANT]
+> Identity-based data access is not supported for [automated ML experiments](how-to-configure-auto-train.md).
 
 - Accessing storage services
 - Training machine learning models with private data
@@ -55,7 +56,7 @@ Certain machine learning scenarios involve training models with private data. In
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-- An Azure storage account with a supported storage type. These storage types are supported in preview: 
+- An Azure storage account with a supported storage type. These storage types are supported: 
     - [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md)
     - [Azure Data Lake Storage Gen1](../data-lake-store/index.yml)
     - [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
@@ -139,7 +140,7 @@ adls2_dstore = Datastore.register_azure_data_lake_gen2(workspace=ws,
                                                        account_name='myadls2')
 ```
 ### Azure SQL database
-For an Azure SQL database, use [register_azure_sql_database()](/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-sql-database-workspace--datastore-name--server-name--database-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--endpoint-none--overwrite-false--username-none--password-none--subscription-id-none--resource-group-none--grant-workspace-access-false----kwargs-) to register a datastore that connects to an Azure SQL database storage.
+For an Azure SQL database, use [register_azure_sql_database()](/python/api/azureml-core/azureml.core.datastore.datastore#register-azure-sql-database-workspace--datastore-name--server-name--database-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--endpoint-none--overwrite-false--username-none--password-none--subscription-id-none--resource-group-none--grant-workspace-access-false----kwargs-) to register a datastore that connects to an Azure SQL database storage.
 
 The following code creates and registers the `credentialless_sqldb` datastore to the `ws` workspace and assigns it to the variable, `sqldb_dstore`. This datastore accesses the database `mydb` in the `myserver` SQL DB server.  
 
@@ -158,7 +159,7 @@ sqldb_dstore = Datastore.register_azure_sql_database(workspace=ws,
 We recommend that you use [Azure Machine Learning datasets](how-to-create-register-datasets.md) when you interact with your data in storage with Azure Machine Learning.  
 
 > [!IMPORTANT]
-> Datasets using identity-based data access is not supported for [automated ML experiments](how-to-configure-auto-train.md).
+> Datasets using identity-based data access are not supported for [automated ML experiments](how-to-configure-auto-train.md).
 
 Datasets package your data into a lazily evaluated consumable object for machine learning tasks like training. Also, with datasets you can [download or mount](how-to-train-with-datasets.md#mount-vs-download) files of any format from Azure storage services like Azure Blob Storage and Azure Data Lake Storage to a compute target.
 

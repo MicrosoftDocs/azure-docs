@@ -6,8 +6,8 @@ metadata:
   description: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that gives applications fast access to data. Tutorials, API references, and more. # Required; article description that is displayed in search results. < 160 chars.
   ms.service: cache
   ms.topic: landing-page
-  author: curib
-  ms.author: cauribeg
+  author: flang-msft
+  ms.author: franlanglois
   ms.date: 12/16/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -106,11 +106,16 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Troubleshoot client-side issues
-            url: cache-troubleshoot-client.md
-          - text: Troubleshoot server-side issues
-            url: cache-troubleshoot-server.md
-          - text: Troubleshoot timeouts
+          - text: Troubleshoot connectivity issues
+            url: cache-troubleshoot-connectivity.md
+          - text: Troubleshoot latency and timeouts
             url: cache-troubleshoot-timeouts.md
+          - text: Troubleshoot client issues
+            url: cache-troubleshoot-client.md
+          - text: Troubleshoot Redis server issues
+            url: cache-troubleshoot-server.md
           - text: Troubleshoot data loss issues
             url: cache-troubleshoot-data-loss.md
+          - text: Troubleshooting FAQs
+            url: cache-monitor-troubleshoot-faq.yml
+            

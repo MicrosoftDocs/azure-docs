@@ -84,7 +84,7 @@ Operationally, the DecryptBlobFile skill takes the URL and SAS token for each bl
 
 ### Cognitive Services
 
-AI enrichment and skillset execution are backed by Cognitive Services, including Text Analytics and Computer Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Cognitive Services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
+AI enrichment and skillset execution are backed by Cognitive Services, including Language service and Computer Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Cognitive Services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
 
 For this exercise, however, you can skip resource provisioning because Azure Cognitive Search can connect to Cognitive Services behind the scenes and give you 20 free transactions per indexer run. After it processes 20 documents, the indexer will fail unless a Cognitive Services key is attached to the skillset. For larger projects, plan on provisioning Cognitive Services at the pay-as-you-go S0 tier. For more information, see [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md). Note that a Cognitive Services key is required to run a skillset with more than 20 documents even if none of your selected cognitive skills connect to Cognitive Services (such as with the provided skillset if no skills are added to it).
 

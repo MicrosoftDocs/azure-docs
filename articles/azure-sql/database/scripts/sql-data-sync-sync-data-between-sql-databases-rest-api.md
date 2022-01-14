@@ -9,7 +9,7 @@ ms.devlang: rest-api
 ms.topic: sample
 author: MaraSteiu 
 ms.author: masteiu
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 03/12/2019
 ---
 

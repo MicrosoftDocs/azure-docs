@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 07/13/2021
 ---
 # Long-term retention - Azure SQL Database and Azure SQL Managed Instance
@@ -22,8 +22,6 @@ Long-term retention can be enabled for Azure SQL Database, and is available in p
 > [!NOTE]
 > You can use SQL Agent jobs to schedule [copy-only database backups](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) as an alternative to LTR beyond 35 days.
 
-> [!IMPORTANT]
-> Long-term retention on Managed Instance is currently available in public preview in Azure Public regions only. 
 
 
 ## How long-term retention works
@@ -61,7 +59,7 @@ W=12 weeks (84 days), M=12 months (365 days), Y=10 years (3650 days), WeekOfYear
    ![ltr example](./media/long-term-retention-overview/ltr-example.png)
 
 
-If you modify the above policy and set W=0 (no weekly backups), the cadence of backup copies will change as shown in the above table by the highlighted dates. The storage amount needed to keep these backups would reduce accordingly. 
+If you modify the above policy and set W=0 (no weekly backups), Azure only retains the monthly and yearly backups. No weekly backups are stored under the LTR policy. The storage amount needed to keep these backups reduces accordingly.
 
 > [!IMPORTANT]
 > The timing of individual LTR backups is controlled by Azure. You cannot manually create an LTR backup or control the timing of the backup creation. After configuring an LTR policy, it  may take up to 7 days before the first LTR backup will show up on the list of available backups.  
