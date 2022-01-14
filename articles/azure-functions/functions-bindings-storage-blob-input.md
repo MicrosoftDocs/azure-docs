@@ -5,6 +5,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
+ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
@@ -346,7 +347,7 @@ The following table explains the binding configuration properties that you set i
 |**type** | n/a | Must be set to `blob`. |
 |**direction** | n/a | Must be set to `in`. Exceptions are noted in the [usage](#usage) section. |
 |**name** | n/a | The name of the variable that represents the blob in function code.|
-|**path** |**BlobPath** | The path to the blob. |
+|**path** |**BlobPath** | The path to the blob. This property supports [binding expressions](./functions-bindings-expressions-patterns.md). |
 |**connection** |**Connection**| The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
 |**dataType**| n/a | For dynamically typed languages, specifies the underlying data type. Possible values are `string`, `binary`, or `stream`. For more more detail, refer to the [triggers and bindings concepts](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions). |
 |n/a | **Access** | Indicates whether you will be reading or writing. |

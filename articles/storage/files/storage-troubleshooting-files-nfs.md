@@ -12,7 +12,7 @@ ms.custom: references_regions, devx-track-azurepowershell
 
 # Troubleshoot Azure NFS file share problems
 
-This article lists some common problems related to Azure NFS file shares (preview). It provides potential causes and workarounds when these problems are encountered. This article also covers known issues in public preview.
+This article lists some common problems and known issues related to Azure NFS file shares. It provides potential causes and workarounds when these problems are encountered.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -39,31 +39,7 @@ Check that idmapping is disabled and nothing is re-enabling it, then perform the
 
 ## Unable to create an NFS share
 
-### Cause 1: Subscription is not enabled
-
-Your subscription may not have been registered for the Azure Files NFS preview. You will need to run a few more commandlets from either Cloud Shell or a local terminal to enable the feature.
-
-> [!NOTE]
-> You may have to wait up to 30 minutes for the registration to complete.
-
-
-#### Solution
-
-Use the following script to register the feature and resource provider, replace `<yourSubscriptionIDHere>` before running the script:
-
-```azurepowershell
-Connect-AzAccount
-
-#If your identity is associated with more than one subscription, set an active subscription
-$context = Get-AzSubscription -SubscriptionId <yourSubscriptionIDHere>
-Set-AzContext $context
-
-Register-AzProviderFeature -FeatureName AllowNfsFileShares -ProviderNamespace Microsoft.Storage
-
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-### Cause 2: Unsupported storage account settings
+### Cause 1: Unsupported storage account settings
 
 NFS is only available on storage accounts with the following configuration:
 
@@ -74,14 +50,6 @@ NFS is only available on storage accounts with the following configuration:
 #### Solution
 
 Follow the instructions in our article: [How to create an NFS share](storage-files-how-to-create-nfs-shares.md).
-
-### Cause 3: The storage account was created prior to registration completing
-
-In order for a storage account to use the feature, it must be created once the subscription has completed registration for NFS. It may take up to 30 minutes for registration to complete.
-
-#### Solution
-
-Once registration completes, follow the instructions in our article: [How to create an NFS share](storage-files-how-to-create-nfs-shares.md).
 
 ## Cannot connect to or mount an Azure NFS file share
 

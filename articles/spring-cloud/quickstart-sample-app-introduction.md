@@ -1,12 +1,12 @@
 ---
-title:  "Quickstart - Introduction to the sample app - Azure Spring Cloud"
+title: "Quickstart - Introduction to the sample app - Azure Spring Cloud"
 description: Describes the sample app used in this series of quickstarts for deployment to Azure Spring Cloud.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/12/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, mode-other
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 

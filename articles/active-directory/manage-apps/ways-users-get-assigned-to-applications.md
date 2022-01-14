@@ -3,18 +3,18 @@ title: Understand how users are assigned to apps
 description: Understand how users get assigned to an app that is using Azure Active Directory for identity management.
 titleSuffix: Azure AD
 services: active-directory
-author: davidmu1
+author: eringreenlee
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/07/2021
-ms.author: davidmu
-ms.reviewer: alamaral
+ms.author: ergreenl
+ms.reviewer: davidmu
 ---
 
-# Understand how users are assigned to apps in Azure Active Directory
+# Understand how users are assigned to apps
 
 This article help you to understand how users get assigned to an application in your tenant.
 

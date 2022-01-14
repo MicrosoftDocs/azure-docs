@@ -1,4 +1,4 @@
---- 
+---
 title: Use Azure Application Gateway with VMware virtual machines
 description: Describes how to use the Azure application gateway to manage incoming web traffic for web servers running in VMware virtual machines win the CloudSimple Private Cloud environment
 author: suzizuber

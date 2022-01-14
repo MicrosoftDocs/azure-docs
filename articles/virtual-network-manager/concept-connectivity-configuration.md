@@ -34,7 +34,7 @@ When you create a mesh topology, a new connectivity construct is created called 
 
 > [!NOTE]
 > * If you have conflicting subnets in two or more virtual networks, resources in those subnets *won't* be able to communicate to each other even if they're part of the same mesh network.
-> * A virtual network can be part of up to **five** mesh configurations.
+> * A virtual network can be part of up to **two** mesh configurations.
 
 ## Hub and spoke topology
 
@@ -55,7 +55,7 @@ See example diagram below:
 When you look at effective routes on a VM, the route between the hub and the spoke virtual networks will have the next hop type of  *VNetPeering* or *GlobalVNetPeering*. Routes between spokes virtual networks will show up with the next hop type of *ConnectedGroup*. Using the example above, only the *Production* network group would have a *ConnectedGroup* because it has *Direct connectivity* enabled.
 
 > [!NOTE]
-> The hub network address space is added to the *ConnectedGroup* when *Transitivity* is **enabled**. Therefore, if the virtual network peering between the hub and the spoke virtual network fail, they can still communicate by *ConnectedGroup*.
+> The hub network address space is added to the *ConnectedGroup* when *Direct Connectivity* is **enabled**. Therefore, if the virtual network peering between the hub and the spoke virtual network fail, they can still communicate by *ConnectedGroup*.
 
 #### Use cases
 
@@ -67,7 +67,7 @@ Global mesh is required when you want your spoke virtual networks to communicate
 
 ### Use hub as a gateway
 
-Another option you can enable in a hub-and-spoke configuration is to use the hub as a gateway. This setting will allow all virtual networks in the network group to use the VPN or ExpressRoute gateway in the hub virtual network to pass traffic. See [Gateways and on-premises connectivity](/azure/virtual-network/virtual-network-peering-overview#gateways-and-on-premises-connectivity).
+Another option you can enable in a hub-and-spoke configuration is to use the hub as a gateway. This setting will allow all virtual networks in the network group to use the VPN or ExpressRoute gateway in the hub virtual network to pass traffic. See [Gateways and on-premises connectivity](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity).
 
 When you deploy a hub and spoke topology from the Azure portal, the **Use hub as a gateway** is enabled by default for the spoke virtual networks in the network group. Azure Virtual Network Manager will attempt to create a virtual network peering connection between the hub and the spokes virtual network in the resource group. If the gateway doesn't exist in the hub virtual network, then the creation of the peering from the spoke virtual network to the hub will fail. The peering connection from the hub to the spoke will still be created without an established connection. 
 

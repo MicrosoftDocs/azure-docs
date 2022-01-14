@@ -1,8 +1,8 @@
 ---
 title: How to provision devices for multitenancy in Azure IoT Hub Device Provisioning Service
 description: How to provision devices for multitenancy with your Device Provisioning Service (DPS) instance
-author: anastasia-ms
-ms.author: v-stharr
+author: wesmc7777
+ms.author: wesmc
 ms.topic: how-to
 ms.date: 10/02/2021
 ms.service: iot-dps
@@ -82,7 +82,7 @@ For simplicity, this article uses [Symmetric key attestation](concepts-symmetric
 
 4. On the **Add Enrollment Group** page, enter the following information:
 
-    **Group name**: Enter *contoso-us-devices*.
+    **Group name**: Enter *contoso-us-devices*. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
 
     **Attestation Type**: Select *Symmetric Key*.
 
@@ -263,7 +263,7 @@ In this part of the tutorial, you'll generate a device key from the you group ma
 
 For **both** *eastus* and *westus 2* devices:
 
-1. Generate your unique key using **openssl**. You'll use the following Bash shell script (replace `{primary-key}` with the enrollment group's **Primary Key** that you copied earlier and replace `{contoso-simdevice-east}`with your own unique registration ID for each device. Use lowercase alphanumeric and dash ('-') characters to define both IDs):
+1. Generate your unique key using **openssl**. You'll use the following Bash shell script (replace `{primary-key}` with the enrollment group's **Primary Key** that you copied earlier and replace `{contoso-simdevice}`with your own unique registration ID for each device. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
 
     ```bash
     KEY={primary-key}

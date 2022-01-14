@@ -1,9 +1,8 @@
 ---
 title: Troubleshoot write back issues with HR provisioning
-description: Learn how to troubleshoot manager update issues with HR provisioning
-services: active-directory
+description: Learn how to troubleshoot write back issues with HR provisioning
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: troubleshooting
@@ -20,7 +19,7 @@ ms.reviewer: chmutali
 * Workday Writeback
 * SAP SuccessFactors Writeback
 
-| | |
+| Troubleshooting | Details |
 |-- | -- |
 | **Issue** | You have successfully configured the Writeback app. You are getting null or empty value from Azure AD. You expect the provisioning service to clear the corresponding email or phone number value in the HR app. But the operation fails. |
 | **Cause** | The provisioning service does not have a default logic for null value processing. When the provisioning service gets an empty string from the source app, it tries to flow the value "as-is" to the target app. If Workday or SuccessFactors cannot process empty values, then an error is returned. |

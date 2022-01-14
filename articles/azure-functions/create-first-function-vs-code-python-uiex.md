@@ -1,9 +1,10 @@
 ---
-title:  Create a Python function using Visual Studio Code - Azure Functions
-description: Learn how to create a Python function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.  
+title: Create a Python function using Visual Studio Code - Azure Functions
+description: Learn how to create a Python function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.custom: devx-track-python
+ms.devlang: python
+ms.custom: devx-track-python, mode-api
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
@@ -49,7 +50,7 @@ Before you get started, make sure you have the following requirements in place:
 
     ![Choose Create a new project](./media/functions-create-first-function-vs-code/create-new-project.png)
 
-1. Choose a directory location for your project workspace and choose **Select**.
+1. Choose a directory location for your project workspace and choose **Select**. It is recommended that you create a new folder or choose an empty folder as the project workspace.
 
     > [!NOTE]
     > These steps were designed to be completed outside of a workspace. In this case, do not select a project folder that is part of a workspace.

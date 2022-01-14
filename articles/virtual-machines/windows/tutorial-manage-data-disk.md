@@ -328,8 +328,8 @@ Before you can take advantage of the new disk size, you need to expand the volum
 1. Open PowerShell and run the following script. Change the value of the `-DriveLetter` variable as appropriate. For example, to resize the partition on the **F:** drive, use `$driveLetter = "F"`.
 
     ```powershell
-    $driveLetter = "[Drive Letter]" `
-    $size = (Get-PartitionSupportedSize -DriveLetter $driveLetter) `
+    $driveLetter = "[Drive Letter]" 
+    $size = (Get-PartitionSupportedSize -DriveLetter $driveLetter) 
     Resize-Partition `
         -DriveLetter $driveLetter `
         -Size $size.SizeMax

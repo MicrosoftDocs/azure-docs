@@ -136,8 +136,6 @@ azure-streamanalytics-cicd addtestcase -project "/Users/roger/projects/samplejob
 
 If the test configuration file is empty, the following content is written into the file. Otherwise, a test case is added into the array of **TestCases**. Necessary input configurations are automatically filled according to the input configuration files, if they exist. Otherwise, default values are configured. **FilePath** of each input and expected output must be specified before running the test. You can modify the configuration manually.
 
-If you want the test validation to ignore a certain output, set the **Required** field of that expected output to **false**.
-
 ```json
 {
   "Script": "",
@@ -165,6 +163,78 @@ If you want the test validation to ignore a certain output, set the **Required**
 }
 ```
 
+The following example shows two test cases, on a query using two inputs. If you want the test validation to ignore a certain output, set the **Required** field of that expected output to **false**. In this case, the FilePath property must not be empty, but doesn't need to be valid.
+
+```JSON
+{
+  "Script": "C:\\...\\...\\samplejob.asaql",
+  "TestCases": [
+    {
+      "Name": "Case 1 - Testing all outputs at once",
+      "Inputs": [
+        {
+          "InputAlias": "entry",
+          "Type": "Data Stream",
+          "Format": "Json",
+          "FilePath": "C:\\...\\...\\Case1_Data_entry.json",
+          "ScriptType": "InputMock"
+        },
+        {
+          "InputAlias": "exit",
+          "Type": "Data Stream",
+          "Format": "Json",
+          "FilePath": "C:\\...\\...\\Case1_Data_exit.json",
+          "ScriptType": "InputMock"
+        }
+      ],
+      "ExpectedOutputs": [
+        {
+          "OutputAlias": "output1",
+          "FilePath": "C:\\...\\...\\Case1_output1.json",
+          "Required": true
+        },
+        {
+          "OutputAlias": "output2",
+          "FilePath": "C:\\...\\...\\Case1_output2.json",
+          "Required": true
+        }
+      ]
+    },
+    {
+      "Name": "Case 2 - Testing only one output at a time (recommended)",
+      "Inputs": [
+        {
+          "InputAlias": "entry",
+          "Type": "Data Stream",
+          "Format": "Json",
+          "FilePath": "C:\\...\\...\\Case2_Data_entry.json",
+          "ScriptType": "InputMock"
+        },
+        {
+          "InputAlias": "exit",
+          "Type": "Data Stream",
+          "Format": "Json",
+          "FilePath": "C:\\...\\...\Case2_Data_exit.json",
+          "ScriptType": "InputMock"
+        }
+      ],
+      "ExpectedOutputs": [
+        {
+          "OutputAlias": "output1",
+          "FilePath": "C:\\...\\...\\Case2_output1.json",
+          "Required": true
+        },
+        {
+          "OutputAlias": "output2",
+          "FilePath": "[N/A]",
+          "Required": false
+        }
+      ]
+    }
+  ]
+}
+```
+
 > [!NOTE]
 > Currently, the only allowed value for the `ScriptType` element is `InputMock`, which is also the default value. If you set it to any other value, it's ignored and the default value (`InputMock`) is used. 
 
@@ -182,6 +252,17 @@ azure-streamanalytics-cicd test -project <projectFullPath> [-testConfigPath <tes
 | `-testConfigPath` | The path to the test configuration file. If it is not specified, the file will be searched in **\test** under the current directory of the **asaproj.json** file, with default file name **testConfig.json**.
 | `-outputPath` | The path of the test result output folder. If it is not specified, the output result files will be placed in the current directory. |
 | `-customCodeZipFilePath` | The path of the zip file for custom code such as a UDF or deserializer, if they are used. |
+
+As an example, in a PowerShell enabled terminal, if all test assets are located in a `test` subfolder of the project folder. With each test run output stored in a new timestamped subfolder of a `testResults` subfolder:
+
+```PowerShell
+$projectPath = "C:\...\...\samplejob\"
+
+azure-streamanalytics-cicd test `
+	-project ($projectPath + "asaproj.json") `
+	-testConfigPath ($projectPath + "test\testConfig.json") `
+	-outputPath ($projectPath + "test\testResults\$(Get-Date -Format "yyyyMMddHHmmss")\")
+```
 
 When all tests are finished, a summary of the test results in JSON format is generated in the output folder. The summary file is named **testResultSummary.json**.
 

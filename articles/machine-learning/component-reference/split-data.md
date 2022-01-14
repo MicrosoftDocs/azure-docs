@@ -53,9 +53,9 @@ This component is useful when you need to separate data into training and testin
   
 1. Select the **Randomized split** option if you want to randomize selection of data into the two groups. This is the preferred option when you're creating training and test datasets.
 
-1. **Random Seed**: Enter a non-negative integer value to start the pseudorandom sequence of instances to be used. This default seed is used in all components that generate random numbers. 
+1. **Random Seed**: This parameter will be ignored if **Randomized split** is set to false. Otherwise enter a non-negative integer value to start the pseudorandom sequence of instances to be used. This default seed is used in all components that generate random numbers. 
 
-   Specifying a seed makes the results reproducible. If you need to repeat the results of a split operation, you should specify a seed for the random number generator. Otherwise the random seed is set by default to **0**, which means the initial seed value is obtained from the system clock. As a result, the distribution of data might be slightly different each time you perform a split. 
+   Specifying a seed makes the results reproducible. If you need to repeat the results of a split operation, you should specify the same seed number for the random number generator. 
 
 1. **Stratified split**: Set this option to **True** to ensure that the two output datasets contain a representative sample of the values in the *strata column* or *stratification key column*. 
 

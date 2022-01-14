@@ -37,7 +37,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Zengine supports **SP** initiated SSO
 
-* Once you configure Zengine you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Zengine you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Zengine from the gallery
 
@@ -147,4 +147,4 @@ When you click the Zengine tile in the Access Panel, you should be automatically
 
 - [Try Zengine with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)

@@ -6,6 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
+ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
@@ -497,6 +498,8 @@ def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
     message = json.loads(messageJSON)
     return func.HttpResponse(f"Table row: {messageJSON}")
 ```
+
+With this simple binding, you can't programatically handle a case in which no row that has a row key ID is found. For more fine-grained data selection, use the [storage SDK](/azure/developer/python/azure-sdk-example-storage-use?tabs=cmd).
 
 ---
 

@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: mathoma, urmilano
+ms.reviewer: kendralittle, mathoma, urmilano
 ms.date: 12/04/2018
 ---
 # Business Critical tier - Azure SQL Database and Azure SQL Managed Instance 

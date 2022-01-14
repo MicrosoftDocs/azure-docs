@@ -141,6 +141,7 @@ In the developer tools console within your browser you should see following:
 Azure Communication Chat client created!
 ```
 
+
 ## Object model
 The following classes and interfaces handle some of the major features of the Azure Communication Services Chat SDK for JavaScript.
 

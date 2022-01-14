@@ -96,6 +96,10 @@ items:
         href: associate-public-ip-address-vm.md
       - name: Dissociate public IP address from a VM
         href: remove-public-ip-address-vm.md
+      - name: Create VM - dual-stack network
+        items:
+        - name: Azure CLI
+          href: create-vm-dual-stack-ipv6-cli.md
       - name: Create VM - static public IP
         items:
         - name: Azure portal

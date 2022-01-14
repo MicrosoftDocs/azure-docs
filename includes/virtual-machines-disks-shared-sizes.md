@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-For now, only ultra disks, premium SSDs, and standard SSDs can enable shared disks. Different disk sizes may have a different `maxShares` limit, which you cannot exceed when setting the `maxShares` value. For premium SSDs, the disk sizes that support sharing their disks are P15 and greater.
+For now, only ultra disks, premium SSDs, and standard SSDs can enable shared disks. Different disk sizes may have a different `maxShares` limit, which you cannot exceed when setting the `maxShares` value.
 
 For each disk, you can define a `maxShares` value that represents the maximum number of nodes that can simultaneously share the disk. For example, if you plan to set up a 2-node failover cluster, you would set `maxShares=2`. The maximum value is an upper bound. Nodes can join or leave the cluster (mount or unmount the disk) as long as the number of nodes is lower than the specified `maxShares` value.
 

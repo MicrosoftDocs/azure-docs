@@ -131,7 +131,7 @@ Index Utilization Information
     Index Impact Score: High
     ---
 ```
-These index metrics show that the query used the indexed paths `/name/?`, `/age/?`, `/town/?`, and `/timestamp/?`. The index metrics also indicate that there's a high likelihood that adding the composite indexes (`/name` ASC, `(/town ASC, /age ASC)` and `(/name ASC, /town ASC, /timestamp ASC)` will further improve performance.
+These index metrics show that the query used the indexed paths `/name/?`, `/age/?`, `/town/?`, and `/timestamp/?`. The index metrics also indicate that there's a high likelihood that adding the composite indexes `(/name ASC, /town ASC, /age ASC)` and `(/name ASC, /town ASC, /timestamp ASC)` will further improve performance.
 
 ## Next steps
 

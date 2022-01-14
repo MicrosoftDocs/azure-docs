@@ -1,27 +1,28 @@
 ---
-title: Handle large messages by using chunking
-description: Learn how to handle large message sizes by using chunking in automated tasks and workflows that you create with Azure Logic Apps
+title: Handle large messages in workflows using chunking
+description: Handle large messages using chunking in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/18/2020
 ---
 
-# Handle large messages with chunking in Azure Logic Apps
+# Handle large messages in workflows using chunking in Azure Logic Apps
 
-When handling messages, Logic Apps limits message content to a maximum size. 
-This limit helps reduce overhead created by storing and processing large messages. 
-To handle messages larger than this limit, Logic Apps can *chunk* a large 
-message into smaller messages. That way, you can still transfer large 
-files using Logic Apps under specific conditions. 
-When communicating with other services through connectors or HTTP, 
-Logic Apps can consume large messages but *only* in chunks. 
-This condition means connectors must also support chunking, or the underlying 
-HTTP message exchange between Logic Apps and these services must use chunking.
+Azure Logic Apps has different maximum limits on the message content size that triggers and actions can handle in logic app workflows, based on the logic app resource type and the environment where that logic app workflow runs. These limits help reduce any overhead that results from storing and processing [large messages](#what-is-large-message). For more information about message size limits, review [Message limits in Azure Logic Apps](logic-apps-limits-and-config.md#messages).
 
-This article shows how you can set up chunking for actions handling messages that are 
-larger than the limit. Logic App  triggers don't 
-support chunking because of the increased overhead of exchanging multiple messages. 
+If you're using built-in HTTP actions or specific managed connector actions, and you need Azure Logic Apps to work with messages larger than the default limits, you can enable *chunking*, which splits a large message into smaller messages. That way, you can still transfer large files under specific conditions. In fact, when you use these built-in HTTP actions or specific managed connector actions, chunking is the only way that Azure Logic Apps can consume large messages. This requirement means that either the underlying HTTP message exchange between Azure Logic Apps and other services must use chunking, or that the connections created by the managed connectors that you want to use must also support chunking.
+
+> [!NOTE]
+> Azure Logic Apps doesn't support chunking on triggers due to the increased overhead from exchanging multiple messages.
+> Also, Azure Logic Apps implements chunking for HTTP actions using its own protocol as described in this article. 
+> So, even if your web site or web service supports chunking, they won't work with HTTP action chunking. 
+> To use HTTP action chunking with your web site or web service, you have to implement the same protocol 
+> that's used by Azure Logic Apps. Otherwise, don't enable chunking on the HTTP action. 
+
+This article provides an overview about how chunking works in Azure Logic Apps and how to set up chunking on supported actions.
+
+<a name="what-is-large-message"></a>
 
 ## What makes messages "large"?
 
@@ -57,7 +58,6 @@ Logic Apps splits any message larger than 30 MB into smaller chunks.
 For connectors that support chunking, the underlying chunking protocol is invisible to end users. 
 However, not all connectors support chunking, so these connectors generate runtime 
 errors when incoming messages exceed the connectors' size limits.
-
 
 For actions that support and are enabled for chunking, you can't use trigger bodies, variables, and expressions such as `@triggerBody()?['Content']` because using any of these inputs prevents the chunking operation from happening. Instead, use the [**Compose** action](../logic-apps/logic-apps-perform-data-operations.md#compose-action). Specifically, you must create a `body` field by using the **Compose** action to store the data output from the trigger body, variable, expression, and so on, for example:
 

@@ -4,16 +4,6 @@
             "source_path_from_root": "/articles/azure-web-pubsub/howto-troubleshoot-diagnostic-logs.md",
             "redirect_url": "/azure/azure-web-pubsub/howto-troubleshoot-resource-logs",
             "redirect_document_id": false
-        },
-        {
-          "source_path_from_root": "/articles/azure-web-pubsub/reference-server-sdk-csharp.md",
-          "redirect_url": "/dotnet/api/overview/azure/webpubsub/client",
-          "redirect_document_id": false
-        },
-        {
-          "source_path_from_root": "/articles/azure-web-pubsub/reference-server-sdk-java.md",
-          "redirect_url": "/java/api/overview/azure/webpubsub/client",
-          "redirect_document_id": false
         }
     ]
 }

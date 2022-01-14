@@ -173,4 +173,4 @@ In the My Apps portal, when you select the **Roadmunk** tile, you should be auto
 
 After you configure Roadmunk, you can enforce session control. Session control protects the exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from conditional access. 
 
-Learn how to [enforce session control by using Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Learn how to [enforce session control by using Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

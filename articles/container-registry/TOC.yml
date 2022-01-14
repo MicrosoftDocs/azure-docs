@@ -87,12 +87,22 @@
         href: container-registry-oci-artifacts.md
       - name: Push and pull a Helm chart
         href: container-registry-helm-repos.md
+      - name: Push and pull supply chain artifacts (preview)
+        href: container-registry-oras-artifacts.md
       - name: View repositories
         href: container-registry-repositories.md
       - name: Import container images
         href: container-registry-import-images.md
       - name: Transfer artifacts (preview)
-        href: container-registry-transfer-images.md
+        items:
+        - name: Overview and prerequisites
+          href: container-registry-transfer-prerequisites.md
+        - name: ACR Transfer with Az CLI
+          href: container-registry-transfer-cli.md
+        - name: ACR Transfer with ARM templates
+          href: container-registry-transfer-images.md
+        - name: Troubleshooting
+          href: container-registry-transfer-troubleshooting.md
       - name: Protect registry data
         items:
         - name: Lock container images
@@ -173,7 +183,7 @@
         - name: Scan container images
           expanded: false
           items:
-          - name: Scan with Azure Defender
+          - name: Scan with Microsoft Defender for Cloud
             href: scan-images-defender.md
           - name: Scan with GitHub actions
             href: github-action-scan.md

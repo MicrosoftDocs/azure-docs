@@ -60,6 +60,8 @@ This extension version is available by installing the [NuGet package], version 3
 }
 ```
 
+[!INCLUDE [functions-bindings-bundle-v3-tables-note](../../includes/functions-bindings-bundle-v3-tables-note.md)]
+
 To learn more, see [Update your extensions].
 
 ### Functions 1.x

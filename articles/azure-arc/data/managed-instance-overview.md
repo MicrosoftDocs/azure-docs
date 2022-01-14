@@ -36,6 +36,6 @@ Learn more about [Features and Capabilities of Azure Arc-enabled SQL Managed Ins
 
 [Azure Arc-enabled Managed Instance high availability](managed-instance-high-availability.md)
 
-[Start by creating a Data Controller](create-data-controller.md)
+[Start by creating a Data Controller](create-data-controller-indirect-cli.md)
 
 Already created a Data Controller? [Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)

@@ -21,7 +21,7 @@ Although Event Grid on Kubernetes and Azure Event Grid share many features and t
 | Feature | Event Grid on Kubernetes | Azure Event Grid |
 |:--|:-:|:-:|
 | [Event Grid Topics](/rest/api/eventgrid/version2021-06-01-preview/topics) | ✔ | ✔ |
-| [CNCF Cloud Events schema](https://github.com/cloudevents/spec/blob/master/spec.md) | ✔ | ✔ |
+| [CNCF Cloud Events schema](https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md) | ✔ | ✔ |
 | Event Grid and custom schemas | ✘* | ✔ |
 | Reliable delivery | ✔ | ✔ |
 | Metrics  | ✔** | ✔ |

@@ -7,7 +7,7 @@ ms.subservice: troubleshooting
 ms.topic: conceptual
 ms.date: 10/30/2020 
 ms.author: saveenr 
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Troubleshoot Synapse Studio connectivity with PowerShell

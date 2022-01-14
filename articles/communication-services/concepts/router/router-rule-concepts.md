@@ -1,8 +1,8 @@
----	
+---
 title: Router rules engine concepts for Azure Communication Services
-titleSuffix: An Azure Communication Services concept document	
-description: Learn about the Azure Communication Services Job Router rules engine concepts.	
-author: jasonshave	
+titleSuffix: An Azure Communication Services concept document
+description: Learn about the Azure Communication Services Job Router rules engine concepts.
+author: jasonshave
 manager: phans
 services: azure-communication-services
 
