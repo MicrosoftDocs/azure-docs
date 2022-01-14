@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 10/21/2021
+ms.date: 01/18/2021
 ms.custom: data4ml
 
 # Customer intent: As low code experience data scientist, I need to make my data in storage on Azure available to my remote compute to train my ML models.
@@ -87,8 +87,7 @@ The following example demonstrates what the form looks like when you create an *
 After you create a datastore, create a dataset to interact with your data. Datasets package your data into a lazily evaluated consumable object for machine learning tasks, like training. [Learn more about datasets](how-to-create-register-datasets.md).
 
 There are two types of datasets, FileDataset and TabularDataset. 
-[FileDatasets](how-to-create-register-datasets.md#filedataset) create references to single or multiple files or public URLs. Whereas,
-[TabularDatasets](how-to-create-register-datasets.md#tabulardataset) represent your data in a tabular format. You can create TabularDatasets from .csv, .tsv, .parquet, .jsonl files, and from SQL query results.
+[FileDatasets](how-to-create-register-datasets.md#filedataset) create references to single or multiple files or public URLs. Whereas [TabularDatasets](how-to-create-register-datasets.md#tabulardataset) represent your data in a tabular format. You can create TabularDatasets from .csv, .tsv, .parquet, .jsonl files, and from SQL query results.
 
 The following steps and animation show how to create a dataset in [Azure Machine Learning studio](https://ml.azure.com).
 
@@ -108,7 +107,7 @@ To create a dataset in the studio:
 1. Select **Next** to populate the **Settings and preview** and **Schema** forms; they are intelligently populated based on file type and you can further configure your dataset prior to creation on these forms. 
     1.  On the Settings and preview form, you can indicate if your data contains multi-line data. 
     1. On the Schema form, you can specify that your TabularDataset has a time component by selecting type: **Timestamp** for your date or time column. 
-        1. If your data is formatted into subsets, for example time windows, and you want to use those subsets for training, select type **Partition timestamp**. Doing so enables timeseries operations on your dataset. Learn more about how to [leverage partitions in your dataset for training](how-to-monitor-datasets.md?tabs=azure-studio#create-target-dataset).
+        1. If your data is formatted into subsets, for example time windows, and you want to use those subsets for training, select type **Partition timestamp**. Doing so enables time series operations on your dataset. Learn more about how to [leverage partitions in your dataset for training](how-to-monitor-datasets.md?tabs=azure-studio#create-target-dataset).
 1. Select **Next** to review the **Confirm details** form. Check your selections and create an optional data profile for your dataset. Learn more about [data profiling](#profile).
 1. Select **Create** to complete your dataset creation.
 
