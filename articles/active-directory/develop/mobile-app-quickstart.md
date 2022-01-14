@@ -24,6 +24,6 @@ zone_pivot_groups: mobile-app-quickstart
 [!INCLUDE [Android](./includes/mobile-app/quickstart-android.md)]
 ::: zone-end
 
-::: zone pivot="devlang-iOS"
+::: zone pivot="devlang-ios"
 [!INCLUDE [iOS and macOS](./includes/mobile-app/quickstart-ios.md)]
 ::: zone-end

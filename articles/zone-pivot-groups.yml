@@ -499,7 +499,7 @@ groups:
   pivots:
   - id: devlang-android
     title: Android
-  - id: devlang-iOS
+  - id: devlang-ios
     title: iOS and macOS 
 ## Desktop app##  
 - id: desktop-app-quickstart

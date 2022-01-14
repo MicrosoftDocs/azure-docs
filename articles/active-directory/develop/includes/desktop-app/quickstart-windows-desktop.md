@@ -19,90 +19,66 @@ In this quickstart, you download and run a code sample that demonstrates how a W
 
 See [How the sample works](#how-the-sample-works) for an illustration.
 
-> [!div renderon="docs"]
-> ## Prerequisites
->
-> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) with the [Universal Windows Platform development](/windows/uwp/get-started/get-set-up) workload installed
->
-> ## Register and download your quickstart app
-> You have two options to start your quickstart application:
-> * [Express] [Option 1: Register and auto configure your app and then download your code sample](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * [Manual] [Option 2: Register and manually configure your application and code sample](#option-2-register-and-manually-configure-your-application-and-code-sample)
->
-> ### Option 1: Register and auto configure your app and then download your code sample
->
-> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
-> 1. Enter a name for your application and select **Register**.
-> 1. Follow the instructions to download and automatically configure your new application with just one click.
->
-> ### Option 2: Register and manually configure your application and code sample
->
-> #### Step 1: Register your application
-> To register your application and add the app's registration information to your solution manually, follow these steps:
->
-> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-> 1. Search for and select **Azure Active Directory**.
-> 1. Under **Manage**, select **App registrations** > **New registration**.
-> 1. Enter a **Name** for your application, for example `Win-App-calling-MsGraph`. Users of your app might see this name, and you can change it later.
-> 1. In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
-> 1. Select **Register** to create the application.
-> 1. Under **Manage**, select **Authentication**.
-> 1. Select **Add a platform** > **Mobile and desktop applications**.
-> 1. In the **Redirect URIs** section, select `https://login.microsoftonline.com/common/oauth2/nativeclient` and in **Custom redirect URIs** add `ms-appx-web://microsoft.aad.brokerplugin/{client_id}` where `{client_id}` is the application (client) ID of your application (the same GUID that appears in the `msal{client_id}://auth` checkbox).
-> 1. Select **Configure**.
 
-> [!div class="sxs-lookup" renderon="portal"]
-> #### Step 1: Configure your application in Azure portal
-> For the code sample in this quickstart to work, add a **Redirect URI** of `https://login.microsoftonline.com/common/oauth2/nativeclient` and `ms-appx-web://microsoft.aad.brokerplugin/{client_id}`.
-> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Make this change for me]()
->
-> > [!div id="appconfigured" class="alert alert-info"]
-> > ![Already configured](../../media/quickstart-v2-windows-desktop/green-check.png) Your application is configured with these attributes.
+## Prerequisites
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) with the [Universal Windows Platform development](/windows/uwp/get-started/get-set-up) workload installed
+
+## Register and download your quickstart app
+You have two options to start your quickstart application:
+* [Express] [Option 1: Register and auto configure your app and then download your code sample](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+* [Manual] [Option 2: Register and manually configure your application and code sample](#option-2-register-and-manually-configure-your-application-and-code-sample)
+
+### Option 1: Register and auto configure your app and then download your code sample
+
+1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs)quickstart experience.
+1. Enter a name for your application and select **Register**.
+1. Follow the instructions to download and automatically configure your new application with just one click.
+
+### Option 2: Register and manually configure your application and code sample
+
+#### Step 1: Register your application
+To register your application and add the app's registration information to your solution manually, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations** > **New registration**.
+1. Enter a **Name** for your application, for example `Win-App-calling-MsGraph`. Users of your app might see this name, and you can change it later.
+1. In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
+1. Select **Register** to create the application.
+1. Under **Manage**, select **Authentication**.
+1. Select **Add a platform** > **Mobile and desktop applications**.
+1. In the **Redirect URIs** section, select `https://login.microsoftonline.com/common/oauth2/nativeclient` and in **Custom redirect URIs** add `ms-appx-web://microsoft.aad.brokerplugin/{client_id}` where `{client_id}` is the application (client) ID of your application (the same GUID that appears in the `msal{client_id}://auth` checkbox).
+1. Select **Configure**.
 
 #### Step 2: Download your Visual Studio project
 
-> [!div renderon="docs"]
-> [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
-
-> [!div class="sxs-lookup" renderon="portal"]
-> Run the project using Visual Studio 2019.
-> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
-> [Download the code sample](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
+[Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
 [!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
 
-> [!div class="sxs-lookup" renderon="portal"]
-> #### Step 3: Your app is configured and ready to run
-> We have configured your project with values of your app's properties and it's ready to run.
+#### Step 3: Configure your Visual Studio project
+1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
+1. Open the project in Visual Studio.
+1. Edit **App.Xaml.cs** and replace the values of the fields `ClientId` and `Tenant` with the following code:
 
-> [!div class="sxs-lookup" renderon="portal"]
-> > [!NOTE]
-> > `Enter_the_Supported_Account_Info_Here`
+   ```csharp
+   private static string ClientId = "Enter_the_Application_Id_here";
+   private static string Tenant = "Enter_the_Tenant_Info_Here";
+   ```
 
-> [!div renderon="docs"]
-> #### Step 3: Configure your Visual Studio project
-> 1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
-> 1. Open the project in Visual Studio.
-> 1. Edit **App.Xaml.cs** and replace the values of the fields `ClientId` and `Tenant` with the following code:
->
->    ```csharp
->    private static string ClientId = "Enter_the_Application_Id_here";
->    private static string Tenant = "Enter_the_Tenant_Info_Here";
->    ```
->
-> Where:
-> - `Enter_the_Application_Id_here` - is the **Application (client) ID** for the application you registered.
->    
->    To find the value of **Application (client) ID**, go to the app's **Overview** page in the Azure portal.
-> - `Enter_the_Tenant_Info_Here` - is set to one of the following options:
->   - If your application supports **Accounts in this organizational directory**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
->   - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
->   - If your application supports **Accounts in any organizational directory and personal Microsoft accounts**, replace this value with `common`.
->
->     To find the values of **Directory (tenant) ID** and **Supported account types**, go to the app's **Overview** page in the Azure portal.
->
+Where:
+- `Enter_the_Application_Id_here` - is the **Application (client) ID** for the application you registered.
+   
+    To find the value of **Application (client) ID**, go to the app's **Overview** page in the Azure portal.
+- `Enter_the_Tenant_Info_Here` - is set to one of the following options:
+  - If your application supports **Accounts in this organizational directory**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
+  - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
+  - If your application supports **Accounts in any organizational directory and personal Microsoft accounts**, replace this value with `common`.
+
+    To find the values of **Directory (tenant) ID** and **Supported account types**, go to the app's **Overview** page in the Azure portal.
+
 
 ## More information
 
