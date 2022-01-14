@@ -89,7 +89,7 @@ Hereby, declares that this device is in compliance with EU Directive 2014/53/EU 
 
 This device may operate in all member states of the EU. Observe national and local regulations where the device is used. This device is restricted to indoor use only when operating in the 5150 - 5350 MHz frequency range in the following countries:  
 
-:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-eu-countries-indoor-use.png" alt-text="":::
+:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-eu-countries-indoor-use.png" alt-text="List of EU countries":::
 
 In accordance with Article 10.8(a) and 10.8(b) of the Radio Equipment Directive (RED), the following table provides information on the frequency bands used and the maximum RF transmit power of the product for sale in the EU: 
 
@@ -114,11 +114,11 @@ In accordance with Article 10.8(a) and 10.8(b) of the Radio Equipment Directive 
 :::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-south-korea.png" alt-text="Additional instructions for South Korea":::
 
 ### **TAIWAN** 
-:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-taiwan.png" alt-text="Additional instructions for Taiwan":::
+:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-taiwan.png" alt-text="Additional instructions for Taiwan 1":::
 
-:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-taiwan-table-1.png" alt-text="Additional instructions for Taiwan":::
+:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-taiwan-table-1.png" alt-text="Additional instructions for Taiwan 2":::
 
-:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-taiwan-table-2.png" alt-text="Additional instructions for Taiwan":::
+:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-taiwan-table-2.png" alt-text="Additional instructions for Taiwan 3":::
 
 :::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-commodity-inspection-mark.png" alt-text="Commodity Inspection Mark":::
 
