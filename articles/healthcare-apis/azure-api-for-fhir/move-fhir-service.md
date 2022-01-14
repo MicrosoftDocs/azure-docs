@@ -40,7 +40,7 @@ This step validates whether the selected resource can be moved. It takes a few m
  
 After reviewing the move operation summary, select the confirmation checkbox at the bottom of the screen and press the Move button to complete the operation.
 
-  :::image type="content" source="media/move/move-review.png" alt-text="Screenshot of Move to another subscription with confrmation." lightbox="media/move/move-review.png":::
+  :::image type="content" source="media/move/move-review.png" alt-text="Screenshot of Move to another subscription with confirmation." lightbox="media/move/move-review.png":::
 
 Optionally, you can check the activity log in the source subscription and target subscription.
 
