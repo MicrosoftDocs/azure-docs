@@ -104,9 +104,7 @@ A [search index](search-what-is-an-index.md) specifies the fields in a search do
     }
     ```
 
-<a name="DocumentKeys"></a>
-
-1. Designate one string field as the document key that uniquely identifies each document. For blob content, the best candidates for a document key are metadata properties on the blob:
+1. <a name="DocumentKeys"></a> Designate one string field as the document key that uniquely identifies each document. For blob content, the best candidates for a document key are metadata properties on the blob:
 
    + **`metadata_storage_path`** (default). Using the full path ensures uniqueness, but the path contains `/` characters that are [invalid in a document key](/rest/api/searchservice/naming-rules). Use the [base64Encode function](search-indexer-field-mappings.md#base64EncodeFunction) to encode characters (see the example in the next section). If using the portal to define the indexer, the encoding step is built in.
 
