@@ -11,11 +11,13 @@ ms.date: 01/14/2022
 
 # Connect privately to API Management using a private endpoint
 
-You can configure a [private endpoint](../private-link/private-endpoint-overview.md) for your API Management instance to allow clients located in your private network to securely access the instance over [Azure Private Link](../private-link/private-link-overview.md). 
+You can configure a [private endpoint](../private-link/private-endpoint-overview.md) for your API Management instance to allow clients in your private network to securely access the instance over [Azure Private Link](../private-link/private-link-overview.md). 
 
 * The private endpoint uses an IP address from your Azure VNet address space. 
 
 * Network traffic between a client on your private network and API Management traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure from the public internet.
+
+* Configure custom DNS settings or an Azure DNS private zone to map the API Management hostname to the endpoint's private IP address. 
 
 With a private endpoint and Private Link, you can:
 
@@ -145,7 +147,6 @@ When you use the Azure portal to create a private endpoint, as shown in the next
     | Subscription | Select your subscription. |
     | Resource group | Select your resource group. |
     | Private DNS zones | Leave the default of **(new) privatelink.azure-api.net**.
-    
 
 1. Select **Review + create**.
 
@@ -208,8 +209,6 @@ After the private endpoint is created, confirm its DNS settings in the portal:
 ### Test in virtual network
 
 Connect to a virtual machine you set up in the virtual network.
-
-[Need to add step/tip to enable autoregistration in the virtual network link in the private zone configuration.]
 
 Run a utility such as `nslookup` or `dig` to look up the IP address of your default Gateway endpoint over Private Link. For example:
 

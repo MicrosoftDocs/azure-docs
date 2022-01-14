@@ -44,7 +44,7 @@ For configurations specific to the *external* mode, where the service endpoints 
 
 1. Go to the [Azure portal](https://portal.azure.com) to find your API management instance. Search for and select **API Management services**.
 1. Choose your API Management instance.
-1. Select **Virtual network**.
+1. Select **Network** > **Virtual network**.
 1. Select the **Internal** access type.
 1. In the list of locations (regions) where your API Management service is provisioned: 
     1. Choose a **Location**.
