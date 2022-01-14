@@ -1,7 +1,7 @@
 ---
-title: Download Apache JMeter logs for troubleshooting 
+title: Troubleshoot load test errors
 titleSuffix: Azure Load Testing
-description: Learn how you can troubleshoot Apache JMeter script problems by downloading the Azure Load Testing logs in the Azure portal.
+description: Learn how you can troubleshoot errors during your load test by downloading and analyzing the Apache JMeter logs in the Azure portal.
 services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
