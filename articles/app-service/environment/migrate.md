@@ -16,7 +16,7 @@ App Service can now migrate your App Service Environment (ASE) v2 to an [App Ser
 
 ## Supported scenarios
 
-At this time, App Service Environment migrations to v3 are supported for both [Internal Load Balancer (ILB)](create-ilb-ase.md) and [external (internet facing with public IP)](create-external-ase.md) App Service Environment v2 in the following regions:
+At this time, App Service Environment migrations to v3 support both [Internal Load Balancer (ILB)](create-ilb-ase.md) and [external (internet facing with public IP)](create-external-ase.md) App Service Environment v2 in the following regions:
 
 - West Central US
 - Canada Central
@@ -124,7 +124,7 @@ The migration feature doesn't plan on supporting App Service Environment v1 with
 - **What happens to my old App Service Environment?**  
   If you decide to migrate an App Service Environment, the old environment gets shut down and deleted and all of your apps are migrated to a new environment. Your old environment will no longer be accessible.
 - **Will I be able to migrate from the Azure portal?**  
-  Yes, the portal experience is expected to be available by early February, 2022.
+  Yes, the portal experience is expected to be available by early February 2022.
 
 ## Next steps
 
