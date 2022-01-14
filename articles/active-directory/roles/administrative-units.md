@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: overview
 ms.subservice: roles
 ms.workload: identity
-ms.date: 01/12/2022
+ms.date: 01/14/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -109,7 +109,7 @@ Here are some of the constraints for administrative units.
 
 - Administrative units can't be nested.
 - Administrative unit-scoped user account administrators can't create or delete users.
-- Scoped credential management role members can't manage credentials of users in groups added to an administrative unit, unless that group member is directly added on the **Users** page of that same administrative unit. For more information, see [Add members to an administrative unit](admin-units-members-add.md).
+- A scoped role assignment doesn't apply to members of groups added to an administrative unit, unless the group members are directly added to the administrative unit. For more information, see [Add members to an administrative unit](admin-units-members-add.md).
 - Administrative units are currently not available in [Azure AD Identity Governance](../governance/identity-governance-overview.md).
 
 ## Next steps

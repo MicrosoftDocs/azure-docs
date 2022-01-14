@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 01/12/2022
+ms.date: 01/14/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Add users or groups to an administrative unit
 
-In Azure Active Directory (Azure AD), you can add users or groups to an administrative unit to restrict the scope of role permissions. For additional details on what administrative unit members can do, see [Administrative units in Azure Active Directory](administrative-units.md).
+In Azure Active Directory (Azure AD), you can add users or groups to an administrative unit to restrict the scope of role permissions. For additional details on what scoped administrators can do, see [Administrative units in Azure Active Directory](administrative-units.md).
 
 ## Prerequisites
 
