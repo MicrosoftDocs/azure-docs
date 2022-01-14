@@ -113,7 +113,7 @@ The migration feature doesn't plan on supporting App Service Environment v1 with
 - **Will I need to do anything to my apps after the migration to get them running on the new App Service Environment?**  
   No, all of your apps running on the old environment will be automatically migrated to the new environment and run like before. No user input is needed.
 - **What if my App Service Environment has a custom domain suffix?**  
-  While App Service Environment v1 and v2 support [custom domain suffixes](using-an-ase.md#dns-configuration), App Service Environment v3 currently doesn't. You won't be able to migrate at this time. Support for migrating an App Service Environment with a custom domain suffix will be available in a future version. Check back here for updates.
+  You won't be able migrate using the migration feature at this time. If you have an unsupported environment and want to migrate immediately, see [migration alternatives](migration-alternatives.md).
 - **What if my App Service Environment is zone pinned?**  
   Zone pinned App Service Environment is currently not a supported scenario for migration. When supported, zone pinned App Service Environments will be migrated to zone redundant App Service Environment v3.
 - **What properties of my App Service Environment will change?**  
