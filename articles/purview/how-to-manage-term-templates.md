@@ -10,7 +10,7 @@ ms.date: 11/04/2020
 ---
 # How to manage term templates for business glossary
 
-Azure Purview allows you to create a glossary of terms that are important for enriching your data. Each new term added to your Purview Data Catalog Glossary is based on a term template that determines the fields for the term. This article describes how to create a term template and custom attributes that can be associated to glossary terms.
+Azure Purview allows you to create a glossary of terms that are important for enriching your data. Each new term added to your Azure Purview Data Catalog Glossary is based on a term template that determines the fields for the term. This article describes how to create a term template and custom attributes that can be associated to glossary terms.
 
 ## Manage term templates and custom attributes
 
