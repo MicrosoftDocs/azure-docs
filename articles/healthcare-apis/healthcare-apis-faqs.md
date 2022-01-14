@@ -6,7 +6,7 @@ author: ginalee-dotcom
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 01/03/2022
+ms.date: 01/14/2022
 ms.author: ginle
 ---
 
@@ -43,7 +43,7 @@ Please refer to the [Products by region](https://azure.microsoft.com/global-infr
 Please refer to [Healthcare APIs service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-healthcare-apis) for the most current information.
 
 ### What is the backup and recovery policy for the Azure Healthcare APIs?
-Data for the managed service is automatically backed up with geo-redundancy every 12 hours, and the backups are kept for 7 days. Data can be restored by the support team in the same region, or in a different region unless the default geo-redundant backup policy is disabled to meet the single region data residency requirement.
+Data for the managed service is automatically backed up every 12 hours, and the backups are kept for 7 days. Data can be restored by the support team. 
 
 Customers can make a request to restore the data, or change the default data backup policy, through a support ticket.
 
