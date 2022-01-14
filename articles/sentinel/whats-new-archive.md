@@ -25,6 +25,67 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 >
 
+## June 2021
+
+- [Upgrades for normalization and the Azure Sentinel Information Model](#upgrades-for-normalization-and-the-azure-sentinel-information-model)
+- [Updated service-to-service connectors](#updated-service-to-service-connectors)
+- [Export and import analytics rules (Public preview)](#export-and-import-analytics-rules-public-preview)
+- [Alert enrichment: alert details (Public preview)](#alert-enrichment-alert-details-public-preview)
+- [More help for playbooks!](#more-help-for-playbooks)
+- [New documentation reorganization](#new-documentation-reorganization)
+
+### Upgrades for normalization and the Azure Sentinel Information Model
+
+The Azure Sentinel Information Model enables you to use and create source-agnostic content, simplifying your analysis of the data in your Azure Sentinel workspace.
+
+In this month's update, we've enhanced our normalization documentation, providing new levels of detail and full DNS, process event, and authentication normalization schemas.
+
+For more information, see:
+
+- [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md) (updated)
+- [Azure Sentinel Authentication normalization schema reference (Public preview)](authentication-normalization-schema.md) (new!)
+- [Azure Sentinel data normalization schema reference](./network-normalization-schema.md)
+- [Azure Sentinel DNS normalization schema reference (Public preview)](dns-normalization-schema.md) (new!)
+- [Azure Sentinel Process Event normalization schema reference (Public preview)](process-events-normalization-schema.md) (new!)
+- [Azure Sentinel Registry Event normalization schema reference (Public preview)](registry-event-normalization-schema.md) (new!)
+
+
+### Updated service-to-service connectors
+
+Two of our most-used connectors have been the beneficiaries of major upgrades.
+
+- The [Windows security events connector (Public preview)](connect-windows-security-events.md) is now based on the new Azure Monitor Agent (AMA), allowing you far more flexibility in choosing which data to ingest, and giving you maximum visibility at minimum cost.
+
+- The [Azure activity logs connector](./data-connectors-reference.md#azure-activity) is now based on the diagnostics settings pipeline, giving you more complete data, greatly reduced ingestion lag, and better performance and reliability.
+
+The upgrades are not automatic. Users of these connectors are encouraged to enable the new versions.
+
+### Export and import analytics rules (Public preview)
+
+You can now export your analytics rules to JSON-format Azure Resource Manager (ARM) template files, and import rules from these files, as part of managing and controlling your Azure Sentinel deployments as code. Any type of [analytics rule](detect-threats-built-in.md) - not just **Scheduled** - can be exported to an ARM template. The template file includes all the rule's information, from its query to its assigned MITRE ATT&CK tactics.
+
+For more information, see [Export and import analytics rules to and from ARM templates](import-export-analytics-rules.md).
+
+### Alert enrichment: alert details (Public preview)
+
+In addition to enriching your alert content with entity mapping and custom details, you can now custom-tailor the way alerts - and by extension, incidents - are presented and displayed, based on their particular content. Like the other alert enrichment features, this is configurable in the [analytics rule wizard](detect-threats-custom.md).
+
+For more information, see [Customize alert details in Azure Sentinel](customize-alert-details.md).
+
+
+### More help for playbooks!
+
+Two new documents can help you get started or get more comfortable with creating and working with playbooks.
+- [Authenticate playbooks to Azure Sentinel](authenticate-playbooks-to-sentinel.md) helps you understand the different authentication methods by which Logic Apps-based playbooks can connect to and access information in Azure Sentinel, and when it's appropriate to use each one.
+- [Use triggers and actions in playbooks](playbook-triggers-actions.md) explains the difference between the **incident trigger** and the **alert trigger** and which to use when, and shows you some of the different actions you can take in playbooks in response to incidents, including how to access the information in [custom details](playbook-triggers-actions.md#work-with-custom-details).
+
+Playbook documentation also explicitly addresses the multi-tenant MSSP scenario.
+
+### New documentation reorganization
+
+This month we've reorganized our [Azure Sentinel documentation](index.yml), restructuring into intuitive categories that follow common customer journeys. Use the filtered docs search and updated landing page to navigate through Azure Sentinel docs.
+
+:::image type="content" source="media/whats-new/new-docs.png" alt-text="New Azure Sentinel documentation reorganization." lightbox="media/whats-new/new-docs.png":::
 
 ## May 2021
 
@@ -134,7 +195,7 @@ Incident teams are especially helpful when used as a dedicated conference bridge
 
 In Microsoft Teams, the new team's **Incident page** tab always has the most updated and recent data from Azure Sentinel, ensuring that your teams have the most relevant data right at hand.
 
-[ ![Incident page in Microsoft Teams.](media/collaborate-in-microsoft-teams/incident-in-teams.jpg) ](media/collaborate-in-microsoft-teams/incident-in-teams.jpg#lightbox)
+[ ![Incident page in Microsoft Teams.](media/collaborate-in-microsoft-teams/incident-in-teams.png) ](media/collaborate-in-microsoft-teams/incident-in-teams.png#lightbox)
 
 For more information, see [Collaborate in Microsoft Teams (Public preview)](collaborate-in-microsoft-teams.md).
 
@@ -142,7 +203,7 @@ For more information, see [Collaborate in Microsoft Teams (Public preview)](coll
 
 The new, Azure Sentinel Zero Trust (TIC3.0) workbook provides an automated visualization of [Zero Trust](/security/zero-trust/) principles, cross-walked to the [Trusted Internet Connections](https://www.cisa.gov/trusted-internet-connections) (TIC) framework.
 
-We know that compliance isn’t just an annual requirement, and organizations must monitor configurations over time like a muscle. Azure Sentinel's Zero Trust workbook uses the full breadth of Microsoft security offerings across Azure, Office 365, Teams, Intune, Windows Virtual Desktop, and many more.
+We know that compliance isn’t just an annual requirement, and organizations must monitor configurations over time like a muscle. Azure Sentinel's Zero Trust workbook uses the full breadth of Microsoft security offerings across Azure, Office 365, Teams, Intune, Azure Virtual Desktop, and many more.
 
 [ ![Zero Trust workbook.](media/zero-trust-workbook.gif) ](media/zero-trust-workbook.gif#lightbox)
 
@@ -301,7 +362,7 @@ Customers will still be able to send the logs manually for specific instances an
 
 ### Cybersecurity Maturity Model Certification (CMMC) workbook
 
-The Azure Sentinel CMMC Workbook provides a mechanism for viewing log queries aligned to CMMC controls across the Microsoft portfolio, including Microsoft security offerings, Office 365, Teams, Intune, Windows Virtual Desktop and many more.
+The Azure Sentinel CMMC Workbook provides a mechanism for viewing log queries aligned to CMMC controls across the Microsoft portfolio, including Microsoft security offerings, Office 365, Teams, Intune, Azure Virtual Desktop and many more.
 
 The CMMC workbook enables security architects, engineers, security operations analysts, managers, and IT professionals to gain situational awareness visibility for the security posture of cloud workloads. There are also recommendations for selecting, designing, deploying, and configuring Microsoft offerings for alignment with respective CMMC requirements and practices.
 

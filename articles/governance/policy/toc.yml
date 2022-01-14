@@ -116,6 +116,8 @@
         href: ./samples/irs-1075-sept2016.md
       - name: ISO 27001:2013
         href: ./samples/iso-27001.md
+      - name: RMIT Malaysia
+        href: ./samples/rmit-malaysia.md
       - name: New Zealand ISM Restricted
         href: ./samples/new-zealand-ism.md
       - name: NIST SP 800-53 Rev. 5

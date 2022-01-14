@@ -3,7 +3,7 @@ title: Protecting Microsoft 365 from on-premises attacks
 description: Guidance about how to ensure an on-premises attack doesn't affect Microsoft 365.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals

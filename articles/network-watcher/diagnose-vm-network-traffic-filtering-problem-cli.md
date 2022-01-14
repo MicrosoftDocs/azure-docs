@@ -10,7 +10,6 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure

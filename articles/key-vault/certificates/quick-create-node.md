@@ -3,10 +3,11 @@ title: Quickstart -  Azure Key Vault certificate client library for JavaScript (
 description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the JavaScript client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 12/07/2021
+ms.date: 12/13/2021
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
+ms.devlang: javascript
 ms.custom: devx-track-js, mode-api
 ---
 
@@ -91,20 +92,21 @@ az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --key-per
 
 ## Set environment variables
 
-This application is using key vault name as an environment variable called `AZURE_KEY_VAULT_URI`.
+This application is using key vault name as an environment variable called `KEY_VAULT_NAME`.
 
 Windows
 ```cmd
-set AZURE_KEY_VAULT_URI=<your-key-vault-name>
+set KEY_VAULT_NAME=<your-key-vault-name>
 ````
+
 Windows PowerShell
 ```powershell
-$Env:AZURE_KEY_VAULT_URI="<your-key-vault-name>"
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS or Linux
 ```cmd
-export AZURE_KEY_VAULT_URI=<your-key-vault-name>
+export KEY_VAULT_NAME=<your-key-vault-name>
 ```
 
 ## Code example
@@ -127,6 +129,9 @@ The code samples below will show you how to create a client, set a certificate, 
       // - AZURE_CLIENT_SECRET: The client secret for the registered application
       const url = process.env["AZURE_KEY_VAULT_URI"] || "<keyvault-url>";
       const credential = new DefaultAzureCredential();
+
+      const keyVaultName = process.env["KEY_VAULT_NAME"];
+      const url = "https://" + keyVaultName + ".vault.azure.net";
     
       const client = new CertificateClient(url, credential);
     

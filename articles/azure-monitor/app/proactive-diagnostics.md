@@ -49,11 +49,6 @@ Configuring email notifications for a specific smart detection rule can be done 
 
 Alternatively, you can change the configuration using Azure Resource Manager templates. For more information, see [Manage Application Insights smart detection rules using Azure Resource Manager templates](./proactive-arm-config.md) for more details.
 
-## Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
-
-
 
 ## Next steps
 These diagnostic tools help you inspect the telemetry from your app:

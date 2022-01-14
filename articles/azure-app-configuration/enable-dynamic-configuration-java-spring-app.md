@@ -5,6 +5,7 @@ description: Learn how to dynamically update configuration data for Spring Boot 
 services: azure-app-configuration
 author: mrm9084
 ms.service: azure-app-configuration
+ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/09/2020
 ms.custom: devx-track-java

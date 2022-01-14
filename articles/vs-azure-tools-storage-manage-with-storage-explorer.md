@@ -5,7 +5,6 @@ services: storage
 author: cawaMS
 
 ms.service: storage
-ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
@@ -27,7 +26,8 @@ In this article, you'll learn several ways of connecting to and managing your Az
 
 The following versions of Windows support Storage Explorer:
 
-* Windows 10 (recommended)
+* Windows 11
+* Windows 10
 * Windows 8
 * Windows 7
 

@@ -110,7 +110,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | Norway East | :heavy_check_mark: | :x: | :x: |
 | South Africa North | :heavy_check_mark: | :x: | :x: |
 | South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Southeast Asia | :heavy_check_mark: | :x: | :x: |
 | Sweden Central | :heavy_check_mark: | :x: | :x: |
 | Switzerland North | :heavy_check_mark: | :x: | :x: |
 | UAE North | :heavy_check_mark: | :x: | :x: |
@@ -122,6 +122,8 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | West US 3 | :heavy_check_mark: | :x: | :x: |
 
 <!-- We continue to add more regions for flexible server. -->
+> [!NOTE]
+> If your application requires Zone redundant HA and it's not available in your preferred Azure region, consider using other regions within the same geography where Zone redundant HA is available, such as US East for US East 2, Central US for North Central US, and so on. 
 
 ## Migration
 

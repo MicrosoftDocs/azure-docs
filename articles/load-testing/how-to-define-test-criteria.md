@@ -10,7 +10,7 @@ ms.date: 11/30/2021
 ms.topic: how-to
 ---
 
-# Define test criteria for load tests by using Azure Load Testing Preview
+# Define pass/fail criteria for load tests by using Azure Load Testing Preview
 
 In this article, you'll learn how to define pass/fail criteria for your load tests with Azure Load Testing Preview. 
 

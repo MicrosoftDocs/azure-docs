@@ -10,7 +10,7 @@ ms.date: 08/12/2021
 ---
 # How to get lineage from SAP ECC into Azure Purview
 
-This article elaborates on the data lineage aspects of SAP ECC source in Azure Purview. The prerequisite to see data lineage in Purview for SAP ECC is to [scan your SAP ECC.](../purview/register-scan-sapecc-source.md) 
+This article elaborates on the data lineage aspects of SAP ECC source in Azure Purview. The prerequisite to see data lineage in Azure Purview for SAP ECC is to [scan your SAP ECC.](../purview/register-scan-sapecc-source.md) 
 
 ## Lineage of SAP ECC artifacts in Azure Purview
 

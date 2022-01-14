@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 01/06/2022
 ms.author: inhenkel
 ms.custom: seodec18
 
@@ -21,7 +21,7 @@ ms.custom: seodec18
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-In Azure Media Services, an [Asset](/rest/api/media/assets) is a core concept. It is where you input media (for example, through upload or live ingest), output media (from a job output), and publish media from (for streaming). 
+In Azure Media Services, an [Asset](/rest/api/media/assets) is a core concept. It is where you input media (for example, through upload or live ingest), output media (from a job output), and publish media (for streaming).
 
 An Asset is mapped to a blob container in the [Azure Storage account](storage-account-concept.md) and the files in the Asset are stored as block blobs in that container. Assets contain information about digital files stored in Azure Storage (including video, audio, images, thumbnail collections, text tracks, and closed caption files).
 
