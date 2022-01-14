@@ -60,7 +60,7 @@ The step-by-step instructions in the current documentation for [back up](../mana
 > Cloning apps is supported on Windows App Service only.
 >
 
-This solution is recommended for users that are running Windows apps and can't migrate using the [migration feature](migrate.md). You'll need to set up your new App Service Environment v3 before cloning any apps. Cloning an app can take up to 30 minutes to complete. Cloning can be done using PowerShell as described in the [documentation](../app-service-web-app-cloning.md#cloning-an-existing-app-to-an-app-service-environment) or using the Azure portal as described below.
+This solution is recommended for users that are using Windows App Service and can't migrate using the [migration feature](migrate.md). You'll need to set up your new App Service Environment v3 before cloning any apps. Cloning an app can take up to 30 minutes to complete. Cloning can be done using PowerShell as described in the [documentation](../app-service-web-app-cloning.md#cloning-an-existing-app-to-an-app-service-environment) or using the Azure portal as described below.
 
 To clone an app using the [Azure portal](https://www.portal.azure.com), navigate to your existing App Service and select **Clone App** under **Development Tools**. Fill in the required fields using the details for your new App Service Environment v3.
 
@@ -69,19 +69,19 @@ To clone an app using the [Azure portal](https://www.portal.azure.com), navigate
 1. Use your App Service Environment v3 name for **Region**
 1. Choose whether or not to clone your deployment source
 1. You can use an existing Windows **App Service plan** from your new environment if you created one already, or create a new one. The available Windows App Service plans in your new App Service Environment v3, if any, will be listed in the dropdown.
-1. Modify **SKU and size** as needed using one of the Isolated v2 options if creating a new App Service plan. Note App Service Environment v3 uses Isolated v2 plans, which have more memory and cores per corresponding instance size for the Isolated plan. For more information, see [App Service Environment v3 pricing](overview.md#pricing).
+1. Modify **SKU and size** as needed using one of the Isolated v2 options if creating a new App Service plan. Note App Service Environment v3 uses Isolated v2 plans, which have more memory and CPU per corresponding instance size compared to the Isolated plan. For more information, see [App Service Environment v3 pricing](overview.md#pricing).
 
 ![clone sample](./media/migration/portal_clone_sample.png)
 
 |Benefits     |Limitations     |
 |---------|---------|
-|Can be automated using PowerShell        |Only supported on Windows apps        |
+|Can be automated using PowerShell        |Only supported on Windows App Service        |
 |Multiple apps can be cloned at the same time (cloning needs to be configured for each app individually or using a script)       |Support is limited to [certain database types](../manage-backup.md#what-gets-backed-up)         |
 |Can integrate with [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) and [Azure Application Gateway](../../application-gateway/overview.md) to distribute traffic across old and new environments       |Old and new environments as well as supporting resources (for example apps, databases, storage accounts and containers) must all be in the same subscription        |
 
 ## Manually create your apps on an App Service Environment v3
 
-If the above features don't support your apps or you're looking to take a more manual route, you have the option of deploying your apps following the same process you used for your old App Service Environment. All deployment methods except FTP are supported on App Service Environment v3. You don't need to make updates when deploying your apps to your new environment unless you want to make changes or take advantage of App Service Environment v3's dedicated features.
+If the above features don't support your apps or you're looking to take a more manual route, you have the option of deploying your apps following the same process you used for your existing App Service Environment. At this time, all deployment methods except FTP are supported on App Service Environment v3. You don't need to make updates when deploying your apps to your new environment unless you want to make changes or take advantage of App Service Environment v3's dedicated features.
 
 You can export [Azure Resource Manager (ARM) templates](../../azure-resource-manager/templates/overview.md) of your existing apps, App Service plans, and any other supported resources and deploy them in your new environment. To export a template for just your app, head over to your App Service and go to **Export template** under **Automation**.
 
@@ -93,7 +93,7 @@ You can also export templates for multiple resources directly from your resource
 
 The following initial changes to your Azure Resource Manager templates are required to get your apps onto your App Service Environment v3:
 
-- Update SKU parameters for App Service plan to an Isolated v2 plan if creating a new plan
+- Update SKU parameters for App Service plan to an Isolated v2 plan as shown below if creating a new plan
 
     ```json
     "type": "Microsoft.Web/serverfarms",

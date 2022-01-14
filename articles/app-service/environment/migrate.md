@@ -62,7 +62,7 @@ The App Service platform will review your App Service Environment to confirm mig
 Migration consists of a series of steps that must be followed in order. Key points are given below for a subset of the steps. It's important to understand what will happen during these steps and how your environment and apps will be impacted. After reviewing the following information and when you're ready to migrate, follow the [step-by-step guide](how-to-migrate.md).
 
 > [!NOTE]
-> For this version of the preview, migration must be done using Azure REST API calls. An Azure portal experience will be available in early February, 2022.
+> For this version of the preview, migration must be carried out using Azure REST API calls. An Azure portal experience will be available in early February, 2022.
 >
 
 ### Delegate your App Service Environment subnet
@@ -103,7 +103,7 @@ There's no cost to migrate your App Service Environment. You'll stop being charg
 
 ## Migration feature limitations
 
-The migration feature doesn't plan on supporting App Service Environment v1 within a classic VNet. See [migration alternatives](migration-alternatives.md) if your App Service Environment falls into this category.
+The migration feature doesn't plan on supporting App Service Environment v1 within a classic VNet. See [migration alternatives](migration-alternatives.md) if your App Service Environment falls into this category. Also, you won't be able to migrate if your App Service Environment is in an unhealthy or suspended state.
 
 ## Frequently asked questions
 
