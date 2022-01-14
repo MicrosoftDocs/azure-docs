@@ -95,7 +95,7 @@ You can see that the networking setting for the storage account shows **two sele
 
   :::image type="content" source="media/export-data/storage-networking-2.png" alt-text="Screenshot of Azure Storage Networking Settings Showing Selected Resource Type and Insances." lightbox="media/export-data/storage-networking-2.png":::
 
-Note that you'll need to install "Add-AzStorageAccountNetworkRule" using an administrator account. For more information, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security)
+Note that you'll need to install "Add-AzStorageAccountNetworkRule" using an administrator account. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md)
 
 `
 Install-Module Az.Storage -Repository PsGallery -AllowClobber -Force 
