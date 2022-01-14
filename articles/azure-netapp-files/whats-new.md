@@ -12,13 +12,20 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 12/14/2021
+ms.date: 01/14/2022
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+## January 2022
+
+* [Active Directory Domain Services (ADDS) LDAP user-mapping with NFS extended groups](configure-ldap-extended-groups.md) now generally available (GA)
+
+    The ADDS LDAP user-mapping with NFS extended groups feature is now generally available. You no longer need to register the feature before using it.
+
 
 ## December 2021
 
