@@ -6,7 +6,7 @@ author: ginalee-dotcom
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 11/05/2021
+ms.date: 01/03/2022
 ms.author: ginle
 ---
 
@@ -40,24 +40,7 @@ During the public preview phase, Azure Healthcare APIs is available for you to u
 Please refer to the [Products by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir) page for the most current information. 
           
 ### What are the subscription quota limits for the Azure Healthcare APIs?
-
-#### Workspace (logical container):
-* 200 instances per Subscription (not adjustable)
-
-#### DICOM service:
-* 800 instances per Subscription (not adjustable)
-* 10 DICOM instances per Workspace (not adjustable)
-
-#### FHIR service:
-* 25 instances per Subscription (not adjustable)
-* 10 FHIR instances per Workspace (not adjustable)
-
-#### IoT connector:
-* 25 IoT connectors per Subscription (not adjustable)
-* 10 IoT connectors per Workspace (not adjustable)
-* One FHIR Destination* per IoT connector (not adjustable)
-
-(* - FHIR destination is a child resource of IoT connector)
+Please refer to [Healthcare APIs service limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-healthcare-apis) for the most current information.
 
 ## More frequently asked questions
 [FAQs about Azure Healthcare APIs FHIR service](./fhir/fhir-faq.md)

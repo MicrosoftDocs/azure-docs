@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 12/28/2021
+ms.date: 01/11/2022
 ms.custom: template-how-to
 ---
 
@@ -21,9 +21,9 @@ This article outlines how to register SAP HANA, and how to authenticate and inte
 
 |**Metadata extraction**|  **Full scan**  |**Incremental scan**|**Scoped scan**|**Classification**|**Access policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| No |
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| No |
 
-When scanning SAP HANA source, Purview supports extracting technical metadata including:
+When scanning SAP HANA source, Azure Purview supports extracting technical metadata including:
 
 - Server
 - Databases
@@ -32,6 +32,7 @@ When scanning SAP HANA source, Purview supports extracting technical metadata in
 - Views including the columns
 - Stored procedures including the parameter dataset and result set
 - Functions including the parameter dataset
+- Sequences
 - Synonyms
 
 ## Prerequisites
@@ -40,7 +41,7 @@ When scanning SAP HANA source, Purview supports extracting technical metadata in
 
 * You must have an active [Azure Purview resource](create-catalog-portal.md).
 
-* You need Data Source Administrator or Data Reader permissions to register a source and manage it in Azure Purview Studio. For more information about permissions, see [Access control in Azure Purview](catalog-permissions.md).
+* You need Data Source Administrator and Data Reader permissions to register a source and manage it in Azure Purview Studio. For more information about permissions, see [Access control in Azure Purview](catalog-permissions.md).
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.13.8013.1.
 

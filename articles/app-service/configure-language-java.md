@@ -1123,7 +1123,17 @@ JBoss EAP is only available on the Premium v3 and Isolated v2 App Service Plan t
 
 ### JDK versions and maintenance
 
-Azure's supported Java Development Kit (JDK) is [Zulu](https://www.azul.com/downloads/azure-only/zulu/) provided through [Azul Systems](https://www.azul.com/). Azul Zulu Enterprise builds of OpenJDK are a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure and Azure Stack backed by Microsoft and Azul Systems. They contain all the components for building and running Java SE applications. You can install the JDK from [Java JDK Installation](/azure/developer/java/fundamentals/java-support-on-azure).
+Microsoft and Adoptium builds of OpenJDK are provided and supported on App Service for Java 8, 11, and 17. These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and runnning Java SE applications. For local development or testing, you can install the Microsoft build of OpenJDK from the [downloads page](https://docs.microsoft.com/java/openjdk/download). The table below describes the new Java versions included in the January 2022 App Service platform release:
+
+| Java Version | Linux            | Windows              |
+|--------------|------------------|----------------------|
+| Java 8       | 1.8.0_312 (Zulu) * | 1.8.0_312 (Adoptium) |
+| Java 11      | 11.0.13 (MSFT)   | 11.0.13 (MSFT)       |
+| Java 17      | 17.0.1 (MSFT)    | 17.0.1 (MSFT)        |
+
+\* In following releases, Java 8 on Linux will be distributed from Adoptium builds of the OpenJDK. 
+
+If you are [pinned](#choosing-a-java-runtime-version) to an older minor version of Java your site may be using the [Zulu for Azure](https://www.azul.com/downloads/azure-only/zulu/) binaries provided through [Azul Systems](https://www.azul.com/). You can continue to use these binaries for your site, but any security patches or improvements will only be available in new versions of the OpenJDK, so we recommend that you periodically update your Web Apps to a later version of Java.
 
 Major version updates will be provided through new runtime options in Azure App Service. Customers update to these newer versions of Java by configuring their App Service deployment and are responsible for testing and ensuring the major update meets their needs.
 
@@ -1131,13 +1141,18 @@ Supported JDKs are automatically patched on a quarterly basis in January, April,
 
 ### Security updates
 
-Patches and fixes for major security vulnerabilities will be released as soon as they become available from Azul Systems. A "major" vulnerability is defined by a base score of 9.0 or higher on the [NIST Common Vulnerability Scoring System, version 2](https://nvd.nist.gov/vuln-metrics/cvss).
+Patches and fixes for major security vulnerabilities will be released as soon as they become available in Microsoft builds of the OpenJDK. A "major" vulnerability is defined by a base score of 9.0 or higher on the [NIST Common Vulnerability Scoring System, version 2](https://nvd.nist.gov/vuln-metrics/cvss).
 
 Tomcat 8.0 has reached [End of Life (EOL) as of September 30, 2018](https://tomcat.apache.org/tomcat-80-eol.html). While the runtime is still available on Azure App Service, Azure will not apply security updates to Tomcat 8.0. If possible, migrate your applications to Tomcat 8.5 or 9.0. Both Tomcat 8.5 and 9.0 are available on Azure App Service. See the [official Tomcat site](https://tomcat.apache.org/whichversion.html) for more information. 
+
+Community support for Java 7 will terminate on July 29th, 2022 and [Java 7 will be retired from App Service](https://azure.microsoft.com/updates/transition-to-java-11-or-8-by-29-july-2022/) at that time. If you have a web app runnning on Java 7, please upgrade to Java 8 or 11 before July 29th. 
 
 ### Deprecation and retirement
 
 If a supported Java runtime will be retired, Azure developers using the affected runtime will be given a deprecation notice at least six months before the runtime is retired.
+
+- [Reasons to move to Java 11](https://docs.microsoft.com/java/openjdk/reasons-to-move-to-java-11?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json)
+- [Java 7 migration guide](https://docs.microsoft.com/java/openjdk/transition-from-java-7-to-java-8?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json)
 
 ### Local development
 
@@ -1145,7 +1160,7 @@ Developers can download the Production Edition of Azul Zulu Enterprise JDK for l
 
 ### Development support
 
-Product support for the [Azure-supported Azul Zulu JDK](https://www.azul.com/downloads/azure-only/zulu/) is available through Microsoft when developing for Azure or [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) with a [qualified Azure support plan](https://azure.microsoft.com/support/plans/).
+Product support for the [Microsoft Build of OpenJDK](https://docs.microsoft.com/java/openjdk/download) is available through Microsoft when developing for Azure or [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) with a [qualified Azure support plan](https://azure.microsoft.com/support/plans/).
 
 ## Next steps
 

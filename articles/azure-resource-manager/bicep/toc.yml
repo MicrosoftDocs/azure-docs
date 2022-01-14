@@ -21,6 +21,8 @@
   - name: Use loops
     displayName: multiple
     href: quickstart-loops.md
+  - name: Use private module registry
+    href: quickstart-private-module-registry.md
   - name: CI/CD
     items:
     - name: Bicep with pipelines
@@ -89,6 +91,8 @@
         displayName: assign role
     - name: Deployment script
       href: deployment-script-bicep.md
+    - name: Template specs
+      href: template-specs.md
     - name: Linter
       items:
       - name: Linter

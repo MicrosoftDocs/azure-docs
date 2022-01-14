@@ -21,7 +21,7 @@ In addition, you can pull in telemetry from the host environments such as perfor
 
 All these telemetry streams are integrated into Azure Monitor. In the Azure portal, you can apply powerful analytic and search tools to the raw data.
 
-### What's the overhead?
+### What's the performance overhead?
 The impact on your app's performance is small. Tracking calls are non-blocking, and are batched and sent in a separate thread.
 
 ## What does Application Insights monitor?
