@@ -127,7 +127,7 @@ Keep the SID of the newly created identity, you'll need it for the next step. Th
 
 ### Enable the feature on your storage account
 
-Now you can enable the feature on your storage account. Provide some configuration details for the domain properties in the following command, then run it. The storage account SID required in the following command is the SID of the identity you created in your AD DS in [the previous section](#create-an-identity-representing-the-storage-account-in-your-ad-manually).
+Modify the following command to include configuration details for the domain properties in the following command, then run it to enable the feature. The storage account SID required in the following command is the SID of the identity you created in your AD DS in [the previous section](#create-an-identity-representing-the-storage-account-in-your-ad-manually).
 
 ```PowerShell
 # Set the feature flag on the target storage account and provide the required AD domain information
@@ -145,7 +145,7 @@ Set-AzStorageAccount `
 
 #### (Optional) Enable AES256 encryption
 
-If you want to enable AES 256 encryption, follow the steps in this section. If you plan to use RC4, skip this section.
+To enable AES 256 encryption, follow the steps in this section. If you plan to use RC4, skip this section.
 
 The domain object that represents your storage account must meet the following requirements:
 - The storage account name cannot exceed 15 characters.
