@@ -66,11 +66,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/machine-learning/classic/deploy-with-resource-manager-template.md",
-      "redirect_url": "/previous-versions/azure/machine-learning/classic/deploy-with-resource-manager-template",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/machine-learning/classic/evaluate-model-performance.md",
       "redirect_url": "/previous-versions/azure/machine-learning/classic/evaluate-model-performance",
       "redirect_document_id": false
@@ -22824,6 +22819,11 @@
       "redirect_document_id": ""
     },
     {
+      "source_path_from_root": "/articles/search/search-blob-ai-integration.md",
+      "redirect_url": "/azure/search/cognitive-search-concept-intro",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/search/search-monitor-usage.md",
       "redirect_url": "/azure/search/monitor-azure-cognitive-search",
       "redirect_document_id": true
@@ -34565,7 +34565,7 @@
     },
     {
       "source_path_from_root": "/articles/security/fundamentals/channel-nine.md",
-      "redirect_url": "https://channel9.msdn.com/",
+      "redirect_url": "/teamblog/channel9joinedmicrosoftlearn/",
       "redirect_document_id": false
     },
     {
@@ -41785,11 +41785,6 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Content-Moderator/ecommerce-retail-catalog-moderation.md",
-      "redirect_url": "/azure/cognitive-services/Content-Moderator/overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/Content-Moderator/facebook-post-moderation.md",
       "redirect_url": "/azure/cognitive-services/Content-Moderator/overview",
       "redirect_document_id": false
     },

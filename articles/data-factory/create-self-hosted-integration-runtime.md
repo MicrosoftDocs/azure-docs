@@ -271,13 +271,7 @@ When the processor and available RAM aren't well utilized, but the execution of 
 
 ### TLS/SSL certificate requirements
 
-Here are the requirements for the TLS/SSL certificate that you use to secure communication between integration runtime nodes:
-
-- The certificate must be a publicly trusted X509 v3 certificate. We recommend that you use certificates that are issued by a public partner certification authority (CA).
-- Each integration runtime node must trust this certificate.
-- We don't recommend Subject Alternative Name (SAN) certificates because only the last SAN item is used. All other SAN items are ignored. For example, if you have a SAN certificate whose SANs are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can use this certificate only on a machine whose fully qualified domain name (FQDN) is **node2.domain.contoso.com**.
-- The certificate can use any key size supported by Windows Server 2012 R2 for TLS/SSL certificates.
-- Certificates that use CNG keys aren't supported.  
+ If you want to enable remote access from intranet with TLS/SSL certificate (Advanced) to secure communication between integration runtime nodes, you can follow steps in [Enable remote access from intranet with TLS/SSL certificate](tutorial-enable-remote-access-intranet-tls-ssl-certificate.md).
 
 > [!NOTE]
 > This certificate is used:

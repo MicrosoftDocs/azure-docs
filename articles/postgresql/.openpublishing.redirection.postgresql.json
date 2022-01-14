@@ -306,6 +306,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/postgresql/hyperscale/concepts-tiers.md",
+        "redirect_url": "/azure/postgresql/hyperscale/concepts-server-group",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/postgresql/policy-samples.md",
         "redirect_url": "/azure/postgresql/policy-reference",
         "redirect_document_id": false

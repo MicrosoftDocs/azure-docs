@@ -15,11 +15,13 @@ ms.custom:
 
 # Configure a Blob indexer to import data from Azure Blob Storage
 
-In Azure Cognitive Search, blob indexers are frequently used for both [AI enrichment](cognitive-search-concept-intro.md) and text-oriented processing. This article focuses on how to configure a blob indexer for text-oriented indexing, where just the textual content and metadata are loaded into a search index for full text search scenarios.
+In Azure Cognitive Search, blob indexers are frequently used for both [AI enrichment](cognitive-search-concept-intro.md) and text-based processing. 
+
+This article focuses on how to configure a blob indexer for text-based indexing, where just the textual content and metadata are loaded into a search index for full text search scenarios. Inputs are your blobs, in a single container. Output is a search index with searchable content and metadata stored in individual fields.
 
 ## Prerequisites
 
-+ [Azure Blob storage](../storage/blobs/storage-blobs-overview.md), Standard performance (general-purpose v2).
++ [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md), Standard performance (general-purpose v2).
 
 + [Access tiers](../storage/blobs/access-tiers-overview.md) for Blob storage include hot, cool, and archive. Only hot and cool can be accessed by search indexers.
 
@@ -102,9 +104,7 @@ A [search index](search-what-is-an-index.md) specifies the fields in a search do
     }
     ```
 
-<a name="DocumentKeys"></a>
-
-1. Designate one string field as the document key that uniquely identifies each document. For blob content, the best candidates for a document key are metadata properties on the blob:
+1. <a name="DocumentKeys"></a> Designate one string field as the document key that uniquely identifies each document. For blob content, the best candidates for a document key are metadata properties on the blob:
 
    + **`metadata_storage_path`** (default). Using the full path ensures uniqueness, but the path contains `/` characters that are [invalid in a document key](/rest/api/searchservice/naming-rules). Use the [base64Encode function](search-indexer-field-mappings.md#base64EncodeFunction) to encode characters (see the example in the next section). If using the portal to define the indexer, the encoding step is built in.
 
@@ -354,5 +354,5 @@ You can also set [blob configuration parameters](/rest/api/searchservice/create-
 
 + [Indexers in Azure Cognitive Search](search-indexer-overview.md)
 + [Create an indexer](search-howto-create-indexers.md)
-+ [AI enrichment over blobs overview](search-blob-ai-integration.md)
++ [AI enrichment overview](cognitive-search-concept-intro.md)
 + [Search over blobs overview](search-blob-storage-integration.md)

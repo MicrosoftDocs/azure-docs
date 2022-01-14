@@ -50,7 +50,7 @@ Microsoft will indicate to you via the Azure Communication Services API that rec
 - PowerPoint presentations are not rendered for Communication Services users.
 - Teams meetings support up to 1000 participants, but the Azure Communication Services Calling SDK currently only supports 350 participants and Chat SDK supports 250 participants. 
 - With [Cloud Video Interop for Microsoft Teams](/microsoftteams/cloud-video-interop), some devices have seen issues when a Communication Services user shares their screen.
-- [Communication Services voice and video calling events](/azure/event-grid/communication-services-voice-video-events) are not raised for Teams meeting.
+- [Communication Services voice and video calling events](../../event-grid/communication-services-voice-video-events.md) are not raised for Teams meeting.
 - Features such as reactions, raised hand, together mode, and breakout rooms are only available for Teams users.
 - Communication Services users cannot interact with poll or Q&A apps in meetings.
 - Communication Services won't have access to all chat features supported by Teams. They can send and receive text messages, use typing indicators, read receipts and other features supported by Chat SDK. However features like file sharing, reply or react to a message are not supported for Communication Services users.   

@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 11/15/2021
+ms.date: 01/12/2022
 ---
 
 # High availability in Azure Database for PostgreSQL – Hyperscale (Citus)
@@ -34,14 +34,33 @@ To take advantage of HA on the coordinator node, database applications need to
 detect and retry dropped connections and failed transactions. The newly
 promoted coordinator will be accessible with the same connection string.
 
-Recovery can be broken into three stages: detection, failover, and full
-recovery.  Hyperscale (Citus) runs periodic health checks on every node, and after four
-failed checks it determines that a node is down. Hyperscale (Citus) then promotes a
-standby to primary node status (failover), and provisions a new standby-to-be.
-Streaming replication begins, bringing the new node up-to-date.  When all data
-has been replicated, the node has reached full recovery.
+## High availability states
 
-### Next steps
+Recovery can be broken into three stages: detection, failover, and full
+recovery.  Hyperscale (Citus) runs periodic health checks on every node, and
+after four failed checks it determines that a node is down. Hyperscale (Citus)
+then promotes a standby to primary node status (failover), and provisions a new
+standby-to-be.  Streaming replication begins, bringing the new node up to date.
+When all data has been replicated, the node has reached full recovery.
+
+Hyperscale (Citus) displays its failover progress state on the Overview page
+for server groups in the Azure portal.
+
+* **Healthy**: HA is enabled and the node is fully replicated to its standby.
+* **Failover in progress**: A failure was detected on the primary node and
+  a failover to standby was initiated. This state will transition into
+  **Creating standby** once failover to the standby node is completed, and the
+  standby becomes the new primary.
+* **Creating standby**: The previous standby was promoted to primary, and a
+  new standby is being created for it. When the new secondary is ready, this
+  state will transition into **Replication in progress**.
+* **Replication in progress**: The new standby node is provisioned and data
+  synchronization is in progress. Once all data is replicated to the new
+  standby, synchronous replication will be enabled between the primary and
+  standby nodes, and the nodes' state will transition back to **Healthy**.
+* **No**: HA is not enabled on this node.
+
+## Next steps
 
 - Learn how to [enable high
   availability](howto-high-availability.md) in a Hyperscale (Citus) server
