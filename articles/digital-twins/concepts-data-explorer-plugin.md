@@ -82,36 +82,36 @@ There are various ways to ingest IoT data into Azure Data Explorer. Here are two
 
 If you're ingesting time series data directly into Azure Data Explorer, you'll likely need to convert this raw time series data into a schema suitable for joint Azure Digital Twins/Azure Data Explorer queries.
 
-An [update policy](/azure/data-explorer/kusto/management/updatepolicy) in Azure Data Explorer allows you to automatically transform and append data to a target table whenever new data is inserted into a source table. 
+An [update policy](/azure/data-explorer/kusto/management/updatepolicy) in Azure Data Explorer allows you to automatically transform and append data to a target table whenever new data is inserted into a source table. 
 
 You can use an update policy to enrich your raw time series data with the corresponding **twin ID** from Azure Digital Twins, and persist it to a target table. Using the twin ID, the target table can then be joined against the digital twins selected by the Azure Digital Twins plugin. 
 
 For example, say you created the following table to hold the raw time series data flowing into your Azure Data Explorer instance. 
 
 ```kusto
-.create-merge table rawData (Timestamp:datetime, someId:string, Value:string, ValueType:string)  
+.create-merge table rawData (Timestamp:datetime, someId:string, Value:string, ValueType:string)  
 ```
 
 You could create a mapping table to relate time series IDs with twin IDs, and other optional fields. 
 
 ```kusto
-.create-merge table mappingTable (someId:string, twinId:string, otherMetadata:string) 
+.create-merge table mappingTable (someId:string, twinId:string, otherMetadata:string) 
 ```
 
 Then, create a target table to hold the enriched time series data. 
 
 ```kusto
-.create-merge table timeseriesSilver (twinId:string, Timestamp:datetime, someId:string, otherMetadata:string, ValueNumeric:real, ValueString:string)  
+.create-merge table timeseriesSilver (twinId:string, Timestamp:datetime, someId:string, otherMetadata:string, ValueNumeric:real, ValueString:string)  
 ```
 
 Next, create a function `Update_rawData` to enrich the raw data by joining it with the mapping table. Doing so will add the twin ID to the resulting target table. 
 
 ```kusto
-.create-or-alter function with (folder = "Update", skipvalidation = "true") Update_rawData() { 
+.create-or-alter function with (folder = "Update", skipvalidation = "true") Update_rawData() { 
 rawData 
-| join kind=leftouter mappingTable on someId 
-| project 
-    Timestamp, ValueNumeric = toreal(Value), ValueString = Value, ... 
+| join kind=leftouter mappingTable on someId 
+| project 
+    Timestamp, ValueNumeric = toreal(Value), ValueString = Value, ... 
 } 
 ```
 
@@ -128,9 +128,9 @@ Once the target table is created, you can use the Azure Digital Twins plugin to 
 
 Here's an example of a schema that might be used to represent shared data.
 
-| timestamp | twinId | modelId | name | value | relationshipTarget | relationshipID |
+| timestamp | twinId | modelId | name | value | relationshipTarget | relationshipID |
 | --- | --- | --- | --- | --- | --- | --- |
-| 2021-02-01 17:24 | ConfRoomTempSensor | dtmi:com:example:TemperatureSensor;1 | temperature | 301.0 |  |  |
+| 2021-02-01 17:24 | ConfRoomTempSensor | dtmi:com:example:TemperatureSensor;1 | temperature | 301.0 |  |  |
 
 Digital twin properties are stored as key-value pairs (`name, value`). `name` and `value` are stored as dynamic data types. 
 

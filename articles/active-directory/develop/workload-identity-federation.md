@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 01/10/2022
 ms.author: ryanwi
 ms.reviewer: keyam, udayh, vakarand
 ms.custom: aaddev 
@@ -20,7 +20,7 @@ ms.custom: aaddev
 # Workload identity federation (preview)
 This article provides an overview of workload identity federation for software workloads. Using workload identity federation allows you to access Azure Active Directory (Azure AD) protected resources without needing to manage secrets (for supported scenarios).
 
-You can use workload identity federation in scenarios such as GitHub Actions.
+You can use workload identity federation in scenarios such as GitHub Actions and workloads running on Kubernetes.
 
 ## Why use workload identity federation?
 
@@ -33,6 +33,7 @@ You use workload identity federation to configure an Azure AD app registration t
 The following scenarios are supported for accessing Azure AD protected resources using workload identity federation:
 
 - GitHub Actions. First, [Configure a trust relationship](workload-identity-federation-create-trust-github.md) between your app in Azure AD and a GitHub repo in the Azure portal or using Microsoft Graph. Then [configure a GitHub Actions workflow](/azure/developer/github/connect-from-azure) to get an access token from Microsoft identity provider and access Azure resources.
+- Workloads running on Kubernetes. Install the Azure AD workload identity webhook and establish a trust relationship between your app in Azure AD and a Kubernetes workload (described in the [Kubernetes quickstart](https://azure.github.io/azure-workload-identity/docs/quick-start.html)).
 - Workloads running in compute platforms outside of Azure. [Configure a trust relationship](workload-identity-federation-create-trust.md) between your Azure AD application registration and the external IdP for your compute platform. You can use tokens issued by that platform to authenticate with Microsoft identity platform and call APIs in the Microsoft ecosystem. Use the [client credentials flow](v2-oauth2-client-creds-grant-flow.md#third-case-access-token-request-with-a-federated-credential) to get an access token from Microsoft identity platform, passing in the identity provider's JWT instead of creating one yourself using a stored certificate.
 
 ## How it works

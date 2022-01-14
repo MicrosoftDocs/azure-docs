@@ -1,5 +1,5 @@
 ---
-title: Purview collections architecture and best practices
+title: Azure Purview collections architecture and best practices
 description: This article provides examples of Azure Purview collections architectures and describes best practices.
 author: zeinam
 ms.author: zeinam
@@ -34,7 +34,7 @@ Consider deploying collections in Azure Purview to fulfill the following require
 
 ### Design recommendations 
 
-- Review the [Azure Purview account best practices](./deployment-best-practices.md#determine-the-number-of-purview-instances) and define the adequate number of Purview accounts required in your organization before you plan the collection structure.  
+- Review the [Azure Purview account best practices](./deployment-best-practices.md#determine-the-number-of-azure-purview-instances) and define the adequate number of Azure Purview accounts required in your organization before you plan the collection structure.  
 
 - We recommend that you design your collection architecture based on the security requirements and data management and governance structure of your organization. Review the recommended [collections archetypes](#collections-archetypes) in this article.
 
@@ -52,7 +52,7 @@ Consider deploying collections in Azure Purview to fulfill the following require
 
 ### Design considerations  
 
-- Each Purview account is created with a default _root collection_. The root collection name is the same as your Azure Purview account name. The root collection can't be removed. To change the root collection's friendly name, you can change the friendly name of your Purview account from Purview Management center.   
+- Each Azure Purview account is created with a default _root collection_. The root collection name is the same as your Azure Purview account name. The root collection can't be removed. To change the root collection's friendly name, you can change the friendly name of your Azure Purview account from Azure Purview Management center.   
 
 - Collections can hold data sources, scans, assets, and role assignments.
 
@@ -62,7 +62,7 @@ Consider deploying collections in Azure Purview to fulfill the following require
 
 - A collections hierarchy in an Azure Purview can support as many as 256 collections, with a maximum of eight levels of depth. This doesn't include the root collection. 
 
-- By design, you can't register data sources multiple times in a single Purview account. This architecture helps to avoid the risk of assigning different levels of access control to a single data source. If multiple teams consume the metadata of a single data source, you can register and manage the data source in a parent collection. You can then create corresponding scans under each subcollection so that relevant assets appear under each child collection.
+- By design, you can't register data sources multiple times in a single Azure Purview account. This architecture helps to avoid the risk of assigning different levels of access control to a single data source. If multiple teams consume the metadata of a single data source, you can register and manage the data source in a parent collection. You can then create corresponding scans under each subcollection so that relevant assets appear under each child collection.
 
 - Lineage connections and artifacts are attached to the root collection even if the data sources are registered at lower-level collections.
 
@@ -87,21 +87,21 @@ Consider deploying collections in Azure Purview to fulfill the following require
 
 ## Define an authorization model
 
-Azure Purview data-plane roles are managed in Azure Purview. After you deploy a Purview account, the creator of the Purview account is automatically assigned the following roles at the root collection. You can use [Purview Studio](https://web.purview.azure.com/resource/) or a programmatic method to directly assign and manage roles in Azure Purview.
+Azure Purview data-plane roles are managed in Azure Purview. After you deploy an Azure Purview account, the creator of the Azure Purview account is automatically assigned the following roles at the root collection. You can use [Azure Purview Studio](https://web.purview.azure.com/resource/) or a programmatic method to directly assign and manage roles in Azure Purview.
 
-  - **Collection Admins** can edit Purview collections and their details and add subcollections. They can also add users to other Purview roles on collections where they're admins.
+  - **Collection Admins** can edit Azure Purview collections and their details and add subcollections. They can also add users to other Azure Purview roles on collections where they're admins.
   - **Data Source Admins** can manage data sources and data scans.
   - **Data Curators** can create, read, modify, and delete catalog data assets and establish relationships between assets.
   - **Data Readers** can access but not modify catalog data assets.
 
 ### Design recommendations 
 
-- Consider implementing [emergency access](/azure/active-directory/users-groups-roles/directory-emergency-access) or a break-glass strategy for the Collection Admin role at your Azure Purview root collection level to avoid Purview account-level lockouts. Document the process for using emergency accounts. 
+- Consider implementing [emergency access](/azure/active-directory/users-groups-roles/directory-emergency-access) or a break-glass strategy for the Collection Admin role at your Azure Purview root collection level to avoid Azure Purview account-level lockouts. Document the process for using emergency accounts. 
 
     > [!NOTE]
-    > In certain scenarios, you might need to use an emergency account to sign in to Azure Purview. You might need this type of account to fix organization-level access problems when nobody else can sign in to Purview or when other admins can't accomplish certain operations because of corporate authentication problems. We strongly recommended that you follow Microsoft best practices around implementing [emergency access accounts](/azure/active-directory/users-groups-roles/directory-emergency-access) by using cloud-only users.
+    > In certain scenarios, you might need to use an emergency account to sign in to Azure Purview. You might need this type of account to fix organization-level access problems when nobody else can sign in to Azure Purview or when other admins can't accomplish certain operations because of corporate authentication problems. We strongly recommended that you follow Microsoft best practices around implementing [emergency access accounts](/azure/active-directory/users-groups-roles/directory-emergency-access) by using cloud-only users.
     >
-    > Follow the instructions in [this article](./concept-account-upgrade.md#what-happens-when-your-upgraded-account-doesnt-have-a-collection-admin) to recover access to your Purview root collection if your previous Collection Admin is unavailable.
+    > Follow the instructions in [this article](./concept-account-upgrade.md#what-happens-when-your-upgraded-account-doesnt-have-a-collection-admin) to recover access to your Azure Purview root collection if your previous Collection Admin is unavailable.
 
 - Minimize the number of root Collection Admins. Assign a maximum of three Collection Admin users at the root collection, including the SPN and your break-glass accounts. Assign your Collection Admin roles to the top-level collection or to subcollections instead.
 
@@ -115,9 +115,9 @@ Azure Purview data-plane roles are managed in Azure Purview. After you deploy a 
 
 - Azure Purview access management has moved into data plane. Azure Resource Manager roles aren't used anymore, so you should use Azure Purview to assign roles. 
 
-- In Azure Purview, you can assign roles to users, security groups, and service principals (including managed identities) from Azure Active Directory (Azure AD) on the same Azure AD tenant where the Purview account is deployed.
+- In Azure Purview, you can assign roles to users, security groups, and service principals (including managed identities) from Azure Active Directory (Azure AD) on the same Azure AD tenant where the Azure Purview account is deployed.
   
-- You must first add guest accounts to your Azure AD tenant as B2B users before you can assign Purview roles to external users. 
+- You must first add guest accounts to your Azure AD tenant as B2B users before you can assign Azure Purview roles to external users. 
 
 - By default, Collection Admins don't have access to read or modify assets. But they can elevate their access and add themselves to more roles.
 
@@ -125,7 +125,7 @@ Azure Purview data-plane roles are managed in Azure Purview. After you deploy a 
 
 - For Azure Data Factory connection: to connect to Azure Data Factory, you have to be a Collection Admin for the root collection.
 
-- If you need to connect to Azure Data Factory for lineage, grant the Data Curator role to the data factory's managed identity at your Purview root collection level. When you connect Data Factory to Purview in the authoring UI, Data Factory tries to add these role assignments automatically. If you have the Collection Admin role on the Purview root collection, this operation will work. 
+- If you need to connect to Azure Data Factory for lineage, grant the Data Curator role to the data factory's managed identity at your Azure Purview root collection level. When you connect Data Factory to Azure Purview in the authoring UI, Data Factory tries to add these role assignments automatically. If you have the Collection Admin role on the Azure Purview root collection, this operation will work. 
 
 ## Collections archetypes
 
@@ -167,7 +167,7 @@ The collection hierarchy consists of these verticals:
 - Departments (a delegated collection for each department) 
 - Teams or projects (further segregation based on teams or projects)
 
-In this scenario, each region has a subcollection of its own under the top-level collection in the Purview account. Data sources are registered and scanned in the corresponding subcollections in their own geographic locations. So assets also appear in the subcollection hierarchy for the region. 
+In this scenario, each region has a subcollection of its own under the top-level collection in the Azure Purview account. Data sources are registered and scanned in the corresponding subcollections in their own geographic locations. So assets also appear in the subcollection hierarchy for the region. 
 
 If you have centralized data management and governance teams, you can grant them access from the top-level collection. When you do, they gain oversight for the entire data estate in the data map. Optionally, the centralized team can register and scan any shared data sources.
 
@@ -203,7 +203,7 @@ The collection hierarchy consists of these verticals:
 - Geographic locations (mid-level collections based on geographic locations where data sources and data owners are located)
 - Major business functions or clients (further segregation based on functions or clients)
 
-Each region has a subcollection of its own under the top-level collection in the Purview account. Data sources are registered and scanned in the corresponding subcollections in their own geographic locations. So assets are added to the subcollection hierarchy for the region. 
+Each region has a subcollection of its own under the top-level collection in the Azure Purview account. Data sources are registered and scanned in the corresponding subcollections in their own geographic locations. So assets are added to the subcollection hierarchy for the region. 
 
 If you have centralized data management and governance teams, you can grant them access from the top-level collection. When you do, they gain oversight for the entire data estate in the data map. Optionally, the centralized team can register and scan any shared data sources.
 
@@ -218,11 +218,11 @@ If you want to implement data democratization across an entire organization, ass
 
 If you need to restrict access to metadata search and discovery in your organization, assign Data Reader and Data Curator roles at the specific collection level. For example, you could restrict US employees so they can read data only at the US collection level and not in the LATAM collection. 
 
-You can apply a combination of these two scenarios in your Purview data map if total data democratization is required with a few exceptions for some collections. You can assign Purview roles at the top-level collection and restrict inheritance to the specific child collections.
+You can apply a combination of these two scenarios in your Azure Purview data map if total data democratization is required with a few exceptions for some collections. You can assign Azure Purview roles at the top-level collection and restrict inheritance to the specific child collections.
 
 Assign the Collection Admin role to the centralized data security and management team at the top-level collection. Delegate further collection management of lower-level collections to corresponding teams.
 
 ## Next steps
--  [Create a collection and assign permissions in Purview](./quickstart-create-collection.md)
+-  [Create a collection and assign permissions in Azure Purview](./quickstart-create-collection.md)
 -  [Create and manage collections in Azure Purview](./how-to-create-and-manage-collections.md)
 -  [Access control in Azure Purview](./catalog-permissions.md)
