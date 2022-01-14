@@ -100,7 +100,7 @@ To change your pricing tier, follow these steps:
 
 1. In the search box at the top of the portal, enter the name of your Azure AD B2C tenant. Then select the tenant in the search results under **Resources**.
     
-    ![Screenshot that shows how to select an Azure AD B2C tenant in Azure portal.](media/billing/select_azure_ad_b2c_tenant.png)
+    ![Screenshot that shows how to select an Azure AD B2C tenant in Azure portal.](media/billing/select-azure-ad-b2c-tenant.png)
 
 1. On the resource **Overview** page, under **Pricing tier**, select **change**.
 
