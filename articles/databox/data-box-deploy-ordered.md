@@ -6,7 +6,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/10/2022
+ms.date: 01/11/2022
 ms.author: alkohli 
 ms.custom: devx-track-azurepowershell, contperf-fy22q3
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
@@ -390,7 +390,7 @@ Do the following steps using Azure PowerShell to order a device:
 
 After you place the order, you can track the status of the order from Azure portal. Go to your Data Box order and then go to **Overview** to view the status. The portal shows the order in **Ordered** state.
 
-If the device is not available, you receive a notification. If the device is available, Microsoft identifies the device for shipment and prepares the shipment. During device preparation, following actions occur:
+If the device isn't available, you receive a notification. If the device is available, Microsoft identifies the device for shipment and prepares the shipment. During device preparation, following actions occur:
 
 * SMB shares are created for each storage account associated with the device.
 * For each share, access credentials such as username and password are generated.

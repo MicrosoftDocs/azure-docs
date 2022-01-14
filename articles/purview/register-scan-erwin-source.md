@@ -1,6 +1,6 @@
 ---
 title: Connect to and manage erwin Mart servers
-description: This guide describes how to connect to erwin Mart servers in Azure Purview, and use Purview's features to scan and manage your erwin Mart server source.
+description: This guide describes how to connect to erwin Mart servers in Azure Purview, and use Azure Purview's features to scan and manage your erwin Mart server source.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
@@ -25,7 +25,7 @@ This article outlines how to register erwin Mart servers, and how to authenticat
 
 The supported erwin Mart versions are 9.x to 2021.
 
-When scanning erwin Mart source, Purview supports:
+When scanning erwin Mart source, Azure Purview supports:
 
 - Extracting technical metadata including:
 
@@ -54,9 +54,9 @@ When scanning erwin Mart source, Purview supports:
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Purview resource](create-catalog-portal.md).
+* An active [Azure Purview resource](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
@@ -69,13 +69,13 @@ When scanning erwin Mart source, Purview supports:
 
 ## Register
 
-This section describes how to register erwin Mart servers in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
+This section describes how to register erwin Mart servers in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
 
 The only supported authentication for an erwin Mart source is **Server Authentication** in the form of username and password.
 
 ### Steps to register
 
-1. Navigate to your Purview account in the [Purview Studio](https://web.purview.azure.com/).
+1. Navigate to your Azure Purview account in the [Azure Purview Studio](https://web.purview.azure.com/).
 1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On Register sources, select **erwin**. Select **Continue.**
@@ -159,7 +159,7 @@ To create and run a new scan, do the following:
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)
