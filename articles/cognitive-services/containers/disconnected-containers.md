@@ -207,8 +207,6 @@ Commitment plans for disconnected containers have a calendar year commitment per
 
 You can choose a different commitment plan in the **Commitment Tier pricing** settings of your resource. 
 
-The commitment plans have a calendar month commitment period. You can purchase a commitment plan at any time from the default pay-as-you-go pricing model. When you purchase a plan, you will be charged a pro-rated price for the remaining month. During the commitment period, you cannot change the commitment plan for the current month. However, you can choose a different commitment plan for the next calendar month. The billing for the next month would happen on the first day of the next month.
-
 ## End a commitment plan
 
 If you decide that you don't want to continue purchasing a commitment plan, you can set your resource's auto-renewal to **Do not auto-renew**. Your commitment plan will expire on the displayed commitment end date. After this date, you won't be charged for the commitment plan. You will be able to continue using the Azure resource to make API calls, charged at pay-as-you-go pricing. You have until midnight (UTC) on the last day of the year to end a commitment plan for disconnected containers, and not be charged for the following year. 
