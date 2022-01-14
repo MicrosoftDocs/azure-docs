@@ -92,7 +92,7 @@ To modify the project name, project description and domain description:
 
 ## Next steps
 
-- Learn [how to manage project documents](build-upload-training-sets.md).
+- Learn [how to manage project documents](build-upload-training-set.md).
 - Learn [how to train a model](train-custom-model.md).
 - Learn [how to test and evaluate model quality](test-model-details.md).
 - Learn [how to publish model](publish-model.md).

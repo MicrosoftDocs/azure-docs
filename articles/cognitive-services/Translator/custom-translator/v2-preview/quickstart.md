@@ -165,4 +165,4 @@ You can publish one model per project to any region of our three geographies reg
 
 ## Next steps
 
-- Read about [How to manage workspaces](how-to/manage-workspaces.md) to know, how to manage workspace settings and share it for collaboration.
+- Read about [How to manage workspaces](how-to/create-manage-workspace.md) to know, how to manage workspace settings and share it for collaboration.
