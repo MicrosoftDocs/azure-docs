@@ -7,7 +7,7 @@ author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: include
 ms.workload: identity
 ms.date: 01/14/2022
 ms.author: marsma
@@ -15,7 +15,6 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 #Customer intent: As an application developer, I want to learn how Android native apps can call protected APIs that require login and access tokens using the Microsoft identity platform.
 ---
 
-# Quickstart: Sign in users and call the Microsoft Graph API from an Android app
 
 In this quickstart, you download and run a code sample that demonstrates how an Android application can sign in users and get an access token to call the Microsoft Graph API. 
 
@@ -29,27 +28,17 @@ Applications must be represented by an app object in Azure Active Directory so t
 * Android Studio
 * Android 16+
 
-### Step 1: Configure your application in the Azure portal
-For the code sample in this quickstart to work, add a **Redirect URI** compatible with the Auth broker.
-> [!div class="nextstepaction"]
-> [Make these changes for me]()
+## Step 1: Get the sample app
 
-> [!div class="alert alert-info"]
-> ![Already configured](media/quickstart-v2-android/green-check.png) Your application is configured with these attributes
+[Download the code](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip).
 
-### Step 2: Download the project
+## Step 2: Run the sample app
 
-Run the project using Android Studio.
-> [!div class="nextstepaction"]
-> [Download the code sample](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip)
+Select your emulator, or physical device, from Android Studio's **available devices** dropdown and run the app.
 
-
-### Step 3: Your app is configured and ready to run
-
-We have configured your project with values of your app's properties and it's ready to run.
 The sample app starts on the **Single Account Mode** screen. A default scope, **user.read**, is provided by default, which is used when reading your own profile data during the Microsoft Graph API call. The URL for the Microsoft Graph API call is provided by default. You can change both of these if you wish.
 
-![MSAL sample app showing single and multiple account usage](./media/quickstart-v2-android/quickstart-sample-app.png)
+![MSAL sample app showing single and multiple account usage](./../../media/quickstart-v2-android/quickstart-sample-app.png)
 
 Use the app menu to change between single and multiple account modes.
 
@@ -60,12 +49,8 @@ In single account mode, sign in using a work or home account:
 
 In multiple account mode, you can repeat the same steps.  Additionally, you can remove the signed-in account, which also removes the cached tokens for that account.
 
-> [!div class="sxs-lookup"]
-> > [!NOTE]
-> > `Enter_the_Supported_Account_Info_Here`
-
 ## How the sample works
-![Screenshot of the sample app](media/quickstart-v2-android/android-intro.svg)
+![Screenshot of the sample app](../../media/quickstart-v2-android/android-intro.svg)
 
 
 The code is organized into fragments that show how to write a single and multiple accounts MSAL app. The code files are organized as follows:
@@ -286,7 +271,7 @@ private void callGraphAPI(final IAuthenticationResult authenticationResult) {
 
 This is the configuration file for a MSAL app that uses a single account.
 
-See [Understand  the Android MSAL configuration file ](msal-configuration.md) for an explanation of these fields.
+See [Understand  the Android MSAL configuration file ](../../msal-configuration.md) for an explanation of these fields.
 
 Note the presence of `"account_mode" : "SINGLE"`, which configures this app to use a single account.
 
@@ -442,7 +427,7 @@ mMultipleAccountApp.removeAccount(accountList.get(accountListSpinner.getSelected
 
 This is the configuration file for a MSAL app that uses multiple accounts.
 
-See [Understand  the Android MSAL configuration file ](msal-configuration.md) for an explanation of the various fields.
+See [Understand  the Android MSAL configuration file ](../../msal-configuration.md) for an explanation of the various fields.
 
 Unlike the [auth_config_single_account.json](#auth_config_single_accountjson) configuration file, this config file has `"account_mode" : "MULTIPLE"` instead of `"account_mode" : "SINGLE"` because this is a multiple account app.
 
@@ -468,11 +453,11 @@ Unlike the [auth_config_single_account.json](#auth_config_single_accountjson) co
 }
 ```
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
 
 ## Next steps
 
 Move on to the Android tutorial in which you build an Android app that gets an access token from the Microsoft identity platform and uses it to call the Microsoft Graph API.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Sign in users and call the Microsoft Graph from an Android application](tutorial-v2-android.md)
+> [Tutorial: Sign in users and call the Microsoft Graph from an Android application](../../tutorial-v2-android.md)

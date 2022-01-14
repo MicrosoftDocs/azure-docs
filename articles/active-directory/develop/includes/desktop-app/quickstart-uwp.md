@@ -7,46 +7,77 @@ author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: include
 ms.workload: identity
 ms.date: 01/14/2022
-
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:UWP", mode-api
 #Customer intent: As an application developer, I want to learn how my Universal Windows Platform (XAML) application can get an access token and call an API that's protected by the Microsoft identity platform.
 ---
 
-# Quickstart: Call the Microsoft Graph API from a Universal Windows Platform (UWP) application
-
 In this quickstart, you download and run a code sample that demonstrates how a Universal Windows Platform (UWP) application can sign in users and get an access token to call the Microsoft Graph API. 
 
 See [How the sample works](#how-the-sample-works) for an illustration.
-
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
 
-#### Step 1: Configure the application
-For the code sample in this quickstart to work, add a **Redirect URI** of `https://login.microsoftonline.com/common/oauth2/nativeclient`.
-> [!div class="nextstepaction"]
-> [Make this change for me]()
+## Register and download your quickstart app
 
-> [!div class="alert alert-info"]
-> ![Already configured](media/quickstart-v2-uwp/green-check.png) Your application is configured with these attributes.
+You have two options to start your quickstart application:
+* [Express] [Option 1: Register and auto configure your app and then download your code sample](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+* [Manual] [Option 2: Register and manually configure your application and code sample](#option-2-register-and-manually-configure-your-application-and-code-sample)
+
+### Option 1: Register and auto configure your app and then download your code sample
+
+1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs) quickstart experience.
+1. Enter a name for your application and select **Register**.
+1. Follow the instructions to download and automatically configure your new application for you in one click.
+
+### Option 2: Register and manually configure your application and code sample
+
+#### Step 1: Register your application
+
+To register your application and add the app's registration information to your solution, follow these steps:
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations** > **New registration**.
+1. Enter a **Name** for your application, for example `UWP-App-calling-MsGraph`. Users of your app might see this name, and you can change it later.
+1. In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
+1. Select **Register** to create the application, and then record the **Application (client) ID** for use in a later step.
+1. Under **Manage**, select **Authentication**.
+1. Select **Add a platform** > **Mobile and desktop applications**.
+1. Under **Redirect URIs**, select `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+1. Select **Configure**.
 
 #### Step 2: Download the Visual Studio project
 
-Run the project using Visual Studio 2019.
-> [!div  class="nextstepaction"]
-> [Download the code sample](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
+[Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
-[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+[!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
 
+#### Step 3: Configure the Visual Studio project
 
-#### Step 3: Your app is configured and ready to run
-We have configured your project with values of your app's properties and it's ready to run.
+1. Extract the .zip archive to a local folder close to the root of your drive. For example, into **C:\Azure-Samples**.
+1. Open the project in Visual Studio. Install the **Universal Windows Platform development** workload and any individual SDK components if prompted.
+1. In *MainPage.Xaml.cs*, change the value of the `ClientId` variable to the **Application (Client) ID** of the application you registered earlier.
+
+   ```csharp
+   private const string ClientId = "Enter_the_Application_Id_here";
+   ```
+
+   You can find the **Application (client) ID** on the app's **Overview** pane in the Azure portal (**Azure Active Directory** > **App registrations** > *{Your app registration}*).
+1. Create and then select a new self-signed test certificate for the package:
+    1. In the **Solution Explorer**, double-click the *Package.appxmanifest* file.
+    1. Select **Packaging** > **Choose Certificate...** > **Create...**.
+    1. Enter a password and then select **OK**. A certificate called *Native_UWP_V2_TemporaryKey.pfx* is created. 
+    1. Select **OK** to dismiss the **Choose a certificate** dialog, and then verify that you see *Native_UWP_V2_TemporaryKey.pfx* in Solution Explorer.
+    1. In the **Solution Explorer**, right-click the **Native_UWP_V2** project and select **Properties**.
+    1. Select **Signing**, and then select the .pfx you created in the **Choose a strong name key file** drop-down.
+
 #### Step 4: Run the application
 
 To run the sample application on your local machine:
@@ -60,7 +91,7 @@ When the app's window appears, you can select the **Call Microsoft Graph API** b
 
 ## How the sample works
 
-![Shows how the sample app generated by this quickstart works](media/quickstart-v2-uwp/uwp-intro.svg)
+![Shows how the sample app generated by this quickstart works](../../media/quickstart-v2-uwp/uwp-intro.svg)
 
 ### MSAL.NET
 
@@ -123,11 +154,11 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 * `scopes` contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs.
 * `firstAccount` specifies the first user account in the cache (MSAL supports multiple users in a single app).
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
 
 ## Next steps
 
 Try out the Windows desktop tutorial for a complete step-by-step guide on building applications and new features, including a full explanation of this quickstart.
 
 > [!div class="nextstepaction"]
-> [UWP - Call Graph API tutorial](tutorial-v2-windows-uwp.md)
+> [UWP - Call Graph API tutorial](../../tutorial-v2-windows-uwp.md)
