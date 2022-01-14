@@ -7,7 +7,7 @@ author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: include
 ms.workload: identity
 ms.date: 01/11/2022
 ms.author: jmprieur
@@ -15,15 +15,13 @@ ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-cor
 #Customer intent: As an application developer, I want to know how to write an ASP.NET Core web API that uses the Microsoft identity platform to authorize API requests from clients.
 ---
 
-# Quickstart: Protect an ASP.NET Core web API with the Microsoft identity platform
-
 In this quickstart, you download an ASP.NET Core web API code sample and review the way it restricts resource access to authorized accounts only. The sample supports authorization of personal Microsoft accounts and accounts in any Azure Active Directory (Azure AD) organization.
 
 
 ## Prerequisites
 
 - Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Azure Active Directory tenant](quickstart-create-new-tenant.md)
+- [Azure Active Directory tenant](../../quickstart-create-new-tenant.md)
 - [.NET Core SDK 3.1+](https://dotnet.microsoft.com/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -32,13 +30,13 @@ In this quickstart, you download an ASP.NET Core web API code sample and review 
 First, register the web API in your Azure AD tenant and add a scope by following these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. For **Name**, enter a name for your application. For example, enter **AspNetCoreWebApi-Quickstart**. Users of your app will see this name, and you can change it later.
 1. Select **Register**.
 1. Under **Manage**, select **Expose an API** > **Add a scope**. For **Application ID URI**, accept the default by selecting **Save and continue**, and then enter the following details:
-    - **Scope name**: `access_as_user`
+   - **Scope name**: `access_as_user`
    - **Who can consent?**: **Admins and users**
    - **Admin consent display name**: `Access AspNetCoreWebApi-Quickstart`
    - **Admin consent description**: `Allows the app to access AspNetCoreWebApi-Quickstart as the signed-in user.`
@@ -51,7 +49,7 @@ First, register the web API in your Azure AD tenant and add a scope by following
 
 [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/archive/aspnetcore3-1.zip) from GitHub.
 
-[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+[!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
 
 
 ## Step 3: Configure the ASP.NET Core project
@@ -80,7 +78,7 @@ For this quickstart, don't change any other values in the *appsettings.json* fil
 
 ## How the sample works
 
-The web API receives a token from a client application, and the code in the web API validates the token. This scenario is explained in more detail in [Scenario: Protected web API](scenario-protected-web-api-overview.md).
+The web API receives a token from a client application, and the code in the web API validates the token. This scenario is explained in more detail in [Scenario: Protected web API](../../scenario-protected-web-api-overview.md).
 
 ### Startup class
 
@@ -156,7 +154,7 @@ namespace webapi.Controllers
 }
 ```
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
 
 ## Next steps
 
