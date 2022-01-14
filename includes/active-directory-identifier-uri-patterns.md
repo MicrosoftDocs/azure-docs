@@ -28,5 +28,6 @@ The following API and HTTP scheme-based application ID URI formats are supported
 - _\<tenantInitialDomain\>_ - _\<tenantInitialDomain\>.onmicrosoft.com_, where _\<tenantInitialDomain\>_ is the initial domain name the tenant creator specified at tenant creation.
 - _\<verifiedCustomDomain\>_ - A [verified custom domain](../articles/active-directory/fundamentals/add-custom-domain.md) configured for your Azure AD tenant.
 
-> ![NOTE]
-> You can add the app ID or tenant ID directly after the _api://_ scheme. No other GUID value can be added directly after the _api://_ scheme, though you can add a non-GUID string. If you add _api://\<tenantId\>_ as the application ID URI, no one else will be able to use that URI in any other app. The recommendation is to use _api://\<appId\>_, instead, or the HTTP scheme.
+> [!NOTE]
+> If you use the _api://_ scheme, you add a string value directly after the "api://". For example, _api://\<string\>_.  That string value can be a GUID or an arbitrary string.  If you add a GUID value, it must match either the app ID or the tenant ID. The application ID URI value must be unique for your tenant.
+> If you add _api://\<tenantId\>_ as the application ID URI, no one else will be able to use that URI in any other app. The recommendation is to use _api://\<appId\>_, instead, or the HTTP scheme.
