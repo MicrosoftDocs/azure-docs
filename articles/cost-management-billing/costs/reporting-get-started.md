@@ -1,5 +1,5 @@
 ---
-title: Get started with Cost Management + Billing reporting | Azure
+title: Get started with Cost Management + Billing reporting - Azure
 description: This article helps you to get started with Cost Management + Billing to understand, report on, and analyze your invoiced Microsoft Cloud and AWS costs.
 author: bandersmsft
 ms.author: banders
@@ -37,7 +37,7 @@ For more information about cost analysis, see [Explore and analyze costs with co
 
 While cost analysis offers a rich, interactive experience for analyzing and surfacing insights about your costs, there are times when you need to build more extensive dashboards and complex reports or combine costs with internal data. The Cost Management template app for Power BI is a great way to get up and running with Power BI quickly. For more information about the template app, see [Analyze Azure costs with the Power BI App](analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 
-:::image type="content" source="./media/reporting-get-started/ahb-report-full.png" alt-text="Screenshot showing the Power BI template app." lightbox="./media/reporting-get-started/ahb-report-full.png" :::
+:::image type="content" source="./media/reporting-get-started/azure-hybrid-benefits-report-full.png" alt-text="Screenshot showing the Power BI template app." lightbox="./media/reporting-get-started/azure-hybrid-benefits-report-full.png" :::
 
 Need to go beyond the basics with Power BI? The Cost Management connector for Power BI lets you choose the data you need to help you seamlessly integrate costs with your own datasets or easily build out more complete dashboards and reports to meet your organization's needs. For more information about the connector, see [Connect to Azure Cost Management data in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
 
