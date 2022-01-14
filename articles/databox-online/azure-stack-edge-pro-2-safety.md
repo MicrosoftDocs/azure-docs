@@ -48,15 +48,19 @@ Supplier’s Declaration of Conformity
 
 Models: DB040, DB040-W
 
-:::image type="icon" source="media/azure-stack-edge-pro-2-safety/icon-safety-notice.png" border="false":::NOTICE: This equipment has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, may cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at his own expense.
+:::image type="icon" source="media/azure-stack-edge-pro-2-safety/icon-safety-notice.png" border="false":::NOTICE: This equipment has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, may cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at their own expense.
 
 This device complies with part 15 of the FCC Rules and Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions: (1) this device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation of the device. 
 
+
+```
 Cet appareil numérique de la classe A est conforme à la norme NMB-003 du Canada.   
 
 Le présent appareil est conforme aux CNR d'Industrie Canada applicables aux appareils radio exempts de licence. L'exploitation est autorisée aux deux conditions suivantes: (1) l'appareil ne doit pas produire de brouillage, et (2) l'utilisateur de l'appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d'en compromettre le fonctionnement.
+```
 
-CAN ICES-3(A)/NMB-3(A)
+
+CAN ICES-3(A) /NMB-3(A)
 
 Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA.
 
@@ -69,11 +73,11 @@ For model: DB040-W only
 
 Operation in the band 5150–5250 MHz is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems. Users are advised that high-power radars are allocated as primary users (priority users) of the bands 5250–5350 MHz and 5650–5850 MHz and these radars could cause interference and/or damage to LE-LAN devices.
 
- La bande 5150–5250 MHz est réservée uniquement pour une utilisation à l’intérieur afin de réduire les risques de brouillage préjudiciable aux systèmes de satellites mobiles utilisant les mêmes canaux. Les utilisateurs êtes avisés que les utilisateurs de radars de haute puissance sont désignés utilisateurs principaux (c.-à-d., qu'ils ont la priorité) pour les bandes 5 250-5 350 MHz et 5 650-5 850 MHz et que ces radars pourraient causer du brouillage et/ou des dommages aux dispositifs LAN-EL.
+ `La bande 5150–5250 MHz est réservée uniquement pour une utilisation à l’intérieur afin de réduire les risques de brouillage préjudiciable aux systèmes de satellites mobiles utilisant les mêmes canaux. Les utilisateurs êtes avisés que les utilisateurs de radars de haute puissance sont désignés utilisateurs principaux (c.-à-d., qu'ils ont la priorité) pour les bandes 5 250-5 350 MHz et 5 650-5 850 MHz et que ces radars pourraient causer du brouillage et/ou des dommages aux dispositifs LAN-EL.`
 
 Exposure to Radio Frequency (RF) Energy
 
-This equipment should be installed and operated with a minimum distance of 20cm (8 inches) between the radiator and your body. This transmitter must not be co-located or operating in conjunction with any other antenna or transmitter.
+This equipment should be installed and operated with a minimum distance of 20 cm (8 inches) between the radiator and your body. This transmitter must not be colocated or operating with any other antenna or transmitter.
 
 This equipment complies with FCC/ISED radiation exposure limits set forth for an uncontrolled environment. Additional information about radiofrequency safety can be found on the FCC website at https://www.fcc.gov/general/radiofrequency-safety-0 and the Industry Canada website at http://www.ic.gc.ca/eic/site/smt-gst.nsf/eng/sf01904.htm
 
