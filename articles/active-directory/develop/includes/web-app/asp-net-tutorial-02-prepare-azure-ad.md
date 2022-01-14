@@ -18,7 +18,7 @@ Follow the steps in this tutorial to:
 
 ## Register your application with Azure AD
 
-First, complete the steps in [Register an application with the Microsoft identity platform](quickstart-register-app.md) to register the sample app.
+First, complete the steps in [Register an application with the Microsoft identity platform](../../quickstart-register-app.md) to register the sample app.
 
 Use the following settings for your app registration:
 
