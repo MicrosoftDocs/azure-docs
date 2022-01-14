@@ -31,11 +31,11 @@ If your Azure Cache for Redis client application runs on a Linux-based container
 
 ## Potential connection collision with *Istio/Envoy*
 
-Currently, Azure Cache for Redis uses ports 15000-15019 for clustered caches to expose cluster nodes to client applications. As documented [here](https://istio.io/latest/docs/ops/deployment/requirements/#ports-used-by-istio), the same ports are also used by *Istio.io* sidecar proxy called *Envoy* and could interfere with creating connections, especially on port 15006. 
+Currently, Azure Cache for Redis uses ports 15000-15019 for clustered caches to expose cluster nodes to client applications. As documented [here](https://istio.io/latest/docs/ops/deployment/requirements/#ports-used-by-istio), the same ports are also used by *Istio.io* sidecar proxy called *Envoy* and could interfere with creating connections, especially on port 15006.
 
 To avoid connection interference, we recommend:
 
-- Consider using a non-clustered cache instead 
+- Consider using a non-clustered cache instead
 - Avoid configuring *Istio* sidecars on pods running Azure Cache for Redis client code
 
 ## Next steps
