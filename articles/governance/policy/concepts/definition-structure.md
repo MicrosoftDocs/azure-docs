@@ -1052,9 +1052,9 @@ Attempts to create or assign policy definitions that exceed these limits will fa
 | Condition expressions in the **if** condition | 4096 | |
 | Condition expressions in the **then** block | 128 | Applies to the **existenceCondition** of **AuditIfNotExists** and **DeployIfNotExists** policies |
 | Policy functions per policy rule | 2048 | |
-| Policy function number of parameters | 128 | i.e. `[function('parameter1', 'parameter2', ...)]` |
-| Nested policy functions depth | 64 | i.e. `[function(nested1(nested2(...)))]` |
-| Policy functions expression string length | 81920 | i.e. the length of `"[function(....)]"` |
+| Policy function number of parameters | 128 | Example: `[function('parameter1', 'parameter2', ...)]` |
+| Nested policy functions depth | 64 | Example: `[function(nested1(nested2(...)))]` |
+| Policy functions expression string length | 81920 | Example: the length of `"[function(....)]"` |
 | **Field count** expressions per array | 5 | |
 | **Value count** expressions per policy rule | 10 | |
 | **Value count** expression iteration count | 100 | For nested **Value count** expressions, this also includes the iteration count of the parent expression |
@@ -1076,11 +1076,11 @@ The length of the string created by the `concat()` function depends of the value
 |:---|:---|:---|
 | Length of string returned by a function | 131072 | `[concat(field('longString1'), field('longString2'))]`|
 | Depth of complex objects provided as a parameter to, or returned by a function | 128 | `[union(field('largeObject1'), field('largeObject2'))]` |
-| Number of nodes of complex objects provided as a parameter to, or returned by a template function | 32768 | `[concat(field('largeArray1'), field('largeArray2'))]` |
+| Number of nodes of complex objects provided as a parameter to, or returned by a function | 32768 | `[concat(field('largeArray1'), field('largeArray2'))]` |
 
 > [!WARNING]
-> Policies that exceed the above limits during evaluation will effectively become a **deny** policies and can to block incoming requests.
-> When writing policies with complex policy functions, be mindful of these limits test your policies against resources that has the potential to exceed them.
+> Policy that exceed the above limits during evaluation will effectively become a **deny** policy and can block incoming requests.
+> When writing policies with complex functions, be mindful of these limits and test your policies against resources that have the potential to exceed them.
 
 ## Aliases
 
