@@ -95,13 +95,14 @@ Here are some use cases for DevTest Labs:
 
 The following table compares the two types of Azure lab environments: 
 
-| Feature | Lab Services | DevTest Labs |
-| -------- | ----------------- | ---------- |
-| Azure infrastructure management. | Service automatically manages. | You manage.  |
-| Infrastructure resiliency. | Service automatically handles. | You handle.  |
-| Subscription management. | Service handles resource allocation in internal subscriptions. | You manage in your own Azure subscription. |
-| Autoscaling. | Service automatically handles. | No autoscaling. |
-| Azure Resource Manager deployments. | Not available. | Available. |
+| Feature | Azure Lab Services | Azure DevTest Labs
+| -------- | ----------- | ----------- |
+| Management of Azure infrastructure | Automatically managed. | You manage the infrastructure manually. |
+| Built-in resiliency | Automatic handling of resiliency. | You handle resiliency manually. |
+| Subscription management | The service handles allocation of resources within Microsoft subscriptions that back the service. | You manage the subscription within your own Azure subscription.  |
+| Autoscaling. | Service automatically handles. | No subscription autoscaling. |
+| Azure Resource Manager deployment within the lab | Not available | Available |
+
 
 ## Next steps
 
