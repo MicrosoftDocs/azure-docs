@@ -1,13 +1,13 @@
 ---
 title: Use Docker containers in disconnected environments
-titleSuffix: Learn how to run Cognitive Services Docker containers disconnected from the internet
-description: Use Azure Cognitive Services in 
+titleSuffix: Azure Cognitive Services
+description: Learn how to run Azure Cognitive Services Docker containers disconnected from the internet.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 01/04/2022
+ms.date: 01/14/2022
 ms.author: aahi
 ---
 
@@ -39,12 +39,12 @@ Fill out and submit the [request form](https://aka.ms/csdisconnectedcontainers) 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
 Access is limited to customers that meet the following requirements: 
-1. Your organization must have a Microsoft Enterprise Agreement or an equivalent agreement and should identified as strategic customer or partner with Microsoft. 
-2. Disconnected containers are expected to run fully offline, hence your use cases must meet one of below or similar requirements:
-    1. Environment or device(s) with zero connectivity to internet.
-    2. Remote location that occasionally has internet access.
-    3. Organization under strict regulation of not sending any kind of data back to cloud.
-3. Application completed as instructed - Please pay close attention to guidance provided throughout the application to ensure you provide all the necessary information required for approval.
+* Your organization must have a Microsoft Enterprise Agreement or an equivalent agreement and should identified as strategic customer or partner with Microsoft. 
+* Disconnected containers are expected to run fully offline, hence your use cases must meet one of below or similar requirements:
+    * Environment or device(s) with zero connectivity to internet.
+    * Remote location that occasionally has internet access.
+    * Organization under strict regulation of not sending any kind of data back to cloud.
+* Application completed as instructed - Please pay close attention to guidance provided throughout the application to ensure you provide all the necessary information required for approval.
 
 ## Purchase a commitment plan to use containers in disconnected environments
 
@@ -203,7 +203,7 @@ it will return a JSON response similar to the example below:
 
 ## Purchase a different commitment plan for disconnected containers
 
-Commitment plans for disconnected containers have a calendar year commitment period. When you purchase a plan, you will be charged the full price immediately. During the commitment period, you cannot change your commitment plan, however you can purchase additional unit(s) at a pro-rated price for the remaining days in the year. You can only purchase a different commitment plan for the next billing cycle, which happens on the first day of the next year. 
+Commitment plans for disconnected containers have a calendar year commitment period. When you purchase a plan, you will be charged the full price immediately. During the commitment period, you cannot change your commitment plan, however you can purchase additional unit(s) at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
 
 You can choose a different commitment plan in the **Commitment Tier pricing** settings of your resource. 
 
