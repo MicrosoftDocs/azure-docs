@@ -135,7 +135,7 @@ items:
   items:
   - name: What is the Custom Translator?
     href: custom-translator/overview.md
-  - name: Custom Translation v2.0 | Preview
+  - name: Custom Translation v2.0 | preview
     expanded: true
     items:
     - name: What is a Custom Translator project?

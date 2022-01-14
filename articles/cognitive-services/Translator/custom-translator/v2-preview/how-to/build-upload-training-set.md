@@ -11,10 +11,10 @@ ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to know how to create and upload documents, so that I can train custom model.
 ---
-# Build and upload a training set | Preview
+# Build and upload a training set | preview
 
 > [!IMPORTANT]
-> Custom Translator v2.1 is currently in public preview. Some features may not be supported or have constrained capabilities.
+> Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
 
 [Custom Translator](https://portal.customtranslator.azure.ai) enables you to upload the parallel document types, listed in `Training material`, to train your translation systems. [Parallel documents](../../what-are-parallel-documents.md) are pairs of documents where one is a translation of the other. One document in the pair contains sentences in the source language and the other document contains these sentences translated into the target language.
 

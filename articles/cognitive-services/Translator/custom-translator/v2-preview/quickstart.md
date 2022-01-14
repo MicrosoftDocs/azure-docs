@@ -14,7 +14,7 @@ ms.topic: quickstart
 # Quickstart: Build, publish, and translate with custom models
 
 > [!IMPORTANT]
-> Custom Translator v2.1 is currently in public preview. Some features may not be supported or have constrained capabilities.
+> Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
 
 This article provides new users with basic knowledge to build, publish, and translate with custom models.
 

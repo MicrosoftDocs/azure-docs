@@ -12,10 +12,10 @@ ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to create project, so that I can build and manage a project.
 ---
 
-# Create and manage a project | Preview
+# Create and manage a project | preview
 
 > [!IMPORTANT]
-> Custom Translator v2.1 is currently in public preview. Some features may not be supported or have constrained capabilities.
+> Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
 
 A project is a container for a models, documents, and tests. Each project automatically includes all documents that are uploaded into that workspace that have the correct language pair.
 
