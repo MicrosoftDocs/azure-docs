@@ -105,7 +105,7 @@ You can configure this setting using the following methods:
 
 You can specify the port that you want to use to connect to your VMs. By default, the inbound ports used to connect are 3389 for RDP and 22 for SSH. If you configure a custom port value, you need to specify that value when you connect to the VM.
 
-Custom port values are supported when Bastion has been configured with the Standard SKU. The Basic SKU doesn't support custom port values. If your Bastion deployment uses the Basic SKU, you can easily [upgrade a Basic SKU to a Standard SKU](#upgradesku).
+Custom port values are supported for the Standard SKU only. If your Bastion deployment uses the Basic SKU, you can easily [upgrade a Basic SKU to a Standard SKU](#upgradesku).
 
 ## Next steps
 
