@@ -432,7 +432,7 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 
 ### Delete azureml-fe related resources
 
-After detaching cluster, if you don't have any active service in cluster, please delete the azureml-fe related resources before attaching again
+After detaching cluster, if there is none active service in cluster, please delete the azureml-fe related resources before attaching again
 
 ```shell
 kubectl delete sa azureml-fe
