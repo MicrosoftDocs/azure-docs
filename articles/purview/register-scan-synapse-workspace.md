@@ -18,7 +18,7 @@ This article outlines how to register Azure Synapse Analytics workspaces and how
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| No| [Yes- Synapse pipelines](how-to-lineage-azure-synapse-analytics.md)|
+| [Yes](#register) | [Yes](#scan)| [Yes](#scan) | No| [Yes](#scan)| No| [Yes- Synapse pipelines](how-to-lineage-azure-synapse-analytics.md)|
 
 
 <!-- 4. Prerequisites
@@ -66,7 +66,7 @@ Only users with at least a *Reader* role on the Azure Synapse workspace who is a
 
 Follow the steps below to scan Azure Synapse Analytics workspaces to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
 
-You will first need to set up authentication for enumerating for either your [dedicated](#authentication-for-enumerating-dedicated-sql-database-resources) or [serverless](#authentication-for-enumerating-serverless-sql-database-resources) resources. This will allow Azure Purview to enumerate your workspace assets and perform scoped scans.
+You will first need to set up authentication for enumerating for either your [dedicated](#authentication-for-enumerating-dedicated-sql-database-resources) or [serverless](#authentication-for-enumerating-serverless-sql-database-resources) resources. This will allow Azure Purview to enumerate your workspace assets and perform scans.
 
 Then, you will need to [apply permissions to scan the contents of the workspace](#apply-permissions-to-scan-the-contents-of-the-workspace).
 
