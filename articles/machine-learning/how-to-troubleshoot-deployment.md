@@ -115,9 +115,9 @@ Use the info in the [Inspect the Docker log](how-to-troubleshoot-deployment-loca
 
 ## Container azureml-fe-aci launch fails
 
-When deploying a service to an Azure Container Instance compute target, Azure Machine Learning will attempt to create an front end container with name azureml-fe-aci to serve for inference request. If azureml-fe-aci is crashing, you can see logs with `az container logs --name MyContainerGroup --resource-group MyResourceGroup --subscription MySubscription --container-name azureml-fe-aci`. You can follow the error message in logs to make the fix. 
+When deploying a service to an Azure Container Instance compute target, Azure Machine Learning attempts to create a front-end container that has the name `azureml-fe-aci` for the inference request. If `azureml-fe-aci` crashes, you can see logs by running `az container logs --name MyContainerGroup --resource-group MyResourceGroup --subscription MySubscription --container-name azureml-fe-aci`. You can follow the error message in the logs to make the fix. 
 
-The most common failure for azureml-fe-aci is the provided ssl cert/key is invalid.
+The most common failure for `azureml-fe-aci` is that the provided SSL certificate or key is invalid.
 
 ## Function fails: get_model_path()
 
