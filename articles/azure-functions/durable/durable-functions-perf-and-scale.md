@@ -193,7 +193,7 @@ Entity functions are also executed on a single thread and operations are process
 
 ## Function timeouts
 
-Activity, orchestrator, and entity functions are subject to the same [function timeouts](../functions-scale#timeout) as all Azure Functions. As a general rule, Durable Functions treats function timeouts the same way as unhandled exceptions thrown by the application code. For example, if an activity times out, the function execution is recorded as a failure, and the orchestrator is notified and handles the timeout just like any other exception: retries take place if specified by the call, or an exception handler may be executed.
+Activity, orchestrator, and entity functions are subject to the same [function timeouts](../functions-scale.md#timeout) as all Azure Functions. As a general rule, Durable Functions treats function timeouts the same way as unhandled exceptions thrown by the application code. For example, if an activity times out, the function execution is recorded as a failure, and the orchestrator is notified and handles the timeout just like any other exception: retries take place if specified by the call, or an exception handler may be executed.
 
 ## Concurrency throttles
 
@@ -308,14 +308,14 @@ In all other situations, there is typically no observable performance improvemen
 > [!NOTE]
 > These settings should only be used after an orchestrator function has been fully developed and tested. The default aggressive replay behavior can useful for detecting [orchestrator function code constraints](durable-functions-code-constraints.md) violations at development time, and is therefore disabled by default.
 
-### Entity operation batching
+## Entity operation batching
 
 To improve performance and cost, entity operations are executed in batches. Each batch is billed as a single function execution.
 
 By default, the maximum batch size is 50 (for consumption plans) and 5000 (for all other plans). The maximum batch size can also be configured in the [host.json](durable-functions-bindings.md#host-json) file. If the maximum batch size is 1, batching is effectively disabled.
 
 > [!NOTE]
-> If individual entity operations take a long time to execute, it may be beneficial to limit the maximum batch size to reduce the risk of [function timeouts](#Function-timeouts), in particular on consumption plans.
+> If individual entity operations take a long time to execute, it may be beneficial to limit the maximum batch size to reduce the risk of [function timeouts](#function-timeouts), in particular on consumption plans.
 
 ## Performance targets
 
