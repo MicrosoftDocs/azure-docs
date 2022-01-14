@@ -7,7 +7,7 @@ author:   sipastak
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 01/07/2022
+ms.date: 01/14/2022
 ms.author: sipastak
 ---
 
@@ -18,22 +18,7 @@ ms.author: sipastak
 
 To reduce the risk of bodily injury, electrical shock, fire, and equipment damage, read the safety instructions found at the below QR Code and observe all warnings and precautions in this guide before unpacking, installing, or maintaining this server.
 
-## Safety icon conventions
-
-| Icon | Description |
-|:--- |:--- |
-| ![Hazard Symbol](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)| **DANGER:** Indicates a hazardous situation that, if not avoided, will result in death or serious injury. <br> **WARNING:** Indicates a hazardous situation that, if not avoided, could result in death or serious injury. <br> **CAUTION:** Indicates a hazardous situation that, if not avoided, could result in minor or moderate injury.|
-
-The following hazard icons are to be observed when setting up and running your Azure Stack Edge Pro 2 Edge device:
-
-| Icon | Description |
-|:--- |:--- |
-| ![Read All Instructions First](./media/azure-stack-edge-pro-r-safety/icon-safety-read-all-instructions.png) | Read All Instructions First |
-| ![Notice Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **NOTICE:** | Indicates information considered important, but not hazard-related. |
-| ![Hazard Symbol](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Hazard Symbol |
-
-
-<!--confirm with Tim about QR code-->
+[!INCLUDE [azure-stack-edge-gateway-safety-icon-conventions](../../includes/azure-stack-edge-gateway-safety-icon-conventions.md)]
 
 
 ## Compliance Guide
@@ -58,7 +43,41 @@ For electrical supply ratings, refer to the equipment rating label provided with
 
 :::image type="icon" source="media/azure-stack-edge-pro-2-safety/icon-safety-notice.png" border="false":::NOTICE: Changes or modifications made to the equipment not expressly approved by Microsoft may void the user’s authority to operate the equipment.
 
-### **EUROPEAN UNION:**
+### USA and CANADA:
+Supplier’s Declaration of Conformity
+
+Models: DB040, DB040-W
+
+:::image type="icon" source="media/azure-stack-edge-pro-2-safety/icon-safety-notice.png" border="false":::NOTICE: This equipment has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, may cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at his own expense.
+
+This device complies with part 15 of the FCC Rules and Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions: (1) this device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation of the device. 
+
+Cet appareil numérique de la classe A est conforme à la norme NMB-003 du Canada.   
+
+Le présent appareil est conforme aux CNR d'Industrie Canada applicables aux appareils radio exempts de licence. L'exploitation est autorisée aux deux conditions suivantes: (1) l'appareil ne doit pas produire de brouillage, et (2) l'utilisateur de l'appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d'en compromettre le fonctionnement.
+
+CAN ICES-3(A)/NMB-3(A)
+
+Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA.
+
+United States: (800) 426-9400
+
+Canada: (800) 933-4750
+
+
+For model: DB040-W only
+
+Operation in the band 5150–5250 MHz is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems. Users are advised that high-power radars are allocated as primary users (priority users) of the bands 5250–5350 MHz and 5650–5850 MHz and these radars could cause interference and/or damage to LE-LAN devices.
+
+ La bande 5150–5250 MHz est réservée uniquement pour une utilisation à l’intérieur afin de réduire les risques de brouillage préjudiciable aux systèmes de satellites mobiles utilisant les mêmes canaux. Les utilisateurs êtes avisés que les utilisateurs de radars de haute puissance sont désignés utilisateurs principaux (c.-à-d., qu'ils ont la priorité) pour les bandes 5 250-5 350 MHz et 5 650-5 850 MHz et que ces radars pourraient causer du brouillage et/ou des dommages aux dispositifs LAN-EL.
+
+Exposure to Radio Frequency (RF) Energy
+
+This equipment should be installed and operated with a minimum distance of 20cm (8 inches) between the radiator and your body. This transmitter must not be co-located or operating in conjunction with any other antenna or transmitter.
+
+This equipment complies with FCC/ISED radiation exposure limits set forth for an uncontrolled environment. Additional information about radiofrequency safety can be found on the FCC website at https://www.fcc.gov/general/radiofrequency-safety-0 and the Industry Canada website at http://www.ic.gc.ca/eic/site/smt-gst.nsf/eng/sf01904.htm
+
+### EUROPEAN UNION:
 
 :::image type="icon" source="media/azure-stack-edge-pro-2-safety/icon-safety-warning.png" border="false":::**WARNING:** 
 * This is a class A product. In a domestic environment, this product may cause radio interference in which case the user may be required to take adequate measures.
@@ -83,21 +102,8 @@ In accordance with Article 10.8(a) and 10.8(b) of the Radio Equipment Directive 
 |5725 - 5875    |         |
 
 :::image type="icon" source="media/azure-stack-edge-pro-2-safety/icon-safety-notice.png" border="false":::Notice: This device is a receiver category 1 device under EN 300 440 
-<!--notice icon-->
 
-**Disposal of Waste Batteries and Electrical & Electronic Equipment:**
-
-![Warning Icon 14](./media/azure-stack-edge-mini-r-safety/icon-ewaste-disposal.png)
-
-This symbol on the product or its batteries or its packaging means that this product and any batteries it contains must not be disposed of with your household waste. Instead, it is your responsibility to hand this product over to an applicable collection point for the recycling of batteries and electrical and electronic equipment. This separate collection and recycling will help to conserve natural resources and prevent potential negative consequences for human health and the environment due to the possible presence of hazardous substances in batteries and electrical and electronic equipment, which could be caused by inappropriate disposal. For more information about where to drop off your batteries and electrical and electronic waste, contact your local city/municipality office, your household waste disposal service, or the shop where you purchased this product. Contact erecycle@microsoft.com for additional information on WEEE.  
-
-This product might contain Lithium-Ion and/or Lithium Metal battery(ies). 
-
-Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL 
-
-Telephone number: +353 1 295 3826 
-
-Fax number: +353 1 706 4110
+[!INCLUDE [azure-stack-edge-gateway-disposal-waste-batteries](../../includes/azure-stack-edge-gateway-disposal-waste-batteries.md)]
 
 ### **Japan**
 :::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-japan.png" alt-text="Japan":::
