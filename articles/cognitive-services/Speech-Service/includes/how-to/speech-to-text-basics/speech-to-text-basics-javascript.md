@@ -220,39 +220,3 @@ speechConfig.speechRecognitionLanguage = "it-IT";
 
 The [`speechRecognitionLanguage`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#speechrecognitionlanguage) property expects a language-locale format string. You can provide any value in the **Locale** column in the list of supported [locales/languages](../../../language-support.md).
 
-## Improve recognition accuracy
-
-Phrase Lists are used to identify known phrases in audio data, like a person's name or a specific location. By providing a list of phrases, you improve the accuracy of speech recognition.
-
-As an example, if you have a command "Move to" and a possible destination of "Ward" that may be spoken, you can add an entry of "Move to Ward". Adding a phrase will increase the probability that when the audio is recognized that "Move to Ward" will be recognized instead of "Move toward"
-
-Single words or complete phrases can be added to a Phrase List. During recognition, an entry in a phrase list is used to boost recognition of the words and phrases in the list even when the entries appear in the middle of the utterance. 
-
-> [!IMPORTANT]
-> The Phrase List feature is available in the following languages: en-US, de-DE, en-AU, en-CA, en-GB, en-IN, es-ES, fr-FR, it-IT, ja-JP, pt-BR, zh-CN
->
-> The Phrase List feature should be used with no more than a few hundred phrases. If you have a larger list or for languages that are not currently supported, [training a custom model](../../../custom-speech-overview.md) will likely be the better choice to improve accuracy.
->
-> The Phrase List feature is not supported with custom endpoints. Do not use it with custom endpoints. Instead, train a custom model that includes the phrases.
-
-To use a phrase list, first create a [`PhraseListGrammar`](/javascript/api/microsoft-cognitiveservices-speech-sdk/phraselistgrammar) object, then add specific words and phrases with [`addPhrase`](/javascript/api/microsoft-cognitiveservices-speech-sdk/phraselistgrammar#addphrase-string-).
-
-Any changes to [`PhraseListGrammar`](/javascript/api/microsoft-cognitiveservices-speech-sdk/phraselistgrammar) take effect on the next recognition or after a reconnection to the Speech service.
-
-```javascript
-const phraseList = sdk.PhraseListGrammar.fromRecognizer(recognizer);
-phraseList.addPhrase("Supercalifragilisticexpialidocious");
-```
-
-If you need to clear your phrase list:
-
-```javascript
-phraseList.clear();
-```
-
-### Other options to improve recognition accuracy
-
-Phrase lists are only one option to improve recognition accuracy. You can also: 
-
-* [Improve accuracy with Custom Speech](../../../custom-speech-overview.md)
-* [Improve accuracy with tenant models](../../../tutorial-tenant-model.md)
