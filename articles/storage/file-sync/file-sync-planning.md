@@ -352,7 +352,7 @@ The following regions require you to request access to Azure Storage before you 
 - South Africa West
 - UAE Central
 
-To request access for these regions, follow the process in [this document](https://docs.microsoft.com/troubleshoot/azure/general/region-access-request-process).
+To request access for these regions, follow the process in [this document](/troubleshoot/azure/general/region-access-request-process).
 
 ## Redundancy
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]

@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 01/14/2022
 ms.author: cshoe
 ms.custom: devx-track-js
 ---
@@ -154,6 +154,25 @@ The Static Web Apps CLI is launched using both development servers.
 Now requests that go through port `4280` are routed to either the static content development server, or the API debugging session.
 
 For more information on different debugging scenarios, with guidance on how to customize ports and server addresses, see the [Azure Static Web Apps CLI repository](https://github.com/Azure/static-web-apps-cli).
+
+### Sample debugging configuration
+
+Visual Studio Code uses a file to enable debugging sessions in the editor. If Visual Studio Code doesn't generate a *launch.json* file for you, you can place the the following configuration in *.vscode/launch.json*.
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach to Node Functions",
+            "type": "node",
+            "request": "attach",
+            "port": 9229,
+            "preLaunchTask": "func: host start"
+        }
+    ]
+}
+```
 
 ## Next steps
 

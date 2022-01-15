@@ -3,7 +3,7 @@ title: Rotate certificates in Azure Kubernetes Service (AKS)
 description: Learn how to rotate your certificates in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 11/03/2021
+ms.date: 1/9/2022
 ---
 
 # Rotate certificates in Azure Kubernetes Service (AKS)
@@ -28,7 +28,7 @@ AKS generates and uses the following certificates, Certificate Authorities, and 
 * The `kubectl` client has a certificate for communicating with the AKS cluster.
 
 > [!NOTE]
-> AKS clusters created prior to May 2019 have certificates that expire after two years. Any cluster created after May 2019 or any cluster that has its certificates rotated have Cluster CA certificates that expire after 30 years. All other AKS certificates, which use the Cluster CA to for signing, will expire after two years and are automatically rotated during AKS version upgrade. To verify when your cluster was created, use `kubectl get nodes` to see the *Age* of your node pools.
+> AKS clusters created prior to May 2019 have certificates that expire after two years. Any cluster created after May 2019 or any cluster that has its certificates rotated have Cluster CA certificates that expire after 30 years. All other AKS certificates, which use the Cluster CA to for signing, will expire after two years and are automatically rotated during AKS version upgrade happened after 8/1/2021. To verify when your cluster was created, use `kubectl get nodes` to see the *Age* of your node pools.
 > 
 > Additionally, you can check the expiration date of your cluster's certificate. For example, the following bash command displays the client certificate details for the *myAKSCluster* cluster in resource group *rg*
 > ```console

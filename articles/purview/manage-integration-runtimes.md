@@ -14,7 +14,7 @@ ms.date: 10/22/2021
 This article describes how to create and manage a self-hosted integration runtime (SHIR) that let's you scan data sources in Azure Purview.
 
 > [!NOTE]
-> The Purview Integration Runtime cannot be shared with an Azure Synapse Analytics or Azure Data Factory Integration Runtime on the same machine. It needs to be installed on a separated machine.
+> The Azure Purview Integration Runtime cannot be shared with an Azure Synapse Analytics or Azure Data Factory Integration Runtime on the same machine. It needs to be installed on a separated machine.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ To create and set up a self-hosted integration runtime, use the following proced
 
 ## Create a self-hosted integration runtime
 
-1. On the home page of the [Purview Studio](https://web.purview.azure.com/resource/), select **Data Map** from the left navigation pane.
+1. On the home page of the [Azure Purview Studio](https://web.purview.azure.com/resource/), select **Data Map** from the left navigation pane.
 
 2. Under **Sources and scanning** on the left pane, select **Integration runtimes**, and then select **+ New**.
 
@@ -134,25 +134,25 @@ If you see error messages like the following ones, the likely reason is improper
 Your self-hosted integration runtime machine will need to connect to several resources to work correctly:
 
 * The sources you want to scan using the self-hosted integration runtime.
-* Any Azure Key Vault used to store credentials for the Purview resource.
-* The managed Storage account and Event Hub resources created by Purview.
+* Any Azure Key Vault used to store credentials for the Azure Purview resource.
+* The managed Storage account and Event Hub resources created by Azure Purview.
 
-The managed Storage and Event Hub resources can be found in your subscription under a resource group containing the name of your Purview resource. Azure Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime will need to be able to connect directly with these resources.
+The managed Storage and Event Hub resources can be found in your subscription under a resource group containing the name of your Azure Purview resource. Azure Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime will need to be able to connect directly with these resources.
 
 Here are the domains and ports that will need to be allowed through corporate and machine firewalls.
 
 > [!NOTE]
-> For domains listed with '\<managed Purview storage account>', you will add the name of the managed storage account associated with your Purview resource. You can find this resource in the Portal. Search your Resource Groups for a group named: managed-rg-\<your Purview Resource name>. For example: managed-rg-contosoPurview. You will use the name of the storage account in this resource group.
+> For domains listed with '\<managed Azure Purview storage account>', you will add the name of the managed storage account associated with your Azure Purview resource. You can find this resource in the Portal. Search your Resource Groups for a group named: managed-rg-\<your Azure Purview Resource name>. For example: managed-rg-contosoPurview. You will use the name of the storage account in this resource group.
 > 
-> For domains listed with '\<managed Event Hub resource>', you will add the name of the managed Event Hub associated with your Purview resource. You can find this in the same Resource Group as the managed storage account.
+> For domains listed with '\<managed Event Hub resource>', you will add the name of the managed Event Hub associated with your Azure Purview resource. You can find this in the same Resource Group as the managed storage account.
 
 | Domain names                  | Outbound ports | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net` | 443            | Global infrastructure Purview uses to run its scans. Wildcard required as there is no dedicated resource. |
-| `<managed Event Hub resource>.servicebus.windows.net` | 443            | Purview uses this to connect with the associated service bus. It will be covered by allowing the above domain, but if you are using Private Endpoints, you will need to test access to this single domain.|
-| `*.frontend.clouddatahub.net` | 443            | Global infrastructure Purview uses to run its scans. Wildcard required as there is no dedicated resource. |
-| `<managed Purview storage account>.core.windows.net`          | 443            | Used by the self-hosted integration runtime to connect to the managed Azure storage account.|
-| `<managed Purview storage account>.queue.core.windows.net` | 443            | Queues used by purview to run the scan process. |
+| `*.servicebus.windows.net` | 443            | Global infrastructure Azure Purview uses to run its scans. Wildcard required as there is no dedicated resource. |
+| `<managed Event Hub resource>.servicebus.windows.net` | 443            | Azure Purview uses this to connect with the associated service bus. It will be covered by allowing the above domain, but if you are using Private Endpoints, you will need to test access to this single domain.|
+| `*.frontend.clouddatahub.net` | 443            | Global infrastructure Azure Purview uses to run its scans. Wildcard required as there is no dedicated resource. |
+| `<managed Azure Purview storage account>.core.windows.net`          | 443            | Used by the self-hosted integration runtime to connect to the managed Azure storage account.|
+| `<managed Azure Purview storage account>.queue.core.windows.net` | 443            | Queues used by purview to run the scan process. |
 | `*.login.windows.net`          | 443            | Sign in to Azure Active Directory.|
 | `*.login.microsoftonline.com` | 443            | Sign in to Azure Active Directory. |
 | `download.microsoft.com` | 443           | Optional for SHIR updates. |
@@ -183,7 +183,7 @@ You can delete a self-hosted integration runtime by navigating to **Integration 
 
 ## Java Runtime Environment Installation
 
-If you will be scanning Parquet files using the Self-Hosted Integration runtime with Purview, you will need to install either the Java Runtime Environment or OpenJDK on your self-hosted IR machine.
+If you will be scanning Parquet files using the Self-Hosted Integration runtime with Azure Purview, you will need to install either the Java Runtime Environment or OpenJDK on your self-hosted IR machine.
 
 When scanning Parquet files using the Self-hosted IR, the service locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK.
 
@@ -230,4 +230,4 @@ You can install the self-hosted integration runtime by downloading a Managed Ide
 
 - [How scans detect deleted assets](concept-scans-and-ingestion.md#how-scans-detect-deleted-assets)
 
-- [Use private endpoints with Purview](catalog-private-link.md)
+- [Use private endpoints with Azure Purview](catalog-private-link.md)

@@ -182,6 +182,7 @@ public async Task OnGetAsync()
             return Task.CompletedTask;
         }));
 
+    // MSGraphUser is a DTO class being used to hold User information from the graph service client call
     List<MSGraphUser> msGraphUsers = new List<MSGraphUser>();
     try
     {
