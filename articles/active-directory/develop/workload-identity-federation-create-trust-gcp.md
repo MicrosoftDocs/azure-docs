@@ -64,7 +64,7 @@ The following command configures a federated identity credential:
 az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/41be38fd-caac-4354-aa1e-1fdb20e43bfa/federatedIdentityCredentials' --body '{"name":"GcpFederation","issuer":"https://accounts.google.com","subject":"100172753465132042621","description":"Testing","audiences":["api://AzureADTokenExchange"]}'
 ```
 
-For more information and examples, see [Create a federated identity credential](workload-identity-federation-create-trust.md#create-a-federated-identity-credential).
+For more information and examples, see [Create a federated identity credential](workload-identity-federation-create-trust.md).
 
 ## Exchange a Google token for an access token
 
