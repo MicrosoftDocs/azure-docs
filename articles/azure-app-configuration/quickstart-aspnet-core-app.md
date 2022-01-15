@@ -23,7 +23,7 @@ In this quickstart, you'll use Azure App Configuration to centralize storage and
 > [!TIP]
 > The Azure Cloud Shell is a free, interactive shell that you can use to run the command line instructions in this article. It has common Azure tools preinstalled, including the .NET Core SDK. If you're logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com. You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
 
- ## Create an App Configuration store
+## Create an App Configuration store
 
 [!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
@@ -74,7 +74,7 @@ dotnet new mvc --no-https --output TestAppConfig
 1. Select the correct syntax based on your environment.
 
     #### [.NET 6.x](#tab/core6x)
-    In *Program.cs*, and replace its content with the following code: 
+    In *Program.cs*, replace its content with the following code: 
 
     ```csharp
     var builder = WebApplication.CreateBuilder(args);
@@ -86,12 +86,11 @@ dotnet new mvc --no-https --output TestAppConfig
                         //Connect to your App Config Store using the connection string
                         builder.AddAzureAppConfiguration(connectionString);
                     })
-                    .ConfigureServices(services =>
+                .ConfigureServices(services =>
                     {
                         services.AddControllersWithViews();
                     });
 
-    
     var app = builder.Build();
     
     // Configure the HTTP request pipeline.
@@ -111,9 +110,6 @@ dotnet new mvc --no-https --output TestAppConfig
     
     app.Run();
     ```
-    
-    This code will connect to your App Configuration Store using a connection string and load all keys that have the *TestApp* prefix from a previous step. 
-    
     
     #### [.NET 5.x](#tab/core5x)
     
@@ -183,7 +179,7 @@ dotnet new mvc --no-https --output TestAppConfig
         ```  
 ---
 
-With the preceding change, the [configuration provider for App Configuration](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) has been registered with the .NET Core Configuration API.
+This code will connect to your App Configuration Store using a connection string and load all keys that have the *TestApp* prefix from a previous step. For more information on connecting to the configuration provider, reference the [configuration provider for App Configuration docs](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration). 
 
 ## Read from the App Configuration store
 
