@@ -27,7 +27,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + [Access tiers](../storage/blobs/access-tiers-overview.md) for Blob storage include hot, cool, and archive. Only hot and cool can be accessed by search indexers.
 
-+ Blob content not exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
++ Blob content cannot not exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
 
 <a name="SupportedFormats"></a>
 
@@ -82,7 +82,7 @@ You can provide the credentials for the blob container in one of these ways:
 | Container shared access signature |
 |-----------------------------------|
 | `{ "connectionString" : "ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl;" }` |
-| The SAS should have the list and read permissions on the container. For more information on storage shared access signatures, see [Using Shared Access Signatures](../storage/common/storage-sas-overview.md). |
+| The SAS should have the list and read permissions on the container. For more information on Azure Storage shared access signatures, see [Using Shared Access Signatures](../storage/common/storage-sas-overview.md). |
 
 > [!NOTE]
 > If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to "Credentials provided in the connection string are invalid or have expired".  

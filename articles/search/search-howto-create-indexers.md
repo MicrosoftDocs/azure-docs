@@ -90,7 +90,7 @@ AI enrichment is out of scope for this article. For more information, start with
 
 ## Prepare data
 
-Indexers work with data sets. When you run an indexer, it connect to your data source, retrieve the data from the container or folder, optionally serialize it into JSON, and pass it to the search engine for indexing. This section describes the requirements of incoming data for text-based indexing.
+Indexers work with data sets. When you run an indexer, it connects to your data source, retrieves the data from the container or folder, optionally serializes it into JSON before passing it to the search engine for indexing. This section describes the requirements of incoming data for text-based indexing.
 
 If your data is already JSON, the structure or shape of incoming data should correspond to the schema of your search index. Most indexes are fairly flat, where the fields collection consists of fields at the same level, but hierarchical or nested structures are possible through [complex fields and collections](search-howto-complex-data-types). 
 
