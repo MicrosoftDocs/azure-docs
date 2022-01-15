@@ -92,15 +92,11 @@ api-key: [admin key]
 }
 ```
 
-1. Check for field correspondence between entity fields and search fields. If names and types don't match, [add field mappings](search-indexer-field-mappings.md) to the indexer definition to ensure the source and destination path is clear.
+1. Check for field correspondence between entity fields and search fields. If names and types don't match, [add field mappings](search-indexer-field-mappings.md) to the indexer definition to ensure the source-to-destination path is clear.
 
-1. Leave the document key unmapped. In Azure Cognitive Search, the document key uniquely identifies a document. Every search index must have exactly one key field of type `Edm.String`. The key field is required for each document that is being added to the index. (In fact, it's the only required field.)
+1. Create a key field, but do not define field mappings to alternative unique strings in the table. 
 
-   Because table rows have a compound key, Azure Cognitive Search generates a synthetic field called `Key` that is a concatenation of partition key and row key values. For example, if a row’s PartitionKey is `PK1` and RowKey is `RK1`, then the `Key` field's value is `PK1RK1`.
-
-> [!NOTE]
-> The `Key` value may contain characters that are invalid in document keys, such as dashes. You can work around invalid characters by adding the `base64Encode` [field mapping function](search-indexer-field-mappings.md#base64EncodeFunction) to your indexer definition. If you do this, remember to also use URL-safe Base64 encoding when passing document keys in API calls such as Lookup.
->
+   A table indexer will populate the key field with concatenated partition and row keys from the table. For example, if a row’s PartitionKey is `PK1` and RowKey is `RK1`, then the `Key` field's value is `PK1RK1`. If the partition key is null, just the row key is used.
 
 ## Set properties on the indexer
 
