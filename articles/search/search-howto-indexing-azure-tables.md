@@ -20,11 +20,9 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 ## Prerequisites
 
-+ [Azure Table Storage service](../storage/tables/table-storage-overview.md)
++ [Azure Table Storage](../storage/tables/table-storage-overview.md)
 
-+ Tables with entities
-
-+ Check [indexer limits per tier](search-limits-quotas-capacity.md#indexer-limits) to ensure you're under the maximum limits
++ Tables with entities containing non-binary data for text-based indexing (binary data requires [AI enrichment](cognitive-search-concept-intro.md))
 
 ## Define the data source
 
