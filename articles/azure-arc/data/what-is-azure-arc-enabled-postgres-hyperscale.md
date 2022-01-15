@@ -117,7 +117,7 @@ With the Direct connectivity mode offered by Azure Arc-enabled data services you
 - The scale-out and scale-in operations are not automatic. They are controlled by the users. Users may script these operations and automate the execution of those scripts. Not all workloads can benefit from scaling out. Read further details on this topic as suggested in the "Next steps" section.
 
 **To learn more about these capabilities, you can also refer to this Data Exposed episode:**
-> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/What-is-Azure-Arc-Enabled-PostgreSQL-Hyperscale--Data-Exposed/player?format=ny]
+> [!VIDEO https://docs.microsoft.com/Shows/Data-Exposed/What-is-Azure-Arc-Enabled-PostgreSQL-Hyperscale--Data-Exposed/player?format=ny]
 
 
 ## Roles and responsibilities: Azure managed services (Platform as a service (PaaS)) _vs._ Azure Arc-enabled data services

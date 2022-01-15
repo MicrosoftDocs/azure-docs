@@ -33,7 +33,7 @@ For more information on Open Liberty, see [the Open Liberty project page](https:
   * Install a Java SE implementation (for example, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-  * Create a user-assigned managed identity and assign `Contributor` role to that identity by following the steps in [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities). Return to this document after creating the identity and assigning it the necessary role.
+  * Create a user-assigned managed identity and assign `Contributor` role to that identity by following the steps in [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). Return to this document after creating the identity and assigning it the necessary role.
 
 ## Create a Jakarta EE runtime using the portal
 
@@ -111,7 +111,7 @@ The steps in this section guide you through creating an Azure Database for Postg
                                            --end-ip-address YOUR_IP_ADDRESS
    ```
 
-If you don't want to use the CLI, you may use the Azure portal by following the steps in [Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/postgresql/quickstart-create-server-database-portal). You must also grant access to Azure services by following the steps in [Firewall rules in Azure Database for PostgreSQL - Single Server](/azure/postgresql/concepts-firewall-rules#connecting-from-azure). Return to this document after creating and configuring the database server.
+If you don't want to use the CLI, you may use the Azure portal by following the steps in [Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal](../postgresql/quickstart-create-server-database-portal.md). You must also grant access to Azure services by following the steps in [Firewall rules in Azure Database for PostgreSQL - Single Server](../postgresql/concepts-firewall-rules.md#connecting-from-azure). Return to this document after creating and configuring the database server.
 
 ## Configure and deploy the sample application
 

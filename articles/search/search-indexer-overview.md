@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/05/2022
+ms.date: 01/15/2022
 ---
 
 # Indexers in Azure Cognitive Search
