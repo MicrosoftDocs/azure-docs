@@ -195,8 +195,7 @@ The CloudKnox explorers provide more information about an identity, including en
         - **Search**: In the **Search** box, system administrators can type a specific task name and find how many of those tasks have been unused or used.
         - **All**: The **Tasks** drop-down can be filtered by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
     - **Policies**:  Displays the policies attached to the role.
-    - **Permission Boundary**: This is a restriction that an admin can place on a role to restrict certain accesses to policies.
-
+    - **Permission Boundary**: An administrator can place restrictions on a role to limit access to certain policies.
 
          - To display the full details of the policy, select **View** next to the policy name.
 

@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Microsoft CloudKnox Permissions Management - The CloudKnox dashboard
 
-The Microsoft CloudKnox Permissions Management (CloudKnox) dashboard provides a visual, operational dashboard that summarizes and updates key statistics and data about an authorization system on an hourly basis. This dashboard is available for Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP).
+The Microsoft CloudKnox Permissions Management (CloudKnox) dashboard provides a visual, operational dashboard that, on an hourly basis, summarizes and updates key statistics and data about your authorization system. This dashboard is available for Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP).
 
 ## Display the CloudKnox dashboard
 

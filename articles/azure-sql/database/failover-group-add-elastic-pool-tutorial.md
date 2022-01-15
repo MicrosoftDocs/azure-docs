@@ -148,7 +148,7 @@ Set these additional parameter values for use in creating the an elastic pool.
 
 ### Create elastic pool on primary server
 
-Use this script to create an elastic pool with the [az sql elastic-pool create](/cli/azure/sql/elastic-poolt#az_sql_elastic_pool_create) command.
+Use this script to create an elastic pool with the [az sql elastic-pool create](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create) command.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="29-31":::
 
@@ -162,7 +162,7 @@ This portion of the tutorial uses the following Azure CLI cmdlets:
 
 | Command | Notes |
 |---|---|
-| [az sql elastic-pool create](/cli/azure/sql/elastic-poolt#az_sql_elastic_pool_create) | Creates an elastic pool. |
+| [az sql elastic-pool create](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create) | Creates an elastic pool. |
 | [az sql db update](/cli/azure/sql/db#az_sql_db_update) | Updates a database|
 
 ---
@@ -308,7 +308,7 @@ Use this script to create a secondary server with the [az sql server create](/cl
 
 ### Create elastic pool on secondary server
 
-Use this script to create an elastic pool on the secondary server with the [az sql elastic-pool create](/cli/azure/sql/elastic-poo#az_sql_elastic_pool_create) command.
+Use this script to create an elastic pool on the secondary server with the [az sql elastic-pool create](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create) command.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="38-40":::
 
@@ -331,7 +331,7 @@ This portion of the tutorial uses the following Azure CLI cmdlets:
 | Command | Notes |
 |---|---|
 | [az sql server create](/cli/azure/sql/server#az_sql_server_create) | Creates a server that hosts databases and elastic pools. |
-| [az sql elastic-pool create](/cli/azure/sql/elastic-poo#az_sql_elastic_pool_create) | Creates an elastic pool.|
+| [az sql elastic-pool create](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create) | Creates an elastic pool.|
 | [az sql failover-group create](/cli/azure/sql/failover-group#az_sql_failover_group_create) | Creates a failover group. |
 | [az sql failover-group update](/cli/azure/sql/failover-group#az_sql_failover_group_update) | Updates a failover group.|
 

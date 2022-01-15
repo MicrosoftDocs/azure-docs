@@ -72,7 +72,7 @@ This topic describes how to create a new rule in the Microsoft CloudKnox Permiss
 1. In the **Configure** tab, select the following parameters for your rule:
 
     - **Cross Project** - Select **True** or **False**.
-    - **Unused** - Select a duration in days for how long your rule has not been used..
+    - **Unused** - Select a duration in days for how long your rule has not been used.
 1. In the **Mode** tab, select **On-Demand** if you want recommendations to be generated and applied manually.
 1. Select **Save**
     The table in the **New Rule** tab displays a list of rules you have created.

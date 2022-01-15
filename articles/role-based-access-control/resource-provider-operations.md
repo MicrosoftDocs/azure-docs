@@ -5696,18 +5696,18 @@ Azure service: [Azure Purview](../purview/index.yml)
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
-> | Microsoft.Purview/register/action | Register the subscription for Microsoft Purview provider. |
-> | Microsoft.Purview/unregister/action | Unregister the subscription for Microsoft Purview provider. |
+> | Microsoft.Purview/register/action | Register the subscription for Microsoft Azure Purview provider. |
+> | Microsoft.Purview/unregister/action | Unregister the subscription for Microsoft Azure Purview provider. |
 > | Microsoft.Purview/setDefaultAccount/action | Sets the default account for the scope. |
 > | Microsoft.Purview/removeDefaultAccount/action | Removes the default account for the scope. |
-> | Microsoft.Purview/accounts/read | Read account resource for Microsoft Purview provider. |
-> | Microsoft.Purview/accounts/write | Write account resource for Microsoft Purview provider. |
-> | Microsoft.Purview/accounts/delete | Delete account resource for Microsoft Purview provider. |
-> | Microsoft.Purview/accounts/listkeys/action | List keys on the account resource for Microsoft Purview provider. |
-> | Microsoft.Purview/accounts/addrootcollectionadmin/action | Add root collection admin to account resource for Microsoft Purview provider. |
-> | Microsoft.Purview/accounts/move/action | Move account resource for Microsoft Purview provider. |
+> | Microsoft.Purview/accounts/read | Read account resource for Microsoft Azure Purview provider. |
+> | Microsoft.Purview/accounts/write | Write account resource for Microsoft Azure Purview provider. |
+> | Microsoft.Purview/accounts/delete | Delete account resource for Microsoft Azure Purview provider. |
+> | Microsoft.Purview/accounts/listkeys/action | List keys on the account resource for Microsoft Azure Purview provider. |
+> | Microsoft.Purview/accounts/addrootcollectionadmin/action | Add root collection admin to account resource for Microsoft Azure Purview provider. |
+> | Microsoft.Purview/accounts/move/action | Move account resource for Microsoft Azure Purview provider. |
 > | Microsoft.Purview/accounts/PrivateEndpointConnectionsApproval/action | Approve Private Endpoint Connection. |
-> | Microsoft.Purview/accounts/operationresults/read | Read the operation status on the account resource for Microsoft Purview provider. |
+> | Microsoft.Purview/accounts/operationresults/read | Read the operation status on the account resource for Microsoft Azure Purview provider. |
 > | Microsoft.Purview/accounts/privateEndpointConnectionProxies/read | Read Account Private Endpoint Connection Proxy. |
 > | Microsoft.Purview/accounts/privateEndpointConnectionProxies/write | Write Account Private Endpoint Connection Proxy. |
 > | Microsoft.Purview/accounts/privateEndpointConnectionProxies/delete | Delete Account Private Endpoint Connection Proxy. |
@@ -5721,10 +5721,10 @@ Azure service: [Azure Purview](../purview/index.yml)
 > | Microsoft.Purview/accounts/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource. |
 > | Microsoft.Purview/accounts/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for the catalog. |
 > | Microsoft.Purview/accounts/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for the catalog. |
-> | Microsoft.Purview/checknameavailability/read | Check if name of purview account resource is available for Microsoft Purview provider. |
+> | Microsoft.Purview/checknameavailability/read | Check if name of purview account resource is available for Microsoft Azure Purview provider. |
 > | Microsoft.Purview/getDefaultAccount/read | Gets the default account for the scope. |
 > | Microsoft.Purview/locations/operationResults/read | Monitor async operations. |
-> | Microsoft.Purview/operations/read | Reads all available operations for Microsoft Purview provider. |
+> | Microsoft.Purview/operations/read | Reads all available operations for Microsoft Azure Purview provider. |
 > | **DataAction** | **Description** |
 > | Microsoft.Purview/accounts/data/read | Read data objects. |
 > | Microsoft.Purview/accounts/data/write | Create, update and delete data objects. |
