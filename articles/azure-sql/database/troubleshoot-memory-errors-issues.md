@@ -10,7 +10,7 @@ ms.custom:
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: kendralittle, mathoma
-ms.date: 11/03/2021
+ms.date: 01/14/2022
 ---
 
 # Troubleshoot out of memory errors with Azure SQL Database  
@@ -29,6 +29,10 @@ Try the following avenues of investigation in response to:
 ## Investigate memory allocation
 
 If out of memory errors persist in Azure SQL Database, consider at least temporarily increasing the service level objective of the database in the Azure portal. If out of memory errors persist, use the following queries to look for unusually high query memory grants that may contribute to an insufficient memory condition. Run the following example queries in the database that experienced the error (not in the `master` database of the Azure SQL logical server).  
+
+### Use DMV to view out of memory events
+
+Beginning in January 2022, a new dynamic management view (DMV) has been added to allow visibility to the events and causes of out of memory (OOM) events in Azure SQL Database, `sys.dm_os_out_of_memory_events`. For more information, see [sys.dm_os_out_of_memory_events](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-out-of-memory-events).
 
 ### Use DMVs to view memory clerks
 
@@ -133,9 +137,9 @@ ORDER BY max_query_max_used_memory DESC, avg_query_max_used_memory DESC;
 ```
 
 ### Extended events
-In addition to the previous information, it may be helpful to capture a trace of the activities on the server to thoroughly investigate an out of memory issue in Azure SQL Database. 
+In addition to the previous information, it may be helpful to capture a trace of the activities on the server to thoroughly investigate an out of memory issue in Azure SQL Database.
 
-There are two ways to capture traces in SQL Server; Extended Events (XEvents) and Profiler Traces. However, [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) is deprecated trace technology not supported for Azure SQL Database. [Extended Events](/sql/relational-databases/extended-events/extended-events) is the newer tracing technology that allows more versatility and less impact to the observed system, and its interface is integrated into SQL Server Management Studio (SSMS). 
+There are two ways to capture traces in SQL Server; Extended Events (XEvents) and Profiler Traces. However, [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) is deprecated trace technology not supported for Azure SQL Database. [Extended Events](/sql/relational-databases/extended-events/extended-events) is the newer tracing technology that allows more versatility and less impact to the observed system, and its interface is integrated into SQL Server Management Studio (SSMS). For more information on querying extended events in Azure SQL Database, see [Extended events in Azure SQL Database](/azure/azure-sql/database/xevent-db-diff-from-svr).
 
 Refer to the document that explains how to use the [Extended Events New Session Wizard](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server) in SSMS. For Azure SQL databases however, SSMS provides an Extended Events subfolder under each database in Object Explorer. Use an Extended Events session to capture these useful events, and identify the queries generating them: 
 
@@ -152,6 +156,10 @@ Refer to the document that explains how to use the [Extended Events New Session 
     - query_memory_grant_usage
 
 The capture of memory grant blocks, memory grant spills, or excessive memory grants could be potential clue to a query suddenly taking on more memory than it had in the past, and a potential explanation for an emergent out of memory error in an existing workload.
+
+#### The summarized_oom_snapshot extended event
+
+The `summarized_oom_snapshot` extended event is a part of the existing `system_health` event session to simplify detection. This event appears when out of memory (OOM) events are detected. Refer to the event descriptions or [sys.dm_os_out_of_memory_events](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-out-of-memory-events) for cause and factor definitions.
 
 ### In-memory OLTP out of memory 
 
