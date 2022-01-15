@@ -29,7 +29,7 @@ Speech containers enable customers to build a speech application architecture th
 | Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 3.0.0 | Generally Available |
 | Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.15.0 | Generally Available |
 | Speech Language Identification | Detect the language spoken in audio files. | 1.5.0 | preview |
-| Neural Text-to-speech | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | 2.0.0 | Generally Available |
+| Neural Text-to-speech | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | 1.12.0 | Generally Available |
 
 ## Prerequisites
 
@@ -261,12 +261,12 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 ## Run the container in Disconnected Mode
 
-From Speech-to-text v3.0.0 and Neural-text-to-speech v2.0.0, OnPrem Speech containers support **Disconnected Mode**. Disconnected Mode is a mode which can run a container in an environment without Internet accessibility. 
+From Speech-to-text v3.0.0, OnPrem Speech-to-text containers support **Disconnected Mode**. Disconnected Mode is a mode which can run a container in an environment without Internet accessibility. 
 
 As an alternative to providing `{API_KEY}` and `{Endpoint_URI}` to the container, user is required to provide a license file instead. For the details of how to retrieve and use Disconnected Mode, please refer **Cognitive Service Disconnected Mode instructions**.
 
 > [!NOTE]
-> OnPrem Speech container provides two default directories `license` and `output` under the default entry point path. They can be used as the destinations of writing license file/billing log at the runtime.
+> OnPrem Speech-to-text container provides two default directories `license` and `output` under the default entry point path. They can be used as the destinations of writing license file/billing log at the runtime.
 > 
 > `docker run -v` command can mount local machine directory to container internal directory. If doing so to above `liences` and/or `output` directory, please make sure the local machine directory is set ownership to user:group `nonroot:nonroot` before running the container. 
 > 
