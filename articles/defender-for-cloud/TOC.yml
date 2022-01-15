@@ -363,7 +363,7 @@
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation
-    href: /azure/defender-for-iot/
+    href: ../defender-for-iot/index.yml
   - name: Azure security documentation
     href: ../security/index.yml
   - name: Readiness Roadmap

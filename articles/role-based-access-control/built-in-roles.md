@@ -131,9 +131,9 @@ The following table provides a brief description of each built-in role. Click th
 > | [HDInsight Domain Services Contributor](#hdinsight-domain-services-contributor) | Can Read, Create, Modify and Delete Domain Services related operations needed for HDInsight Enterprise Security Package | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
 > | [Log Analytics Contributor](#log-analytics-contributor) | Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs; reading storage account keys to be able to configure collection of logs from Azure Storage; adding solutions; and configuring Azure diagnostics on all Azure resources. | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
 > | [Log Analytics Reader](#log-analytics-reader) | Log Analytics Reader can view and search all monitoring data as well as and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources. | 73c42c96-874c-492b-b04d-ab87d138a893 |
-> | [Purview Data Curator (Legacy)](#purview-data-curator-legacy) | The Microsoft.Purview data curator is a legacy role that can create, read, modify and delete catalog data objects and establish relationships between objects. We have recently deprecated this role from Azure role-based access and introduced a new data curator inside Azure Purview data plane. See [Access control in Azure Purview - Roles](../purview/catalog-permissions.md#roles) | 8a3c2885-9b38-4fd2-9d99-91af537c1347 |
-> | [Purview Data Reader (Legacy)](#purview-data-reader-legacy) | The Microsoft.Purview data reader is a legacy role that can read catalog data objects. We have recently deprecated this role from Azure role-based access and introduced a new data reader inside Azure Purview data plane. See [Access control in Azure Purview - Roles](../purview/catalog-permissions.md#roles) | ff100721-1b9d-43d8-af52-42b69c1272db |
-> | [Purview Data Source Administrator (Legacy)](#purview-data-source-administrator-legacy) | The Microsoft.Purview data source administrator is a legacy role that can manage data sources and data scans. We have recently deprecated this role from Azure role-based access and introduced a new data source admin inside Azure Purview data plane. See [Access control in Azure Purview - Roles](../purview/catalog-permissions.md#roles) | 200bba9e-f0c8-430f-892b-6f0794863803 |
+> | [Azure Purview Data Curator (Legacy)](#azure-purview-data-curator-legacy) | The Microsoft.Purview data curator is a legacy role that can create, read, modify and delete catalog data objects and establish relationships between objects. We have recently deprecated this role from Azure role-based access and introduced a new data curator inside Azure Purview data plane. See [Access control in Azure Purview - Roles](../purview/catalog-permissions.md#roles) | 8a3c2885-9b38-4fd2-9d99-91af537c1347 |
+> | [Azure Purview Data Reader (Legacy)](#azure-purview-data-reader-legacy) | The Microsoft.Purview data reader is a legacy role that can read catalog data objects. We have recently deprecated this role from Azure role-based access and introduced a new data reader inside Azure Purview data plane. See [Access control in Azure Purview - Roles](../purview/catalog-permissions.md#roles) | ff100721-1b9d-43d8-af52-42b69c1272db |
+> | [Azure Purview Data Source Administrator (Legacy)](#azure-purview-data-source-administrator-legacy) | The Microsoft.Purview data source administrator is a legacy role that can manage data sources and data scans. We have recently deprecated this role from Azure role-based access and introduced a new data source admin inside Azure Purview data plane. See [Access control in Azure Purview - Roles](../purview/catalog-permissions.md#roles) | 200bba9e-f0c8-430f-892b-6f0794863803 |
 > | [Schema Registry Contributor (Preview)](#schema-registry-contributor-preview) | Read, write, and delete Schema Registry groups and schemas. | 5dffeca3-4936-4216-b2bc-10343a5abb25 |
 > | [Schema Registry Reader (Preview)](#schema-registry-reader-preview) | Read and list Schema Registry groups and schemas. | 2c56ea50-c6b3-40a6-83c0-9d98858bc7d2 |
 > | **Blockchain** |  |  |
@@ -5992,14 +5992,14 @@ Log Analytics Reader can view and search all monitoring data as well as and view
 }
 ```
 
-### Purview Data Curator (Legacy)
+### Azure Purview Data Curator (Legacy)
 
 The Microsoft.Purview data curator is a legacy role that can create, read, modify and delete catalog data objects and establish relationships between objects. We have recently deprecated this role from Azure role-based access and introduced a new data curator inside Azure Purview data plane. See [Access control in Azure Purview - Roles](../purview/catalog-permissions.md#roles)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/read | Read account resource for Microsoft Purview provider. |
+> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/read | Read account resource for Microsoft Azure Purview provider. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -6029,20 +6029,20 @@ The Microsoft.Purview data curator is a legacy role that can create, read, modif
       "notDataActions": []
     }
   ],
-  "roleName": "Purview Data Curator (Legacy)",
+  "roleName": "Azure Purview Data Curator (Legacy)",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### Purview Data Reader (Legacy)
+### Azure Purview Data Reader (Legacy)
 
 The Microsoft.Purview data reader is a legacy role that can read catalog data objects. We have recently deprecated this role from Azure role-based access and introduced a new data reader inside Azure Purview data plane. See [Access control in Azure Purview - Roles](../purview/catalog-permissions.md#roles)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/read | Read account resource for Microsoft Purview provider. |
+> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/read | Read account resource for Microsoft Azure Purview provider. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -6070,20 +6070,20 @@ The Microsoft.Purview data reader is a legacy role that can read catalog data ob
       "notDataActions": []
     }
   ],
-  "roleName": "Purview Data Reader (Legacy)",
+  "roleName": "Azure Purview Data Reader (Legacy)",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### Purview Data Source Administrator (Legacy)
+### Azure Purview Data Source Administrator (Legacy)
 
 The Microsoft.Purview data source administrator is a legacy role that can manage data sources and data scans. We have recently deprecated this role from Azure role-based access and introduced a new data source admin inside Azure Purview data plane. See [Access control in Azure Purview - Roles](../purview/catalog-permissions.md#roles)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/read | Read account resource for Microsoft Purview provider. |
+> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/read | Read account resource for Microsoft Azure Purview provider. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -6113,7 +6113,7 @@ The Microsoft.Purview data source administrator is a legacy role that can manage
       "notDataActions": []
     }
   ],
-  "roleName": "Purview Data Source Administrator (Legacy)",
+  "roleName": "Azure Purview Data Source Administrator (Legacy)",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

@@ -14,7 +14,7 @@ ms.date: 10/22/2021
 This article describes how to create and manage a self-hosted integration runtime (SHIR) that let's you scan data sources in Azure Purview.
 
 > [!NOTE]
-> The Purview Integration Runtime cannot be shared with an Azure Synapse Analytics or Azure Data Factory Integration Runtime on the same machine. It needs to be installed on a separated machine.
+> The Azure Purview Integration Runtime cannot be shared with an Azure Synapse Analytics or Azure Data Factory Integration Runtime on the same machine. It needs to be installed on a separated machine.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ To create and set up a self-hosted integration runtime, use the following proced
 
 ## Create a self-hosted integration runtime
 
-1. On the home page of the [Purview Studio](https://web.purview.azure.com/resource/), select **Data Map** from the left navigation pane.
+1. On the home page of the [Azure Purview Studio](https://web.purview.azure.com/resource/), select **Data Map** from the left navigation pane.
 
 2. Under **Sources and scanning** on the left pane, select **Integration runtimes**, and then select **+ New**.
 
@@ -89,16 +89,25 @@ If you select the **Use system proxy** option for the HTTP proxy, the self-hoste
     </system.net>
     ```
 
-    You can then add proxy server details as shown in the following example:
+      You can then add proxy server details as shown in the following example and include Azure Purview, data sources and other relevant services endpoints in the bypass list:
 
     ```xml
     <system.net>
-        <defaultProxy enabled="true">
-              <proxy bypassonlocal="true" proxyaddress="http://proxy.domain.org:8888/" />
-        </defaultProxy>
+      <defaultProxy>
+        <bypasslist>
+    <add address="scaneastus2test.blob.core.windows.net" />
+          <add address="scaneastus2test.queue.core.windows.net" />
+          <add address="Atlas-abcd1234-1234-abcd-abcd-1234567890ab.servicebus.windows.net" />
+          <add address="contosopurview1.purview.azure.com" />
+          <add address="contososqlsrv1.database.windows.net" />
+    <add address="contosoadls1.dfs.core.windows.net" />
+    <add address="contosoakv1.vault.azure.net" />
+    <add address="contosoblob11.blob.core.windows.net" />
+        </bypasslist>
+        <proxy proxyaddress="http://10.1.0.1:3128" bypassonlocal="True" />
+      </defaultProxy>
     </system.net>
     ```
-
     The proxy tag allows additional properties to specify required settings like `scriptLocation`. See [\<proxy\> Element (Network Settings)](/dotnet/framework/configure-apps/file-schema/network/proxy-element-network-settings) for syntax.
 
     ```xml
@@ -134,25 +143,25 @@ If you see error messages like the following ones, the likely reason is improper
 Your self-hosted integration runtime machine will need to connect to several resources to work correctly:
 
 * The sources you want to scan using the self-hosted integration runtime.
-* Any Azure Key Vault used to store credentials for the Purview resource.
-* The managed Storage account and Event Hub resources created by Purview.
+* Any Azure Key Vault used to store credentials for the Azure Purview resource.
+* The managed Storage account and Event Hub resources created by Azure Purview.
 
-The managed Storage and Event Hub resources can be found in your subscription under a resource group containing the name of your Purview resource. Azure Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime will need to be able to connect directly with these resources.
+The managed Storage and Event Hub resources can be found in your subscription under a resource group containing the name of your Azure Purview resource. Azure Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime will need to be able to connect directly with these resources.
 
 Here are the domains and ports that will need to be allowed through corporate and machine firewalls.
 
 > [!NOTE]
-> For domains listed with '\<managed Purview storage account>', you will add the name of the managed storage account associated with your Purview resource. You can find this resource in the Portal. Search your Resource Groups for a group named: managed-rg-\<your Purview Resource name>. For example: managed-rg-contosoPurview. You will use the name of the storage account in this resource group.
+> For domains listed with '\<managed Azure Purview storage account>', you will add the name of the managed storage account associated with your Azure Purview resource. You can find this resource in the Portal. Search your Resource Groups for a group named: managed-rg-\<your Azure Purview Resource name>. For example: managed-rg-contosoPurview. You will use the name of the storage account in this resource group.
 > 
-> For domains listed with '\<managed Event Hub resource>', you will add the name of the managed Event Hub associated with your Purview resource. You can find this in the same Resource Group as the managed storage account.
+> For domains listed with '\<managed Event Hub resource>', you will add the name of the managed Event Hub associated with your Azure Purview resource. You can find this in the same Resource Group as the managed storage account.
 
 | Domain names                  | Outbound ports | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net` | 443            | Global infrastructure Purview uses to run its scans. Wildcard required as there is no dedicated resource. |
-| `<managed Event Hub resource>.servicebus.windows.net` | 443            | Purview uses this to connect with the associated service bus. It will be covered by allowing the above domain, but if you are using Private Endpoints, you will need to test access to this single domain.|
-| `*.frontend.clouddatahub.net` | 443            | Global infrastructure Purview uses to run its scans. Wildcard required as there is no dedicated resource. |
-| `<managed Purview storage account>.core.windows.net`          | 443            | Used by the self-hosted integration runtime to connect to the managed Azure storage account.|
-| `<managed Purview storage account>.queue.core.windows.net` | 443            | Queues used by purview to run the scan process. |
+| `*.servicebus.windows.net` | 443            | Global infrastructure Azure Purview uses to run its scans. Wildcard required as there is no dedicated resource. |
+| `<managed Event Hub resource>.servicebus.windows.net` | 443            | Azure Purview uses this to connect with the associated service bus. It will be covered by allowing the above domain, but if you are using Private Endpoints, you will need to test access to this single domain.|
+| `*.frontend.clouddatahub.net` | 443            | Global infrastructure Azure Purview uses to run its scans. Wildcard required as there is no dedicated resource. |
+| `<managed Azure Purview storage account>.core.windows.net`          | 443            | Used by the self-hosted integration runtime to connect to the managed Azure storage account.|
+| `<managed Azure Purview storage account>.queue.core.windows.net` | 443            | Queues used by purview to run the scan process. |
 | `*.login.windows.net`          | 443            | Sign in to Azure Active Directory.|
 | `*.login.microsoftonline.com` | 443            | Sign in to Azure Active Directory. |
 | `download.microsoft.com` | 443           | Optional for SHIR updates. |
@@ -183,7 +192,7 @@ You can delete a self-hosted integration runtime by navigating to **Integration 
 
 ## Java Runtime Environment Installation
 
-If you will be scanning Parquet files using the Self-Hosted Integration runtime with Purview, you will need to install either the Java Runtime Environment or OpenJDK on your self-hosted IR machine.
+If you will be scanning Parquet files using the Self-Hosted Integration runtime with Azure Purview, you will need to install either the Java Runtime Environment or OpenJDK on your self-hosted IR machine.
 
 When scanning Parquet files using the Self-hosted IR, the service locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK.
 
@@ -192,7 +201,7 @@ When scanning Parquet files using the Self-hosted IR, the service locates the Ja
 
 ## Proxy server considerations
 
-If your corporate network environment uses a proxy server to access the internet, configure the self-hosted integration runtime to use appropriate proxy settings. You can set the proxy during the initial registration phase.
+If your corporate network environment uses a proxy server to access the internet, configure the self-hosted integration runtime to use appropriate proxy settings. You can set the proxy during the initial registration phase or after it is being registered.
 
 :::image type="content" source="media/manage-integration-runtimes/self-hosted-proxy.png" alt-text="Specify the proxy":::
 
@@ -205,6 +214,9 @@ There are three configuration options:
 - **Do not use proxy**: The self-hosted integration runtime doesn't explicitly use any proxy to connect to cloud services.
 - **Use system proxy**: The self-hosted integration runtime uses the proxy setting that is configured in diahost.exe.config and diawp.exe.config. If these files specify no proxy configuration, the self-hosted integration runtime connects to the cloud service directly without going through a proxy.
 - **Use custom proxy**: Configure the HTTP proxy setting to use for the self-hosted integration runtime, instead of using configurations in diahost.exe.config and diawp.exe.config. **Address** and **Port** values are required. **User Name** and **Password** values are optional, depending on your proxy's authentication setting. All settings are encrypted with Windows DPAPI on the self-hosted integration runtime and stored locally on the machine.
+
+> [!IMPORTANT]
+> Currently, **custom proxy** is not supported in Azure Purview. 
 
 The integration runtime host service restarts automatically after you save the updated proxy settings.
 
@@ -219,6 +231,8 @@ You can use the configuration manager tool to view and update the HTTP proxy.
 > [!NOTE]
 > If you set up a proxy server with NTLM authentication, the integration runtime host service runs under the domain account. If you later change the password for the domain account, remember to update the configuration settings for the service and restart the service. Because of this requirement, we suggest that you access the proxy server by using a dedicated domain account that doesn't require you to update the password frequently.
 
+If using system proxy, configure the outbound [network rules](#networking-requirements) from self-hosted integration runtime virtual machine to required endpoints. 
+
 ## Installation best practices
 
 You can install the self-hosted integration runtime by downloading a Managed Identity setup package from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717).
@@ -230,4 +244,4 @@ You can install the self-hosted integration runtime by downloading a Managed Ide
 
 - [How scans detect deleted assets](concept-scans-and-ingestion.md#how-scans-detect-deleted-assets)
 
-- [Use private endpoints with Purview](catalog-private-link.md)
+- [Use private endpoints with Azure Purview](catalog-private-link.md)

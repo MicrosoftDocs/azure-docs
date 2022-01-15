@@ -127,7 +127,7 @@ aks-nodepool1-xxxxxxxx-yyyyyyyyyy   Ready    agent   76s     v1.18.10
 
 The steps in this section guide you through creating an Azure SQL Database single database for use with your app. If your application doesn't require a database, you can skip this section.
 
-1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart). Return to this document after creating and configuring the database server.
+1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure SQL Database single database](../azure-sql/database/single-database-create-quickstart.md). Return to this document after creating and configuring the database server.
     > [!NOTE]
     >
     > * At the **Basics** step, write down **Database name**, ***Server name**.database.windows.net*, **Server admin login** and **Password**.
