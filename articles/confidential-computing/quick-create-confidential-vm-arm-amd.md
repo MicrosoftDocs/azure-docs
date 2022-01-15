@@ -33,7 +33,7 @@ To create and deploy a confidential VM using an ARM template in the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. [Open the confidential VM ARM template](https://aka.ms/deploycvmazure). 
+1. [Open the confidential VM ARM template](./quick-create-confidential-vm-portal-amd.md). 
 
     1. For **Subscription**, select an Azure subscription that meets the [prerequisites](#prerequisites).
     
