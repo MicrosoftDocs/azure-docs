@@ -76,7 +76,7 @@ It will take a few minutes for your VM to be deployed. When the deployment is fi
 You need to change the permission on the SSH key using `chmod`. Replace *~/.ssh/1234567891* in the following example with the private key name and path from the earlier output.
 
 ```azurepowershell-interactive
-chmod 400 ~/.ssh/1234567891
+chmod 600 ~/.ssh/1234567891
 ```
 
 Create an SSH connection with the VM using the public IP address. To see the public IP address of the VM, use the [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) cmdlet:
