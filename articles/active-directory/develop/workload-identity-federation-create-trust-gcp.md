@@ -68,7 +68,7 @@ For more information and examples, see [Create a federated identity credential](
 
 ## Exchange a Google token for an access token
 
-Now that you have configured the Azure AD application to trust the Google service account, you are ready to get a token from Google and exchange it for an access token from Microsoft identity platform.
+Now that you have configured the Azure AD application to trust the Google service account, you are ready to get a token from Google and exchange it for an access token from Microsoft identity platform.  This code runs in an application deployed to Google Cloud and running, for example, on [App Engine](https://cloud.google.com/appengine/docs/standard/).
 
 ### Get an ID token for your Google service account
 
@@ -125,7 +125,7 @@ private string getGoogleIdToken()
 
 ### Exchange the identity token for an Azure AD access token
 
-Now that you have an identity token from Google, you can exchange it for an access token from Microsoft identity platform. Use the [Microsoft Authentication Library (MSAL)](msal-overview.md) to pass the Google token as a client assertion. The following MSAL versions support client assertions:
+Now that your app running in Google Cloud has an identity token from Google, exchange it for an access token from Microsoft identity platform. Use the [Microsoft Authentication Library (MSAL)](msal-overview.md) to pass the Google token as a client assertion. The following MSAL versions support client assertions:
 - [MSAL Go (Preview)](https://github.com/AzureAD/microsoft-authentication-library-for-go)
 - [MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node)
 - [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)
@@ -260,7 +260,7 @@ public class ClientAssertionCredential:TokenCredential
 
 ## Access Azure AD protected resources
 
-As an example, here's how you can access Azure Blob storage using the `ClientAssertionCredential` token class and the Azure Blob Storage client library. When you make requests to the `BlobServiceClient` to access storage, the `BlobServiceClient` calls the `getToken` method on the `ClientAssertionCredential` object to get a fresh ID token and exchange it for an access token.  
+Your application running in Google Cloud now has an access token issued by Microsoft identity platform.  Use the access token to access the Azure AD protected resources that your Azure AD app has permissions to access.  As an example, here's how you can access Azure Blob storage using the `ClientAssertionCredential` token class and the Azure Blob Storage client library. When you make requests to the `BlobServiceClient` to access storage, the `BlobServiceClient` calls the `getToken` method on the `ClientAssertionCredential` object to get a fresh ID token and exchange it for an access token.  
 
 # [TypeScript](#tab/typescript)
 

@@ -513,7 +513,7 @@
       href: howto-create-service-principal-portal.md   
     - name: Configure an app to trust a GitHub repo
       href: workload-identity-federation-create-trust-github.md 
-    - name: Configure an app to trust a workload in Google Cloud
+    - name: Access Azure AD protected resources from Google Cloud
       href: workload-identity-federation-create-trust-gcp.md 
     - name: Configure an app to trust an external identity provider
       href: workload-identity-federation-create-trust.md
