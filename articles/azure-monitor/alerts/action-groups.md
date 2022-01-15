@@ -3,7 +3,7 @@ title: Create and manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 01/15/2022
 ms.author: dukek
 ---
 # Create and manage action groups in the Azure portal
@@ -94,6 +94,33 @@ Under **Instance details**:
 
 > [!NOTE]
 > When you configure an action to notify a person by email or SMS, they receive a confirmation indicating they have been added to the action group.
+### Test an action group in the Azure portal (Preview)
+
+When creating or updating an action group in the Azure portal, you can **test** the action group.
+1. After creating an action rule, click on **Review + create**.  Select *Test action group*.
+
+    ![The Test Action Group](./media/action-groups/test-action-group.png)
+    
+1. Select the *sample type* and select the notification and action types that you want to test and select **Test**.
+    
+    ![Select Sample Type + notification + action type](./media/action-groups/test-sample-action-group.png)
+
+1. If you close the window or select **Back to test setup** while the test is running, the test is stopped, and you will not get test results. 
+
+    ![Stop running test](./media/action-groups/stop-running-test.png)
+
+1. When the test is complete either a **Success** or **Failed** test status is displayed. If the test failed, you could select *View details* to get more information.  
+    ![Test sample failed](./media/action-groups/test-sample-failed.png)
+
+You can use the information in the **Error details section**, to understand the issue so that you can edit and test the action group again.
+To allow you to check the action groups are working as expected before you enable them in a production environment, you will get email and SMS alerts with the subject: Test.
+
+All the details and links in Test email notifications for the alerts fired are a sample set for reference. 
+
+> [!NOTE]
+> You may have a limited number of actions in a test Action Group. See the [rate limiting information](./alerts-rate-limiting.md) article.
+
+> You can opt in or opt out to the common alert schema through Action Groups, on the portal. You can [find common schema samples for test action groups for all the sample types](./alerts-common-schema-test-action-definitions.md).
 
 ## Manage your action groups
 
