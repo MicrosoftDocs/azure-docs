@@ -14,19 +14,19 @@ ms.date: 01/17/2022
 
 # Index data from Azure Table Storage
 
-Configure a table [indexer](search-indexer-overview.md) in Azure Cognitive Search to retrieve, serialize, and ingest entities from a single table in Azure Table Storage.
+Configure a table [indexer](search-indexer-overview.md) in Azure Cognitive Search to retrieve, serialize, and index entity content from a single table in Azure Table Storage.
 
-This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing rows in a table.
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing from Azure Table Storage.
 
 ## Prerequisites
 
 + [Azure Table Storage](../storage/tables/table-storage-overview.md)
 
-+ Tables with entities containing non-binary data for text-based indexing (binary data requires [AI enrichment](cognitive-search-concept-intro.md))
++ Tables with entities containing non-binary data for text-based indexing
 
 ## Define the data source
 
-The Import data wizard will build a data source for you, including a valid connection string for system-assigned and shared key credentials. If you have trouble setting up the connection programmatically, use the wizard as a syntax check. 
+A primary difference between a table indexer and other indexers is the data source assignment. The data source definition specifies the type ("type": `"azuretable"`) and how to connect.
 
 1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
 
@@ -51,6 +51,9 @@ The Import data wizard will build a data source for you, including a valid conne
 
 1. Optionally, set "query" to a filter on PartitionKey. This is a best practice that improves performance. If "query" is specified any other way, the indexer will execute a full table scan, resulting in poor performance if the tables are large.
 
+> [!TIP]
+> The Import data wizard will build a data source for you, including a valid connection string for system-assigned and shared key credentials. If you have trouble setting up the connection programmatically, [use the wizard](search-get-started-portal.md) as a syntax check. 
+
 <a name="Credentials"></a>
 
 ### Credentials for Table Storage
@@ -69,11 +72,9 @@ This connection string does not require an account key, but you must follow the 
 For more information on storage shared access signatures, see [Using shared access signatures](../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
-> If you use shared access signature credentials, you will need to update the datasource credentials periodically with renewed signatures to prevent their expiration. If shared access signature credentials expire, the indexer fails with an error message similar to "Credentials provided in the connection string are invalid or have expired."  
+> If you use shared access signature credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration or the indexer will fail with a "Credentials provided in the connection string are invalid or have expired" message.
 
 ## Define fields in a search index
-
-A [search index](search-what-is-an-index.md) specifies the fields in a search document, attributes, and other constructs that shape the search experience. All indexers require that you specify a search index definition as the destination.
 
 1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store content from entities:
 
@@ -103,26 +104,26 @@ api-key: [admin key]
 
 ## Set properties on the indexer
 
-1. [Create Indexer](/rest/api/searchservice/create-indexer) connects a data source with a target search index and provides a schedule to automate the data refresh. 
+[Create Indexer](/rest/api/searchservice/create-indexer) connects a data source with a target search index and provides a schedule to automate the data refresh. 
 
-   An indexer definition for Table Storage uses the global properties for data source, index, [schedule](search-howto-schedule-indexers.md), mapping functions for base-64 encoding, and any field mappings.
+An indexer definition for Table Storage uses the global properties for data source, index, [schedule](search-howto-schedule-indexers.md), mapping functions for base-64 encoding, and any field mappings.
 
-    ```http
-    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
-    
-    {
-        "name" : "table-indexer",
-        "dataSourceName" : "table-datasource",
-        "targetIndexName" : "my-target-index",
-        "schedule" : { "interval" : "PT2H" }
-    }
-    ```
+```http
+POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
+
+{
+    "name" : "table-indexer",
+    "dataSourceName" : "table-datasource",
+    "targetIndexName" : "my-target-index",
+    "schedule" : { "interval" : "PT2H" }
+}
+```
 
 ## Change and deletion detection
 
-When you set up a table indexer to run on a schedule, it reindexes only new or updated rows, as determined by a row’s `Timestamp` value. When indexing out of Azure Table Storage, you don’t have to specify a change detection policy. Incremental indexing is enabled for you automatically.
+When you set up a table indexer to run on a schedule, it reindexes only new or updated rows, as determined by a row's `Timestamp` value. When indexing out of Azure Table Storage, you don’t have to specify a change detection policy. Incremental indexing is enabled for you automatically.
 
 To indicate that certain documents must be removed from the index, you can use a soft delete strategy. Instead of deleting a row, add a property to indicate that it's deleted, and set up a soft deletion detection policy on the data source. For example, the following policy considers that a row is deleted if the row has a property `IsDeleted` with the value `"true"`:
 

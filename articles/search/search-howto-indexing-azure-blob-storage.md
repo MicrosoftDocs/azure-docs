@@ -38,7 +38,7 @@ The Azure Cognitive Search blob indexer can extract text from the following docu
 
 ## Define the data source
 
-A primary difference between a blob indexer and other indexers is the data source definition that's assigned to the indexer. The data source definition specifies the data source type ("type": `"azureblob"`) and properties for authentication and connection to the content being indexed.
+A primary difference between a blob indexer and other indexers is the data source assignment. The data source definition specifies the type ("type": `"azureblob"`) and how to connect.
 
 1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
 
