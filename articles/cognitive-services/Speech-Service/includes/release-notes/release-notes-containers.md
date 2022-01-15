@@ -6,6 +6,11 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
+### 2022-Jan release 2
+
+#### Speech-to-text Container v3.0.0
+- Disconnected Mode support.
+
 ### 2022-Jan release
 
 #### Speech-to-text Container v2.18.0
