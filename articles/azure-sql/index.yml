@@ -45,7 +45,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Azure SQL Database overview
-            url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61
+            url: /shows/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61
       - linkListType: concept
         links:
           - text: Migrate from SQL Server
@@ -84,7 +84,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Azure SQL Managed Instance overview
-            url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61
+            url: /shows/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61
       - linkListType: concept
         links:
           - text: Migrate from SQL Server
@@ -119,7 +119,7 @@ landingContent:
       - linkListType: video
         links:
           - text: SQL Server on Azure VM overview
-            url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61
+            url: /shows/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61
       - linkListType: concept
         links:
           - text: Migrate from SQL Server
