@@ -37,7 +37,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 
 ## Create a virtual machine
 
-We will be automatically generating an SSH key to use for connecting to the VM. The SSH key that is created using `-GenerateSshKey` will be stored in Azure as a resource, using the name you provide as `SshKeyName`. The SSH key resource can be reused for creating additional VMs.
+We will be automatically generating an SSH key pair to use for connecting to the VM. The public key that is created using `-GenerateSshKey` will be stored in Azure as a resource, using the name you provide as `SshKeyName`. The SSH key resource can be reused for creating additional VMs. Both the public and private keys will also downloaded for you. When you create your SSH key pair using the Cloud Shell, the keys are stored in a [storage account that is automatically created by Cloud Shell](../../cloud-shell/persisting-shell-storage.md). Don't delete the storage account, or the file share in it, until after you have retrieved your keys or you will lose access to the VM.
 
 You will be prompted for a user name that will be used when you connect to the VM. You will also be asked for a password, which you can leave blank. Password login for the VM is disabled when using an SSH key.
 
@@ -65,9 +65,6 @@ Public key is saved to /home/user/.ssh/1234567891.pub
 
 Make a note of the path to your private key to use later.
 
-When you create your SSH key pair using the Cloud Shell, the local version is stored in a [storage account that is automatically created by Cloud Shell](../../cloud-shell/persisting-shell-storage.md). Don't delete the storage account, or the file share in it, until after you have retrieved your keys or you will lose access to the VM.
-
-
 It will take a few minutes for your VM to be deployed. When the deployment is finished, move on to the next section.
 
 
@@ -76,7 +73,7 @@ It will take a few minutes for your VM to be deployed. When the deployment is fi
 You need to change the permission on the SSH key using `chmod`. Replace *~/.ssh/1234567891* in the following example with the private key name and path from the earlier output.
 
 ```azurepowershell-interactive
-chmod 400 ~/.ssh/1234567891
+chmod 600 ~/.ssh/1234567891
 ```
 
 Create an SSH connection with the VM using the public IP address. To see the public IP address of the VM, use the [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) cmdlet:
