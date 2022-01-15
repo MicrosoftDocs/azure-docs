@@ -6,9 +6,10 @@ description: Set properties on an indexer to determine data origin and destinati
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
+
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/i7/2022
+ms.date: 01/17/2022
 ---
 
 # Creating indexers in Azure Cognitive Search
@@ -16,6 +17,7 @@ ms.date: 01/i7/2022
 A search indexer provides an automated workflow for reading content from an external data source, and ingesting that content into a search index on your search service. Indexers support two workflows: 
 
 + Extract text and metadata during indexing for full text search scenarios
+
 + Apply integrated machine learning and AI models to analyze content that is *not* intrinsically searchable, such as images and large undifferentiated text. This extended workflow is called [AI enrichment](cognitive-search-concept-intro.md) and it's indexer-driven.
 
 Using indexers significantly reduces the quantity and complexity of the code you need to write. This article focuses on the basics of creating an indexer. Depending on the data source and your workflow, additional configuration might be necessary.
@@ -112,7 +114,7 @@ Depending on analyzer assignments on each field, indexed strings might be differ
 
 In terms of how indexers interact with an index, an indexer only checks field names and types. There is no validation step that ensures incoming content is correct for the corresponding search field in the index.
 
-## How to create indexers
+## Create an indexer
 
 When you are ready to create an indexer on a remote search service, you will need a search client, such as Azure portal or Postman, or code that instantiates an indexer client. We recommend the Azure portal or REST APIs for early development and proof-of-concept testing.
 
@@ -177,7 +179,7 @@ There are several ways to run an indexer:
 
 Scheduled execution is usually implemented when you have a need for incremental indexing so that you can pick up the latest changes. As such, scheduling has a dependency on change detection.
 
-## Change detection and indexer state
+## Change detection and internal state
 
 Change detection logic is a capability that's built into source platforms. If your data source support change detection, an indexer can detect changes in the underlying data and only process new or updated documents on each indexer run, leaving unchanged content as-is. If indexer execution history says that a run was successful with `0/0` documents processed, it means that the indexer didn't find any new or changed rows or blobs in the underlying data source.
 

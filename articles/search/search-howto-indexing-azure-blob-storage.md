@@ -1,5 +1,5 @@
 ---
-title: Index data from Azure Blob Storage
+title: Azure Blob indexer
 titleSuffix: Azure Cognitive Search
 description: Set up an Azure Blob indexer to automate indexing of blob content for full text search operations and knowledge mining in Azure Cognitive Search.
 
@@ -9,8 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 12/17/2021
-ms.custom: 
+ms.date: 01/17/2022
 ---
 
 # Configure a Blob indexer to import data from Azure Blob Storage
@@ -27,7 +26,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + [Access tiers](../storage/blobs/access-tiers-overview.md) for Blob storage include hot, cool, and archive. Only hot and cool can be accessed by search indexers.
 
-+ Blob content cannot not exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
++ Blob content cannot exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
 
 <a name="SupportedFormats"></a>
 
@@ -39,7 +38,7 @@ The Azure Cognitive Search blob indexer can extract text from the following docu
 
 ## Define the data source
 
-A primary difference between a blob indexer and other indexers is the data source definition that's assigned to the indexer. The data source definition specifies the data source type ("type": "azureblob") and properties for authentication and connection to the content being indexed.
+A primary difference between a blob indexer and other indexers is the data source definition that's assigned to the indexer. The data source definition specifies the data source type ("type": `"azureblob"`) and properties for authentication and connection to the content being indexed.
 
 1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
 
@@ -52,7 +51,7 @@ A primary difference between a blob indexer and other indexers is the data sourc
     }
     ```
 
-1. Set "type" to "azureblob" (required).
+1. Set "type" to `"azureblob"` (required).
 
 1. Set "credentials" to the connection string, as shown in the above example, or one of the alternative approaches described in the next section. 
 

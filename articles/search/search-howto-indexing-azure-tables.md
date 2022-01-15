@@ -1,15 +1,15 @@
 ---
-title: Index data from Azure Table Storage
+title: Azure Table indexer
 titleSuffix: Azure Cognitive Search
 description: Set up a search indexer to index data stored in Azure Table Storage for full text search in Azure Cognitive Search.
 
 manager: nitinme
 author: mgottein 
 ms.author: magottei
-ms.devlang: rest-api
+
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/14/2022
+ms.date: 01/17/2022
 ---
 
 # Index data from Azure Table Storage
@@ -39,7 +39,7 @@ The Import data wizard will build a data source for you, including a valid conne
     }
     ```
 
-1. Set "type" to "azuretable" (required).
+1. Set "type" to `"azuretable"` (required).
 
 1. Set "credentials" to the connection string. The following examples show commonly used connection strings for connections using shared access keys or a [system-managed identity](search-howto-managed-identities-storage.md). Additional examples are in the next section.
 
