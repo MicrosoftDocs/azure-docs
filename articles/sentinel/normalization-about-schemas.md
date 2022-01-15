@@ -14,6 +14,8 @@ ms.custom: ignite-fall-2021
 
 An Advanced SIEM Information Model ([ASIM](normalization.md)) schema is a set of fields that represent an activity. Using the fields from a normalized schema in a query ensures that the query will work with every normalized source.
 
+To understand how schemas fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
+
 Schema references outline the fields that comprise each schema. ASIM currently defines the following schemas:
 
  - [Network Session](normalization-schema.md)
@@ -261,6 +263,7 @@ Based on these entities, [Windows event 4624](/windows/security/threat-protectio
 This article provides an overview of normalization in Microsoft Sentinel and ASIM.
 
 For more information, see:
-- [Advanced SIEM Information Model overview](normalization.md)
-- [Advanced SIEM Information Model parsers](normalization-about-parsers.md)
-- [Advanced SIEM Information Model content](normalization-content.md)
+- Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
+- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
+- [Advanced SIEM Information Model (ASIM) parsers](normalization-parsers-overview.md)
+- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)
