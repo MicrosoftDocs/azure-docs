@@ -31,9 +31,9 @@ sections:
         answer: |
          You can create a disabled individual enrollment entry for the device. To learn more, see [How to disenroll a device from Azure IoT Hub Device Provisioning Service](how-to-revoke-device-access-portal.md).
       - question: |
-         What query expressions can I use when querying individual enrollments or enrollment groups? 
+         Can I use a `WHERE` clause to filer results when querying [individual enrollments](/rest/api/iot-dps/service/enrollment-group/query) or [enrollment groups](/rest/api/iot-dps/service/enrollment-group/query)? 
         answer: |
-         DPS supports queries against [Individual Enrollments](/rest/api/iot-dps/service/enrollment-group/query) and [Enrollment Groups](/rest/api/iot-dps/service/enrollment-group/query). Currently, the only query expression supported is `SELECT *`, which returns all of the individual enrollments or enrollment groups in the DPS instance. All other clauses, for example, a `WHERE` clause, are ignored.
+         Filtering results with a `WHERE` clause is not supported at this time. You can use `SELECT *` to return paged results for all the individual enrollments or enrollment groups in a DPS instance.
   - name: DPS Billing
     questions:
       - question: |
