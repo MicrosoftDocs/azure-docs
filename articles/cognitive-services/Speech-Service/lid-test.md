@@ -173,7 +173,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 ### [Continuous](#tab/continuous)
 
 
-Need continuous sample
+:::code language="cpp" source="~/samples-cognitive-services-speech-sdk/samples/python/console/speech_language_detection_sample.py" id="SpeechContinuousLanguageDetectionWithFile":::
 
 ---
 
@@ -637,9 +637,9 @@ You use Speech translation language identification when you need to detect the n
 ::: zone pivot="programming-language-csharp"
 
 
-### [At-start](#tab/at-start)
+<!---### [At-start](#tab/at-start)
 
-Need at-start sample
+Need at-start sample-->
 
 ### [Continuous](#tab/continuous)
 
@@ -754,9 +754,9 @@ See more examples of speech translation language identification on [GitHub](http
 ::: zone pivot="programming-language-cpp"
 
 
-### [At-start](#tab/at-start)
+<!---### [At-start](#tab/at-start)
 
-Need at-start sample
+Need at-start sample-->
 
 ### [Continuous](#tab/continuous)
 
@@ -858,9 +858,9 @@ See more examples of speech translation language identification on [GitHub](http
 ::: zone pivot="programming-language-python"
 
 
-### [At-start](#tab/at-start)
+<!---### [At-start](#tab/at-start)
 
-Need at-start sample
+Need at-start sample-->
 
 ### [Continuous](#tab/continuous)
 
