@@ -142,7 +142,7 @@ Note that due to the phrase lists feature, the size of this container image has 
 | Image Tags                    | Notes | Digest                                                                   |
 |-------------------------------|:------|:-------------------------------------------------------------------------|
 | `latest`                      |       | `sha256:7eff5d7610f20622b5c5cae6235602774108f2de7aeebe2148016b6d232f7c42`|
-| `2.18.0-amd64`                |       | `sha256:7eff5d7610f20622b5c5cae6235602774108f2de7aeebe2148016b6d232f7c42`|
+| `3.0.0-amd64`                 |       | `sha256:7eff5d7610f20622b5c5cae6235602774108f2de7aeebe2148016b6d232f7c42`|
 
 
 # [Previous version](#tab/previous)
