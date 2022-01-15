@@ -55,7 +55,7 @@ You can also select:
 - **Search** - Select to search for a specific role/policy.
 - **||| Columns** - From the drop-down list, select the columns you want to display.
     - Select **Reset to default** to return to the system defaults. 
-- **New Rule** to create a new rule. For more information, see Create a new rule.
+- **New Rule** - Select to create a new rule. For more information, see Create a new rule.
 <!---cloudknox-howto-create-rule.html--->
 
 
