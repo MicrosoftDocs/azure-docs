@@ -4,7 +4,7 @@ description: This article is regularly updated with news about the Azure Cogniti
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 06/23/2021
+ms.date: 01/16/2022
 ---
 
 # What's new in Anomaly Detector
@@ -16,7 +16,7 @@ We've also added links to some user-generated content. Those items will be marke
 ## Release notes
 
 ### January 2022
-* **Multivariate Anomaly Detector API v1.1-preview.1 public preview on 1/18.** In this version, Multivariate Anomaly Detector support synchronized API for inference and added new fields in API output interpreting the correlation change of variables. 
+* **Multivariate Anomaly Detector API v1.1-preview.1 public preview on 1/18.** In this version, Multivariate Anomaly Detector supports synchronous API for inference and added new fields in API output interpreting the correlation change of variables. 
 * Univariate Anomaly Detector added new fields in API output. 
 
 

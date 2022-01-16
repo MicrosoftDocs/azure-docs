@@ -17,28 +17,28 @@ ms.author: mbullwin
 The Multivariate Anomaly Detector (MVAD) provides two primary methods to detect anomalies compared with Univariate Anomaly Detector (UVAD), **training** and **inference**. During the inference process, you can choose to use an asynchronous API or a synchronous API to trigger inference one time. Both of these APIs support batch or streaming scenarios.
 
 The following are the basic steps needed to use MVAD:
-  1. Create an Anomaly Detector resource in Azure Portal.
+  1. Create an Anomaly Detector resource in the Azure Portal.
   1. Prepare data for training and inference.
   1. Train an MVAD model.
   1. Get model status.
-  1. Detect anomalies in inference process.
+  1. Detect anomalies during the inference process with the trained MVAD model.
 
-To get hands on this feature immediately, try this SDK [Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb).
+To test out this feature, try this SDK [Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb).
 
 ## Multivariate Anomaly Detector APIs Overview
 
-Generally, multivariate anomaly detector includes a set of APIs, covering the whole lifecycle of training and inference. Here are the **8 APIs** in MVAD:
+Generally, multivariate anomaly detector includes a set of APIs, covering the whole lifecycle of training and inference. For more details, refer to [Anomaly Detector API Operations](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview-1/operations/DetectAnomaly). Here are the **8 APIs** in MVAD:
 
 | APIs | Description           | 
 | ------------- | ---------------- | 
-| /multivariate/models| Create and train model using training data.  | 
-| /multivariate/models/{modelid}| Get model info including training status and parameters used in the model.| 
-| /multivariate/models[?$skip][&$top]|List models of a subscription. | 
-| /multivariate/models/{modelid}/detect| Submit asynchronous inference task with use's data. |
-| /multivariate/models/{modelId}/last/detect| Submit synchronous inference task with use's data. |  
-| /multivariate/results/{resultid} | South Africa North  | 
-| /multivariate/models/{modelId}| Delete an existing multivariate model according to the modelId.  | 
-| /multivariate/models/{modelId}/export| Export model as Zip file. |
+| `/multivariate/models`| Create and train model using training data.  | 
+| `/multivariate/models/{modelid}`| Get model info including training status and parameters used in the model.| 
+| `/multivariate/models[?$skip][&$top]`|List models in a subscription. | 
+| `/multivariate/models/{modelid}/detect`| Submit asynchronous inference task with data. |
+| `/multivariate/models/{modelId}/last/detect`| Submit synchronous inference task with data. |  
+| `/multivariate/results/{resultid}` | Get inference result with resultID in asynchronous inference. | 
+| `/multivariate/models/{modelId}`| Delete an existing multivariate model according to the modelId.  | 
+| `/multivariate/models/{modelId}/export`| Export model as a Zip file. |
 
 
 ## Create an Anomaly Detector resource in Azure Portal
@@ -47,12 +47,12 @@ Generally, multivariate anomaly detector includes a set of APIs, covering the wh
 * Once you have your Azure subscription, [create an Anomaly Detector resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) in the Azure portal to get your API key and API endpoint.
 
 > [!NOTE]
-> During preview stage, MVAD is available in limited regions only. Please bookmark [What's new in Anomaly Detector](../whats-new.md)  to keep up to date with MVAD region roll-outs. You could also file a GitHub issue or contact us at [AnomalyDetector@microsoft.com](mailto:AnomalyDetector@microsoft.com) to request for specific regions.
+> During preview stage, MVAD is available in limited regions only. Please bookmark [What's new in Anomaly Detector](../whats-new.md)  to keep up to date with MVAD region roll-outs. You could also file a GitHub issue or contact us at [AnomalyDetector@microsoft.com](mailto:AnomalyDetector@microsoft.com) to request information regarding the timeline for specific regions being supported.
 
 
 ## Data preparation
 
-Then you need to prepare your training data (and inference data with asynchronized API).
+Next you need to prepare your training data (and inference data with asynchronous API).
 
 [!INCLUDE [mvad-data-schema](../includes/mvad-data-schema.md)]
 
@@ -153,7 +153,7 @@ The response contains 4 fields, `models`, `currentCount`, `maxCount`, and `nextL
 
 ### Get models by model ID
 
-[This page](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/GetMultivariateModel) describes the request URL to query model information by model ID. A sample response looks like this
+[To learn about the request URL query model by model ID.](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/GetMultivariateModel) A sample response looks like this:
 
 ```json
 {
@@ -213,7 +213,7 @@ The response contains 4 fields, `models`, `currentCount`, `maxCount`, and `nextL
 
 You will receive more detailed information about the queried model. The response contains meta information about the model, its training parameters, and diagnostic information. Diagnostic Information is useful for debugging and tracing training progress.
 
-* `epochIds` indicates how many epochs the model has been trained out of in total 100 epochs. For example, if the model is still in training status, `epochId` might be `[10, 20, 30, 40, 50]` which means that it has completed its 50th training epoch, and there are half way to go.
+* `epochIds` indicates how many epochs the model has been trained out of a total of 100 epochs. For example, if the model is still in training status, `epochId` might be `[10, 20, 30, 40, 50]` which means that it has completed its 50th training epoch, and therefore is halfway complete.
 * `trainLosses` and `validationLosses` are used to check whether the optimization progress converges in which case the two losses should decrease gradually.
 * `latenciesInSeconds` contains the time cost for each epoch and is recorded every 10 epochs. In this example, the 10th epoch takes approximately 0.34 seconds. This would be helpful to estimate the completion time of training.
 * `variableStates` summarizes information about each variable. It is a list ranked by `filledNARatio` in descending order. It tells how many data points are used for each variable and `filledNARatio` tells how many points are missing. Usually we need to reduce `filledNARatio` as much as possible.
@@ -223,13 +223,13 @@ Too many missing data points will deteriorate model accuracy.
 
 ## Inference with asynchronous API
 
-You could choose asynchronous API or synchronous API for inference. 
+You could choose the asynchronous API, or the synchronous API for inference. 
 
 | Asynchronous API | Synchronous API           | 
 | ------------- | ---------------- | 
-| More suitable for batch use cases when customers don’t need to get inference results immediately and want to detect anomalies and get results in a longer time period.| Streaming use case when customers want to get inference immediately and want to detect multivariate anomalies in real time. Also suitable for customers hard to conduct previous compressing and uploading process. | 
+| More suitable for batch use cases when customers don’t need to get inference results immediately and want to detect anomalies and get results over a longer time period.| When customers want to get inference immediately and want to detect multivariate anomalies in real-time, this API is recommended. Also suitable for customers having difficulties conducting the previous compressing and uploading process for inference. | 
 
-To perform asynchronous inference, simply provide the blob source to the zip file containing the inference data, the start time, and end time.
+To perform asynchronous inference, simply provide the blob source path to the zip file containing the inference data, the start time, and end time.
 
 This inference is asynchronous, so the results are not returned immediately. Notice that you need to save in a variable the link of the results in the **response header** which contains the `resultId`, so that you may know where to get the results afterwards.
 
@@ -237,9 +237,9 @@ Failures are usually caused by model issues or data issues. You cannot perform i
 
 ### Get inference results (asynchronous only)
 
-You need the `resultId` to get results. `resultId` is obtained from the response header when you submit the inference request. [This page](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/GetDetectionResult) contains instructions to query the inference results. 
+You need the `resultId` to get results. `resultId` is obtained from the response header when you submit the inference request. Consult [this page for instructions to query the inference results.] (https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/GetDetectionResult) 
 
-A sample response looks like this
+A sample response looks like this:
 
 ```json
  {
@@ -348,7 +348,7 @@ The response contains the result status, variable information, inference paramet
 
 * `variableStates` lists the information of each variable in the inference request.
 * `setupInfo` is the request body submitted for this inference.
-* `results` contains the detection results. There're three typical types of detection results.
+* `results` contains the detection results. There are three typical types of detection results.
     1. Error code `InsufficientHistoricalData`. This usually happens only with the first few timestamps because the model inferences data in a window-based manner and it needs historical data to make a decision. For the first few timestamps, there is insufficient historical data, so inference cannot be performed on them. In this case, the error message can be ignored.
     1. `"isAnomaly": false` indicates the current timestamp is not an anomaly.
         * `severity ` indicates the relative severity of the anomaly and for normal data it is always 0.
@@ -366,14 +366,18 @@ The response contains the result status, variable information, inference paramet
 
 ## (NEW) Inference with synchronous API 
 
-With synchronous API, you can get inference results point by point in real time, and no need for compressing and uploading task like training and asynchronous inference. Here are some requirements for synchronous API:
+With the synchronous API, you can get inference results point by point in real-time, and no need for compressing and uploading task like training and asynchronous inference. Here are some requirements for the synchronous API:
 * Need to put data in **JSON format** into the API request body.
 * The inference results are limited to up to 10 data points, which means you could detect **1 to 10 timestamps** with one synchronous API call.
 * Due to payload limitation, the size of inference data in the request body is limited, which support at most `2880` timestamps * `300` variables.
 
 ### Request Schema
 
-A sample request looks like following format, the case is detect last 2 timestamps among 3 variables, and there are 20 timestamps included in one synchronous API call.
+You submit a bunch of timestamps of multiple variables into in JSON format in the request body, with an API call like this:
+
+`https://{endpoint}/anomalydetector/v1.1-preview.1/multivariate/models/{modelId}/last/detect`
+
+A sample request looks like following format, this case is detecting last 2 timestamps (`detectingPoints` is 2) of 3 variables in one synchronous API call.
 
 ```json
 {
@@ -383,66 +387,14 @@ A sample request looks like following format, the case is detect last 2 timestam
       "timestamps": [
         "2021-01-01T00:00:00Z",
         "2021-01-01T00:01:00Z",
-        "2021-01-01T00:02:00Z",
-        "2021-01-01T00:03:00Z",
-        "2021-01-01T00:04:00Z",
-        "2021-01-01T00:05:00Z",
-        "2021-01-01T00:06:00Z",
-        "2021-01-01T00:07:00Z",
-        "2021-01-01T00:08:00Z",
-        "2021-01-01T00:09:00Z",
-        "2021-01-01T00:10:00Z",
-        "2021-01-01T00:11:00Z",
-        "2021-01-01T00:12:00Z",
-        "2021-01-01T00:13:00Z",
-        "2021-01-01T00:14:00Z",
-        "2021-01-01T00:15:00Z",
-        "2021-01-01T00:16:00Z",
-        "2021-01-01T00:17:00Z",
-        "2021-01-01T00:18:00Z",
-        "2021-01-01T00:19:00Z",
-        "2021-01-01T00:20:00Z",
-        "2021-01-01T00:21:00Z",
-        "2021-01-01T00:22:00Z",
-        "2021-01-01T00:23:00Z",
-        "2021-01-01T00:24:00Z",
-        "2021-01-01T00:25:00Z",
-        "2021-01-01T00:26:00Z",
-        "2021-01-01T00:27:00Z",
-        "2021-01-01T00:28:00Z",
-        "2021-01-01T00:29:00Z"
+        "2021-01-01T00:02:00Z"
+        //more variables
       ],
       "values": [
         0.4551378545933972,
         0.7388603950488748,
-        0.201088255984052,
-        0.7462812245891899,
-        0.07308128850401663,
-        0.33090474587393537,
-        0.7544925268153315,
-        0.987506336316328,
-        0.6665932993421468,
-        0.6308351543168672,
-        0.08083310161466228,
-        0.8414415588668442,
-        0.514583545640453,
-        0.0954489875193526,
-        0.7786793231920507,
-        0.41646133667960994,
-        0.030176187583339287,
-        0.3474214937189324,
-        0.508530173413991,
-        0.42451199127255046,
-        0.2115944222725208,
-        0.24733519545833516,
-        0.8791022110982156,
-        0.9479621899884665,
-        0.26702703121252136,
-        0.6954503497669413,
-        0.1235728391488995,
-        0.8214915473050647,
-        0.11813002444192677,
-        0.8579045951076123
+        0.201088255984052
+        //more variables
       ]
     },
     {
@@ -450,66 +402,14 @@ A sample request looks like following format, the case is detect last 2 timestam
       "timestamps": [
         "2021-01-01T00:00:00Z",
         "2021-01-01T00:01:00Z",
-        "2021-01-01T00:02:00Z",
-        "2021-01-01T00:03:00Z",
-        "2021-01-01T00:04:00Z",
-        "2021-01-01T00:05:00Z",
-        "2021-01-01T00:06:00Z",
-        "2021-01-01T00:07:00Z",
-        "2021-01-01T00:08:00Z",
-        "2021-01-01T00:09:00Z",
-        "2021-01-01T00:10:00Z",
-        "2021-01-01T00:11:00Z",
-        "2021-01-01T00:12:00Z",
-        "2021-01-01T00:13:00Z",
-        "2021-01-01T00:14:00Z",
-        "2021-01-01T00:15:00Z",
-        "2021-01-01T00:16:00Z",
-        "2021-01-01T00:17:00Z",
-        "2021-01-01T00:18:00Z",
-        "2021-01-01T00:19:00Z",
-        "2021-01-01T00:20:00Z",
-        "2021-01-01T00:21:00Z",
-        "2021-01-01T00:22:00Z",
-        "2021-01-01T00:23:00Z",
-        "2021-01-01T00:24:00Z",
-        "2021-01-01T00:25:00Z",
-        "2021-01-01T00:26:00Z",
-        "2021-01-01T00:27:00Z",
-        "2021-01-01T00:28:00Z",
-        "2021-01-01T00:29:00Z"
+        "2021-01-01T00:02:00Z"
+        //more variables
       ],
       "values": [
         0.9617871613964145,
         0.24903311574778408,
-        0.4920561254118613,
-        0.9895601049618598,
-        0.9171759283128094,
-        0.5754204711105273,
-        0.1811033296265634,
-        0.8852311981742577,
-        0.9543231904644779,
-        0.7088012446094262,
-        0.7843572237149014,
-        0.7664787010700046,
-        0.3699552325387093,
-        0.504519908266789,
-        0.5848930929950164,
-        0.7628913396089576,
-        0.8148405868900065,
-        0.08540458873739332,
-        0.03481976727525682,
-        0.21275099339467762,
-        0.9836175579199806,
-        0.9321441483364282,
-        0.038466608085469534,
-        0.1723138437622782,
-        0.8626383410218382,
-        0.35053229974224254,
-        0.631141662835182,
-        0.0730352607990088,
-        0.08886179043386,
-        0.7488606040971179
+        0.4920561254118613
+        //more variables
       ]
     },
     {
@@ -517,76 +417,34 @@ A sample request looks like following format, the case is detect last 2 timestam
       "timestamps": [
         "2021-01-01T00:00:00Z",
         "2021-01-01T00:01:00Z",
-        "2021-01-01T00:02:00Z",
-        "2021-01-01T00:03:00Z",
-        "2021-01-01T00:04:00Z",
-        "2021-01-01T00:05:00Z",
-        "2021-01-01T00:06:00Z",
-        "2021-01-01T00:07:00Z",
-        "2021-01-01T00:08:00Z",
-        "2021-01-01T00:09:00Z",
-        "2021-01-01T00:10:00Z",
-        "2021-01-01T00:11:00Z",
-        "2021-01-01T00:12:00Z",
-        "2021-01-01T00:13:00Z",
-        "2021-01-01T00:14:00Z",
-        "2021-01-01T00:15:00Z",
-        "2021-01-01T00:16:00Z",
-        "2021-01-01T00:17:00Z",
-        "2021-01-01T00:18:00Z",
-        "2021-01-01T00:19:00Z",
-        "2021-01-01T00:20:00Z",
-        "2021-01-01T00:21:00Z",
-        "2021-01-01T00:22:00Z",
-        "2021-01-01T00:23:00Z",
-        "2021-01-01T00:24:00Z",
-        "2021-01-01T00:25:00Z",
-        "2021-01-01T00:26:00Z",
-        "2021-01-01T00:27:00Z",
-        "2021-01-01T00:28:00Z",
-        "2021-01-01T00:29:00Z"
+        "2021-01-01T00:02:00Z"
+        //more variables        
       ],
       "values": [
         0.4030756879437628,
         0.15526889968448554,
-        0.36352226408981103,
-        0.6051200637229004,
-        0.8516795018476276,
-        0.2645605735279929,
-        0.6810875830037345,
-        0.9165894221681316,
-        0.700783245230424,
-        0.5624155469940331,
-        0.6277289685127893,
-        0.15992056539730204,
-        0.6020964482827594,
-        0.35937967753105915,
-        0.8731686034848609,
-        0.20301549117588935,
-        0.029261872151168933,
-        0.6261499548828445,
-        0.45850782028563386,
-        0.8275006940083313,
-        0.032760268834037376,
-        0.4485202784055029,
-        0.8915691008748384,
-        0.891669051517807,
-        0.9469979353323046,
-        0.115293087370132,
-        0.08818772518459506,
-        0.7426286620589166,
-        0.32372247468990756,
-        0.936268139507417
+        0.36352226408981103
+        //more variables       
       ]
     }
   ],
-  "length": 2
+  "detectingPoints": 2
 }
 ```
 
 ### Response Schema
 
-You will get the inference results in real time after you call a synchronous API, and you'll get a response like this:
+You will get the JSON response of inference results in real time after you call a synchronous API, which contains following new fields:
+
+| Field | Description           | 
+| ------------- | ---------------- | 
+| `interpretation`| This field only appears when a timestamp is detected as anomalous, which contains `variables`, `contributionScore`, `correlationChanges`. | 
+| `correlationChanges`| This field only appears when a timestamp is detected as anomalous, which included in interpretation. It contains `changedVariables` and `changedValues` that interpret which correlations between variables changed.  | 
+| `changedVariables`| This field will show which variables that have big change in correlation with `variable`. | 
+| `changedValues`| This field calculates a number between 0 and 1 showing how much the correlation changed between variables. The bigger the number is, the greater the change on correlations.  | 
+
+
+See the following example of a JSON response:
 
 ```json
 {
@@ -596,24 +454,21 @@ You will get the inference results in real time after you call a synchronous API
       "filledNARatio": 0,
       "effectiveCount": 30,
       "startTime": "2021-01-01T00:00:00Z",
-      "endTime": "2021-01-01T00:29:00Z",
-      "errors": []
+      "endTime": "2021-01-01T00:29:00Z"
     },
     {
       "variable": "variable_2",
       "filledNARatio": 0,
       "effectiveCount": 30,
       "startTime": "2021-01-01T00:00:00Z",
-      "endTime": "2021-01-01T00:29:00Z",
-      "errors": []
+      "endTime": "2021-01-01T00:29:00Z"
     },
     {
       "variable": "variable_3",
       "filledNARatio": 0,
       "effectiveCount": 30,
       "startTime": "2021-01-01T00:00:00Z",
-      "endTime": "2021-01-01T00:29:00Z",
-      "errors": []
+      "endTime": "2021-01-01T00:29:00Z"
     }
   ],
   "results": [
@@ -668,26 +523,12 @@ You will get the inference results in real time after you call a synchronous API
             }
           }
         ]
-      }, 
-      "errors": []  
-    }
-  ],
-  "errors": [   
-    {
-      "code": "string",   
-      "message": "string"
+      },
+      "errors": []
     }
   ]
 } 
 ```
-
-**Important Parameters in response**
-
-* Interpretation: This field only shows for anomalous timestamps.
-
-* Variables: Top variables that contributed to this anomaly, ranked by contributionScore.
-
-* CorrelationChanges: The changed extent of correlations among correlated variables.
 
 ## Next Steps
 
