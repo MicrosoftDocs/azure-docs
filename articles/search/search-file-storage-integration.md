@@ -1,24 +1,23 @@
 ---
-title: Index data from Azure Files (preview)
+title: Azure Files indexing (preview)
 titleSuffix: Azure Cognitive Search
 description: Set up an Azure Files indexer to automate indexing of file shares in Azure Cognitive Search.
 manager: nitinme
 author: mattmsft
 ms.author: magottei
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 11/02/2021
+ms.topic: how-to
+ms.date: 01/17/2022
 ---
 
 # Index data from Azure Files
 
 > [!IMPORTANT] 
-> Azure Files is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use a [preview REST API (2021-04-30-preview or later)](search-api-preview.md) to index your content. There is currently limited portal support and no .NET SDK support.
+> Azure Files is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use a [preview REST API (2020-06-30-preview or later)](search-api-preview.md) to index your content. There is currently limited portal support and no .NET SDK support.
 
-In this article, review the basic workflow for extracting content and metadata from Azure file shares and sending it to a search index in Azure Cognitive Search. The resulting index can be queried using full text search.
+In this article, learn the steps for extracting content and metadata from Azure file shares and sending it to a search index in Azure Cognitive Search. The resulting index can be queried using full text search.
 
-> [!NOTE]
-> Already familiar with the workflow and composition? [How to configure a file indexer](#configure) is your next step.
+This article supplements [Create an indexer](search-howto-create-indexers.md) with information specific to indexing files in Azure Storage.
 
 ## Functionality
 
@@ -28,24 +27,23 @@ An indexer in Azure Cognitive Search is a crawler that extracts searchable data 
 + The indexer will support incremental indexing meaning that it will identify which content in the Azure file share has changed and only index the updated content on future indexing runs. For example, if 5 PDFs are originally indexed by the indexer, then 1 is updated, then the indexer runs again, the indexer will only index the 1 PDF that was updated.
 + Text and normalized images will be extracted by default from the files that are indexed. Optionally a skillset can be added to the pipeline for further content enrichment. More information on skillsets can be found in the article [Skillset concepts in Azure Cognitive Search](cognitive-search-working-with-skillsets.md).
 
+## Prerequisites
+
++ [Azure Files](https://azure.microsoft.com/services/storage/files/) at the Transaction Optimized tier, with a file share that provides source content.
+
++ Support for [Azure Files REST API](/rest/api/storageservices/file-service-rest-api), which means that [SMB shares](../storage/files/files-smb-protocol.md) are supported, but [NFS shares](../storage/files/files-nfs-protocol.md#support-for-azure-storage-features) are not.
+
 ## Supported document formats
 
 The Azure Cognitive Search Azure Files indexer can extract text from the following document formats:
 
 [!INCLUDE [search-document-data-sources](../../includes/search-blob-data-sources.md)]
 
-## Required resources
-
-You need both Azure Cognitive Search and [Azure Files](https://azure.microsoft.com/services/storage/files/). Within Azure Files, you need a file share that provides source content.
-
-> [!NOTE]
-> To index a file share, it must support access through the [file data plane REST API](/rest/api/storageservices/file-service-rest-api). [NFS shares](../storage/files/files-nfs-protocol.md#support-for-azure-storage-features) do not support the file data plane REST API and cannot be used with Azure Cognitive Search indexers.[SMB shares](../storage/files/files-smb-protocol.md) support the file data plane REST API and can be used with Azure Cognitive Search indexers.
-
-<a name="configure"></a>
+<!-- <a name="configure"></a>
 
 ## Configuring a file indexer
 
-Azure File indexers share many common configuration options with [Azure Blob indexers](search-howto-indexing-azure-blob-storage.md). For example, Azure File indexers support [producing multiple search documents from a single file](search-howto-index-one-to-many-blobs.md), [plain text files](search-howto-index-plaintext-blobs.md), [JSON files](search-howto-index-json-blobs.md), and [encrypted files](search-howto-index-encrypted-blobs.md). Many of the same [configuration options](search-howto-indexing-azure-blob-storage.md) also apply. Important differences are highlighted below.
+Azure File indexers share many common configuration options with [Azure Blob indexers](search-howto-indexing-azure-blob-storage.md). For example, Azure File indexers support [producing multiple search documents from a single file](search-howto-index-one-to-many-blobs.md), [plain text files](search-howto-index-plaintext-blobs.md), [JSON files](search-howto-index-json-blobs.md), and [encrypted files](search-howto-index-encrypted-blobs.md). Many of the same [configuration options](search-howto-indexing-azure-blob-storage.md) also apply. Important differences are highlighted below. -->
 
 ## Data source definitions
 
