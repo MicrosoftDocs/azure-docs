@@ -7,7 +7,7 @@ ms.date: 11/18/2021
 
 # Linter rule - max resources
 
-This rule checks if the number of resources does not exceed the [ARM template limits](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/best-practices#template-limits).
+This rule checks if the number of resources does not exceed the [ARM template limits](../templates/best-practices.md#template-limits).
 
 ## Linter rule code
 
