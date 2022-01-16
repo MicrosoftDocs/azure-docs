@@ -88,7 +88,7 @@ items:
     items:
     - name: Configure settings for export
       href: configure-export-data.md
-    - name: Export
+    - name: Export FHIR data
       href: export-data.md
     - name: De-identified export
       href: de-identified-export.md

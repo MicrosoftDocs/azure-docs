@@ -25,7 +25,7 @@
   - name: Tutorials
     items:
     - name: List of app integration tutorials
-      href: /azure/active-directory/saas-apps/tutorial-list
+      href: ../saas-apps/tutorial-list.md
   - name: Samples
     items: 
     - name: Overview of App Management samples
@@ -183,7 +183,7 @@
             - name: SSL-VPN
               href: f5-aad-password-less-vpn.md  
             - name: B2C
-              href: https://docs.microsoft.com/azure/active-directory-b2c/partner-f5
+              href: ../../active-directory-b2c/partner-f5.md
     - name: Silverfort
       href: silverfort-azure-ad-integration.md
     - name: Single sign-on
