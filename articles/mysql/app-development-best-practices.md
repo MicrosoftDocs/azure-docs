@@ -87,7 +87,7 @@ You'll notice a lag between the source and the replica because the replication i
 
 ## Database deployment
 
-### Configure an Azure database for MySQL task in your CI/CD deployment pipeline
+### Configure an Azure Database for MySQL task in your CI/CD deployment pipeline
 
 Occasionally, you need to deploy changes to your database. In such cases, you can use continuous integration (CI) and continuous delivery (CD) through [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) and use a task for [your MySQL server](/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment) to update the database by running a custom script against it.
 
