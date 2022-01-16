@@ -9,14 +9,12 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/10/2021
+ms.date: 01/16/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
 # Integer claims transformations
-
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 This article provides examples for using the integer claims transformations of the Identity Experience Framework schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [ClaimsTransformations](claimstransformations.md).
 
@@ -30,7 +28,9 @@ Increases or decreases a numeric claim and return a new claim.
 | InputParameter | Operator | string | Possible values: `INCREMENT` (default), or `DECREMENT`.|
 | OutputClaim | outputClaim | int | The claim type that is produced after this claims transformation has been invoked. |
 
-Use this claim transformation to increase or decrease a numeric claim value. 
+### Example of AdjustNumber
+
+Use this claim transformation to increase or decrease a numeric claim value. The following claim transformation increases a numeric claim value.
 
 ```xml
 <ClaimsTransformation Id="UpdateSteps" TransformationMethod="AdjustNumber">
@@ -46,24 +46,23 @@ Use this claim transformation to increase or decrease a numeric claim value.
 </ClaimsTransformation>
 ```
 
-### Example 1
+- Input claims:
+  - **inputClaim**: 1
+- Input parameters:
+  - **Operator**: INCREMENT
+- Output claims:
+  - **outputClaim**: 2
+
+### Example of AdjustNumber with null value
+
+If the input claim is null, the output claim will be one.
 
 - Input claims:
-    - **inputClaim**: 1
+  - **inputClaim**: NULL
 - Input parameters:
-    - **Operator**: INCREMENT
+  - **Operator**: INCREMENT
 - Output claims:
-    - **outputClaim**: 2
-
-### Example 2
-
-- Input claims:
-    - **inputClaim**: NULL
-- Input parameters:
-    - **Operator**: INCREMENT
-- Output claims:
-    - **outputClaim**: 1
-
+  - **outputClaim**: 1
 
 ## AssertNumber
 
@@ -94,9 +93,9 @@ The **AssertNumberError** self-asserted technical profile metadata controls the 
 
 For more information how to call the claims transformation in an assertion mode, see [AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal), [AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue), and [AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) claims transformations.
 
-### Assertion mode example
+### Example of AssertNumber
 
-The following example asserts the number of attempts is over five. The  claims transformation throws an error according to the comparison result. 
+The following example asserts the number of attempts is over five. The  claims transformation throws an error according to the comparison result.
 
 ```xml
 <ClaimsTransformation Id="isOverLimit" TransformationMethod="AssertNumber">
@@ -112,14 +111,14 @@ The following example asserts the number of attempts is over five. The  claims t
 ```
 
 - Input claims:
-    - **inputClaim**: 10
+  - **inputClaim**: 10
 - Input parameters:
-    - **Operator**: GREATERTHAN
-    - **CompareToValue**: 5
-    - **throwError**: true
+  - **Operator**: GREATERTHAN
+  - **CompareToValue**: 5
+  - **throwError**: true
 - Result: Error thrown
 
-### Evaluation mode example
+### Example of AssertNumber evaluation mode
 
 The following example evaluates whether the number of attempts is over five. The output claim contains a boolean value according to the comparison result. The claims transformation will not throw an error. 
 
@@ -140,13 +139,13 @@ The following example evaluates whether the number of attempts is over five. The
 ```
 
 - Input claims:
-    - **inputClaim**: 10
+  - **inputClaim**: 10
 - Input parameters:
-    - **Operator**: GREATERTHAN
-    - **CompareToValue**: 5
-    - **throwError**: false
+  - **Operator**: GREATERTHAN
+  - **CompareToValue**: 5
+  - **throwError**: false
 - Output claims:
-    - **outputClaim**: true
+  - **outputClaim**: true
 
 
 ## ConvertNumberToStringClaim
@@ -157,6 +156,8 @@ Converts a long data type into a string data type.
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | long | The claim type to convert to a string. |
 | OutputClaim | outputClaim | string | The claim type that is produced after this claims transformation has been invoked. |
+
+### Example of ConvertNumberToStringClaim
 
 In this example, the `numericUserId` claim with a value type of long is converted to a `UserId` claim with a value type of string.
 
@@ -171,10 +172,11 @@ In this example, the `numericUserId` claim with a value type of long is converte
 </ClaimsTransformation>
 ```
 
-### Example
-
 - Input claims:
-    - **inputClaim**: 12334 (long)
+  - **inputClaim**: 12334 (long)
 - Output claims:
-    - **outputClaim**: "12334" (string)
+  - **outputClaim**: "12334" (string)
 
+## Next steps
+
+- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation) on the Azure AD B2C community GitHub repo

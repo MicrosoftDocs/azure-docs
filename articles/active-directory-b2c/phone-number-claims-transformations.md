@@ -9,14 +9,12 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/26/2020
+ms.date: 01/16/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
 # Define phone number claims transformations in Azure AD B2C
-
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 This article provides reference and examples for using the phone number claims transformations of the Identity Experience Framework schema in Azure Active Directory B2C (Azure AD B2C). For more information about claims transformations in general, see [ClaimsTransformations](claimstransformations.md).
 
@@ -31,6 +29,8 @@ Converts a `phoneNumber` data type into a `string` data type.
 | InputClaim | phoneNumber | phoneNumber |  The ClaimType to convert to a string. |
 | OutputClaim | phoneNumberString | string | The ClaimType that is produced after this claims transformation has been invoked. |
 
+### Example of ConvertPhoneNumberClaimToString
+
 In this example, the cellPhoneNumber claim with a value type of `phoneNumber` is converted to a cellPhone claim with a value type of `string`.
 
 ```xml
@@ -43,8 +43,6 @@ In this example, the cellPhoneNumber claim with a value type of `phoneNumber` is
   </OutputClaims>
 </ClaimsTransformation>
 ```
-
-### Example
 
 - Input claims:
   - **phoneNumber**: +11234567890 (phoneNumber)
@@ -66,7 +64,9 @@ The **ConvertStringToPhoneNumberClaim** claims transformation is always executed
 
 ![Diagram of error message execution path](./media/phone-authentication/assert-execution.png)
 
-You can use this claims transformation to ensure that the provided string claim is a valid phone number. If not, an error message is thrown. The following example checks that the **phoneString** ClaimType is indeed a valid phone number, and then returns the phone number in the standard Azure AD B2C format. Otherwise, an error message is thrown.
+### Example of ConvertStringToPhoneNumberClaim
+
+The following example checks that the **phoneString** ClaimType is indeed a valid phone number, and then returns the phone number in the standard Azure AD B2C format. Otherwise, an error message is thrown.
 
 ```xml
 <ClaimsTransformation Id="ConvertStringToPhoneNumber" TransformationMethod="ConvertStringToPhoneNumberClaim">
@@ -80,6 +80,21 @@ You can use this claims transformation to ensure that the provided string claim 
 </ClaimsTransformation>
 ```
 
+- Input claims:
+  - **phoneNumberString**: 033 456-7890
+  - **country**: DK
+- Output claims:
+  - **outputClaim**: +450334567890
+
+### Example of ConvertStringToPhoneNumberClaim without country code claim
+
+- Input claims:
+  - **phoneNumberString**: +1 (123) 456-7890
+- Output claims:
+  - **outputClaim**: +11234567890
+
+### Calling the ConvertStringToPhoneNumberClaim claims transformation
+
 The self-asserted technical profile that calls the validation technical profile that contains this claims transformation can define the error message.
 
 ```xml
@@ -90,22 +105,6 @@ The self-asserted technical profile that calls the validation technical profile 
   ...
 </TechnicalProfile>
 ```
-
-### Example 1
-
-- Input claims:
-  - **phoneNumberString**: 033 456-7890
-  - **country**: DK
-- Output claims:
-  - **outputClaim**: +450334567890
-
-### Example 2
-
-- Input claims:
-  - **phoneNumberString**: +1 (123) 456-7890
-- Output claims:
-  - **outputClaim**: +11234567890
-
 
 ## GetNationalNumberAndCountryCodeFromPhoneNumberString
 
@@ -126,6 +125,8 @@ If the **GetNationalNumberAndCountryCodeFromPhoneNumberString** claims transform
 
 You can use this claims transformation to split a full phone number into the country/region code and the national number. If the phone number provided is not valid, you can choose to throw an error message.
 
+### Example of GetNationalNumberAndCountryCodeFromPhoneNumberString
+
 The following example tries to split the phone number into national number and country/region code. If the phone number is valid, the phone number will be overridden by the national number. If the phone number is not valid, an exception will not be thrown and the phone number still has its original value.
 
 ```xml
@@ -144,6 +145,46 @@ The following example tries to split the phone number into national number and c
 </ClaimsTransformation>
 ```
 
+- Input claims:
+  - **phoneNumber**: +49 (123) 456-7890
+- Input parameters:
+  - **throwExceptionOnFailure**: false
+  - **countryCodeType**: ISO3166
+- Output claims:
+  - **nationalNumber**: 1234567890
+  - **countryCode**: DE
+
+### Example of GetNationalNumberAndCountryCodeFromPhoneNumberString with CallingCode parameter
+
+The following example tries to split the phone number into national number and country calling code.
+
+```xml
+<ClaimsTransformation Id="GetNationalNumberAndCountryCodeFromPhoneNumberString" TransformationMethod="GetNationalNumberAndCountryCodeFromPhoneNumberString">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="phoneNumber" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="throwExceptionOnFailure" DataType="boolean" Value="false" />
+    <InputParameter Id="countryCodeType" DataType="string" Value="CallingCode" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="nationalNumber" TransformationClaimType="nationalNumber" />
+    <OutputClaim ClaimTypeReferenceId="countryCode" TransformationClaimType="countryCode" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+- Input claims:
+  - **phoneNumber**: +49 (123) 456-7890
+- Input parameters
+  - **throwExceptionOnFailure**: false
+  - **countryCodeType**: CallingCode
+- Output claims:
+  - **nationalNumber**: 1234567890
+  - **countryCode**: +49
+
+### Calling the GetNationalNumberAndCountryCodeFromPhoneNumberString claims transformation
+
 The self-asserted technical profile that calls the validation technical profile that contains this claims transformation can define the error message.
 
 ```xml
@@ -155,24 +196,6 @@ The self-asserted technical profile that calls the validation technical profile 
 </TechnicalProfile>
 ```
 
-### Example 1
+## Next steps
 
-- Input claims:
-  - **phoneNumber**: +49 (123) 456-7890
-- Input parameters:
-  - **throwExceptionOnFailure**: false
-  - **countryCodeType**: ISO3166
-- Output claims:
-  - **nationalNumber**: 1234567890
-  - **countryCode**: DE
-
-### Example 2
-
-- Input claims:
-  - **phoneNumber**: +49 (123) 456-7890
-- Input parameters
-  - **throwExceptionOnFailure**: false
-  - **countryCodeType**: CallingCode
-- Output claims:
-  - **nationalNumber**: 1234567890
-  - **countryCode**: +49
+- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation) on the Azure AD B2C community GitHub repo
