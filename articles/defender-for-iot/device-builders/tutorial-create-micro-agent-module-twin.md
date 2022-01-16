@@ -1,7 +1,7 @@
 ---
 title: Create a DefenderforIoTMicroAgent module twin (Preview)
 description: In this tutorial, you will learn how to create a DefenderIotMicroAgent module twin for new devices.
-ms.date: 01/13/2022
+ms.date: 01/16/2022
 ms.topic: tutorial
 ms.custom: mode-other
 ---
@@ -44,7 +44,7 @@ In this tutorial you will learn how to:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Verify you are running one of the following operating systems; Ubuntu 18.04, 20.04, or Debian 9.
+- Verify you are running one of the following [operating systems](concept-agent-portfolio-overview-os-support.md#agent-portfolio-overview-and-os-support-preview).
 
 - An [IoT hub](../../iot-hub/iot-hub-create-through-portal.md).
 
