@@ -14,7 +14,7 @@ ms.author: mbullwin
 
 # How to: Use Multivariate Anomaly Detector on your time series data  
 
-The Multivariate Anomaly Detector (MVAD) provides mainly two steps to detect anomalies compared with Univariate Anomaly Detector (UVAD), **training** and **inference**. During inference process, you could choose to use an asynchronized API or a synchronized API to trigger inference one time, and both of these two APIs will support batch or streaming scenario.
+The Multivariate Anomaly Detector (MVAD) provides two primary methods to detect anomalies compared with Univariate Anomaly Detector (UVAD), **training** and **inference**. During the inference process, you can choose to use an asynchronous API or a synchronous API to trigger inference one time. Both of these APIs support batch or streaming scenarios.
 
 In general, you could take these steps to use MVAD:
   1. Create an Anomaly Detector resource in Azure Portal.
