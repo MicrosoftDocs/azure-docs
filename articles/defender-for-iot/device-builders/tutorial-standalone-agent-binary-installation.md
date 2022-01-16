@@ -26,6 +26,8 @@ In this tutorial you will learn how to:
 
 - An [IoT hub](../../iot-hub/iot-hub-create-through-portal.md).
 
+- Verify you are running one of the following [operating systems](concept-agent-portfolio-overview-os-support.md#agent-portfolio-overview-and-os-support-preview).
+
 - You must have [enabled Microsoft Defender for IoT on your Azure IoT Hub](quickstart-onboard-iot-hub.md).
 
 - You must have [added a resource group to your IoT solution](quickstart-configure-your-solution.md)
