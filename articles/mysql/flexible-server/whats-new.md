@@ -23,7 +23,6 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 - **Bug fixes**
  
-
     Restart workflow struck issue with servers with HA and Geo-redundant backup option enabled is fixed. 
 
 - **Known issues**
