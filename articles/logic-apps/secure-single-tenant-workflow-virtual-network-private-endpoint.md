@@ -118,7 +118,9 @@ For more information, review [Create single-tenant logic app workflows in Azure 
 To secure outbound traffic from your logic app, you can integrate your logic app with a virtual network. First, create and test an example workflow. You can then set up VNet integration.
 
 > [!IMPORTANT]
-> Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. To avoid any issues with subnet capacity, suggest using a /26 subnet with 64 addresses. When creating the subnet in Azure portal as part of integrating with the virtual network, a minimum size of /27 is required.
+> You can't change the subnet size after assignment, so use a subnet that's large enough to accommodate 
+> the scale that your app might reach. To avoid any issues with subnet capacity, use a `/26` subnet with 64 addresses. 
+> If you create the subnet for virtual network integration with the Azure portal, you must use `/27` as the minimum subnet size.
 
 
 ### Create and test the workflow
