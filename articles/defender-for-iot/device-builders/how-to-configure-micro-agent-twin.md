@@ -4,7 +4,7 @@ description: Learn how to configure a micro agent twin.
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: how-to
-ms.date: 01/12/2022
+ms.date: 01/16/2022
 ---
 
 # Configure a micro agent twin
@@ -17,7 +17,7 @@ Learn how to configure a micro agent twin.
 
 - A Defender for IoT subscription.
 
-- An existing IoT Hub with: [A connected device]tutorial-standalone-agent-binary-installation.md), and [A micro agent module twin](tutorial-create-micro-agent-module-twin.md).
+- An existing IoT Hub with: [A connected device](tutorial-standalone-agent-binary-installation.md), and [A micro agent module twin](tutorial-create-micro-agent-module-twin.md).
 
 ## Micro agent configuration
 

@@ -2,7 +2,7 @@
 title: 'Quickstart: Enable Microsoft Defender for IoT on your Azure IoT Hub'
 description: Learn how to enable Defender for IoT in an Azure IoT hub.
 ms.topic: quickstart
-ms.date: 01/13/2022
+ms.date: 01/16/2022
 ms.custom: mode-other
 ---
 
@@ -29,11 +29,9 @@ You can create a hub in the Azure portal. For all new IoT hubs, Defender for IoT
 
 1. Follow the steps in [this article](../../iot-hub/iot-hub-create-through-portal.md#create-an-iot-hub).
 
-1. Under the **Management** tab, ensure that **Defender for IoT** is set to **On**.
+1. Under the **Management** tab, ensure that **Defender for IoT** is set to **On**. By default, Defender for IoT will be set to **On** .
 
     :::image type="content" source="media/quickstart-onboard-iot-hub/management-tab.png" alt-text="Ensure the Defender for IoT toggle is set to on.":::
-
-1. Follow the rest of [this article](../../iot-hub/iot-hub-create-through-portal.md#create-an-iot-hub) to create the hub.
 
 ## Enable Defender for IoT on an existing IoT Hub
 
@@ -49,7 +47,7 @@ You can onboard Defender for IoT to an existing IoT Hub, where you can then moni
 
     :::image type="content" source="media/quickstart-onboard-iot-hub/secure-your-iot-solution.png" alt-text="Select the secure your IoT solution button to secure your solution." lightbox="media/quickstart-onboard-iot-hub/secure-your-iot-solution-expanded.png":::
 
-The **Secure your IoT solution** button will only appear if the IoT Hub has not already been onboarded, or if you left the Defender for IoT toggle on **Off** while onboarding.
+The **Secure your IoT solution** button will only appear if the IoT Hub has not already been onboarded, or if you set the Defender for IoT toggle to **Off** while onboarding.
 
 :::image type="content" source="media/quickstart-onboard-iot-hub/toggle-is-off.png" alt-text="If your toggle was set to off during onboarding.":::
 
@@ -63,7 +61,7 @@ The **Secure your IoT solution** button will only appear if the IoT Hub has not 
 
 1. The Threat prevention, and Threat detection screen will appear.
 
-    :::image type="content" source="../organizations/media/quickstart-onboard-iot-hub/threat-prevention.png" alt-text="Screenshot showing that Defender for IoT is enabled.":::
+    :::image type="content" source="media/quickstart-onboard-iot-hub/threat-prevention.png" alt-text="Screenshot showing that Defender for IoT is enabled." lightbox="media/quickstart-onboard-iot-hub/threat-prevention-expanded.png":::
 
 ## Next steps
 
