@@ -212,9 +212,9 @@ To deploy a large number of parsers, we recommend using parser ARM templates, as
 
 1. Use the [ASIM Yaml to ARM template converter](https://aka.ms/ASimYaml2ARM) to convert your YAML file to an ARM template. 
 
-1. Deploy your template using the [Azure portal](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) or [PowerShell](/azure/azure-resource-manager/templates/deploy-powershell).
+1. Deploy your template using the [Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template) or [PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
 
-You can also combine multiple templates to a single deploy process using [linked templates](/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell#linked-template)
+You can also combine multiple templates to a single deploy process using [linked templates](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell#linked-template)
 
 > [!TIP]
 > ARM templates can combine different resources, so parsers can be deployed alongside connectors, analytic rules, or watchlists, to name a few useful options. For example, your parser can reference a watchlist deployed alongside it.

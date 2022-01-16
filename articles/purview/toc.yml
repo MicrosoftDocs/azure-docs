@@ -42,9 +42,9 @@ items:
     items:
       - name: Accounts architecture best practices
         href: concept-best-practices-accounts.md
-      - name: Accounts - Default Purview account 
+      - name: Accounts - Default Azure Purview account 
         href: concept-default-purview-account.md
-      - name: Automation best practices 
+      - name: Automation best practices
         href: concept-best-practices-automation.md
       - name: Backup, recovery and migration best practices
         href: concept-best-practices-migration.md
@@ -276,7 +276,7 @@ items:
         href: catalog-private-link.md
       - name: End-to-end network isolation
         href: catalog-private-link-end-to-end.md
-      - name: Isolate network for Purview account and portal
+      - name: Isolate network for account and portal
         href: catalog-private-link-account-portal.md
       - name: Managed virtual network
         href: catalog-managed-vnet.md        
@@ -288,6 +288,8 @@ items:
         href: catalog-private-link-faqs.md
     - name: Azure policy exceptions
       href: create-purview-portal-faq.md
+    - name: Conditional access
+      href: catalog-conditional-access.md
   - name: Manage Kafka notifications - .NET
     href: manage-kafka-dotnet.md
   - name: Disaster recovery
