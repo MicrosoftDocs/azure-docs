@@ -86,19 +86,23 @@ You can provide the credentials for the blob container in one of these ways:
 > [!NOTE]
 > If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to "Credentials provided in the connection string are invalid or have expired".  
 
-## Define search fields for blob data
+## Add search fields to an index
 
-A [search index](search-what-is-an-index.md) specifies the fields in a search document, attributes, and other constructs that shape the search experience. All indexers require that you specify a search index definition as the destination.
+In a [search index](search-what-is-an-index.md), add fields to accept the content and metadata of your Azure blobs.
 
 1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store blob content and metadata:
 
     ```http
-    PUT /indexes?api-version=2020-06-30
+    POST /indexes?api-version=2020-06-30
     {
-      "name" : "my-target-index",
+      "name" : "my-search-index",
       "fields": [
           { "name": "metadata_storage_path", "type": "Edm.String", "key": true, "searchable": false },
-          { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false }
+          { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false },
+          { "name": "metadata_storage_name", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true  },
+          { "name": "metadata_storage_path", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true },
+          { "name": "metadata_storage_size", "type": "Edm.Int64", "searchable": false, "filterable": true, "sortable": true  },
+          { "name": "metadata_storage_content_type", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true },        
       ]
     }
     ```
@@ -131,10 +135,11 @@ Reasons for [creating an explicit field mapping](search-indexer-field-mappings.m
 The following example demonstrates "metadata_storage_name" as the document key. Assume the index has a key field named "key" and another field named "fileSize" for storing the document size. [Field mappings](search-indexer-field-mappings.md) in the indexer definition establish field associations, and "metadata_storage_name" has the [base64Encode field mapping function](search-indexer-field-mappings.md#base64EncodeFunction) to handle unsupported characters.
 
 ```http
-PUT /indexers/my-blob-indexer?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
 {
+  "name" : "my-blob-indexer",
   "dataSourceName" : "my-blob-datasource ",
-  "targetIndexName" : "my-target-index",
+  "targetIndexName" : "my-search-index",
   "schedule" : { "interval" : "PT2H" },
   "fieldMappings" : [
     { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },

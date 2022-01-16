@@ -60,10 +60,10 @@ A primary difference between a table indexer and other indexers is the data sour
 
 You can provide the credentials for the connection in one of these ways: 
 
++ **Full access storage account connection string**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` You can get the connection string from the Azure portal by going to the **Storage account blade** > **Settings** > **Keys** (for classic storage accounts) or **Settings** > **Access keys** (for Azure Resource Manager storage accounts).
+
 + **Managed identity connection string**: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;` 
 This connection string does not require an account key, but you must follow the instructions for [Setting up a connection to an Azure Storage account using a managed identity](search-howto-managed-identities-storage.md).
-
-+ **Full access storage account connection string**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` You can get the connection string from the Azure portal by going to the **Storage account blade** > **Settings** > **Keys** (for classic storage accounts) or **Settings** > **Access keys** (for Azure Resource Manager storage accounts).
 
 + **Storage account shared access signature connection string**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` The shared access signature should have the list and read permissions on containers (tables in this case) and objects (table rows).
 
@@ -74,21 +74,20 @@ For more information on storage shared access signatures, see [Using shared acce
 > [!NOTE]
 > If you use shared access signature credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration or the indexer will fail with a "Credentials provided in the connection string are invalid or have expired" message.
 
-## Define fields in a search index
+## Add search fields to an index
+
+In a [search index](search-what-is-an-index.md), add fields to accept the content and metadata of your table entities.
 
 1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store content from entities:
 
     ```http
-    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
-    
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30 
     {
-            "name" : "my-target-index",
-            "fields": [
+        "name" : "my-search-index",
+        "fields": [
             { "name": "key", "type": "Edm.String", "key": true, "searchable": false },
             { "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
-            ]
+        ]
     }
     ```
 
@@ -98,7 +97,7 @@ For more information on storage shared access signatures, see [Using shared acce
 
    A table indexer will populate the key field with concatenated partition and row keys from the table. For example, if a row’s PartitionKey is `PK1` and RowKey is `RK1`, then the `Key` field's value is `PK1RK1`. If the partition key is null, just the row key is used.
 
-## Set properties on the indexer
+## Configure the table indexer
 
 [Create Indexer](/rest/api/searchservice/create-indexer) connects a data source with a target search index and provides a schedule to automate the data refresh. 
 
@@ -106,12 +105,9 @@ An indexer definition for Table Storage uses the global properties for data sour
 
 ```http
 POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
-Content-Type: application/json
-api-key: [admin key]
-
 {
     "name" : "table-indexer",
-    "dataSourceName" : "table-datasource",
+    "dataSourceName" : "my-table-datasource",
     "targetIndexName" : "my-target-index",
     "schedule" : { "interval" : "PT2H" }
 }

@@ -13,70 +13,62 @@ ms.date: 01/17/2022
 # Index data from Azure Files
 
 > [!IMPORTANT] 
-> Azure Files is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use a [preview REST API (2020-06-30-preview or later)](search-api-preview.md) to index your content. There is currently limited portal support and no .NET SDK support.
+> Azure Files indexer is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use a [preview REST API (2020-06-30-preview or later)](search-api-preview.md) to create the indexer data source.
 
-In this article, learn the steps for extracting content and metadata from Azure file shares and sending it to a search index in Azure Cognitive Search. The resulting index can be queried using full text search.
+In this article, learn the steps for extracting content and metadata from file shares in Azure Storage and sending the content to a search index in Azure Cognitive Search. The resulting index can be queried using full text search.
 
 This article supplements [Create an indexer](search-howto-create-indexers.md) with information specific to indexing files in Azure Storage.
-
-## Functionality
-
-An indexer in Azure Cognitive Search is a crawler that extracts searchable data and metadata from a data source. The Azure Files indexer will connect to your Azure file share and index files. The indexer provides the following functionality:
-
-+ Index content from an Azure file share.
-+ The indexer will support incremental indexing meaning that it will identify which content in the Azure file share has changed and only index the updated content on future indexing runs. For example, if 5 PDFs are originally indexed by the indexer, then 1 is updated, then the indexer runs again, the indexer will only index the 1 PDF that was updated.
-+ Text and normalized images will be extracted by default from the files that are indexed. Optionally a skillset can be added to the pipeline for further content enrichment. More information on skillsets can be found in the article [Skillset concepts in Azure Cognitive Search](cognitive-search-working-with-skillsets.md).
 
 ## Prerequisites
 
 + [Azure Files](https://azure.microsoft.com/services/storage/files/) at the Transaction Optimized tier, with a file share that provides source content.
 
-+ Support for [Azure Files REST API](/rest/api/storageservices/file-service-rest-api), which means that [SMB shares](../storage/files/files-smb-protocol.md) are supported, but [NFS shares](../storage/files/files-nfs-protocol.md#support-for-azure-storage-features) are not.
++ File must be stored on [SMB shares](../storage/files/files-smb-protocol.md) (the indexer has an internal dependency on [Azure Files REST API](/rest/api/storageservices/file-service-rest-api). [NFS shares](../storage/files/files-nfs-protocol.md#support-for-azure-storage-features) are not supported.
+
++ Files should contain non-binary textual content for text-based indexing. This indexer also supports [AI enrichment](cognitive-search-concept-intro.md) if you have binary files.
 
 ## Supported document formats
 
-The Azure Cognitive Search Azure Files indexer can extract text from the following document formats:
+The Azure Files indexer can extract text from the following document formats:
 
 [!INCLUDE [search-document-data-sources](../../includes/search-blob-data-sources.md)]
 
-<!-- <a name="configure"></a>
+## Define the data source
 
-## Configuring a file indexer
+A primary difference between a file share indexer and other indexers is the data source assignment. The data source definition specifies "type": "azurefile" and how to connect.
 
-Azure File indexers share many common configuration options with [Azure Blob indexers](search-howto-indexing-azure-blob-storage.md). For example, Azure File indexers support [producing multiple search documents from a single file](search-howto-index-one-to-many-blobs.md), [plain text files](search-howto-index-plaintext-blobs.md), [JSON files](search-howto-index-json-blobs.md), and [encrypted files](search-howto-index-encrypted-blobs.md). Many of the same [configuration options](search-howto-indexing-azure-blob-storage.md) also apply. Important differences are highlighted below. -->
+1. [Create or update a data source](/rest/api/searchservice/preview-api/create-or-update-data-source) to set its definition, using a preview API version 2020-06-30-Preview or 2021-04-30-Preview.
 
-## Data source definitions
+    ```json
+    {
+        "name" : "my-file-datasource",
+        "type" : "azurefile",
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
+        "container" : { "name" : "my-file-share", "query" : "<optional-directory-name>" }
+    }
+    ```
 
-The primary difference between a file indexer and any other indexer is the data source definition that's assigned to the indexer. The data source definition specifies the data source type ("type": "azurefile"), and other properties for authentication and connection to the content to be indexed.
+1. Set "type" to "azurefile" (required).
 
-A file data source definition looks similar to the example below:
+1. Set "credentials" to an Azure Storage connection string. The next session describes the supported formats.
 
-```http
-{
-    "name" : "my-file-datasource",
-    "type" : "azurefile",
-    "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
-    "container" : { "name" : "my-file", "query" : "<optional-directory-name>" }
-}
-```
-
-The `"credentials"` property can be a connection string, as shown in the above example, or one of the alternative approaches described in the next section. The `"container"` property provides the file share within Azure Storage, and `"query"` is used to specify a subfolder in the share. For more information about data source definitions, see [Create Data Source (REST)](/rest/api/searchservice/create-data-source).
+1. Set "container" to the root file share, and use "query" to specify any subfolders.
 
 <a name="Credentials"></a>
 
-## Credentials
+### Supported credentials and connection strings
 
 You can provide the credentials for the file share in one of these ways:
+
+**Full access storage account connection string**:
+`{ "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>;" }`
+
+You can get the connection string from the Storage account page in Azure portal by selecting **Access keys** in the left navigation pane. Make sure to select a full connection string and not just a key.
 
 **Managed identity connection string**:
 `{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;" }`
 
-This connection string does not require an account key, but you must follow the instructions for [Setting up a connection to an Azure Storage account using a managed identity](search-howto-managed-identities-storage.md).
-
-**Full access storage account connection string**: 
-`{ "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>;" }`
-
-You can get the connection string from the Azure portal by navigating to the storage account blade > Settings > Keys (for Classic storage accounts) or Security + networking  > Access keys (for Azure Resource Manager storage accounts).
+This connection string requires [configuring your search service as a trusted service](search-howto-managed-identities-storage.md) under Azure Active Directory,and then granting **Reader and data access** rights to the search service in Azure Storage. 
 
 **Storage account shared access signature** (SAS) connection string:
 `{ "connectionString" : "BlobEndpoint=https://<your account>.file.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&sp=rl&sr=s;" }`
@@ -91,61 +83,78 @@ The SAS should have the list and read permissions on the file share. For more in
 > [!NOTE]
 > If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to "Credentials provided in the connection string are invalid or have expired".
 
-## Indexing file metadata
+## Add search fields to an index
 
-A common scenario that makes it easy to sort through files of any content type is to index both custom metadata and system properties for each file. In this way, information for all files is indexed regardless of document type, stored in an index in your search service. Using your new index, you can then proceed to sort, filter, and facet across all File storage content.
+In the [search index](search-what-is-an-index.md), add fields to accept the content and metadata of your Azure files. 
 
-Standard file metadata properties can be extracted into the fields listed below. The file indexer automatically creates internal field mappings for these file metadata properties. You still have to add the fields you want to use the index definition, but you can omit creating field mappings in the indexer.
+If you have a large number of files of various document types, you can include file metadata and system properties in your index to gain the ability to sort, filter, and facet on that information across all files in the share.
 
-+ **metadata_storage_name** (`Edm.String`) - the file name. For example, if you have a file /my-share/my-folder/subfolder/resume.pdf, the value of this field is `resume.pdf`.
-+ **metadata_storage_path** (`Edm.String`) - the full URI of the file, including the storage account. For example, `https://myaccount.file.core.windows.net/my-share/my-folder/subfolder/resume.pdf`
-+ **metadata_storage_content_type** (`Edm.String`) - content type as specified by the code you used to upload the file. For example, `application/octet-stream`.
-+ **metadata_storage_last_modified** (`Edm.DateTimeOffset`) - last modified timestamp for the file. Azure Cognitive Search uses this timestamp to identify changed files, to avoid reindexing everything after the initial indexing.
-+ **metadata_storage_size** (`Edm.Int64`) - file size in bytes.
-+ **metadata_storage_content_md5** (`Edm.String`) - MD5 hash of the file content, if available.
-+ **metadata_storage_sas_token** (`Edm.String`) - A temporary SAS token that can be used by [custom skills](cognitive-search-custom-skill-interface.md) to get access to the file. This token shouldn't stored for later use as it might expire.
+1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store file content, metadata, and system properties:
 
-## Index by file type
+    ```json
+    POST /indexes?api-version=2020-06-30
+    {
+      "name" : "my-search-index",
+      "fields": [
+          { "name": "ID", "type": "Edm.String", "key": true, "searchable": false },
+          { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false },
+          { "name": "metadata_storage_name", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true  },
+          { "name": "metadata_storage_path", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true },
+          { "name": "metadata_storage_size", "type": "Edm.Int64", "searchable": false, "filterable": true, "sortable": true  },
+          { "name": "metadata_storage_content_type", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true },        
+      ]
+    }
+    ```
 
-You can control which documents are indexed and which are skipped.
+1. Create a key field ("key": true) to uniquely identify each search document based on unique identifiers in the files. The indexer will identify and base64-encode a value for this field. No field mappings are necessary.
 
-### Include documents having specific file extensions
+1. Add a "content" field to store extracted text from each file. 
 
-You can index only the documents with the file name extensions you specify by using the `indexedFileNameExtensions` indexer configuration parameter. The value is a string containing a comma-separated list of file extensions (with a leading dot). For example, to index only the .PDF and .DOCX documents, do this:
+1. Add fields for standard metadata properties. In file indexing, the standard metadata properties are the same as blob metadata properties. The file indexer automatically creates internal field mappings for these properties. You still have to add the fields you want to use the index definition, but you can omit creating field mappings in the indexer.
 
-```http
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30-Preview
-Content-Type: application/json
-api-key: [admin key]
+    + **metadata_storage_name** (`Edm.String`) - the file name. For example, if you have a file /my-share/my-folder/subfolder/resume.pdf, the value of this field is `resume.pdf`.
+    + **metadata_storage_path** (`Edm.String`) - the full URI of the file, including the storage account. For example, `https://myaccount.file.core.windows.net/my-share/my-folder/subfolder/resume.pdf`
+    + **metadata_storage_content_type** (`Edm.String`) - content type as specified by the code you used to upload the file. For example, `application/octet-stream`.
+    + **metadata_storage_last_modified** (`Edm.DateTimeOffset`) - last modified timestamp for the file. Azure Cognitive Search uses this timestamp to identify changed files, to avoid reindexing everything after the initial indexing.
+    + **metadata_storage_size** (`Edm.Int64`) - file size in bytes.
+    + **metadata_storage_content_md5** (`Edm.String`) - MD5 hash of the file content, if available.
+    + **metadata_storage_sas_token** (`Edm.String`) - A temporary SAS token that can be used by [custom skills](cognitive-search-custom-skill-interface.md) to get access to the file. This token shouldn't stored for later use as it might expire.
 
-{
-    ... other parts of indexer definition
-    "parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }
-}
-```
+## Configure the file indexer
 
-### Exclude documents having specific file extensions
+1. [Create or update an indexer](/rest/api/searchservice/create-indexer) to use the predefined data source and search index.
 
-You can exclude documents with specific file name extensions from indexing by using the `excludedFileNameExtensions` configuration parameter. The value is a string containing a comma-separated list of file extensions (with a leading dot). For example, to index all content except those with the .PNG and .JPEG extensions, do this:
+    ```http
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+    {
+      "name" : "my-file-indexer,
+      "dataSourceName" : "my-file-datasource",
+      "targetIndexName" : "my-search-index",
+      "parameters": {
+        "batchSize": null,
+        "maxFailedItems": null,
+        "maxFailedItemsPerBatch": null,
+        "configuration:" {
+            "indexedFileNameExtensions" : ".pdf,.docx",
+            "excludedFileNameExtensions" : ".png,.jpeg" 
+        }
+      },
+      "schedule" : { },
+      "fieldMappings" : [ ]
+    }
+    ```
 
-```http
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30-Preview
-Content-Type: application/json
-api-key: [admin key]
+1. In the optional "configuration" section, provide any inclusion or exclusion criteria. If left unspecified, all files in the file share are retrieved.
 
-{
-    ... other parts of indexer definition
-    "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
-}
-```
+   If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, Azure Cognitive Search first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. This means that if the same file extension is present in both lists, it will be excluded from indexing.
 
-If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, Azure Cognitive Search first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. This means that if the same file extension is present in both lists, it will be excluded from indexing.
+1. See [Create an indexer](search-howto-create-indexers) for more information about other properties.
 
 <a name="deleted-files"></a>
 
-## Detecting deleted files
+## Change and deletion detection
 
-After an initial search index is created, you might want subsequent indexer jobs to only pick up new and changed documents. For search content that originates from Azure File Storage, change detection occurs automatically when you use a schedule to trigger indexing. By default, the service reindexes only the changed files, as determined by the file's `LastModified` timestamp. In contrast with other data sources supported by search indexers, files always have a timestamp, which eliminates the need to set up a change detection policy manually.
+After an initial search index is created, you might want subsequent indexer jobs to only pick up new and changed documents. For search content that originates from Azure File Storage, change detection occurs automatically when you use a schedule to trigger indexing. By default, the service reindexes only the changed files, as determined by the file's `LastModified` timestamp. In contrast with other data sources supported by search indexers, file share files always have a timestamp, which eliminates the need to set up a change detection policy manually.
 
 Although change detection is a given, deletion detection is not. If you want to detect deleted files, make sure to use a "soft delete" approach. If you delete the files outright, corresponding documents will not be removed from the search index.
 
