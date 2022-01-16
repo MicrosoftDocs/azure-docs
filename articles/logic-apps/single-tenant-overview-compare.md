@@ -144,7 +144,7 @@ With the **Logic App (Standard)** resource type, you can create these workflow t
   > unavailable, or unsupported triggers, actions, and connectors, see 
   > [Changed, limited, unavailable, or unsupported capabilities](#limited-unavailable-unsupported).
 
-### Summary differences between between stateful and stateless workflows
+### Summary differences between stateful and stateless workflows
 
 <center>
 
