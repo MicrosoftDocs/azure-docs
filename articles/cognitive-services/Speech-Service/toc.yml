@@ -190,8 +190,6 @@ items:
       href: custom-keyword-basics.md
     - name: Recommendations and guidelines
       href: keyword-recognition-guidelines.md
-    - name: Region support
-      href: keyword-recognition-region-support.md
 - name: Scenario deep-dives
   items:
     - name: Conversation scenarios
