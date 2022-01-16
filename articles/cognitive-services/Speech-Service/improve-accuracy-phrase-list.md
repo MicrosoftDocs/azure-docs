@@ -24,7 +24,7 @@ For supported Phrase list locales see [Language and voice support for the Speech
 
 A phrase list can be provided just before starting the speech recognition, eliminating the need for training a custom model.
 
-A phrase list shouldn't have more than 500 phrases. If you have a larger list or for languages that are not currently supported, [training a custom model](../../../custom-speech-overview.md) will likely be the better choice to improve accuracy.
+A phrase list shouldn't have more than 500 phrases. If you have a larger list or for languages that are not currently supported, [training a custom model](custom-speech-overview.md) is likely the best option to improve accuracy.
 
 Phrase lists can't be used with Batch API or custom endpoint. Instead of using custom endpoints, train a custom model that includes the phrases.
 
@@ -52,27 +52,6 @@ Let's use Speech Studio to see how Phrase list helps improve recognition accurac
 
 With the Speech SDK you add phrases and then run speech recognition. You can clear or update the Phrase list to take effect before the next recognition.
 
-::: zone pivot="programmer-tool-spx"
-With the Speech CLI you include phrases along with the recognize command.
-
-```console
-spx recognize --microphone --phrases "Abdoulaye Gueye;"
-```
-
-You can also use a text file that contains one phrase per line.
-
-# [Terminal](#tab/terminal)
-```console
-spx recognize --file audio.wav --phrases @phrases.txt
-```
-
-# [PowerShell](#tab/powershell)
-```powershell
-spx --% recognize --microphone --phrases @phrases.txt
-```
-***
-
-::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 ```csharp
@@ -119,6 +98,27 @@ phrase_list_grammar.clear()
 ::: zone-end
 
 
+::: zone pivot="programmer-tool-spx"
+With the Speech CLI you include phrases along with the recognize command.
+
+```console
+spx recognize --microphone --phrases "Abdoulaye Gueye;"
+```
+
+You can also use a text file that contains one phrase per line.
+
+# [Terminal](#tab/terminal)
+```console
+spx recognize --microphone --phrases @phrases.txt
+```
+
+# [PowerShell](#tab/powershell)
+```powershell
+spx --% recognize --microphone --phrases @phrases.txt
+```
+***
+
+::: zone-end
 
 ## Next Steps
 
