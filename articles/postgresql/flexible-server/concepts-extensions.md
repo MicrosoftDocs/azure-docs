@@ -67,6 +67,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.1.1           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/13/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[sslinfo](https://www.postgresql.org/docs/13/sslinfo.html)                    | 1.2             | information about SSL certificates|
+> |[tablefunc](https://www.postgresql.org/docs/8.3/tablefunc.html)                    | 1.0            | functions that manipulate whole tables, including crosstab|
 > |[tsm_system_rows](https://www.postgresql.org/docs/13/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|
 > |[tsm_system_time](https://www.postgresql.org/docs/13/tsm-system-time.html)                    | 1.0             |  TABLESAMPLE method which accepts time in milliseconds as a limit|
 > |[unaccent](https://www.postgresql.org/docs/13/unaccent.html)                     | 1.1             | text search dictionary that removes accents|
@@ -121,6 +122,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.0.0           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/12/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[sslinfo](https://www.postgresql.org/docs/12/sslinfo.html)                    | 1.2             | information about SSL certificates|
+> |[tablefunc](https://www.postgresql.org/docs/8.3/tablefunc.html)                    | 1.0            | functions that manipulate whole tables, including crosstab|
 > |[tsm_system_rows](https://www.postgresql.org/docs/12/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|
 > |[tsm_system_time](https://www.postgresql.org/docs/12/tsm-system-time.html)                    | 1.0             |  TABLESAMPLE method which accepts time in milliseconds as a limit|
 > |[unaccent](https://www.postgresql.org/docs/12/unaccent.html)                     | 1.1             | text search dictionary that removes accents|
