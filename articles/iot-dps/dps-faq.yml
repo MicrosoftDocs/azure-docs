@@ -44,11 +44,9 @@ additionalContent: |
   If this FAQ doesn’t answer your question, you can contact us through the following channels (in escalating order):
 
   * The comments section of this article.
-  * [MSFT Q&A page for Azure DPS](https://docs.microsoft.com/answers/topics/azure-iot-dps.html?sort=viewCount).
+  * [MSFT Q&A page for Azure DPS](/answers/topics/azure-iot-dps.html?sort=viewCount).
   * Microsoft Support. To create a new support request, in the [Azure portal](https://portal.azure.com/), on the Help tab, select the **Help +** support button, and then select **New support request**.
   
 
   > [!div class="nextstepaction"]
   > [Troubleshoot DPS](how-to-troubleshoot-dps.md)
-  
-
