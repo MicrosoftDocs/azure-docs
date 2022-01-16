@@ -56,6 +56,10 @@ Additionally, the service is deployed to all 3 [availability zones](../../availa
 ### Single region data residency
 This is a preview feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. Single region residency is enabled by default in these regions.
 
+## Data collection endpoint
+Data collection endpoint contains the following:
+
+Defines the REST API endpoint to receive data from custom application. Includes the transform to apply to the source data and the workspace and table to receive it.
 
 ## Next steps
 

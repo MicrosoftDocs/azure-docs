@@ -143,6 +143,8 @@ items:
       href: logs/data-ingestion-time.md
   - name: Data collection rules
     href: platform/data-collection-rule-overview.md
+  - name: Direct ingestion
+    href: logs/direct-ingestion-overview.md
   - name: Usage and cost
     items:
     - name: Usage and estimated costs
