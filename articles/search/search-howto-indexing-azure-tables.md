@@ -78,19 +78,19 @@ For more information on storage shared access signatures, see [Using shared acce
 
 1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store content from entities:
 
-```http
-POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
-Content-Type: application/json
-api-key: [admin key]
-
-{
-        "name" : "my-target-index",
-        "fields": [
-        { "name": "key", "type": "Edm.String", "key": true, "searchable": false },
-        { "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
-        ]
-}
-```
+    ```http
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
+    Content-Type: application/json
+    api-key: [admin key]
+    
+    {
+            "name" : "my-target-index",
+            "fields": [
+            { "name": "key", "type": "Edm.String", "key": true, "searchable": false },
+            { "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
+            ]
+    }
+    ```
 
 1. Check for field correspondence between entity fields and search fields. If names and types don't match, [add field mappings](search-indexer-field-mappings.md) to the indexer definition to ensure the source-to-destination path is clear.
 
