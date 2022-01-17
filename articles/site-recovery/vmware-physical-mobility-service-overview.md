@@ -171,7 +171,7 @@ Agent configuration logs | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurat
 Setting | Details
 --- | ---
 Syntax | `./install -d \<Install Location> -r \<Agent/MasterTarget> -v VmWare -q`
-`-r` | Mandatory installation parameter. Specifies whether the Mobility service (MS) or master target (MT) should be installed.
+`-r` | Mandatory installation parameter. Specifies whether the Mobility service (Agent) or master target (MasterTarget) should be installed.
 `-d` | Optional parameter. Specifies the Mobility service installation location: `/usr/local/ASR`.
 `-v` | Mandatory. Specifies the platform on which Mobility service is installed. <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.
 `-q` | Optional. Specifies whether to run the installer in silent mode.
