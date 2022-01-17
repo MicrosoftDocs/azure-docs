@@ -327,7 +327,7 @@ There are many scenarios in which blobs of different types may be copied. Exampl
 
 For a simplified copy operation within the same storage account, use the `Copy-AzStorageBlob` cmdlet. Because the operation is copying a blob within the same storage account, it's a synchronous operation. Cross-account operations are asynchronous.
 
-You should consider the use of AzCopy for ease and performance, especially when copying blobs between storage accounts. AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. Find out more about how to [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10).
+You should consider the use of AzCopy for ease and performance, especially when copying blobs between storage accounts. AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. Find out more about how to [Get started with AzCopy](../common/storage-use-azcopy-v10.md).
 
 The example below copies the **bannerphoto.png** blob from the **photos** container to the **photos** folder within the **archive** container. Both containers exist within the same storage account. The result verifies the success of the copy operation.
 
@@ -490,6 +490,6 @@ Foreach($blob in $blobs)
 
 ## Next steps
 
-- [Run PowerShell commands with Azure AD credentials to access blob data](/azure/storage/blobs/authorize-data-operations-powershell)
-- [Create a storage account](/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)
+- [Run PowerShell commands with Azure AD credentials to access blob data](./authorize-data-operations-powershell.md)
+- [Create a storage account](../common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Manage blob containers using PowerShell](blob-containers-powershell.md)
