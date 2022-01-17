@@ -1,5 +1,5 @@
 ---
-title: Customer managed keys - Azure Video Analyzer
+title: Customer managed keys
 description: You can use a customer managed key (that is, bring your own key) with Azure Video Analyzer.
 author: anilmur
 ms.service: azure-video-analyzer

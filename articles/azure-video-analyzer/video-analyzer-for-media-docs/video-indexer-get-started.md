@@ -5,6 +5,7 @@ ms.topic: quickstart
 ms.subservice: azure-video-analyzer-media
 ms.date: 01/25/2021
 ms.author: juliako
+ms.custom: mode-other
 ---
 
 # Quickstart: How to sign up and upload your first video
@@ -65,4 +66,3 @@ After you upload and index a video, you can start using [Video Analyzer for Medi
 For detailed introduction please visit our [introduction lab](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md). 
 
 At the end of the workshop you will have a good understanding of the kind of information that can be extracted from video and audio content, you will be more prepared to identify opportunities related to content intelligence, pitch video AI on Azure, and demo several scenarios on Video Analyzer for Media.
-

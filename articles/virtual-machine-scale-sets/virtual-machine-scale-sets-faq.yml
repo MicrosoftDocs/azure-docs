@@ -179,7 +179,7 @@ sections:
       - question: |
           How do I use self-signed certificates provisioned for Azure Service Fabric Clusters?
         answer: |
-          For the latest example use the following azure CLI statement within azure shell, read Service Fabrics CLI module Example documentation, which will be printed to stdout:
+          For the latest example use the following Azure CLI statement within Azure shell, read Service Fabrics CLI module Example documentation, which will be printed to stdout:
 
           ```azurecli
           az sf cluster create -h
@@ -376,7 +376,7 @@ sections:
       - question: |
           Will the locks I set in place on virtual machine scale set instances be respected when deleting instances?
         answer: |
-          In the Azure Portal, you have the ability to delete an individual instance or bulk delete by selecting multiple instances. If you attempt to delete a single instance that has a lock in place, the lock is respected and you will not be able to delete the instance. However, if you bulk select multiple instances and any of those instances have a lock in place, the lock(s) will not be respected and all of the selected instances will be deleted.
+          In the Azure portal, you have the ability to delete an individual instance or bulk delete by selecting multiple instances. If you attempt to delete a single instance that has a lock in place, the lock is respected and you will not be able to delete the instance. However, if you bulk select multiple instances and any of those instances have a lock in place, the lock(s) will not be respected and all of the selected instances will be deleted.
 
           In Azure CLI, you only have the ability to delete an individual instance. If you attempt to delete a single instance that has a lock in place, the lock is respected and you will not be able to delete that instance.
 
@@ -473,8 +473,9 @@ sections:
               Update the admin credentials directly in the scale set model (for example using the Azure Resource Explorer, PowerShell or CLI). Once the scale set is updated, all new VMs have the new credentials. Existing VMs only have the new credentials if they are reimaged.
 
           - Reset the password using the VM access extensions. Make sure to follow the password requirements as described [here](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
+          - Using a VM access extension doesn't require reimaging because the extension doesn't update the password in the model. The extension runs a script to append the password to the password or to the SSH key file. The extension doesn't remove the original SSH key.
 
-              Use the following PowerShell example:
+              Use the following PowerShell example for a Windows virtual machine scale set:
 
               ```powershell
               $vmssName = "myvmss"
@@ -487,6 +488,18 @@ sections:
               $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
               $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
               Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+              ```
+
+              Use the following Azure CLI example for a Linux virtual machine scale set:
+
+              ```azurecli
+              az vmss extension set \
+                --resource-group myResouceGroup \ 
+                --vmss-name myScaleSet \
+                --publisher Microsoft.OSTCExtensions \
+                --name VMAccessForLinux \
+                --version 1.5 \
+                --protected-settings "{'username': 'newUser', 'password': 'newPassword'}"
               ```
 
   - name: Networking

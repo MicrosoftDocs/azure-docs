@@ -86,7 +86,7 @@ az backup job list --resource-group azurefiles --vault-name azurefilesvault
 ```
 ## Create policy
 
-You can create a backup policy by executing the [az backup policy create](/cli/azure/backup/policy?view=azure-cli-latest&preserve-view=true#az_backup_policy_create) command with the following parameters:
+You can create a backup policy by executing the [az backup policy create](/cli/azure/backup/policy#az_backup_policy_create) command with the following parameters:
 
 - --backup-management-type – Azure Storage
 - --workload-type - AzureFileShare

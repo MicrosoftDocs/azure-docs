@@ -158,7 +158,7 @@ sections:
           See [View your Spot VM charges](./costs/cost-analysis-common-uses.md#view-your-spot-vm-charges).
       - question: How do I get a reservation details report?
         answer: |
-          Read the API documentation to [generate a reservation details report](/azure/cost-management-billing/reservations/reservation-utilization).
+          Read the API documentation to [generate a reservation details report](./reservations/reservation-utilization.md).
 
   - name: Azure Enterprise Agreement (EA) and EA portal questions
     questions:

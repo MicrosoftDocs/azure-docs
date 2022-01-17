@@ -25,7 +25,6 @@ In this tutorial you will learn how to:
 > * Create a device group
 > * Deploy an image update
 > * Monitor the update deployment
-
 Note: Image updates in this tutorial have been validated on the Raspberry Pi B3 board.
 
 ## Prerequisites
@@ -162,19 +161,19 @@ Use that version number in the Import Update step below.
    
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot showing update file selection." lightbox="media/import-update/select-update-files.png":::
 
-5. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account.
+6. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account.
 
-6. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
+7. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.) Select the container you wish to use and click "Select".
   
-  :::image type="content" source="media/import-update/container.png" alt-text="Screenshot showing container selection." lightbox="media/import-update/container.png":::
+   :::image type="content" source="media/import-update/container.png" alt-text="Screenshot showing container selection." lightbox="media/import-update/container.png":::
 
-7. Select "Submit" to start the import process.
+8. Select "Submit" to start the import process.
 
-8. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, this may complete in a few minutes but could take longer.
+9. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, this may complete in a few minutes but could take longer.
    
    :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Screenshot showing update import sequence." lightbox="media/import-update/update-publishing-sequence-2.png":::
 
-9. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
+10. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
 
 [Learn more](import-update.md) about importing updates.
 
@@ -182,13 +181,13 @@ Use that version number in the Import Update step below.
 
 1. Go to the IoT Hub you previously connected to your Device Update instance.
 
-2. Select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
+2. Select the Updates option under Device Management from the left-hand navigation bar.
 
 3. Select the Groups tab at the top of the page. 
 
 4. Select the Add button to create a new group.
 
-5. Select the IoT Hub tag you created in the previous step from the list. Select Create update group.
+5. Select the IoT Hub tag you created in the previous step from the list. Select Create group.
 
    :::image type="content" source="media/create-update-group/select-tag.PNG" alt-text="Screenshot showing tag selection." lightbox="media/create-update-group/select-tag.PNG":::
 

@@ -26,8 +26,7 @@ There are various reasons for client applications not able to connect to an Even
 ## Error codes
 If you receive error messages with error codes like 400, 409, and 403, see [Troubleshoot Event Grid errors](troubleshoot-errors.md). 
 
-## Distributed tracing 
-
+## Distributed tracing
 The Event Grid libraries in .NET, Java, Python, and JavaScript support distributing tracing. To adhere to the [CloudEvents specification's guidance](https://github.com/cloudevents/spec/blob/v1.0.1/extensions/distributed-tracing.md) on distributing tracing, the library sets the `traceparent` and `tracestate` attributes of a `CloudEvent` extension when distributed tracing is enabled.
 
 To learn more about how to enable distributed tracing in your application, see the Azure SDK distributed tracing documentation:

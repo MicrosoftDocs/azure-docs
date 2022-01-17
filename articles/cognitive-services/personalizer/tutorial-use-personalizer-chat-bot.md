@@ -8,6 +8,7 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 05/17/2021
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

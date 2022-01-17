@@ -28,6 +28,9 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 If you prefer to install and use the CLI locally, this tutorial requires Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
+> [!NOTE]
+> These instructions use a Bash terminal in Azure Cloud Shell. Some commands may not work as described if running the CLI locally or in a PowerShell terminal.
+
 ## Set up Chaos Mesh on your AKS cluster
 
 Before you can run Chaos Mesh faults in Chaos Studio, you need to install Chaos Mesh on your AKS cluster.

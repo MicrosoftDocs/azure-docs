@@ -22,7 +22,12 @@ To create a namespace:
 3. In the **Basics** tag of the **Create namespace** page, follow these steps: 
     1. For **Subscription**, choose an Azure subscription in which to create the namespace.
     1. For **Resource group**, choose an existing resource group in which the namespace will live, or create a new one.      
-    1. Enter a **name for the namespace**. The system immediately checks to see if the name is available. For a list of rules for naming namespaces, see [Create Namespace REST API](/rest/api/servicebus/create-namespace).
+    1. Enter a **name for the namespace**. The namespace name should adhere to the following naming conventions:
+        - The name must be unique across Azure. The system immediately checks to see if the name is available. 
+        - The name length is at least 6 and at most 50 characters.
+        - The name can contain only letters, numbers, hyphens “-“.
+        - The name must start with a letter and end with a letter or number.
+        - The name does not end with “-sb“ or “-mgmt“.
     1. For **Location**, choose the region in which your namespace should be hosted.
     1. For **Pricing tier**, select the pricing tier (Basic, Standard, or Premium) for the namespace. For this quickstart, select **Standard**. 
     

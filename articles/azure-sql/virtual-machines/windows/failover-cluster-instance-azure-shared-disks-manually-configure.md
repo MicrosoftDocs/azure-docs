@@ -148,6 +148,15 @@ After you've configured the failover cluster and all cluster components, includi
 
 1. In **Failover Cluster Manager**, make sure that all core cluster resources are on the first virtual machine. If necessary, move the disks to that virtual machine.
 
+1. If the version of the operating system is Windows Server 2019 and the Windows Cluster was created using the default [**Distributed Network Name (DNN)**](https://blogs.windows.com/windows-insider/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/), then the FCI installation for SQL Server 2017 and below will fail with the error `The given key was not present in the dictionary`. 
+
+    During installation, SQL Server setup queries for the existing Virtual Network Name (VNN) and doesn't recognize the Windows Cluster DNN. The issue has been fixed in SQL Server 2019 setup. For SQL Server 2017 and below, follow these steps to avoid the installation error:
+     
+    - In Failover Cluster Manager, connect to the cluster, right-click  **Roles** and select **Create Empty Role**.
+    - Right-click the newly created empty role, select **Add Resource** and select **Client Access Point**.
+    - Enter any name and complete the wizard to create the **Client Access Point**. 
+    - After the SQL Server FCI installation completes, the role containing the temporary **Client Access Point** can be deleted. 
+
 1. Locate the installation media. If the virtual machine uses one of the Azure Marketplace images, the media is located at `C:\SQLServer_<version number>_Full`. 
 
 1. Select **Setup**.
@@ -191,7 +200,7 @@ After you've configured the failover cluster and all cluster components, includi
 
 
 >[!NOTE]
-> Azure Marketplace gallery images come with SQL Server Management Studio installed. If you didn't use a marketplace image [Download SQL Server Management Studio (SSMS)](/sql/ssms/ownload-sql-server-management-studio-ssms).
+> Azure Marketplace gallery images come with SQL Server Management Studio installed. If you didn't use a marketplace image [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
 
 ## Register with SQL IaaS extension 

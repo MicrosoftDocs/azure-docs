@@ -108,7 +108,7 @@ kubectl apply -f nginx-privileged.yaml
 As expected the pod fails to be scheduled, as shown in the following example output:
 
 ```console
-$ kubectl apply -f privileged.yaml
+$ kubectl apply -f nginx-privileged.yaml
 
 Error from server ([denied by azurepolicy-container-no-privilege-00edd87bf80f443fa51d10910255adbc4013d590bec3d290b4f48725d4dfbdf9] Privileged container is not allowed: nginx-privileged, securityContext: {"privileged": true}): error when creating "privileged.yaml": admission webhook "validation.gatekeeper.sh" denied the request: [denied by azurepolicy-container-no-privilege-00edd87bf80f443fa51d10910255adbc4013d590bec3d290b4f48725d4dfbdf9] Privileged container is not allowed: nginx-privileged, securityContext: {"privileged": true}
 ```

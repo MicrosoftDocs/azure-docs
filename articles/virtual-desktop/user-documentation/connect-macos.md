@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure Virtual Desktop from macOS - Azure
+title: Connect to Azure Virtual Desktop with the macOS client - Azure
 description: How to connect to Azure Virtual Desktop using the macOS client.
 author: Heidilohr
 ms.topic: how-to

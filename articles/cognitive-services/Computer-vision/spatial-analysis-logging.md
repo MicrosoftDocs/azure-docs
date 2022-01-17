@@ -83,7 +83,7 @@ After setting up Azure Monitor, you will need to create credentials that enable 
 > [!NOTE] 
 > This command requires you to have Owner privileges on the subscription. 
 
-```bash
+```azurecli
 # Find your Azure IoT Hub resource ID by running this command. The resource ID  should start with something like 
 # "/subscriptions/b60d6458-1234-4be4-9885-c7e73af9ced8/resourceGroups/..."
 az iot hub list
@@ -430,7 +430,7 @@ Create a new support ticket at the [New support request](https://ms.portal.azure
 
 1. Set **Issue Type** to be `Technical`.
 2. Select the subscription that you are utilizing to deploy the Spatial Analysis container.
-3. Select `My services` and select `Cognitive Services` as the the service.
+3. Select `My services` and select `Cognitive Services` as the service.
 4. Select the resource that you are utilizing to deploy the Spatial Analysis container.
 5. Write a brief description detailing the problem you are facing. 
 6. Select `Spatial Analysis` as your problem type.

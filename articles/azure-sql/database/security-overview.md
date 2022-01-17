@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
-ms.reviewer: vanto, emlisa
+ms.reviewer: kendralittle, vanto, emlisa, mathoma
 ms.date: 08/23/2021
 ---
 # An overview of Azure SQL Database and SQL Managed Instance security capabilities

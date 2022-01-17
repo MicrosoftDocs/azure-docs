@@ -1,12 +1,12 @@
 ---
 title: Management addresses
 description: Find the management addresses used to control an App Service Environment. Configured them in a route table to avoid asymmetric routing problems.
-author: ccompy
+author: madsd
 
 ms.assetid: a7738a24-89ef-43d3-bff1-77f43d5a3952
 ms.topic: article
 ms.date: 11/10/2021
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18, references_regions, devx-track-azurecli
 ---
 # App Service Environment management addresses

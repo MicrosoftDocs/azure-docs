@@ -49,7 +49,7 @@ Here are the important steps to create this solution:
 
     b. Create two lookup activities. Use the first Lookup activity to retrieve the last watermark value. Use the second Lookup activity to retrieve the new watermark value. These watermark values are passed to the Copy activity.
 
-	c. Create a Copy activity that copies rows from the source data store with the value of the watermark column greater than the old watermark value and less than the new watermark value. Then, it copies the delta data from the source data store to Azure Blob storage as a new file.
+	c. Create a Copy activity that copies rows from the source data store with the value of the watermark column greater than the old watermark value and less than or equal to the new watermark value. Then, it copies the delta data from the source data store to Azure Blob storage as a new file.
 
 	d. Create a StoredProcedure activity that updates the watermark value for the pipeline that runs next time. 
 

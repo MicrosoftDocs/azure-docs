@@ -56,7 +56,7 @@ The following suggestions apply to all Azure Virtual Desktop deployments:
 
 - Become familiar with your purchased Azure services so you understand the extent of what you want to tag. As you learn how to use the Azure portal, keep a list of service groups and objects where you can apply tags. Some resources that you should keep track of include resource groups, virtual machines, disks, and network interface cards (NICs). For a more comprehensive list of cost generating service components you can tag, see [Understanding total Azure Virtual Desktop deployment costs](./remote-app-streaming/total-costs.md).
 
-- Create a cost reporting aggregation to organize your tags. You can either  [follow a common tagging pattern](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging.md) or create a new pattern that meets your organization’s needs.
+- Create a cost reporting aggregation to organize your tags. You can either  [follow a common tagging pattern](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging) or create a new pattern that meets your organization’s needs.
 
 - Keep your tags consistent wherever you apply them. Even the smallest typo can impact data reporting, so make sure you're adding the exact key-value pair you want to look up later.
 

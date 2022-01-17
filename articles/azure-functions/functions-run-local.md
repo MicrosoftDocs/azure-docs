@@ -149,7 +149,6 @@ Version 1.x of the Core Tools isn't supported on macOS. Use version 2.x or a lat
 5. Install the Core Tools package:
 
     ```bash
-    sudo apt-get update
     sudo apt-get install azure-functions-core-tools-4
     ```
 
@@ -160,7 +159,6 @@ Version 1.x of the Core Tools isn't supported on macOS. Use version 2.x or a lat
 5. Install the Core Tools package:
 
     ```bash
-    sudo apt-get update
     sudo apt-get install azure-functions-core-tools-3
     ```
 
@@ -171,7 +169,6 @@ Version 1.x of the Core Tools isn't supported on macOS. Use version 2.x or a lat
 5. Install the Core Tools package:
 
     ```bash
-    sudo apt-get update
     sudo apt-get install azure-functions-core-tools-2
     ```
 
@@ -500,7 +497,7 @@ The Azure Functions Core Tools supports three types of deployment:
 | ----- | ----- | ----- |
 | Project files | [`func azure functionapp publish`](functions-core-tools-reference.md#func-azure-functionapp-publish) | Deploys function project files directly to your function app using [zip deployment](functions-deployment-technologies.md#zip-deploy). |
 | Custom container | `func deploy` | Deploys your project to a Linux function app as a custom Docker container.  |
-| Kubernetes cluster | `func kubernetes deploy` | Deploys your Linux function app as a customer Docker container to a Kubernetes cluster. | 
+| Kubernetes cluster | `func kubernetes deploy` | Deploys your Linux function app as a custom Docker container to a Kubernetes cluster. | 
 
 ### Before you publish 
 

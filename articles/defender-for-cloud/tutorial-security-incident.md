@@ -1,14 +1,9 @@
 ---
 title: Alert response tutorial - Microsoft Defender for Cloud
 description: In this tutorial, you'll learn how to triage security alerts and determine the root cause & scope of an alert.
-services: security-center
-author: memildin
-manager: rkarlin
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
-ms.service: security-center
 ms.topic: tutorial
 ms.date: 11/09/2021
-ms.author: memildin
 ---
 
 # Tutorial: Triage, investigate, and respond to security alerts
@@ -27,7 +22,7 @@ In this tutorial, you will learn how to:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
-To step through the features covered in this tutorial, you must have Defender for Cloud's enhanced security features enabled. You can try these at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). The quickstart [Get started with Defender for Cloud](get-started.md) walks you through how to upgrade.
+To step through the features covered in this tutorial, you must have Defender for Cloud's enhanced security features enabled. You can try these at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). The quickstart [Get started with Defender for Cloud](get-started.md) walks you through how to upgrade.
 
 
 ## Triage security alerts

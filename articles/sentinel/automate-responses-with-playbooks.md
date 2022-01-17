@@ -1,16 +1,7 @@
 ---
 title: Automate threat response with playbooks in Microsoft Sentinel | Microsoft Docs
 description: This article explains automation in Microsoft Sentinel, and shows how to use playbooks to automate threat prevention and response.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin

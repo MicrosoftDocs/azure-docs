@@ -1,16 +1,7 @@
 ---
 title: Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions
 description: This article shows how customers can easily find and deploy data analysis tools, packaged together with data connectors and other content.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
@@ -91,3 +82,7 @@ In this document, you learned about Microsoft Sentinel solutions and how to find
 
 - Learn more about [Microsoft Sentinel solutions](sentinel-solutions.md).
 - See the full [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md).
+
+Many solutions include data connectors that you'll need to configure so that you can start ingesting your data into Microsoft Sentinel. Each data connector will have it's own set of requirements, detailed on the data connector page in Microsoft Sentinel. 
+
+For more information, see [Connect your data source](data-connectors-reference.md).

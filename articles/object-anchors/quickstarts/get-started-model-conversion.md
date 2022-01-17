@@ -3,11 +3,11 @@ title: 'Quickstart: Create an Object Anchors model to be used in an app'
 description: In this quickstart, you learn how to create an Object Anchors model from a 3D model.
 author: craigktreasure
 manager: virivera
-
 ms.author: crtreasu
 ms.date: 06/10/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
+ms.custom: mode-other
 ---
 # Quickstart: Create an Object Anchors model from a 3D model
 
@@ -30,6 +30,8 @@ To complete this quickstart, make sure you have:
 * The <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1">.NET Core 3.1 SDK</a>.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## Create an Object Anchors account
 
 [!INCLUDE [Create Account](../../../includes/object-anchors-get-started-create-account.md)]
 

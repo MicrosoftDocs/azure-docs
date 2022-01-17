@@ -1,12 +1,12 @@
 ---
 title: Connect to and manage Cassandra
-description: This guide describes how to connect to Cassandra in Azure Purview, and use Purview's features to scan and manage your Cassandra source.
+description: This guide describes how to connect to Cassandra in Azure Purview, and use Azure Purview's features to scan and manage your Cassandra source.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 01/11/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -18,21 +18,31 @@ This article outlines how to register Cassandra, and how to authenticate and int
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-cassandra.md)|
+| [Yes](#register) | [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](how-to-lineage-cassandra.md)|
 
-> [!Important]
-> Supported Cassandra server versions are 3.*x* or 4.*x*.
+The supported Cassandra server versions are 3.*x* or 4.*x*.
+
+When scanning Cassandra source, Azure Purview supports:
+
+- Extracting technical metadata including:
+
+    - Cluster
+    - Keyspaces
+    - Tables including the columns and indexes
+    - Materialized views including the columns
+
+- Fetching static lineage on assets relationships among tables and materialized views.
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Purview resource](create-catalog-portal.md).
+* An active [Azure Purview resource](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-  For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
+  For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
 * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
 
@@ -40,13 +50,13 @@ This article outlines how to register Cassandra, and how to authenticate and int
 
 ## Register
 
-This section describes how to register Cassandra in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
+This section describes how to register Cassandra in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
 
 ### Steps to register
 
 To register a new Cassandra server in your data catalog:
 
-1. Go to your Purview account.
+1. Go to your Azure Purview account.
 1. Select **Data Map** on the left pane.
 1. Select **Register**.
 1. On the **Register sources** screen, select **Cassandra**, and then select **Continue**:
@@ -95,7 +105,7 @@ To create and run a new scan:
         * In the **User name** box, provide the name of the user you're making the connection for. 
         * In the key vault's secret, save the password of the Cassandra user you're making the connection for.
 
-        For more information, see [Credentials for source authentication in Purview](manage-credentials.md).
+        For more information, see [Credentials for source authentication in Azure Purview](manage-credentials.md).
 
     1. **Keyspaces**: Specify a list of Cassandra keyspaces to import. Multiple keyspaces must be separated with semicolons. For example, keyspace1; keyspace2. When the list is empty, all available keyspaces are imported.
 
@@ -131,7 +141,7 @@ To create and run a new scan:
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)

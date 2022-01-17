@@ -7,7 +7,7 @@ ms.custom: sqldbrb=1, ignite-fall-2021
 ms.topic: conceptual
 author: scoriani
 ms.author: scoriani
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 11/02/2021
 ---
 # Distributed transactions across cloud databases (preview)
